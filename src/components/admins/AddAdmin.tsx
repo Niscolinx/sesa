@@ -31,6 +31,7 @@ const AddAdmin = () => {
                             <option value='male'>Male</option>
                             <option value='female'>Female</option>
                         </select>
+                        <GrDown/>
                     </div>
                     <div className='addAdmin__form--phoneNumber'>
                         <label htmlFor='phoneNumber'>Phone Number *</label>
@@ -38,13 +39,13 @@ const AddAdmin = () => {
                         <div className='phoneNumber__box'>
                             <select>
                                 <option value='234'>
-                                    +234 <GrDown />
+                                    +234
                                 </option>
                             </select>
                             <input
                                 type='text'
                                 id='phoneNumber'
-                                placeholder='Phone number'
+                                placeholder='Phone Number'
                             />
                         </div>
                     </div>
@@ -53,7 +54,7 @@ const AddAdmin = () => {
                         <input
                             type='email'
                             id='email'
-                            placeholder='Your email'
+                            placeholder='Your Email'
                         />
                     </div>
                 </section>
