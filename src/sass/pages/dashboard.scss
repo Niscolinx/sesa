@@ -1,0 +1,7 @@
+.dashboard {
+    display: grid;
+    grid-template-columns: max-content auto;
+    height: 100vh;
+    background-color: $color-grey;
+    overflow: hidden;
+}

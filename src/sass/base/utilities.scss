@@ -1,0 +1,52 @@
+.btn {
+    padding: 1rem 2rem;
+    font-size: 1.6rem;
+}
+
+.btn1 {
+    border-radius: $border-radius;
+    color: $color-white;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.heading1 {
+    font-size: 3rem;
+    font-weight: 600;
+}
+
+.heading2 {
+    font-weight: 500;
+    font-size: 2.4rem;
+    line-height: 3.2rem;
+}
+
+.heading3 {
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: $color-dark;
+}
+
+.text {
+    font-size: 1.4rem;
+    color: $color-dark;
+}
+
+.authFooter {
+    // margin-top: auto;
+    max-width: 47rem;
+    text-align: center;
+
+    a {
+        color: $color-primary;
+    }
+}
+
+.authText {
+    text-align: center;
+
+    button {
+        color: $color-primary;
+        text-decoration: underline;
+    }
+}

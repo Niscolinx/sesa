@@ -1,0 +1,228 @@
+.overview {
+    &__container {
+        display: grid;
+        grid-template-columns: 70% auto;
+        margin-top: 3rem;
+        justify-content: center;
+        overflow: scroll;
+        gap: 2rem;
+    }
+
+    &__left {
+        background-color: $color-white;
+        padding: 2rem;
+        border-radius: $border-radius;
+    }
+
+    &__right {
+        display: grid;
+        gap: 2rem;
+        justify-items: center;
+        width: 30rem;
+        grid-template-rows: min-content;
+
+        .overviewWallet__wrapper {
+            max-width: 30rem;
+        }
+
+        .overviewWallet__swiper {
+            border-radius: $border-radius-lg;
+            max-width: 100%;
+        }
+
+        .overviewWalletNav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 2rem;
+
+            &__bullets {
+                display: flex;
+
+                svg {
+                    font-size: 1.5rem;
+                }
+
+                &--active {
+                    color: $color-blue;
+                }
+                &--stale {
+                    color: $color-grey-1;
+                }
+            }
+
+            &__toggle {
+                width: 4rem;
+                height: 4rem;
+                cursor: pointer;
+                color: $color-blue;
+            }
+        }
+        .overviewChart {
+            background-color: $color-white;
+            width: 100%;
+            display: grid;
+            justify-content: center;
+            border-radius: $border-radius;
+            padding: 2rem;
+
+            &__heading {
+                font-size: 1.6rem;
+                font-weight: 500;
+            }
+
+            &__box {
+                display: grid;
+                place-content: baseline;
+                position: relative;
+                height: 253px;
+                width: 253px;
+                align-items: center;
+                align-content: center;
+
+                &::after {
+                    content: '';
+                    
+                    position: absolute;
+                    display: grid;
+                    place-content: center;
+                    justify-content: center;
+                    justify-items: center;
+                    left: 18%;
+                    border-radius: 50%;
+                    width: 160px;
+                    height: 160px;
+                    box-shadow: 0px 16px 30px rgba(139, 201, 255, 0.17);
+                   
+                }
+            }
+
+            &__label {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                display: grid;
+                place-content: center;
+                color: $color-dark-1;
+                text-align: center;
+                justify-items: center;
+
+                &--percentage {
+                    font-size: 3.4rem;
+                    font-weight: 700;
+                    position: relative;
+                    line-height: 4rem;
+
+                    span {
+                        position: absolute;
+                        margin-left: 0.1rem;
+                        top: 1.2rem;
+                        font-size: 1rem;
+                        font-weight: 700;
+                    }
+                }
+                &--title {
+                    font-size: 1rem;
+                    max-width: 9.8rem;
+                    line-height: 1.2rem;
+                }
+            }
+            &__list{
+                display: grid;
+                gap: 1rem;
+
+                &--item{
+                    display: flex;
+                    align-items: center;
+                    gap: 1rem;
+
+                    span{
+                        width: 1.9rem;
+                        height: 1.9rem;
+                        border-radius: 50%;
+                    }
+
+                    p{
+                        font-size: 1.4rem;
+                    }
+                }
+            }
+        }
+    }
+
+    .overviewCards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(32rem, 1fr));
+        gap: 2rem;
+    }
+
+    .overviewCard {
+        min-width: 30rem;
+        border-radius: $border-radius;
+        padding: 1rem 2rem;
+        display: grid;
+        grid-template-columns: max-content auto;
+        align-items: center;
+        gap: 3rem;
+        justify-self: center;
+
+        &__img {
+            width: 5.4rem;
+            height: 5.4rem;
+        }
+        &__title {
+            font-weight: 300;
+            font-size: 1.6rem;
+            text-transform: capitalize;
+        }
+
+        &__number {
+            font-weight: 500;
+            font-size: 2.6rem;
+        }
+
+        //background-color: #2A71D9 #7693FF;
+    }
+
+    .overviewWallet {
+        color: $color-white;
+        border-radius: $border-radius-lg;
+        display: grid;
+        justify-content: start;
+        padding: 2rem;
+        height: 14rem;
+        position: relative;
+        align-items: flex-end;
+        background: url(/icons/overview/card/cardT.svg) #5c8bff no-repeat top;
+
+        &__leftIcon {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3rem;
+            height: 3rem;
+            margin: 1rem 2rem;
+        }
+
+        &__title {
+            font-size: 1.8rem;
+            font-weight: 500;
+        }
+
+        &__box {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+
+            img {
+                width: 1.8rem;
+                height: 1.8rem;
+            }
+        }
+
+        &__amount {
+            font-size: 2.5rem;
+            font-weight: 500;
+        }
+    }
+}

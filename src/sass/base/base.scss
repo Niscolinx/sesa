@@ -1,0 +1,50 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+body {
+    box-sizing: border-box;
+    font-family: 'Satoshi-Regular', sans-serif;
+
+    line-height: 1.7;
+    font-weight: 400;
+}
+
+html {
+    // This defines what 1rem is
+    font-size: 62.5%; //1 rem = 10px; 10px/16px = 62.5%
+
+    @include respond(tab) {
+        // width < 750?
+        font-size: 50%; //1 rem = 8px, 8/16 = 50%
+    }
+    @include respond(tab-land) {
+        // width < 1000?
+        font-size: 56.25%; //1 rem = 9px, 9/16 = 50%
+    }
+
+    @include respond(desktop) {
+        font-size: 75%; //1rem = 12, 12/16
+    }
+    @include respond(desktop) {
+        font-size: 75%; //1rem = 12, 12/16
+    }
+}
+::selection {
+    background-color: $color-primary;
+    color: $color-white;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+    appearance: none;
+}
