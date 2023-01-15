@@ -4,10 +4,13 @@ import AddAdmin from '../../components/admins/AddAdmin'
 import RenderedAdmins from '../../components/admins/RenderedAdmins'
 
 function Admins() {
-    const [adminsLoaded, setAdminsLoaded] = useState(false)
-    const [addAdmin, setAdmin] = useState(false)
 
-    const switchRoute = (path: 'renderedAdmins' | 'addAdmin') => {
+    type RenderAdminPath = 'renderedAdmins' | 'addAdmin'
+
+    const [adminsLoaded, setAdminsLoaded] = useState(false)
+    const [addAdmin, setAddAdmin] = useState<RenderAdminPath>('renderedAdmins')
+
+    const switchRoute = (path: RenderAdminPath) => {
         switch (path) {
             case 'renderedAdmins':
                 return <RenderedAdmins />
@@ -20,13 +23,19 @@ function Admins() {
         }
     }
 
+    const handleAddAdmin = () => {
+        setAdminsLoaded(true)
+        setAddAdmin('addAdmin')
+
+    }
+
     return (
         <div className='admins'>
             <h1 className='heading2'>Admins</h1>
             <div className='admins__container'>
                 {adminsLoaded ? (
                     <section>
-                        {switchRoute('renderedAdmins')}
+                        {switchRoute('addAdmin')}
                     </section>
                 ) : (
                     <section className='admins__wrapper'>
@@ -34,7 +43,7 @@ function Admins() {
                         <p className='text'>
                             Ooops you have not added any Admin yet
                         </p>
-                        <button className='btn admins__btn'>
+                        <button className='btn admins__btn' onClick={handleAddAdmin}>
                             <span>
                                 <IoMdAdd />
                             </span>{' '}

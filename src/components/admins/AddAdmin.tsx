@@ -2,7 +2,9 @@ import React from 'react'
 
 const AddAdmin = () => {
   return (
-    <div>AddAdmin</div>
+    <div className='addAdmin'>
+      
+    </div>
   )
 }
 
