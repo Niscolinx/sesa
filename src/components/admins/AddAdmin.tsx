@@ -9,9 +9,9 @@ const AddAdmin = () => {
 
     return (
         <div className='addAdmin'>
-            <p className='heading3'>Personal Information</p>
-            <form onSubmit={handleSubmit} className='addAdmin__form'>
-                <section className='addAdmin__formBox'>
+            <p className='addAdmin__heading'>Personal Information</p>
+            <form onSubmit={handleSubmit} className='addAdmin__formBox'>
+                <section className='addAdmin__form'>
                     <div className='addAdmin__form--item'>
                         <label htmlFor='firstName'>First Name *</label>
                         <input
