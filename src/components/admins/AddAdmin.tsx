@@ -14,43 +14,39 @@ const AddAdmin = () => {
                 <section className='addAdmin__form'>
                     <div className='addAdmin__form--item'>
                         <label htmlFor='firstName'>First Name *</label>
-                        <input
-                            type='text'
-                            id='firstName'
-                            placeholder='First Name'
-                        />
+                        <input type='text' id='firstName' />
                     </div>
                     <div className='addAdmin__form--item'>
                         <label htmlFor='lastName'>Last Name *</label>
-                        <input
-                            type='text'
-                            id='lastName'
-                            placeholder='Last Name'
-                        />
+                        <input type='text' id='lastName' />
                     </div>
                     <div className='addAdmin__form--item'>
                         <label htmlFor='date'>Date of Birth *</label>
-                        <input type='date' id='date' placeholder='DD/MM/YY' />
+                        <input type='date' id='date' />
                     </div>
                     <div className='addAdmin__form--item'>
+                        <label htmlFor='gender'>Gender *</label>
                         <select id='gender'>
                             <option hidden>&nbsp;</option>
                             <option value='male'>Male</option>
                             <option value='female'>Female</option>
                         </select>
                     </div>
-                    <div className='addAdmin__form--item'>
+                    <div className='addAdmin__form--phoneNumber'>
                         <label htmlFor='phoneNumber'>Phone Number *</label>
-                        <select>
-                            <option value='234'>
-                                +234 <GrDown />
-                            </option>
-                        </select>
-                        <input
-                            type='text'
-                            id='phoneNumber'
-                            placeholder='Phone number'
-                        />
+
+                        <div className='phoneNumber__box'>
+                            <select>
+                                <option value='234'>
+                                    +234 <GrDown />
+                                </option>
+                            </select>
+                            <input
+                                type='text'
+                                id='phoneNumber'
+                                placeholder='Phone number'
+                            />
+                        </div>
                     </div>
                     <div className='addAdmin__form--item'>
                         <label htmlFor='email'>Email Address *</label>

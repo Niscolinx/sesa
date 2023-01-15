@@ -2,7 +2,7 @@
     &__container {
         background-color: $color-white;
         border-radius: $border-radius;
-        height: 70vh;
+        height: 75vh;
         margin-top: 3rem;
     }
 
@@ -28,6 +28,7 @@
 
     .addAdmin {
         padding: 2rem;
+        display: grid;
 
         &__heading {
             font-size: 2rem;
@@ -36,28 +37,42 @@
 
         &__form {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(37rem, 1fr));
-            gap: 2rem;
-
-
+            max-width: 84rem;
+            grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));
+            gap: 4rem;
+            margin-top: 3rem;
 
             &--item {
                 display: grid;
                 gap: 1rem;
 
-                label{
+                label {
                     font-size: 1.4rem;
                     font-weight: 500;
                 }
-                input{
+                input,
+                select {
                     width: 100%;
                     border-radius: $border-radius;
+                    border: 1px solid $color-grey-1;
+                    padding: 1.4rem 2rem;
+                    font-size: 1.6rem;
+                    outline: none;
 
-                    &::placeholder{
+                    &::placeholder {
                         font-size: 1.4rem;
                         font-weight: 300;
                     }
                 }
+
+                select{
+                    cursor: pointer;
+                }
+
+            }
+
+            &--phoneNumber{
+                
             }
         }
     }
