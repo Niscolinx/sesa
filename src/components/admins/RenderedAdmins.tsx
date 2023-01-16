@@ -4,6 +4,8 @@ import { GrDown } from 'react-icons/gr'
 import { IoMdAdd } from 'react-icons/io'
 import { HiOutlineChevronLeft, HiOutlineChevronRight} from 'react-icons/hi'
 import { AdminPageContext } from '../../Context/AdminPageContext'
+import Skeleton from 'react-loading-skeleton'
+
 
 type Admin = {
     id: string
@@ -142,7 +144,7 @@ const { setRouteToRender } = AdminContextData
                         </tr>
                     </thead>
                     <tbody className='renderedAdmins__table--body'>
-                        {fetchedUsers && fetchedUsers.length > 0 ? (
+                        {fetchedUsers && fetchedUsers.length > 100 ? (
                             fetchedUsers.map((value, i) => {
                                 return (
                                     <tr key={i}>
@@ -169,9 +171,7 @@ const { setRouteToRender } = AdminContextData
                         ) : (
                             <tr>
                                 <td>
-                                    <div className='absolute w-full top-[50%]'>
-                                        <CgSpinnerTwo className='animate-spin text-black text-4xl' />
-                                    </div>
+                                    <Skeleton count={5} /> 
                                 </td>
                             </tr>
                         )}
