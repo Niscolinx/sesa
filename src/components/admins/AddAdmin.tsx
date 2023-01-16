@@ -1,8 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { GrDown } from 'react-icons/gr'
 import { IoMdAdd } from 'react-icons/io'
+import { getPhotoUrl } from '../../utils/getPhotoUrl'
 
 const AddAdmin = () => {
+    const [photoUrl, setPhotoUrl] = useState('')
+
+    const handlePhotoPreview = async (
+        value: React.MouseEvent<HTMLInputElement>
+    ) => {
+        const getUrl = await getPhotoUrl(`#photoUpload`)
+        setPhotoUrl(getUrl)
+    }
+
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
     }
@@ -73,10 +83,23 @@ const AddAdmin = () => {
                             id='photoUpload'
                             accept='image/*'
                             className='hidden'
-                            // onClick={handlePhotoPreview}
+                            onClick={handlePhotoPreview}
                         />
+
+                        {photoUrl && (
+                            <>
+                                <img
+                                    src={photoUrl}
+                                    alt='photoPreview'
+                                    className='w-25 h-25 object-contain'
+                                />
+                            </>
+                        )}
                     </div>
-                    <button className='btn admins__btn'>
+                    <button
+                        className='btn admins__btn'
+                        style={{ justifySelf: 'start' }}
+                    >
                         <span>
                             <IoMdAdd />
                         </span>{' '}

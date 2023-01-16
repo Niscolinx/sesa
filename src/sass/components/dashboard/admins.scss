@@ -3,7 +3,8 @@
         background-color: $color-white;
         border-radius: $border-radius;
         margin-top: 3rem;
-        min-height: 75vh;
+        height: 80vh;
+        overflow: scroll;
     }
 
     &__wrapper {
@@ -64,6 +65,7 @@
                     }
                 }
 
+                
                 
             }
 
