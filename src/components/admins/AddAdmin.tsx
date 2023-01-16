@@ -26,24 +26,25 @@ const AddAdmin = () => {
                     </div>
                     <div className='addAdmin__form--item'>
                         <label htmlFor='gender'>Gender *</label>
-                        <select id='gender'>
-                            <option hidden>&nbsp;</option>
-                            <option value='male'>Male</option>
-                            <option value='female'>Female</option>
-                        </select>
-                        <GrDown/>
+                        <div className='item__select'>
+                            <select id='gender'>
+                                <option hidden>&nbsp;</option>
+                                <option value='male'>Male</option>
+                                <option value='female'>Female</option>
+                            </select>
+                            <GrDown />
+                        </div>
                     </div>
                     <div className='addAdmin__form--phoneNumber'>
                         <label htmlFor='phoneNumber'>Phone Number *</label>
 
                         <div className='phoneNumber__box'>
                             <select>
-                                <option value='234'>
-                                    +234
-                                </option>
+                                <option value='234'>+234</option>
                             </select>
                             <input
-                                type='text'
+                                type='number'
+                                inputMode='numeric'
                                 id='phoneNumber'
                                 placeholder='Phone Number'
                             />
@@ -59,7 +60,17 @@ const AddAdmin = () => {
                     </div>
                 </section>
                 <section>
-                    Drag estate manager picture here or click to upload
+                    <label htmlFor='photoUpload'>
+                        Drag estate manager picture here or click to upload
+                    </label>
+                    <input
+                        type='file'
+                        required
+                        name='photoUpload'
+                        id='photoUpload'
+                        accept='image/*'
+                        // onClick={handlePhotoPreview}
+                    />
                 </section>
 
                 <button className='btn admins__btn'>
