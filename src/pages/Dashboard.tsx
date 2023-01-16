@@ -5,7 +5,6 @@ import Sidebar from '../components/dashboard/Sidebar'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
-import 'react-loading-skeleton/dist/skeleton.css'
 
 function Dashboard() {
     return (

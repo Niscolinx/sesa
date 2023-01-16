@@ -10,6 +10,9 @@ import Dashboard from '../pages/Dashboard'
 import Admins from '../pages/dashboard/Admins'
 import Overview from '../pages/dashboard/Overview'
 
+import 'react-loading-skeleton/dist/skeleton.css'
+import { SkeletonTheme } from 'react-loading-skeleton'
+
 const router = createBrowserRouter(
     createRoutesFromElements([
         <Route path='/' element={<Navigate to='/dashboard' />} />,
@@ -22,7 +25,11 @@ const router = createBrowserRouter(
 )
 
 const App = () => {
-    return <RouterProvider router={router} />
+    return (
+        <SkeletonTheme baseColor='#202020' highlightColor='#444'>
+            <RouterProvider router={router} />
+        </SkeletonTheme>
+    )
 }
 
 export default App
