@@ -137,32 +137,7 @@
                 }
             }
 
-            &--head {
-                background-color: $color-grey;
-                align-items: center;
-                display: grid;
-                align-items: center;
-                padding: 2rem;
-                margin-top: 2rem;
-
-                tr {
-                    display: flex;
-                    justify-content: space-between;
-                    align-content: center;
-
-                    th {
-                        text-align: left;
-                        width: 100%;
-                        display: flex;
-                        align-items: center;
-                        gap: 1rem;
-
-                        input {
-                            cursor: pointer;
-                        }
-                    }
-                }
-            }
+           
 
         }
         &__footer{

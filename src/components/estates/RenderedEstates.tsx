@@ -128,26 +128,14 @@ const { setRouteToRender } = EstateContextData
                     </button>
                 </caption>
                 <div className='renderedEstates__table'>
-                    <thead className='renderedEstates__table--head'>
-                        <tr>
-                            <th>
-                                <input type='checkbox' />
-                                <p>Name</p>
-                            </th>
-                            <th>Gender</th>
-                            <th>Phone Number</th>
-                            <th>Joined</th>
-                            <th>Status</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
+                    
                     <tbody className='renderedEstates__table--body'>
                         {fetchedUsers && fetchedUsers.length > 0 ? (
                             fetchedUsers.map((value, i) => {
                                 return (
                                     <tr key={i}>
                                         <td>
-                                            <input type='checkbox' />
+                                           
                                             <img src='/img/me.jpeg' alt='' />
                                             <span>{value.name}</span>
                                         </td>
