@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
 import { GrDown } from 'react-icons/gr'
 import { IoMdAdd } from 'react-icons/io'
+import { HiOutlineChevronLeft, HiOutlineChevronRight} from 'react-icons/hi'
 
 type Admin = {
     id: string
@@ -123,7 +124,7 @@ function RenderedAdmins() {
                     <thead className='renderedAdmins__table--head'>
                         <tr>
                             <th>
-                                <input type="checkbox"/>
+                                <input type='checkbox' />
                                 <p>Name</p>
                             </th>
                             <th>Gender</th>
@@ -140,7 +141,7 @@ function RenderedAdmins() {
                                     <tr key={i}>
                                         <td>
                                             <input type='checkbox' />
-                                            <img src="/img/me.jpeg" alt="" />
+                                            <img src='/img/me.jpeg' alt='' />
                                             <span>{value.name}</span>
                                         </td>
                                         <td>{value.gender}</td>
@@ -148,7 +149,12 @@ function RenderedAdmins() {
                                         <td>{value.onboardingDate}</td>
                                         <td>{value.status}</td>
                                         <td>
-                                            <button>action</button>
+                                            <button>
+                                                <img
+                                                    src='/icons/admins/threeDots.svg'
+                                                    alt=''
+                                                />
+                                            </button>
                                         </td>
                                     </tr>
                                 )
@@ -164,6 +170,24 @@ function RenderedAdmins() {
                         )}
                     </tbody>
                 </div>
+                <footer className='renderedAdmins__footer'>
+                    <div className='flex gap-8 items-center'>
+                        <p>View</p>
+                        <div className='flex items-center border px-4 rounded-lg'>
+                            <input type='number' className='w-8 outline-none border-none cursor-pointer' value={6}/>
+                            <GrDown className='text-[1.3rem]' />
+                        </div>
+                        <p className='text'>List per page</p>
+                    </div>
+                    <ul>
+                        <HiOutlineChevronLeft/>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <HiOutlineChevronRight/>
+                    </ul>
+                </footer>
             </table>
         </div>
     )

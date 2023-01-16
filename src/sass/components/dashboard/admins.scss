@@ -131,6 +131,7 @@
                             height: 2.5rem;
                             object-fit: cover;
                             border-radius: 50%;
+                            object-position: top;
                         }
                     }
                 }
@@ -162,6 +163,12 @@
                     }
                 }
             }
+
+        }
+        &__footer{
+            display: flex;
+            align-items: center;
+            padding: 2rem;
         }
     }
 
