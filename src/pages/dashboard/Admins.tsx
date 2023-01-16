@@ -25,10 +25,12 @@ function Admins() {
         }
     }
 
+
+    console.log({routeToRender})
     const handleAddAdmin = () => {
         setAdminsLoaded(true)
         setRouteToRender('addAdmin')
-
+        switchRoute('renderedAdmins')
     }
 
     return (

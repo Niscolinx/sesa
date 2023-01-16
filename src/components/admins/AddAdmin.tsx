@@ -88,7 +88,6 @@ const AddAdmin = () => {
                         </label>
                         <input
                             type='file'
-                            required
                             name='photoUpload'
                             id='photoUpload'
                             accept='image/*'
