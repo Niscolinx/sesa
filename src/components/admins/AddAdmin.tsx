@@ -72,8 +72,8 @@ const AddAdmin = () => {
                         <label htmlFor='photoUpload'>
                             <img src='/icons/admins/photo_library.svg' alt='' />
                             <p>
-                                Drag estate manager picture here or click to
-                                upload
+                                Drag estate manager picture here or{' '}
+                                <span>click</span> to upload
                             </p>
                         </label>
                         <input
@@ -87,13 +87,13 @@ const AddAdmin = () => {
                         />
 
                         {photoUrl && (
-                            <>
+                            <div className='file__uploadImgBox'>
                                 <img
                                     src={photoUrl}
                                     alt='photoPreview'
-                                    className='w-25 h-25 object-contain'
+                                    className='object-contain'
                                 />
-                            </>
+                            </div>
                         )}
                     </div>
                     <button
