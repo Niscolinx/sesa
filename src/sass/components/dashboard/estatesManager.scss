@@ -1,0 +1,334 @@
+.admins {
+    &__container {
+        background-color: $color-white;
+        border-radius: $border-radius;
+        margin-top: 3rem;
+        height: 80vh;
+        overflow: scroll;
+    }
+
+    &__wrapper {
+        display: grid;
+        place-content: center;
+        width: 100%;
+        height: 100%;
+        justify-items: center;
+        gap: 1rem;
+    }
+
+    &__btn {
+        background-color: $color-blue-1;
+        color: white;
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+        border-radius: $border-radius;
+        justify-self: center;
+        padding: 1rem 4rem;
+    }
+
+    .renderedAdmins {
+        width: 100%;
+        display: grid;
+        align-content: flex-start;
+        border: 1px solid $color-grey-1;
+        border-radius: $border-radius;
+
+        &__tableBox {
+            font-size: 1.6rem;
+            font-family: 'Satoshi-Regular';
+            display: grid;
+        }
+        &__caption {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            align-items: center;
+            gap: 3rem;
+            padding: 2rem;
+
+            .caption__title {
+                font-size: 1.6rem;
+                font-weight: 700;
+            }
+
+            .caption__searchBox {
+                position: relative;
+                display: flex;
+                align-items: center;
+
+                input {
+                    padding-left: 4rem;
+                }
+
+                img {
+                    position: absolute;
+                    left: 1rem;
+                }
+            }
+
+            .caption__select {
+                position: relative;
+                display: flex;
+                align-items: center;
+                
+                select{
+                    cursor: pointer;
+
+                }
+                svg {
+                    position: absolute;
+                    right: 1rem;
+                    font-size: 1.3rem;
+                }
+            }
+
+            input,
+            select {
+                width: 25rem;
+                border-radius: $border-radius;
+                border: 1px solid $color-blue-light;
+                padding: 1rem 2rem;
+                outline: none;
+                appearance: none;
+            }
+
+            button {
+                margin-left: auto;
+            }
+        }
+
+        &__table {
+            border-top: 1px solid $color-grey;
+            border-bottom: 1px solid $color-grey;
+            width: 100%;
+            height: 60vh;
+            overflow: scroll;
+
+            &--body {
+                display: grid;
+                padding: 2rem;
+
+                tr {
+                    display: flex;
+                    justify-content: space-between;
+
+                    td {
+                        text-align: left;
+                        width: 100%;
+                        padding: 2rem 0;
+                        display: flex;
+                        align-items: center;
+                        gap: 1rem;
+                        border-bottom: 1px solid $color-grey;
+
+                        input {
+                            cursor: pointer;
+                        }
+
+                        img{
+                            width: 2.5rem;
+                            height: 2.5rem;
+                            object-fit: cover;
+                            border-radius: 50%;
+                            object-position: top;
+                        }
+                    }
+                }
+            }
+
+            &--head {
+                background-color: $color-grey;
+                align-items: center;
+                display: grid;
+                align-items: center;
+                padding: 2rem;
+                margin-top: 2rem;
+
+                tr {
+                    display: flex;
+                    justify-content: space-between;
+                    align-content: center;
+
+                    th {
+                        text-align: left;
+                        width: 100%;
+                        display: flex;
+                        align-items: center;
+                        gap: 1rem;
+
+                        input {
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+
+        }
+        &__footer{
+            display: flex;
+            align-items: center;
+            padding: 2rem;
+            margin-top: 2rem;
+
+
+            ul{
+                li{
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    .addAdmin {
+        padding: 2rem;
+        display: grid;
+
+        &__heading {
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        &__form {
+            display: grid;
+            max-width: 84rem;
+            grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));
+            gap: 4rem;
+            margin-top: 3rem;
+
+            &--file {
+                width: 100%;
+                border-radius: $border-radius;
+                border: 0.2rem dashed $color-grey-1;
+                padding: 1.2rem 2rem;
+                font-size: 1.6rem;
+                grid-column: 1/-1;
+                position: relative;
+
+                label {
+                    display: flex;
+                    justify-content: center;
+                    gap: 1rem;
+                    align-items: center;
+                    cursor: pointer;
+
+                    p {
+                        color: $color-dark-1;
+                        font-family: 'Satoshi-Light';
+
+                        span {
+                            color: $color-blue;
+                            font-weight: bold;
+                        }
+                    }
+                }
+
+                .file__uploadImgBox {
+                    display: flex;
+                    justify-content: center;
+                    justify-self: center;
+
+                    img {
+                        width: 11rem;
+                        height: 11rem;
+                        object-fit: cover;
+                        border-radius: 50%;
+                    }
+                }
+            }
+
+            &--item {
+                display: grid;
+                gap: 1rem;
+                position: relative;
+
+                label {
+                    font-size: 1.4rem;
+                    font-weight: 500;
+                }
+                input,
+                select {
+                    width: 100%;
+                    border-radius: $border-radius;
+                    border: 1px solid $color-grey-1;
+                    padding: 1.2rem 2rem;
+                    font-size: 1.6rem;
+                    outline: none;
+                    appearance: none;
+
+                    &::placeholder {
+                        font-size: 1.4rem;
+                        font-weight: 300;
+                        color: $color-dark;
+                    }
+                }
+
+                input[type='date'] {
+                    cursor: pointer;
+                }
+
+                .item__select {
+                    position: relative;
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+
+                    svg {
+                        position: absolute;
+                        font-size: 1.6rem;
+                        right: 2rem;
+                    }
+                }
+
+                select {
+                    cursor: pointer;
+                }
+            }
+
+            &--phoneNumber {
+                display: grid;
+                gap: 1rem;
+
+                label {
+                    font-size: 1.4rem;
+                    font-weight: 500;
+                }
+
+                .phoneNumber__box {
+                    display: flex;
+                    font-size: 1.6rem;
+                    gap: 2rem;
+
+                    select {
+                        width: 30%;
+                        border-radius: $border-radius;
+                        border: 1px solid $color-grey-1;
+                        padding: 1.2rem 1rem;
+                        font-size: 1.6rem;
+                        outline: none;
+                        cursor: pointer;
+                        color: $color-dark;
+                        // appearance: none;
+                        position: relative;
+                    }
+
+                    input {
+                        width: 100%;
+                        border-radius: $border-radius;
+                        border: 1px solid $color-grey-1;
+                        padding: 1.2rem 2rem;
+                        font-size: 1.6rem;
+                        outline: none;
+
+                        &::placeholder {
+                            font-size: 1.4rem;
+                            font-weight: 300;
+                            color: $color-dark;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
