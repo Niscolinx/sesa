@@ -101,7 +101,7 @@ const { setRouteToRender } = EstateContextData
             <table className='renderedEstates__tableBox'>
                 <caption className='renderedEstates__caption'>
                     <p className='caption__title'>
-                        Estate List <span>(200)</span>
+                        Estate List <span>(202)</span>
                     </p>
                     <div className='caption__searchBox'>
                         <img src='/icons/estates/search.svg' alt='' />
@@ -110,7 +110,7 @@ const { setRouteToRender } = EstateContextData
                     <div className='caption__select'>
                         <select>
                             <option hidden value=''>
-                                Sort By
+                                Category
                             </option>
                             <option value='date'>date</option>
                             <option value='alpha'>Alpha</option>
