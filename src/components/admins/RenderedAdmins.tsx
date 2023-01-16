@@ -4,6 +4,7 @@ import { CgSpinnerTwo } from 'react-icons/cg'
 type Admin = {
     id: string
     name: string
+    gender: string
     phoneNumber: string
     status: string
     onboardingDate: string
@@ -13,6 +14,7 @@ const ADMINDATA: Admin[] = [
     {
         id: '1',
         name: 'Jacintha Sage',
+        gender: 'Male',
         phoneNumber: '(+234) 814 324 6719',
         onboardingDate: '02-May-22',
         status: 'Active',
@@ -45,6 +47,7 @@ function RenderedAdmins() {
                         <th>Phone Number</th>
                         <th>Joined</th>
                         <th>Status</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody className='text-center'>
@@ -55,6 +58,7 @@ function RenderedAdmins() {
                                     <td>
                                         <span>{value.name}</span>
                                     </td>
+                                    <td>{value.gender}</td>
                                     <td>{value.phoneNumber}</td>
                                     <td>{value.status.toString()}</td>
                                     <td>
