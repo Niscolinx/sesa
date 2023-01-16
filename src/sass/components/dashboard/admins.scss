@@ -32,19 +32,70 @@
         width: 100%;
         display: grid;
         align-content: flex-start;
+        padding: 2rem;
 
-        &__caption{
+        &__caption {
             display: flex;
             width: 100%;
+            justify-content: space-between;
+            align-items: center;
+            gap: 3rem;
+
+            .caption__title {
+                font-size: 1.6rem;
+                font-weight: 700;
+            }
+
+            .caption__searchBox {
+                position: relative;
+                display: flex;
+                align-items: center;
+
+                input {
+                    padding-left: 4rem;
+                }
+
+                img {
+                    position: absolute;
+                    left: 1rem;
+                }
+            }
+
+            .caption__input{
+                position: relative;
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+
+                svg {
+                    position: absolute;
+                    right: 1rem;
+                    font-size: 1.3rem;
+                }
+
+                
+            }
+
+            input,
+            select {
+                width: 25rem;
+                border-radius: $border-radius;
+                border: 1px solid $color-blue-light;
+                padding: 1rem 2rem;
+                outline: none;
+                appearance: none;
+                
+            }
+
+            button {
+                margin-left: auto;
+            }
         }
 
         &__tableBox {
             font-size: 1.6rem;
             font-family: 'Satoshi-Regular';
             display: grid;
-        }
-
-        &__table{
         }
     }
 

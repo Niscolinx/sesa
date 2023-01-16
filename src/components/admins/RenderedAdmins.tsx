@@ -99,15 +99,16 @@ function RenderedAdmins() {
                         Admin List <span>(200)</span>
                     </p>
                     <div className='caption__searchBox'>
-                        <img src='/icons/admin/search.svg' alt='' />
+                        <img src='/icons/admins/search.svg' alt='' />
                         <input type='text' placeholder='Search Parameters' />
                     </div>
                     <div className='caption__input'>
                         <select>
+                            <option hidden value=''>Sort By</option>
                             <option value='date'>date</option>
                             <option value='alpha'>Alpha</option>
                         </select>
-                        {/* <GrDown /> */}
+                        <GrDown />
                     </div>
                     <button className='btn admins__btn'>
                         <span>
