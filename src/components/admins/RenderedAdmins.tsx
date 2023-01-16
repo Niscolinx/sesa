@@ -142,13 +142,7 @@ function RenderedAdmins() {
                                         <td>{value.phoneNumber}</td>
                                         <td>{value.status.toString()}</td>
                                         <td>
-                                            <>
-                                                <div className='flex justify-center'>
-                                                    {new Date(
-                                                        value.onboardingDate
-                                                    ).toLocaleDateString()}
-                                                </div>
-                                            </>
+                                           {value.onboardingDate}
                                         </td>
                                         <td>
                                             <button>action</button>
