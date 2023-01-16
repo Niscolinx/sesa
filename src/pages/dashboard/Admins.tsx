@@ -1,14 +1,16 @@
-import { useState } from 'react'
+import { createContext, useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
 import AddAdmin from '../../components/admins/AddAdmin'
 import RenderedAdmins from '../../components/admins/RenderedAdmins'
+import { AdminPageContext, RenderAdminPath } from '../../Context/AdminPageContext'
+
+export const adminsContext = createContext(null as any)
 
 function Admins() {
 
-    type RenderAdminPath = 'renderedAdmins' | 'addAdmin'
-
+    
     const [adminsLoaded, setAdminsLoaded] = useState(false)
-    const [addAdmin, setAddAdmin] = useState<RenderAdminPath>('renderedAdmins')
+    const [routeToRender, setRouteToRender] = useState<RenderAdminPath>('renderedAdmins')
 
     const switchRoute = (path: RenderAdminPath) => {
         switch (path) {
@@ -25,34 +27,42 @@ function Admins() {
 
     const handleAddAdmin = () => {
         setAdminsLoaded(true)
-        setAddAdmin('addAdmin')
+        setRouteToRender('addAdmin')
 
     }
 
     return (
-        <div className='admins'>
-            <h1 className='heading2'>Admins</h1>
-            <div className='admins__container'>
-                {adminsLoaded ? (
-                    <section>
-                        {switchRoute('addAdmin')}
-                    </section>
-                ) : (
-                    <section className='admins__wrapper'>
-                        <img src='/icons/admins/errorSvg.svg' alt='' />
-                        <p className='text'>
-                            Ooops you have not added any Admin yet
-                        </p>
-                        <button className='btn admins__btn' onClick={handleAddAdmin}>
-                            <span>
-                                <IoMdAdd />
-                            </span>{' '}
-                            Add Admin
-                        </button>
-                    </section>
-                )}
+        <AdminPageContext.Provider
+            value={{
+                routeToRender,
+                setRouteToRender,
+            }}
+        >
+            <div className='admins'>
+                <h1 className='heading2'>Admins</h1>
+                <div className='admins__container'>
+                    {adminsLoaded ? (
+                        <section>{switchRoute('addAdmin')}</section>
+                    ) : (
+                        <section className='admins__wrapper'>
+                            <img src='/icons/admins/errorSvg.svg' alt='' />
+                            <p className='text'>
+                                Ooops you have not added any Admin yet
+                            </p>
+                            <button
+                                className='btn admins__btn'
+                                onClick={handleAddAdmin}
+                            >
+                                <span>
+                                    <IoMdAdd />
+                                </span>{' '}
+                                Add Admin
+                            </button>
+                        </section>
+                    )}
+                </div>
             </div>
-        </div>
+        </AdminPageContext.Provider>
     )
 }
 

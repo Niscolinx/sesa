@@ -1,9 +1,14 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { GrDown } from 'react-icons/gr'
 import { IoMdAdd } from 'react-icons/io'
+import { AdminPageContext } from '../../Context/AdminPageContext'
 import { getPhotoUrl } from '../../utils/getPhotoUrl'
 
 const AddAdmin = () => {
+  const AdminContextData = useContext(AdminPageContext)
+  const { setRouteToRender } = AdminContextData
+
+
     const [photoUrl, setPhotoUrl] = useState('')
 
     const handlePhotoPreview = async (
@@ -15,7 +20,10 @@ const AddAdmin = () => {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
+        setRouteToRender("renderedAdmins")
     }
+
+
 
     return (
         <div className='addAdmin'>
@@ -24,15 +32,15 @@ const AddAdmin = () => {
                 <section className='addAdmin__form'>
                     <div className='addAdmin__form--item'>
                         <label htmlFor='firstName'>First Name *</label>
-                        <input type='text' id='firstName' />
+                        <input type='text' required id='firstName' />
                     </div>
                     <div className='addAdmin__form--item'>
                         <label htmlFor='lastName'>Last Name *</label>
-                        <input type='text' id='lastName' />
+                        <input type='text' required id='lastName' />
                     </div>
                     <div className='addAdmin__form--item'>
                         <label htmlFor='date'>Date of Birth *</label>
-                        <input type='date' id='date' />
+                        <input type='date' id='date' required />
                     </div>
                     <div className='addAdmin__form--item'>
                         <label htmlFor='gender'>Gender *</label>
@@ -53,6 +61,7 @@ const AddAdmin = () => {
                                 <option value='234'>+234</option>
                             </select>
                             <input
+                                required
                                 type='number'
                                 inputMode='numeric'
                                 id='phoneNumber'
@@ -63,6 +72,7 @@ const AddAdmin = () => {
                     <div className='addAdmin__form--item'>
                         <label htmlFor='email'>Email Address *</label>
                         <input
+                            required
                             type='email'
                             id='email'
                             placeholder='Your Email'

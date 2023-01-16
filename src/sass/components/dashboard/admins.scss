@@ -27,6 +27,16 @@
         padding: 1rem 4rem;
     }
 
+    .renderedAdmins {
+        height: 80vh;
+        width: 100%;
+
+        &__table {
+            font-size: 1.6rem;
+            font-family: 'Satoshi-Regular';
+        }
+    }
+
     .addAdmin {
         padding: 2rem;
         display: grid;
@@ -51,8 +61,8 @@
                 font-size: 1.6rem;
                 grid-column: 1/-1;
                 position: relative;
-                
-                label{
+
+                label {
                     display: flex;
                     justify-content: center;
                     gap: 1rem;
@@ -63,27 +73,25 @@
                         color: $color-dark-1;
                         font-family: 'Satoshi-Light';
 
-                        span{
+                        span {
                             color: $color-blue;
                             font-weight: bold;
                         }
                     }
                 }
 
-                .file__uploadImgBox{
-                    width: 11rem;
-                    height: 11rem;
-                    object-fit: contain;
-                    border-radius: 50%;
+                .file__uploadImgBox {
+                    display: flex;
+                    justify-content: center;
+                    justify-self: center;
 
-                    img{
-                        width: 100%;
-                        height: 100%;
+                    img {
+                        width: 11rem;
+                        height: 11rem;
+                        object-fit: cover;
+                        border-radius: 50%;
                     }
                 }
-
-                
-                
             }
 
             &--item {
