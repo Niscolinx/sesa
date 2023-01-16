@@ -10,7 +10,7 @@ function Admins() {
 
     
     const [adminsLoaded, setAdminsLoaded] = useState(false)
-    const [routeToRender, setRouteToRender] = useState<RenderAdminPath>('addAdmin')
+    const [routeToRender, setRouteToRender] = useState<RenderAdminPath>('renderedAdmins')
 
     const switchRoute = (path: RenderAdminPath) => {
         switch (path) {

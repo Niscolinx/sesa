@@ -7,7 +7,6 @@ type Admin = {
     phoneNumber: string
     status: string
     onboardingDate: string
-    actions: string
 }
 
 const ADMINDATA: Admin[] = [
@@ -17,7 +16,6 @@ const ADMINDATA: Admin[] = [
         phoneNumber: '(+234) 814 324 6719',
         onboardingDate: '02-May-22',
         status: 'Active',
-        actions: 'actions'
     },
 ]
 
@@ -34,19 +32,19 @@ function RenderedAdmins() {
     }, [])
 
     return (
-        <div className='renderedAdmins grid overflow-scroll h-[70vh] mt-5 md:justify-center'>
-            <table className=' w-[30rem] border border-gray-700 transaction-table md:mx-auto relative'>
+        <div className='renderedAdmins grid overflow-scroll h-[70vh]'>
+            <table className='renderedAdmins__table'>
                 <caption className='font-bold text-lg py-5 uppercase'>
                     Users
                 </caption>
 
                 <thead>
                     <tr className='mb-10'>
-                        <th>No</th>
-                        <th>Username</th>
-                        <th>Email</th>
-                        <th>Verified</th>
+                        <th>Name</th>
+                        <th>Gender</th>
+                        <th>Phone Number</th>
                         <th>Joined</th>
+                        <th>Status</th>
                     </tr>
                 </thead>
                 <tbody className='text-center'>
@@ -54,7 +52,6 @@ function RenderedAdmins() {
                         fetchedUsers.map((value, i) => {
                             return (
                                 <tr key={i} className='mx-4 py-2'>
-                                    <td>{i + 1}</td>
                                     <td>
                                         <span>{value.name}</span>
                                     </td>
@@ -68,6 +65,9 @@ function RenderedAdmins() {
                                                 ).toLocaleDateString()}
                                             </div>
                                         </>
+                                    </td>
+                                    <td>
+                                        <button>action</button>
                                     </td>
                                 </tr>
                             )
