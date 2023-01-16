@@ -7,7 +7,6 @@ import {
     RenderEstatePath,
 } from '../../Context/EstatePageContext'
 
-export const estatesContext = createContext(null as any)
 
 function Estates() {
     const [estatesLoaded, setEstatesLoaded] = useState(false)
@@ -46,7 +45,7 @@ function Estates() {
                         <section>{switchRoute(routeToRender)}</section>
                     ) : (
                         <section className='estates__wrapper'>
-                            <img src='/icons/estates/errorSvg.svg' alt='' />
+                            <img src='/icons/admins/errorSvg.svg' alt='' />
                             <p className='text'>
                                 Ooops you have not added any Estate yet
                             </p>
