@@ -102,7 +102,7 @@ function RenderedAdmins() {
                         <img src='/icons/admins/search.svg' alt='' />
                         <input type='text' placeholder='Search Parameters' />
                     </div>
-                    <div className='caption__input'>
+                    <div className='caption__select'>
                         <select>
                             <option hidden value=''>
                                 Sort By
@@ -122,7 +122,10 @@ function RenderedAdmins() {
                 <div className='renderedAdmins__table'>
                     <thead className='renderedAdmins__table--head'>
                         <tr>
-                            <th>Name</th>
+                            <th>
+                                <input type="checkbox"/>
+                                <p>Name</p>
+                            </th>
                             <th>Gender</th>
                             <th>Phone Number</th>
                             <th>Joined</th>
@@ -136,14 +139,14 @@ function RenderedAdmins() {
                                 return (
                                     <tr key={i}>
                                         <td>
+                                            <input type='checkbox' />
+                                            <img src="/img/me.jpeg" alt="" />
                                             <span>{value.name}</span>
                                         </td>
                                         <td>{value.gender}</td>
                                         <td>{value.phoneNumber}</td>
-                                        <td>{value.status.toString()}</td>
-                                        <td>
-                                           {value.onboardingDate}
-                                        </td>
+                                        <td>{value.onboardingDate}</td>
+                                        <td>{value.status}</td>
                                         <td>
                                             <button>action</button>
                                         </td>
