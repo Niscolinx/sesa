@@ -26,7 +26,6 @@ function Estates() {
         }
     }
 
-    console.log({ routeToRender })
     const handleAddEstate = () => {
         setEstatesLoaded(true)
     }

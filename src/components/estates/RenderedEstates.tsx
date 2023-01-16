@@ -3,9 +3,9 @@ import { CgSpinnerTwo } from 'react-icons/cg'
 import { GrDown } from 'react-icons/gr'
 import { IoMdAdd } from 'react-icons/io'
 import { HiOutlineChevronLeft, HiOutlineChevronRight} from 'react-icons/hi'
-import { AdminPageContext } from '../../Context/AdminPageContext'
+import { EstatePageContext } from '../../Context/EstatePageContext'
 
-type Admin = {
+type Estate = {
     id: string
     name: string
     gender: string
@@ -14,7 +14,7 @@ type Admin = {
     onboardingDate: string
 }
 
-const ADMINDATA: Admin[] = [
+const ESTATEDATA: Estate[] = [
     {
         id: '1',
         name: 'Jacintha Sage',
@@ -81,30 +81,30 @@ const ADMINDATA: Admin[] = [
     },
 ]
 
-function RenderedAdmins() {
-const AdminContextData = useContext(AdminPageContext)
-const { setRouteToRender } = AdminContextData
+function RenderedEstates() {
+const EstateContextData = useContext(EstatePageContext)
+const { setRouteToRender } = EstateContextData
 
-    const [fetchedUsers, setFetchedUsers] = useState<Admin[] | null>([])
+    const [fetchedUsers, setFetchedUsers] = useState<Estate[] | null>([])
 
     useEffect(() => {
         const fetchData = async () => {
             setTimeout(() => {
-                setFetchedUsers(ADMINDATA)
+                setFetchedUsers(ESTATEDATA)
             }, 2000)
         }
         fetchData()
     }, [])
 
     return (
-        <div className='renderedAdmins'>
-            <table className='renderedAdmins__tableBox'>
-                <caption className='renderedAdmins__caption'>
+        <div className='renderedEstates'>
+            <table className='renderedEstates__tableBox'>
+                <caption className='renderedEstates__caption'>
                     <p className='caption__title'>
-                        Admin List <span>(200)</span>
+                        Estate List <span>(200)</span>
                     </p>
                     <div className='caption__searchBox'>
-                        <img src='/icons/admins/search.svg' alt='' />
+                        <img src='/icons/estates/search.svg' alt='' />
                         <input type='text' placeholder='Search Parameters' />
                     </div>
                     <div className='caption__select'>
@@ -118,17 +118,17 @@ const { setRouteToRender } = AdminContextData
                         <GrDown />
                     </div>
                     <button
-                        className='btn admins__btn'
-                        onClick={() => setRouteToRender('addAdmin')}
+                        className='btn estates__btn'
+                        onClick={() => setRouteToRender('addEstate')}
                     >
                         <span>
                             <IoMdAdd />
                         </span>{' '}
-                        <p>Add Admin</p>
+                        <p>Add Estate</p>
                     </button>
                 </caption>
-                <div className='renderedAdmins__table'>
-                    <thead className='renderedAdmins__table--head'>
+                <div className='renderedEstates__table'>
+                    <thead className='renderedEstates__table--head'>
                         <tr>
                             <th>
                                 <input type='checkbox' />
@@ -141,7 +141,7 @@ const { setRouteToRender } = AdminContextData
                             <th>Actions</th>
                         </tr>
                     </thead>
-                    <tbody className='renderedAdmins__table--body'>
+                    <tbody className='renderedEstates__table--body'>
                         {fetchedUsers && fetchedUsers.length > 0 ? (
                             fetchedUsers.map((value, i) => {
                                 return (
@@ -177,7 +177,7 @@ const { setRouteToRender } = AdminContextData
                         )}
                     </tbody>
                 </div>
-                <footer className='renderedAdmins__footer'>
+                <footer className='renderedEstates__footer'>
                     <div className='flex gap-8 items-center'>
                         <p>View</p>
                         <div className='flex items-center border px-4 rounded-lg'>
@@ -212,4 +212,4 @@ const { setRouteToRender } = AdminContextData
     )
 }
 
-export default RenderedAdmins
+export default RenderedEstates

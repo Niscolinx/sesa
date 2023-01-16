@@ -1,12 +1,12 @@
 import React, { useContext, useState } from 'react'
 import { GrDown } from 'react-icons/gr'
 import { IoMdAdd } from 'react-icons/io'
-import { AdminPageContext } from '../../Context/AdminPageContext'
+import { EstatePageContext } from '../../Context/EstatePageContext'
 import { getPhotoUrl } from '../../utils/getPhotoUrl'
 
-const AddAdmin = () => {
-  const AdminContextData = useContext(AdminPageContext)
-  const { setRouteToRender } = AdminContextData
+const AddEstate = () => {
+  const estateContextData = useContext(EstatePageContext)
+  const { setRouteToRender } = estateContextData
 
 
     const [photoUrl, setPhotoUrl] = useState('')
@@ -20,29 +20,29 @@ const AddAdmin = () => {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
-        setRouteToRender("renderedAdmins")
+        setRouteToRender("renderedEstates")
     }
 
 
 
     return (
-        <div className='addAdmin'>
-            <p className='addAdmin__heading'>Personal Information</p>
-            <form onSubmit={handleSubmit} className='addAdmin__formBox'>
-                <section className='addAdmin__form'>
-                    <div className='addAdmin__form--item'>
+        <div className='addEstate'>
+            <p className='addEstate__heading'>Personal Information</p>
+            <form onSubmit={handleSubmit} className='addEstate__formBox'>
+                <section className='addEstate__form'>
+                    <div className='addEstate__form--item'>
                         <label htmlFor='firstName'>First Name *</label>
                         <input type='text' required id='firstName' />
                     </div>
-                    <div className='addAdmin__form--item'>
+                    <div className='addEstate__form--item'>
                         <label htmlFor='lastName'>Last Name *</label>
                         <input type='text' required id='lastName' />
                     </div>
-                    <div className='addAdmin__form--item'>
+                    <div className='addEstate__form--item'>
                         <label htmlFor='date'>Date of Birth *</label>
                         <input type='date' id='date' required />
                     </div>
-                    <div className='addAdmin__form--item'>
+                    <div className='addEstate__form--item'>
                         <label htmlFor='gender'>Gender *</label>
                         <div className='item__select'>
                             <select id='gender'>
@@ -53,7 +53,7 @@ const AddAdmin = () => {
                             <GrDown />
                         </div>
                     </div>
-                    <div className='addAdmin__form--phoneNumber'>
+                    <div className='addEstate__form--phoneNumber'>
                         <label htmlFor='phoneNumber'>Phone Number *</label>
 
                         <div className='phoneNumber__box'>
@@ -69,7 +69,7 @@ const AddAdmin = () => {
                             />
                         </div>
                     </div>
-                    <div className='addAdmin__form--item'>
+                    <div className='addEstate__form--item'>
                         <label htmlFor='email'>Email Address *</label>
                         <input
                             required
@@ -78,9 +78,9 @@ const AddAdmin = () => {
                             placeholder='Your Email'
                         />
                     </div>
-                    <div className='addAdmin__form--file'>
+                    <div className='addEstate__form--file'>
                         <label htmlFor='photoUpload'>
-                            <img src='/icons/admins/photo_library.svg' alt='' />
+                            <img src='/icons/estates/photo_library.svg' alt='' />
                             <p>
                                 Drag estate manager picture here or{' '}
                                 <span>click</span> to upload
@@ -106,13 +106,13 @@ const AddAdmin = () => {
                         )}
                     </div>
                     <button
-                        className='btn admins__btn'
+                        className='btn estates__btn'
                         style={{ justifySelf: 'start' }}
                     >
                         <span>
                             <IoMdAdd />
                         </span>{' '}
-                        Add Admin
+                        Add Estate
                     </button>
                 </section>
             </form>
@@ -120,4 +120,4 @@ const AddAdmin = () => {
     )
 }
 
-export default AddAdmin
+export default AddEstate
