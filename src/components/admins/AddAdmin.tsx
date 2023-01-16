@@ -58,27 +58,31 @@ const AddAdmin = () => {
                             placeholder='Your Email'
                         />
                     </div>
+                    <div className='addAdmin__form--file'>
+                        <label htmlFor='photoUpload'>
+                            <img src='/icons/admins/photo_library.svg' alt='' />
+                            <p>
+                                Drag estate manager picture here or click to
+                                upload
+                            </p>
+                        </label>
+                        <input
+                            type='file'
+                            required
+                            name='photoUpload'
+                            id='photoUpload'
+                            accept='image/*'
+                            className='hidden'
+                            // onClick={handlePhotoPreview}
+                        />
+                    </div>
+                    <button className='btn admins__btn'>
+                        <span>
+                            <IoMdAdd />
+                        </span>{' '}
+                        Add Admin
+                    </button>
                 </section>
-                <section>
-                    <label htmlFor='photoUpload'>
-                        Drag estate manager picture here or click to upload
-                    </label>
-                    <input
-                        type='file'
-                        required
-                        name='photoUpload'
-                        id='photoUpload'
-                        accept='image/*'
-                        // onClick={handlePhotoPreview}
-                    />
-                </section>
-
-                <button className='btn admins__btn'>
-                    <span>
-                        <IoMdAdd />
-                    </span>{' '}
-                    Add Admin
-                </button>
             </form>
         </div>
     )
