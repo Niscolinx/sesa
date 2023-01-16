@@ -4,7 +4,7 @@ import AddAdmin from '../../components/admins/AddAdmin'
 import RenderedAdmins from '../../components/admins/RenderedAdmins'
 import { AdminPageContext, RenderAdminPath } from '../../Context/AdminPageContext'
 
-export const adminsContext = createContext(null as any)
+
 
 function Admins() {
 

@@ -4,9 +4,9 @@ import { IoMdAdd } from 'react-icons/io'
 import { EstateManagerPageContext } from '../../Context/EstateManagerPageContext'
 import { getPhotoUrl } from '../../utils/getPhotoUrl'
 
-const EstateManager = () => {
-  const estateContextData = useContext(EstateManagerPageContext)
-  const { setRouteToRender } = estateContextData
+const AddEstateManager = () => {
+  const EstateManagerContextData = useContext(EstateManagerPageContext)
+  const { setRouteToRender } = EstateManagerContextData
 
 
     const [photoUrl, setPhotoUrl] = useState('')
@@ -26,23 +26,23 @@ const EstateManager = () => {
 
 
     return (
-        <div className='estateManager'>
-            <p className='estateManager__heading'>Personal Information</p>
-            <form onSubmit={handleSubmit} className='estateManager__formBox'>
-                <section className='estateManager__form'>
-                    <div className='estateManager__form--item'>
+        <div className='addEstateManager'>
+            <p className='addEstateManager__heading'>Personal Information</p>
+            <form onSubmit={handleSubmit} className='addEstateManager__formBox'>
+                <section className='addEstateManager__form'>
+                    <div className='addEstateManager__form--item'>
                         <label htmlFor='firstName'>First Name *</label>
                         <input type='text' required id='firstName' />
                     </div>
-                    <div className='estateManager__form--item'>
+                    <div className='addEstateManager__form--item'>
                         <label htmlFor='lastName'>Last Name *</label>
                         <input type='text' required id='lastName' />
                     </div>
-                    <div className='estateManager__form--item'>
+                    <div className='addEstateManager__form--item'>
                         <label htmlFor='date'>Date of Birth *</label>
                         <input type='date' id='date' required />
                     </div>
-                    <div className='estateManager__form--item'>
+                    <div className='addEstateManager__form--item'>
                         <label htmlFor='gender'>Gender *</label>
                         <div className='item__select'>
                             <select id='gender'>
@@ -53,7 +53,7 @@ const EstateManager = () => {
                             <GrDown />
                         </div>
                     </div>
-                    <div className='estateManager__form--phoneNumber'>
+                    <div className='addEstateManager__form--phoneNumber'>
                         <label htmlFor='phoneNumber'>Phone Number *</label>
 
                         <div className='phoneNumber__box'>
@@ -69,7 +69,7 @@ const EstateManager = () => {
                             />
                         </div>
                     </div>
-                    <div className='estateManager__form--item'>
+                    <div className='addEstateManager__form--item'>
                         <label htmlFor='email'>Email Address *</label>
                         <input
                             required
@@ -78,9 +78,9 @@ const EstateManager = () => {
                             placeholder='Your Email'
                         />
                     </div>
-                    <div className='estateManager__form--file'>
+                    <div className='addEstateManager__form--file'>
                         <label htmlFor='photoUpload'>
-                            <img src='/icons/estates/photo_library.svg' alt='' />
+                            <img src='/icons/estateManagers/photo_library.svg' alt='' />
                             <p>
                                 Drag estate manager picture here or{' '}
                                 <span>click</span> to upload
@@ -106,13 +106,13 @@ const EstateManager = () => {
                         )}
                     </div>
                     <button
-                        className='btn estates__btn'
+                        className='btn estateManagers__btn'
                         style={{ justifySelf: 'start' }}
                     >
                         <span>
                             <IoMdAdd />
                         </span>{' '}
-                        Add Estate
+                        Add EstateManager
                     </button>
                 </section>
             </form>
@@ -120,4 +120,4 @@ const EstateManager = () => {
     )
 }
 
-export default EstateManager
+export default AddEstateManager

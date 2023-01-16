@@ -1,4 +1,4 @@
-.admins {
+.estateManagers {
     &__container {
         background-color: $color-white;
         border-radius: $border-radius;
@@ -27,7 +27,7 @@
         padding: 1rem 4rem;
     }
 
-    .renderedAdmins {
+    .renderedEstateManagers {
         width: 100%;
         display: grid;
         align-content: flex-start;
@@ -180,7 +180,7 @@
         }
     }
 
-    .addAdmin {
+    .addEstateManager {
         padding: 2rem;
         display: grid;
 
