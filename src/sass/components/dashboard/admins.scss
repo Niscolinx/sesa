@@ -169,6 +169,14 @@
             display: flex;
             align-items: center;
             padding: 2rem;
+            margin-top: 2rem;
+
+
+            ul{
+                li{
+                    cursor: pointer;
+                }
+            }
         }
     }
 

@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
 import { GrDown } from 'react-icons/gr'
 import { IoMdAdd } from 'react-icons/io'
 import { HiOutlineChevronLeft, HiOutlineChevronRight} from 'react-icons/hi'
+import { AdminPageContext } from '../../Context/AdminPageContext'
 
 type Admin = {
     id: string
@@ -81,6 +82,9 @@ const ADMINDATA: Admin[] = [
 ]
 
 function RenderedAdmins() {
+const AdminContextData = useContext(AdminPageContext)
+const { setRouteToRender } = AdminContextData
+
     const [fetchedUsers, setFetchedUsers] = useState<Admin[] | null>([])
 
     useEffect(() => {
@@ -113,7 +117,10 @@ function RenderedAdmins() {
                         </select>
                         <GrDown />
                     </div>
-                    <button className='btn admins__btn'>
+                    <button
+                        className='btn admins__btn'
+                        onClick={() => setRouteToRender('addAdmin')}
+                    >
                         <span>
                             <IoMdAdd />
                         </span>{' '}
@@ -174,18 +181,30 @@ function RenderedAdmins() {
                     <div className='flex gap-8 items-center'>
                         <p>View</p>
                         <div className='flex items-center border px-4 rounded-lg'>
-                            <input type='number' className='w-8 outline-none border-none cursor-pointer' value={6}/>
+                            <input
+                                type='number'
+                                className='w-8 outline-none border-none cursor-pointer'
+                                value={6}
+                            />
                             <GrDown className='text-[1.3rem]' />
                         </div>
                         <p className='text'>List per page</p>
                     </div>
-                    <ul>
-                        <HiOutlineChevronLeft/>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <HiOutlineChevronRight/>
+                    <ul className='flex items-center gap-5 ml-10'>
+                        <HiOutlineChevronLeft />
+                        <li className='grid place-content-center border w-[3rem] h-[3rem]'>
+                            1
+                        </li>
+                        <li className='grid place-content-center border w-[3rem] h-[3rem]'>
+                            2
+                        </li>
+                        <li className='grid place-content-center border w-[3rem] h-[3rem]'>
+                            3
+                        </li>
+                        <li className='grid place-content-center border w-[3rem] h-[3rem]'>
+                            4
+                        </li>
+                        <HiOutlineChevronRight />
                     </ul>
                 </footer>
             </table>
