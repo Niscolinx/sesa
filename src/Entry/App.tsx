@@ -12,6 +12,7 @@ import Overview from '../pages/dashboard/Overview'
 
 import 'react-loading-skeleton/dist/skeleton.css'
 import { SkeletonTheme } from 'react-loading-skeleton'
+import Estates from '../pages/dashboard/Estates'
 
 const router = createBrowserRouter(
     createRoutesFromElements([
@@ -19,6 +20,7 @@ const router = createBrowserRouter(
         <Route path='/dashboard' element={<Dashboard />}>
             <Route index element={<Overview />} />
             <Route path='admins' element={<Admins />} />
+            <Route path='estates' element={<Estates />} />
         </Route>,
         <Route path='*' element={<Navigate to='/' />} />,
     ])
