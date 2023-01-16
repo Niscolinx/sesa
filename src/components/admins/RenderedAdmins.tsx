@@ -104,7 +104,9 @@ function RenderedAdmins() {
                     </div>
                     <div className='caption__input'>
                         <select>
-                            <option hidden value=''>Sort By</option>
+                            <option hidden value=''>
+                                Sort By
+                            </option>
                             <option value='date'>date</option>
                             <option value='alpha'>Alpha</option>
                         </select>
@@ -114,12 +116,12 @@ function RenderedAdmins() {
                         <span>
                             <IoMdAdd />
                         </span>{' '}
-                        Add Admin
+                        <p>Add Admin</p>
                     </button>
                 </caption>
                 <div className='renderedAdmins__table'>
-                    <thead>
-                        <tr className='mb-10'>
+                    <thead className='renderedAdmins__table--head'>
+                        <tr>
                             <th>Name</th>
                             <th>Gender</th>
                             <th>Phone Number</th>
@@ -128,11 +130,11 @@ function RenderedAdmins() {
                             <th>Actions</th>
                         </tr>
                     </thead>
-                    <tbody className='text-center'>
+                    <tbody className='renderedAdmins__table--body'>
                         {fetchedUsers && fetchedUsers.length > 0 ? (
                             fetchedUsers.map((value, i) => {
                                 return (
-                                    <tr key={i} className='mx-4 py-2'>
+                                    <tr key={i}>
                                         <td>
                                             <span>{value.name}</span>
                                         </td>
@@ -158,7 +160,7 @@ function RenderedAdmins() {
                             <tr>
                                 <td>
                                     <div className='absolute w-full top-[50%]'>
-                                        <CgSpinnerTwo className='animate-spin text-orange-300 text-4xl' />
+                                        <CgSpinnerTwo className='animate-spin text-black text-4xl' />
                                     </div>
                                 </td>
                             </tr>

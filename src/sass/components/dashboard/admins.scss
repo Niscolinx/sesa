@@ -32,7 +32,7 @@
         width: 100%;
         display: grid;
         align-content: flex-start;
-        padding: 2rem;
+        border: 1px solid $color-grey-1;
 
         &__caption {
             display: flex;
@@ -40,6 +40,7 @@
             justify-content: space-between;
             align-items: center;
             gap: 3rem;
+            padding: 2rem;
 
             .caption__title {
                 font-size: 1.6rem;
@@ -61,7 +62,7 @@
                 }
             }
 
-            .caption__input{
+            .caption__input {
                 position: relative;
                 display: flex;
                 align-items: center;
@@ -72,8 +73,6 @@
                     right: 1rem;
                     font-size: 1.3rem;
                 }
-
-                
             }
 
             input,
@@ -84,7 +83,6 @@
                 padding: 1rem 2rem;
                 outline: none;
                 appearance: none;
-                
             }
 
             button {
@@ -98,9 +96,40 @@
             display: grid;
         }
 
-        &__table{
-            border-top: 1px solid $color-grey-1;
-            border-bottom: 1px solid $color-grey-1;
+        &__table {
+            border-top: 1px solid $color-grey;
+            border-bottom: 1px solid $color-grey;
+            width: 100%;
+
+            &--body {
+                display: grid;
+                padding: 2rem;
+
+                tr {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+
+                    // td {
+                    //     text-align: left;
+                    //     width: 100%;
+                    // }
+                }
+            }
+
+            &--head {
+                background-color: $color-grey;
+                align-items: center;
+                display: grid;
+                align-items: center;
+                padding: 2rem;
+                margin-top: 2rem;
+
+                tr {
+                    display: flex;
+                    justify-content: space-between;
+                    align-content: center;
+                }
+            }
         }
     }
 
