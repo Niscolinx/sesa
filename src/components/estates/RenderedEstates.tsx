@@ -10,44 +10,42 @@ import {
 import { EstatePageContext } from '../../Context/EstatePageContext'
 import React from 'react'
 
+type EstateDetails = {
+    estateName: string
+    securityCompany: string
+    status: string
+
+    estateBalance: number
+    NoOfResidents: number
+    signOutRequired: boolean
+
+    estateManager: string
+    NoOfHouseholds: number
+}
+
 type Estate = {
     id: string
     img: string
 
-    details: [
-        { estateName: string; securityCompany: string; status: string },
-        {
-            estateBalance: number
-            NoOfResidents: number
-            signOutRequired: boolean
-        },
-        {
-            estateManager: string
-            NoOfHouseholds: number
-        }
-    ]
+    details: EstateDetails
 }
 
 const ESTATEDATA: Estate[] = [
     {
         id: '1',
         img: '/img/img1.png',
-        details: [
-            {
-                estateName: 'Iba Housing Estate',
-                securityCompany: 'Proton',
-                status: 'Active',
-            },
-            {
-                estateBalance: 5000,
-                NoOfResidents: 3400,
-                signOutRequired: true,
-            },
-            {
-                estateManager: 'Sladin Ama',
-                NoOfHouseholds: 45,
-            },
-        ],
+        details: {
+            estateName: 'Iba Housing Estate',
+            securityCompany: 'Proton',
+            status: 'Active',
+
+            estateBalance: 5000,
+            NoOfResidents: 3400,
+            signOutRequired: true,
+
+            estateManager: 'Sladin Ama',
+            NoOfHouseholds: 45,
+        },
     },
 ]
 
@@ -101,32 +99,75 @@ function RenderedEstates() {
                     <tbody className='renderedEstates__table--body'>
                         {fetchedUsers && fetchedUsers.length > 0 ? (
                             React.Children.toArray(
-                                fetchedUsers.map((estate, i) => {
-                                    return (
-                                        <tr>
-                                            <td>
-                                                <img src={estate.img} alt='' />
-                                            </td>
+                                fetchedUsers.map(
+                                    ({
+                                        img,
+                                        details: {
+                                            estateBalance,
+                                            estateManager,
+                                            estateName,
+                                            NoOfHouseholds,
+                                            NoOfResidents,
+                                            securityCompany,
+                                            signOutRequired,
+                                            status,
+                                        },
+                                    }) => {
+                                        return (
+                                            <tr>
+                                                <td>
+                                                    <img src={img} alt='' />
+                                                </td>
 
-                                            {estate.details.map((detail) => {
-                                                return (
-                                                    <td>
-                                                        <div>
-                                                            <p>Estate Name</p>
-                                                           
-                                                        </div>
-                                                    </td>
-                                                )
-                                            })}
+                                                <td>
+                                                    <div>
+                                                        <p>Estate Name</p>
+                                                        <p>{estateName}</p>
+                                                    </div>
+                                                    <div>
+                                                        <p>Security Company</p>
+                                                        <p>{securityCompany}</p>
+                                                    </div>
+                                                    <div>
+                                                        <p>Status</p>
+                                                        <p>{status}</p>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        <p>Estate Balance</p>
+                                                        <p>{estateBalance}</p>
+                                                    </div>
+                                                    <div>
+                                                        <p>No of Residents</p>
+                                                        <p>{NoOfResidents}</p>
+                                                    </div>
+                                                    <div>
+                                                        <p>Sign Out Required</p>
+                                                        <p>{signOutRequired ? 'Yes' : 'No'}</p>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        <p>Estate Manager</p>
+                                                        <p>{estateManager}</p>
+                                                    </div>
+                                                    <div>
+                                                        <p> No of Households</p>
+                                                        <p>{NoOfHouseholds}</p>
+                                                    </div>
+                                                   
+                                                </td>
 
-                                            <td>
-                                                <button>
-                                                    <HiOutlineDotsVertical />
-                                                </button>
-                                            </td>
-                                        </tr>
-                                    )
-                                })
+                                                <td>
+                                                    <button>
+                                                        <HiOutlineDotsVertical />
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        )
+                                    }
+                                )
                             )
                         ) : (
                             <tr>
