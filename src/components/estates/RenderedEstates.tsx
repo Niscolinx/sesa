@@ -2,88 +2,53 @@ import { useContext, useEffect, useState } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
 import { GrDown } from 'react-icons/gr'
 import { IoMdAdd } from 'react-icons/io'
-import { HiOutlineChevronLeft, HiOutlineChevronRight} from 'react-icons/hi'
+import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { EstatePageContext } from '../../Context/EstatePageContext'
 
 type Estate = {
     id: string
-    name: string
-    gender: string
-    phoneNumber: string
-    status: string
-    onboardingDate: string
+    img: string
+
+    details: [
+        { estateName: string; securityCompany: string; status: string },
+        {
+            estateBalance: number
+            NoOfResidents: number
+            signOutRequired: boolean
+        },
+        {
+            estateManager: string
+            NoOfHouseholds: number
+        }
+    ]
 }
 
 const ESTATEDATA: Estate[] = [
     {
         id: '1',
-        name: 'Jacintha Sage',
-        gender: 'Male',
-        phoneNumber: '(+234) 814 324 6719',
-        onboardingDate: '02-May-22',
-        status: 'Active',
-    },
-    {
-        id: '1',
-        name: 'Jacintha Sage',
-        gender: 'Male',
-        phoneNumber: '(+234) 814 324 6719',
-        onboardingDate: '02-May-22',
-        status: 'Active',
-    },
-    {
-        id: '1',
-        name: 'Jacintha Sage',
-        gender: 'Male',
-        phoneNumber: '(+234) 814 324 6719',
-        onboardingDate: '02-May-22',
-        status: 'Active',
-    },
-    {
-        id: '1',
-        name: 'Jacintha Sage',
-        gender: 'Male',
-        phoneNumber: '(+234) 814 324 6719',
-        onboardingDate: '02-May-22',
-        status: 'Active',
-    },
-    {
-        id: '1',
-        name: 'Jacintha Sage',
-        gender: 'Male',
-        phoneNumber: '(+234) 814 324 6719',
-        onboardingDate: '02-May-22',
-        status: 'Active',
-    },
-    {
-        id: '1',
-        name: 'Jacintha Sage',
-        gender: 'Male',
-        phoneNumber: '(+234) 814 324 6719',
-        onboardingDate: '02-May-22',
-        status: 'Active',
-    },
-    {
-        id: '1',
-        name: 'Jacintha Sage',
-        gender: 'Male',
-        phoneNumber: '(+234) 814 324 6719',
-        onboardingDate: '02-May-22',
-        status: 'Active',
-    },
-    {
-        id: '1',
-        name: 'Jacintha Sage',
-        gender: 'Male',
-        phoneNumber: '(+234) 814 324 6719',
-        onboardingDate: '02-May-22',
-        status: 'Active',
+        img: '/img/img1.png',
+        details: [
+            {
+                estateName: 'Iba Housing Estate',
+                securityCompany: 'Proton',
+                status: 'Active',
+            },
+            {
+                estateBalance: 5000,
+                NoOfResidents: 3400,
+                signOutRequired: true,
+            },
+            {
+                estateManager: 'Sladin Ama',
+                NoOfHouseholds: 45,
+            },
+        ],
     },
 ]
 
 function RenderedEstates() {
-const EstateContextData = useContext(EstatePageContext)
-const { setRouteToRender } = EstateContextData
+    const EstateContextData = useContext(EstatePageContext)
+    const { setRouteToRender } = EstateContextData
 
     const [fetchedUsers, setFetchedUsers] = useState<Estate[] | null>([])
 
@@ -128,14 +93,12 @@ const { setRouteToRender } = EstateContextData
                     </button>
                 </caption>
                 <div className='renderedEstates__table'>
-                    
                     <tbody className='renderedEstates__table--body'>
                         {fetchedUsers && fetchedUsers.length > 0 ? (
                             fetchedUsers.map((value, i) => {
                                 return (
                                     <tr key={i}>
                                         <td>
-                                           
                                             <img src='/img/me.jpeg' alt='' />
                                             <span>{value.name}</span>
                                         </td>
