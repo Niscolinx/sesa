@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
 import { GrDown } from 'react-icons/gr'
 import { IoMdAdd } from 'react-icons/io'
-import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
+import { HiOutlineChevronLeft, HiOutlineChevronRight, HiOutlineDotsVertical } from 'react-icons/hi'
 import { EstatePageContext } from '../../Context/EstatePageContext'
 
 type Estate = {
@@ -95,23 +95,16 @@ function RenderedEstates() {
                 <div className='renderedEstates__table'>
                     <tbody className='renderedEstates__table--body'>
                         {fetchedUsers && fetchedUsers.length > 0 ? (
-                            fetchedUsers.map((value, i) => {
+                            fetchedUsers.map((estate, i) => {
                                 return (
                                     <tr key={i}>
                                         <td>
-                                            <img src='/img/me.jpeg' alt='' />
-                                            <span>{value.name}</span>
+                                            <img src={estate.img} alt='' />
                                         </td>
-                                        <td>{value.gender}</td>
-                                        <td>{value.phoneNumber}</td>
-                                        <td>{value.onboardingDate}</td>
-                                        <td>{value.status}</td>
+                                        
                                         <td>
                                             <button>
-                                                <img
-                                                    src='/icons/admins/threeDots.svg'
-                                                    alt=''
-                                                />
+                                               <HiOutlineDotsVertical/>
                                             </button>
                                         </td>
                                     </tr>
