@@ -2,8 +2,13 @@ import { useContext, useEffect, useState } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
 import { GrDown } from 'react-icons/gr'
 import { IoMdAdd } from 'react-icons/io'
-import { HiOutlineChevronLeft, HiOutlineChevronRight, HiOutlineDotsVertical } from 'react-icons/hi'
+import {
+    HiOutlineChevronLeft,
+    HiOutlineChevronRight,
+    HiOutlineDotsVertical,
+} from 'react-icons/hi'
 import { EstatePageContext } from '../../Context/EstatePageContext'
+import React from 'react'
 
 type Estate = {
     id: string
@@ -95,21 +100,34 @@ function RenderedEstates() {
                 <div className='renderedEstates__table'>
                     <tbody className='renderedEstates__table--body'>
                         {fetchedUsers && fetchedUsers.length > 0 ? (
-                            fetchedUsers.map((estate, i) => {
-                                return (
-                                    <tr key={i}>
-                                        <td>
-                                            <img src={estate.img} alt='' />
-                                        </td>
-                                        
-                                        <td>
-                                            <button>
-                                               <HiOutlineDotsVertical/>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                )
-                            })
+                            React.Children.toArray(
+                                fetchedUsers.map((estate, i) => {
+                                    return (
+                                        <tr>
+                                            <td>
+                                                <img src={estate.img} alt='' />
+                                            </td>
+
+                                            {estate.details.map((detail) => {
+                                                return (
+                                                    <td>
+                                                        <div>
+                                                            <p>Estate Name</p>
+                                                           
+                                                        </div>
+                                                    </td>
+                                                )
+                                            })}
+
+                                            <td>
+                                                <button>
+                                                    <HiOutlineDotsVertical />
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    )
+                                })
+                            )
                         ) : (
                             <tr>
                                 <td className='relative'>
