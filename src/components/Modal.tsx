@@ -1,10 +1,18 @@
-import React from 'react'
+import {Children, useState, useRef} from 'react'
 import { ModalContext } from '../Context/ModalContext'
 
 const Modal = () => {
+    const dialogRef = useRef<HTMLDialogElement | null>(null)
+
+    const [isOpen, setIsOpen] = useState(false)
+   
+
     return (
-        <ModalContext.Provider>
-            <dialog className='dialog'>
+        <ModalContext.Provider value={{
+            isOpen,
+            setIsOpen
+        }}>
+            <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
                         <img src='/icons/admins/modalSuccess.svg' alt='' />
@@ -20,6 +28,8 @@ const Modal = () => {
                         </div>
                     </div>
                 </section>
+
+                {Children}
             </dialog>
         </ModalContext.Provider>
     )

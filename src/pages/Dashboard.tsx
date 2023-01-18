@@ -6,14 +6,12 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import { ModalContext } from '../Context/ModalContext'
+import Modal from '../components/Modal'
 
 function Dashboard() {
-    const openModal = () => {
-        const dialog = document.querySelector('.dialog') as any
-        dialog.showModal()
-    }
+   
     return (
-        <ModalContext.Provider value={}>
+        <Modal>
             <div className='dashboard'>
                 <Sidebar />
                 <div className='dashboard__container'>
@@ -22,7 +20,7 @@ function Dashboard() {
                         role='Super Admin'
                         imgUrl='/img/me.jpeg'
                     />
-                    <button className='btn' onClick={openModal}>
+                    <button className='btn'>
                         Open modal
                     </button>
                     <div className='p-10 overflow-scroll max-h-[90vh]'>
@@ -30,7 +28,7 @@ function Dashboard() {
                     </div>
                 </div>
             </div>
-        </ModalContext.Provider>
+        </Modal>
     )
 }
 
