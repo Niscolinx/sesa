@@ -316,3 +316,12 @@
         }
     }
 }
+.dialog{
+     width: 100%;
+    background: transparent;
+
+    &::backdrop {
+        background: rgba(26, 26, 45, 0.375);
+        backdrop-filter: blur(10px);
+    }
+}
