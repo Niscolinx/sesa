@@ -81,15 +81,15 @@ const AddEstate = () => {
                 </form>
             </section>
             <section className='addEstate__box'>
-                <p className='addEstate__heading'>Estate Details</p>
+                <p className='addEstate__heading'>Estate Convenience Fees</p>
                 <form onSubmit={handleSubmit} className='addEstate__formBox'>
                     <section className='addEstate__form'>
                         <div className='addEstate__form--item'>
-                            <label htmlFor='firstName'>Estate Name *</label>
-                            <input type='text' required id='firstName' />
+                            <label htmlFor='firstName'>Estate(%)</label>
+                            <input type='text' required id='estatePercentage' />
                         </div>
                         <div className='addEstate__form--item'>
-                            <label htmlFor='lastName'>Last Name *</label>
+                            <label htmlFor='lastName'>SESA *</label>
                             <input type='text' required id='lastName' />
                         </div>
                         <div className='addEstate__form--item'>

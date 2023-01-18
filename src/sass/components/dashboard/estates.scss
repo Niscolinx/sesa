@@ -158,9 +158,10 @@
         display: grid;
         background-color: $color-white;
         border-radius: $border-radius;
-        gap: 3rem;
+        gap: 4rem;
 
         &__box{
+            padding-bottom: 5rem;
             border-bottom: 1px solid $color-grey-1;
         }
 
