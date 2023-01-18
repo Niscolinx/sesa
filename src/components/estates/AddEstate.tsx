@@ -1,4 +1,4 @@
-import React, { useContext, useState, useRef, useLayoutEffect } from 'react'
+import React, { useContext, useState } from 'react'
 import { GrDown } from 'react-icons/gr'
 import { IoMdAdd } from 'react-icons/io'
 import { getPhotoUrl } from '../../utils/getPhotoUrl'
