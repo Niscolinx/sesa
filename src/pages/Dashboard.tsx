@@ -24,7 +24,7 @@ function Dashboard() {
                 />
                 <button className='btn' onClick={openModal}>Open modal</button>
                 <div className='p-10 overflow-scroll max-h-[90vh]'>
-                    {/* <Outlet /> */}
+                    <Outlet />
                 </div>
             </div>
         </div>
