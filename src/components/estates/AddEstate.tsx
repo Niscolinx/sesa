@@ -1,10 +1,11 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useRef } from 'react'
 import { GrDown } from 'react-icons/gr'
 import { IoMdAdd } from 'react-icons/io'
 import { getPhotoUrl } from '../../utils/getPhotoUrl'
 import { EstatePageContext } from '../../Context/EstatePageContext'
 
 const AddEstate = () => {
+    const inputStateRef = useRef(null)
     const EstateContextData = useContext(EstatePageContext)
     const { setRouteToRender } = EstateContextData
 
@@ -35,8 +36,8 @@ const AddEstate = () => {
                         <div className='addEstate__form--item'>
                             <label htmlFor='lastName'>State *</label>
                             <div className='item__select'>
-                                <select id='state'>
-                                    <option disabled hidden>
+                                <select id='state' ref={inputStateRef}>
+                                    <option hidden selected disabled>
                                         Placeholder
                                     </option>
                                     <option value='male'>Male</option>
