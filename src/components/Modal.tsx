@@ -1,4 +1,5 @@
-import { useRef, FC } from 'react'
+import { useRef, FC, useContext } from 'react'
+import { EstatePageContext } from '../Context/EstatePageContext'
 import { ModalContext } from '../Context/ModalContext'
 
 interface Modal {
@@ -7,7 +8,6 @@ interface Modal {
 
 const Modal:FC<Modal> = ({children}) => {
     const dialogRef = useRef<HTMLDialogElement | null>(null)
-
    
 
     const handleClose = () => {
@@ -20,9 +20,12 @@ const Modal:FC<Modal> = ({children}) => {
         if(dialogRef.current){
             dialogRef.current.showModal()
         }
+
     }
 
-
+    const handleRouteChange = () => {
+        handleClose()
+    }
 
     return (
         <ModalContext.Provider
@@ -42,7 +45,7 @@ const Modal:FC<Modal> = ({children}) => {
                                 <button className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'>
                                     View details
                                 </button>
-                                <button className='bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'>
+                                <button className='bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]' onClick={handleRouteChange}>
                                     Ok
                                 </button>
                             </div>

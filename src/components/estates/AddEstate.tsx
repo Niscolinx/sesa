@@ -2,12 +2,10 @@ import React, { useContext, useState } from 'react'
 import { GrDown } from 'react-icons/gr'
 import { IoMdAdd } from 'react-icons/io'
 import { getPhotoUrl } from '../../utils/getPhotoUrl'
-import { EstatePageContext } from '../../Context/EstatePageContext'
 import { ModalContext } from '../../Context/ModalContext'
 
 const AddEstate = () => {
-    const EstateContextData = useContext(EstatePageContext)
-    const ModalContextData = useContext(ModalContext)
+ 
     const { setRouteToRender } = EstateContextData
     const {handleOpen} = ModalContextData
 
@@ -22,9 +20,7 @@ const AddEstate = () => {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
-       // setRouteToRender('renderedEstates')
        console.log("clicked")
-       handleOpen()
     }
 
     return (
