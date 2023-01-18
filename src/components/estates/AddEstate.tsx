@@ -27,7 +27,7 @@ const AddEstate = () => {
 
     return (
         <div className='addEstate'>
-            <section>
+            <section className='addEstate__box'>
                 <p className='addEstate__heading'>Estate Details</p>
                 <form onSubmit={handleSubmit} className='addEstate__formBox'>
                     <section className='addEstate__form'>
@@ -39,9 +39,7 @@ const AddEstate = () => {
                             <label htmlFor='lastName'>State *</label>
                             <div className='item__select'>
                                 <select id='state'>
-                                    <option hidden>
-                                        &nbsp;
-                                    </option>
+                                    <option hidden>&nbsp;</option>
                                     <option value='lagos'>Lagos</option>
                                     <option value='FCT'>FCT</option>
                                 </select>
@@ -53,7 +51,9 @@ const AddEstate = () => {
                             <input type='text' id='address' required />
                         </div>
                         <div className='addEstate__form--item'>
-                            <label htmlFor='estateManager'>Estate Manager *</label>
+                            <label htmlFor='estateManager'>
+                                Estate Manager *
+                            </label>
                             <div className='item__select'>
                                 <select id='estateManager'>
                                     <option hidden>&nbsp;</option>
@@ -63,9 +63,11 @@ const AddEstate = () => {
                                 <GrDown />
                             </div>
                         </div>
-                        
+
                         <div className='addEstate__form--item'>
-                            <label htmlFor='securityCompaany'>Security Company *</label>
+                            <label htmlFor='securityCompaany'>
+                                Security Company *
+                            </label>
                             <div className='item__select'>
                                 <select id='securityCompaany'>
                                     <option hidden>&nbsp;</option>
@@ -75,12 +77,10 @@ const AddEstate = () => {
                                 <GrDown />
                             </div>
                         </div>
-                        
-                        
                     </section>
                 </form>
             </section>
-            <section>
+            <section className='addEstate__box'>
                 <p className='addEstate__heading'>Estate Details</p>
                 <form onSubmit={handleSubmit} className='addEstate__formBox'>
                     <section className='addEstate__form'>
@@ -174,7 +174,7 @@ const AddEstate = () => {
                     </section>
                 </form>
             </section>
-            <section>
+            <section className='addEstate__box'>
                 <p className='addEstate__heading'>Estate Details</p>
                 <form onSubmit={handleSubmit} className='addEstate__formBox'>
                     <section className='addEstate__form'>

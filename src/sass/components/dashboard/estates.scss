@@ -158,6 +158,11 @@
         display: grid;
         background-color: $color-white;
         border-radius: $border-radius;
+        gap: 3rem;
+
+        &__box{
+            border-bottom: 1px solid $color-grey-1;
+        }
 
         &__heading {
             font-size: 2rem;
