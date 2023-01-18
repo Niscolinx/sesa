@@ -6,4 +6,4 @@ interface IProp {
     routeToRender: RenderAdminPath
     setRouteToRender: Dispatch<SetStateAction<RenderAdminPath>>
 }
-export const AdminPageContext = createContext<IProp>(null as any)
+export const ModalContext = createContext<IProp>(null as any)

@@ -14,6 +14,7 @@ function Dashboard() {
         dialog.showModal()
     }
     return (
+        
         <div className='dashboard'>
             <Sidebar />
             <div className='dashboard__container'>
