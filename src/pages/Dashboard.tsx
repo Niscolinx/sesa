@@ -13,8 +13,10 @@ const Modal = () => {
             <p>You have successfully added an Estate</p>
 
             <div className='flex w-full'>
-                <button className='btn'>View details</button>
-                <button className='bg-[#0556E5] py-2 px-12 text-white text-[1.6rem]'>
+                <button className='btn border-[#0556E5] text-[#0556E5] border rounded-lg'>
+                    View details
+                </button>
+                <button className='bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg'>
                     Ok
                 </button>
             </div>
