@@ -1,11 +1,11 @@
-import React, { useContext, useState, useRef } from 'react'
+import React, { useContext, useState, useRef, useLayoutEffect } from 'react'
 import { GrDown } from 'react-icons/gr'
 import { IoMdAdd } from 'react-icons/io'
 import { getPhotoUrl } from '../../utils/getPhotoUrl'
 import { EstatePageContext } from '../../Context/EstatePageContext'
 
 const AddEstate = () => {
-    const inputStateRef = useRef(null)
+
     const EstateContextData = useContext(EstatePageContext)
     const { setRouteToRender } = EstateContextData
 
@@ -23,6 +23,8 @@ const AddEstate = () => {
         setRouteToRender('renderedEstates')
     }
 
+    
+
     return (
         <div className='addEstate'>
             <section>
@@ -36,19 +38,21 @@ const AddEstate = () => {
                         <div className='addEstate__form--item'>
                             <label htmlFor='lastName'>State *</label>
                             <div className='item__select'>
-                                <select id='state' ref={inputStateRef}>
-                                    <option hidden selected disabled>
-                                        Placeholder
+                                <select id='state'>
+                                    <option hidden>
+                                        &nbsp;
                                     </option>
-                                    <option value='male'>Male</option>
-                                    <option value='female'>Female</option>
+                                    <option value='lagos'>Lagos</option>
+                                    <option value='FCT'>FCT</option>
                                 </select>
                                 <GrDown />
                             </div>
                         </div>
-                        <div className='addEstate__form--item'>
-                            <label htmlFor='date'>Date of Birth *</label>
-                            <input type='date' id='date' required />
+                        <div className='addEstate__form--item' style={{
+                            width: '100%'
+                        }}>
+                            <label htmlFor='address'>Address *</label>
+                            <input type='text' id='address' required />
                         </div>
                         <div className='addEstate__form--item'>
                             <label htmlFor='gender'>Gender *</label>
