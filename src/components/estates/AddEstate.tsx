@@ -48,87 +48,35 @@ const AddEstate = () => {
                                 <GrDown />
                             </div>
                         </div>
-                        <div className='addEstate__form--item' style={{
-                            width: '100%'
-                        }}>
+                        <div className='addEstate__form--item col-span-full'>
                             <label htmlFor='address'>Address *</label>
                             <input type='text' id='address' required />
                         </div>
                         <div className='addEstate__form--item'>
-                            <label htmlFor='gender'>Gender *</label>
+                            <label htmlFor='estateManager'>Estate Manager *</label>
                             <div className='item__select'>
-                                <select id='gender'>
+                                <select id='estateManager'>
                                     <option hidden>&nbsp;</option>
-                                    <option value='male'>Male</option>
-                                    <option value='female'>Female</option>
+                                    <option value='manager'>Manager1</option>
+                                    <option value='manager2'>Manager2</option>
                                 </select>
                                 <GrDown />
                             </div>
                         </div>
-                        <div className='addEstate__form--phoneNumber'>
-                            <label htmlFor='phoneNumber'>Phone Number *</label>
-
-                            <div className='phoneNumber__box'>
-                                <select>
-                                    <option value='234'>+234</option>
+                        
+                        <div className='addEstate__form--item'>
+                            <label htmlFor='securityCompaany'>Security Company *</label>
+                            <div className='item__select'>
+                                <select id='securityCompaany'>
+                                    <option hidden>&nbsp;</option>
+                                    <option value='company'>Company1</option>
+                                    <option value='company2'>Company2</option>
                                 </select>
-                                <input
-                                    required
-                                    type='number'
-                                    inputMode='numeric'
-                                    id='phoneNumber'
-                                    placeholder='Phone Number'
-                                />
+                                <GrDown />
                             </div>
                         </div>
-                        <div className='addEstate__form--item'>
-                            <label htmlFor='email'>Email Address *</label>
-                            <input
-                                required
-                                type='email'
-                                id='email'
-                                placeholder='Your Email'
-                            />
-                        </div>
-                        <div className='addEstate__form--file'>
-                            <label htmlFor='photoUpload'>
-                                <img
-                                    src='/icons/addEstates/photo_library.svg'
-                                    alt=''
-                                />
-                                <p>
-                                    Drag addEstate manager picture here or{' '}
-                                    <span>click</span> to upload
-                                </p>
-                            </label>
-                            <input
-                                type='file'
-                                name='photoUpload'
-                                id='photoUpload'
-                                accept='image/*'
-                                className='hidden'
-                                onClick={handlePhotoPreview}
-                            />
-
-                            {photoUrl && (
-                                <div className='file__uploadImgBox'>
-                                    <img
-                                        src={photoUrl}
-                                        alt='photoPreview'
-                                        className='object-contain'
-                                    />
-                                </div>
-                            )}
-                        </div>
-                        <button
-                            className='btn addEstates__btn'
-                            style={{ justifySelf: 'start' }}
-                        >
-                            <span>
-                                <IoMdAdd />
-                            </span>{' '}
-                            Add AddEstate
-                        </button>
+                        
+                        
                     </section>
                 </form>
             </section>

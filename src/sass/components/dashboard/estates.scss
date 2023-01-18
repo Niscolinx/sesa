@@ -156,6 +156,8 @@
     .addEstate {
         padding: 2rem;
         display: grid;
+        background-color: $color-white;
+        border-radius: $border-radius;
 
         &__heading {
             font-size: 2rem;
