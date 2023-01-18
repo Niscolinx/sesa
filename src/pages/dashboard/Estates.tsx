@@ -49,7 +49,7 @@ function Estates() {
                                 Ooops you have not added any Estate yet
                             </p>
                             <button
-                                className='btn estates__btn'
+                                className='btn addEstate__btn'
                                 onClick={handleAddEstate}
                             >
                                 <span>

@@ -5,7 +5,6 @@ import { getPhotoUrl } from '../../utils/getPhotoUrl'
 import { EstatePageContext } from '../../Context/EstatePageContext'
 
 const AddEstate = () => {
-
     const EstateContextData = useContext(EstatePageContext)
     const { setRouteToRender } = EstateContextData
 
@@ -23,14 +22,12 @@ const AddEstate = () => {
         setRouteToRender('renderedEstates')
     }
 
-    
-
     return (
         <div className='addEstate'>
-            <section className='addEstate__box'>
-                <p className='addEstate__heading'>Estate Details</p>
-                <form onSubmit={handleSubmit} className='addEstate__formBox'>
-                    <section className='addEstate__form'>
+            <form onSubmit={handleSubmit} className='addEstate__formBox'>
+                <section className='addEstate__box'>
+                    <p className='addEstate__heading'>Estate Details</p>
+                    <div className='addEstate__form'>
                         <div className='addEstate__form--item'>
                             <label htmlFor='firstName'>Estate Name *</label>
                             <input type='text' required id='firstName' />
@@ -77,60 +74,58 @@ const AddEstate = () => {
                                 <GrDown />
                             </div>
                         </div>
-                    </section>
-                </form>
-            </section>
-            <section className='addEstate__box'>
-                <p className='addEstate__heading'>Estate Convenience Fees</p>
-                <form onSubmit={handleSubmit} className='addEstate__formBox'>
-                    <section className='addEstate__form'>
+                    </div>
+                </section>
+                <section className='addEstate__box'>
+                    <p className='addEstate__heading'>
+                        Estate Convenience Fees
+                    </p>
+                    <div className='addEstate__form'>
                         <div className='addEstate__form--item'>
                             <label htmlFor='firstName'>Estate(%)</label>
                             <input type='text' required id='estatePercentage' />
                         </div>
                         <div className='addEstate__form--item'>
-                            <label htmlFor='lastName'>SESA *</label>
-                            <input type='text' required id='lastName' />
+                            <label htmlFor='lastName'>SESA(%)</label>
+                            <input type='text' required id='sesaPercentage' />
                         </div>
                         <div className='addEstate__form--item'>
-                            <label htmlFor='date'>Date of Birth *</label>
-                            <input type='date' id='date' required />
+                            <label htmlFor='date'>
+                                Number of Resident User
+                            </label>
+                            <input
+                                type='number'
+                                id='residentUsersNo'
+                                required
+                            />
+                        </div>
+
+                        <div className='addEstate__form--item'>
+                            <label htmlFor='additionalResidentUser'>
+                                Additional Resident User
+                            </label>
+                            <input
+                                required
+                                type='text'
+                                id='additionalResidentUser'
+                            />
                         </div>
                         <div className='addEstate__form--item'>
-                            <label htmlFor='gender'>Gender *</label>
-                            <div className='item__select'>
-                                <select id='gender'>
-                                    <option hidden>&nbsp;</option>
-                                    <option value='male'>Male</option>
-                                    <option value='female'>Female</option>
+                            <label htmlFor='signOutRequired'>
+                                Sign Out Required
+                            </label>
+                            <div
+                                className='item__select'
+                                style={{
+                                    width: '10rem',
+                                }}
+                            >
+                                <select id='signOutRequired'>
+                                    <option value='yes'>Yes</option>
+                                    <option value='no'>No</option>
                                 </select>
                                 <GrDown />
                             </div>
-                        </div>
-                        <div className='addEstate__form--phoneNumber'>
-                            <label htmlFor='phoneNumber'>Phone Number *</label>
-
-                            <div className='phoneNumber__box'>
-                                <select>
-                                    <option value='234'>+234</option>
-                                </select>
-                                <input
-                                    required
-                                    type='number'
-                                    inputMode='numeric'
-                                    id='phoneNumber'
-                                    placeholder='Phone Number'
-                                />
-                            </div>
-                        </div>
-                        <div className='addEstate__form--item'>
-                            <label htmlFor='email'>Email Address *</label>
-                            <input
-                                required
-                                type='email'
-                                id='email'
-                                placeholder='Your Email'
-                            />
                         </div>
                         <div className='addEstate__form--file'>
                             <label htmlFor='photoUpload'>
@@ -162,112 +157,37 @@ const AddEstate = () => {
                                 </div>
                             )}
                         </div>
-                        <button
-                            className='btn addEstates__btn'
-                            style={{ justifySelf: 'start' }}
-                        >
-                            <span>
-                                <IoMdAdd />
-                            </span>{' '}
-                            Add AddEstate
-                        </button>
-                    </section>
-                </form>
-            </section>
-            <section className='addEstate__box'>
-                <p className='addEstate__heading'>Estate Details</p>
-                <form onSubmit={handleSubmit} className='addEstate__formBox'>
-                    <section className='addEstate__form'>
+                    </div>
+                </section>
+                <section className='addEstate__box'>
+                    <p className='addEstate__heading'>Estate Account Details</p>
+                    <div className='addEstate__form'>
                         <div className='addEstate__form--item'>
-                            <label htmlFor='firstName'>Estate Name *</label>
-                            <input type='text' required id='firstName' />
+                            <label htmlFor='bankName'>Bank Name *</label>
+                            <input type='text' required id='bankName' />
                         </div>
                         <div className='addEstate__form--item'>
-                            <label htmlFor='lastName'>Last Name *</label>
-                            <input type='text' required id='lastName' />
+                            <label htmlFor='accountName'>Account Name *</label>
+                            <input type='text' required id='accountName' />
                         </div>
                         <div className='addEstate__form--item'>
-                            <label htmlFor='date'>Date of Birth *</label>
-                            <input type='date' id='date' required />
-                        </div>
-                        <div className='addEstate__form--item'>
-                            <label htmlFor='gender'>Gender *</label>
-                            <div className='item__select'>
-                                <select id='gender'>
-                                    <option hidden>&nbsp;</option>
-                                    <option value='male'>Male</option>
-                                    <option value='female'>Female</option>
-                                </select>
-                                <GrDown />
-                            </div>
-                        </div>
-                        <div className='addEstate__form--phoneNumber'>
-                            <label htmlFor='phoneNumber'>Phone Number *</label>
-
-                            <div className='phoneNumber__box'>
-                                <select>
-                                    <option value='234'>+234</option>
-                                </select>
-                                <input
-                                    required
-                                    type='number'
-                                    inputMode='numeric'
-                                    id='phoneNumber'
-                                    placeholder='Phone Number'
-                                />
-                            </div>
-                        </div>
-                        <div className='addEstate__form--item'>
-                            <label htmlFor='email'>Email Address *</label>
-                            <input
-                                required
-                                type='email'
-                                id='email'
-                                placeholder='Your Email'
-                            />
-                        </div>
-                        <div className='addEstate__form--file'>
-                            <label htmlFor='photoUpload'>
-                                <img
-                                    src='/icons/addEstates/photo_library.svg'
-                                    alt=''
-                                />
-                                <p>
-                                    Drag addEstate manager picture here or{' '}
-                                    <span>click</span> to upload
-                                </p>
+                            <label htmlFor='accountNumber'>
+                                Account Number *
                             </label>
-                            <input
-                                type='file'
-                                name='photoUpload'
-                                id='photoUpload'
-                                accept='image/*'
-                                className='hidden'
-                                onClick={handlePhotoPreview}
-                            />
-
-                            {photoUrl && (
-                                <div className='file__uploadImgBox'>
-                                    <img
-                                        src={photoUrl}
-                                        alt='photoPreview'
-                                        className='object-contain'
-                                    />
-                                </div>
-                            )}
+                            <input type='number' id='accountNumber' required />
                         </div>
-                        <button
-                            className='btn addEstates__btn'
-                            style={{ justifySelf: 'start' }}
-                        >
-                            <span>
-                                <IoMdAdd />
-                            </span>{' '}
-                            Add AddEstate
-                        </button>
-                    </section>
-                </form>
-            </section>
+                    </div>
+                </section>
+                    <button
+                        className='btn addEstate__btn'
+                        style={{ justifySelf: 'start' }}
+                    >
+                        <span>
+                            <IoMdAdd />
+                        </span>{' '}
+                        Add AddEstate
+                    </button>
+            </form>
         </div>
     )
 }

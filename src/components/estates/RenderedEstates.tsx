@@ -120,7 +120,7 @@ function RenderedEstates() {
                         <GrDown />
                     </div>
                     <button
-                        className='btn estates__btn'
+                        className='btn addEstate__btn'
                         onClick={() => setRouteToRender('addEstate')}
                     >
                         <span>
