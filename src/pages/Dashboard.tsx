@@ -9,8 +9,8 @@ import 'swiper/css/pagination'
 const Modal = () => {
 
     return (
-        <div className='bg-white rounded-lg justify-center justify-items-center'>
-            <p>how are you doing</p>
+        <div className='bg-white rounded-lg justify-center justify-items-center w-[64rem] h-[34]'>
+            <p>You have successfully added an Estate</p>
 
             <div className='flex w-full'>
                 <button className='btn'>
