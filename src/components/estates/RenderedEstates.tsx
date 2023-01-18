@@ -172,7 +172,7 @@ function RenderedEstates() {
                                                         </p>
                                                         <p>{estateManager}</p>
                                                     </div>
-                                                    <div className=' bg-red-500 mt-10'>
+                                                    <div className=' mt-10'>
                                                         <p className='text-[#043FA7]'>
                                                             {' '}
                                                             No of Households
