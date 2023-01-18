@@ -2,7 +2,7 @@ import { createContext, Dispatch, SetStateAction } from 'react'
 
 
 interface IProp {
-    isOpen: boolean
-    setIsOpen: Dispatch<SetStateAction<boolean>>
+    handleOpen: () => void
+    handleClose: () => void
 }
 export const ModalContext = createContext<IProp>(null as any)

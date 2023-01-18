@@ -5,7 +5,6 @@ import Sidebar from '../components/dashboard/Sidebar'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
-import { ModalContext } from '../Context/ModalContext'
 import Modal from '../components/Modal'
 
 function Dashboard() {
@@ -20,9 +19,7 @@ function Dashboard() {
                         role='Super Admin'
                         imgUrl='/img/me.jpeg'
                     />
-                    <button className='btn'>
-                        Open modal
-                    </button>
+                    
                     <div className='p-10 overflow-scroll max-h-[90vh]'>
                         <Outlet />
                     </div>
