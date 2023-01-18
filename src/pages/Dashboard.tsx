@@ -6,6 +6,25 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 
+const Modal = () => {
+
+    return (
+        <div className='bg-white rounded-lg justify-center justify-items-center'>
+            <p>how are you doing</p>
+
+            <div className='flex w-full'>
+                <button className='btn'>
+                    View details
+                </button>
+                <button className='btn'>
+                    Ok
+                </button>
+            </div>
+            
+        </div>
+    )
+}
+
 function Dashboard() {
     return (
         <div className='dashboard'>
@@ -17,7 +36,8 @@ function Dashboard() {
                     imgUrl='/img/me.jpeg'
                 />
                 <div className='p-10 overflow-scroll max-h-[90vh]'>
-                    <Outlet />
+                    <Modal/>
+                    {/* <Outlet /> */}
                 </div>
             </div>
         </div>
