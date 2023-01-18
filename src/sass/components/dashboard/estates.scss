@@ -319,6 +319,7 @@
 .dialog{
      width: 100%;
     background: transparent;
+    overflow: initial;
 
     &::backdrop {
         background: rgba(26, 26, 45, 0.375);
