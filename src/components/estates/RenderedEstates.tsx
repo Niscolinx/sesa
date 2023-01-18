@@ -1,3 +1,4 @@
+import React from 'react'
 import { useContext, useEffect, useState } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
 import { GrDown } from 'react-icons/gr'
@@ -7,8 +8,9 @@ import {
     HiOutlineChevronRight,
     HiOutlineDotsVertical,
 } from 'react-icons/hi'
+import { TbCurrencyNaira } from 'react-icons/tb'
+
 import { EstatePageContext } from '../../Context/EstatePageContext'
-import React from 'react'
 
 type EstateDetails = {
     estateName: string
@@ -34,6 +36,38 @@ const ESTATEDATA: Estate[] = [
     {
         id: '1',
         img: '/img/img1.png',
+        details: {
+            estateName: 'Iba Housing Estate',
+            securityCompany: 'Proton',
+            status: 'Active',
+
+            estateBalance: 5000,
+            NoOfResidents: 3400,
+            signOutRequired: true,
+
+            estateManager: 'Sladin Ama',
+            NoOfHouseholds: 45,
+        },
+    },
+    {
+        id: '2',
+        img: '/img/img2.png',
+        details: {
+            estateName: 'Iba Housing Estate',
+            securityCompany: 'Proton',
+            status: 'Active',
+
+            estateBalance: 5000,
+            NoOfResidents: 3400,
+            signOutRequired: true,
+
+            estateManager: 'Sladin Ama',
+            NoOfHouseholds: 45,
+        },
+    },
+    {
+        id: '3',
+        img: '/img/img3.png',
         details: {
             estateName: 'Iba Housing Estate',
             securityCompany: 'Proton',
@@ -116,7 +150,11 @@ function RenderedEstates() {
                                         return (
                                             <tr className='w-full'>
                                                 <td>
-                                                    <img src={img} alt='' />
+                                                    <img
+                                                        src={img}
+                                                        alt=''
+                                                        className='table__img'
+                                                    />
                                                 </td>
 
                                                 <td>
@@ -138,7 +176,9 @@ function RenderedEstates() {
                                                         <p className='text-[#043FA7]'>
                                                             Status
                                                         </p>
-                                                        <p>{status}</p>
+                                                        <p className='text-[#1D9F5F]'>
+                                                            {status}
+                                                        </p>
                                                     </div>
                                                 </td>
                                                 <td>
@@ -146,7 +186,10 @@ function RenderedEstates() {
                                                         <p className='text-[#043FA7]'>
                                                             Estate Balance
                                                         </p>
-                                                        <p>{estateBalance}</p>
+                                                        <p className='flex items-center'>
+                                                            <TbCurrencyNaira className='text-[2rem]' />
+                                                            {estateBalance}
+                                                        </p>
                                                     </div>
                                                     <div>
                                                         <p className='text-[#043FA7]'>
