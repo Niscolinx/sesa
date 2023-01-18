@@ -59,7 +59,7 @@ function RenderedEstates() {
         const fetchData = async () => {
             setTimeout(() => {
                 setFetchedUsers(ESTATEDATA)
-            }, 2000)
+            }, 1000)
         }
         fetchData()
     }, [])
@@ -114,54 +114,81 @@ function RenderedEstates() {
                                         },
                                     }) => {
                                         return (
-                                            <tr>
+                                            <tr className='w-full'>
                                                 <td>
                                                     <img src={img} alt='' />
                                                 </td>
 
                                                 <td>
                                                     <div>
-                                                        <p>Estate Name</p>
-                                                        <p>{estateName}</p>
+                                                        <p className='text-[1.4rem] text-[#043FA7]'>
+                                                            Estate&nbsp;Name
+                                                        </p>
+                                                        <p className='font-[1.6rem] whitespace-nowrap'>
+                                                            {estateName}
+                                                        </p>
                                                     </div>
                                                     <div>
-                                                        <p>Security Company</p>
+                                                        <p className='text-[#043FA7]'>
+                                                            Security Company
+                                                        </p>
                                                         <p>{securityCompany}</p>
                                                     </div>
                                                     <div>
-                                                        <p>Status</p>
+                                                        <p className='text-[#043FA7]'>
+                                                            Status
+                                                        </p>
                                                         <p>{status}</p>
                                                     </div>
                                                 </td>
                                                 <td>
                                                     <div>
-                                                        <p>Estate Balance</p>
+                                                        <p className='text-[#043FA7]'>
+                                                            Estate Balance
+                                                        </p>
                                                         <p>{estateBalance}</p>
                                                     </div>
                                                     <div>
-                                                        <p>No of Residents</p>
+                                                        <p className='text-[#043FA7]'>
+                                                            No of Residents
+                                                        </p>
                                                         <p>{NoOfResidents}</p>
                                                     </div>
                                                     <div>
-                                                        <p>Sign Out Required</p>
-                                                        <p>{signOutRequired ? 'Yes' : 'No'}</p>
+                                                        <p className='text-[#043FA7]'>
+                                                            Sign Out Required
+                                                        </p>
+                                                        <p>
+                                                            {signOutRequired
+                                                                ? 'Yes'
+                                                                : 'No'}
+                                                        </p>
                                                     </div>
                                                 </td>
-                                                <td>
+                                                <td className=' grid content-start'>
                                                     <div>
-                                                        <p>Estate Manager</p>
+                                                        <p className='text-[#043FA7]'>
+                                                            Estate Manager
+                                                        </p>
                                                         <p>{estateManager}</p>
                                                     </div>
-                                                    <div>
-                                                        <p> No of Households</p>
+                                                    <div className=' bg-red-500 mt-10'>
+                                                        <p className='text-[#043FA7]'>
+                                                            {' '}
+                                                            No of Households
+                                                        </p>
                                                         <p>{NoOfHouseholds}</p>
                                                     </div>
-                                                   
                                                 </td>
 
-                                                <td>
+                                                <td
+                                                    className='flex items-start content-start mr-4'
+                                                    style={{
+                                                        width: '1rem',
+                                                    }}
+                                                >
                                                     <button>
-                                                        <HiOutlineDotsVertical />
+                                                        <HiOutlineDotsVertical className='text-[2rem]' />
                                                     </button>
                                                 </td>
                                             </tr>

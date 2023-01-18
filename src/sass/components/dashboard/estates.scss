@@ -111,14 +111,14 @@
 
                 tr {
                     display: flex;
-                    justify-content: space-between;
+                    justify-content: repeat(4, minmax(min-content,1fr));
 
                     td {
-                        text-align: left;
+                       // text-align: right;
                         width: 100%;
                         padding: 2rem 0;
-                        display: flex;
-                        align-items: center;
+                        display: grid;
+                        align-items: flex-start;
                         gap: 1rem;
                         border-bottom: 1px solid $color-grey;
 
