@@ -1,13 +1,14 @@
 import React, { useContext, useState } from 'react'
 import { GrDown } from 'react-icons/gr'
 import { IoMdAdd } from 'react-icons/io'
+import { ModalContext } from '../../Context/ModalContext'
 import { useAppDispatch } from '../../store/app/hooks'
 import { setAdminPath } from '../../store/features/routeChange'
 import { getPhotoUrl } from '../../utils/getPhotoUrl'
 
 const AddAdmin = () => {
-  const dispatch = useAppDispatch()
-
+    const ModalContextData = useContext(ModalContext)
+    const { handleOpen } = ModalContextData
 
     const [photoUrl, setPhotoUrl] = useState('')
 
@@ -20,11 +21,9 @@ const AddAdmin = () => {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
-        
-        dispatch(setAdminPath('renderedAdmins'))
+
+        handleOpen('renderedAdmins')
     }
-
-
 
     return (
         <div className='addAdmin'>

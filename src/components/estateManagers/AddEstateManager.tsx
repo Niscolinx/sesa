@@ -19,8 +19,7 @@ const { handleOpen } = ModalContextData
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
-            const { handleOpen } = ModalContextData
-
+        handleOpen('renderedEstateManagers')
     }
 
 
