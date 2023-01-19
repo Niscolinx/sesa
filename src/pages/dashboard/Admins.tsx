@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
 import AddAdmin from '../../components/admins/AddAdmin'
 import RenderedAdmins from '../../components/admins/RenderedAdmins'
-import { AdminPageContext, RenderAdminPath } from '../../Context/AdminPageContext'
+import { RenderAdminPath } from '../../store/features/routeChange'
 
 
 
@@ -10,7 +10,6 @@ function Admins() {
 
     
     const [adminsLoaded, setAdminsLoaded] = useState(false)
-    const [routeToRender, setRouteToRender] = useState<RenderAdminPath>('renderedAdmins')
 
     const switchRoute = (path: RenderAdminPath) => {
         switch (path) {
