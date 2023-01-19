@@ -5,13 +5,8 @@ import { getPhotoUrl } from '../../utils/getPhotoUrl'
 import { ModalContext } from '../../Context/ModalContext'
 
 const AddEstate = () => {
-    //regex for string
-    
-
-
- 
     const ModalContextData = useContext(ModalContext)
-    const {handleOpen} = ModalContextData
+    const { handleOpen } = ModalContextData
 
     const [photoUrl, setPhotoUrl] = useState('')
 
@@ -24,8 +19,7 @@ const AddEstate = () => {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
-       console.log("clicked")
-       handleOpen()
+        handleOpen()
     }
 
     return (
@@ -184,15 +178,15 @@ const AddEstate = () => {
                         </div>
                     </div>
                 </section>
-                    <button
-                        className='btn addEstate__btn'
-                        style={{ justifySelf: 'start' }}
-                    >
-                        <span>
-                            <IoMdAdd />
-                        </span>{' '}
-                        Add AddEstate
-                    </button>
+                <button
+                    className='btn addEstate__btn'
+                    style={{ justifySelf: 'start' }}
+                >
+                    <span>
+                        <IoMdAdd />
+                    </span>{' '}
+                    Add AddEstate
+                </button>
             </form>
         </div>
     )
