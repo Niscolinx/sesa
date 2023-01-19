@@ -6,10 +6,10 @@ function Estates() {
         <div className='estateDetail'>
             <h1 className='heading2'>Estate Details</h1>
             <div className='estateDetail__container'>
-                <section className='bg-white rounded-lg p-8'>
-                    <div className='flex'>
+                <section className='bg-white rounded-lg p-8 grid gap-4'>
+                    <div className='flex w-full justify-between'>
                         <p>Iba Housing Estate</p>
-                        <p>
+                        <p className='text-[#666869]'>
                             Joined: <span>08 May, 2022</span>
                         </p>
                     </div>
