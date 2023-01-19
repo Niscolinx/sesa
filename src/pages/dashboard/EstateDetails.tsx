@@ -5,15 +5,15 @@ function Estates() {
     return (
         <div className='estateDetail'>
             <h1 className='heading2'>Estate Details</h1>
-            <div className='estateDetail__container'>
-                <section className='bg-white rounded-lg p-8 grid gap-4'>
+            <div className='mt-8'>
+                <section className='bg-white rounded-lg p-8 grid h-[28rem]'>
                     <div className='flex w-full justify-between'>
                         <p>Iba Housing Estate</p>
                         <p className='text-[#666869]'>
-                            Joined: <span>08 May, 2022</span>
+                            Joined: <span className='text-black'>08 May, 2022</span>
                         </p>
                     </div>
-                    <div className='overview flex'>
+                    <div className='overview flex justify-between'>
                         <OverviewCard
                             title='Residents'
                             number={18_000}
