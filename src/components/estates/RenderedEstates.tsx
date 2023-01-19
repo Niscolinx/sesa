@@ -99,7 +99,7 @@ function RenderedEstates() {
     }, [])
 
     const handlePathSwitch = () => {
-        dispatch(setEstatePath('renderedEstates'))
+        dispatch(setEstatePath('addEstate'))
     }
 
     return (

@@ -19,7 +19,7 @@ const AddEstate = () => {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
-        handleOpen()
+        handleOpen('renderedEstates')
     }
 
     return (

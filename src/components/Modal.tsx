@@ -1,5 +1,7 @@
-import { useRef, FC } from 'react'
-import { ModalContext } from '../Context/ModalContext'
+import { useRef, FC, useState } from 'react'
+import { ModalContext, OpenPath } from '../Context/ModalContext'
+import { useAppDispatch } from '../store/app/hooks'
+import { setAdminPath, setEstateManagerPath, setEstatePath } from '../store/features/routeChange'
 
 interface Modal {
     children: React.ReactNode
@@ -7,7 +9,9 @@ interface Modal {
 
 const Modal:FC<Modal> = ({children}) => {
     const dialogRef = useRef<HTMLDialogElement | null>(null)
-   
+    const [pathToSwitch, setPathToSwitch] = useState<OpenPath | null>(null)
+    const dispatch = useAppDispatch()
+
 
     const handleClose = () => {
         if(dialogRef.current){
@@ -15,7 +19,10 @@ const Modal:FC<Modal> = ({children}) => {
         }
     }
 
-    const handleOpen = () => {
+    const handleOpen = (path?: OpenPath) => {
+        if(path){
+            setPathToSwitch(path)
+        }
         if(dialogRef.current){
             dialogRef.current.showModal()
         }
@@ -24,13 +31,26 @@ const Modal:FC<Modal> = ({children}) => {
 
     const handleRouteChange = () => {
         handleClose()
+
+        if(pathToSwitch){
+            switch(pathToSwitch){
+                case 'renderedEstates':
+                    return dispatch(setEstatePath(pathToSwitch))
+                case 'renderedAdmins':
+                    return dispatch(setAdminPath(pathToSwitch))
+                case 'renderedEstateManagers':
+                    return dispatch(setEstateManagerPath(pathToSwitch))
+            }
+        }
+
     }
 
     return (
         <ModalContext.Provider
             value={{
-                handleOpen,
+               
                 handleClose,
+                handleOpen,
             }}
         >
             <div>

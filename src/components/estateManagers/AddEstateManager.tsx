@@ -1,12 +1,12 @@
 import React, { useContext, useState } from 'react'
 import { GrDown } from 'react-icons/gr'
 import { IoMdAdd } from 'react-icons/io'
-import { useAppDispatch, useAppSelector } from '../../store/app/hooks'
-import { routeChangeSelector } from '../../store/features/routeChange'
+import { ModalContext } from '../../Context/ModalContext'
 import { getPhotoUrl } from '../../utils/getPhotoUrl'
 
 const AddEstateManager = () => {
-
+const ModalContextData = useContext(ModalContext)
+const { handleOpen } = ModalContextData
 
     const [photoUrl, setPhotoUrl] = useState('')
 
@@ -19,6 +19,8 @@ const AddEstateManager = () => {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
+            const { handleOpen } = ModalContextData
+
     }
 
 
