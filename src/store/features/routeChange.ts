@@ -30,12 +30,12 @@ const routeChange = createSlice({
         setEstateManagerPage: (state, action) => {
             state.estateManagerPage = action.payload
         }
-        
+
 
     },
 })
 
-
+export const { setEstatePage, setAdminPage, setEstateManagerPage } = routeChange.actions
 export const routeChangeSelector = (state: AppState) => state.routeChange
 
 export default routeChange.reducer
