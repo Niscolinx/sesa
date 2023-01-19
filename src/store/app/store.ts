@@ -13,7 +13,6 @@ import {
 
 
 import userReducer from '../features/user/user';
-import modalReducer from '../features/modal';
 import routeChangeReducer from '../features/routeChange';
 
 
@@ -24,7 +23,6 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
   user: userReducer,
-  modal: modalReducer,
   routeChange: routeChangeReducer
 })
 

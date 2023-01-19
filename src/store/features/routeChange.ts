@@ -13,11 +13,11 @@ interface RouteChangeState {
     estateManagerPath: RenderEstateManagerPath
 }
 
-const initialState: RouteChangeState = {
+const initialState = {
     estatePath: 'renderedEstates',
     adminPath: 'renderedAdmins',
     estateManagerPath: 'renderedEstateManagers'
-} 
+} satisfies RouteChangeState
 
 const routeChange = createSlice({
     name: 'routeChange',
