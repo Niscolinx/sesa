@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import OverviewCard from '../../components/overview/OverviewCard'
 
 function Estates() {
@@ -35,7 +36,11 @@ function Estates() {
                             textColor='text-[#B6008E]'
                         />
                     </div>
-                    <div></div>
+                    <div>
+                        <Link to='/' className='text-[#0660FE]'>
+                            View Estate Report
+                        </Link>
+                    </div>
                 </section>
                 <section></section>
             </div>
