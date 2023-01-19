@@ -3,7 +3,7 @@ import { IoMdAdd } from 'react-icons/io'
 import AddEstateManager from '../../components/estateManagers/AddEstateManager'
 import RenderedEstateManagers from '../../components/estateManagers/RenderedEstateManagers'
 import { useAppDispatch, useAppSelector } from '../../store/app/hooks'
-import { routeChangeSelector, RenderEstateManagerPath } from '../../store/features/routeChange'
+import { routeChangeSelector, RenderEstateManagerPath, setEstateManagerPath } from '../../store/features/routeChange'
 
 
 
@@ -29,8 +29,9 @@ function EstateManagers() {
         }
     }
 
-    const handleAddEstateManager = () => {
+    const handlePathSwitch = () => {
         setEstateManagersLoaded(true)
+        dispatch(setEstateManagerPath('renderedEstateManagers'))
     }
 
     return (
@@ -59,7 +60,6 @@ function EstateManagers() {
                     )}
                 </div>
             </div>
-        </EstateManagerPageContext.Provider>
     )
 }
 
