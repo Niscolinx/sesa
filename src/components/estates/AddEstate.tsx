@@ -5,8 +5,12 @@ import { getPhotoUrl } from '../../utils/getPhotoUrl'
 import { ModalContext } from '../../Context/ModalContext'
 
 const AddEstate = () => {
+    //regex for string
+    
+
+
  
-    const { setRouteToRender } = EstateContextData
+    const ModalContextData = useContext(ModalContext)
     const {handleOpen} = ModalContextData
 
     const [photoUrl, setPhotoUrl] = useState('')
@@ -21,6 +25,7 @@ const AddEstate = () => {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
        console.log("clicked")
+       handleOpen()
     }
 
     return (
