@@ -1,12 +1,11 @@
 import React, { useContext, useState } from 'react'
 import { GrDown } from 'react-icons/gr'
 import { IoMdAdd } from 'react-icons/io'
-import { EstateManagerPageContext } from '../../Context/EstateManagerPageContext'
+import { useAppDispatch, useAppSelector } from '../../store/app/hooks'
+import { routeChangeSelector } from '../../store/features/routeChange'
 import { getPhotoUrl } from '../../utils/getPhotoUrl'
 
 const AddEstateManager = () => {
-  const EstateManagerContextData = useContext(EstateManagerPageContext)
-  const { setRouteToRender } = EstateManagerContextData
 
 
     const [photoUrl, setPhotoUrl] = useState('')
@@ -20,7 +19,6 @@ const AddEstateManager = () => {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
-        setRouteToRender("renderedEstateManagers")
     }
 
 

@@ -3,7 +3,8 @@ import { CgSpinnerTwo } from 'react-icons/cg'
 import { GrDown } from 'react-icons/gr'
 import { IoMdAdd } from 'react-icons/io'
 import { HiOutlineChevronLeft, HiOutlineChevronRight} from 'react-icons/hi'
-import { EstateManagerPageContext } from '../../Context/EstateManagerPageContext'
+import { useAppDispatch, useAppSelector } from '../../store/app/hooks'
+import { routeChangeSelector, setEstateManagerPath } from '../../store/features/routeChange'
 
 type EstateManager = {
     id: string
@@ -82,8 +83,7 @@ const ESTATEMANAGERDATA: EstateManager[] = [
 ]
 
 function RenderedEstateManagers() {
-const EstateManagerContextData = useContext(EstateManagerPageContext)
-const { setRouteToRender } = EstateManagerContextData
+ const dispatch = useAppDispatch()
 
     const [fetchedUsers, setFetchedUsers] = useState<EstateManager[] | null>([])
 
@@ -95,6 +95,10 @@ const { setRouteToRender } = EstateManagerContextData
         }
         fetchData()
     }, [])
+
+    const handlePathSwitch = () => {
+        dispatch(setEstateManagerPath('addEstateManager'))
+    }
 
     return (
         <div className='renderedEstateManagers'>
@@ -119,7 +123,7 @@ const { setRouteToRender } = EstateManagerContextData
                     </div>
                     <button
                         className='btn estateManagers__btn'
-                        onClick={() => setRouteToRender('addEstateManager')}
+                        onClick={handlePathSwitch}
                     >
                         <span>
                             <IoMdAdd />

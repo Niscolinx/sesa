@@ -1,5 +1,4 @@
-import { useRef, FC, useContext } from 'react'
-import { EstatePageContext } from '../Context/EstatePageContext'
+import { useRef, FC } from 'react'
 import { ModalContext } from '../Context/ModalContext'
 
 interface Modal {
