@@ -2,14 +2,12 @@ import React, { useState, useEffect } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
 import { GrDown } from 'react-icons/gr'
 import {
-    HiOutlineDotsVertical,
     HiOutlineChevronLeft,
     HiOutlineChevronRight,
 } from 'react-icons/hi'
-import { IoMdAdd } from 'react-icons/io'
-import { TbCurrencyNaira } from 'react-icons/tb'
+
 import { Link } from 'react-router-dom'
-import OverviewCard from '../../components/overview/OverviewCard'
+import OverviewCard from '../../../components/overview/OverviewCard'
 
 interface EstateManager {
     id: string
@@ -121,7 +119,7 @@ function EstateDetails() {
         <div className='estateDetail'>
             <h1 className='heading2'>Estate Details</h1>
             <div className='mt-8 grid gap-8'>
-                <section className='bg-white rounded-lg p-8 grid h-[28rem]'>
+                <section className='bg-white rounded-lg p-8 grid h-[28rem] text-[1.4rem]'>
                     <div className='flex w-full justify-between'>
                         <p>Iba Housing Estate</p>
                         <p className='text-[#666869]'>
@@ -158,7 +156,7 @@ function EstateDetails() {
                         </Link>
                     </div>
                 </section>
-                <section className='bg-color-white'>
+                <section className='bg-color-white rounded-lg border min-w-[112rem]'>
                     <div className='grid text-[1.6rem]'>
                         <caption className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
                             <p className=' font-bold'>
@@ -188,69 +186,83 @@ function EstateDetails() {
                             </div>
                         </caption>
 
-                        <div className='grid p-8'>
-                            <div className='flex justify-between text-[1.4rem] text-color-dark-1'>
-                                <h3 className='flex items-center gap-2'>
+                        <div className='grid'>
+                            <div
+                                className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-8 gap-8'
+                                style={{
+                                    fontSize: '1.4rem',
+                                }}
+                            >
+                                <p className='flex items-center gap-2'>
                                     <input type='checkbox' />
                                     <p>Property Code</p>
-                                </h3>
-                                <h3>Address</h3>
-                                <h3>Property Category</h3>
-                                <h3>Property Name</h3>
-                                <h3>Occupants</h3>
-                                <h3>RFID</h3>
-                                <h3>Access Card</h3>
-                                <h3>Status</h3>
-                                <h3>Actions</h3>
+                                </p>
+                                <p>Address</p>
+                                <p>Property Category</p>
+                                <p>Property Name</p>
+                                <p>Occupants</p>
+                                <p>RFID</p>
+                                <p>Access Card</p>
+                                <p>Status</p>
                             </div>
 
-                            <div className='grid'>
-                                { fetchedUsers && fetchedUsers.length > 0 ? (
-                                  React.Children.toArray(
-                                    fetchedUsers.map(({ propertyCategory, propertyCode, propertyName, status, accessCard, address, RFID, occupants}) => {
-                                        return (
-                                            <div className='flex justify-between'>
-                                                <td className='flex items-center'>
-                                                    <input type='checkbox' />
-                        
-                                                    <span>{propertyCode}</span>
-                                                </td>
-                                                <td>{address}</td>
-                                                <td>{propertyCategory}</td>
-                                                <td>{propertyName}</td>
-                                                <td>{occupants}</td>
-                                                <td>{RFID}</td>
-                                                <td>{accessCard}</td>
-                                                <td>
-                                                    <button>
-                                                        <img
-                                                            src='/icons/estateManagers/threeDots.svg'
-                                                            alt=''
-                                                        />
-                                                    </button>
-                                                </td>
-                                            </div>
+                            <div className='grid gap-8 mt-8 p-8'>
+                                {fetchedUsers && fetchedUsers.length > 0 ? (
+                                    React.Children.toArray(
+                                        fetchedUsers.map(
+                                            ({
+                                                propertyCategory,
+                                                propertyCode,
+                                                propertyName,
+                                                status,
+                                                accessCard,
+                                                address,
+                                                RFID,
+                                                occupants,
+                                            }) => {
+                                                return (
+                                                    <div className='grid justify-between border-b grid-cols-8 gap-8 '>
+                                                        <p className='flex items-center gap-4'>
+                                                            <input type='checkbox' />
+
+                                                            <span>
+                                                                {propertyCode}
+                                                            </span>
+                                                        </p>
+                                                        <p>{address}</p>
+                                                        <p>
+                                                            {propertyCategory}
+                                                        </p>
+                                                        <p>{propertyName}</p>
+                                                        <p>{occupants}</p>
+                                                        <p>{RFID}</p>
+                                                        <p>{accessCard}</p>
+                                                        <p>{status}</p>
+                                                    </div>
+                                                )
+                                            }
                                         )
-                                    }))
+                                    )
                                 ) : (
-                                    <tr>
-                                        <td className='relative'>
+                                    <div>
+                                        <div className='relative'>
                                             <div className='absolute w-full grid place-content-center'>
                                                 <CgSpinnerTwo className='animate-spin text-[#0660FE] text-4xl' />
                                             </div>
-                                        </td>
-                                    </tr>
+                                        </div>
+                                    </div>
                                 )}
                             </div>
                         </div>
-                        <footer className='renderedEstateManagers__footer'>
+                        <footer className='flex items-center p-4 mt-4 bg-color-white rounded-lg'>
                             <div className='flex gap-8 items-center'>
                                 <p>View</p>
                                 <div className='flex items-center border px-4 rounded-lg'>
                                     <input
-                                        type='number'
-                                        className='w-8 outline-none border-none cursor-pointer'
+                                        type='text'
+                                        className='w-8 outline-none border-none cursor-pointer '
                                         value={6}
+                                        inputMode='numeric'
                                     />
                                     <GrDown className='text-[1.3rem]' />
                                 </div>
@@ -258,16 +270,16 @@ function EstateDetails() {
                             </div>
                             <ul className='flex items-center gap-5 ml-10'>
                                 <HiOutlineChevronLeft />
-                                <li className='grid place-content-center border w-[3rem] h-[3rem]'>
+                                <li className='grid place-content-center border w-[3rem] h-[3rem] cursor-pointer'>
                                     1
                                 </li>
-                                <li className='grid place-content-center border w-[3rem] h-[3rem]'>
+                                <li className='grid place-content-center border w-[3rem] h-[3rem] cursor-pointer'>
                                     2
                                 </li>
-                                <li className='grid place-content-center border w-[3rem] h-[3rem]'>
+                                <li className='grid place-content-center border w-[3rem] h-[3rem] cursor-pointer'>
                                     3
                                 </li>
-                                <li className='grid place-content-center border w-[3rem] h-[3rem]'>
+                                <li className='grid place-content-center border w-[3rem] h-[3rem] cursor-pointer'>
                                     4
                                 </li>
                                 <HiOutlineChevronRight />

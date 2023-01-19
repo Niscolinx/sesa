@@ -14,7 +14,7 @@ import 'react-loading-skeleton/dist/skeleton.css'
 import { SkeletonTheme } from 'react-loading-skeleton'
 import Estates from '../pages/dashboard/Estates'
 import EstateManagers from '../pages/dashboard/EstateManagers'
-import EstateDetails from '../pages/dashboard/EstateDetails'
+import EstateDetails from '../pages/dashboard/Estate/EstateDetails'
 
 const router = createBrowserRouter(
     createRoutesFromElements([
@@ -24,7 +24,7 @@ const router = createBrowserRouter(
             <Route path='admins' element={<Admins />} />
             <Route path='estates' element={<Estates />} />
             <Route path='estates/:detailId' element={<EstateDetails />} />
-
+            <Route path='estates/:reportsId' element={<EstateReport />} />
             <Route path='estateManagers' element={<EstateManagers />} />
         </Route>,
         <Route path='*' element={<Navigate to='/' />} />,
