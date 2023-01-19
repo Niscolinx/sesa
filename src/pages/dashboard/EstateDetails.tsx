@@ -209,8 +209,8 @@ function EstateDetails() {
                                   React.Children.toArray(
                                     fetchedUsers.map(({ propertyCategory, propertyCode, propertyName, status, accessCard, address, RFID, occupants}) => {
                                         return (
-                                            <div className='flex'>
-                                                <td>
+                                            <div className='flex justify-between'>
+                                                <td className='flex items-center'>
                                                     <input type='checkbox' />
                         
                                                     <span>{propertyCode}</span>
