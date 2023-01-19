@@ -172,9 +172,9 @@ function EstateDetails() {
                             </div>
                         </caption>
 
-                        <div className='grid'>
-                            <div className='flex'>
-                                <h3 className='flex'>
+                        <div className='grid p-8'>
+                            <div className='flex justify-between'>
+                                <h3 className='flex items-center'>
                                     <input type='checkbox' />
                                     <p>Property Code</p>
                                 </h3>
@@ -184,10 +184,11 @@ function EstateDetails() {
                                 <h3>Occupants</h3>
                                 <h3>RFID</h3>
                                 <h3>Access Card</h3>
-                                <h3>RFID</h3>
+                                <h3>Status</h3>
+                                <h3>Actions</h3>
                             </div>
 
-                            <tbody className='renderedEstateManagers__table--body'>
+                            <div className='renderedEstateManagers__table--body'>
                                 {fetchedUsers && fetchedUsers.length > 0 ? (
                                     fetchedUsers.map((value, i) => {
                                         return (
@@ -227,7 +228,7 @@ function EstateDetails() {
                                         </td>
                                     </tr>
                                 )}
-                            </tbody>
+                            </div>
                         </div>
                         <footer className='renderedEstateManagers__footer'>
                             <div className='flex gap-8 items-center'>
