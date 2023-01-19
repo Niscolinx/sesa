@@ -1,20 +1,25 @@
-import { createContext, useState } from 'react'
+import { useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
 import AddEstate from '../../components/estates/AddEstate'
 import RenderedEstates from '../../components/estates/RenderedEstates'
 import {
-    EstatePageContext,
     RenderEstatePath,
 } from '../../Context/EstatePageContext'
+import { useAppDispatch, useAppSelector } from '../../store/app/hooks'
+import {routeChangeSelector, setEstatePath} from '../../store/features/routeChange'
+
+
 
 
 function Estates() {
-    const [estatesLoaded, setEstatesLoaded] = useState(false)
-    const [routeToRender, setRouteToRender] =
-        useState<RenderEstatePath>('renderedEstates')
+    const dispatch = useAppDispatch()
+    const {estatePath} = useAppSelector(routeChangeSelector)
 
-    const switchRoute = (path: RenderEstatePath) => {
-        switch (path) {
+    const [estatesLoaded, setEstatesLoaded] = useState(false)
+    
+
+    const switchRoute = (estatePath: RenderEstatePath) => {
+        switch (estatePath) {
             case 'renderedEstates':
                 return <RenderedEstates />
 
@@ -28,20 +33,16 @@ function Estates() {
 
     const handleAddEstate = () => {
         setEstatesLoaded(true)
+        dispatch(setEstatePath('renderedEstates'))
     }
 
     return (
-        <EstatePageContext.Provider
-            value={{
-                routeToRender,
-                setRouteToRender,
-            }}
-        >
+       
             <div className='estates'>
                 <h1 className='heading2'>Estates</h1>
                 <div className='estates__container'>
                     {estatesLoaded ? (
-                        <section>{switchRoute(routeToRender)}</section>
+                        <section>{switchRoute(estatePath)}</section>
                     ) : (
                         <section className='estates__wrapper'>
                             <img src='/icons/admins/errorSvg.svg' alt='' />
@@ -61,7 +62,6 @@ function Estates() {
                     )}
                 </div>
             </div>
-        </EstatePageContext.Provider>
     )
 }
 

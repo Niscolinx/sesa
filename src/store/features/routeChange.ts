@@ -1,41 +1,43 @@
-import { RenderEstateManagerPath } from './../../Context/EstateManagerPageContext';
-import { RenderAdminPath } from './../../Context/AdminPageContext';
-import { RenderEstatePath } from './../../Context/EstatePageContext';
+
 import { createSlice } from '@reduxjs/toolkit'
 import { AppState } from '../app/store'
 
+export type RenderEstatePath = 'renderedEstates' | 'addEstate'
+export type RenderAdminPath = 'renderedAdmins' | 'addAdmin'
+export type RenderEstateManagerPath = 'renderedEstateManagers' | 'addEstateManager'
+
 
 interface RouteChangeState {
-    adminPage: RenderAdminPath
-    estatePage: RenderEstatePath
-    estateManagerPage: RenderEstateManagerPath
+    adminPath: RenderAdminPath
+    estatePath: RenderEstatePath
+    estateManagerPath: RenderEstateManagerPath
 }
 
 const initialState: RouteChangeState = {
-    estatePage: 'renderedEstates',
-    adminPage: 'renderedAdmins',
-    estateManagerPage: 'renderedEstateManagers'
+    estatePath: 'renderedEstates',
+    adminPath: 'renderedAdmins',
+    estateManagerPath: 'renderedEstateManagers'
 } 
 
 const routeChange = createSlice({
     name: 'routeChange',
     initialState,
     reducers: {
-        setEstatePage: (state, action) => {
-            state.estatePage = action.payload
+        setEstatePath: (state, action) => {
+            state.estatePath = action.payload
         },
-        setAdminPage: (state, action) => {
-            state.adminPage = action.payload
+        setAdminPath: (state, action) => {
+            state.adminPath = action.payload
         },
-        setEstateManagerPage: (state, action) => {
-            state.estateManagerPage = action.payload
+        setEstateManagerPath: (state, action) => {
+            state.estateManagerPath = action.payload
         }
 
 
     },
 })
 
-export const { setEstatePage, setAdminPage, setEstateManagerPage } = routeChange.actions
+export const { setEstatePath, setAdminPath, setEstateManagerPath } = routeChange.actions
 export const routeChangeSelector = (state: AppState) => state.routeChange
 
 export default routeChange.reducer
