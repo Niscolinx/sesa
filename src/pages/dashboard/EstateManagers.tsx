@@ -2,17 +2,19 @@ import {  useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
 import AddEstateManager from '../../components/estateManagers/AddEstateManager'
 import RenderedEstateManagers from '../../components/estateManagers/RenderedEstateManagers'
-import {
-    EstateManagerPageContext,
-    RenderEstateManagerPath,
-} from '../../Context/EstateManagerPageContext'
+import { useAppDispatch, useAppSelector } from '../../store/app/hooks'
+import { routeChangeSelector, RenderEstateManagerPath } from '../../store/features/routeChange'
+
 
 
 
 function EstateManagers() {
+
+     const dispatch = useAppDispatch()
+     const { estateManagerPath } = useAppSelector(routeChangeSelector)
+     
     const [estateManagersLoaded, setEstateManagersLoaded] = useState(false)
-    const [routeToRender, setRouteToRender] =
-        useState<RenderEstateManagerPath>('renderedEstateManagers')
+    
 
     const switchRoute = (path: RenderEstateManagerPath) => {
         switch (path) {
@@ -32,17 +34,12 @@ function EstateManagers() {
     }
 
     return (
-        <EstateManagerPageContext.Provider
-            value={{
-                routeToRender,
-                setRouteToRender,
-            }}
-        >
+       
             <div className='estateManagers'>
                 <h1 className='heading2'>EstateManagers</h1>
                 <div className='estateManagers__container'>
                     {estateManagersLoaded ? (
-                        <section>{switchRoute(routeToRender)}</section>
+                        <section>{switchRoute(estateManagerPath)}</section>
                     ) : (
                         <section className='estateManagers__wrapper'>
                             <img src='/icons/admins/errorSvg.svg' alt='' />
@@ -51,7 +48,7 @@ function EstateManagers() {
                             </p>
                             <button
                                 className='btn estateManagers__btn'
-                                onClick={handleAddEstateManager}
+                                onClick={handlePathSwitch}
                             >
                                 <span>
                                     <IoMdAdd />
