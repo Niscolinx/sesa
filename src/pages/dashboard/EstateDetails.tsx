@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
 import { GrDown } from 'react-icons/gr'
-import { HiOutlineDotsVertical, HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
+import {
+    HiOutlineDotsVertical,
+    HiOutlineChevronLeft,
+    HiOutlineChevronRight,
+} from 'react-icons/hi'
 import { IoMdAdd } from 'react-icons/io'
 import { TbCurrencyNaira } from 'react-icons/tb'
 import { Link } from 'react-router-dom'
@@ -84,21 +88,18 @@ const ESTATEMANAGERDATA: EstateManager[] = [
 ]
 
 function EstateDetails() {
-  const [fetchedUsers, setFetchedUsers] = useState<EstateManager[] | null>([])
+    const [fetchedUsers, setFetchedUsers] = useState<EstateManager[] | null>([])
 
-  useEffect(() => {
-      const fetchData = async () => {
-          setTimeout(() => {
-              setFetchedUsers(ESTATEMANAGERDATA)
-          }, 2000)
-      }
-      fetchData()
-  }, [])
+    useEffect(() => {
+        const fetchData = async () => {
+            setTimeout(() => {
+                setFetchedUsers(ESTATEMANAGERDATA)
+            }, 2000)
+        }
+        fetchData()
+    }, [])
 
-   const handlePathSwitch = () => {
-       
-   }
-  
+    const handlePathSwitch = () => {}
 
     return (
         <div className='estateDetail'>
@@ -141,7 +142,7 @@ function EstateDetails() {
                         </Link>
                     </div>
                 </section>
-                <section>
+                <section className='bg-color-white'>
                     <div className='grid text-[1.6rem]'>
                         <caption className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
                             <p className=' font-bold'>
@@ -169,22 +170,23 @@ function EstateDetails() {
                                 </select>
                                 <GrDown className='absolute right-4 text-[1.3rem]' />
                             </div>
-                           
                         </caption>
-                        <div className='renderedEstateManagers__table'>
-                            <thead className='renderedEstateManagers__table--head'>
-                                <tr>
-                                    <th>
-                                        <input type='checkbox' />
-                                        <p>Name</p>
-                                    </th>
-                                    <th>Gender</th>
-                                    <th>Phone Number</th>
-                                    <th>Joined</th>
-                                    <th>Status</th>
-                                    <th>Actions</th>
-                                </tr>
-                            </thead>
+
+                        <div className='grid'>
+                            <div className='flex'>
+                                <h3 className='flex'>
+                                    <input type='checkbox' />
+                                    <p>Property Code</p>
+                                </h3>
+                                <h3>Address</h3>
+                                <h3>Property Category</h3>
+                                <h3>Property Name</h3>
+                                <h3>Occupants</h3>
+                                <h3>RFID</h3>
+                                <h3>Access Card</h3>
+                                <h3>RFID</h3>
+                            </div>
+
                             <tbody className='renderedEstateManagers__table--body'>
                                 {fetchedUsers && fetchedUsers.length > 0 ? (
                                     fetchedUsers.map((value, i) => {
@@ -195,6 +197,9 @@ function EstateDetails() {
                                                     <img
                                                         src='/img/me.jpeg'
                                                         alt=''
+                                                        className='w-10 h-10 rounded-full
+                                                        object-cover
+                                                        object-top'
                                                     />
                                                     <span>{value.name}</span>
                                                 </td>
