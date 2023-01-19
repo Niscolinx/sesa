@@ -6,7 +6,7 @@ function Estates() {
         <div className='estateDetail'>
             <h1 className='heading2'>Estate Details</h1>
             <div className='estateDetail__container'>
-                <section>
+                <section className='bg-white rounded-lg p-8'>
                     <div className='flex'>
                         <p>Iba Housing Estate</p>
                         <p>
