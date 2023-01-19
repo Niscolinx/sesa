@@ -173,8 +173,8 @@ function EstateDetails() {
                         </caption>
 
                         <div className='grid p-8'>
-                            <div className='flex justify-between'>
-                                <h3 className='flex items-center'>
+                            <div className='flex justify-between text-[1.4rem] text-color-dark-1'>
+                                <h3 className='flex items-center gap-2'>
                                     <input type='checkbox' />
                                     <p>Property Code</p>
                                 </h3>
