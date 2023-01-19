@@ -1,15 +1,14 @@
+import { RenderEstatePath } from './../../Context/EstatePageContext';
 import { createSlice } from '@reduxjs/toolkit'
 import { AppState } from '../app/store'
 
 
 interface RouteChangeState {
-    
+    estatePage: RenderEstatePath
 }
 
 const initialState: RouteChangeState = {
-    isOpen: false,
-    path: '',
-
+    estatePage: 'renderedEstates'
 } 
 
 const routeChange = createSlice({
