@@ -3,7 +3,8 @@ import { CgSpinnerTwo } from 'react-icons/cg'
 import { GrDown } from 'react-icons/gr'
 import { IoMdAdd } from 'react-icons/io'
 import { HiOutlineChevronLeft, HiOutlineChevronRight} from 'react-icons/hi'
-import { AdminPageContext } from '../../Context/AdminPageContext'
+import { useAppDispatch, useAppSelector } from '../../store/app/hooks'
+import { routeChangeSelector, setAdminPath } from '../../store/features/routeChange'
 
 type Admin = {
     id: string
@@ -82,9 +83,8 @@ const ADMINDATA: Admin[] = [
 ]
 
 function RenderedAdmins() {
-const AdminContextData = useContext(AdminPageContext)
-const { setRouteToRender } = AdminContextData
-
+ const dispatch = useAppDispatch()
+ 
     const [fetchedUsers, setFetchedUsers] = useState<Admin[] | null>([])
 
     useEffect(() => {
@@ -95,6 +95,10 @@ const { setRouteToRender } = AdminContextData
         }
         fetchData()
     }, [])
+
+    const handlePathSwitch = () => {
+        dispatch(setAdminPath('addAdmin'))
+    }
 
     return (
         <div className='renderedAdmins'>
@@ -119,7 +123,7 @@ const { setRouteToRender } = AdminContextData
                     </div>
                     <button
                         className='btn admins__btn'
-                        onClick={() => setRouteToRender('addAdmin')}
+                        onClick={handlePathSwitch}
                     >
                         <span>
                             <IoMdAdd />

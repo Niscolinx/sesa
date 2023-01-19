@@ -2,13 +2,15 @@ import { useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
 import AddAdmin from '../../components/admins/AddAdmin'
 import RenderedAdmins from '../../components/admins/RenderedAdmins'
-import { RenderAdminPath } from '../../store/features/routeChange'
+import { useAppDispatch, useAppSelector } from '../../store/app/hooks'
+import { RenderAdminPath, routeChangeSelector, setAdminPath } from '../../store/features/routeChange'
 
 
 
 function Admins() {
+  const dispatch = useAppDispatch()
+  const { adminPath } = useAppSelector(routeChangeSelector)
 
-    
     const [adminsLoaded, setAdminsLoaded] = useState(false)
 
     const switchRoute = (path: RenderAdminPath) => {
@@ -25,23 +27,18 @@ function Admins() {
     }
 
 
-    console.log({routeToRender})
     const handleAddAdmin = () => {
         setAdminsLoaded(true)
+        dispatch(setAdminPath('renderedAdmins'))
     }
 
     return (
-        <AdminPageContext.Provider
-            value={{
-                routeToRender,
-                setRouteToRender,
-            }}
-        >
+       
             <div className='admins'>
                 <h1 className='heading2'>Admins</h1>
                 <div className='admins__container'>
                     {adminsLoaded ? (
-                        <section>{switchRoute(routeToRender)}</section>
+                        <section>{switchRoute(adminPath)}</section>
                     ) : (
                         <section className='admins__wrapper'>
                             <img src='/icons/admins/errorSvg.svg' alt='' />
@@ -61,7 +58,6 @@ function Admins() {
                     )}
                 </div>
             </div>
-        </AdminPageContext.Provider>
     )
 }
 
