@@ -11,78 +11,94 @@ import { TbCurrencyNaira } from 'react-icons/tb'
 import { Link } from 'react-router-dom'
 import OverviewCard from '../../components/overview/OverviewCard'
 
-type EstateManager = {
+interface EstateManager {
     id: string
-    name: string
-    gender: string
-    phoneNumber: string
+    propertyCode: string
+    address: string
+    propertyCategory: string
+    propertyName: string
+    occupants: number
+    RFID: number
+    accessCard: number
     status: string
-    onboardingDate: string
 }
 
 const ESTATEMANAGERDATA: EstateManager[] = [
     {
         id: '1',
-        name: 'Jacintha Sage',
-        gender: 'Male',
-        phoneNumber: '(+234) 814 324 6719',
-        onboardingDate: '02-May-22',
+        propertyCode: 'H09985',
+        address: 'Blk.2, Flt. 3, Zone A',
+        propertyCategory: 'Residential',
+        propertyName: 'Property 1',
+        occupants: 122,
+        RFID: 12331,
+        accessCard: 8212,
         status: 'Active',
     },
     {
-        id: '1',
-        name: 'Jacintha Sage',
-        gender: 'Male',
-        phoneNumber: '(+234) 814 324 6719',
-        onboardingDate: '02-May-22',
+        id: '2',
+        propertyCode: 'H09985',
+        address: 'Blk.2, Flt. 3, Zone A',
+        propertyCategory: 'Residential',
+        propertyName: 'Property 1',
+        occupants: 122,
+        RFID: 12331,
+        accessCard: 8212,
         status: 'Active',
     },
     {
-        id: '1',
-        name: 'Jacintha Sage',
-        gender: 'Male',
-        phoneNumber: '(+234) 814 324 6719',
-        onboardingDate: '02-May-22',
+        id: '3',
+        propertyCode: 'H09985',
+        address: 'Blk.2, Flt. 3, Zone A',
+        propertyCategory: 'Residential',
+        propertyName: 'Property 1',
+        occupants: 122,
+        RFID: 12331,
+        accessCard: 8212,
         status: 'Active',
     },
     {
-        id: '1',
-        name: 'Jacintha Sage',
-        gender: 'Male',
-        phoneNumber: '(+234) 814 324 6719',
-        onboardingDate: '02-May-22',
+        id: '4',
+        propertyCode: 'H09985',
+        address: 'Blk.2, Flt. 3, Zone A',
+        propertyCategory: 'Residential',
+        propertyName: 'Property 1',
+        occupants: 122,
+        RFID: 12331,
+        accessCard: 8212,
         status: 'Active',
     },
     {
-        id: '1',
-        name: 'Jacintha Sage',
-        gender: 'Male',
-        phoneNumber: '(+234) 814 324 6719',
-        onboardingDate: '02-May-22',
+        id: '5',
+        propertyCode: 'H09985',
+        address: 'Blk.2, Flt. 3, Zone A',
+        propertyCategory: 'Residential',
+        propertyName: 'Property 1',
+        occupants: 122,
+        RFID: 12331,
+        accessCard: 8212,
         status: 'Active',
     },
     {
-        id: '1',
-        name: 'Jacintha Sage',
-        gender: 'Male',
-        phoneNumber: '(+234) 814 324 6719',
-        onboardingDate: '02-May-22',
+        id: '6',
+        propertyCode: 'H09985',
+        address: 'Blk.2, Flt. 3, Zone A',
+        propertyCategory: 'Residential',
+        propertyName: 'Property 1',
+        occupants: 122,
+        RFID: 12331,
+        accessCard: 8212,
         status: 'Active',
     },
     {
-        id: '1',
-        name: 'Jacintha Sage',
-        gender: 'Male',
-        phoneNumber: '(+234) 814 324 6719',
-        onboardingDate: '02-May-22',
-        status: 'Active',
-    },
-    {
-        id: '1',
-        name: 'Jacintha Sage',
-        gender: 'Male',
-        phoneNumber: '(+234) 814 324 6719',
-        onboardingDate: '02-May-22',
+        id: '7',
+        propertyCode: 'H09985',
+        address: 'Blk.2, Flt. 3, Zone A',
+        propertyCategory: 'Residential',
+        propertyName: 'Property 1',
+        occupants: 122,
+        RFID: 12331,
+        accessCard: 8212,
         status: 'Active',
     },
 ]
@@ -188,26 +204,23 @@ function EstateDetails() {
                                 <h3>Actions</h3>
                             </div>
 
-                            <div className='renderedEstateManagers__table--body'>
-                                {fetchedUsers && fetchedUsers.length > 0 ? (
-                                    fetchedUsers.map((value, i) => {
+                            <div className='grid'>
+                                { fetchedUsers && fetchedUsers.length > 0 ? (
+                                  React.Children.toArray(
+                                    fetchedUsers.map(({ propertyCategory, propertyCode, propertyName, status, accessCard, address, RFID, occupants}) => {
                                         return (
-                                            <tr key={i}>
+                                            <div className='flex'>
                                                 <td>
                                                     <input type='checkbox' />
-                                                    <img
-                                                        src='/img/me.jpeg'
-                                                        alt=''
-                                                        className='w-10 h-10 rounded-full
-                                                        object-cover
-                                                        object-top'
-                                                    />
-                                                    <span>{value.name}</span>
+                        
+                                                    <span>{propertyCode}</span>
                                                 </td>
-                                                <td>{value.gender}</td>
-                                                <td>{value.phoneNumber}</td>
-                                                <td>{value.onboardingDate}</td>
-                                                <td>{value.status}</td>
+                                                <td>{address}</td>
+                                                <td>{propertyCategory}</td>
+                                                <td>{propertyName}</td>
+                                                <td>{occupants}</td>
+                                                <td>{RFID}</td>
+                                                <td>{accessCard}</td>
                                                 <td>
                                                     <button>
                                                         <img
@@ -216,9 +229,9 @@ function EstateDetails() {
                                                         />
                                                     </button>
                                                 </td>
-                                            </tr>
+                                            </div>
                                         )
-                                    })
+                                    }))
                                 ) : (
                                     <tr>
                                         <td className='relative'>
