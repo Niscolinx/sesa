@@ -1,5 +1,5 @@
 import React from 'react'
-import { useContext, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
 import { GrDown } from 'react-icons/gr'
 import { IoMdAdd } from 'react-icons/io'
@@ -10,7 +10,8 @@ import {
 } from 'react-icons/hi'
 import { TbCurrencyNaira } from 'react-icons/tb'
 
-import { EstatePageContext } from '../../Context/EstatePageContext'
+import { useAppDispatch } from '../../store/app/hooks'
+import { setEstatePath } from '../../store/features/routeChange'
 
 type EstateDetails = {
     estateName: string
@@ -84,8 +85,7 @@ const ESTATEDATA: Estate[] = [
 ]
 
 function RenderedEstates() {
-    const EstateContextData = useContext(EstatePageContext)
-    const { setRouteToRender } = EstateContextData
+    const dispatch = useAppDispatch()
 
     const [fetchedUsers, setFetchedUsers] = useState<Estate[] | null>([])
 
@@ -97,6 +97,10 @@ function RenderedEstates() {
         }
         fetchData()
     }, [])
+
+    const handlePathSwitch = () => {
+        dispatch(setEstatePath('renderedEstates'))
+    }
 
     return (
         <div className='renderedEstates'>
@@ -121,7 +125,7 @@ function RenderedEstates() {
                     </div>
                     <button
                         className='btn addEstate__btn'
-                        onClick={() => setRouteToRender('addEstate')}
+                        onClick={handlePathSwitch}
                     >
                         <span>
                             <IoMdAdd />
