@@ -1,117 +1,56 @@
 import React, { useState, useEffect } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
 import { GrDown } from 'react-icons/gr'
-import {
-    HiOutlineChevronLeft,
-    HiOutlineChevronRight,
-} from 'react-icons/hi'
+import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 
 import { Link } from 'react-router-dom'
 import OverviewCard from '../../../components/overview/OverviewCard'
 
-interface EstateManager {
+interface EstateDetails {
     id: string
-    propertyCode: string
-    address: string
-    propertyCategory: string
-    propertyName: string
-    occupants: number
-    RFID: number
-    accessCard: number
-    status: string
+    guardName: string
+    phoneNumber: string
+    date: string
+    guardCode: number
+    clockIn: number
+    clockOut: number
 }
 
-const ESTATEMANAGERDATA: EstateManager[] = [
+const ESTATEDETAILSDATA: EstateDetails[] = [
     {
         id: '1',
-        propertyCode: 'H09985',
-        address: 'Blk.2, Flt. 3, Zone A',
-        propertyCategory: 'Residential',
-        propertyName: 'Property 1',
-        occupants: 122,
-        RFID: 12331,
-        accessCard: 8212,
-        status: 'Active',
-    },
-    {
-        id: '2',
-        propertyCode: 'H09985',
-        address: 'Blk.2, Flt. 3, Zone A',
-        propertyCategory: 'Residential',
-        propertyName: 'Property 1',
-        occupants: 122,
-        RFID: 12331,
-        accessCard: 8212,
-        status: 'Active',
-    },
-    {
-        id: '3',
-        propertyCode: 'H09985',
-        address: 'Blk.2, Flt. 3, Zone A',
-        propertyCategory: 'Residential',
-        propertyName: 'Property 1',
-        occupants: 122,
-        RFID: 12331,
-        accessCard: 8212,
-        status: 'Active',
-    },
-    {
-        id: '4',
-        propertyCode: 'H09985',
-        address: 'Blk.2, Flt. 3, Zone A',
-        propertyCategory: 'Residential',
-        propertyName: 'Property 1',
-        occupants: 122,
-        RFID: 12331,
-        accessCard: 8212,
-        status: 'Active',
-    },
-    {
-        id: '5',
-        propertyCode: 'H09985',
-        address: 'Blk.2, Flt. 3, Zone A',
-        propertyCategory: 'Residential',
-        propertyName: 'Property 1',
-        occupants: 122,
-        RFID: 12331,
-        accessCard: 8212,
-        status: 'Active',
-    },
-    {
-        id: '6',
-        propertyCode: 'H09985',
-        address: 'Blk.2, Flt. 3, Zone A',
-        propertyCategory: 'Residential',
-        propertyName: 'Property 1',
-        occupants: 122,
-        RFID: 12331,
-        accessCard: 8212,
-        status: 'Active',
-    },
-    {
-        id: '7',
-        propertyCode: 'H09985',
-        address: 'Blk.2, Flt. 3, Zone A',
-        propertyCategory: 'Residential',
-        propertyName: 'Property 1',
-        occupants: 122,
-        RFID: 12331,
-        accessCard: 8212,
-        status: 'Active',
+        guardName: 'John Doe',
+        phoneNumber: '08012345678',
+        date: '12/12/2021',
+        guardCode: 1234,
+        clockIn: 8,
+        clockOut: 5,
     },
 ]
 
 function EstateDetails() {
-    const [fetchedUsers, setFetchedUsers] = useState<EstateManager[] | null>([])
+    const [fetchedUsers, setFetchedUsers] = useState<EstateDetails[] | null>([])
 
     useEffect(() => {
         const fetchData = async () => {
             setTimeout(() => {
-                setFetchedUsers(ESTATEMANAGERDATA)
+                setFetchedUsers(ESTATEDETAILSDATA)
             }, 2000)
         }
         fetchData()
     }, [])
+
+    const getDate = () => {
+        const newDate = new Date()
+
+        const date = newDate.toLocaleString('en-GB', { dateStyle: 'full' })
+
+        return date
+    }
+
+    const dateString = getDate()
+
+    getDate()
 
     const handlePathSwitch = () => {}
 
@@ -121,43 +60,36 @@ function EstateDetails() {
             <div className='mt-8 grid gap-8'>
                 <section className='bg-white rounded-lg p-8 grid h-[28rem] text-[1.4rem]'>
                     <div className='flex w-full justify-between'>
-                        <p>Iba Housing Estate</p>
+                        <p className='font-medium text-[2rem]'>
+                            Security Report
+                        </p>
                         <p className='text-[#666869]'>
-                            Joined:{' '}
-                            <span className='text-black'>08 May, 2022</span>
+                            Showing current Day:{' '}
+                            <span className='text-black'>{dateString}</span>
                         </p>
                     </div>
-                    <div className='overview flex justify-between'>
-                        
+                    <div className='overview flex gap-8'>
                         <OverviewCard
-                            title='Property'
-                            number={4}
-                            iconUrl='/icons/overview/property.svg'
+                            title='Total number of Guards'
+                            number={14}
+                            iconUrl='/icons/admins/people.svg'
                             bgColor='bg-[#F5F9FA]'
                             textColor='text-[#00C2FF]'
                         />
                         <OverviewCard
-                            title='Household'
+                            title='Guards on Duty'
                             number={40}
-                            iconUrl='/icons/overview/household2.svg'
+                            iconUrl='/icons/admins/housePeople.svg'
                             bgColor='bg-[#FCF3FA]'
                             textColor='text-[#B6008E]'
                         />
-                    </div>
-                    <div className='flex justify-end'>
-                        <Link
-                            to={`/dashboard/estates/report/:4`}
-                            className='text-[#0660FE] text-[1.4rem]'
-                        >
-                            View Estate Report
-                        </Link>
                     </div>
                 </section>
                 <section className='bg-color-white rounded-lg border min-w-[112rem] overflow-scroll'>
                     <div className='grid text-[1.6rem]'>
                         <caption className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
                             <p className=' font-bold'>
-                                EstateManager List <span>(200)</span>
+                                Attendance Report List <span>(4)</span>
                             </p>
                             <div className='relative flex items-center'>
                                 <img
@@ -168,13 +100,33 @@ function EstateDetails() {
                                 <input
                                     type='text'
                                     placeholder='Search Parameters'
-                                    className='pl-16 w-[25rem] rounded-lg border border-color-blue-light appearance-none outline-none p-4'
+                                    className='pl-16 w-[18rem] rounded-lg border border-color-blue-light appearance-none outline-none p-4'
                                 />
                             </div>
                             <div className='relative flex items-center'>
-                                <select className=' cursor-pointer w-[25rem] rounded-lg border border-color-blue-light appearance-none outline-none p-4'>
+                                <select className=' cursor-pointer w-[18rem] rounded-lg border border-color-blue-light appearance-none outline-none p-4 bg-white'>
                                     <option hidden value=''>
                                         Sort By
+                                    </option>
+                                    <option value='date'>date</option>
+                                    <option value='alpha'>Alpha</option>
+                                </select>
+                                <GrDown className='absolute right-4 text-[1.3rem]' />
+                            </div>
+                            <div className='relative flex items-center'>
+                                <select className=' cursor-pointer w-[18rem] rounded-lg border border-color-blue-light appearance-none outline-none p-4 bg-white'>
+                                    <option hidden value=''>
+                                        Start Date
+                                    </option>
+                                    <option value='date'>date</option>
+                                    <option value='alpha'>Alpha</option>
+                                </select>
+                                <GrDown className='absolute right-4 text-[1.3rem]' />
+                            </div>
+                            <div className='relative flex items-center'>
+                                <select className=' cursor-pointer w-[18rem] rounded-lg border border-color-blue-light appearance-none outline-none p-4 bg-white'>
+                                    <option hidden value=''>
+                                        End Date
                                     </option>
                                     <option value='date'>date</option>
                                     <option value='alpha'>Alpha</option>
@@ -185,22 +137,20 @@ function EstateDetails() {
 
                         <div className='grid'>
                             <div
-                                className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-8 gap-8'
+                                className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-5 gap-8'
                                 style={{
-                                    fontSize: '1.4rem',
+                                    fontSize: '1.6rem',
                                 }}
                             >
                                 <p className='flex items-center gap-2'>
                                     <input type='checkbox' />
-                                    <p>Property Code</p>
+                                    <p>Guard Name</p>
                                 </p>
-                                <p>Address</p>
-                                <p>Property Category</p>
-                                <p>Property Name</p>
-                                <p>Occupants</p>
-                                <p>RFID</p>
-                                <p>Access Card</p>
-                                <p>Status</p>
+                                <p>Phone Number</p>
+                                <p>Date</p>
+                                <p>Guard Code</p>
+                                <p>Clock In</p>
+                                <p>Clock Out</p>
                             </div>
 
                             <div className='grid gap-8 mt-8 p-8'>
@@ -208,14 +158,12 @@ function EstateDetails() {
                                     React.Children.toArray(
                                         fetchedUsers.map(
                                             ({
-                                                propertyCategory,
-                                                propertyCode,
-                                                propertyName,
-                                                status,
-                                                accessCard,
-                                                address,
-                                                RFID,
-                                                occupants,
+                                                guardCode,
+                                                guardName,
+                                                phoneNumber,
+                                                clockIn,
+                                                clockOut,
+                                                date
                                             }) => {
                                                 return (
                                                     <div className='grid justify-between border-b grid-cols-8 gap-8 '>
@@ -223,18 +171,17 @@ function EstateDetails() {
                                                             <input type='checkbox' />
 
                                                             <span>
-                                                                {propertyCode}
+                                                                {guardName}
                                                             </span>
                                                         </p>
-                                                        <p>{address}</p>
+                                                        <p>{phoneNumber}</p>
                                                         <p>
-                                                            {propertyCategory}
+                                                            {date}
                                                         </p>
-                                                        <p>{propertyName}</p>
-                                                        <p>{occupants}</p>
-                                                        <p>{RFID}</p>
-                                                        <p>{accessCard}</p>
-                                                        <p>{status}</p>
+                                                        <p>{guardCode}</p>
+                                                        <p>{clockIn}</p>
+                                                        <p>{clockOut}</p>
+                                                        
                                                     </div>
                                                 )
                                             }
