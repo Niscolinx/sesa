@@ -326,3 +326,20 @@
         backdrop-filter: blur(7px);
     }
 }
+
+
+.estateDetail{
+
+    &__radioBox{
+        display: flex;
+        font-size: 1.4rem;
+        margin: 2rem 0;
+        gap: 4rem;
+
+        input[type="radio"]:checked + label{
+            color: #09B47C;
+            border-bottom: 2px solid #09B47C;
+        }
+
+    }
+}
