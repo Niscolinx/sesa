@@ -26,6 +26,51 @@ const ESTATEDETAILSDATA: EstateDetails[] = [
         clockIn: 8,
         clockOut: 5,
     },
+    {
+        id: '1',
+        guardName: 'John Doe',
+        phoneNumber: '08012345678',
+        date: '12/12/2021',
+        guardCode: 1234,
+        clockIn: 8,
+        clockOut: 5,
+    },
+    {
+        id: '1',
+        guardName: 'John Doe',
+        phoneNumber: '08012345678',
+        date: '12/12/2021',
+        guardCode: 1234,
+        clockIn: 8,
+        clockOut: 5,
+    },
+    {
+        id: '1',
+        guardName: 'John Doe',
+        phoneNumber: '08012345678',
+        date: '12/12/2021',
+        guardCode: 1234,
+        clockIn: 8,
+        clockOut: 5,
+    },
+    {
+        id: '1',
+        guardName: 'John Doe',
+        phoneNumber: '08012345678',
+        date: '12/12/2021',
+        guardCode: 1234,
+        clockIn: 8,
+        clockOut: 5,
+    },
+    {
+        id: '1',
+        guardName: 'John Doe',
+        phoneNumber: '08012345678',
+        date: '12/12/2021',
+        guardCode: 1234,
+        clockIn: 8,
+        clockOut: 5,
+    },
 ]
 
 function EstateDetails() {
@@ -137,13 +182,13 @@ function EstateDetails() {
 
                         <div className='grid'>
                             <div
-                                className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-5 gap-8'
+                                className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-6 gap-8'
                                 style={{
                                     fontSize: '1.6rem',
                                 }}
                             >
                                 <p className='flex items-center gap-2'>
-                                    <input type='checkbox' />
+                                    <input type='checkbox' className='cursor-pointer' />
                                     <p>Guard Name</p>
                                 </p>
                                 <p>Phone Number</p>
@@ -166,9 +211,9 @@ function EstateDetails() {
                                                 date
                                             }) => {
                                                 return (
-                                                    <div className='grid justify-between border-b grid-cols-8 gap-8 '>
+                                                    <div className='grid justify-between border-b grid-cols-6 gap-8 '>
                                                         <p className='flex items-center gap-4'>
-                                                            <input type='checkbox' />
+                                                            <input type='checkbox' className='cursor-pointer' />
 
                                                             <span>
                                                                 {guardName}
@@ -225,6 +270,12 @@ function EstateDetails() {
                                 </li>
                                 <li className='grid place-content-center border w-[3rem] h-[3rem] cursor-pointer'>
                                     4
+                                </li>
+                                <li className='grid place-content-center w-[3rem] h-[3rem] cursor-pointer'>
+                                    ....
+                                </li>
+                                <li className='grid place-content-center border w-[3rem] h-[3rem] cursor-pointer'>
+                                    10
                                 </li>
                                 <HiOutlineChevronRight />
                             </ul>
