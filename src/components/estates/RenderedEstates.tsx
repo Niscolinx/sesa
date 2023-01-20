@@ -12,6 +12,7 @@ import { TbCurrencyNaira } from 'react-icons/tb'
 
 import { useAppDispatch } from '../../store/app/hooks'
 import { setEstatePath } from '../../store/features/routeChange'
+import { Link } from 'react-router-dom'
 
 type EstateDetails = {
     estateName: string
@@ -140,6 +141,7 @@ function RenderedEstates() {
                                 fetchedUsers.map(
                                     ({
                                         img,
+                                        id,
                                         details: {
                                             estateBalance,
                                             estateManager,
@@ -152,93 +154,106 @@ function RenderedEstates() {
                                         },
                                     }) => {
                                         return (
-                                            <tr className='w-full'>
-                                                <td>
-                                                    <img
-                                                        src={img}
-                                                        alt=''
-                                                        className='table__img'
-                                                    />
-                                                </td>
+                                            <Link to={`/estates/detail/${id}`}>
+                                                <tr className='w-full'>
+                                                    <td>
+                                                        <img
+                                                            src={img}
+                                                            alt=''
+                                                            className='table__img'
+                                                        />
+                                                    </td>
 
-                                                <td>
-                                                    <div>
-                                                        <p className='text-[1.4rem] text-[#043FA7]'>
-                                                            Estate&nbsp;Name
-                                                        </p>
-                                                        <p className='font-[1.6rem] whitespace-nowrap'>
-                                                            {estateName}
-                                                        </p>
-                                                    </div>
-                                                    <div>
-                                                        <p className='text-[#043FA7]'>
-                                                            Security Company
-                                                        </p>
-                                                        <p>{securityCompany}</p>
-                                                    </div>
-                                                    <div>
-                                                        <p className='text-[#043FA7]'>
-                                                            Status
-                                                        </p>
-                                                        <p className='text-[#1D9F5F]'>
-                                                            {status}
-                                                        </p>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div>
-                                                        <p className='text-[#043FA7]'>
-                                                            Estate Balance
-                                                        </p>
-                                                        <p className='flex items-center'>
-                                                            <TbCurrencyNaira className='text-[2rem]' />
-                                                            {estateBalance}
-                                                        </p>
-                                                    </div>
-                                                    <div>
-                                                        <p className='text-[#043FA7]'>
-                                                            No of Residents
-                                                        </p>
-                                                        <p>{NoOfResidents}</p>
-                                                    </div>
-                                                    <div>
-                                                        <p className='text-[#043FA7]'>
-                                                            Sign Out Required
-                                                        </p>
-                                                        <p>
-                                                            {signOutRequired
-                                                                ? 'Yes'
-                                                                : 'No'}
-                                                        </p>
-                                                    </div>
-                                                </td>
-                                                <td className=' grid content-start'>
-                                                    <div>
-                                                        <p className='text-[#043FA7]'>
-                                                            Estate Manager
-                                                        </p>
-                                                        <p>{estateManager}</p>
-                                                    </div>
-                                                    <div className=' mt-10'>
-                                                        <p className='text-[#043FA7]'>
-                                                            {' '}
-                                                            No of Households
-                                                        </p>
-                                                        <p>{NoOfHouseholds}</p>
-                                                    </div>
-                                                </td>
+                                                    <td>
+                                                        <div>
+                                                            <p className='text-[1.4rem] text-[#043FA7]'>
+                                                                Estate&nbsp;Name
+                                                            </p>
+                                                            <p className='font-[1.6rem] whitespace-nowrap'>
+                                                                {estateName}
+                                                            </p>
+                                                        </div>
+                                                        <div>
+                                                            <p className='text-[#043FA7]'>
+                                                                Security Company
+                                                            </p>
+                                                            <p>
+                                                                {
+                                                                    securityCompany
+                                                                }
+                                                            </p>
+                                                        </div>
+                                                        <div>
+                                                            <p className='text-[#043FA7]'>
+                                                                Status
+                                                            </p>
+                                                            <p className='text-[#1D9F5F]'>
+                                                                {status}
+                                                            </p>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div>
+                                                            <p className='text-[#043FA7]'>
+                                                                Estate Balance
+                                                            </p>
+                                                            <p className='flex items-center'>
+                                                                <TbCurrencyNaira className='text-[2rem]' />
+                                                                {estateBalance}
+                                                            </p>
+                                                        </div>
+                                                        <div>
+                                                            <p className='text-[#043FA7]'>
+                                                                No of Residents
+                                                            </p>
+                                                            <p>
+                                                                {NoOfResidents}
+                                                            </p>
+                                                        </div>
+                                                        <div>
+                                                            <p className='text-[#043FA7]'>
+                                                                Sign Out
+                                                                Required
+                                                            </p>
+                                                            <p>
+                                                                {signOutRequired
+                                                                    ? 'Yes'
+                                                                    : 'No'}
+                                                            </p>
+                                                        </div>
+                                                    </td>
+                                                    <td className=' grid content-start'>
+                                                        <div>
+                                                            <p className='text-[#043FA7]'>
+                                                                Estate Manager
+                                                            </p>
+                                                            <p>
+                                                                {estateManager}
+                                                            </p>
+                                                        </div>
+                                                        <div className=' mt-10'>
+                                                            <p className='text-[#043FA7]'>
+                                                                {' '}
+                                                                No of Households
+                                                            </p>
+                                                            <p>
+                                                                {NoOfHouseholds}
+                                                            </p>
+                                                        </div>
+                                                    </td>
 
-                                                <td
-                                                    className='flex items-start content-start mr-4'
-                                                    style={{
-                                                        width: '1rem',
-                                                    }}
-                                                >
-                                                    <button>
-                                                        <HiOutlineDotsVertical className='text-[2rem]' />
-                                                    </button>
-                                                </td>
-                                            </tr>
+                                                    <td
+                                                        className='flex items-start content-start mr-4'
+                                                        style={{
+                                                            width: '1rem',
+                                                        }}
+                                                    >
+                                                        <button>
+                                                            <HiOutlineDotsVertical className='text-[2rem]' />
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            </Link>
                                         )
                                     }
                                 )

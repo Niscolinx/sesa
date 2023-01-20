@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
-import AddEstate from '../../components/estates/AddEstate'
-import RenderedEstates from '../../components/estates/RenderedEstates'
-import { useAppDispatch, useAppSelector } from '../../store/app/hooks'
-import {RenderEstatePath, routeChangeSelector, setEstatePath} from '../../store/features/routeChange'
+import AddEstate from '../../../components/estates/AddEstate'
+import RenderedEstates from '../../../components/estates/RenderedEstates'
+import { useAppDispatch, useAppSelector } from '../../../store/app/hooks'
+import {RenderEstatePath, routeChangeSelector, setEstatePath} from '../../../store/features/routeChange'
 
 
 

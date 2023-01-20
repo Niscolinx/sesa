@@ -151,12 +151,15 @@ function EstateDetails() {
                         />
                     </div>
                     <div className='flex justify-end'>
-                        <Link to='/' className='text-[#0660FE] text-[1.4rem]'>
+                        <Link
+                            to='/estates/report/:Id'
+                            className='text-[#0660FE] text-[1.4rem]'
+                        >
                             View Estate Report
                         </Link>
                     </div>
                 </section>
-                <section className='bg-color-white rounded-lg border min-w-[112rem]'>
+                <section className='bg-color-white rounded-lg border min-w-[112rem] overflow-scroll'>
                     <div className='grid text-[1.6rem]'>
                         <caption className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
                             <p className=' font-bold'>
