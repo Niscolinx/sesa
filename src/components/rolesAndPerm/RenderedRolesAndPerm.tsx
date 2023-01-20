@@ -3,7 +3,6 @@ import { CgSpinnerTwo } from 'react-icons/cg'
 import { GrDown } from 'react-icons/gr'
 import { IoMdAdd } from 'react-icons/io'
 import { HiOutlineChevronLeft, HiOutlineChevronRight} from 'react-icons/hi'
-import { useAppDispatch } from '../../store/app/hooks'
 
 
 type Roles = 'admin' | 'estateManager' | 'securityCompany' | 'securityGuard' | 'resident'
@@ -48,7 +47,6 @@ const ROLES_AND_PERM: RolesAndPerm[] = [
 ]
 
 function RenderedEstateManagers() {
- const dispatch = useAppDispatch()
 
     const [fetchedUsers, setFetchedUsers] = useState<RolesAndPerm[] | null>([])
 
