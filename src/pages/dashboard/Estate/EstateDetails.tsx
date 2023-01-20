@@ -128,13 +128,7 @@ function EstateDetails() {
                         </p>
                     </div>
                     <div className='overview flex justify-between'>
-                        <OverviewCard
-                            title='Residents'
-                            number={18_000}
-                            iconUrl='/icons/overview/residents.svg'
-                            bgColor='bg-[#DDFCDC]'
-                            textColor='text-[#1A8F56]'
-                        />
+                        
                         <OverviewCard
                             title='Property'
                             number={4}
