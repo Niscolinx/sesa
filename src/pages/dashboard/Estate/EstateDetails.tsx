@@ -152,7 +152,7 @@ function EstateDetails() {
                     </div>
                     <div className='flex justify-end'>
                         <Link
-                            to='/estates/report/:Id'
+                            to={`/dashboard/estates/report/:4`}
                             className='text-[#0660FE] text-[1.4rem]'
                         >
                             View Estate Report

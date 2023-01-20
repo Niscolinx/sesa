@@ -99,9 +99,6 @@ const ESTATEMANAGERDATA: EstateManager[] = [
 ]
 
 function EstateReport() {
-
-   
-
     const [fetchedUsers, setFetchedUsers] = useState<EstateManager[] | null>([])
 
     useEffect(() => {
@@ -151,7 +148,10 @@ function EstateReport() {
                         />
                     </div>
                     <div className='flex justify-end'>
-                        <Link to='/' className='text-[#0660FE] text-[1.4rem]'>
+                        <Link
+                            to={`/dashboard/estates/report/:4`}
+                            className='text-[#0660FE] text-[1.4rem]'
+                        >
                             View Estate Report
                         </Link>
                     </div>

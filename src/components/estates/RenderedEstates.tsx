@@ -154,7 +154,7 @@ function RenderedEstates() {
                                         },
                                     }) => {
                                         return (
-                                            <Link to={`/estates/detail/${id}`}>
+                                            <Link to={`/dashboard/estates/detail/:${id}`}>
                                                 <tr className='w-full'>
                                                     <td>
                                                         <img
