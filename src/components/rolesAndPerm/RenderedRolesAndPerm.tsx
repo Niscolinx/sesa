@@ -4,7 +4,6 @@ import { GrDown } from 'react-icons/gr'
 import { IoMdAdd } from 'react-icons/io'
 import { HiOutlineChevronLeft, HiOutlineChevronRight} from 'react-icons/hi'
 import { useAppDispatch } from '../../store/app/hooks'
-import {  setEstateManagerPath } from '../../store/features/routeChange'
 
 
 type Roles = 'admin' | 'estateManager' | 'securityCompany' | 'securityGuard' | 'resident'
@@ -19,30 +18,50 @@ const ROLES_AND_PERM: RolesAndPerm[] = [
     {
         id: '1',
         name: 'Jacintha Sage',
-        gender: 'Male',
-        phoneNumber: '(+234) 814 324 6719',
-        onboardingDate: '02-May-22',
-        status: 'Active',
-    }
+        roles: ['admin', 'estateManager', 'securityCompany', 'securityGuard', 'resident']
+    },
+    {
+        id: '1',
+        name: 'Jacintha Sage',
+        roles: ['admin', 'estateManager', 'securityCompany', 'securityGuard', 'resident']
+    },
+    {
+        id: '1',
+        name: 'Jacintha Sage',
+        roles: ['admin', 'estateManager', 'securityCompany', 'securityGuard', 'resident']
+    },
+    {
+        id: '1',
+        name: 'Jacintha Sage',
+        roles: ['admin', 'estateManager', 'securityCompany', 'securityGuard', 'resident']
+    },
+    {
+        id: '1',
+        name: 'Jacintha Sage',
+        roles: ['admin', 'estateManager', 'securityCompany', 'securityGuard', 'resident']
+    },
+    {
+        id: '1',
+        name: 'Jacintha Sage',
+        roles: ['admin', 'estateManager', 'securityCompany', 'securityGuard', 'resident']
+    },
 ]
 
 function RenderedEstateManagers() {
  const dispatch = useAppDispatch()
 
-    const [fetchedUsers, setFetchedUsers] = useState<EstateManager[] | null>([])
+    const [fetchedUsers, setFetchedUsers] = useState<RolesAndPerm[] | null>([])
 
     useEffect(() => {
         const fetchData = async () => {
             setTimeout(() => {
-                setFetchedUsers(ESTATEMANAGERDATA)
+                setFetchedUsers(ROLES_AND_PERM)
             }, 2000)
         }
         fetchData()
     }, [])
 
-    const handlePathSwitch = () => {
-        dispatch(setEstateManagerPath('addEstateManager'))
-    }
+   
 
     return (
         <div className='renderedEstateManagers'>
