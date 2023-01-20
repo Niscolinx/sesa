@@ -82,14 +82,7 @@ function RenderedRolesAndPerm() {
                         </select>
                         <GrDown />
                     </div>
-                    <button
-                        className='btn estateManagers__btn'
-                    >
-                        <span>
-                            <IoMdAdd />
-                        </span>{' '}
-                        <p>Add EstateManager</p>
-                    </button>
+                    
                 </caption>
                 <div className='renderedEstateManagers__table'>
                     <thead className='renderedEstateManagers__table--head'>
@@ -112,13 +105,14 @@ function RenderedRolesAndPerm() {
                                             <img src='/img/me.jpeg' alt='' />
                                             <span>{value.name}</span>
                                         </td>
-                                        <td>{value.roles[0]} 
-                                            <GrDown/>
+                                        <td>
+                                            {value.roles[0]}
+                                            <GrDown />
                                         </td>
 
                                         <td>
-                                            <button>
-                                               Edit Permissions
+                                            <button className='text-[#098DFF]'>
+                                                Edit Permissions
                                             </button>
                                         </td>
                                     </tr>
