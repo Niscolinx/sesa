@@ -102,6 +102,12 @@ function EstateDetails() {
     return (
         <div className='estateDetail'>
             <h1 className='heading2'>Estate Details</h1>
+            <div>
+                <div>
+                    <label htmlFor='activityReport'>Activity Report</label>
+                    <input type="radio" name="report" id="activityReport" />
+                </div>
+            </div>
             <div className='mt-8 grid gap-8'>
                 <section className='bg-white rounded-lg p-8 grid h-[28rem] text-[1.4rem]'>
                     <div className='flex w-full justify-between'>
