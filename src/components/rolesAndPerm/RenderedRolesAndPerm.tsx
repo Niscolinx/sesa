@@ -136,7 +136,7 @@ function RenderedRolesAndPerm() {
                         <p>View</p>
                         <div className='flex items-center border px-4 rounded-lg'>
                             <input
-                                type='number'
+                                type='text'
                                 className='w-8 outline-none border-none cursor-pointer'
                                 value={6}
                             />
