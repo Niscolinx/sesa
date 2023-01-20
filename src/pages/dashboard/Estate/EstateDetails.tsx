@@ -105,7 +105,19 @@ function EstateDetails() {
             <div>
                 <div>
                     <label htmlFor='activityReport'>Activity Report</label>
-                    <input type="radio" name="report" id="activityReport" />
+                    <input
+                        type='radio'
+                        name='report'
+                        id='activityReport'
+                        className='hidden'
+                    />
+                    <label htmlFor='attendanceReport'>Attendance Report</label>
+                    <input
+                        type='radio'
+                        name='report'
+                        id='attendanceReport'
+                        className='hidden'
+                    />
                 </div>
             </div>
             <div className='mt-8 grid gap-8'>
@@ -194,7 +206,10 @@ function EstateDetails() {
                                 }}
                             >
                                 <p className='flex items-center gap-2'>
-                                    <input type='checkbox' className='cursor-pointer' />
+                                    <input
+                                        type='checkbox'
+                                        className='cursor-pointer'
+                                    />
                                     <p>Guard Name</p>
                                 </p>
                                 <p>Phone Number</p>
@@ -214,25 +229,25 @@ function EstateDetails() {
                                                 phoneNumber,
                                                 clockIn,
                                                 clockOut,
-                                                date
+                                                date,
                                             }) => {
                                                 return (
                                                     <div className='grid justify-between border-b grid-cols-6 gap-8 '>
                                                         <p className='flex items-center gap-4'>
-                                                            <input type='checkbox' className='cursor-pointer' />
+                                                            <input
+                                                                type='checkbox'
+                                                                className='cursor-pointer'
+                                                            />
 
                                                             <span>
                                                                 {guardName}
                                                             </span>
                                                         </p>
                                                         <p>{phoneNumber}</p>
-                                                        <p>
-                                                            {date}
-                                                        </p>
+                                                        <p>{date}</p>
                                                         <p>{guardCode}</p>
                                                         <p>{clockIn}</p>
                                                         <p>{clockOut}</p>
-                                                        
                                                     </div>
                                                 )
                                             }
