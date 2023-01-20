@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
+import RenderedRolesAndPerm from '../../components/rolesAndPerm/RenderedRolesAndPerm'
 
 
 function RolesAndPerm() {
@@ -17,12 +18,12 @@ function RolesAndPerm() {
             <h1 className='heading2'>EstateManagers</h1>
             <div className='estateManagers__container'>
                 {estateManagersLoaded ? (
-                    <section>{switchRoute(estateManagerPath)}</section>
+                    <section><RenderedRolesAndPerm/></section>
                 ) : (
                     <section className='estateManagers__wrapper'>
                         <img src='/icons/admins/errorSvg.svg' alt='' />
                         <p className='text'>
-                            Ooops you have not added any EstateManager yet
+                            Ooops you have not added any users to enroll yet
                         </p>
                         <button
                             className='btn estateManagers__btn'
@@ -31,7 +32,7 @@ function RolesAndPerm() {
                             <span>
                                 <IoMdAdd />
                             </span>{' '}
-                            Add EstateManager
+                            View Users
                         </button>
                     </section>
                 )}
