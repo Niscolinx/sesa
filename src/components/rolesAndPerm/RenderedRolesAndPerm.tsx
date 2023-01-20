@@ -64,7 +64,7 @@ function RenderedRolesAndPerm() {
     return (
         <div className='renderedEstateManagers'>
             <table className='renderedEstateManagers__tableBox'>
-                <caption className='renderedEstateManagers__caption'>
+                <caption className='renderedEstateManagers__caption justify-baseline'>
                     <p className='caption__title'>
                         Role List <span>(200)</span>
                     </p>
@@ -105,9 +105,11 @@ function RenderedRolesAndPerm() {
                                             <img src='/img/me.jpeg' alt='' />
                                             <span>{value.name}</span>
                                         </td>
-                                        <td>
-                                            {value.roles[0]}
-                                            <GrDown />
+                                        <td className='font-semibold'>
+                                            {value.roles[i]
+                                                ? value.roles[i]
+                                                : value.roles[2]}
+                                            <GrDown className='w-[1rem] h-[1rem]' />
                                         </td>
 
                                         <td>
