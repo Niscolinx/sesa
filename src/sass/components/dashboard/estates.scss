@@ -347,11 +347,15 @@
             bottom: 0;
         }
 
+        label{
+            cursor: pointer;
+
+        }
+
         input[type='radio']:checked + label {
             color: #09b47c;
             position: relative;
             z-index: 2;
-            cursor: pointer;
             padding-bottom: 1rem;
             border-bottom: 2px solid #09b47c;
         }
