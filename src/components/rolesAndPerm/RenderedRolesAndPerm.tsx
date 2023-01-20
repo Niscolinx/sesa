@@ -46,7 +46,7 @@ const ROLES_AND_PERM: RolesAndPerm[] = [
     },
 ]
 
-function RenderedEstateManagers() {
+function RenderedRolesAndPerm() {
 
     const [fetchedUsers, setFetchedUsers] = useState<RolesAndPerm[] | null>([])
 
@@ -66,7 +66,7 @@ function RenderedEstateManagers() {
             <table className='renderedEstateManagers__tableBox'>
                 <caption className='renderedEstateManagers__caption'>
                     <p className='caption__title'>
-                        EstateManager List <span>(200)</span>
+                        Role List <span>(200)</span>
                     </p>
                     <div className='caption__searchBox'>
                         <img src='/icons/estateManagers/search.svg' alt='' />
@@ -84,7 +84,6 @@ function RenderedEstateManagers() {
                     </div>
                     <button
                         className='btn estateManagers__btn'
-                        onClick={handlePathSwitch}
                     >
                         <span>
                             <IoMdAdd />
@@ -99,10 +98,7 @@ function RenderedEstateManagers() {
                                 <input type='checkbox' />
                                 <p>Name</p>
                             </th>
-                            <th>Gender</th>
-                            <th>Phone Number</th>
-                            <th>Joined</th>
-                            <th>Status</th>
+                            <th>Roles</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -116,16 +112,13 @@ function RenderedEstateManagers() {
                                             <img src='/img/me.jpeg' alt='' />
                                             <span>{value.name}</span>
                                         </td>
-                                        <td>{value.gender}</td>
-                                        <td>{value.phoneNumber}</td>
-                                        <td>{value.onboardingDate}</td>
-                                        <td>{value.status}</td>
+                                        <td>{value.roles[0]} 
+                                            <GrDown/>
+                                        </td>
+
                                         <td>
                                             <button>
-                                                <img
-                                                    src='/icons/estateManagers/threeDots.svg'
-                                                    alt=''
-                                                />
+                                               Edit Permissions
                                             </button>
                                         </td>
                                     </tr>
@@ -177,4 +170,4 @@ function RenderedEstateManagers() {
     )
 }
 
-export default RenderedEstateManagers
+export default RenderedRolesAndPerm
