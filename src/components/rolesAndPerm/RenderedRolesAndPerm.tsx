@@ -7,9 +7,9 @@ import React from 'react'
 
 type Roles =
     | 'admin'
-    | 'estateManager'
-    | 'securityCompany'
-    | 'securityGuard'
+    | 'estate Manager'
+    | 'security Company'
+    | 'security Guard'
     | 'resident'
 
 interface RolesAndPerm {
@@ -24,67 +24,67 @@ const ROLES_AND_PERM: RolesAndPerm[] = [
         name: 'Jacintha Sage',
         roles: [
             'admin',
-            'estateManager',
-            'securityCompany',
-            'securityGuard',
+            'estate Manager',
+            'security Company',
+            'security Guard',
             'resident',
         ],
     },
-    {
-        id: '1',
-        name: 'Jacintha Sage',
-        roles: [
-            'admin',
-            'estateManager',
-            'securityCompany',
-            'securityGuard',
-            'resident',
-        ],
-    },
-    {
-        id: '1',
-        name: 'Jacintha Sage',
-        roles: [
-            'admin',
-            'estateManager',
-            'securityCompany',
-            'securityGuard',
-            'resident',
-        ],
-    },
-    {
-        id: '1',
-        name: 'Jacintha Sage',
-        roles: [
-            'admin',
-            'estateManager',
-            'securityCompany',
-            'securityGuard',
-            'resident',
-        ],
-    },
-    {
-        id: '1',
-        name: 'Jacintha Sage',
-        roles: [
-            'admin',
-            'estateManager',
-            'securityCompany',
-            'securityGuard',
-            'resident',
-        ],
-    },
-    {
-        id: '1',
-        name: 'Jacintha Sage',
-        roles: [
-            'admin',
-            'estateManager',
-            'securityCompany',
-            'securityGuard',
-            'resident',
-        ],
-    },
+    // {
+    //     id: '1',
+    //     name: 'Jacintha Sage',
+    //     roles: [
+    //         'admin',
+    //         'estateManager',
+    //         'securityCompany',
+    //         'securityGuard',
+    //         'resident',
+    //     ],
+    // },
+    // {
+    //     id: '1',
+    //     name: 'Jacintha Sage',
+    //     roles: [
+    //         'admin',
+    //         'estateManager',
+    //         'securityCompany',
+    //         'securityGuard',
+    //         'resident',
+    //     ],
+    // },
+    // {
+    //     id: '1',
+    //     name: 'Jacintha Sage',
+    //     roles: [
+    //         'admin',
+    //         'estateManager',
+    //         'securityCompany',
+    //         'securityGuard',
+    //         'resident',
+    //     ],
+    // },
+    // {
+    //     id: '1',
+    //     name: 'Jacintha Sage',
+    //     roles: [
+    //         'admin',
+    //         'estateManager',
+    //         'securityCompany',
+    //         'securityGuard',
+    //         'resident',
+    //     ],
+    // },
+    // {
+    //     id: '1',
+    //     name: 'Jacintha Sage',
+    //     roles: [
+    //         'admin',
+    //         'estateManager',
+    //         'securityCompany',
+    //         'securityGuard',
+    //         'resident',
+    //     ],
+    // },
 ]
 
 function RenderedRolesAndPerm() {
@@ -164,7 +164,7 @@ function RenderedRolesAndPerm() {
                                                     : value.roles[2]}
                                                 <GrDown className='w-[1rem] h-[1rem]' />
 
-                                                <div className='absolute top-0'>
+                                                <div className='absolute top-[5rem] translate-x-[2rem]'>
                                                     {value.roles.map(
                                                         (item, i) => (
                                                             <p>{item}</p>
