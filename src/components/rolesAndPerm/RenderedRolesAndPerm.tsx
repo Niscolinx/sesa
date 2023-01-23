@@ -164,10 +164,10 @@ function RenderedRolesAndPerm() {
                                                     : value.roles[2]}
                                                 <GrDown className='w-[1rem] h-[1rem]' />
 
-                                                <div className='absolute top-[5rem] translate-x-[2rem]'>
+                                                <div className='absolute top-[5rem] translate-x-[6rem] border border-color-primary-light w-[24rem] p-4 bg-color-white rounded-lg grid gap-2'>
                                                     {value.roles.map(
                                                         (item, i) => (
-                                                            <p>{item}</p>
+                                                            <p className='text-[1.4rem]' key={i}>{item}</p>
                                                         )
                                                     )}
                                                 </div>
