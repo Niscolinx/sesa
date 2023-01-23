@@ -1,11 +1,16 @@
-import {  useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
 import { GrDown } from 'react-icons/gr'
 import { IoMdAdd } from 'react-icons/io'
-import { HiOutlineChevronLeft, HiOutlineChevronRight} from 'react-icons/hi'
+import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
+import React from 'react'
 
-
-type Roles = 'admin' | 'estateManager' | 'securityCompany' | 'securityGuard' | 'resident'
+type Roles =
+    | 'admin'
+    | 'estateManager'
+    | 'securityCompany'
+    | 'securityGuard'
+    | 'resident'
 
 interface RolesAndPerm {
     id: string
@@ -17,37 +22,73 @@ const ROLES_AND_PERM: RolesAndPerm[] = [
     {
         id: '1',
         name: 'Jacintha Sage',
-        roles: ['admin', 'estateManager', 'securityCompany', 'securityGuard', 'resident']
+        roles: [
+            'admin',
+            'estateManager',
+            'securityCompany',
+            'securityGuard',
+            'resident',
+        ],
     },
     {
         id: '1',
         name: 'Jacintha Sage',
-        roles: ['admin', 'estateManager', 'securityCompany', 'securityGuard', 'resident']
+        roles: [
+            'admin',
+            'estateManager',
+            'securityCompany',
+            'securityGuard',
+            'resident',
+        ],
     },
     {
         id: '1',
         name: 'Jacintha Sage',
-        roles: ['admin', 'estateManager', 'securityCompany', 'securityGuard', 'resident']
+        roles: [
+            'admin',
+            'estateManager',
+            'securityCompany',
+            'securityGuard',
+            'resident',
+        ],
     },
     {
         id: '1',
         name: 'Jacintha Sage',
-        roles: ['admin', 'estateManager', 'securityCompany', 'securityGuard', 'resident']
+        roles: [
+            'admin',
+            'estateManager',
+            'securityCompany',
+            'securityGuard',
+            'resident',
+        ],
     },
     {
         id: '1',
         name: 'Jacintha Sage',
-        roles: ['admin', 'estateManager', 'securityCompany', 'securityGuard', 'resident']
+        roles: [
+            'admin',
+            'estateManager',
+            'securityCompany',
+            'securityGuard',
+            'resident',
+        ],
     },
     {
         id: '1',
         name: 'Jacintha Sage',
-        roles: ['admin', 'estateManager', 'securityCompany', 'securityGuard', 'resident']
+        roles: [
+            'admin',
+            'estateManager',
+            'securityCompany',
+            'securityGuard',
+            'resident',
+        ],
     },
 ]
 
 function RenderedRolesAndPerm() {
-
+    const [showDialog, setShowDialog] = useState(false)
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
     const [fetchedUsers, setFetchedUsers] = useState<RolesAndPerm[] | null>([])
@@ -61,14 +102,16 @@ function RenderedRolesAndPerm() {
         fetchData()
     }, [])
 
-   
-
     return (
         <div className='renderedEstateManagers'>
             <dialog ref={dialogRef}>
                 <div>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur deleniti fuga aliquid perferendis esse ab necessitatibus ducimus ex, omnis porro aspernatur exercitationem beatae maiores, a accusamus eaque ipsum vitae expedita!
-                    </div>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                    Tenetur deleniti fuga aliquid perferendis esse ab
+                    necessitatibus ducimus ex, omnis porro aspernatur
+                    exercitationem beatae maiores, a accusamus eaque ipsum vitae
+                    expedita!
+                </div>
             </dialog>
             <table className='renderedEstateManagers__tableBox'>
                 <caption className='renderedEstateManagers__caption justify-baseline'>
@@ -89,7 +132,6 @@ function RenderedRolesAndPerm() {
                         </select>
                         <GrDown />
                     </div>
-                    
                 </caption>
                 <div className='renderedEstateManagers__table'>
                     <thead className='renderedEstateManagers__table--head'>
@@ -104,29 +146,42 @@ function RenderedRolesAndPerm() {
                     </thead>
                     <tbody className='renderedEstateManagers__table--body'>
                         {fetchedUsers && fetchedUsers.length > 0 ? (
-                            fetchedUsers.map((value, i) => {
-                                return (
-                                    <tr key={i}>
-                                        <td>
-                                            <input type='checkbox' />
-                                            <img src='/img/me.jpeg' alt='' />
-                                            <span>{value.name}</span>
-                                        </td>
-                                        <td className='font-semibold capitalize'>
-                                            {value.roles[i]
-                                                ? value.roles[i]
-                                                : value.roles[2]}
-                                            <GrDown className='w-[1rem] h-[1rem]' />
-                                        </td>
+                            React.Children.toArray(
+                                fetchedUsers.map((value, i) => {
+                                    return (
+                                        <tr key={i} className='relative'>
+                                            <td>
+                                                <input type='checkbox' />
+                                                <img
+                                                    src='/img/me.jpeg'
+                                                    alt=''
+                                                />
+                                                <span>{value.name}</span>
+                                            </td>
+                                            <td className='font-semibold capitalize'>
+                                                {value.roles[i]
+                                                    ? value.roles[i]
+                                                    : value.roles[2]}
+                                                <GrDown className='w-[1rem] h-[1rem]' />
 
-                                        <td>
-                                            <button className='text-[#098DFF]'>
-                                                Edit Permissions
-                                            </button>
-                                        </td>
-                                    </tr>
-                                )
-                            })
+                                                <div className='absolute top-0'>
+                                                    {value.roles.map(
+                                                        (item, i) => (
+                                                            <p>{item}</p>
+                                                        )
+                                                    )}
+                                                </div>
+                                            </td>
+
+                                            <td>
+                                                <button className='text-[#098DFF]'>
+                                                    Edit Permissions
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    )
+                                })
+                            )
                         ) : (
                             <tr>
                                 <td className='relative'>
