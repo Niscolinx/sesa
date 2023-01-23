@@ -65,8 +65,9 @@ function RenderedRolesAndPerm() {
 
     return (
         <div className='renderedEstateManagers'>
-            <dialog>
+            <dialog ref={dialogRef}>
                 <div>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur deleniti fuga aliquid perferendis esse ab necessitatibus ducimus ex, omnis porro aspernatur exercitationem beatae maiores, a accusamus eaque ipsum vitae expedita!
                     </div>
             </dialog>
             <table className='renderedEstateManagers__tableBox'>
