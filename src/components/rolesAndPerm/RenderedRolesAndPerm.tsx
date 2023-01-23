@@ -49,7 +49,16 @@ const ROLES_AND_PERM: RolesAndPerm[] = [
 function RenderedRolesAndPerm() {
     const [showDialog, setShowDialog] = useState(false)
     const dialogRef = useRef<HTMLDialogElement | null>(null)
-    const [roles, setRoles] = useState<Roles[]>(['admin', 'estate Manager', 'security Company', 'security Guard', 'resident'])
+    const [roles, setRoles] = useState<Roles[]>([
+        'admin',
+        'estate Manager',
+        'security Company',
+        'security Guard',
+        'resident',
+    ])
+    const [selectedRole, setSelectedRole] = useState<{
+        [key: string]: Roles
+    }>(null as any)
     const [toggleDropDown, setToggleDropDown] = useState<{
         isDropDownOpen: boolean
         index: number | null
@@ -88,7 +97,18 @@ function RenderedRolesAndPerm() {
 
     const selectRole = (e: React.MouseEvent, item: string, index: number) => {
         console.log('select role')
+        setSelectedRole((prev) => {
+            return {
+                ...prev,
+                [index]: item,
+            }
+        })
     }
+
+    const showPermissions = () => {
+
+    }
+    
     return (
         <div className='renderedEstateManagers'>
             <dialog ref={dialogRef}>
@@ -163,7 +183,14 @@ function RenderedRolesAndPerm() {
                                                         )
                                                     }
                                                 >
-                                                    {'adin'}
+                                                    {selectedRole &&
+                                                    selectedRole[i] ? (
+                                                        selectedRole[i]
+                                                    ) : (
+                                                        <span className='text-color-primary'>
+                                                            Select Role
+                                                        </span>
+                                                    )}
                                                     {isDropDownOpen &&
                                                     index === i ? (
                                                         <GrUp className='w-[1rem] h-[1rem]' />
@@ -185,12 +212,25 @@ function RenderedRolesAndPerm() {
                                                     index === i && (
                                                         <div className='absolute top-[5rem] translate-x-[6rem] border border-color-primary-light w-[24rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
                                                             {roles.map(
-                                                                (item, index) => (
+                                                                (
+                                                                    item,
+                                                                    index
+                                                                ) => (
                                                                     <p
                                                                         className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
-                                                                        key={index+i}
-                                                                        onClick={(e) => selectRole(e, item, i)}
-
+                                                                        key={
+                                                                            index +
+                                                                            i
+                                                                        }
+                                                                        onClick={(
+                                                                            e
+                                                                        ) =>
+                                                                            selectRole(
+                                                                                e,
+                                                                                item,
+                                                                                i
+                                                                            )
+                                                                        }
                                                                     >
                                                                         {item}
                                                                     </p>
@@ -201,7 +241,7 @@ function RenderedRolesAndPerm() {
                                             </td>
 
                                             <td>
-                                                <button className='text-[#098DFF]'>
+                                                <button className='text-[#098DFF]' onClick={showPermissions}>
                                                     Edit Permissions
                                                 </button>
                                             </td>
