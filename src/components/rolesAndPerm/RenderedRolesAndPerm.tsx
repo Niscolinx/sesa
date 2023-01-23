@@ -105,18 +105,18 @@ function RenderedRolesAndPerm() {
     }
 
     const showPermissions = () => {
+
         dialogRef.current?.showModal()
     }
 
     return (
         <div className='renderedEstateManagers'>
-            <dialog ref={dialogRef}>
-                <div className='grid'>
-                     
-                     <section className='w-[64rem] h-[80rem]'>
-
-                     </section>
-                </div>
+            <dialog ref={dialogRef} className='dialog'>
+                <section className='grid place-content-center w-full h-[100vh]'>
+                    <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[60rem] gap-8'>
+                        
+                    </div>
+                </section>
             </dialog>
             <table className='renderedEstateManagers__tableBox'>
                 <caption className='renderedEstateManagers__caption justify-baseline'>
@@ -239,7 +239,10 @@ function RenderedRolesAndPerm() {
                                             </td>
 
                                             <td>
-                                                <button className='text-[#098DFF]' onClick={showPermissions}>
+                                                <button
+                                                    className='text-[#098DFF]'
+                                                    onClick={showPermissions}
+                                                >
                                                     Edit Permissions
                                                 </button>
                                             </td>
