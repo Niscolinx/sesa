@@ -48,6 +48,7 @@ const ROLES_AND_PERM: RolesAndPerm[] = [
 
 function RenderedRolesAndPerm() {
     const dialogRef = useRef<HTMLDialogElement | null>(null)
+    const [permissions, setPermissions] = useState(new Array(10).fill(''))
     const [roles, setRoles] = useState<Roles[]>([
         'admin',
         'estate Manager',
@@ -113,8 +114,25 @@ function RenderedRolesAndPerm() {
         <div className='renderedEstateManagers'>
             <dialog ref={dialogRef} className='dialog'>
                 <section className='grid place-content-center w-full h-[100vh]'>
-                    <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[60rem] gap-8'>
-                        
+                    <div className='bg-white rounded-2xl grid  w-[64rem] h-[60rem] gap-8 py-8 px-10'>
+                        <div className='border-b'>
+                            <p className='text-[1.6rem] font-semibold'>Permissions List</p>
+                        </div>
+                        {React.Children.toArray(permissions.map((value, i) => {
+                            return (
+                                <div
+                                    key={i}
+                                    className='flex items-center gap-4 '
+                                >
+                                    <input type='checkbox' />
+                                    <p className='text-[1.6rem]'>Permission {i + 1}</p>
+                                </div>
+                            )
+                        }))}
+                        <button className=''>
+                            <img src="/icons/admins/saveDisk.svg" alt="" />
+                            <span>Save Changes</span>
+                        </button>
                     </div>
                 </section>
             </dialog>
