@@ -47,7 +47,6 @@ const ROLES_AND_PERM: RolesAndPerm[] = [
 ]
 
 function RenderedRolesAndPerm() {
-    const [showDialog, setShowDialog] = useState(false)
     const dialogRef = useRef<HTMLDialogElement | null>(null)
     const [roles, setRoles] = useState<Roles[]>([
         'admin',
@@ -106,18 +105,17 @@ function RenderedRolesAndPerm() {
     }
 
     const showPermissions = () => {
-
+        dialogRef.current?.showModal()
     }
-    
+
     return (
         <div className='renderedEstateManagers'>
             <dialog ref={dialogRef}>
-                <div>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Tenetur deleniti fuga aliquid perferendis esse ab
-                    necessitatibus ducimus ex, omnis porro aspernatur
-                    exercitationem beatae maiores, a accusamus eaque ipsum vitae
-                    expedita!
+                <div className='grid'>
+                     
+                     <section className='w-[64rem] h-[80rem]'>
+
+                     </section>
                 </div>
             </dialog>
             <table className='renderedEstateManagers__tableBox'>
