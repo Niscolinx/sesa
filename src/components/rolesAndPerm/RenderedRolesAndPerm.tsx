@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
-import { GrDown } from 'react-icons/gr'
+import { GrDown, GrUp } from 'react-icons/gr'
 import { IoMdAdd } from 'react-icons/io'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import React from 'react'
@@ -30,66 +30,63 @@ const ROLES_AND_PERM: RolesAndPerm[] = [
             'resident',
         ],
     },
-    // {
-    //     id: '1',
-    //     name: 'Jacintha Sage',
-    //     roles: [
-    //         'admin',
-    //         'estateManager',
-    //         'securityCompany',
-    //         'securityGuard',
-    //         'resident',
-    //     ],
-    // },
-    // {
-    //     id: '1',
-    //     name: 'Jacintha Sage',
-    //     roles: [
-    //         'admin',
-    //         'estateManager',
-    //         'securityCompany',
-    //         'securityGuard',
-    //         'resident',
-    //     ],
-    // },
-    // {
-    //     id: '1',
-    //     name: 'Jacintha Sage',
-    //     roles: [
-    //         'admin',
-    //         'estateManager',
-    //         'securityCompany',
-    //         'securityGuard',
-    //         'resident',
-    //     ],
-    // },
-    // {
-    //     id: '1',
-    //     name: 'Jacintha Sage',
-    //     roles: [
-    //         'admin',
-    //         'estateManager',
-    //         'securityCompany',
-    //         'securityGuard',
-    //         'resident',
-    //     ],
-    // },
-    // {
-    //     id: '1',
-    //     name: 'Jacintha Sage',
-    //     roles: [
-    //         'admin',
-    //         'estateManager',
-    //         'securityCompany',
-    //         'securityGuard',
-    //         'resident',
-    //     ],
-    // },
+    {
+        id: '2',
+        name: 'Jacintha Sage',
+        roles: [
+            'admin',
+            'estate Manager',
+            'security Company',
+            'security Guard',
+            'resident',
+        ],
+    },
+    {
+        id: '3',
+        name: 'Jacintha Sage',
+        roles: [
+            'admin',
+            'estate Manager',
+            'security Company',
+            'security Guard',
+            'resident',
+        ],
+    },
+    {
+        id: '4',
+        name: 'Jacintha Sage',
+        roles: [
+            'admin',
+            'estate Manager',
+            'security Company',
+            'security Guard',
+            'resident',
+        ],
+    },
+    {
+        id: '5',
+        name: 'Jacintha Sage',
+        roles: [
+            'admin',
+            'estate Manager',
+            'security Company',
+            'security Guard',
+            'resident',
+        ],
+    },
+    
 ]
 
 function RenderedRolesAndPerm() {
     const [showDialog, setShowDialog] = useState(false)
     const dialogRef = useRef<HTMLDialogElement | null>(null)
+    const [toggleDropDown, setToggleDropDown] = useState<{
+        isDropDownOpen: boolean
+        index: number | null
+    }>({
+        isDropDownOpen: false,
+        index: null,
+    })
 
     const [fetchedUsers, setFetchedUsers] = useState<RolesAndPerm[] | null>([])
 
@@ -102,6 +99,26 @@ function RenderedRolesAndPerm() {
         fetchData()
     }, [])
 
+    const dropDownHandler = (
+        e: React.ChangeEvent<HTMLInputElement>,
+        index: number
+    ) => {
+        console.log('clicked')
+        setToggleDropDown((prev) => {
+            return {
+                isDropDownOpen: e.target.checked,
+                index: index,
+            }
+        })
+    }
+
+    useEffect(() => {
+        console.log(toggleDropDown)
+    }, [toggleDropDown])
+
+    const selectRole = (e: React.MouseEvent, item: string) => {
+        console.log('select role')
+    }
     return (
         <div className='renderedEstateManagers'>
             <dialog ref={dialogRef}>
@@ -148,6 +165,8 @@ function RenderedRolesAndPerm() {
                         {fetchedUsers && fetchedUsers.length > 0 ? (
                             React.Children.toArray(
                                 fetchedUsers.map((value, i) => {
+                                    const { isDropDownOpen, index } =
+                                        toggleDropDown
                                     return (
                                         <tr key={i} className='relative'>
                                             <td>
@@ -158,19 +177,60 @@ function RenderedRolesAndPerm() {
                                                 />
                                                 <span>{value.name}</span>
                                             </td>
-                                            <td className='font-semibold capitalize'>
-                                                {value.roles[i]
-                                                    ? value.roles[i]
-                                                    : value.roles[2]}
-                                                <GrDown className='w-[1rem] h-[1rem]' />
-
-                                                <div className='absolute top-[5rem] translate-x-[6rem] border border-color-primary-light w-[24rem] p-4 bg-color-white rounded-lg grid gap-2'>
-                                                    {value.roles.map(
-                                                        (item, i) => (
-                                                            <p className='text-[1.4rem]' key={i}>{item}</p>
+                                            <td>
+                                                <label
+                                                    className='font-semibold capitalize cursor-pointer flex items-center gap-2 relative z-10'
+                                                    htmlFor={i.toString()}
+                                                    onClick={() =>
+                                                        setToggleDropDown(
+                                                            (prev) => {
+                                                                return {
+                                                                    isDropDownOpen:
+                                                                        !prev.isDropDownOpen,
+                                                                    index: i,
+                                                                }
+                                                            }
                                                         )
+                                                    }
+                                                >
+                                                    {value.roles[i]
+                                                        ? value.roles[i]
+                                                        : value.roles[2]}
+                                                    {isDropDownOpen &&
+                                                    index === i ? (
+                                                        <GrUp className='w-[1rem] h-[1rem]' />
+                                                    ) : (
+                                                        <GrDown className='w-[1rem] h-[1rem]' />
                                                     )}
-                                                </div>
+                                                </label>
+                                                <input
+                                                    type='radio'
+                                                    name='dropdown'
+                                                    className='hidden'
+                                                    value={value.roles[i]}
+                                                    id={i.toString()}
+                                                    onChange={(e) =>
+                                                        dropDownHandler(e, i)
+                                                    }
+                                                />
+
+                                                {isDropDownOpen &&
+                                                    index === i && (
+                                                        <div className='absolute top-[5rem] translate-x-[6rem] border border-color-primary-light w-[24rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
+                                                            {value.roles.map(
+                                                                (item, i) => (
+                                                                    <p
+                                                                        className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
+                                                                        key={i}
+                                                                        onClick={(e) => selectRole(e, item)}
+
+                                                                    >
+                                                                        {item}
+                                                                    </p>
+                                                                )
+                                                            )}
+                                                        </div>
+                                                    )}
                                             </td>
 
                                             <td>
