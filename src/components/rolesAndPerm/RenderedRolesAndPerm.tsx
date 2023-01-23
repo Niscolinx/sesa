@@ -15,71 +15,41 @@ type Roles =
 interface RolesAndPerm {
     id: string
     name: string
-    roles: Roles[]
+    role: string
 }
 
 const ROLES_AND_PERM: RolesAndPerm[] = [
     {
         id: '1',
         name: 'Jacintha Sage',
-        roles: [
-            'admin',
-            'estate Manager',
-            'security Company',
-            'security Guard',
-            'resident',
-        ],
+        role: 'admin',
     },
     {
         id: '2',
         name: 'Jacintha Sage',
-        roles: [
-            'admin',
-            'estate Manager',
-            'security Company',
-            'security Guard',
-            'resident',
-        ],
+        role: 'estate Manager',
     },
     {
         id: '3',
         name: 'Jacintha Sage',
-        roles: [
-            'admin',
-            'estate Manager',
-            'security Company',
-            'security Guard',
-            'resident',
-        ],
+        role: 'security Company',
     },
     {
         id: '4',
         name: 'Jacintha Sage',
-        roles: [
-            'admin',
-            'estate Manager',
-            'security Company',
-            'security Guard',
-            'resident',
-        ],
+        role: 'security Company',
     },
     {
         id: '5',
         name: 'Jacintha Sage',
-        roles: [
-            'admin',
-            'estate Manager',
-            'security Company',
-            'security Guard',
-            'resident',
-        ],
+        role: 'Admin',
     },
-    
 ]
 
 function RenderedRolesAndPerm() {
     const [showDialog, setShowDialog] = useState(false)
     const dialogRef = useRef<HTMLDialogElement | null>(null)
+    const [roles, setRoles] = useState<Roles[]>(['admin', 'estate Manager', 'security Company', 'security Guard', 'resident'])
     const [toggleDropDown, setToggleDropDown] = useState<{
         isDropDownOpen: boolean
         index: number | null
@@ -116,7 +86,7 @@ function RenderedRolesAndPerm() {
         console.log(toggleDropDown)
     }, [toggleDropDown])
 
-    const selectRole = (e: React.MouseEvent, item: string) => {
+    const selectRole = (e: React.MouseEvent, item: string, index: number) => {
         console.log('select role')
     }
     return (
@@ -193,9 +163,7 @@ function RenderedRolesAndPerm() {
                                                         )
                                                     }
                                                 >
-                                                    {value.roles[i]
-                                                        ? value.roles[i]
-                                                        : value.roles[2]}
+                                                    {'adin'}
                                                     {isDropDownOpen &&
                                                     index === i ? (
                                                         <GrUp className='w-[1rem] h-[1rem]' />
@@ -207,7 +175,6 @@ function RenderedRolesAndPerm() {
                                                     type='radio'
                                                     name='dropdown'
                                                     className='hidden'
-                                                    value={value.roles[i]}
                                                     id={i.toString()}
                                                     onChange={(e) =>
                                                         dropDownHandler(e, i)
@@ -217,12 +184,12 @@ function RenderedRolesAndPerm() {
                                                 {isDropDownOpen &&
                                                     index === i && (
                                                         <div className='absolute top-[5rem] translate-x-[6rem] border border-color-primary-light w-[24rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
-                                                            {value.roles.map(
-                                                                (item, i) => (
+                                                            {roles.map(
+                                                                (item, index) => (
                                                                     <p
                                                                         className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
-                                                                        key={i}
-                                                                        onClick={(e) => selectRole(e, item)}
+                                                                        key={index+i}
+                                                                        onClick={(e) => selectRole(e, item, i)}
 
                                                                     >
                                                                         {item}
