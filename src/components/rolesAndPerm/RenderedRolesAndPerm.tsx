@@ -1,4 +1,4 @@
-import {  useEffect, useState } from 'react'
+import {  useEffect, useRef, useState } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
 import { GrDown } from 'react-icons/gr'
 import { IoMdAdd } from 'react-icons/io'
@@ -48,6 +48,8 @@ const ROLES_AND_PERM: RolesAndPerm[] = [
 
 function RenderedRolesAndPerm() {
 
+    const dialogRef = useRef<HTMLDialogElement | null>(null)
+
     const [fetchedUsers, setFetchedUsers] = useState<RolesAndPerm[] | null>([])
 
     useEffect(() => {
@@ -63,6 +65,10 @@ function RenderedRolesAndPerm() {
 
     return (
         <div className='renderedEstateManagers'>
+            <dialog>
+                <div>
+                    </div>
+            </dialog>
             <table className='renderedEstateManagers__tableBox'>
                 <caption className='renderedEstateManagers__caption justify-baseline'>
                     <p className='caption__title'>
@@ -105,7 +111,7 @@ function RenderedRolesAndPerm() {
                                             <img src='/img/me.jpeg' alt='' />
                                             <span>{value.name}</span>
                                         </td>
-                                        <td className='font-semibold'>
+                                        <td className='font-semibold capitalize'>
                                             {value.roles[i]
                                                 ? value.roles[i]
                                                 : value.roles[2]}
