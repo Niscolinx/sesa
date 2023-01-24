@@ -138,13 +138,12 @@ const ResidentUserHistory: FC<{
 
     const [toggleSortMenu, setToggleSortMenu] = useState(false)
     const [itemsPerPage, setItemsPerPage] = useState({
-        perPage: 2,
         arr: [2, 4, 6, 8],
     })
     const [selectedSort, setSelectedSort] = useState<SortBy>('A-Z')
     const [paginate, setPaginate] = useState<Paginate>({
         start: 0,
-        end: fetchedResidentUserHistory.length,
+        end: itemsPerPage.arr[0],
         currentPage: 1,
         itemsPerPage: 2,
         totalItems: fetchedResidentUserHistory.length,
@@ -431,9 +430,9 @@ const ResidentUserHistory: FC<{
                         )
                     })}
 
-                    <li className='grid place-content-center border w-[3rem] h-[3rem] cursor-pointer'>
+                    {/* <li className='grid place-content-center border w-[3rem] h-[3rem] cursor-pointer'>
                         {totalPage}
-                    </li>
+                    </li> */}
                     <HiOutlineChevronRight />
                 </ul>
             </footer>
