@@ -110,6 +110,10 @@ function RenderedRolesAndPerm() {
         dialogRef.current?.showModal()
     }
 
+    const hideModal = () => {
+        dialogRef.current?.close()
+    }
+
     return (
         <div className='renderedEstateManagers'>
             <dialog ref={dialogRef} className='dialog'>
@@ -126,7 +130,7 @@ function RenderedRolesAndPerm() {
                                 key={i}
                                 className='flex items-center gap-4 '
                                 >
-                                    <input type='checkbox' />
+                                    <input type='checkbox' className='cursor-pointer'/>
                                     <p className='text-[1.6rem]'>Permission {i + 1}</p>
                                 </div>
                             )
