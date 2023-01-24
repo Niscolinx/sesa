@@ -9,7 +9,7 @@ const AddResidentUserPackage = () => {
     const { handleOpen } = ModalContextData
 
     return (
-        <div className=' p-8 bg-white h-[80vh]'>
+        <div className=' p-8 bg-white h-[80vh] rounded-lg'>
             <div className='flex justify-end'>
                 <button className='border border-red-600 px-16 py-4 flex items-center  rounded-lg gap-4'>
                     <img src='/icons/admins/delete.svg' alt='' />
@@ -18,19 +18,14 @@ const AddResidentUserPackage = () => {
                     </span>
                 </button>
             </div>
-            <section className='grid'>
-                <div className=''>
+            <section className='grid' style={{
+              gridTemplateColumns: 'repeat(auto-fit, minmax(40rem, 1fr))',
+            }}>
+                <div className='w-full'>
                     <label htmlFor='firstName'>First Name *</label>
                     <input type='text' required id='firstName' />
                 </div>
-                <div className=''>
-                    <label htmlFor='lastName'>Last Name *</label>
-                    <input type='text' required id='lastName' />
-                </div>
-                <div className=''>
-                    <label htmlFor='date'>Date of Birth *</label>
-                    <input type='date' id='date' required />
-                </div>
+                
 
                 <div className=''>
                     <label htmlFor='phoneNumber'>Phone Number *</label>
