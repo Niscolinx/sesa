@@ -162,26 +162,30 @@ const ResidentUserHistory: FC<{
     const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
         const item = parseInt(e.target.value)
 
-       
-
-        setPaginate((prev) => {
-            return {
-                ...prev,
-                totalPage: Math.ceil(fetchedResidentUserHistory.length / item),
-                start: 0,
-                end: item
-            }
-        })
-    }
-
-    useEffect(() => {
-        //transform the array to have a sub array of the item
         const slicedPages: IResidentUserHistory[][] = []
         for (let i = 0; i < fetchedResidentUserHistory.length; i += 2) {
             slicedPages.push(fetchedResidentUserHistory.slice(i, i + 2))
         }
 
+       
 
+        setPaginate((prev) => {
+            return {
+                ...prev,
+                itemsPerPage: item,
+                slicedPages,
+                end: item,
+                totalPage: Math.ceil(fetchedResidentUserHistory.length / item),
+            }
+        })
+    }
+
+    useEffect(() => {
+        console.log("handle items per page")
+        const slicedPages: IResidentUserHistory[][] = []
+        for (let i = 0; i < fetchedResidentUserHistory.length; i += 2) {
+            slicedPages.push(fetchedResidentUserHistory.slice(i, i + 2))
+        }
 
         setPaginate((prev) => {
             return {
@@ -189,13 +193,10 @@ const ResidentUserHistory: FC<{
                 slicedPages,
             }
         })
-    }, [fetchedResidentUserHistory])
-
-
-
+    }, [fetchedResidentUserHistory, handleItemsPerPage])
 
     const handleNext = () => {
-        if(paginate.currentPage === paginate.totalPage) return
+        if (paginate.currentPage === paginate.totalPage) return
         setPaginate((prev) => {
             return {
                 ...prev,
@@ -207,7 +208,7 @@ const ResidentUserHistory: FC<{
     }
 
     const handlePrev = () => {
-        if(paginate.currentPage === 1) return
+        if (paginate.currentPage === 1) return
         setPaginate((prev) => {
             return {
                 ...prev,
@@ -221,7 +222,17 @@ const ResidentUserHistory: FC<{
     const { start, end, currentPage, totalItems, totalPage, slicedPages } =
         paginate
 
-        console.log({paginate})
+    const jumpToPage = (e: React.MouseEvent, index:number) => {
+        
+        setPaginate((prev) => {
+            return {
+                ...prev,
+                start: index * prev.itemsPerPage,
+                end: (index + 1) * prev.itemsPerPage,
+                currentPage: index + 1,
+            }
+        })
+    }
 
     return (
         <div className='grid text-[1.6rem]'>
@@ -451,15 +462,23 @@ const ResidentUserHistory: FC<{
                     <p className='text'>List per page</p>
                 </div>
                 <ul className='flex items-center gap-5 ml-10'>
-                    <HiOutlineChevronLeft  onClick={handlePrev}/>
-                    
+                    <HiOutlineChevronLeft
+                        onClick={handlePrev}
+                        className='cursor-pointer'
+                    />
+
                     {slicedPages?.map((item, index) => {
                         return (
-                            <li
-                                className='grid place-content-center border w-[3rem] h-[3rem] cursor-pointer'
-                                key={index}
-                            >
-                                {index + 1}
+                            <li key={index}>
+                                {index + 1 === currentPage ? (
+                                    <span className='bg-color-primary text-white grid place-content-center w-[3rem] h-[3rem] cursor-pointer'>
+                                        {index + 1}
+                                    </span>
+                                ) : (
+                                    <span className='text-color-primary bg-white grid place-content-center border w-[3rem] h-[3rem] cursor-pointer' onClick={(e) => jumpToPage(e, index)}>
+                                        {index + 1}
+                                    </span>
+                                )}
                             </li>
                         )
                     })}
@@ -467,7 +486,10 @@ const ResidentUserHistory: FC<{
                     {/* <li className='grid place-content-center border w-[3rem] h-[3rem] cursor-pointer'>
                         {totalPage}
                     </li> */}
-                    <HiOutlineChevronRight onClick={handleNext} />
+                    <HiOutlineChevronRight
+                        onClick={handleNext}
+                        className='cursor-pointer'
+                    />
                 </ul>
             </footer>
         </div>
