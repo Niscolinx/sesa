@@ -9,7 +9,7 @@ const AddResidentUserPackage = () => {
     const { handleOpen } = ModalContextData
 
     return (
-        <div className=' p-8 bg-white h-[80vh] rounded-lg overflow-y-scroll'>
+        <div className=' p-8 bg-white h-[70vh] rounded-lg overflow-y-scroll'>
             <section
                 className='grid max-w-[65vw] gap-16'
                 style={{
@@ -74,7 +74,7 @@ const AddResidentUserPackage = () => {
                         htmlFor='userName'
                         className='text-[1.4rem] font-semibold'
                     >
-                        Name of User (Buyer)
+                        Details
                     </label>
                     <input
                         
