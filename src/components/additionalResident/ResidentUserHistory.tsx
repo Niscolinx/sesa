@@ -110,7 +110,7 @@ const ResidentUserHistory: FC<{
         setToggleDropDown(() => {
             return {
                 isDropDownOpen: e.target.checked,
-                index: index,
+                index
             }
         })
     }

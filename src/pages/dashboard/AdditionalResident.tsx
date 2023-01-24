@@ -37,7 +37,7 @@ function AdditionalResident() {
         <div>
             <h1 className='heading2'>Additional Resident User</h1>
             <div className='rounded-lg mt-[3rem] h-[80vh]'>
-                {additionalResident ? (
+                {!additionalResident ? (
                     <section>{switchRoute(additionalResidentPath)}</section>
                 ) : (
                     <section className='grid place-content-center w-full h-full justify-items-center gap-4 bg-white'>

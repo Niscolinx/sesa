@@ -30,13 +30,14 @@ function ResidentUsers() {
 
     const handlePathSwitch = (pageNum: number) => {
         switch (pageNum) {
-            case 1:
+            // case 1
+            case 2:
                 return (
                     <ResidentUsersList
                         fetchedResidentUsers={fetchedResidentUsers ?? []}
                     />
                 )
-            case 2:
+            case 1:
                 return (
                     <ResidentUserHistory
                         fetchedResidentUserHistory={fetchedResidentUserHistory ?? []}
@@ -44,8 +45,13 @@ function ResidentUsers() {
                 )
             default:
                 return (
-                    <ResidentUsersList
-                        fetchedResidentUsers={fetchedResidentUsers ?? []}
+                    // <ResidentUsersList
+                    //     fetchedResidentUsers={fetchedResidentUsers ?? []}
+                    // />
+                    <ResidentUserHistory
+                        fetchedResidentUserHistory={
+                            fetchedResidentUserHistory ?? []
+                        }
                     />
                 )
         }
