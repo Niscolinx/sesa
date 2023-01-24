@@ -281,7 +281,7 @@ const ActivityReport: FC<{
 
                                                 {isDropDownOpen &&
                                                     index === i && (
-                                                        <div className='absolute top-[5rem] translate-x-[6rem] border border-color-primary-light w-[24rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
+                                                        <div className='absolute top-0 translate-x-[5rem] border border-color-primary-light w-[10rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
                                                             {actions.map(
                                                                 (
                                                                     item,
@@ -303,7 +303,7 @@ const ActivityReport: FC<{
                                                                             )
                                                                         }
                                                                     >
-                                                                        {item}
+                                                                        {item === 'Activate' ? <span className='text-green-600'>{item}</span> : item === 'Delete' ? <span className='text-red-600'>{item}</span> : item}
                                                                     </p>
                                                                 )
                                                             )}
