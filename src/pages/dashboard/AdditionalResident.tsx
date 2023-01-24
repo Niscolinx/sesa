@@ -32,19 +32,19 @@ function AdditionalResident() {
     }
 
     return (
-        <div className='estates'>
-            <h1 className='heading2'>Estates</h1>
-            <div className='estates__container'>
+        <div>
+            <h1 className='heading2'>Additional Resident User</h1>
+            <div className='rounded-lg mt-[3rem] h-[80vh]'>
                 {estatesLoaded ? (
                     <section>{switchRoute(estatePath)}</section>
                 ) : (
-                    <section className='estates__wrapper'>
+                    <section className='grid place-content-center w-full h-full justify-items-center gap-4'>
                         <img src='/icons/admins/errorSvg.svg' alt='' />
                         <p className='text'>
-                            Ooops you have not added any Estate yet
+                            Ooops you have not added any Package yet
                         </p>
                         <button
-                            className='btn addEstate__btn'
+                            className='bg-color-blue-1 text-white flex gap-2 items-center rounded-lg justify-self-center py-4 px-16 text-[1.6rem]'
                             onClick={handleAddEstate}
                         >
                             <span>
