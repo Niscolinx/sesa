@@ -72,7 +72,7 @@ export const RESIDENT_HISTORY: IResidentUserHistory[] = [
         status: 'active',
     },
     {
-        id: '5',
+        id: '6',
         packageName: 'Gold',
         userName: 'John Doe',
         frequency: 'Monthly',
@@ -129,7 +129,7 @@ const ResidentUserHistory: FC<{
     const [toggleSortMenu, setToggleSortMenu] = useState(false)
     const [itemsPerPage, setItemsPerPage] = useState({
         perPage: 2,
-        arr: [2, 4, 6, 8],
+        arr: [2, 4, 6,5, 8],
     })
     const [selectedSort, setSelectedSort] = useState<SortBy>('A-Z')
     const [paginate, setPaginate] = useState({
@@ -149,10 +149,20 @@ const ResidentUserHistory: FC<{
 
     const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
         const item = parseInt(e.target.value)
-        setItemsPerPage({
-            perPage: item,
-            arr: [2, 4, 6, 8],
-        })
+
+        //transform the array to have a sub array of the item
+        const newArr = []
+        for (let i = 0; i < fetchedResidentUserHistory.length; i += item) {
+            console.log(i, i + item, item)
+            newArr.push(fetchedResidentUserHistory.slice(i, i + item))
+        }
+
+        console.log(newArr)
+
+        // setItemsPerPage({
+        //     perPage: item,
+        //     arr: [2, 4, 6, 8],
+        // })
     }
 
     return (
