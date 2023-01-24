@@ -1,6 +1,6 @@
 import React, { FC, useState } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
-import { GrDown } from 'react-icons/gr'
+import { GrDown, GrUp } from 'react-icons/gr'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { useNavigate } from 'react-router'
 export interface IResidentUserHistory {
@@ -113,11 +113,10 @@ const ResidentUserHistory: FC<{
         }
     }
 
-    const sortBy:SortBy[] = ['A-Z', 'date']
+    const sortBy: SortBy[] = ['A-Z', 'date']
 
     const [toggleSortMenu, setToggleSortMenu] = useState(false)
-    const [selectedSort, setSelectedSort] =
-        useState<SortBy>('A-Z')
+    const [selectedSort, setSelectedSort] = useState<SortBy>('A-Z')
 
     const sortMenuToggler = () => setToggleSortMenu(!toggleSortMenu)
 
@@ -153,10 +152,10 @@ const ResidentUserHistory: FC<{
                     </p>
 
                     {toggleSortMenu && (
-                        <div className='absolute top-[8rem]  left-0 border border-color-primary-light w-[10rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
+                        <div className='absolute top-[5rem]  left-0 border border-color-primary-light w-[10rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
                             {sortBy.map((item, index) => (
                                 <p
-                                    className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
+                                    className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer text-left'
                                     key={index}
                                     onClick={() => handleSelectedSort(item)}
                                 >
@@ -165,8 +164,11 @@ const ResidentUserHistory: FC<{
                             ))}
                         </div>
                     )}
-
-                    <GrDown className='absolute right-4 text-[1.3rem]' />
+                    {toggleSortMenu ? (
+                        <GrUp className='absolute right-4 text-[1.3rem]' />
+                    ) : (
+                        <GrDown className='absolute right-4 text-[1.3rem]' />
+                    )}
                 </div>
             </caption>
 
