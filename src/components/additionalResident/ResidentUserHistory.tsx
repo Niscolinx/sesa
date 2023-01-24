@@ -31,7 +31,7 @@ export const RESIDENT_HISTORY: IResidentUserHistory[] = [
     
     },
     {
-        id: '1',
+        id: '2',
         packageName: 'Gold',
         userName: 'John Doe',
         frequency: 'Monthly',
@@ -43,7 +43,31 @@ export const RESIDENT_HISTORY: IResidentUserHistory[] = [
     
     },
     {
-        id: '1',
+        id: '3',
+        packageName: 'Gold',
+        userName: 'John Doe',
+        frequency: 'Monthly',
+        amount: 1000,
+        startDate: '2021-01-01',
+        endDate: '2021-01-31',
+        transactionType: 'purchase',
+        status: 'active',
+    
+    },
+    {
+        id: '4',
+        packageName: 'Gold',
+        userName: 'John Doe',
+        frequency: 'Monthly',
+        amount: 1000,
+        startDate: '2021-01-01',
+        endDate: '2021-01-31',
+        transactionType: 'purchase',
+        status: 'active',
+    
+    },
+    {
+        id: '5',
         packageName: 'Gold',
         userName: 'John Doe',
         frequency: 'Monthly',
