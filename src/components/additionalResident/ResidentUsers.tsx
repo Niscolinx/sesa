@@ -2,8 +2,11 @@ import React, { useState, useEffect, FC, useReducer } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
 import { GrDown } from 'react-icons/gr'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
+import { IoMdAdd } from 'react-icons/io'
 
 import { Link } from 'react-router-dom'
+import { useAppDispatch } from '../../store/app/hooks'
+import { setAdditionalResidentPath } from '../../store/features/routeChange'
 
 interface ActivityReport {
     id: string
@@ -109,6 +112,9 @@ const ACTIVITY_REPORT_DATA: ActivityReport[] = [
 const ActivityReport: FC<{
     fetchedActivityReport: ActivityReport[]
 }> = ({ fetchedActivityReport }) => {
+    const dispatch = useAppDispatch()
+
+
     const [actions, setActions] = useState<Actions[]>([
         'View Details',
         'Activate',
@@ -149,6 +155,11 @@ const ActivityReport: FC<{
         })
     }
 
+    const handleAddPackage = () => {
+                dispatch(setAdditionalResidentPath('addResidentUserPackage'))
+
+    }
+
     return (
         <div className='grid text-[1.6rem]'>
             <caption className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
@@ -177,26 +188,15 @@ const ActivityReport: FC<{
                     </select>
                     <GrDown className='absolute right-4 text-[1.3rem]' />
                 </div>
-                <div className='relative flex items-center'>
-                    <select className=' cursor-pointer w-[18rem] rounded-lg border border-color-blue-light appearance-none outline-none p-4 bg-white'>
-                        <option hidden value=''>
-                            Start Date
-                        </option>
-                        <option value='date'>date</option>
-                        <option value='alpha'>Alpha</option>
-                    </select>
-                    <GrDown className='absolute right-4 text-[1.3rem]' />
-                </div>
-                <div className='relative flex items-center'>
-                    <select className=' cursor-pointer w-[18rem] rounded-lg border border-color-blue-light appearance-none outline-none p-4 bg-white'>
-                        <option hidden value=''>
-                            End Date
-                        </option>
-                        <option value='date'>date</option>
-                        <option value='alpha'>Alpha</option>
-                    </select>
-                    <GrDown className='absolute right-4 text-[1.3rem]' />
-                </div>
+                <button
+                    className='bg-color-blue-1 text-white flex gap-2 items-center rounded-lg justify-self-center py-4 px-16 text-[1.6rem]'
+                    onClick={handleAddPackage}
+                >
+                    <span>
+                        <IoMdAdd />
+                    </span>{' '}
+                    Add Package
+                </button>
             </caption>
 
             <div className='grid'>
@@ -303,7 +303,23 @@ const ActivityReport: FC<{
                                                                             )
                                                                         }
                                                                     >
-                                                                        {item === 'Activate' ? <span className='text-green-600'>{item}</span> : item === 'Delete' ? <span className='text-red-600'>{item}</span> : item}
+                                                                        {item ===
+                                                                        'Activate' ? (
+                                                                            <span className='text-green-600'>
+                                                                                {
+                                                                                    item
+                                                                                }
+                                                                            </span>
+                                                                        ) : item ===
+                                                                          'Delete' ? (
+                                                                            <span className='text-red-600'>
+                                                                                {
+                                                                                    item
+                                                                                }
+                                                                            </span>
+                                                                        ) : (
+                                                                            item
+                                                                        )}
                                                                     </p>
                                                                 )
                                                             )}
