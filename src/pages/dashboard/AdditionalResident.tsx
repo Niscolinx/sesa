@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
-import AddResidentPackage from '../../components/additionalResident/AddResidentPackage'
+import AddResidentPackage from '../../components/additionalResident/AddResidentUserPackage'
 import ResidentUsers from '../../components/additionalResident/ResidentUsers'
 import AddEstate from '../../components/estates/AddEstate'
 import { useAppDispatch } from '../../store/app/hooks'
