@@ -127,13 +127,13 @@ const ResidentUserHistory: FC<{
     const sortBy: SortBy[] = ['A-Z', 'date']
 
     interface Paginate {
-        start: number,
-        end: number,
-        currentPage: number,
-        itemsPerPage: number,
-        totalItems: number,
-
-        totalPages: number
+        start: number
+        end: number
+        currentPage: number
+        itemsPerPage: number
+        totalItems: number
+        totalPage: number
+        slicedPages: IResidentUserHistory[][] | null
     }
 
     const [toggleSortMenu, setToggleSortMenu] = useState(false)
@@ -142,14 +142,15 @@ const ResidentUserHistory: FC<{
         arr: [2, 4, 6, 8],
     })
     const [selectedSort, setSelectedSort] = useState<SortBy>('A-Z')
-    const [paginate, setPaginate] = useState({
+    const [paginate, setPaginate] = useState<Paginate>({
         start: 0,
         end: fetchedResidentUserHistory.length,
         currentPage: 1,
         itemsPerPage: 2,
         totalItems: fetchedResidentUserHistory.length,
 
-        totalPages: Math.ceil(fetchedResidentUserHistory.length / 2),
+        totalPage: Math.ceil(fetchedResidentUserHistory.length / 2),
+        slicedPages: null,
     })
 
     const sortMenuToggler = () => setToggleSortMenu(!toggleSortMenu)
@@ -163,14 +164,22 @@ const ResidentUserHistory: FC<{
         const item = parseInt(e.target.value)
 
         //transform the array to have a sub array of the item
-        const newArr = []
+        const slicedPages: IResidentUserHistory[][] = []
         for (let i = 0; i < fetchedResidentUserHistory.length; i += item) {
-            newArr.push(fetchedResidentUserHistory.slice(i, i + item))
+            slicedPages.push(fetchedResidentUserHistory.slice(i, i + item))
         }
 
-        console.log(newArr)
+        console.log(slicedPages)
 
-        setPaginate((prev) )
+        setPaginate((prev) => {
+            return {
+                ...prev,
+                totalPage: Math.ceil(fetchedResidentUserHistory.length / item),
+                start: 0,
+                end: item,
+                slicedPages,
+            }
+        })
 
         // setItemsPerPage({
         //     perPage: item,
@@ -178,7 +187,8 @@ const ResidentUserHistory: FC<{
         // })
     }
 
-    const { start, end, currentPage, totalItems, totalPages } = paginate
+    const { start, end, currentPage, totalItems, totalPage, slicedPages } =
+        paginate
 
     return (
         <div className='grid text-[1.6rem]'>
@@ -409,23 +419,20 @@ const ResidentUserHistory: FC<{
                 </div>
                 <ul className='flex items-center gap-5 ml-10'>
                     <HiOutlineChevronLeft />
+                    
+                    {slicedPages?.map((item, index) => {
+                        return (
+                            <li
+                                className='grid place-content-center border w-[3rem] h-[3rem] cursor-pointer'
+                                key={index}
+                            >
+                                {index + 1}
+                            </li>
+                        )
+                    })}
+
                     <li className='grid place-content-center border w-[3rem] h-[3rem] cursor-pointer'>
-                        1
-                    </li>
-                    <li className='grid place-content-center border w-[3rem] h-[3rem] cursor-pointer'>
-                        2
-                    </li>
-                    <li className='grid place-content-center border w-[3rem] h-[3rem] cursor-pointer'>
-                        3
-                    </li>
-                    <li className='grid place-content-center border w-[3rem] h-[3rem] cursor-pointer'>
-                        4
-                    </li>
-                    <li className='grid place-content-center w-[3rem] h-[3rem] cursor-pointer'>
-                        ....
-                    </li>
-                    <li className='grid place-content-center border w-[3rem] h-[3rem] cursor-pointer'>
-                        10
+                        {totalPage}
                     </li>
                     <HiOutlineChevronRight />
                 </ul>
