@@ -193,7 +193,7 @@ const ResidentUserHistory: FC<{
                 slicedPages,
             }
         })
-    }, [fetchedResidentUserHistory, handleItemsPerPage])
+    }, [fetchedResidentUserHistory])
 
     const handleNext = () => {
         if (paginate.currentPage === paginate.totalPage) return
