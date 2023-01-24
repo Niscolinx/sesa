@@ -91,9 +91,7 @@ function RenderedRolesAndPerm() {
         })
     }
 
-    useEffect(() => {
-        console.log(toggleDropDown)
-    }, [toggleDropDown])
+
 
     const selectRole = (e: React.MouseEvent, item: string, index: number) => {
         console.log('select role')

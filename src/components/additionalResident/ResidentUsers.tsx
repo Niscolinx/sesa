@@ -115,6 +115,42 @@ const ActivityReport: FC<{
         'Deactivate',
         'Delete'
      ])
+     const [selectedAction, setSelectedAction] = useState<{
+         [key: string]: Actions
+     }>(null as any)
+     const [toggleDropDown, setToggleDropDown] = useState<{
+         isDropDownOpen: boolean
+         index: number | null
+     }>({
+         isDropDownOpen: false,
+         index: null,
+     })
+
+
+     const dropDownHandler = (
+         e: React.ChangeEvent<HTMLInputElement>,
+         index: number
+     ) => {
+         console.log('clicked')
+         setToggleDropDown((prev) => {
+             return {
+                 isDropDownOpen: e.target.checked,
+                 index: index,
+             }
+         })
+     }
+
+     const selectAction = (e: React.MouseEvent, item: string, index: number) => {
+         console.log('select role')
+         setSelectedAction((prev) => {
+             return {
+                 ...prev,
+                 [index]: item,
+             }
+         })
+     }
+
+
     return (
         <div className='grid text-[1.6rem]'>
             <caption className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
@@ -167,20 +203,19 @@ const ActivityReport: FC<{
 
             <div className='grid'>
                 <div
-                    className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-6 gap-8'
+                    className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-5 gap-8'
                     style={{
                         fontSize: '1.6rem',
                     }}
                 >
                     <p className='flex items-center gap-2'>
                         <input type='checkbox' className='cursor-pointer' />
-                        <p>Guard Name</p>
+                        <p>Package Name</p>
                     </p>
-                    <p>Phone Number</p>
-                    <p>Date</p>
-                    <p>Guard Code</p>
-                    <p>Clock In</p>
-                    <p>Clock Out</p>
+                    <p>Frequency</p>
+                    <p>Price</p>
+                    <p>Status</p>
+                    <p>Actions</p>
                 </div>
 
                 <div className='grid gap-8 mt-8 p-8'>
