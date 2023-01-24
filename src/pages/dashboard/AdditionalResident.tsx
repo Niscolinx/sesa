@@ -2,14 +2,15 @@ import { useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
 import AddResidentPackage from '../../components/additionalResident/AddResidentUserPackage'
 import ResidentUsers from '../../components/additionalResident/ResidentUsers'
-import AddEstate from '../../components/estates/AddEstate'
-import { useAppDispatch } from '../../store/app/hooks'
-import { RenderAdditionalResidentPath, setAdditionalResidentPath } from '../../store/features/routeChange'
+import { useAppDispatch, useAppSelector } from '../../store/app/hooks'
+import { RenderAdditionalResidentPath, routeChangeSelector, setAdditionalResidentPath } from '../../store/features/routeChange'
 
 
 
 function AdditionalResident() {
     const dispatch = useAppDispatch()
+        const { additionalResidentPath } = useAppSelector(routeChangeSelector)
+
 
     const [additionalResident, setAdditionalResident] = useState(false)
 
@@ -22,7 +23,7 @@ function AdditionalResident() {
                 return <AddResidentPackage />
 
             default:
-                return <AddEstate />
+                return <ResidentUsers />
         }
     }
 
@@ -36,7 +37,7 @@ function AdditionalResident() {
             <h1 className='heading2'>Additional Resident User</h1>
             <div className='rounded-lg mt-[3rem] h-[80vh]'>
                 {additionalResident ? (
-                    <section>{switchRoute('renderedAdditionalResidents')}</section>
+                    <section>{switchRoute(additionalResidentPath)}</section>
                 ) : (
                     <section className='grid place-content-center w-full h-full justify-items-center gap-4 bg-white'>
                         <img src='/icons/admins/errorSvg.svg' alt='' />
