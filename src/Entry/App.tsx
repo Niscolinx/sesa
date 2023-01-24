@@ -31,7 +31,10 @@ const router = createBrowserRouter(
             <Route path='estates/report/:Id' element={<EstateReport />} />
             <Route path='estateManagers' element={<EstateManagers />} />
             <Route path='rolesAndPerm' element={<RolesAndPerm />} />
-            <Route path='additional-resident' element={<AdditionalResident />} />
+            <Route
+                path='additional-resident'
+                element={<AdditionalResident />}
+            />
         </Route>,
         <Route path='*' element={<Navigate to='/' />} />,
     ])
