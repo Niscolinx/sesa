@@ -1,7 +1,9 @@
-import React, { FC } from 'react'
+import React, { FC, useState } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
 import { GrDown } from 'react-icons/gr'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
+import { useAppDispatch } from '../../store/app/hooks'
+import { Actions } from './ResidentUsersList'
 
 export interface IResidentUserHistory {
     id: string
@@ -61,9 +63,7 @@ const ResidentUserHistory: FC<{
 
      const [actions, setActions] = useState<Actions[]>([
          'View Details',
-         'Activate',
-         'Deactivate',
-         'Delete',
+         'Deactivate'
      ])
      const [selectedAction, setSelectedAction] = useState<{
          [key: string]: Actions
@@ -147,8 +147,12 @@ const ResidentUserHistory: FC<{
                         <input type='checkbox' className='cursor-pointer' />
                         <p>Package Name</p>
                     </p>
+                    <p>User Name</p>
                     <p>Frequency</p>
-                    <p>Price</p>
+                    <p>Amount</p>
+                    <p>Start Date</p>
+                    <p>End Date</p>
+                    <p>Transaction Type</p>
                     <p>Status</p>
                     <p>Actions</p>
                 </div>
@@ -180,7 +184,7 @@ const ResidentUserHistory: FC<{
                                                     src='/icons/Naira.svg'
                                                     alt=''
                                                 />
-                                                <span>{price}</span>
+                                                <span>{amount}</span>
                                             </p>
                                             <p>{status}</p>
                                             <div className='relative'>
