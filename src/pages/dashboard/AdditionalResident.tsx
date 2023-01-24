@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
+import ResidentUser from '../../components/additionalResident/ResidentUser'
 import AddEstate from '../../components/estates/AddEstate'
-import RenderedEstates from '../../components/estates/RenderedEstates'
 import { useAppDispatch } from '../../store/app/hooks'
 import { RenderAdditionalResidentPath, setAdditionalResidentPath } from '../../store/features/routeChange'
 
@@ -15,7 +15,7 @@ function AdditionalResident() {
     const switchRoute = (path: RenderAdditionalResidentPath) => {
         switch (path) {
             case 'renderedAdditionalResident':
-                return <RenderedEstates />
+                return <ResidentUser />
 
             case 'addAdditionalResident':
                 return <AddEstate />
