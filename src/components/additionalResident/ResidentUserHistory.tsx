@@ -73,10 +73,7 @@ export const RESIDENT_HISTORY: IResidentUserHistory[] = [
     },
 ]
 
-enum SortBy {
-    'A-Z',
-    'date',
-}
+type SortBy = 'A-Z' | 'date'
 
 const ResidentUserHistory: FC<{
     fetchedResidentUserHistory: IResidentUserHistory[]
@@ -116,12 +113,7 @@ const ResidentUserHistory: FC<{
         }
     }
 
-    const [packages, setPackages] = useState<Packages[]>([
-        'package 1',
-        'package 2',
-        'package 3',
-        'package 4',
-    ])
+    const [packages, setPackages] = useState<SortBy[]>(['A-Z', 'date'])
 
     const [togglePackageMenu, setTogglePackageMenu] = useState(false)
     const [selectedPackage, setSelectedPackage] =
