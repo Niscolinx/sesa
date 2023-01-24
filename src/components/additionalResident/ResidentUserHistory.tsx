@@ -71,6 +71,17 @@ export const RESIDENT_HISTORY: IResidentUserHistory[] = [
         transactionType: 'purchase',
         status: 'active',
     },
+    {
+        id: '5',
+        packageName: 'Gold',
+        userName: 'John Doe',
+        frequency: 'Monthly',
+        amount: 1000,
+        startDate: '2021-01-01',
+        endDate: '2021-01-31',
+        transactionType: 'purchase',
+        status: 'active',
+    },
 ]
 
 type SortBy = 'A-Z' | 'date'
@@ -116,7 +127,20 @@ const ResidentUserHistory: FC<{
     const sortBy: SortBy[] = ['A-Z', 'date']
 
     const [toggleSortMenu, setToggleSortMenu] = useState(false)
+    const [itemsPerPage, setItemsPerPage] = useState(2)
     const [selectedSort, setSelectedSort] = useState<SortBy>('A-Z')
+    const [paginate, setPaginate] = useState({
+        currentPage: 1,
+        itemsPerPage: 2,
+        totalItems: fetchedResidentUserHistory.length,
+
+        totalPages: Math.ceil(
+            fetchedResidentUserHistory.length / 2
+        ),
+
+
+
+    })
 
     const sortMenuToggler = () => setToggleSortMenu(!toggleSortMenu)
 
@@ -197,7 +221,7 @@ const ResidentUserHistory: FC<{
                     {fetchedResidentUserHistory &&
                     fetchedResidentUserHistory.length > 0 ? (
                         React.Children.toArray(
-                            fetchedResidentUserHistory.map(
+                            fetchedResidentUserHistory.slice().map(
                                 (
                                     {
                                         packageName,
@@ -329,10 +353,11 @@ const ResidentUserHistory: FC<{
                     <p>View</p>
                     <div className='flex items-center border px-4 rounded-lg'>
                         <input
-                            type='text'
+                            type='number'
                             className='w-8 outline-none border-none cursor-pointer '
-                            value={6}
+                            value={itemsPerPage}
                             inputMode='numeric'
+                            onChange={(e) => setItemsPerPage(Number(e.target.value))}
                         />
                         <GrDown className='text-[1.3rem]' />
                     </div>
