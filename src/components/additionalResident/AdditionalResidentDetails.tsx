@@ -4,7 +4,7 @@ import { IoMdAdd } from 'react-icons/io'
 import { ModalContext } from '../../Context/ModalContext'
 import { getPhotoUrl } from '../../utils/getPhotoUrl'
 
-const AddResidentUserPackage = () => {
+const AdditionalResidentDetails = () => {
     const ModalContextData = useContext(ModalContext)
     const { handleOpen } = ModalContextData
 
