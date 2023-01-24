@@ -1,83 +1,115 @@
-import React, { FC } from "react"
-import { CgSpinnerTwo } from "react-icons/cg"
-import { GrDown } from "react-icons/gr"
-import { HiOutlineChevronLeft, HiOutlineChevronRight } from "react-icons/hi"
+import React, { FC } from 'react'
+import { CgSpinnerTwo } from 'react-icons/cg'
+import { GrDown } from 'react-icons/gr'
+import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 
 export interface IResidentUserHistory {
     id: string
-    guardName: string
-    date: string
-    guardCode: number
-    checkInCount: number
-    checkOutCount: number
-    panicAlert: number
+    packageName: string
+    userName: string
+    frequency: string
+    amount: number
+    startDate: string
+    endDate: string
+    transactionType: 'purchase' | 'renewal'
+    status: 'active' | 'inactive'
 }
 
 export const RESIDENT_HISTORY: IResidentUserHistory[] = [
     {
         id: '1',
-        guardName: 'Jacinta Sage',
-        date: '12/12/2021',
-        guardCode: 1234,
-        checkInCount: 8,
-        checkOutCount: 5,
-        panicAlert: 2,
+        packageName: 'Gold',
+        userName: 'John Doe',
+        frequency: 'Monthly',
+        amount: 1000,
+        startDate: '2021-01-01',
+        endDate: '2021-01-31',
+        transactionType: 'purchase',
+        status: 'active',
+    
     },
     {
         id: '1',
-        guardName: 'Jacinta Sage',
-        date: '12/12/2021',
-        guardCode: 1234,
-        checkInCount: 8,
-        checkOutCount: 5,
-        panicAlert: 2,
+        packageName: 'Gold',
+        userName: 'John Doe',
+        frequency: 'Monthly',
+        amount: 1000,
+        startDate: '2021-01-01',
+        endDate: '2021-01-31',
+        transactionType: 'purchase',
+        status: 'active',
+    
     },
     {
         id: '1',
-        guardName: 'Jacinta Sage',
-        date: '12/12/2021',
-        guardCode: 1234,
-        checkInCount: 8,
-        checkOutCount: 5,
-        panicAlert: 2,
-    },
-    {
-        id: '1',
-        guardName: 'Jacinta Sage',
-        date: '12/12/2021',
-        guardCode: 1234,
-        checkInCount: 8,
-        checkOutCount: 5,
-        panicAlert: 2,
-    },
-    {
-        id: '1',
-        guardName: 'Jacinta Sage',
-        date: '12/12/2021',
-        guardCode: 1234,
-        checkInCount: 8,
-        checkOutCount: 5,
-        panicAlert: 2,
-    },
-    {
-        id: '1',
-        guardName: 'Jacinta Sage',
-        date: '12/12/2021',
-        guardCode: 1234,
-        checkInCount: 8,
-        checkOutCount: 5,
-        panicAlert: 2,
-    },
+        packageName: 'Gold',
+        userName: 'John Doe',
+        frequency: 'Monthly',
+        amount: 1000,
+        startDate: '2021-01-01',
+        endDate: '2021-01-31',
+        transactionType: 'purchase',
+        status: 'active',
+    
+    }
 ]
 
 const ResidentUserHistory: FC<{
     fetchedResidentUserHistory: IResidentUserHistory[]
 }> = ({ fetchedResidentUserHistory }) => {
+     const dispatch = useAppDispatch()
+
+     const [actions, setActions] = useState<Actions[]>([
+         'View Details',
+         'Activate',
+         'Deactivate',
+         'Delete',
+     ])
+     const [selectedAction, setSelectedAction] = useState<{
+         [key: string]: Actions
+     }>(null as any)
+     const [toggleDropDown, setToggleDropDown] = useState<{
+         isDropDownOpen: boolean
+         index: number | null
+     }>({
+         isDropDownOpen: false,
+         index: null,
+     })
+
+     const dropDownHandler = (
+         e: React.ChangeEvent<HTMLInputElement>,
+         index: number
+     ) => {
+         console.log('clicked')
+         setToggleDropDown((prev) => {
+             return {
+                 isDropDownOpen: e.target.checked,
+                 index: index,
+             }
+         })
+     }
+
+     const selectAction = (
+         e: React.MouseEvent,
+         item: string,
+         index: number
+     ) => {
+         console.log('select role')
+         setSelectedAction((prev) => {
+             return {
+                 ...prev,
+                 [index]: item,
+             }
+         })
+     }
+
+  
+
     return (
         <div className='grid text-[1.6rem]'>
-            <caption className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
+            <caption className='flex w-full items-center gap-12 p-10 bg-white rounded-lg'>
                 <p className=' font-bold'>
-                    Attendance Report List <span>(4)</span>
+                    Resident User List <span>(4)</span>
                 </p>
                 <div className='relative flex items-center'>
                     <img
@@ -101,44 +133,24 @@ const ResidentUserHistory: FC<{
                     </select>
                     <GrDown className='absolute right-4 text-[1.3rem]' />
                 </div>
-                <div className='relative flex items-center'>
-                    <select className=' cursor-pointer w-[18rem] rounded-lg border border-color-blue-light appearance-none outline-none p-4 bg-white'>
-                        <option hidden value=''>
-                            Start Date
-                        </option>
-                        <option value='date'>date</option>
-                        <option value='alpha'>Alpha</option>
-                    </select>
-                    <GrDown className='absolute right-4 text-[1.3rem]' />
-                </div>
-                <div className='relative flex items-center'>
-                    <select className=' cursor-pointer w-[18rem] rounded-lg border border-color-blue-light appearance-none outline-none p-4 bg-white'>
-                        <option hidden value=''>
-                            End Date
-                        </option>
-                        <option value='date'>date</option>
-                        <option value='alpha'>Alpha</option>
-                    </select>
-                    <GrDown className='absolute right-4 text-[1.3rem]' />
-                </div>
+
             </caption>
 
             <div className='grid'>
                 <div
-                    className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-6 gap-8'
+                    className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-5 gap-8'
                     style={{
                         fontSize: '1.6rem',
                     }}
                 >
                     <p className='flex items-center gap-2'>
                         <input type='checkbox' className='cursor-pointer' />
-                        <p>Guard Name</p>
+                        <p>Package Name</p>
                     </p>
-                    <p>Date</p>
-                    <p>Guard Code</p>
-                    <p>Check In Count</p>
-                    <p>Check Out Count</p>
-                    <p>Panic Alert</p>
+                    <p>Frequency</p>
+                    <p>Price</p>
+                    <p>Status</p>
+                    <p>Actions</p>
                 </div>
 
                 <div className='grid gap-8 mt-8 p-8'>
@@ -146,29 +158,111 @@ const ResidentUserHistory: FC<{
                     fetchedResidentUserHistory.length > 0 ? (
                         React.Children.toArray(
                             fetchedResidentUserHistory.map(
-                                ({
-                                    guardCode,
-                                    guardName,
-                                    date,
-                                    checkInCount,
-                                    checkOutCount,
-                                    panicAlert,
-                                }) => {
+                                (
+                                    { packageName, userName, frequency, amount, startDate, endDate, transactionType, status },
+                                    i
+                                ) => {
+                                    const { isDropDownOpen, index } =
+                                        toggleDropDown
                                     return (
-                                        <div className='grid justify-between border-b grid-cols-6 gap-8 '>
+                                        <div className='grid justify-between border-b grid-cols-5 gap-8 '>
                                             <p className='flex items-center gap-4'>
                                                 <input
                                                     type='checkbox'
                                                     className='cursor-pointer'
                                                 />
 
-                                                <span>{guardName}</span>
+                                                <span>{packageName}</span>
                                             </p>
-                                            <p>{date}</p>
-                                            <p>{guardCode}</p>
-                                            <p>{checkInCount}</p>
-                                            <p>{checkOutCount}</p>
-                                            <p>{panicAlert}</p>
+                                            <p>{frequency}</p>
+                                            <p className='flex items-center gap-.5'>
+                                                <img
+                                                    src='/icons/Naira.svg'
+                                                    alt=''
+                                                />
+                                                <span>{price}</span>
+                                            </p>
+                                            <p>{status}</p>
+                                            <div className='relative'>
+                                                <label
+                                                    className='font-semibold capitalize cursor-pointer flex items-center gap-2 relative z-10'
+                                                    htmlFor={i.toString()}
+                                                    onClick={() =>
+                                                        setToggleDropDown(
+                                                            (prev) => {
+                                                                return {
+                                                                    isDropDownOpen:
+                                                                        !prev.isDropDownOpen,
+                                                                    index: i,
+                                                                }
+                                                            }
+                                                        )
+                                                    }
+                                                >
+                                                    <span className='text-color-primary'>
+                                                        <img
+                                                            src='/icons/admins/threeDots.svg'
+                                                            alt=''
+                                                        />
+                                                    </span>
+                                                </label>
+                                                <input
+                                                    type='radio'
+                                                    name='dropdown'
+                                                    className='hidden'
+                                                    id={i.toString()}
+                                                    onChange={(e) =>
+                                                        dropDownHandler(e, i)
+                                                    }
+                                                />
+
+                                                {isDropDownOpen &&
+                                                    index === i && (
+                                                        <div className='absolute top-0 translate-x-[5rem] border border-color-primary-light w-[10rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
+                                                            {actions.map(
+                                                                (
+                                                                    item,
+                                                                    index
+                                                                ) => (
+                                                                    <p
+                                                                        className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
+                                                                        key={
+                                                                            index +
+                                                                            i
+                                                                        }
+                                                                        onClick={(
+                                                                            e
+                                                                        ) =>
+                                                                            selectAction(
+                                                                                e,
+                                                                                item,
+                                                                                i
+                                                                            )
+                                                                        }
+                                                                    >
+                                                                        {item ===
+                                                                        'Activate' ? (
+                                                                            <span className='text-green-600'>
+                                                                                {
+                                                                                    item
+                                                                                }
+                                                                            </span>
+                                                                        ) : item ===
+                                                                          'Delete' ? (
+                                                                            <span className='text-red-600'>
+                                                                                {
+                                                                                    item
+                                                                                }
+                                                                            </span>
+                                                                        ) : (
+                                                                            item
+                                                                        )}
+                                                                    </p>
+                                                                )
+                                                            )}
+                                                        </div>
+                                                    )}
+                                            </div>
                                         </div>
                                     )
                                 }
