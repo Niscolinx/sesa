@@ -88,9 +88,9 @@ const ResidentUserHistory: FC<{
          'View Details',
          'Deactivate'
      ])
-     const [selectedAction, setSelectedAction] = useState<{
-         [key: string]: Actions
-     }>(null as any)
+    //  const [selectedAction, setSelectedAction] = useState<{
+    //      [key: string]: Actions
+    //  }>(null as any)
      const [toggleDropDown, setToggleDropDown] = useState<{
          isDropDownOpen: boolean
          index: number | null
@@ -107,21 +107,15 @@ const ResidentUserHistory: FC<{
              return {
                  isDropDownOpen: e.target.checked,
                  index: index,
-             }
-         })
-     }
-
-     const selectAction = (
-         e: React.MouseEvent,
-         item: string,
-         index: number
-     ) => {
-         setSelectedAction((prev) => {
-             return {
-                 ...prev,
-                 [index]: item,
-             }
-         })
+                }
+            })
+        }
+        
+        const selectAction = (
+            e: React.MouseEvent,
+            item: string,
+            ) => {
+                
      }
 
   
@@ -264,8 +258,8 @@ const ResidentUserHistory: FC<{
                                                                         ) =>
                                                                             selectAction(
                                                                                 e,
-                                                                                item,
-                                                                                i
+                                                                                item
+                                                                                
                                                                             )
                                                                         }
                                                                     >
