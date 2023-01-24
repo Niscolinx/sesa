@@ -29,7 +29,7 @@ const AddResidentUserPackage = () => {
     const [selectedPackage, setSelectedPackage] = useState<Packages>('package 1')
   
 
-    
+    const packageMenuToggler = () =>  setTogglePackageMenu(!togglePackageMenu)
 
 
 
@@ -43,22 +43,15 @@ const AddResidentUserPackage = () => {
             >
                 <div>
                     <div className='relative'>
-                        <label
+                        <p
                             className='font-semibold capitalize cursor-pointer flex items-center gap-2 relative z-10'
-                            htmlFor='package'
-                          
+                            onClick={packageMenuToggler}                         
                         >
                             package
-                        </label>
-                        <input
-                            type='radio'
-                            name='dropdown'
-                            className='hidden'
-                            id='package'
-                            onChange={(e) => dropDownHandler(e, 'package')}
-                        />
+                        </p>
+                        
 
-                        {isDropDownOpen && (
+                        {togglePackageMenu && (
                             <div className='absolute top-[5rem] translate-x-[6rem] border border-color-primary-light w-[24rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
                                 {packages.map((item, index) => (
                                     <p
