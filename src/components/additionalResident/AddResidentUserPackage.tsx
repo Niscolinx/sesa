@@ -193,9 +193,9 @@ const AddResidentUserPackage = () => {
                 </div>
             </section>
             <section className='grid'>
-                <div className='w-full grid gap-4'>
                   <h4>Beneficiary Details</h4>
-                  <p></p>
+                  
+                  
                 </div>
             </section>
         </div>
