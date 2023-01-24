@@ -15,74 +15,7 @@ export interface IResidentUserHistory {
     status: 'active' | 'inactive'
 }
 
-export const RESIDENT_HISTORY: IResidentUserHistory[] = [
-    {
-        id: '1',
-        packageName: 'Gold',
-        userName: 'John Doe',
-        frequency: 'Monthly',
-        amount: 1000,
-        startDate: '2021-01-01',
-        endDate: '2021-01-31',
-        transactionType: 'purchase',
-        status: 'active',
-    },
-    {
-        id: '2',
-        packageName: 'Gold',
-        userName: 'John Doe',
-        frequency: 'Monthly',
-        amount: 1000,
-        startDate: '2021-01-01',
-        endDate: '2021-01-31',
-        transactionType: 'purchase',
-        status: 'active',
-    },
-    {
-        id: '3',
-        packageName: 'Gold',
-        userName: 'John Doe',
-        frequency: 'Monthly',
-        amount: 1000,
-        startDate: '2021-01-01',
-        endDate: '2021-01-31',
-        transactionType: 'purchase',
-        status: 'active',
-    },
-    {
-        id: '4',
-        packageName: 'Gold',
-        userName: 'John Doe',
-        frequency: 'Monthly',
-        amount: 1000,
-        startDate: '2021-01-01',
-        endDate: '2021-01-31',
-        transactionType: 'purchase',
-        status: 'active',
-    },
-    {
-        id: '5',
-        packageName: 'Gold',
-        userName: 'John Doe',
-        frequency: 'Monthly',
-        amount: 1000,
-        startDate: '2021-01-01',
-        endDate: '2021-01-31',
-        transactionType: 'purchase',
-        status: 'active',
-    },
-    {
-        id: '6',
-        packageName: 'Gold',
-        userName: 'John Doe',
-        frequency: 'Monthly',
-        amount: 1000,
-        startDate: '2021-01-01',
-        endDate: '2021-01-31',
-        transactionType: 'purchase',
-        status: 'active',
-    },
-]
+
 
 type SortBy = 'A-Z' | 'date'
 
@@ -162,12 +95,6 @@ const ResidentUserHistory: FC<{
     const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
         const item = parseInt(e.target.value)
 
-        const slicedPages: IResidentUserHistory[][] = []
-        for (let i = 0; i < fetchedResidentUserHistory.length; i += 2) {
-            slicedPages.push(fetchedResidentUserHistory.slice(i, i + 2))
-        }
-
-       
 
         setPaginate((prev) => {
             return {
@@ -181,10 +108,9 @@ const ResidentUserHistory: FC<{
     }
 
     useEffect(() => {
-        console.log("handle items per page")
         const slicedPages: IResidentUserHistory[][] = []
-        for (let i = 0; i < fetchedResidentUserHistory.length; i += 2) {
-            slicedPages.push(fetchedResidentUserHistory.slice(i, i + 2))
+        for (let i = 0; i < fetchedResidentUserHistory.length; i += paginate.itemsPerPage) {
+            slicedPages.push(fetchedResidentUserHistory.slice(i, i + paginate.itemsPerPage))
         }
 
         setPaginate((prev) => {
@@ -193,7 +119,7 @@ const ResidentUserHistory: FC<{
                 slicedPages,
             }
         })
-    }, [fetchedResidentUserHistory])
+    }, [fetchedResidentUserHistory, paginate.itemsPerPage])
 
     const handleNext = () => {
         if (paginate.currentPage === paginate.totalPage) return

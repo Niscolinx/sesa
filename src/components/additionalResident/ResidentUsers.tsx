@@ -1,11 +1,79 @@
 import { useState, useEffect } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
-import ResidentUserHistory, { IResidentUserHistory, RESIDENT_HISTORY } from './ResidentUserHistory'
+import ResidentUserHistory, { IResidentUserHistory } from './ResidentUserHistory'
 'react-icons/hi'
 
 import ResidentUsersList, { RESIDENT_LISTS, IResidentUsersList } from './ResidentUsersList'
 
 
+export const RESIDENT_HISTORY: IResidentUserHistory[] = [
+    {
+        id: '1',
+        packageName: 'Gold',
+        userName: 'John Doe',
+        frequency: 'Monthly',
+        amount: 1000,
+        startDate: '2021-01-01',
+        endDate: '2021-01-31',
+        transactionType: 'purchase',
+        status: 'active',
+    },
+    {
+        id: '2',
+        packageName: 'Gold',
+        userName: 'John Doe',
+        frequency: 'Monthly',
+        amount: 1000,
+        startDate: '2021-01-01',
+        endDate: '2021-01-31',
+        transactionType: 'purchase',
+        status: 'active',
+    },
+    {
+        id: '3',
+        packageName: 'Gold',
+        userName: 'John Doe',
+        frequency: 'Monthly',
+        amount: 1000,
+        startDate: '2021-01-01',
+        endDate: '2021-01-31',
+        transactionType: 'purchase',
+        status: 'active',
+    },
+    {
+        id: '4',
+        packageName: 'Gold',
+        userName: 'John Doe',
+        frequency: 'Monthly',
+        amount: 1000,
+        startDate: '2021-01-01',
+        endDate: '2021-01-31',
+        transactionType: 'purchase',
+        status: 'active',
+    },
+    {
+        id: '5',
+        packageName: 'Gold',
+        userName: 'John Doe',
+        frequency: 'Monthly',
+        amount: 1000,
+        startDate: '2021-01-01',
+        endDate: '2021-01-31',
+        transactionType: 'purchase',
+        status: 'active',
+    },
+    {
+        id: '6',
+        packageName: 'Gold',
+        userName: 'John Doe',
+        frequency: 'Monthly',
+        amount: 1000,
+        startDate: '2021-01-01',
+        endDate: '2021-01-31',
+        transactionType: 'purchase',
+        status: 'active',
+    },
+]
 
 function ResidentUsers() {
     const [fetchedResidentUsers, setFetchedResidentUsers] = useState<
