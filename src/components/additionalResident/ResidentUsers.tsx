@@ -114,7 +114,6 @@ const ActivityReport: FC<{
 }> = ({ fetchedActivityReport }) => {
     const dispatch = useAppDispatch()
 
-
     const [actions, setActions] = useState<Actions[]>([
         'View Details',
         'Activate',
@@ -156,8 +155,8 @@ const ActivityReport: FC<{
     }
 
     const handleAddPackage = () => {
-                dispatch(setAdditionalResidentPath('addResidentUserPackage'))
-
+        console.log('handle package')
+        dispatch(setAdditionalResidentPath('addResidentUserPackage'))
     }
 
     return (
