@@ -110,7 +110,7 @@ const ResidentUserHistory: FC<{
         setToggleDropDown(() => {
             return {
                 isDropDownOpen: e.target.checked,
-                index
+                index,
             }
         })
     }
@@ -129,7 +129,7 @@ const ResidentUserHistory: FC<{
     const [toggleSortMenu, setToggleSortMenu] = useState(false)
     const [itemsPerPage, setItemsPerPage] = useState({
         perPage: 2,
-        perPageArray: [2, 4, 6, 8],
+        arr: [2, 4, 6, 8],
     })
     const [selectedSort, setSelectedSort] = useState<SortBy>('A-Z')
     const [paginate, setPaginate] = useState({
@@ -137,12 +137,7 @@ const ResidentUserHistory: FC<{
         itemsPerPage: 2,
         totalItems: fetchedResidentUserHistory.length,
 
-        totalPages: Math.ceil(
-            fetchedResidentUserHistory.length / 2
-        ),
-
-
-
+        totalPages: Math.ceil(fetchedResidentUserHistory.length / 2),
     })
 
     const sortMenuToggler = () => setToggleSortMenu(!toggleSortMenu)
@@ -155,7 +150,7 @@ const ResidentUserHistory: FC<{
     const handleItemsPerPage = (item: any) => {
         setItemsPerPage({
             perPage: item,
-            perPageArray: [2, 4, 6, 8],
+            arr: [2, 4, 6, 8],
         })
     }
 
@@ -231,121 +226,126 @@ const ResidentUserHistory: FC<{
                     {fetchedResidentUserHistory &&
                     fetchedResidentUserHistory.length > 0 ? (
                         React.Children.toArray(
-                            fetchedResidentUserHistory.slice().map(
-                                (
-                                    {
-                                        packageName,
-                                        userName,
-                                        frequency,
-                                        amount,
-                                        startDate,
-                                        endDate,
-                                        transactionType,
-                                        status,
-                                    },
-                                    i
-                                ) => {
-                                    const { isDropDownOpen, index } =
-                                        toggleDropDown
-                                    return (
-                                        <div className='grid justify-between border-b grid-cols-9 gap-8 '>
-                                            <p className='flex items-center gap-4'>
-                                                <input
-                                                    type='checkbox'
-                                                    className='cursor-pointer'
-                                                />
+                            fetchedResidentUserHistory
+                                .slice()
+                                .map(
+                                    (
+                                        {
+                                            packageName,
+                                            userName,
+                                            frequency,
+                                            amount,
+                                            startDate,
+                                            endDate,
+                                            transactionType,
+                                            status,
+                                        },
+                                        i
+                                    ) => {
+                                        const { isDropDownOpen, index } =
+                                            toggleDropDown
+                                        return (
+                                            <div className='grid justify-between border-b grid-cols-9 gap-8 '>
+                                                <p className='flex items-center gap-4'>
+                                                    <input
+                                                        type='checkbox'
+                                                        className='cursor-pointer'
+                                                    />
 
-                                                <span>{packageName}</span>
-                                            </p>
-                                            <p>{userName}</p>
-                                            <p>{frequency}</p>
-                                            <p className='flex items-center gap-.5'>
-                                                <img
-                                                    src='/icons/Naira.svg'
-                                                    alt=''
-                                                />
-                                                <span>{amount}</span>
-                                            </p>
-                                            <p>{startDate}</p>
-                                            <p>{endDate}</p>
-                                            <p>{transactionType}</p>
-                                            <p>{status}</p>
-                                            <div className='relative'>
-                                                <label
-                                                    className='font-semibold capitalize cursor-pointer flex items-center gap-2 relative z-10'
-                                                    htmlFor={i.toString()}
-                                                    onClick={() =>
-                                                        setToggleDropDown(
-                                                            (prev) => {
-                                                                return {
-                                                                    isDropDownOpen:
-                                                                        !prev.isDropDownOpen,
-                                                                    index: i,
+                                                    <span>{packageName}</span>
+                                                </p>
+                                                <p>{userName}</p>
+                                                <p>{frequency}</p>
+                                                <p className='flex items-center gap-.5'>
+                                                    <img
+                                                        src='/icons/Naira.svg'
+                                                        alt=''
+                                                    />
+                                                    <span>{amount}</span>
+                                                </p>
+                                                <p>{startDate}</p>
+                                                <p>{endDate}</p>
+                                                <p>{transactionType}</p>
+                                                <p>{status}</p>
+                                                <div className='relative'>
+                                                    <label
+                                                        className='font-semibold capitalize cursor-pointer flex items-center gap-2 relative z-10'
+                                                        htmlFor={i.toString()}
+                                                        onClick={() =>
+                                                            setToggleDropDown(
+                                                                (prev) => {
+                                                                    return {
+                                                                        isDropDownOpen:
+                                                                            !prev.isDropDownOpen,
+                                                                        index: i,
+                                                                    }
                                                                 }
-                                                            }
-                                                        )
-                                                    }
-                                                >
-                                                    <span className='text-color-primary'>
-                                                        <img
-                                                            src='/icons/admins/threeDots.svg'
-                                                            alt=''
-                                                        />
-                                                    </span>
-                                                </label>
-                                                <input
-                                                    type='radio'
-                                                    name='dropdown'
-                                                    className='hidden'
-                                                    id={i.toString()}
-                                                    onChange={(e) =>
-                                                        dropDownHandler(e, i)
-                                                    }
-                                                />
+                                                            )
+                                                        }
+                                                    >
+                                                        <span className='text-color-primary'>
+                                                            <img
+                                                                src='/icons/admins/threeDots.svg'
+                                                                alt=''
+                                                            />
+                                                        </span>
+                                                    </label>
+                                                    <input
+                                                        type='radio'
+                                                        name='dropdown'
+                                                        className='hidden'
+                                                        id={i.toString()}
+                                                        onChange={(e) =>
+                                                            dropDownHandler(
+                                                                e,
+                                                                i
+                                                            )
+                                                        }
+                                                    />
 
-                                                {isDropDownOpen &&
-                                                    index === i && (
-                                                        <div className='absolute top-0 translate-x-[4rem] border border-color-primary-light w-[10rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
-                                                            {actions.map(
-                                                                (
-                                                                    item,
-                                                                    index
-                                                                ) => (
-                                                                    <p
-                                                                        className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
-                                                                        key={
-                                                                            index +
-                                                                            i
-                                                                        }
-                                                                        onClick={(
-                                                                            e
-                                                                        ) =>
-                                                                            selectAction(
-                                                                                e,
-                                                                                item
-                                                                            )
-                                                                        }
-                                                                    >
-                                                                        {item ===
-                                                                        'Deactivate' ? (
-                                                                            <span className='text-red-600'>
-                                                                                {
+                                                    {isDropDownOpen &&
+                                                        index === i && (
+                                                            <div className='absolute top-0 translate-x-[4rem] border border-color-primary-light w-[10rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
+                                                                {actions.map(
+                                                                    (
+                                                                        item,
+                                                                        index
+                                                                    ) => (
+                                                                        <p
+                                                                            className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
+                                                                            key={
+                                                                                index +
+                                                                                i
+                                                                            }
+                                                                            onClick={(
+                                                                                e
+                                                                            ) =>
+                                                                                selectAction(
+                                                                                    e,
                                                                                     item
-                                                                                }
-                                                                            </span>
-                                                                        ) : (
-                                                                            item
-                                                                        )}
-                                                                    </p>
-                                                                )
-                                                            )}
-                                                        </div>
-                                                    )}
+                                                                                )
+                                                                            }
+                                                                        >
+                                                                            {item ===
+                                                                            'Deactivate' ? (
+                                                                                <span className='text-red-600'>
+                                                                                    {
+                                                                                        item
+                                                                                    }
+                                                                                </span>
+                                                                            ) : (
+                                                                                item
+                                                                            )}
+                                                                        </p>
+                                                                    )
+                                                                )}
+                                                            </div>
+                                                        )}
+                                                </div>
                                             </div>
-                                        </div>
-                                    )
-                                }
-                            )
+                                        )
+                                    }
+                                )
                         )
                     ) : (
                         <div>
@@ -361,16 +361,23 @@ const ResidentUserHistory: FC<{
             <footer className='flex items-center p-4 mt-4 bg-color-white rounded-lg'>
                 <div className='flex gap-8 items-center'>
                     <p>View</p>
-                    <div className='flex items-center border px-4 rounded-lg'>
-                        <input
-                            type='number'
-                            className='w-8 outline-none border-none cursor-pointer '
-                            value={itemsPerPage.perPage}
-                            inputMode='numeric'
-                            onChange={handleItemsPerPage}
-                        />
-                        <GrDown className='text-[1.3rem]' />
-                    </div>
+                    <select
+                        name=''
+                        id=''
+                        className='flex items-center border px-4 rounded-lg outline-none cursor-pointer'
+                    >
+                        {
+                            itemsPerPage.arr.map((item, index) => (
+                                <option
+                                    value={item}
+                                    key={index}
+                                    className='capitalize cursor-pointer'
+                                >
+                                    {item}
+                                </option>
+                            ))
+                        }
+                    </select>
                     <p className='text'>List per page</p>
                 </div>
                 <ul className='flex items-center gap-5 ml-10'>
