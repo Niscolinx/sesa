@@ -109,47 +109,45 @@ const ACTIVITY_REPORT_DATA: ActivityReport[] = [
 const ActivityReport: FC<{
     fetchedActivityReport: ActivityReport[]
 }> = ({ fetchedActivityReport }) => {
-     const [actions, setActions] = useState<Actions[]>([
+    const [actions, setActions] = useState<Actions[]>([
         'View Details',
         'Activate',
         'Deactivate',
-        'Delete'
-     ])
-     const [selectedAction, setSelectedAction] = useState<{
-         [key: string]: Actions
-     }>(null as any)
-     const [toggleDropDown, setToggleDropDown] = useState<{
-         isDropDownOpen: boolean
-         index: number | null
-     }>({
-         isDropDownOpen: false,
-         index: null,
-     })
+        'Delete',
+    ])
+    const [selectedAction, setSelectedAction] = useState<{
+        [key: string]: Actions
+    }>(null as any)
+    const [toggleDropDown, setToggleDropDown] = useState<{
+        isDropDownOpen: boolean
+        index: number | null
+    }>({
+        isDropDownOpen: false,
+        index: null,
+    })
 
+    const dropDownHandler = (
+        e: React.ChangeEvent<HTMLInputElement>,
+        index: number
+    ) => {
+        console.log('clicked')
+        setToggleDropDown((prev) => {
+            return {
+                isDropDownOpen: e.target.checked,
+                index: index,
+            }
+        })
+    }
 
-     const dropDownHandler = (
-         e: React.ChangeEvent<HTMLInputElement>,
-         index: number
-     ) => {
-         console.log('clicked')
-         setToggleDropDown((prev) => {
-             return {
-                 isDropDownOpen: e.target.checked,
-                 index: index,
-             }
-         })
-     }
-
-     const selectAction = (e: React.MouseEvent, item: string, index: number) => {
-         console.log('select role')
-         setSelectedAction((prev) => {
-             return {
-                 ...prev,
-                 [index]: item,
-             }
-         })
-     }
-
+    const selectAction = (e: React.MouseEvent, item: string, index: number) => {
+        console.log('select role')
+        setSelectedAction((prev) => {
+            return {
+                ...prev,
+                [index]: item,
+            }
+        })
+    }
 
     return (
         <div className='grid text-[1.6rem]'>
@@ -223,11 +221,14 @@ const ActivityReport: FC<{
                     fetchedActivityReport.length > 0 ? (
                         React.Children.toArray(
                             fetchedActivityReport.map(
-                                ({ packageName, price, frequency, status }, i) => {
+                                (
+                                    { packageName, price, frequency, status },
+                                    i
+                                ) => {
                                     const { isDropDownOpen, index } =
                                         toggleDropDown
                                     return (
-                                        <div className='grid justify-between border-b grid-cols-6 gap-8 '>
+                                        <div className='grid justify-between border-b grid-cols-5 gap-8 '>
                                             <p className='flex items-center gap-4'>
                                                 <input
                                                     type='checkbox'
@@ -261,15 +262,12 @@ const ActivityReport: FC<{
                                                         )
                                                     }
                                                 >
-                                                    {selectedAction &&
-                                                    selectedAction[i] ? (
-                                                        selectedAction[i]
-                                                    ) : (
-                                                        <span className='text-color-primary'>
-                                                            Select Role
-                                                        </span>
-                                                    )}
-                                                    
+                                                    <span className='text-color-primary'>
+                                                        <img
+                                                            src='/icons/admins/threeDots.svg'
+                                                            alt=''
+                                                        />
+                                                    </span>
                                                 </label>
                                                 <input
                                                     type='radio'
