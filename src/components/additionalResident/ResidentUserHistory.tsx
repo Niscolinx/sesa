@@ -126,6 +126,16 @@ const ResidentUserHistory: FC<{
 
     const sortBy: SortBy[] = ['A-Z', 'date']
 
+    interface Paginate {
+        start: number,
+        end: number,
+        currentPage: number,
+        itemsPerPage: number,
+        totalItems: number,
+
+        totalPages: number
+    }
+
     const [toggleSortMenu, setToggleSortMenu] = useState(false)
     const [itemsPerPage, setItemsPerPage] = useState({
         perPage: 2,
@@ -133,6 +143,8 @@ const ResidentUserHistory: FC<{
     })
     const [selectedSort, setSelectedSort] = useState<SortBy>('A-Z')
     const [paginate, setPaginate] = useState({
+        start: 0,
+        end: fetchedResidentUserHistory.length,
         currentPage: 1,
         itemsPerPage: 2,
         totalItems: fetchedResidentUserHistory.length,
@@ -153,17 +165,20 @@ const ResidentUserHistory: FC<{
         //transform the array to have a sub array of the item
         const newArr = []
         for (let i = 0; i < fetchedResidentUserHistory.length; i += item) {
-            console.log(i, i + item, item)
             newArr.push(fetchedResidentUserHistory.slice(i, i + item))
         }
 
         console.log(newArr)
+
+        setPaginate((prev) )
 
         // setItemsPerPage({
         //     perPage: item,
         //     arr: [2, 4, 6, 8],
         // })
     }
+
+    const { start, end, currentPage, totalItems, totalPages } = paginate
 
     return (
         <div className='grid text-[1.6rem]'>
@@ -238,7 +253,7 @@ const ResidentUserHistory: FC<{
                     fetchedResidentUserHistory.length > 0 ? (
                         React.Children.toArray(
                             fetchedResidentUserHistory
-                                .slice()
+                                .slice(start, end)
                                 .map(
                                     (
                                         {
@@ -250,6 +265,7 @@ const ResidentUserHistory: FC<{
                                             endDate,
                                             transactionType,
                                             status,
+                                            id,
                                         },
                                         i
                                     ) => {
@@ -258,6 +274,7 @@ const ResidentUserHistory: FC<{
                                         return (
                                             <div className='grid justify-between border-b grid-cols-9 gap-8 '>
                                                 <p className='flex items-center gap-4'>
+                                                    {id}
                                                     <input
                                                         type='checkbox'
                                                         className='cursor-pointer'
