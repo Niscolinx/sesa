@@ -73,13 +73,15 @@ export const RESIDENT_HISTORY: IResidentUserHistory[] = [
     },
 ]
 
-
+enum SortBy {
+    'A-Z',
+    'date',
+}
 
 const ResidentUserHistory: FC<{
     fetchedResidentUserHistory: IResidentUserHistory[]
 }> = ({ fetchedResidentUserHistory }) => {
     const navigate = useNavigate()
-
 
     const [actions, _] = useState<['View Details', 'Deactivate']>([
         'View Details',
@@ -104,12 +106,14 @@ const ResidentUserHistory: FC<{
             }
         })
     }
- 
-    const selectAction = (e: React.MouseEvent, item: 'View Details' | 'Deactivate') => {
-        if(item === 'View Details') {
+
+    const selectAction = (
+        e: React.MouseEvent,
+        item: 'View Details' | 'Deactivate'
+    ) => {
+        if (item === 'View Details') {
             navigate('/dashboard/additional-resident/:Id')
         }
-      
     }
 
     const [packages, setPackages] = useState<Packages[]>([
@@ -118,12 +122,10 @@ const ResidentUserHistory: FC<{
         'package 3',
         'package 4',
     ])
-    
 
     const [togglePackageMenu, setTogglePackageMenu] = useState(false)
     const [selectedPackage, setSelectedPackage] =
         useState<Packages>('package 1')
-    
 
     const packageMenuToggler = () => setTogglePackageMenu(!togglePackageMenu)
 
@@ -131,7 +133,6 @@ const ResidentUserHistory: FC<{
         setSelectedPackage(item)
         setTogglePackageMenu(false)
     }
-    
 
     return (
         <div className='grid text-[1.6rem]'>
