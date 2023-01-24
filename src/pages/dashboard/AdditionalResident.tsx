@@ -3,22 +3,22 @@ import { IoMdAdd } from 'react-icons/io'
 import AddEstate from '../../components/estates/AddEstate'
 import RenderedEstates from '../../components/estates/RenderedEstates'
 import { useAppDispatch, useAppSelector } from '../../store/app/hooks'
-import { routeChangeSelector, RenderEstatePath, setEstatePath } from '../../store/features/routeChange'
+import { routeChangeSelector, RenderAdditionalResidentPath, setAdditionalResidentPath } from '../../store/features/routeChange'
 
 
 
 function AdditionalResident() {
     const dispatch = useAppDispatch()
-    const { estatePath } = useAppSelector(routeChangeSelector)
+    const { additionalResidentPath } = useAppSelector(routeChangeSelector)
 
-    const [estatesLoaded, setEstatesLoaded] = useState(false)
+    const [additionalResident, setAdditionalResident] = useState(false)
 
-    const switchRoute = (estatePath: RenderEstatePath) => {
-        switch (estatePath) {
-            case 'renderedEstates':
+    const switchRoute = (path: RenderAdditionalResidentPath) => {
+        switch (path) {
+            case 'renderedAdditionalResident':
                 return <RenderedEstates />
 
-            case 'addEstate':
+            case 'addAdditionalResident':
                 return <AddEstate />
 
             default:
@@ -27,16 +27,16 @@ function AdditionalResident() {
     }
 
     const handleAddEstate = () => {
-        setEstatesLoaded(true)
-        dispatch(setEstatePath('renderedEstates'))
+        setAdditionalResident(true)
+        dispatch(setAdditionalResidentPath('renderedAdditionalResident'))
     }
 
     return (
         <div>
             <h1 className='heading2'>Additional Resident User</h1>
             <div className='rounded-lg mt-[3rem] h-[80vh]'>
-                {estatesLoaded ? (
-                    <section>{switchRoute(estatePath)}</section>
+                {additionalResident ? (
+                    <section>{switchRoute('renderedAdditionalResident')}</section>
                 ) : (
                     <section className='grid place-content-center w-full h-full justify-items-center gap-4'>
                         <img src='/icons/admins/errorSvg.svg' alt='' />
@@ -50,7 +50,7 @@ function AdditionalResident() {
                             <span>
                                 <IoMdAdd />
                             </span>{' '}
-                            Add Estate
+                            Add Package
                         </button>
                     </section>
                 )}
