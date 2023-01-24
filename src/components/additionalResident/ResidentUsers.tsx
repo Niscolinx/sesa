@@ -7,8 +7,8 @@ import { Link } from 'react-router-dom'
 
 interface ActivityReport {
     id: string
-    guardName: string
-    phoneNumber: string
+    packageName: string
+    frequency: string
     date: string
     guardCode: number
     clockIn: number
@@ -506,7 +506,7 @@ function ResidentUsers() {
     }
 
     return (
-        <div className='estateDetail'>
+        <div>
             <div className='estateDetail__radioBox'>
                 <input
                     defaultChecked
