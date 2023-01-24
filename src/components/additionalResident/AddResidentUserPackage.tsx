@@ -193,9 +193,21 @@ const AddResidentUserPackage = () => {
                 </div>
             </section>
             <section className='grid'>
-                  <h4>Beneficiary Details</h4>
-                  
-                  
+                <h4 className='text-[1.6rem] font-semibold'>Beneficiary Details</h4>
+                <div>
+                    <div className='flex items-center'>
+                        <input type='checkbox' />
+                        <img src='/img/me.jpeg' alt='' className='w-[3rem] h-[3rem] object-cover object-top rounded-full'/>
+                        <span>Jacintha Sage</span>
+                    </div>
+                    <div>
+                      <p>Email</p>
+                      <p>jacintha@gmail.com</p>
+                    </div>
+                    <div>
+                      <p>Phone Number</p>
+                      <p>09072847232</p>
+                    </div>
                 </div>
             </section>
         </div>
