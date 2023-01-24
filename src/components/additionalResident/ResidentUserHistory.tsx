@@ -184,6 +184,8 @@ const ResidentUserHistory: FC<{
     }
 
 
+
+
     const handleNext = () => {
         setPaginate((prev) => {
             return {
@@ -449,6 +451,7 @@ const ResidentUserHistory: FC<{
                             </li>
                         )
                     })}
+                    {currentPage}
 
                     {/* <li className='grid place-content-center border w-[3rem] h-[3rem] cursor-pointer'>
                         {totalPage}
