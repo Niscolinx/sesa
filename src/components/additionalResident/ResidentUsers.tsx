@@ -450,7 +450,7 @@ const AttendanceReport: FC<{
     )
 }
 
-function ResidentUser() {
+function ResidentUsers() {
     const [fetchedActivityReport, setFetchedActivityReport] = useState<
         ActivityReport[] | null
     >(null)
@@ -549,4 +549,4 @@ function ResidentUser() {
     )
 }
 
-export default ResidentUser
+export default ResidentUsers
