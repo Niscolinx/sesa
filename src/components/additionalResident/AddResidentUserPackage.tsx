@@ -8,19 +8,7 @@ const AddResidentUserPackage = () => {
     const ModalContextData = useContext(ModalContext)
     const { handleOpen } = ModalContextData
 
-    const [photoUrl, setPhotoUrl] = useState('')
-
-    const handlePhotoPreview = async (
-        value: React.MouseEvent<HTMLInputElement>
-    ) => {
-        const getUrl = await getPhotoUrl(`#photoUpload`)
-        setPhotoUrl(getUrl)
-    }
-
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault()
-        handleOpen('renderedEstateManagers')
-    }
+  
 
     return (
       
