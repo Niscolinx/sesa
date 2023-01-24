@@ -152,6 +152,13 @@ const ResidentUserHistory: FC<{
         setToggleSortMenu(false)
     }
 
+    const handleItemsPerPage = (item: any) => {
+        setItemsPerPage({
+            perPage: item,
+            perPageArray: [2, 4, 6, 8],
+        })
+    }
+
     return (
         <div className='grid text-[1.6rem]'>
             <caption className='flex w-full items-center gap-12 p-10 bg-white rounded-lg'>
@@ -358,9 +365,9 @@ const ResidentUserHistory: FC<{
                         <input
                             type='number'
                             className='w-8 outline-none border-none cursor-pointer '
-                            value={itemsPerPage}
+                            value={itemsPerPage.perPage}
                             inputMode='numeric'
-                            onChange={(e) => setItemsPerPage(Number(e.target.value))}
+                            onChange={handleItemsPerPage}
                         />
                         <GrDown className='text-[1.3rem]' />
                     </div>
