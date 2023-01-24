@@ -73,7 +73,7 @@ function RenderedRolesAndPerm() {
         const fetchData = async () => {
             setTimeout(() => {
                 setFetchedUsers(ROLES_AND_PERM)
-            }, 2000)
+            }, 1000)
         }
         fetchData()
     }, [])
@@ -106,7 +106,6 @@ function RenderedRolesAndPerm() {
     }
 
     const showModal = () => {
-
         dialogRef.current?.showModal()
     }
 
@@ -120,24 +119,35 @@ function RenderedRolesAndPerm() {
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid  w-[64rem] h-[60rem] gap-8 py-8 px-10 items-center'>
                         <div className='border-b'>
-                            <p className='text-[1.6rem] font-semibold'>Permissions List</p>
+                            <p className='text-[1.6rem] font-semibold'>
+                                Permissions List
+                            </p>
                         </div>
                         <div className='my-10 grid gap-4 h-full'>
-
-                        {React.Children.toArray(permissions.map((value, i) => {
-                            return (
-                                <div
-                                key={i}
-                                className='flex items-center gap-4 '
-                                >
-                                    <input type='checkbox' className='cursor-pointer'/>
-                                    <p className='text-[1.6rem]'>Permission {i + 1}</p>
-                                </div>
-                            )
-                        }))}
+                            {React.Children.toArray(
+                                permissions.map((value, i) => {
+                                    return (
+                                        <div
+                                            key={i}
+                                            className='flex items-center gap-4 '
+                                        >
+                                            <input
+                                                type='checkbox'
+                                                className='cursor-pointer'
+                                            />
+                                            <p className='text-[1.6rem]'>
+                                                Permission {i + 1}
+                                            </p>
+                                        </div>
+                                    )
+                                })
+                            )}
                         </div>
-                        <button className='bg-color-blue-1 px-12 py-4 text-white text-[1.4rem] flex items-center justify-self-start rounded-lg gap-4 self-center' onClick={hideModal}>
-                            <img src="/icons/admins/saveDisk.svg" alt="" />
+                        <button
+                            className='bg-color-blue-1 px-12 py-4 text-white text-[1.4rem] flex items-center justify-self-start rounded-lg gap-4 self-center'
+                            onClick={hideModal}
+                        >
+                            <img src='/icons/admins/saveDisk.svg' alt='' />
                             <span>Save Changes</span>
                         </button>
                     </div>

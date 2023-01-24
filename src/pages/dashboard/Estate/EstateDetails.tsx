@@ -377,7 +377,7 @@ const AttendanceReport: FC<{
                                     date,
                                     checkInCount,
                                     checkOutCount,
-                                    panicAlert
+                                    panicAlert,
                                 }) => {
                                     return (
                                         <div className='grid justify-between border-b grid-cols-6 gap-8 '>
@@ -466,7 +466,7 @@ function EstateDetails() {
             setTimeout(() => {
                 setFetchedActivityReport(ACTIVITY_REPORT_DATA)
                 setFetchedAttendanceReport(ATTENDANCE_REPORT_DATA)
-            }, 2000)
+            }, 1000)
         }
         fetchData()
     }, [])

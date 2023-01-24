@@ -1,10 +1,10 @@
-import {  useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
 import { GrDown } from 'react-icons/gr'
 import { IoMdAdd } from 'react-icons/io'
-import { HiOutlineChevronLeft, HiOutlineChevronRight} from 'react-icons/hi'
+import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { useAppDispatch } from '../../store/app/hooks'
-import {  setAdminPath } from '../../store/features/routeChange'
+import { setAdminPath } from '../../store/features/routeChange'
 
 type Admin = {
     id: string
@@ -83,15 +83,15 @@ const ADMINDATA: Admin[] = [
 ]
 
 function RenderedAdmins() {
- const dispatch = useAppDispatch()
- 
+    const dispatch = useAppDispatch()
+
     const [fetchedUsers, setFetchedUsers] = useState<Admin[] | null>([])
 
     useEffect(() => {
         const fetchData = async () => {
             setTimeout(() => {
                 setFetchedUsers(ADMINDATA)
-            }, 2000)
+            }, 1000)
         }
         fetchData()
     }, [])

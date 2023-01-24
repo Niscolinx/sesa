@@ -105,7 +105,7 @@ function EstateReport() {
         const fetchData = async () => {
             setTimeout(() => {
                 setFetchedUsers(ESTATEMANAGERDATA)
-            }, 2000)
+            }, 1000)
         }
         fetchData()
     }, [])

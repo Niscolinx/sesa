@@ -15,6 +15,7 @@ module.exports = {
                 'color-blue': '#0660FE',
                 'color-blue-1': '#0556E5',
                 'color-blue-light': '#098DFF2B',
+                'color-green-light': '#09b47c',
                 'border-radius': '8px',
                 'border-radius-lg': '20px',
             }

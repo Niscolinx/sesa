@@ -2,9 +2,12 @@ import { useContext, useEffect, useState } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
 import { GrDown } from 'react-icons/gr'
 import { IoMdAdd } from 'react-icons/io'
-import { HiOutlineChevronLeft, HiOutlineChevronRight} from 'react-icons/hi'
+import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { useAppDispatch, useAppSelector } from '../../store/app/hooks'
-import { routeChangeSelector, setEstateManagerPath } from '../../store/features/routeChange'
+import {
+    routeChangeSelector,
+    setEstateManagerPath,
+} from '../../store/features/routeChange'
 
 type EstateManager = {
     id: string
@@ -83,7 +86,7 @@ const ESTATEMANAGERDATA: EstateManager[] = [
 ]
 
 function RenderedEstateManagers() {
- const dispatch = useAppDispatch()
+    const dispatch = useAppDispatch()
 
     const [fetchedUsers, setFetchedUsers] = useState<EstateManager[] | null>([])
 
@@ -91,7 +94,7 @@ function RenderedEstateManagers() {
         const fetchData = async () => {
             setTimeout(() => {
                 setFetchedUsers(ESTATEMANAGERDATA)
-            }, 2000)
+            }, 1000)
         }
         fetchData()
     }, [])

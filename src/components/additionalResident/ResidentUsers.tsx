@@ -465,7 +465,7 @@ function ResidentUsers() {
             setTimeout(() => {
                 setFetchedActivityReport(ACTIVITY_REPORT_DATA)
                 setFetchedAttendanceReport(ATTENDANCE_REPORT_DATA)
-            }, 2000)
+            }, 1000)
         }
         fetchData()
     }, [])
@@ -516,7 +516,9 @@ function ResidentUsers() {
                     className='hidden'
                     onChange={() => setCurrentPage(1)}
                 />
-                <label htmlFor='additionalResidentUsr'>Additional Resident User</label>
+                <label htmlFor='additionalResidentUsr'>
+                    Additional Resident User
+                </label>
 
                 <input
                     type='radio'
@@ -525,12 +527,22 @@ function ResidentUsers() {
                     className='hidden'
                     onChange={() => setCurrentPage(2)}
                 />
-                <label htmlFor='ResidentUserHistory'>Resident User History</label>
+                <label htmlFor='ResidentUserHistory'>
+                    Resident User History
+                </label>
             </div>
             <div className='mt-8 grid gap-8'>
-                
                 <section className='bg-color-white rounded-lg border min-w-[112rem] overflow-scroll'>
-                    {fetchedActivityReport && handlePathSwitch(currentPage)}
+                    {fetchedActivityReport &&
+                    fetchedActivityReport.length > 0 ? (
+                        handlePathSwitch(currentPage)
+                    ) : (
+                        <section className='relative w-[70vw] h-[60vh] mx-auto grid'>
+                            <div className='absolute w-full h-full grid place-content-center'>
+                                <CgSpinnerTwo className='animate-spin text-color-green-light text-5xl' />
+                            </div>
+                        </section>
+                    )}
                 </section>
             </div>
         </div>
