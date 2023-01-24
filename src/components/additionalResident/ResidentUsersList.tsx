@@ -5,7 +5,6 @@ import { HiOutlineChevronLeft, HiOutlineChevronRight } from "react-icons/hi"
 import { IoMdAdd } from "react-icons/io"
 import { useAppDispatch } from "../../store/app/hooks"
 import { setAdditionalResidentPath } from "../../store/features/routeChange"
-import ResidentUsers from "./ResidentUsers"
 
 
 export interface ResidentUsers {
