@@ -127,7 +127,10 @@ const ResidentUserHistory: FC<{
     const sortBy: SortBy[] = ['A-Z', 'date']
 
     const [toggleSortMenu, setToggleSortMenu] = useState(false)
-    const [itemsPerPage, setItemsPerPage] = useState(2)
+    const [itemsPerPage, setItemsPerPage] = useState({
+        perPage: 2,
+        perPageArray: [2, 4, 6, 8],
+    })
     const [selectedSort, setSelectedSort] = useState<SortBy>('A-Z')
     const [paginate, setPaginate] = useState({
         currentPage: 1,
