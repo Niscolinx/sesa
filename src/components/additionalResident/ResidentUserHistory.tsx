@@ -129,7 +129,7 @@ const ResidentUserHistory: FC<{
     const [toggleSortMenu, setToggleSortMenu] = useState(false)
     const [itemsPerPage, setItemsPerPage] = useState({
         perPage: 2,
-        arr: [2, 4, 6,5, 8],
+        arr: [2, 4, 6, 8],
     })
     const [selectedSort, setSelectedSort] = useState<SortBy>('A-Z')
     const [paginate, setPaginate] = useState({
@@ -378,17 +378,15 @@ const ResidentUserHistory: FC<{
                         className='flex items-center border px-4 rounded-lg outline-none cursor-pointer'
                         onChange={handleItemsPerPage}
                     >
-                        {
-                            itemsPerPage.arr.map((item, index) => (
-                                <option
-                                    value={item}
-                                    key={index}
-                                    className='capitalize cursor-pointer bg-white'
-                                >
-                                    {item}
-                                </option>
-                            ))
-                        }
+                        {itemsPerPage.arr.map((item, index) => (
+                            <option
+                                value={item}
+                                key={index}
+                                className='capitalize cursor-pointer bg-white'
+                            >
+                                {item}
+                            </option>
+                        ))}
                     </select>
                     <p className='text'>List per page</p>
                 </div>
