@@ -9,7 +9,7 @@ interface ActivityReport {
     id: string
     packageName: string
     frequency: string
-    date: string
+    price: number
     guardCode: number
     clockIn: number
     clockOut: number
