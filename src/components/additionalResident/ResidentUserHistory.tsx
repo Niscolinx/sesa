@@ -2,9 +2,7 @@ import React, { FC, useState } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
 import { GrDown } from 'react-icons/gr'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
-import { useAppDispatch } from '../../store/app/hooks'
-import { Actions } from './ResidentUsersList'
-
+import { useNavigate } from 'react-router'
 export interface IResidentUserHistory {
     id: string
     packageName: string
@@ -28,7 +26,6 @@ export const RESIDENT_HISTORY: IResidentUserHistory[] = [
         endDate: '2021-01-31',
         transactionType: 'purchase',
         status: 'active',
-    
     },
     {
         id: '2',
@@ -40,7 +37,6 @@ export const RESIDENT_HISTORY: IResidentUserHistory[] = [
         endDate: '2021-01-31',
         transactionType: 'purchase',
         status: 'active',
-    
     },
     {
         id: '3',
@@ -52,7 +48,6 @@ export const RESIDENT_HISTORY: IResidentUserHistory[] = [
         endDate: '2021-01-31',
         transactionType: 'purchase',
         status: 'active',
-    
     },
     {
         id: '4',
@@ -64,7 +59,6 @@ export const RESIDENT_HISTORY: IResidentUserHistory[] = [
         endDate: '2021-01-31',
         transactionType: 'purchase',
         status: 'active',
-    
     },
     {
         id: '5',
@@ -76,49 +70,45 @@ export const RESIDENT_HISTORY: IResidentUserHistory[] = [
         endDate: '2021-01-31',
         transactionType: 'purchase',
         status: 'active',
-    
-    }
+    },
 ]
 
 const ResidentUserHistory: FC<{
     fetchedResidentUserHistory: IResidentUserHistory[]
 }> = ({ fetchedResidentUserHistory }) => {
+    const navigate = useNavigate()
 
-     const [actions, _] = useState<Actions[]>([
-         'View Details',
-         'Deactivate'
-     ])
-    //  const [selectedAction, setSelectedAction] = useState<{
-    //      [key: string]: Actions
-    //  }>(null as any)
-     const [toggleDropDown, setToggleDropDown] = useState<{
-         isDropDownOpen: boolean
-         index: number | null
-     }>({
-         isDropDownOpen: false,
-         index: null,
-     })
 
-     const dropDownHandler = (
-         e: React.ChangeEvent<HTMLInputElement>,
-         index: number
-     ) => {
-         setToggleDropDown(() => {
-             return {
-                 isDropDownOpen: e.target.checked,
-                 index: index,
-                }
-            })
+    const [actions, _] = useState<['View Details', 'Deactivate']>([
+        'View Details',
+        'Deactivate',
+    ])
+    const [toggleDropDown, setToggleDropDown] = useState<{
+        isDropDownOpen: boolean
+        index: number | null
+    }>({
+        isDropDownOpen: false,
+        index: null,
+    })
+
+    const dropDownHandler = (
+        e: React.ChangeEvent<HTMLInputElement>,
+        index: number
+    ) => {
+        setToggleDropDown(() => {
+            return {
+                isDropDownOpen: e.target.checked,
+                index: index,
+            }
+        })
+    }
+
+    const selectAction = (e: React.MouseEvent, item: 'View Details' | 'Deactivate') => {
+        if(item === 'View Details') {
+            navigate('/dashboard/additional-resident/:Id')
         }
-        
-        const selectAction = (
-            e: React.MouseEvent,
-            item: string,
-            ) => {
-                
-     }
-
-  
+      
+    }
 
     return (
         <div className='grid text-[1.6rem]'>
@@ -148,7 +138,6 @@ const ResidentUserHistory: FC<{
                     </select>
                     <GrDown className='absolute right-4 text-[1.3rem]' />
                 </div>
-
             </caption>
 
             <div className='grid'>
@@ -178,7 +167,16 @@ const ResidentUserHistory: FC<{
                         React.Children.toArray(
                             fetchedResidentUserHistory.map(
                                 (
-                                    { packageName, userName, frequency, amount, startDate, endDate, transactionType, status },
+                                    {
+                                        packageName,
+                                        userName,
+                                        frequency,
+                                        amount,
+                                        startDate,
+                                        endDate,
+                                        transactionType,
+                                        status,
+                                    },
                                     i
                                 ) => {
                                     const { isDropDownOpen, index } =
@@ -259,12 +257,11 @@ const ResidentUserHistory: FC<{
                                                                             selectAction(
                                                                                 e,
                                                                                 item
-                                                                                
                                                                             )
                                                                         }
                                                                     >
-                                                                        { item ===
-                                                                          'Deactivate' ? (
+                                                                        {item ===
+                                                                        'Deactivate' ? (
                                                                             <span className='text-red-600'>
                                                                                 {
                                                                                     item
