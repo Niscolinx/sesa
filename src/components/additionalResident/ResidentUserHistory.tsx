@@ -59,9 +59,8 @@ export const RESIDENT_HISTORY: IResidentUserHistory[] = [
 const ResidentUserHistory: FC<{
     fetchedResidentUserHistory: IResidentUserHistory[]
 }> = ({ fetchedResidentUserHistory }) => {
-     const dispatch = useAppDispatch()
 
-     const [actions, setActions] = useState<Actions[]>([
+     const [actions, _] = useState<Actions[]>([
          'View Details',
          'Deactivate'
      ])
@@ -80,8 +79,7 @@ const ResidentUserHistory: FC<{
          e: React.ChangeEvent<HTMLInputElement>,
          index: number
      ) => {
-         console.log('clicked')
-         setToggleDropDown((prev) => {
+         setToggleDropDown(() => {
              return {
                  isDropDownOpen: e.target.checked,
                  index: index,
@@ -94,7 +92,6 @@ const ResidentUserHistory: FC<{
          item: string,
          index: number
      ) => {
-         console.log('select role')
          setSelectedAction((prev) => {
              return {
                  ...prev,
@@ -138,9 +135,9 @@ const ResidentUserHistory: FC<{
 
             <div className='grid'>
                 <div
-                    className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-5 gap-8'
+                    className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-9 gap-8'
                     style={{
-                        fontSize: '1.6rem',
+                        fontSize: '1.4rem',
                     }}
                 >
                     <p className='flex items-center gap-2'>
@@ -169,7 +166,7 @@ const ResidentUserHistory: FC<{
                                     const { isDropDownOpen, index } =
                                         toggleDropDown
                                     return (
-                                        <div className='grid justify-between border-b grid-cols-5 gap-8 '>
+                                        <div className='grid justify-between border-b grid-cols-9 gap-8 '>
                                             <p className='flex items-center gap-4'>
                                                 <input
                                                     type='checkbox'
@@ -178,6 +175,7 @@ const ResidentUserHistory: FC<{
 
                                                 <span>{packageName}</span>
                                             </p>
+                                            <p>{userName}</p>
                                             <p>{frequency}</p>
                                             <p className='flex items-center gap-.5'>
                                                 <img
@@ -186,6 +184,9 @@ const ResidentUserHistory: FC<{
                                                 />
                                                 <span>{amount}</span>
                                             </p>
+                                            <p>{startDate}</p>
+                                            <p>{endDate}</p>
+                                            <p>{transactionType}</p>
                                             <p>{status}</p>
                                             <div className='relative'>
                                                 <label
@@ -222,7 +223,7 @@ const ResidentUserHistory: FC<{
 
                                                 {isDropDownOpen &&
                                                     index === i && (
-                                                        <div className='absolute top-0 translate-x-[5rem] border border-color-primary-light w-[10rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
+                                                        <div className='absolute top-0 translate-x-[4rem] border border-color-primary-light w-[10rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
                                                             {actions.map(
                                                                 (
                                                                     item,
@@ -244,15 +245,8 @@ const ResidentUserHistory: FC<{
                                                                             )
                                                                         }
                                                                     >
-                                                                        {item ===
-                                                                        'Activate' ? (
-                                                                            <span className='text-green-600'>
-                                                                                {
-                                                                                    item
-                                                                                }
-                                                                            </span>
-                                                                        ) : item ===
-                                                                          'Delete' ? (
+                                                                        { item ===
+                                                                          'Deactivate' ? (
                                                                             <span className='text-red-600'>
                                                                                 {
                                                                                     item
