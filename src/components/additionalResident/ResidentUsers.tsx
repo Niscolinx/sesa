@@ -10,10 +10,10 @@ interface ActivityReport {
     packageName: string
     frequency: string
     price: number
-    guardCode: number
-    clockIn: number
-    clockOut: number
+    status: string
 }
+
+type Actions = 'View Details' | 'Activate' | 'Deactivate' | 'Delete'
 
 interface AttendanceReport {
     id: string
@@ -85,63 +85,36 @@ const ATTENDANCE_REPORT_DATA: AttendanceReport[] = [
 const ACTIVITY_REPORT_DATA: ActivityReport[] = [
     {
         id: '1',
-        guardName: 'John Sage',
-        phoneNumber: '08012345678',
-        date: '12/12/2021',
-        guardCode: 1234,
-        clockIn: 8,
-        clockOut: 5,
+        packageName: 'Guard Package',
+        frequency: 'Monthly',
+        price: 1000,
+        status: 'Active',
     },
     {
         id: '1',
-        guardName: 'John Doe',
-        phoneNumber: '08012345678',
-        date: '12/12/2021',
-        guardCode: 1234,
-        clockIn: 8,
-        clockOut: 5,
+        packageName: 'Guard Package',
+        frequency: 'Monthly',
+        price: 1000,
+        status: 'Active',
     },
     {
         id: '1',
-        guardName: 'John Doe',
-        phoneNumber: '08012345678',
-        date: '12/12/2021',
-        guardCode: 1234,
-        clockIn: 8,
-        clockOut: 5,
-    },
-    {
-        id: '1',
-        guardName: 'John Doe',
-        phoneNumber: '08012345678',
-        date: '12/12/2021',
-        guardCode: 1234,
-        clockIn: 8,
-        clockOut: 5,
-    },
-    {
-        id: '1',
-        guardName: 'John Doe',
-        phoneNumber: '08012345678',
-        date: '12/12/2021',
-        guardCode: 1234,
-        clockIn: 8,
-        clockOut: 5,
-    },
-    {
-        id: '1',
-        guardName: 'John Doe',
-        phoneNumber: '08012345678',
-        date: '12/12/2021',
-        guardCode: 1234,
-        clockIn: 8,
-        clockOut: 5,
+        packageName: 'Guard Package',
+        frequency: 'Monthly',
+        price: 1000,
+        status: 'Active',
     },
 ]
 
 const ActivityReport: FC<{
     fetchedActivityReport: ActivityReport[]
 }> = ({ fetchedActivityReport }) => {
+     const [actions, setActions] = useState<Actions[]>([
+        'View Details',
+        'Activate',
+        'Deactivate',
+        'Delete'
+     ])
     return (
         <div className='grid text-[1.6rem]'>
             <caption className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
@@ -215,14 +188,7 @@ const ActivityReport: FC<{
                     fetchedActivityReport.length > 0 ? (
                         React.Children.toArray(
                             fetchedActivityReport.map(
-                                ({
-                                    guardCode,
-                                    guardName,
-                                    phoneNumber,
-                                    clockIn,
-                                    clockOut,
-                                    date,
-                                }) => {
+                                ({ packageName, price, frequency, status }) => {
                                     return (
                                         <div className='grid justify-between border-b grid-cols-6 gap-8 '>
                                             <p className='flex items-center gap-4'>
@@ -231,13 +197,17 @@ const ActivityReport: FC<{
                                                     className='cursor-pointer'
                                                 />
 
-                                                <span>{guardName}</span>
+                                                <span>{packageName}</span>
                                             </p>
-                                            <p>{phoneNumber}</p>
-                                            <p>{date}</p>
-                                            <p>{guardCode}</p>
-                                            <p>{clockIn}</p>
-                                            <p>{clockOut}</p>
+                                            <p>{frequency}</p>
+                                            <p className='flex items-center'>
+                                                <img
+                                                    src='/icons/Naira.svg'
+                                                    alt=''
+                                                />
+                                                <span>{price}</span>
+                                            </p>
+                                            <p>{status}</p>
                                         </div>
                                     )
                                 }
