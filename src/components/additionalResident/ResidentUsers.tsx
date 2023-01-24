@@ -223,7 +223,9 @@ const ActivityReport: FC<{
                     fetchedActivityReport.length > 0 ? (
                         React.Children.toArray(
                             fetchedActivityReport.map(
-                                ({ packageName, price, frequency, status }) => {
+                                ({ packageName, price, frequency, status }, i) => {
+                                    const { isDropDownOpen, index } =
+                                        toggleDropDown
                                     return (
                                         <div className='grid justify-between border-b grid-cols-6 gap-8 '>
                                             <p className='flex items-center gap-4'>
@@ -243,6 +245,73 @@ const ActivityReport: FC<{
                                                 <span>{price}</span>
                                             </p>
                                             <p>{status}</p>
+                                            <div>
+                                                <label
+                                                    className='font-semibold capitalize cursor-pointer flex items-center gap-2 relative z-10'
+                                                    htmlFor={i.toString()}
+                                                    onClick={() =>
+                                                        setToggleDropDown(
+                                                            (prev) => {
+                                                                return {
+                                                                    isDropDownOpen:
+                                                                        !prev.isDropDownOpen,
+                                                                    index: i,
+                                                                }
+                                                            }
+                                                        )
+                                                    }
+                                                >
+                                                    {selectedAction &&
+                                                    selectedAction[i] ? (
+                                                        selectedAction[i]
+                                                    ) : (
+                                                        <span className='text-color-primary'>
+                                                            Select Role
+                                                        </span>
+                                                    )}
+                                                    
+                                                </label>
+                                                <input
+                                                    type='radio'
+                                                    name='dropdown'
+                                                    className='hidden'
+                                                    id={i.toString()}
+                                                    onChange={(e) =>
+                                                        dropDownHandler(e, i)
+                                                    }
+                                                />
+
+                                                {isDropDownOpen &&
+                                                    index === i && (
+                                                        <div className='absolute top-[5rem] translate-x-[6rem] border border-color-primary-light w-[24rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
+                                                            {actions.map(
+                                                                (
+                                                                    item,
+                                                                    index
+                                                                ) => (
+                                                                    <p
+                                                                        className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
+                                                                        key={
+                                                                            index +
+                                                                            i
+                                                                        }
+                                                                        onClick={(
+                                                                            e
+                                                                        ) =>
+                                                                            selectAction(
+                                                                                e,
+                                                                                item,
+                                                                                i
+                                                                            )
+                                                                        }
+                                                                    >
+                                                                        {item}
+                                                                    </p>
+                                                                )
+                                                            )}
+                                                        </div>
+                                                    )}
+                                            </div>
                                         </div>
                                     )
                                 }
