@@ -211,6 +211,8 @@ const ResidentUserHistory: FC<{
     const { start, end, currentPage, totalItems, totalPage, slicedPages } =
         paginate
 
+        console.log({paginate})
+
     return (
         <div className='grid text-[1.6rem]'>
             <caption className='flex w-full items-center gap-12 p-10 bg-white rounded-lg'>
@@ -451,7 +453,6 @@ const ResidentUserHistory: FC<{
                             </li>
                         )
                     })}
-                    {currentPage}
 
                     {/* <li className='grid place-content-center border w-[3rem] h-[3rem] cursor-pointer'>
                         {totalPage}
