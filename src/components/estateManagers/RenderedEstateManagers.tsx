@@ -162,7 +162,7 @@ function RenderedEstateManagers() {
                                         <td>
                                             <button>
                                                 <img
-                                                    src='/icons/estateManagers/threeDots.svg'
+                                                    src='/icons/admins/threeDots.svg'
                                                     alt=''
                                                 />
                                             </button>
