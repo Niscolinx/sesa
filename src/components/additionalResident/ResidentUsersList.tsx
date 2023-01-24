@@ -7,7 +7,7 @@ import { useAppDispatch } from "../../store/app/hooks"
 import { setAdditionalResidentPath } from "../../store/features/routeChange"
 
 
-export interface ResidentUsers {
+export interface IResidentUsersList {
     id: string
     packageName: string
     frequency: string
@@ -17,7 +17,7 @@ export interface ResidentUsers {
 
 export type Actions = 'View Details' | 'Activate' | 'Deactivate' | 'Delete'
 
-export const RESIDENT_LISTS: ResidentUsers[] = [
+export const RESIDENT_LISTS: IResidentUsersList[] = [
     {
         id: '1',
         packageName: 'Gold',
@@ -42,7 +42,7 @@ export const RESIDENT_LISTS: ResidentUsers[] = [
 ]
 
 const ResidentUsersList: FC<{
-    fetchedResidentUsers: ResidentUsers[]
+    fetchedResidentUsers: IResidentUsersList[]
 }> = ({ fetchedResidentUsers }) => {
     const dispatch = useAppDispatch()
 
