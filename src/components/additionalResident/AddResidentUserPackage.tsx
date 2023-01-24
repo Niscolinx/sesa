@@ -24,12 +24,11 @@ const AddResidentUserPackage = () => {
                         Name of Package
                     </label>
                     <input
-                        disabled
+                        
                         type='text'
                         required
                         id='packageName'
-                        className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] disabled:text-gray-500 disabled:cursor-not-allowed'
-                        value={'Gold'}
+                        className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem]'
                     />
                 </div>
                 <div className='w-full grid gap-4'>
@@ -40,11 +39,11 @@ const AddResidentUserPackage = () => {
                         Frequency
                     </label>
                     <input
-                        disabled
+                        
                         type='text'
                         required
                         id='frequency'
-                        className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] disabled:text-gray-500 disabled:cursor-not-allowed'
+                        className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem]'
                         value={'Monthly'}
                     />
                 </div>
@@ -62,11 +61,11 @@ const AddResidentUserPackage = () => {
                             className='absolute left-3'
                         />
                         <input
-                            disabled
+                            
                             type='text'
                             required
                             id='amount'
-                            className='border pl-8 border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] disabled:text-gray-500 disabled:cursor-not-allowed'
+                            className='border pl-8 border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem]'
                             value={6000}
                         />
                     </div>
@@ -80,11 +79,11 @@ const AddResidentUserPackage = () => {
                         Name of User (Buyer)
                     </label>
                     <input
-                        disabled
+                        
                         type='text'
                         required
                         id='userName'
-                        className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] disabled:text-gray-500 disabled:cursor-not-allowed'
+                        className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem]'
                         value={'Wale Ogunleye'}
                     />
                 </div>
@@ -96,11 +95,11 @@ const AddResidentUserPackage = () => {
                         Start Date
                     </label>
                     <input
-                        disabled
+                        
                         type='text'
                         required
                         id='startDate'
-                        className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] disabled:text-gray-500 disabled:cursor-not-allowed'
+                        className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem]'
                         value={'12-May-22'}
                     />
                 </div>
