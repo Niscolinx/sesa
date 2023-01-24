@@ -41,32 +41,28 @@ const AddResidentUserPackage = () => {
                     gridTemplateColumns: 'repeat(auto-fit, minmax(40rem, 1fr))',
                 }}
             >
-                <div>
-                    <div className='relative'>
-                        <p
-                            className='font-semibold capitalize cursor-pointer flex items-center gap-2 relative z-10'
-                            onClick={packageMenuToggler}                         
-                        >
-                            package
-                        </p>
-                        
+                <div className='relative self-end grid gap-4'>
+                    <p className='text-[1.4rem] font-semibold'>Package</p>
+                    <p
+                        className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] '
+                        onClick={packageMenuToggler}
+                    >
+                        Name of Package
+                    </p>
 
-                        {togglePackageMenu && (
-                            <div className='absolute top-[5rem] translate-x-[6rem] border border-color-primary-light w-[24rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
-                                {packages.map((item, index) => (
-                                    <p
-                                        className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
-                                        key={index}
-                                        onClick={() =>
-                                            setSelectedPackage(item)
-                                        }
-                                    >
-                                        {item}
-                                    </p>
-                                ))}
-                            </div>
-                        )}
-                    </div>
+                    {togglePackageMenu && (
+                        <div className='absolute top-[5rem] translate-x-[6rem] border border-color-primary-light w-[24rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
+                            {packages.map((item, index) => (
+                                <p
+                                    className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
+                                    key={index}
+                                    onClick={() => setSelectedPackage(item)}
+                                >
+                                    {item}
+                                </p>
+                            ))}
+                        </div>
+                    )}
                 </div>
 
                 <div className='w-full grid gap-4'>
