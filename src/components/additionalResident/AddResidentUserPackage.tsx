@@ -9,7 +9,7 @@ const AddResidentUserPackage = () => {
     const { handleOpen } = ModalContextData
 
     return (
-        <div className=' p-8 bg-white h-[80vh] rounded-lg'>
+        <div className=' p-8 bg-white h-[80vh] rounded-lg overflow-y-scroll'>
             <div className='flex justify-end'>
                 <button className='border border-red-600 px-16 py-4 flex items-center  rounded-lg gap-4'>
                     <img src='/icons/admins/delete.svg' alt='' />
@@ -18,30 +18,184 @@ const AddResidentUserPackage = () => {
                     </span>
                 </button>
             </div>
-            <section className='grid' style={{
-              gridTemplateColumns: 'repeat(auto-fit, minmax(40rem, 1fr))',
-            }}>
-                <div className='w-full'>
-                    <label htmlFor='firstName'>First Name *</label>
-                    <input type='text' required id='firstName' />
+            <section
+                className='grid max-w-[65vw] gap-16'
+                style={{
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(40rem, 1fr))',
+                }}
+            >
+                <div className='w-full grid gap-4'>
+                    <label
+                        htmlFor='packageName'
+                        className='text-[1.4rem] font-semibold'
+                    >
+                        Name of Package
+                    </label>
+                    <input
+                        disabled
+                        type='text'
+                        required
+                        id='packageName'
+                        className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] disabled:text-gray-500 disabled:cursor-not-allowed'
+                        value={'Gold'}
+                    />
                 </div>
-                
-
-                <div className=''>
-                    <label htmlFor='phoneNumber'>Phone Number *</label>
-
-                    <div className='phoneNumber__box'>
-                        <select>
-                            <option value='234'>+234</option>
-                        </select>
+                <div className='w-full grid gap-4'>
+                    <label
+                        htmlFor='userName'
+                        className='text-[1.4rem] font-semibold'
+                    >
+                        Name of User (Buyer)
+                    </label>
+                    <input
+                        disabled
+                        type='text'
+                        required
+                        id='userName'
+                        className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] disabled:text-gray-500 disabled:cursor-not-allowed'
+                        value={'Wale Ogunleye'}
+                    />
+                </div>
+                <div className='w-full grid gap-4'>
+                    <label
+                        htmlFor='packageName'
+                        className='text-[1.4rem] font-semibold'
+                    >
+                        Amount
+                    </label>
+                    <div className='relative flex items-center'>
+                        <img
+                            src='/icons/Naira.svg'
+                            alt=''
+                            className='absolute left-3'
+                        />
                         <input
+                            disabled
+                            type='text'
                             required
-                            type='number'
-                            inputMode='numeric'
-                            id='phoneNumber'
-                            placeholder='Phone Number'
+                            id='amount'
+                            className='border pl-8 border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] disabled:text-gray-500 disabled:cursor-not-allowed'
+                            value={6000}
                         />
                     </div>
+                </div>
+                <div className='w-full grid gap-4'>
+                    <label
+                        htmlFor='frequency'
+                        className='text-[1.4rem] font-semibold'
+                    >
+                        Frequency
+                    </label>
+                    <input
+                        disabled
+                        type='text'
+                        required
+                        id='frequency'
+                        className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] disabled:text-gray-500 disabled:cursor-not-allowed'
+                        value={'Monthly'}
+                    />
+                </div>
+                <div className='w-full grid gap-4'>
+                    <label
+                        htmlFor='startDate'
+                        className='text-[1.4rem] font-semibold'
+                    >
+                        Start Date
+                    </label>
+                    <input
+                        disabled
+                        type='text'
+                        required
+                        id='startDate'
+                        className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] disabled:text-gray-500 disabled:cursor-not-allowed'
+                        value={'12-May-22'}
+                    />
+                </div>
+                <div className='w-full grid gap-4'>
+                    <label
+                        htmlFor='endDate'
+                        className='text-[1.4rem] font-semibold'
+                    >
+                        End Date
+                    </label>
+                    <input
+                        disabled
+                        type='text'
+                        required
+                        id='endDate'
+                        className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] disabled:text-gray-500 disabled:cursor-not-allowed'
+                        value={'12-May-22'}
+                    />
+                </div>
+                <div className='w-full grid gap-4'>
+                    <label
+                        htmlFor='estateUser'
+                        className='text-[1.4rem] font-semibold'
+                    >
+                        Estate User
+                    </label>
+                    <input
+                        disabled
+                        type='text'
+                        required
+                        id='estateUser'
+                        className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] disabled:text-gray-500 disabled:cursor-not-allowed'
+                        value={'Ibare'}
+                    />
+                </div>
+                <div className='w-full grid gap-4'>
+                    <label
+                        htmlFor='transactionType'
+                        className='text-[1.4rem] font-semibold'
+                    >
+                        Transaction Type
+                    </label>
+                    <input
+                        disabled
+                        type='text'
+                        required
+                        id='transactionType'
+                        className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] disabled:text-gray-500 disabled:cursor-not-allowed'
+                        value={'Purchase'}
+                    />
+                </div>
+                <div className='w-full grid gap-4'>
+                    <label
+                        htmlFor='phoneNumber'
+                        className='text-[1.4rem] font-semibold'
+                    >
+                        Phone Number
+                    </label>
+                    <input
+                        disabled
+                        type='text'
+                        required
+                        id='phoneNumber'
+                        className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] disabled:text-gray-500 disabled:cursor-not-allowed'
+                        value={'09023238423'}
+                    />
+                </div>
+                <div className='w-full grid gap-4'>
+                    <label
+                        htmlFor='status'
+                        className='text-[1.4rem] font-semibold'
+                    >
+                        Status
+                    </label>
+                    <input
+                        disabled
+                        type='text'
+                        required
+                        id='status'
+                        className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] disabled:text-gray-500 disabled:cursor-not-allowed'
+                        value={'Status'}
+                    />
+                </div>
+            </section>
+            <section className='grid'>
+                <div className='w-full grid gap-4'>
+                  <h4>Beneficiary Details</h4>
+                  <p></p>
                 </div>
             </section>
         </div>
