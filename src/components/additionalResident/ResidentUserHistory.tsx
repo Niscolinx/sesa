@@ -145,10 +145,7 @@ const ResidentUserHistory: FC<{
                     />
                 </div>
                 <div className='relative flex items-center'>
-                    <div className='relative self-end grid gap-4'>
-                        <p className='text-[1.4rem] font-semibold'>
-                            Name of Sort
-                        </p>
+                    
                         <p
                             className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer'
                             onClick={sortMenuToggler}
@@ -171,7 +168,7 @@ const ResidentUserHistory: FC<{
                                 ))}
                             </div>
                         )}
-                    </div>
+                   
                     <GrDown className='absolute right-4 text-[1.3rem]' />
                 </div>
             </caption>
