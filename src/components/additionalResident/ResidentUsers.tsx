@@ -7,8 +7,6 @@ import ResidentUsersList, { RESIDENT_LISTS, IResidentUsersList } from './Residen
 
 
 
-
-
 function ResidentUsers() {
     const [fetchedResidentUsers, setFetchedResidentUsers] = useState<
          IResidentUsersList[] | null

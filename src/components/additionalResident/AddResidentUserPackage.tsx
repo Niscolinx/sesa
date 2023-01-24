@@ -192,21 +192,35 @@ const AddResidentUserPackage = () => {
                     />
                 </div>
             </section>
-            <section className='grid'>
-                <h4 className='text-[1.6rem] font-semibold'>Beneficiary Details</h4>
-                <div>
-                    <div className='flex items-center'>
-                        <input type='checkbox' />
-                        <img src='/img/me.jpeg' alt='' className='w-[3rem] h-[3rem] object-cover object-top rounded-full'/>
-                        <span>Jacintha Sage</span>
+            <section className='grid text-[1.4rem] w-full py-10 gap-8 border-t mt-20'>
+                <h4 className='text-[1.6rem] font-semibold'>
+                    Beneficiary Details
+                </h4>
+                <div
+                    className='items-center w-full grid'
+                    style={{
+                        gridTemplateColumns:
+                            'repeat(auto-fit, minmax(20rem, 1fr))',
+                    }}
+                >
+                    <div className=' grid items-center gap-2'>
+                        <p className='font-semibold'>Resident User</p>
+                        <div className='flex items-center gap-6'>
+                            <img
+                                src='/img/me.jpeg'
+                                alt=''
+                                className='w-[3rem] h-[3rem] object-cover object-top rounded-full'
+                            />
+                            <p className='font-semibold'>Jacintha Sage</p>
+                        </div>
                     </div>
-                    <div>
-                      <p>Email</p>
-                      <p>jacintha@gmail.com</p>
+                    <div className='grid items-center gap-2'>
+                        <p className='font-semibold'>Email</p>
+                        <p className='text-gray-500'>jacintha@gmail.com</p>
                     </div>
-                    <div>
-                      <p>Phone Number</p>
-                      <p>09072847232</p>
+                    <div className='grid items-center gap-2'>
+                        <p className='font-semibold'>Phone Number</p>
+                        <p className='text-gray-500'>09072847232</p>
                     </div>
                 </div>
             </section>
