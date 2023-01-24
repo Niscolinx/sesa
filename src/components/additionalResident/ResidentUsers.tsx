@@ -246,7 +246,7 @@ const ActivityReport: FC<{
                                                 <span>{price}</span>
                                             </p>
                                             <p>{status}</p>
-                                            <div>
+                                            <div className='relative'>
                                                 <label
                                                     className='font-semibold capitalize cursor-pointer flex items-center gap-2 relative z-10'
                                                     htmlFor={i.toString()}
