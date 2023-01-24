@@ -42,12 +42,12 @@ const AddResidentUserPackage = () => {
                 }}
             >
                 <div className='relative self-end grid gap-4'>
-                    <p className='text-[1.4rem] font-semibold'>Package</p>
+                    <p className='text-[1.4rem] font-semibold'>Name of Package</p>
                     <p
                         className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] '
                         onClick={packageMenuToggler}
                     >
-                        Name of Package
+                        {selectedPackage}
                     </p>
 
                     {togglePackageMenu && (
