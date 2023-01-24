@@ -18,7 +18,7 @@ import EstateReport from '../pages/dashboard/Estate/EstateReport'
 import EstateManagers from '../pages/dashboard/EstateManagers'
 import Estates from '../pages/dashboard/Estate/Estates'
 import RolesAndPerm from '../pages/dashboard/RolesAndPerm'
-import AdditionalResidentialUser from '../pages/dashboard/AdditionalResidentialUser'
+import AdditionalResident from '../pages/dashboard/AdditionalResident'
 
 const router = createBrowserRouter(
     createRoutesFromElements([
@@ -31,7 +31,7 @@ const router = createBrowserRouter(
             <Route path='estates/report/:Id' element={<EstateReport />} />
             <Route path='estateManagers' element={<EstateManagers />} />
             <Route path='rolesAndPerm' element={<RolesAndPerm />} />
-            <Route path='additional-residential-user' element={<AdditionalResidentialUser />} />
+            <Route path='additional-resident' element={<AdditionalResident />} />
         </Route>,
         <Route path='*' element={<Navigate to='/' />} />,
     ])
