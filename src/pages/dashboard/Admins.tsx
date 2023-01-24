@@ -13,17 +13,22 @@ function Admins() {
 
     const [adminsLoaded, setAdminsLoaded] = useState(false)
 
-    const switchRoute = (path: RenderAdminPath) => {
-        switch (path) {
-            case 'renderedAdmins':
-                return <RenderedAdmins />
+    // const switchRoute = (path: RenderAdminPath) => {
+    //     switch (path) {
+    //         case 'renderedAdmins':
+    //             return <RenderedAdmins />
 
-            case 'addAdmin':
-                return <AddAdmin />
+    //         case 'addAdmin':
+    //             return <AddAdmin />
 
-            default:
-                return <AddAdmin />
-        }
+    //         default:
+    //             return <AddAdmin />
+    //     }
+    // }
+
+    const switchRoute ={
+        'renderedAdmins': <RenderedAdmins />,
+        'addAdmin': <AddAdmin />
     }
 
 
@@ -38,7 +43,7 @@ function Admins() {
                 <h1 className='heading2'>Admins</h1>
                 <div className='admins__container'>
                     {adminsLoaded ? (
-                        <section>{switchRoute(adminPath)}</section>
+                        <section>{switchRoute[adminPath]}</section>
                     ) : (
                         <section className='admins__wrapper'>
                             <img src='/icons/admins/errorSvg.svg' alt='' />

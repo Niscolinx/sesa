@@ -180,10 +180,30 @@ const ResidentUserHistory: FC<{
             }
         })
 
-        // setItemsPerPage({
-        //     perPage: item,
-        //     arr: [2, 4, 6, 8],
-        // })
+      
+    }
+
+
+    const handleNext = () => {
+        setPaginate((prev) => {
+            return {
+                ...prev,
+                start: prev.start + prev.itemsPerPage,
+                end: prev.end + prev.itemsPerPage,
+                currentPage: prev.currentPage + 1,
+            }
+        })
+    }
+
+    const handlePrev = () => {
+        setPaginate((prev) => {
+            return {
+                ...prev,
+                start: prev.start - prev.itemsPerPage,
+                end: prev.end - prev.itemsPerPage,
+                currentPage: prev.currentPage - 1,
+            }
+        })
     }
 
     const { start, end, currentPage, totalItems, totalPage, slicedPages } =
@@ -417,7 +437,7 @@ const ResidentUserHistory: FC<{
                     <p className='text'>List per page</p>
                 </div>
                 <ul className='flex items-center gap-5 ml-10'>
-                    <HiOutlineChevronLeft />
+                    <HiOutlineChevronLeft  onClick={handlePrev}/>
                     
                     {slicedPages?.map((item, index) => {
                         return (
@@ -433,7 +453,7 @@ const ResidentUserHistory: FC<{
                     {/* <li className='grid place-content-center border w-[3rem] h-[3rem] cursor-pointer'>
                         {totalPage}
                     </li> */}
-                    <HiOutlineChevronRight />
+                    <HiOutlineChevronRight onClick={handleNext} />
                 </ul>
             </footer>
         </div>
