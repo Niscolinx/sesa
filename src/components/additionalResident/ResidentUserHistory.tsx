@@ -3,7 +3,7 @@ import { CgSpinnerTwo } from "react-icons/cg"
 import { GrDown } from "react-icons/gr"
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from "react-icons/hi"
 
-interface IResidentUserHistory {
+export interface IResidentUserHistory {
     id: string
     guardName: string
     date: string
@@ -13,7 +13,7 @@ interface IResidentUserHistory {
     panicAlert: number
 }
 
-const RESIDENT_HISTORY: IResidentUserHistory[] = [
+export const RESIDENT_HISTORY: IResidentUserHistory[] = [
     {
         id: '1',
         guardName: 'Jacinta Sage',

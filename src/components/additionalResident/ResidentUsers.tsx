@@ -1,7 +1,7 @@
-import React, { useState, useEffect, FC, useReducer } from 'react'
+import { useState, useEffect } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
-import { GrDown } from 'react-icons/gr'
-import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
+import ResidentUserHistory, { IResidentUserHistory, RESIDENT_HISTORY } from './ResidentUserHistory'
+'react-icons/hi'
 
 import ResidentUsersList, { RESIDENT_LISTS, IResidentUsersList } from './ResidentUsersList'
 
@@ -13,8 +13,8 @@ function ResidentUsers() {
     const [fetchedResidentUsers, setFetchedResidentUsers] = useState<
          IResidentUsersList[] | null
     >(null)
-    const [fetchedAttendanceReport, setFetchedAttendanceReport] = useState<
-        AttendanceReport[] | null
+    const [fetchedResidentUserHistory, setFetchedResidentUserHistory] = useState<
+        IResidentUserHistory[] | null
     >(null)
 
     const [currentPage, setCurrentPage] = useState(1)
@@ -23,7 +23,7 @@ function ResidentUsers() {
         const fetchData = async () => {
             setTimeout(() => {
                 setFetchedResidentUsers(RESIDENT_LISTS)
-                setFetchedAttendanceReport(ATTENDANCE_REPORT_DATA)
+                setFetchedResidentUserHistory(RESIDENT_HISTORY)
             }, 1000)
         }
         fetchData()
@@ -40,8 +40,8 @@ function ResidentUsers() {
                 )
             case 2:
                 return (
-                    <AttendanceReport
-                        fetchedAttendanceReport={fetchedAttendanceReport ?? []}
+                    <ResidentUserHistory
+                        fetchedResidentUserHistory={fetchedResidentUserHistory ?? []}
                     />
                 )
             default:
