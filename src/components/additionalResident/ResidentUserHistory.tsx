@@ -113,17 +113,17 @@ const ResidentUserHistory: FC<{
         }
     }
 
-    const [packages, setPackages] = useState<SortBy[]>(['A-Z', 'date'])
+    const sortBy:SortBy[] = ['A-Z', 'date']
 
-    const [togglePackageMenu, setTogglePackageMenu] = useState(false)
-    const [selectedPackage, setSelectedPackage] =
-        useState<Packages>('package 1')
+    const [toggleSortMenu, setToggleSortMenu] = useState(false)
+    const [selectedSort, setSelectedSort] =
+        useState<SortBy>('A-Z')
 
-    const packageMenuToggler = () => setTogglePackageMenu(!togglePackageMenu)
+    const sortMenuToggler = () => setToggleSortMenu(!toggleSortMenu)
 
-    const handleSelectedPackage = (item: Packages) => {
-        setSelectedPackage(item)
-        setTogglePackageMenu(false)
+    const handleSelectedSort = (item: SortBy) => {
+        setSelectedSort(item)
+        setToggleSortMenu(false)
     }
 
     return (
@@ -145,13 +145,33 @@ const ResidentUserHistory: FC<{
                     />
                 </div>
                 <div className='relative flex items-center'>
-                    <select className=' cursor-pointer w-[18rem] rounded-lg border border-color-blue-light appearance-none outline-none p-4 bg-white'>
-                        <option hidden value=''>
-                            Sort By
-                        </option>
-                        <option value='date'>date</option>
-                        <option value='alpha'>Alpha</option>
-                    </select>
+                    <div className='relative self-end grid gap-4'>
+                        <p className='text-[1.4rem] font-semibold'>
+                            Name of Sort
+                        </p>
+                        <p
+                            className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer'
+                            onClick={sortMenuToggler}
+                        >
+                            {selectedSort}
+                        </p>
+
+                        {toggleSortMenu && (
+                            <div className='absolute top-[8rem]  left-0 border border-color-primary-light w-[24rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
+                                {sortBy.map((item, index) => (
+                                    <p
+                                        className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
+                                        key={index}
+                                        onClick={() =>
+                                            handleSelectedSort(item)
+                                        }
+                                    >
+                                        {item}
+                                    </p>
+                                ))}
+                            </div>
+                        )}
+                    </div>
                     <GrDown className='absolute right-4 text-[1.3rem]' />
                 </div>
             </caption>
