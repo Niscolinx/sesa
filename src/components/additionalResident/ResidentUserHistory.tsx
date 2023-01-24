@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FC, useState } from 'react'
+import React, { ChangeEvent, FC, useEffect, useState } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
 import { GrDown, GrUp } from 'react-icons/gr'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
@@ -162,31 +162,40 @@ const ResidentUserHistory: FC<{
     const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
         const item = parseInt(e.target.value)
 
-        //transform the array to have a sub array of the item
-        const slicedPages: IResidentUserHistory[][] = []
-        for (let i = 0; i < fetchedResidentUserHistory.length; i += item) {
-            slicedPages.push(fetchedResidentUserHistory.slice(i, i + item))
-        }
-
-        console.log(slicedPages)
+       
 
         setPaginate((prev) => {
             return {
                 ...prev,
                 totalPage: Math.ceil(fetchedResidentUserHistory.length / item),
                 start: 0,
-                end: item,
+                end: item
+            }
+        })
+    }
+
+    useEffect(() => {
+        //transform the array to have a sub array of the item
+        const slicedPages: IResidentUserHistory[][] = []
+        for (let i = 0; i < fetchedResidentUserHistory.length; i += 2) {
+            slicedPages.push(fetchedResidentUserHistory.slice(i, i + 2))
+        }
+
+
+
+        setPaginate((prev) => {
+            return {
+                ...prev,
                 slicedPages,
             }
         })
-
-      
-    }
+    }, [fetchedResidentUserHistory])
 
 
 
 
     const handleNext = () => {
+        if(paginate.currentPage === paginate.totalPage) return
         setPaginate((prev) => {
             return {
                 ...prev,
@@ -198,6 +207,7 @@ const ResidentUserHistory: FC<{
     }
 
     const handlePrev = () => {
+        if(paginate.currentPage === 1) return
         setPaginate((prev) => {
             return {
                 ...prev,
