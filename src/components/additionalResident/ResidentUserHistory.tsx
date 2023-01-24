@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react'
+import React, { ChangeEvent, FC, useState } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
 import { GrDown, GrUp } from 'react-icons/gr'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
@@ -147,7 +147,8 @@ const ResidentUserHistory: FC<{
         setToggleSortMenu(false)
     }
 
-    const handleItemsPerPage = (item: any) => {
+    const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
+        const item = parseInt(e.target.value)
         setItemsPerPage({
             perPage: item,
             arr: [2, 4, 6, 8],
@@ -365,13 +366,14 @@ const ResidentUserHistory: FC<{
                         name=''
                         id=''
                         className='flex items-center border px-4 rounded-lg outline-none cursor-pointer'
+                        onChange={handleItemsPerPage}
                     >
                         {
                             itemsPerPage.arr.map((item, index) => (
                                 <option
                                     value={item}
                                     key={index}
-                                    className='capitalize cursor-pointer'
+                                    className='capitalize cursor-pointer bg-white'
                                 >
                                     {item}
                                 </option>
