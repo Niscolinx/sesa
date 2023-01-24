@@ -3,14 +3,15 @@ import { IoMdAdd } from 'react-icons/io'
 import AddResidentPackage from '../../components/additionalResident/AddResidentUserPackage'
 import ResidentUsers from '../../components/additionalResident/ResidentUsers'
 import { useAppDispatch, useAppSelector } from '../../store/app/hooks'
-import { RenderAdditionalResidentPath, routeChangeSelector, setAdditionalResidentPath } from '../../store/features/routeChange'
-
-
+import {
+    RenderAdditionalResidentPath,
+    routeChangeSelector,
+    setAdditionalResidentPath,
+} from '../../store/features/routeChange'
 
 function AdditionalResident() {
     const dispatch = useAppDispatch()
-        const { additionalResidentPath } = useAppSelector(routeChangeSelector)
-
+    const { additionalResidentPath } = useAppSelector(routeChangeSelector)
 
     const [additionalResident, setAdditionalResident] = useState(false)
 
