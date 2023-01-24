@@ -7,7 +7,7 @@ export type RenderEstateManagerPath =
     | 'renderedEstateManagers'
     | 'addEstateManager'
 export type RenderRolesAndPerm = 'renderRolesAndPerm' | 'addRolesAndPerm'
-export type RenderAdditionalResidentPath = 'renderedAdditionalResident' | 'addAdditionalResident'
+export type RenderAdditionalResidentPath = 'renderedAdditionalResidents' | 'addResidentUserPackage'
 interface RouteChangeState {
     adminPath: RenderAdminPath
     estatePath: RenderEstatePath
@@ -22,7 +22,7 @@ const initialState = {
     adminPath: 'renderedAdmins',
     estateManagerPath: 'renderedEstateManagers',
     rolesAndPermPath: 'renderRolesAndPerm',
-    additionalResidentPath: 'renderedAdditionalResident'
+    additionalResidentPath: 'renderedAdditionalResidents'
 } satisfies RouteChangeState
 
 

@@ -41,7 +41,7 @@ function Estates() {
                     {estatesLoaded ? (
                         <section>{switchRoute(estatePath)}</section>
                     ) : (
-                        <section className='estates__wrapper'>
+                        <section className='estates__wrapper bg-white'>
                             <img src='/icons/admins/errorSvg.svg' alt='' />
                             <p className='text'>
                                 Ooops you have not added any Estate yet

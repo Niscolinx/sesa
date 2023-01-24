@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
+import AddResidentPackage from '../../components/additionalResident/AddResidentPackage'
 import ResidentUser from '../../components/additionalResident/ResidentUser'
 import AddEstate from '../../components/estates/AddEstate'
 import { useAppDispatch } from '../../store/app/hooks'
@@ -14,11 +15,11 @@ function AdditionalResident() {
 
     const switchRoute = (path: RenderAdditionalResidentPath) => {
         switch (path) {
-            case 'renderedAdditionalResident':
+            case 'renderedAdditionalResidents':
                 return <ResidentUser />
 
-            case 'addAdditionalResident':
-                return <AddEstate />
+            case 'addResidentUserPackage':
+                return <AddResidentPackage />
 
             default:
                 return <AddEstate />
@@ -35,9 +36,9 @@ function AdditionalResident() {
             <h1 className='heading2'>Additional Resident User</h1>
             <div className='rounded-lg mt-[3rem] h-[80vh]'>
                 {additionalResident ? (
-                    <section>{switchRoute('renderedAdditionalResident')}</section>
+                    <section>{switchRoute('renderedAdditionalResidents')}</section>
                 ) : (
-                    <section className='grid place-content-center w-full h-full justify-items-center gap-4'>
+                    <section className='grid place-content-center w-full h-full justify-items-center gap-4 bg-white'>
                         <img src='/icons/admins/errorSvg.svg' alt='' />
                         <p className='text'>
                             Ooops you have not added any Package yet
