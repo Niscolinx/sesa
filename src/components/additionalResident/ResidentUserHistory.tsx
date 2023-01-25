@@ -100,7 +100,6 @@ const ResidentUserHistory: FC<{
             return {
                 ...prev,
                 itemsPerPage: item,
-                slicedPages,
                 end: item,
                 totalPage: Math.ceil(fetchedResidentUserHistory.length / item),
             }
@@ -108,6 +107,7 @@ const ResidentUserHistory: FC<{
     }
 
     useEffect(() => {
+        console.log('fetchedResidentUserHistory', fetchedResidentUserHistory)
         const slicedPages: IResidentUserHistory[][] = []
         for (let i = 0; i < fetchedResidentUserHistory.length; i += paginate.itemsPerPage) {
             slicedPages.push(fetchedResidentUserHistory.slice(i, i + paginate.itemsPerPage))
@@ -148,6 +148,7 @@ const ResidentUserHistory: FC<{
     const { start, end, currentPage, totalItems, totalPage, slicedPages } =
         paginate
 
+        console.log({paginate})
     const jumpToPage = (e: React.MouseEvent, index:number) => {
         
         setPaginate((prev) => {

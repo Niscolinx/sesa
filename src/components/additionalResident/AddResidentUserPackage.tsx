@@ -141,12 +141,12 @@ const AddResidentUserPackage = () => {
                         htmlFor='startDate'
                         className='text-[1.4rem] font-semibold'
                     >
-                        Start Date
+                        Discount
                     </label>
                     <input
                         type='text'
                         required
-                        id='startDate'
+                        id='discount'
                         className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem]'
                     />
                 </div>

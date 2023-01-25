@@ -142,14 +142,14 @@ function ResidentUsers() {
 
     const handlePathSwitch = (pageNum: number) => {
         switch (pageNum) {
-            // case 1
-            case 2:
+            case 1:
+            // case 2:
                 return (
                     <ResidentUsersList
                         fetchedResidentUsers={fetchedResidentUsers ?? []}
                     />
                 )
-            case 1:
+            case 2:
                 return (
                     <ResidentUserHistory
                         fetchedResidentUserHistory={fetchedResidentUserHistory ?? []}
@@ -181,7 +181,7 @@ function ResidentUsers() {
                     onChange={() => setCurrentPage(1)}
                 />
                 <label htmlFor='additionalResidentUsr'>
-                    Additional Resident User
+                    Additional Resident Package
                 </label>
 
                 <input
@@ -191,8 +191,11 @@ function ResidentUsers() {
                     className='hidden'
                     onChange={() => setCurrentPage(2)}
                 />
-                <label htmlFor='ResidentUserHistory'>
-                    Resident User History
+                <label htmlFor='ResidentUserHistory capitalize'>
+                    Package purchase history
+
+                    //TODO Change the custom select of package to be normal input field
+                    //comma separated in Amount
                 </label>
             </div>
             <div className='mt-8 grid gap-8'>
