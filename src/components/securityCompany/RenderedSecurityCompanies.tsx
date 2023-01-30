@@ -127,7 +127,7 @@ function RenderedSecurityCompanies() {
                             <option value='date'>date</option>
                             <option value='alpha'>Alpha</option>
                         </select>
-                        <GrDown />
+                        <GrDown className='absolute right-4 text-[1.3rem]'/>
                     </div>
                     <button
                         className='btn addSecurityCompany__btn'
