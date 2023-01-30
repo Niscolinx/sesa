@@ -142,14 +142,14 @@ function ResidentUsers() {
 
     const handlePathSwitch = (pageNum: number) => {
         switch (pageNum) {
-            case 1:
-            // case 2:
+            //case 1:
+             case 2:
                 return (
                     <ResidentUsersList
                         fetchedResidentUsers={fetchedResidentUsers ?? []}
                     />
                 )
-            case 2:
+            case 1:
                 return (
                     <ResidentUserHistory
                         fetchedResidentUserHistory={fetchedResidentUserHistory ?? []}
@@ -194,8 +194,8 @@ function ResidentUsers() {
                 <label htmlFor='ResidentUserHistory capitalize'>
                     Package purchase history
 
-                    //TODO Change the custom select of package to be normal input field
-                    //comma separated in Amount
+                    {/* //TODO Change the custom select of package to be normal input field
+                    //comma separated in Amount */}
                 </label>
             </div>
             <div className='mt-8 grid gap-8'>

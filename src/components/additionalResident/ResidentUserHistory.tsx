@@ -15,8 +15,6 @@ export interface IResidentUserHistory {
     status: 'active' | 'inactive'
 }
 
-
-
 type SortBy = 'A-Z' | 'date'
 
 const ResidentUserHistory: FC<{
@@ -60,11 +58,10 @@ const ResidentUserHistory: FC<{
     const sortBy: SortBy[] = ['A-Z', 'date']
 
     interface Paginate {
-        start: number
-        end: number
+      
+        index: number
         currentPage: number
         itemsPerPage: number
-        totalItems: number
         totalPage: number
         slicedPages: IResidentUserHistory[][] | null
     }
@@ -75,11 +72,9 @@ const ResidentUserHistory: FC<{
     })
     const [selectedSort, setSelectedSort] = useState<SortBy>('A-Z')
     const [paginate, setPaginate] = useState<Paginate>({
-        start: 0,
-        end: itemsPerPage.arr[0],
+        index: 0,
         currentPage: 1,
         itemsPerPage: 2,
-        totalItems: fetchedResidentUserHistory.length,
 
         totalPage: Math.ceil(fetchedResidentUserHistory.length / 2),
         slicedPages: null,
@@ -95,22 +90,37 @@ const ResidentUserHistory: FC<{
     const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
         const item = parseInt(e.target.value)
 
+        const slicedPages: IResidentUserHistory[][] = []
+        for (let i = 0; i < fetchedResidentUserHistory.length; i += item) {
+            slicedPages.push(fetchedResidentUserHistory.slice(i, i + item))
+        }
 
         setPaginate((prev) => {
             return {
                 ...prev,
                 itemsPerPage: item,
-                end: item,
+                index: 0,
+                currentPage: 1,
+                slicedPages,
                 totalPage: Math.ceil(fetchedResidentUserHistory.length / item),
             }
         })
     }
 
     useEffect(() => {
-        console.log('fetchedResidentUserHistory', fetchedResidentUserHistory)
+        console.log({ slicedPages })
+    }, [paginate.slicedPages])
+
+    useEffect(() => {
         const slicedPages: IResidentUserHistory[][] = []
-        for (let i = 0; i < fetchedResidentUserHistory.length; i += paginate.itemsPerPage) {
-            slicedPages.push(fetchedResidentUserHistory.slice(i, i + paginate.itemsPerPage))
+        for (
+            let i = 0;
+            i < fetchedResidentUserHistory.length;
+            i += paginate.itemsPerPage
+        ) {
+            slicedPages.push(
+                fetchedResidentUserHistory.slice(i, i + paginate.itemsPerPage)
+            )
         }
 
         setPaginate((prev) => {
@@ -119,15 +129,14 @@ const ResidentUserHistory: FC<{
                 slicedPages,
             }
         })
-    }, [fetchedResidentUserHistory, paginate.itemsPerPage])
+    }, [fetchedResidentUserHistory])
 
     const handleNext = () => {
         if (paginate.currentPage === paginate.totalPage) return
         setPaginate((prev) => {
             return {
                 ...prev,
-                start: prev.start + prev.itemsPerPage,
-                end: prev.end + prev.itemsPerPage,
+                index: prev.index + 1,
                 currentPage: prev.currentPage + 1,
             }
         })
@@ -138,24 +147,23 @@ const ResidentUserHistory: FC<{
         setPaginate((prev) => {
             return {
                 ...prev,
-                start: prev.start - prev.itemsPerPage,
-                end: prev.end - prev.itemsPerPage,
+                index: prev.index - 1,
                 currentPage: prev.currentPage - 1,
             }
         })
     }
 
-    const { start, end, currentPage, totalItems, totalPage, slicedPages } =
+    const {  currentPage, slicedPages } =
         paginate
 
-        console.log({paginate})
-    const jumpToPage = (e: React.MouseEvent, index:number) => {
-        
+    console.log({ paginate })
+    const jumpToPage = (e: React.MouseEvent, index: number) => {
+        console.log({ index })
+
         setPaginate((prev) => {
             return {
                 ...prev,
-                start: index * prev.itemsPerPage,
-                end: (index + 1) * prev.itemsPerPage,
+                index,
                 currentPage: index + 1,
             }
         })
@@ -230,131 +238,125 @@ const ResidentUserHistory: FC<{
                 </div>
 
                 <div className='grid gap-8 mt-8 p-8'>
-                    {fetchedResidentUserHistory &&
-                    fetchedResidentUserHistory.length > 0 ? (
+                    {paginate.slicedPages && paginate.slicedPages.length > 0 ? (
                         React.Children.toArray(
-                            fetchedResidentUserHistory
-                                .slice(start, end)
-                                .map(
-                                    (
-                                        {
-                                            packageName,
-                                            userName,
-                                            frequency,
-                                            amount,
-                                            startDate,
-                                            endDate,
-                                            transactionType,
-                                            status,
-                                            id,
-                                        },
-                                        i
-                                    ) => {
-                                        const { isDropDownOpen, index } =
-                                            toggleDropDown
-                                        return (
-                                            <div className='grid justify-between border-b grid-cols-9 gap-8 '>
-                                                <p className='flex items-center gap-4'>
-                                                    {id}
-                                                    <input
-                                                        type='checkbox'
-                                                        className='cursor-pointer'
-                                                    />
+                            paginate.slicedPages[paginate.index].map(
+                                (
+                                    {
+                                        packageName,
+                                        userName,
+                                        frequency,
+                                        amount,
+                                        startDate,
+                                        endDate,
+                                        transactionType,
+                                        status,
+                                        id,
+                                    },
+                                    i
+                                ) => {
+                                    const { isDropDownOpen, index } =
+                                        toggleDropDown
+                                    return (
+                                        <div className='grid justify-between border-b grid-cols-9 gap-8 '>
+                                            <p className='flex items-center gap-4'>
+                                                {id}
+                                                <input
+                                                    type='checkbox'
+                                                    className='cursor-pointer'
+                                                />
 
-                                                    <span>{packageName}</span>
-                                                </p>
-                                                <p>{userName}</p>
-                                                <p>{frequency}</p>
-                                                <p className='flex items-center gap-.5'>
-                                                    <img
-                                                        src='/icons/Naira.svg'
-                                                        alt=''
-                                                    />
-                                                    <span>{amount}</span>
-                                                </p>
-                                                <p>{startDate}</p>
-                                                <p>{endDate}</p>
-                                                <p>{transactionType}</p>
-                                                <p>{status}</p>
-                                                <div className='relative'>
-                                                    <label
-                                                        className='font-semibold capitalize cursor-pointer flex items-center gap-2 relative z-10'
-                                                        htmlFor={i.toString()}
-                                                        onClick={() =>
-                                                            setToggleDropDown(
-                                                                (prev) => {
-                                                                    return {
-                                                                        isDropDownOpen:
-                                                                            !prev.isDropDownOpen,
-                                                                        index: i,
-                                                                    }
+                                                <span>{packageName}</span>
+                                            </p>
+                                            <p>{userName}</p>
+                                            <p>{frequency}</p>
+                                            <p className='flex items-center gap-.5'>
+                                                <img
+                                                    src='/icons/Naira.svg'
+                                                    alt=''
+                                                />
+                                                <span>{amount}</span>
+                                            </p>
+                                            <p>{startDate}</p>
+                                            <p>{endDate}</p>
+                                            <p>{transactionType}</p>
+                                            <p>{status}</p>
+                                            <div className='relative'>
+                                                <label
+                                                    className='font-semibold capitalize cursor-pointer flex items-center gap-2 relative z-10'
+                                                    htmlFor={i.toString()}
+                                                    onClick={() =>
+                                                        setToggleDropDown(
+                                                            (prev) => {
+                                                                return {
+                                                                    isDropDownOpen:
+                                                                        !prev.isDropDownOpen,
+                                                                    index: i,
                                                                 }
-                                                            )
-                                                        }
-                                                    >
-                                                        <span className='text-color-primary'>
-                                                            <img
-                                                                src='/icons/admins/threeDots.svg'
-                                                                alt=''
-                                                            />
-                                                        </span>
-                                                    </label>
-                                                    <input
-                                                        type='radio'
-                                                        name='dropdown'
-                                                        className='hidden'
-                                                        id={i.toString()}
-                                                        onChange={(e) =>
-                                                            dropDownHandler(
-                                                                e,
-                                                                i
-                                                            )
-                                                        }
-                                                    />
+                                                            }
+                                                        )
+                                                    }
+                                                >
+                                                    <span className='text-color-primary'>
+                                                        <img
+                                                            src='/icons/admins/threeDots.svg'
+                                                            alt=''
+                                                        />
+                                                    </span>
+                                                </label>
+                                                <input
+                                                    type='radio'
+                                                    name='dropdown'
+                                                    className='hidden'
+                                                    id={i.toString()}
+                                                    onChange={(e) =>
+                                                        dropDownHandler(e, i)
+                                                    }
+                                                />
 
-                                                    {isDropDownOpen &&
-                                                        index === i && (
-                                                            <div className='absolute top-0 translate-x-[4rem] border border-color-primary-light w-[10rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
-                                                                {actions.map(
-                                                                    (
-                                                                        item,
-                                                                        index
-                                                                    ) => (
-                                                                        <p
-                                                                            className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
-                                                                            key={
-                                                                                index +
-                                                                                i
-                                                                            }
-                                                                            onClick={(
-                                                                                e
-                                                                            ) =>
-                                                                                selectAction(
-                                                                                    e,
-                                                                                    item
-                                                                                )
-                                                                            }
-                                                                        >
-                                                                            {item ===
-                                                                            'Deactivate' ? (
-                                                                                <span className='text-red-600'>
-                                                                                    {
-                                                                                        item
-                                                                                    }
-                                                                                </span>
-                                                                            ) : (
+                                                {isDropDownOpen &&
+                                                    index === i && (
+                                                        <div className='absolute top-0 translate-x-[4rem] border border-color-primary-light w-[10rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
+                                                            {actions.map(
+                                                                (
+                                                                    item,
+                                                                    index
+                                                                ) => (
+                                                                    <p
+                                                                        className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
+                                                                        key={
+                                                                            index +
+                                                                            i
+                                                                        }
+                                                                        onClick={(
+                                                                            e
+                                                                        ) =>
+                                                                            selectAction(
+                                                                                e,
                                                                                 item
-                                                                            )}
-                                                                        </p>
-                                                                    )
-                                                                )}
-                                                            </div>
-                                                        )}
-                                                </div>
+                                                                            )
+                                                                        }
+                                                                    >
+                                                                        {item ===
+                                                                        'Deactivate' ? (
+                                                                            <span className='text-red-600'>
+                                                                                {
+                                                                                    item
+                                                                                }
+                                                                            </span>
+                                                                        ) : (
+                                                                            item
+                                                                        )}
+                                                                    </p>
+                                                                )
+                                                            )}
+                                                        </div>
+                                                    )}
                                             </div>
-                                        )
-                                    }
-                                )
+                                        </div>
+                                    )
+                                }
+                            )
                         )
                     ) : (
                         <div>
@@ -402,7 +404,10 @@ const ResidentUserHistory: FC<{
                                         {index + 1}
                                     </span>
                                 ) : (
-                                    <span className='text-color-primary bg-white grid place-content-center border w-[3rem] h-[3rem] cursor-pointer' onClick={(e) => jumpToPage(e, index)}>
+                                    <span
+                                        className='text-color-primary bg-white grid place-content-center border w-[3rem] h-[3rem] cursor-pointer'
+                                        onClick={(e) => jumpToPage(e, index)}
+                                    >
                                         {index + 1}
                                     </span>
                                 )}
