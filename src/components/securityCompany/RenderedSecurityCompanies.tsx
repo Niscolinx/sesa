@@ -117,10 +117,10 @@ function RenderedSecurityCompanies() {
                     </p>
                     <div className='relative flex items-center'>
                         <img src='/icons/securityCompanys/search.svg' alt='' className='absolute left-4' />
-                        <input type='text' placeholder='Search Parameters' className='pl-16' />
+                        <input type='text' placeholder='Search Parameters' className='pl-16 w-[25rem] rounded-lg border border-color-blue-light py-4 px-8 outline-none appearance-none' />
                     </div>
                     <div className='relative flex items-center'>
-                        <select className='cursor-pointer'>
+                        <select className='cursor-pointer w-[25rem] rounded-lg border border-color-blue-light py-4 px-8 outline-none appearance-none'>
                             <option hidden value=''>
                                 Category
                             </option>
