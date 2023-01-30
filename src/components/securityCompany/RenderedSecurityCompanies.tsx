@@ -105,22 +105,22 @@ function RenderedSecurityCompanies() {
 
     return (
         <div className='w-full grid item rounded-lg'>
-            <table
+            <div
                 className='grid text-[1.6rem]'
                 style={{
                     fontFamily: 'Satoshi-Regular',
                 }}
             >
-                <caption className='renderedEstates__caption'>
-                    <p className='caption__title'>
+                <caption className='flex w-full justify-between items-center gap-12 p-8 bg-color-white rounded-lg'>
+                    <p className='text-[1.6rem] font-bold'>
                         SecurityCompany List <span>(202)</span>
                     </p>
-                    <div className='caption__searchBox'>
-                        <img src='/icons/securityCompanys/search.svg' alt='' />
-                        <input type='text' placeholder='Search Parameters' />
+                    <div className='relative flex items-center'>
+                        <img src='/icons/securityCompanys/search.svg' alt='' className='absolute left-4' />
+                        <input type='text' placeholder='Search Parameters' className='pl-16' />
                     </div>
-                    <div className='caption__select'>
-                        <select>
+                    <div className='relative flex items-center'>
+                        <select className='cursor-pointer'>
                             <option hidden value=''>
                                 Category
                             </option>
@@ -315,7 +315,7 @@ function RenderedSecurityCompanies() {
                         <HiOutlineChevronRight />
                     </ul>
                 </footer>
-            </table>
+            </div>
         </div>
     )
 }

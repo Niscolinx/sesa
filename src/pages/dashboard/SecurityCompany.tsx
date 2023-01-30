@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
 import AddSecurityCompany from '../../components/securityCompany/AddSecurityCompany'
-import RenderSecurityCompanies from '../../components/securityCompany/RenderedsecurityCompanies'
+import RenderSecurityCompanies from '../../components/securityCompany/RenderedSecurityCompanies'
 import { useAppDispatch, useAppSelector } from '../../store/app/hooks'
 import {
     routeChangeSelector,
