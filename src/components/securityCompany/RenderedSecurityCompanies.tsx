@@ -11,19 +11,19 @@ import {
 import { TbCurrencyNaira } from 'react-icons/tb'
 
 import { useAppDispatch } from '../../store/app/hooks'
-import { setEstatePath } from '../../store/features/routeChange'
+import { setSecurityCompanyPath } from '../../store/features/routeChange'
 import { Link } from 'react-router-dom'
 
 type SecurityCompanyDetails = {
-    estateName: string
+    securityCompanyName: string
     securityCompany: string
     status: string
 
-    estateBalance: number
+    securityCompanyBalance: number
     NoOfResidents: number
     signOutRequired: boolean
 
-    estateManager: string
+    securityCompanyManager: string
     NoOfHouseholds: number
 }
 
@@ -34,20 +34,20 @@ type SecurityCompany = {
     details: SecurityCompanyDetails
 }
 
-const ESTATEDATA: Security[] = [
+const SECURITYCOMPANYDATA: SecurityCompany[] = [
     {
         id: '1',
         img: '/img/img1.png',
         details: {
-            estateName: 'Iba Housing Estate',
+            securityCompanyName: 'Iba Housing SecurityCompany',
             securityCompany: 'Proton',
             status: 'Active',
 
-            estateBalance: 5000,
+            securityCompanyBalance: 5000,
             NoOfResidents: 3400,
             signOutRequired: true,
 
-            estateManager: 'Sladin Ama',
+            securityCompanyManager: 'Sladin Ama',
             NoOfHouseholds: 45,
         },
     },
@@ -55,15 +55,15 @@ const ESTATEDATA: Security[] = [
         id: '2',
         img: '/img/img2.png',
         details: {
-            estateName: 'Iba Housing Estate',
+            securityCompanyName: 'Iba Housing SecurityCompany',
             securityCompany: 'Proton',
             status: 'Active',
 
-            estateBalance: 5000,
+            securityCompanyBalance: 5000,
             NoOfResidents: 3400,
             signOutRequired: true,
 
-            estateManager: 'Sladin Ama',
+            securityCompanyManager: 'Sladin Ama',
             NoOfHouseholds: 45,
         },
     },
@@ -71,47 +71,47 @@ const ESTATEDATA: Security[] = [
         id: '3',
         img: '/img/img3.png',
         details: {
-            estateName: 'Iba Housing Estate',
+            securityCompanyName: 'Iba Housing SecurityCompany',
             securityCompany: 'Proton',
             status: 'Active',
 
-            estateBalance: 5000,
+            securityCompanyBalance: 5000,
             NoOfResidents: 3400,
             signOutRequired: true,
 
-            estateManager: 'Sladin Ama',
+            securityCompanyManager: 'Sladin Ama',
             NoOfHouseholds: 45,
         },
     },
 ]
 
-function RenderedEstates() {
+function RenderedSecurityCompanys() {
     const dispatch = useAppDispatch()
 
-    const [fetchedUsers, setFetchedUsers] = useState<Security[] | null>([])
+    const [fetchedSecurityCompanies, setFetchedSecurityCompanies] = useState<SecurityCompany[] | null>([])
 
     useEffect(() => {
         const fetchData = async () => {
             setTimeout(() => {
-                setFetchedUsers(ESTATEDATA)
+                setFetchedSecurityCompanies(SECURITYCOMPANYDATA)
             }, 1000)
         }
         fetchData()
     }, [])
 
     const handlePathSwitch = () => {
-        dispatch(setEstatePath('addEstate'))
+        dispatch(setSecurityCompanyPath('addSecurityCompany'))
     }
 
     return (
-        <div className='renderedEstates'>
-            <table className='renderedEstates__tableBox'>
-                <caption className='renderedEstates__caption'>
+        <div className='renderedSecurityCompanys'>
+            <table className='renderedSecurityCompanys__tableBox'>
+                <caption className='renderedSecurityCompanys__caption'>
                     <p className='caption__title'>
-                        Estate List <span>(202)</span>
+                        SecurityCompany List <span>(202)</span>
                     </p>
                     <div className='caption__searchBox'>
-                        <img src='/icons/estates/search.svg' alt='' />
+                        <img src='/icons/securityCompanys/search.svg' alt='' />
                         <input type='text' placeholder='Search Parameters' />
                     </div>
                     <div className='caption__select'>
@@ -125,27 +125,27 @@ function RenderedEstates() {
                         <GrDown />
                     </div>
                     <button
-                        className='btn addEstate__btn'
+                        className='btn addSecurityCompany__btn'
                         onClick={handlePathSwitch}
                     >
                         <span>
                             <IoMdAdd />
                         </span>{' '}
-                        <p>Add Estate</p>
+                        <p>Add SecurityCompany</p>
                     </button>
                 </caption>
-                <div className='renderedEstates__table'>
-                    <tbody className='renderedEstates__table--body'>
-                        {fetchedUsers && fetchedUsers.length > 0 ? (
+                <div className='renderedSecurityCompanys__table'>
+                    <tbody className='renderedSecurityCompanys__table--body'>
+                        {fetchedSecurityCompanies && fetchedSecurityCompanies.length > 0 ? (
                             React.Children.toArray(
-                                fetchedUsers.map(
+                                fetchedSecurityCompanies.map(
                                     ({
                                         img,
                                         id,
                                         details: {
-                                            estateBalance,
-                                            estateManager,
-                                            estateName,
+                                            securityCompanyBalance,
+                                            securityCompanyManager,
+                                            securityCompanyName,
                                             NoOfHouseholds,
                                             NoOfResidents,
                                             securityCompany,
@@ -154,7 +154,7 @@ function RenderedEstates() {
                                         },
                                     }) => {
                                         return (
-                                            <Link to={`/dashboard/estates/detail/:${id}`}>
+                                            <Link to={`/dashboard/securityCompanys/detail/:${id}`}>
                                                 <tr className='w-full'>
                                                     <td>
                                                         <img
@@ -167,10 +167,10 @@ function RenderedEstates() {
                                                     <td>
                                                         <div>
                                                             <p className='text-[1.4rem] text-[#043FA7]'>
-                                                                Estate&nbsp;Name
+                                                                SecurityCompany&nbsp;Name
                                                             </p>
                                                             <p className='font-[1.6rem] whitespace-nowrap'>
-                                                                {estateName}
+                                                                {securityCompanyName}
                                                             </p>
                                                         </div>
                                                         <div>
@@ -195,11 +195,11 @@ function RenderedEstates() {
                                                     <td>
                                                         <div>
                                                             <p className='text-[#043FA7]'>
-                                                                Estate Balance
+                                                                SecurityCompany Balance
                                                             </p>
                                                             <p className='flex items-center'>
                                                                 <TbCurrencyNaira className='text-[2rem]' />
-                                                                {estateBalance}
+                                                                {securityCompanyBalance}
                                                             </p>
                                                         </div>
                                                         <div>
@@ -225,10 +225,10 @@ function RenderedEstates() {
                                                     <td className=' grid content-start'>
                                                         <div>
                                                             <p className='text-[#043FA7]'>
-                                                                Estate Manager
+                                                                SecurityCompany Manager
                                                             </p>
                                                             <p>
-                                                                {estateManager}
+                                                                {securityCompanyManager}
                                                             </p>
                                                         </div>
                                                         <div className=' mt-10'>
@@ -269,7 +269,7 @@ function RenderedEstates() {
                         )}
                     </tbody>
                 </div>
-                <footer className='renderedEstates__footer'>
+                <footer className='renderedSecurityCompanys__footer'>
                     <div className='flex gap-8 items-center'>
                         <p>View</p>
                         <div className='flex items-center border px-4 rounded-lg'>
@@ -304,4 +304,4 @@ function RenderedEstates() {
     )
 }
 
-export default RenderedEstates
+export default RenderedSecurityCompanys

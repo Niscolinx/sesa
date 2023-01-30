@@ -8,12 +8,14 @@ export type RenderEstateManagerPath =
     | 'addEstateManager'
 export type RenderRolesAndPerm = 'renderRolesAndPerm' | 'addRolesAndPerm'
 export type RenderAdditionalResidentPath = 'renderedAdditionalResidents' | 'addResidentUserPackage'
+export type RenderSecurityCompanyPath = 'renderedSecurityCompanies' | 'addSecurityCompany'
 interface RouteChangeState {
     adminPath: RenderAdminPath
     estatePath: RenderEstatePath
     estateManagerPath: RenderEstateManagerPath
     rolesAndPermPath: RenderRolesAndPerm
     additionalResidentPath: RenderAdditionalResidentPath
+    securityCompanyPath: RenderSecurityCompanyPath
 }
 
 
@@ -22,7 +24,8 @@ const initialState = {
     adminPath: 'renderedAdmins',
     estateManagerPath: 'renderedEstateManagers',
     rolesAndPermPath: 'renderRolesAndPerm',
-    additionalResidentPath: 'renderedAdditionalResidents'
+    additionalResidentPath: 'renderedAdditionalResidents',
+    securityCompanyPath: 'renderedSecurityCompanies'
 } satisfies RouteChangeState
 
 
@@ -45,11 +48,15 @@ const routeChange = createSlice({
         },
         setAdditionalResidentPath: (state, action) => {
             state.additionalResidentPath = action.payload
+        },
+        setSecurityCompanyPath: (state, action) => {
+            state.securityCompanyPath = action.payload
         }
+
     },
 })
 
-export const { setEstatePath, setAdminPath, setEstateManagerPath, setRolesAndPermPath, setAdditionalResidentPath } =
+export const { setEstatePath, setAdminPath, setEstateManagerPath, setRolesAndPermPath, setAdditionalResidentPath, setSecurityCompanyPath } =
     routeChange.actions
 export const routeChangeSelector = (state: AppState) => state.routeChange
 
