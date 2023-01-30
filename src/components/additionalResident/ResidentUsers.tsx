@@ -167,12 +167,12 @@ function ResidentUsers() {
         <div>
             <div className='estateDetail__radioBox'>
                 <input
-                    defaultChecked
                     type='radio'
                     name='report'
                     id='additionalResidentUsr'
                     className='hidden'
                     onChange={() => setCurrentPage(1)}
+                    defaultChecked
                 />
                 <label htmlFor='additionalResidentUsr'>
                     Additional Resident Package
@@ -181,11 +181,11 @@ function ResidentUsers() {
                 <input
                     type='radio'
                     name='report'
-                    id='ResidentUserHistory'
+                    id='residentUserHistory'
                     className='hidden'
                     onChange={() => setCurrentPage(2)}
                 />
-                <label htmlFor='ResidentUserHistory capitalize'>
+                <label htmlFor='residentUserHistory' className='capitalize'>
                     Package purchase history
 
                     {/* //Change the custom select of package to be normal input field

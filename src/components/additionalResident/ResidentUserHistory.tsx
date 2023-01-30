@@ -173,7 +173,7 @@ const ResidentUserHistory: FC<{
         <div className='grid text-[1.6rem]'>
             <caption className='flex w-full items-center gap-12 p-10 bg-white rounded-lg'>
                 <p className=' font-bold'>
-                    Resident User List <span>(4)</span>
+                    Resident User History <span>(10)</span>
                 </p>
                 <div className='relative flex items-center'>
                     <img
