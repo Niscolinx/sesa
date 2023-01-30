@@ -3,16 +3,16 @@ import { IoMdAdd } from 'react-icons/io'
 import AddSecurityCompany from '../../components/securityCompany/AddSecurityCompany'
 import RenderSecurityCompanies from '../../components/securityCompany/RenderedsecurityCompanies'
 import { useAppDispatch, useAppSelector } from '../../store/app/hooks'
-import { routeChangeSelector, setEstatePath } from '../../store/features/routeChange'
-
+import {
+    routeChangeSelector,
+    setEstatePath,
+} from '../../store/features/routeChange'
 
 function SecurityCompany() {
     const dispatch = useAppDispatch()
     const { securityCompanyPath } = useAppSelector(routeChangeSelector)
 
     const [securityCompanies, setSecurityCompanies] = useState(false)
-
-   
 
     const switchRoute = {
         renderedSecurityCompanies: <RenderSecurityCompanies />,
@@ -25,10 +25,10 @@ function SecurityCompany() {
     }
 
     return (
-        <div className='estates'>
+        <div>
             <h1 className='heading2'>Security Company</h1>
-            <div className='estates__container'>
-                {securityCompanies ? (
+            <div className='rounded-lg mt-[3rem] h-[80vh]'>
+                {/* {securityCompanies ? (
                     <section>{switchRoute[securityCompanyPath]}</section>
                 ) : (
                     <section className='estates__wrapper bg-white'>
@@ -46,7 +46,9 @@ function SecurityCompany() {
                             Add Company
                         </button>
                     </section>
-                )}
+                )} */}
+
+                {switchRoute[securityCompanyPath]}
             </div>
         </div>
     )
