@@ -1,58 +1,49 @@
 import { useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
-import AddEstate from '../../../components/estates/AddEstate'
-import RenderedEstates from '../../../components/estates/RenderedEstates'
-import { useAppDispatch, useAppSelector } from '../../../store/app/hooks'
-import {
-    RenderEstatePath,
-    routeChangeSelector,
-    setEstatePath,
-} from '../../../store/features/routeChange'
+import AddSecurityCompany from '../../components/securityCompany/AddSecurityCompany'
+import RenderSecurityCompanies from '../../components/securityCompany/RenderedsecurityCompanies'
+import { useAppDispatch, useAppSelector } from '../../store/app/hooks'
+import { routeChangeSelector, setEstatePath } from '../../store/features/routeChange'
+
 
 function SecurityCompany() {
     const dispatch = useAppDispatch()
-    const { estatePath } = useAppSelector(routeChangeSelector)
+    const { securityCompanyPath } = useAppSelector(routeChangeSelector)
 
-    const [estatesLoaded, setEstatesLoaded] = useState(false)
+    const [securityCompanies, setSecurityCompanies] = useState(false)
 
-    const switchRoute = (estatePath: RenderEstatePath) => {
-        switch (estatePath) {
-            case 'renderedEstates':
-                return <RenderedEstates />
+   
 
-            case 'addEstate':
-                return <AddEstate />
-
-            default:
-                return <AddEstate />
-        }
+    const switchRoute = {
+        renderedSecurityCompanies: <RenderSecurityCompanies />,
+        addSecurityCompany: <AddSecurityCompany />,
     }
 
-    const handleAddEstate = () => {
-        setEstatesLoaded(true)
+    const addSecurityCompanyHandler = () => {
+        setSecurityCompanies(true)
         dispatch(setEstatePath('renderedEstates'))
     }
 
     return (
         <div className='estates'>
-            <h1 className='heading2'>Estates</h1>
+            <h1 className='heading2'>Security Company</h1>
             <div className='estates__container'>
-                {estatesLoaded ? (
-                    <section>{switchRoute(estatePath)}</section>
+                {securityCompanies ? (
+                    <section>{switchRoute[securityCompanyPath]}</section>
                 ) : (
                     <section className='estates__wrapper bg-white'>
                         <img src='/icons/admins/errorSvg.svg' alt='' />
                         <p className='text'>
-                            Ooops you have not added any Estate yet
+                            Ooops you have not added any security Company yet
                         </p>
                         <button
                             className='btn addEstate__btn'
-                            onClick={handleAddEstate}
+                            onClick={addSecurityCompanyHandler}
                         >
                             <span>
                                 <IoMdAdd />
                             </span>{' '}
-                            Add Estate
+                            Add Company
                         </button>
                     </section>
                 )}
