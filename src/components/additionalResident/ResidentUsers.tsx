@@ -142,14 +142,13 @@ function ResidentUsers() {
 
     const handlePathSwitch = (pageNum: number) => {
         switch (pageNum) {
-            //case 1:
-             case 2:
+        case 1:
                 return (
                     <ResidentUsersList
                         fetchedResidentUsers={fetchedResidentUsers ?? []}
                     />
                 )
-            case 1:
+            case 2:
                 return (
                     <ResidentUserHistory
                         fetchedResidentUserHistory={fetchedResidentUserHistory ?? []}
@@ -157,13 +156,8 @@ function ResidentUsers() {
                 )
             default:
                 return (
-                    // <ResidentUsersList
-                    //     fetchedResidentUsers={fetchedResidentUsers ?? []}
-                    // />
-                    <ResidentUserHistory
-                        fetchedResidentUserHistory={
-                            fetchedResidentUserHistory ?? []
-                        }
+                    <ResidentUsersList
+                        fetchedResidentUsers={fetchedResidentUsers ?? []}
                     />
                 )
         }
@@ -194,7 +188,7 @@ function ResidentUsers() {
                 <label htmlFor='ResidentUserHistory capitalize'>
                     Package purchase history
 
-                    {/* //TODO Change the custom select of package to be normal input field
+                    {/* //Change the custom select of package to be normal input field
                     //comma separated in Amount */}
                 </label>
             </div>
