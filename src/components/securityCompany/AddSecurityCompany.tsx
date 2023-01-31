@@ -142,10 +142,10 @@ const AddEstateManager = () => {
                     )}
                 </div>
 
-                <div className='col-span-full rounded-lg border-width-[.2rem] border-dashed border-color-grey-1 p-8 text-[]'>
-                    <label htmlFor='photoUpload'>
+                <div className='col-span-full rounded-lg border border-width-[.2rem] border-dashed border-color-grey-1 p-8 text-[1.6rem] relative w-full'>
+                    <label htmlFor='photoUpload' className='flex justify-center gap-4 items-center cursor-pointer'>
                         <img
-                            src='/icons/estateManagers/photo_library.svg'
+                            src='/icons/admins/photo_library.svg'
                             alt=''
                         />
                         <p>
