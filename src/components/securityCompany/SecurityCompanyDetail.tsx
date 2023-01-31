@@ -117,7 +117,12 @@ const SecurityCompanyDetail = () => {
                 </section>
             </dialog>
             <div className='grid p-8 bg-white h-[80vh] items-baseline overflow-y-scroll rounded-lg'>
-                <div className='flex justify-end'>
+                <div className='flex justify-between'>
+                    <img
+                        src='/icons/admins/detailsImg.svg'
+                        alt='photoPreview'
+                        className='object-cover w-[11rem] h-[11rem] rounded-full'
+                    />
                     <button
                         className='border border-red-600 px-16 py-4 flex items-center  rounded-lg gap-4'
                         onClick={() => handleOpen('warning')}
