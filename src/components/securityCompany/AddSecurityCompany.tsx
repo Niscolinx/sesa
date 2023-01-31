@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import { GrDown } from 'react-icons/gr'
+import { GrDown, GrUp } from 'react-icons/gr'
 import { IoMdAdd } from 'react-icons/io'
 import { ModalContext } from '../../Context/ModalContext'
 import { getPhotoUrl } from '../../utils/getPhotoUrl'
@@ -120,7 +120,12 @@ const AddEstateManager = () => {
                         >
                             {selectedState}
                         </p>
-                        <GrDown className='absolute right-4' />
+                        {toggleStateMenu ? 
+                        
+                        <GrDown className='absolute right-4 rotate-180' />:
+                        <GrUp className='absolute right-4' />
+                    
+                    }
                     </div>
 
                     {toggleStateMenu && (
