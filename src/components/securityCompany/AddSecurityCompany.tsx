@@ -4,7 +4,31 @@ import { IoMdAdd } from 'react-icons/io'
 import { ModalContext } from '../../Context/ModalContext'
 import { getPhotoUrl } from '../../utils/getPhotoUrl'
 
+type State = 'Lagos' | 'Imo' | 'Abia' | 'FCT'
+
 const AddEstateManager = () => {
+
+     const state:Array<State> = [
+         'Lagos',
+         'Imo',
+         'Abia',
+         'FCT',
+     ]
+
+    
+     const [toggleStateMenu, setToggleStateMenu] = useState(false)
+     const [selectedState, setSelectedState] =
+         useState<State>('Lagos')
+
+   
+     const stateMenuToggler = () =>
+         setToggleStateMenu(!toggleStateMenu)
+
+     const handleSelectedState = (item: State) => {
+         setSelectedState(item)
+         setToggleStateMenu(false)
+     }
+
     const ModalContextData = useContext(ModalContext)
     const { handleOpen } = ModalContextData
 
@@ -62,10 +86,15 @@ const AddEstateManager = () => {
                 </div>
 
                 <div className='grid gap-4'>
-                    <label htmlFor='phoneNumber' className='text-[1.4rem] font-medium'>Phone Number *</label>
+                    <label
+                        htmlFor='phoneNumber'
+                        className='text-[1.4rem] font-medium'
+                    >
+                        Phone Number *
+                    </label>
 
-                    <div className='flex text-[1.6rem] gap-8'>
-                        <select>
+                    <div className='flex text-[1.6rem] gap-4   h-[5rem]'>
+                        <select className='w-[30%] rounded-lg border border-color-grey py-4.8 px-4 outline-none cursor-pointer text-color-dark relative h-full'>
                             <option value='234'>+234</option>
                         </select>
                         <input
@@ -74,10 +103,35 @@ const AddEstateManager = () => {
                             inputMode='numeric'
                             id='phoneNumber'
                             placeholder='Phone Number'
+                            className='w-full rounded-lg border border-color-grey py-4.8 px-8 outline-none text-color-dark'
                         />
                     </div>
                 </div>
+                <div className='relative self-end grid gap-4'>
+                    <p className='text-[1.4rem] font-semibold'>State</p>
+                    <p
+                        className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer'
+                        onClick={stateMenuToggler}
+                    >
+                        {selectedState}
+                    </p>
 
+                    {toggleStateMenu && (
+                        <div className='absolute top-[8rem]  left-0 border border-color-primary-light w-[24rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
+                            {state.map((item, index) => (
+                                <p
+                                    className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
+                                    key={index}
+                                    onClick={() =>
+                                        handleSelectedState(item)
+                                    }
+                                >
+                                    {item}
+                                </p>
+                            ))}
+                        </div>
+                    )}
+                </div>
                 <div className='grid gap-4 relative '>
                     <label
                         htmlFor='securityCompany'
