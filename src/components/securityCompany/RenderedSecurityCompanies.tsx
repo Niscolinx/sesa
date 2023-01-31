@@ -42,8 +42,7 @@ const SECURITYCOMPANYDATA: SecurityCompany[] = [
             walletBalance: 5000,
             joinedDate: new Date(),
             NoOfGuards: 3400,
-            status: 'Active',
-
+            status: 'active',
         },
     },
     {
@@ -55,8 +54,7 @@ const SECURITYCOMPANYDATA: SecurityCompany[] = [
             walletBalance: 5000,
             joinedDate: new Date(),
             NoOfGuards: 3400,
-            status: 'Active',
-
+            status: 'active',
         },
     },
     {
@@ -68,17 +66,17 @@ const SECURITYCOMPANYDATA: SecurityCompany[] = [
             walletBalance: 5000,
             joinedDate: new Date(),
             NoOfGuards: 3400,
-            status: 'Active',
-
+            status: 'active',
         },
     },
-
 ]
 
 function RenderedSecurityCompanies() {
     const dispatch = useAppDispatch()
 
-    const [fetchedSecurityCompanies, setFetchedSecurityCompanies] = useState<SecurityCompany[] | null>([])
+    const [fetchedSecurityCompanies, setFetchedSecurityCompanies] = useState<
+        SecurityCompany[] | null
+    >([])
 
     useEffect(() => {
         const fetchData = async () => {
@@ -106,8 +104,16 @@ function RenderedSecurityCompanies() {
                         SecurityCompany List <span>(202)</span>
                     </p>
                     <div className='relative flex items-center'>
-                        <img src='/icons/admins/search.svg' alt='' className='absolute left-4' />
-                        <input type='text' placeholder='Search Parameters' className='pl-16 w-[25rem] rounded-lg border border-color-blue-light py-4 px-8 outline-none appearance-none' />
+                        <img
+                            src='/icons/admins/search.svg'
+                            alt=''
+                            className='absolute left-4'
+                        />
+                        <input
+                            type='text'
+                            placeholder='Search Parameters'
+                            className='pl-16 w-[25rem] rounded-lg border border-color-blue-light py-4 px-8 outline-none appearance-none'
+                        />
                     </div>
                     <div className='relative flex items-center'>
                         <select className='cursor-pointer w-[25rem] rounded-lg border border-color-blue-light py-4 px-8 outline-none appearance-none'>
@@ -117,7 +123,7 @@ function RenderedSecurityCompanies() {
                             <option value='date'>date</option>
                             <option value='alpha'>Alpha</option>
                         </select>
-                        <GrDown className='absolute right-4 text-[1.3rem]'/>
+                        <GrDown className='absolute right-4 text-[1.3rem]' />
                     </div>
                     <button
                         className='btn ml-auto bg-color-blue-1 text-white flex gap-2 items-center self-center rounded-lg py-4 px-8'
@@ -145,16 +151,19 @@ function RenderedSecurityCompanies() {
                                             joinedDate,
                                             NoOfGuards,
                                             status,
-
                                         },
                                     }) => {
                                         return (
                                             <Link
                                                 to={`/dashboard/security-companies/:${id}`}
                                             >
-                                                <div className='p-8 flex bg-white border border-color-grey rounded-lg ' style={{
-                                                    justifyContent: 'repeat(4, minmax(min-content, 1fr))',
-                                                }}>
+                                                <div
+                                                    className='p-8 flex bg-white border border-color-grey rounded-lg '
+                                                    style={{
+                                                        justifyContent:
+                                                            'repeat(4, minmax(min-content, 1fr))',
+                                                    }}
+                                                >
                                                     <div className='w-full py-8 grid items-start gap-4 '>
                                                         <img
                                                             src={img}
@@ -162,81 +171,63 @@ function RenderedSecurityCompanies() {
                                                             className='w-[21rem] h-[18rem] object-cover rounded-lg'
                                                         />
                                                     </div>
-<div className='w-full py-8 grid items-start gap-4 '>
+                                                    <div className='w-full py-8 grid items-start gap-4 '>
                                                         <div>
                                                             <p className='text-[1.4rem] text-[#043FA7]'>
                                                                 Name
                                                             </p>
                                                             <p className='font-[1.6rem] whitespace-nowrap'>
-                                                                {
-                                                                    companyName
-                                                                }
+                                                                {companyName}
                                                             </p>
                                                         </div>
                                                         <div>
                                                             <p className='text-[#043FA7]'>
-                                                                Security Company
+                                                                Address
                                                             </p>
-                                                            <p>
-                                                                {
-                                                                    securityCompany
-                                                                }
-                                                            </p>
+                                                            <address>
+                                                                {CompanyAddress}
+                                                            </address>
                                                         </div>
-                                                        
                                                     </div>
                                                     <div className='w-full py-8 grid items-start gap-4 '>
                                                         <div>
                                                             <p className='text-[#043FA7]'>
-                                                                SecurityCompany
-                                                                Balance
+                                                                Wallet Balance
                                                             </p>
                                                             <p className='flex items-center'>
                                                                 <TbCurrencyNaira className='text-[2rem]' />
                                                                 {
-                                                                    securityCompanyBalance
+                                                                    walletBalance.toLocaleString()
                                                                 }
                                                             </p>
                                                         </div>
                                                         <div>
                                                             <p className='text-[#043FA7]'>
-                                                                No of Residents
+                                                                Joined Date
                                                             </p>
                                                             <p>
-                                                                {NoOfResidents}
+                                                                {joinedDate.toLocaleDateString()}
                                                             </p>
                                                         </div>
-                                                        <div>
-                                                            <p className='text-[#043FA7]'>
-                                                                Sign Out
-                                                                Required
-                                                            </p>
-                                                            <p>
-                                                                {signOutRequired
-                                                                    ? 'Yes'
-                                                                    : 'No'}
-                                                            </p>
-                                                        </div>
+                                                        
                                                     </div>
-                                                   <div className='w-full py-8 grid items-start gap-4  content-start'>
+                                                    <div className='w-full py-8 grid items-start gap-4  content-start'>
                                                         <div>
                                                             <p className='text-[#043FA7]'>
-                                                                SecurityCompany
-                                                                Manager
+                                                                No of Security Guards
                                                             </p>
                                                             <p>
                                                                 {
-                                                                    securityCompanyManager
+                                                                    NoOfGuards
                                                                 }
                                                             </p>
                                                         </div>
                                                         <div className=' mt-10'>
                                                             <p className='text-[#043FA7]'>
-                                                                {' '}
-                                                                No of Households
+                                                              Status
                                                             </p>
                                                             <p>
-                                                                {NoOfHouseholds}
+                                                                {status === 'active' ? <span className=''>Active</span> : <span>Deactivated</span>}
                                                             </p>
                                                         </div>
                                                     </div>
