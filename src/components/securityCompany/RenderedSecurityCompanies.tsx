@@ -32,7 +32,7 @@ type SecurityCompany = {
     details: SecurityCompanyDetails
 }
 
-const SECURITYCOMPANYDATA: SecurityCompany[] = [
+export const SECURITYCOMPANYDATA: SecurityCompany[] = [
     {
         id: '1',
         img: '/img/security/img1.png',

@@ -7,7 +7,7 @@ import SecurityCompSvg from '../icons/sidebar/SecurityCompSvg'
 
 type State = 'Lagos' | 'Imo' | 'Abia' | 'FCT'
 
-const SecurityCompanyDetails = () => {
+const SecurityCompanyDetail = () => {
     const state: Array<State> = ['Lagos', 'Imo', 'Abia', 'FCT']
 
     const [toggleStateMenu, setToggleStateMenu] = useState(false)
@@ -145,6 +145,7 @@ const SecurityCompanyDetails = () => {
                         </label>
                         <input
                             type='text'
+                            value='Security Compand'
                             required
                             id='securityCompany'
                             className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
@@ -294,4 +295,4 @@ const SecurityCompanyDetails = () => {
     )
 }
 
-export default SecurityCompanyDetails
+export default SecurityCompanyDetail
