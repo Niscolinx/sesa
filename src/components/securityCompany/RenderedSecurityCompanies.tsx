@@ -80,6 +80,39 @@ function RenderedSecurityCompanies() {
         SecurityCompany[] | null
     >([])
 
+    const [selectedAction, setSelectedAction] = useState<{
+        [key: string]: Actions
+    }>(null as any)
+    const [toggleDropDown, setToggleDropDown] = useState<{
+        isDropDownOpen: boolean
+        index: number | null
+    }>({
+        isDropDownOpen: false,
+        index: null,
+    })
+
+    const dropDownHandler = (
+        e: React.ChangeEvent<HTMLInputElement>,
+        index: number
+    ) => {
+        console.log('clicked')
+        setToggleDropDown((prev) => {
+            return {
+                isDropDownOpen: e.target.checked,
+                index: index,
+            }
+        })
+    }
+
+    const selectAction = (e: React.MouseEvent, item: string, index: number) => {
+        setSelectedAction((prev) => {
+            return {
+                ...prev,
+                [index]: item,
+            }
+        })
+    }
+
     useEffect(() => {
         const fetchData = async () => {
             setTimeout(() => {
@@ -161,7 +194,9 @@ function RenderedSecurityCompanies() {
                                             NoOfGuards,
                                             status,
                                         },
-                                    }) => {
+                                    }, i) => {
+                                         const { isDropDownOpen, index } =
+                                             toggleDropDown
                                         return (
                                             <Link
                                                 to={`/dashboard/security-company/:${id}`}
@@ -277,12 +312,9 @@ function RenderedSecurityCompanies() {
                                                                 )
                                                             }
                                                         >
-                                                            <span className='text-color-primary'>
-                                                                <img
-                                                                    src='/icons/admins/threeDots.svg'
-                                                                    alt=''
-                                                                />
-                                                            </span>
+                                                            <button>
+                                                                <HiOutlineDotsVertical className='text-[2rem]' />
+                                                            </button>
                                                         </label>
                                                         <input
                                                             type='radio'
@@ -329,7 +361,7 @@ function RenderedSecurityCompanies() {
                                                                                         }
                                                                                     </span>
                                                                                 ) : item ===
-                                                                                  'Delete' ? (
+                                                                                  'Deactivate' ? (
                                                                                     <span className='text-red-600'>
                                                                                         {
                                                                                             item
