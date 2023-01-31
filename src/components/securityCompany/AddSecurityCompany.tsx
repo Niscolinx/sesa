@@ -19,8 +19,7 @@ const AddEstateManager = () => {
         setToggleStateMenu(false)
     }
 
-    const ModalContextData = useContext(ModalContext)
-    const { handleOpen } = ModalContextData
+    
 
     const [photoUrl, setPhotoUrl] = useState('')
 
@@ -33,7 +32,7 @@ const AddEstateManager = () => {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
-        handleOpen('renderedEstateManagers')
+        // handleOpen('renderedEstateManagers')
     }
 
     return (
