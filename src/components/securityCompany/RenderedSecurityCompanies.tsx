@@ -170,11 +170,11 @@ function RenderedSecurityCompanies() {
                 <dialog className='dialog' ref={dialogRef}>
                     <section className='grid place-content-center w-full h-[100vh]'>
                         <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
-                            <img src='/icons/admins/modalSuccess.svg' alt='' />
+                            <img src='/icons/admins/modalWarning.svg' alt='' />
                             <p>Are you sure you want to deactivate this security company?</p>
 
                             <div className='flex w-full justify-center gap-8'>
-                                <button className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'>
+                                <button className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]' onClick={() => handleClose()}>
                                     Cancel
                                 </button>
                                 <button
