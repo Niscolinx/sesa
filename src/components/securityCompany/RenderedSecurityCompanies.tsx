@@ -12,7 +12,6 @@ import { TbCurrencyNaira } from 'react-icons/tb'
 
 import { useAppDispatch } from '../../store/app/hooks'
 import { setSecurityCompanyPath } from '../../store/features/routeChange'
-import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 
 type SecurityCompanyDetails = {
@@ -178,10 +177,10 @@ function RenderedSecurityCompanies() {
                                     Cancel
                                 </button>
                                 <button
-                                    className='bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
+                                    className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
                                     onClick={handleRouteChange}
                                 >
-                                    Ok
+                                    Deactivate
                                 </button>
                             </div>
                         </div>
