@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import { GrDown, GrUp } from 'react-icons/gr'
 import { IoMdAdd } from 'react-icons/io'
 import { ModalContext } from '../../Context/ModalContext'
@@ -31,7 +31,7 @@ const AddSecurityCompany = () => {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
-        handleOpen()
+        handleOpen('success')
     }
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
@@ -42,7 +42,7 @@ const AddSecurityCompany = () => {
         }
     }
 
-    const handleOpen = () => {
+    const handleOpen = (modalState: 'warning' | 'success') => {
         if (dialogRef.current) {
             dialogRef.current.showModal()
         }
@@ -52,12 +52,18 @@ const AddSecurityCompany = () => {
         handleClose()
     }
 
+    
+
     return (
         <>
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
-                        <img src='/icons/admins/modalWarning.svg' alt='' />
+                        {isWarning ? (
+                            <img src='/icons/admins/modalWarning.svg' alt='' />
+                        ) : (
+                            <img src='/icons/admins/modalSuccess.svg' alt='' />
+                        )}
 
                         {isWarning ? (
                             <p>
@@ -111,7 +117,7 @@ const AddSecurityCompany = () => {
                         <img src='/icons/admins/delete.svg' alt='' />
                         <span
                             className='text-red-600 text-[1.4rem] font-semibold'
-                            onClick={() => handleOpen()}
+                            onClick={() => handleOpen('warning')}
                         >
                             Deactivate
                         </span>
@@ -270,7 +276,7 @@ const AddSecurityCompany = () => {
                     <button
                         className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
                         style={{ justifySelf: 'start' }}
-                        onClick={() => handleOpen()}
+                        onClick={() => handleOpen('success')}
                     >
                         <span>
                             <IoMdAdd />
