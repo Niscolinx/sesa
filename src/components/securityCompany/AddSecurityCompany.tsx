@@ -20,8 +20,6 @@ const AddSecurityCompany = () => {
         setToggleStateMenu(false)
     }
 
-    
-
     const [photoUrl, setPhotoUrl] = useState('')
 
     const handlePhotoPreview = async (
@@ -33,7 +31,7 @@ const AddSecurityCompany = () => {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
-         handleOpen()
+        handleOpen()
     }
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
@@ -60,32 +58,49 @@ const AddSecurityCompany = () => {
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
                         <img src='/icons/admins/modalWarning.svg' alt='' />
-                       
-                       {
-                            isWarning ? (
-                        <p>
-                            Are you sure you want to deactivate this security
-                            company?
-                        </p>):(
+
+                        {isWarning ? (
+                            <p>
+                                Are you sure you want to deactivate this
+                                security company?
+                            </p>
+                        ) : (
                             <p>
                                 You have successfully added a security Company
-                                </p>
-                        )
-                       }
+                            </p>
+                        )}
 
                         <div className='flex w-full justify-center gap-8'>
-                            <button
-                                className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
-                                onClick={() => handleClose()}
-                            >
-                                Cancel
-                            </button>
-                            <button
-                                className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
-                                onClick={confirmDeactivation}
-                            >
-                                Deactivate
-                            </button>
+                            {isWarning ? (
+                                <button
+                                    className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
+                                    onClick={() => handleClose()}
+                                >
+                                    Cancel
+                                </button>
+                            ) : (
+                                <button
+                                    className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
+                                    onClick={() => handleClose()}
+                                >
+                                    View Details
+                                </button>
+                            )}
+                            {isWarning ? (
+                                <button
+                                    className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
+                                    onClick={confirmDeactivation}
+                                >
+                                    Deactivate
+                                </button>
+                            ) : (
+                                <button
+                                    className='btn text-white bg-[#0556E5] border rounded-lg w-[15rem]'
+                                    onClick={() => handleClose()}
+                                >
+                                    View Details
+                                </button>
+                            )}
                         </div>
                     </div>
                 </section>
@@ -94,7 +109,10 @@ const AddSecurityCompany = () => {
                 <div className='flex justify-end'>
                     <button className='border border-red-600 px-16 py-4 flex items-center  rounded-lg gap-4'>
                         <img src='/icons/admins/delete.svg' alt='' />
-                        <span className='text-red-600 text-[1.4rem] font-semibold' onClick={() => handleOpen()}>
+                        <span
+                            className='text-red-600 text-[1.4rem] font-semibold'
+                            onClick={() => handleOpen()}
+                        >
                             Deactivate
                         </span>
                     </button>
