@@ -11,6 +11,7 @@ const AddSecurityCompany = () => {
 
     const [toggleStateMenu, setToggleStateMenu] = useState(false)
     const [selectedState, setSelectedState] = useState<State | null>(null)
+    const [isWarning, setIsWarning] = useState(true)
 
     const stateMenuToggler = () => setToggleStateMenu(!toggleStateMenu)
 
@@ -59,10 +60,18 @@ const AddSecurityCompany = () => {
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
                         <img src='/icons/admins/modalWarning.svg' alt='' />
+                       
+                       {
+                            isWarning ? (
                         <p>
                             Are you sure you want to deactivate this security
                             company?
-                        </p>
+                        </p>):(
+                            <p>
+                                You have successfully added a security Company
+                                </p>
+                        )
+                       }
 
                         <div className='flex w-full justify-center gap-8'>
                             <button
@@ -85,7 +94,7 @@ const AddSecurityCompany = () => {
                 <div className='flex justify-end'>
                     <button className='border border-red-600 px-16 py-4 flex items-center  rounded-lg gap-4'>
                         <img src='/icons/admins/delete.svg' alt='' />
-                        <span className='text-red-600 text-[1.4rem] font-semibold '>
+                        <span className='text-red-600 text-[1.4rem] font-semibold' onClick={() => handleOpen()}>
                             Deactivate
                         </span>
                     </button>
