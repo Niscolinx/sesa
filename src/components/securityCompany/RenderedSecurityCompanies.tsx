@@ -19,9 +19,9 @@ type SecurityCompanyDetails = {
     CompanyAddress: string
 
     walletBalance: number
-    joinedDate: number
+    joinedDate: Date
 
-    NoOfGuards: string
+    NoOfGuards: number
     status: string
 }
 
@@ -39,9 +39,35 @@ const SECURITYCOMPANYDATA: SecurityCompany[] = [
         details: {
             companyName: 'Proton Security',
             CompanyAddress: '04, Wright Avenue Lagos,Nigeria',
-            walletBalance: 100000,
-            joinedDate: 2021,
-            NoOfGuards: '100',
+            walletBalance: 5000,
+            joinedDate: new Date(),
+            NoOfGuards: 3400,
+            status: 'Active',
+
+        },
+    },
+    {
+        id: '2',
+        img: '/img/security/img2.png',
+        details: {
+            companyName: 'Proton Security',
+            CompanyAddress: '04, Wright Avenue Lagos,Nigeria',
+            walletBalance: 5000,
+            joinedDate: new Date(),
+            NoOfGuards: 3400,
+            status: 'Active',
+
+        },
+    },
+    {
+        id: '3',
+        img: '/img/security/img3.png',
+        details: {
+            companyName: 'Proton Security',
+            CompanyAddress: '04, Wright Avenue Lagos,Nigeria',
+            walletBalance: 5000,
+            joinedDate: new Date(),
+            NoOfGuards: 3400,
             status: 'Active',
 
         },
