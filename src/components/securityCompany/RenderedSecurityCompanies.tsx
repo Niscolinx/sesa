@@ -37,7 +37,7 @@ type SecurityCompany = {
 const SECURITYCOMPANYDATA: SecurityCompany[] = [
     {
         id: '1',
-        img: '/img/img1.png',
+        img: '/img/security/img1.png',
         details: {
             securityCompanyName: 'Iba Housing SecurityCompany',
             securityCompany: 'Proton',
@@ -53,7 +53,7 @@ const SECURITYCOMPANYDATA: SecurityCompany[] = [
     },
     {
         id: '2',
-        img: '/img/img2.png',
+        img: '/img/security/img2.png',
         details: {
             securityCompanyName: 'Iba Housing SecurityCompany',
             securityCompany: 'Proton',
@@ -69,7 +69,7 @@ const SECURITYCOMPANYDATA: SecurityCompany[] = [
     },
     {
         id: '3',
-        img: '/img/img3.png',
+        img: '/img/security/img3.png',
         details: {
             securityCompanyName: 'Iba Housing SecurityCompany',
             securityCompany: 'Proton',
@@ -140,7 +140,7 @@ function RenderedSecurityCompanies() {
                     </button>
                 </caption>
                 <div className='w-full'>
-                    <div className='grid gap-8'>
+                    <div className='grid gap-8 '>
                         {fetchedSecurityCompanies &&
                         fetchedSecurityCompanies.length > 0 ? (
                             React.Children.toArray(
@@ -163,7 +163,9 @@ function RenderedSecurityCompanies() {
                                             <Link
                                                 to={`/dashboard/security-companies/:${id}`}
                                             >
-                                                <tr className='w-full'>
+                                                <div className='p-8 flex' style={{
+                                                    justifyContent: 'repeat(4, minmax(min-content, 1fr))',
+                                                }}>
                                                     <td>
                                                         <img
                                                             src={img}
@@ -268,7 +270,7 @@ function RenderedSecurityCompanies() {
                                                             <HiOutlineDotsVertical className='text-[2rem]' />
                                                         </button>
                                                     </td>
-                                                </tr>
+                                                </div>
                                             </Link>
                                         )
                                     }
