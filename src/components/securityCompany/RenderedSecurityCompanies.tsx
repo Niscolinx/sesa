@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { useEffect, useState } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
 import { GrDown } from 'react-icons/gr'
@@ -102,26 +102,6 @@ function RenderedSecurityCompanies() {
             }
         })
     }
-
-    const handleSelectedAction = (item: string, index: string) => {
-        console.log({ item, index })
-
-
-        setToggleDropDown(() => {
-            return {
-                isDropDownOpen: false,
-                index: null,
-            }
-        })
-
-        if (item === 'View Details') {
-            navigate(`/dashboard/security-company/:${index}`)
-        }
-    }
-    const handlePathSwitch = () => {
-        dispatch(setSecurityCompanyPath('addSecurityCompany'))
-    }
-
     useEffect(() => {
         const fetchData = async () => {
             setTimeout(() => {
@@ -131,6 +111,13 @@ function RenderedSecurityCompanies() {
         fetchData()
     }, [])
 
+    
+    const handlePathSwitch = () => {
+        dispatch(setSecurityCompanyPath('addSecurityCompany'))
+    }
+
+    
+
      const dialogRef = useRef<HTMLDialogElement | null>(null)
 
      const handleClose = () => {
@@ -139,7 +126,7 @@ function RenderedSecurityCompanies() {
          }
      }
 
-     const handleOpen = (path?: OpenPath) => {
+     const handleOpen = () => {
          
          if (dialogRef.current) {
              dialogRef.current.showModal()
@@ -148,8 +135,25 @@ function RenderedSecurityCompanies() {
 
      const handleRouteChange = () => {
          handleClose()
+     }
 
-        
+     const handleSelectedAction = (item: string, index: string) => {
+         console.log({ item, index })
+
+         setToggleDropDown(() => {
+             return {
+                 isDropDownOpen: false,
+                 index: null,
+             }
+         })
+
+         if (item === 'View Details') {
+             navigate(`/dashboard/security-company/:${index}`)
+         }
+
+         if (item === 'Deactivate') {
+             handleOpen()
+         }
      }
 
 
@@ -167,11 +171,11 @@ function RenderedSecurityCompanies() {
                     <section className='grid place-content-center w-full h-[100vh]'>
                         <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
                             <img src='/icons/admins/modalSuccess.svg' alt='' />
-                            <p>You have successfully added an Estate</p>
+                            <p>Are you sure you want to deactivate this security company?</p>
 
                             <div className='flex w-full justify-center gap-8'>
                                 <button className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'>
-                                    View details
+                                    Cancel
                                 </button>
                                 <button
                                     className='bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
