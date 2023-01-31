@@ -94,7 +94,6 @@ const ResidentUsersList: FC<{
     }
 
     const handleAddPackage = () => {
-        console.log('handle package')
         dispatch(setAdditionalResidentPath('addResidentUserPackage'))
     }
 
