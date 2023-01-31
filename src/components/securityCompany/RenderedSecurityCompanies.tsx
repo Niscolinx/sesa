@@ -38,7 +38,7 @@ const SECURITYCOMPANYDATA: SecurityCompany[] = [
         img: '/img/security/img1.png',
         details: {
             companyName: 'Proton Security',
-            CompanyAddress: '04, Wright Avenue Lagos,Nigeria',
+            CompanyAddress: '04, Wright Avenue Lagos, Nigeria',
             walletBalance: 5000,
             joinedDate: new Date(),
             NoOfGuards: 3400,
@@ -50,7 +50,7 @@ const SECURITYCOMPANYDATA: SecurityCompany[] = [
         img: '/img/security/img2.png',
         details: {
             companyName: 'Proton Security',
-            CompanyAddress: '04, Wright Avenue Lagos,Nigeria',
+            CompanyAddress: '04, Wright Avenue Lagos, Nigeria',
             walletBalance: 5000,
             joinedDate: new Date(),
             NoOfGuards: 3400,
@@ -62,7 +62,7 @@ const SECURITYCOMPANYDATA: SecurityCompany[] = [
         img: '/img/security/img3.png',
         details: {
             companyName: 'Proton Security',
-            CompanyAddress: '04, Wright Avenue Lagos,Nigeria',
+            CompanyAddress: '04, Wright Avenue Lagos, Nigeria',
             walletBalance: 5000,
             joinedDate: new Date(),
             NoOfGuards: 3400,
@@ -184,7 +184,7 @@ function RenderedSecurityCompanies() {
                                                             <p className='text-[#043FA7]'>
                                                                 Address
                                                             </p>
-                                                            <address className='not-italic'>
+                                                            <address className='not-italic max-w-[20rem]'>
                                                                 {CompanyAddress}
                                                             </address>
                                                         </div>
@@ -204,7 +204,12 @@ function RenderedSecurityCompanies() {
                                                                 Joined Date
                                                             </p>
                                                             <p>
-                                                                {joinedDate.toLocaleDateString()}
+                                                                {joinedDate.toLocaleDateString(undefined, {
+                                                                    day: 'numeric',
+                                                                    month: 'short',
+                                                                    year: 'numeric',
+                                                                    
+                                                                })}
                                                             </p>
                                                         </div>
                                                     </div>
