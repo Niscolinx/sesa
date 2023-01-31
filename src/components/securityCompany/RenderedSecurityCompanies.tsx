@@ -95,10 +95,10 @@ function RenderedSecurityCompanies() {
         e: React.ChangeEvent<HTMLInputElement>,
         index: number
     ) => {
-        setToggleDropDown((prev) => {
+        setToggleDropDown(() => {
             return {
                 isDropDownOpen: e.target.checked,
-                index: index,
+                index
             }
         })
     }
