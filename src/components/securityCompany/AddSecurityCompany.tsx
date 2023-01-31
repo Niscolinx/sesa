@@ -7,27 +7,17 @@ import { getPhotoUrl } from '../../utils/getPhotoUrl'
 type State = 'Lagos' | 'Imo' | 'Abia' | 'FCT'
 
 const AddEstateManager = () => {
+    const state: Array<State> = ['Lagos', 'Imo', 'Abia', 'FCT']
 
-     const state:Array<State> = [
-         'Lagos',
-         'Imo',
-         'Abia',
-         'FCT',
-     ]
+    const [toggleStateMenu, setToggleStateMenu] = useState(false)
+    const [selectedState, setSelectedState] = useState<State>('Lagos')
 
-    
-     const [toggleStateMenu, setToggleStateMenu] = useState(false)
-     const [selectedState, setSelectedState] =
-         useState<State>('Lagos')
+    const stateMenuToggler = () => setToggleStateMenu(!toggleStateMenu)
 
-   
-     const stateMenuToggler = () =>
-         setToggleStateMenu(!toggleStateMenu)
-
-     const handleSelectedState = (item: State) => {
-         setSelectedState(item)
-         setToggleStateMenu(false)
-     }
+    const handleSelectedState = (item: State) => {
+        setSelectedState(item)
+        setToggleStateMenu(false)
+    }
 
     const ModalContextData = useContext(ModalContext)
     const { handleOpen } = ModalContextData
@@ -123,13 +113,15 @@ const AddEstateManager = () => {
                 </div>
                 <div className='relative grid gap-4'>
                     <p className='text-[1.4rem] font-semibold'>State</p>
-                    <p
-                        className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer'
-                        onClick={stateMenuToggler}
-                    >
-                        {selectedState}
-                    </p>
-                    <GrDown className='absolute right-0'/>
+                    <div className='relative flex items-center'>
+                        <p
+                            className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer'
+                            onClick={stateMenuToggler}
+                        >
+                            {selectedState}
+                        </p>
+                        <GrDown className='absolute right-4' />
+                    </div>
 
                     {toggleStateMenu && (
                         <div className='absolute top-[8rem]  left-0 border border-color-primary-light w-[24rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
@@ -145,7 +137,6 @@ const AddEstateManager = () => {
                         </div>
                     )}
                 </div>
-                
 
                 <div className='addEstateManager__form--file'>
                     <label htmlFor='photoUpload'>
