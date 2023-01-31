@@ -5,7 +5,7 @@ import RenderSecurityCompanies from '../../components/securityCompany/RenderedSe
 import { useAppDispatch, useAppSelector } from '../../store/app/hooks'
 import {
     routeChangeSelector,
-    setEstatePath,
+    setSecurityCompanyPath
 } from '../../store/features/routeChange'
 
 
@@ -23,7 +23,7 @@ function SecurityCompany() {
 
     const addSecurityCompanyHandler = () => {
         setSecurityCompanies(true)
-        dispatch(setEstatePath('renderedEstates'))
+        dispatch(setSecurityCompanyPath('renderedSecurityCompanies'))
     }
 
 
@@ -31,7 +31,7 @@ function SecurityCompany() {
         <div>
             <h1 className='heading2'>Security Company</h1>
             <div className='rounded-lg mt-[3rem] h-[80vh]'>
-                {/* {securityCompanies ? (
+                {securityCompanies ? (
                     <section>{switchRoute[securityCompanyPath]}</section>
                 ) : (
                     <section className='estates__wrapper bg-white'>
@@ -40,7 +40,7 @@ function SecurityCompany() {
                             Ooops you have not added any security Company yet
                         </p>
                         <button
-                            className='btn addEstate__btn'
+                            className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
                             onClick={addSecurityCompanyHandler}
                         >
                             <span>
@@ -49,9 +49,7 @@ function SecurityCompany() {
                             Add Company
                         </button>
                     </section>
-                )} */}
-
-                {switchRoute[securityCompanyPath]}
+                )}
             </div>
         </div>
     )
