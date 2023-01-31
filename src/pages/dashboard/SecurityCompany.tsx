@@ -7,10 +7,12 @@ import {
     routeChangeSelector,
     setSecurityCompanyPath
 } from '../../store/features/routeChange'
+import { useNavigate } from 'react-router'
 
 
 
 function SecurityCompany() {
+    const navigate = useNavigate()
     const dispatch = useAppDispatch()
     const { securityCompanyPath } = useAppSelector(routeChangeSelector)
 
@@ -20,7 +22,9 @@ function SecurityCompany() {
 
     const addSecurityCompanyHandler = () => {
         setSecurityCompanies(true)
-        dispatch(setSecurityCompanyPath('renderedSecurityCompanies'))
+
+        navigate('/dashboard/security-company/add')
+        
     }
 
 
@@ -28,7 +32,7 @@ function SecurityCompany() {
         <div>
             <h1 className='heading2'>Security Company</h1>
             <div className='rounded-lg mt-[3rem] h-[80vh]'>
-                {securityCompanies ? (
+                {!securityCompanies ? (
                     <section><RenderSecurityCompanies/></section>
                 ) : (
                     <section className='estates__wrapper bg-white'>

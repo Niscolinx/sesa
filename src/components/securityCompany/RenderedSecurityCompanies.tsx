@@ -81,7 +81,6 @@ function RenderedSecurityCompanies() {
         SecurityCompany[] | null
     >([])
 
-    
     const [toggleDropDown, setToggleDropDown] = useState<{
         isDropDownOpen: boolean
         index: number | null
@@ -97,7 +96,7 @@ function RenderedSecurityCompanies() {
         setToggleDropDown(() => {
             return {
                 isDropDownOpen: e.target.checked,
-                index
+                index,
             }
         })
     }
@@ -110,51 +109,46 @@ function RenderedSecurityCompanies() {
         fetchData()
     }, [])
 
-    
     const handlePathSwitch = () => {
-        dispatch(setSecurityCompanyPath('addSecurityCompany'))
+        navigate('/dashboard/security-company/add')
     }
 
-    
+    const dialogRef = useRef<HTMLDialogElement | null>(null)
 
-     const dialogRef = useRef<HTMLDialogElement | null>(null)
+    const handleClose = () => {
+        if (dialogRef.current) {
+            dialogRef.current.close()
+        }
+    }
 
-     const handleClose = () => {
-         if (dialogRef.current) {
-             dialogRef.current.close()
-         }
-     }
+    const handleOpen = () => {
+        if (dialogRef.current) {
+            dialogRef.current.showModal()
+        }
+    }
 
-     const handleOpen = () => {
-         
-         if (dialogRef.current) {
-             dialogRef.current.showModal()
-         }
-     }
+    const handleRouteChange = () => {
+        handleClose()
+    }
 
-     const handleRouteChange = () => {
-         handleClose()
-     }
+    const handleSelectedAction = (item: string, index: string) => {
+        console.log({ item, index })
 
-     const handleSelectedAction = (item: string, index: string) => {
-         console.log({ item, index })
+        setToggleDropDown(() => {
+            return {
+                isDropDownOpen: false,
+                index: null,
+            }
+        })
 
-         setToggleDropDown(() => {
-             return {
-                 isDropDownOpen: false,
-                 index: null,
-             }
-         })
+        if (item === 'View Details') {
+            navigate(`/dashboard/security-company/:${index}`)
+        }
 
-         if (item === 'View Details') {
-             navigate(`/dashboard/security-company/:${index}`)
-         }
-
-         if (item === 'Deactivate') {
-             handleOpen()
-         }
-     }
-
+        if (item === 'Deactivate') {
+            handleOpen()
+        }
+    }
 
     const actions: Array<Actions> = ['View Details', 'Activate', 'Deactivate']
 
@@ -170,10 +164,16 @@ function RenderedSecurityCompanies() {
                     <section className='grid place-content-center w-full h-[100vh]'>
                         <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
                             <img src='/icons/admins/modalWarning.svg' alt='' />
-                            <p>Are you sure you want to deactivate this security company?</p>
+                            <p>
+                                Are you sure you want to deactivate this
+                                security company?
+                            </p>
 
                             <div className='flex w-full justify-center gap-8'>
-                                <button className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]' onClick={() => handleClose()}>
+                                <button
+                                    className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
+                                    onClick={() => handleClose()}
+                                >
                                     Cancel
                                 </button>
                                 <button
