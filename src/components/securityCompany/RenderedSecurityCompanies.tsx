@@ -104,7 +104,9 @@ function RenderedSecurityCompanies() {
         })
     }
 
-    const selectAction = (e: React.MouseEvent, item: string, index: number) => {
+    
+
+    const handleSelectedAction = (item: string, index: number) => {
         setSelectedAction((prev) => {
             return {
                 ...prev,
@@ -126,12 +128,7 @@ function RenderedSecurityCompanies() {
         dispatch(setSecurityCompanyPath('addSecurityCompany'))
     }
 
-        const actions: Array<Actions> = [
-            'View Details',
-            'Activate',
-            'Deactivate',
-        ]
-
+    const actions: Array<Actions> = ['View Details', 'Activate', 'Deactivate']
 
     return (
         <div className='w-full grid item rounded-lg'>
@@ -183,20 +180,23 @@ function RenderedSecurityCompanies() {
                         fetchedSecurityCompanies.length > 0 ? (
                             React.Children.toArray(
                                 fetchedSecurityCompanies.map(
-                                    ({
-                                        img,
-                                        id,
-                                        details: {
-                                            companyName,
-                                            CompanyAddress,
-                                            walletBalance,
-                                            joinedDate,
-                                            NoOfGuards,
-                                            status,
+                                    (
+                                        {
+                                            img,
+                                            id,
+                                            details: {
+                                                companyName,
+                                                CompanyAddress,
+                                                walletBalance,
+                                                joinedDate,
+                                                NoOfGuards,
+                                                status,
+                                            },
                                         },
-                                    }, i) => {
-                                         const { isDropDownOpen, index } =
-                                             toggleDropDown
+                                        i
+                                    ) => {
+                                        const { isDropDownOpen, index } =
+                                            toggleDropDown
                                         return (
                                             <Link
                                                 to={`/dashboard/security-company/:${id}`}
@@ -331,7 +331,7 @@ function RenderedSecurityCompanies() {
 
                                                         {isDropDownOpen &&
                                                             index === i && (
-                                                                <div className='absolute top-0 border border-color-primary-light w-[10rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
+                                                                <div className='absolute top-0 translate-x-[-10rem] border border-color-primary-light w-[10rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
                                                                     {actions.map(
                                                                         (
                                                                             item,
@@ -346,8 +346,7 @@ function RenderedSecurityCompanies() {
                                                                                 onClick={(
                                                                                     e
                                                                                 ) =>
-                                                                                    selectAction(
-                                                                                        e,
+                                                                                    handleSelectedAction(
                                                                                         item,
                                                                                         i
                                                                                     )
@@ -383,11 +382,11 @@ function RenderedSecurityCompanies() {
                                 )
                             )
                         ) : (
-                                <div className='relative'>
-                                    <div className='absolute w-full grid place-content-center'>
-                                        <CgSpinnerTwo className='animate-spin text-[#0660FE] text-4xl' />
-                                    </div>
+                            <div className='relative'>
+                                <div className='absolute w-full grid place-content-center'>
+                                    <CgSpinnerTwo className='animate-spin text-[#0660FE] text-4xl' />
                                 </div>
+                            </div>
                         )}
                     </div>
                 </div>
