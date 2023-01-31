@@ -179,7 +179,7 @@ const SecurityCompanyDetail = () => {
                             htmlFor='address'
                             className='text-[1.4rem] font-medium'
                         >
-                            Address *
+                            Address 
                         </label>
                         <input
                             type='text'
@@ -192,16 +192,16 @@ const SecurityCompanyDetail = () => {
                     </div>
                     <div className='grid gap-4 relative'>
                         <label
-                            htmlFor='address'
+                            htmlFor='noOfGuards'
                             className='text-[1.4rem] font-medium'
                         >
-                            Address *
+                            No of Security Guards
                         </label>
                         <input
                             type='text'
                             required
                             disabled
-                            id='address'
+                            id='noOfGuards'
                             className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4 disabled:text-gray-600'
                         />
                     </div>
