@@ -8,6 +8,9 @@ import {
     setEstatePath,
 } from '../../store/features/routeChange'
 
+export type Actions = 'View Details' | 'Activate' | 'Deactivate'
+
+
 function SecurityCompany() {
     const dispatch = useAppDispatch()
     const { securityCompanyPath } = useAppSelector(routeChangeSelector)
