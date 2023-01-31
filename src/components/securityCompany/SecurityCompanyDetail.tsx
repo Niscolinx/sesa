@@ -154,7 +154,7 @@ const SecurityCompanyDetail = () => {
                             required
                             disabled={true}
                             id='securityCompany'
-                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4 disabled:text-gray-600'
+                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4 disabled:text-gray-500'
                         />
                     </div>
                     <div className='grid gap-4 relative'>
@@ -162,7 +162,7 @@ const SecurityCompanyDetail = () => {
                             htmlFor='email'
                             className='text-[1.4rem] font-medium'
                         >
-                            Email Address 
+                            Email Address
                         </label>
                         <input
                             type='email'
@@ -170,7 +170,7 @@ const SecurityCompanyDetail = () => {
                             disabled
                             value={`orcas@gmail.com`}
                             id='email'
-                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4 disabled:text-gray-600'
+                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4 disabled:text-gray-500'
                         />
                     </div>
 
@@ -179,7 +179,7 @@ const SecurityCompanyDetail = () => {
                             htmlFor='address'
                             className='text-[1.4rem] font-medium'
                         >
-                            Address 
+                            Address
                         </label>
                         <input
                             type='text'
@@ -187,7 +187,7 @@ const SecurityCompanyDetail = () => {
                             disabled
                             value={`04, Wright Avenue Lagos, Nigeria`}
                             id='address'
-                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4 disabled:text-gray-600'
+                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4 disabled:text-gray-500'
                         />
                     </div>
                     <div className='grid gap-4 relative'>
@@ -201,80 +201,101 @@ const SecurityCompanyDetail = () => {
                             type='text'
                             required
                             disabled
+                            value={`10`}
                             id='noOfGuards'
-                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4 disabled:text-gray-600'
+                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4 disabled:text-gray-500'
                         />
                     </div>
                     <div className='grid gap-4 relative'>
                         <label
-                            htmlFor='address'
+                            htmlFor='walletBalance'
                             className='text-[1.4rem] font-medium'
                         >
-                            Address *
+                            Wallet Balance
                         </label>
                         <input
                             type='text'
                             required
                             disabled
-                            id='address'
-                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4 disabled:text-gray-600'
+                            value={`₦5,000`}
+                            id='walletBalance'
+                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4 disabled:text-gray-500'
                         />
                     </div>
                     <div className='grid gap-4 relative'>
                         <label
-                            htmlFor='address'
+                            htmlFor='joinedDate'
                             className='text-[1.4rem] font-medium'
                         >
-                            Address *
+                            Joined Date
                         </label>
                         <input
                             type='text'
                             required
                             disabled
-                            id='address'
-                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4 disabled:text-gray-600'
+                            value={`02-May-22`}
+                            id='joinedDate'
+                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4 disabled:text-gray-500'
                         />
                     </div>
                     <div className='grid gap-4 relative'>
                         <label
-                            htmlFor='address'
+                            htmlFor='NoOfAssignedGuards'
                             className='text-[1.4rem] font-medium'
                         >
-                            Address *
+                           No of Assigned Security Guards
                         </label>
                         <input
                             type='text'
                             required
                             disabled
-                            id='address'
-                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4 disabled:text-gray-600'
+                            value={`10`}
+                            id='NoOfAssignedGuards'
+                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4 disabled:text-gray-500'
                         />
                     </div>
                     <div className='grid gap-4 relative'>
                         <label
-                            htmlFor='address'
+                            htmlFor='noOfBankAccountsOpened'
                             className='text-[1.4rem] font-medium'
                         >
-                            Address *
+                            No of Bank Accounts Opened
                         </label>
                         <input
                             type='text'
                             required
                             disabled
-                            id='address'
-                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4 disabled:text-gray-600'
+                            value={`10`}
+                            id='noOfBankAccountsOpened'
+                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4 disabled:text-gray-500'
+                        />
+                    </div>
+                    <div className='grid gap-4 relative'>
+                        <label
+                            htmlFor='status'
+                            className='text-[1.4rem] font-medium'
+                        >
+                            Status
+                        </label>
+                        <input
+                            type='text'
+                            required
+                            disabled
+                            value={`Active`}
+                            id='status'
+                            className='w-full bg-white text-[1.6rem] outline-none disabled:text-color-green-light'
                         />
                     </div>
 
                     <button
-                        className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
+                        className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg col-span-full'
                         style={{ justifySelf: 'start' }}
                         onClick={() => handleOpen('success')}
                     >
                         <span>
-                            <IoMdAdd />
+                            <img src="/icons/admins/saveDisk.svg" alt="" className='w-[1.7rem] h-[1.7rem]'/>
                         </span>{' '}
-                        Add Company
+                        Save Changes
                     </button>
                 </form>
             </div>
