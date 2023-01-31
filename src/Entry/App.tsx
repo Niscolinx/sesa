@@ -21,6 +21,7 @@ import RolesAndPerm from '../pages/dashboard/RolesAndPerm'
 import AdditionalResident from '../pages/dashboard/AdditionalResident'
 import AdditionalResidentDetails from '../components/additionalResident/AdditionalResidentDetails'
 import SecurityCompany from '../pages/dashboard/SecurityCompany'
+import AddSecurityCompany from '../components/securityCompany/AddSecurityCompany'
 
 const router = createBrowserRouter(
     createRoutesFromElements([
@@ -33,6 +34,7 @@ const router = createBrowserRouter(
             <Route path='estates/report/:Id' element={<EstateReport />} />
             <Route path='security-company' element={<SecurityCompany />} />
             <Route path='security-company/:Id' element={<SecurityCompany />} />
+            <Route path='security-company/add' element={<AddSecurityCompany />} />
             <Route path='estateManagers' element={<EstateManagers />} />
             <Route path='rolesAndPerm' element={<RolesAndPerm />} />
             <Route

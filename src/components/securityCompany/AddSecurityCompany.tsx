@@ -6,7 +6,7 @@ import { getPhotoUrl } from '../../utils/getPhotoUrl'
 
 type State = 'Lagos' | 'Imo' | 'Abia' | 'FCT'
 
-const AddEstateManager = () => {
+const AddSecurityCompany = () => {
     const state: Array<State> = ['Lagos', 'Imo', 'Abia', 'FCT']
 
     const [toggleStateMenu, setToggleStateMenu] = useState(false)
@@ -207,4 +207,4 @@ const AddEstateManager = () => {
     )
 }
 
-export default AddEstateManager
+export default AddSecurityCompany

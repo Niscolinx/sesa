@@ -16,10 +16,7 @@ function SecurityCompany() {
 
     const [securityCompanies, setSecurityCompanies] = useState(false)
 
-    const switchRoute = {
-        renderedSecurityCompanies: <RenderSecurityCompanies />,
-        addSecurityCompany: <AddSecurityCompany />,
-    }
+
 
     const addSecurityCompanyHandler = () => {
         setSecurityCompanies(true)
@@ -32,7 +29,7 @@ function SecurityCompany() {
             <h1 className='heading2'>Security Company</h1>
             <div className='rounded-lg mt-[3rem] h-[80vh]'>
                 {securityCompanies ? (
-                    <section>{switchRoute[securityCompanyPath]}</section>
+                    <section><RenderSecurityCompanies/></section>
                 ) : (
                     <section className='estates__wrapper bg-white'>
                         <img src='/icons/admins/errorSvg.svg' alt='' />
