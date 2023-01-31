@@ -117,7 +117,7 @@ const SecurityCompanyDetail = () => {
                 </section>
             </dialog>
             <div className='grid p-8 bg-white h-[80vh] items-baseline overflow-y-scroll rounded-lg'>
-                <div className='flex justify-between'>
+                <div className='flex justify-between items-center'>
                     <img
                         src='/icons/admins/detailsImg.svg'
                         alt='photoPreview'
@@ -149,11 +149,13 @@ const SecurityCompanyDetail = () => {
                             Security Company *
                         </label>
                         <input
+                            
                             type='text'
-                            value='Security Compand'
+                            value='Orca Security'
                             required
+                            disabled={true}
                             id='securityCompany'
-                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4 disabled:text-gray-600'
                         />
                     </div>
                     <div className='grid gap-4 relative'>
@@ -166,8 +168,10 @@ const SecurityCompanyDetail = () => {
                         <input
                             type='email'
                             required
+                            disabled
+                            value={`orcas@gmail.com`}
                             id='email'
-                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4 disabled:text-gray-600'
                         />
                     </div>
 
@@ -185,6 +189,7 @@ const SecurityCompanyDetail = () => {
                             </select>
                             <input
                                 required
+                                disabled
                                 type='number'
                                 inputMode='numeric'
                                 id='phoneNumber'
@@ -203,8 +208,9 @@ const SecurityCompanyDetail = () => {
                         <input
                             type='text'
                             required
+                            disabled
                             id='address'
-                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4 disabled:text-gray-600'
                         />
                     </div>
                     <div className='relative grid gap-4'>
