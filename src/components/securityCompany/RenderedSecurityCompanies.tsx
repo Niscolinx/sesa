@@ -257,17 +257,15 @@ function RenderedSecurityCompanies() {
                                 )
                             )
                         ) : (
-                            <tr>
-                                <td className='relative'>
+                                <div className='relative'>
                                     <div className='absolute w-full grid place-content-center'>
                                         <CgSpinnerTwo className='animate-spin text-[#0660FE] text-4xl' />
                                     </div>
-                                </td>
-                            </tr>
+                                </div>
                         )}
                     </div>
                 </div>
-                <footer className='renderedEstates__footer'>
+                <footer className='flex items-center p-8 mt-8 bg-white rounded-lg'>
                     <div className='flex gap-8 items-center'>
                         <p>View</p>
                         <div className='flex items-center border px-4 rounded-lg'>
