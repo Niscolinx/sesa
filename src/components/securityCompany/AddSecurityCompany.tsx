@@ -118,7 +118,7 @@ const AddEstateManager = () => {
                             className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer'
                             onClick={stateMenuToggler}
                         >
-                            {selectedState}
+                            {selectedState ? selectedState : <span className='text-gray-500'>Select State</span>}
                         </p>
                         {toggleStateMenu ? (
                             <GrDown className='absolute right-4' />
