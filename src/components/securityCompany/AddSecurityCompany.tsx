@@ -121,9 +121,9 @@ const AddEstateManager = () => {
                             {selectedState ? selectedState : <span className='text-gray-500'>Select State</span>}
                         </p>
                         {toggleStateMenu ? (
-                            <GrDown className='absolute right-4' />
-                        ) : (
                             <GrUp className='absolute right-4' />
+                        ) : (
+                            <GrDown className='absolute right-4' />
                         )}
                     </div>
 
@@ -142,7 +142,7 @@ const AddEstateManager = () => {
                     )}
                 </div>
 
-                <div className='addEstateManager__form--file'>
+                <div className='col-span-full rounded-lg border-width-[.2rem] border-dashed border-color-grey-1 p-8 text-[]'>
                     <label htmlFor='photoUpload'>
                         <img
                             src='/icons/estateManagers/photo_library.svg'
