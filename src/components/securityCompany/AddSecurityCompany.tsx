@@ -148,7 +148,9 @@ const AddEstateManager = () => {
                             src='/icons/admins/photo_library.svg'
                             alt=''
                         />
-                        <p>
+                        <p className='text-color-dark-1' style={{
+                            fontFamily: 'Satoshi-Light'
+                        }}>
                             Drag estate manager picture here or{' '}
                             <span>click</span> to upload
                         </p>
