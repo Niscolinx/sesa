@@ -82,9 +82,7 @@ function RenderedSecurityCompanies() {
         SecurityCompany[] | null
     >([])
 
-    const [selectedAction, setSelectedAction] = useState<{
-        [key: string]: Actions
-    }>(null as any)
+    
     const [toggleDropDown, setToggleDropDown] = useState<{
         isDropDownOpen: boolean
         index: number | null
@@ -105,15 +103,9 @@ function RenderedSecurityCompanies() {
         })
     }
 
-    const handleSelectedAction = (item: string, index: number) => {
-        console.log({ item })
+    const handleSelectedAction = (item: string, index: string) => {
+        console.log({ item, index })
 
-        setSelectedAction((prev) => {
-            return {
-                ...prev,
-                [index]: item,
-            }
-        })
 
         setToggleDropDown(() => {
             return {
@@ -123,7 +115,7 @@ function RenderedSecurityCompanies() {
         })
 
         if (item === 'View Details') {
-            navigate(`/admin/security-company/:${index}`)
+            navigate(`/dashboard/security-company/:${index}`)
         }
     }
 
@@ -347,7 +339,7 @@ function RenderedSecurityCompanies() {
                                                                             ) =>
                                                                                 handleSelectedAction(
                                                                                     item,
-                                                                                    i
+                                                                                    id
                                                                                 )
                                                                             }
                                                                         >
