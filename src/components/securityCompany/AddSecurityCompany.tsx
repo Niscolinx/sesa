@@ -72,15 +72,15 @@ const AddEstateManager = () => {
                 </div>
                 <div className='grid gap-4 relative'>
                     <label
-                        htmlFor='securityCompany'
+                        htmlFor='email'
                         className='text-[1.4rem] font-medium'
                     >
-                        Security Company *
+                        Email Address *
                     </label>
                     <input
-                        type='text'
+                        type='email'
                         required
-                        id='securityCompany'
+                        id='email'
                         className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                     />
                 </div>
@@ -107,6 +107,20 @@ const AddEstateManager = () => {
                         />
                     </div>
                 </div>
+                <div className='grid gap-4 relative'>
+                    <label
+                        htmlFor='address'
+                        className='text-[1.4rem] font-medium'
+                    >
+                        Address *
+                    </label>
+                    <input
+                        type='text'
+                        required
+                        id='address'
+                        className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                    />
+                </div>
                 <div className='relative self-end grid gap-4'>
                     <p className='text-[1.4rem] font-semibold'>State</p>
                     <p
@@ -122,9 +136,7 @@ const AddEstateManager = () => {
                                 <p
                                     className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
                                     key={index}
-                                    onClick={() =>
-                                        handleSelectedState(item)
-                                    }
+                                    onClick={() => handleSelectedState(item)}
                                 >
                                     {item}
                                 </p>
@@ -132,20 +144,7 @@ const AddEstateManager = () => {
                         </div>
                     )}
                 </div>
-                <div className='grid gap-4 relative '>
-                    <label
-                        htmlFor='securityCompany'
-                        className='text-[1.4rem] font-medium'
-                    >
-                        Security Company *
-                    </label>
-                    <input
-                        type='text'
-                        required
-                        id='securityCompany'
-                        className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                    />
-                </div>
+                
 
                 <div className='addEstateManager__form--file'>
                     <label htmlFor='photoUpload'>
