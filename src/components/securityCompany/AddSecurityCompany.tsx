@@ -152,7 +152,7 @@ const AddEstateManager = () => {
                             fontFamily: 'Satoshi-Light'
                         }}>
                             Drag estate manager picture here or{' '}
-                            <span>click</span> to upload
+                            <span className='text-color-blue font-bold'>click</span> to upload
                         </p>
                     </label>
                     <input
@@ -165,11 +165,11 @@ const AddEstateManager = () => {
                     />
 
                     {photoUrl && (
-                        <div className='file__uploadImgBox'>
+                        <div className='flex justify-center justify-self-center'>
                             <img
                                 src={photoUrl}
                                 alt='photoPreview'
-                                className='object-contain'
+                                className='object-cover w-[11rem] h-[11rem] rounded-full'
                             />
                         </div>
                     )}
