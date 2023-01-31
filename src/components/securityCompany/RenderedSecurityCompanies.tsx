@@ -106,7 +106,7 @@ function RenderedSecurityCompanies() {
     return (
         <div className='w-full grid item rounded-lg'>
             <div
-                className='grid text-[1.6rem]'
+                className='grid text-[1.6rem] gap-10'
                 style={{
                     fontFamily: 'Satoshi-Regular',
                 }}
@@ -116,7 +116,7 @@ function RenderedSecurityCompanies() {
                         SecurityCompany List <span>(202)</span>
                     </p>
                     <div className='relative flex items-center'>
-                        <img src='/icons/securityCompanys/search.svg' alt='' className='absolute left-4' />
+                        <img src='/icons/admins/search.svg' alt='' className='absolute left-4' />
                         <input type='text' placeholder='Search Parameters' className='pl-16 w-[25rem] rounded-lg border border-color-blue-light py-4 px-8 outline-none appearance-none' />
                     </div>
                     <div className='relative flex items-center'>
@@ -130,17 +130,17 @@ function RenderedSecurityCompanies() {
                         <GrDown className='absolute right-4 text-[1.3rem]'/>
                     </div>
                     <button
-                        className='btn addSecurityCompany__btn'
+                        className='btn ml-auto bg-color-blue-1 text-white flex gap-2 items-center self-center rounded-lg py-4 px-8'
                         onClick={handlePathSwitch}
                     >
                         <span>
                             <IoMdAdd />
                         </span>{' '}
-                        <p>Add SecurityCompany</p>
+                        <p>Add Company</p>
                     </button>
                 </caption>
-                <div className='renderedEstates__table'>
-                    <tbody className='renderedEstates__table--body'>
+                <div className='w-full'>
+                    <div className='grid gap-8'>
                         {fetchedSecurityCompanies &&
                         fetchedSecurityCompanies.length > 0 ? (
                             React.Children.toArray(
@@ -283,7 +283,7 @@ function RenderedSecurityCompanies() {
                                 </td>
                             </tr>
                         )}
-                    </tbody>
+                    </div>
                 </div>
                 <footer className='renderedEstates__footer'>
                     <div className='flex gap-8 items-center'>
