@@ -43,6 +43,12 @@ const AddSecurityCompany = () => {
     }
 
     const handleOpen = (modalState: 'warning' | 'success') => {
+        if (modalState === 'warning') {
+            setIsWarning(true)
+        } else {
+            setIsWarning(false)
+        }
+
         if (dialogRef.current) {
             dialogRef.current.showModal()
         }
@@ -58,7 +64,7 @@ const AddSecurityCompany = () => {
         <>
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
-                    <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
+                    <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8 text-[1.6rem]'>
                         {isWarning ? (
                             <img src='/icons/admins/modalWarning.svg' alt='' />
                         ) : (
@@ -113,12 +119,12 @@ const AddSecurityCompany = () => {
             </dialog>
             <div className='grid p-8 bg-white h-[80vh] items-baseline overflow-y-scroll rounded-lg'>
                 <div className='flex justify-end'>
-                    <button className='border border-red-600 px-16 py-4 flex items-center  rounded-lg gap-4'>
+                    <button
+                        className='border border-red-600 px-16 py-4 flex items-center  rounded-lg gap-4'
+                        onClick={() => handleOpen('warning')}
+                    >
                         <img src='/icons/admins/delete.svg' alt='' />
-                        <span
-                            className='text-red-600 text-[1.4rem] font-semibold'
-                            onClick={() => handleOpen('warning')}
-                        >
+                        <span className='text-red-600 text-[1.4rem] font-semibold'>
                             Deactivate
                         </span>
                     </button>
