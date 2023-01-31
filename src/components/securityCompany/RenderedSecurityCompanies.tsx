@@ -139,14 +139,13 @@ function RenderedSecurityCompanies() {
                                         img,
                                         id,
                                         details: {
-                                            securityCompanyBalance,
-                                            securityCompanyManager,
-                                            securityCompanyName,
-                                            NoOfHouseholds,
-                                            NoOfResidents,
-                                            securityCompany,
-                                            signOutRequired,
+                                            companyName,
+                                            CompanyAddress,
+                                            walletBalance,
+                                            joinedDate,
+                                            NoOfGuards,
                                             status,
+
                                         },
                                     }) => {
                                         return (
@@ -170,7 +169,7 @@ function RenderedSecurityCompanies() {
                                                             </p>
                                                             <p className='font-[1.6rem] whitespace-nowrap'>
                                                                 {
-                                                                    securityCompanyName
+                                                                    companyName
                                                                 }
                                                             </p>
                                                         </div>
@@ -184,14 +183,7 @@ function RenderedSecurityCompanies() {
                                                                 }
                                                             </p>
                                                         </div>
-                                                        <div>
-                                                            <p className='text-[#043FA7]'>
-                                                                Status
-                                                            </p>
-                                                            <p className='text-[#1D9F5F]'>
-                                                                {status}
-                                                            </p>
-                                                        </div>
+                                                        
                                                     </div>
                                                     <div className='w-full py-8 grid items-start gap-4 '>
                                                         <div>
