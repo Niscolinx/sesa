@@ -95,7 +95,6 @@ function RenderedSecurityCompanies() {
         e: React.ChangeEvent<HTMLInputElement>,
         index: number
     ) => {
-        console.log('clicked')
         setToggleDropDown((prev) => {
             return {
                 isDropDownOpen: e.target.checked,
@@ -112,8 +111,19 @@ function RenderedSecurityCompanies() {
                 ...prev,
                 [index]: item,
             }
+        });
+
+        setToggleDropDown(() => {
+            return {
+                isDropDownOpen: false,
+                index: null,
+            }
         })
     }
+
+    useEffect(() => {
+        console.log({selectedAction})
+    }, [selectedAction])
 
     useEffect(() => {
         const fetchData = async () => {
@@ -286,16 +296,7 @@ function RenderedSecurityCompanies() {
                                                         </div>
                                                     </div>
 
-                                                    {/* <div
-                                                        className='flex items-start content-start mr-4'
-                                                        style={{
-                                                            width: '1rem',
-                                                        }}
-                                                    >
-                                                        <button>
-                                                            <HiOutlineDotsVertical className='text-[2rem]' />
-                                                        </button>
-                                                    </div> */}
+                                                    
                                                     <div className='relative'>
                                                         <label
                                                             className='font-semibold capitalize cursor-pointer flex items-center gap-2 relative z-10'
