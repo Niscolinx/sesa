@@ -37,7 +37,15 @@ const AddEstateManager = () => {
     }
 
     return (
-        <div className='grid p-8 bg-white h-[80vh] items-baseline'>
+        <div className='grid p-8 bg-white h-[80vh] items-baseline overflow-y-scroll rounded-lg'>
+            <div className='flex justify-end'>
+                <button className='border border-red-600 px-16 py-4 flex items-center  rounded-lg gap-4'>
+                    <img src='/icons/admins/delete.svg' alt='' />
+                    <span className='text-red-600 text-[1.4rem] font-semibold '>
+                        Deactivate
+                    </span>
+                </button>
+            </div>
             <form
                 onSubmit={handleSubmit}
                 className='grid max-w-[84rem] gap-16 mt-12'
@@ -118,7 +126,13 @@ const AddEstateManager = () => {
                             className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer'
                             onClick={stateMenuToggler}
                         >
-                            {selectedState ? selectedState : <span className='text-gray-500'>Select State</span>}
+                            {selectedState ? (
+                                selectedState
+                            ) : (
+                                <span className='text-gray-500'>
+                                    Select State
+                                </span>
+                            )}
                         </p>
                         {toggleStateMenu ? (
                             <GrUp className='absolute right-4' />
@@ -143,16 +157,22 @@ const AddEstateManager = () => {
                 </div>
 
                 <div className='col-span-full rounded-lg border border-width-[.2rem] border-dashed border-color-grey-1 p-8 text-[1.6rem] relative w-full'>
-                    <label htmlFor='photoUpload' className='flex justify-center gap-4 items-center cursor-pointer'>
-                        <img
-                            src='/icons/admins/photo_library.svg'
-                            alt=''
-                        />
-                        <p className='text-color-dark-1' style={{
-                            fontFamily: 'Satoshi-Light'
-                        }}>
+                    <label
+                        htmlFor='photoUpload'
+                        className='flex justify-center gap-4 items-center cursor-pointer'
+                    >
+                        <img src='/icons/admins/photo_library.svg' alt='' />
+                        <p
+                            className='text-color-dark-1'
+                            style={{
+                                fontFamily: 'Satoshi-Light',
+                            }}
+                        >
                             Drag estate manager picture here or{' '}
-                            <span className='text-color-blue font-bold'>click</span> to upload
+                            <span className='text-color-blue font-bold'>
+                                click
+                            </span>{' '}
+                            to upload
                         </p>
                     </label>
                     <input
@@ -175,13 +195,13 @@ const AddEstateManager = () => {
                     )}
                 </div>
                 <button
-                    className='btn estateManagers__btn'
+                    className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
                     style={{ justifySelf: 'start' }}
                 >
                     <span>
                         <IoMdAdd />
                     </span>{' '}
-                    Add EstateManager
+                    Add Company
                 </button>
             </form>
         </div>
