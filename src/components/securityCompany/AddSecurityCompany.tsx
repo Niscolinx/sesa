@@ -10,7 +10,7 @@ const AddEstateManager = () => {
     const state: Array<State> = ['Lagos', 'Imo', 'Abia', 'FCT']
 
     const [toggleStateMenu, setToggleStateMenu] = useState(false)
-    const [selectedState, setSelectedState] = useState<State>('Lagos')
+    const [selectedState, setSelectedState] = useState<State | null>(null)
 
     const stateMenuToggler = () => setToggleStateMenu(!toggleStateMenu)
 
@@ -120,12 +120,11 @@ const AddEstateManager = () => {
                         >
                             {selectedState}
                         </p>
-                        {toggleStateMenu ? 
-                        
-                        <GrDown className='absolute right-4 rotate-180' />:
-                        <GrUp className='absolute right-4' />
-                    
-                    }
+                        {toggleStateMenu ? (
+                            <GrDown className='absolute right-4' />
+                        ) : (
+                            <GrUp className='absolute right-4' />
+                        )}
                     </div>
 
                     {toggleStateMenu && (
