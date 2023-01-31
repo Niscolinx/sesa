@@ -15,16 +15,14 @@ import { setSecurityCompanyPath } from '../../store/features/routeChange'
 import { Link } from 'react-router-dom'
 
 type SecurityCompanyDetails = {
-    securityCompanyName: string
-    securityCompany: string
+    companyName: string
+    CompanyAddress: string
+
+    walletBalance: number
+    joinedDate: number
+
+    NoOfGuards: string
     status: string
-
-    securityCompanyBalance: number
-    NoOfResidents: number
-    signOutRequired: boolean
-
-    securityCompanyManager: string
-    NoOfHouseholds: number
 }
 
 type SecurityCompany = {
@@ -39,50 +37,16 @@ const SECURITYCOMPANYDATA: SecurityCompany[] = [
         id: '1',
         img: '/img/security/img1.png',
         details: {
-            securityCompanyName: 'Iba Housing SecurityCompany',
-            securityCompany: 'Proton',
+            companyName: 'Proton Security',
+            CompanyAddress: '04, Wright Avenue Lagos,Nigeria',
+            walletBalance: 100000,
+            joinedDate: 2021,
+            NoOfGuards: '100',
             status: 'Active',
 
-            securityCompanyBalance: 5000,
-            NoOfResidents: 3400,
-            signOutRequired: true,
-
-            securityCompanyManager: 'Sladin Ama',
-            NoOfHouseholds: 45,
         },
     },
-    {
-        id: '2',
-        img: '/img/security/img2.png',
-        details: {
-            securityCompanyName: 'Iba Housing SecurityCompany',
-            securityCompany: 'Proton',
-            status: 'Active',
 
-            securityCompanyBalance: 5000,
-            NoOfResidents: 3400,
-            signOutRequired: true,
-
-            securityCompanyManager: 'Sladin Ama',
-            NoOfHouseholds: 45,
-        },
-    },
-    {
-        id: '3',
-        img: '/img/security/img3.png',
-        details: {
-            securityCompanyName: 'Iba Housing SecurityCompany',
-            securityCompany: 'Proton',
-            status: 'Active',
-
-            securityCompanyBalance: 5000,
-            NoOfResidents: 3400,
-            signOutRequired: true,
-
-            securityCompanyManager: 'Sladin Ama',
-            NoOfHouseholds: 45,
-        },
-    },
 ]
 
 function RenderedSecurityCompanies() {
@@ -163,21 +127,20 @@ function RenderedSecurityCompanies() {
                                             <Link
                                                 to={`/dashboard/security-companies/:${id}`}
                                             >
-                                                <div className='p-8 flex' style={{
+                                                <div className='p-8 flex bg-white border border-color-grey rounded-lg ' style={{
                                                     justifyContent: 'repeat(4, minmax(min-content, 1fr))',
                                                 }}>
-                                                    <td>
+                                                    <div className='w-full py-8 grid items-start gap-4 '>
                                                         <img
                                                             src={img}
                                                             alt=''
-                                                            className='table__img'
+                                                            className='w-[21rem] h-[18rem] object-cover rounded-lg'
                                                         />
-                                                    </td>
-
-                                                    <td>
+                                                    </div>
+<div className='w-full py-8 grid items-start gap-4 '>
                                                         <div>
                                                             <p className='text-[1.4rem] text-[#043FA7]'>
-                                                                SecurityCompany&nbsp;Name
+                                                                Name
                                                             </p>
                                                             <p className='font-[1.6rem] whitespace-nowrap'>
                                                                 {
@@ -203,8 +166,8 @@ function RenderedSecurityCompanies() {
                                                                 {status}
                                                             </p>
                                                         </div>
-                                                    </td>
-                                                    <td>
+                                                    </div>
+                                                    <div className='w-full py-8 grid items-start gap-4 '>
                                                         <div>
                                                             <p className='text-[#043FA7]'>
                                                                 SecurityCompany
@@ -236,8 +199,8 @@ function RenderedSecurityCompanies() {
                                                                     : 'No'}
                                                             </p>
                                                         </div>
-                                                    </td>
-                                                    <td className=' grid content-start'>
+                                                    </div>
+                                                   <div className='w-full py-8 grid items-start gap-4  content-start'>
                                                         <div>
                                                             <p className='text-[#043FA7]'>
                                                                 SecurityCompany
@@ -258,9 +221,9 @@ function RenderedSecurityCompanies() {
                                                                 {NoOfHouseholds}
                                                             </p>
                                                         </div>
-                                                    </td>
+                                                    </div>
 
-                                                    <td
+                                                    <div
                                                         className='flex items-start content-start mr-4'
                                                         style={{
                                                             width: '1rem',
@@ -269,7 +232,7 @@ function RenderedSecurityCompanies() {
                                                         <button>
                                                             <HiOutlineDotsVertical className='text-[2rem]' />
                                                         </button>
-                                                    </td>
+                                                    </div>
                                                 </div>
                                             </Link>
                                         )
