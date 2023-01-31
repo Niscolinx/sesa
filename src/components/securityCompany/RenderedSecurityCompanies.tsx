@@ -13,6 +13,7 @@ import { TbCurrencyNaira } from 'react-icons/tb'
 import { useAppDispatch } from '../../store/app/hooks'
 import { setSecurityCompanyPath } from '../../store/features/routeChange'
 import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 type SecurityCompanyDetails = {
     companyName: string
@@ -74,6 +75,7 @@ const SECURITYCOMPANYDATA: SecurityCompany[] = [
 export type Actions = 'View Details' | 'Activate' | 'Deactivate'
 
 function RenderedSecurityCompanies() {
+    const navigate = useNavigate()
     const dispatch = useAppDispatch()
 
     const [fetchedSecurityCompanies, setFetchedSecurityCompanies] = useState<
@@ -103,15 +105,15 @@ function RenderedSecurityCompanies() {
         })
     }
 
-    
-
     const handleSelectedAction = (item: string, index: number) => {
+        console.log({ item })
+
         setSelectedAction((prev) => {
             return {
                 ...prev,
                 [index]: item,
             }
-        });
+        })
 
         setToggleDropDown(() => {
             return {
@@ -119,8 +121,11 @@ function RenderedSecurityCompanies() {
                 index: null,
             }
         })
-    }
 
+        if (item === 'View Details') {
+            navigate(`/admin/security-company/:${index}`)
+        }
+    }
 
     useEffect(() => {
         const fetchData = async () => {
@@ -205,176 +210,171 @@ function RenderedSecurityCompanies() {
                                         const { isDropDownOpen, index } =
                                             toggleDropDown
                                         return (
-                                            <Link
-                                                to={`/dashboard/security-company/:${id}`}
+                                            <div
+                                                className='p-8 flex bg-white border border-color-grey rounded-lg '
+                                                style={{
+                                                    justifyContent:
+                                                        'repeat(4, minmax(min-content, 1fr))',
+                                                }}
                                             >
-                                                <div
-                                                    className='p-8 flex bg-white border border-color-grey rounded-lg '
-                                                    style={{
-                                                        justifyContent:
-                                                            'repeat(4, minmax(min-content, 1fr))',
-                                                    }}
-                                                >
-                                                    <div className='w-full py-8 grid items-start gap-4 '>
-                                                        <img
-                                                            src={img}
-                                                            alt=''
-                                                            className='w-[21rem] h-[18rem] object-cover rounded-lg'
-                                                        />
+                                                <div className='w-full py-8 grid items-start gap-4 '>
+                                                    <img
+                                                        src={img}
+                                                        alt=''
+                                                        className='w-[21rem] h-[18rem] object-cover rounded-lg'
+                                                    />
+                                                </div>
+                                                <div className='w-full py-8 grid items-start gap-4 '>
+                                                    <div>
+                                                        <p className='text-[1.4rem] text-[#043FA7]'>
+                                                            Name
+                                                        </p>
+                                                        <p className='font-[1.6rem] whitespace-nowrap'>
+                                                            {companyName}
+                                                        </p>
                                                     </div>
-                                                    <div className='w-full py-8 grid items-start gap-4 '>
-                                                        <div>
-                                                            <p className='text-[1.4rem] text-[#043FA7]'>
-                                                                Name
-                                                            </p>
-                                                            <p className='font-[1.6rem] whitespace-nowrap'>
-                                                                {companyName}
-                                                            </p>
-                                                        </div>
-                                                        <div>
-                                                            <p className='text-[#043FA7]'>
-                                                                Address
-                                                            </p>
-                                                            <address className='not-italic max-w-[20rem]'>
-                                                                {CompanyAddress}
-                                                            </address>
-                                                        </div>
-                                                    </div>
-                                                    <div className='w-full py-8 grid items-start gap-4 '>
-                                                        <div>
-                                                            <p className='text-[#043FA7]'>
-                                                                Wallet Balance
-                                                            </p>
-                                                            <p className='flex items-center'>
-                                                                <TbCurrencyNaira className='text-[2rem]' />
-                                                                {walletBalance.toLocaleString()}
-                                                            </p>
-                                                        </div>
-                                                        <div>
-                                                            <p className='text-[#043FA7]'>
-                                                                Joined Date
-                                                            </p>
-                                                            <p>
-                                                                {joinedDate.toLocaleDateString(
-                                                                    undefined,
-                                                                    {
-                                                                        day: 'numeric',
-                                                                        month: 'short',
-                                                                        year: 'numeric',
-                                                                    }
-                                                                )}
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div className='w-full py-8 grid items-start gap-4  content-start'>
-                                                        <div>
-                                                            <p className='text-[#043FA7]'>
-                                                                No of Security
-                                                                Guards
-                                                            </p>
-                                                            <p>{NoOfGuards}</p>
-                                                        </div>
-                                                        <div className=' mt-10'>
-                                                            <p className='text-[#043FA7]'>
-                                                                Status
-                                                            </p>
-                                                            <p>
-                                                                {status ===
-                                                                'active' ? (
-                                                                    <span className=' text-color-green-light'>
-                                                                        Active
-                                                                    </span>
-                                                                ) : (
-                                                                    <span>
-                                                                        Deactivated
-                                                                    </span>
-                                                                )}
-                                                            </p>
-                                                        </div>
-                                                    </div>
-
-                                                    
-                                                    <div className='relative'>
-                                                        <label
-                                                            className='font-semibold capitalize cursor-pointer flex items-center gap-2 relative z-10'
-                                                            htmlFor={i.toString()}
-                                                            onClick={() =>
-                                                                setToggleDropDown(
-                                                                    (prev) => {
-                                                                        return {
-                                                                            isDropDownOpen:
-                                                                                !prev.isDropDownOpen,
-                                                                            index: i,
-                                                                        }
-                                                                    }
-                                                                )
-                                                            }
-                                                        >
-                                                            <button>
-                                                                <HiOutlineDotsVertical className='text-[2rem]' />
-                                                            </button>
-                                                        </label>
-                                                        <input
-                                                            type='radio'
-                                                            name='dropdown'
-                                                            className='hidden'
-                                                            id={i.toString()}
-                                                            onChange={(e) =>
-                                                                dropDownHandler(
-                                                                    e,
-                                                                    i
-                                                                )
-                                                            }
-                                                        />
-
-                                                        {isDropDownOpen &&
-                                                            index === i && (
-                                                                <div className='absolute top-0 translate-x-[-10rem] border border-color-primary-light w-[10rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
-                                                                    {actions.map(
-                                                                        (
-                                                                            item,
-                                                                            index
-                                                                        ) => (
-                                                                            <p
-                                                                                className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
-                                                                                key={
-                                                                                    index +
-                                                                                    i
-                                                                                }
-                                                                                onClick={(
-                                                                                    e
-                                                                                ) =>
-                                                                                    handleSelectedAction(
-                                                                                        item,
-                                                                                        i
-                                                                                    )
-                                                                                }
-                                                                            >
-                                                                                {item ===
-                                                                                'Activate' ? (
-                                                                                    <span className='text-green-600'>
-                                                                                        {
-                                                                                            item
-                                                                                        }
-                                                                                    </span>
-                                                                                ) : item ===
-                                                                                  'Deactivate' ? (
-                                                                                    <span className='text-red-600'>
-                                                                                        {
-                                                                                            item
-                                                                                        }
-                                                                                    </span>
-                                                                                ) : (
-                                                                                    item
-                                                                                )}
-                                                                            </p>
-                                                                        )
-                                                                    )}
-                                                                </div>
-                                                            )}
+                                                    <div>
+                                                        <p className='text-[#043FA7]'>
+                                                            Address
+                                                        </p>
+                                                        <address className='not-italic max-w-[20rem]'>
+                                                            {CompanyAddress}
+                                                        </address>
                                                     </div>
                                                 </div>
-                                            </Link>
+                                                <div className='w-full py-8 grid items-start gap-4 '>
+                                                    <div>
+                                                        <p className='text-[#043FA7]'>
+                                                            Wallet Balance
+                                                        </p>
+                                                        <p className='flex items-center'>
+                                                            <TbCurrencyNaira className='text-[2rem]' />
+                                                            {walletBalance.toLocaleString()}
+                                                        </p>
+                                                    </div>
+                                                    <div>
+                                                        <p className='text-[#043FA7]'>
+                                                            Joined Date
+                                                        </p>
+                                                        <p>
+                                                            {joinedDate.toLocaleDateString(
+                                                                undefined,
+                                                                {
+                                                                    day: 'numeric',
+                                                                    month: 'short',
+                                                                    year: 'numeric',
+                                                                }
+                                                            )}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div className='w-full py-8 grid items-start gap-4  content-start'>
+                                                    <div>
+                                                        <p className='text-[#043FA7]'>
+                                                            No of Security
+                                                            Guards
+                                                        </p>
+                                                        <p>{NoOfGuards}</p>
+                                                    </div>
+                                                    <div className=' mt-10'>
+                                                        <p className='text-[#043FA7]'>
+                                                            Status
+                                                        </p>
+                                                        <p>
+                                                            {status ===
+                                                            'active' ? (
+                                                                <span className=' text-color-green-light'>
+                                                                    Active
+                                                                </span>
+                                                            ) : (
+                                                                <span>
+                                                                    Deactivated
+                                                                </span>
+                                                            )}
+                                                        </p>
+                                                    </div>
+                                                </div>
+
+                                                <div className='relative'>
+                                                    <label
+                                                        className='font-semibold capitalize cursor-pointer flex items-center gap-2 relative z-10'
+                                                        htmlFor={i.toString()}
+                                                        onClick={() =>
+                                                            setToggleDropDown(
+                                                                (prev) => {
+                                                                    return {
+                                                                        isDropDownOpen:
+                                                                            !prev.isDropDownOpen,
+                                                                        index: i,
+                                                                    }
+                                                                }
+                                                            )
+                                                        }
+                                                    >
+                                                        <button>
+                                                            <HiOutlineDotsVertical className='text-[2rem]' />
+                                                        </button>
+                                                    </label>
+                                                    <input
+                                                        type='radio'
+                                                        name='dropdown'
+                                                        className='hidden'
+                                                        id={i.toString()}
+                                                        onChange={(e) =>
+                                                            dropDownHandler(
+                                                                e,
+                                                                i
+                                                            )
+                                                        }
+                                                    />
+
+                                                    {isDropDownOpen &&
+                                                        index === i && (
+                                                            <div className='absolute top-0 translate-x-[-10rem] border border-color-primary-light w-[10rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
+                                                                {actions.map(
+                                                                    (
+                                                                        item,
+                                                                        index
+                                                                    ) => (
+                                                                        <p
+                                                                            className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
+                                                                            key={
+                                                                                index +
+                                                                                i
+                                                                            }
+                                                                            onClick={(
+                                                                                e
+                                                                            ) =>
+                                                                                handleSelectedAction(
+                                                                                    item,
+                                                                                    i
+                                                                                )
+                                                                            }
+                                                                        >
+                                                                            {item ===
+                                                                            'Activate' ? (
+                                                                                <span className='text-green-600'>
+                                                                                    {
+                                                                                        item
+                                                                                    }
+                                                                                </span>
+                                                                            ) : item ===
+                                                                              'Deactivate' ? (
+                                                                                <span className='text-red-600'>
+                                                                                    {
+                                                                                        item
+                                                                                    }
+                                                                                </span>
+                                                                            ) : (
+                                                                                item
+                                                                            )}
+                                                                        </p>
+                                                                    )
+                                                                )}
+                                                            </div>
+                                                        )}
+                                                </div>
+                                            </div>
                                         )
                                     }
                                 )
