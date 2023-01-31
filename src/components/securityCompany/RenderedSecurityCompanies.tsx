@@ -71,6 +71,8 @@ const SECURITYCOMPANYDATA: SecurityCompany[] = [
     },
 ]
 
+export type Actions = 'View Details' | 'Activate' | 'Deactivate'
+
 function RenderedSecurityCompanies() {
     const dispatch = useAppDispatch()
 
@@ -90,6 +92,13 @@ function RenderedSecurityCompanies() {
     const handlePathSwitch = () => {
         dispatch(setSecurityCompanyPath('addSecurityCompany'))
     }
+
+        const actions: Array<Actions> = [
+            'View Details',
+            'Activate',
+            'Deactivate',
+        ]
+
 
     return (
         <div className='w-full grid item rounded-lg'>
@@ -204,12 +213,14 @@ function RenderedSecurityCompanies() {
                                                                 Joined Date
                                                             </p>
                                                             <p>
-                                                                {joinedDate.toLocaleDateString(undefined, {
-                                                                    day: 'numeric',
-                                                                    month: 'short',
-                                                                    year: 'numeric',
-                                                                    
-                                                                })}
+                                                                {joinedDate.toLocaleDateString(
+                                                                    undefined,
+                                                                    {
+                                                                        day: 'numeric',
+                                                                        month: 'short',
+                                                                        year: 'numeric',
+                                                                    }
+                                                                )}
                                                             </p>
                                                         </div>
                                                     </div>
@@ -240,7 +251,7 @@ function RenderedSecurityCompanies() {
                                                         </div>
                                                     </div>
 
-                                                    <div
+                                                    {/* <div
                                                         className='flex items-start content-start mr-4'
                                                         style={{
                                                             width: '1rem',
@@ -249,6 +260,89 @@ function RenderedSecurityCompanies() {
                                                         <button>
                                                             <HiOutlineDotsVertical className='text-[2rem]' />
                                                         </button>
+                                                    </div> */}
+                                                    <div className='relative'>
+                                                        <label
+                                                            className='font-semibold capitalize cursor-pointer flex items-center gap-2 relative z-10'
+                                                            htmlFor={i.toString()}
+                                                            onClick={() =>
+                                                                setToggleDropDown(
+                                                                    (prev) => {
+                                                                        return {
+                                                                            isDropDownOpen:
+                                                                                !prev.isDropDownOpen,
+                                                                            index: i,
+                                                                        }
+                                                                    }
+                                                                )
+                                                            }
+                                                        >
+                                                            <span className='text-color-primary'>
+                                                                <img
+                                                                    src='/icons/admins/threeDots.svg'
+                                                                    alt=''
+                                                                />
+                                                            </span>
+                                                        </label>
+                                                        <input
+                                                            type='radio'
+                                                            name='dropdown'
+                                                            className='hidden'
+                                                            id={i.toString()}
+                                                            onChange={(e) =>
+                                                                dropDownHandler(
+                                                                    e,
+                                                                    i
+                                                                )
+                                                            }
+                                                        />
+
+                                                        {isDropDownOpen &&
+                                                            index === i && (
+                                                                <div className='absolute top-0 translate-x-[5rem] border border-color-primary-light w-[10rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
+                                                                    {actions.map(
+                                                                        (
+                                                                            item,
+                                                                            index
+                                                                        ) => (
+                                                                            <p
+                                                                                className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
+                                                                                key={
+                                                                                    index +
+                                                                                    i
+                                                                                }
+                                                                                onClick={(
+                                                                                    e
+                                                                                ) =>
+                                                                                    selectAction(
+                                                                                        e,
+                                                                                        item,
+                                                                                        i
+                                                                                    )
+                                                                                }
+                                                                            >
+                                                                                {item ===
+                                                                                'Activate' ? (
+                                                                                    <span className='text-green-600'>
+                                                                                        {
+                                                                                            item
+                                                                                        }
+                                                                                    </span>
+                                                                                ) : item ===
+                                                                                  'Delete' ? (
+                                                                                    <span className='text-red-600'>
+                                                                                        {
+                                                                                            item
+                                                                                        }
+                                                                                    </span>
+                                                                                ) : (
+                                                                                    item
+                                                                                )}
+                                                                            </p>
+                                                                        )
+                                                                    )}
+                                                                </div>
+                                                            )}
                                                     </div>
                                                 </div>
                                             </Link>

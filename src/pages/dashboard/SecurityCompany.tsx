@@ -8,7 +8,6 @@ import {
     setEstatePath,
 } from '../../store/features/routeChange'
 
-export type Actions = 'View Details' | 'Activate' | 'Deactivate'
 
 
 function SecurityCompany() {
@@ -27,7 +26,6 @@ function SecurityCompany() {
         dispatch(setEstatePath('renderedEstates'))
     }
 
-    const actions:Array<Actions> = ['View Details', 'Activate', 'Deactivate']
 
     return (
         <div>
