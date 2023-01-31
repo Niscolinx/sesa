@@ -121,9 +121,6 @@ function RenderedSecurityCompanies() {
         })
     }
 
-    useEffect(() => {
-        console.log({selectedAction})
-    }, [selectedAction])
 
     useEffect(() => {
         const fetchData = async () => {
