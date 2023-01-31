@@ -27,6 +27,8 @@ function SecurityCompany() {
         dispatch(setEstatePath('renderedEstates'))
     }
 
+    const actions:Array<Actions> = ['View Details', 'Activate', 'Deactivate']
+
     return (
         <div>
             <h1 className='heading2'>Security Company</h1>

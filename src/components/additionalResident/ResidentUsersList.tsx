@@ -85,7 +85,6 @@ const ResidentUsersList: FC<{
     }
 
     const selectAction = (e: React.MouseEvent, item: string, index: number) => {
-        console.log('select role')
         setSelectedAction((prev) => {
             return {
                 ...prev,
