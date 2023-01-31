@@ -155,7 +155,7 @@ function RenderedSecurityCompanies() {
                                     }) => {
                                         return (
                                             <Link
-                                                to={`/dashboard/security-companies/:${id}`}
+                                                to={`/dashboard/security-company/:${id}`}
                                             >
                                                 <div
                                                     className='p-8 flex bg-white border border-color-grey rounded-lg '
@@ -184,7 +184,7 @@ function RenderedSecurityCompanies() {
                                                             <p className='text-[#043FA7]'>
                                                                 Address
                                                             </p>
-                                                            <address>
+                                                            <address className='not-italic'>
                                                                 {CompanyAddress}
                                                             </address>
                                                         </div>
@@ -196,9 +196,7 @@ function RenderedSecurityCompanies() {
                                                             </p>
                                                             <p className='flex items-center'>
                                                                 <TbCurrencyNaira className='text-[2rem]' />
-                                                                {
-                                                                    walletBalance.toLocaleString()
-                                                                }
+                                                                {walletBalance.toLocaleString()}
                                                             </p>
                                                         </div>
                                                         <div>
@@ -209,25 +207,30 @@ function RenderedSecurityCompanies() {
                                                                 {joinedDate.toLocaleDateString()}
                                                             </p>
                                                         </div>
-                                                        
                                                     </div>
                                                     <div className='w-full py-8 grid items-start gap-4  content-start'>
                                                         <div>
                                                             <p className='text-[#043FA7]'>
-                                                                No of Security Guards
+                                                                No of Security
+                                                                Guards
                                                             </p>
-                                                            <p>
-                                                                {
-                                                                    NoOfGuards
-                                                                }
-                                                            </p>
+                                                            <p>{NoOfGuards}</p>
                                                         </div>
                                                         <div className=' mt-10'>
                                                             <p className='text-[#043FA7]'>
-                                                              Status
+                                                                Status
                                                             </p>
                                                             <p>
-                                                                {status === 'active' ? <span className=''>Active</span> : <span>Deactivated</span>}
+                                                                {status ===
+                                                                'active' ? (
+                                                                    <span className=' text-color-green-light'>
+                                                                        Active
+                                                                    </span>
+                                                                ) : (
+                                                                    <span>
+                                                                        Deactivated
+                                                                    </span>
+                                                                )}
                                                             </p>
                                                         </div>
                                                     </div>
