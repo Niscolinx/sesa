@@ -56,7 +56,7 @@ const Wallet = () => {
                         )}
                     </ul>
                 </div>
-                <div className='grid max-w-[80rem]' style={{
+                <div className='grid max-w-[80rem] gap-10 mx-auto' style={{
                     gridTemplateColumns: 'repeat(auto-fit, minmax(30rem, 1fr))',
                 }}>
                     <OverviewWallet
