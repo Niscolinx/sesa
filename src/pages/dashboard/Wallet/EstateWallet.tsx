@@ -806,13 +806,16 @@ const EstateWallet = () => {
                                     className='flex items-center border px-4 rounded-lg outline-none cursor-pointer'
                                     onChange={handleItemsPerPage}
                                 >
+                                    <option hidden>
+                                        {itemsPerPage}
+                                    </option>
                                     {itemsPerPageArr.map((item, index) => (
                                         <option
                                             value={item}
                                             key={index}
                                             className='capitalize cursor-pointer bg-white'
                                         >
-                                            {itemsPerPage}
+                                            {item}
                                         </option>
                                     ))}
                                 </select>
