@@ -1,45 +1,41 @@
-import './styles.css'
 import React from 'react'
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts'
 
 const data = [
     {
         name: 'Mon',
-        pv: 2400,
-        amt: 2400,
+        pv: 30_000,
+        amt: 30_000,
     },
     {
         name: 'Tue',
-        pv: 1398,
-        amt: 2210,
+        pv: 25_000,
+        amt: 25_000,
     },
     {
         name: 'Wed',
-        pv: 9800,
-        amt: 2290,
+        pv: 20_000,
+        amt: 20_000,
     },
     {
         name: 'Thur',
-        pv: 3908,
-        amt: 2000,
+        pv: 15_000,
+        amt: 15_000,
     },
     {
         name: 'Fri',
-        uv: 1890,
-        pv: 4800,
-        amt: 2181,
+        pv: 10_000,
+        amt: 10_000,
     },
     {
         name: 'Sat',
-        uv: 2390,
-        pv: 3800,
-        amt: 2500,
+        pv: 5_000,
+        amt: 5_000,
     },
     {
         name: 'Sun',
-        uv: 3490,
-        pv: 4300,
-        amt: 2100,
+        pv: 0,
+        amt: 0,
     },
 ]
 
