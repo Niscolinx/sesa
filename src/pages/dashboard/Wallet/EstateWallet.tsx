@@ -423,7 +423,12 @@ const EstateWallet = () => {
                                 />
                             </div>
                         </div>
-                        <div className='grid grid-cols-2 border-t border-t-color-grey p-10'>
+                        {/* <div
+                            className='grid border-t border-t-color-grey p-10 gap-10'
+                            style={{
+                                gridTemplateColumns: '1fr 1rem 1fr',
+                            }}
+                        >
                             <div className='grid grid-cols-2'>
                                 <div className='grid gap-8'>
                                     <p>Estate List</p>
@@ -449,13 +454,16 @@ const EstateWallet = () => {
                                                     src='/icons/Naira.svg'
                                                     alt=''
                                                 />
-                                                <p>{item.amount.toLocaleString()}</p>
+                                                <p>
+                                                    {item.amount.toLocaleString()}
+                                                </p>
                                             </div>
                                         ))}
                                     </div>
                                 </div>
                             </div>
-                            <div className='grid grid-cols-2 border-l border-l-color-grey'>
+                            <div className='h-full w-[.1rem] bg-color-grey justify-self-center'></div>
+                            <div className='grid grid-cols-2 '>
                                 <div className='grid gap-8'>
                                     <p>Estate List</p>
                                     <div className='grid gap-4'>
@@ -480,13 +488,72 @@ const EstateWallet = () => {
                                                     src='/icons/Naira.svg'
                                                     alt=''
                                                 />
-                                                <p>{item.amount.toLocaleString()}</p>
+                                                <p>
+                                                    {item.amount.toLocaleString()}
+                                                </p>
                                             </div>
                                         ))}
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> */}
+
+                        <table>
+                            <thead>
+                                <tr className='border-b border-b-color-grey'>
+                                    <th align="left" className='py-4'>Estate Name</th>
+                                    <th align="left" className='py-4'>Wallet Balance</th>
+                                    <th align="left" className='py-4'>Estate Name</th>
+                                    <th align="left" className='py-4'>Wallet Balance</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {estateWalletList.map((item, index) => (
+                                    <tr className='border-b border-r'>
+                                        <td>
+                                            <div className='flex items-center gap-2  h-[5rem]'>
+                                                <img
+                                                    src={item.imgUri}
+                                                    alt=''
+                                                    className='w-[3rem] h-[3rem] object-cover rounded-full'
+                                                />
+                                                <p>{item.estateName}</p>
+                                            </div>{' '}
+                                        </td>
+                                        <td>
+                                            {' '}
+                                            <div className='flex items-center'>
+                                                <img
+                                                    src='/icons/Naira.svg'
+                                                    alt=''
+                                                />
+                                                {item.amount.toLocaleString()}
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div className='flex items-center gap-2  h-[5rem]'>
+                                                <img
+                                                    src={item.imgUri}
+                                                    alt=''
+                                                    className='w-[3rem] h-[3rem] object-cover rounded-full'
+                                                />
+                                                <p>{item.estateName}</p>
+                                            </div>{' '}
+                                        </td>
+                                        <td>
+                                            <div className='flex items-center'>
+                                                <img
+                                                    src='/icons/Naira.svg'
+                                                    alt=''
+                                                />
+                                                {item.amount.toLocaleString()}
+                                            </div>
+                                        </td>
+                                      
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
                     </div>
                     <div className='grid text-[1.6rem]'>
                         <div className='flex w-full items-center gap-12 bg-white rounded-lg'>
