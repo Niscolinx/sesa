@@ -14,6 +14,7 @@ interface ActivityReport {
     guardCode: number
     clockIn: number
     clockOut: number
+    imgUri: string
 }
 
 interface AttendanceReport {
@@ -24,6 +25,7 @@ interface AttendanceReport {
     checkInCount: number
     checkOutCount: number
     panicAlert: number
+
 }
 
 const ATTENDANCE_REPORT_DATA: AttendanceReport[] = [
