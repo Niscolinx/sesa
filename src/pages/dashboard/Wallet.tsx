@@ -21,25 +21,6 @@ const Wallet = () => {
         <div>
             <h1 className='heading2'>Wallet</h1>
             <div className='bg-white grid mt-12 overflow-scroll gap-8'>
-                <div className=''>
-                    <OverviewWallet
-                        amount={200_333_500.89}
-                        title='Resident Wallet'
-                    />
-                    <OverviewWallet
-                        amount={160_847}
-                        title={'Security Company Wallet'}
-                    />
-                    <OverviewWallet
-                        amount={1_032_422}
-                        title={'Estate Wallet'}
-                    />
-                    <OverviewWallet
-                        amount={4_000_832}
-                        title={'Commission Wallet'}
-                    />
-                </div>
-
                 <div className='overviewChart'>
                     <p className='overviewChart__heading'>Today's Inflow</p>
                     <div className='overviewChart__box'>
@@ -74,6 +55,26 @@ const Wallet = () => {
                             })
                         )}
                     </ul>
+                </div>
+                <div className='grid max-w-[80rem]' style={{
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(30rem, 1fr))',
+                }}>
+                    <OverviewWallet
+                        amount={200_333_500.89}
+                        title='Resident Wallet'
+                    />
+                    <OverviewWallet
+                        amount={160_847}
+                        title={'Security Company Wallet'}
+                    />
+                    <OverviewWallet
+                        amount={1_032_422}
+                        title={'Estate Wallet'}
+                    />
+                    <OverviewWallet
+                        amount={4_000_832}
+                        title={'Commission Wallet'}
+                    />
                 </div>
             </div>
         </div>
