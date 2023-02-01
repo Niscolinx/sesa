@@ -5,7 +5,7 @@ import { overviewChart_colors, overviewChart_data } from '../../pages/dashboard/
 
 
 interface OverviewChart {
-    currentSwiperIndex: number
+    currentSwiperIndex?: number
 }
 
 export default function OverviewChart({ currentSwiperIndex }: OverviewChart) {

@@ -6,7 +6,7 @@ type OverviewWallet = {
     title: string
 }
 
- const OverviewWallet: FC<OverviewWallet> = ({ amount, title }) => {
+ export const OverviewWallet: FC<OverviewWallet> = ({ amount, title }) => {
     const formattedAmount = new Intl.NumberFormat('en-US', {
         minimumFractionDigits: 2,
         maximumFractionDigits: 2,
