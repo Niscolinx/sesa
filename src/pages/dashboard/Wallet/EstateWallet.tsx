@@ -313,7 +313,7 @@ const EtrendWallet = () => {
     return (
         <div>
             <h1 className='heading2'>Estate Wallet</h1>
-            <div className='bg-white grid mt-12 pb-10 rounded-lg h-[80vh] p-8 items-baseline'>
+            <div className='bg-white grid mt-12 pb-10 rounded-lg p-8 items-baseline'>
                 <div className='flex justify-between items-center content-start'>
                     <div className=''>
                         <OverviewWallet
