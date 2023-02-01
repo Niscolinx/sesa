@@ -132,9 +132,9 @@ const ResidentWallet = () => {
 
     const navigate = useNavigate()
 
-    type Actions = 'View Details' | 'Approve' | 'Deny'
+    type Actions = 'View Details' 
 
-    const actions = ['View Details', 'Approve', 'Deny'] satisfies Actions[]
+    const actions = ['View Details'] satisfies Actions[]
 
     const [toggleDropDown, setToggleDropDown] = useState<{
         isDropDownOpen: boolean
@@ -777,27 +777,7 @@ const ResidentWallet = () => {
                                                                                         )
                                                                                     }
                                                                                 >
-                                                                                    {item ===
-                                                                                    'Deny' ? (
-                                                                                        <span className='text-red-600'>
-                                                                                            {
-                                                                                                item
-                                                                                            }
-                                                                                        </span>
-                                                                                    ) : item ===
-                                                                                      'Approve' ? (
-                                                                                        <span className='text-green-600'>
-                                                                                            {
-                                                                                                item
-                                                                                            }
-                                                                                        </span>
-                                                                                    ) : (
-                                                                                        <span className='text-black'>
-                                                                                            {
-                                                                                                item
-                                                                                            }
-                                                                                        </span>
-                                                                                    )}
+                                                                                   {item}
                                                                                 </p>
                                                                             )
                                                                         )}
