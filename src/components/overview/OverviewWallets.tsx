@@ -4,7 +4,8 @@ import { SwiperSlide } from 'swiper/react'
 type OverviewWallet = {
     amount: number
     title: string
-    imgUri?: string
+    bgImgUri?: string
+    lefIconUri?: string
     bgColor?: string
 }
 
@@ -12,6 +13,9 @@ type OverviewWallet = {
      amount,
      title,
      bgColor = 'bg-[#5c8bff]',
+     lefIconUri = '/icons/overview/card/cardLeft.svg',
+     bgImgUri = '/icons/overview/card/bgR.svg',
+
  }) => {
      const formattedAmount = new Intl.NumberFormat('en-US', {
          minimumFractionDigits: 2,
@@ -25,14 +29,14 @@ type OverviewWallet = {
      return (
          <div className={`overviewWallet relative overflow-hidden ${bgColor} h-[14rem]`}>
              <img
-                 src='/icons/overview/card/cardT.svg'
+                 src={bgImgUri}
                  alt=''
                  role={'presentation'}
                  className='absolute top-0 z-[1]'
              />
              
              <img
-                 src='/icons/overview/card/cardLeft.svg'
+                 src={lefIconUri}
                  alt=''
                  className='overviewWallet__leftIcon z-[2]'
              />
