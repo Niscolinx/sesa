@@ -566,8 +566,21 @@ const EstateWallet = () => {
                                                                 {estateName}
                                                             </span>
                                                         </p>
-                                                        <p>{time}</p>
-                                                        <p>{frequency}</p>
+                                                        <p>{time.getTime()}</p>
+                                                        <p>{date.toDateString()}</p>
+                                                        <>{status === 'Denied' ? (
+                                                            <span className='text-red-600'>
+                                                                {status}
+                                                            </span>) : status === 'Successful' ? (
+                                                                <span className='text-green-600'>
+                                                                    {status}
+                                                                </span>
+                                                            ) : (
+                                                                <span className='text-yellow-600'>
+                                                                    {status}
+                                                                </span>
+                                                            )
+                                                        }</p>
                                                         <p className='flex items-center gap-.5'>
                                                             <img
                                                                 src='/icons/Naira.svg'
@@ -577,10 +590,7 @@ const EstateWallet = () => {
                                                                 {amount}
                                                             </span>
                                                         </p>
-                                                        <p>{startDate}</p>
-                                                        <p>{endDate}</p>
-                                                        <p>{transactionType}</p>
-                                                        <p>{status}</p>
+                                                        
                                                         <div className='relative'>
                                                             <label
                                                                 className='font-semibold capitalize cursor-pointer flex items-center gap-2 relative z-10'
