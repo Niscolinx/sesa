@@ -445,7 +445,11 @@ const EstateWallet = () => {
                                     <div className='grid gap-4'>
                                         {estateWalletList.map((item) => (
                                             <div className='flex items-center gap-2 border-b border-b-color-grey h-[5rem]'>
-                                                <p>{item.amount}</p>
+                                                <img
+                                                    src='/icons/Naira.svg'
+                                                    alt=''
+                                                />
+                                                <p>{item.amount.toLocaleString()}</p>
                                             </div>
                                         ))}
                                     </div>
