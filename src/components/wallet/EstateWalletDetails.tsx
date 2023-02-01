@@ -1,6 +1,5 @@
 import React, { useContext, useState } from 'react'
-import { GrDown } from 'react-icons/gr'
-import { IoMdAdd } from 'react-icons/io'
+
 import { ModalContext } from '../../Context/ModalContext'
 
 const EstateWalletDetails = () => {

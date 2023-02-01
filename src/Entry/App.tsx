@@ -25,6 +25,7 @@ import AddSecurityCompany from '../components/securityCompany/AddSecurityCompany
 import SecurityCompanyDetail from '../components/securityCompany/SecurityCompanyDetail'
 import Wallet from '../pages/dashboard/Wallet'
 import EstateWallet from '../pages/dashboard/Wallet/EstateWallet'
+import EstateWalletDetails from '../components/wallet/EstateWalletDetails'
 
 const router = createBrowserRouter(
     createRoutesFromElements([
@@ -50,6 +51,7 @@ const router = createBrowserRouter(
             />
             <Route path='wallet' element={<Wallet/>} />
             <Route path='wallet/estate' element={<EstateWallet/>} />
+            <Route path='wallet/estate/:id' element={<EstateWalletDetails/>} />
         </Route>,
         <Route path='*' element={<Navigate to='/' />} />,
     ])
