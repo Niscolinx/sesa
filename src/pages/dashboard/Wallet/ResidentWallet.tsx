@@ -303,29 +303,8 @@ const ResidentWallet = () => {
         },
     ]
 
-    const dialogRef = useRef<HTMLDialogElement | null>(null)
 
-    const handleClose = () => {
-        if (dialogRef.current) {
-            dialogRef.current.close()
-        }
-    }
-
-    const handleOpen = (modalState: 'warning' | 'success') => {
-        if (modalState === 'warning') {
-            setIsWarning(true)
-        } else {
-            setIsWarning(false)
-        }
-
-        if (dialogRef.current) {
-            dialogRef.current.showModal()
-        }
-    }
-
-    const confirmDeactivation = () => {
-        handleClose()
-    }
+  
 
     const handleSelectedAction = (item: Actions, index: string) => {
 
