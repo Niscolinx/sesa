@@ -4,7 +4,9 @@ import React, { MutableRefObject, useEffect, useRef, useState } from 'react'
 
 import OverviewChart from '../../components/overview/OverviewChart'
 import OverviewCards from '../../components/overview/OverviewCards'
-import OverviewWallets, { OverviewWallet } from '../../components/overview/OverviewWallets'
+import OverviewWallets, {
+    OverviewWallet,
+} from '../../components/overview/OverviewWallets'
 import OverviewWalletNav from '../../components/overview/OverviewWalletNav'
 import { TbCurrencyNaira } from 'react-icons/tb'
 
@@ -27,13 +29,9 @@ const Wallet = () => {
                         <p className='text-[1.6rem] font-semibold'>
                             Total Balance (Pool Wallet)
                         </p>
-                        <h1 className='text-[3rem] font-bold'>
-                            <span className='text-[1.6rem]' style={{
-                                lineHeight: '3rem',
-                            }}>₦</span>
-                            <TbCurrencyNaira/>
-                            <img src="/icons/Naira.svg" alt="" className='text-[3rem]' />
-                            ₦800,836,709.74
+                        <h1 className='text-[3rem] font-bold flex'>
+                            <TbCurrencyNaira />
+                            800,836,709.74
                         </h1>
                     </div>
                     <div className='overviewChart__box'>
