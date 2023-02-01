@@ -46,6 +46,7 @@ const router = createBrowserRouter(
                 path='additional-resident/:Id'
                 element={<AdditionalResidentDetails />}
             />
+            <Route path='wallet/:Id' element={<Wallet/>} />
         </Route>,
         <Route path='*' element={<Navigate to='/' />} />,
     ])
