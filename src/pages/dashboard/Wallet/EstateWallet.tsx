@@ -455,6 +455,37 @@ const EstateWallet = () => {
                                     </div>
                                 </div>
                             </div>
+                            <div className='grid grid-cols-2 border-l border-l-color-grey'>
+                                <div className='grid gap-8'>
+                                    <p>Estate List</p>
+                                    <div className='grid gap-4'>
+                                        {estateWalletList.map((item) => (
+                                            <div className='flex items-center gap-2 border-b border-b-color-grey h-[5rem]'>
+                                                <img
+                                                    src={item.imgUri}
+                                                    alt=''
+                                                    className='w-[3rem] h-[3rem] object-cover rounded-full'
+                                                />
+                                                <p>{item.estateName}</p>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                                <div className='grid gap-8'>
+                                    <p>Wallet Balance</p>
+                                    <div className='grid gap-4'>
+                                        {estateWalletList.map((item) => (
+                                            <div className='flex items-center gap-2 border-b border-b-color-grey h-[5rem]'>
+                                                <img
+                                                    src='/icons/Naira.svg'
+                                                    alt=''
+                                                />
+                                                <p>{item.amount.toLocaleString()}</p>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div className='grid text-[1.6rem]'>
