@@ -156,7 +156,6 @@ const ResidentUserHistory: FC<{
     const {  currentPage, slicedPages } =
         paginate
 
-    console.log({ paginate })
     const jumpToPage = (e: React.MouseEvent, index: number) => {
         console.log({ index })
 
@@ -171,7 +170,7 @@ const ResidentUserHistory: FC<{
 
     return (
         <div className='grid text-[1.6rem]'>
-            <caption className='flex w-full items-center gap-12 p-10 bg-white rounded-lg'>
+            <div className='flex w-full items-center gap-12 p-10 bg-white rounded-lg'>
                 <p className=' font-bold'>
                     Resident User History <span>(10)</span>
                 </p>
@@ -214,7 +213,7 @@ const ResidentUserHistory: FC<{
                         <GrDown className='absolute right-4 text-[1.3rem]' />
                     )}
                 </div>
-            </caption>
+            </div>
 
             <div className='grid'>
                 <div
