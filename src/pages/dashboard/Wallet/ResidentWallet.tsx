@@ -10,7 +10,7 @@ import { ToastContainer, toast } from 'react-toastify'
 
 type Trend = 'This Week' | 'This Month' | 'This Year'
 
-export interface IWithdrawalHistory {
+export interface ITransactionHistory {
     id: string
     time: string
     date: string
@@ -29,7 +29,7 @@ interface ResidentWalletList {
 
 type SortBy = 'A-Z' | 'date'
 
-export const WITHDRAWAL_HISTORY: IWithdrawalHistory[] = [
+export const WITHDRAWAL_HISTORY: ITransactionHistory[] = [
     {
         id: '1',
         time: '3:18pm',
@@ -118,14 +118,14 @@ const ResidentWallet = () => {
         setTogglResidentMenu(false)
     }
 
-    const [fetchedWithdrawalHistory, setFetchedWithdrawalHistory] = useState<
-        IWithdrawalHistory[]
+    const [fetchedTransactionHistory, setFetchedTransactionHistory] = useState<
+        ITransactionHistory[]
     >([])
 
     useEffect(() => {
         const fetchData = async () => {
             setTimeout(() => {
-                setFetchedWithdrawalHistory(WITHDRAWAL_HISTORY)
+                setFetchedTransactionHistory(WITHDRAWAL_HISTORY)
             }, 1000)
         }
         fetchData()
@@ -170,7 +170,7 @@ const ResidentWallet = () => {
         currentPage: number
         itemsPerPage: number
         totalPage: number
-        slicedPages: IWithdrawalHistory[][] | null
+        slicedPages: ITransactionHistory[][] | null
     }
 
     const [toggleSortMenu, setToggleSortMenu] = useState(false)
@@ -182,7 +182,7 @@ const ResidentWallet = () => {
         currentPage: 1,
         itemsPerPage: 6,
 
-        totalPage: Math.ceil(fetchedWithdrawalHistory.length / 2),
+        totalPage: Math.ceil(fetchedTransactionHistory.length / 2),
         slicedPages: null,
     })
 
@@ -196,9 +196,9 @@ const ResidentWallet = () => {
     const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
         const item = parseInt(e.target.value)
 
-        const slicedPages: IWithdrawalHistory[][] = []
-        for (let i = 0; i < fetchedWithdrawalHistory.length; i += item) {
-            slicedPages.push(fetchedWithdrawalHistory.slice(i, i + item))
+        const slicedPages: ITransactionHistory[][] = []
+        for (let i = 0; i < fetchedTransactionHistory.length; i += item) {
+            slicedPages.push(fetchedTransactionHistory.slice(i, i + item))
         }
 
         setPaginate((prev) => {
@@ -208,7 +208,7 @@ const ResidentWallet = () => {
                 index: 0,
                 currentPage: 1,
                 slicedPages,
-                totalPage: Math.ceil(fetchedWithdrawalHistory.length / item),
+                totalPage: Math.ceil(fetchedTransactionHistory.length / item),
             }
         })
     }
@@ -218,14 +218,14 @@ const ResidentWallet = () => {
     }, [paginate.slicedPages])
 
     useEffect(() => {
-        const slicedPages: IWithdrawalHistory[][] = []
+        const slicedPages: ITransactionHistory[][] = []
         for (
             let i = 0;
-            i < fetchedWithdrawalHistory.length;
+            i < fetchedTransactionHistory.length;
             i += paginate.itemsPerPage
         ) {
             slicedPages.push(
-                fetchedWithdrawalHistory.slice(i, i + paginate.itemsPerPage)
+                fetchedTransactionHistory.slice(i, i + paginate.itemsPerPage)
             )
         }
 
@@ -235,7 +235,7 @@ const ResidentWallet = () => {
                 slicedPages,
             }
         })
-    }, [fetchedWithdrawalHistory])
+    }, [fetchedTransactionHistory])
 
     const handleNext = () => {
         if (paginate.currentPage === paginate.totalPage) return
