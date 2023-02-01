@@ -5,8 +5,8 @@ const EstateWallet = () => {
     return (
         <div>
             <h1 className='heading2'>Estate Wallet</h1>
-            <div className='bg-white grid mt-12 py-10 gap-8 rounded-lg h-[80vh] p-8'>
-                <div className='flex'>
+            <div className='bg-white grid mt-12 pb-10 gap-8 rounded-lg h-[80vh] p-8 items-baseline'>
+                <div className='flex justify-between items-center content-start bg-red-400'>
                     <div className=''>
                         <OverviewWallet
                             amount={1_032_422}
@@ -21,6 +21,9 @@ const EstateWallet = () => {
                     <div>
                         <WalletBarChart />
                     </div>
+                </div>
+                <div>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit animi, cumque adipisci veniam ipsum voluptatibus provident quas necessitatibus dicta asperiores quos, ea, quod commodi! Molestias dolorem ipsam veritatis at molestiae.
                 </div>
             </div>
         </div>
