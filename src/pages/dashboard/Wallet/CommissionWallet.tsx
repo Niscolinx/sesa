@@ -132,9 +132,9 @@ const CommissionWallet = () => {
 
     const navigate = useNavigate()
 
-    type Actions = 'View Details' | 'Approve' | 'Deny'
+    type Actions = 'View Details' 
 
-    const actions = ['View Details', 'Approve', 'Deny'] satisfies Actions[]
+    const actions = ['View Details'] satisfies Actions[]
 
     const [toggleDropDown, setToggleDropDown] = useState<{
         isDropDownOpen: boolean
@@ -341,13 +341,6 @@ const CommissionWallet = () => {
             navigate(`/dashboard/wallet/commission/:${index}`)
         }
 
-        if (item === 'Approve') {
-            handleOpen('success')
-        }
-
-        if (item === 'Deny') {
-            handleOpen('warning')
-        }
     }
 
     const handleApprove = () => {
@@ -723,27 +716,7 @@ const CommissionWallet = () => {
                                                                                         )
                                                                                     }
                                                                                 >
-                                                                                    {item ===
-                                                                                    'Deny' ? (
-                                                                                        <span className='text-red-600'>
-                                                                                            {
-                                                                                                item
-                                                                                            }
-                                                                                        </span>
-                                                                                    ) : item ===
-                                                                                      'Approve' ? (
-                                                                                        <span className='text-green-600'>
-                                                                                            {
-                                                                                                item
-                                                                                            }
-                                                                                        </span>
-                                                                                    ) : (
-                                                                                        <span className='text-black'>
-                                                                                            {
-                                                                                                item
-                                                                                            }
-                                                                                        </span>
-                                                                                    )}
+                                                                                    {item}
                                                                                 </p>
                                                                             )
                                                                         )}
