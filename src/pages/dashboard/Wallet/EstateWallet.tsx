@@ -304,7 +304,6 @@ const EstateWallet = () => {
     const { currentPage, slicedPages } = paginate
 
     const jumpToPage = (e: React.MouseEvent, index: number) => {
-        console.log({ index })
 
         setPaginate((prev) => {
             return {
