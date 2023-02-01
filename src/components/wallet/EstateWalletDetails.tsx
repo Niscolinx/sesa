@@ -8,7 +8,6 @@ const EstateWalletDetails = () => {
 
     return (
         <div className=' p-8 bg-white h-[80vh] rounded-lg overflow-y-scroll'>
-            
             <section
                 className='grid max-w-[65vw] gap-16'
                 style={{
@@ -28,28 +27,45 @@ const EstateWalletDetails = () => {
                         required
                         id='estateName'
                         className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] disabled:text-gray-500 disabled:cursor-not-allowed'
-                        value={'Gold'}
+                        value={'Gold Estate'}
                     />
                 </div>
                 <div className='w-full grid gap-4'>
                     <label
-                        htmlFor='userName'
+                        htmlFor='withdrawalTime'
                         className='text-[1.4rem] font-semibold'
                     >
-                        Name of User (Buyer)
+                        Withdrawal Time
                     </label>
                     <input
                         disabled
                         type='text'
                         required
-                        id='userName'
+                        id='withdrawalTime'
                         className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] disabled:text-gray-500 disabled:cursor-not-allowed'
-                        value={'Wale Ogunleye'}
+                        value={'3:00pm'}
                     />
                 </div>
                 <div className='w-full grid gap-4'>
                     <label
-                        htmlFor='packageName'
+                        htmlFor='status'
+                        className='text-[1.4rem] font-semibold'
+                    >
+                        Withdrawal Date
+                    </label>
+                    <input
+                        disabled
+                        type='text'
+                        required
+                        id='status'
+                        className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] disabled:text-gray-500 disabled:cursor-not-allowed'
+                        value={'2-1-2023'}
+                    />
+                </div>
+
+                <div className='w-full grid gap-4'>
+                    <label
+                        htmlFor='description'
                         className='text-[1.4rem] font-semibold'
                     >
                         Amount
@@ -64,7 +80,7 @@ const EstateWalletDetails = () => {
                             disabled
                             type='text'
                             required
-                            id='amount'
+                            id='description'
                             className='border pl-8 border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] disabled:text-gray-500 disabled:cursor-not-allowed'
                             value={6000}
                         />
@@ -72,115 +88,94 @@ const EstateWalletDetails = () => {
                 </div>
                 <div className='w-full grid gap-4'>
                     <label
-                        htmlFor='frequency'
-                        className='text-[1.4rem] font-semibold'
-                    >
-                        Frequency
-                    </label>
-                    <input
-                        disabled
-                        type='text'
-                        required
-                        id='frequency'
-                        className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] disabled:text-gray-500 disabled:cursor-not-allowed'
-                        value={'Monthly'}
-                    />
-                </div>
-                <div className='w-full grid gap-4'>
-                    <label
-                        htmlFor='startDate'
-                        className='text-[1.4rem] font-semibold'
-                    >
-                        Start Date
-                    </label>
-                    <input
-                        disabled
-                        type='text'
-                        required
-                        id='startDate'
-                        className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] disabled:text-gray-500 disabled:cursor-not-allowed'
-                        value={'12-May-22'}
-                    />
-                </div>
-                <div className='w-full grid gap-4'>
-                    <label
-                        htmlFor='endDate'
-                        className='text-[1.4rem] font-semibold'
-                    >
-                        End Date
-                    </label>
-                    <input
-                        disabled
-                        type='text'
-                        required
-                        id='endDate'
-                        className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] disabled:text-gray-500 disabled:cursor-not-allowed'
-                        value={'12-May-22'}
-                    />
-                </div>
-                <div className='w-full grid gap-4'>
-                    <label
-                        htmlFor='estateUser'
-                        className='text-[1.4rem] font-semibold'
-                    >
-                        Estate User
-                    </label>
-                    <input
-                        disabled
-                        type='text'
-                        required
-                        id='estateUser'
-                        className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] disabled:text-gray-500 disabled:cursor-not-allowed'
-                        value={'Ibare'}
-                    />
-                </div>
-                <div className='w-full grid gap-4'>
-                    <label
-                        htmlFor='transactionType'
-                        className='text-[1.4rem] font-semibold'
-                    >
-                        Transaction Type
-                    </label>
-                    <input
-                        disabled
-                        type='text'
-                        required
-                        id='transactionType'
-                        className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] disabled:text-gray-500 disabled:cursor-not-allowed'
-                        value={'Purchase'}
-                    />
-                </div>
-                <div className='w-full grid gap-4'>
-                    <label
-                        htmlFor='phoneNumber'
-                        className='text-[1.4rem] font-semibold'
-                    >
-                        Phone Number
-                    </label>
-                    <input
-                        disabled
-                        type='text'
-                        required
-                        id='phoneNumber'
-                        className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] disabled:text-gray-500 disabled:cursor-not-allowed'
-                        value={'09023238423'}
-                    />
-                </div>
-                <div className='w-full grid gap-4'>
-                    <label
-                        htmlFor='status'
+                        htmlFor='description'
                         className='text-[1.4rem] font-semibold'
                     >
                         Status
                     </label>
+
                     <input
                         disabled
                         type='text'
                         required
-                        id='status'
-                        className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] disabled:text-gray-500 disabled:cursor-not-allowed'
-                        value={'Status'}
+                        id='description'
+                        className='border pl-8 border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] disabled:text-gray-500 disabled:cursor-not-allowed'
+                        value={'Active'}
                     />
+                </div>
+                <div className='w-full grid gap-4'>
+                    <label
+                        htmlFor='description'
+                        className='text-[1.4rem] font-semibold'
+                    >
+                        Description
+                    </label>
+
+                    <input
+                        disabled
+                        type='text'
+                        required
+                        id='description'
+                        className='border pl-8 border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] disabled:text-gray-500 disabled:cursor-not-allowed'
+                        value={'Description'}
+                    />
+                </div>
+                <div className='w-full grid gap-4'>
+                    <label
+                        htmlFor='description'
+                        className='text-[1.4rem] font-semibold'
+                    >
+                        Balance
+                    </label>
+                    <div className='relative flex items-center'>
+                        <img
+                            src='/icons/Naira.svg'
+                            alt=''
+                            className='absolute left-3'
+                        />
+                        <input
+                            disabled
+                            type='text'
+                            required
+                            id='description'
+                            className='border pl-8 border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] disabled:text-gray-500 disabled:cursor-not-allowed'
+                            value={6000}
+                        />
+                    </div>
+                </div>
+                <div className='w-full grid gap-4'>
+                    <label
+                        htmlFor='description'
+                        className='text-[1.4rem] font-semibold'
+                    >
+                        Status
+                    </label>
+
+                    <input
+                        disabled
+                        type='text'
+                        required
+                        id='description'
+                        className='border pl-8 border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] disabled:text-gray-500 disabled:cursor-not-allowed'
+                        value={'Active'}
+                    />
+                </div>
+                <div className='w-full grid gap-4'>
+                    <label
+                        htmlFor='description'
+                        className='text-[1.4rem] font-semibold'
+                    >
+                        Naration
+                    </label>
+                  
+                        <input
+                            disabled
+                            type='text'
+                            required
+                            id='description'
+                            className='border pl-8 border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] disabled:text-gray-500 disabled:cursor-not-allowed'
+                            value={6000}
+                        />
                 </div>
             </section>
             <section className='grid text-[1.4rem] w-full py-10 gap-8 border-t mt-20'>
