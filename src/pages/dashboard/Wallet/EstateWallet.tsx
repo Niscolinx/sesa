@@ -31,114 +31,13 @@ type SortBy = 'A-Z' | 'date'
 export const WITHDRAWAL_HISTORY: IWithdrawalHistory[] = [
     {
         id: '1',
-        packageName: 'Gold',
-        userName: 'John Doe',
-        frequency: 'Monthly',
-        amount: 1000,
-        startDate: '2021-01-01',
-        endDate: '2021-01-31',
-        transactionType: 'purchase',
-        status: 'active',
-    },
-    {
-        id: '2',
-        packageName: 'Gold',
-        userName: 'John Doe',
-        frequency: 'Monthly',
-        amount: 1000,
-        startDate: '2021-01-01',
-        endDate: '2021-01-31',
-        transactionType: 'purchase',
-        status: 'active',
-    },
-    {
-        id: '3',
-        packageName: 'Gold',
-        userName: 'John Doe',
-        frequency: 'Monthly',
-        amount: 1000,
-        startDate: '2021-01-01',
-        endDate: '2021-01-31',
-        transactionType: 'purchase',
-        status: 'active',
-    },
-    {
-        id: '4',
-        packageName: 'Gold',
-        userName: 'John Doe',
-        frequency: 'Monthly',
-        amount: 1000,
-        startDate: '2021-01-01',
-        endDate: '2021-01-31',
-        transactionType: 'purchase',
-        status: 'active',
-    },
-    {
-        id: '5',
-        packageName: 'Gold',
-        userName: 'John Doe',
-        frequency: 'Monthly',
-        amount: 1000,
-        startDate: '2021-01-01',
-        endDate: '2021-01-31',
-        transactionType: 'purchase',
-        status: 'active',
-    },
-    {
-        id: '6',
-        packageName: 'Gold',
-        userName: 'John Doe',
-        frequency: 'Monthly',
-        amount: 1000,
-        startDate: '2021-01-01',
-        endDate: '2021-01-31',
-        transactionType: 'purchase',
-        status: 'active',
-    },
-    {
-        id: '7',
-        packageName: 'Gold',
-        userName: 'John Doe',
-        frequency: 'Monthly',
-        amount: 1000,
-        startDate: '2021-01-01',
-        endDate: '2021-01-31',
-        transactionType: 'purchase',
-        status: 'active',
-    },
-    {
-        id: '8',
-        packageName: 'Gold',
-        userName: 'John Doe',
-        frequency: 'Monthly',
-        amount: 1000,
-        startDate: '2021-01-01',
-        endDate: '2021-01-31',
-        transactionType: 'purchase',
-        status: 'active',
-    },
-    {
-        id: '9',
-        packageName: 'Gold',
-        userName: 'John Doe',
-        frequency: 'Monthly',
-        amount: 1000,
-        startDate: '2021-01-01',
-        endDate: '2021-01-31',
-        transactionType: 'purchase',
-        status: 'active',
-    },
-    {
-        id: '10',
-        packageName: 'Gold',
-        userName: 'John Doe',
-        frequency: 'Monthly',
-        amount: 1000,
-        startDate: '2021-01-01',
-        endDate: '2021-01-31',
-        transactionType: 'purchase',
-        status: 'active',
-    },
+        time: new Date(),
+        date: new Date(),
+        estateName: 'Thomas Estate',
+        status: 'Denied',
+        description: 'Ago palace funding and request',
+        amount: 5000,
+    }
 ]
 
 const EstateWallet = () => {
@@ -664,10 +563,10 @@ const EstateWallet = () => {
                                                             />
 
                                                             <span>
-                                                                {packageName}
+                                                                {estateName}
                                                             </span>
                                                         </p>
-                                                        <p>{userName}</p>
+                                                        <p>{time}</p>
                                                         <p>{frequency}</p>
                                                         <p className='flex items-center gap-.5'>
                                                             <img
