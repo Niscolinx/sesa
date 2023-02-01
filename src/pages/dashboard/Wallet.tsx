@@ -17,32 +17,17 @@ export const overviewChart_data = [
 export const overviewChart_colors = ['#EA0B90', '#23C375', '#098DFF', '#404243']
 
 const Wallet = () => {
-    const swiperRef: MutableRefObject<SwiperRef> = useRef(null as any)
-    const [currentSwiperIndex, setCurrentSwiperIndex] = useState<number>(
-        null as any
-    )
-
-    const handlePrevButtonClick = () => {
-        if (swiperRef.current && swiperRef.current.swiper) {
-            swiperRef.current.swiper.slidePrev()
-        }
-    }
-
-    const handleNextButtonClick = () => {
-        if (swiperRef.current && swiperRef.current.swiper) {
-            swiperRef.current.swiper.slideNext()
-        }
-    }
-
     
 
-    console.log({ currentSwiperIndex })
+     
+
+    
 
     return (
         <div>
             <h1 className='heading2'>Wallet</h1>
-            <div className='bg-white grid mt-12 justify-center overflow-scroll gap-8'>
-                <section className='overview__right'>
+            <div className='bg-white grid mt-12 overflow-scroll gap-8'>
+                <section className=''>
                     {React.Children.toArray(
                         OverviewWallets.map((item) => {
                             return item
