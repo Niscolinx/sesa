@@ -276,31 +276,31 @@ const ResidentWallet = () => {
             id: '1',
             residentName: 'Peace Resident',
             amount: 5000,
-            imgUri: '/img/resident1.png',
+            imgUri: '/img/estate1.png',
         },
         {
             id: '2',
             residentName: 'Peace Resident',
             amount: 5000,
-            imgUri: '/img/resident1.png',
+            imgUri: '/img/estate1.png',
         },
         {
             id: '3',
             residentName: 'Peace Resident',
             amount: 5000,
-            imgUri: '/img/resident1.png',
+            imgUri: '/img/estate1.png',
         },
         {
             id: '4',
             residentName: 'Peace Resident',
             amount: 5000,
-            imgUri: '/img/resident1.png',
+            imgUri: '/img/estate1.png',
         },
         {
             id: '5',
             residentName: 'Peace Resident',
             amount: 5000,
-            imgUri: '/img/resident1.png',
+            imgUri: '/img/estate1.png',
         },
     ]
 
