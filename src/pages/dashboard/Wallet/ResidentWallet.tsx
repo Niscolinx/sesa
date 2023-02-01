@@ -14,15 +14,15 @@ export interface IWithdrawalHistory {
     id: string
     time: string
     date: string
-    estateName: string
+    residentName: string
     status: 'Pending' | 'Denied' | 'Successful'
     description: string
     amount: number
 }
 
-interface EstateWalletList {
+interface ResidentWalletList {
     id: string
-    estateName: string
+    residentName: string
     amount: number
     imgUri: string
 }
@@ -34,7 +34,7 @@ export const WITHDRAWAL_HISTORY: IWithdrawalHistory[] = [
         id: '1',
         time: '3:18pm',
         date: '02-May-2022',
-        estateName: 'Thomas Estate',
+        residentName: 'Thomas Resident',
         status: 'Denied',
         description: 'Ago palace funding and request',
         amount: 5000,
@@ -43,7 +43,7 @@ export const WITHDRAWAL_HISTORY: IWithdrawalHistory[] = [
         id: '2',
         time: '4:12pm',
         date: '04-May-2022',
-        estateName: 'Ahike Estate',
+        residentName: 'Ahike Resident',
         status: 'Successful',
         description: 'Ago palace funding and request',
         amount: 8000,
@@ -52,7 +52,7 @@ export const WITHDRAWAL_HISTORY: IWithdrawalHistory[] = [
         id: '3',
         time: '4:12pm',
         date: '04-May-2022',
-        estateName: 'Lekki Estate',
+        residentName: 'Lekki Resident',
         status: 'Successful',
         description: 'Ago palace funding and request',
         amount: 8000,
@@ -61,7 +61,7 @@ export const WITHDRAWAL_HISTORY: IWithdrawalHistory[] = [
         id: '4',
         time: '4:12pm',
         date: '04-May-2022',
-        estateName: 'Bavaeri Estate',
+        residentName: 'Bavaeri Resident',
         status: 'Pending',
         description: 'Ago palace funding and request',
         amount: 8000,
@@ -70,7 +70,7 @@ export const WITHDRAWAL_HISTORY: IWithdrawalHistory[] = [
         id: '5',
         time: '4:12pm',
         date: '04-May-2022',
-        estateName: 'Ahike Estate',
+        residentName: 'Ahike Resident',
         status: 'Denied',
         description: 'A canteen funding and request',
         amount: 8000,
@@ -79,7 +79,7 @@ export const WITHDRAWAL_HISTORY: IWithdrawalHistory[] = [
         id: '6',
         time: '4:12pm',
         date: '04-May-2022',
-        estateName: 'Ahike Estate',
+        residentName: 'Ahike Resident',
         status: 'Successful',
         description: 'Cool palace funding and request',
         amount: 8000,
@@ -88,7 +88,7 @@ export const WITHDRAWAL_HISTORY: IWithdrawalHistory[] = [
         id: '7',
         time: '4:12pm',
         date: '04-May-2022',
-        estateName: 'Ahike Estate',
+        residentName: 'Ahike Resident',
         status: 'Pending',
         description: 'baba palace funding and request',
         amount: 8000,
@@ -97,25 +97,25 @@ export const WITHDRAWAL_HISTORY: IWithdrawalHistory[] = [
         id: '8',
         time: '4:12pm',
         date: '04-May-2022',
-        estateName: 'Ahike Estate',
+        residentName: 'Ahike Resident',
         status: 'Denied',
         description: ' Serenity building funding and request',
         amount: 8000,
     },
 ]
 
-const EstateWallet = () => {
+const ResidentWallet = () => {
     const trend: Array<Trend> = ['This Week', 'This Month', 'This Year']
     const [isWarning, setIsWarning] = useState(true)
 
-    const [togglEstateMenu, setTogglEstateMenu] = useState(false)
+    const [togglResidentMenu, setTogglResidentMenu] = useState(false)
     const [selectedTrend, setSelectedTrend] = useState<Trend>('This Week')
 
-    const menuToggler = () => setTogglEstateMenu(!togglEstateMenu)
+    const menuToggler = () => setTogglResidentMenu(!togglResidentMenu)
 
     const handleSelectedTrend = (item: Trend) => {
         setSelectedTrend(item)
-        setTogglEstateMenu(false)
+        setTogglResidentMenu(false)
     }
 
     const [fetchedWithdrawalHistory, setFetchedWithdrawalHistory] = useState<
@@ -159,7 +159,7 @@ const EstateWallet = () => {
 
     const selectAction = (e: React.MouseEvent, item: string) => {
         if (item === 'View Details') {
-            navigate('/dashboard/wallet/estate/:id')
+            navigate('/dashboard/wallet/resident/:id')
         }
     }
 
@@ -271,36 +271,36 @@ const EstateWallet = () => {
         })
     }
 
-    const estateWalletList: EstateWalletList[] = [
+    const residentWalletList: ResidentWalletList[] = [
         {
             id: '1',
-            estateName: 'Peace Estate',
+            residentName: 'Peace Resident',
             amount: 5000,
-            imgUri: '/img/estate1.png',
+            imgUri: '/img/resident1.png',
         },
         {
             id: '2',
-            estateName: 'Peace Estate',
+            residentName: 'Peace Resident',
             amount: 5000,
-            imgUri: '/img/estate1.png',
+            imgUri: '/img/resident1.png',
         },
         {
             id: '3',
-            estateName: 'Peace Estate',
+            residentName: 'Peace Resident',
             amount: 5000,
-            imgUri: '/img/estate1.png',
+            imgUri: '/img/resident1.png',
         },
         {
             id: '4',
-            estateName: 'Peace Estate',
+            residentName: 'Peace Resident',
             amount: 5000,
-            imgUri: '/img/estate1.png',
+            imgUri: '/img/resident1.png',
         },
         {
             id: '5',
-            estateName: 'Peace Estate',
+            residentName: 'Peace Resident',
             amount: 5000,
-            imgUri: '/img/estate1.png',
+            imgUri: '/img/resident1.png',
         },
     ]
 
@@ -339,7 +339,7 @@ const EstateWallet = () => {
         })
 
         if (item === 'View Details') {
-            navigate(`/dashboard/wallet/estate/:${index}`)
+            navigate(`/dashboard/wallet/resident/:${index}`)
         }
 
         if (item === 'Approve') {
@@ -399,7 +399,7 @@ const EstateWallet = () => {
                         ) : (
                             <p className='max-w-[45rem] text-center'>
                                 Are you sure you want to approve this request?
-                                If you click on approve, this estate request
+                                If you click on approve, this resident request
                                 will be approved.
                             </p>
                         )}
@@ -431,13 +431,13 @@ const EstateWallet = () => {
                     </div>
                 </section>
             </dialog>
-            <h1 className='heading2'>Estate Wallet</h1>
+            <h1 className='heading2'>Resident Wallet</h1>
             <div className='grid mt-12 pb-10 rounded-lg  items-baseline gap-10'>
                 <div className='flex justify-between items-center content-start bg-white p-8 rounded-lg'>
                     <div className=''>
                         <OverviewWallet
                             amount={1_032_422}
-                            title={'Estate Wallet'}
+                            title={'Resident Wallet'}
                             isWalletScreen
                             bgImgUri='/icons/overview/card/bgE.svg'
                             lefIconUri='/icons/overview/card/leftE.svg'
@@ -459,14 +459,14 @@ const EstateWallet = () => {
                                     >
                                         {selectedTrend}
                                     </p>
-                                    {togglEstateMenu ? (
+                                    {togglResidentMenu ? (
                                         <GrUp className='absolute right-4' />
                                     ) : (
                                         <GrDown className='absolute right-4' />
                                     )}
                                 </div>
 
-                                {togglEstateMenu && (
+                                {togglResidentMenu && (
                                     <div className='absolute top-[8rem]  left-0 border border-color-primary-light  bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
                                         {trend.map((item, index) => (
                                             <p
@@ -490,7 +490,7 @@ const EstateWallet = () => {
                     <div className='grid text-[1.6rem] gap-[3rem] bg-white p-8 rounded-lg'>
                         <div className='flex w-full items-center gap-12 '>
                             <p className=' font-bold'>
-                                Estate List <span>(200)</span>
+                                Resident List <span>(200)</span>
                             </p>
                             <div className='relative flex items-center'>
                                 <img
@@ -513,16 +513,16 @@ const EstateWallet = () => {
                         >
                             <div className='grid grid-cols-2'>
                                 <div className='grid gap-8'>
-                                    <p>Estate List</p>
+                                    <p>Resident List</p>
                                     <div className='grid gap-4'>
-                                        {estateWalletList.map((item) => (
+                                        {residentWalletList.map((item) => (
                                             <div className='flex items-center gap-2 border-b border-b-color-grey h-[5rem]'>
                                                 <img
                                                     src={item.imgUri}
                                                     alt=''
                                                     className='w-[3rem] h-[3rem] object-cover rounded-full'
                                                 />
-                                                <p>{item.estateName}</p>
+                                                <p>{item.residentName}</p>
                                             </div>
                                         ))}
                                     </div>
@@ -530,7 +530,7 @@ const EstateWallet = () => {
                                 <div className='grid gap-8'>
                                     <p>Wallet Balance</p>
                                     <div className='grid gap-4'>
-                                        {estateWalletList.map((item) => (
+                                        {residentWalletList.map((item) => (
                                             <div className='flex items-center gap-2 border-b border-b-color-grey h-[5rem]'>
                                                 <img
                                                     src='/icons/Naira.svg'
@@ -547,16 +547,16 @@ const EstateWallet = () => {
                             <div className='h-full w-[.1rem] bg-color-grey justify-self-center'></div>
                             <div className='grid grid-cols-2 '>
                                 <div className='grid gap-8'>
-                                    <p>Estate List</p>
+                                    <p>Resident List</p>
                                     <div className='grid gap-4'>
-                                        {estateWalletList.map((item) => (
+                                        {residentWalletList.map((item) => (
                                             <div className='flex items-center gap-2 border-b border-b-color-grey h-[5rem]'>
                                                 <img
                                                     src={item.imgUri}
                                                     alt=''
                                                     className='w-[3rem] h-[3rem] object-cover rounded-full'
                                                 />
-                                                <p>{item.estateName}</p>
+                                                <p>{item.residentName}</p>
                                             </div>
                                         ))}
                                     </div>
@@ -564,7 +564,7 @@ const EstateWallet = () => {
                                 <div className='grid gap-8'>
                                     <p>Wallet Balance</p>
                                     <div className='grid gap-4'>
-                                        {estateWalletList.map((item) => (
+                                        {residentWalletList.map((item) => (
                                             <div className='flex items-center gap-2 border-b border-b-color-grey h-[5rem]'>
                                                 <img
                                                     src='/icons/Naira.svg'
@@ -584,13 +584,13 @@ const EstateWallet = () => {
                             <thead>
                                 <tr className='border-b border-b-color-grey'>
                                     <th align='left' className='py-4'>
-                                        Estate Name
+                                        Resident Name
                                     </th>
                                     <th align='left' className='py-4'>
                                         Wallet Balance
                                     </th>
                                     <th align='left' className='py-4'>
-                                        Estate Name
+                                        Resident Name
                                     </th>
                                     <th align='left' className='py-4'>
                                         Wallet Balance
@@ -598,7 +598,7 @@ const EstateWallet = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {estateWalletList.map((item, index) => (
+                                {residentWalletList.map((item, index) => (
                                     <tr className='border-b'>
                                         <td>
                                             <div className='flex items-center gap-2  h-[5rem]'>
@@ -607,7 +607,7 @@ const EstateWallet = () => {
                                                     alt=''
                                                     className='w-[3rem] h-[3rem] object-cover rounded-full'
                                                 />
-                                                <p>{item.estateName}</p>
+                                                <p>{item.residentName}</p>
                                             </div>{' '}
                                         </td>
                                         <td>
@@ -627,7 +627,7 @@ const EstateWallet = () => {
                                                     alt=''
                                                     className='w-[3rem] h-[3rem] object-cover rounded-full'
                                                 />
-                                                <p>{item.estateName}</p>
+                                                <p>{item.residentName}</p>
                                             </div>{' '}
                                         </td>
                                         <td>
@@ -736,7 +736,7 @@ const EstateWallet = () => {
                                         type='checkbox'
                                         className='cursor-pointer'
                                     />
-                                    <p>Estate Name</p>
+                                    <p>Resident Name</p>
                                 </p>
                                 <p>Time</p>
                                 <p>Date</p>
@@ -756,7 +756,7 @@ const EstateWallet = () => {
                                             (
                                                 {
                                                     id,
-                                                    estateName,
+                                                    residentName,
                                                     time,
                                                     date,
                                                     status,
@@ -778,7 +778,7 @@ const EstateWallet = () => {
                                                             />
 
                                                             <span>
-                                                                {estateName}
+                                                                {residentName}
                                                             </span>
                                                         </p>
                                                         <p>{time}</p>
@@ -982,4 +982,4 @@ const EstateWallet = () => {
     )
 }
 
-export default EstateWallet
+export default ResidentWallet

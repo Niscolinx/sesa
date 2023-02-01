@@ -12,6 +12,8 @@ import Overview from '../pages/dashboard/Overview'
 
 import 'react-loading-skeleton/dist/skeleton.css'
 import { SkeletonTheme } from 'react-loading-skeleton'
+  import 'react-toastify/dist/ReactToastify.css'
+
 
 import EstateDetails from '../pages/dashboard/Estate/EstateDetails'
 import EstateReport from '../pages/dashboard/Estate/EstateReport'
@@ -26,6 +28,8 @@ import SecurityCompanyDetail from '../components/securityCompany/SecurityCompany
 import Wallet from '../pages/dashboard/Wallet'
 import EstateWallet from '../pages/dashboard/Wallet/EstateWallet'
 import EstateWalletDetails from '../components/wallet/EstateWalletDetails'
+import ResidentWallet from '../pages/dashboard/Wallet/ResidentWallet'
+import ResidentWalletDetails from '../components/wallet/ResidentWalletDetails'
 
 const router = createBrowserRouter(
     createRoutesFromElements([
@@ -52,6 +56,8 @@ const router = createBrowserRouter(
             <Route path='wallet' element={<Wallet/>} />
             <Route path='wallet/estate' element={<EstateWallet/>} />
             <Route path='wallet/estate/:id' element={<EstateWalletDetails/>} />
+            <Route path='wallet/resident' element={<ResidentWallet/>} />
+            <Route path='wallet/resident/:id' element={<ResidentWalletDetails/>} />
         </Route>,
         <Route path='*' element={<Navigate to='/' />} />,
     ])
