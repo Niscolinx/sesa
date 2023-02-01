@@ -13,7 +13,7 @@ type OverviewWallet = {
      amount,
      title,
      bgColor = 'bg-[#5c8bff]',
-     lefIconUri = '/icons/overview/card/cardLeft.svg',
+     lefIconUri = '/icons/overview/card/leftR.svg',
      bgImgUri = '/icons/overview/card/bgR.svg',
 
  }) => {
