@@ -365,8 +365,8 @@ const EtrendWallet = () => {
                     </div>
                 </div>
                 <div>
-                    <div className='grid text-[1.6rem] p-10 gap-[3rem]'>
-                        <div className='flex w-full items-center gap-12  bg-white rounded-lg '>
+                    <div className='grid text-[1.6rem]  gap-[3rem]'>
+                        <div className='flex w-full items-center gap-12  bg-white rounded-lg  '>
                             <p className=' font-bold'>
                                 Estate List <span>(200)</span>
                             </p>
@@ -383,7 +383,7 @@ const EtrendWallet = () => {
                                 />
                             </div>
                         </div>
-                        <div className='columns-2 border-t border-t-color-grey'>
+                        <div className='columns-2 border-t border-t-color-grey p-10'>
                             <div className='columns-2'>
                                 <div>
                                     <p>Estate List</p>
@@ -403,7 +403,7 @@ const EtrendWallet = () => {
                         </div>
                     </div>
                     <div className='grid text-[1.6rem]'>
-                        <div className='flex w-full items-center gap-12 p-10 bg-white rounded-lg'>
+                        <div className='flex w-full items-center gap-12 bg-white rounded-lg'>
                             <p className=' font-bold'>
                                 Resident User History <span>(10)</span>
                             </p>
