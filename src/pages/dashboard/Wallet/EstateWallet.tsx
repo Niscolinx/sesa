@@ -364,7 +364,7 @@ const EtrendWallet = () => {
                         <WalletBarChart />
                     </div>
                 </div>
-                <div className='border-t border-t-color-grey'>
+                <div>
                     <div className='grid text-[1.6rem] p-10 gap-[3rem]'>
                         <div className='flex w-full items-center gap-12  bg-white rounded-lg '>
                             <p className=' font-bold'>
@@ -379,7 +379,7 @@ const EtrendWallet = () => {
                                 <input
                                     type='text'
                                     placeholder='Search Parameters'
-                                    className='pl-16 w-[30rem] rounded-lg border border-color-blue-light appearance-none outline-none p-4'
+                                    className='pl-16 w-[25rem] rounded-lg border border-color-blue-light appearance-none outline-none p-4'
                                 />
                             </div>
                         </div>
