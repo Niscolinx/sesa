@@ -62,7 +62,7 @@ const EtrendWallet = () => {
                                 </div>
 
                                 {toggleTrendMenu && (
-                                    <div className='absolute top-[8rem]  left-0 border border-color-primary-light w-[24rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
+                                    <div className='absolute top-[8rem]  left-0 border border-color-primary-light w-[30rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
                                         {trend.map((item, index) => (
                                             <p
                                                 className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
