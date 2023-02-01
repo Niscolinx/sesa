@@ -509,7 +509,7 @@ const EstateWallet = () => {
                             </thead>
                             <tbody>
                                 {estateWalletList.map((item, index) => (
-                                    <tr className='border-b border-r'>
+                                    <tr className='border-b'>
                                         <td>
                                             <div className='flex items-center gap-2  h-[5rem]'>
                                                 <img
