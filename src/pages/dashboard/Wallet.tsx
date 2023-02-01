@@ -21,8 +21,8 @@ const Wallet = () => {
     return (
         <div>
             <h1 className='heading2'>Wallet</h1>
-            <div className='bg-white grid mt-12 py-10 gap-8 h-[80vh]'>
-                <div className='flex justify-around items-center max-w-[90rem] mx-auto'>
+            <div className='bg-white grid mt-12 py-10 gap-8 rounded-lg'>
+                <div className='flex items-center max-w-[90rem] mx-auto gap-10'>
                     <div>
                         <p className='text-[1.6rem] font-semibold'>
                             Total Balance (Pool Wallet)
@@ -66,10 +66,10 @@ const Wallet = () => {
                     </ul>
                 </div>
                 <div
-                    className='grid max-w-[80rem] gap-10 mx-auto'
+                    className='grid max-w-[90rem] gap-10 mx-auto'
                     style={{
                         gridTemplateColumns:
-                            'repeat(auto-fit, minmax(30rem, 1fr))',
+                            'repeat(auto-fit, minmax(35rem, 1fr))',
                     }}
                 >
                     <OverviewWallet
