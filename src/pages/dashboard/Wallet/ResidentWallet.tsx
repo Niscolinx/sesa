@@ -672,9 +672,9 @@ const ResidentWallet = () => {
                                         type='checkbox'
                                         className='cursor-pointer'
                                     />
-                                    <p>Resident Name</p>
+                                    <p>Date</p>
                                 </p>
-                                <p>Time</p>
+                                <p>Transaction Type</p>
                                 <p>Date</p>
                                 <p>Status</p>
                                 <p>Description</p>
@@ -714,26 +714,30 @@ const ResidentWallet = () => {
                                                                 className='cursor-pointer'
                                                             />
 
-                                                            <span>
-                                                                {date}
-                                                            </span>
+                                                            <span>{date}</span>
                                                         </p>
-                                                        <p>{time}</p>
-                                                        <p>{date}</p>
                                                         <p>
-                                                            {transactionType ===                                             'Credit' ? (
+                                                            {transactionType ===
+                                                            'Credit' ? (
                                                                 <span className='text-green-600'>
-                                                                    {transactionType}
+                                                                    {
+                                                                        transactionType
+                                                                    }
                                                                 </span>
                                                             ) : (
                                                                 <span className='text-red-600'>
-                                                                    {transactionType}
+                                                                    {
+                                                                        transactionType
+                                                                    }
                                                                 </span>
                                                             )}
                                                         </p>
                                                         <p>
-                                                            {transactionCategory}
+                                                            {
+                                                                transactionCategory
+                                                            }
                                                         </p>
+                                                        <p>{transactionId}</p>
                                                         <p className='flex items-center gap-.5'>
                                                             <img
                                                                 src='/icons/Naira.svg'
@@ -741,6 +745,16 @@ const ResidentWallet = () => {
                                                             />
                                                             <span>
                                                                 {amount}
+                                                            </span>
+                                                        </p>
+                                                        <p>{time}</p>
+                                                        <p className='flex items-center gap-.5'>
+                                                            <img
+                                                                src='/icons/Naira.svg'
+                                                                alt=''
+                                                            />
+                                                            <span>
+                                                                {balance}
                                                             </span>
                                                         </p>
 
