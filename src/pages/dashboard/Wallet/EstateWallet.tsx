@@ -11,8 +11,8 @@ type Trend = 'This Week' | 'This Month' | 'This Year'
 
 export interface IWithdrawalHistory {
     id: string
-    time: Date
-    date: Date
+    time: string
+    date: string
     estateName: string
     status: 'Pending' | 'Denied' | 'Successful'
     description: string
@@ -31,8 +31,8 @@ type SortBy = 'A-Z' | 'date'
 export const WITHDRAWAL_HISTORY: IWithdrawalHistory[] = [
     {
         id: '1',
-        time: new Date(),
-        date: new Date(),
+        time: '3:18pm',
+        date: '02-May-2022',
         estateName: 'Thomas Estate',
         status: 'Denied',
         description: 'Ago palace funding and request',
@@ -515,7 +515,7 @@ const EstateWallet = () => {
 
                         <div className='grid'>
                             <div
-                                className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-9 gap-8'
+                                className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-7 gap-8'
                                 style={{
                                     fontSize: '1.4rem',
                                 }}
@@ -532,7 +532,7 @@ const EstateWallet = () => {
                                 <p>Status</p>
                                 <p>Description</p>
                                 <p>Amount</p>
-                                <p>Wallet Balance</p>
+                                <p>Actions</p>
                             </div>
 
                             <div className='grid gap-8 mt-8 p-8'>
@@ -559,7 +559,7 @@ const EstateWallet = () => {
                                                     index,
                                                 } = toggleDropDown
                                                 return (
-                                                    <div className='grid justify-between border-b grid-cols-9 gap-8 '>
+                                                    <div className='grid justify-between border-b grid-cols-7 gap-8 '>
                                                         <p className='flex items-center gap-4'>
                                                             {id}
                                                             <input
@@ -571,8 +571,8 @@ const EstateWallet = () => {
                                                                 {estateName}
                                                             </span>
                                                         </p>
-                                                        <p>{time.getTime()}</p>
-                                                        <p>{date.toDateString()}</p>
+                                                        <p>{time}</p>
+                                                        <p>{date}</p>
                                                         <p>{status === 'Denied' ? (
                                                             <span className='text-red-600'>
                                                                 {status}
