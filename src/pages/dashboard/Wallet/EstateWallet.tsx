@@ -405,7 +405,7 @@ const EstateWallet = () => {
                     </div>
                 </div>
                 <div>
-                    <div className='grid text-[1.6rem]  gap-[3rem]'>
+                    <div className='grid text-[1.6rem] gap-[3rem]'>
                         <div className='flex w-full items-center gap-12  bg-white rounded-lg  '>
                             <p className=' font-bold'>
                                 Estate List <span>(200)</span>
@@ -501,10 +501,18 @@ const EstateWallet = () => {
                         <table>
                             <thead>
                                 <tr className='border-b border-b-color-grey'>
-                                    <th align="left" className='py-4'>Estate Name</th>
-                                    <th align="left" className='py-4'>Wallet Balance</th>
-                                    <th align="left" className='py-4'>Estate Name</th>
-                                    <th align="left" className='py-4'>Wallet Balance</th>
+                                    <th align='left' className='py-4'>
+                                        Estate Name
+                                    </th>
+                                    <th align='left' className='py-4'>
+                                        Wallet Balance
+                                    </th>
+                                    <th align='left' className='py-4'>
+                                        Estate Name
+                                    </th>
+                                    <th align='left' className='py-4'>
+                                        Wallet Balance
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -549,11 +557,13 @@ const EstateWallet = () => {
                                                 {item.amount.toLocaleString()}
                                             </div>
                                         </td>
-                                      
                                     </tr>
                                 ))}
                             </tbody>
                         </table>
+                        <button className='text-[1.4rem] place-self-end text-[#0660FE]'>
+                            View More
+                        </button>
                     </div>
                     <div className='grid text-[1.6rem]'>
                         <div className='flex w-full items-center gap-12 bg-white rounded-lg'>
