@@ -1,21 +1,16 @@
-
 import React from 'react'
 
 import OverviewChart from '../../components/overview/OverviewChart'
 
-import  {
-    OverviewWallet,
-} from '../../components/overview/OverviewWallets'
+import { OverviewWallet } from '../../components/overview/OverviewWallets'
 import { TbCurrencyNaira } from 'react-icons/tb'
 
 export const overviewChart_data = [
-    { name: 'Resident Wallet', value: 10 },
-    { name: 'Security Company Wallet', value: 10 },
-    { name: 'Estate Wallet', value: 45 },
-    { name: 'Commission Wallet', value: 17 },
+    { name: 'Resident Wallet', value: 10, color: '#23C375' },
+    { name: 'Estate Wallet', value: 45, color: '#EA0B90' },
+    { name: 'Security Company Wallet', value: 10, color: '#098DFF' },
+    { name: 'Commission Wallet', value: 17, color: '#404243' },
 ]
-
-export const overviewChart_colors = ['#EA0B90', '#23C375', '#098DFF', '#404243']
 
 const Wallet = () => {
     return (
@@ -36,12 +31,12 @@ const Wallet = () => {
                         <OverviewChart />
 
                         <div className='overviewChart__label'>
-                            <p className='overviewChart__label--percentage'>
-                                hee
+                            <p className='text-[3.4rem] font-bold relative'>
+                                45
                                 <span>%</span>
                             </p>
-                            <p className='overviewChart__label--title'>
-                                jsdsdd
+                            <p className='text-[1rem] max-w-[9.8rem]'>
+                                Resident Wallet
                             </p>
                         </div>
                     </div>
