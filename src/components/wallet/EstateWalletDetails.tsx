@@ -143,29 +143,13 @@ const EstateWalletDetails = () => {
                         />
                     </div>
                 </div>
+               
                 <div className='w-full grid gap-4'>
                     <label
                         htmlFor='description'
                         className='text-[1.4rem] font-semibold'
                     >
-                        Status
-                    </label>
-
-                    <input
-                        disabled
-                        type='text'
-                        required
-                        id='description'
-                        className='border pl-8 border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] disabled:text-gray-500 disabled:cursor-not-allowed'
-                        value={'Active'}
-                    />
-                </div>
-                <div className='w-full grid gap-4'>
-                    <label
-                        htmlFor='description'
-                        className='text-[1.4rem] font-semibold'
-                    >
-                        Naration
+                        Narration
                     </label>
                   
                         <input
@@ -174,7 +158,7 @@ const EstateWalletDetails = () => {
                             required
                             id='description'
                             className='border pl-8 border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] disabled:text-gray-500 disabled:cursor-not-allowed'
-                            value={6000}
+                            value={'narration of the transaction'}
                         />
                 </div>
             </section>
