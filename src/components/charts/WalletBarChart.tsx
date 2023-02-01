@@ -35,7 +35,7 @@ const data = [
 export default function WalletBarChart() {
     return (
         <BarChart
-            width={800}
+            width={600}
             height={300}
             data={data}
             margin={{
@@ -55,7 +55,7 @@ export default function WalletBarChart() {
             />
             <Tooltip />
 
-            <Bar dataKey='pv' fill='#08D231' />
+            <Bar dataKey='pv' fill='#08D231' barSize={40} />
         </BarChart>
     )
 }
