@@ -22,10 +22,10 @@ export interface IResidentUserHistory {
     status: 'active' | 'inactive'
 }
 
-interface EstateList {
+interface EstateWalletList {
     id: string
     estateName: string
-    amount: number,
+    amount: number
     imgUri: string
 }
 
@@ -315,36 +315,36 @@ const EstateWallet = () => {
         })
     }
 
-    const estateList:EstateList[] = [
+    const estateWalletList: EstateWalletList[] = [
         {
             id: '1',
             estateName: 'Peace Estate',
             amount: 5000,
-            imgUri: '/img/estate/estate1.png',
+            imgUri: '/img/estate1.png',
         },
         {
             id: '2',
             estateName: 'Peace Estate',
             amount: 5000,
-            imgUri: '/img/estate/estate1.png',
+            imgUri: '/img/estate1.png',
         },
         {
             id: '3',
             estateName: 'Peace Estate',
             amount: 5000,
-            imgUri: '/img/estate/estate1.png',
+            imgUri: '/img/estate1.png',
         },
         {
             id: '4',
             estateName: 'Peace Estate',
             amount: 5000,
-            imgUri: '/img/estate/estate1.png',
+            imgUri: '/img/estate1.png',
         },
         {
             id: '5',
             estateName: 'Peace Estate',
             amount: 5000,
-            imgUri: '/img/estate/estate1.png',
+            imgUri: '/img/estate1.png',
         },
     ]
     return (
@@ -425,19 +425,67 @@ const EstateWallet = () => {
                         </div>
                         <div className='columns-2 border-t border-t-color-grey p-10'>
                             <div className='columns-2'>
-                                <div>
+                                <div className='grid'>
                                     <p>Estate List</p>
+                                    <div className='grid gap-4'>
+                                        {estateWalletList.map((item) => (
+                                            <div className='flex items-center gap-4'>
+                                                <img
+                                                    src={item.imgUri}
+                                                    alt=''
+                                                    className='w-[3rem] h-[3rem] object-cover rounded-full'
+                                                />
+                                                <p>{item.estateName}</p>
+                                            </div>
+                                        ))}
+                                    </div>
                                 </div>
-                                <div>
+                                <div className='grid'>
                                     <p>Wallet Balance</p>
+                                    <div className='grid gap-4'>
+                                        {estateWalletList.map((item) => (
+                                            <div className='flex items-center gap-4'>
+                                                <img
+                                                    src={item.imgUri}
+                                                    alt=''
+                                                    className='w-[3rem] h-[3rem] object-cover rounded-full'
+                                                />
+                                                <p>{item.estateName}</p>
+                                            </div>
+                                        ))}
+                                    </div>
                                 </div>
                             </div>
                             <div className='columns-2'>
-                                <div>
+                                <div className='grid'>
                                     <p>Estate List</p>
+                                    <div className='grid gap-4'>
+                                        {estateWalletList.map((item) => (
+                                            <div className='flex items-center gap-4'>
+                                                <img
+                                                    src={item.imgUri}
+                                                    alt=''
+                                                    className='w-[3rem] h-[3rem] object-cover rounded-full'
+                                                />
+                                                <p>{item.estateName}</p>
+                                            </div>
+                                        ))}
+                                    </div>
                                 </div>
-                                <div>
-                                    <p>Wallet Balance</p>
+                                <div className='grid'>
+                                    <p>Estate List</p>
+                                    <div className='grid gap-4'>
+                                        {estateWalletList.map((item) => (
+                                            <div className='flex items-center gap-4'>
+                                                <img
+                                                    src={item.imgUri}
+                                                    alt=''
+                                                    className='w-[3rem] h-[3rem] object-cover rounded-full'
+                                                />
+                                                <p>{item.estateName}</p>
+                                            </div>
+                                        ))}
+                                    </div>
                                 </div>
                             </div>
                         </div>
