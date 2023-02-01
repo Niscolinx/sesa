@@ -468,7 +468,7 @@ const EstateWallet = () => {
                     <div className='grid text-[1.6rem]'>
                         <div className='flex w-full items-center gap-12 bg-white rounded-lg'>
                             <p className=' font-bold'>
-                                Resident User History <span>(10)</span>
+                                Withdrawal History <span>(10)</span>
                             </p>
                             <div className='relative flex items-center'>
                                 <img
@@ -559,9 +559,8 @@ const EstateWallet = () => {
                                                     index,
                                                 } = toggleDropDown
                                                 return (
-                                                    <div className='grid justify-between border-b grid-cols-7 gap-8 '>
+                                                    <div className='grid justify-between border-b grid-cols-7 gap-8 items-center'>
                                                         <p className='flex items-center gap-4'>
-                                                            {id}
                                                             <input
                                                                 type='checkbox'
                                                                 className='cursor-pointer'
