@@ -510,7 +510,7 @@ const EstateWallet = () => {
                                     <th align='left' className='py-4'>
                                         Estate Name
                                     </th>
-                                    <th align='left' className='py-4'>
+                                    <th align='right' className='py-4'>
                                         Wallet Balance
                                     </th>
                                 </tr>
@@ -561,7 +561,7 @@ const EstateWallet = () => {
                                 ))}
                             </tbody>
                         </table>
-                        <button className='text-[1.4rem] place-self-end text-[#0660FE]'>
+                        <button className='text-[1.6rem] place-self-end text-[#0660FE] font-semibold'>
                             View More
                         </button>
                     </div>
