@@ -20,19 +20,23 @@ const data = [
     {
         name: 'Thur',
         pv: 15_000,
+        amt: 15_000,
     },
     {
         name: 'Fri',
         pv: 10_000,
+        amt: 10_000,
         
     },
     {
         name: 'Sat',
         pv: 5_000,
+        amt: 5_000,
     },
     {
         name: 'Sun',
         pv: 0,
+        amt: 0,
     },
 ]
 
