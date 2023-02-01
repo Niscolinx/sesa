@@ -1,13 +1,11 @@
-import { Swiper, SwiperRef, SwiperSlide } from 'swiper/react'
-import { Autoplay, Pagination } from 'swiper'
-import React, { MutableRefObject, useEffect, useRef, useState } from 'react'
+
+import React from 'react'
 
 import OverviewChart from '../../components/overview/OverviewChart'
-import OverviewCards from '../../components/overview/OverviewCards'
-import OverviewWallets, {
+
+import  {
     OverviewWallet,
 } from '../../components/overview/OverviewWallets'
-import OverviewWalletNav from '../../components/overview/OverviewWalletNav'
 import { TbCurrencyNaira } from 'react-icons/tb'
 
 export const overviewChart_data = [
@@ -23,14 +21,14 @@ const Wallet = () => {
     return (
         <div>
             <h1 className='heading2'>Wallet</h1>
-            <div className='bg-white grid mt-12 overflow-scroll gap-8'>
-                <div className='overviewChart'>
+            <div className='bg-white grid mt-12 py-10 gap-8 h-[80vh]'>
+                <div className='flex justify-around items-center max-w-[90rem] mx-auto'>
                     <div>
                         <p className='text-[1.6rem] font-semibold'>
                             Total Balance (Pool Wallet)
                         </p>
-                        <h1 className='text-[3rem] font-bold flex'>
-                            <TbCurrencyNaira />
+                        <h1 className='text-[3rem] font-bold flex items-center gap-0'>
+                            <TbCurrencyNaira className='text-[3rem]' />
                             800,836,709.74
                         </h1>
                     </div>
