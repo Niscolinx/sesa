@@ -105,6 +105,7 @@ export const WITHDRAWAL_HISTORY: IWithdrawalHistory[] = [
 
 const EstateWallet = () => {
     const trend: Array<Trend> = ['This Week', 'This Month', 'This Year']
+    const [isWarning, setIsWarning] = useState(true)
 
     const [togglEstateMenu, setTogglEstateMenu] = useState(false)
     const [selectedTrend, setSelectedTrend] = useState<Trend>('This Week')
@@ -116,8 +117,9 @@ const EstateWallet = () => {
         setTogglEstateMenu(false)
     }
 
-    const [fetchedWithdrawalHistory, setFetchedWithdrawalHistory] =
-        useState<IWithdrawalHistory[]>([])
+    const [fetchedWithdrawalHistory, setFetchedWithdrawalHistory] = useState<
+        IWithdrawalHistory[]
+    >([])
 
     useEffect(() => {
         const fetchData = async () => {
@@ -132,12 +134,7 @@ const EstateWallet = () => {
 
     type Actions = 'View Details' | 'Approve' | 'Deny'
 
-    const actions = [
-        'View Details',
-        'Approve',
-        'Deny',
-    ] satisfies Actions[]
-
+    const actions = ['View Details', 'Approve', 'Deny'] satisfies Actions[]
 
     const [toggleDropDown, setToggleDropDown] = useState<{
         isDropDownOpen: boolean
@@ -159,10 +156,7 @@ const EstateWallet = () => {
         })
     }
 
-    const selectAction = (
-        e: React.MouseEvent,
-        item: string,
-    ) => {
+    const selectAction = (e: React.MouseEvent, item: string) => {
         if (item === 'View Details') {
             navigate('/dashboard/wallet/estate/:id')
         }
@@ -179,8 +173,8 @@ const EstateWallet = () => {
     }
 
     const [toggleSortMenu, setToggleSortMenu] = useState(false)
-    const itemsPerPageArr =  [2, 4, 6, 8]
-    
+    const itemsPerPageArr = [2, 4, 6, 8]
+
     const [selectedSort, setSelectedSort] = useState<SortBy | null>(null)
     const [paginate, setPaginate] = useState<Paginate>({
         index: 0,
@@ -267,7 +261,6 @@ const EstateWallet = () => {
     const { currentPage, slicedPages, itemsPerPage } = paginate
 
     const jumpToPage = (e: React.MouseEvent, index: number) => {
-
         setPaginate((prev) => {
             return {
                 ...prev,
@@ -310,67 +303,102 @@ const EstateWallet = () => {
         },
     ]
 
-     const dialogRef = useRef<HTMLDialogElement | null>(null)
+    const dialogRef = useRef<HTMLDialogElement | null>(null)
 
-     const handleClose = () => {
-         if (dialogRef.current) {
-             dialogRef.current.close()
-         }
-     }
+    const handleClose = () => {
+        if (dialogRef.current) {
+            dialogRef.current.close()
+        }
+    }
 
-     const handleOpen = () => {
-         if (dialogRef.current) {
-             dialogRef.current.showModal()
-         }
-     }
+    const handleOpen = (modalState: 'warning' | 'success') => {
+        if (modalState === 'warning') {
+            setIsWarning(true)
+        } else {
+            setIsWarning(false)
+        }
 
-     const handleRouteChange = () => {
-         handleClose()
-     }
+        if (dialogRef.current) {
+            dialogRef.current.showModal()
+        }
+    }
 
-     const handleSelectedAction = (item: string, index: string) => {
-         console.log({ item, index })
+    const confirmDeactivation = () => {
+        handleClose()
+    }
 
-         setToggleDropDown(() => {
-             return {
-                 isDropDownOpen: false,
-                 index: null,
-             }
-         })
+    const handleSelectedAction = (item: Actions, index: string) => {
+        console.log({ item, index })
 
-         if (item === 'View Details') {
-             navigate(`/dashboard/wallet/estate/:${index}`)
-         }
+        setToggleDropDown(() => {
+            return {
+                isDropDownOpen: false,
+                index: null,
+            }
+        })
 
-         if (item === 'Deactivate') {
-             handleOpen()
-         }
-     }
+        if (item === 'View Details') {
+            navigate(`/dashboard/wallet/estate/:${index}`)
+        }
+
+        if (item === 'Approve') {
+            handleOpen('success')
+        }
+    }
 
     return (
         <div>
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
-                    <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
-                        <img src='/icons/admins/modalWarning.svg' alt='' />
-                        <p>
-                            Are you sure you want to deactivate this security
-                            company?
-                        </p>
+                    <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8 text-[1.6rem]'>
+                        {isWarning ? (
+                            <img src='/icons/admins/modalWarning.svg' alt='' />
+                        ) : (
+                            <img src='/icons/admins/modalSuccess.svg' alt='' />
+                        )}
+
+                        {isWarning ? (
+                            <p>
+                                Are you sure you want to deactivate this
+                                security company?
+                            </p>
+                        ) : (
+                            <p>
+                                You have successfully added a security Company
+                            </p>
+                        )}
 
                         <div className='flex w-full justify-center gap-8'>
-                            <button
-                                className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
-                                onClick={() => handleClose()}
-                            >
-                                Cancel
-                            </button>
-                            <button
-                                className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
-                                onClick={handleRouteChange}
-                            >
-                                Deactivate
-                            </button>
+                            {isWarning ? (
+                                <button
+                                    className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
+                                    onClick={() => handleClose()}
+                                >
+                                    Cancel
+                                </button>
+                            ) : (
+                                <button
+                                    className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
+                                    onClick={() => handleClose()}
+                                >
+                                    View Details
+                                </button>
+                            )}
+                            {isWarning ? (
+                                <button
+                                    className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
+                                    onClick={confirmDeactivation}
+                                >
+                                    Deactivate
+                                </button>
+                            ) : (
+                                <button
+                                    className='btn text-white bg-[#0556E5] border rounded-lg w-[15rem]'
+                                    onClick={() => handleClose()}
+                                >
+                                    View Details
+                                </button>
+                            )}
                         </div>
                     </div>
                 </section>
