@@ -22,6 +22,13 @@ export interface IResidentUserHistory {
     status: 'active' | 'inactive'
 }
 
+interface EstateList {
+    id: string
+    estateName: string
+    amount: number,
+    imgUri: string
+}
+
 type SortBy = 'A-Z' | 'date'
 
 export const RESIDENT_HISTORY: IResidentUserHistory[] = [
@@ -307,6 +314,39 @@ const EtrendWallet = () => {
             }
         })
     }
+
+    const estateList:EstateList[] = [
+        {
+            id: '1',
+            estateName: 'Peace Estate',
+            amount: 5000,
+            imgUri: '/img/estate/estate1.png',
+        },
+        {
+            id: '2',
+            estateName: 'Peace Estate',
+            amount: 5000,
+            imgUri: '/img/estate/estate1.png',
+        },
+        {
+            id: '3',
+            estateName: 'Peace Estate',
+            amount: 5000,
+            imgUri: '/img/estate/estate1.png',
+        },
+        {
+            id: '4',
+            estateName: 'Peace Estate',
+            amount: 5000,
+            imgUri: '/img/estate/estate1.png',
+        },
+        {
+            id: '5',
+            estateName: 'Peace Estate',
+            amount: 5000,
+            imgUri: '/img/estate/estate1.png',
+        },
+    ]
     return (
         <div>
             <h1 className='heading2'>Estate Wallet</h1>
