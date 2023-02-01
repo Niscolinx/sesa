@@ -82,7 +82,7 @@ const Wallet = () => {
                         isWalletScreen
                         bgImgUri='/icons/overview/card/bgE.svg'
                         lefIconUri='/icons/overview/card/leftE.svg'
-                        bgColor='bg-[#1785F8]'
+                        bgColor='bg-[#97346F]'
                     />
                     <OverviewWallet
                         amount={4_000_832}
