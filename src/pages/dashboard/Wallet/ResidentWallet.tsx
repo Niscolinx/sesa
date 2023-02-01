@@ -675,10 +675,11 @@ const ResidentWallet = () => {
                                     <p>Date</p>
                                 </p>
                                 <p>Transaction Type</p>
-                                <p>Date</p>
-                                <p>Status</p>
-                                <p>Description</p>
+                                <p>Transaction Category</p>
+                                <p>Transaction ID</p>
                                 <p>Amount</p>
+                                <p>Time</p>
+                                <p>Balance</p>
                                 <p>Actions</p>
                             </div>
 
