@@ -361,7 +361,9 @@ const EstateWallet = () => {
                             <img src='/icons/admins/modalSuccess.svg' alt='' />
                         )}
                         {isWarning && (
-                            <p className='font-bold text-[2rem]'>Denial Confirmation</p>
+                            <p className='font-bold text-[1.8rem]' style={{
+                                fontFamily: 'Satoshi-Medium'
+                            }}>Denial Confirmation</p>
                         )}
 
                         {isWarning ? (
