@@ -11,7 +11,9 @@ type Trend = 'This Week' | 'This Month' | 'This Year'
 
 export interface IWithdrawalHistory {
     id: string
-
+    time: Date
+    Date: Date
+    
     status: 'Pending' | 'Denied' | 'Successful'
 }
 
