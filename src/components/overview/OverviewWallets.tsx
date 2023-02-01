@@ -7,6 +7,7 @@ type OverviewWallet = {
     bgImgUri?: string
     lefIconUri?: string
     bgColor?: string
+    isWalletScreen?: boolean
 }
 
  export const OverviewWallet: FC<OverviewWallet> = ({
@@ -15,6 +16,7 @@ type OverviewWallet = {
      bgColor = 'bg-[#5c8bff]',
      lefIconUri = '/icons/overview/card/leftR.svg',
      bgImgUri = '/icons/overview/card/bgR.svg',
+        isWalletScreen = false,
 
  }) => {
      const formattedAmount = new Intl.NumberFormat('en-US', {
@@ -27,7 +29,7 @@ type OverviewWallet = {
      const fraction = splittedAmount[1]
 
      return (
-         <div className={`overviewWallet relative overflow-hidden ${bgColor} h-[14rem]`}>
+         <div className={`overviewWallet relative overflow-hidden ${bgColor} ${isWalletScreen ? 'h-[20rem]' : 'h-[14rem]'}`}>
              <img
                  src={bgImgUri}
                  alt=''
