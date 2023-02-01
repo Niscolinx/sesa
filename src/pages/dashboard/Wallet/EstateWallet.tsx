@@ -144,17 +144,17 @@ export const RESIDENT_HISTORY: IResidentUserHistory[] = [
     },
 ]
 
-const EtrendWallet = () => {
+const EstateWallet = () => {
     const trend: Array<Trend> = ['This Week', 'This Month', 'This Year']
 
-    const [toggleTrendMenu, setToggleTrendMenu] = useState(false)
+    const [togglEstateMenu, setTogglEstateMenu] = useState(false)
     const [selectedTrend, setSelectedTrend] = useState<Trend>('This Week')
 
-    const trendMenuToggler = () => setToggleTrendMenu(!toggleTrendMenu)
+    const trendMenuToggler = () => setTogglEstateMenu(!togglEstateMenu)
 
     const handleSelectedTrend = (item: Trend) => {
         setSelectedTrend(item)
-        setToggleTrendMenu(false)
+        setTogglEstateMenu(false)
     }
 
     const [fetchedResidentUserHistory, setFetchedResidentUserHistory] =
@@ -377,14 +377,14 @@ const EtrendWallet = () => {
                                     >
                                         {selectedTrend}
                                     </p>
-                                    {toggleTrendMenu ? (
+                                    {togglEstateMenu ? (
                                         <GrUp className='absolute right-4' />
                                     ) : (
                                         <GrDown className='absolute right-4' />
                                     )}
                                 </div>
 
-                                {toggleTrendMenu && (
+                                {togglEstateMenu && (
                                     <div className='absolute top-[8rem]  left-0 border border-color-primary-light  bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
                                         {trend.map((item, index) => (
                                             <p
@@ -724,4 +724,4 @@ const EtrendWallet = () => {
     )
 }
 
-export default EtrendWallet
+export default EstateWallet
