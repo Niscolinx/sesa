@@ -8,14 +8,7 @@ const EstateWalletDetails = () => {
 
     return (
         <div className=' p-8 bg-white h-[80vh] rounded-lg overflow-y-scroll'>
-            <div className='flex justify-end'>
-                <button className='border border-red-600 px-16 py-4 flex items-center  rounded-lg gap-4'>
-                    <img src='/icons/admins/delete.svg' alt='' />
-                    <span className='text-red-600 text-[1.4rem] font-semibold '>
-                        Deactivate
-                    </span>
-                </button>
-            </div>
+            
             <section
                 className='grid max-w-[65vw] gap-16'
                 style={{
@@ -24,16 +17,16 @@ const EstateWalletDetails = () => {
             >
                 <div className='w-full grid gap-4'>
                     <label
-                        htmlFor='packageName'
+                        htmlFor='estateName'
                         className='text-[1.4rem] font-semibold'
                     >
-                        Name of Package
+                        Estate Name
                     </label>
                     <input
                         disabled
                         type='text'
                         required
-                        id='packageName'
+                        id='estateName'
                         className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] disabled:text-gray-500 disabled:cursor-not-allowed'
                         value={'Gold'}
                     />
