@@ -169,12 +169,7 @@ const ResidentWalletDetails = () => {
                     >
                         Narration
                     </label>
-                    <div className='relative flex items-center'>
-                        <img
-                            src='/icons/Naira.svg'
-                            alt=''
-                            className='absolute left-3'
-                        />
+                    
                         <input
                             disabled
                             type='text'
@@ -183,7 +178,7 @@ const ResidentWalletDetails = () => {
                             className='border pl-8 border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] disabled:text-gray-500 disabled:cursor-not-allowed'
                             value={'Product Purchase for 6000'}
                         />
-                    </div>
+              
                 </div>
             </section>
         </div>
