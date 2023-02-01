@@ -37,7 +37,70 @@ export const WITHDRAWAL_HISTORY: IWithdrawalHistory[] = [
         status: 'Denied',
         description: 'Ago palace funding and request',
         amount: 5000,
-    }
+    },
+    {
+        id: '2',
+        time: '4:12pm',
+        date: '04-May-2022',
+        estateName: 'Ahike Estate',
+        status: 'Successful',
+        description: 'Ago palace funding and request',
+        amount: 8000,
+    },
+    {
+        id: '3',
+        time: '4:12pm',
+        date: '04-May-2022',
+        estateName: 'Lekki Estate',
+        status: 'Successful',
+        description: 'Ago palace funding and request',
+        amount: 8000,
+    },
+    {
+        id: '4',
+        time: '4:12pm',
+        date: '04-May-2022',
+        estateName: 'Bavaeri Estate',
+        status: 'Pending',
+        description: 'Ago palace funding and request',
+        amount: 8000,
+    },
+    {
+        id: '5',
+        time: '4:12pm',
+        date: '04-May-2022',
+        estateName: 'Ahike Estate',
+        status: 'Denied',
+        description: 'A canteen funding and request',
+        amount: 8000,
+    },
+    {
+        id: '6',
+        time: '4:12pm',
+        date: '04-May-2022',
+        estateName: 'Ahike Estate',
+        status: 'Successful',
+        description: 'Cool palace funding and request',
+        amount: 8000,
+    },
+    {
+        id: '7',
+        time: '4:12pm',
+        date: '04-May-2022',
+        estateName: 'Ahike Estate',
+        status: 'Pending',
+        description: 'baba palace funding and request',
+        amount: 8000,
+    },
+    {
+        id: '8',
+        time: '4:12pm',
+        date: '04-May-2022',
+        estateName: 'Ahike Estate',
+        status: 'Denied',
+        description: ' Serenity building funding and request',
+        amount: 8000,
+    },
 ]
 
 const EstateWallet = () => {
@@ -119,11 +182,11 @@ const EstateWallet = () => {
     const [itemsPerPage, setItemsPerPage] = useState({
         arr: [2, 4, 6, 8],
     })
-    const [selectedSort, setSelectedSort] = useState<SortBy>('A-Z')
+    const [selectedSort, setSelectedSort] = useState<SortBy | null>(null)
     const [paginate, setPaginate] = useState<Paginate>({
         index: 0,
         currentPage: 1,
-        itemsPerPage: 2,
+        itemsPerPage: 6,
 
         totalPage: Math.ceil(fetchedWithdrawalHistory.length / 2),
         slicedPages: null,
@@ -465,7 +528,7 @@ const EstateWallet = () => {
                             View More
                         </button>
                     </div>
-                    <div className='grid text-[1.6rem]'>
+                    <div className='grid text-[1.6rem] gap-10'>
                         <div className='flex w-full items-center gap-12 bg-white rounded-lg'>
                             <p className=' font-bold'>
                                 Withdrawal History <span>(10)</span>
@@ -479,7 +542,7 @@ const EstateWallet = () => {
                                 <input
                                     type='text'
                                     placeholder='Search Parameters'
-                                    className='pl-16 w-[18rem] rounded-lg border border-color-blue-light appearance-none outline-none p-4'
+                                    className='pl-16 w-[25rem] rounded-lg border border-color-blue-light appearance-none outline-none p-4'
                                 />
                             </div>
                             <div className='relative flex items-center w-[10rem] justify-items-start cursor-pointer'>
@@ -487,7 +550,36 @@ const EstateWallet = () => {
                                     className='border border-color-primary-light p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointe text-left'
                                     onClick={sortMenuToggler}
                                 >
-                                    {selectedSort}
+                                    {selectedSort || 'Today'}
+                                </p>
+
+                                {toggleSortMenu && (
+                                    <div className='absolute top-[5rem]  left-0 border border-color-primary-light w-[10rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
+                                        {sortBy.map((item, index) => (
+                                            <p
+                                                className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer text-left'
+                                                key={index}
+                                                onClick={() =>
+                                                    handleSelectedSort(item)
+                                                }
+                                            >
+                                                {item}
+                                            </p>
+                                        ))}
+                                    </div>
+                                )}
+                                {toggleSortMenu ? (
+                                    <GrUp className='absolute right-4 text-[1.3rem]' />
+                                ) : (
+                                    <GrDown className='absolute right-4 text-[1.3rem]' />
+                                )}
+                            </div>
+                            <div className='relative flex items-center w-[10rem] justify-items-start cursor-pointer'>
+                                <p
+                                    className='border border-color-primary-light p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointe text-left'
+                                    onClick={sortMenuToggler}
+                                >
+                                    {selectedSort || 'Sort By'}
                                 </p>
 
                                 {toggleSortMenu && (
@@ -535,7 +627,7 @@ const EstateWallet = () => {
                                 <p>Actions</p>
                             </div>
 
-                            <div className='grid gap-8 mt-8 p-8'>
+                            <div className='grid gap-8 p-8'>
                                 {paginate.slicedPages &&
                                 paginate.slicedPages.length > 0 ? (
                                     React.Children.toArray(
@@ -559,7 +651,7 @@ const EstateWallet = () => {
                                                     index,
                                                 } = toggleDropDown
                                                 return (
-                                                    <div className='grid justify-between border-b grid-cols-7 gap-8 items-center'>
+                                                    <div className='grid justify-between border-b grid-cols-7 gap-8 items-center py-5'>
                                                         <p className='flex items-center gap-4'>
                                                             <input
                                                                 type='checkbox'
@@ -585,7 +677,7 @@ const EstateWallet = () => {
                                                                 </span>
                                                             )
                                                         }</p>
-                                                        <p>{description}</p>
+                                                        <p className=' overflow-hidden text-ellipsis whitespace-nowrap'>{description}</p>
                                                         <p className='flex items-center gap-.5'>
                                                             <img
                                                                 src='/icons/Naira.svg'
