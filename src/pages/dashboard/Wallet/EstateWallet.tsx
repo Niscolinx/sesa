@@ -385,8 +385,10 @@ const EtrendWallet = () => {
                         <div className='flex'>
                             <div className='columns-2'>
                                        <div>
+                                        <p>Estate List</p>
                                         </div>     
-                                            
+                                        <div>
+                                            </div>    
 
                             </div>
                             <div className='columns-2'>
