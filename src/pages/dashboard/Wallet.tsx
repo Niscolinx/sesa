@@ -39,9 +39,9 @@ const Wallet = () => {
     console.log({ currentSwiperIndex })
 
     return (
-        <div className='overview'>
-            <h1 className='heading2'>Overview</h1>
-            <div className='overview__container'>
+        <div>
+            <h1 className='heading2'>Wallet</h1>
+            <div className='bg-white grid mt-12 justify-center overflow-scroll gap-8'>
                 <section className='overview__right'>
                     {React.Children.toArray(
                         OverviewWallets.map((item) => {
