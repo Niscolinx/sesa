@@ -9,7 +9,7 @@ const EtrendWallet = () => {
     const trend: Array<Trend> = ['This Week', 'This Month', 'This Year']
 
     const [toggleTrendMenu, setToggleTrendMenu] = useState(false)
-    const [selectedTrend, setSelectedTrend] = useState<Trend | null>(null)
+    const [selectedTrend, setSelectedTrend] = useState<Trend>('This Week')
 
     const trendMenuToggler = () => setToggleTrendMenu(!toggleTrendMenu)
 
@@ -41,18 +41,12 @@ const EtrendWallet = () => {
 
                             <div className='relative grid gap-4'>
                                 
-                                <div className='relative flex items-center'>
+                                <div className='relative flex items-center w-[10rem]'>
                                     <p
                                         className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer'
                                         onClick={trendMenuToggler}
                                     >
-                                        {selectedTrend ? (
-                                            selectedTrend
-                                        ) : (
-                                            <span className='text-gray-500'>
-                                               Trend
-                                            </span>
-                                        )}
+                                        {selectedTrend}
                                     </p>
                                     {toggleTrendMenu ? (
                                         <GrUp className='absolute right-4' />
@@ -62,7 +56,7 @@ const EtrendWallet = () => {
                                 </div>
 
                                 {toggleTrendMenu && (
-                                    <div className='absolute top-[8rem]  left-0 border border-color-primary-light w-[30rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
+                                    <div className='absolute top-[8rem]  left-0 border border-color-primary-light  bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
                                         {trend.map((item, index) => (
                                             <p
                                                 className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
