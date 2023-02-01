@@ -59,8 +59,6 @@
             }
         }
     }
-    
-    
 }
 .overviewChart {
     background-color: $color-white;
@@ -86,7 +84,7 @@
 
         &::after {
             content: '';
-            
+
             position: absolute;
             display: grid;
             place-content: center;
@@ -97,7 +95,6 @@
             width: 160px;
             height: 160px;
             box-shadow: 0px 16px 30px rgba(139, 201, 255, 0.17);
-           
         }
     }
 
@@ -131,22 +128,22 @@
             line-height: 1.2rem;
         }
     }
-    &__list{
+    &__list {
         display: grid;
         gap: 1rem;
 
-        &--item{
+        &--item {
             display: flex;
             align-items: center;
             gap: 1rem;
 
-            span{
+            span {
                 width: 1.9rem;
                 height: 1.9rem;
                 border-radius: 50%;
             }
 
-            p{
+            p {
                 font-size: 1.4rem;
             }
         }
@@ -188,15 +185,15 @@
 }
 .overviewWallet {
     color: $color-white;
+    width: 33rem;
     border-radius: $border-radius-lg;
     display: grid;
     justify-content: start;
     padding: 2rem;
     position: relative;
     align-items: flex-end;
-   // background: url(/icons/overview/card/cardT.svg) #5c8bff no-repeat top;
+    // background: url(/icons/overview/card/cardT.svg) #5c8bff no-repeat top;
 
-   
     &__leftIcon {
         position: absolute;
         top: 0;

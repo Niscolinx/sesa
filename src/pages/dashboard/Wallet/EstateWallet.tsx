@@ -14,7 +14,7 @@ export const overviewChart_data = [
 const EstateWallet = () => {
     return (
         <div>
-            <h1 className='heading2'>Wallet</h1>
+            <h1 className='heading2'>Estate Wallet</h1>
             <div className='bg-white grid mt-12 py-10 gap-8 rounded-lg'>
                 <div className=''>
                     <OverviewWallet
