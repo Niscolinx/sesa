@@ -21,9 +21,9 @@ export interface ITransactionHistory {
     balance: number
 }
 
-interface ResidentWalletList {
+interface CommissionWalletList {
     id: string
-    residentName: string
+    commissionName: string
     amount: number
     imgUri: string
 }
@@ -103,18 +103,18 @@ export const TRANSACTION_HISTORY: ITransactionHistory[] = [
     },
 ]
 
-const ResidentWallet = () => {
+const CommissionWallet = () => {
     const trend: Array<Trend> = ['This Week', 'This Month', 'This Year']
     const [isWarning, setIsWarning] = useState(true)
 
-    const [togglResidentMenu, setTogglResidentMenu] = useState(false)
+    const [togglCommissionMenu, setTogglCommissionMenu] = useState(false)
     const [selectedTrend, setSelectedTrend] = useState<Trend>('This Week')
 
-    const menuToggler = () => setTogglResidentMenu(!togglResidentMenu)
+    const menuToggler = () => setTogglCommissionMenu(!togglCommissionMenu)
 
     const handleSelectedTrend = (item: Trend) => {
         setSelectedTrend(item)
-        setTogglResidentMenu(false)
+        setTogglCommissionMenu(false)
     }
 
     const [fetchedTransactionHistory, setFetchedTransactionHistory] = useState<
@@ -158,7 +158,7 @@ const ResidentWallet = () => {
 
     const selectAction = (e: React.MouseEvent, item: string) => {
         if (item === 'View Details') {
-            navigate('/dashboard/wallet/resident/:id')
+            navigate('/dashboard/wallet/commission/:id')
         }
     }
 
@@ -270,34 +270,34 @@ const ResidentWallet = () => {
         })
     }
 
-    const residentWalletList: ResidentWalletList[] = [
+    const commissionWalletList: CommissionWalletList[] = [
         {
             id: '1',
-            residentName: 'Peace Resident',
+            commissionName: 'Peace Commission',
             amount: 5000,
             imgUri: '/img/estate1.png',
         },
         {
             id: '2',
-            residentName: 'Peace Resident',
+            commissionName: 'Peace Commission',
             amount: 5000,
             imgUri: '/img/estate1.png',
         },
         {
             id: '3',
-            residentName: 'Peace Resident',
+            commissionName: 'Peace Commission',
             amount: 5000,
             imgUri: '/img/estate1.png',
         },
         {
             id: '4',
-            residentName: 'Peace Resident',
+            commissionName: 'Peace Commission',
             amount: 5000,
             imgUri: '/img/estate1.png',
         },
         {
             id: '5',
-            residentName: 'Peace Resident',
+            commissionName: 'Peace Commission',
             amount: 5000,
             imgUri: '/img/estate1.png',
         },
@@ -328,6 +328,7 @@ const ResidentWallet = () => {
     }
 
     const handleSelectedAction = (item: Actions, index: string) => {
+        console.log({ item, index })
 
         setToggleDropDown(() => {
             return {
@@ -337,26 +338,105 @@ const ResidentWallet = () => {
         })
 
         if (item === 'View Details') {
-            navigate(`/dashboard/wallet/resident/:${index}`)
+            navigate(`/dashboard/wallet/commission/:${index}`)
         }
 
-       
+        if (item === 'Approve') {
+            handleOpen('success')
+        }
+
+        if (item === 'Deny') {
+            handleOpen('warning')
+        }
     }
 
-   
+    const handleApprove = () => {
+        handleClose()
+
+        toast('Withdrawal Approved Successfully', {
+            type: 'success',
+            position: 'top-right',
+            className: 'bg-green-100 text-green-700 text-[1.4rem] ',
+        })
+    }
 
     return (
         <div>
             <ToastContainer />
 
-           
-            <h1 className='heading2'>Resident Wallet</h1>
+            <dialog className='dialog' ref={dialogRef}>
+                <section className='grid place-content-center w-full h-[100vh]'>
+                    <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] min-h-[30rem] py-10 gap-8 text-[1.6rem]'>
+                        {isWarning ? (
+                            <img src='/icons/admins/modalWarning.svg' alt='' />
+                        ) : (
+                            <img src='/icons/admins/modalSuccess.svg' alt='' />
+                        )}
+                        {isWarning && (
+                            <p
+                                className='font-bold text-[1.8rem]'
+                                style={{
+                                    fontFamily: 'Satoshi-Medium',
+                                }}
+                            >
+                                Denial Confirmation
+                            </p>
+                        )}
+
+                        {isWarning ? (
+                            <div className='grid'>
+                                <label className=' text-left'>Message</label>
+
+                                <textarea
+                                    rows={2}
+                                    className='w-[45rem] outline-color-grey border-color-grey border rounded-lg p-4 mt-4'
+                                />
+                                <p className='text-gray-400 text-[1.4rem]'>
+                                    Maximum of 80 Characters
+                                </p>
+                            </div>
+                        ) : (
+                            <p className='max-w-[45rem] text-center'>
+                                Are you sure you want to approve this request?
+                                If you click on approve, this commission request
+                                will be approved.
+                            </p>
+                        )}
+
+                        <div className='flex w-full justify-center gap-8'>
+                            <button
+                                className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
+                                onClick={() => handleClose()}
+                            >
+                                Cancel
+                            </button>
+
+                            {isWarning ? (
+                                <button
+                                    className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
+                                    onClick={confirmDeactivation}
+                                >
+                                    Deny
+                                </button>
+                            ) : (
+                                <button
+                                    className='btn text-white bg-green-600 border rounded-lg w-[15rem]'
+                                    onClick={handleApprove}
+                                >
+                                    Approve
+                                </button>
+                            )}
+                        </div>
+                    </div>
+                </section>
+            </dialog>
+            <h1 className='heading2'>Commission Wallet</h1>
             <div className='grid mt-12 pb-10 rounded-lg  items-baseline gap-10'>
                 <div className='flex justify-between items-center content-start bg-white p-8 rounded-lg'>
                     <div className=''>
                         <OverviewWallet
                             amount={200_333_500.89}
-                            title='Resident Wallet'
+                            title='Commission Wallet'
                             isWalletScreen
                         />
                     </div>
@@ -375,14 +455,14 @@ const ResidentWallet = () => {
                                     >
                                         {selectedTrend}
                                     </p>
-                                    {togglResidentMenu ? (
+                                    {togglCommissionMenu ? (
                                         <GrUp className='absolute right-4' />
                                     ) : (
                                         <GrDown className='absolute right-4' />
                                     )}
                                 </div>
 
-                                {togglResidentMenu && (
+                                {togglCommissionMenu && (
                                     <div className='absolute top-[8rem]  left-0 border border-color-primary-light  bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
                                         {trend.map((item, index) => (
                                             <p
@@ -429,16 +509,16 @@ const ResidentWallet = () => {
                         >
                             <div className='grid grid-cols-2'>
                                 <div className='grid gap-8'>
-                                    <p>Resident List</p>
+                                    <p>Commission List</p>
                                     <div className='grid gap-4'>
-                                        {residentWalletList.map((item) => (
+                                        {commissionWalletList.map((item) => (
                                             <div className='flex items-center gap-2 border-b border-b-color-grey h-[5rem]'>
                                                 <img
                                                     src={item.imgUri}
                                                     alt=''
                                                     className='w-[3rem] h-[3rem] object-cover rounded-full'
                                                 />
-                                                <p>{item.residentName}</p>
+                                                <p>{item.commissionName}</p>
                                             </div>
                                         ))}
                                     </div>
@@ -446,7 +526,7 @@ const ResidentWallet = () => {
                                 <div className='grid gap-8'>
                                     <p>Wallet Balance</p>
                                     <div className='grid gap-4'>
-                                        {residentWalletList.map((item) => (
+                                        {commissionWalletList.map((item) => (
                                             <div className='flex items-center gap-2 border-b border-b-color-grey h-[5rem]'>
                                                 <img
                                                     src='/icons/Naira.svg'
@@ -463,16 +543,16 @@ const ResidentWallet = () => {
                             <div className='h-full w-[.1rem] bg-color-grey justify-self-center'></div>
                             <div className='grid grid-cols-2 '>
                                 <div className='grid gap-8'>
-                                    <p>Resident List</p>
+                                    <p>Commission List</p>
                                     <div className='grid gap-4'>
-                                        {residentWalletList.map((item) => (
+                                        {commissionWalletList.map((item) => (
                                             <div className='flex items-center gap-2 border-b border-b-color-grey h-[5rem]'>
                                                 <img
                                                     src={item.imgUri}
                                                     alt=''
                                                     className='w-[3rem] h-[3rem] object-cover rounded-full'
                                                 />
-                                                <p>{item.residentName}</p>
+                                                <p>{item.commissionName}</p>
                                             </div>
                                         ))}
                                     </div>
@@ -480,7 +560,7 @@ const ResidentWallet = () => {
                                 <div className='grid gap-8'>
                                     <p>Wallet Balance</p>
                                     <div className='grid gap-4'>
-                                        {residentWalletList.map((item) => (
+                                        {commissionWalletList.map((item) => (
                                             <div className='flex items-center gap-2 border-b border-b-color-grey h-[5rem]'>
                                                 <img
                                                     src='/icons/Naira.svg'
@@ -500,13 +580,13 @@ const ResidentWallet = () => {
                             <thead>
                                 <tr className='border-b border-b-color-grey'>
                                     <th align='left' className='py-4'>
-                                        Resident Name
+                                        Commission Name
                                     </th>
                                     <th align='left' className='py-4'>
                                         Wallet Balance
                                     </th>
                                     <th align='left' className='py-4'>
-                                        Resident Name
+                                        Commission Name
                                     </th>
                                     <th align='left' className='py-4'>
                                         Wallet Balance
@@ -514,7 +594,7 @@ const ResidentWallet = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {residentWalletList.map((item, index) => (
+                                {commissionWalletList.map((item, index) => (
                                     <tr className='border-b'>
                                         <td>
                                             <div className='flex items-center gap-2  h-[5rem]'>
@@ -523,7 +603,7 @@ const ResidentWallet = () => {
                                                     alt=''
                                                     className='w-[3rem] h-[3rem] object-cover rounded-full'
                                                 />
-                                                <p>{item.residentName}</p>
+                                                <p>{item.commissionName}</p>
                                             </div>{' '}
                                         </td>
                                         <td>
@@ -543,7 +623,7 @@ const ResidentWallet = () => {
                                                     alt=''
                                                     className='w-[3rem] h-[3rem] object-cover rounded-full'
                                                 />
-                                                <p>{item.residentName}</p>
+                                                <p>{item.commissionName}</p>
                                             </div>{' '}
                                         </td>
                                         <td>
@@ -908,4 +988,4 @@ const ResidentWallet = () => {
     )
 }
 
-export default ResidentWallet
+export default CommissionWallet
