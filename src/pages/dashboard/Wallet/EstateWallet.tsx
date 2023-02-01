@@ -423,13 +423,13 @@ const EstateWallet = () => {
                                 />
                             </div>
                         </div>
-                        <div className='columns-2 border-t border-t-color-grey p-10'>
-                            <div className='columns-2'>
-                                <div className='grid'>
+                        <div className='grid grid-cols-2 border-t border-t-color-grey p-10'>
+                            <div className='grid grid-cols-2'>
+                                <div className='grid gap-8'>
                                     <p>Estate List</p>
                                     <div className='grid gap-4'>
                                         {estateWalletList.map((item) => (
-                                            <div className='flex items-center gap-4'>
+                                            <div className='flex items-center py-4 gap-2 border-b border-b-color-grey'>
                                                 <img
                                                     src={item.imgUri}
                                                     alt=''
@@ -444,19 +444,15 @@ const EstateWallet = () => {
                                     <p>Wallet Balance</p>
                                     <div className='grid gap-4'>
                                         {estateWalletList.map((item) => (
-                                            <div className='flex items-center gap-4'>
-                                                <img
-                                                    src={item.imgUri}
-                                                    alt=''
-                                                    className='w-[3rem] h-[3rem] object-cover rounded-full'
-                                                />
-                                                <p>{item.estateName}</p>
+                                            <div className='flex items-center gap-4 border-b border-b-color-grey'>
+                                                
+                                                <p>{item.amount}</p>
                                             </div>
                                         ))}
                                     </div>
                                 </div>
                             </div>
-                            <div className='columns-2'>
+                            <div className='grid grid-cols-2'>
                                 <div className='grid'>
                                     <p>Estate List</p>
                                     <div className='grid gap-4'>
