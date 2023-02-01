@@ -312,7 +312,7 @@ const SecurityCompanyWallet = () => {
 
     return (
         <div>
-            <h1 className='heading2'>SecurityCompany Wallet</h1>
+            <h1 className='heading2'>Security Company Wallet</h1>
             <div className='grid mt-12 pb-10 rounded-lg  items-baseline gap-10'>
                 <div className='flex justify-between items-center content-start bg-white p-8 rounded-lg'>
                     <div className=''>
@@ -462,13 +462,13 @@ const SecurityCompanyWallet = () => {
                             <thead>
                                 <tr className='border-b border-b-color-grey'>
                                     <th align='left' className='py-4'>
-                                        SecurityCompany Name
+                                        Security Company
                                     </th>
                                     <th align='left' className='py-4'>
                                         Wallet Balance
                                     </th>
                                     <th align='left' className='py-4'>
-                                        SecurityCompany Name
+                                        Security Company
                                     </th>
                                     <th align='left' className='py-4'>
                                         Wallet Balance
@@ -476,49 +476,59 @@ const SecurityCompanyWallet = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {securityCompanyWalletList.map((item, index) => (
-                                    <tr className='border-b'>
-                                        <td>
-                                            <div className='flex items-center gap-2  h-[5rem]'>
-                                                <img
-                                                    src={item.imgUri}
-                                                    alt=''
-                                                    className='w-[3rem] h-[3rem] object-cover rounded-full'
-                                                />
-                                                <p>{item.securityCompanyName}</p>
-                                            </div>{' '}
-                                        </td>
-                                        <td>
-                                            {' '}
-                                            <div className='flex items-center'>
-                                                <img
-                                                    src='/icons/Naira.svg'
-                                                    alt=''
-                                                />
-                                                {item.amount.toLocaleString()}
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div className='flex items-center gap-2  h-[5rem]'>
-                                                <img
-                                                    src={item.imgUri}
-                                                    alt=''
-                                                    className='w-[3rem] h-[3rem] object-cover rounded-full'
-                                                />
-                                                <p>{item.securityCompanyName}</p>
-                                            </div>{' '}
-                                        </td>
-                                        <td>
-                                            <div className='flex items-center'>
-                                                <img
-                                                    src='/icons/Naira.svg'
-                                                    alt=''
-                                                />
-                                                {item.amount.toLocaleString()}
-                                            </div>
-                                        </td>
-                                    </tr>
-                                ))}
+                                {securityCompanyWalletList.map(
+                                    (item, index) => (
+                                        <tr className='border-b'>
+                                            <td>
+                                                <div className='flex items-center gap-2  h-[5rem]'>
+                                                    <img
+                                                        src={item.imgUri}
+                                                        alt=''
+                                                        className='w-[3rem] h-[3rem] object-cover rounded-full'
+                                                    />
+                                                    <p>
+                                                        {
+                                                            item.securityCompanyName
+                                                        }
+                                                    </p>
+                                                </div>{' '}
+                                            </td>
+                                            <td>
+                                                {' '}
+                                                <div className='flex items-center'>
+                                                    <img
+                                                        src='/icons/Naira.svg'
+                                                        alt=''
+                                                    />
+                                                    {item.amount.toLocaleString()}
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div className='flex items-center gap-2  h-[5rem]'>
+                                                    <img
+                                                        src={item.imgUri}
+                                                        alt=''
+                                                        className='w-[3rem] h-[3rem] object-cover rounded-full'
+                                                    />
+                                                    <p>
+                                                        {
+                                                            item.securityCompanyName
+                                                        }
+                                                    </p>
+                                                </div>{' '}
+                                            </td>
+                                            <td>
+                                                <div className='flex items-center'>
+                                                    <img
+                                                        src='/icons/Naira.svg'
+                                                        alt=''
+                                                    />
+                                                    {item.amount.toLocaleString()}
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    )
+                                )}
                             </tbody>
                         </table>
                         <button className='text-[1.6rem] place-self-end text-[#0660FE] font-semibold'>
