@@ -1,4 +1,5 @@
 
+import WalletBarChart from '../../../components/charts/WalletBarChart'
 import { OverviewWallet } from '../../../components/overview/OverviewWallets'
 
 
@@ -17,6 +18,8 @@ const EstateWallet = () => {
                         bgColor='bg-[#97346F]'
                     />
                 </div>
+
+                <WalletBarChart/>
             </div>
         </div>
     )

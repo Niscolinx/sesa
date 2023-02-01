@@ -1,6 +1,6 @@
 import React from 'react'
 
-import OverviewChart from '../../components/overview/OverviewChart'
+import OverviewChart from '../../components/charts/OverviewChart'
 
 import { OverviewWallet } from '../../components/overview/OverviewWallets'
 import { TbCurrencyNaira } from 'react-icons/tb'
@@ -76,35 +76,35 @@ const Wallet = () => {
                     </Link>
 
                     <Link to='/dashboard/wallet/security'>
-                    <OverviewWallet
-                        amount={160_847}
-                        title={'Security Company Wallet'}
-                        isWalletScreen
-                        bgImgUri='/icons/overview/card/bgS.svg'
-                        lefIconUri='/icons/overview/card/leftS.svg'
-                        bgColor='bg-[#6AB95F]'
-                    />
+                        <OverviewWallet
+                            amount={160_847}
+                            title={'Security Company Wallet'}
+                            isWalletScreen
+                            bgImgUri='/icons/overview/card/bgS.svg'
+                            lefIconUri='/icons/overview/card/leftS.svg'
+                            bgColor='bg-[#6AB95F]'
+                        />
                     </Link>
 
                     <Link to='/dashboard/wallet/estate'>
-                    <OverviewWallet
-                        amount={1_032_422}
-                        title={'Estate Wallet'}
-                        isWalletScreen
-                        bgImgUri='/icons/overview/card/bgE.svg'
-                        lefIconUri='/icons/overview/card/leftE.svg'
-                        bgColor='bg-[#97346F]'
-                    />
+                        <OverviewWallet
+                            amount={1_032_422}
+                            title={'Estate Wallet'}
+                            isWalletScreen
+                            bgImgUri='/icons/overview/card/bgE.svg'
+                            lefIconUri='/icons/overview/card/leftE.svg'
+                            bgColor='bg-[#97346F]'
+                        />
                     </Link>
                     <Link to='/dashboard/wallet/commission'>
-                    <OverviewWallet
-                        amount={4_000_832}
-                        title={'Commission Wallet'}
-                        isWalletScreen
-                        bgImgUri='/icons/overview/card/bgC.svg'
-                        lefIconUri='/icons/overview/card/leftC.svg'
-                        bgColor='bg-[#333333]'
-                    />
+                        <OverviewWallet
+                            amount={4_000_832}
+                            title={'Commission Wallet'}
+                            isWalletScreen
+                            bgImgUri='/icons/overview/card/bgC.svg'
+                            lefIconUri='/icons/overview/card/leftC.svg'
+                            bgColor='bg-[#333333]'
+                        />
                     </Link>
                 </div>
             </div>

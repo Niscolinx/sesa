@@ -1,4 +1,4 @@
-import { PieChart, Pie, Cell, Label } from 'recharts'
+import { PieChart, Pie, Cell } from 'recharts'
 import { overviewChart_colors, overviewChart_data } from '../../pages/dashboard/Overview'
 
 

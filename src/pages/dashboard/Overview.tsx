@@ -2,7 +2,7 @@ import { Swiper, SwiperRef, SwiperSlide } from 'swiper/react'
 import { Autoplay, Pagination } from 'swiper'
 import React, { MutableRefObject, useEffect, useRef, useState } from 'react'
 
-import OverviewChart from '../../components/overview/OverviewChart'
+import OverviewChart from '../../components/charts/OverviewChart'
 import OverviewCards from '../../components/overview/OverviewCards'
 import OverviewWallets from '../../components/overview/OverviewWallets'
 import OverviewWalletNav from '../../components/overview/OverviewWalletNav'
@@ -119,9 +119,16 @@ const Overview = () => {
                                 overviewChart_data.map((item, index) => {
                                     return (
                                         <li className='overviewChart__list--item'>
-                                            <span style={{
-                                                background: overviewChart_colors[index]
-                                            }}>&nbsp;</span>
+                                            <span
+                                                style={{
+                                                    background:
+                                                        overviewChart_colors[
+                                                            index
+                                                        ],
+                                                }}
+                                            >
+                                                &nbsp;
+                                            </span>
                                             <p>{item.name}</p>
                                         </li>
                                     )
