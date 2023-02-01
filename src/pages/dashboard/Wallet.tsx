@@ -34,23 +34,7 @@ const Wallet = () => {
         }
     }
 
-    useEffect(() => {
-        const swiperProps = swiperRef.current
-        if (swiperProps && swiperProps.swiper) {
-            setCurrentSwiperIndex(swiperProps.swiper.activeIndex)
-        }
-    }, [swiperRef.current])
-
-    const handleSlideChange = (swiper: { activeIndex: number }) => {
-        setCurrentSwiperIndex(() => {
-            if (swiper.activeIndex === OverviewWallets.length + 1) {
-                return 1
-            } else if (swiper.activeIndex === 0) {
-                return OverviewWallets.length
-            }
-            return swiper.activeIndex
-        })
-    }
+    
 
     console.log({ currentSwiperIndex })
 
@@ -58,34 +42,12 @@ const Wallet = () => {
         <div className='overview'>
             <h1 className='heading2'>Overview</h1>
             <div className='overview__container'>
-                <section className='overview__left'>
-                    <OverviewCards />
-                </section>
                 <section className='overview__right'>
-                    <div className='overviewWallet__wrapper'>
-                        <Swiper
-                            ref={swiperRef}
-                            spaceBetween={30}
-                            centeredSlides={true}
-                            loop={true}
-                            modules={[Autoplay, Pagination]}
-                            className='overviewWallet__swiper'
-                            onSlideChange={handleSlideChange}
-                        >
-                            {React.Children.toArray(
-                                OverviewWallets.map((item) => {
-                                    return item
-                                })
-                            )}
-                        </Swiper>
-
-                        <OverviewWalletNav
-                            currentSwiperIndex={currentSwiperIndex}
-                            prev={handlePrevButtonClick}
-                            next={handleNextButtonClick}
-                            max={4}
-                        />
-                    </div>
+                    {React.Children.toArray(
+                        OverviewWallets.map((item) => {
+                            return item
+                        })
+                    )}
 
                     <div className='overviewChart'>
                         <p className='overviewChart__heading'>Today's Inflow</p>
@@ -94,25 +56,17 @@ const Wallet = () => {
                                 currentSwiperIndex={currentSwiperIndex}
                             />
 
-                            {currentSwiperIndex && (
+                            
                                 <div className='overviewChart__label'>
                                     <p className='overviewChart__label--percentage'>
-                                        {
-                                            overviewChart_data[
-                                                currentSwiperIndex - 1
-                                            ].value
-                                        }
+                                        hee
                                         <span>%</span>
                                     </p>
                                     <p className='overviewChart__label--title'>
-                                        {
-                                            overviewChart_data[
-                                                currentSwiperIndex - 1
-                                            ].name
-                                        }
+                                        jsdsdd
                                     </p>
                                 </div>
-                            )}
+                           
                         </div>
                         <ul className='overviewChart__list'>
                             {React.Children.toArray(
