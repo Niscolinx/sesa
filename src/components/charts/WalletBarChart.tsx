@@ -46,7 +46,7 @@ export default function WalletBarChart() {
             }}
         >
             <XAxis dataKey='name' tickMargin={20} />
-            <YAxis tickCount={10} />
+            <YAxis tickCount={7} />
             <Tooltip />
 
             <Bar dataKey='pv' fill='#08D231' />
