@@ -74,6 +74,7 @@ const Wallet = () => {
                         isWalletScreen
                         bgImgUri='/icons/overview/card/bgS.svg'
                         lefIconUri='/icons/overview/card/leftS.svg'
+                        bgColor='bg-[#6AB95F]'
                     />
                     <OverviewWallet
                         amount={1_032_422}
@@ -81,6 +82,7 @@ const Wallet = () => {
                         isWalletScreen
                         bgImgUri='/icons/overview/card/bgE.svg'
                         lefIconUri='/icons/overview/card/leftE.svg'
+                        bgColor='bg-[#1785F8]'
                     />
                     <OverviewWallet
                         amount={4_000_832}
@@ -88,6 +90,7 @@ const Wallet = () => {
                         isWalletScreen
                         bgImgUri='/icons/overview/card/bgC.svg'
                         lefIconUri='/icons/overview/card/leftC.svg'
+                        bgColor='bg-[#333333]'
                     />
                 </div>
             </div>
