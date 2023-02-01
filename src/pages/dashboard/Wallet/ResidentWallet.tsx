@@ -662,7 +662,7 @@ const ResidentWallet = () => {
 
                         <div className='grid'>
                             <div
-                                className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-7 gap-8'
+                                className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-8 gap-8 items-center'
                                 style={{
                                     fontSize: '1.4rem',
                                 }}
@@ -708,7 +708,7 @@ const ResidentWallet = () => {
                                                     index,
                                                 } = toggleDropDown
                                                 return (
-                                                    <div className='grid justify-between border-b grid-cols-7 gap-8 items-center py-5'>
+                                                    <div className='grid justify-between border-b grid-cols-8 gap-8 items-center py-5'>
                                                         <p className='flex items-center gap-4'>
                                                             <input
                                                                 type='checkbox'
