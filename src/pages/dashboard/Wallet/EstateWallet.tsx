@@ -364,39 +364,34 @@ const EstateWallet = () => {
                             </p>
                         ) : (
                             <p>
-                                You have successfully added a security Company
+                                Are you sure you want to approve this request?
+                                If you click on approve, this estate request
+                                will be approved.
                             </p>
                         )}
 
                         <div className='flex w-full justify-center gap-8'>
-                            {isWarning ? (
+                          
                                 <button
                                     className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
                                     onClick={() => handleClose()}
                                 >
                                     Cancel
                                 </button>
-                            ) : (
-                                <button
-                                    className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
-                                    onClick={() => handleClose()}
-                                >
-                                    View Details
-                                </button>
-                            )}
+                           
                             {isWarning ? (
                                 <button
                                     className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
                                     onClick={confirmDeactivation}
                                 >
-                                    Deactivate
+                                    Deny
                                 </button>
                             ) : (
                                 <button
                                     className='btn text-white bg-[#0556E5] border rounded-lg w-[15rem]'
                                     onClick={() => handleClose()}
                                 >
-                                    View Details
+                                    Approve
                                 </button>
                             )}
                         </div>
