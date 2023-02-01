@@ -45,7 +45,8 @@ export default function WalletBarChart() {
                 bottom: 5,
             }}
         >
-            <XAxis dataKey='name' tickMargin={20} />
+            <XAxis dataKey='name' tickMargin={20}  
+             />
             <YAxis
                 tickCount={7}
                 tickFormatter={(tick) => {
