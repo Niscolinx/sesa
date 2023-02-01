@@ -5,38 +5,30 @@ const data = [
     {
         name: 'Mon',
         pv: 25_000,
-        amt: 25_000,
     },
     {
         name: 'Tue',
         pv: 30_000,
-        amt: 30_000,
     },
     {
         name: 'Wed',
-        pv: 20_000,
-        amt: 20_000,
+        pv: 18_000,
     },
     {
         name: 'Thur',
         pv: 15_000,
-        amt: 15_000,
     },
     {
         name: 'Fri',
-        pv: 10_000,
-        amt: 10_000,
-        
+        pv: 22_000,
     },
     {
         name: 'Sat',
-        pv: 5_000,
-        amt: 5_000,
+        pv: 21_000,
     },
     {
         name: 'Sun',
-        pv: 0,
-        amt: 3000,
+        pv: 22_000,
     },
 ]
 
@@ -53,12 +45,11 @@ export default function WalletBarChart() {
                 bottom: 5,
             }}
         >
-            <CartesianGrid strokeOpacity={0} />
-            <XAxis dataKey='name'  />
-            <YAxis />
+            <XAxis dataKey='name' tickMargin={20} />
+            <YAxis tickCount={10} />
             <Tooltip />
 
-            <Bar dataKey='amt' fill='#08D231' />
+            <Bar dataKey='pv' fill='#08D231' />
         </BarChart>
     )
 }
