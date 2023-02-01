@@ -487,7 +487,7 @@ const ResidentWallet = () => {
                     <div className='grid text-[1.6rem] gap-[3rem] bg-white p-8 rounded-lg'>
                         <div className='flex w-full items-center gap-12 '>
                             <p className=' font-bold'>
-                                Resident List <span>(200)</span>
+                                Transactions <span>(200)</span>
                             </p>
                             <div className='relative flex items-center'>
                                 <img
