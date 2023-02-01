@@ -16,7 +16,6 @@ export interface IWithdrawalHistory {
     status: 'Pending' | 'Denied' | 'Successful'
     description: string
     amount: number
-    actions: string
 }
 
 interface EstateWalletList {
@@ -28,7 +27,7 @@ interface EstateWalletList {
 
 type SortBy = 'A-Z' | 'date'
 
-export const RESIDENT_HISTORY: IWithdrawalHistory[] = [
+export const WITHDRAWAL_HISTORY: IWithdrawalHistory[] = [
     {
         id: '1',
         packageName: 'Gold',
@@ -160,7 +159,7 @@ const EstateWallet = () => {
     useEffect(() => {
         const fetchData = async () => {
             setTimeout(() => {
-                setFetchedWithdrawalHistory(RESIDENT_HISTORY)
+                setFetchedWithdrawalHistory(WITHDRAWAL_HISTORY)
             }, 1000)
         }
         fetchData()
