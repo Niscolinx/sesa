@@ -435,9 +435,12 @@ const CommissionWallet = () => {
                 <div className='flex justify-between items-center content-start bg-white p-8 rounded-lg'>
                     <div className=''>
                         <OverviewWallet
-                            amount={200_333_500.89}
-                            title='Commission Wallet'
+                            amount={4_000_832}
+                            title={'Commission Wallet'}
                             isWalletScreen
+                            bgImgUri='/icons/overview/card/bgC.svg'
+                            lefIconUri='/icons/overview/card/leftC.svg'
+                            bgColor='bg-[#333333]'
                         />
                     </div>
 
