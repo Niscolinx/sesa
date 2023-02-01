@@ -328,7 +328,6 @@ const CommissionWallet = () => {
     }
 
     const handleSelectedAction = (item: Actions, index: string) => {
-        console.log({ item, index })
 
         setToggleDropDown(() => {
             return {
