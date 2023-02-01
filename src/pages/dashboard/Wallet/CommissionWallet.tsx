@@ -270,38 +270,7 @@ const CommissionWallet = () => {
         })
     }
 
-    const commissionWalletList: CommissionWalletList[] = [
-        {
-            id: '1',
-            commissionName: 'Peace Commission',
-            amount: 5000,
-            imgUri: '/img/estate1.png',
-        },
-        {
-            id: '2',
-            commissionName: 'Peace Commission',
-            amount: 5000,
-            imgUri: '/img/estate1.png',
-        },
-        {
-            id: '3',
-            commissionName: 'Peace Commission',
-            amount: 5000,
-            imgUri: '/img/estate1.png',
-        },
-        {
-            id: '4',
-            commissionName: 'Peace Commission',
-            amount: 5000,
-            imgUri: '/img/estate1.png',
-        },
-        {
-            id: '5',
-            commissionName: 'Peace Commission',
-            amount: 5000,
-            imgUri: '/img/estate1.png',
-        },
-    ]
+  
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
