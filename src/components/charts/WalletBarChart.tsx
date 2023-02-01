@@ -1,5 +1,5 @@
 import React from 'react'
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts'
+import { BarChart, Bar, XAxis, YAxis, Tooltip } from 'recharts'
 
 const data = [
     {
@@ -46,7 +46,12 @@ export default function WalletBarChart() {
             }}
         >
             <XAxis dataKey='name' tickMargin={20} />
-            <YAxis tickCount={7} />
+            <YAxis
+                tickCount={7}
+                tickFormatter={(tick) => {
+                    return '₦' + tick
+                }}
+            />
             <Tooltip />
 
             <Bar dataKey='pv' fill='#08D231' />
