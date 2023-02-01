@@ -36,7 +36,7 @@ const data = [
     {
         name: 'Sun',
         pv: 0,
-        amt: 0,
+        amt: 3000,
     },
 ]
 
