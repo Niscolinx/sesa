@@ -19,7 +19,7 @@ const ResidentWalletDetails = () => {
                         htmlFor='residentName'
                         className='text-[1.4rem] font-semibold'
                     >
-                        Transaction Type
+                        Resident Name
                     </label>
                     <input
                         disabled
@@ -27,7 +27,7 @@ const ResidentWalletDetails = () => {
                         required
                         id='residentName'
                         className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] disabled:text-gray-500 disabled:cursor-not-allowed'
-                        value={'02-May-2022'}
+                        value={'Gold Resident'}
                     />
                 </div>
                 <div className='w-full grid gap-4'>
@@ -35,7 +35,7 @@ const ResidentWalletDetails = () => {
                         htmlFor='withdrawalTime'
                         className='text-[1.4rem] font-semibold'
                     >
-                        Transaction Time
+                        Withdrawal Time
                     </label>
                     <input
                         disabled
@@ -51,15 +51,15 @@ const ResidentWalletDetails = () => {
                         htmlFor='status'
                         className='text-[1.4rem] font-semibold'
                     >
-                        Transaction Type
+                        Withdrawal Date
                     </label>
                     <input
                         disabled
                         type='text'
                         required
                         id='status'
-                        className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] disabled:text-green-500 disabled:cursor-not-allowed'
-                        value={'Credit'}
+                        className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] disabled:text-gray-500 disabled:cursor-not-allowed'
+                        value={'2-1-2023'}
                     />
                 </div>
 
@@ -68,7 +68,30 @@ const ResidentWalletDetails = () => {
                         htmlFor='description'
                         className='text-[1.4rem] font-semibold'
                     >
-                        Transaction Category
+                        Amount
+                    </label>
+                    <div className='relative flex items-center'>
+                        <img
+                            src='/icons/Naira.svg'
+                            alt=''
+                            className='absolute left-3'
+                        />
+                        <input
+                            disabled
+                            type='text'
+                            required
+                            id='description'
+                            className='border pl-8 border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] disabled:text-gray-500 disabled:cursor-not-allowed'
+                            value={6000}
+                        />
+                    </div>
+                </div>
+                <div className='w-full grid gap-4'>
+                    <label
+                        htmlFor='description'
+                        className='text-[1.4rem] font-semibold'
+                    >
+                        Status
                     </label>
 
                     <input
@@ -77,7 +100,7 @@ const ResidentWalletDetails = () => {
                         required
                         id='description'
                         className='border pl-8 border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] disabled:text-gray-500 disabled:cursor-not-allowed'
-                        value={'Product Purchase'}
+                        value={'Active'}
                     />
                 </div>
                 <div className='w-full grid gap-4'>
@@ -85,7 +108,7 @@ const ResidentWalletDetails = () => {
                         htmlFor='description'
                         className='text-[1.4rem] font-semibold'
                     >
-                        Transaction Source
+                        Description
                     </label>
 
                     <input
@@ -94,16 +117,15 @@ const ResidentWalletDetails = () => {
                         required
                         id='description'
                         className='border pl-8 border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] disabled:text-gray-500 disabled:cursor-not-allowed'
-                        value={'Product Purchase'}
+                        value={'Description'}
                     />
                 </div>
-
                 <div className='w-full grid gap-4'>
                     <label
                         htmlFor='description'
                         className='text-[1.4rem] font-semibold'
                     >
-                        Transaction Amount
+                        Balance
                     </label>
                     <div className='relative flex items-center'>
                         <img
@@ -122,46 +144,6 @@ const ResidentWalletDetails = () => {
                     </div>
                 </div>
 
-                <div className='w-full grid gap-4'>
-                    <label
-                        htmlFor='description'
-                        className='text-[1.4rem] font-semibold'
-                    >
-                        Transaction ID
-                    </label>
-
-                    <input
-                        disabled
-                        type='text'
-                        required
-                        id='description'
-                        className='border pl-8 border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] disabled:text-gray-500 disabled:cursor-not-allowed'
-                        value={1004238232}
-                    />
-                </div>
-                <div className='w-full grid gap-4'>
-                    <label
-                        htmlFor='description'
-                        className='text-[1.4rem] font-semibold'
-                    >
-                        Transaction Amount
-                    </label>
-                    <div className='relative flex items-center'>
-                        <img
-                            src='/icons/Naira.svg'
-                            alt=''
-                            className='absolute left-3'
-                        />
-                        <input
-                            disabled
-                            type='text'
-                            required
-                            id='description'
-                            className='border pl-8 border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] disabled:text-gray-500 disabled:cursor-not-allowed'
-                            value={6000}
-                        />
-                    </div>
-                </div>
                 <div className='w-full grid gap-4'>
                     <label
                         htmlFor='description'
@@ -169,21 +151,37 @@ const ResidentWalletDetails = () => {
                     >
                         Narration
                     </label>
-                    <div className='relative flex items-center'>
-                        <img
-                            src='/icons/Naira.svg'
-                            alt=''
-                            className='absolute left-3'
-                        />
-                        <input
-                            disabled
-                            type='text'
-                            required
-                            id='description'
-                            className='border pl-8 border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] disabled:text-gray-500 disabled:cursor-not-allowed'
-                            value={'Product Purchase for 6000'}
-                        />
-                    </div>
+
+                    <input
+                        disabled
+                        type='text'
+                        required
+                        id='description'
+                        className='border pl-8 border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] disabled:text-gray-500 disabled:cursor-not-allowed'
+                        value={'narration of the transaction'}
+                    />
+                </div>
+            </section>
+            <section className='grid text-[1.4rem] w-full py-10 gap-8 border-t mt-20'>
+                <h4 className='text-[1.6rem] font-semibold'>Comments</h4>
+                <div className='w-full grid gap-4'>
+                    <label
+                        htmlFor='description'
+                        className='text-[1.4rem] font-semibold'
+                    >
+                        Denial Reasons
+                    </label>
+
+                    <input
+                        disabled
+                        type='text'
+                        required
+                        id='description'
+                        className='border pl-8 border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] disabled:text-gray-500 disabled:cursor-not-allowed'
+                        value={
+                            'Customer has not validated their account, Upload relevant documents for approval'
+                        }
+                    />
                 </div>
             </section>
         </div>
