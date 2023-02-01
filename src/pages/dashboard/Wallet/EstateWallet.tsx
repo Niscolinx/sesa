@@ -25,7 +25,7 @@ const EtrendWallet = () => {
                     <div className=''>
                         <OverviewWallet
                             amount={1_032_422}
-                            title={'Etrend Wallet'}
+                            title={'Estate Wallet'}
                             isWalletScreen
                             bgImgUri='/icons/overview/card/bgE.svg'
                             lefIconUri='/icons/overview/card/leftE.svg'
