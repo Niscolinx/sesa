@@ -5,6 +5,20 @@ import { OverviewWallet } from '../../../components/overview/OverviewWallets'
 
 type Trend = 'This Week' | 'This Month' | 'This Year' 
 
+export interface IResidentUserHistory {
+    id: string
+    packageName: string
+    userName: string
+    frequency: string
+    amount: number
+    startDate: string
+    endDate: string
+    transactionType: 'purchase' | 'renewal'
+    status: 'active' | 'inactive'
+}
+
+type SortBy = 'A-Z' | 'date'
+
 const EtrendWallet = () => {
     const trend: Array<Trend> = ['This Week', 'This Month', 'This Year']
 
@@ -17,6 +31,170 @@ const EtrendWallet = () => {
         setSelectedTrend(item)
         setToggleTrendMenu(false)
     }
+
+      const [fetchedResidentUsers, setFetchedResidentUsers] = useState<
+          IResidentUsersList[] | null
+      >(null)
+      const [fetchedResidentUserHistory, setFetchedResidentUserHistory] =
+          useState<IResidentUserHistory[] | null>(null)
+
+
+      useEffect(() => {
+          const fetchData = async () => {
+              setTimeout(() => {
+                  setFetchedResidentUsers(RESIDENT_LISTS)
+                  setFetchedResidentUserHistory(RESIDENT_HISTORY)
+              }, 1000)
+          }
+          fetchData()
+      }, [])
+
+
+     const navigate = useNavigate()
+
+     const [actions, _] = useState<['View Details', 'Deactivate']>([
+         'View Details',
+         'Deactivate',
+     ])
+     const [toggleDropDown, setToggleDropDown] = useState<{
+         isDropDownOpen: boolean
+         index: number | null
+     }>({
+         isDropDownOpen: false,
+         index: null,
+     })
+
+     const dropDownHandler = (
+         e: React.ChangeEvent<HTMLInputElement>,
+         index: number
+     ) => {
+         setToggleDropDown(() => {
+             return {
+                 isDropDownOpen: e.target.checked,
+                 index,
+             }
+         })
+     }
+
+     const selectAction = (
+         e: React.MouseEvent,
+         item: 'View Details' | 'Deactivate'
+     ) => {
+         if (item === 'View Details') {
+             navigate('/dashboard/additional-resident/:Id')
+         }
+     }
+
+     const sortBy: SortBy[] = ['A-Z', 'date']
+
+     interface Paginate {
+         index: number
+         currentPage: number
+         itemsPerPage: number
+         totalPage: number
+         slicedPages: IResidentUserHistory[][] | null
+     }
+
+     const [toggleSortMenu, setToggleSortMenu] = useState(false)
+     const [itemsPerPage, setItemsPerPage] = useState({
+         arr: [2, 4, 6, 8],
+     })
+     const [selectedSort, setSelectedSort] = useState<SortBy>('A-Z')
+     const [paginate, setPaginate] = useState<Paginate>({
+         index: 0,
+         currentPage: 1,
+         itemsPerPage: 2,
+
+         totalPage: Math.ceil(fetchedResidentUserHistory.length / 2),
+         slicedPages: null,
+     })
+
+     const sortMenuToggler = () => setToggleSortMenu(!toggleSortMenu)
+
+     const handleSelectedSort = (item: SortBy) => {
+         setSelectedSort(item)
+         setToggleSortMenu(false)
+     }
+
+     const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
+         const item = parseInt(e.target.value)
+
+         const slicedPages: IResidentUserHistory[][] = []
+         for (let i = 0; i < fetchedResidentUserHistory.length; i += item) {
+             slicedPages.push(fetchedResidentUserHistory.slice(i, i + item))
+         }
+
+         setPaginate((prev) => {
+             return {
+                 ...prev,
+                 itemsPerPage: item,
+                 index: 0,
+                 currentPage: 1,
+                 slicedPages,
+                 totalPage: Math.ceil(fetchedResidentUserHistory.length / item),
+             }
+         })
+     }
+
+     useEffect(() => {
+         console.log({ slicedPages })
+     }, [paginate.slicedPages])
+
+     useEffect(() => {
+         const slicedPages: IResidentUserHistory[][] = []
+         for (
+             let i = 0;
+             i < fetchedResidentUserHistory.length;
+             i += paginate.itemsPerPage
+         ) {
+             slicedPages.push(
+                 fetchedResidentUserHistory.slice(i, i + paginate.itemsPerPage)
+             )
+         }
+
+         setPaginate((prev) => {
+             return {
+                 ...prev,
+                 slicedPages,
+             }
+         })
+     }, [fetchedResidentUserHistory])
+
+     const handleNext = () => {
+         if (paginate.currentPage === paginate.totalPage) return
+         setPaginate((prev) => {
+             return {
+                 ...prev,
+                 index: prev.index + 1,
+                 currentPage: prev.currentPage + 1,
+             }
+         })
+     }
+
+     const handlePrev = () => {
+         if (paginate.currentPage === 1) return
+         setPaginate((prev) => {
+             return {
+                 ...prev,
+                 index: prev.index - 1,
+                 currentPage: prev.currentPage - 1,
+             }
+         })
+     }
+
+     const { currentPage, slicedPages } = paginate
+
+     const jumpToPage = (e: React.MouseEvent, index: number) => {
+         console.log({ index })
+
+         setPaginate((prev) => {
+             return {
+                 ...prev,
+                 index,
+                 currentPage: index + 1,
+             }
+         })
+     }
     return (
         <div>
             <h1 className='heading2'>Estate Wallet</h1>
