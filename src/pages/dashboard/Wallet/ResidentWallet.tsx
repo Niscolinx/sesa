@@ -12,12 +12,13 @@ type Trend = 'This Week' | 'This Month' | 'This Year'
 
 export interface ITransactionHistory {
     id: string
-    time: string
     date: string
-    residentName: string
-    status: 'Pending' | 'Denied' | 'Successful'
-    description: string
+    transactionType: 'Credit' | 'Debit'
+    transactionCategory: string
+    transactionId: number
     amount: number
+    time: string
+    balance: number
 }
 
 interface ResidentWalletList {
@@ -29,78 +30,16 @@ interface ResidentWalletList {
 
 type SortBy = 'A-Z' | 'date'
 
-export const WITHDRAWAL_HISTORY: ITransactionHistory[] = [
+export const TRANSACTION_HISTORY: ITransactionHistory[] = [
     {
         id: '1',
-        time: '3:18pm',
-        date: '02-May-2022',
-        residentName: 'Thomas Resident',
-        status: 'Denied',
-        description: 'Ago palace funding and request',
-        amount: 5000,
-    },
-    {
-        id: '2',
-        time: '4:12pm',
-        date: '04-May-2022',
-        residentName: 'Ahike Resident',
-        status: 'Successful',
-        description: 'Ago palace funding and request',
-        amount: 8000,
-    },
-    {
-        id: '3',
-        time: '4:12pm',
-        date: '04-May-2022',
-        residentName: 'Lekki Resident',
-        status: 'Successful',
-        description: 'Ago palace funding and request',
-        amount: 8000,
-    },
-    {
-        id: '4',
-        time: '4:12pm',
-        date: '04-May-2022',
-        residentName: 'Bavaeri Resident',
-        status: 'Pending',
-        description: 'Ago palace funding and request',
-        amount: 8000,
-    },
-    {
-        id: '5',
-        time: '4:12pm',
-        date: '04-May-2022',
-        residentName: 'Ahike Resident',
-        status: 'Denied',
-        description: 'A canteen funding and request',
-        amount: 8000,
-    },
-    {
-        id: '6',
-        time: '4:12pm',
-        date: '04-May-2022',
-        residentName: 'Ahike Resident',
-        status: 'Successful',
-        description: 'Cool palace funding and request',
-        amount: 8000,
-    },
-    {
-        id: '7',
-        time: '4:12pm',
-        date: '04-May-2022',
-        residentName: 'Ahike Resident',
-        status: 'Pending',
-        description: 'baba palace funding and request',
-        amount: 8000,
-    },
-    {
-        id: '8',
-        time: '4:12pm',
-        date: '04-May-2022',
-        residentName: 'Ahike Resident',
-        status: 'Denied',
-        description: ' Serenity building funding and request',
-        amount: 8000,
+        date: '02-May, 2021',
+        transactionType: 'Credit',
+        transactionCategory: 'Fund Wallet',
+        transactionId: 100872323,
+        amount: 6000,
+        time: '12:00pm',
+        balance: 6000,
     },
 ]
 
@@ -125,7 +64,7 @@ const ResidentWallet = () => {
     useEffect(() => {
         const fetchData = async () => {
             setTimeout(() => {
-                setFetchedTransactionHistory(WITHDRAWAL_HISTORY)
+                setFetchedTransactionHistory(TRANSACTION_HISTORY)
             }, 1000)
         }
         fetchData()
@@ -753,11 +692,12 @@ const ResidentWallet = () => {
                                             (
                                                 {
                                                     id,
-                                                    residentName,
+                                                    transactionCategory,
+                                                    transactionId,
+                                                    transactionType,
+                                                    balance,
                                                     time,
                                                     date,
-                                                    status,
-                                                    description,
                                                     amount,
                                                 },
                                                 i
@@ -775,30 +715,24 @@ const ResidentWallet = () => {
                                                             />
 
                                                             <span>
-                                                                {residentName}
+                                                                {date}
                                                             </span>
                                                         </p>
                                                         <p>{time}</p>
                                                         <p>{date}</p>
                                                         <p>
-                                                            {status ===
-                                                            'Denied' ? (
-                                                                <span className='text-red-600'>
-                                                                    {status}
-                                                                </span>
-                                                            ) : status ===
-                                                              'Successful' ? (
+                                                            {transactionType ===                                             'Credit' ? (
                                                                 <span className='text-green-600'>
-                                                                    {status}
+                                                                    {transactionType}
                                                                 </span>
                                                             ) : (
-                                                                <span className='text-yellow-600'>
-                                                                    {status}
+                                                                <span className='text-red-600'>
+                                                                    {transactionType}
                                                                 </span>
                                                             )}
                                                         </p>
-                                                        <p className=' overflow-hidden text-ellipsis whitespace-nowrap'>
-                                                            {description}
+                                                        <p>
+                                                            {transactionCategory}
                                                         </p>
                                                         <p className='flex items-center gap-.5'>
                                                             <img
