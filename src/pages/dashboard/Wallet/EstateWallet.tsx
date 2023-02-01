@@ -164,7 +164,7 @@ const EstateWallet = () => {
         item: string,
     ) => {
         if (item === 'View Details') {
-            navigate('/dashboard/additional-resident/:Id')
+            navigate('/dashboard/wallet/estate/:id')
         }
     }
 
