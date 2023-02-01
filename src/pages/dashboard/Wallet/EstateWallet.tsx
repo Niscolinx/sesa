@@ -363,7 +363,7 @@ const EstateWallet = () => {
                                 security company?
                             </p>
                         ) : (
-                            <p>
+                            <p className='max-w-[45rem] text-center'>
                                 Are you sure you want to approve this request?
                                 If you click on approve, this estate request
                                 will be approved.
@@ -388,7 +388,7 @@ const EstateWallet = () => {
                                 </button>
                             ) : (
                                 <button
-                                    className='btn text-white bg-[#0556E5] border rounded-lg w-[15rem]'
+                                    className='btn text-white bg-green-600 border rounded-lg w-[15rem]'
                                     onClick={() => handleClose()}
                                 >
                                     Approve
