@@ -568,7 +568,7 @@ const EstateWallet = () => {
                                                         </p>
                                                         <p>{time.getTime()}</p>
                                                         <p>{date.toDateString()}</p>
-                                                        <>{status === 'Denied' ? (
+                                                        <p>{status === 'Denied' ? (
                                                             <span className='text-red-600'>
                                                                 {status}
                                                             </span>) : status === 'Successful' ? (
@@ -581,6 +581,7 @@ const EstateWallet = () => {
                                                                 </span>
                                                             )
                                                         }</p>
+                                                        <p>{description}</p>
                                                         <p className='flex items-center gap-.5'>
                                                             <img
                                                                 src='/icons/Naira.svg'
@@ -653,14 +654,20 @@ const EstateWallet = () => {
                                                                                     }
                                                                                 >
                                                                                     {item ===
-                                                                                    'Deactivate' ? (
+                                                                                    'Deny' ? (
                                                                                         <span className='text-red-600'>
                                                                                             {
                                                                                                 item
                                                                                             }
                                                                                         </span>
+                                                                                    ) : item === 'Approve' ? (
+                                                                                        <span className='text-green-600'>
+                                                                                            {item}
+                                                                                        </span>
                                                                                     ) : (
-                                                                                        item
+                                                                                        <span className='text-black'>
+                                                                                            {item}
+                                                                                        </span>
                                                                                     )}
                                                                                 </p>
                                                                             )
