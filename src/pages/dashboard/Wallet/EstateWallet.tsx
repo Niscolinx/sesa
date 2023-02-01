@@ -527,7 +527,12 @@ const EstateWallet = () => {
                                     />
                                     <p>Estate Name</p>
                                 </p>
-                                <p>User Name</p>
+                                <p>Time</p>
+                                <p>Date</p>
+                                <p>Status</p>
+                                <p>Description</p>
+                                <p>Amount</p>
+                                <p>Wallet Balance</p>
                             </div>
 
                             <div className='grid gap-8 mt-8 p-8'>
