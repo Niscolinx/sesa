@@ -344,24 +344,36 @@ const EstateWallet = () => {
         if (item === 'Approve') {
             handleOpen('success')
         }
+
+        if (item === 'Deny') {
+            handleOpen('warning')
+        }
     }
 
     return (
         <div>
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
-                    <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8 text-[1.6rem]'>
+                    <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] min-h-[30rem] py-10 gap-8 text-[1.6rem]'>
                         {isWarning ? (
                             <img src='/icons/admins/modalWarning.svg' alt='' />
                         ) : (
                             <img src='/icons/admins/modalSuccess.svg' alt='' />
                         )}
+                        {isWarning && (
+                            <p className='font-bold text-[2rem]'>Denial Confirmation</p>
+                        )}
 
                         {isWarning ? (
-                            <p>
-                                Are you sure you want to deactivate this
-                                security company?
-                            </p>
+                            <div className='grid'>
+                                <label className=' text-left'>Message</label>
+
+                                <textarea
+                                    rows={2}
+                                    className='w-[45rem] outline-color-grey border-color-grey border rounded-lg p-4 mt-4'
+                                />
+                                <p className='text-gray-400 text-[1.4rem]'>Maximum of 80 Characters</p>
+                            </div>
                         ) : (
                             <p className='max-w-[45rem] text-center'>
                                 Are you sure you want to approve this request?
@@ -371,14 +383,13 @@ const EstateWallet = () => {
                         )}
 
                         <div className='flex w-full justify-center gap-8'>
-                          
-                                <button
-                                    className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
-                                    onClick={() => handleClose()}
-                                >
-                                    Cancel
-                                </button>
-                           
+                            <button
+                                className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
+                                onClick={() => handleClose()}
+                            >
+                                Cancel
+                            </button>
+
                             {isWarning ? (
                                 <button
                                     className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
