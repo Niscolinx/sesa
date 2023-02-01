@@ -32,6 +32,8 @@ import ResidentWallet from '../pages/dashboard/Wallet/ResidentWallet'
 import ResidentWalletDetails from '../components/wallet/ResidentWalletDetails'
 import CommissionWallet from '../pages/dashboard/Wallet/CommissionWallet'
 import CommissionWalletDetails from '../components/wallet/CommissionWalletDetails'
+import SecurityCompanyWallet from '../pages/dashboard/Wallet/SecurityCompanyWallet'
+import SecurityCompanyWalletDetails from '../components/wallet/SecurityCompanyDetails'
 
 const router = createBrowserRouter(
     createRoutesFromElements([
@@ -62,6 +64,8 @@ const router = createBrowserRouter(
             <Route path='wallet/resident/:id' element={<ResidentWalletDetails/>} />
             <Route path='wallet/commission' element={<CommissionWallet/>} />
             <Route path='wallet/commision/:id' element={<CommissionWalletDetails/>} />
+            <Route path='wallet/security-company' element={<SecurityCompanyWallet/>} />
+            <Route path='wallet/security-company/:id' element={<SecurityCompanyWalletDetails/>} />
         </Route>,
         <Route path='*' element={<Navigate to='/' />} />,
     ])
