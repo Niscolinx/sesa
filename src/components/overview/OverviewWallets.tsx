@@ -29,7 +29,7 @@ type OverviewWallet = {
      const fraction = splittedAmount[1]
 
      return (
-         <div className={`overviewWallet relative overflow-hidden ${bgColor} ${isWalletScreen ? 'h-[20rem]' : 'h-[14rem]'}`}>
+         <div className={`overviewWallet relative overflow-hidden ${bgColor} ${isWalletScreen ? 'h-[18rem]' : 'h-[14rem]'}`}>
              <img
                  src={bgImgUri}
                  alt=''

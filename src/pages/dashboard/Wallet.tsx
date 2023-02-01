@@ -56,24 +56,38 @@ const Wallet = () => {
                         )}
                     </ul>
                 </div>
-                <div className='grid max-w-[80rem] gap-10 mx-auto' style={{
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(30rem, 1fr))',
-                }}>
+                <div
+                    className='grid max-w-[80rem] gap-10 mx-auto'
+                    style={{
+                        gridTemplateColumns:
+                            'repeat(auto-fit, minmax(30rem, 1fr))',
+                    }}
+                >
                     <OverviewWallet
                         amount={200_333_500.89}
                         title='Resident Wallet'
+                        isWalletScreen
                     />
                     <OverviewWallet
                         amount={160_847}
                         title={'Security Company Wallet'}
+                        isWalletScreen
+                        bgImgUri='/icons/overview/card/bgS.svg'
+                        lefIconUri='/icons/overview/card/leftS.svg'
                     />
                     <OverviewWallet
                         amount={1_032_422}
                         title={'Estate Wallet'}
+                        isWalletScreen
+                        bgImgUri='/icons/overview/card/bgE.svg'
+                        lefIconUri='/icons/overview/card/leftE.svg'
                     />
                     <OverviewWallet
                         amount={4_000_832}
                         title={'Commission Wallet'}
+                        isWalletScreen
+                        bgImgUri='/icons/overview/card/bgC.svg'
+                        lefIconUri='/icons/overview/card/leftC.svg'
                     />
                 </div>
             </div>
