@@ -6,9 +6,9 @@ import { OverviewWallet } from '../../components/overview/OverviewWallets'
 import { TbCurrencyNaira } from 'react-icons/tb'
 
 export const overviewChart_data = [
-    { name: 'Resident Wallet', value: 10, color: '#23C375' },
+    { name: 'Resident Wallet', value: 10, color: '#098DFF' },
     { name: 'Estate Wallet', value: 45, color: '#EA0B90' },
-    { name: 'Security Company Wallet', value: 10, color: '#098DFF' },
+    { name: 'Security Company Wallet', value: 10, color: '#23C375' },
     { name: 'Commission Wallet', value: 17, color: '#404243' },
 ]
 
@@ -47,8 +47,7 @@ const Wallet = () => {
                                     <li className='overviewChart__list--item'>
                                         <span
                                             style={{
-                                                background:
-                                                    overviewChart_colors[index],
+                                                background: item.color,
                                             }}
                                         >
                                             &nbsp;
