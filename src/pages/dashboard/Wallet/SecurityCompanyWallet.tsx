@@ -156,12 +156,6 @@ const SecurityCompanyWallet = () => {
         })
     }
 
-    const selectAction = (e: React.MouseEvent, item: string) => {
-        if (item === 'View Details') {
-            navigate('/dashboard/wallet/securityCompany/:id')
-        }
-    }
-
     const sortBy: SortBy[] = ['A-Z', 'date']
 
     interface Paginate {
@@ -312,7 +306,7 @@ const SecurityCompanyWallet = () => {
         })
 
         if (item === 'View Details') {
-            navigate(`/dashboard/wallet/securityCompany/:${index}`)
+            navigate(`/dashboard/wallet/security-company/:${index}`)
         }
     }
 

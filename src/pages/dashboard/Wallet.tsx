@@ -75,7 +75,7 @@ const Wallet = () => {
                         />
                     </Link>
 
-                    <Link to='/dashboard/wallet/security'>
+                    <Link to='/dashboard/wallet/security-company'>
                         <OverviewWallet
                             amount={160_847}
                             title={'Security Company Wallet'}
