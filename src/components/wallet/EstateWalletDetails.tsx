@@ -143,7 +143,7 @@ const EstateWalletDetails = () => {
                         />
                     </div>
                 </div>
-               
+
                 <div className='w-full grid gap-4'>
                     <label
                         htmlFor='description'
@@ -151,47 +151,37 @@ const EstateWalletDetails = () => {
                     >
                         Narration
                     </label>
-                  
-                        <input
-                            disabled
-                            type='text'
-                            required
-                            id='description'
-                            className='border pl-8 border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] disabled:text-gray-500 disabled:cursor-not-allowed'
-                            value={'narration of the transaction'}
-                        />
+
+                    <input
+                        disabled
+                        type='text'
+                        required
+                        id='description'
+                        className='border pl-8 border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] disabled:text-gray-500 disabled:cursor-not-allowed'
+                        value={'narration of the transaction'}
+                    />
                 </div>
             </section>
             <section className='grid text-[1.4rem] w-full py-10 gap-8 border-t mt-20'>
-                <h4 className='text-[1.6rem] font-semibold'>
-                    Beneficiary Details
-                </h4>
-                <div
-                    className='items-center w-full grid'
-                    style={{
-                        gridTemplateColumns:
-                            'repeat(auto-fit, minmax(20rem, 1fr))',
-                    }}
-                >
-                    <div className=' grid items-center gap-2'>
-                        <p className='font-semibold'>Resident User</p>
-                        <div className='flex items-center gap-6'>
-                            <img
-                                src='/img/me.jpeg'
-                                alt=''
-                                className='w-[3rem] h-[3rem] object-cover object-top rounded-full'
-                            />
-                            <p className='font-semibold'>Jacintha Sage</p>
-                        </div>
-                    </div>
-                    <div className='grid items-center gap-2'>
-                        <p className='font-semibold'>Email</p>
-                        <p className='text-gray-500'>jacintha@gmail.com</p>
-                    </div>
-                    <div className='grid items-center gap-2'>
-                        <p className='font-semibold'>Phone Number</p>
-                        <p className='text-gray-500'>09072847232</p>
-                    </div>
+                <h4 className='text-[1.6rem] font-semibold'>Comments</h4>
+                <div className='w-full grid gap-4'>
+                    <label
+                        htmlFor='description'
+                        className='text-[1.4rem] font-semibold'
+                    >
+                        Denial Reasons
+                    </label>
+
+                    <input
+                        disabled
+                        type='text'
+                        required
+                        id='description'
+                        className='border pl-8 border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] disabled:text-gray-500 disabled:cursor-not-allowed'
+                        value={
+                            'Customer has not validated their account, Upload relevant documents for approval'
+                        }
+                    />
                 </div>
             </section>
         </div>
