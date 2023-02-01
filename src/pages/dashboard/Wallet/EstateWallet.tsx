@@ -41,7 +41,7 @@ const EtrendWallet = () => {
 
                             <div className='relative grid gap-4'>
                                 
-                                <div className='relative flex items-center w-[10rem]'>
+                                <div className='relative flex items-center w-[12rem]'>
                                     <p
                                         className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer'
                                         onClick={trendMenuToggler}
