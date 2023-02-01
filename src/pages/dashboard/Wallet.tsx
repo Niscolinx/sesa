@@ -4,6 +4,7 @@ import OverviewChart from '../../components/overview/OverviewChart'
 
 import { OverviewWallet } from '../../components/overview/OverviewWallets'
 import { TbCurrencyNaira } from 'react-icons/tb'
+import { Link } from 'react-router-dom'
 
 export const overviewChart_data = [
     { name: 'Resident Wallet', value: 10, color: '#098DFF' },
@@ -66,11 +67,15 @@ const Wallet = () => {
                             'repeat(auto-fit, minmax(35rem, 1fr))',
                     }}
                 >
-                    <OverviewWallet
-                        amount={200_333_500.89}
-                        title='Resident Wallet'
-                        isWalletScreen
-                    />
+                    <Link to='/dashboard/wallet/resident'>
+                        <OverviewWallet
+                            amount={200_333_500.89}
+                            title='Resident Wallet'
+                            isWalletScreen
+                        />
+                    </Link>
+
+                    <Link to='/dashboard/wallet/security'>
                     <OverviewWallet
                         amount={160_847}
                         title={'Security Company Wallet'}
@@ -79,6 +84,9 @@ const Wallet = () => {
                         lefIconUri='/icons/overview/card/leftS.svg'
                         bgColor='bg-[#6AB95F]'
                     />
+                    </Link>
+
+                    <Link to='/dashboard/wallet/estate'>
                     <OverviewWallet
                         amount={1_032_422}
                         title={'Estate Wallet'}
@@ -87,6 +95,8 @@ const Wallet = () => {
                         lefIconUri='/icons/overview/card/leftE.svg'
                         bgColor='bg-[#97346F]'
                     />
+                    </Link>
+                    <Link to='/dashboard/wallet/commission'>
                     <OverviewWallet
                         amount={4_000_832}
                         title={'Commission Wallet'}
@@ -95,6 +105,7 @@ const Wallet = () => {
                         lefIconUri='/icons/overview/card/leftC.svg'
                         bgColor='bg-[#333333]'
                     />
+                    </Link>
                 </div>
             </div>
         </div>
