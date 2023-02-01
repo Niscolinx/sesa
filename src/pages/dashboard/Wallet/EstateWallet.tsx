@@ -4,22 +4,15 @@ import { CgSpinnerTwo } from 'react-icons/cg'
 import { GrUp, GrDown } from 'react-icons/gr'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { useNavigate } from 'react-router'
-import { RESIDENT_LISTS } from '../../../components/additionalResident/ResidentUsersList'
 import WalletBarChart from '../../../components/charts/WalletBarChart'
 import { OverviewWallet } from '../../../components/overview/OverviewWallets'
 
 type Trend = 'This Week' | 'This Month' | 'This Year'
 
-export interface IResidentUserHistory {
+export interface IWithdrawalHistory {
     id: string
-    packageName: string
-    userName: string
-    frequency: string
-    amount: number
-    startDate: string
-    endDate: string
-    transactionType: 'purchase' | 'renewal'
-    status: 'active' | 'inactive'
+
+    status: 'Pending' | 'Denied' | 'Successful'
 }
 
 interface EstateWalletList {
@@ -31,7 +24,7 @@ interface EstateWalletList {
 
 type SortBy = 'A-Z' | 'date'
 
-export const RESIDENT_HISTORY: IResidentUserHistory[] = [
+export const RESIDENT_HISTORY: IWithdrawalHistory[] = [
     {
         id: '1',
         packageName: 'Gold',
@@ -158,7 +151,7 @@ const EstateWallet = () => {
     }
 
     const [fetchedWithdrawalHistory, setFetchedWithdrawalHistory] =
-        useState<IResidentUserHistory[]>([])
+        useState<IWithdrawalHistory[]>([])
 
     useEffect(() => {
         const fetchData = async () => {
@@ -211,7 +204,7 @@ const EstateWallet = () => {
         currentPage: number
         itemsPerPage: number
         totalPage: number
-        slicedPages: IResidentUserHistory[][] | null
+        slicedPages: IWithdrawalHistory[][] | null
     }
 
     const [toggleSortMenu, setToggleSortMenu] = useState(false)
@@ -238,7 +231,7 @@ const EstateWallet = () => {
     const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
         const item = parseInt(e.target.value)
 
-        const slicedPages: IResidentUserHistory[][] = []
+        const slicedPages: IWithdrawalHistory[][] = []
         for (let i = 0; i < fetchedWithdrawalHistory.length; i += item) {
             slicedPages.push(fetchedWithdrawalHistory.slice(i, i + item))
         }
@@ -260,7 +253,7 @@ const EstateWallet = () => {
     }, [paginate.slicedPages])
 
     useEffect(() => {
-        const slicedPages: IResidentUserHistory[][] = []
+        const slicedPages: IWithdrawalHistory[][] = []
         for (
             let i = 0;
             i < fetchedWithdrawalHistory.length;
