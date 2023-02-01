@@ -13,6 +13,7 @@ export interface IWithdrawalHistory {
     id: string
     time: Date
     date: Date
+    estateName: string
     status: 'Pending' | 'Denied' | 'Successful'
     description: string
     amount: number
@@ -639,15 +640,13 @@ const EstateWallet = () => {
                                         ].map(
                                             (
                                                 {
-                                                    packageName,
-                                                    userName,
-                                                    frequency,
-                                                    amount,
-                                                    startDate,
-                                                    endDate,
-                                                    transactionType,
-                                                    status,
                                                     id,
+                                                    estateName,
+                                                    time,
+                                                    date,
+                                                    status,
+                                                    description,
+                                                    amount
                                                 },
                                                 i
                                             ) => {
