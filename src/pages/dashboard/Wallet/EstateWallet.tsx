@@ -179,9 +179,8 @@ const EstateWallet = () => {
     }
 
     const [toggleSortMenu, setToggleSortMenu] = useState(false)
-    const [itemsPerPage, setItemsPerPage] = useState({
-        arr: [2, 4, 6, 8],
-    })
+    const itemsPerPageArr =  [2, 4, 6, 8]
+    
     const [selectedSort, setSelectedSort] = useState<SortBy | null>(null)
     const [paginate, setPaginate] = useState<Paginate>({
         index: 0,
@@ -265,7 +264,7 @@ const EstateWallet = () => {
         })
     }
 
-    const { currentPage, slicedPages } = paginate
+    const { currentPage, slicedPages, itemsPerPage } = paginate
 
     const jumpToPage = (e: React.MouseEvent, index: number) => {
 
@@ -313,8 +312,8 @@ const EstateWallet = () => {
     return (
         <div>
             <h1 className='heading2'>Estate Wallet</h1>
-            <div className='bg-white grid mt-12 pb-10 rounded-lg p-8 items-baseline gap-[10rem]'>
-                <div className='flex justify-between items-center content-start'>
+            <div className='grid mt-12 pb-10 rounded-lg  items-baseline gap-10'>
+                <div className='flex justify-between items-center content-start bg-white p-8 rounded-lg'>
                     <div className=''>
                         <OverviewWallet
                             amount={1_032_422}
@@ -326,7 +325,7 @@ const EstateWallet = () => {
                         />
                     </div>
 
-                    <div className=' border-l border-l-color-grey'>
+                    <div className='border-l border-l-color-grey'>
                         <div className='flex justify-between'>
                             <p className='text-[1.6rem] font-bold p-8'>
                                 Wallet Trend
@@ -367,9 +366,9 @@ const EstateWallet = () => {
                         <WalletBarChart />
                     </div>
                 </div>
-                <div>
-                    <div className='grid text-[1.6rem] gap-[3rem]'>
-                        <div className='flex w-full items-center gap-12  bg-white rounded-lg  '>
+                <div className='grid gap-10'>
+                    <div className='grid text-[1.6rem] gap-[3rem] bg-white p-8 rounded-lg'>
+                        <div className='flex w-full items-center gap-12 '>
                             <p className=' font-bold'>
                                 Estate List <span>(200)</span>
                             </p>
@@ -528,8 +527,8 @@ const EstateWallet = () => {
                             View More
                         </button>
                     </div>
-                    <div className='grid text-[1.6rem] gap-10'>
-                        <div className='flex w-full items-center gap-12 bg-white rounded-lg'>
+                    <div className='grid text-[1.6rem] gap-10 bg-white p-8 rounded-lg'>
+                        <div className='flex w-full items-center gap-12 '>
                             <p className=' font-bold'>
                                 Withdrawal History <span>(10)</span>
                             </p>
@@ -542,10 +541,10 @@ const EstateWallet = () => {
                                 <input
                                     type='text'
                                     placeholder='Search Parameters'
-                                    className='pl-16 w-[25rem] rounded-lg border border-color-blue-light appearance-none outline-none p-4'
+                                    className='pl-16 w-[20rem] rounded-lg border border-color-blue-light appearance-none outline-none p-4'
                                 />
                             </div>
-                            <div className='relative flex items-center w-[10rem] justify-items-start cursor-pointer'>
+                            <div className='relative flex items-center w-[20rem] justify-items-start cursor-pointer'>
                                 <p
                                     className='border border-color-primary-light p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointe text-left'
                                     onClick={sortMenuToggler}
@@ -574,7 +573,7 @@ const EstateWallet = () => {
                                     <GrDown className='absolute right-4 text-[1.3rem]' />
                                 )}
                             </div>
-                            <div className='relative flex items-center w-[10rem] justify-items-start cursor-pointer'>
+                            <div className='relative flex items-center w-[20rem] justify-items-start cursor-pointer'>
                                 <p
                                     className='border border-color-primary-light p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointe text-left'
                                     onClick={sortMenuToggler}
@@ -642,7 +641,7 @@ const EstateWallet = () => {
                                                     date,
                                                     status,
                                                     description,
-                                                    amount
+                                                    amount,
                                                 },
                                                 i
                                             ) => {
@@ -664,10 +663,14 @@ const EstateWallet = () => {
                                                         </p>
                                                         <p>{time}</p>
                                                         <p>{date}</p>
-                                                        <p>{status === 'Denied' ? (
-                                                            <span className='text-red-600'>
-                                                                {status}
-                                                            </span>) : status === 'Successful' ? (
+                                                        <p>
+                                                            {status ===
+                                                            'Denied' ? (
+                                                                <span className='text-red-600'>
+                                                                    {status}
+                                                                </span>
+                                                            ) : status ===
+                                                              'Successful' ? (
                                                                 <span className='text-green-600'>
                                                                     {status}
                                                                 </span>
@@ -675,9 +678,11 @@ const EstateWallet = () => {
                                                                 <span className='text-yellow-600'>
                                                                     {status}
                                                                 </span>
-                                                            )
-                                                        }</p>
-                                                        <p className=' overflow-hidden text-ellipsis whitespace-nowrap'>{description}</p>
+                                                            )}
+                                                        </p>
+                                                        <p className=' overflow-hidden text-ellipsis whitespace-nowrap'>
+                                                            {description}
+                                                        </p>
                                                         <p className='flex items-center gap-.5'>
                                                             <img
                                                                 src='/icons/Naira.svg'
@@ -687,7 +692,7 @@ const EstateWallet = () => {
                                                                 {amount}
                                                             </span>
                                                         </p>
-                                                        
+
                                                         <div className='relative'>
                                                             <label
                                                                 className='font-semibold capitalize cursor-pointer flex items-center gap-2 relative z-10'
@@ -756,13 +761,18 @@ const EstateWallet = () => {
                                                                                                 item
                                                                                             }
                                                                                         </span>
-                                                                                    ) : item === 'Approve' ? (
+                                                                                    ) : item ===
+                                                                                      'Approve' ? (
                                                                                         <span className='text-green-600'>
-                                                                                            {item}
+                                                                                            {
+                                                                                                item
+                                                                                            }
                                                                                         </span>
                                                                                     ) : (
                                                                                         <span className='text-black'>
-                                                                                            {item}
+                                                                                            {
+                                                                                                item
+                                                                                            }
                                                                                         </span>
                                                                                     )}
                                                                                 </p>
@@ -796,13 +806,13 @@ const EstateWallet = () => {
                                     className='flex items-center border px-4 rounded-lg outline-none cursor-pointer'
                                     onChange={handleItemsPerPage}
                                 >
-                                    {itemsPerPage.arr.map((item, index) => (
+                                    {itemsPerPageArr.map((item, index) => (
                                         <option
                                             value={item}
                                             key={index}
                                             className='capitalize cursor-pointer bg-white'
                                         >
-                                            {item}
+                                            {itemsPerPage}
                                         </option>
                                     ))}
                                 </select>
