@@ -157,13 +157,13 @@ const EstateWallet = () => {
         setTogglEstateMenu(false)
     }
 
-    const [fetchedResidentUserHistory, setFetchedResidentUserHistory] =
+    const [fetchedWithdrawalHistory, setFetchedWithdrawalHistory] =
         useState<IResidentUserHistory[]>([])
 
     useEffect(() => {
         const fetchData = async () => {
             setTimeout(() => {
-                setFetchedResidentUserHistory(RESIDENT_HISTORY)
+                setFetchedWithdrawalHistory(RESIDENT_HISTORY)
             }, 1000)
         }
         fetchData()
@@ -224,7 +224,7 @@ const EstateWallet = () => {
         currentPage: 1,
         itemsPerPage: 2,
 
-        totalPage: Math.ceil(fetchedResidentUserHistory.length / 2),
+        totalPage: Math.ceil(fetchedWithdrawalHistory.length / 2),
         slicedPages: null,
     })
 
@@ -239,8 +239,8 @@ const EstateWallet = () => {
         const item = parseInt(e.target.value)
 
         const slicedPages: IResidentUserHistory[][] = []
-        for (let i = 0; i < fetchedResidentUserHistory.length; i += item) {
-            slicedPages.push(fetchedResidentUserHistory.slice(i, i + item))
+        for (let i = 0; i < fetchedWithdrawalHistory.length; i += item) {
+            slicedPages.push(fetchedWithdrawalHistory.slice(i, i + item))
         }
 
         setPaginate((prev) => {
@@ -250,7 +250,7 @@ const EstateWallet = () => {
                 index: 0,
                 currentPage: 1,
                 slicedPages,
-                totalPage: Math.ceil(fetchedResidentUserHistory.length / item),
+                totalPage: Math.ceil(fetchedWithdrawalHistory.length / item),
             }
         })
     }
@@ -263,11 +263,11 @@ const EstateWallet = () => {
         const slicedPages: IResidentUserHistory[][] = []
         for (
             let i = 0;
-            i < fetchedResidentUserHistory.length;
+            i < fetchedWithdrawalHistory.length;
             i += paginate.itemsPerPage
         ) {
             slicedPages.push(
-                fetchedResidentUserHistory.slice(i, i + paginate.itemsPerPage)
+                fetchedWithdrawalHistory.slice(i, i + paginate.itemsPerPage)
             )
         }
 
@@ -277,7 +277,7 @@ const EstateWallet = () => {
                 slicedPages,
             }
         })
-    }, [fetchedResidentUserHistory])
+    }, [fetchedWithdrawalHistory])
 
     const handleNext = () => {
         if (paginate.currentPage === paginate.totalPage) return
@@ -510,7 +510,7 @@ const EstateWallet = () => {
                                     <th align='left' className='py-4'>
                                         Estate Name
                                     </th>
-                                    <th align='right' className='py-4'>
+                                    <th align='left' className='py-4'>
                                         Wallet Balance
                                     </th>
                                 </tr>
@@ -625,16 +625,9 @@ const EstateWallet = () => {
                                         type='checkbox'
                                         className='cursor-pointer'
                                     />
-                                    <p>Package Name</p>
+                                    <p>Estate Name</p>
                                 </p>
                                 <p>User Name</p>
-                                <p>Frequency</p>
-                                <p>Amount</p>
-                                <p>Start Date</p>
-                                <p>End Date</p>
-                                <p>Transaction Type</p>
-                                <p>Status</p>
-                                <p>Actions</p>
                             </div>
 
                             <div className='grid gap-8 mt-8 p-8'>
