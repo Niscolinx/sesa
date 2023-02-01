@@ -5,14 +5,17 @@ const data = [
     {
         name: 'Mon',
         pv: 25_000,
+        amt: 25_000,
     },
     {
         name: 'Tue',
         pv: 30_000,
+        amt: 30_000,
     },
     {
         name: 'Wed',
         pv: 20_000,
+        amt: 20_000,
     },
     {
         name: 'Thur',
@@ -51,7 +54,7 @@ export default function WalletBarChart() {
             <YAxis />
             <Tooltip />
 
-            <Bar dataKey='pv' fill='#08D231' />
+            <Bar dataKey='amt' fill='#08D231' />
         </BarChart>
     )
 }
