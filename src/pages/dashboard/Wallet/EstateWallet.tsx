@@ -12,9 +12,11 @@ type Trend = 'This Week' | 'This Month' | 'This Year'
 export interface IWithdrawalHistory {
     id: string
     time: Date
-    Date: Date
-    
+    date: Date
     status: 'Pending' | 'Denied' | 'Successful'
+    description: string
+    amount: number
+    actions: string
 }
 
 interface EstateWalletList {
