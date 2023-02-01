@@ -436,12 +436,9 @@ const ResidentWallet = () => {
                 <div className='flex justify-between items-center content-start bg-white p-8 rounded-lg'>
                     <div className=''>
                         <OverviewWallet
-                            amount={1_032_422}
-                            title={'Resident Wallet'}
+                            amount={200_333_500.89}
+                            title='Resident Wallet'
                             isWalletScreen
-                            bgImgUri='/icons/overview/card/bgE.svg'
-                            lefIconUri='/icons/overview/card/leftE.svg'
-                            bgColor='bg-[#97346F]'
                         />
                     </div>
 
