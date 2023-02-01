@@ -167,10 +167,15 @@ const EstateWallet = () => {
 
     const navigate = useNavigate()
 
-    const [actions, _] = useState<['View Details', 'Deactivate']>([
+    type Actions = 'View Details' | 'Approve' | 'Deny'
+
+    const actions = [
         'View Details',
-        'Deactivate',
-    ])
+        'Approve',
+        'Deny',
+    ] satisfies Actions[]
+
+
     const [toggleDropDown, setToggleDropDown] = useState<{
         isDropDownOpen: boolean
         index: number | null
@@ -193,7 +198,7 @@ const EstateWallet = () => {
 
     const selectAction = (
         e: React.MouseEvent,
-        item: 'View Details' | 'Deactivate'
+        item: string,
     ) => {
         if (item === 'View Details') {
             navigate('/dashboard/additional-resident/:Id')
