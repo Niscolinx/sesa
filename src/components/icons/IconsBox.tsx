@@ -62,7 +62,7 @@ function IconsBox() {
               </Link>
           </li>
           <li className='iconsBox__list'>
-              <Link to='/dashboard/wallet' className='fillIcon'>
+              <Link to='/dashboard/wallet/1' className='fillIcon'>
                   <WalletSvg />
                   <span>Wallet</span>
               </Link>

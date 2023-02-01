@@ -23,6 +23,7 @@ import AdditionalResidentDetails from '../components/additionalResident/Addition
 import SecurityCompany from '../pages/dashboard/SecurityCompany'
 import AddSecurityCompany from '../components/securityCompany/AddSecurityCompany'
 import SecurityCompanyDetail from '../components/securityCompany/SecurityCompanyDetail'
+import Wallet from '../pages/dashboard/Wallet'
 
 const router = createBrowserRouter(
     createRoutesFromElements([
