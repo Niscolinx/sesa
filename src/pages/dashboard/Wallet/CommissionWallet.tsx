@@ -324,26 +324,18 @@ const CommissionWallet = () => {
 
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
-                    <div className='bg-white rounded-2xl grid  w-[64rem] min-h-[30rem] p-10 gap-8 text-[1.6rem] relative'>
+                    <div className='bg-white rounded-2xl grid items-baseline w-[64rem] min-h-[30rem] p-10 gap-8 text-[1.6rem] relative'>
                         <IoMdClose
                             className='absolute right-4 top-4 text-[2rem] cursor-pointer'
                             onClick={() => handleClose()}
                         />
 
-                        <h3 className='text-[2rem] font-bold'>
+                        <h3 className='text-[2rem] font-bold border-b ' style={{
+                            fontFamily: 'Satoshi-Medium',
+                        }}>
                             {isWithdrawal ? 'Withdrawal' : 'Request'}
                         </h3>
 
-                        {isWithdrawal && (
-                            <p
-                                className='font-bold text-[1.8rem]'
-                                style={{
-                                    fontFamily: 'Satoshi-Medium',
-                                }}
-                            >
-                                Denial Confirmation
-                            </p>
-                        )}
 
                         {isWithdrawal ? (
                             <div className='grid'>withdraw</div>
