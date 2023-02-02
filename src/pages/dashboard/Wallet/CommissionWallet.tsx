@@ -7,8 +7,7 @@ import { useNavigate } from 'react-router'
 import WalletBarChart from '../../../components/charts/WalletBarChart'
 import { OverviewWallet } from '../../../components/overview/OverviewWallets'
 import { ToastContainer, toast } from 'react-toastify'
-import {IoMdClose} from 'react-icons/io'
-
+import { IoMdClose } from 'react-icons/io'
 
 type Trend = 'This Week' | 'This Month' | 'This Year'
 
@@ -134,7 +133,7 @@ const CommissionWallet = () => {
 
     const navigate = useNavigate()
 
-    type Actions = 'View Details' 
+    type Actions = 'View Details'
 
     const actions = ['View Details'] satisfies Actions[]
 
@@ -272,8 +271,6 @@ const CommissionWallet = () => {
         })
     }
 
-  
-
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
     const handleClose = () => {
@@ -299,7 +296,6 @@ const CommissionWallet = () => {
     }
 
     const handleSelectedAction = (item: Actions, index: string) => {
-
         setToggleDropDown(() => {
             return {
                 isDropDownOpen: false,
@@ -310,7 +306,6 @@ const CommissionWallet = () => {
         if (item === 'View Details') {
             navigate(`/dashboard/wallet/commission/:${index}`)
         }
-
     }
 
     const handleApprove = () => {
@@ -329,14 +324,15 @@ const CommissionWallet = () => {
 
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
-                   
                     <div className='bg-white rounded-2xl grid  w-[64rem] min-h-[30rem] p-10 gap-8 text-[1.6rem] relative'>
-                        <IoMdClose className='absolute right-4 top-4 text-[2rem] cursor-pointer' onClick={() => handleClose()}/>
+                        <IoMdClose
+                            className='absolute right-4 top-4 text-[2rem] cursor-pointer'
+                            onClick={() => handleClose()}
+                        />
 
-                       <h3>{
-                            isWithdrawal ? 'Withdrawal' : 'Request'
-                        }</h3>
-
+                        <h3 className='text-[2rem] font-bold'>
+                            {isWithdrawal ? 'Withdrawal' : 'Request'}
+                        </h3>
 
                         {isWithdrawal && (
                             <p
@@ -350,9 +346,7 @@ const CommissionWallet = () => {
                         )}
 
                         {isWithdrawal ? (
-                            <div className='grid'>
-                                withdraw
-                            </div>
+                            <div className='grid'>withdraw</div>
                         ) : (
                             <p className='max-w-[45rem] text-center'>
                                 Are you sure you want to approve this request?
@@ -393,22 +387,26 @@ const CommissionWallet = () => {
                 <div className='grid grid-cols-2 justify-between items-center content-start bg-white p-8 rounded-lg'>
                     <div className='grid self-stretch justify-start'>
                         <div className='grid items-end'>
-
-                        <OverviewWallet
-                            amount={4_000_832}
-                            title={'Commission Wallet'}
-                            isWalletScreen
-                            bgImgUri='/icons/overview/card/bgC.svg'
-                            lefIconUri='/icons/overview/card/leftC.svg'
-                            bgColor='bg-[#333333]'
-                        />
+                            <OverviewWallet
+                                amount={4_000_832}
+                                title={'Commission Wallet'}
+                                isWalletScreen
+                                bgImgUri='/icons/overview/card/bgC.svg'
+                                lefIconUri='/icons/overview/card/leftC.svg'
+                                bgColor='bg-[#333333]'
+                            />
                         </div>
                         <div className='flex justify-center mt-auto gap-4'>
-                            <button className='btn text-white bg-[#0556E5] border rounded-lg w-[15rem]' onClick={() => handleOpen('withdraw')}>
+                            <button
+                                className='btn text-white bg-[#0556E5] border rounded-lg w-[15rem]'
+                                onClick={() => handleOpen('withdraw')}
+                            >
                                 Withdraw
                             </button>
-                            <button className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
-                            onClick={() => handleOpen('request')}>
+                            <button
+                                className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
+                                onClick={() => handleOpen('request')}
+                            >
                                 Request
                             </button>
                         </div>
