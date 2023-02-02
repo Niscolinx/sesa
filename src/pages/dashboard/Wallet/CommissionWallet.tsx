@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { FormEvent, useRef } from 'react'
 import { ChangeEvent, useEffect, useState } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
 import { GrUp, GrDown } from 'react-icons/gr'
@@ -318,6 +318,12 @@ const CommissionWallet = () => {
         })
     }
 
+    const handleFormSubmit = (e: FormEvent) => {
+        e.preventDefault()
+
+        console.log('submitted')
+    }
+
     return (
         <div>
             <ToastContainer />
@@ -340,7 +346,7 @@ const CommissionWallet = () => {
                         </h3>
 
                         {isWithdrawal ? (
-                            <div className='grid'>
+                            <form className='grid' onSubmit={handleFormSubmit}>
                                 <div className='w-full grid gap-4'>
                                     <label
                                         htmlFor='amount'
@@ -379,7 +385,7 @@ const CommissionWallet = () => {
                                         value={1004238232}
                                     />
                                 </div>
-                            </div>
+                            </form>
                         ) : (
                             <p className='max-w-[45rem] text-center'>
                                 Are you sure you want to approve this request?
