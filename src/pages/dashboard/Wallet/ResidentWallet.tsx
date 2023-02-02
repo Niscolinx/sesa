@@ -11,7 +11,7 @@ import { ResidentTransactions } from '../../../components/wallet/resident/Reside
 
 type Trend = 'This Week' | 'This Month' | 'This Year'
 
-export interface ITransactionHistory {
+export interface ITransactions {
     id: string
     date: string
     transactionType: 'Credit' | 'Debit'
@@ -31,7 +31,7 @@ interface ResidentWalletList {
 
 type SortBy = 'A-Z' | 'date'
 
-export const TRANSACTION_HISTORY: ITransactionHistory[] = [
+export const TRANSACTION_HISTORY: ITransactions[] = [
     {
         id: '1',
         date: '02-May, 2021',
@@ -118,14 +118,14 @@ const ResidentWallet = () => {
         setTogglResidentMenu(false)
     }
 
-    const [fetchedTransactionHistory, setFetchedTransactionHistory] = useState<
-        ITransactionHistory[]
+    const [fetchedTransactions, setFetchedTransactions] = useState<
+        ITransactions[]
     >([])
 
     useEffect(() => {
         const fetchData = async () => {
             setTimeout(() => {
-                setFetchedTransactionHistory(TRANSACTION_HISTORY)
+                setFetchedTransactions(TRANSACTION_HISTORY)
             }, 1000)
         }
         fetchData()
@@ -170,7 +170,7 @@ const ResidentWallet = () => {
         currentPage: number
         itemsPerPage: number
         totalPage: number
-        slicedPages: ITransactionHistory[][] | null
+        slicedPages: ITransactions[][] | null
     }
 
     const [toggleSortMenu, setToggleSortMenu] = useState(false)
@@ -196,7 +196,7 @@ const ResidentWallet = () => {
     const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
         const item = parseInt(e.target.value)
 
-        const slicedPages: ITransactionHistory[][] = []
+        const slicedPages: ITransactions[][] = []
         for (let i = 0; i < fetchedTransactionHistory.length; i += item) {
             slicedPages.push(fetchedTransactionHistory.slice(i, i + item))
         }
@@ -218,7 +218,7 @@ const ResidentWallet = () => {
     }, [paginate.slicedPages])
 
     useEffect(() => {
-        const slicedPages: ITransactionHistory[][] = []
+        const slicedPages: ITransactions[][] = []
         for (
             let i = 0;
             i < fetchedTransactionHistory.length;
