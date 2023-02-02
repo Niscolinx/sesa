@@ -107,8 +107,8 @@ const RESIDENT_BALANCE: ResidentTransactions[] = [
 
 
 export const ResidentTransactions: FC<{
-    fetchedResidentTransactions: ActivityReport[]
-}> = ({ fetchedActivityReport }) => {
+    fetchedResidentTransactions: ResidentTransactions[]
+}> = ({ fetchedResidentTransactions }) => {
     return (
         <div className='grid text-[1.6rem]'>
             <caption className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
