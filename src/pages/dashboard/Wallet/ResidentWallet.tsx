@@ -326,7 +326,6 @@ const ResidentWallet = () => {
 
     return (
         <div>
-           
             <h1 className='heading2'>Resident Wallet</h1>
             <div className='grid mt-12 pb-10 rounded-lg  items-baseline gap-10'>
                 <div className='flex justify-between items-center content-start bg-white p-8 rounded-lg'>
@@ -380,165 +379,33 @@ const ResidentWallet = () => {
                     </div>
                 </div>
                 <div className='grid gap-10'>
-                    <div className='grid text-[1.6rem] gap-[3rem] bg-white p-8 rounded-lg'>
-                        <div className='flex w-full items-center gap-12 '>
-                            <p className=' font-bold'>
-                                Transactions <span>(200)</span>
-                            </p>
-                            <div className='relative flex items-center'>
-                                <img
-                                    src='/icons/admins/search.svg'
-                                    alt=''
-                                    className='absolute left-4 text-[4rem]'
-                                />
-                                <input
-                                    type='text'
-                                    placeholder='Search Parameters'
-                                    className='pl-16 w-[25rem] rounded-lg border border-color-blue-light appearance-none outline-none p-4'
-                                />
-                            </div>
-                        </div>
-                        {/* <div
-                            className='grid border-t border-t-color-grey p-10 gap-10'
-                            style={{
-                                gridTemplateColumns: '1fr 1rem 1fr',
-                            }}
-                        >
-                            <div className='grid grid-cols-2'>
-                                <div className='grid gap-8'>
-                                    <p>Resident List</p>
-                                    <div className='grid gap-4'>
-                                        {residentWalletList.map((item) => (
-                                            <div className='flex items-center gap-2 border-b border-b-color-grey h-[5rem]'>
-                                                <img
-                                                    src={item.imgUri}
-                                                    alt=''
-                                                    className='w-[3rem] h-[3rem] object-cover rounded-full'
-                                                />
-                                                <p>{item.residentName}</p>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </div>
-                                <div className='grid gap-8'>
-                                    <p>Wallet Balance</p>
-                                    <div className='grid gap-4'>
-                                        {residentWalletList.map((item) => (
-                                            <div className='flex items-center gap-2 border-b border-b-color-grey h-[5rem]'>
-                                                <img
-                                                    src='/icons/Naira.svg'
-                                                    alt=''
-                                                />
-                                                <p>
-                                                    {item.amount.toLocaleString()}
-                                                </p>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </div>
-                            </div>
-                            <div className='h-full w-[.1rem] bg-color-grey justify-self-center'></div>
-                            <div className='grid grid-cols-2 '>
-                                <div className='grid gap-8'>
-                                    <p>Resident List</p>
-                                    <div className='grid gap-4'>
-                                        {residentWalletList.map((item) => (
-                                            <div className='flex items-center gap-2 border-b border-b-color-grey h-[5rem]'>
-                                                <img
-                                                    src={item.imgUri}
-                                                    alt=''
-                                                    className='w-[3rem] h-[3rem] object-cover rounded-full'
-                                                />
-                                                <p>{item.residentName}</p>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </div>
-                                <div className='grid gap-8'>
-                                    <p>Wallet Balance</p>
-                                    <div className='grid gap-4'>
-                                        {residentWalletList.map((item) => (
-                                            <div className='flex items-center gap-2 border-b border-b-color-grey h-[5rem]'>
-                                                <img
-                                                    src='/icons/Naira.svg'
-                                                    alt=''
-                                                />
-                                                <p>
-                                                    {item.amount.toLocaleString()}
-                                                </p>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </div>
-                            </div>
-                        </div> */}
+                    <div className='estateDetail'>
+                        <h1 className='heading2'>Estate Details</h1>
+                        <div className='estateDetail__radioBox'>
+                            <input
+                                defaultChecked
+                                type='radio'
+                                name='report'
+                                id='activityReport'
+                                className='hidden'
+                                onChange={() => setCurrentPage(1)}
+                            />
+                            <label htmlFor='activityReport'>
+                                Activity Report
+                            </label>
 
-                        <table>
-                            <thead>
-                                <tr className='border-b border-b-color-grey'>
-                                    <th align='left' className='py-4'>
-                                        Resident Name
-                                    </th>
-                                    <th align='left' className='py-4'>
-                                        Wallet Balance
-                                    </th>
-                                    <th align='left' className='py-4'>
-                                        Resident Name
-                                    </th>
-                                    <th align='left' className='py-4'>
-                                        Wallet Balance
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {residentWalletList.map((item, index) => (
-                                    <tr className='border-b'>
-                                        <td>
-                                            <div className='flex items-center gap-2  h-[5rem]'>
-                                                <img
-                                                    src={item.imgUri}
-                                                    alt=''
-                                                    className='w-[3rem] h-[3rem] object-cover rounded-full'
-                                                />
-                                                <p>{item.residentName}</p>
-                                            </div>{' '}
-                                        </td>
-                                        <td>
-                                            {' '}
-                                            <div className='flex items-center'>
-                                                <img
-                                                    src='/icons/Naira.svg'
-                                                    alt=''
-                                                />
-                                                {item.amount.toLocaleString()}
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div className='flex items-center gap-2  h-[5rem]'>
-                                                <img
-                                                    src={item.imgUri}
-                                                    alt=''
-                                                    className='w-[3rem] h-[3rem] object-cover rounded-full'
-                                                />
-                                                <p>{item.residentName}</p>
-                                            </div>{' '}
-                                        </td>
-                                        <td>
-                                            <div className='flex items-center'>
-                                                <img
-                                                    src='/icons/Naira.svg'
-                                                    alt=''
-                                                />
-                                                {item.amount.toLocaleString()}
-                                            </div>
-                                        </td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
-                        <button className='text-[1.6rem] place-self-end text-[#0660FE] font-semibold'>
-                            View More
-                        </button>
+                            <input
+                                type='radio'
+                                name='report'
+                                id='attendanceReport'
+                                className='hidden'
+                                onChange={() => setCurrentPage(2)}
+                            />
+                            <label htmlFor='attendanceReport'>
+                                Attendance Report
+                            </label>
+                        </div>
+                     
                     </div>
                     <div className='grid text-[1.6rem] gap-10 bg-white p-8 rounded-lg'>
                         <div className='flex w-full items-center gap-12 '>
@@ -777,7 +644,9 @@ const ResidentWallet = () => {
                                                                                         )
                                                                                     }
                                                                                 >
-                                                                                   {item}
+                                                                                    {
+                                                                                        item
+                                                                                    }
                                                                                 </p>
                                                                             )
                                                                         )}
