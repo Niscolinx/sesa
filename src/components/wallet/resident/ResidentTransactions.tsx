@@ -7,8 +7,9 @@ import { HiOutlineChevronLeft, HiOutlineChevronRight } from "react-icons/hi"
 interface ResidentTransactions {
     id: string
     date: string
-    residentName: string
+    residentName?: string
     amount: number
+    status?: 'Paid' | 'Unpaid'
 }
 
  
@@ -64,10 +65,49 @@ const TRANSACTION_HISTORY: ResidentTransactions[] = [
     },
 ]
 
+const RESIDENT_BALANCE: ResidentTransactions[] = [
+    {
+        id: "1",
+        date: "11 Aug, 2021",
+        status: 'Paid',
+        amount: 10000,
+    },
+    {
+        id: "2",
+        date: "12 Aug, 2021",
+        status: 'Unpaid',
+        amount: 10000,
+    },
+    {
+        id: "3",
+        date: "15 Aug, 2021",
+        status: 'Paid',
+        amount: 10000,
+    },
+    {
+        id: "4",
+        date: "02 Aug, 2021",
+        status: 'Unpaid',
+        amount: 10000,
+    },
+    {
+        id: "5",
+        date: "11 Aug, 2021",
+        status: 'Paid',
+        amount: 10000,
+    },
+    {
+        id: "6",
+        date: "12 May, 2021",
+        status: 'Paid',
+        amount: 10000,
+    },
+]
 
 
-export const ActivityReport: FC<{
-    fetchedActivityReport: ActivityReport[]
+
+export const ResidentTransactions: FC<{
+    fetchedResidentTransactions: ActivityReport[]
 }> = ({ fetchedActivityReport }) => {
     return (
         <div className='grid text-[1.6rem]'>
