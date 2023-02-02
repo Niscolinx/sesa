@@ -329,12 +329,15 @@ const CommissionWallet = () => {
 
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
-                    <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] min-h-[30rem] py-10 gap-8 text-[1.6rem]'>
-                        {isWithdrawal ? (
-                            <img src='/icons/admins/modalWarning.svg' alt='' />
-                        ) : (
-                            <img src='/icons/admins/modalSuccess.svg' alt='' />
-                        )}
+                   
+                    <div className='bg-white rounded-2xl grid  w-[64rem] min-h-[30rem] p-10 gap-8 text-[1.6rem] relative'>
+                        <IoMdClose className='absolute right-4'/>
+
+                       <h3>{
+                            isWithdrawal ? 'Withdrawal' : 'Request'
+                        }</h3>
+
+
                         {isWithdrawal && (
                             <p
                                 className='font-bold text-[1.8rem]'
