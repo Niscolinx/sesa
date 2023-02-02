@@ -1,106 +1,110 @@
-import React from "react"
-import { FC } from "react"
-import { CgSpinnerTwo } from "react-icons/cg"
-import { GrDown } from "react-icons/gr"
-import { HiOutlineChevronLeft, HiOutlineChevronRight } from "react-icons/hi"
+import React from 'react'
+import { FC } from 'react'
+import { CgSpinnerTwo } from 'react-icons/cg'
+import { GrDown } from 'react-icons/gr'
+import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 
 export interface ResidentTransactions {
     id: string
     date: string
-    residentName?: string
+    residentName: string
     amount: number
     status?: 'Paid' | 'Unpaid'
 }
 
- 
-
 export const TRANSACTION_HISTORY: ResidentTransactions[] = [
     {
-        id: "1",
-        date: "12 May, 2021",
-        residentName: "Peace Estate",
+        id: '1',
+        date: '12 May, 2021',
+        residentName: 'Peace Estate',
         amount: 10000,
     },
     {
-        id: "2",
-        date: "12 May, 2021",
-        residentName: "Peace Estate",
+        id: '2',
+        date: '12 May, 2021',
+        residentName: 'Peace Estate',
         amount: 10000,
     },
     {
-        id: "3",
-        date: "12 May, 2021",
-        residentName: "Peace Estate",
+        id: '3',
+        date: '12 May, 2021',
+        residentName: 'Peace Estate',
         amount: 10000,
     },
     {
-        id: "4",
-        date: "12 May, 2021",
-        residentName: "Peace Estate",
+        id: '4',
+        date: '12 May, 2021',
+        residentName: 'Peace Estate',
         amount: 10000,
     },
     {
-        id: "5",
-        date: "12 May, 2021",
-        residentName: "Peace Estate",
+        id: '5',
+        date: '12 May, 2021',
+        residentName: 'Peace Estate',
         amount: 10000,
     },
     {
-        id: "6",
-        date: "12 May, 2021",
-        residentName: "Peace Estate",
+        id: '6',
+        date: '12 May, 2021',
+        residentName: 'Peace Estate',
         amount: 10000,
     },
     {
-        id: "7",
-        date: "12 May, 2021",
-        residentName: "Peace Estate",
+        id: '7',
+        date: '12 May, 2021',
+        residentName: 'Peace Estate',
         amount: 10000,
     },
     {
-        id: "8",
-        date: "12 May, 2021",
-        residentName: "Peace Estate",
+        id: '8',
+        date: '12 May, 2021',
+        residentName: 'Peace Estate',
         amount: 10000,
     },
 ]
 
 export const RESIDENT_BALANCE: ResidentTransactions[] = [
     {
-        id: "1",
-        date: "11 Aug, 2021",
+        id: '1',
+        date: '11 Aug, 2021',
         status: 'Paid',
         amount: 10000,
+        residentName: 'Peace Estate',
     },
     {
-        id: "2",
-        date: "12 Aug, 2021",
+        id: '2',
+        date: '12 Aug, 2021',
         status: 'Unpaid',
         amount: 10000,
+        residentName: 'Peace Estate',
     },
     {
-        id: "3",
-        date: "15 Aug, 2021",
+        id: '3',
+        date: '15 Aug, 2021',
         status: 'Paid',
         amount: 10000,
+        residentName: 'Peace Estate',
     },
     {
-        id: "4",
-        date: "02 Aug, 2021",
+        id: '4',
+        date: '02 Aug, 2021',
         status: 'Unpaid',
         amount: 10000,
+        residentName: 'Peace Estate',
     },
     {
-        id: "5",
-        date: "11 Aug, 2021",
+        id: '5',
+        date: '11 Aug, 2021',
         status: 'Paid',
         amount: 10000,
+        residentName: 'Peace Estate',
     },
     {
-        id: "6",
-        date: "12 May, 2021",
+        id: '6',
+        date: '12 May, 2021',
         status: 'Paid',
         amount: 10000,
+        residentName: 'Peace Estate',
     },
 ]
 
@@ -109,8 +113,10 @@ interface ResidentTransactionsProps {
     isResidentBalance: boolean
 }
 
-
-export const ResidentTransactions: FC<ResidentTransactionsProps> = ({ fetchedResidentTransactions, isResidentBalance }) => {
+export const ResidentTransactions: FC<ResidentTransactionsProps> = ({
+    fetchedResidentTransactions,
+    isResidentBalance,
+}) => {
     return (
         <div className='grid text-[1.6rem]'>
             <caption className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
@@ -168,37 +174,10 @@ export const ResidentTransactions: FC<ResidentTransactionsProps> = ({ fetchedRes
                         fontSize: '1.6rem',
                     }}
                 >
-                    {isResidentBalance ? (
-                        <>
-                            <p className='flex items-center gap-2'>
-                                <input
-                                    type='checkbox'
-                                    className='cursor-pointer'
-                                />
-                                <p>Guard Name</p>
-                            </p>
-                            <p>Phone Number</p>
-                            <p>Date</p>
-                            <p>Guard Code</p>
-                            <p>Clock In</p>
-                            <p>Clock Out</p>
-                        </>
-                    ) : (
-                        <>
-                            <p className='flex items-center gap-2'>
-                                <input
-                                    type='checkbox'
-                                    className='cursor-pointer'
-                                />
-                                <p>Guard Name</p>
-                            </p>
-                            <p>Phone Number</p>
-                            <p>Date</p>
-                            <p>Guard Code</p>
-                            <p>Clock In</p>
-                            <p>Clock Out</p>
-                        </>
-                    )}
+                    <p>Estate Name</p>
+                    <p>Amount</p>
+                    {isResidentBalance && <p>Status</p>}
+                    <p>Date</p>
                 </div>
 
                 <div className='grid gap-8 mt-8 p-8'>
