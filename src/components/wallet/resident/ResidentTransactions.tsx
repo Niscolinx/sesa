@@ -12,7 +12,7 @@ export interface ResidentTransactions {
     status?: 'Paid' | 'Unpaid'
 }
 
-export const TRANSACTION_HISTORY: ResidentTransactions[] = [
+export const RESIDENT_TRANSACTION_HISTORY: ResidentTransactions[] = [
     {
         id: '1',
         date: '12 May, 2021',
@@ -117,6 +117,16 @@ export const ResidentTransactions: FC<ResidentTransactionsProps> = ({
     fetchedResidentTransactions,
     isResidentBalance,
 }) => {
+
+    const [paginate, setPaginate] = useState<Paginate>({
+        index: 0,
+        currentPage: 1,
+        itemsPerPage: 6,
+
+        totalPage: Math.ceil(fetchedTransactions.length / 2),
+        slicedPages: null,
+    })
+    
     return (
         <div className='grid text-[1.6rem]'>
             <caption className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>

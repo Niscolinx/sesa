@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router'
 import WalletBarChart from '../../../components/charts/WalletBarChart'
 import { OverviewWallet } from '../../../components/overview/OverviewWallets'
 import { ToastContainer, toast } from 'react-toastify'
-import { ResidentTransactions } from '../../../components/wallet/resident/ResidentTransactions'
+import { ResidentTransactions, RESIDENT_BALANCE, RESIDENT_TRANSACTION_HISTORY } from '../../../components/wallet/resident/ResidentTransactions'
 
 type Trend = 'This Week' | 'This Month' | 'This Year'
 
@@ -213,9 +213,7 @@ const ResidentWallet = () => {
         })
     }
 
-    useEffect(() => {
-        console.log({ slicedPages })
-    }, [paginate.slicedPages])
+  
 
     useEffect(() => {
         const slicedPages: ITransactions[][] = []
@@ -332,6 +330,18 @@ const ResidentWallet = () => {
     >(null)
 
     type PathIndex = 'resident-transaction-history' | 'resident-balance'
+
+
+    useEffect(() => {
+
+
+            setTimeout(() => {
+
+                setFetchedResidentBalance(RESIDENT_BALANCE)
+                setFetchedTransactionHistory(RESIDENT_TRANSACTION_HISTORY)
+            }, 1000)
+
+    }, [])
 
     const [pathIndex, setpathIndex] = useState<PathIndex>('resident-transaction-history')
 
