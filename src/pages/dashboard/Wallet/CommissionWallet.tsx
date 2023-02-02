@@ -393,8 +393,8 @@ const CommissionWallet = () => {
             </dialog>
             <h1 className='heading2'>Commission Wallet</h1>
             <div className='grid mt-12 pb-10 rounded-lg  items-baseline gap-10'>
-                <div className='flex justify-between items-center content-start bg-white p-8 rounded-lg'>
-                    <div className=''>
+                <div className='grid grid-cols-2 justify-between items-center content-start bg-white p-8 rounded-lg'>
+                    <div className='grid self-stretch justify-start'>
                         <OverviewWallet
                             amount={4_000_832}
                             title={'Commission Wallet'}
@@ -403,18 +403,12 @@ const CommissionWallet = () => {
                             lefIconUri='/icons/overview/card/leftC.svg'
                             bgColor='bg-[#333333]'
                         />
-                        <div>
-                            <button
-                                className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
-                              
-                            >
-                                Cancel
+                        <div className='flex justify-center mt-auto'>
+                            <button className='btn text-white bg-[#0556E5] border rounded-lg w-[15rem]'>
+                                Withdraw
                             </button>
-                            <button
-                                className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
-                              
-                            >
-                                Cancel
+                            <button className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'>
+                                Request
                             </button>
                         </div>
                     </div>
