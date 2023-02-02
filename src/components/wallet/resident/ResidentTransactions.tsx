@@ -4,73 +4,63 @@ import { CgSpinnerTwo } from "react-icons/cg"
 import { GrDown } from "react-icons/gr"
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from "react-icons/hi"
 
-interface ActivityReport {
+interface ResidentTransactions {
     id: string
-    guardName: string
-    phoneNumber: string
     date: string
-    guardCode: number
-    clockIn: number
-    clockOut: number
-    imgUri?: string
+    residentName: string
+    amount: number
 }
 
  
 
-const ATTENDANCE_REPORT_DATA: AttendanceReport[] = [
+const TRANSACTION_HISTORY: ResidentTransactions[] = [
     {
-        id: '1',
-        guardName: 'Jacinta Sage',
-        date: '12/12/2021',
-        guardCode: 1234,
-        checkInCount: 8,
-        checkOutCount: 5,
-        panicAlert: 2,
+        id: "1",
+        date: "12 May, 2021",
+        residentName: "Peace Estate",
+        amount: 10000,
     },
     {
-        id: '1',
-        guardName: 'Jacinta Sage',
-        date: '12/12/2021',
-        guardCode: 1234,
-        checkInCount: 8,
-        checkOutCount: 5,
-        panicAlert: 2,
+        id: "2",
+        date: "12 May, 2021",
+        residentName: "Peace Estate",
+        amount: 10000,
     },
     {
-        id: '1',
-        guardName: 'Jacinta Sage',
-        date: '12/12/2021',
-        guardCode: 1234,
-        checkInCount: 8,
-        checkOutCount: 5,
-        panicAlert: 2,
+        id: "3",
+        date: "12 May, 2021",
+        residentName: "Peace Estate",
+        amount: 10000,
     },
     {
-        id: '1',
-        guardName: 'Jacinta Sage',
-        date: '12/12/2021',
-        guardCode: 1234,
-        checkInCount: 8,
-        checkOutCount: 5,
-        panicAlert: 2,
+        id: "4",
+        date: "12 May, 2021",
+        residentName: "Peace Estate",
+        amount: 10000,
     },
     {
-        id: '1',
-        guardName: 'Jacinta Sage',
-        date: '12/12/2021',
-        guardCode: 1234,
-        checkInCount: 8,
-        checkOutCount: 5,
-        panicAlert: 2,
+        id: "5",
+        date: "12 May, 2021",
+        residentName: "Peace Estate",
+        amount: 10000,
     },
     {
-        id: '1',
-        guardName: 'Jacinta Sage',
-        date: '12/12/2021',
-        guardCode: 1234,
-        checkInCount: 8,
-        checkOutCount: 5,
-        panicAlert: 2,
+        id: "6",
+        date: "12 May, 2021",
+        residentName: "Peace Estate",
+        amount: 10000,
+    },
+    {
+        id: "7",
+        date: "12 May, 2021",
+        residentName: "Peace Estate",
+        amount: 10000,
+    },
+    {
+        id: "8",
+        date: "12 May, 2021",
+        residentName: "Peace Estate",
+        amount: 10000,
     },
 ]
 
