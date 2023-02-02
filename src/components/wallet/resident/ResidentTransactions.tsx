@@ -234,7 +234,7 @@ export const ResidentTransactions: FC<ResidentTransactionsProps> = ({
 
             <div className='grid px-8'>
                 <div
-                    className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-6 gap-8'
+                    className={`grid justify-between text-color-dark-1 bg-color-grey p-8 gap-8 ${isResidentBalance ? 'grid-cols-4' : 'grid-cols-3'}`}
                     style={{
                         fontSize: '1.6rem',
                     }}
@@ -257,7 +257,13 @@ export const ResidentTransactions: FC<ResidentTransactionsProps> = ({
                                     date,
                                 }) => {
                                     return (
-                                        <div className='grid justify-between border-b grid-cols-5 gap-8 '>
+                                        <div
+                                            className={`grid justify-start border-b gap-8 ${
+                                                isResidentBalance
+                                                    ? 'grid-cols-4'
+                                                    : 'grid-cols-3'
+                                            }`}
+                                        >
                                             <p>{residentName}</p>
                                             <p>{amount}</p>
                                             {isResidentBalance && (
