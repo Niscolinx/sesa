@@ -194,19 +194,17 @@ export const ResidentTransactions: FC<ResidentTransactionsProps> = ({
                                 }) => {
                                     return (
                                         <div className='grid justify-between border-b grid-cols-6 gap-8 '>
-                                            <p className='flex items-center gap-4'>
-                                                <input
-                                                    type='checkbox'
-                                                    className='cursor-pointer'
-                                                />
-
-                                                <span>{guardName}</span>
-                                            </p>
-                                            <p>{phoneNumber}</p>
+                                            
+                                            <p>{residentName}</p>
+                                            <p>{amount}</p>
+                                            {isResidentBalance && <p>{status === 'Paid' ? (<span className='text-green-600]'>
+                                                {status}
+                                            </span>) : (
+                                                <span className='text-red-600'>
+                                                    {status}
+                                                </span>
+                                            )}</p>}
                                             <p>{date}</p>
-                                            <p>{guardCode}</p>
-                                            <p>{clockIn}</p>
-                                            <p>{clockOut}</p>
                                         </div>
                                     )
                                 }
