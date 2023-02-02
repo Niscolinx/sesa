@@ -181,16 +181,15 @@ export const ResidentTransactions: FC<ResidentTransactionsProps> = ({
                 </div>
 
                 <div className='grid gap-8 mt-8 p-8'>
-                    {fetchedActivityReport &&
-                    fetchedActivityReport.length > 0 ? (
+                    {fetchedResidentTransactions &&
+                    fetchedResidentTransactions.length > 0 ? (
                         React.Children.toArray(
-                            fetchedActivityReport.map(
+                            fetchedResidentTransactions.map(
                                 ({
-                                    guardCode,
-                                    guardName,
-                                    phoneNumber,
-                                    clockIn,
-                                    clockOut,
+                                    id,
+                                    residentName,
+                                    amount,
+                                    status,                                
                                     date,
                                 }) => {
                                     return (
