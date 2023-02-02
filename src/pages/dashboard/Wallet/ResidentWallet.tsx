@@ -269,40 +269,6 @@ const ResidentWallet = () => {
         })
     }
 
-    const residentWalletList: ResidentWalletList[] = [
-        {
-            id: '1',
-            residentName: 'Peace Resident',
-            amount: 5000,
-            imgUri: '/img/estate1.png',
-        },
-        {
-            id: '2',
-            residentName: 'Peace Resident',
-            amount: 5000,
-            imgUri: '/img/estate1.png',
-        },
-        {
-            id: '3',
-            residentName: 'Peace Resident',
-            amount: 5000,
-            imgUri: '/img/estate1.png',
-        },
-        {
-            id: '4',
-            residentName: 'Peace Resident',
-            amount: 5000,
-            imgUri: '/img/estate1.png',
-        },
-        {
-            id: '5',
-            residentName: 'Peace Resident',
-            amount: 5000,
-            imgUri: '/img/estate1.png',
-        },
-    ]
-
-
   
 
     const handleSelectedAction = (item: Actions, index: string) => {

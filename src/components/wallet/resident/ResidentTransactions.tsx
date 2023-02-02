@@ -166,6 +166,42 @@ export const ResidentTransactions: FC<ResidentTransactionsProps> = ({
             }
         })
     }, [fetchedTransactions])
+
+     const handleNext = () => {
+         if (paginate.currentPage === paginate.totalPage) return
+         setPaginate((prev) => {
+             return {
+                 ...prev,
+                 index: prev.index + 1,
+                 currentPage: prev.currentPage + 1,
+             }
+         })
+     }
+
+     const handlePrev = () => {
+         if (paginate.currentPage === 1) return
+         setPaginate((prev) => {
+             return {
+                 ...prev,
+                 index: prev.index - 1,
+                 currentPage: prev.currentPage - 1,
+             }
+         })
+     }
+
+     const jumpToPage = (e: React.MouseEvent, index: number) => {
+         setPaginate((prev) => {
+             return {
+                 ...prev,
+                 index,
+                 currentPage: index + 1,
+             }
+         })
+     }
+
+     const { currentPage, slicedPages, itemsPerPage } = paginate
+
+
     return (
         <div className='grid text-[1.6rem]'>
             <caption className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
