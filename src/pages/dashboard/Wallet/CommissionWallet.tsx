@@ -346,7 +346,7 @@ const CommissionWallet = () => {
                         </h3>
 
                         {isWithdrawal ? (
-                            <form className='grid' onSubmit={handleFormSubmit}>
+                            <form className='grid gap-12' onSubmit={handleFormSubmit}>
                                 <div className='w-full grid gap-4'>
                                     <label
                                         htmlFor='amount'
@@ -381,10 +381,13 @@ const CommissionWallet = () => {
                                         type='text'
                                         required
                                         id='description'
-                                        className='border pl-8 border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem]'
-                                        value={1004238232}
+                                        className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem]'
                                     />
                                 </div>
+
+                                <button className='btn bg-[#0556E5] text-white rounded-lg py-4 place-self-start w-[15rem]'>
+                                    Withdraw
+                                </button>
                             </form>
                         ) : (
                             <p className='max-w-[45rem] text-center'>
@@ -394,30 +397,7 @@ const CommissionWallet = () => {
                             </p>
                         )}
 
-                        <div className='flex w-full justify-center gap-8'>
-                            <button
-                                className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
-                                onClick={() => handleClose()}
-                            >
-                                Cancel
-                            </button>
-
-                            {isWithdrawal ? (
-                                <button
-                                    className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
-                                    onClick={confirmDeactivation}
-                                >
-                                    Deny
-                                </button>
-                            ) : (
-                                <button
-                                    className='btn text-white bg-green-600 border rounded-lg w-[15rem]'
-                                    onClick={handleApprove}
-                                >
-                                    Approve
-                                </button>
-                            )}
-                        </div>
+                        
                     </div>
                 </section>
             </dialog>
