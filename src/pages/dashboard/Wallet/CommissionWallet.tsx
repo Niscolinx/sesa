@@ -105,7 +105,7 @@ export const TRANSACTION_HISTORY: ITransactionHistory[] = [
 
 const CommissionWallet = () => {
     const trend: Array<Trend> = ['This Week', 'This Month', 'This Year']
-    const [isWarning, setIsWarning] = useState(true)
+    const [isWithdrawal, setIsWithdrawal] = useState(true)
 
     const [togglCommissionMenu, setTogglCommissionMenu] = useState(false)
     const [selectedTrend, setSelectedTrend] = useState<Trend>('This Week')
@@ -282,9 +282,9 @@ const CommissionWallet = () => {
 
     const handleOpen = (modalState: 'warning' | 'success') => {
         if (modalState === 'warning') {
-            setIsWarning(true)
+            setIsWithdrawal(true)
         } else {
-            setIsWarning(false)
+            setIsWithdrawal(false)
         }
 
         if (dialogRef.current) {
@@ -328,12 +328,12 @@ const CommissionWallet = () => {
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] min-h-[30rem] py-10 gap-8 text-[1.6rem]'>
-                        {isWarning ? (
+                        {isWithdrawal ? (
                             <img src='/icons/admins/modalWarning.svg' alt='' />
                         ) : (
                             <img src='/icons/admins/modalSuccess.svg' alt='' />
                         )}
-                        {isWarning && (
+                        {isWithdrawal && (
                             <p
                                 className='font-bold text-[1.8rem]'
                                 style={{
@@ -344,7 +344,7 @@ const CommissionWallet = () => {
                             </p>
                         )}
 
-                        {isWarning ? (
+                        {isWithdrawal ? (
                             <div className='grid'>
                                 <label className=' text-left'>Message</label>
 
@@ -372,7 +372,7 @@ const CommissionWallet = () => {
                                 Cancel
                             </button>
 
-                            {isWarning ? (
+                            {isWithdrawal ? (
                                 <button
                                     className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
                                     onClick={confirmDeactivation}
