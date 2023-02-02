@@ -3,28 +3,25 @@ import { IoMdAdd } from 'react-icons/io'
 import RenderSecurityCompanies from '../../components/securityCompany/RenderedSecurityCompanies'
 import { useNavigate } from 'react-router'
 
-
-function SecurityCompany() {
+function Artisan() {
     const navigate = useNavigate()
 
     const [securityCompanies, setSecurityCompanies] = useState(false)
-
-
 
     const addSecurityCompanyHandler = () => {
         setSecurityCompanies(true)
 
         navigate('/dashboard/security-company/add')
-        
     }
-
 
     return (
         <div>
             <h1 className='heading2'>Security Company</h1>
             <div className='rounded-lg mt-[3rem] h-[80vh]'>
                 {!securityCompanies ? (
-                    <section><RenderSecurityCompanies/></section>
+                    <section>
+                        <RenderSecurityCompanies />
+                    </section>
                 ) : (
                     <section className='estates__wrapper bg-white'>
                         <img src='/icons/admins/errorSvg.svg' alt='' />
@@ -47,4 +44,4 @@ function SecurityCompany() {
     )
 }
 
-export default SecurityCompany
+export default Artisan

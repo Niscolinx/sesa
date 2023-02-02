@@ -83,6 +83,16 @@ const router = createBrowserRouter(
                 path='wallet/security-company/:id'
                 element={<SecurityCompanyWalletDetails />}
             />
+            <Route path='' element={<SecurityCompanyWalletDetails />} />
+            <Route path='artisan' element={<SecurityCompany />} />
+            <Route
+                path='artisan/:Id'
+                element={<SecurityCompanyDetail />}
+            />
+            <Route
+                path='artisan/add'
+                element={<AddSecurityCompany />}
+            />
         </Route>,
         <Route path='*' element={<Navigate to='/' />} />,
     ])
