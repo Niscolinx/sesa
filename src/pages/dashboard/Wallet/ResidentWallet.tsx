@@ -322,6 +322,21 @@ const ResidentWallet = () => {
        
     }
 
+    
+
+    const handlePathSwitch = {
+        1: (
+            <ActivityReport
+                fetchedActivityReport={fetchedActivityReport ?? []}
+            />
+        ),
+        2: (
+            <AttendanceReport
+                fetchedAttendanceReport={fetchedAttendanceReport ?? []}
+            />
+        ),
+    }
+
    
 
     return (
