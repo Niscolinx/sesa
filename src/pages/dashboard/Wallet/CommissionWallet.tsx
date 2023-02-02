@@ -331,7 +331,7 @@ const CommissionWallet = () => {
                 <section className='grid place-content-center w-full h-[100vh]'>
                    
                     <div className='bg-white rounded-2xl grid  w-[64rem] min-h-[30rem] p-10 gap-8 text-[1.6rem] relative'>
-                        <IoMdClose className='absolute right-4'/>
+                        <IoMdClose className='absolute right-4 top-4 text-[2rem]' onClick={() => handleClose()}/>
 
                        <h3>{
                             isWithdrawal ? 'Withdrawal' : 'Request'
