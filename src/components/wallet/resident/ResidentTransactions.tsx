@@ -108,13 +108,13 @@ export const RESIDENT_BALANCE: ResidentTransactions[] = [
         residentName: 'Peace Estate',
     },
 ]
-  interface Paginate {
-      index: number
-      currentPage: number
-      itemsPerPage: number
-      totalPage: number
-      slicedPages: ResidentTransactions[][] | null
-  }
+interface Paginate {
+    index: number
+    currentPage: number
+    itemsPerPage: number
+    totalPage: number
+    slicedPages: ResidentTransactions[][] | null
+}
 
 interface ResidentTransactionsProps {
     fetchedResidentTransactions: ResidentTransactions[]
@@ -125,8 +125,7 @@ export const ResidentTransactions: FC<ResidentTransactionsProps> = ({
     fetchedResidentTransactions,
     isResidentBalance,
 }) => {
-
-        const itemsPerPageArr = [2, 4, 6, 8]
+    const itemsPerPageArr = [2, 4, 6, 8]
 
     const [paginate, setPaginate] = useState<Paginate>({
         index: 0,
@@ -177,46 +176,47 @@ export const ResidentTransactions: FC<ResidentTransactionsProps> = ({
         })
     }, [fetchedResidentTransactions])
 
-     const handleNext = () => {
-         if (paginate.currentPage === paginate.totalPage) return
-         setPaginate((prev) => {
-             return {
-                 ...prev,
-                 index: prev.index + 1,
-                 currentPage: prev.currentPage + 1,
-             }
-         })
-     }
+    const handleNext = () => {
+        if (paginate.currentPage === paginate.totalPage) return
+        setPaginate((prev) => {
+            return {
+                ...prev,
+                index: prev.index + 1,
+                currentPage: prev.currentPage + 1,
+            }
+        })
+    }
 
-     const handlePrev = () => {
-         if (paginate.currentPage === 1) return
-         setPaginate((prev) => {
-             return {
-                 ...prev,
-                 index: prev.index - 1,
-                 currentPage: prev.currentPage - 1,
-             }
-         })
-     }
+    const handlePrev = () => {
+        if (paginate.currentPage === 1) return
+        setPaginate((prev) => {
+            return {
+                ...prev,
+                index: prev.index - 1,
+                currentPage: prev.currentPage - 1,
+            }
+        })
+    }
 
-     const jumpToPage = (e: React.MouseEvent, index: number) => {
-         setPaginate((prev) => {
-             return {
-                 ...prev,
-                 index,
-                 currentPage: index + 1,
-             }
-         })
-     }
+    const jumpToPage = (e: React.MouseEvent, index: number) => {
+        setPaginate((prev) => {
+            return {
+                ...prev,
+                index,
+                currentPage: index + 1,
+            }
+        })
+    }
 
-     const { currentPage, slicedPages, itemsPerPage } = paginate
-
+    const { currentPage, slicedPages, itemsPerPage } = paginate
 
     return (
         <div className='grid text-[1.6rem]'>
             <div className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
                 <p className=' font-bold'>
-                    {isResidentBalance ? 'Resident Balance' : 'Resident Transactions'}
+                    {isResidentBalance
+                        ? 'Resident Balance'
+                        : 'Resident Transactions'}
                 </p>
                 <div className='relative flex items-center'>
                     <img
@@ -230,8 +230,6 @@ export const ResidentTransactions: FC<ResidentTransactionsProps> = ({
                         className='pl-16 w-[25rem] rounded-lg border border-color-blue-light appearance-none outline-none p-4'
                     />
                 </div>
-                
-                
             </div>
 
             <div className='grid'>
@@ -248,10 +246,9 @@ export const ResidentTransactions: FC<ResidentTransactionsProps> = ({
                 </div>
 
                 <div className='grid gap-8 mt-8 p-8'>
-                    {fetchedResidentTransactions &&
-                    fetchedResidentTransactions.length > 0 ? (
+                    {slicedPages && slicedPages.length > 0 ? (
                         React.Children.toArray(
-                            fetchedResidentTransactions.map(
+                            slicedPages[paginate.index].map(
                                 ({
                                     id,
                                     residentName,
@@ -340,9 +337,6 @@ export const ResidentTransactions: FC<ResidentTransactionsProps> = ({
                         )
                     })}
 
-                    {/* <li className='grid place-content-center border w-[3rem] h-[3rem] cursor-pointer'>
-                        {totalPage}
-                    </li> */}
                     <HiOutlineChevronRight
                         onClick={handleNext}
                         className='cursor-pointer'
