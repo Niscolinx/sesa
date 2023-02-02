@@ -274,21 +274,26 @@ export const ResidentTransactions: FC<ResidentTransactionsProps> = ({
                                     id,
                                     residentName,
                                     amount,
-                                    status,                                
+                                    status,
                                     date,
                                 }) => {
                                     return (
                                         <div className='grid justify-between border-b grid-cols-5 gap-8 '>
-                                            
                                             <p>{residentName}</p>
                                             <p>{amount}</p>
-                                            {isResidentBalance && <p>{status === 'Paid' ? (<span className='text-green-600]'>
-                                                {status}
-                                            </span>) : (
-                                                <span className='text-red-600'>
-                                                    {status}
-                                                </span>
-                                            )}</p>}
+                                            {isResidentBalance && (
+                                                <p>
+                                                    {status === 'Paid' ? (
+                                                        <span className='text-green-600]'>
+                                                            {status}
+                                                        </span>
+                                                    ) : (
+                                                        <span className='text-red-600'>
+                                                            {status}
+                                                        </span>
+                                                    )}
+                                                </p>
+                                            )}
                                             <p>{date}</p>
                                         </div>
                                     )
@@ -309,38 +314,57 @@ export const ResidentTransactions: FC<ResidentTransactionsProps> = ({
             <footer className='flex items-center p-4 mt-4 bg-color-white rounded-lg'>
                 <div className='flex gap-8 items-center'>
                     <p>View</p>
-                    <div className='flex items-center border px-4 rounded-lg'>
-                        <input
-                            type='text'
-                            className='w-8 outline-none border-none cursor-pointer '
-                            value={6}
-                            inputMode='numeric'
-                        />
-                        <GrDown className='text-[1.3rem]' />
-                    </div>
+                    <select
+                        name=''
+                        id=''
+                        className='flex items-center border px-4 rounded-lg outline-none cursor-pointer'
+                        onChange={handleItemsPerPage}
+                    >
+                        <option hidden>{itemsPerPage}</option>
+                        {itemsPerPageArr.map((item, index) => (
+                            <option
+                                value={item}
+                                key={index}
+                                className='capitalize cursor-pointer bg-white'
+                            >
+                                {item}
+                            </option>
+                        ))}
+                    </select>
                     <p className='text'>List per page</p>
                 </div>
                 <ul className='flex items-center gap-5 ml-10'>
-                    <HiOutlineChevronLeft />
-                    <li className='grid place-content-center border w-[3rem] h-[3rem] cursor-pointer'>
-                        1
-                    </li>
-                    <li className='grid place-content-center border w-[3rem] h-[3rem] cursor-pointer'>
-                        2
-                    </li>
-                    <li className='grid place-content-center border w-[3rem] h-[3rem] cursor-pointer'>
-                        3
-                    </li>
-                    <li className='grid place-content-center border w-[3rem] h-[3rem] cursor-pointer'>
-                        4
-                    </li>
-                    <li className='grid place-content-center w-[3rem] h-[3rem] cursor-pointer'>
-                        ....
-                    </li>
-                    <li className='grid place-content-center border w-[3rem] h-[3rem] cursor-pointer'>
-                        10
-                    </li>
-                    <HiOutlineChevronRight />
+                    <HiOutlineChevronLeft
+                        onClick={handlePrev}
+                        className='cursor-pointer'
+                    />
+
+                    {slicedPages?.map((item, index) => {
+                        return (
+                            <li key={index}>
+                                {index + 1 === currentPage ? (
+                                    <span className='bg-color-primary text-white grid place-content-center w-[3rem] h-[3rem] cursor-pointer'>
+                                        {index + 1}
+                                    </span>
+                                ) : (
+                                    <span
+                                        className='text-color-primary bg-white grid place-content-center border w-[3rem] h-[3rem] cursor-pointer'
+                                        onClick={(e) => jumpToPage(e, index)}
+                                    >
+                                        {index + 1}
+                                    </span>
+                                )}
+                            </li>
+                        )
+                    })}
+
+                    {/* <li className='grid place-content-center border w-[3rem] h-[3rem] cursor-pointer'>
+                        {totalPage}
+                    </li> */}
+                    <HiOutlineChevronRight
+                        onClick={handleNext}
+                        className='cursor-pointer'
+                    />
                 </ul>
             </footer>
         </div>
