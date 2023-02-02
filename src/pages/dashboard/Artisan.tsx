@@ -1,41 +1,40 @@
 import { useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
-import RenderSecurityCompanies from '../../components/securityCompany/RenderedSecurityCompanies'
 import { useNavigate } from 'react-router'
 
 function Artisan() {
     const navigate = useNavigate()
 
-    const [securityCompanies, setSecurityCompanies] = useState(false)
+    const [artisan, setArtisan] = useState(false)
 
-    const addSecurityCompanyHandler = () => {
-        setSecurityCompanies(true)
+    const addArtisanHandler = () => {
+        setArtisan(true)
 
-        navigate('/dashboard/security-company/add')
+        navigate('/dashboard/artisan/add')
     }
 
     return (
         <div>
-            <h1 className='heading2'>Security Company</h1>
+            <h1 className='heading2'>Artisan</h1>
             <div className='rounded-lg mt-[3rem] h-[80vh]'>
-                {!securityCompanies ? (
+                {!artisan ? (
                     <section>
-                        <RenderSecurityCompanies />
+                        {/* <RenderArtisans /> */}
                     </section>
                 ) : (
                     <section className='estates__wrapper bg-white'>
                         <img src='/icons/admins/errorSvg.svg' alt='' />
                         <p className='text'>
-                            Ooops you have not added any security Company yet
+                            Ooops you have not added any Artisan yet
                         </p>
                         <button
                             className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
-                            onClick={addSecurityCompanyHandler}
+                            onClick={addArtisanHandler}
                         >
                             <span>
                                 <IoMdAdd />
                             </span>{' '}
-                            Add Company
+                            Add Artisan
                         </button>
                     </section>
                 )}
