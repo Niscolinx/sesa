@@ -403,6 +403,20 @@ const CommissionWallet = () => {
                             lefIconUri='/icons/overview/card/leftC.svg'
                             bgColor='bg-[#333333]'
                         />
+                        <div>
+                            <button
+                                className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
+                              
+                            >
+                                Cancel
+                            </button>
+                            <button
+                                className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
+                              
+                            >
+                                Cancel
+                            </button>
+                        </div>
                     </div>
 
                     <div className='border-l border-l-color-grey'>

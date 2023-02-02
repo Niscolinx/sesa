@@ -14,7 +14,7 @@ interface ActivityReport {
     guardCode: number
     clockIn: number
     clockOut: number
-    imgUri: string
+    imgUri?: string
 }
 
 interface AttendanceReport {
