@@ -331,18 +331,20 @@ const ResidentWallet = () => {
         ResidentTransactions[] | null
     >(null)
 
-    const [pathNum, setpathNum] = useState(1)
+    const [pathNum, setpathNum] = useState('resident-transaction-history')
 
 
     const handlePathSwitch = {
-        1: (
-            <ActivityReport
-                fetchedResidentBalance={fetchedResidentBalance ?? []}
+        'resident-transacton-history': (
+            <ResidentTransactions
+                fetchedResidentTransactions={fetchedTransactionHistory ?? []}
+
             />
         ),
-        2: (
-            <TransactionHistory
-                fetchedTransactionHistory={fetchedTransactionHistory ?? []}
+        'resident-balance': (
+            <ResidentTransactions
+                fetchedResidentTransactions={fetchedResidentBalance ?? []}
+                isResidentBalance
             />
         ),
     }
@@ -410,31 +412,31 @@ const ResidentWallet = () => {
                             <input
                                 defaultChecked
                                 type='radio'
-                                name='report'
-                                id='activityReport'
+                                name='resident'
+                                id='residentTransactionHistory'
                                 className='hidden'
-                                onChange={() => setCurrentPage(1)}
+                                onChange={() => setpathNum('resident-transacton-history')}
                             />
-                            <label htmlFor='activityReport'>
-                                Activity Report
+                            <label htmlFor='activityResident'>
+                                Transaction History
                             </label>
 
                             <input
                                 type='radio'
-                                name='report'
-                                id='transactionHistory'
+                                name='resident'
+                                id='residentBalance'
                                 className='hidden'
-                                onChange={() => setCurrentPage(2)}
+                                onChange={() => setpathNum('resident-balance')}
                             />
                             <label htmlFor='transactionHistory'>
-                                Attendance Report
+                                Resident Balance
                             </label>
                         </div>
                         <div className='mt-8 grid gap-8'>
                            
                             <section className='bg-color-white rounded-lg border min-w-[112rem] overflow-scroll'>
                                 {fetchedResidentBalance &&
-                                    handlePathSwitch(currentPage)}
+                                    handlePathSwitch[pathNum]}
                             </section>
                         </div>
                     </div>

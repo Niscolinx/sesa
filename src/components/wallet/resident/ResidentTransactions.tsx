@@ -110,7 +110,7 @@ export const RESIDENT_BALANCE: ResidentTransactions[] = [
 
 interface ResidentTransactionsProps {
     fetchedResidentTransactions: ResidentTransactions[]
-    isResidentBalance: boolean
+    isResidentBalance?: boolean
 }
 
 export const ResidentTransactions: FC<ResidentTransactionsProps> = ({
