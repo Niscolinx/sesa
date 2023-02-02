@@ -182,7 +182,7 @@ const ResidentWallet = () => {
         currentPage: 1,
         itemsPerPage: 6,
 
-        totalPage: Math.ceil(fetchedTransactionHistory.length / 2),
+        totalPage: Math.ceil(fetchedTransactions.length / 2),
         slicedPages: null,
     })
 
@@ -197,8 +197,8 @@ const ResidentWallet = () => {
         const item = parseInt(e.target.value)
 
         const slicedPages: ITransactions[][] = []
-        for (let i = 0; i < fetchedTransactionHistory.length; i += item) {
-            slicedPages.push(fetchedTransactionHistory.slice(i, i + item))
+        for (let i = 0; i < fetchedTransactions.length; i += item) {
+            slicedPages.push(fetchedTransactions.slice(i, i + item))
         }
 
         setPaginate((prev) => {
@@ -208,7 +208,7 @@ const ResidentWallet = () => {
                 index: 0,
                 currentPage: 1,
                 slicedPages,
-                totalPage: Math.ceil(fetchedTransactionHistory.length / item),
+                totalPage: Math.ceil(fetchedTransactions.length / item),
             }
         })
     }
@@ -221,11 +221,11 @@ const ResidentWallet = () => {
         const slicedPages: ITransactions[][] = []
         for (
             let i = 0;
-            i < fetchedTransactionHistory.length;
+            i < fetchedTransactions.length;
             i += paginate.itemsPerPage
         ) {
             slicedPages.push(
-                fetchedTransactionHistory.slice(i, i + paginate.itemsPerPage)
+                fetchedTransactions.slice(i, i + paginate.itemsPerPage)
             )
         }
 
@@ -235,7 +235,7 @@ const ResidentWallet = () => {
                 slicedPages,
             }
         })
-    }, [fetchedTransactionHistory])
+    }, [fetchedTransactions])
 
     const handleNext = () => {
         if (paginate.currentPage === paginate.totalPage) return
