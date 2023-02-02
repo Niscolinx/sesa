@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { ChangeEvent, useEffect, useState } from 'react'
 import { FC } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
 import { GrDown } from 'react-icons/gr'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
+import { ITransactions } from '../../../pages/dashboard/Wallet/ResidentWallet'
 
 export interface ResidentTransactions {
     id: string
@@ -107,6 +108,13 @@ export const RESIDENT_BALANCE: ResidentTransactions[] = [
         residentName: 'Peace Estate',
     },
 ]
+  interface Paginate {
+      index: number
+      currentPage: number
+      itemsPerPage: number
+      totalPage: number
+      slicedPages: ResidentTransactions[][] | null
+  }
 
 interface ResidentTransactionsProps {
     fetchedResidentTransactions: ResidentTransactions[]
@@ -118,21 +126,23 @@ export const ResidentTransactions: FC<ResidentTransactionsProps> = ({
     isResidentBalance,
 }) => {
 
+        const itemsPerPageArr = [2, 4, 6, 8]
+
     const [paginate, setPaginate] = useState<Paginate>({
         index: 0,
         currentPage: 1,
         itemsPerPage: 6,
 
-        totalPage: Math.ceil(fetchedTransactions.length / 2),
+        totalPage: Math.ceil(fetchedResidentTransactions.length / 2),
         slicedPages: null,
     })
 
     const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
         const item = parseInt(e.target.value)
 
-        const slicedPages: ITransactions[][] = []
-        for (let i = 0; i < fetchedTransactions.length; i += item) {
-            slicedPages.push(fetchedTransactions.slice(i, i + item))
+        const slicedPages: ResidentTransactions[][] = []
+        for (let i = 0; i < fetchedResidentTransactions.length; i += item) {
+            slicedPages.push(fetchedResidentTransactions.slice(i, i + item))
         }
 
         setPaginate((prev) => {
@@ -142,20 +152,20 @@ export const ResidentTransactions: FC<ResidentTransactionsProps> = ({
                 index: 0,
                 currentPage: 1,
                 slicedPages,
-                totalPage: Math.ceil(fetchedTransactions.length / item),
+                totalPage: Math.ceil(fetchedResidentTransactions.length / item),
             }
         })
     }
 
     useEffect(() => {
-        const slicedPages: ITransactions[][] = []
+        const slicedPages: ResidentTransactions[][] = []
         for (
             let i = 0;
-            i < fetchedTransactions.length;
+            i < fetchedResidentTransactions.length;
             i += paginate.itemsPerPage
         ) {
             slicedPages.push(
-                fetchedTransactions.slice(i, i + paginate.itemsPerPage)
+                fetchedResidentTransactions.slice(i, i + paginate.itemsPerPage)
             )
         }
 
@@ -165,7 +175,7 @@ export const ResidentTransactions: FC<ResidentTransactionsProps> = ({
                 slicedPages,
             }
         })
-    }, [fetchedTransactions])
+    }, [fetchedResidentTransactions])
 
      const handleNext = () => {
          if (paginate.currentPage === paginate.totalPage) return
