@@ -330,15 +330,56 @@ const CommissionWallet = () => {
                             onClick={() => handleClose()}
                         />
 
-                        <h3 className='text-[2rem] font-bold border-b ' style={{
-                            fontFamily: 'Satoshi-Medium',
-                        }}>
+                        <h3
+                            className='text-[2rem] font-bold border-b '
+                            style={{
+                                fontFamily: 'Satoshi-Medium',
+                            }}
+                        >
                             {isWithdrawal ? 'Withdrawal' : 'Request'}
                         </h3>
 
-
                         {isWithdrawal ? (
-                            <div className='grid'>withdraw</div>
+                            <div className='grid'>
+                                <div className='w-full grid gap-4'>
+                                    <label
+                                        htmlFor='amount'
+                                        className='text-[1.4rem] font-semibold'
+                                    >
+                                        Amount
+                                    </label>
+                                    <div className='relative flex items-center'>
+                                        <img
+                                            src='/icons/Naira.svg'
+                                            alt=''
+                                            className='absolute left-3'
+                                        />
+                                        <input
+                                            type='number'
+                                            required
+                                            id='amount'
+                                            className='border pl-8 border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem]'
+                                            
+                                        />
+                                    </div>
+                                </div>
+                                <div className='w-full grid gap-4'>
+                                    <label
+                                        htmlFor='description'
+                                        className='text-[1.4rem] font-semibold'
+                                    >
+                                        Description
+                                    </label>
+
+                                    <input
+                                        type='text'
+                                        required
+                                        id='description'
+                                        className='border pl-8 border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem]'
+                                        value={1004238232}
+                                    />
+                                </div>
+                            </div>
                         ) : (
                             <p className='max-w-[45rem] text-center'>
                                 Are you sure you want to approve this request?
