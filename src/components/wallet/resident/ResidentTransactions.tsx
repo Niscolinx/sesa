@@ -130,7 +130,7 @@ export const ResidentTransactions: FC<ResidentTransactionsProps> = ({
     const [paginate, setPaginate] = useState<Paginate>({
         index: 0,
         currentPage: 1,
-        itemsPerPage: 6,
+        itemsPerPage: 4,
 
         totalPage: Math.ceil(fetchedResidentTransactions.length / 2),
         slicedPages: null,
@@ -232,7 +232,7 @@ export const ResidentTransactions: FC<ResidentTransactionsProps> = ({
                 </div>
             </div>
 
-            <div className='grid'>
+            <div className='grid px-8'>
                 <div
                     className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-6 gap-8'
                     style={{
@@ -292,7 +292,6 @@ export const ResidentTransactions: FC<ResidentTransactionsProps> = ({
             </div>
             <footer className='flex items-center p-4 mt-4 bg-color-white rounded-lg'>
                 <div className='flex gap-8 items-center'>
-                    <p>View</p>
                     <select
                         name=''
                         id=''

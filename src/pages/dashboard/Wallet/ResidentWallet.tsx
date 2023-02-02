@@ -386,7 +386,6 @@ const ResidentWallet = () => {
                 </div>
                 <div className='grid gap-10'>
                     <div className='estateDetail'>
-                        <h1 className='heading2'>Estate Details</h1>
                         <div className='estateDetail__radioBox'>
                             <input
                                 defaultChecked
