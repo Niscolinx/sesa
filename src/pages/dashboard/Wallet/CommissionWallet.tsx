@@ -407,10 +407,11 @@ const CommissionWallet = () => {
                         />
                         </div>
                         <div className='flex justify-center mt-auto gap-4'>
-                            <button className='btn text-white bg-[#0556E5] border rounded-lg w-[15rem]'>
+                            <button className='btn text-white bg-[#0556E5] border rounded-lg w-[15rem]' onClick={() => handleOpen('warning')}>
                                 Withdraw
                             </button>
-                            <button className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'>
+                            <button className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
+                            onClick={() => handleOpen('success')}>
                                 Request
                             </button>
                         </div>
