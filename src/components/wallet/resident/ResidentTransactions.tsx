@@ -269,7 +269,7 @@ export const ResidentTransactions: FC<ResidentTransactionsProps> = ({
                                             {isResidentBalance && (
                                                 <p>
                                                     {status === 'Paid' ? (
-                                                        <span className='text-green-600]'>
+                                                        <span className='text-green-600'>
                                                             {status}
                                                         </span>
                                                     ) : (
