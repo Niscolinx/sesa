@@ -322,6 +322,14 @@ const ResidentWallet = () => {
        
     }
 
+    const [fetchedActivityReport, setFetchedActivityReport] = useState<
+        ActivityReport[] | null
+    >(null)
+    const [fetchedAttendanceReport, setFetchedAttendanceReport] = useState<
+        AttendanceReport[] | null
+    >(null)
+
+    const [currentPage, setCurrentPage] = useState(1)
     
 
     const handlePathSwitch = {

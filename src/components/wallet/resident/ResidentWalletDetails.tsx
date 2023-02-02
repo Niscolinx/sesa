@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 
-import { ModalContext } from '../../Context/ModalContext'
+import { ModalContext } from '../../../Context/ModalContext'
 
 const ResidentWalletDetails = () => {
     const ModalContextData = useContext(ModalContext)
@@ -169,16 +169,15 @@ const ResidentWalletDetails = () => {
                     >
                         Narration
                     </label>
-                    
-                        <input
-                            disabled
-                            type='text'
-                            required
-                            id='description'
-                            className='border pl-8 border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] disabled:text-gray-500 disabled:cursor-not-allowed'
-                            value={'Product Purchase for 6000'}
-                        />
-              
+
+                    <input
+                        disabled
+                        type='text'
+                        required
+                        id='description'
+                        className='border pl-8 border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] disabled:text-gray-500 disabled:cursor-not-allowed'
+                        value={'Product Purchase for 6000'}
+                    />
                 </div>
             </section>
         </div>
