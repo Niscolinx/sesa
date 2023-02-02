@@ -193,7 +193,7 @@ export const ResidentTransactions: FC<ResidentTransactionsProps> = ({
                                     date,
                                 }) => {
                                     return (
-                                        <div className='grid justify-between border-b grid-cols-6 gap-8 '>
+                                        <div className='grid justify-between border-b grid-cols-5 gap-8 '>
                                             
                                             <p>{residentName}</p>
                                             <p>{amount}</p>

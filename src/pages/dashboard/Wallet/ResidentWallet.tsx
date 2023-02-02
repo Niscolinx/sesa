@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router'
 import WalletBarChart from '../../../components/charts/WalletBarChart'
 import { OverviewWallet } from '../../../components/overview/OverviewWallets'
 import { ToastContainer, toast } from 'react-toastify'
+import { ResidentTransactions } from '../../../components/wallet/resident/ResidentTransactions'
 
 type Trend = 'This Week' | 'This Month' | 'This Year'
 
@@ -322,11 +323,12 @@ const ResidentWallet = () => {
        
     }
 
-    const [fetchedActivityReport, setFetchedActivityReport] = useState<
-        ActivityReport[] | null
+
+    const [fetchedResidentBalance, setFetchedResidentBalance] = useState<
+        ResidentTransactions[] | null
     >(null)
-    const [fetchedAttendanceReport, setFetchedAttendanceReport] = useState<
-        AttendanceReport[] | null
+    const [fetchedTransactionHistory, setFetchedTransactionHistory] = useState<
+        ResidentTransactions[] | null
     >(null)
 
     const [pathNum, setpathNum] = useState(1)
@@ -335,12 +337,12 @@ const ResidentWallet = () => {
     const handlePathSwitch = {
         1: (
             <ActivityReport
-                fetchedActivityReport={fetchedActivityReport ?? []}
+                fetchedResidentBalance={fetchedResidentBalance ?? []}
             />
         ),
         2: (
-            <AttendanceReport
-                fetchedAttendanceReport={fetchedAttendanceReport ?? []}
+            <TransactionHistory
+                fetchedTransactionHistory={fetchedTransactionHistory ?? []}
             />
         ),
     }
@@ -420,18 +422,18 @@ const ResidentWallet = () => {
                             <input
                                 type='radio'
                                 name='report'
-                                id='attendanceReport'
+                                id='transactionHistory'
                                 className='hidden'
                                 onChange={() => setCurrentPage(2)}
                             />
-                            <label htmlFor='attendanceReport'>
+                            <label htmlFor='transactionHistory'>
                                 Attendance Report
                             </label>
                         </div>
                         <div className='mt-8 grid gap-8'>
                            
                             <section className='bg-color-white rounded-lg border min-w-[112rem] overflow-scroll'>
-                                {fetchedActivityReport &&
+                                {fetchedResidentBalance &&
                                     handlePathSwitch(currentPage)}
                             </section>
                         </div>
