@@ -7,6 +7,8 @@ import { useNavigate } from 'react-router'
 import WalletBarChart from '../../../components/charts/WalletBarChart'
 import { OverviewWallet } from '../../../components/overview/OverviewWallets'
 import { ToastContainer, toast } from 'react-toastify'
+import {IoMdClose} from 'react-icons/io'
+
 
 type Trend = 'This Week' | 'This Month' | 'This Year'
 
@@ -346,15 +348,7 @@ const CommissionWallet = () => {
 
                         {isWithdrawal ? (
                             <div className='grid'>
-                                <label className=' text-left'>Message</label>
-
-                                <textarea
-                                    rows={2}
-                                    className='w-[45rem] outline-color-grey border-color-grey border rounded-lg p-4 mt-4'
-                                />
-                                <p className='text-gray-400 text-[1.4rem]'>
-                                    Maximum of 80 Characters
-                                </p>
+                                withdraw
                             </div>
                         ) : (
                             <p className='max-w-[45rem] text-center'>
