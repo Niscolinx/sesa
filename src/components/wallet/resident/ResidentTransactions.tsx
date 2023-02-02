@@ -64,62 +64,7 @@ const TRANSACTION_HISTORY: ResidentTransactions[] = [
     },
 ]
 
-const ACTIVITY_REPORT_DATA: ActivityReport[] = [
-    {
-        id: '1',
-        guardName: 'John Sage',
-        phoneNumber: '08012345678',
-        date: '12/12/2021',
-        guardCode: 1234,
-        clockIn: 8,
-        clockOut: 5,
-    },
-    {
-        id: '1',
-        guardName: 'John Doe',
-        phoneNumber: '08012345678',
-        date: '12/12/2021',
-        guardCode: 1234,
-        clockIn: 8,
-        clockOut: 5,
-    },
-    {
-        id: '1',
-        guardName: 'John Doe',
-        phoneNumber: '08012345678',
-        date: '12/12/2021',
-        guardCode: 1234,
-        clockIn: 8,
-        clockOut: 5,
-    },
-    {
-        id: '1',
-        guardName: 'John Doe',
-        phoneNumber: '08012345678',
-        date: '12/12/2021',
-        guardCode: 1234,
-        clockIn: 8,
-        clockOut: 5,
-    },
-    {
-        id: '1',
-        guardName: 'John Doe',
-        phoneNumber: '08012345678',
-        date: '12/12/2021',
-        guardCode: 1234,
-        clockIn: 8,
-        clockOut: 5,
-    },
-    {
-        id: '1',
-        guardName: 'John Doe',
-        phoneNumber: '08012345678',
-        date: '12/12/2021',
-        guardCode: 1234,
-        clockIn: 8,
-        clockOut: 5,
-    },
-]
+
 
 export const ActivityReport: FC<{
     fetchedActivityReport: ActivityReport[]
