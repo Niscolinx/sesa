@@ -104,11 +104,13 @@ const RESIDENT_BALANCE: ResidentTransactions[] = [
     },
 ]
 
-
-
-export const ResidentTransactions: FC<{
+interface ResidentTransactionsProps {
     fetchedResidentTransactions: ResidentTransactions[]
-}> = ({ fetchedResidentTransactions }) => {
+    isResidentBalance: boolean
+}
+
+
+export const ResidentTransactions: FC<ResidentTransactionsProps> = ({ fetchedResidentTransactions }) => {
     return (
         <div className='grid text-[1.6rem]'>
             <caption className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
