@@ -395,6 +395,8 @@ const CommissionWallet = () => {
             <div className='grid mt-12 pb-10 rounded-lg  items-baseline gap-10'>
                 <div className='grid grid-cols-2 justify-between items-center content-start bg-white p-8 rounded-lg'>
                     <div className='grid self-stretch justify-start'>
+                        <div className='grid items-end'>
+
                         <OverviewWallet
                             amount={4_000_832}
                             title={'Commission Wallet'}
@@ -403,7 +405,8 @@ const CommissionWallet = () => {
                             lefIconUri='/icons/overview/card/leftC.svg'
                             bgColor='bg-[#333333]'
                         />
-                        <div className='flex justify-center mt-auto'>
+                        </div>
+                        <div className='flex justify-center mt-auto gap-4'>
                             <button className='btn text-white bg-[#0556E5] border rounded-lg w-[15rem]'>
                                 Withdraw
                             </button>
