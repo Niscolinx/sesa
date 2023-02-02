@@ -106,6 +106,7 @@ export const TRANSACTION_HISTORY: ITransactionHistory[] = [
 
 const CommissionWallet = () => {
     const trend: Array<Trend> = ['This Week', 'This Month', 'This Year']
+    const sendTo: string[] = ['Howuja', 'Oluwaseun', 'Wojusun', 'Petherkwa']
     const [isWithdrawal, setIsWithdrawal] = useState(true)
 
     const [togglCommissionMenu, setTogglCommissionMenu] = useState(false)
@@ -458,6 +459,7 @@ const CommissionWallet = () => {
                                     <input
                                         type='file'
                                         id='commissionWalletAttachment'
+                                        name='commissionWalletAttachment'
                                         required
                                         className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem]'
                                     />
