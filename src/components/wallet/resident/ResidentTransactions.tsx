@@ -299,11 +299,12 @@ export const ResidentTransactions: FC<ResidentTransactionsProps> = ({
                         className='flex items-center border px-4 rounded-lg outline-none cursor-pointer'
                         onChange={handleItemsPerPage}
                     >
-                        <option hidden>{itemsPerPage}</option>
+
                         {itemsPerPageArr.map((item, index) => (
                             <option
                                 value={item}
                                 key={index}
+                                selected={item === itemsPerPage}
                                 className='capitalize cursor-pointer bg-white'
                             >
                                 {item}
