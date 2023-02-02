@@ -473,45 +473,40 @@ const CommissionWallet = () => {
                                     />
                                 </div>
 
-                               
-
-                                    <div className='relative grid gap-4'>
-                                        <p className='text-[1.4rem] font-semibold'>
-                            SendTo
+                                <div className='relative grid gap-4'>
+                                    <p className='text-[1.4rem] font-semibold'>
+                                        SendTo
+                                    </p>
+                                    <div className='relative flex items-center w-full'>
+                                        <p
+                                            className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer'
+                                            onClick={sendToMenuToggle}
+                                        >
+                                            {sendTo}
                                         </p>
-                                        <div className='relative flex items-center w-[12rem]'>
-                                            <p
-                                                className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer'
-                                                onClick={sendToMenuToggle}
-                                            >
-                                                {sendTo}
-                                            </p>
-                                            {sendToMenu ? (
-                                                <GrUp className='absolute right-4' />
-                                            ) : (
-                                                <GrDown className='absolute right-4' />
-                                            )}
-                                        </div>
-
-                                        {sendToMenu && (
-                                            <div className='absolute top-[8rem]  left-0 border border-color-primary-light  bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
-                                                {sendToArr.map((item, index) => (
-                                                    <p
-                                                        className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
-                                                        key={index}
-                                                        onClick={() =>
-                                                            handleSendTo(
-                                                                item
-                                                            )
-                                                        }
-                                                    >
-                                                        {item}
-                                                    </p>
-                                                ))}
-                                            </div>
+                                        {sendToMenu ? (
+                                            <GrUp className='absolute right-4' />
+                                        ) : (
+                                            <GrDown className='absolute right-4' />
                                         )}
                                     </div>
-                             
+
+                                    {sendToMenu && (
+                                        <div className='absolute top-[8rem]  left-0 border border-color-primary-light  bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
+                                            {sendToArr.map((item, index) => (
+                                                <p
+                                                    className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
+                                                    key={index}
+                                                    onClick={() =>
+                                                        handleSendTo(item)
+                                                    }
+                                                >
+                                                    {item}
+                                                </p>
+                                            ))}
+                                        </div>
+                                    )}
+                                </div>
 
                                 <button className='btn bg-[#0556E5] text-white rounded-lg py-4 place-self-start w-[15rem]'>
                                     Request
