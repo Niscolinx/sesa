@@ -126,7 +126,46 @@ export const ResidentTransactions: FC<ResidentTransactionsProps> = ({
         totalPage: Math.ceil(fetchedTransactions.length / 2),
         slicedPages: null,
     })
-    
+
+    const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
+        const item = parseInt(e.target.value)
+
+        const slicedPages: ITransactions[][] = []
+        for (let i = 0; i < fetchedTransactions.length; i += item) {
+            slicedPages.push(fetchedTransactions.slice(i, i + item))
+        }
+
+        setPaginate((prev) => {
+            return {
+                ...prev,
+                itemsPerPage: item,
+                index: 0,
+                currentPage: 1,
+                slicedPages,
+                totalPage: Math.ceil(fetchedTransactions.length / item),
+            }
+        })
+    }
+
+    useEffect(() => {
+        const slicedPages: ITransactions[][] = []
+        for (
+            let i = 0;
+            i < fetchedTransactions.length;
+            i += paginate.itemsPerPage
+        ) {
+            slicedPages.push(
+                fetchedTransactions.slice(i, i + paginate.itemsPerPage)
+            )
+        }
+
+        setPaginate((prev) => {
+            return {
+                ...prev,
+                slicedPages,
+            }
+        })
+    }, [fetchedTransactions])
     return (
         <div className='grid text-[1.6rem]'>
             <caption className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
