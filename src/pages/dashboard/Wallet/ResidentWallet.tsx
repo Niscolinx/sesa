@@ -331,11 +331,14 @@ const ResidentWallet = () => {
         ResidentTransactions[] | null
     >(null)
 
-    const [pathNum, setpathNum] = useState('resident-transaction-history')
+    type PathIndex = 'resident-transaction-history' | 'resident-balance'
+
+    const [pathIndex, setpathIndex] = useState<PathIndex>('resident-transaction-history')
+
 
 
     const handlePathSwitch = {
-        'resident-transacton-history': (
+        'resident-transaction-history': (
             <ResidentTransactions
                 fetchedResidentTransactions={fetchedTransactionHistory ?? []}
 
@@ -415,9 +418,9 @@ const ResidentWallet = () => {
                                 name='resident'
                                 id='residentTransactionHistory'
                                 className='hidden'
-                                onChange={() => setpathNum('resident-transacton-history')}
+                                onChange={() => setpathIndex('resident-transaction-history')}
                             />
-                            <label htmlFor='activityResident'>
+                            <label htmlFor='residentTransactionHistory'>
                                 Transaction History
                             </label>
 
@@ -426,9 +429,9 @@ const ResidentWallet = () => {
                                 name='resident'
                                 id='residentBalance'
                                 className='hidden'
-                                onChange={() => setpathNum('resident-balance')}
+                                onChange={() => setpathIndex('resident-balance')}
                             />
-                            <label htmlFor='transactionHistory'>
+                            <label htmlFor='residentBalance'>
                                 Resident Balance
                             </label>
                         </div>
@@ -436,7 +439,7 @@ const ResidentWallet = () => {
                            
                             <section className='bg-color-white rounded-lg border min-w-[112rem] overflow-scroll'>
                                 {fetchedResidentBalance &&
-                                    handlePathSwitch[pathNum]}
+                                    handlePathSwitch[pathIndex]}
                             </section>
                         </div>
                     </div>
