@@ -405,7 +405,13 @@ const ResidentWallet = () => {
                                 Attendance Report
                             </label>
                         </div>
-                     
+                        <div className='mt-8 grid gap-8'>
+                           
+                            <section className='bg-color-white rounded-lg border min-w-[112rem] overflow-scroll'>
+                                {fetchedActivityReport &&
+                                    handlePathSwitch(currentPage)}
+                            </section>
+                        </div>
                     </div>
                     <div className='grid text-[1.6rem] gap-10 bg-white p-8 rounded-lg'>
                         <div className='flex w-full items-center gap-12 '>
