@@ -214,9 +214,9 @@ export const ResidentTransactions: FC<ResidentTransactionsProps> = ({
 
     return (
         <div className='grid text-[1.6rem]'>
-            <caption className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
+            <div className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
                 <p className=' font-bold'>
-                    Activity Report List <span>(4)</span>
+                    {isResidentBalance ? 'Resident Balance' : 'Resident Transactions'}
                 </p>
                 <div className='relative flex items-center'>
                     <img
@@ -227,40 +227,12 @@ export const ResidentTransactions: FC<ResidentTransactionsProps> = ({
                     <input
                         type='text'
                         placeholder='Search Parameters'
-                        className='pl-16 w-[18rem] rounded-lg border border-color-blue-light appearance-none outline-none p-4'
+                        className='pl-16 w-[25rem] rounded-lg border border-color-blue-light appearance-none outline-none p-4'
                     />
                 </div>
-                <div className='relative flex items-center'>
-                    <select className=' cursor-pointer w-[18rem] rounded-lg border border-color-blue-light appearance-none outline-none p-4 bg-white'>
-                        <option hidden value=''>
-                            Sort By
-                        </option>
-                        <option value='date'>date</option>
-                        <option value='alpha'>Alpha</option>
-                    </select>
-                    <GrDown className='absolute right-4 text-[1.3rem]' />
-                </div>
-                <div className='relative flex items-center'>
-                    <select className=' cursor-pointer w-[18rem] rounded-lg border border-color-blue-light appearance-none outline-none p-4 bg-white'>
-                        <option hidden value=''>
-                            Start Date
-                        </option>
-                        <option value='date'>date</option>
-                        <option value='alpha'>Alpha</option>
-                    </select>
-                    <GrDown className='absolute right-4 text-[1.3rem]' />
-                </div>
-                <div className='relative flex items-center'>
-                    <select className=' cursor-pointer w-[18rem] rounded-lg border border-color-blue-light appearance-none outline-none p-4 bg-white'>
-                        <option hidden value=''>
-                            End Date
-                        </option>
-                        <option value='date'>date</option>
-                        <option value='alpha'>Alpha</option>
-                    </select>
-                    <GrDown className='absolute right-4 text-[1.3rem]' />
-                </div>
-            </caption>
+                
+                
+            </div>
 
             <div className='grid'>
                 <div
