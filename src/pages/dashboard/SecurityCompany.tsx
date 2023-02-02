@@ -13,7 +13,6 @@ import { useNavigate } from 'react-router'
 
 function SecurityCompany() {
     const navigate = useNavigate()
-    const { securityCompanyPath } = useAppSelector(routeChangeSelector)
 
     const [securityCompanies, setSecurityCompanies] = useState(false)
 
