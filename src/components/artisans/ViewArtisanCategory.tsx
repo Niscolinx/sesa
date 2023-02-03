@@ -326,6 +326,27 @@ const ViewArtisanCategory = () => {
                 </section>
             </dialog>
             <div className='grid text-[1.6rem] bg-white px-10 rounded-lg'>
+                <div className='flex gap-8 py-10 max-w-[50rem]'>
+                    <div className='w-full grid gap-4'>
+                        <label
+                            htmlFor='categoryName'
+                            className='text-[1.4rem] font-semibold'
+                        >
+                           Category Name
+                        </label>
+
+                        <input
+                            type='text'
+                            required
+                            id='categoryName'
+                            className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem]'
+                        />
+                    </div>
+
+                    <button className='btn bg-[#0556E5] text-white rounded-lg py-4 place-self-end w-[15rem]'>
+                        Create
+                    </button>
+                </div>
                 <div className='flex w-full items-center gap-12 py-8 bg-white rounded-lg'>
                     <p className=' font-bold'>
                         Category Users <span>(3)</span>
