@@ -160,7 +160,7 @@ const ArtisanCategory: FC<{
         <div className='grid text-[1.6rem]'>
             <div className='flex w-full items-center gap-12 p-10 bg-white rounded-lg'>
                 <p className=' font-bold'>
-                    Resident User History <span>(10)</span>
+                    Artisan Category <span>(10)</span>
                 </p>
                 <div className='relative flex items-center'>
                     <img
@@ -174,33 +174,7 @@ const ArtisanCategory: FC<{
                         className='pl-16 w-[18rem] rounded-lg border border-color-blue-light appearance-none outline-none p-4'
                     />
                 </div>
-                <div className='relative flex items-center w-[10rem] justify-items-start cursor-pointer'>
-                    <p
-                        className='border border-color-primary-light p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointe text-left'
-                        onClick={sortMenuToggler}
-                    >
-                        {selectedSort}
-                    </p>
-
-                    {toggleSortMenu && (
-                        <div className='absolute top-[5rem]  left-0 border border-color-primary-light w-[10rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
-                            {sortBy.map((item, index) => (
-                                <p
-                                    className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer text-left'
-                                    key={index}
-                                    onClick={() => handleSelectedSort(item)}
-                                >
-                                    {item}
-                                </p>
-                            ))}
-                        </div>
-                    )}
-                    {toggleSortMenu ? (
-                        <GrUp className='absolute right-4 text-[1.3rem]' />
-                    ) : (
-                        <GrDown className='absolute right-4 text-[1.3rem]' />
-                    )}
-                </div>
+             
             </div>
 
             <div className='grid'>
