@@ -313,7 +313,6 @@ const ArtisanDetail = () => {
                         />
                     </div>
 
-                    
                     <div className='grid gap-4 relative'>
                         <label
                             htmlFor='overallRating'
@@ -356,15 +355,49 @@ const ArtisanDetail = () => {
                             className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                         />
                     </div>
+                    <div className='grid gap-4 relative'>
+                        <label
+                            htmlFor='status'
+                            className='text-[1.4rem] font-medium'
+                        >
+                            Status
+                        </label>
+                        <input
+                            type='text'
+                            placeholder='Optional'
+                            id='status'
+                            value={'Active'}
+                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4 text-green-500'
+                        />
+                    </div>
+                    <div className='grid gap-4 relative'>
+                        <label
+                            htmlFor='kya'
+                            className='text-[1.4rem] font-medium'
+                        >
+                            KYA
+                        </label>
+                        <input
+                            type='text'
+                            placeholder='Optional'
+                            id='kya'
+                            value={'Not validated'}
+                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4 text-red-500'
+                        />
+                    </div>
 
                     <button
-                        className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
+                        className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg col-span-full'
                         style={{ justifySelf: 'start' }}
                     >
                         <span>
-                            <IoMdAdd />
+                            <img
+                                src='/icons/admins/saveDisk.svg'
+                                alt=''
+                                className='w-[1.7rem] h-[1.7rem]'
+                            />
                         </span>{' '}
-                        Add Artisan
+                        Save Changes
                     </button>
                 </form>
             </div>
