@@ -322,8 +322,8 @@ const ViewArtisanCategory = () => {
                     </div>
                 </section>
             </dialog>
-            <div className='grid text-[1.6rem] bg-white'>
-                <div className='flex w-full items-center gap-12 p-10 bg-white rounded-lg'>
+            <div className='grid text-[1.6rem] bg-white px-10 rounded-lg'>
+                <div className='flex w-full items-center gap-12 py-8 bg-white rounded-lg'>
                     <p className=' font-bold'>
                         Artisan Category <span>(10)</span>
                     </p>
@@ -353,7 +353,7 @@ const ViewArtisanCategory = () => {
 
                 <div className='grid gap-10'>
                     <div
-                        className='grid justify-between text-color-dark-1 bg-color-grey items-center px-8 grid-cols-4 gap-8'
+                        className='grid justify-between text-color-dark-1 bg-color-grey items-center p-8 grid-cols-4 gap-8'
                         style={{
                             fontSize: '1.4rem',
                         }}
