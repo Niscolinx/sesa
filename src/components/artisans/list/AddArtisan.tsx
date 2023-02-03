@@ -264,15 +264,28 @@ const AddArtisan = () => {
 
                     <div className='grid gap-4 relative'>
                         <label
-                            htmlFor='address'
+                            htmlFor='address1'
                             className='text-[1.4rem] font-medium'
                         >
-                            Address *
+                            Address Line 1*
                         </label>
                         <input
                             type='text'
                             required
-                            id='address'
+                            id='address1'
+                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                        />
+                    </div>
+                        <label
+                            htmlFor='address2'
+                            className='text-[1.4rem] font-medium'
+                        >
+                            Address Line 2*
+                        </label>
+                        <input
+                            type='text'
+                            required
+                            id='address2'
                             className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                         />
                     </div>
