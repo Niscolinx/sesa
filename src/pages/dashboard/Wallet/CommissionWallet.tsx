@@ -300,9 +300,7 @@ const CommissionWallet = () => {
         }
     }
 
-    const confirmDeactivation = () => {
-        handleClose()
-    }
+  
 
     const handleSelectedAction = (item: Actions, index: string) => {
         setToggleDropDown(() => {
