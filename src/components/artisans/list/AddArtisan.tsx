@@ -194,22 +194,22 @@ const AddArtisan = () => {
                         <div className='relative flex items-center'>
                             <p
                                 className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer'
-                                onClick={stateMenuToggler}
+                                onClick={genderMenuToggler}
                             >
                                 {selectedGender || (
                                     <span className='text-gray-500'>
-                                        Select State
+                                        Select Gender
                                     </span>
                                 )}
                             </p>
-                            {toggleStateMenu ? (
+                            {toggleGenderMenu ? (
                                 <GrUp className='absolute right-4' />
                             ) : (
                                 <GrDown className='absolute right-4' />
                             )}
                         </div>
 
-                        {toggleStateMenu && (
+                        {toggleGenderMenu && (
                             <div className='absolute top-[8rem]  left-0 border border-color-primary-light w-[24rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
                                 {gender.map((item, index) => (
                                     <p
