@@ -155,6 +155,22 @@ const ArtisanDetail = () => {
             </dialog>
 
             <div className='grid p-8 bg-white items-baseline overflow-y-scroll rounded-lg'>
+                <div className='flex justify-between items-center'>
+                    <img
+                        src='/icons/admins/detailsImg.svg'
+                        alt='photoPreview'
+                        className='object-cover w-[11rem] h-[11rem] rounded-full'
+                    />
+                    <button
+                        className='border border-red-600 px-16 py-4 flex items-center  rounded-lg gap-4'
+                        onClick={() => handleSelectedAction('Delete')}
+                    >
+                        <img src='/icons/admins/delete.svg' alt='' />
+                        <span className='text-red-600 text-[1.4rem] font-semibold'>
+                            Delete
+                        </span>
+                    </button>
+                </div>
                 <form
                     onSubmit={handleSubmit}
                     className='grid max-w-[84rem] gap-16 mt-12'
