@@ -177,42 +177,12 @@ const AddArtisan = () => {
                             className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                         />
                     </div>
-                    <div className='relative grid gap-4'>
-                        <p className='text-[1.4rem] font-semibold'>Gender</p>
-                        <div className='relative flex items-center'>
-                            <p
-                                className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer'
-                                onClick={genderMenuToggler}
-                            >
-                                {selectedGender || (
-                                    <span className='text-gray-500'>
-                                        Select Gender
-                                    </span>
-                                )}
-                            </p>
-                            {toggleGenderMenu ? (
-                                <GrUp className='absolute right-4' />
-                            ) : (
-                                <GrDown className='absolute right-4' />
-                            )}
-                        </div>
-
-                        {toggleGenderMenu && (
-                            <div className='absolute top-[8rem]  left-0 border border-color-primary-light w-[24rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
-                                {gender.map((item, index) => (
-                                    <p
-                                        className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
-                                        key={index}
-                                        onClick={() =>
-                                            handleSelectedGender(item)
-                                        }
-                                    >
-                                        {item}
-                                    </p>
-                                ))}
-                            </div>
-                        )}
-                    </div>
+                    <Select
+                        label='Gender'
+                        state={['Male', 'Female']}
+                        selectedState={selectedGender}
+                        setSelectedState={setSelectedGender}
+                    />
                     <div className='grid gap-4'>
                         <label
                             htmlFor='phoneNumber'
