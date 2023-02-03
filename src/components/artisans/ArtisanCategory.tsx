@@ -19,7 +19,7 @@ export interface IArtisanCategory {
     createdAt: string
 }
 
-type Actions = 'View Details' | 'Edit Details' | 'Deactivate'
+type Actions = 'Delete'
 
 const ArtisanCategory: FC<{
     fetchedArtisanCategories: IArtisanCategory[]
@@ -28,22 +28,14 @@ const ArtisanCategory: FC<{
 
     const [isWarning, setIsWarning] = useState(true)
 
-    const [sendTo, setSendTo] = useState<string | null>(null)
-    const [sendToMenu, setSendToMenu] = useState(false)
-
-    const handleSendTo = (item: string) => {
-        setSendTo(item)
-        setSendToMenu(false)
-    }
+   
 
     const handleDialogSubmit = (e: FormEvent) => {
         e.preventDefault()
     }
 
     const actions = [
-        'View Details',
-        'Edit Details',
-        'Deactivate',
+        'Delete'
     ] satisfies Actions[]
 
     const [toggleDropDown, setToggleDropDown] = useState<{
@@ -67,7 +59,7 @@ const ArtisanCategory: FC<{
     }
 
     const selectAction = (e: React.MouseEvent, item: Actions) => {
-        if (item === 'View Details') {
+        if (item === 'Delete') {
             handleOpen('warning')
         }
     }
@@ -401,7 +393,7 @@ const ArtisanCategory: FC<{
                                                                             }
                                                                         >
                                                                             {item ===
-                                                                            'Deactivate' ? (
+                                                                            'Delete' ? (
                                                                                 <span className='text-red-600'>
                                                                                     {
                                                                                         item
