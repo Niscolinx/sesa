@@ -62,7 +62,7 @@ const ArtisanDetail = () => {
     }
     
 
-     const handleSelectedAction = (item: Actions, id: string) => {
+     const handleSelectedAction = (item: Actions) => {
         
 
          if (item === 'Deactivate') {
@@ -161,15 +161,28 @@ const ArtisanDetail = () => {
                         alt='photoPreview'
                         className='object-cover w-[11rem] h-[11rem] rounded-full'
                     />
+
+                    <div>
+
+                    <button
+                        className='border border-red-600 px-16 py-4 flex items-center  rounded-lg gap-4'
+                        onClick={() => handleSelectedAction('Deactivate')}
+                        >
+                        <img src='/icons/admins/delete.svg' alt='' />
+                        <span className='text-red-600 text-[1.4rem] font-semibold'>
+                            Deactivate
+                        </span>
+                    </button>
                     <button
                         className='border border-red-600 px-16 py-4 flex items-center  rounded-lg gap-4'
                         onClick={() => handleSelectedAction('Delete')}
-                    >
+                        >
                         <img src='/icons/admins/delete.svg' alt='' />
                         <span className='text-red-600 text-[1.4rem] font-semibold'>
                             Delete
                         </span>
                     </button>
+                        </div>
                 </div>
                 <form
                     onSubmit={handleSubmit}
