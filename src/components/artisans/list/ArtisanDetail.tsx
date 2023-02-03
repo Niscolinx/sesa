@@ -11,6 +11,7 @@ import { getPhotoUrl } from '../../../utils/getPhotoUrl'
 import { BsQuestionCircle } from 'react-icons/bs'
 import Select from '../../UI/Select'
 import { toast, ToastContainer } from 'react-toastify'
+import StarRating from '../../UI/StarRating'
 
 type Actions = 'Deactivate' | 'Delete'
 
@@ -415,27 +416,56 @@ const ArtisanDetail = () => {
                     </button>
                 </form>
 
-
                 <div className='grid grid-cols-2'>
                     <div className='grid gap-8'>
                         <div className='flex gap-4 justify-between'>
-
                             <div>
-                                <img src="/img/avatar1.png" alt="" className='w-[5rem] h-[5rem] object-cover rounded-full'/>
+                                <img
+                                    src='/img/avatar1.png'
+                                    alt=''
+                                    className='w-[5rem] h-[5rem] object-cover rounded-full'
+                                />
 
                                 <div>
-                                    <p className='1.4rem' style={{
-                                        fontFamily: 'Satoshi-Medium'
-                                    }}>Jessica Okafor</p>
+                                    <p
+                                        className='1.4rem'
+                                        style={{
+                                            fontFamily: 'Satoshi-Medium',
+                                        }}
+                                    >
+                                        Jessica Okafor
+                                    </p>
+                                    <StarRating starsNum={4} />
                                 </div>
+                            </div>
+
+                            <div>
+                                <p className='text-[1.2rem]' style={{
+                                    fontFamily: 'Satoshi-Light',
+                                }}>
+                                    7 Aug 2022
+                                </p>
+                                <p className='text-[1.2rem]' style={{
+                                    fontFamily: 'Satoshi-Light',
+                                }}>
+                                    Peace Estate
+                                </p>
                             </div>
                         </div>
                     </div>
                     <div className='grid gap-8'>
                         <h3>Wonderful Service</h3>
                         <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla optio labore autem provident, dolore dolorum dicta vel tempore voluptatibus deserunt recusandae porro deleniti dolores illum, temporibus eveniet earum. Ducimus, repellendus?
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos adipisci voluptatem molestias, obcaecati molestiae veritatis libero eveniet porro accusamus, reiciendis facilis. Illum et doloremque fuga quo aut laudantium consequatur nemo.
+                            Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit. Nulla optio labore autem provident, dolore
+                            dolorum dicta vel tempore voluptatibus deserunt
+                            recusandae porro deleniti dolores illum, temporibus
+                            eveniet earum. Ducimus, repellendus? Lorem ipsum
+                            dolor sit amet consectetur adipisicing elit. Quos
+                            adipisci voluptatem molestias, obcaecati molestiae
+                            veritatis libero eveniet porro accusamus, reiciendis
+                            facilis. Illum et doloremque fuga quo aut laudantium
+                            consequatur nemo.
                         </p>
                     </div>
                 </div>
