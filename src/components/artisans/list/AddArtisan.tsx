@@ -20,6 +20,7 @@ const AddArtisan = () => {
     const [selectedGender, setSelectedGender] = useState<string | null>(null)
     const [isAddArtisan, setIsAddArtisan] = useState(true)
     const [validationType, setValidationType] = useState<string | null>('Phone Number')
+    const [isValidationTypeSelected, setIsValidationTypeSelected] = useState<boolean>(false)
 
     const [photoUrl, setPhotoUrl] = useState('')
 
