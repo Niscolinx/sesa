@@ -109,17 +109,9 @@ const AddArtisan = () => {
                             <h2>Validation Result</h2>
 
                             <div className='border'>
-                                <div className="grid grid-cols-2 ">
-                                    <p>Validation Option</p>
-                                    <p>Phone Number | (+234) 813238432</p>
-                                </div>
-                                <div className="grid grid-cols-2">
-                                    <p>Validation Option</p>
-                                    <p>Phone Number | (+234) 813238432</p>
-                                </div>
-                                <div className="grid grid-cols-2">
-                                    <p>Validation Option</p>
-                                    <p>Phone Number | (+234) 813238432</p>
+                                <div className="grid grid-cols-2 border-b">
+                                    <p className='border-r'>Validation Option</p>
+                                    <p className='border-b'>Phone Number | (+234) 813238432</p>
                                 </div>
                             </div>
                         </div>
