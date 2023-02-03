@@ -110,34 +110,61 @@ const AddArtisan = () => {
                             <h2>Validation Result</h2>
 
                             <div className='border grid mt-5'>
-                                <div className="grid grid-cols-2 border-b gap-4">
-                                    <p className='border-r py-4 pl-4 text-gray-700' style={{
-                                        fontFamily: 'Satoshi-Light'
-                                    }}>Validation Option</p>
-                                    <p className='py-4'>Phone Number | (+234) 813238432</p>
+                                <div className='grid grid-cols-2 border-b gap-4'>
+                                    <p
+                                        className='border-r py-4 pl-4 text-gray-700'
+                                        style={{
+                                            fontFamily: 'Satoshi-Light',
+                                        }}
+                                    >
+                                        Validation Option
+                                    </p>
+                                    <p className='py-4'>
+                                        Phone Number | (+234) 813238432
+                                    </p>
                                 </div>
-                                <div className="grid grid-cols-2 border-b gap-4">
-                                    <p className='border-r py-4 pl-4 text-gray-700' style={{
-                                        fontFamily: 'Satoshi-Light'
-                                    }}>Full Name</p>
+                                <div className='grid grid-cols-2 border-b gap-4'>
+                                    <p
+                                        className='border-r py-4 pl-4 text-gray-700'
+                                        style={{
+                                            fontFamily: 'Satoshi-Light',
+                                        }}
+                                    >
+                                        Full Name
+                                    </p>
                                     <p className='py-4'>Michael Okonkwo</p>
                                 </div>
-                                <div className="grid grid-cols-2 border-b gap-4">
-                                    <p className='border-r py-4 pl-4 text-gray-700' style={{
-                                        fontFamily: 'Satoshi-Light'
-                                    }}>Date of Birth</p>
+                                <div className='grid grid-cols-2 border-b gap-4'>
+                                    <p
+                                        className='border-r py-4 pl-4 text-gray-700'
+                                        style={{
+                                            fontFamily: 'Satoshi-Light',
+                                        }}
+                                    >
+                                        Date of Birth
+                                    </p>
                                     <p className='py-4'>15 May, 1998</p>
                                 </div>
-                                <div className="grid grid-cols-2 border-b gap-4">
-                                    <p className='border-r py-4 pl-4 text-gray-700' style={{
-                                        fontFamily: 'Satoshi-Light'
-                                    }}>Phone Number</p>
+                                <div className='grid grid-cols-2 border-b gap-4'>
+                                    <p
+                                        className='border-r py-4 pl-4 text-gray-700'
+                                        style={{
+                                            fontFamily: 'Satoshi-Light',
+                                        }}
+                                    >
+                                        Phone Number
+                                    </p>
                                     <p className='py-4'> (+234) 813238432</p>
                                 </div>
-                                <div className="grid grid-cols-2 border-b gap-4">
-                                    <p className='border-r py-4 pl-4 text-gray-700' style={{
-                                        fontFamily: 'Satoshi-Light'
-                                    }}>Gender</p>
+                                <div className='grid grid-cols-2 border-b gap-4'>
+                                    <p
+                                        className='border-r py-4 pl-4 text-gray-700'
+                                        style={{
+                                            fontFamily: 'Satoshi-Light',
+                                        }}
+                                    >
+                                        Gender
+                                    </p>
                                     <p className='py-4'>Male</p>
                                 </div>
                             </div>
@@ -155,11 +182,9 @@ const AddArtisan = () => {
 
                         {isAddArtisan ? (
                             <form
-                                className='grid gap-12'
+                                className='grid gap-12 max-w-[40rem]'
                                 onSubmit={handleDialogSubmit}
                             >
-
-
                                 <h3
                                     className='text-[2rem] font-bold border-b '
                                     style={{
@@ -184,7 +209,7 @@ const AddArtisan = () => {
                                         Phone Number
                                     </label>
 
-                                    <div className='flex text-[1.6rem] gap-4 h-[5rem] max-w-[40rem]'>
+                                    <div className='flex text-[1.6rem] gap-4 h-[5rem]'>
                                         <select className='w-[30%] rounded-lg border border-color-grey py-4.8 px-4 outline-none cursor-pointer text-color-dark relative h-full'>
                                             <option value='234'>+234</option>
                                         </select>
