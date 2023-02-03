@@ -171,7 +171,15 @@ const ArtisanList: FC<{
         }
     }
 
-    const handleOpen = () => {
+    const handleOpen = (dialogType: Actions) => {
+        if(dialogType === 'Deactivate') {
+            setDialogType('Deactivate')
+        }
+        if(dialogType === 'Delete') {
+            setDialogType('Delete')
+        }
+
+
         if (dialogRef.current) {
             dialogRef.current.showModal()
         }
