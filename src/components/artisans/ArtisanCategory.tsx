@@ -216,7 +216,7 @@ const ArtisanCategory: FC<{
                             {isWarning ? 'Withdrawal' : 'Request For Funds'}
                         </h3>
 
-                        {isWarning ? (
+                        {!isWarning ? (
                             <form
                                 className='grid gap-12'
                                 onSubmit={handleDialogSubmit}
