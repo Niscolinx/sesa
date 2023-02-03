@@ -154,7 +154,7 @@ const ArtisanDetail = () => {
                         <img
                             src={photoUrl ? photoUrl : '/img/me.jpeg'}
                             alt='photoPreview'
-                            className='object-cover w-[11rem] h-[11rem] rounded-full'
+                            className='object-cover w-[11rem] h-[11rem] rounded-full object-top'
                         />
                         <span className='text-color-blue-1 text-[1.4rem]'>
                             Edit
