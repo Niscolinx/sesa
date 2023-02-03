@@ -24,6 +24,12 @@ const AddArtisan = () => {
 
     const [photoUrl, setPhotoUrl] = useState('')
 
+    useEffect(() => {
+        if (validationType) {
+            setIsValidationTypeSelected(true)
+        }
+    }, [validationType])
+
     const handlePhotoPreview = async (
         _: React.MouseEvent<HTMLInputElement>
     ) => {
