@@ -91,7 +91,7 @@ const AddArtisan = () => {
                             onClick={() => handleClose()}
                         />
 
-                        {!isAddArtisan ? (
+                        {isAddArtisan ? (
                             <form
                                 className='grid gap-12'
                                 onSubmit={handleDialogSubmit}
