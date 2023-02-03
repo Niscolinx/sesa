@@ -156,7 +156,9 @@ const ArtisanDetail = () => {
                             alt='photoPreview'
                             className='object-cover w-[11rem] h-[11rem] rounded-full'
                         />
-                        <span className='text-color-blue-1 text-[1.4rem]'>Edit</span>
+                        <span className='text-color-blue-1 text-[1.4rem]'>
+                            Edit
+                        </span>
                     </label>
                     <input
                         type='file'
@@ -225,33 +227,33 @@ const ArtisanDetail = () => {
                     </div>
                     <div className='grid gap-4 relative '>
                         <label
-                            htmlFor='artisanCode'
+                            htmlFor='DateOfBirth'
                             className='text-[1.4rem] font-medium'
                         >
-                            Artisan Code
+                            Date of Birth
                         </label>
                         <input
                             type='text'
                             required
-                            id='artisanCode'
+                            id='DateOfBirth'
                             className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                         />
                     </div>
                     <div className='grid gap-4 relative '>
                         <label
-                            htmlFor='artisanCode'
+                            htmlFor='email'
                             className='text-[1.4rem] font-medium'
                         >
-                            Artisan Code
+                            Email Address
                         </label>
                         <input
-                            type='text'
+                            type='email'
                             required
-                            id='artisanCode'
+                            id='email'
                             className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                         />
                     </div>
-                   
+
                     <div className='grid gap-4'>
                         <label
                             htmlFor='phoneNumber'
@@ -274,79 +276,83 @@ const ArtisanDetail = () => {
                             />
                         </div>
                     </div>
-                    <div className='grid gap-4 relative'>
-                        <label
-                            htmlFor='email'
-                            className='text-[1.4rem] font-medium'
-                        >
-                            Email Address *
-                        </label>
-                        <input
-                            type='email'
-                            required
-                            id='email'
-                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                        />
-                    </div>
+                    <Select
+                        label='Gender'
+                        state={['Male', 'Female']}
+                        placeholder='Male'
+                        selectedState={selectedGender}
+                        setSelectedState={setSelectedGender}
+                    />
 
                     <div className='grid gap-4 relative'>
                         <label
-                            htmlFor='address1'
-                            className='text-[1.4rem] font-medium'
-                        >
-                            Address Line 1*
-                        </label>
-                        <input
-                            type='text'
-                            required
-                            id='address1'
-                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                        />
-                    </div>
-                    <div className='grid gap-4 relative'>
-                        <label
-                            htmlFor='address2'
-                            className='text-[1.4rem] font-medium'
-                        >
-                            Address Line 2*
-                        </label>
-                        <input
-                            type='text'
-                            required
-                            id='address2'
-                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                        />
-                    </div>
-
-                    <Select
-                        label='State'
-                        state={['Lagos', 'Imo', 'Abia', 'FCT']}
-                        placeholder='Select State'
-                        selectedState={selectedState}
-                        setSelectedState={setSelectedState}
-                    />
-                    <Select
-                        label='Artisan Category'
-                        state={[
-                            'Plumber',
-                            'Electrician',
-                            'Carpenter',
-                            'Painter',
-                        ]}
-                        selectedState={selectedArtisan}
-                        setSelectedState={setSelectedArtisan}
-                    />
-                    <div className='grid gap-4 relative'>
-                        <label
-                            htmlFor='businessName'
+                            htmlFor='homeAddress'
                             className='text-[1.4rem] font-medium'
                         >
                             Business Name
                         </label>
                         <input
                             type='text'
+                            required
+                            id='homeAddress'
+                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                        />
+                    </div>
+                    <div className='grid gap-4 relative'>
+                        <label
+                            htmlFor='artisanGroup'
+                            className='text-[1.4rem] font-medium'
+                        >
+                            Artisan Group
+                        </label>
+                        <input
+                            type='text'
+                            required
+                            id='artisanGroup'
+                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                        />
+                    </div>
+
+                    
+                    <div className='grid gap-4 relative'>
+                        <label
+                            htmlFor='overallRating'
+                            className='text-[1.4rem] font-medium'
+                        >
+                            Overall Rating
+                        </label>
+                        <input
+                            type='text'
                             placeholder='Optional'
-                            id='businessName'
+                            id='overallRating'
+                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                        />
+                    </div>
+                    <div className='grid gap-4 relative'>
+                        <label
+                            htmlFor='idNumber'
+                            className='text-[1.4rem] font-medium'
+                        >
+                            Id
+                        </label>
+                        <input
+                            type='text'
+                            placeholder='Optional'
+                            id='idNumber'
+                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                        />
+                    </div>
+                    <div className='grid gap-4 relative'>
+                        <label
+                            htmlFor='overallRating'
+                            className='text-[1.4rem] font-medium'
+                        >
+                            Overall Rating
+                        </label>
+                        <input
+                            type='text'
+                            placeholder='Optional'
+                            id='overallRating'
                             className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                         />
                     </div>
