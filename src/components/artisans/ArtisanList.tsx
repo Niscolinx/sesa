@@ -12,7 +12,7 @@ export interface IArtisanList {
    phoneNumber: string
    category: string
    assignedGroup: string
-   rating: string
+   rating: number
 }
 
 type Actions = 'View Details' | 'Edit Details' | 'Deactivate' | 'Delete'
