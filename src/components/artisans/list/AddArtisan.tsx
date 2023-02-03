@@ -102,27 +102,42 @@ const AddArtisan = () => {
                                         fontFamily: 'Satoshi-Medium',
                                     }}
                                 >
-                                    Create Artisan Category
+                                    Know Your Artisan (KYA)
                                 </h3>
 
-                                <div className='w-full grid gap-4'>
+                                <div className='grid gap-4'>
                                     <label
-                                        htmlFor='artisanName'
-                                        className='text-[1.4rem] font-semibold'
+                                        htmlFor='phoneNumber'
+                                        className='text-[1.4rem] font-medium'
                                     >
-                                        Name
+                                        Phone Number
                                     </label>
 
-                                    <input
-                                        type='text'
-                                        required
-                                        id='artisanName'
-                                        className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem]'
-                                    />
+                                    <div className='flex text-[1.6rem] gap-4 h-[5rem] max-w-[40rem]'>
+                                        <select className='w-[30%] rounded-lg border border-color-grey py-4.8 px-4 outline-none cursor-pointer text-color-dark relative h-full'>
+                                            <option value='234'>+234</option>
+                                        </select>
+                                        <input
+                                            required
+                                            type='number'
+                                            inputMode='numeric'
+                                            id='phoneNumber'
+                                            placeholder='Phone Number'
+                                            className='w-full rounded-lg border border-color-grey py-4.8 px-8 outline-none text-color-dark'
+                                        />
+                                    </div>
                                 </div>
+                                <p
+                                    className='text-[#043FA7] flex items-center gap-2'
+                                    style={{
+                                        fontFamily: 'Satoshi-Light',
+                                    }}
+                                >
+                                    What is KYA <BsQuestionCircle />
+                                </p>
 
                                 <button className='btn bg-[#0556E5] text-white rounded-lg py-4 place-self-start w-[15rem]'>
-                                    Create
+                                    Validate
                                 </button>
                             </form>
                         ) : (
@@ -155,21 +170,14 @@ const AddArtisan = () => {
             </dialog>
             <div className='grid p-8 bg-white h-[80vh] items-baseline overflow-y-scroll rounded-lg'>
                 <div className='grid gap-8 max-w-[40rem]'>
-                    {/* <button
-                        className='border border-red-600 px-16 py-4 flex items-center  rounded-lg gap-4'
-                        onClick={() => handleOpen('warning')}
-                    >
-                        <img src='/icons/admins/delete.svg' alt='' />
-                        <span className='text-red-600 text-[1.4rem] font-semibold'>
-                            Deactivate
-                        </span>
-                    </button> */}
-
                     <p className='text-[2rem] font-bold'>
                         KYA <span className='text-gray-500'>(Optional)</span>
                     </p>
                     <div className='flex justify-between text-[1.6rem]'>
-                        <p className='text-[#098DFF]' onClick={() => handleOpen('validate')}>
+                        <p
+                            className='text-[#098DFF] cursor-pointer'
+                            onClick={() => handleOpen('validate')}
+                        >
                             Click her to validate this person
                         </p>
                         <p
