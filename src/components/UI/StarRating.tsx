@@ -21,12 +21,12 @@ const StarRating:FC<IStarRating> = ({starsNum}) => {
                     <button
                         type='button'
                         key={index}
-                        className={
-                            index <= ((rating && hover) || hover) ? 'on' : 'off'
-                        }
-                        onClick={() => setRating(index)}
-                        onMouseEnter={() => setHover(index)}
-                        onMouseLeave={() => setHover(rating)}
+                        // className={
+                        //     index <= ((rating && hover) || hover) ? 'on' : 'off'
+                        // }
+                        // onClick={() => setRating(index)}
+                        // onMouseEnter={() => setHover(index)}
+                        // onMouseLeave={() => setHover(rating)}
                     >
                         <span className='star'>&#9733;</span>
                     </button>
