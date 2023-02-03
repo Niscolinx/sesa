@@ -17,7 +17,6 @@ export interface IArtisanList {
 
 type Actions = 'View Details' | 'Edit Details' | 'Deactivate' | 'Delete'
 
-type DialogType = ''
 
 const ArtisanList: FC<{
     fetchedArtisanList: IArtisanList[]
@@ -65,7 +64,6 @@ const ArtisanList: FC<{
         slicedPages: IArtisanList[][] | null
     }
 
-    const [toggleSortMenu, setToggleSortMenu] = useState(false)
     const itemsPerPageArr = [2, 4, 6, 8]
 
     const perPage = 6
@@ -78,7 +76,6 @@ const ArtisanList: FC<{
         slicedPages: null,
     })
 
-    const sortMenuToggler = () => setToggleSortMenu(!toggleSortMenu)
 
     // const handleSelectedSort = (item: SortBy) => {
     //     setToggleSortMenu(false)
