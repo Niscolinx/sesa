@@ -333,7 +333,7 @@ const ArtisanDetail = () => {
                             htmlFor='idNumber'
                             className='text-[1.4rem] font-medium'
                         >
-                            Id
+                            ID Number
                         </label>
                         <input
                             type='text'
@@ -344,15 +344,15 @@ const ArtisanDetail = () => {
                     </div>
                     <div className='grid gap-4 relative'>
                         <label
-                            htmlFor='overallRating'
+                            htmlFor='dateOfOnboarding'
                             className='text-[1.4rem] font-medium'
                         >
-                            Overall Rating
+                            Date of Onboarding
                         </label>
                         <input
                             type='text'
                             placeholder='Optional'
-                            id='overallRating'
+                            id='dateOfOnboarding'
                             className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                         />
                     </div>
