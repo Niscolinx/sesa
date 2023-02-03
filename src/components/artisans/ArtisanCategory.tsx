@@ -2,7 +2,7 @@ import React, { ChangeEvent, FC, FormEvent, useEffect, useRef, useState } from '
 import { CgSpinnerTwo } from 'react-icons/cg'
 import { GrDown, GrUp } from 'react-icons/gr'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
-import { IoMdClose } from 'react-icons/io'
+import { IoMdAdd, IoMdClose } from 'react-icons/io'
 import { useNavigate } from 'react-router'
 export interface IArtisanCategory {
     id: string
@@ -182,6 +182,10 @@ const ArtisanCategory: FC<{
         if (dialogRef.current) {
             dialogRef.current.showModal()
         }
+    }
+
+    const addCategoryHandler = () => {
+        navigate('/dashboard/artisanCategory/add')
     }
 
     return (
@@ -369,7 +373,15 @@ const ArtisanCategory: FC<{
                         />
                     </div>
 
-                    
+                    <button
+                        className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
+                        onClick={addCategoryHandler}
+                    >
+                        <span>
+                            <IoMdAdd />
+                        </span>{' '}
+                        Add Artisan
+                    </button>
                 </div>
 
                 <div className='grid'>
