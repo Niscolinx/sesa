@@ -171,7 +171,7 @@ const ArtisanCategory: FC<{
                     <input
                         type='text'
                         placeholder='Search Parameters'
-                        className='pl-16 w-[18rem] rounded-lg border border-color-blue-light appearance-none outline-none p-4'
+                        className='pl-16 w-[25rem] rounded-lg border border-color-blue-light appearance-none outline-none p-4'
                     />
                 </div>
              
