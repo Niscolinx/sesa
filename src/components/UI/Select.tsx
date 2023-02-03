@@ -47,7 +47,7 @@ const Select: FC<ISelect> = ({
             </div>
 
             {toggleStateMenu && (
-                <div className='absolute top-[8rem]  left-0 border border-color-primary-light w-[24rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
+                <div className='absolute top-[8rem]  left-0 border border-color-primary-light min-w-[12rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
                     {state.map((item, index) => (
                         <p
                             className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
