@@ -6,7 +6,7 @@ interface ISelect {
     selectedState: string | null
     setSelectedState: React.Dispatch<React.SetStateAction<string | null>>
     label: string
-    placeholder: string
+    placeholder?: string
 }
 
 const Select: FC<ISelect> = ({
@@ -34,7 +34,9 @@ const Select: FC<ISelect> = ({
                     onClick={stateMenuToggler}
                 >
                     {selectedState || (
-                        <span className='text-gray-500'>Select State</span>
+                        <span className='text-gray-500'>
+                            {placeholder || ''}
+                        </span>
                     )}
                 </p>
                 {toggleStateMenu ? (
