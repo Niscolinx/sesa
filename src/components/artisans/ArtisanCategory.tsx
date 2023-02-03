@@ -192,6 +192,9 @@ const ArtisanCategory: FC<{
         // navigate('/dashboard/artisanCategory/add')
     }
 
+    const confirmDeactivation = () => {
+        handleClose()
+    }
     return (
         <>
             <dialog className='dialog' ref={dialogRef}>
@@ -259,10 +262,31 @@ const ArtisanCategory: FC<{
                             </form>
                         ) : (
                             <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8 text-[1.6rem]'>
+                                <img
+                                    src='/icons/admins/modalWarning.svg'
+                                    alt=''
+                                />
+
                                 <p>
                                     Are you sure you want to deactivate this
                                     security company?
                                 </p>
+
+                                <div className='flex w-full justify-center gap-8'>
+                                    <button
+                                        className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
+                                        onClick={confirmDeactivation}
+                                    >
+                                        Deactivate
+                                    </button>
+                               
+                                    <button
+                                        className='btn text-white bg-[#0556E5] border rounded-lg w-[15rem]'
+                                        onClick={() => handleClose()}
+                                    >
+                                        View Details
+                                    </button>
+                                </div>
                             </div>
                         )}
                     </div>
