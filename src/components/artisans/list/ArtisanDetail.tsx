@@ -163,26 +163,24 @@ const ArtisanDetail = () => {
                     />
 
                     <div>
-
-                    <button
-                        className='border border-red-600 px-16 py-4 flex items-center  rounded-lg gap-4'
-                        onClick={() => handleSelectedAction('Deactivate')}
+                        <button
+                            className='border border-color-blue-1 text-color-blue-1 px-16 py-4 flex items-center  rounded-lg gap-4'
+                            onClick={() => handleSelectedAction('Deactivate')}
                         >
-                        <img src='/icons/admins/delete.svg' alt='' />
-                        <span className='text-red-600 text-[1.4rem] font-semibold'>
-                            Deactivate
-                        </span>
-                    </button>
-                    <button
-                        className='border border-red-600 px-16 py-4 flex items-center  rounded-lg gap-4'
-                        onClick={() => handleSelectedAction('Delete')}
+                            <span className=' text-[1.4rem] font-semibold'>
+                                Deactivate
+                            </span>
+                        </button>
+                        <button
+                            className='border border-red-600 px-16 py-4 flex items-center  rounded-lg gap-4'
+                            onClick={() => handleSelectedAction('Delete')}
                         >
-                        <img src='/icons/admins/delete.svg' alt='' />
-                        <span className='text-red-600 text-[1.4rem] font-semibold'>
-                            Delete
-                        </span>
-                    </button>
-                        </div>
+                            <img src='/icons/admins/delete.svg' alt='' />
+                            <span className='text-red-600 text-[1.4rem] font-semibold'>
+                                Delete
+                            </span>
+                        </button>
+                    </div>
                 </div>
                 <form
                     onSubmit={handleSubmit}
