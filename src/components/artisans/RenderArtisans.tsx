@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
-import ResidentUserHistory, { IResidentUserHistory } from '../additionalResident/ResidentUserHistory'
 import ResidentUsersList, { IResidentUsersList, RESIDENT_LISTS } from '../additionalResident/ResidentUsersList'
+import ArtisanCategory, {IResidentUserHistory} from './ArtisanCategory'
 
 
 
@@ -148,7 +148,7 @@ function RenderArtisans() {
                 )
             case 2:
                 return (
-                    <ResidentUserHistory
+                    <ArtisanCategory
                         fetchedResidentUserHistory={
                             fetchedResidentUserHistory ?? []
                         }
