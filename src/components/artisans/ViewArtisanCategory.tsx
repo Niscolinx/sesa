@@ -130,7 +130,7 @@ const ViewArtisanCategory = () => {
         currentPage: 1,
         itemsPerPage: 6,
 
-        totalPage: Math.ceil(fetchedArtisanCategories.length / 2),
+        totalPage: Math.ceil(fetchedArtisanCategories?.length && fetchedArtisanCategories.length / 2),
         slicedPages: null,
     })
 
