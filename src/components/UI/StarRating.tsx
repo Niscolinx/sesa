@@ -14,7 +14,7 @@ const StarRating:FC<IStarRating> = ({starsNum}) => {
     const [rating, setRating] = useState(0)
     const [hover, setHover] = useState(0)
     return (
-        <div className='star-rating'>
+        <div>
             {[...Array(starsNum)].map((star, index) => {
                 index += 1
                 return (
@@ -28,7 +28,7 @@ const StarRating:FC<IStarRating> = ({starsNum}) => {
                         // onMouseEnter={() => setHover(index)}
                         // onMouseLeave={() => setHover(rating)}
                     >
-                        <span className='star'>&#9733;</span>
+                        <span className='text-[#E69B55]'>&#9733;</span>
                     </button>
                 )
             })}
