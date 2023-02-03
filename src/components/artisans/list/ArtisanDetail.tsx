@@ -157,7 +157,7 @@ const ArtisanDetail = () => {
                             alt='photoPreview'
                             className='object-cover w-[11rem] h-[11rem] rounded-full'
                         />
-                        <span className='text-color-blue-1'>Edit</span>
+                        <span className='text-color-blue-1 text-[1.4rem]'>Edit</span>
                     </label>
                     <input
                         type='file'
