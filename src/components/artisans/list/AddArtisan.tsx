@@ -19,6 +19,7 @@ const AddArtisan = () => {
     const [selectedArtisan, setSelectedArtisan] = useState<string | null>(null)
     const [selectedGender, setSelectedGender] = useState<string | null>(null)
     const [isAddArtisan, setIsAddArtisan] = useState(true)
+    const [validationType, setValidationType] = useState<string | null>(null)
 
     const [photoUrl, setPhotoUrl] = useState('')
 
@@ -137,7 +138,7 @@ const AddArtisan = () => {
                                     <p className='border-r py-4 pl-4 text-gray-700' style={{
                                         fontFamily: 'Satoshi-Light'
                                     }}>Gender</p>
-                                    <p className='py-4'> (+234) 813238432</p>
+                                    <p className='py-4'>Male</p>
                                 </div>
                             </div>
                         </div>
@@ -157,6 +158,8 @@ const AddArtisan = () => {
                                 className='grid gap-12'
                                 onSubmit={handleDialogSubmit}
                             >
+
+
                                 <h3
                                     className='text-[2rem] font-bold border-b '
                                     style={{
