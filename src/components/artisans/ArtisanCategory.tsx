@@ -154,6 +154,27 @@ const ArtisanCategory: FC<{
         })
     }
 
+
+    const dialogRef = useRef<HTMLDialogElement | null>(null)
+
+    const handleClose = () => {
+        if (dialogRef.current) {
+            dialogRef.current.close()
+        }
+    }
+
+    const handleOpen = (modalState: 'withdraw' | 'request') => {
+        if (modalState === 'withdraw') {
+            setIsWithdrawal(true)
+        } else {
+            setIsWithdrawal(false)
+        }
+
+        if (dialogRef.current) {
+            dialogRef.current.showModal()
+        }
+    }
+
     return (
         <>
             <dialog className='dialog' ref={dialogRef}>

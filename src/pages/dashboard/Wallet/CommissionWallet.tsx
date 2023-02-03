@@ -166,11 +166,7 @@ const CommissionWallet = () => {
         })
     }
 
-    const selectAction = (e: React.MouseEvent, item: string) => {
-        if (item === 'View Details') {
-            navigate('/dashboard/wallet/commission/:id')
-        }
-    }
+  
 
     const sortBy: SortBy[] = ['A-Z', 'date']
 
