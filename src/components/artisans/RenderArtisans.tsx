@@ -97,19 +97,30 @@ function RenderArtisans() {
                 <input
                     type='radio'
                     name='artisan'
-                    id='residentUserHistory'
+                    id='artisanList'
                     className='hidden'
                     onChange={() => setPathToSwitch('artisanList')}
                 />
-                <label htmlFor='residentUserHistory' className='capitalize'>
-                    Package purchase history
+                <label htmlFor='artisanList' className='capitalize'>
+                    Artisan List
+                    
+                </label>
+                <input
+                    type='radio'
+                    name='artisan'
+                    id='artisanGroup'
+                    className='hidden'
+                    onChange={() => setPathToSwitch('artisanGroup')}
+                />
+                <label htmlFor='artisanGroup' className='capitalize'>
+                    Artisan Group
                     
                 </label>
             </div>
             <div className='mt-8 grid gap-8'>
                 <section className='bg-color-white rounded-lg border min-w-[112rem] overflow-scroll'>
                     {fetchedResidentUsers && fetchedResidentUsers.length > 0 ? (
-                        handlePathSwitch(currentPage)
+                        handlePathSwitch[pathToSwitch]
                     ) : (
                         <section className='relative w-[70vw] h-[60vh] mx-auto grid'>
                             <div className='absolute w-full h-full grid place-content-center'>
