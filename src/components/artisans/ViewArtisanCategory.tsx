@@ -61,11 +61,12 @@ const ViewArtisanCategory = () => {
 
     const [isWarning, setIsWarning] = useState(true)
     const [isLoaded, setIsLoaded] = useState(false)
-    const [fetchedArtisanCategories, setFetchedArtisanCategories] = useState<IViewArtisanCategory[] | null>(null)
+    const [fetchedArtisanCategories, setFetchedArtisanCategories] = useState<IViewArtisanCategory[]>([])
 
     useEffect(() => {
         setTimeout(() => {
             setFetchedArtisanCategories(VIEW_ARTISAN_CATEGORY)
+            //setIsLoaded(true)
         }, 1000)
     }, [])
 
