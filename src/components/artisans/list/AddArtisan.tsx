@@ -3,6 +3,7 @@ import { GrDown, GrUp } from 'react-icons/gr'
 import { IoMdAdd } from 'react-icons/io'
 import { getPhotoUrl } from '../../../utils/getPhotoUrl'
 import { BsQuestionCircle } from 'react-icons/bs'
+import Select from '../../UI/Select'
 
 type State = 'Lagos' | 'Imo' | 'Abia' | 'FCT'
 type Gender = 'Male' | 'Female'
@@ -14,6 +15,7 @@ const AddArtisan = () => {
     const [toggleStateMenu, setToggleStateMenu] = useState(false)
     const [toggleGenderMenu, setToggleGenderMenu] = useState(false)
     const [selectedState, setSelectedState] = useState<State | null>(null)
+    const [selectedArtisan, setSelectedArtisan] = useState<string | null>(null)
     const [selectedGender, setSelectedGender] = useState<Gender | null>(null)
     const [isWarning, setIsWarning] = useState(true)
 
@@ -328,7 +330,12 @@ const AddArtisan = () => {
                             </div>
                         )}
                     </div>
-                   
+                   <Select
+                   label='Artisan Category'
+                   state={['Plumber', 'Electrician', 'Carpenter', 'Painter']}
+                   selectedState={selectedArtisan}
+                    setSelectedState={setSelectedArtisan}
+                   />
 
                     <div className='col-span-full rounded-lg border border-width-[.2rem] border-dashed border-color-grey-1 p-8 text-[1.6rem] relative w-full'>
                         <label
