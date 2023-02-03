@@ -325,7 +325,7 @@ const ViewArtisanCategory = () => {
             <div className='grid text-[1.6rem] bg-white px-10 rounded-lg'>
                 <div className='flex w-full items-center gap-12 py-8 bg-white rounded-lg'>
                     <p className=' font-bold'>
-                        Artisan Category <span>(10)</span>
+                     Category Users <span>(3)</span>
                     </p>
                     <div className='relative flex items-center'>
                         <img
