@@ -157,8 +157,7 @@ const ArtisanList: FC<{
     }
 
     const addArtisan = () => {
-        // navigate('/dashboard/artisanCategory/add')
-        // handleOpen('add-Category')
+     navigate('/dashboard/artisan/add')
     }
 
     return (
@@ -186,7 +185,7 @@ const ArtisanList: FC<{
                     <span>
                         <IoMdAdd />
                     </span>{' '}
-                    Add Artisan Category
+                    Add Artisan
                 </button>
             </div>
 
