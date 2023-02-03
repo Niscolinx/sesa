@@ -216,7 +216,7 @@ const ArtisanList: FC<{
                                             <p>{phoneNumber}</p>
                                             <p>{category}</p>
                                             <p>{assignedGroup}</p>
-                                            <p><StarRating rating={rating}/></p>
+                                            <p><StarRating starsNum={rating}/></p>
 
                                             <div className='relative'>
                                                 <label

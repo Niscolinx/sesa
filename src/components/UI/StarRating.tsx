@@ -1,11 +1,16 @@
-import { useState } from "react"
+import { FC, useState } from "react"
 
-const StarRating = () => {
+
+interface IStarRating {
+    starsNum: number
+}
+
+const StarRating:FC<IStarRating> = ({starsNum}) => {
     const [rating, setRating] = useState(0)
     const [hover, setHover] = useState(0)
     return (
         <div className='star-rating'>
-            {[...Array(5)].map((star, index) => {
+            {[...Array(starsNum)].map((star, index) => {
                 index += 1
                 return (
                     <button
