@@ -603,8 +603,7 @@ const ArtisanDetail = () => {
                     >
                         Know Your Artisan (KYA)
                     </h3>
-                    <div className='bg-white rounded-2xl grid items-baseline w-[90rem] min-h-[30rem] p-10 text-[1.6rem] relative gap-20'>
-                        <IoMdClose className='absolute right-4 top-4 text-[2rem] cursor-pointer' />
+                    <div className='bg-white rounded-2xl grid items-baseline min-h-[30rem] p-10 text-[1.6rem] relative gap-20'>
 
                         <div className='relative h-[14rem] bg-blue-600 w-full mt-10 rounded-lg'>
                             <img
