@@ -3,29 +3,26 @@ import { CgSpinnerTwo } from 'react-icons/cg'
 import { GrDown, GrUp } from 'react-icons/gr'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { useNavigate } from 'react-router'
-export interface IResidentUserHistory {
+export interface IArtisanCategory {
     id: string
-    packageName: string
-    userName: string
-    frequency: string
-    amount: number
-    startDate: string
-    endDate: string
-    transactionType: 'purchase' | 'renewal'
-    status: 'active' | 'inactive'
+   name: string
+   NoOfArtisans: number
+   createdAt: string
 }
 
-type SortBy = 'A-Z' | 'date'
+type Actions = 'View Details' | 'Edit Details' | 'Deactivate'
 
 const ArtisanCategory: FC<{
-    fetchedResidentUserHistory: IResidentUserHistory[]
-}> = ({ fetchedResidentUserHistory }) => {
+    fetchedArtisanCategory: IArtisanCategory[]
+}> = ({ fetchedArtisanCategory }) => {
     const navigate = useNavigate()
 
-    const [actions, _] = useState<['View Details', 'Deactivate']>([
+    const actions = [
         'View Details',
+        'Edit Details',
         'Deactivate',
-    ])
+    ] satisfies Actions[]
+
     const [toggleDropDown, setToggleDropDown] = useState<{
         isDropDownOpen: boolean
         index: number | null
@@ -48,34 +45,33 @@ const ArtisanCategory: FC<{
 
     const selectAction = (
         e: React.MouseEvent,
-        item: 'View Details' | 'Deactivate'
+        item: Actions
     ) => {
         if (item === 'View Details') {
-            navigate('/dashboard/additional-resident/:Id')
+            navigate('/dashboard/artisanCategory/:Id')
         }
     }
 
-    const sortBy: SortBy[] = ['A-Z', 'date']
 
     interface Paginate {
         index: number
         currentPage: number
         itemsPerPage: number
         totalPage: number
-        slicedPages: IResidentUserHistory[][] | null
+        slicedPages: IArtisanCategory[][] | null
     }
 
     const [toggleSortMenu, setToggleSortMenu] = useState(false)
-    const [itemsPerPage, setItemsPerPage] = useState({
-        arr: [2, 4, 6, 8],
-    })
+    const itemsPerPageArr =
+         [2, 4, 6, 8]
+    }
     const [selectedSort, setSelectedSort] = useState<SortBy>('A-Z')
     const [paginate, setPaginate] = useState<Paginate>({
         index: 0,
         currentPage: 1,
         itemsPerPage: 2,
 
-        totalPage: Math.ceil(fetchedResidentUserHistory.length / 2),
+        totalPage: Math.ceil(fetchedArtisanCategory.length / 2),
         slicedPages: null,
     })
 
@@ -89,9 +85,9 @@ const ArtisanCategory: FC<{
     const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
         const item = parseInt(e.target.value)
 
-        const slicedPages: IResidentUserHistory[][] = []
-        for (let i = 0; i < fetchedResidentUserHistory.length; i += item) {
-            slicedPages.push(fetchedResidentUserHistory.slice(i, i + item))
+        const slicedPages: IArtisanCategory[][] = []
+        for (let i = 0; i < fetchedArtisanCategory.length; i += item) {
+            slicedPages.push(fetchedArtisanCategory.slice(i, i + item))
         }
 
         setPaginate((prev) => {
@@ -101,7 +97,7 @@ const ArtisanCategory: FC<{
                 index: 0,
                 currentPage: 1,
                 slicedPages,
-                totalPage: Math.ceil(fetchedResidentUserHistory.length / item),
+                totalPage: Math.ceil(fetchedArtisanCategory.length / item),
             }
         })
     }
@@ -111,14 +107,14 @@ const ArtisanCategory: FC<{
     }, [paginate.slicedPages])
 
     useEffect(() => {
-        const slicedPages: IResidentUserHistory[][] = []
+        const slicedPages: IArtisanCategory[][] = []
         for (
             let i = 0;
-            i < fetchedResidentUserHistory.length;
+            i < fetchedArtisanCategory.length;
             i += paginate.itemsPerPage
         ) {
             slicedPages.push(
-                fetchedResidentUserHistory.slice(i, i + paginate.itemsPerPage)
+                fetchedArtisanCategory.slice(i, i + paginate.itemsPerPage)
             )
         }
 
@@ -128,7 +124,7 @@ const ArtisanCategory: FC<{
                 slicedPages,
             }
         })
-    }, [fetchedResidentUserHistory])
+    }, [fetchedArtisanCategory])
 
     const handleNext = () => {
         if (paginate.currentPage === paginate.totalPage) return
