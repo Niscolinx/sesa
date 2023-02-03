@@ -99,7 +99,11 @@ const AddArtisan = () => {
                         />
 
                         <div className='relative h-[14rem] bg-blue-600 w-full mt-10 rounded-lg'>
-
+                            <img
+                                src='/img/me.jpeg'
+                                alt=''
+                                className='w-[10rem] h-[10rem] border rounded-full border-green-600 object-cover absolute bottom-[-6rem] left-10 object-top'
+                            />
                         </div>
                         <div></div>
                     </div>
