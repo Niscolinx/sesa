@@ -134,7 +134,9 @@ const AddArtisan = () => {
                         <p className=' text-[#098DFF]'>
                             Click her to validate this person
                         </p>
-                        <p className='text-[#043FA7] flex items-center'>
+                        <p className='text-[#043FA7] flex items-center gap-2' style={{
+                            fontFamily: 'Satoshi-Light'
+                        }}>
                             What is KYA <BsQuestionCircle />
                         </p>
                     </div>
