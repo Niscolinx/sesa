@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FC, useEffect, useState } from 'react'
+import React, { ChangeEvent, FC, useEffect, useRef, useState } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { IoMdAdd } from 'react-icons/io'
@@ -16,6 +16,8 @@ export interface IArtisanList {
 }
 
 type Actions = 'View Details' | 'Edit Details' | 'Deactivate' | 'Delete'
+
+type DialogType = ''
 
 const ArtisanList: FC<{
     fetchedArtisanList: IArtisanList[]
@@ -49,7 +51,7 @@ const ArtisanList: FC<{
         })
     }
 
-    const selectAction = (e: React.MouseEvent, item: Actions) => {
+    const selectAction = (item: Actions) => {
         if (item === 'View Details') {
             navigate('/dashboard/artisanList/:Id')
         }
@@ -159,7 +161,6 @@ const ArtisanList: FC<{
     const addArtisan = () => {
         navigate('/dashboard/artisan/add')
     }
-
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
@@ -360,17 +361,14 @@ const ArtisanList: FC<{
                                                                                 index +
                                                                                 i
                                                                             }
-                                                                            onClick={(
-                                                                                e
-                                                                            ) =>
+                                                                            onClick={() =>
                                                                                 selectAction(
-                                                                                    e,
                                                                                     item
                                                                                 )
                                                                             }
                                                                         >
                                                                             {item ===
-                                                                            'Deactivate' ? (
+                                                                            'Delete' ? (
                                                                                 <span className='text-red-600'>
                                                                                     {
                                                                                         item
