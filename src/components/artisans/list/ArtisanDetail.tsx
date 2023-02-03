@@ -147,10 +147,9 @@ const ArtisanDetail = () => {
 
             <div className='grid p-8 bg-white items-baseline overflow-y-scroll rounded-lg'>
                 <div className='flex justify-between items-center'>
-                    <div className='flex justify-center justify-self-center'></div>
                     <label
                         htmlFor='photoUpload'
-                        className='grid gap-4 cursor-pointer'
+                        className='grid gap-4 cursor-pointer justify-items-center'
                     >
                         <img
                             src={photoUrl ? photoUrl : '/img/me.jpeg'}
@@ -198,38 +197,61 @@ const ArtisanDetail = () => {
                 >
                     <div className='grid gap-4 relative '>
                         <label
-                            htmlFor='firstName'
+                            htmlFor='fullName'
                             className='text-[1.4rem] font-medium'
                         >
-                            First Name *
+                            Full Name *
                         </label>
                         <input
                             type='text'
                             required
-                            id='firstName'
+                            id='fullName'
                             className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                         />
                     </div>
                     <div className='grid gap-4 relative '>
                         <label
-                            htmlFor='lastName'
+                            htmlFor='artisanCode'
                             className='text-[1.4rem] font-medium'
                         >
-                            Last Name *
+                            Artisan Code
                         </label>
                         <input
                             type='text'
                             required
-                            id='lastName'
+                            id='artisanCode'
                             className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                         />
                     </div>
-                    <Select
-                        label='Gender'
-                        state={['Male', 'Female']}
-                        selectedState={selectedGender}
-                        setSelectedState={setSelectedGender}
-                    />
+                    <div className='grid gap-4 relative '>
+                        <label
+                            htmlFor='artisanCode'
+                            className='text-[1.4rem] font-medium'
+                        >
+                            Artisan Code
+                        </label>
+                        <input
+                            type='text'
+                            required
+                            id='artisanCode'
+                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                        />
+                    </div>
+                    <div className='grid gap-4 relative '>
+                        <label
+                            htmlFor='artisanCode'
+                            className='text-[1.4rem] font-medium'
+                        >
+                            Artisan Code
+                        </label>
+                        <input
+                            type='text'
+                            required
+                            id='artisanCode'
+                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                        />
+                    </div>
+                   
                     <div className='grid gap-4'>
                         <label
                             htmlFor='phoneNumber'
