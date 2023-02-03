@@ -278,14 +278,11 @@ const AddArtisan = () => {
                             className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                         />
                     </div>
+
                     <Select
-                        label='Artisan Category'
-                        state={[
-                            'Plumber',
-                            'Electrician',
-                            'Carpenter',
-                            'Painter',
-                        ]}
+                        label='State'
+                        state={['Lagos', 'Imo', 'Abia', 'FCT']}
+                        placeholder='Select State'
                         selectedState={selectedState}
                         setSelectedState={setSelectedState}
                     />
