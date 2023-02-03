@@ -1,21 +1,39 @@
-import React, { ChangeEvent, FC, useEffect, useState } from 'react'
+import React, { ChangeEvent, FC, FormEvent, useEffect, useRef, useState } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
 import { GrDown, GrUp } from 'react-icons/gr'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
+import { IoMdClose } from 'react-icons/io'
 import { useNavigate } from 'react-router'
 export interface IArtisanCategory {
     id: string
-   name: string
-   NoOfArtisans: number
-   createdAt: string
+    name: string
+    NoOfArtisans: number
+    createdAt: string
 }
 
 type Actions = 'View Details' | 'Edit Details' | 'Deactivate'
 
 const ArtisanCategory: FC<{
     fetchedArtisanCategories: IArtisanCategory[]
-}> = ({ fetchedArtisanCategories}) => {
+}> = ({ fetchedArtisanCategories }) => {
     const navigate = useNavigate()
+
+    const [isWithdrawal, setIsWithdrawal] = useState(true)
+
+    const [sendTo, setSendTo] = useState<string | null>(null)
+    const [sendToMenu, setSendToMenu] = useState(false)
+    const sendToArr: string[] = ['Howuja', 'Oluwaseun', 'Wojusun', 'Petherkwa']
+
+    const sendToMenuToggle = () => setSendToMenu(!sendToMenu)
+
+    const handleSendTo = (item: string) => {
+        setSendTo(item)
+        setSendToMenu(false)
+    }
+
+    const handleDialogSubmit = (e: FormEvent) => {
+        e.preventDefault()}
+
 
     const actions = [
         'View Details',
@@ -43,15 +61,11 @@ const ArtisanCategory: FC<{
         })
     }
 
-    const selectAction = (
-        e: React.MouseEvent,
-        item: Actions
-    ) => {
+    const selectAction = (e: React.MouseEvent, item: Actions) => {
         if (item === 'View Details') {
             navigate('/dashboard/artisanCategory/:Id')
         }
     }
-
 
     interface Paginate {
         index: number
@@ -61,9 +75,8 @@ const ArtisanCategory: FC<{
         slicedPages: IArtisanCategory[][] | null
     }
 
-    const itemsPerPageArr =
-         [2, 4, 6, 8]
-    
+    const itemsPerPageArr = [2, 4, 6, 8]
+
     const [paginate, setPaginate] = useState<Paginate>({
         index: 0,
         currentPage: 1,
@@ -72,7 +85,6 @@ const ArtisanCategory: FC<{
         totalPage: Math.ceil(fetchedArtisanCategories.length / 2),
         slicedPages: null,
     })
-
 
     // const handleSelectedSort = (item: SortBy) => {
     //     setToggleSortMenu(false)
@@ -97,8 +109,6 @@ const ArtisanCategory: FC<{
             }
         })
     }
-
-
 
     useEffect(() => {
         const slicedPages: IArtisanCategory[][] = []
@@ -154,7 +164,6 @@ const ArtisanCategory: FC<{
         })
     }
 
-
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
     const handleClose = () => {
@@ -197,7 +206,7 @@ const ArtisanCategory: FC<{
                         {isWithdrawal ? (
                             <form
                                 className='grid gap-12'
-                                onSubmit={handleFormSubmit}
+                                onSubmit={handleDialogSubmit}
                             >
                                 <div className='w-full grid gap-4'>
                                     <label
@@ -243,7 +252,7 @@ const ArtisanCategory: FC<{
                         ) : (
                             <form
                                 className='grid gap-12'
-                                onSubmit={handleFormSubmit}
+                                onSubmit={handleDialogSubmit}
                             >
                                 <div className='w-full grid gap-4'>
                                     <label
@@ -359,6 +368,8 @@ const ArtisanCategory: FC<{
                             className='pl-16 w-[25rem] rounded-lg border border-color-blue-light appearance-none outline-none p-4'
                         />
                     </div>
+
+                    
                 </div>
 
                 <div className='grid'>
