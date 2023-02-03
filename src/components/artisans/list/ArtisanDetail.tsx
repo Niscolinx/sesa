@@ -421,14 +421,14 @@ const ArtisanDetail = () => {
                 </div>
                 <section>
                     <h2
-                        className='text-[2rem]'
+                        className='text-[2rem] py-10'
                         style={{
                             fontFamily: 'Satoshi-Medium',
                         }}
                     >
                         Testimonials
                     </h2>
-                    <div className='grid grid-cols-2 items-center'>
+                    <div className='grid grid-cols-2 rounded-lg border p-10 border-color-grey shadow'>
                         <div className='grid gap-8 '>
                             <div className='flex gap-4 justify-between items-center border shadow rounded-lg h-[9rem] max-w-[38rem] px-10'>
                                 <div className='flex gap-4 items-center'>
@@ -509,7 +509,7 @@ const ArtisanDetail = () => {
                             <div className='flex gap-4 justify-between items-center border shadow rounded-lg h-[9rem] max-w-[38rem] px-10'>
                                 <div className='flex gap-4 items-center'>
                                     <img
-                                        src='/img/avatar1.png'
+                                        src='/img/avatar3.png'
                                         alt=''
                                         className='w-[5rem] h-[5rem] object-cover rounded-full'
                                     />
