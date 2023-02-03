@@ -181,7 +181,8 @@ const ViewArtisanCategory = () => {
     }, [fetchedArtisanCategories])
 
     const handleNext = () => {
-        if (paginate.currentPage === paginate.totalPage) return
+        console.log(paginate.currentPage, paginate.totalPage)
+        if ((paginate.currentPage - 1) === paginate.totalPage) return
         setPaginate((prev) => {
             return {
                 ...prev,
