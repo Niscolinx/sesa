@@ -326,7 +326,7 @@ const ViewArtisanCategory = () => {
                 </section>
             </dialog>
             <div className='grid text-[1.6rem] bg-white px-10 rounded-lg'>
-                <div className='flex gap-8 py-10 max-w-[50rem]'>
+                <div className='flex gap-8 py-10 max-w-[50rem] items-center'>
                     <div className='w-full grid gap-4'>
                         <label
                             htmlFor='categoryName'
@@ -344,7 +344,7 @@ const ViewArtisanCategory = () => {
                     </div>
 
                     <button className='btn bg-[#0556E5] text-white rounded-lg py-4 place-self-end w-[15rem]'>
-                        Create
+                        Update
                     </button>
                 </div>
                 <div className='flex w-full items-center gap-12 py-8 bg-white rounded-lg'>
