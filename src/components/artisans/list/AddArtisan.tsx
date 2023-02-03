@@ -108,10 +108,36 @@ const AddArtisan = () => {
                         <div className='mt-20'>
                             <h2>Validation Result</h2>
 
-                            <div className='border'>
-                                <div className="grid grid-cols-2 border-b">
-                                    <p className='border-r'>Validation Option</p>
-                                    <p className='border-b'>Phone Number | (+234) 813238432</p>
+                            <div className='border grid mt-5'>
+                                <div className="grid grid-cols-2 border-b gap-4">
+                                    <p className='border-r py-4 pl-4 text-gray-700' style={{
+                                        fontFamily: 'Satoshi-Light'
+                                    }}>Validation Option</p>
+                                    <p className='py-4'>Phone Number | (+234) 813238432</p>
+                                </div>
+                                <div className="grid grid-cols-2 border-b gap-4">
+                                    <p className='border-r py-4 pl-4 text-gray-700' style={{
+                                        fontFamily: 'Satoshi-Light'
+                                    }}>Full Name</p>
+                                    <p className='py-4'>Michael Okonkwo</p>
+                                </div>
+                                <div className="grid grid-cols-2 border-b gap-4">
+                                    <p className='border-r py-4 pl-4 text-gray-700' style={{
+                                        fontFamily: 'Satoshi-Light'
+                                    }}>Date of Birth</p>
+                                    <p className='py-4'>15 May, 1998</p>
+                                </div>
+                                <div className="grid grid-cols-2 border-b gap-4">
+                                    <p className='border-r py-4 pl-4 text-gray-700' style={{
+                                        fontFamily: 'Satoshi-Light'
+                                    }}>Phone Number</p>
+                                    <p className='py-4'> (+234) 813238432</p>
+                                </div>
+                                <div className="grid grid-cols-2 border-b gap-4">
+                                    <p className='border-r py-4 pl-4 text-gray-700' style={{
+                                        fontFamily: 'Satoshi-Light'
+                                    }}>Gender</p>
+                                    <p className='py-4'> (+234) 813238432</p>
                                 </div>
                             </div>
                         </div>
