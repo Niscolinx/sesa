@@ -156,13 +156,32 @@ const ArtisanDetail = () => {
 
             <div className='grid p-8 bg-white items-baseline overflow-y-scroll rounded-lg'>
                 <div className='flex justify-between items-center'>
-                    <img
-                        src='/icons/admins/detailsImg.svg'
-                        alt='photoPreview'
-                        className='object-cover w-[11rem] h-[11rem] rounded-full'
+                    <label
+                        htmlFor='photoUpload'
+                        className='flex justify-center gap-4 items-center cursor-pointer'
+                    ></label>
+                    <input
+                        type='file'
+                        name='photoUpload'
+                        id='photoUpload'
+                        accept='image/*'
+                        className='hidden'
+                        onClick={handlePhotoPreview}
                     />
 
-                    <div>
+                    {photoUrl && (
+                        <div className='flex justify-center justify-self-center'>
+                            <img
+                                src={photoUrl ? photoUrl : '/img/me.jpeg'}
+                                alt='photoPreview'
+                                className='object-cover w-[11rem] h-[11rem] rounded-full'
+                            />
+                        </div>
+                    )}
+
+                   
+
+                    <div className='flex gap-8'>
                         <button
                             className='border border-color-blue-1 text-color-blue-1 px-16 py-4 flex items-center  rounded-lg gap-4'
                             onClick={() => handleSelectedAction('Deactivate')}
