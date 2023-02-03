@@ -186,16 +186,12 @@ const ArtisanCategory: FC<{
                 >
                     <p className='flex items-center gap-2'>
                         <input type='checkbox' className='cursor-pointer' />
-                        <p>Package Name</p>
+                        <p> Name</p>
                     </p>
-                    <p>User Name</p>
-                    <p>Frequency</p>
-                    <p>Amount</p>
-                    <p>Start Date</p>
-                    <p>End Date</p>
-                    <p>Transaction Type</p>
-                    <p>Status</p>
+                    <p>No of Artisans</p>
+                    <p>Created At</p>
                     <p>Actions</p>
+
                 </div>
 
                 <div className='grid gap-8 mt-8 p-8'>
@@ -204,14 +200,9 @@ const ArtisanCategory: FC<{
                             paginate.slicedPages[paginate.index].map(
                                 (
                                     {
-                                        packageName,
-                                        userName,
-                                        frequency,
-                                        amount,
-                                        startDate,
-                                        endDate,
-                                        transactionType,
-                                        status,
+                                        name,
+                                        createdAt,
+                                        NoOfArtisans,
                                         id,
                                     },
                                     i
@@ -221,13 +212,12 @@ const ArtisanCategory: FC<{
                                     return (
                                         <div className='grid justify-between border-b grid-cols-9 gap-8 '>
                                             <p className='flex items-center gap-4'>
-                                                {id}
                                                 <input
                                                     type='checkbox'
                                                     className='cursor-pointer'
                                                 />
 
-                                                <span>{packageName}</span>
+                                                <span>{name}</span>
                                             </p>
                                             <p>{userName}</p>
                                             <p>{frequency}</p>
