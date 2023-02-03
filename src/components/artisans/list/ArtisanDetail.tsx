@@ -561,8 +561,10 @@ const ArtisanDetail = () => {
                             </div>
                         </div>
                         <div className='grid gap-8'>
-                            <h3>Wonderful Service</h3>
-                            <p>
+                            <h3 className='text-[2rem]' style={{
+                                fontFamily: 'Satoshi-Medium'
+                            }}>Wonderful Service</h3>
+                            <p className='text-[1.8rem]'>
                                 Lorem ipsum dolor sit amet consectetur
                                 adipisicing elit. Nulla optio labore autem
                                 provident, dolore dolorum dicta vel tempore
