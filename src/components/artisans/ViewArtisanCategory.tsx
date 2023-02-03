@@ -24,32 +24,32 @@ export interface IViewArtisanCategory {
 const VIEW_ARTISAN_CATEGORY: IViewArtisanCategory[] = [
     {
         id: '1',
-        artisanName: 'John Doe',
-        businessName: 'John Doe',
+        artisanName: 'Chibuzor Okafor',
+        businessName: 'Lariza Orjo',
         phoneNumber: '08012345678',
     },
     {
         id: '1',
-        artisanName: 'John Doe',
-        businessName: 'John Doe',
+        artisanName: 'Chibuzor Okafor',
+        businessName: 'Lariza Orjo',
         phoneNumber: '08012345678',
     },
     {
         id: '1',
-        artisanName: 'John Doe',
-        businessName: 'John Doe',
+        artisanName: 'Chibuzor Okafor',
+        businessName: 'Lariza Orjo',
         phoneNumber: '08012345678',
     },
     {
         id: '1',
-        artisanName: 'John Doe',
-        businessName: 'John Doe',
+        artisanName: 'Chibuzor Okafor',
+        businessName: 'Lariza Orjo',
         phoneNumber: '08012345678',
     },
     {
         id: '1',
-        artisanName: 'John Doe',
-        businessName: 'John Doe',
+        artisanName: 'Chibuzor Okafor',
+        businessName: 'Lariza Orjo',
         phoneNumber: '08012345678',
     },
 ]
