@@ -208,7 +208,7 @@ const ArtisanCategory: FC<{
 
     const confirmDeactivation = () => {
         handleClose()
-        toast('Artisan deleted successfully', {
+        toast('Category deleted successfully', {
             type: 'error',
             className: 'bg-red-100 text-red-600 text-[1.4rem]',
         })
@@ -266,8 +266,8 @@ const ArtisanCategory: FC<{
                                 />
 
                                 <p>
-                                    Are you sure you want to delete this Artisan?
-                                   
+                                    Are you sure you want to delete this Artisan
+                                    Category?
                                 </p>
 
                                 <div className='flex w-full justify-center gap-8'>

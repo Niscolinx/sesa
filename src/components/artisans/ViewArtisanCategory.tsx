@@ -61,7 +61,9 @@ const ViewArtisanCategory = () => {
 
     const [isWarning, setIsWarning] = useState(true)
     const [isLoaded, setIsLoaded] = useState(false)
-    const [fetchedArtisanCategories, setFetchedArtisanCategories] = useState<IViewArtisanCategory[]>([])
+    const [fetchedArtisanCategories, setFetchedArtisanCategories] = useState<
+        IViewArtisanCategory[]
+    >([])
 
     useEffect(() => {
         setTimeout(() => {
@@ -132,7 +134,7 @@ const ViewArtisanCategory = () => {
         currentPage: 1,
         itemsPerPage: 6,
 
-        totalPage: Math.ceil( fetchedArtisanCategories.length / 2),
+        totalPage: Math.ceil(fetchedArtisanCategories.length / 2),
         slicedPages: null,
     })
 
@@ -182,7 +184,7 @@ const ViewArtisanCategory = () => {
 
     const handleNext = () => {
         console.log(paginate.currentPage, paginate.totalPage)
-        if ((paginate.currentPage - 1) === paginate.totalPage) return
+        if (paginate.currentPage - 1 === paginate.totalPage) return
         setPaginate((prev) => {
             return {
                 ...prev,
@@ -242,7 +244,7 @@ const ViewArtisanCategory = () => {
 
     const confirmDeactivation = () => {
         handleClose()
-        toast('Category deleted successfully', {
+        toast('Artisan deleted successfully', {
             type: 'error',
             className: 'bg-red-100 text-red-600 text-[1.4rem]',
         })
@@ -300,8 +302,8 @@ const ViewArtisanCategory = () => {
                                 />
 
                                 <p>
-                                    Are you sure you want to delete this Artisan
-                                    Category?
+                                    Are you sure you want to delete this
+                                    Artisan?
                                 </p>
 
                                 <div className='flex w-full justify-center gap-8'>
