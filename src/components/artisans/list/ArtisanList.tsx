@@ -202,6 +202,16 @@ const ArtisanList: FC<{
             className: 'bg-red-100 text-red-600 text-[1.4rem]',
         })
     }
+    const handleDeactivateArtisan = () => {
+        handleClose()
+
+        toast('Artisan deactivated successfully', {
+            type: 'error',
+            className: 'bg-red-100 text-red-600 text-[1.4rem]',
+        })
+    }
+
+    
 
     return (
         <>
@@ -229,7 +239,7 @@ const ArtisanList: FC<{
                                     </button>
                                     <button
                                         className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
-                                        onClick={handleDeleteArtisan}
+                                        onClick={handleDeactivateArtisan}
                                     >
                                         Delete
                                     </button>
