@@ -12,7 +12,6 @@ import { BsQuestionCircle } from 'react-icons/bs'
 import Select from '../../UI/Select'
 import { toast, ToastContainer } from 'react-toastify'
 
-
 type Actions = 'Deactivate' | 'Delete'
 
 const ArtisanDetail = () => {
@@ -20,12 +19,7 @@ const ArtisanDetail = () => {
     const [selectedArtisan, setSelectedArtisan] = useState<string | null>(null)
     const [selectedGender, setSelectedGender] = useState<string | null>(null)
     const [isArtisanDetail, setIsArtisanDetail] = useState(true)
-     const [dialogType, setDialogType] = useState<Actions>('Deactivate')
-
-   
-
-
-
+    const [dialogType, setDialogType] = useState<Actions>('Deactivate')
 
     const [photoUrl, setPhotoUrl] = useState('')
 
@@ -41,7 +35,7 @@ const ArtisanDetail = () => {
     }
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
-   
+
     const handleClose = () => {
         if (dialogRef.current) {
             dialogRef.current.close()
@@ -60,36 +54,33 @@ const ArtisanDetail = () => {
             dialogRef.current.showModal()
         }
     }
-    
 
-     const handleSelectedAction = (item: Actions) => {
-        
+    const handleSelectedAction = (item: Actions) => {
+        if (item === 'Deactivate') {
+            handleOpen('Deactivate')
+        }
 
-         if (item === 'Deactivate') {
-             handleOpen('Deactivate')
-         }
+        if (item === 'Delete') {
+            handleOpen('Delete')
+        }
+    }
 
-         if (item === 'Delete') {
-             handleOpen('Delete')
-         }
-     }
+    const handleDeleteArtisan = () => {
+        handleClose()
 
-     const handleDeleteArtisan = () => {
-         handleClose()
+        toast('Artisan deleted successfully', {
+            type: 'error',
+            className: 'bg-red-100 text-red-600 text-[1.4rem]',
+        })
+    }
+    const handleDeactivateArtisan = () => {
+        handleClose()
 
-         toast('Artisan deleted successfully', {
-             type: 'error',
-             className: 'bg-red-100 text-red-600 text-[1.4rem]',
-         })
-     }
-     const handleDeactivateArtisan = () => {
-         handleClose()
-
-         toast('Artisan deactivated successfully', {
-             type: 'error',
-             className: 'bg-red-100 text-red-600 text-[1.4rem]',
-         })
-     }
+        toast('Artisan deactivated successfully', {
+            type: 'error',
+            className: 'bg-red-100 text-red-600 text-[1.4rem]',
+        })
+    }
 
     return (
         <>
@@ -156,27 +147,26 @@ const ArtisanDetail = () => {
 
             <div className='grid p-8 bg-white items-baseline overflow-y-scroll rounded-lg'>
                 <div className='flex justify-between items-center'>
-                    <div>
-                        <div className='flex justify-center justify-self-center'>
-                            <img
-                                src={photoUrl ? photoUrl : '/img/me.jpeg'}
-                                alt='photoPreview'
-                                className='object-cover w-[11rem] h-[11rem] rounded-full'
-                            />
-                        </div>
-                        <label
-                            htmlFor='photoUpload'
-                            className='flex justify-center gap-4 items-center cursor-pointer'
-                        >Edit</label>
-                        <input
-                            type='file'
-                            name='photoUpload'
-                            id='photoUpload'
-                            accept='image/*'
-                            className='hidden'
-                            onClick={handlePhotoPreview}
+                    <div className='flex justify-center justify-self-center'></div>
+                    <label
+                        htmlFor='photoUpload'
+                        className='grid gap-4 cursor-pointer'
+                    >
+                        <img
+                            src={photoUrl ? photoUrl : '/img/me.jpeg'}
+                            alt='photoPreview'
+                            className='object-cover w-[11rem] h-[11rem] rounded-full'
                         />
-                    </div>
+                        <span>Edit</span>
+                    </label>
+                    <input
+                        type='file'
+                        name='photoUpload'
+                        id='photoUpload'
+                        accept='image/*'
+                        className='hidden'
+                        onClick={handlePhotoPreview}
+                    />
 
                     <div className='flex gap-8'>
                         <button
