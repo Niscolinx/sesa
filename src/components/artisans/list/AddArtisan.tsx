@@ -75,11 +75,7 @@ const AddArtisan = () => {
 
     const confirmAddArtisan = () => {
         handleClose()
-        toast('Artisan Created successfully', {
-            type: 'success',
-            className:
-                'bg-green-100 text-green-600 text-[1.4rem] outline-green-200 outline',
-        })
+      
     }
 
     const handleDialogSubmit = (e: FormEvent) => {
