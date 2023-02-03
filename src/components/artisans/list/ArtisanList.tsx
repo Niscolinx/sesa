@@ -219,7 +219,7 @@ const ArtisanList: FC<{
 
     return (
         <>
-        <ToastContainer/>
+            <ToastContainer />
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
@@ -229,7 +229,7 @@ const ArtisanList: FC<{
                                     src='/icons/admins/modalDeactivate.svg'
                                     alt=''
                                 />
-                                <p>
+                                <p className='text-[1.6rem]'>
                                     Are you sure you want to deactivate this
                                     Artisan
                                 </p>
@@ -255,9 +255,8 @@ const ArtisanList: FC<{
                                     src='/icons/admins/modalWarning.svg'
                                     alt=''
                                 />
-                                <p>
-                                    Are you sure you want to delete this
-                                    Artisan
+                                <p className='text-[1.6rem]'>
+                                    Are you sure you want to delete this Artisan
                                 </p>
 
                                 <div className='flex w-full justify-center gap-8'>
