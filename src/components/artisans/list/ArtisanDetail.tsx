@@ -428,9 +428,18 @@ const ArtisanDetail = () => {
                     >
                         Testimonials
                     </h2>
-                    <div className='grid grid-cols-2 rounded-lg border p-10 border-color-grey shadow'>
+                    <div
+                        className='grid grid-cols-2 rounded-lg border p-10 border-color-grey'
+                        style={{
+                            boxShadow:
+                                '0px 12.6316px 31.5789px rgba(102, 104, 105, 0.15)',
+                        }}
+                    >
                         <div className='grid gap-8 '>
-                            <div className='flex gap-4 justify-between items-center border shadow rounded-lg h-[9rem] max-w-[38rem] px-10'>
+                            <div className='flex gap-4 justify-between items-center border rounded-lg h-[9rem] max-w-[38rem] px-10' style={{
+                                 boxShadow:
+                                '0px 12.6316px 31.5789px rgba(102, 104, 105, 0.15)',
+                            }}>
                                 <div className='flex gap-4 items-center'>
                                     <img
                                         src='/img/avatar1.png'
@@ -468,7 +477,10 @@ const ArtisanDetail = () => {
                                     </p>
                                 </div>
                             </div>
-                            <div className='flex gap-4 justify-between items-center border shadow rounded-lg h-[9rem] max-w-[38rem] px-10'>
+                            <div className='flex gap-4 justify-between items-center border rounded-lg h-[9rem] max-w-[38rem] px-10' style={{
+                                 boxShadow:
+                                '0px 12.6316px 31.5789px rgba(102, 104, 105, 0.15)',
+                            }}>
                                 <div className='flex gap-4 items-center'>
                                     <img
                                         src='/img/avatar2.png'
@@ -506,7 +518,10 @@ const ArtisanDetail = () => {
                                     </p>
                                 </div>
                             </div>
-                            <div className='flex gap-4 justify-between items-center border shadow rounded-lg h-[9rem] max-w-[38rem] px-10'>
+                            <div className='flex gap-4 justify-between items-center border rounded-lg h-[9rem] max-w-[38rem] px-10' style={{
+                                 boxShadow:
+                                '0px 12.6316px 31.5789px rgba(102, 104, 105, 0.15)',
+                            }}>
                                 <div className='flex gap-4 items-center'>
                                     <img
                                         src='/img/avatar3.png'
