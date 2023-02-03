@@ -3,6 +3,7 @@ import { CgSpinnerTwo } from 'react-icons/cg'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { IoMdAdd } from 'react-icons/io'
 import { useNavigate } from 'react-router'
+import { toast, ToastContainer } from 'react-toastify'
 import StarRating from '../../UI/StarRating'
 
 export interface IArtisanList {
@@ -174,9 +175,7 @@ const ArtisanList: FC<{
         }
     }
 
-    const handleRouteChange = () => {
-        handleClose()
-    }
+    
 
     const handleSelectedAction = (item: Actions, id: string) => {
         setToggleDropDown(() => {
@@ -195,8 +194,18 @@ const ArtisanList: FC<{
         }
     }
 
+    const handleDeleteArtisan = () => {
+        handleClose()
+
+        toast('Artisan deleted successfully', {
+            type: 'error',
+            className: 'bg-red-100 text-red-600 text-[1.4rem]',
+        })
+    }
+
     return (
         <>
+        <ToastContainer/>
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
@@ -208,7 +217,7 @@ const ArtisanList: FC<{
                                 />
                                 <p>
                                     Are you sure you want to deactivate this
-                                    security company?
+                                    Artisan
                                 </p>
 
                                 <div className='flex w-full justify-center gap-8'>
@@ -220,9 +229,9 @@ const ArtisanList: FC<{
                                     </button>
                                     <button
                                         className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
-                                        onClick={handleRouteChange}
+                                        onClick={handleDeleteArtisan}
                                     >
-                                        Deactivate
+                                        Delete
                                     </button>
                                 </div>
                             </>
@@ -234,7 +243,7 @@ const ArtisanList: FC<{
                                 />
                                 <p>
                                     Are you sure you want to deactivate this
-                                    security company?
+                                    Artisan
                                 </p>
 
                                 <div className='flex w-full justify-center gap-8'>
