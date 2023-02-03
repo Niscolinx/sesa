@@ -207,53 +207,32 @@ const ArtisanCategory: FC<{
                             onClick={() => handleClose()}
                         />
 
-                        <h3
-                            className='text-[2rem] font-bold border-b '
-                            style={{
-                                fontFamily: 'Satoshi-Medium',
-                            }}
-                        >
-                            {isWarning ? 'Withdrawal' : 'Request For Funds'}
-                        </h3>
-
                         {!isWarning ? (
                             <form
                                 className='grid gap-12'
                                 onSubmit={handleDialogSubmit}
                             >
+                                    <h3
+                                        className='text-[2rem] font-bold border-b '
+                                        style={{
+                                            fontFamily: 'Satoshi-Medium',
+                                        }}
+                                    >
+                                        Create Artisan Category
+                                    </h3>
+                               
                                 <div className='w-full grid gap-4'>
                                     <label
-                                        htmlFor='amount'
+                                        htmlFor='artisanName'
                                         className='text-[1.4rem] font-semibold'
                                     >
-                                        Amount
-                                    </label>
-                                    <div className='relative flex items-center'>
-                                        <img
-                                            src='/icons/Naira.svg'
-                                            alt=''
-                                            className='absolute left-3'
-                                        />
-                                        <input
-                                            type='number'
-                                            required
-                                            id='amount'
-                                            className='border pl-8 border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem]'
-                                        />
-                                    </div>
-                                </div>
-                                <div className='w-full grid gap-4'>
-                                    <label
-                                        htmlFor='description'
-                                        className='text-[1.4rem] font-semibold'
-                                    >
-                                        Description
+                                        Name
                                     </label>
 
                                     <input
                                         type='text'
                                         required
-                                        id='description'
+                                        id='artisanName'
                                         className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem]'
                                     />
                                 </div>
@@ -281,7 +260,7 @@ const ArtisanCategory: FC<{
                                     >
                                         Deactivate
                                     </button>
-                               
+
                                     <button
                                         className='btn text-white bg-[#0556E5] border rounded-lg w-[15rem]'
                                         onClick={() => handleClose()}
