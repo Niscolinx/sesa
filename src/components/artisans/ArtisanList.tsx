@@ -7,7 +7,6 @@ import StarRating from '../UI/StarRating'
 
 export interface IArtisanList {
     id: string
-    name: string
    artisanName: string
    businessName: string
    phoneNumber: string

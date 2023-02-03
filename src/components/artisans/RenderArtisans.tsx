@@ -1,11 +1,66 @@
 import { useState, useEffect } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
-import ResidentUsersList, {
-    IResidentUsersList,
-    RESIDENT_LISTS,
-} from '../additionalResident/ResidentUsersList'
+
 import ArtisanCategory, { IArtisanCategory } from './ArtisanCategory'
-import ArtisanList from './ArtisanList'
+import ArtisanList, { IArtisanList } from './ArtisanList'
+
+
+export const ARTISAN_LIST: IArtisanList[] = [
+    {
+        id: '1',
+        artisanName: 'John Doe',
+        businessName: 'Robert Fox',
+        phoneNumber: '(+234) 8012345678',
+        category: 'Plumber',
+        assignedGroup: 'Group 1',
+        rating: 5,
+    },
+    {
+        id: '1',
+        artisanName: 'John Doe',
+        businessName: 'Robert Fox',
+        phoneNumber: '(+234) 8012345678',
+        category: 'Plumber',
+        assignedGroup: 'Group 1',
+        rating: 5,
+    },
+    {
+        id: '1',
+        artisanName: 'John Doe',
+        businessName: 'Robert Fox',
+        phoneNumber: '(+234) 8012345678',
+        category: 'Plumber',
+        assignedGroup: 'Group 1',
+        rating: 3,
+    },
+    {
+        id: '1',
+        artisanName: 'John Doe',
+        businessName: 'Robert Fox',
+        phoneNumber: '(+234) 8012345678',
+        category: 'Plumber',
+        assignedGroup: 'Group 1',
+        rating: 4,
+    },
+    {
+        id: '1',
+        artisanName: 'John Doe',
+        businessName: 'Robert Fox',
+        phoneNumber: '(+234) 8012345678',
+        category: 'Plumber',
+        assignedGroup: 'Group 1',
+        rating: 4,
+    },
+    {
+        id: '1',
+        artisanName: 'John Doe',
+        businessName: 'Robert Fox',
+        phoneNumber: '(+234) 8012345678',
+        category: 'Plumber',
+        assignedGroup: 'Group 1',
+        rating: 5,
+    },
+]
 
 export const ARTISAN_CATEGORY: IArtisanCategory[] = [
     {
