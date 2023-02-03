@@ -37,9 +37,17 @@ const AddArtisan = () => {
     const dialogRef = useRef<HTMLDialogElement | null>(null)
     const validateDialogRef = useRef<HTMLDialogElement | null>(null)
 
+
+
     const handleClose = () => {
         if (dialogRef.current) {
             dialogRef.current.close()
+        }
+    }
+
+    const closeValidateDialog = () => {
+        if (validateDialogRef.current) {
+            validateDialogRef.current.close()
         }
     }
 
