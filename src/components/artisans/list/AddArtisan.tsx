@@ -24,7 +24,7 @@ const AddArtisan = () => {
     const [photoUrl, setPhotoUrl] = useState('')
 
     const handlePhotoPreview = async (
-        value: React.MouseEvent<HTMLInputElement>
+        _: React.MouseEvent<HTMLInputElement>
     ) => {
         const getUrl = await getPhotoUrl(`#photoUpload`)
         setPhotoUrl(getUrl)
