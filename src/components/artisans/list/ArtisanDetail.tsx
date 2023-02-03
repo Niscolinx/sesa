@@ -675,7 +675,7 @@ const ArtisanDetail = () => {
                                 </div>
                             </div>
                         </div>
-                      
+                    
                     </div>
                 </section>
             </div>
