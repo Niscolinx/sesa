@@ -11,7 +11,7 @@ import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { IoMdAdd, IoMdClose } from 'react-icons/io'
 import { useNavigate } from 'react-router'
 
-type dialogType = 'warning' | 'add-Category'
+type DialogType = 'warning' | 'add-Category'
 export interface IArtisanCategory {
     id: string
     name: string
@@ -177,8 +177,8 @@ const ArtisanCategory: FC<{
         }
     }
 
-    const handleOpen = (modalState: 'withdraw' | 'request') => {
-        if (modalState === 'withdraw') {
+    const handleOpen = (modalState: DialogType) => {
+        if (modalState === 'warning') {
             setIsWarning(true)
         } else {
             setIsWarning(false)
@@ -191,6 +191,7 @@ const ArtisanCategory: FC<{
 
     const addCategoryHandler = () => {
         // navigate('/dashboard/artisanCategory/add')
+        handleOpen('add-Category')
     }
 
     const confirmDeactivation = () => {
