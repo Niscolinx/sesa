@@ -436,10 +436,13 @@ const ArtisanDetail = () => {
                         }}
                     >
                         <div className='grid gap-8 '>
-                            <div className='flex gap-4 justify-between items-center border rounded-lg h-[9rem] max-w-[38rem] px-10' style={{
-                                 boxShadow:
-                                '0px 12.6316px 31.5789px rgba(102, 104, 105, 0.15)',
-                            }}>
+                            <div
+                                className='flex gap-4 justify-between items-center border rounded-lg h-[9rem] max-w-[38rem] px-10'
+                                style={{
+                                    boxShadow:
+                                        '0px 12.6316px 31.5789px rgba(102, 104, 105, 0.15)',
+                                }}
+                            >
                                 <div className='flex gap-4 items-center'>
                                     <img
                                         src='/img/avatar1.png'
@@ -477,10 +480,13 @@ const ArtisanDetail = () => {
                                     </p>
                                 </div>
                             </div>
-                            <div className='flex gap-4 justify-between items-center border rounded-lg h-[9rem] max-w-[38rem] px-10' style={{
-                                 boxShadow:
-                                '0px 12.6316px 31.5789px rgba(102, 104, 105, 0.15)',
-                            }}>
+                            <div
+                                className='flex gap-4 justify-between items-center border rounded-lg h-[9rem] max-w-[38rem] px-10'
+                                style={{
+                                    boxShadow:
+                                        '0px 12.6316px 31.5789px rgba(102, 104, 105, 0.15)',
+                                }}
+                            >
                                 <div className='flex gap-4 items-center'>
                                     <img
                                         src='/img/avatar2.png'
@@ -518,10 +524,13 @@ const ArtisanDetail = () => {
                                     </p>
                                 </div>
                             </div>
-                            <div className='flex gap-4 justify-between items-center border rounded-lg h-[9rem] max-w-[38rem] px-10' style={{
-                                 boxShadow:
-                                '0px 12.6316px 31.5789px rgba(102, 104, 105, 0.15)',
-                            }}>
+                            <div
+                                className='flex gap-4 justify-between items-center border rounded-lg h-[9rem] max-w-[38rem] px-10'
+                                style={{
+                                    boxShadow:
+                                        '0px 12.6316px 31.5789px rgba(102, 104, 105, 0.15)',
+                                }}
+                            >
                                 <div className='flex gap-4 items-center'>
                                     <img
                                         src='/img/avatar3.png'
@@ -561,9 +570,14 @@ const ArtisanDetail = () => {
                             </div>
                         </div>
                         <div className='grid gap-8'>
-                            <h3 className='text-[2rem]' style={{
-                                fontFamily: 'Satoshi-Medium'
-                            }}>Wonderful Service</h3>
+                            <h3
+                                className='text-[2rem]'
+                                style={{
+                                    fontFamily: 'Satoshi-Medium',
+                                }}
+                            >
+                                Wonderful Service
+                            </h3>
                             <p className='text-[1.8rem]'>
                                 Lorem ipsum dolor sit amet consectetur
                                 adipisicing elit. Nulla optio labore autem
@@ -579,6 +593,16 @@ const ArtisanDetail = () => {
                             </p>
                         </div>
                     </div>
+                </section>
+                <section>
+                    <h3
+                        className='text-[2rem]'
+                        style={{
+                            fontFamily: 'Satoshi-Medium',
+                        }}
+                    >
+                        Know Your Artisan (KYA)
+                    </h3>
                 </section>
             </div>
         </>
