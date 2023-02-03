@@ -156,20 +156,7 @@ const ArtisanDetail = () => {
 
             <div className='grid p-8 bg-white items-baseline overflow-y-scroll rounded-lg'>
                 <div className='flex justify-between items-center'>
-                    <label
-                        htmlFor='photoUpload'
-                        className='flex justify-center gap-4 items-center cursor-pointer'
-                    ></label>
-                    <input
-                        type='file'
-                        name='photoUpload'
-                        id='photoUpload'
-                        accept='image/*'
-                        className='hidden'
-                        onClick={handlePhotoPreview}
-                    />
-
-                    {photoUrl && (
+                    <div>
                         <div className='flex justify-center justify-self-center'>
                             <img
                                 src={photoUrl ? photoUrl : '/img/me.jpeg'}
@@ -177,9 +164,19 @@ const ArtisanDetail = () => {
                                 className='object-cover w-[11rem] h-[11rem] rounded-full'
                             />
                         </div>
-                    )}
-
-                   
+                        <label
+                            htmlFor='photoUpload'
+                            className='flex justify-center gap-4 items-center cursor-pointer'
+                        >Edit</label>
+                        <input
+                            type='file'
+                            name='photoUpload'
+                            id='photoUpload'
+                            accept='image/*'
+                            className='hidden'
+                            onClick={handlePhotoPreview}
+                        />
+                    </div>
 
                     <div className='flex gap-8'>
                         <button
