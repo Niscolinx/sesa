@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
 import { useNavigate } from 'react-router'
-import { RenderArtisans } from '../../components/artisans/RenderArtisans'
+import RenderArtisans from '../../components/artisans/RenderArtisans'
 
 function Artisan() {
     const navigate = useNavigate()
@@ -10,8 +10,7 @@ function Artisan() {
 
     const addArtisanHandler = () => {
         setArtisan(true)
-
-        navigate('/dashboard/artisan/add')
+        //navigate('/dashboard/artisan/add')
     }
 
     return (
