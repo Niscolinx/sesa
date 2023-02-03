@@ -175,8 +175,6 @@ const ArtisanList: FC<{
         }
     }
 
-    
-
     const handleSelectedAction = (item: Actions, id: string) => {
         setToggleDropDown(() => {
             return {
@@ -193,7 +191,7 @@ const ArtisanList: FC<{
             handleOpen('Deactivate')
         }
 
-        if(item === 'Delete'){
+        if (item === 'Delete') {
             handleOpen('Delete')
         }
     }
@@ -214,8 +212,6 @@ const ArtisanList: FC<{
             className: 'bg-red-100 text-red-600 text-[1.4rem]',
         })
     }
-
-    
 
     return (
         <>
