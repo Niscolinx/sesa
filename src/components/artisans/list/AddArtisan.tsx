@@ -267,7 +267,20 @@ const AddArtisan = () => {
                         selectedState={selectedArtisan}
                         setSelectedState={setSelectedArtisan}
                     />
-
+                    <div className='grid gap-4 relative'>
+                        <label
+                            htmlFor='businessName'
+                            className='text-[1.4rem] font-medium'
+                        >
+                            Business Name
+                        </label>
+                        <input
+                            type='text'
+                            placeholder='Optional'
+                            id='businessName'
+                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                        />
+                    </div>
                     <div className='col-span-full rounded-lg border border-width-[.2rem] border-dashed border-color-grey-1 p-8 text-[1.6rem] relative w-full'>
                         <label
                             htmlFor='photoUpload'
@@ -306,20 +319,7 @@ const AddArtisan = () => {
                             </div>
                         )}
                     </div>
-                    <div className='grid gap-4 relative'>
-                        <label
-                            htmlFor='businessName'
-                            className='text-[1.4rem] font-medium'
-                        >
-                            Business Name
-                        </label>
-                        <input
-                            type='text'
-                            
-                            id='businessName'
-                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                        />
-                    </div>
+
                     <button
                         className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
                         style={{ justifySelf: 'start' }}
@@ -328,7 +328,7 @@ const AddArtisan = () => {
                         <span>
                             <IoMdAdd />
                         </span>{' '}
-                        Add Company
+                        Add Artisan
                     </button>
                 </form>
             </div>
