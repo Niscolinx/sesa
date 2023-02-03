@@ -68,7 +68,7 @@ const ArtisanCategory: FC<{
 
     const selectAction = (e: React.MouseEvent, item: Actions) => {
         if (item === 'View Details') {
-            navigate('/dashboard/artisanCategory/:Id')
+            handleOpen('warning')
         }
     }
 
@@ -242,7 +242,7 @@ const ArtisanCategory: FC<{
                                 </button>
                             </form>
                         ) : (
-                            <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8 text-[1.6rem]'>
+                            <div className='bg-white rounded-2xl grid place-content-center justify-items-center h-[30rem] gap-8 text-[1.6rem]'>
                                 <img
                                     src='/icons/admins/modalWarning.svg'
                                     alt=''
