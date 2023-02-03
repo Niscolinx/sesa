@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useRef, useState } from 'react'
 import { GrDown, GrUp } from 'react-icons/gr'
 import { IoMdAdd } from 'react-icons/io'
 import { getPhotoUrl } from '../../../utils/getPhotoUrl'
-import {VscQuestion} from 'react-icons/vsc'
+import {BsQuestionCircle} from 'react-icons/bs'
 
 type State = 'Lagos' | 'Imo' | 'Abia' | 'FCT'
 
@@ -130,12 +130,12 @@ const AddArtisan = () => {
                     <p className='text-[2rem] font-bold'>
                         KYA <span className='text-gray-500'>(Optional)</span>
                     </p>
-                    <div className='flex justify-between'>
-                        <p className='text-[1.6rem] text-[#098DFF]'>
+                    <div className='flex justify-between text-[1.6rem]'>
+                        <p className=' text-[#098DFF]'>
                             Click her to validate this person
                         </p>
-                        <p>
-                            What is KYA <VscQuestion />
+                        <p className='text-[#043FA7] flex items-center'>
+                            What is KYA <BsQuestionCircle />
                         </p>
                     </div>
                 </div>
