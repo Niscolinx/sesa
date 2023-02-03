@@ -417,8 +417,10 @@ const ArtisanDetail = () => {
 
 
                 <div className='grid grid-cols-2'>
-                    <div>
+                    <div className='grid gap-8'>
+                        <div className='flex gap-4 justify-between'>
 
+                        </div>
                     </div>
                     <div className='grid gap-8'>
                         <h3>Wonderful Service</h3>
