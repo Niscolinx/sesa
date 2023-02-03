@@ -34,6 +34,7 @@ import CommissionWalletDetails from '../components/wallet/CommissionWalletDetail
 import SecurityCompanyWallet from '../pages/dashboard/Wallet/SecurityCompanyWallet'
 import SecurityCompanyWalletDetails from '../components/wallet/SecurityCompanyDetails'
 import Artisan from '../pages/dashboard/Artisan'
+import ViewArtisanCategory from '../components/artisans/ViewArtisanCategory'
 
 const router = createBrowserRouter(
     createRoutesFromElements([
@@ -87,8 +88,8 @@ const router = createBrowserRouter(
             <Route path='' element={<SecurityCompanyWalletDetails />} />
             <Route path='artisan' element={<Artisan />} />
             <Route
-                path='artisan/:Id'
-                element={<SecurityCompanyDetail />}
+                path='artisan/category/:Id'
+                element={<ViewArtisanCategory />}
             />
             <Route
                 path='artisan/add'

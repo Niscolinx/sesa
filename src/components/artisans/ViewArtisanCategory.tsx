@@ -13,23 +13,62 @@ import { useNavigate } from 'react-router'
 import { toast, ToastContainer } from 'react-toastify'
 
 type DialogType = 'warning' | 'add-Category'
-export interface IArtisanCategory {
+
+export interface IViewArtisanCategory {
     id: string
-    name: string
-    NoOfArtisans: number
-    createdAt: string
+    artisanName: string
+    businessName: string
+    phoneNumber: string
 }
+
+const VIEW_ARTISAN_CATEGORY: IViewArtisanCategory[] = [
+    {
+        id: '1',
+        artisanName: 'John Doe',
+        businessName: 'John Doe',
+        phoneNumber: '08012345678',
+    },
+    {
+        id: '1',
+        artisanName: 'John Doe',
+        businessName: 'John Doe',
+        phoneNumber: '08012345678',
+    },
+    {
+        id: '1',
+        artisanName: 'John Doe',
+        businessName: 'John Doe',
+        phoneNumber: '08012345678',
+    },
+    {
+        id: '1',
+        artisanName: 'John Doe',
+        businessName: 'John Doe',
+        phoneNumber: '08012345678',
+    },
+    {
+        id: '1',
+        artisanName: 'John Doe',
+        businessName: 'John Doe',
+        phoneNumber: '08012345678',
+    },
+]
 
 type Actions = 'Delete' | 'View Details'
 
-const ArtisanCategory: FC<{
-    fetchedArtisanCategories: IArtisanCategory[]
-}> = ({ fetchedArtisanCategories }) => {
+const ViewArtisanCategory = () => {
     const navigate = useNavigate()
 
     const [isWarning, setIsWarning] = useState(true)
+    const [fetchedArtisanCategories, setFetchedArtisanCategories] = useState<
+        IViewArtisanCategory[]
+    >([])
 
-   
+    useEffect(() => {
+        setTimeout(() => {
+            setFetchedArtisanCategories(VIEW_ARTISAN_CATEGORY)
+        }, 1000)
+    }, [])
 
     const handleDialogSubmit = (e: FormEvent) => {
         e.preventDefault()
@@ -41,10 +80,7 @@ const ArtisanCategory: FC<{
         })
     }
 
-    const actions = [
-        'View Details',
-        'Delete'
-    ] satisfies Actions[]
+    const actions = ['View Details', 'Delete'] satisfies Actions[]
 
     const [toggleDropDown, setToggleDropDown] = useState<{
         isDropDownOpen: boolean
@@ -71,10 +107,9 @@ const ArtisanCategory: FC<{
             handleOpen('warning')
         }
 
-        if(item === 
-            'View Details'){
-                navigate('/dashboard/artisan/category/:Id')
-            }
+        if (item === 'View Details') {
+            navigate('/dashboard/artisan/category/:Id')
+        }
 
         setToggleDropDown({
             isDropDownOpen: false,
@@ -87,7 +122,7 @@ const ArtisanCategory: FC<{
         currentPage: number
         itemsPerPage: number
         totalPage: number
-        slicedPages: IArtisanCategory[][] | null
+        slicedPages: IViewArtisanCategory[][] | null
     }
 
     const itemsPerPageArr = [2, 4, 6, 8]
@@ -108,7 +143,7 @@ const ArtisanCategory: FC<{
     const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
         const item = parseInt(e.target.value)
 
-        const slicedPages: IArtisanCategory[][] = []
+        const slicedPages: IViewArtisanCategory[][] = []
         for (let i = 0; i < fetchedArtisanCategories.length; i += item) {
             slicedPages.push(fetchedArtisanCategories.slice(i, i + item))
         }
@@ -126,7 +161,7 @@ const ArtisanCategory: FC<{
     }
 
     useEffect(() => {
-        const slicedPages: IArtisanCategory[][] = []
+        const slicedPages: IViewArtisanCategory[][] = []
         for (
             let i = 0;
             i < fetchedArtisanCategories.length;
@@ -200,10 +235,8 @@ const ArtisanCategory: FC<{
     }
 
     const addCategoryHandler = () => {
-        // navigate('/dashboard/artisanCategory/add')
+        // navigate('/dashboard/viewArtisanCategory/add')
         handleOpen('add-Category')
-
-       
     }
 
     const confirmDeactivation = () => {
@@ -215,7 +248,7 @@ const ArtisanCategory: FC<{
     }
     return (
         <>
-        <ToastContainer/>
+            <ToastContainer />
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid items-baseline w-[64rem] min-h-[30rem] p-10 gap-8 text-[1.6rem] relative'>
@@ -329,8 +362,8 @@ const ArtisanCategory: FC<{
                             <input type='checkbox' className='cursor-pointer' />
                             <p> Name</p>
                         </p>
-                        <p>No of Artisans</p>
-                        <p>Created At</p>
+                        <p>Business Name</p>
+                        <p>Phone Number</p>
                         <p>Actions</p>
                     </div>
 
@@ -339,7 +372,7 @@ const ArtisanCategory: FC<{
                             React.Children.toArray(
                                 slicedPages[paginate.index].map(
                                     (
-                                        { name, createdAt, NoOfArtisans, id },
+                                        { artisanName, businessName, phoneNumber},
                                         i
                                     ) => {
                                         const { isDropDownOpen, index } =
@@ -352,10 +385,10 @@ const ArtisanCategory: FC<{
                                                         className='cursor-pointer'
                                                     />
 
-                                                    <span>{name}</span>
+                                                    <span>{artisanName}</span>
                                                 </p>
-                                                <p>{NoOfArtisans}</p>
-                                                <p>{createdAt}</p>
+                                                <p>{businessName}</p>
+                                                <p>{phoneNumber}</p>
 
                                                 <div className='relative'>
                                                     <label
@@ -511,4 +544,4 @@ const ArtisanCategory: FC<{
     )
 }
 
-export default ArtisanCategory
+export default ViewArtisanCategory

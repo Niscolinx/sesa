@@ -1,6 +1,7 @@
 import React, { ChangeEvent, FC, useEffect, useState } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
+import { IoMdAdd } from 'react-icons/io'
 import { useNavigate } from 'react-router'
 import StarRating from '../UI/StarRating'
 
@@ -155,6 +156,11 @@ const ArtisanList: FC<{
         })
     }
 
+     const addArtisan = () => {
+         // navigate('/dashboard/artisanCategory/add')
+        // handleOpen('add-Category')
+     }
+
     return (
         <div className='grid text-[1.6rem]'>
             <div className='flex w-full items-center gap-12 p-10 bg-white rounded-lg'>
@@ -173,6 +179,15 @@ const ArtisanList: FC<{
                         className='pl-16 w-[25rem] rounded-lg border border-color-blue-light appearance-none outline-none p-4'
                     />
                 </div>
+                <button
+                    className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg ml-auto'
+                    onClick={addArtisan}
+                >
+                    <span>
+                        <IoMdAdd />
+                    </span>{' '}
+                    Add Artisan Category
+                </button>
             </div>
 
             <div className='grid'>
@@ -198,7 +213,17 @@ const ArtisanList: FC<{
                     {slicedPages && slicedPages.length > 0 ? (
                         React.Children.toArray(
                             slicedPages[paginate.index].map(
-                                ({ artisanName, businessName, rating, category, phoneNumber, assignedGroup }, i) => {
+                                (
+                                    {
+                                        artisanName,
+                                        businessName,
+                                        rating,
+                                        category,
+                                        phoneNumber,
+                                        assignedGroup,
+                                    },
+                                    i
+                                ) => {
                                     const { isDropDownOpen, index } =
                                         toggleDropDown
                                     return (
@@ -215,7 +240,9 @@ const ArtisanList: FC<{
                                             <p>{phoneNumber}</p>
                                             <p>{category}</p>
                                             <p>{assignedGroup}</p>
-                                            <p><StarRating starsNum={rating}/></p>
+                                            <p>
+                                                <StarRating starsNum={rating} />
+                                            </p>
 
                                             <div className='relative'>
                                                 <label
