@@ -172,10 +172,10 @@ const AddArtisan = () => {
                             </div>
                         </div>
                         <button
-                            className='btn bg-white text-[#0556E5] border-[#0556E5] border rounded-lg w-[15rem]'
+                            className='btn text-white bg-[#0556E5] border rounded-lg w-[15rem] justify-self-center'
                             onClick={() => closeValidateDialog()}
                         >
-                            Cancel
+                            Ok
                         </button>
                     </div>
                 </section>
