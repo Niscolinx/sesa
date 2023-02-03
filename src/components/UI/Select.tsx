@@ -1,34 +1,39 @@
-import React, { useState } from 'react'
+import React, { FC, useState } from 'react'
 import { GrUp, GrDown } from 'react-icons/gr'
 
-const Select = () => {
-    type State = 'Lagos' | 'Imo' | 'Abia' | 'FCT'
+interface ISelect {
+    state: Array<string>
+    selectedState: string | null
+    setSelectedState: React.Dispatch<React.SetStateAction<string | null>>
+    label: string
+    placeholder: string
+}
 
-    const state: Array<State> = ['Lagos', 'Imo', 'Abia', 'FCT']
-
+const Select: FC<ISelect> = ({
+    state,
+    selectedState,
+    setSelectedState,
+    label,
+    placeholder,
+}) => {
     const [toggleStateMenu, setToggleStateMenu] = useState(false)
-    const [selectedState, setSelectedState] = useState<State | null>(null)
-
 
     const stateMenuToggler = () => setToggleStateMenu(!toggleStateMenu)
 
-    const handleSelectedState = (item: State) => {
+    const handleSelectedState = (item: string) => {
         setSelectedState(item)
         setToggleStateMenu(false)
     }
-   
 
     return (
         <div className='relative grid gap-4'>
-            <p className='text-[1.4rem] font-semibold'>Artisan</p>
+            <p className='text-[1.4rem] font-semibold'>{label}</p>
             <div className='relative flex items-center'>
                 <p
                     className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer'
                     onClick={stateMenuToggler}
                 >
-                    {selectedState ? (
-                        selectedState
-                    ) : (
+                    {selectedState || (
                         <span className='text-gray-500'>Select State</span>
                     )}
                 </p>
