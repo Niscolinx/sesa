@@ -92,12 +92,11 @@ const ArtisanCategory: FC<{
 
     const itemsPerPageArr = [2, 4, 6, 8]
     const perPage = 6
-    
+
     const [paginate, setPaginate] = useState<Paginate>({
         index: 0,
         currentPage: 1,
         itemsPerPage: perPage,
-
         totalPage: Math.ceil(fetchedArtisanCategories.length / perPage),
         slicedPages: null,
     })
