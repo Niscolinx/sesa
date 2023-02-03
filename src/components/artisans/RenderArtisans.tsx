@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
-import ResidentUsersList, { IResidentUsersList, RESIDENT_LISTS } from '../additionalResident/ResidentUsersList'
-import ArtisanCategory, {IArtisanCategory} from './ArtisanCategory'
+import ResidentUsersList, {
+    IResidentUsersList,
+    RESIDENT_LISTS,
+} from '../additionalResident/ResidentUsersList'
+import ArtisanCategory, { IArtisanCategory } from './ArtisanCategory'
 
-
-
-
-export const RESIDENT_HISTORY: IArtisanCategory[] = [
+export const ARTISAN_CATEGORY: IArtisanCategory[] = [
     {
         id: '1',
         name: 'Plumber',
@@ -43,8 +43,9 @@ function RenderArtisans() {
     const [fetchedResidentUsers, setFetchedResidentUsers] = useState<
         IResidentUsersList[] | null
     >(null)
-    const [fetchedArtisanCategories, setFetchedArtisanCategories] =
-        useState<IArtisanCategory[] | null>(null)
+    const [fetchedArtisanCategories, setFetchedArtisanCategories] = useState<
+        IArtisanCategory[] | null
+    >(null)
 
     const [currentPage, setCurrentPage] = useState(1)
 
@@ -52,35 +53,31 @@ function RenderArtisans() {
         const fetchData = async () => {
             setTimeout(() => {
                 setFetchedResidentUsers(RESIDENT_LISTS)
-                setFetchedArtisanCategories(RESIDENT_HISTORY)
+                setFetchedArtisanCategories(ARTISAN_CATEGORY)
             }, 1000)
         }
         fetchData()
     }, [])
 
-    const handlePathSwitch = (pageNum: number) => {
-        switch (pageNum) {
-            case 1:
-                return (
-                    <ResidentUsersList
-                        fetchedResidentUsers={fetchedResidentUsers ?? []}
-                    />
-                )
-            case 2:
-                return (
-                    <ArtisanCategory
-                        fetchedArtisanCategories={
-                            fetchedArtisanCategories ?? []
-                        }
-                    />
-                )
-            default:
-                return (
-                    <ResidentUsersList
-                        fetchedResidentUsers={fetchedResidentUsers ?? []}
-                    />
-                )
-        }
+    type PathSwitch = 'artisanCategory' | 'artisanList' | 'artisanGroup'
+
+
+    const handlePathSwitch: Record<PathSwitch, JSX.Element> = {
+        artisanCategory: (
+            <ArtisanCategory
+                fetchedArtisanCategories={fetchedArtisanCategories ?? []}
+            />
+        ),
+        artisanList: (
+            <ArtisanCategory
+                fetchedArtisanCategories={fetchedArtisanCategories ?? []}
+            />
+        ),
+        artisanGroup: (
+            <ArtisanCategory
+                fetchedArtisanCategories={fetchedArtisanCategories ?? []}
+            />
+        ),
     }
 
     return (
