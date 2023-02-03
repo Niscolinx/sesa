@@ -60,9 +60,7 @@ const ViewArtisanCategory = () => {
     const navigate = useNavigate()
 
     const [isWarning, setIsWarning] = useState(true)
-    const [fetchedArtisanCategories, setFetchedArtisanCategories] = useState<
-        IViewArtisanCategory[]
-    >([])
+    const [fetchedArtisanCategories, setFetchedArtisanCategories] = useState<IViewArtisanCategory[] | null>(null)
 
     useEffect(() => {
         setTimeout(() => {
