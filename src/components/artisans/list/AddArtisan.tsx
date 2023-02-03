@@ -127,10 +127,16 @@ const AddArtisan = () => {
                         </span>
                     </button> */}
 
-                    <p className='text-[2rem] font-bold'>KYA <span className='text-gray-500'>(Optional)</span></p>
-                    <div>
-                    <p>Click her to validate this person</p>
-                    <p>What is KYA <VscQuestion/></p>
+                    <p className='text-[2rem] font-bold'>
+                        KYA <span className='text-gray-500'>(Optional)</span>
+                    </p>
+                    <div className='flex justify-between'>
+                        <p className='text-[1.6rem] text-[#098DFF]'>
+                            Click her to validate this person
+                        </p>
+                        <p>
+                            What is KYA <VscQuestion />
+                        </p>
                     </div>
                 </div>
                 <form
