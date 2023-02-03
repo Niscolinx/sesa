@@ -289,12 +289,26 @@ const ArtisanDetail = () => {
                             htmlFor='homeAddress'
                             className='text-[1.4rem] font-medium'
                         >
-                            Business Name
+                            Home Address
                         </label>
                         <input
                             type='text'
                             required
                             id='homeAddress'
+                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                        />
+                    </div>
+                    <div className='grid gap-4 relative'>
+                        <label
+                            htmlFor='businessName'
+                            className='text-[1.4rem] font-medium'
+                        >
+                            Business Name
+                        </label>
+                        <input
+                            type='text'
+                            required
+                            id='businessName'
                             className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                         />
                     </div>
