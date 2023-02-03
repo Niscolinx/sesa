@@ -68,7 +68,7 @@ const ArtisanCategory: FC<{
     const [paginate, setPaginate] = useState<Paginate>({
         index: 0,
         currentPage: 1,
-        itemsPerPage: 2,
+        itemsPerPage: 6,
 
         totalPage: Math.ceil(fetchedArtisanCategories.length / 2),
         slicedPages: null,

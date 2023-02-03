@@ -69,7 +69,7 @@ const ArtisanList: FC<{
     const [paginate, setPaginate] = useState<Paginate>({
         index: 0,
         currentPage: 1,
-        itemsPerPage: 2,
+        itemsPerPage: 6,
 
         totalPage: Math.ceil(fetchedArtisanList.length / 2),
         slicedPages: null,
@@ -159,7 +159,7 @@ const ArtisanList: FC<{
         <div className='grid text-[1.6rem]'>
             <div className='flex w-full items-center gap-12 p-10 bg-white rounded-lg'>
                 <p className=' font-bold'>
-                    Artisan Category <span>(10)</span>
+                    Artisan List <span>(10)</span>
                 </p>
                 <div className='relative flex items-center'>
                     <img
@@ -202,7 +202,7 @@ const ArtisanList: FC<{
                                     const { isDropDownOpen, index } =
                                         toggleDropDown
                                     return (
-                                        <div className='grid justify-between border-b grid-cols-7 items-center gap-8 '>
+                                        <div className='grid justify-between border-b grid-cols-7 items-center gap-8 text-[1.6rem]'>
                                             <p className='flex items-center gap-4'>
                                                 <input
                                                     type='checkbox'
