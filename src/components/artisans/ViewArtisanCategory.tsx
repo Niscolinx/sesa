@@ -322,7 +322,7 @@ const ViewArtisanCategory = () => {
                     </div>
                 </section>
             </dialog>
-            <div className='grid text-[1.6rem]'>
+            <div className='grid text-[1.6rem] bg-white'>
                 <div className='flex w-full items-center gap-12 p-10 bg-white rounded-lg'>
                     <p className=' font-bold'>
                         Artisan Category <span>(10)</span>
@@ -351,9 +351,9 @@ const ViewArtisanCategory = () => {
                     </button>
                 </div>
 
-                <div className='grid'>
+                <div className='grid gap-10'>
                     <div
-                        className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-4 gap-8'
+                        className='grid justify-between text-color-dark-1 bg-color-grey items-center px-8 grid-cols-4 gap-8'
                         style={{
                             fontSize: '1.4rem',
                         }}
@@ -367,7 +367,7 @@ const ViewArtisanCategory = () => {
                         <p>Actions</p>
                     </div>
 
-                    <div className='grid gap-8 mt-8 p-8'>
+                    <div className='grid gap-8 p-8'>
                         {slicedPages && slicedPages.length > 0 ? (
                             React.Children.toArray(
                                 slicedPages[paginate.index].map(
