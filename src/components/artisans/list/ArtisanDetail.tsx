@@ -19,9 +19,7 @@ const ArtisanDetail = () => {
     const [selectedArtisan, setSelectedArtisan] = useState<string | null>(null)
     const [selectedGender, setSelectedGender] = useState<string | null>(null)
     const [isArtisanDetail, setIsArtisanDetail] = useState(true)
-    const [validationType, setValidationType] = useState<string | null>(
-        'Phone Number'
-    )
+   
 
     const [photoUrl, setPhotoUrl] = useState('')
 
@@ -37,257 +35,114 @@ const ArtisanDetail = () => {
     }
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
-    const validateDialogRef = useRef<HTMLDialogElement | null>(null)
+   
 
-    const handleClose = () => {
-        if (dialogRef.current) {
-            dialogRef.current.close()
-        }
-    }
+    
 
-    const closeValidateDialog = () => {
-        if (validateDialogRef.current) {
-            validateDialogRef.current.close()
-        }
-    }
+     const handleSelectedAction = (item: Actions, id: string) => {
+         setToggleDropDown(() => {
+             return {
+                 isDropDownOpen: false,
+                 index: null,
+             }
+         })
 
-    const openValidateDialog = () => {
-        if (validateDialogRef.current) {
-            validateDialogRef.current.showModal()
-        }
-    }
-    const handleOpen = (modalState: DialogType) => {
-        if (modalState === 'validate') {
-            setIsArtisanDetail(true)
-        } else {
-            setIsArtisanDetail(false)
-        }
+         if (item === 'View Details') {
+             navigate(`/dashboard/artisan/detail/:${id}`)
+         }
 
-        if (dialogRef.current) {
-            dialogRef.current.showModal()
-        }
-    }
+         if (item === 'Deactivate') {
+             handleOpen('Deactivate')
+         }
 
-    const artisanDetailHandler = () => {
-        // navigate('/dashboard/artisanCategory/add')
-        handleOpen('add-Artisan')
-    }
+         if (item === 'Delete') {
+             handleOpen('Delete')
+         }
+     }
 
-    const confirmArtisanDetail = () => {
-        handleClose()
-    }
+     const handleDeleteArtisan = () => {
+         handleClose()
 
-    const handleDialogSubmit = (e: FormEvent) => {
-        e.preventDefault()
-        handleClose()
+         toast('Artisan deleted successfully', {
+             type: 'error',
+             className: 'bg-red-100 text-red-600 text-[1.4rem]',
+         })
+     }
+     const handleDeactivateArtisan = () => {
+         handleClose()
 
-        openValidateDialog()
-    }
+         toast('Artisan deactivated successfully', {
+             type: 'error',
+             className: 'bg-red-100 text-red-600 text-[1.4rem]',
+         })
+     }
 
     return (
         <>
             <ToastContainer />
 
-            <dialog className='dialog' ref={validateDialogRef}>
-                <section className='grid place-content-center w-full h-[100vh]'>
-                    <div className='bg-white rounded-2xl grid items-baseline w-[90rem] min-h-[30rem] p-10 text-[1.6rem] relative gap-20'>
-                        <IoMdClose
-                            className='absolute right-4 top-4 text-[2rem] cursor-pointer'
-                            onClick={() => closeValidateDialog()}
-                        />
-
-                        <div className='relative h-[14rem] bg-blue-600 w-full mt-10 rounded-lg'>
-                            <img
-                                src='/img/me.jpeg'
-                                alt=''
-                                className='w-[10rem] h-[10rem] border rounded-full border-green-600 object-cover absolute bottom-[-6rem] left-10 object-top'
-                            />
-                        </div>
-                        <div className='mt-20'>
-                            <h2>Validation Result</h2>
-
-                            <div className='border grid mt-5'>
-                                <div className='grid grid-cols-2 border-b gap-4'>
-                                    <p
-                                        className='border-r py-4 pl-4 text-gray-700'
-                                        style={{
-                                            fontFamily: 'Satoshi-Light',
-                                        }}
-                                    >
-                                        Validation Option
-                                    </p>
-                                    <p className='py-4'>
-                                        Phone Number | (+234) 813238432
-                                    </p>
-                                </div>
-                                <div className='grid grid-cols-2 border-b gap-4'>
-                                    <p
-                                        className='border-r py-4 pl-4 text-gray-700'
-                                        style={{
-                                            fontFamily: 'Satoshi-Light',
-                                        }}
-                                    >
-                                        Full Name
-                                    </p>
-                                    <p className='py-4'>Michael Okonkwo</p>
-                                </div>
-                                <div className='grid grid-cols-2 border-b gap-4'>
-                                    <p
-                                        className='border-r py-4 pl-4 text-gray-700'
-                                        style={{
-                                            fontFamily: 'Satoshi-Light',
-                                        }}
-                                    >
-                                        Date of Birth
-                                    </p>
-                                    <p className='py-4'>15 May, 1998</p>
-                                </div>
-                                <div className='grid grid-cols-2 border-b gap-4'>
-                                    <p
-                                        className='border-r py-4 pl-4 text-gray-700'
-                                        style={{
-                                            fontFamily: 'Satoshi-Light',
-                                        }}
-                                    >
-                                        Phone Number
-                                    </p>
-                                    <p className='py-4'> (+234) 813238432</p>
-                                </div>
-                                <div className='grid grid-cols-2  gap-4'>
-                                    <p
-                                        className='border-r py-4 pl-4 text-gray-700'
-                                        style={{
-                                            fontFamily: 'Satoshi-Light',
-                                        }}
-                                    >
-                                        Gender
-                                    </p>
-                                    <p className='py-4'>Male</p>
-                                </div>
-                            </div>
-                        </div>
-                        <button
-                            className='btn text-white bg-[#0556E5] border rounded-lg w-[15rem] justify-self-center'
-                            onClick={() => closeValidateDialog()}
-                        >
-                            Ok
-                        </button>
-                    </div>
-                </section>
-            </dialog>
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
-                    <div className='bg-white rounded-2xl grid items-baseline w-[64rem] min-h-[30rem] p-10 gap-8 text-[1.6rem] relative'>
-                        <IoMdClose
-                            className='absolute right-4 top-4 text-[2rem] cursor-pointer'
-                            onClick={() => handleClose()}
-                        />
-
-                        {isArtisanDetail ? (
-                            <form
-                                className='grid gap-12 max-w-[40rem]'
-                                onSubmit={handleDialogSubmit}
-                            >
-                                <h3
-                                    className='text-[2rem] font-bold border-b '
-                                    style={{
-                                        fontFamily: 'Satoshi-Medium',
-                                    }}
-                                >
-                                    Know Your Artisan (KYA)
-                                </h3>
-
-                                <Select
-                                    state={['Phone Number', 'Name']}
-                                    label='Validation Option'
-                                    selectedState={validationType}
-                                    setSelectedState={setValidationType}
-                                />
-
-                                <div className='grid gap-4'>
-                                    <label
-                                        htmlFor='phoneNumber'
-                                        className='text-[1.4rem] font-medium'
-                                    >
-                                        Phone Number
-                                    </label>
-
-                                    <div className='flex text-[1.6rem] gap-4 h-[5rem]'>
-                                        <select className='w-[30%] rounded-lg border border-color-grey py-4.8 px-4 outline-none cursor-pointer text-color-dark relative h-full'>
-                                            <option value='234'>+234</option>
-                                        </select>
-                                        <input
-                                            required
-                                            type='number'
-                                            inputMode='numeric'
-                                            id='phoneNumber'
-                                            placeholder='Phone Number'
-                                            className='w-full rounded-lg border border-color-grey py-4.8 px-8 outline-none text-color-dark'
-                                        />
-                                    </div>
-                                </div>
-
-                                <p
-                                    className='text-[#043FA7] flex items-center gap-2'
-                                    style={{
-                                        fontFamily: 'Satoshi-Light',
-                                    }}
-                                >
-                                    What is KYA <BsQuestionCircle />
-                                </p>
-
-                                <button className='btn bg-[#0556E5] text-white rounded-lg py-4 place-self-start w-[15rem]'>
-                                    Validate
-                                </button>
-                            </form>
-                        ) : (
-                            <div className='bg-white rounded-2xl grid place-content-center justify-items-center h-[30rem] gap-8 text-[1.6rem]'>
+                    <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
+                        {dialogType === 'Deactivate' ? (
+                            <>
                                 <img
-                                    src='/icons/admins/modalSuccess.svg'
+                                    src='/icons/admins/modalDeactivate.svg'
                                     alt=''
                                 />
-
-                                <p>You have successfully added an Artisan</p>
+                                <p className='text-[1.6rem]'>
+                                    Are you sure you want to deactivate this
+                                    Artisan
+                                </p>
 
                                 <div className='flex w-full justify-center gap-8'>
                                     <button
-                                        className='btn bg-white text-[#0556E5] border-[#0556E5] border rounded-lg w-[15rem]'
+                                        className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
                                         onClick={() => handleClose()}
                                     >
                                         Cancel
                                     </button>
                                     <button
-                                        className='bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
-                                        onClick={confirmArtisanDetail}
+                                        className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
+                                        onClick={handleDeactivateArtisan}
                                     >
-                                        Ok
+                                        Deactivate
                                     </button>
                                 </div>
-                            </div>
+                            </>
+                        ) : (
+                            <>
+                                <img
+                                    src='/icons/admins/modalWarning.svg'
+                                    alt=''
+                                />
+                                <p className='text-[1.6rem]'>
+                                    Are you sure you want to delete this Artisan
+                                </p>
+
+                                <div className='flex w-full justify-center gap-8'>
+                                    <button
+                                        className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
+                                        onClick={() => handleClose()}
+                                    >
+                                        Cancel
+                                    </button>
+                                    <button
+                                        className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
+                                        onClick={handleDeleteArtisan}
+                                    >
+                                        Delete
+                                    </button>
+                                </div>
+                            </>
                         )}
                     </div>
                 </section>
             </dialog>
+
             <div className='grid p-8 bg-white h-[80vh] items-baseline overflow-y-scroll rounded-lg'>
                 <div className='grid gap-8 max-w-[40rem]'>
-                    <p className='text-[2rem] font-bold'>
-                        KYA <span className='text-gray-500'>(Optional)</span>
-                    </p>
-                    <div className='flex justify-between text-[1.6rem]'>
-                        <p
-                            className='text-[#098DFF] cursor-pointer'
-                            onClick={() => handleOpen('validate')}
-                        >
-                            Click her to validate this person
-                        </p>
-                        <p
-                            className='text-[#043FA7] flex items-center gap-2'
-                            style={{
-                                fontFamily: 'Satoshi-Light',
-                            }}
-                        >
-                            What is KYA <BsQuestionCircle />
-                        </p>
+                    
                     </div>
                 </div>
                 <form
