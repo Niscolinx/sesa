@@ -7,10 +7,11 @@ import React, {
     useState,
 } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
-import { GrDown, GrUp } from 'react-icons/gr'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { IoMdAdd, IoMdClose } from 'react-icons/io'
 import { useNavigate } from 'react-router'
+
+type dialogType = 'warning' | 'add-Category'
 export interface IArtisanCategory {
     id: string
     name: string
