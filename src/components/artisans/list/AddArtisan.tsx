@@ -83,11 +83,7 @@ const AddArtisan = () => {
         e.preventDefault()
         handleClose()
 
-        toast('Category Created successfully', {
-            type: 'success',
-            className:
-                'bg-green-100 text-green-600 text-[1.4rem] outline-green-200 outline',
-        })
+        openValidateDialog()
     }
 
     return (
@@ -96,11 +92,14 @@ const AddArtisan = () => {
 
             <dialog className='dialog' ref={validateDialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
-                    <div className='bg-white rounded-2xl grid items-baseline w-[64rem] min-h-[30rem] p-10 gap-8 text-[1.6rem] relative'>
+                    <div className='bg-white rounded-2xl grid items-baseline w-[90rem] min-h-[30rem] p-10 gap-8 text-[1.6rem] relative'>
                         <IoMdClose
                             className='absolute right-4 top-4 text-[2rem] cursor-pointer'
                             onClick={() => closeValidateDialog()}
                         />
+
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore ut fugiat doloremque magnam, ea deserunt sint magni fuga optio aperiam voluptas veniam eaque fugit impedit consequatur accusamus, nobis velit iste!
+                        Lorem
                     </div>
                 </section>
             </dialog>
