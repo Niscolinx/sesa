@@ -50,6 +50,10 @@ const ArtisanList: FC<{
         })
     }
 
+    const [dialogType, setDialogType] = useState<Actions>(
+        'Deactivate'
+    )
+
     const selectAction = (item: Actions) => {
         if (item === 'View Details') {
             navigate('/dashboard/artisanList/:Id')
