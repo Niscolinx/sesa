@@ -157,7 +157,7 @@ const ArtisanList: FC<{
     }
 
     const addArtisan = () => {
-     navigate('/dashboard/artisan/add')
+        navigate('/dashboard/artisan/add')
     }
 
     return (
