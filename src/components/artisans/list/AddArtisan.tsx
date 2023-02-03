@@ -8,8 +8,6 @@ import Select from '../../UI/Select'
 
 
 const AddArtisan = () => {
-    const state: Array<State> = ['Lagos', 'Imo', 'Abia', 'FCT']
-    const gender: Array<Gender> = ['Male', 'Female']
 
     const [toggleStateMenu, setToggleStateMenu] = useState(false)
     const [toggleGenderMenu, setToggleGenderMenu] = useState(false)
