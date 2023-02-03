@@ -105,7 +105,24 @@ const AddArtisan = () => {
                                 className='w-[10rem] h-[10rem] border rounded-full border-green-600 object-cover absolute bottom-[-6rem] left-10 object-top'
                             />
                         </div>
-                        <div></div>
+                        <div className='mt-20'>
+                            <h2>Validation Result</h2>
+
+                            <div className='border'>
+                                <div className="grid grid-cols-2 ">
+                                    <p>Validation Option</p>
+                                    <p>Phone Number | (+234) 813238432</p>
+                                </div>
+                                <div className="grid grid-cols-2">
+                                    <p>Validation Option</p>
+                                    <p>Phone Number | (+234) 813238432</p>
+                                </div>
+                                <div className="grid grid-cols-2">
+                                    <p>Validation Option</p>
+                                    <p>Phone Number | (+234) 813238432</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </section>
             </dialog>
