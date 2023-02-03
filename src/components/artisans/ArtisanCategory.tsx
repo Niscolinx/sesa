@@ -1,4 +1,11 @@
-import React, { ChangeEvent, FC, FormEvent, useEffect, useRef, useState } from 'react'
+import React, {
+    ChangeEvent,
+    FC,
+    FormEvent,
+    useEffect,
+    useRef,
+    useState,
+} from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
 import { GrDown, GrUp } from 'react-icons/gr'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
@@ -18,13 +25,10 @@ const ArtisanCategory: FC<{
 }> = ({ fetchedArtisanCategories }) => {
     const navigate = useNavigate()
 
-    const [isWithdrawal, setIsWithdrawal] = useState(true)
+    const [isWarning, setIsWarning] = useState(true)
 
     const [sendTo, setSendTo] = useState<string | null>(null)
     const [sendToMenu, setSendToMenu] = useState(false)
-    const sendToArr: string[] = ['Howuja', 'Oluwaseun', 'Wojusun', 'Petherkwa']
-
-    const sendToMenuToggle = () => setSendToMenu(!sendToMenu)
 
     const handleSendTo = (item: string) => {
         setSendTo(item)
@@ -32,8 +36,8 @@ const ArtisanCategory: FC<{
     }
 
     const handleDialogSubmit = (e: FormEvent) => {
-        e.preventDefault()}
-
+        e.preventDefault()
+    }
 
     const actions = [
         'View Details',
@@ -174,9 +178,9 @@ const ArtisanCategory: FC<{
 
     const handleOpen = (modalState: 'withdraw' | 'request') => {
         if (modalState === 'withdraw') {
-            setIsWithdrawal(true)
+            setIsWarning(true)
         } else {
-            setIsWithdrawal(false)
+            setIsWarning(false)
         }
 
         if (dialogRef.current) {
@@ -185,7 +189,7 @@ const ArtisanCategory: FC<{
     }
 
     const addCategoryHandler = () => {
-       // navigate('/dashboard/artisanCategory/add')
+        // navigate('/dashboard/artisanCategory/add')
     }
 
     return (
@@ -204,10 +208,10 @@ const ArtisanCategory: FC<{
                                 fontFamily: 'Satoshi-Medium',
                             }}
                         >
-                            {isWithdrawal ? 'Withdrawal' : 'Request For Funds'}
+                            {isWarning ? 'Withdrawal' : 'Request For Funds'}
                         </h3>
 
-                        {isWithdrawal ? (
+                        {isWarning ? (
                             <form
                                 className='grid gap-12'
                                 onSubmit={handleDialogSubmit}
@@ -254,103 +258,12 @@ const ArtisanCategory: FC<{
                                 </button>
                             </form>
                         ) : (
-                            <form
-                                className='grid gap-12'
-                                onSubmit={handleDialogSubmit}
-                            >
-                                <div className='w-full grid gap-4'>
-                                    <label
-                                        htmlFor='amount'
-                                        className='text-[1.4rem] font-semibold'
-                                    >
-                                        Amount
-                                    </label>
-                                    <div className='relative flex items-center'>
-                                        <img
-                                            src='/icons/Naira.svg'
-                                            alt=''
-                                            className='absolute left-3'
-                                        />
-                                        <input
-                                            type='number'
-                                            required
-                                            id='amount'
-                                            className='border pl-8 border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem]'
-                                        />
-                                    </div>
-                                </div>
-                                <div className='w-full grid gap-4'>
-                                    <label
-                                        htmlFor='description'
-                                        className='text-[1.4rem] font-semibold'
-                                    >
-                                        Description
-                                    </label>
-
-                                    <input
-                                        type='text'
-                                        required
-                                        id='description'
-                                        className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem]'
-                                    />
-                                </div>
-
-                                <div className='w-full grid gap-4'>
-                                    <label
-                                        htmlFor='commissionWalletAttachment'
-                                        className='text-[1.4rem] font-semibold'
-                                    >
-                                        Attach An Item
-                                    </label>
-
-                                    <input
-                                        type='file'
-                                        id='commissionWalletAttachment'
-                                        name='commissionWalletAttachment'
-                                        required
-                                        className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] appearance-none'
-                                    />
-                                </div>
-
-                                <div className='relative grid gap-4'>
-                                    <p className='text-[1.4rem] font-semibold'>
-                                        SendTo
-                                    </p>
-                                    <div className='relative flex items-center w-[20rem]'>
-                                        <p
-                                            className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer'
-                                            onClick={sendToMenuToggle}
-                                        >
-                                            {sendTo}
-                                        </p>
-                                        {sendToMenu ? (
-                                            <GrUp className='absolute right-4' />
-                                        ) : (
-                                            <GrDown className='absolute right-4' />
-                                        )}
-                                    </div>
-
-                                    {sendToMenu && (
-                                        <div className='absolute top-[-2rem]  left-[22rem] border border-color-primary-light  bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
-                                            {sendToArr.map((item, index) => (
-                                                <p
-                                                    className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
-                                                    key={index}
-                                                    onClick={() =>
-                                                        handleSendTo(item)
-                                                    }
-                                                >
-                                                    {item}
-                                                </p>
-                                            ))}
-                                        </div>
-                                    )}
-                                </div>
-
-                                <button className='btn bg-[#0556E5] text-white rounded-lg py-4 place-self-start w-[15rem]'>
-                                    Request
-                                </button>
-                            </form>
+                            <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8 text-[1.6rem]'>
+                                <p>
+                                    Are you sure you want to deactivate this
+                                    security company?
+                                </p>
+                            </div>
                         )}
                     </div>
                 </section>
