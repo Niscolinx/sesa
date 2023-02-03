@@ -116,7 +116,7 @@ const AddArtisan = () => {
                 </section>
             </dialog>
             <div className='grid p-8 bg-white h-[80vh] items-baseline overflow-y-scroll rounded-lg'>
-                <div className='flex max-w-[40rem]'>
+                <div className='grid gap-8 max-w-[40rem]'>
                     {/* <button
                         className='border border-red-600 px-16 py-4 flex items-center  rounded-lg gap-4'
                         onClick={() => handleOpen('warning')}
