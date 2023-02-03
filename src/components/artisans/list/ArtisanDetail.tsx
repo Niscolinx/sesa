@@ -12,14 +12,20 @@ import { BsQuestionCircle } from 'react-icons/bs'
 import Select from '../../UI/Select'
 import { toast, ToastContainer } from 'react-toastify'
 
-type DialogType = 'validate' | 'add-Artisan'
+
+type Actions = 'Deactivate' | 'Delete'
 
 const ArtisanDetail = () => {
     const [selectedState, setSelectedState] = useState<string | null>(null)
     const [selectedArtisan, setSelectedArtisan] = useState<string | null>(null)
     const [selectedGender, setSelectedGender] = useState<string | null>(null)
     const [isArtisanDetail, setIsArtisanDetail] = useState(true)
+     const [dialogType, setDialogType] = useState<Actions>('Deactivate')
+
    
+
+
+
 
     const [photoUrl, setPhotoUrl] = useState('')
 
@@ -36,20 +42,28 @@ const ArtisanDetail = () => {
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
    
+    const handleClose = () => {
+        if (dialogRef.current) {
+            dialogRef.current.close()
+        }
+    }
 
+    const handleOpen = (dialogType: Actions) => {
+        if (dialogType === 'Deactivate') {
+            setDialogType('Deactivate')
+        }
+        if (dialogType === 'Delete') {
+            setDialogType('Delete')
+        }
+
+        if (dialogRef.current) {
+            dialogRef.current.showModal()
+        }
+    }
     
 
      const handleSelectedAction = (item: Actions, id: string) => {
-         setToggleDropDown(() => {
-             return {
-                 isDropDownOpen: false,
-                 index: null,
-             }
-         })
-
-         if (item === 'View Details') {
-             navigate(`/dashboard/artisan/detail/:${id}`)
-         }
+        
 
          if (item === 'Deactivate') {
              handleOpen('Deactivate')
@@ -141,9 +155,10 @@ const ArtisanDetail = () => {
             </dialog>
 
             <div className='grid p-8 bg-white h-[80vh] items-baseline overflow-y-scroll rounded-lg'>
-                <div className='grid gap-8 max-w-[40rem]'>
+                {/* <div className='grid gap-8 max-w-[40rem]'>
                     
-                    </div>
+                    </div> */}
+                  
                 </div>
                 <form
                     onSubmit={handleSubmit}
@@ -285,49 +300,11 @@ const ArtisanDetail = () => {
                             className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                         />
                     </div>
-                    <div className='col-span-full rounded-lg border border-width-[.2rem] border-dashed border-color-grey-1 p-8 text-[1.6rem] relative w-full'>
-                        <label
-                            htmlFor='photoUpload'
-                            className='flex justify-center gap-4 items-center cursor-pointer'
-                        >
-                            <img src='/icons/admins/photo_library.svg' alt='' />
-                            <p
-                                className='text-color-dark-1'
-                                style={{
-                                    fontFamily: 'Satoshi-Light',
-                                }}
-                            >
-                                Drag estate manager picture here or{' '}
-                                <span className='text-color-blue font-bold'>
-                                    click
-                                </span>{' '}
-                                to upload
-                            </p>
-                        </label>
-                        <input
-                            type='file'
-                            name='photoUpload'
-                            id='photoUpload'
-                            accept='image/*'
-                            className='hidden'
-                            onClick={handlePhotoPreview}
-                        />
-
-                        {photoUrl && (
-                            <div className='flex justify-center justify-self-center'>
-                                <img
-                                    src={photoUrl}
-                                    alt='photoPreview'
-                                    className='object-cover w-[11rem] h-[11rem] rounded-full'
-                                />
-                            </div>
-                        )}
-                    </div>
+                  
 
                     <button
                         className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
                         style={{ justifySelf: 'start' }}
-                        onClick={artisanDetailHandler}
                     >
                         <span>
                             <IoMdAdd />
@@ -335,7 +312,7 @@ const ArtisanDetail = () => {
                         Add Artisan
                     </button>
                 </form>
-            </div>
+            
         </>
     )
 }
