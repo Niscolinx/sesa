@@ -37,7 +37,7 @@ const ArtisanCategory: FC<{
 
         toast('Category Created successfully', {
             type: 'success',
-            className: 'bg-green-100 text-green-600 text-[1.4rem]',
+            className: 'bg-green-100 text-green-600 text-[1.4rem] outline-green-200 outline',
         })
     }
 

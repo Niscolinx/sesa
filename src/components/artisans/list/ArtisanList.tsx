@@ -3,17 +3,16 @@ import { CgSpinnerTwo } from 'react-icons/cg'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { IoMdAdd } from 'react-icons/io'
 import { useNavigate } from 'react-router'
-import StarRating from '../UI/StarRating'
-
+import StarRating from '../../UI/StarRating'
 
 export interface IArtisanList {
     id: string
-   artisanName: string
-   businessName: string
-   phoneNumber: string
-   category: string
-   assignedGroup: string
-   rating: number
+    artisanName: string
+    businessName: string
+    phoneNumber: string
+    category: string
+    assignedGroup: string
+    rating: number
 }
 
 type Actions = 'View Details' | 'Edit Details' | 'Deactivate' | 'Delete'
@@ -157,10 +156,10 @@ const ArtisanList: FC<{
         })
     }
 
-     const addArtisan = () => {
-         // navigate('/dashboard/artisanCategory/add')
+    const addArtisan = () => {
+        // navigate('/dashboard/artisanCategory/add')
         // handleOpen('add-Category')
-     }
+    }
 
     return (
         <div className='grid text-[1.6rem]'>

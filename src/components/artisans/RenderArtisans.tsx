@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
 
-import ArtisanCategory, { IArtisanCategory } from './ArtisanCategory'
-import ArtisanList, { IArtisanList } from './ArtisanList'
-
+import ArtisanCategory, { IArtisanCategory } from './category/ArtisanCategory'
+import ArtisanList, { IArtisanList } from './list/ArtisanList'
 
 export const ARTISAN_LIST: IArtisanList[] = [
     {
@@ -94,8 +93,7 @@ export const ARTISAN_CATEGORY: IArtisanCategory[] = [
         NoOfArtisans: 10,
     },
 ]
-    type PathSwitch = 'artisanCategory' | 'artisanList' | 'artisanGroup'
-
+type PathSwitch = 'artisanCategory' | 'artisanList' | 'artisanGroup'
 
 function RenderArtisans() {
     const [fetchedArtisanList, setFetchedArtisanList] = useState<
@@ -105,7 +103,8 @@ function RenderArtisans() {
         IArtisanCategory[] | null
     >(null)
 
-    const [pathToSwitch, setPathToSwitch] = useState<PathSwitch>('artisanCategory')
+    const [pathToSwitch, setPathToSwitch] =
+        useState<PathSwitch>('artisanCategory')
 
     useEffect(() => {
         const fetchData = async () => {
@@ -117,8 +116,6 @@ function RenderArtisans() {
         fetchData()
     }, [])
 
-
-
     const handlePathSwitch: Record<PathSwitch, JSX.Element> = {
         artisanCategory: (
             <ArtisanCategory
@@ -126,9 +123,7 @@ function RenderArtisans() {
             />
         ),
         artisanList: (
-            <ArtisanList
-                fetchedArtisanList={fetchedArtisanList ?? []}
-            />
+            <ArtisanList fetchedArtisanList={fetchedArtisanList ?? []} />
         ),
         artisanGroup: (
             <ArtisanCategory
@@ -159,7 +154,6 @@ function RenderArtisans() {
                 />
                 <label htmlFor='artisanList' className='capitalize'>
                     Artisan List
-                    
                 </label>
                 <input
                     type='radio'
@@ -170,7 +164,6 @@ function RenderArtisans() {
                 />
                 <label htmlFor='artisanGroup' className='capitalize'>
                     Artisan Group
-                    
                 </label>
             </div>
             <div className='mt-8 grid gap-8'>

@@ -34,7 +34,7 @@ import CommissionWalletDetails from '../components/wallet/CommissionWalletDetail
 import SecurityCompanyWallet from '../pages/dashboard/Wallet/SecurityCompanyWallet'
 import SecurityCompanyWalletDetails from '../components/wallet/SecurityCompanyDetails'
 import Artisan from '../pages/dashboard/Artisan'
-import ViewArtisanCategory from '../components/artisans/ViewArtisanCategory'
+import ViewArtisanCategory from '../components/artisans/category/ViewArtisanCategory'
 
 const router = createBrowserRouter(
     createRoutesFromElements([
