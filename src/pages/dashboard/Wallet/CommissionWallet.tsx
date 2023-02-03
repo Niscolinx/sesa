@@ -317,15 +317,7 @@ const CommissionWallet = () => {
         }
     }
 
-    const handleApprove = () => {
-        handleClose()
-
-        toast('Withdrawal Approved Successfully', {
-            type: 'success',
-            position: 'top-right',
-            className: 'bg-green-100 text-green-700 text-[1.4rem] ',
-        })
-    }
+ 
 
     const handleFormSubmit = (e: FormEvent) => {
         e.preventDefault()

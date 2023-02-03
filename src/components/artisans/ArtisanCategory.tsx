@@ -155,216 +155,381 @@ const ArtisanCategory: FC<{
     }
 
     return (
-        <div className='grid text-[1.6rem]'>
-            <div className='flex w-full items-center gap-12 p-10 bg-white rounded-lg'>
-                <p className=' font-bold'>
-                    Artisan Category <span>(10)</span>
-                </p>
-                <div className='relative flex items-center'>
-                    <img
-                        src='/icons/admins/search.svg'
-                        alt=''
-                        className='absolute left-4 text-[4rem]'
-                    />
-                    <input
-                        type='text'
-                        placeholder='Search Parameters'
-                        className='pl-16 w-[25rem] rounded-lg border border-color-blue-light appearance-none outline-none p-4'
-                    />
-                </div>
-             
-            </div>
+        <>
+            <dialog className='dialog' ref={dialogRef}>
+                <section className='grid place-content-center w-full h-[100vh]'>
+                    <div className='bg-white rounded-2xl grid items-baseline w-[64rem] min-h-[30rem] p-10 gap-8 text-[1.6rem] relative'>
+                        <IoMdClose
+                            className='absolute right-4 top-4 text-[2rem] cursor-pointer'
+                            onClick={() => handleClose()}
+                        />
 
-            <div className='grid'>
-                <div
-                    className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-4 gap-8'
-                    style={{
-                        fontSize: '1.4rem',
-                    }}
-                >
-                    <p className='flex items-center gap-2'>
-                        <input type='checkbox' className='cursor-pointer' />
-                        <p> Name</p>
-                    </p>
-                    <p>No of Artisans</p>
-                    <p>Created At</p>
-                    <p>Actions</p>
+                        <h3
+                            className='text-[2rem] font-bold border-b '
+                            style={{
+                                fontFamily: 'Satoshi-Medium',
+                            }}
+                        >
+                            {isWithdrawal ? 'Withdrawal' : 'Request For Funds'}
+                        </h3>
 
-                </div>
+                        {isWithdrawal ? (
+                            <form
+                                className='grid gap-12'
+                                onSubmit={handleFormSubmit}
+                            >
+                                <div className='w-full grid gap-4'>
+                                    <label
+                                        htmlFor='amount'
+                                        className='text-[1.4rem] font-semibold'
+                                    >
+                                        Amount
+                                    </label>
+                                    <div className='relative flex items-center'>
+                                        <img
+                                            src='/icons/Naira.svg'
+                                            alt=''
+                                            className='absolute left-3'
+                                        />
+                                        <input
+                                            type='number'
+                                            required
+                                            id='amount'
+                                            className='border pl-8 border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem]'
+                                        />
+                                    </div>
+                                </div>
+                                <div className='w-full grid gap-4'>
+                                    <label
+                                        htmlFor='description'
+                                        className='text-[1.4rem] font-semibold'
+                                    >
+                                        Description
+                                    </label>
 
-                <div className='grid gap-8 mt-8 p-8'>
-                    {slicedPages && slicedPages.length > 0 ? (
-                        React.Children.toArray(
-                            slicedPages[paginate.index].map(
-                                (
-                                    {
-                                        name,
-                                        createdAt,
-                                        NoOfArtisans,
-                                        id,
-                                    },
-                                    i
-                                ) => {
-                                    const { isDropDownOpen, index } =
-                                        toggleDropDown
-                                    return (
-                                        <div className='grid justify-between border-b grid-cols-4 gap-8 '>
-                                            <p className='flex items-center gap-4'>
-                                                <input
-                                                    type='checkbox'
-                                                    className='cursor-pointer'
-                                                />
+                                    <input
+                                        type='text'
+                                        required
+                                        id='description'
+                                        className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem]'
+                                    />
+                                </div>
 
-                                                <span>{name}</span>
-                                            </p>
-                                            <p>{NoOfArtisans}</p>
-                                            <p>{createdAt}</p>
-                                           
-                                            <div className='relative'>
-                                                <label
-                                                    className='font-semibold capitalize cursor-pointer flex items-center gap-2 relative z-10'
-                                                    htmlFor={i.toString()}
+                                <button className='btn bg-[#0556E5] text-white rounded-lg py-4 place-self-start w-[15rem]'>
+                                    Withdraw
+                                </button>
+                            </form>
+                        ) : (
+                            <form
+                                className='grid gap-12'
+                                onSubmit={handleFormSubmit}
+                            >
+                                <div className='w-full grid gap-4'>
+                                    <label
+                                        htmlFor='amount'
+                                        className='text-[1.4rem] font-semibold'
+                                    >
+                                        Amount
+                                    </label>
+                                    <div className='relative flex items-center'>
+                                        <img
+                                            src='/icons/Naira.svg'
+                                            alt=''
+                                            className='absolute left-3'
+                                        />
+                                        <input
+                                            type='number'
+                                            required
+                                            id='amount'
+                                            className='border pl-8 border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem]'
+                                        />
+                                    </div>
+                                </div>
+                                <div className='w-full grid gap-4'>
+                                    <label
+                                        htmlFor='description'
+                                        className='text-[1.4rem] font-semibold'
+                                    >
+                                        Description
+                                    </label>
+
+                                    <input
+                                        type='text'
+                                        required
+                                        id='description'
+                                        className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem]'
+                                    />
+                                </div>
+
+                                <div className='w-full grid gap-4'>
+                                    <label
+                                        htmlFor='commissionWalletAttachment'
+                                        className='text-[1.4rem] font-semibold'
+                                    >
+                                        Attach An Item
+                                    </label>
+
+                                    <input
+                                        type='file'
+                                        id='commissionWalletAttachment'
+                                        name='commissionWalletAttachment'
+                                        required
+                                        className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] appearance-none'
+                                    />
+                                </div>
+
+                                <div className='relative grid gap-4'>
+                                    <p className='text-[1.4rem] font-semibold'>
+                                        SendTo
+                                    </p>
+                                    <div className='relative flex items-center w-[20rem]'>
+                                        <p
+                                            className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer'
+                                            onClick={sendToMenuToggle}
+                                        >
+                                            {sendTo}
+                                        </p>
+                                        {sendToMenu ? (
+                                            <GrUp className='absolute right-4' />
+                                        ) : (
+                                            <GrDown className='absolute right-4' />
+                                        )}
+                                    </div>
+
+                                    {sendToMenu && (
+                                        <div className='absolute top-[-2rem]  left-[22rem] border border-color-primary-light  bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
+                                            {sendToArr.map((item, index) => (
+                                                <p
+                                                    className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
+                                                    key={index}
                                                     onClick={() =>
-                                                        setToggleDropDown(
-                                                            (prev) => {
-                                                                return {
-                                                                    isDropDownOpen:
-                                                                        !prev.isDropDownOpen,
-                                                                    index: i,
-                                                                }
-                                                            }
-                                                        )
+                                                        handleSendTo(item)
                                                     }
                                                 >
-                                                    <span className='text-color-primary'>
-                                                        <img
-                                                            src='/icons/admins/threeDots.svg'
-                                                            alt=''
-                                                        />
-                                                    </span>
-                                                </label>
-                                                <input
-                                                    type='radio'
-                                                    name='dropdown'
-                                                    className='hidden'
-                                                    id={i.toString()}
-                                                    onChange={(e) =>
-                                                        dropDownHandler(e, i)
-                                                    }
-                                                />
-
-                                                {isDropDownOpen &&
-                                                    index === i && (
-                                                        <div className='absolute top-0 translate-x-[4rem] border border-color-primary-light w-[10rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
-                                                            {actions.map(
-                                                                (
-                                                                    item,
-                                                                    index
-                                                                ) => (
-                                                                    <p
-                                                                        className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
-                                                                        key={
-                                                                            index +
-                                                                            i
-                                                                        }
-                                                                        onClick={(
-                                                                            e
-                                                                        ) =>
-                                                                            selectAction(
-                                                                                e,
-                                                                                item
-                                                                            )
-                                                                        }
-                                                                    >
-                                                                        {item ===
-                                                                        'Deactivate' ? (
-                                                                            <span className='text-red-600'>
-                                                                                {
-                                                                                    item
-                                                                                }
-                                                                            </span>
-                                                                        ) : (
-                                                                            item
-                                                                        )}
-                                                                    </p>
-                                                                )
-                                                            )}
-                                                        </div>
-                                                    )}
-                                            </div>
+                                                    {item}
+                                                </p>
+                                            ))}
                                         </div>
-                                    )
-                                }
+                                    )}
+                                </div>
+
+                                <button className='btn bg-[#0556E5] text-white rounded-lg py-4 place-self-start w-[15rem]'>
+                                    Request
+                                </button>
+                            </form>
+                        )}
+                    </div>
+                </section>
+            </dialog>
+            <div className='grid text-[1.6rem]'>
+                <div className='flex w-full items-center gap-12 p-10 bg-white rounded-lg'>
+                    <p className=' font-bold'>
+                        Artisan Category <span>(10)</span>
+                    </p>
+                    <div className='relative flex items-center'>
+                        <img
+                            src='/icons/admins/search.svg'
+                            alt=''
+                            className='absolute left-4 text-[4rem]'
+                        />
+                        <input
+                            type='text'
+                            placeholder='Search Parameters'
+                            className='pl-16 w-[25rem] rounded-lg border border-color-blue-light appearance-none outline-none p-4'
+                        />
+                    </div>
+                </div>
+
+                <div className='grid'>
+                    <div
+                        className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-4 gap-8'
+                        style={{
+                            fontSize: '1.4rem',
+                        }}
+                    >
+                        <p className='flex items-center gap-2'>
+                            <input type='checkbox' className='cursor-pointer' />
+                            <p> Name</p>
+                        </p>
+                        <p>No of Artisans</p>
+                        <p>Created At</p>
+                        <p>Actions</p>
+                    </div>
+
+                    <div className='grid gap-8 mt-8 p-8'>
+                        {slicedPages && slicedPages.length > 0 ? (
+                            React.Children.toArray(
+                                slicedPages[paginate.index].map(
+                                    (
+                                        { name, createdAt, NoOfArtisans, id },
+                                        i
+                                    ) => {
+                                        const { isDropDownOpen, index } =
+                                            toggleDropDown
+                                        return (
+                                            <div className='grid justify-between border-b grid-cols-4 gap-8 '>
+                                                <p className='flex items-center gap-4'>
+                                                    <input
+                                                        type='checkbox'
+                                                        className='cursor-pointer'
+                                                    />
+
+                                                    <span>{name}</span>
+                                                </p>
+                                                <p>{NoOfArtisans}</p>
+                                                <p>{createdAt}</p>
+
+                                                <div className='relative'>
+                                                    <label
+                                                        className='font-semibold capitalize cursor-pointer flex items-center gap-2 relative z-10'
+                                                        htmlFor={i.toString()}
+                                                        onClick={() =>
+                                                            setToggleDropDown(
+                                                                (prev) => {
+                                                                    return {
+                                                                        isDropDownOpen:
+                                                                            !prev.isDropDownOpen,
+                                                                        index: i,
+                                                                    }
+                                                                }
+                                                            )
+                                                        }
+                                                    >
+                                                        <span className='text-color-primary'>
+                                                            <img
+                                                                src='/icons/admins/threeDots.svg'
+                                                                alt=''
+                                                            />
+                                                        </span>
+                                                    </label>
+                                                    <input
+                                                        type='radio'
+                                                        name='dropdown'
+                                                        className='hidden'
+                                                        id={i.toString()}
+                                                        onChange={(e) =>
+                                                            dropDownHandler(
+                                                                e,
+                                                                i
+                                                            )
+                                                        }
+                                                    />
+
+                                                    {isDropDownOpen &&
+                                                        index === i && (
+                                                            <div className='absolute top-0 translate-x-[4rem] border border-color-primary-light w-[10rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
+                                                                {actions.map(
+                                                                    (
+                                                                        item,
+                                                                        index
+                                                                    ) => (
+                                                                        <p
+                                                                            className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
+                                                                            key={
+                                                                                index +
+                                                                                i
+                                                                            }
+                                                                            onClick={(
+                                                                                e
+                                                                            ) =>
+                                                                                selectAction(
+                                                                                    e,
+                                                                                    item
+                                                                                )
+                                                                            }
+                                                                        >
+                                                                            {item ===
+                                                                            'Deactivate' ? (
+                                                                                <span className='text-red-600'>
+                                                                                    {
+                                                                                        item
+                                                                                    }
+                                                                                </span>
+                                                                            ) : (
+                                                                                item
+                                                                            )}
+                                                                        </p>
+                                                                    )
+                                                                )}
+                                                            </div>
+                                                        )}
+                                                </div>
+                                            </div>
+                                        )
+                                    }
+                                )
                             )
-                        )
-                    ) : (
-                        <div>
-                            <div className='relative'>
-                                <div className='absolute w-full grid place-content-center'>
-                                    <CgSpinnerTwo className='animate-spin text-[#0660FE] text-4xl' />
+                        ) : (
+                            <div>
+                                <div className='relative'>
+                                    <div className='absolute w-full grid place-content-center'>
+                                        <CgSpinnerTwo className='animate-spin text-[#0660FE] text-4xl' />
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    )}
+                        )}
+                    </div>
                 </div>
-            </div>
-            <footer className='flex items-center p-4 mt-4 bg-color-white rounded-lg'>
-                <div className='flex gap-8 items-center'>
-                    <p>View</p>
-                    <select
-                        name=''
-                        id=''
-                        className='flex items-center border px-4 rounded-lg outline-none cursor-pointer'
-                        onChange={handleItemsPerPage}
-                    >
-                        {itemsPerPageArr.map((item, index) => (
-                            <option
-                                value={item}
-                                key={index}
-                                selected={item === itemsPerPage}
-                                className='capitalize cursor-pointer bg-white'
-                            >
-                                {item }
-                            </option>
-                        ))}
-                    </select>
-                    <p className='text'>List per page</p>
-                </div>
-                <ul className='flex items-center gap-5 ml-10'>
-                    <HiOutlineChevronLeft
-                        onClick={handlePrev}
-                        className='cursor-pointer'
-                    />
+                <footer className='flex items-center p-4 mt-4 bg-color-white rounded-lg'>
+                    <div className='flex gap-8 items-center'>
+                        <p>View</p>
+                        <select
+                            name=''
+                            id=''
+                            className='flex items-center border px-4 rounded-lg outline-none cursor-pointer'
+                            onChange={handleItemsPerPage}
+                        >
+                            {itemsPerPageArr.map((item, index) => (
+                                <option
+                                    value={item}
+                                    key={index}
+                                    selected={item === itemsPerPage}
+                                    className='capitalize cursor-pointer bg-white'
+                                >
+                                    {item}
+                                </option>
+                            ))}
+                        </select>
+                        <p className='text'>List per page</p>
+                    </div>
+                    <ul className='flex items-center gap-5 ml-10'>
+                        <HiOutlineChevronLeft
+                            onClick={handlePrev}
+                            className='cursor-pointer'
+                        />
 
-                    {slicedPages?.map((item, index) => {
-                        return (
-                            <li key={index}>
-                                {index + 1 === currentPage ? (
-                                    <span className='bg-color-primary text-white grid place-content-center w-[3rem] h-[3rem] cursor-pointer'>
-                                        {index + 1}
-                                    </span>
-                                ) : (
-                                    <span
-                                        className='text-color-primary bg-white grid place-content-center border w-[3rem] h-[3rem] cursor-pointer'
-                                        onClick={(e) => jumpToPage(e, index)}
-                                    >
-                                        {index + 1}
-                                    </span>
-                                )}
-                            </li>
-                        )
-                    })}
+                        {slicedPages?.map((item, index) => {
+                            return (
+                                <li key={index}>
+                                    {index + 1 === currentPage ? (
+                                        <span className='bg-color-primary text-white grid place-content-center w-[3rem] h-[3rem] cursor-pointer'>
+                                            {index + 1}
+                                        </span>
+                                    ) : (
+                                        <span
+                                            className='text-color-primary bg-white grid place-content-center border w-[3rem] h-[3rem] cursor-pointer'
+                                            onClick={(e) =>
+                                                jumpToPage(e, index)
+                                            }
+                                        >
+                                            {index + 1}
+                                        </span>
+                                    )}
+                                </li>
+                            )
+                        })}
 
-                    {/* <li className='grid place-content-center border w-[3rem] h-[3rem] cursor-pointer'>
+                        {/* <li className='grid place-content-center border w-[3rem] h-[3rem] cursor-pointer'>
                         {totalPage}
                     </li> */}
-                    <HiOutlineChevronRight
-                        onClick={handleNext}
-                        className='cursor-pointer'
-                    />
-                </ul>
-            </footer>
-        </div>
+                        <HiOutlineChevronRight
+                            onClick={handleNext}
+                            className='cursor-pointer'
+                        />
+                    </ul>
+                </footer>
+            </div>
+        </>
     )
 }
 
