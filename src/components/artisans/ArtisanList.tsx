@@ -7,15 +7,19 @@ import { useNavigate } from 'react-router'
 export interface IArtisanList {
     id: string
     name: string
-    NoOfArtisans: number
-    createdAt: string
+   artisanName: string
+   businessName: string
+   phoneNumber: string
+   category: string
+   assignedGroup: string
+   rating: string
 }
 
 type Actions = 'View Details' | 'Edit Details' | 'Deactivate' | 'Delete'
 
 const ArtisanList: FC<{
-    fetchedArtisanCategories: IArtisanList[]
-}> = ({ fetchedArtisanCategories }) => {
+    fetchedArtisanList: IArtisanList[]
+}> = ({ fetchedArtisanList }) => {
     const navigate = useNavigate()
 
     const actions = [
@@ -67,7 +71,7 @@ const ArtisanList: FC<{
         currentPage: 1,
         itemsPerPage: 2,
 
-        totalPage: Math.ceil(fetchedArtisanCategories.length / 2),
+        totalPage: Math.ceil(fetchedArtisanList.length / 2),
         slicedPages: null,
     })
 
@@ -81,8 +85,8 @@ const ArtisanList: FC<{
         const item = parseInt(e.target.value)
 
         const slicedPages: IArtisanList[][] = []
-        for (let i = 0; i < fetchedArtisanCategories.length; i += item) {
-            slicedPages.push(fetchedArtisanCategories.slice(i, i + item))
+        for (let i = 0; i < fetchedArtisanList.length; i += item) {
+            slicedPages.push(fetchedArtisanList.slice(i, i + item))
         }
 
         setPaginate((prev) => {
@@ -92,7 +96,7 @@ const ArtisanList: FC<{
                 index: 0,
                 currentPage: 1,
                 slicedPages,
-                totalPage: Math.ceil(fetchedArtisanCategories.length / item),
+                totalPage: Math.ceil(fetchedArtisanList.length / item),
             }
         })
     }
@@ -101,11 +105,11 @@ const ArtisanList: FC<{
         const slicedPages: IArtisanList[][] = []
         for (
             let i = 0;
-            i < fetchedArtisanCategories.length;
+            i < fetchedArtisanList.length;
             i += paginate.itemsPerPage
         ) {
             slicedPages.push(
-                fetchedArtisanCategories.slice(i, i + paginate.itemsPerPage)
+                fetchedArtisanList.slice(i, i + paginate.itemsPerPage)
             )
         }
 
@@ -115,7 +119,7 @@ const ArtisanList: FC<{
                 slicedPages,
             }
         })
-    }, [fetchedArtisanCategories])
+    }, [fetchedArtisanList])
 
     const handleNext = () => {
         if (paginate.currentPage === paginate.totalPage) return
