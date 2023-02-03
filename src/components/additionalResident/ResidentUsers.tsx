@@ -187,15 +187,13 @@ function ResidentUsers() {
                 />
                 <label htmlFor='residentUserHistory' className='capitalize'>
                     Package purchase history
-
-                    {/* //Change the custom select of package to be normal input field
+                    {/* //TODO Change the custom select of package to be normal input field
                     //comma separated in Amount */}
                 </label>
             </div>
             <div className='mt-8 grid gap-8'>
                 <section className='bg-color-white rounded-lg border min-w-[112rem] overflow-scroll'>
-                    {fetchedResidentUsers &&
-                    fetchedResidentUsers.length > 0 ? (
+                    {fetchedResidentUsers && fetchedResidentUsers.length > 0 ? (
                         handlePathSwitch(currentPage)
                     ) : (
                         <section className='relative w-[70vw] h-[60vh] mx-auto grid'>

@@ -38,6 +38,8 @@ export const ARTISAN_CATEGORY: IArtisanCategory[] = [
         NoOfArtisans: 10,
     },
 ]
+    type PathSwitch = 'artisanCategory' | 'artisanList' | 'artisanGroup'
+
 
 function RenderArtisans() {
     const [fetchedResidentUsers, setFetchedResidentUsers] = useState<
@@ -47,7 +49,7 @@ function RenderArtisans() {
         IArtisanCategory[] | null
     >(null)
 
-    const [currentPage, setCurrentPage] = useState(1)
+    const [pathToSwitch, setPathToSwitch] = useState<PathSwitch>('artisanCategory')
 
     useEffect(() => {
         const fetchData = async () => {
@@ -59,7 +61,6 @@ function RenderArtisans() {
         fetchData()
     }, [])
 
-    type PathSwitch = 'artisanCategory' | 'artisanList' | 'artisanGroup'
 
 
     const handlePathSwitch: Record<PathSwitch, JSX.Element> = {
@@ -85,27 +86,24 @@ function RenderArtisans() {
             <div className='estateDetail__radioBox'>
                 <input
                     type='radio'
-                    name='report'
-                    id='additionalResidentUsr'
+                    name='artisan'
+                    id='artisanCategory'
                     className='hidden'
-                    onChange={() => setCurrentPage(1)}
+                    onChange={() => setPathToSwitch('artisanCategory')}
                     defaultChecked
                 />
-                <label htmlFor='additionalResidentUsr'>
-                    Additional Resident Package
-                </label>
+                <label htmlFor='artisanCategory'>Artisan Category</label>
 
                 <input
                     type='radio'
-                    name='report'
+                    name='artisan'
                     id='residentUserHistory'
                     className='hidden'
-                    onChange={() => setCurrentPage(2)}
+                    onChange={() => setPathToSwitch('artisanList')}
                 />
                 <label htmlFor='residentUserHistory' className='capitalize'>
                     Package purchase history
-                    {/* //Change the custom select of package to be normal input field
-                    //comma separated in Amount */}
+                    
                 </label>
             </div>
             <div className='mt-8 grid gap-8'>
