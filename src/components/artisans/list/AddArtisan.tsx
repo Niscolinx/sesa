@@ -19,7 +19,7 @@ const AddArtisan = () => {
     const [selectedArtisan, setSelectedArtisan] = useState<string | null>(null)
     const [selectedGender, setSelectedGender] = useState<string | null>(null)
     const [isAddArtisan, setIsAddArtisan] = useState(true)
-    const [validationType, setValidationType] = useState<string | null>(null)
+    const [validationType, setValidationType] = useState<string | null>('Phone Number')
 
     const [photoUrl, setPhotoUrl] = useState('')
 
@@ -168,6 +168,13 @@ const AddArtisan = () => {
                                 >
                                     Know Your Artisan (KYA)
                                 </h3>
+
+                                <Select
+                                    state={['Phone Number', 'Name']}
+                                    label='Validation Option'
+                                    selectedState={validationType}
+                                    setSelectedState={setValidationType}
+                                />
 
                                 <div className='grid gap-4'>
                                     <label
