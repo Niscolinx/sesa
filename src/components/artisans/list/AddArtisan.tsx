@@ -12,14 +12,21 @@ const AddArtisan = () => {
     const gender: Array<Gender> = ['Male', 'Female']
 
     const [toggleStateMenu, setToggleStateMenu] = useState(false)
+    const [toggleGenderMenu, setToggleGenderMenu] = useState(false)
     const [selectedState, setSelectedState] = useState<State | null>(null)
+    const [selectedGender, setSelectedGender] = useState<Gender | null>(null)
     const [isWarning, setIsWarning] = useState(true)
 
     const stateMenuToggler = () => setToggleStateMenu(!toggleStateMenu)
+    const genderMenuToggler = () => setToggleGenderMenu(!toggleGenderMenu)
 
     const handleSelectedState = (item: State) => {
         setSelectedState(item)
         setToggleStateMenu(false)
+    }
+    const handleSelectedGender = (item: Gender) => {
+        setSelectedGender(item)
+        setToggleGenderMenu(false)
     }
 
     const [photoUrl, setPhotoUrl] = useState('')
