@@ -401,7 +401,7 @@ const ArtisanDetail = () => {
                     </div>
 
                     <button
-                        className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg col-span-full'
+                        className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg col-span-full mt-10'
                         style={{ justifySelf: 'start' }}
                     >
                         <span>
@@ -414,6 +414,16 @@ const ArtisanDetail = () => {
                         Save Changes
                     </button>
                 </form>
+
+
+                <div className='grid grid-cols-2'>
+                    <div>
+
+                    </div>
+                    <div>
+                        <h3></h3>
+                    </div>
+                </div>
             </div>
         </>
     )
