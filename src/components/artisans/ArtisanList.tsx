@@ -2,6 +2,7 @@ import React, { ChangeEvent, FC, useEffect, useState } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { useNavigate } from 'react-router'
+import StarRating from '../UI/StarRating'
 
 
 export interface IArtisanList {
@@ -209,7 +210,10 @@ const ArtisanList: FC<{
                                                 <span>{artisanName}</span>
                                             </p>
                                             <p>{businessName}</p>
-                                            <p>{createdAt}</p>
+                                            <p>{phoneNumber}</p>
+                                            <p>{category}</p>
+                                            <p>{assignedGroup}</p>
+                                            <p><StarRating/></p>
 
                                             <div className='relative'>
                                                 <label
