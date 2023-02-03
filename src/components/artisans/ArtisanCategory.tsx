@@ -144,7 +144,7 @@ const ArtisanCategory: FC<{
         })
     }
 
-    const { currentPage, slicedPages } = paginate
+    const { currentPage, slicedPages, itemsPerPage } = paginate
 
     const jumpToPage = (e: React.MouseEvent, index: number) => {
         setPaginate((prev) => {
@@ -179,7 +179,7 @@ const ArtisanCategory: FC<{
 
             <div className='grid'>
                 <div
-                    className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-9 gap-8'
+                    className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-4 gap-8'
                     style={{
                         fontSize: '1.4rem',
                     }}
@@ -210,7 +210,7 @@ const ArtisanCategory: FC<{
                                     const { isDropDownOpen, index } =
                                         toggleDropDown
                                     return (
-                                        <div className='grid justify-between border-b grid-cols-9 gap-8 '>
+                                        <div className='grid justify-between border-b grid-cols-4 gap-8 '>
                                             <p className='flex items-center gap-4'>
                                                 <input
                                                     type='checkbox'
@@ -219,19 +219,9 @@ const ArtisanCategory: FC<{
 
                                                 <span>{name}</span>
                                             </p>
-                                            <p>{userName}</p>
-                                            <p>{frequency}</p>
-                                            <p className='flex items-center gap-.5'>
-                                                <img
-                                                    src='/icons/Naira.svg'
-                                                    alt=''
-                                                />
-                                                <span>{amount}</span>
-                                            </p>
-                                            <p>{startDate}</p>
-                                            <p>{endDate}</p>
-                                            <p>{transactionType}</p>
-                                            <p>{status}</p>
+                                            <p>{NoOfArtisans}</p>
+                                            <p>{createdAt}</p>
+                                           
                                             <div className='relative'>
                                                 <label
                                                     className='font-semibold capitalize cursor-pointer flex items-center gap-2 relative z-10'
@@ -329,13 +319,14 @@ const ArtisanCategory: FC<{
                         className='flex items-center border px-4 rounded-lg outline-none cursor-pointer'
                         onChange={handleItemsPerPage}
                     >
-                        {itemsPerPage.arr.map((item, index) => (
+                        {itemsPerPageArr.map((item, index) => (
                             <option
                                 value={item}
                                 key={index}
+                                selected={item === itemsPerPage}
                                 className='capitalize cursor-pointer bg-white'
                             >
-                                {item}
+                                {item }
                             </option>
                         ))}
                     </select>
