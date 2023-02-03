@@ -60,9 +60,7 @@ const ViewArtisanCategory = () => {
     const navigate = useNavigate()
 
     const [isWarning, setIsWarning] = useState(true)
-    const [fetchedArtisanCategories, setFetchedArtisanCategories] = useState<
-        IViewArtisanCategory[]
-    >([])
+    const [fetchedArtisanCategories, setFetchedArtisanCategories] = useState<IViewArtisanCategory[] || null>(null)
 
     useEffect(() => {
         setTimeout(() => {
@@ -340,15 +338,7 @@ const ViewArtisanCategory = () => {
                         />
                     </div>
 
-                    <button
-                        className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg ml-auto'
-                        onClick={addCategoryHandler}
-                    >
-                        <span>
-                            <IoMdAdd />
-                        </span>{' '}
-                        Add Artisan Category
-                    </button>
+                
                 </div>
 
                 <div className='grid gap-10'>
