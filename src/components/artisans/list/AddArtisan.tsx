@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useRef, useState } from 'react'
 import { GrDown, GrUp } from 'react-icons/gr'
 import { IoMdAdd } from 'react-icons/io'
 import { getPhotoUrl } from '../../../utils/getPhotoUrl'
+import {VscQuestion} from 'react-icons/vsc'
 
 type State = 'Lagos' | 'Imo' | 'Abia' | 'FCT'
 
@@ -126,8 +127,11 @@ const AddArtisan = () => {
                         </span>
                     </button> */}
 
-                    <p className='text-[2rem] font-bold'>KYC <span className='text-gray-500'>(Optional)</span></p>
+                    <p className='text-[2rem] font-bold'>KYA <span className='text-gray-500'>(Optional)</span></p>
+                    <div>
                     <p>Click her to validate this person</p>
+                    <p>What is KYA <VscQuestion/></p>
+                    </div>
                 </div>
                 <form
                     onSubmit={handleSubmit}
