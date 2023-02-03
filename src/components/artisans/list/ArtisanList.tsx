@@ -192,6 +192,10 @@ const ArtisanList: FC<{
         if (item === 'Deactivate') {
             handleOpen('Deactivate')
         }
+
+        if(item === 'Delete'){
+            handleOpen('Delete')
+        }
     }
 
     const handleDeleteArtisan = () => {
@@ -252,7 +256,7 @@ const ArtisanList: FC<{
                                     alt=''
                                 />
                                 <p>
-                                    Are you sure you want to deactivate this
+                                    Are you sure you want to delete this
                                     Artisan
                                 </p>
 
@@ -265,9 +269,9 @@ const ArtisanList: FC<{
                                     </button>
                                     <button
                                         className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
-                                        onClick={handleRouteChange}
+                                        onClick={handleDeleteArtisan}
                                     >
-                                        Deactivate
+                                        Delete
                                     </button>
                                 </div>
                             </>
