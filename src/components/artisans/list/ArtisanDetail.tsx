@@ -420,6 +420,9 @@ const ArtisanDetail = () => {
                     <div className='grid gap-8'>
                         <div className='flex gap-4 justify-between'>
 
+                            <div>
+                                <img src="/img/avatar1.png" alt="" className='w-[5rem] h-[5rem] object-cover'/>
+                            </div>
                         </div>
                     </div>
                     <div className='grid gap-8'>
