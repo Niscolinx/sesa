@@ -30,7 +30,7 @@ const Select: FC<ISelect> = ({
             <p className='text-[1.4rem] font-semibold'>{label}</p>
             <div className='relative flex items-center'>
                 <p
-                    className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer'
+                    className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer min-h-[5rem]'
                     onClick={stateMenuToggler}
                 >
                     {selectedState || (
