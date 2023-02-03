@@ -1,4 +1,10 @@
-import React, { FormEvent, useContext, useEffect, useRef, useState } from 'react'
+import React, {
+    FormEvent,
+    useContext,
+    useEffect,
+    useRef,
+    useState,
+} from 'react'
 import { GrDown, GrUp } from 'react-icons/gr'
 import { IoMdAdd, IoMdClose } from 'react-icons/io'
 import { getPhotoUrl } from '../../../utils/getPhotoUrl'
@@ -6,18 +12,15 @@ import { BsQuestionCircle } from 'react-icons/bs'
 import Select from '../../UI/Select'
 import { toast, ToastContainer } from 'react-toastify'
 
-
-type DialogType = 'warning' | 'success' | 'add-Category'
+type DialogType = 'validate' | 'add-Artisan'
 
 const AddArtisan = () => {
-
     const [toggleStateMenu, setToggleStateMenu] = useState(false)
     const [toggleGenderMenu, setToggleGenderMenu] = useState(false)
     const [selectedState, setSelectedState] = useState<string | null>(null)
     const [selectedArtisan, setSelectedArtisan] = useState<string | null>(null)
     const [selectedGender, setSelectedGender] = useState<string | null>(null)
-    const [isWarning, setIsWarning] = useState(true)
-
+    const [isAddArtisan, setIsAddArtisan] = useState(true)
 
     const [photoUrl, setPhotoUrl] = useState('')
 
@@ -30,7 +33,6 @@ const AddArtisan = () => {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
-        handleOpen('success')
     }
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
@@ -42,10 +44,10 @@ const AddArtisan = () => {
     }
 
     const handleOpen = (modalState: DialogType) => {
-        if (modalState === 'warning') {
-            setIsWarning(true)
+        if (modalState === 'validate') {
+            setIsAddArtisan(true)
         } else {
-            setIsWarning(false)
+            setIsAddArtisan(false)
         }
 
         if (dialogRef.current) {
@@ -53,33 +55,34 @@ const AddArtisan = () => {
         }
     }
 
-    const addCategoryHandler = () => {
+    const addArtisanHandler = () => {
         // navigate('/dashboard/artisanCategory/add')
-        handleOpen('add-Category')
+        handleOpen('add-Artisan')
     }
 
-    const confirmDeactivation = () => {
+    const confirmAddArtisan = () => {
         handleClose()
-        toast('Category deleted successfully', {
-            type: 'error',
-            className: 'bg-red-100 text-red-600 text-[1.4rem]',
+        toast('Artisan Created successfully', {
+            type: 'success',
+            className:
+                'bg-green-100 text-green-600 text-[1.4rem] outline-green-200 outline',
         })
     }
 
-     const handleDialogSubmit = (e: FormEvent) => {
-         e.preventDefault()
-         handleClose()
+    const handleDialogSubmit = (e: FormEvent) => {
+        e.preventDefault()
+        handleClose()
 
-         toast('Category Created successfully', {
-             type: 'success',
-             className:
-                 'bg-green-100 text-green-600 text-[1.4rem] outline-green-200 outline',
-         })
-     }
+        toast('Category Created successfully', {
+            type: 'success',
+            className:
+                'bg-green-100 text-green-600 text-[1.4rem] outline-green-200 outline',
+        })
+    }
 
     return (
         <>
-        <ToastContainer/>
+            <ToastContainer />
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid items-baseline w-[64rem] min-h-[30rem] p-10 gap-8 text-[1.6rem] relative'>
@@ -88,7 +91,7 @@ const AddArtisan = () => {
                             onClick={() => handleClose()}
                         />
 
-                        {!isWarning ? (
+                        {!isAddArtisan ? (
                             <form
                                 className='grid gap-12'
                                 onSubmit={handleDialogSubmit}
@@ -125,14 +128,11 @@ const AddArtisan = () => {
                         ) : (
                             <div className='bg-white rounded-2xl grid place-content-center justify-items-center h-[30rem] gap-8 text-[1.6rem]'>
                                 <img
-                                    src='/icons/admins/modalWarning.svg'
+                                    src='/icons/admins/modalSuccess.svg'
                                     alt=''
                                 />
 
-                                <p>
-                                    Are you sure you want to delete this Artisan
-                                    Category?
-                                </p>
+                                <p>You have successfully added an Artisan</p>
 
                                 <div className='flex w-full justify-center gap-8'>
                                     <button
@@ -142,10 +142,10 @@ const AddArtisan = () => {
                                         Cancel
                                     </button>
                                     <button
-                                        className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
-                                        onClick={confirmDeactivation}
+                                        className='bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
+                                        onClick={confirmAddArtisan}
                                     >
-                                        Delete
+                                        Ok
                                     </button>
                                 </div>
                             </div>
@@ -169,7 +169,7 @@ const AddArtisan = () => {
                         KYA <span className='text-gray-500'>(Optional)</span>
                     </p>
                     <div className='flex justify-between text-[1.6rem]'>
-                        <p className=' text-[#098DFF]'>
+                        <p className='text-[#098DFF]' onClick={() => handleOpen('validate')}>
                             Click her to validate this person
                         </p>
                         <p
@@ -364,7 +364,7 @@ const AddArtisan = () => {
                     <button
                         className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
                         style={{ justifySelf: 'start' }}
-                        onClick={() => handleOpen('warning')}
+                        onClick={addArtisanHandler}
                     >
                         <span>
                             <IoMdAdd />
