@@ -195,7 +195,7 @@ const ArtisanList: FC<{
                     {slicedPages && slicedPages.length > 0 ? (
                         React.Children.toArray(
                             slicedPages[paginate.index].map(
-                                ({ name, createdAt, NoOfArtisans, id }, i) => {
+                                ({ artisanName, businessName, rating, category, phoneNumber, assignedGroup }, i) => {
                                     const { isDropDownOpen, index } =
                                         toggleDropDown
                                     return (
@@ -206,9 +206,9 @@ const ArtisanList: FC<{
                                                     className='cursor-pointer'
                                                 />
 
-                                                <span>{name}</span>
+                                                <span>{artisanName}</span>
                                             </p>
-                                            <p>{NoOfArtisans}</p>
+                                            <p>{businessName}</p>
                                             <p>{createdAt}</p>
 
                                             <div className='relative'>
