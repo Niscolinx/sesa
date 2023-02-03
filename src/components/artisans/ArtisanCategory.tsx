@@ -10,6 +10,7 @@ import { CgSpinnerTwo } from 'react-icons/cg'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { IoMdAdd, IoMdClose } from 'react-icons/io'
 import { useNavigate } from 'react-router'
+import { toast, ToastContainer } from 'react-toastify'
 
 type DialogType = 'warning' | 'add-Category'
 export interface IArtisanCategory {
@@ -32,6 +33,12 @@ const ArtisanCategory: FC<{
 
     const handleDialogSubmit = (e: FormEvent) => {
         e.preventDefault()
+        handleClose()
+
+        toast('Category Created successfully', {
+            type: 'success',
+            className: 'bg-green-100 text-green-600 text-[1.4rem]',
+        })
     }
 
     const actions = [
@@ -62,6 +69,11 @@ const ArtisanCategory: FC<{
         if (item === 'Delete') {
             handleOpen('warning')
         }
+
+        setToggleDropDown({
+            isDropDownOpen: false,
+            index: null,
+        })
     }
 
     interface Paginate {
@@ -184,13 +196,20 @@ const ArtisanCategory: FC<{
     const addCategoryHandler = () => {
         // navigate('/dashboard/artisanCategory/add')
         handleOpen('add-Category')
+
+       
     }
 
     const confirmDeactivation = () => {
         handleClose()
+        toast('Category deleted successfully', {
+            type: 'error',
+            className: 'bg-red-100 text-red-600 text-[1.4rem]',
+        })
     }
     return (
         <>
+        <ToastContainer/>
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid items-baseline w-[64rem] min-h-[30rem] p-10 gap-8 text-[1.6rem] relative'>
