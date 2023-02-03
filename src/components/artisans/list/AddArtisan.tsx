@@ -1,11 +1,13 @@
-import React, { useContext, useEffect, useRef, useState } from 'react'
+import React, { FormEvent, useContext, useEffect, useRef, useState } from 'react'
 import { GrDown, GrUp } from 'react-icons/gr'
-import { IoMdAdd } from 'react-icons/io'
+import { IoMdAdd, IoMdClose } from 'react-icons/io'
 import { getPhotoUrl } from '../../../utils/getPhotoUrl'
 import { BsQuestionCircle } from 'react-icons/bs'
 import Select from '../../UI/Select'
+import { toast, ToastContainer } from 'react-toastify'
 
 
+type DialogType = 'warning' | 'success' | 'add-Category'
 
 const AddArtisan = () => {
 
@@ -39,7 +41,7 @@ const AddArtisan = () => {
         }
     }
 
-    const handleOpen = (modalState: 'warning' | 'success') => {
+    const handleOpen = (modalState: DialogType) => {
         if (modalState === 'warning') {
             setIsWarning(true)
         } else {
@@ -51,64 +53,103 @@ const AddArtisan = () => {
         }
     }
 
+    const addCategoryHandler = () => {
+        // navigate('/dashboard/artisanCategory/add')
+        handleOpen('add-Category')
+    }
+
     const confirmDeactivation = () => {
         handleClose()
+        toast('Category deleted successfully', {
+            type: 'error',
+            className: 'bg-red-100 text-red-600 text-[1.4rem]',
+        })
     }
+
+     const handleDialogSubmit = (e: FormEvent) => {
+         e.preventDefault()
+         handleClose()
+
+         toast('Category Created successfully', {
+             type: 'success',
+             className:
+                 'bg-green-100 text-green-600 text-[1.4rem] outline-green-200 outline',
+         })
+     }
 
     return (
         <>
+        <ToastContainer/>
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
-                    <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8 text-[1.6rem]'>
-                        {isWarning ? (
-                            <img src='/icons/admins/modalWarning.svg' alt='' />
-                        ) : (
-                            <img src='/icons/admins/modalSuccess.svg' alt='' />
-                        )}
+                    <div className='bg-white rounded-2xl grid items-baseline w-[64rem] min-h-[30rem] p-10 gap-8 text-[1.6rem] relative'>
+                        <IoMdClose
+                            className='absolute right-4 top-4 text-[2rem] cursor-pointer'
+                            onClick={() => handleClose()}
+                        />
 
-                        {isWarning ? (
-                            <p>
-                                Are you sure you want to deactivate this
-                                security company?
-                            </p>
-                        ) : (
-                            <p>
-                                You have successfully added a security Company
-                            </p>
-                        )}
+                        {!isWarning ? (
+                            <form
+                                className='grid gap-12'
+                                onSubmit={handleDialogSubmit}
+                            >
+                                <h3
+                                    className='text-[2rem] font-bold border-b '
+                                    style={{
+                                        fontFamily: 'Satoshi-Medium',
+                                    }}
+                                >
+                                    Create Artisan Category
+                                </h3>
 
-                        <div className='flex w-full justify-center gap-8'>
-                            {isWarning ? (
-                                <button
-                                    className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
-                                    onClick={() => handleClose()}
-                                >
-                                    Cancel
+                                <div className='w-full grid gap-4'>
+                                    <label
+                                        htmlFor='artisanName'
+                                        className='text-[1.4rem] font-semibold'
+                                    >
+                                        Name
+                                    </label>
+
+                                    <input
+                                        type='text'
+                                        required
+                                        id='artisanName'
+                                        className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem]'
+                                    />
+                                </div>
+
+                                <button className='btn bg-[#0556E5] text-white rounded-lg py-4 place-self-start w-[15rem]'>
+                                    Create
                                 </button>
-                            ) : (
-                                <button
-                                    className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
-                                    onClick={() => handleClose()}
-                                >
-                                    View Details
-                                </button>
-                            )}
-                            {isWarning ? (
-                                <button
-                                    className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
-                                    onClick={confirmDeactivation}
-                                >
-                                    Deactivate
-                                </button>
-                            ) : (
-                                <button
-                                    className='btn text-white bg-[#0556E5] border rounded-lg w-[15rem]'
-                                    onClick={() => handleClose()}
-                                >
-                                    View Details
-                                </button>
-                            )}
-                        </div>
+                            </form>
+                        ) : (
+                            <div className='bg-white rounded-2xl grid place-content-center justify-items-center h-[30rem] gap-8 text-[1.6rem]'>
+                                <img
+                                    src='/icons/admins/modalWarning.svg'
+                                    alt=''
+                                />
+
+                                <p>
+                                    Are you sure you want to delete this Artisan
+                                    Category?
+                                </p>
+
+                                <div className='flex w-full justify-center gap-8'>
+                                    <button
+                                        className='btn bg-white text-[#0556E5] border-[#0556E5] border rounded-lg w-[15rem]'
+                                        onClick={() => handleClose()}
+                                    >
+                                        Cancel
+                                    </button>
+                                    <button
+                                        className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
+                                        onClick={confirmDeactivation}
+                                    >
+                                        Delete
+                                    </button>
+                                </div>
+                            </div>
+                        )}
                     </div>
                 </section>
             </dialog>
@@ -323,7 +364,7 @@ const AddArtisan = () => {
                     <button
                         className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
                         style={{ justifySelf: 'start' }}
-                        onClick={() => handleOpen('success')}
+                        onClick={() => handleOpen('warning')}
                     >
                         <span>
                             <IoMdAdd />
