@@ -421,7 +421,13 @@ const ArtisanDetail = () => {
                         <div className='flex gap-4 justify-between'>
 
                             <div>
-                                <img src="/img/avatar1.png" alt="" className='w-[5rem] h-[5rem] object-cover'/>
+                                <img src="/img/avatar1.png" alt="" className='w-[5rem] h-[5rem] object-cover rounded-full'/>
+
+                                <div>
+                                    <p className='1.4rem' style={{
+                                        fontFamily: 'Satoshi-Medium'
+                                    }}>Jessica Okafor</p>
+                                </div>
                             </div>
                         </div>
                     </div>
