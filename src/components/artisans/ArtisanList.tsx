@@ -187,8 +187,11 @@ const ArtisanList: FC<{
                         <input type='checkbox' className='cursor-pointer' />
                         <p> Name</p>
                     </p>
-                    <p>No of Artisans</p>
-                    <p>Created At</p>
+                    <p>Business Name</p>
+                    <p>Phone Number</p>
+                    <p>category</p>
+                    <p>Assigned Group</p>
+                    <p>Rating</p>
                     <p>Actions</p>
                 </div>
 
