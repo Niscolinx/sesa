@@ -95,9 +95,9 @@ const ArtisanCategory: FC<{
     const [paginate, setPaginate] = useState<Paginate>({
         index: 0,
         currentPage: 1,
-        itemsPerPage: 6,
+        itemsPerPage: 4,
 
-        totalPage: Math.ceil(fetchedArtisanCategories.length / 2),
+        totalPage: Math.ceil(fetchedArtisanCategories.length / 4),
         slicedPages: null,
     })
 
@@ -146,7 +146,7 @@ const ArtisanCategory: FC<{
     }, [fetchedArtisanCategories])
 
     const handleNext = () => {
-        if ((paginate.currentPage - 1) === paginate.totalPage) return
+        if (paginate.currentPage  === paginate.totalPage) return
         setPaginate((prev) => {
             return {
                 ...prev,
