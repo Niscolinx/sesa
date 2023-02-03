@@ -98,7 +98,7 @@ const AddArtisan = () => {
                             onClick={() => closeValidateDialog()}
                         />
 
-                        <div>
+                        <div className='relative h-[14rem] bg-blue-600 w-full mt-10 rounded-lg'>
 
                         </div>
                         <div></div>
