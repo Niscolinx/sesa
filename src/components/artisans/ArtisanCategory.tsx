@@ -76,10 +76,9 @@ const ArtisanCategory: FC<{
 
     const sortMenuToggler = () => setToggleSortMenu(!toggleSortMenu)
 
-    const handleSelectedSort = (item: SortBy) => {
-        setSelectedSort(item)
-        setToggleSortMenu(false)
-    }
+    // const handleSelectedSort = (item: SortBy) => {
+    //     setToggleSortMenu(false)
+    // }
 
     const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
         const item = parseInt(e.target.value)
@@ -101,9 +100,7 @@ const ArtisanCategory: FC<{
         })
     }
 
-    useEffect(() => {
-        console.log({ slicedPages })
-    }, [paginate.slicedPages])
+
 
     useEffect(() => {
         const slicedPages: IArtisanCategory[][] = []
