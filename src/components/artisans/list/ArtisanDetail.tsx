@@ -420,8 +420,12 @@ const ArtisanDetail = () => {
                     <div>
 
                     </div>
-                    <div>
-                        <h3></h3>
+                    <div className='grid gap-8'>
+                        <h3>Wonderful Service</h3>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla optio labore autem provident, dolore dolorum dicta vel tempore voluptatibus deserunt recusandae porro deleniti dolores illum, temporibus eveniet earum. Ducimus, repellendus?
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos adipisci voluptatem molestias, obcaecati molestiae veritatis libero eveniet porro accusamus, reiciendis facilis. Illum et doloremque fuga quo aut laudantium consequatur nemo.
+                        </p>
                     </div>
                 </div>
             </div>
