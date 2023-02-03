@@ -158,7 +158,7 @@ const AddArtisan = () => {
                                     </p>
                                     <p className='py-4'> (+234) 813238432</p>
                                 </div>
-                                <div className='grid grid-cols-2 border-b gap-4'>
+                                <div className='grid grid-cols-2  gap-4'>
                                     <p
                                         className='border-r py-4 pl-4 text-gray-700'
                                         style={{
