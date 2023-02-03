@@ -5,6 +5,7 @@ import ResidentUsersList, {
     RESIDENT_LISTS,
 } from '../additionalResident/ResidentUsersList'
 import ArtisanCategory, { IArtisanCategory } from './ArtisanCategory'
+import ArtisanList from './ArtisanList'
 
 export const ARTISAN_CATEGORY: IArtisanCategory[] = [
     {
@@ -42,7 +43,7 @@ export const ARTISAN_CATEGORY: IArtisanCategory[] = [
 
 
 function RenderArtisans() {
-    const [fetchedResidentUsers, setFetchedResidentUsers] = useState<
+    const [fetchedArtisanList, setFetchedArtisanList] = useState<
         IResidentUsersList[] | null
     >(null)
     const [fetchedArtisanCategories, setFetchedArtisanCategories] = useState<
@@ -54,7 +55,7 @@ function RenderArtisans() {
     useEffect(() => {
         const fetchData = async () => {
             setTimeout(() => {
-                setFetchedResidentUsers(RESIDENT_LISTS)
+                setFetchedArtisanList(RESIDENT_LISTS)
                 setFetchedArtisanCategories(ARTISAN_CATEGORY)
             }, 1000)
         }
@@ -70,8 +71,8 @@ function RenderArtisans() {
             />
         ),
         artisanList: (
-            <ArtisanCategory
-                fetchedArtisanCategories={fetchedArtisanCategories ?? []}
+            <ArtisanList
+                fetchedArtisanList={fetchedArtisanList ?? []}
             />
         ),
         artisanGroup: (
@@ -119,7 +120,7 @@ function RenderArtisans() {
             </div>
             <div className='mt-8 grid gap-8'>
                 <section className='bg-color-white rounded-lg border min-w-[112rem] overflow-scroll'>
-                    {fetchedResidentUsers && fetchedResidentUsers.length > 0 ? (
+                    {fetchedArtisanList && fetchedArtisanList.length > 0 ? (
                         handlePathSwitch[pathToSwitch]
                     ) : (
                         <section className='relative w-[70vw] h-[60vh] mx-auto grid'>
