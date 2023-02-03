@@ -64,8 +64,7 @@ const ArtisanCategory: FC<{
     const [toggleSortMenu, setToggleSortMenu] = useState(false)
     const itemsPerPageArr =
          [2, 4, 6, 8]
-    }
-    const [selectedSort, setSelectedSort] = useState<SortBy>('A-Z')
+    
     const [paginate, setPaginate] = useState<Paginate>({
         index: 0,
         currentPage: 1,
