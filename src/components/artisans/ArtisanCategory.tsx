@@ -146,7 +146,7 @@ const ArtisanCategory: FC<{
     }, [fetchedArtisanCategories])
 
     const handleNext = () => {
-        if (paginate.currentPage === paginate.totalPage) return
+        if ((paginate.currentPage - 1) === paginate.totalPage) return
         setPaginate((prev) => {
             return {
                 ...prev,
