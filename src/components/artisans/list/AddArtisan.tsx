@@ -134,9 +134,12 @@ const AddArtisan = () => {
                         <p className=' text-[#098DFF]'>
                             Click her to validate this person
                         </p>
-                        <p className='text-[#043FA7] flex items-center gap-2' style={{
-                            fontFamily: 'Satoshi-Light'
-                        }}>
+                        <p
+                            className='text-[#043FA7] flex items-center gap-2'
+                            style={{
+                                fontFamily: 'Satoshi-Light',
+                            }}
+                        >
                             What is KYA <BsQuestionCircle />
                         </p>
                     </div>
@@ -151,17 +154,67 @@ const AddArtisan = () => {
                 >
                     <div className='grid gap-4 relative '>
                         <label
-                            htmlFor='securityCompany'
+                            htmlFor='firstName'
                             className='text-[1.4rem] font-medium'
                         >
-                            Security Company *
+                            First Name *
                         </label>
                         <input
                             type='text'
                             required
-                            id='securityCompany'
+                            id='firstName'
                             className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                         />
+                    </div>
+                    <div className='grid gap-4 relative '>
+                        <label
+                            htmlFor='lastName'
+                            className='text-[1.4rem] font-medium'
+                        >
+                            Last Name *
+                        </label>
+                        <input
+                            type='text'
+                            required
+                            id='lastName'
+                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                        />
+                    </div>
+                    <div className='relative grid gap-4'>
+                        <p className='text-[1.4rem] font-semibold'>Gender</p>
+                        <div className='relative flex items-center'>
+                            <p
+                                className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer'
+                                onClick={stateMenuToggler}
+                            >
+                                {selectedState || (
+                                    <span className='text-gray-500'>
+                                        Select State
+                                    </span>
+                                )}
+                            </p>
+                            {toggleStateMenu ? (
+                                <GrUp className='absolute right-4' />
+                            ) : (
+                                <GrDown className='absolute right-4' />
+                            )}
+                        </div>
+
+                        {toggleStateMenu && (
+                            <div className='absolute top-[8rem]  left-0 border border-color-primary-light w-[24rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
+                                {state.map((item, index) => (
+                                    <p
+                                        className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
+                                        key={index}
+                                        onClick={() =>
+                                            handleSelectedState(item)
+                                        }
+                                    >
+                                        {item}
+                                    </p>
+                                ))}
+                            </div>
+                        )}
                     </div>
                     <div className='grid gap-4 relative'>
                         <label
