@@ -183,9 +183,9 @@ const ArtisanList: FC<{
             }
         })
 
-        // if (item === 'View Details') {
-        //     navigate(`/dashboard/security-company/:${id}`)
-        // }
+        if (item === 'View Details') {
+            navigate(`/dashboard/artisan/view/:${id}`)
+        }
 
         if (item === 'Deactivate') {
             handleOpen('Deactivate')
