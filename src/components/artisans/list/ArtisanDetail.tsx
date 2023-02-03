@@ -415,60 +415,71 @@ const ArtisanDetail = () => {
                         Save Changes
                     </button>
                 </form>
+                <section className='mt-10'>
+                    <h2 className='text-[2rem]' style={{
+                        fontFamily: 'Satoshi-Medium'
+                    }}>Testimonials</h2>
+                    <div className='grid grid-cols-2 '>
+                        <div className='grid gap-8'>
+                            <div className='flex gap-4 justify-between items-center border shadow rounded-lg'>
+                                <div>
+                                    <img
+                                        src='/img/avatar1.png'
+                                        alt=''
+                                        className='w-[5rem] h-[5rem] object-cover rounded-full'
+                                    />
 
-                <div className='grid grid-cols-2'>
-                    <div className='grid gap-8'>
-                        <div className='flex gap-4 justify-between'>
-                            <div>
-                                <img
-                                    src='/img/avatar1.png'
-                                    alt=''
-                                    className='w-[5rem] h-[5rem] object-cover rounded-full'
-                                />
+                                    <div>
+                                        <p
+                                            className='1.4rem'
+                                            style={{
+                                                fontFamily: 'Satoshi-Medium',
+                                            }}
+                                        >
+                                            Jessica Okafor
+                                        </p>
+                                        <StarRating starsNum={4} />
+                                    </div>
+                                </div>
 
                                 <div>
                                     <p
-                                        className='1.4rem'
+                                        className='text-[1.2rem]'
                                         style={{
-                                            fontFamily: 'Satoshi-Medium',
+                                            fontFamily: 'Satoshi-Light',
                                         }}
                                     >
-                                        Jessica Okafor
+                                        7 Aug 2022
                                     </p>
-                                    <StarRating starsNum={4} />
+                                    <p
+                                        className='text-[1.2rem]'
+                                        style={{
+                                            fontFamily: 'Satoshi-Light',
+                                        }}
+                                    >
+                                        Peace Estate
+                                    </p>
                                 </div>
                             </div>
-
-                            <div>
-                                <p className='text-[1.2rem]' style={{
-                                    fontFamily: 'Satoshi-Light',
-                                }}>
-                                    7 Aug 2022
-                                </p>
-                                <p className='text-[1.2rem]' style={{
-                                    fontFamily: 'Satoshi-Light',
-                                }}>
-                                    Peace Estate
-                                </p>
-                            </div>
+                        </div>
+                        <div className='grid gap-8'>
+                            <h3>Wonderful Service</h3>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur
+                                adipisicing elit. Nulla optio labore autem
+                                provident, dolore dolorum dicta vel tempore
+                                voluptatibus deserunt recusandae porro deleniti
+                                dolores illum, temporibus eveniet earum.
+                                Ducimus, repellendus? Lorem ipsum dolor sit amet
+                                consectetur adipisicing elit. Quos adipisci
+                                voluptatem molestias, obcaecati molestiae
+                                veritatis libero eveniet porro accusamus,
+                                reiciendis facilis. Illum et doloremque fuga quo
+                                aut laudantium consequatur nemo.
+                            </p>
                         </div>
                     </div>
-                    <div className='grid gap-8'>
-                        <h3>Wonderful Service</h3>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Nulla optio labore autem provident, dolore
-                            dolorum dicta vel tempore voluptatibus deserunt
-                            recusandae porro deleniti dolores illum, temporibus
-                            eveniet earum. Ducimus, repellendus? Lorem ipsum
-                            dolor sit amet consectetur adipisicing elit. Quos
-                            adipisci voluptatem molestias, obcaecati molestiae
-                            veritatis libero eveniet porro accusamus, reiciendis
-                            facilis. Illum et doloremque fuga quo aut laudantium
-                            consequatur nemo.
-                        </p>
-                    </div>
-                </div>
+                </section>
             </div>
         </>
     )
