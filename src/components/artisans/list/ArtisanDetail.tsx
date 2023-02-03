@@ -14,11 +14,11 @@ import { toast, ToastContainer } from 'react-toastify'
 
 type DialogType = 'validate' | 'add-Artisan'
 
-const ViewArtisan = () => {
+const ArtisanDetail = () => {
     const [selectedState, setSelectedState] = useState<string | null>(null)
     const [selectedArtisan, setSelectedArtisan] = useState<string | null>(null)
     const [selectedGender, setSelectedGender] = useState<string | null>(null)
-    const [isViewArtisan, setIsViewArtisan] = useState(true)
+    const [isArtisanDetail, setIsArtisanDetail] = useState(true)
     const [validationType, setValidationType] = useState<string | null>(
         'Phone Number'
     )
@@ -58,9 +58,9 @@ const ViewArtisan = () => {
     }
     const handleOpen = (modalState: DialogType) => {
         if (modalState === 'validate') {
-            setIsViewArtisan(true)
+            setIsArtisanDetail(true)
         } else {
-            setIsViewArtisan(false)
+            setIsArtisanDetail(false)
         }
 
         if (dialogRef.current) {
@@ -68,12 +68,12 @@ const ViewArtisan = () => {
         }
     }
 
-    const viewArtisanHandler = () => {
+    const artisanDetailHandler = () => {
         // navigate('/dashboard/artisanCategory/add')
         handleOpen('add-Artisan')
     }
 
-    const confirmViewArtisan = () => {
+    const confirmArtisanDetail = () => {
         handleClose()
     }
 
@@ -183,7 +183,7 @@ const ViewArtisan = () => {
                             onClick={() => handleClose()}
                         />
 
-                        {isViewArtisan ? (
+                        {isArtisanDetail ? (
                             <form
                                 className='grid gap-12 max-w-[40rem]'
                                 onSubmit={handleDialogSubmit}
@@ -258,7 +258,7 @@ const ViewArtisan = () => {
                                     </button>
                                     <button
                                         className='bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
-                                        onClick={confirmViewArtisan}
+                                        onClick={confirmArtisanDetail}
                                     >
                                         Ok
                                     </button>
@@ -472,7 +472,7 @@ const ViewArtisan = () => {
                     <button
                         className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
                         style={{ justifySelf: 'start' }}
-                        onClick={viewArtisanHandler}
+                        onClick={artisanDetailHandler}
                     >
                         <span>
                             <IoMdAdd />
@@ -485,4 +485,4 @@ const ViewArtisan = () => {
     )
 }
 
-export default ViewArtisan
+export default ArtisanDetail

@@ -36,6 +36,7 @@ import SecurityCompanyWalletDetails from '../components/wallet/SecurityCompanyDe
 import Artisan from '../pages/dashboard/Artisan'
 import ViewArtisanCategory from '../components/artisans/category/ViewArtisanCategory'
 import AddArtisan from '../components/artisans/list/AddArtisan'
+import ArtisanDetail from '../components/artisans/list/ArtisanDetail'
 
 const router = createBrowserRouter(
     createRoutesFromElements([
@@ -94,7 +95,7 @@ const router = createBrowserRouter(
             />
             <Route
                 path='artisan/detail/:Id'
-                element={<ViewArtisanCategory />}
+                element={<ArtisanDetail />}
             />
             <Route
                 path='artisan/add'

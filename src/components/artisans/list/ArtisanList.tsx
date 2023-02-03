@@ -184,7 +184,7 @@ const ArtisanList: FC<{
         })
 
         if (item === 'View Details') {
-            navigate(`/dashboard/artisan/view/:${id}`)
+            navigate(`/dashboard/artisan/detail/:${id}`)
         }
 
         if (item === 'Deactivate') {
