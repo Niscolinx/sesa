@@ -428,10 +428,10 @@ const ArtisanDetail = () => {
                     >
                         Testimonials
                     </h2>
-                    <div className='grid grid-cols-2 '>
-                        <div className='grid gap-8'>
-                            <div className='flex gap-4 justify-between items-center border shadow rounded-lg'>
-                                <div>
+                    <div className='grid grid-cols-2 items-center'>
+                        <div className='grid gap-8 '>
+                            <div className='flex gap-4 justify-between items-center border shadow rounded-lg h-[9rem] max-w-[38rem] px-10'>
+                                <div className='flex gap-4 items-center'>
                                     <img
                                         src='/img/avatar1.png'
                                         alt=''
@@ -440,7 +440,7 @@ const ArtisanDetail = () => {
 
                                     <div>
                                         <p
-                                            className='1.4rem'
+                                            className='text-[1.4rem]'
                                             style={{
                                                 fontFamily: 'Satoshi-Medium',
                                             }}
@@ -451,9 +451,8 @@ const ArtisanDetail = () => {
                                     </div>
                                 </div>
 
-                                <div>
+                                <div className='text-[1.4rem]'>
                                     <p
-                                        className='text-[1.2rem]'
                                         style={{
                                             fontFamily: 'Satoshi-Light',
                                         }}
@@ -461,7 +460,82 @@ const ArtisanDetail = () => {
                                         7 Aug 2022
                                     </p>
                                     <p
-                                        className='text-[1.2rem]'
+                                        style={{
+                                            fontFamily: 'Satoshi-Light',
+                                        }}
+                                    >
+                                        Peace Estate
+                                    </p>
+                                </div>
+                            </div>
+                            <div className='flex gap-4 justify-between items-center border shadow rounded-lg h-[9rem] max-w-[38rem] px-10'>
+                                <div className='flex gap-4 items-center'>
+                                    <img
+                                        src='/img/avatar2.png'
+                                        alt=''
+                                        className='w-[5rem] h-[5rem] object-cover rounded-full'
+                                    />
+
+                                    <div>
+                                        <p
+                                            className='text-[1.4rem]'
+                                            style={{
+                                                fontFamily: 'Satoshi-Medium',
+                                            }}
+                                        >
+                                            Jessica Okafor
+                                        </p>
+                                        <StarRating starsNum={4} />
+                                    </div>
+                                </div>
+
+                                <div className='text-[1.4rem]'>
+                                    <p
+                                        style={{
+                                            fontFamily: 'Satoshi-Light',
+                                        }}
+                                    >
+                                        7 Aug 2022
+                                    </p>
+                                    <p
+                                        style={{
+                                            fontFamily: 'Satoshi-Light',
+                                        }}
+                                    >
+                                        Peace Estate
+                                    </p>
+                                </div>
+                            </div>
+                            <div className='flex gap-4 justify-between items-center border shadow rounded-lg h-[9rem] max-w-[38rem] px-10'>
+                                <div className='flex gap-4 items-center'>
+                                    <img
+                                        src='/img/avatar1.png'
+                                        alt=''
+                                        className='w-[5rem] h-[5rem] object-cover rounded-full'
+                                    />
+
+                                    <div>
+                                        <p
+                                            className='text-[1.4rem]'
+                                            style={{
+                                                fontFamily: 'Satoshi-Medium',
+                                            }}
+                                        >
+                                            Jessica Okafor
+                                        </p>
+                                        <StarRating starsNum={4} />
+                                    </div>
+                                </div>
+
+                                <div className='text-[1.4rem]'>
+                                    <p
+                                        style={{
+                                            fontFamily: 'Satoshi-Light',
+                                        }}
+                                    >
+                                        7 Aug 2022
+                                    </p>
+                                    <p
                                         style={{
                                             fontFamily: 'Satoshi-Light',
                                         }}
