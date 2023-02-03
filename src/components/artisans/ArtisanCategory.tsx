@@ -241,7 +241,7 @@ const ArtisanCategory: FC<{
                                 />
 
                                 <p>
-                                    Are you sure you want to deactivate this
+                                    Are you sure you want to delete this
                                     security company?
                                 </p>
 
@@ -250,7 +250,7 @@ const ArtisanCategory: FC<{
                                         className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
                                         onClick={confirmDeactivation}
                                     >
-                                        Deactivate
+                                        Delete
                                     </button>
 
                                     <button
