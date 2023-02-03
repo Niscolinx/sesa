@@ -203,7 +203,7 @@ const ArtisanList: FC<{
                         {dialogType === 'Deactivate' ? (
                             <>
                                 <img
-                                    src='/icons/admins/modalWarning.svg'
+                                    src='/icons/admins/modalDeactivate.svg'
                                     alt=''
                                 />
                                 <p>
