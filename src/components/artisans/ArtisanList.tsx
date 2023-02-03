@@ -178,7 +178,7 @@ const ArtisanList: FC<{
 
             <div className='grid'>
                 <div
-                    className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-4 gap-8'
+                    className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-8 gap-8'
                     style={{
                         fontSize: '1.4rem',
                     }}
@@ -203,7 +203,7 @@ const ArtisanList: FC<{
                                     const { isDropDownOpen, index } =
                                         toggleDropDown
                                     return (
-                                        <div className='grid justify-between border-b grid-cols-4 gap-8 '>
+                                        <div className='grid justify-between border-b grid-cols-8 gap-8 '>
                                             <p className='flex items-center gap-4'>
                                                 <input
                                                     type='checkbox'
@@ -216,7 +216,7 @@ const ArtisanList: FC<{
                                             <p>{phoneNumber}</p>
                                             <p>{category}</p>
                                             <p>{assignedGroup}</p>
-                                            <p><StarRating/></p>
+                                            <p><StarRating rating={rating}/></p>
 
                                             <div className='relative'>
                                                 <label
