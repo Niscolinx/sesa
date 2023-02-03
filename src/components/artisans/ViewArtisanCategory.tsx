@@ -60,7 +60,9 @@ const ViewArtisanCategory = () => {
     const navigate = useNavigate()
 
     const [isWarning, setIsWarning] = useState(true)
-    const [fetchedArtisanCategories, setFetchedArtisanCategories] = useState<IViewArtisanCategory[] || null>(null)
+    const [fetchedArtisanCategories, setFetchedArtisanCategories] = useState<
+        IViewArtisanCategory[]
+    >([])
 
     useEffect(() => {
         setTimeout(() => {
@@ -323,7 +325,7 @@ const ViewArtisanCategory = () => {
             <div className='grid text-[1.6rem] bg-white px-10 rounded-lg'>
                 <div className='flex w-full items-center gap-12 py-8 bg-white rounded-lg'>
                     <p className=' font-bold'>
-                     Category Users <span>(3)</span>
+                        Category Users <span>(3)</span>
                     </p>
                     <div className='relative flex items-center'>
                         <img
@@ -337,8 +339,6 @@ const ViewArtisanCategory = () => {
                             className='pl-16 w-[25rem] rounded-lg border border-color-blue-light appearance-none outline-none p-4'
                         />
                     </div>
-
-                
                 </div>
 
                 <div className='grid gap-10'>
@@ -362,7 +362,11 @@ const ViewArtisanCategory = () => {
                             React.Children.toArray(
                                 slicedPages[paginate.index].map(
                                     (
-                                        { artisanName, businessName, phoneNumber},
+                                        {
+                                            artisanName,
+                                            businessName,
+                                            phoneNumber,
+                                        },
                                         i
                                     ) => {
                                         const { isDropDownOpen, index } =
