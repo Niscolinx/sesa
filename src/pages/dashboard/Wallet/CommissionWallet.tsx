@@ -330,7 +330,6 @@ const CommissionWallet = () => {
     const handleFormSubmit = (e: FormEvent) => {
         e.preventDefault()
 
-        console.log('submitted')
     }
 
     return (
