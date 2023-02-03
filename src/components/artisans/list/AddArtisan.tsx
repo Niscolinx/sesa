@@ -51,6 +51,14 @@ const AddArtisan = () => {
         }
     }
 
+    
+
+    const openValidateDialog = () => {
+      
+        if (validateDialogRef.current) {
+            validateDialogRef.current.showModal()
+        }
+    }
     const handleOpen = (modalState: DialogType) => {
         if (modalState === 'validate') {
             setIsAddArtisan(true)
