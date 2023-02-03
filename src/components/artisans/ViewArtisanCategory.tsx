@@ -60,7 +60,7 @@ const ViewArtisanCategory = () => {
     const navigate = useNavigate()
 
     const [isWarning, setIsWarning] = useState(true)
-    const [loading, setLoading] = useState(false)
+    const [isLoaded, setIsLoaded] = useState(false)
     const [fetchedArtisanCategories, setFetchedArtisanCategories] = useState<IViewArtisanCategory[] | null>(null)
 
     useEffect(() => {
