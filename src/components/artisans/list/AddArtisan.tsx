@@ -225,21 +225,6 @@ const AddArtisan = () => {
                             </div>
                         )}
                     </div>
-                    <div className='grid gap-4 relative'>
-                        <label
-                            htmlFor='email'
-                            className='text-[1.4rem] font-medium'
-                        >
-                            Email Address *
-                        </label>
-                        <input
-                            type='email'
-                            required
-                            id='email'
-                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                        />
-                    </div>
-
                     <div className='grid gap-4'>
                         <label
                             htmlFor='phoneNumber'
@@ -262,6 +247,21 @@ const AddArtisan = () => {
                             />
                         </div>
                     </div>
+                    <div className='grid gap-4 relative'>
+                        <label
+                            htmlFor='email'
+                            className='text-[1.4rem] font-medium'
+                        >
+                            Email Address *
+                        </label>
+                        <input
+                            type='email'
+                            required
+                            id='email'
+                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                        />
+                    </div>
+
                     <div className='grid gap-4 relative'>
                         <label
                             htmlFor='address'
