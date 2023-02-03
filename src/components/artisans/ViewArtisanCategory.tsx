@@ -60,6 +60,7 @@ const ViewArtisanCategory = () => {
     const navigate = useNavigate()
 
     const [isWarning, setIsWarning] = useState(true)
+    const [loading, setLoading] = useState(false)
     const [fetchedArtisanCategories, setFetchedArtisanCategories] = useState<IViewArtisanCategory[] | null>(null)
 
     useEffect(() => {
@@ -130,7 +131,7 @@ const ViewArtisanCategory = () => {
         currentPage: 1,
         itemsPerPage: 6,
 
-        totalPage: Math.ceil(fetchedArtisanCategories?.length && fetchedArtisanCategories.length / 2),
+        totalPage: Math.ceil( fetchedArtisanCategories.length / 2),
         slicedPages: null,
     })
 
