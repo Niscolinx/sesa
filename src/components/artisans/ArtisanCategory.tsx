@@ -204,15 +204,15 @@ const ArtisanCategory: FC<{
                                 className='grid gap-12'
                                 onSubmit={handleDialogSubmit}
                             >
-                                    <h3
-                                        className='text-[2rem] font-bold border-b '
-                                        style={{
-                                            fontFamily: 'Satoshi-Medium',
-                                        }}
-                                    >
-                                        Create Artisan Category
-                                    </h3>
-                               
+                                <h3
+                                    className='text-[2rem] font-bold border-b '
+                                    style={{
+                                        fontFamily: 'Satoshi-Medium',
+                                    }}
+                                >
+                                    Create Artisan Category
+                                </h3>
+
                                 <div className='w-full grid gap-4'>
                                     <label
                                         htmlFor='artisanName'
@@ -241,23 +241,22 @@ const ArtisanCategory: FC<{
                                 />
 
                                 <p>
-                                    Are you sure you want to delete this
-                                    security company?
+                                    Are you sure you want to delete this Artisan
+                                    Category?
                                 </p>
 
                                 <div className='flex w-full justify-center gap-8'>
+                                    <button
+                                        className='btn bg-white text-[#0556E5] border-[#0556E5] border rounded-lg w-[15rem]'
+                                        onClick={() => handleClose()}
+                                    >
+                                        Cancel
+                                    </button>
                                     <button
                                         className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
                                         onClick={confirmDeactivation}
                                     >
                                         Delete
-                                    </button>
-
-                                    <button
-                                        className='btn text-white bg-[#0556E5] border rounded-lg w-[15rem]'
-                                        onClick={() => handleClose()}
-                                    >
-                                        View Details
                                     </button>
                                 </div>
                             </div>
