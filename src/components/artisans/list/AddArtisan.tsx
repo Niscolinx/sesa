@@ -15,7 +15,6 @@ import { toast, ToastContainer } from 'react-toastify'
 type DialogType = 'validate' | 'add-Artisan'
 
 const AddArtisan = () => {
-
     const [selectedState, setSelectedState] = useState<string | null>(null)
     const [selectedArtisan, setSelectedArtisan] = useState<string | null>(null)
     const [selectedGender, setSelectedGender] = useState<string | null>(null)
@@ -37,8 +36,6 @@ const AddArtisan = () => {
     const dialogRef = useRef<HTMLDialogElement | null>(null)
     const validateDialogRef = useRef<HTMLDialogElement | null>(null)
 
-
-
     const handleClose = () => {
         if (dialogRef.current) {
             dialogRef.current.close()
@@ -51,10 +48,7 @@ const AddArtisan = () => {
         }
     }
 
-    
-
     const openValidateDialog = () => {
-      
         if (validateDialogRef.current) {
             validateDialogRef.current.showModal()
         }
@@ -107,8 +101,6 @@ const AddArtisan = () => {
                             className='absolute right-4 top-4 text-[2rem] cursor-pointer'
                             onClick={() => closeValidateDialog()}
                         />
-
-                       
                     </div>
                 </section>
             </dialog>
