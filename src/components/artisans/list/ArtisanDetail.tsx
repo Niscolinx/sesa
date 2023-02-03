@@ -594,7 +594,7 @@ const ArtisanDetail = () => {
                         </div>
                     </div>
                 </section>
-                <section className='grid place-content-center w-full'>
+                <section className='grid w-full'>
                     <h3
                         className='text-[2rem]'
                         style={{
@@ -603,7 +603,7 @@ const ArtisanDetail = () => {
                     >
                         Know Your Artisan (KYA)
                     </h3>
-                    <div className='bg-white rounded-2xl grid items-baseline min-h-[30rem] p-10 text-[1.6rem] relative gap-20'>
+                    <div className='bg-white rounded-2xl grid items-baseline  p-10 text-[1.6rem] relative gap-20'>
 
                         <div className='relative h-[14rem] bg-blue-600 w-full mt-10 rounded-lg'>
                             <img
@@ -675,9 +675,7 @@ const ArtisanDetail = () => {
                                 </div>
                             </div>
                         </div>
-                        <button className='btn text-white bg-[#0556E5] border rounded-lg w-[15rem] justify-self-center'>
-                            Ok
-                        </button>
+                      
                     </div>
                 </section>
             </div>
