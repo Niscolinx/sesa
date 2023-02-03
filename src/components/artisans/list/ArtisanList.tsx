@@ -160,6 +160,44 @@ const ArtisanList: FC<{
         navigate('/dashboard/artisan/add')
     }
 
+
+    const dialogRef = useRef<HTMLDialogElement | null>(null)
+
+    const handleClose = () => {
+        if (dialogRef.current) {
+            dialogRef.current.close()
+        }
+    }
+
+    const handleOpen = () => {
+        if (dialogRef.current) {
+            dialogRef.current.showModal()
+        }
+    }
+
+    const handleRouteChange = () => {
+        handleClose()
+    }
+
+    const handleSelectedAction = (item: string, index: string) => {
+        console.log({ item, index })
+
+        setToggleDropDown(() => {
+            return {
+                isDropDownOpen: false,
+                index: null,
+            }
+        })
+
+        if (item === 'View Details') {
+            navigate(`/dashboard/security-company/:${index}`)
+        }
+
+        if (item === 'Deactivate') {
+            handleOpen()
+        }
+    }
+
     return (
         <>
             <dialog className='dialog' ref={dialogRef}>
