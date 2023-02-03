@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useRef, useState } from 'react'
 import { GrDown, GrUp } from 'react-icons/gr'
 import { IoMdAdd } from 'react-icons/io'
 import { getPhotoUrl } from '../../../utils/getPhotoUrl'
-import {BsQuestionCircle} from 'react-icons/bs'
+import { BsQuestionCircle } from 'react-icons/bs'
 
 type State = 'Lagos' | 'Imo' | 'Abia' | 'FCT'
 type Gender = 'Male' | 'Female'
@@ -276,6 +276,7 @@ const AddArtisan = () => {
                             className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                         />
                     </div>
+                    <div className='grid gap-4 relative'>
                         <label
                             htmlFor='address2'
                             className='text-[1.4rem] font-medium'
