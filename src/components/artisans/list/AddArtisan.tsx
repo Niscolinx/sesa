@@ -115,8 +115,8 @@ const AddArtisan = () => {
                 </section>
             </dialog>
             <div className='grid p-8 bg-white h-[80vh] items-baseline overflow-y-scroll rounded-lg'>
-                <div className='flex justify-end'>
-                    <button
+                <div className='flex max-w-[40rem]'>
+                    {/* <button
                         className='border border-red-600 px-16 py-4 flex items-center  rounded-lg gap-4'
                         onClick={() => handleOpen('warning')}
                     >
@@ -124,7 +124,10 @@ const AddArtisan = () => {
                         <span className='text-red-600 text-[1.4rem] font-semibold'>
                             Deactivate
                         </span>
-                    </button>
+                    </button> */}
+
+                    <p className='text-[2rem] font-bold'>KYC <span className='text-gray-500'>(Optional)</span></p>
+                    <p>Click her to validate this person</p>
                 </div>
                 <form
                     onSubmit={handleSubmit}
