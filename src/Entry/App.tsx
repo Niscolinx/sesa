@@ -93,6 +93,10 @@ const router = createBrowserRouter(
                 element={<ViewArtisanCategory />}
             />
             <Route
+                path='artisan/detail/:Id'
+                element={<ViewArtisanCategory />}
+            />
+            <Route
                 path='artisan/add'
                 element={<AddArtisan />}
             />
