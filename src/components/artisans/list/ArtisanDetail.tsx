@@ -154,12 +154,7 @@ const ArtisanDetail = () => {
                 </section>
             </dialog>
 
-            <div className='grid p-8 bg-white h-[80vh] items-baseline overflow-y-scroll rounded-lg'>
-                {/* <div className='grid gap-8 max-w-[40rem]'>
-                    
-                    </div> */}
-                  
-                </div>
+            <div className='grid p-8 bg-white items-baseline overflow-y-scroll rounded-lg'>
                 <form
                     onSubmit={handleSubmit}
                     className='grid max-w-[84rem] gap-16 mt-12'
@@ -300,7 +295,6 @@ const ArtisanDetail = () => {
                             className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                         />
                     </div>
-                  
 
                     <button
                         className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
@@ -312,7 +306,7 @@ const ArtisanDetail = () => {
                         Add Artisan
                     </button>
                 </form>
-            
+            </div>
         </>
     )
 }
