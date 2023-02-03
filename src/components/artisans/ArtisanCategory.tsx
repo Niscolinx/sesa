@@ -61,7 +61,6 @@ const ArtisanCategory: FC<{
         slicedPages: IArtisanCategory[][] | null
     }
 
-    const [toggleSortMenu, setToggleSortMenu] = useState(false)
     const itemsPerPageArr =
          [2, 4, 6, 8]
     
@@ -74,7 +73,6 @@ const ArtisanCategory: FC<{
         slicedPages: null,
     })
 
-    const sortMenuToggler = () => setToggleSortMenu(!toggleSortMenu)
 
     // const handleSelectedSort = (item: SortBy) => {
     //     setToggleSortMenu(false)
