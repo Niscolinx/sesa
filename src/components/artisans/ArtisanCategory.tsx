@@ -13,8 +13,8 @@ export interface IArtisanCategory {
 type Actions = 'View Details' | 'Edit Details' | 'Deactivate'
 
 const ArtisanCategory: FC<{
-    fetchedArtisanCategory: IArtisanCategory[]
-}> = ({ fetchedArtisanCategory }) => {
+    fetchedArtisanCategories: IArtisanCategory[]
+}> = ({ fetchedArtisanCategories}) => {
     const navigate = useNavigate()
 
     const actions = [
@@ -70,7 +70,7 @@ const ArtisanCategory: FC<{
         currentPage: 1,
         itemsPerPage: 2,
 
-        totalPage: Math.ceil(fetchedArtisanCategory.length / 2),
+        totalPage: Math.ceil(fetchedArtisanCategories.length / 2),
         slicedPages: null,
     })
 
@@ -84,8 +84,8 @@ const ArtisanCategory: FC<{
         const item = parseInt(e.target.value)
 
         const slicedPages: IArtisanCategory[][] = []
-        for (let i = 0; i < fetchedArtisanCategory.length; i += item) {
-            slicedPages.push(fetchedArtisanCategory.slice(i, i + item))
+        for (let i = 0; i < fetchedArtisanCategories.length; i += item) {
+            slicedPages.push(fetchedArtisanCategories.slice(i, i + item))
         }
 
         setPaginate((prev) => {
@@ -95,7 +95,7 @@ const ArtisanCategory: FC<{
                 index: 0,
                 currentPage: 1,
                 slicedPages,
-                totalPage: Math.ceil(fetchedArtisanCategory.length / item),
+                totalPage: Math.ceil(fetchedArtisanCategories.length / item),
             }
         })
     }
@@ -106,11 +106,11 @@ const ArtisanCategory: FC<{
         const slicedPages: IArtisanCategory[][] = []
         for (
             let i = 0;
-            i < fetchedArtisanCategory.length;
+            i < fetchedArtisanCategories.length;
             i += paginate.itemsPerPage
         ) {
             slicedPages.push(
-                fetchedArtisanCategory.slice(i, i + paginate.itemsPerPage)
+                fetchedArtisanCategories.slice(i, i + paginate.itemsPerPage)
             )
         }
 
@@ -120,7 +120,7 @@ const ArtisanCategory: FC<{
                 slicedPages,
             }
         })
-    }, [fetchedArtisanCategory])
+    }, [fetchedArtisanCategories])
 
     const handleNext = () => {
         if (paginate.currentPage === paginate.totalPage) return
@@ -195,9 +195,9 @@ const ArtisanCategory: FC<{
                 </div>
 
                 <div className='grid gap-8 mt-8 p-8'>
-                    {paginate.slicedPages && paginate.slicedPages.length > 0 ? (
+                    {slicedPages && slicedPages.length > 0 ? (
                         React.Children.toArray(
-                            paginate.slicedPages[paginate.index].map(
+                            slicedPages[paginate.index].map(
                                 (
                                     {
                                         name,
