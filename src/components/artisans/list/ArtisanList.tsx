@@ -54,12 +54,6 @@ const ArtisanList: FC<{
         'Deactivate'
     )
 
-    const selectAction = (item: Actions) => {
-        if (item === 'View Details') {
-            navigate('/dashboard/artisanList/:Id')
-        }
-    }
-
     interface Paginate {
         index: number
         currentPage: number
@@ -189,8 +183,7 @@ const ArtisanList: FC<{
         handleClose()
     }
 
-    const handleSelectedAction = (item: string, index: string) => {
-        console.log({ item, index })
+    const handleSelectedAction = (item: Actions, id: string) => {
 
         setToggleDropDown(() => {
             return {
@@ -199,12 +192,12 @@ const ArtisanList: FC<{
             }
         })
 
-        if (item === 'View Details') {
-            navigate(`/dashboard/security-company/:${index}`)
-        }
+        // if (item === 'View Details') {
+        //     navigate(`/dashboard/security-company/:${id}`)
+        // }
 
         if (item === 'Deactivate') {
-            handleOpen()
+            handleOpen('Deactivate')
         }
     }
 
@@ -295,6 +288,7 @@ const ArtisanList: FC<{
                                             category,
                                             phoneNumber,
                                             assignedGroup,
+                                            id
                                         },
                                         i
                                     ) => {
@@ -371,8 +365,9 @@ const ArtisanList: FC<{
                                                                                 i
                                                                             }
                                                                             onClick={() =>
-                                                                                selectAction(
-                                                                                    item
+                                                                                handleSelectedAction(
+                                                                                    item,
+                                                                                    id
                                                                                 )
                                                                             }
                                                                         >
