@@ -99,7 +99,7 @@ export const ARTISAN_CATEGORY: IArtisanCategory[] = [
 
 function RenderArtisans() {
     const [fetchedArtisanList, setFetchedArtisanList] = useState<
-        IResidentUsersList[] | null
+        IArtisanList[] | null
     >(null)
     const [fetchedArtisanCategories, setFetchedArtisanCategories] = useState<
         IArtisanCategory[] | null
@@ -110,7 +110,7 @@ function RenderArtisans() {
     useEffect(() => {
         const fetchData = async () => {
             setTimeout(() => {
-                setFetchedArtisanList(RESIDENT_LISTS)
+                setFetchedArtisanList(ARTISAN_LIST)
                 setFetchedArtisanCategories(ARTISAN_CATEGORY)
             }, 1000)
         }
