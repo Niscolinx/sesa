@@ -54,7 +54,7 @@ const VIEW_ARTISAN_GROUP: IViewArtisanGroup[] = [
     },
 ]
 
-type Actions = 'Delete' | 'View Details'
+type Actions = 'Delete' | 'View Details' | 'Edit Details'
 
 const ViewArtisanGroup = () => {
     const navigate = useNavigate()
@@ -82,7 +82,10 @@ const ViewArtisanGroup = () => {
         })
     }
 
-    const actions = ['View Details', 'Delete'] satisfies Actions[]
+    const actions = [
+        'View Details',
+        'Edit Details',
+        'Delete'] satisfies Actions[]
 
     const [toggleDropDown, setToggleDropDown] = useState<{
         isDropDownOpen: boolean
