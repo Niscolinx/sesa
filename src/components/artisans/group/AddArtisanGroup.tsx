@@ -70,7 +70,7 @@ const AddArtisanGroup = () => {
                         <span>
                             <IoMdAdd />
                         </span>{' '}
-                        Add Artisan
+                        Add Artisan Group
                     </button>
                 </form>
             </div>
