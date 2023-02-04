@@ -144,7 +144,7 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
                 </label>
             </div>
         ))
-    }, [selectedFrom])
+    }, [selectedFrom, selected])
 
     const removeSelectedItem = (item: string) => {
         setSelected((prev) => prev.filter((i) => i !== item))
@@ -155,7 +155,7 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
             <p className='text-[1.4rem] font-semibold'>{label}</p>
             <div className='relative items-center max-w-[40rem] flex'>
                 <p
-                    className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer h-[5rem] overflow-hidden overflow-x-scroll flex gap-4 items-center pr-12'
+                    className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer h-[5rem] overflow-hidden overflow-x-scroll flex gap-4 items-center pr-16'
                     style={{
                         gridTemplateColumns:
                             'repeat(auto-fit, minmax(12rem, 1fr))',

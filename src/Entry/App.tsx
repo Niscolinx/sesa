@@ -38,6 +38,7 @@ import ViewArtisanCategory from '../components/artisans/category/ViewArtisanCate
 import AddArtisan from '../components/artisans/list/AddArtisan'
 import ArtisanDetail from '../components/artisans/list/ArtisanDetail'
 import AddArtisanGroup from '../components/artisans/group/AddArtisanGroup'
+import ViewArtisanGroup from '../components/artisans/group/ViewArtisanGroup'
 
 const router = createBrowserRouter(
     createRoutesFromElements([
@@ -104,6 +105,10 @@ const router = createBrowserRouter(
             <Route
                 path='artisan/group/add'
                 element={<AddArtisanGroup />}
+            />
+            <Route
+                path='artisan/group/:Id'
+                element={<ViewArtisanGroup />}
             />
         </Route>,
         <Route path='*' element={<Navigate to='/' />} />,
