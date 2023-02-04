@@ -328,6 +328,8 @@ const ArtisanGroup: FC<{
                             <p> Name</p>
                         </p>
                         <p>No of Artisans</p>
+                        <p>No of Estates</p>
+                        <p>Status</p>
                         <p>Created At</p>
                         <p>Actions</p>
                     </div>
