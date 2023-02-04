@@ -110,7 +110,7 @@ export const ARTISAN_GROUP: IArtisanGroup[] = [
         createdAt: '04 May 2021',
         NoOfArtisans: 10,
         NoOfEstates: 4,
-        status: 'Active',
+        status: 'Inactive',
     },
     {
         id: '1',
@@ -118,7 +118,7 @@ export const ARTISAN_GROUP: IArtisanGroup[] = [
         createdAt: '04 May 2021',
         NoOfArtisans: 10,
         NoOfEstates: 4,
-        status: 'Active',
+        status: 'Inactive',
     },
     {
         id: '1',

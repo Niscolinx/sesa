@@ -17,11 +17,11 @@ export interface IArtisanGroup {
     name: string
     NoOfArtisans: number
     NoOfEstates: number
-    status: string
+    status: 'Active' | 'Inactive'
     createdAt: string
 }
 
-type Actions = 'Delete' | 'View Details' | 'Edit' | 'Deactivate'
+type Actions = 'Delete' | 'View Details' | 'Edit Details' | 'Deactivate'
 
 const ArtisanGroup: FC<{
     fetchedArtisanGroups: IArtisanGroup[]
@@ -30,7 +30,8 @@ const ArtisanGroup: FC<{
 
     const [dialogType, setDialogType] = useState<Actions>('Deactivate')
 
-    const actions = ['View Details', 'Delete'] satisfies Actions[]
+    const actions = ['View Details', 
+    'Edit Details', 'Deactivate', 'Delete'] satisfies Actions[]
 
     const [toggleDropDown, setToggleDropDown] = useState<{
         isDropDownOpen: boolean
@@ -338,7 +339,12 @@ const ArtisanGroup: FC<{
                                                 </p>
                                                 <p>{NoOfArtisans}</p>
                                                 <p>{NoOfEstates}</p>
-                                                <p>{status}</p>
+                                                <p>{status === 'Active' ? (<span className='text-green-600'>
+                                                    {status}
+                                                </span>):(
+                                                    <span className='text-red-600'>{status}</span>
+                                                )}</p>
+                                                <p>{createdAt}</p>
 
                                                 <div className='relative'>
                                                     <label
