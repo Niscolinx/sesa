@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FC, useState } from 'react'
+import React, { ChangeEvent, FC, useEffect, useState } from 'react'
 import { GrUp, GrDown } from 'react-icons/gr'
 
 interface ISelect {
@@ -82,25 +82,42 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
 
     const stateMenuToggler = () => setToggleStateMenu(!toggleStateMenu)
 
-    const handleSelectedState = (e:ChangeEvent<HTMLInputElement>,  item: string) => {
+    const handleSelectedState = (
+        e: ChangeEvent<HTMLInputElement>,
+        item: string
+    ) => {
         //setToggleStateMenu(false)
 
-        if (selected && selected.includes(item)) {
-            const newSelected = selected.filter((i) => i !== item)
-            setSelected(newSelected)
-            return
+        const checked = e.target.checked
+
+        if (checked) {
+        
+            if (selected && selected.includes(item)) {
+                const newSelected = selected.filter((i) => i !== item)
+                setSelected(newSelected)
+                return
+            }
         }
     }
+
+    useEffect(() => {
+        console.log(selected)
+    }, [selected])
 
     return (
         <div className='relative grid gap-4'>
             <p className='text-[1.4rem] font-semibold'>{label}</p>
             <div className='relative flex items-center'>
                 <p
-                    className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer min-h-[5rem]'
+                    className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer min-h-[5rem] overflow-scroll'
                     onClick={stateMenuToggler}
                 >
-                    {selected || (
+                    {(selected &&
+                        selected.map((item) => (
+                            <span className='text-gray-500 overflow-hidden text-ellipsis whitespace-nowrap'>
+                                {item}
+                            </span>
+                        ))) || (
                         <span className='text-gray-500'>
                             {placeholder || ''}
                         </span>
@@ -134,7 +151,7 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
                             />
                             <label
                                 htmlFor={item + index}
-                                className='text-[1.4rem]  p-4 w-[7rem] cursor-pointer overflow-hidden text-ellipsis whitespace-nowrap'
+                                className='text-[1.4rem]  p-4 cursor-pointer '
                             >
                                 {item}
                             </label>
