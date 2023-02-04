@@ -12,7 +12,7 @@ import { IoMdAdd, IoMdClose } from 'react-icons/io'
 import { useNavigate } from 'react-router'
 import { toast, ToastContainer } from 'react-toastify'
 
-type DialogType = 'warning' | 'add-Group'
+type DialogType = 'warning' 
 
 export interface IViewArtisanGroup {
     id: string
@@ -239,7 +239,6 @@ const ViewArtisanGroup = () => {
 
     const addGroupHandler = () => {
         // navigate('/dashboard/viewArtisanGroup/add')
-        handleOpen('add-Group')
     }
 
     const confirmDeactivation = () => {
@@ -303,7 +302,7 @@ const ViewArtisanGroup = () => {
 
                                 <p>
                                     Are you sure you want to delete this
-                                    Artisan?
+                                    Artisan Group?
                                 </p>
 
                                 <div className='flex w-full justify-center gap-8'>
