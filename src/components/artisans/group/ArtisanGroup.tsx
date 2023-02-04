@@ -24,8 +24,8 @@ export interface IArtisanGroup {
 type Actions = 'Delete' | 'View Details' | 'Edit' | 'Deactivate'
 
 const ArtisanGroup: FC<{
-    fetchedArtisanCategories: IArtisanGroup[]
-}> = ({ fetchedArtisanCategories }) => {
+    fetchedArtisanGroups: IArtisanGroup[]
+}> = ({ fetchedArtisanGroups }) => {
     const navigate = useNavigate()
 
     const [dialogType, setDialogType] = useState<Actions>('Deactivate')
@@ -67,7 +67,7 @@ const ArtisanGroup: FC<{
         index: 0,
         currentPage: 1,
         itemsPerPage: perPage,
-        totalPage: Math.ceil(fetchedArtisanCategories.length / perPage),
+        totalPage: Math.ceil(fetchedArtisanGroups.length / perPage),
         slicedPages: null,
     })
 
@@ -75,8 +75,8 @@ const ArtisanGroup: FC<{
         const item = parseInt(e.target.value)
 
         const slicedPages: IArtisanGroup[][] = []
-        for (let i = 0; i < fetchedArtisanCategories.length; i += item) {
-            slicedPages.push(fetchedArtisanCategories.slice(i, i + item))
+        for (let i = 0; i < fetchedArtisanGroups.length; i += item) {
+            slicedPages.push(fetchedArtisanGroups.slice(i, i + item))
         }
 
         setPaginate((prev) => {
@@ -86,7 +86,7 @@ const ArtisanGroup: FC<{
                 index: 0,
                 currentPage: 1,
                 slicedPages,
-                totalPage: Math.ceil(fetchedArtisanCategories.length / item),
+                totalPage: Math.ceil(fetchedArtisanGroups.length / item),
             }
         })
     }
@@ -95,11 +95,11 @@ const ArtisanGroup: FC<{
         const slicedPages: IArtisanGroup[][] = []
         for (
             let i = 0;
-            i < fetchedArtisanCategories.length;
+            i < fetchedArtisanGroups.length;
             i += paginate.itemsPerPage
         ) {
             slicedPages.push(
-                fetchedArtisanCategories.slice(i, i + paginate.itemsPerPage)
+                fetchedArtisanGroups.slice(i, i + paginate.itemsPerPage)
             )
         }
 
@@ -109,7 +109,7 @@ const ArtisanGroup: FC<{
                 slicedPages,
             }
         })
-    }, [fetchedArtisanCategories])
+    }, [fetchedArtisanGroups])
 
     const handleNext = () => {
         if (paginate.currentPage === paginate.totalPage) return

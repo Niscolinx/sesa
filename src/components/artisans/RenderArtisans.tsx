@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
 
 import ArtisanCategory, { IArtisanCategory } from './category/ArtisanCategory'
+import { IArtisanGroup } from './group/ArtisanGroup'
 import ArtisanList, { IArtisanList } from './list/ArtisanList'
 
 export const ARTISAN_LIST: IArtisanList[] = [
@@ -93,6 +94,58 @@ export const ARTISAN_CATEGORY: IArtisanCategory[] = [
         NoOfArtisans: 10,
     },
 ]
+
+export const ARTISAN_GROUP: IArtisanGroup[] = [
+    {
+        id: '1',
+        name: 'Group 1',
+        createdAt: '04 May 2021',
+        NoOfArtisans: 10,
+        NoOfEstates: 4,
+        status: 'Active',
+    },
+    {
+        id: '1',
+        name: 'Group 1',
+        createdAt: '04 May 2021',
+        NoOfArtisans: 10,
+        NoOfEstates: 4,
+        status: 'Active',
+    },
+    {
+        id: '1',
+        name: 'Group 1',
+        createdAt: '04 May 2021',
+        NoOfArtisans: 10,
+        NoOfEstates: 4,
+        status: 'Active',
+    },
+    {
+        id: '1',
+        name: 'Group 1',
+        createdAt: '04 May 2021',
+        NoOfArtisans: 10,
+        NoOfEstates: 4,
+        status: 'Active',
+    },
+    {
+        id: '1',
+        name: 'Group 1',
+        createdAt: '04 May 2021',
+        NoOfArtisans: 10,
+        NoOfEstates: 4,
+        status: 'Active',
+    },
+    {
+        id: '1',
+        name: 'Group 1',
+        createdAt: '04 May 2021',
+        NoOfArtisans: 10,
+        NoOfEstates: 4,
+        status: 'Active',
+    },
+]
+
 type PathSwitch = 'artisanCategory' | 'artisanList' | 'artisanGroup'
 
 function RenderArtisans() {
