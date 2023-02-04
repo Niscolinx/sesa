@@ -114,6 +114,7 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
                     className='cursor-pointer'
                     name={item + index}
                     id={item + index}
+                    value={item}
                     checked={selected.includes(item)}
                     onChange={(e) => handleSelectedState(e, item)}
                 />
@@ -135,7 +136,7 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
         <div className='relative grid gap-4'>
             <p className='text-[1.4rem] font-semibold'>{label}</p>
             <div className='relative flex items-center'>
-                <p className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer h-[5rem] overflow-scroll flex gap-4 items-center'>
+                <p className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer h-[5rem] overflow-scroll flex gap-4 items-center '>
                     {selected && selected.length > 0 ? (
                         selected.map((item, i) => (
                             <span
