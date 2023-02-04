@@ -1,17 +1,8 @@
 import { useState } from 'react'
-import { IoMdAdd } from 'react-icons/io'
 import { useNavigate } from 'react-router'
-import RenderArtisans from '../../components/artisans/RenderArtisans'
+import RenderAdverts from '../../components/advert/RenderAdverts'
 
 function Advert() {
-    const navigate = useNavigate()
-
-    const [artisan, setArtisan] = useState(false)
-
-    const addArtisanHandler = () => {
-        setArtisan(true)
-        //navigate('/dashboard/artisan/add')
-    }
 
     return (
         <div>
