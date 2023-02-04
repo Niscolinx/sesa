@@ -1,4 +1,11 @@
-import React, { ChangeEvent, FC, useEffect, useState, MouseEvent } from 'react'
+import React, {
+    ChangeEvent,
+    FC,
+    useEffect,
+    useState,
+    MouseEvent,
+    useMemo,
+} from 'react'
 import { GrUp, GrDown } from 'react-icons/gr'
 import { IoMdClose } from 'react-icons/io'
 
@@ -89,8 +96,6 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
         e: ChangeEvent<HTMLInputElement>,
         item: string
     ) => {
-      
-
         const checked = e.target.checked
 
         if (checked) {
@@ -100,20 +105,47 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
         }
     }
 
+    const memoizedList = useMemo(() => {
+        return selectFrom.map((item, index) => (
+            <div
+                className='flex items-center pl-4 cursor-pointer hover:bg-color-grey'
+                key={index}
+            >
+                <input
+                    ref={checkBoxRef}
+                    type='checkbox'
+                    className='cursor-pointer'
+                    name={item + index}
+                    id={item + index}
+                    onChange={(e) => handleSelectedState(e, item)}
+                />
+                <label
+                    htmlFor={item + index}
+                    className='text-[1.4rem] p-4 cursor-pointer w-full'
+                >
+                    {item}
+                </label>
+            </div>
+        ))
+    }, [selectFrom, selected])
 
     const removeSelectedItem = (item: string) => {
         setSelected((prev) => prev.filter((i) => i !== item))
-    }
 
+        console.log(checkBoxRef.current)
+    }
 
     return (
         <div className='relative grid gap-4'>
             <p className='text-[1.4rem] font-semibold'>{label}</p>
             <div className='relative flex items-center'>
-                <p className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer min-h-[5rem] overflow-scroll flex gap-4 '>
+                <p className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer h-[5rem] overflow-scroll flex gap-4 items-center'>
                     {selected && selected.length > 0 ? (
                         selected.map((item, i) => (
-                            <span className='text-white overflow-hidden text-ellipsis whitespace-nowrap w-[10rem] bg-color-blue rounded-lg px-4 relative flex items-center h-[3.8rem] z-[2]' key={i}>
+                            <span
+                                className='text-white overflow-hidden text-ellipsis whitespace-nowrap w-[10rem] bg-color-blue rounded-lg px-4 relative flex items-center h-[3.8rem] z-[2]'
+                                key={i}
+                            >
                                 {item}
                                 <IoMdClose
                                     className='absolute right-2 text-[1.4rem] cursor-pointer'
@@ -146,27 +178,7 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
 
             {toggleStateMenu && (
                 <div className='absolute top-[8rem]  left-0 border border-color-primary-light min-w-[12rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
-                    {selectFrom.map((item, index) => (
-                        <div
-                            className='flex items-center pl-4 cursor-pointer hover:bg-color-grey'
-                            key={index}
-                        >
-                            <input
-                                ref={checkBoxRef}
-                                type='checkbox'
-                                className='cursor-pointer bg-red-400'
-                                name={item + index}
-                                id={item + index}
-                                onChange={(e) => handleSelectedState(e, item)}
-                            />
-                            <label
-                                htmlFor={item + index}
-                                className='text-[1.4rem]  p-4 cursor-pointer '
-                            >
-                                {item}
-                            </label>
-                        </div>
-                    ))}
+                    {memoizedList}
                 </div>
             )}
         </div>
