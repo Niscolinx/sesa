@@ -118,13 +118,20 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
             {toggleStateMenu && (
                 <div className='absolute top-[8rem]  left-0 border border-color-primary-light min-w-[12rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
                     {selectFrom.map((item, index) => (
-                        <p
-                            className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
+                        // <p
+                        //     className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
+                        //     key={index}
+                        //     onClick={() => handleSelectedState(item)}
+                        // >
+                        //     {item}
+                        // </p>
+
+                        <input
                             key={index}
-                            onClick={() => handleSelectedState(item)}
-                        >
-                            {item}
-                        </p>
+                            type='checkbox'
+                            name={item}
+                            id={item + index}
+                        />
                     ))}
                 </div>
             )}
