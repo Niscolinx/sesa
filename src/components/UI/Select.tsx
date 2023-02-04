@@ -82,6 +82,8 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
     const [toggleStateMenu, setToggleStateMenu] = useState(false)
 
     const stateMenuToggler = (e: MouseEvent<HTMLParagraphElement>) => {
+
+        console.log(e)
         setToggleStateMenu(!toggleStateMenu)
     }
 
