@@ -95,13 +95,7 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
 
         const checked = e.target.checked
 
-        if (checked) {
-            if (selected && selected.includes(item)) {
-                const newSelected = selected.filter((i) => i !== item)
-                setSelected(newSelected)
-                return
-            }
-        }
+       
     }
 
     useEffect(() => {
