@@ -12,7 +12,7 @@ import { IoMdAdd, IoMdClose } from 'react-icons/io'
 import { useNavigate } from 'react-router'
 import { toast, ToastContainer } from 'react-toastify'
 
-type DialogType = 'warning' | 'add-Category'
+type DialogType = 'warning' | 'add-Ar'
 export interface IArtisanGroup {
     id: string
     name: string
@@ -30,7 +30,8 @@ const ArtisanGroup: FC<{
 }> = ({ fetchedArtisanCategories }) => {
     const navigate = useNavigate()
 
-    const [isWarning, setIsWarning] = useState(true)
+        const [dialogType, setDialogType] = useState<Actions>('Deactivate')
+
 
     const handleDialogSubmit = (e: FormEvent) => {
         e.preventDefault()
@@ -65,20 +66,6 @@ const ArtisanGroup: FC<{
         })
     }
 
-    const selectAction = (e: React.MouseEvent, item: Actions) => {
-        if (item === 'Delete') {
-            handleOpen('warning')
-        }
-
-        if (item === 'View Details') {
-            navigate('/dashboard/artisan/category/:Id')
-        }
-
-        setToggleDropDown({
-            isDropDownOpen: false,
-            index: null,
-        })
-    }
 
     interface Paginate {
         index: number
@@ -174,6 +161,7 @@ const ArtisanGroup: FC<{
         })
     }
 
+    
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
     const handleClose = () => {
@@ -182,11 +170,12 @@ const ArtisanGroup: FC<{
         }
     }
 
-    const handleOpen = (modalState: DialogType) => {
-        if (modalState === 'warning') {
-            setIsWarning(true)
-        } else {
-            setIsWarning(false)
+    const handleOpen = (dialogType: Actions) => {
+        if (dialogType === 'Deactivate') {
+            setDialogType('Deactivate')
+        }
+        if (dialogType === 'Delete') {
+            setDialogType('Delete')
         }
 
         if (dialogRef.current) {
@@ -194,90 +183,106 @@ const ArtisanGroup: FC<{
         }
     }
 
-    const addCategoryHandler = () => {
-        // navigate('/dashboard/artisanGroup/add')
-        handleOpen('add-Category')
+    const handleSelectedAction = (item: Actions, id: string) => {
+        setToggleDropDown(() => {
+            return {
+                isDropDownOpen: false,
+                index: null,
+            }
+        })
+
+        if (item === 'View Details') {
+            navigate(`/dashboard/artisan/detail/:${id}`)
+        }
+
+        if (item === 'Deactivate') {
+            handleOpen('Deactivate')
+        }
+
+        if (item === 'Delete') {
+            handleOpen('Delete')
+        }
     }
 
-    const confirmDeactivation = () => {
+    const handleDeleteArtisan = () => {
         handleClose()
-        toast('Category deleted successfully', {
+
+        toast('Artisan deleted successfully', {
             type: 'error',
             className: 'bg-red-100 text-red-600 text-[1.4rem]',
         })
     }
+    const handleDeactivateArtisan = () => {
+        handleClose()
+
+        toast('Artisan deactivated successfully', {
+            type: 'error',
+            className: 'bg-red-100 text-red-600 text-[1.4rem]',
+        })
+    }
+
+    const addCategoryHandler = () => {
+        // navigate('/dashboard/artisanGroup/add')
+    }
+
+   
     return (
         <>
             <ToastContainer />
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
-                    <div className='bg-white rounded-2xl grid items-baseline w-[64rem] min-h-[30rem] p-10 gap-8 text-[1.6rem] relative'>
-                        <IoMdClose
-                            className='absolute right-4 top-4 text-[2rem] cursor-pointer'
-                            onClick={() => handleClose()}
-                        />
-
-                        {!isWarning ? (
-                            <form
-                                className='grid gap-12'
-                                onSubmit={handleDialogSubmit}
-                            >
-                                <h3
-                                    className='text-[2rem] font-bold border-b '
-                                    style={{
-                                        fontFamily: 'Satoshi-Medium',
-                                    }}
-                                >
-                                    Create Artisan Category
-                                </h3>
-
-                                <div className='w-full grid gap-4'>
-                                    <label
-                                        htmlFor='artisanName'
-                                        className='text-[1.4rem] font-semibold'
-                                    >
-                                        Name
-                                    </label>
-
-                                    <input
-                                        type='text'
-                                        required
-                                        id='artisanName'
-                                        className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem]'
-                                    />
-                                </div>
-
-                                <button className='btn bg-[#0556E5] text-white rounded-lg py-4 place-self-start w-[15rem]'>
-                                    Create
-                                </button>
-                            </form>
-                        ) : (
-                            <div className='bg-white rounded-2xl grid place-content-center justify-items-center h-[30rem] gap-8 text-[1.6rem]'>
+                    <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
+                        {dialogType === 'Deactivate' ? (
+                            <>
                                 <img
-                                    src='/icons/admins/modalWarning.svg'
+                                    src='/icons/admins/modalDeactivate.svg'
                                     alt=''
                                 />
-
-                                <p>
-                                    Are you sure you want to delete this Artisan
-                                    Category?
+                                <p className='text-[1.6rem]'>
+                                    Are you sure you want to deactivate this
+                                    Artisan
                                 </p>
 
                                 <div className='flex w-full justify-center gap-8'>
                                     <button
-                                        className='btn bg-white text-[#0556E5] border-[#0556E5] border rounded-lg w-[15rem]'
+                                        className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
                                         onClick={() => handleClose()}
                                     >
                                         Cancel
                                     </button>
                                     <button
                                         className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
-                                        onClick={confirmDeactivation}
+                                        onClick={handleDeactivateArtisan}
+                                    >
+                                        Deactivate
+                                    </button>
+                                </div>
+                            </>
+                        ) : (
+                            <>
+                                <img
+                                    src='/icons/admins/modalWarning.svg'
+                                    alt=''
+                                />
+                                <p className='text-[1.6rem]'>
+                                    Are you sure you want to delete this Artisan
+                                </p>
+
+                                <div className='flex w-full justify-center gap-8'>
+                                    <button
+                                        className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
+                                        onClick={() => handleClose()}
+                                    >
+                                        Cancel
+                                    </button>
+                                    <button
+                                        className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
+                                        onClick={handleDeleteArtisan}
                                     >
                                         Delete
                                     </button>
                                 </div>
-                            </div>
+                            </>
                         )}
                     </div>
                 </section>
@@ -403,9 +408,9 @@ const ArtisanGroup: FC<{
                                                                             onClick={(
                                                                                 e
                                                                             ) =>
-                                                                                selectAction(
-                                                                                    e,
-                                                                                    item
+                                                                                handleSelectedAction(
+                                                                                    item,
+                                                                                    id
                                                                                 )
                                                                             }
                                                                         >
