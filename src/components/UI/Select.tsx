@@ -117,10 +117,7 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
         <div className='relative grid gap-4'>
             <p className='text-[1.4rem] font-semibold'>{label}</p>
             <div className='relative flex items-center'>
-                <p
-                    className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer min-h-[5rem] overflow-scroll flex gap-4 '
-                    onClick={(e) => stateMenuToggler(e)}
-                >
+                <p className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer min-h-[5rem] overflow-scroll flex gap-4 '>
                     {selected && selected.length > 0 ? (
                         selected.map((item) => (
                             <span className='text-white overflow-hidden text-ellipsis whitespace-nowrap w-[10rem] bg-color-blue rounded-lg px-4 relative flex items-center h-[3.8rem] z-[2]'>
@@ -138,11 +135,17 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
                     )}
                 </p>
                 {toggleStateMenu ? (
-                    <div className='absolute w-full h-full z-[1] bg-red-600 left-0 flex items-center justify-end pr-3'>
+                    <div
+                        className='absolute w-full h-full z-[1] left-0 flex items-center justify-end pr-3 cursor-pointer'
+                        onClick={stateMenuToggler}
+                    >
                         <GrUp />
                     </div>
                 ) : (
-                    <div className='absolute w-full h-full z-[1] bg-red-600 left-0 flex items-center justify-end pr-3'>
+                    <div
+                        className='absolute w-full h-full z-[1] left-0 flex items-center justify-end pr-3 cursor-pointer'
+                        onClick={stateMenuToggler}
+                    >
                         <GrDown />
                     </div>
                 )}
