@@ -9,6 +9,14 @@ interface ISelect {
     placeholder?: string
 }
 
+interface IMultipleSelect {
+    selectFrom: Array<string>
+    selected: Array<string>
+    setSelected: React.Dispatch<React.SetStateAction<Array<string>>> | null
+    label: string
+    placeholder?: string
+}
+
 export const Select: FC<ISelect> = ({
     state,
     selectedState,
@@ -64,10 +72,10 @@ export const Select: FC<ISelect> = ({
 }
 
 
-export const MultipleSelect: FC<ISelect> = ({
-    state,
-    selectedState,
-    setSelectedState,
+export const MultipleSelect: FC<IMultipleSelect> = ({
+    selectFrom,
+    selected,
+    setSelected,
     label,
     placeholder,
 }) => {
