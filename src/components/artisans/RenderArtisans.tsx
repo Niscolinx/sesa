@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
 
 import ArtisanCategory, { IArtisanCategory } from './category/ArtisanCategory'
-import { IArtisanGroup } from './group/ArtisanGroup'
+import ArtisanGroup, { IArtisanGroup } from './group/ArtisanGroup'
 import ArtisanList, { IArtisanList } from './list/ArtisanList'
 
 export const ARTISAN_LIST: IArtisanList[] = [
@@ -155,6 +155,9 @@ function RenderArtisans() {
     const [fetchedArtisanCategories, setFetchedArtisanCategories] = useState<
         IArtisanCategory[] | null
     >(null)
+    const [fetchedArtisanGroups, setFetchedArtisanGroups] = useState<
+        IArtisanGroup[] | null
+    >(null)
 
     const [pathToSwitch, setPathToSwitch] =
         useState<PathSwitch>('artisanCategory')
@@ -164,6 +167,7 @@ function RenderArtisans() {
             setTimeout(() => {
                 setFetchedArtisanList(ARTISAN_LIST)
                 setFetchedArtisanCategories(ARTISAN_CATEGORY)
+                setFetchedArtisanGroups(ARTISAN_GROUP)
             }, 1000)
         }
         fetchData()
@@ -179,8 +183,8 @@ function RenderArtisans() {
             <ArtisanList fetchedArtisanList={fetchedArtisanList ?? []} />
         ),
         artisanGroup: (
-            <ArtisanCategory
-                fetchedArtisanCategories={fetchedArtisanCategories ?? []}
+            <ArtisanGroup
+                fetchedArtisanGroups={fetchedArtisanGroups ?? []}
             />
         ),
     }
