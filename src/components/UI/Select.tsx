@@ -103,7 +103,8 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
     }
 
     const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
-        setSearch(e.target.value)
+        const {value} = e.target
+        setSearch(value)
     }
 
     const memoizedList = useMemo(() => {
