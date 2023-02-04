@@ -1,38 +1,51 @@
 import { useState, useEffect } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
+import AdvertList, { IAdvertList } from './AdvertList'
 
 
 
-export const ARTISAN_CATEGORY: IArti[] = [
+export const ARDVERT_LIST: IAdvertList[] = [
     {
         id: '1',
-        name: 'Plumber',
-        createdAt: '04 May 2021',
-        NoOfArtisans: 10,
+        advertName: 'Pepsi Advert',
+        startDate: '02-May-22',
+        endDate: '22-May-22',
+        status: 'Active'
     },
     {
         id: '1',
-        name: 'Plumber',
-        createdAt: '04 May 2021',
-        NoOfArtisans: 10,
+        advertName: 'Pepsi Advert',
+        startDate: '02-May-22',
+        endDate: '22-May-22',
+        status: 'Inactive'
     },
     {
         id: '1',
-        name: 'Plumber',
-        createdAt: '04 May 2021',
-        NoOfArtisans: 10,
+        advertName: 'Pepsi Advert',
+        startDate: '02-May-22',
+        endDate: '22-May-22',
+        status: 'Inactive'
     },
     {
         id: '1',
-        name: 'Plumber',
-        createdAt: '04 May 2021',
-        NoOfArtisans: 10,
+        advertName: 'Pepsi Advert',
+        startDate: '02-May-22',
+        endDate: '22-May-22',
+        status: 'Active'
     },
     {
         id: '1',
-        name: 'Plumber',
-        createdAt: '04 May 2021',
-        NoOfArtisans: 10,
+        advertName: 'Pepsi Advert',
+        startDate: '02-May-22',
+        endDate: '22-May-22',
+        status: 'Active'
+    },
+    {
+        id: '1',
+        advertName: 'Pepsi Advert',
+        startDate: '02-May-22',
+        endDate: '22-May-22',
+        status: 'Active'
     },
 ]
 
@@ -57,7 +70,7 @@ function RenderAdverts() {
         const fetchData = async () => {
             setTimeout(() => {
                 setFetchedArtisanList(ARTISAN_LIST)
-                setFetchedArtisanCategories(ARTISAN_CATEGORY)
+                setFetchedArtisanCategories(ARDVERT_LIST)
                 setFetchedArtisanGroups(ARTISAN_GROUP)
             }, 1000)
         }
