@@ -176,7 +176,7 @@ const ArtisanGroup: FC<{
         })
 
         if (item === 'View Details') {
-            navigate(`/dashboard/artisan/detail/:${id}`)
+            navigate(`/dashboard/artisan/group/:${id}`)
         }
 
         if (item === 'Deactivate') {
