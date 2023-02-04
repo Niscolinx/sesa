@@ -30,7 +30,7 @@ const AddArtisanGroup = () => {
         <>
             <ToastContainer />
 
-            <div className='p-8 bg-white h-[70vh] rounded-lg'>
+            <div className='p-8 bg-white rounded-lg '>
                 <div className='grid gap-8 border-b py-10 self-start'>
                     <h2
                         className='text-[2rem] '
@@ -43,11 +43,7 @@ const AddArtisanGroup = () => {
                 </div>
                 <form
                     onSubmit={handleSubmit}
-                    className='grid max-w-[84rem] gap-16 mt-12 items-start h-full'
-                    style={{
-                        gridTemplateColumns:
-                            ' repeat(auto-fit, minmax(35rem, 1fr))',
-                    }}
+                    className='flex flex-col gap-4 max-w-[50rem] h-[70vh] '
                 >
                     <div className='grid gap-4 relative '>
                         <label
@@ -68,12 +64,12 @@ const AddArtisanGroup = () => {
                         selectFrom={['Lagos', 'Abuja', 'Ogun']}
                         label='Artisans'
                         placeholder='Select Artisans'
-                    selected={selected}
-                    setSelected={setSelected}
+                        selected={selected}
+                        setSelected={setSelected}
                     />
-                  
+
                     <button
-                        className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg col-span-full justify-self-start mt-auto'
+                        className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg col-span-full mt-auto mr-auto'
                         onClick={addArtisanGroupHandler}
                     >
                         <span>
