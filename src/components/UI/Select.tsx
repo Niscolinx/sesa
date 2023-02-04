@@ -123,16 +123,17 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
                         // >
                         //     {item}
                         // </p>
-                        <div className='flex items-center pl-4'>
+                        <div className='flex items-center pl-4 cursor-pointer hover:bg-color-grey'>
                             <input
                                 key={index}
                                 type='checkbox'
+                                className='cursor-pointer'
                                 name={item}
                                 id={item + index}
                             />
                             <label
                                 htmlFor={item + index}
-                                className='text-[1.4rem] hover:bg-color-grey p-4 cursor-pointer w-[7rem]  overflow-hidden text-ellipsis whitespace-nowrap'
+                                className='text-[1.4rem]  p-4 w-[7rem] cursor-pointer overflow-hidden text-ellipsis whitespace-nowrap'
                             >
                                 {item}
                             </label>
