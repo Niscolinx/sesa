@@ -14,26 +14,24 @@ import { toast, ToastContainer } from 'react-toastify'
 
 export interface IAdvertList {
     id: string
-    name: string
-    NoOfArtisans: number
-    NoOfEstates: number
+    advertName: string
+    startDate: string
+    endDate: string
     status: 'Active' | 'Inactive'
-    createdAt: string
 }
 
-type Actions = 'Delete' | 'View Details' | 'Edit Details' | 'Deactivate'
+type Actions = 'Delete' | 'View Details' | 'Edit Details'
 
 const AdvertList: FC<{
     fetchedAdvertLists: IAdvertList[]
 }> = ({ fetchedAdvertLists }) => {
     const navigate = useNavigate()
 
-    const [dialogType, setDialogType] = useState<Actions>('Deactivate')
+    const [dialogType, setDialogType] = useState<Actions>('Delete')
 
     const actions = [
         'View Details',
         'Edit Details',
-        'Deactivate',
         'Delete',
     ] satisfies Actions[]
 
@@ -160,9 +158,7 @@ const AdvertList: FC<{
     }
 
     const handleOpen = (dialogType: Actions) => {
-        if (dialogType === 'Deactivate') {
-            setDialogType('Deactivate')
-        }
+       
         if (dialogType === 'Delete') {
             setDialogType('Delete')
         }
@@ -181,37 +177,34 @@ const AdvertList: FC<{
         })
 
         if (item === 'View Details') {
-            navigate(`/dashboard/artisan/group/:${id}`)
+            navigate(`/dashboard/advert/list/:${id}`)
         }
 
-        if (item === 'Deactivate') {
-            handleOpen('Deactivate')
-        }
 
         if (item === 'Delete') {
             handleOpen('Delete')
         }
     }
 
-    const handleDeleteArtisan = () => {
+    const handleDeleteAdvert = () => {
         handleClose()
 
-        toast('Artisan deleted successfully', {
+        toast('Advert deleted successfully', {
             type: 'error',
             className: 'bg-red-100 text-red-600 text-[1.4rem]',
         })
     }
-    const handleDeactivateArtisan = () => {
+    const handleDeactivateAdvert = () => {
         handleClose()
 
-        toast('Artisan deactivated successfully', {
+        toast('Advert deactivated successfully', {
             type: 'error',
             className: 'bg-red-100 text-red-600 text-[1.4rem]',
         })
     }
 
     const addGroupHandler = () => {
-        navigate('/dashboard/artisan/group/add')
+        navigate('/dashboard/advert/group/add')
     }
 
     return (
@@ -220,40 +213,14 @@ const AdvertList: FC<{
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
-                        {dialogType === 'Deactivate' ? (
-                            <>
-                                <img
-                                    src='/icons/admins/modalDeactivate.svg'
-                                    alt=''
-                                />
-                                <p className='text-[1.6rem]'>
-                                    Are you sure you want to deactivate this
-                                    Artisan
-                                </p>
-
-                                <div className='flex w-full justify-center gap-8'>
-                                    <button
-                                        className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
-                                        onClick={() => handleClose()}
-                                    >
-                                        Cancel
-                                    </button>
-                                    <button
-                                        className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
-                                        onClick={handleDeactivateArtisan}
-                                    >
-                                        Deactivate
-                                    </button>
-                                </div>
-                            </>
-                        ) : (
-                            <>
+                        
+                        
                                 <img
                                     src='/icons/admins/modalWarning.svg'
                                     alt=''
                                 />
                                 <p className='text-[1.6rem]'>
-                                    Are you sure you want to delete this Artisan
+                                    Are you sure you want to delete this Advert
                                 </p>
 
                                 <div className='flex w-full justify-center gap-8'>
@@ -265,20 +232,19 @@ const AdvertList: FC<{
                                     </button>
                                     <button
                                         className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
-                                        onClick={handleDeleteArtisan}
+                                        onClick={handleDeleteAdvert}
                                     >
                                         Delete
                                     </button>
                                 </div>
-                            </>
-                        )}
+                       
                     </div>
                 </section>
             </dialog>
             <div className='grid text-[1.6rem]'>
                 <div className='flex w-full items-center gap-12 p-10 bg-white rounded-lg'>
                     <p className=' font-bold'>
-                        Artisan Group <span>(10)</span>
+                        Advert Group <span>(10)</span>
                     </p>
                     <div className='relative flex items-center'>
                         <img
@@ -300,7 +266,7 @@ const AdvertList: FC<{
                         <span>
                             <IoMdAdd />
                         </span>{' '}
-                        Add Artisan Group
+                        Add Advert Group
                     </button>
                 </div>
 
@@ -313,13 +279,12 @@ const AdvertList: FC<{
                     >
                         <p className='flex items-center gap-2'>
                             <input type='checkbox' className='cursor-pointer' />
-                            <p> Name</p>
+                            <p>Advert Name</p>
                         </p>
-                        <p>No of Artisans</p>
-                        <p>No of Estates</p>
+                        <p>Start Date</p>
+                        <p>End Date</p>
+                        <p>End Date</p>
                         <p>Status</p>
-                        <p>Created At</p>
-                        <p>Actions</p>
                     </div>
 
                     <div className='grid gap-8 mt-8 p-8'>
@@ -330,7 +295,7 @@ const AdvertList: FC<{
                                         {
                                             name,
                                             createdAt,
-                                            NoOfArtisans,
+                                            NoOfAdverts,
                                             id,
                                             NoOfEstates,
                                             status,
@@ -349,7 +314,7 @@ const AdvertList: FC<{
 
                                                     <span>{name}</span>
                                                 </p>
-                                                <p>{NoOfArtisans}</p>
+                                                <p>{NoOfAdverts}</p>
                                                 <p>{NoOfEstates}</p>
                                                 <p>
                                                     {status === 'Active' ? (

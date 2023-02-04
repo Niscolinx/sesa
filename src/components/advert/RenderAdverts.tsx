@@ -1,68 +1,9 @@
 import { useState, useEffect } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
-import ArtisanCategory, { IArtisanCategory } from '../artisans/category/ArtisanCategory'
-import ArtisanGroup, { IArtisanGroup } from '../artisans/group/ArtisanGroup'
-import ArtisanList, { IArtisanList } from '../artisans/list/ArtisanList'
 
 
-export const ARTISAN_LIST: IArtisanList[] = [
-    {
-        id: '1',
-        artisanName: 'John Doe',
-        businessName: 'Robert Fox',
-        phoneNumber: '(+234) 8012345678',
-        category: 'Plumber',
-        assignedGroup: 'Group 1',
-        rating: 5,
-    },
-    {
-        id: '1',
-        artisanName: 'John Doe',
-        businessName: 'Robert Fox',
-        phoneNumber: '(+234) 8012345678',
-        category: 'Plumber',
-        assignedGroup: 'Group 1',
-        rating: 5,
-    },
-    {
-        id: '1',
-        artisanName: 'John Doe',
-        businessName: 'Robert Fox',
-        phoneNumber: '(+234) 8012345678',
-        category: 'Plumber',
-        assignedGroup: 'Group 1',
-        rating: 3,
-    },
-    {
-        id: '1',
-        artisanName: 'John Doe',
-        businessName: 'Robert Fox',
-        phoneNumber: '(+234) 8012345678',
-        category: 'Plumber',
-        assignedGroup: 'Group 1',
-        rating: 4,
-    },
-    {
-        id: '1',
-        artisanName: 'John Doe',
-        businessName: 'Robert Fox',
-        phoneNumber: '(+234) 8012345678',
-        category: 'Plumber',
-        assignedGroup: 'Group 1',
-        rating: 4,
-    },
-    {
-        id: '1',
-        artisanName: 'John Doe',
-        businessName: 'Robert Fox',
-        phoneNumber: '(+234) 8012345678',
-        category: 'Plumber',
-        assignedGroup: 'Group 1',
-        rating: 5,
-    },
-]
 
-export const ARTISAN_CATEGORY: IArtisanCategory[] = [
+export const ARTISAN_CATEGORY: IArti[] = [
     {
         id: '1',
         name: 'Plumber',
@@ -95,56 +36,6 @@ export const ARTISAN_CATEGORY: IArtisanCategory[] = [
     },
 ]
 
-export const ARTISAN_GROUP: IArtisanGroup[] = [
-    {
-        id: '1',
-        name: 'Group 1',
-        createdAt: '04 May 2021',
-        NoOfArtisans: 10,
-        NoOfEstates: 4,
-        status: 'Active',
-    },
-    {
-        id: '1',
-        name: 'Group 1',
-        createdAt: '04 May 2021',
-        NoOfArtisans: 10,
-        NoOfEstates: 4,
-        status: 'Inactive',
-    },
-    {
-        id: '1',
-        name: 'Group 1',
-        createdAt: '04 May 2021',
-        NoOfArtisans: 10,
-        NoOfEstates: 4,
-        status: 'Inactive',
-    },
-    {
-        id: '1',
-        name: 'Group 1',
-        createdAt: '04 May 2021',
-        NoOfArtisans: 10,
-        NoOfEstates: 4,
-        status: 'Active',
-    },
-    {
-        id: '1',
-        name: 'Group 1',
-        createdAt: '04 May 2021',
-        NoOfArtisans: 10,
-        NoOfEstates: 4,
-        status: 'Active',
-    },
-    {
-        id: '1',
-        name: 'Group 1',
-        createdAt: '04 May 2021',
-        NoOfArtisans: 10,
-        NoOfEstates: 4,
-        status: 'Active',
-    },
-]
 
 type PathSwitch = 'artisanCategory' | 'artisanList' | 'artisanGroup'
 
