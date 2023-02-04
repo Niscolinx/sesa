@@ -14,55 +14,16 @@ const AddArtisanGroup = () => {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
-    }
+    }  
 
-    const dialogRef = useRef<HTMLDialogElement | null>(null)
-    const validateDialogRef = useRef<HTMLDialogElement | null>(null)
-
-    const handleClose = () => {
-        if (dialogRef.current) {
-            dialogRef.current.close()
-        }
-    }
-
-    const closeValidateDialog = () => {
-        if (validateDialogRef.current) {
-            validateDialogRef.current.close()
-        }
-    }
-
-    const openValidateDialog = () => {
-        if (validateDialogRef.current) {
-            validateDialogRef.current.showModal()
-        }
-    }
-    const handleOpen = (modalState: DialogType) => {
-        if (modalState === 'validate') {
-            setIsAddArtisanGroup(true)
-        } else {
-            setIsAddArtisanGroup(false)
-        }
-
-        if (dialogRef.current) {
-            dialogRef.current.showModal()
-        }
-    }
+    
+  
 
     const addArtisanGroupHandler = () => {
         // navigate('/dashboard/artisanCategory/add')
-        handleOpen('add-Artisan')
     }
 
-    const confirmAddArtisanGroup = () => {
-        handleClose()
-    }
-
-    const handleDialogSubmit = (e: FormEvent) => {
-        e.preventDefault()
-        handleClose()
-
-        openValidateDialog()
-    }
+   
 
     return (
         <>
