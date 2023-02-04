@@ -199,10 +199,10 @@ const AvailableEstateAdvert: FC<{
                                                         className='cursor-pointer'
                                                     />
 
-                                                    <span>{advertName}</span>
+                                                    <span>{estateName}</span>
                                                 </p>
-                                                <p>{startDate}</p>
-                                                <p>{endDate}</p>
+                                                <p>{state}</p>
+                                                <p>{address}</p>
                                                 <p>
                                                     {status === 'Active' ? (
                                                         <span className='text-green-600'>
