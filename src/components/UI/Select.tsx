@@ -71,7 +71,6 @@ export const Select: FC<ISelect> = ({
     )
 }
 
-
 export const MultipleSelect: FC<IMultipleSelect> = ({
     selectFrom,
     selected,
@@ -84,7 +83,6 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
     const stateMenuToggler = () => setToggleStateMenu(!toggleStateMenu)
 
     const handleSelectedState = (item: string) => {
-        
         //setToggleStateMenu(false)
 
         if (selected.includes(item)) {
@@ -134,7 +132,7 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
                             />
                             <label
                                 htmlFor={item + index}
-                                className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
+                                className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer w-[7rem]  overflow-hidden text-ellipsis whitespace-nowrap'
                             >
                                 {item}
                             </label>
@@ -145,5 +143,3 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
         </div>
     )
 }
-
-
