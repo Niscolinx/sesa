@@ -86,6 +86,7 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
 }) => {
     const [toggleStateMenu, setToggleStateMenu] = useState(false)
     const [search, setSearch] = useState('')
+    const [selectedFrom, setSelectedFrom] = useState(selectFrom)
 
     const stateMenuToggler = () => setToggleStateMenu(!toggleStateMenu)
 
@@ -105,10 +106,23 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
     const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
         const {value} = e.target
         setSearch(value)
+
+        if (value.length > 0) {
+            setSelectedFrom(
+                (prev) => {
+                    return prev.filter((item) => {
+                        return item.toLowerCase().includes(value.toLowerCase())
+                    })
+                }
+            )
+        } else {
+            setSelectedFrom(selectFrom)
+        }
+
     }
 
     const memoizedList = useMemo(() => {
-        return selectFrom.map((item, index) => (
+        return selectedFrom.map((item, index) => (
             <div
                 className='flex items-center pl-4 cursor-pointer hover:bg-color-grey'
                 key={index}
@@ -130,7 +144,7 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
                 </label>
             </div>
         ))
-    }, [selectFrom])
+    }, [selectedFrom])
 
     const removeSelectedItem = (item: string) => {
         setSelected((prev) => prev.filter((i) => i !== item))
