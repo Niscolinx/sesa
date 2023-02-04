@@ -44,7 +44,7 @@ const AddArtisanGroup = () => {
                 </div>
                 <form
                     onSubmit={handleSubmit}
-                    className='flex flex-col gap-16 max-w-[50rem] h-[60vh] mt-10'
+                    className='flex flex-col gap-16 max-w-[50rem] mt-10 '
                 >
                     <div className='grid gap-4 relative '>
                         <label
@@ -69,7 +69,7 @@ const AddArtisanGroup = () => {
                         setSelected={setSelectedArtisans}
                     />
                     <MultipleSelect
-                        selectFrom={['Estate 1', 'Estate 2', 'Estate 3', 'Estate 4']}
+                        selectFrom={['Estate 1', 'Estate 2', 'Estate 3', 'Estate 4', 'Estate 5', 'Estate 6', 'Estate 7']}
                         label='Estates'
                         placeholder='Select Estate'
                         selected={selectedEstates}
