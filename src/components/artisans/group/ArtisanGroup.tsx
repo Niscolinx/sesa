@@ -17,7 +17,10 @@ export interface IArtisanGroup {
     id: string
     name: string
     NoOfArtisans: number
+    NoOfEstates: number
+    status: string
     createdAt: string
+
 }
 
 type Actions = 'Delete' | 'View Details'
