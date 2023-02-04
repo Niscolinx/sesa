@@ -62,7 +62,7 @@ const ArtisanGroup: FC<{
     }
 
     const itemsPerPageArr = [2, 4, 6, 8]
-    const perPage = 6
+    const perPage = 4
 
     const [paginate, setPaginate] = useState<Paginate>({
         index: 0,
@@ -113,6 +113,7 @@ const ArtisanGroup: FC<{
     }, [fetchedArtisanGroups])
 
     const handleNext = () => {
+console.log(paginate.currentPage, paginate.totalPage, slicedPages)
         if (paginate.currentPage === paginate.totalPage) return
         setPaginate((prev) => {
             return {

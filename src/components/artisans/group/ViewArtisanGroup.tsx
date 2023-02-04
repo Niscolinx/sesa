@@ -61,13 +61,13 @@ const ViewArtisanGroup = () => {
 
     const [isWarning, setIsWarning] = useState(true)
     const [isLoaded, setIsLoaded] = useState(false)
-    const [fetchedArtisanCategories, setFetchedArtisanCategories] = useState<
+    const [fetchedArtisanGroups, setFetchedArtisanGroups] = useState<
         IViewArtisanGroup[]
     >([])
 
     useEffect(() => {
         setTimeout(() => {
-            setFetchedArtisanCategories(VIEW_ARTISAN_GROUP)
+            setFetchedArtisanGroups(VIEW_ARTISAN_GROUP)
             //setIsLoaded(true)
         }, 1000)
     }, [])
@@ -137,7 +137,7 @@ const ViewArtisanGroup = () => {
         currentPage: 1,
         itemsPerPage: perPage,
 
-        totalPage: Math.ceil(fetchedArtisanCategories.length / perPage),
+        totalPage: Math.ceil(fetchedArtisanGroups.length / perPage),
         slicedPages: null,
     })
 
@@ -149,8 +149,8 @@ const ViewArtisanGroup = () => {
         const item = parseInt(e.target.value)
 
         const slicedPages: IViewArtisanGroup[][] = []
-        for (let i = 0; i < fetchedArtisanCategories.length; i += item) {
-            slicedPages.push(fetchedArtisanCategories.slice(i, i + item))
+        for (let i = 0; i < fetchedArtisanGroups.length; i += item) {
+            slicedPages.push(fetchedArtisanGroups.slice(i, i + item))
         }
 
         setPaginate((prev) => {
@@ -160,7 +160,7 @@ const ViewArtisanGroup = () => {
                 index: 0,
                 currentPage: 1,
                 slicedPages,
-                totalPage: Math.ceil(fetchedArtisanCategories.length / item),
+                totalPage: Math.ceil(fetchedArtisanGroups.length / item),
             }
         })
     }
@@ -169,11 +169,11 @@ const ViewArtisanGroup = () => {
         const slicedPages: IViewArtisanGroup[][] = []
         for (
             let i = 0;
-            i < fetchedArtisanCategories.length;
+            i < fetchedArtisanGroups.length;
             i += paginate.itemsPerPage
         ) {
             slicedPages.push(
-                fetchedArtisanCategories.slice(i, i + paginate.itemsPerPage)
+                fetchedArtisanGroups.slice(i, i + paginate.itemsPerPage)
             )
         }
 
@@ -181,12 +181,15 @@ const ViewArtisanGroup = () => {
             return {
                 ...prev,
                 slicedPages,
+                totalPage: Math.ceil(
+                    fetchedArtisanGroups.length / paginate.itemsPerPage
+                ),
             }
         })
-    }, [fetchedArtisanCategories])
+    }, [fetchedArtisanGroups])
 
     const handleNext = () => {
-        console.log(paginate.currentPage, paginate.totalPage)
+        console.log(paginate.currentPage, paginate.totalPage, slicedPages)
         if (paginate.currentPage === paginate.totalPage) return
         setPaginate((prev) => {
             return {
