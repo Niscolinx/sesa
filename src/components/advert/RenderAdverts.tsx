@@ -53,7 +53,42 @@ export const AVAILABLE_ESTATE_ADVERT: IAvailableEstateAdvert[] = [
         id: '1',
         estateName: 'Pepsi Estate',
         state: 'Lagos',
-        address: 'No 1, Pepsi Street, Pepsi Estate, Lagos',
+        address: 'No 1, Pepsi Street, Pepsi Estate',
+        noOfResidents: 50
+    },
+    {
+        id: '1',
+        estateName: 'Pepsi Estate',
+        state: 'Lagos',
+        address: 'No 1, Pepsi Street, Pepsi Estate',
+        noOfResidents: 50
+    },
+    {
+        id: '1',
+        estateName: 'Pepsi Estate',
+        state: 'Lagos',
+        address: 'No 1, Pepsi Street, Pepsi Estate',
+        noOfResidents: 50
+    },
+    {
+        id: '1',
+        estateName: 'Pepsi Estate',
+        state: 'Lagos',
+        address: 'No 1, Pepsi Street, Pepsi Estate',
+        noOfResidents: 50
+    },
+    {
+        id: '1',
+        estateName: 'Pepsi Estate',
+        state: 'Lagos',
+        address: 'No 1, Pepsi Street, Pepsi Estate',
+        noOfResidents: 50
+    },
+    {
+        id: '1',
+        estateName: 'Pepsi Estate',
+        state: 'Lagos',
+        address: 'No 1, Pepsi Street, Pepsi Estate',
         noOfResidents: 50
     },
 ]
@@ -64,6 +99,9 @@ function RenderAdverts() {
     const [fetchedAdvertList, setFetchedAdvertList] = useState<
         IAdvertList[] | null
     >(null)
+    const [fetchedAvailableEstateAdvert, setFetchedAvailableEstateAdvert] = useState<
+        IAvailableEstateAdvert[] | null
+    >(null)
 
     const [pathToSwitch, setPathToSwitch] = useState<PathSwitch>('advertList')
 
@@ -71,6 +109,7 @@ function RenderAdverts() {
         const fetchData = async () => {
             setTimeout(() => {
                 setFetchedAdvertList(ADVERT_LIST)
+                setFetchedAvailableEstateAdvert(AVAILABLE_ESTATE_ADVERT)
             }, 1000)
         }
         fetchData()

@@ -163,7 +163,7 @@ const AvailableEstateAdvert: FC<{
 
                 <div className='grid'>
                     <div
-                        className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-6 gap-8'
+                        className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-4 gap-8'
                         style={{
                             fontSize: '1.4rem',
                         }}
@@ -192,7 +192,7 @@ const AvailableEstateAdvert: FC<{
                                     ) => {
                                       
                                         return (
-                                            <div className='grid justify-between border-b grid-cols-6 gap-8 '>
+                                            <div className='grid justify-between border-b grid-cols-4 items-center gap-8 '>
                                                 <p className='flex items-center gap-4'>
                                                     <input
                                                         type='checkbox'
