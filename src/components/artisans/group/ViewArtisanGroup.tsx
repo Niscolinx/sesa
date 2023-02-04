@@ -187,7 +187,7 @@ const ViewArtisanGroup = () => {
 
     const handleNext = () => {
         console.log(paginate.currentPage, paginate.totalPage)
-        if (paginate.currentPage - 1 === paginate.totalPage) return
+        if (paginate.currentPage === paginate.totalPage) return
         setPaginate((prev) => {
             return {
                 ...prev,

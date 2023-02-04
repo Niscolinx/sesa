@@ -128,11 +128,12 @@ const ViewArtisanCategory = () => {
     }
 
     const itemsPerPageArr = [2, 4, 6, 8]
+    const perPage = 4
 
     const [paginate, setPaginate] = useState<Paginate>({
         index: 0,
         currentPage: 1,
-        itemsPerPage: 6,
+        itemsPerPage: ,
 
         totalPage: Math.ceil(fetchedArtisanCategories.length / 2),
         slicedPages: null,
@@ -184,7 +185,7 @@ const ViewArtisanCategory = () => {
 
     const handleNext = () => {
         console.log(paginate.currentPage, paginate.totalPage)
-        if (paginate.currentPage - 1 === paginate.totalPage) return
+        if (paginate.currentPage === paginate.totalPage) return
         setPaginate((prev) => {
             return {
                 ...prev,
