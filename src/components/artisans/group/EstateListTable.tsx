@@ -159,32 +159,11 @@ function EstateListTable() {
         })
     }
     return (
-        <div className='grid text-[1.6rem] bg-white px-10 rounded-lg'>
-            <div className='flex gap-8 py-10 max-w-[50rem] items-end'>
-                <div className='w-full grid gap-4'>
-                    <label
-                        htmlFor='groupName'
-                        className='text-[1.4rem] font-semibold'
-                    >
-                        Group Name
-                    </label>
-
-                    <input
-                        type='text'
-                        required
-                        placeholder='Mainland group 1'
-                        id='groupName'
-                        className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem]'
-                    />
-                </div>
-
-                <button className='btn bg-[#0556E5] text-white rounded-lg py-4 w-[15rem]'>
-                    Update
-                </button>
-            </div>
+        <div className='grid text-[1.6rem] bg-white rounded-lg mt-20'>
+            
             <div className='flex w-full items-center gap-12 py-8 bg-white rounded-lg'>
                 <p className=' font-bold'>
-                    Group Users <span>(5)</span>
+                    Estate List <span>(5)</span>
                 </p>
                 <div className='relative flex items-center'>
                     <img
