@@ -23,8 +23,8 @@ export interface IAdvertList {
 type Actions = 'Delete' | 'View Details' | 'Edit Details'
 
 const AdvertList: FC<{
-    fetchedAdvertLists: IAdvertList[]
-}> = ({ fetchedAdvertLists }) => {
+    fetchedAdvertList: IAdvertList[]
+}> = ({ fetchedAdvertList }) => {
     const navigate = useNavigate()
 
     const [dialogType, setDialogType] = useState<Actions>('Delete')
@@ -70,7 +70,7 @@ const AdvertList: FC<{
         index: 0,
         currentPage: 1,
         itemsPerPage: perPage,
-        totalPage: Math.ceil(fetchedAdvertLists.length / perPage),
+        totalPage: Math.ceil(fetchedAdvertList.length / perPage),
         slicedPages: null,
     })
 
@@ -78,8 +78,8 @@ const AdvertList: FC<{
         const item = parseInt(e.target.value)
 
         const slicedPages: IAdvertList[][] = []
-        for (let i = 0; i < fetchedAdvertLists.length; i += item) {
-            slicedPages.push(fetchedAdvertLists.slice(i, i + item))
+        for (let i = 0; i < fetchedAdvertList.length; i += item) {
+            slicedPages.push(fetchedAdvertList.slice(i, i + item))
         }
 
         setPaginate((prev) => {
@@ -89,7 +89,7 @@ const AdvertList: FC<{
                 index: 0,
                 currentPage: 1,
                 slicedPages,
-                totalPage: Math.ceil(fetchedAdvertLists.length / item),
+                totalPage: Math.ceil(fetchedAdvertList.length / item),
             }
         })
     }
@@ -98,11 +98,11 @@ const AdvertList: FC<{
         const slicedPages: IAdvertList[][] = []
         for (
             let i = 0;
-            i < fetchedAdvertLists.length;
+            i < fetchedAdvertList.length;
             i += paginate.itemsPerPage
         ) {
             slicedPages.push(
-                fetchedAdvertLists.slice(i, i + paginate.itemsPerPage)
+                fetchedAdvertList.slice(i, i + paginate.itemsPerPage)
             )
         }
 
@@ -112,7 +112,7 @@ const AdvertList: FC<{
                 slicedPages,
             }
         })
-    }, [fetchedAdvertLists])
+    }, [fetchedAdvertList])
 
     const handleNext = () => {
         console.log(paginate.currentPage, paginate.totalPage, slicedPages)

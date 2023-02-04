@@ -2,92 +2,73 @@ import { useState, useEffect } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
 import AdvertList, { IAdvertList } from './AdvertList'
 
-
-
-export const ARDVERT_LIST: IAdvertList[] = [
+export const ADVERT_LIST: IAdvertList[] = [
     {
         id: '1',
         advertName: 'Pepsi Advert',
         startDate: '02-May-22',
         endDate: '22-May-22',
-        status: 'Active'
+        status: 'Active',
     },
     {
         id: '1',
         advertName: 'Pepsi Advert',
         startDate: '02-May-22',
         endDate: '22-May-22',
-        status: 'Inactive'
+        status: 'Inactive',
     },
     {
         id: '1',
         advertName: 'Pepsi Advert',
         startDate: '02-May-22',
         endDate: '22-May-22',
-        status: 'Inactive'
+        status: 'Inactive',
     },
     {
         id: '1',
         advertName: 'Pepsi Advert',
         startDate: '02-May-22',
         endDate: '22-May-22',
-        status: 'Active'
+        status: 'Active',
     },
     {
         id: '1',
         advertName: 'Pepsi Advert',
         startDate: '02-May-22',
         endDate: '22-May-22',
-        status: 'Active'
+        status: 'Active',
     },
     {
         id: '1',
         advertName: 'Pepsi Advert',
         startDate: '02-May-22',
         endDate: '22-May-22',
-        status: 'Active'
+        status: 'Active',
     },
 ]
 
-
-type PathSwitch = 'artisanCategory' | 'artisanList' | 'artisanGroup'
+type PathSwitch = 'advertList' | 'availableEstates'
 
 function RenderAdverts() {
-    const [fetchedArtisanList, setFetchedArtisanList] = useState<
-        IArtisanList[] | null
-    >(null)
-    const [fetchedArtisanCategories, setFetchedArtisanCategories] = useState<
-        IArtisanCategory[] | null
-    >(null)
-    const [fetchedArtisanGroups, setFetchedArtisanGroups] = useState<
-        IArtisanGroup[] | null
+    const [fetchedAdvertList, setFetchedAdvertList] = useState<
+        IAdvertList[] | null
     >(null)
 
-    const [pathToSwitch, setPathToSwitch] =
-        useState<PathSwitch>('artisanCategory')
+    const [pathToSwitch, setPathToSwitch] = useState<PathSwitch>('advertList')
 
     useEffect(() => {
         const fetchData = async () => {
             setTimeout(() => {
-                setFetchedArtisanList(ARTISAN_LIST)
-                setFetchedArtisanCategories(ARDVERT_LIST)
-                setFetchedArtisanGroups(ARTISAN_GROUP)
+                setFetchedAdvertList(ADVERT_LIST)
             }, 1000)
         }
         fetchData()
     }, [])
 
     const handlePathSwitch: Record<PathSwitch, JSX.Element> = {
-        artisanCategory: (
-            <ArtisanCategory
-                fetchedArtisanCategories={fetchedArtisanCategories ?? []}
-            />
-        ),
-        artisanList: (
-            <ArtisanList fetchedArtisanList={fetchedArtisanList ?? []} />
-        ),
-        artisanGroup: (
-            <ArtisanGroup fetchedArtisanGroups={fetchedArtisanGroups ?? []} />
+        advertList: <AdvertList fetchedAdvertList={fetchedAdvertList ?? []} />,
+        availableEstates: (
+            <AdvertList fetchedAdvertList={fetchedAdvertList ?? []} />
         ),
     }
 
@@ -96,38 +77,38 @@ function RenderAdverts() {
             <div className='estateDetail__radioBox'>
                 <input
                     type='radio'
-                    name='artisan'
-                    id='artisanCategory'
+                    name='advert'
+                    id='advertCategory'
                     className='hidden'
-                    onChange={() => setPathToSwitch('artisanCategory')}
+                    onChange={() => setPathToSwitch('advertCategory')}
                     defaultChecked
                 />
-                <label htmlFor='artisanCategory'>Artisan Category</label>
+                <label htmlFor='advertCategory'>Advert Category</label>
 
                 <input
                     type='radio'
-                    name='artisan'
-                    id='artisanList'
+                    name='advert'
+                    id='advertList'
                     className='hidden'
-                    onChange={() => setPathToSwitch('artisanList')}
+                    onChange={() => setPathToSwitch('advertList')}
                 />
-                <label htmlFor='artisanList' className='capitalize'>
-                    Artisan List
+                <label htmlFor='advertList' className='capitalize'>
+                    Advert List
                 </label>
                 <input
                     type='radio'
-                    name='artisan'
-                    id='artisanGroup'
+                    name='advert'
+                    id='advertGroup'
                     className='hidden'
-                    onChange={() => setPathToSwitch('artisanGroup')}
+                    onChange={() => setPathToSwitch('advertGroup')}
                 />
-                <label htmlFor='artisanGroup' className='capitalize'>
-                    Artisan Group
+                <label htmlFor='advertGroup' className='capitalize'>
+                    Advert Group
                 </label>
             </div>
             <div className='mt-8 grid gap-8'>
                 <section className='bg-color-white rounded-lg border min-w-[112rem] overflow-scroll'>
-                    {fetchedArtisanList && fetchedArtisanList.length > 0 ? (
+                    {fetchedAdvertList && fetchedAdvertList.length > 0 ? (
                         handlePathSwitch[pathToSwitch]
                     ) : (
                         <section className='relative w-[70vw] h-[60vh] mx-auto grid'>
