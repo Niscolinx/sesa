@@ -17,10 +17,7 @@ function Advert() {
         <div>
             <h1 className='heading2'>Artisan</h1>
             <div className='rounded-lg mt-[3rem] h-[80vh]'>
-              
-                        <RenderArtisans />
-         
-                
+                <RenderArtisans />
             </div>
         </div>
     )
