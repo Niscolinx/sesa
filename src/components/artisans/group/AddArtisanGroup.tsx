@@ -82,29 +82,16 @@ const AddArtisanGroup = () => {
         <>
             <ToastContainer />
 
-           
-           
-            <div className='grid p-8 bg-white h-[80vh] items-baseline overflow-y-scroll rounded-lg'>
-                <div className='grid gap-8 max-w-[40rem]'>
-                    <p className='text-[2rem] font-bold'>
-                        KYA <span className='text-gray-500'>(Optional)</span>
-                    </p>
-                    <div className='flex justify-between text-[1.6rem]'>
-                        <p
-                            className='text-[#098DFF] cursor-pointer'
-                            onClick={() => handleOpen('validate')}
-                        >
-                            Click her to validate this person
-                        </p>
-                        <p
-                            className='text-[#043FA7] flex items-center gap-2'
-                            style={{
-                                fontFamily: 'Satoshi-Light',
-                            }}
-                        >
-                            What is KYA <BsQuestionCircle />
-                        </p>
-                    </div>
+            <div className='grid p-8 bg-white h-[80vh] items-baseline overflow-y-scroll rounded-lg gap-20'>
+                <div className='grid gap-8 border-b'>
+                    <h2
+                        className='text-[2rem] '
+                        style={{
+                            fontFamily: 'Satoshi-medium',
+                        }}
+                    >
+                        Add Artisan Group
+                    </h2>
                 </div>
                 <form
                     onSubmit={handleSubmit}
