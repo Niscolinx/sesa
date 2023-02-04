@@ -44,7 +44,7 @@ const AddArtisanGroup = () => {
                 </div>
                 <form
                     onSubmit={handleSubmit}
-                    className='flex flex-col gap-16 max-w-[50rem] h-[60vh] mt-10'
+                    className='flex flex-col gap-16 max-w-[40rem] h-[60vh] mt-10'
                 >
                     <div className='grid gap-4 relative '>
                         <label

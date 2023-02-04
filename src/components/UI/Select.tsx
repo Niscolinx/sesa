@@ -135,14 +135,18 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
     return (
         <div className='relative grid gap-4'>
             <p className='text-[1.4rem] font-semibold'>{label}</p>
-            <div className='relative items-center w-[40rem] tp' style={{
-
-            }}>
-                <p className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer h-[5rem] overflow-scroll flex gap-4 items-center pr-12'>
+            <div className='relative items-center max-w-[40rem] flex'>
+                <p
+                    className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer h-[5rem] overflow-hidden overflow-x-scroll flex gap-4 items-center pr-12'
+                    style={{
+                        gridTemplateColumns:
+                            'repeat(auto-fit, minmax(12rem, 1fr))',
+                    }}
+                >
                     {selected && selected.length > 0 ? (
                         selected.map((item, i) => (
                             <span
-                                className='text-white overflow-hidden text-ellipsis whitespace-nowrap bg-color-blue rounded-lg px-4 relative flex items-center h-[3.8rem] z-[2] pr-12'
+                                className='text-white whitespace-nowrap bg-color-blue rounded-lg px-4 relative flex items-center h-[3.8rem] z-[2] pr-12'
                                 key={i}
                             >
                                 {item}
