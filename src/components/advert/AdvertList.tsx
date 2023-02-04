@@ -158,7 +158,6 @@ const AdvertList: FC<{
     }
 
     const handleOpen = (dialogType: Actions) => {
-       
         if (dialogType === 'Delete') {
             setDialogType('Delete')
         }
@@ -179,7 +178,6 @@ const AdvertList: FC<{
         if (item === 'View Details') {
             navigate(`/dashboard/advert/list/:${id}`)
         }
-
 
         if (item === 'Delete') {
             handleOpen('Delete')
@@ -213,31 +211,25 @@ const AdvertList: FC<{
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
-                        
-                        
-                                <img
-                                    src='/icons/admins/modalWarning.svg'
-                                    alt=''
-                                />
-                                <p className='text-[1.6rem]'>
-                                    Are you sure you want to delete this Advert
-                                </p>
+                        <img src='/icons/admins/modalWarning.svg' alt='' />
+                        <p className='text-[1.6rem]'>
+                            Are you sure you want to delete this Advert
+                        </p>
 
-                                <div className='flex w-full justify-center gap-8'>
-                                    <button
-                                        className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
-                                        onClick={() => handleClose()}
-                                    >
-                                        Cancel
-                                    </button>
-                                    <button
-                                        className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
-                                        onClick={handleDeleteAdvert}
-                                    >
-                                        Delete
-                                    </button>
-                                </div>
-                       
+                        <div className='flex w-full justify-center gap-8'>
+                            <button
+                                className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
+                                onClick={() => handleClose()}
+                            >
+                                Cancel
+                            </button>
+                            <button
+                                className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
+                                onClick={handleDeleteAdvert}
+                            >
+                                Delete
+                            </button>
+                        </div>
                     </div>
                 </section>
             </dialog>
@@ -293,11 +285,10 @@ const AdvertList: FC<{
                                 slicedPages[paginate.index].map(
                                     (
                                         {
-                                            name,
-                                            createdAt,
-                                            NoOfAdverts,
                                             id,
-                                            NoOfEstates,
+                                            advertName,
+                                            startDate,
+                                            endDate,
                                             status,
                                         },
                                         i
@@ -312,10 +303,10 @@ const AdvertList: FC<{
                                                         className='cursor-pointer'
                                                     />
 
-                                                    <span>{name}</span>
+                                                    <span>{advertName}</span>
                                                 </p>
-                                                <p>{NoOfAdverts}</p>
-                                                <p>{NoOfEstates}</p>
+                                                <p>{startDate}</p>
+                                                <p>{endDate}</p>
                                                 <p>
                                                     {status === 'Active' ? (
                                                         <span className='text-green-600'>
@@ -327,7 +318,6 @@ const AdvertList: FC<{
                                                         </span>
                                                     )}
                                                 </p>
-                                                <p>{createdAt}</p>
 
                                                 <div className='relative'>
                                                     <label
