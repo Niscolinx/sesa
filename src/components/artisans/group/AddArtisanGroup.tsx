@@ -2,12 +2,14 @@ import React, { FormEvent, useRef, useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
 
 import { toast, ToastContainer } from 'react-toastify'
+import { MultipleSelect } from '../../UI/Select'
 
 type DialogType = 'validate' | 'add-Artisan'
 
 const AddArtisanGroup = () => {
 
     const [isAddArtisanGroup, setIsAddArtisanGroup] = useState(true)
+    const [selected, setSelected] = useState<string[] | null>(null)
    
 
 
@@ -61,6 +63,14 @@ const AddArtisanGroup = () => {
                             className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                         />
                     </div>
+
+                    <MultipleSelect
+                        selectFrom={['Lagos', 'Abuja', 'Ogun']}
+                        label='Artisans'
+                        placeholder='Select Artisans'
+                    selected={selected}
+                    setSelected={setSelected}
+                    />
                   
                     <button
                         className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg col-span-full justify-self-start mt-auto'

@@ -11,7 +11,7 @@ interface ISelect {
 
 interface IMultipleSelect {
     selectFrom: Array<string>
-    selected: Array<string>
+    selected: Array<string> | null
     setSelected: React.Dispatch<React.SetStateAction<string[] | null>>
     label: string
     placeholder?: string
@@ -85,7 +85,7 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
     const handleSelectedState = (item: string) => {
         //setToggleStateMenu(false)
 
-        if (selected.includes(item)) {
+        if (selected && selected.includes(item)) {
             const newSelected = selected.filter((i) => i !== item)
             setSelected(newSelected)
             return
