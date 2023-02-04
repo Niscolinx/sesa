@@ -9,7 +9,8 @@ type DialogType = 'validate' | 'add-Artisan'
 const AddArtisanGroup = () => {
 
     const [isAddArtisanGroup, setIsAddArtisanGroup] = useState(true)
-    const [selected, setSelected] = useState<string[]>([])
+    const [selectedArtisans, setSelectedArtisans] = useState<string[]>([])
+    const [selectedEstates, setSelectedEstates] = useState<string[]>([])
    
 
 
@@ -64,8 +65,15 @@ const AddArtisanGroup = () => {
                         selectFrom={['Artisan 1', 'Artisan 2', 'Artisan 3']}
                         label='Artisans'
                         placeholder='Select Artisans'
-                        selected={selected}
-                        setSelected={setSelected}
+                        selected={selectedArtisans}
+                        setSelected={setSelectedArtisans}
+                    />
+                    <MultipleSelect
+                        selectFrom={['Estate 1', 'Estate 2', 'Estate 3', 'Estate 4']}
+                        label='Estates'
+                        placeholder='Select Estate'
+                        selected={selectedEstates}
+                        setSelected={setSelectedEstates}
                     />
 
                     <button
