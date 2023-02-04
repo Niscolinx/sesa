@@ -203,17 +203,7 @@ const AvailableEstateAdvert: FC<{
                                                 </p>
                                                 <p>{state}</p>
                                                 <p>{address}</p>
-                                                <p>
-                                                    {status === 'Active' ? (
-                                                        <span className='text-green-600'>
-                                                            {status}
-                                                        </span>
-                                                    ) : (
-                                                        <span className='text-red-600'>
-                                                            {status}
-                                                        </span>
-                                                    )}
-                                                </p>
+                                                <p>{noOfResidents}</p>
 
                                                 <div className='relative'>
                                                     <label
