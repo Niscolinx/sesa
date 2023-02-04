@@ -20,7 +20,6 @@ export interface IArtisanGroup {
     NoOfEstates: number
     status: string
     createdAt: string
-
 }
 
 type Actions = 'Delete' | 'View Details' | 'Edit' | 'Deactivate'
@@ -30,19 +29,7 @@ const ArtisanGroup: FC<{
 }> = ({ fetchedArtisanCategories }) => {
     const navigate = useNavigate()
 
-        const [dialogType, setDialogType] = useState<Actions>('Deactivate')
-
-
-    const handleDialogSubmit = (e: FormEvent) => {
-        e.preventDefault()
-        handleClose()
-
-        toast('Category Created successfully', {
-            type: 'success',
-            className:
-                'bg-green-100 text-green-600 text-[1.4rem] outline-green-200 outline',
-        })
-    }
+    const [dialogType, setDialogType] = useState<Actions>('Deactivate')
 
     const actions = ['View Details', 'Delete'] satisfies Actions[]
 
@@ -66,7 +53,6 @@ const ArtisanGroup: FC<{
         })
     }
 
-
     interface Paginate {
         index: number
         currentPage: number
@@ -85,7 +71,6 @@ const ArtisanGroup: FC<{
         totalPage: Math.ceil(fetchedArtisanCategories.length / perPage),
         slicedPages: null,
     })
-
 
     const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
         const item = parseInt(e.target.value)
@@ -161,7 +146,6 @@ const ArtisanGroup: FC<{
         })
     }
 
-    
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
     const handleClose = () => {
@@ -225,7 +209,6 @@ const ArtisanGroup: FC<{
         // navigate('/dashboard/artisanGroup/add')
     }
 
-   
     return (
         <>
             <ToastContainer />
