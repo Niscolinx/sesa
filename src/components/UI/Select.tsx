@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FC, useEffect, useState } from 'react'
+import React, { ChangeEvent, FC, useEffect, useState, MouseEvent } from 'react'
 import { GrUp, GrDown } from 'react-icons/gr'
 import { IoMdClose } from 'react-icons/io'
 
@@ -79,10 +79,11 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
     label,
     placeholder,
 }) => {
-
     const [toggleStateMenu, setToggleStateMenu] = useState(false)
 
-     const stateMenuToggler = () => setToggleStateMenu(!toggleStateMenu)
+    const stateMenuToggler = (e: MouseEvent<HTMLParagraphElement>) => {
+        setToggleStateMenu(!toggleStateMenu)
+    }
 
     const handleSelectedState = (
         e: ChangeEvent<HTMLInputElement>,
@@ -105,7 +106,7 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
         console.log(selected)
     }, [selected])
 
-    const removeSelectedItem = (item:string) => {
+    const removeSelectedItem = (item: string) => {
         console.log('remove')
         setSelected((prev) => prev.filter((i) => i !== item))
     }
@@ -116,7 +117,7 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
             <div className='relative flex items-center'>
                 <p
                     className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer min-h-[5rem] overflow-scroll flex gap-4'
-                     onClick={stateMenuToggler}
+                    onClick={(e) => stateMenuToggler(e)}
                 >
                     {selected && selected.length > 0 ? (
                         selected.map((item) => (
