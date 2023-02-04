@@ -246,7 +246,7 @@ const ViewArtisanGroup = () => {
 
     const confirmDeactivation = () => {
         handleClose()
-        toast('Artisan deleted successfully', {
+        toast('Artisan Group deleted successfully', {
             type: 'error',
             className: 'bg-red-100 text-red-600 text-[1.4rem]',
         })
