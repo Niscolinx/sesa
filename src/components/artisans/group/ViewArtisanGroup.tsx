@@ -338,7 +338,7 @@ const ViewArtisanGroup = () => {
                         <input
                             type='text'
                             required
-                            placeholder='Plumber'
+                            placeholder='Mainland group 1'
                             id='groupName'
                             className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem]'
                         />
