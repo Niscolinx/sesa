@@ -8,11 +8,10 @@ import React, {
 } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
-import { IoMdAdd, IoMdClose } from 'react-icons/io'
+import { IoMdAdd } from 'react-icons/io'
 import { useNavigate } from 'react-router'
 import { toast, ToastContainer } from 'react-toastify'
 
-type DialogType = 'warning' | 'add-Ar'
 export interface IArtisanGroup {
     id: string
     name: string
