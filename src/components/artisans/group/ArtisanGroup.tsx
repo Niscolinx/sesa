@@ -300,7 +300,7 @@ const ArtisanGroup: FC<{
 
                 <div className='grid'>
                     <div
-                        className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-4 gap-8'
+                        className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-6 gap-8'
                         style={{
                             fontSize: '1.4rem',
                         }}
@@ -321,13 +321,13 @@ const ArtisanGroup: FC<{
                             React.Children.toArray(
                                 slicedPages[paginate.index].map(
                                     (
-                                        { name, createdAt, NoOfArtisans, id },
+                                        { name, createdAt, NoOfArtisans, id, NoOfEstates, status },
                                         i
                                     ) => {
                                         const { isDropDownOpen, index } =
                                             toggleDropDown
                                         return (
-                                            <div className='grid justify-between border-b grid-cols-4 gap-8 '>
+                                            <div className='grid justify-between border-b grid-cols-6 gap-8 '>
                                                 <p className='flex items-center gap-4'>
                                                     <input
                                                         type='checkbox'
@@ -337,7 +337,8 @@ const ArtisanGroup: FC<{
                                                     <span>{name}</span>
                                                 </p>
                                                 <p>{NoOfArtisans}</p>
-                                                <p>{createdAt}</p>
+                                                <p>{NoOfEstates}</p>
+                                                <p>{status}</p>
 
                                                 <div className='relative'>
                                                     <label
