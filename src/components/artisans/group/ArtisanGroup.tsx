@@ -206,7 +206,7 @@ const ArtisanGroup: FC<{
     }
 
     const addGroupHandler = () => {
-        // navigate('/dashboard/artisanGroup/add')
+        navigate('/dashboard/artisan/group/add')
     }
 
     return (
