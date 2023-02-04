@@ -89,7 +89,7 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
         e: ChangeEvent<HTMLInputElement>,
         item: string
     ) => {
-        //setToggleStateMenu(false)
+      
 
         const checked = e.target.checked
 
@@ -100,12 +100,8 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
         }
     }
 
-    useEffect(() => {
-        console.log(selected)
-    }, [selected])
 
     const removeSelectedItem = (item: string) => {
-        console.log('remove')
         setSelected((prev) => prev.filter((i) => i !== item))
     }
 
