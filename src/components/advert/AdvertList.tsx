@@ -201,7 +201,7 @@ const AdvertList: FC<{
         })
     }
 
-    const addGroupHandler = () => {
+    const addAdvert = () => {
         navigate('/dashboard/advert/group/add')
     }
 
@@ -236,7 +236,7 @@ const AdvertList: FC<{
             <div className='grid text-[1.6rem]'>
                 <div className='flex w-full items-center gap-12 p-10 bg-white rounded-lg'>
                     <p className=' font-bold'>
-                        Advert Group <span>(10)</span>
+                        Total Advert <span>(10)</span>
                     </p>
                     <div className='relative flex items-center'>
                         <img
@@ -253,12 +253,12 @@ const AdvertList: FC<{
 
                     <button
                         className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg ml-auto'
-                        onClick={addGroupHandler}
+                        onClick={addAdvert}
                     >
                         <span>
                             <IoMdAdd />
                         </span>{' '}
-                        Add Advert Group
+                        Add Advert
                     </button>
                 </div>
 
