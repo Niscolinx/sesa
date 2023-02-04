@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
 import AdvertList, { IAdvertList } from './AdvertList'
+import AvailableEstateAdvert, { IAvailableEstateAdvert } from './AvailableEstateAdvert'
 
 export const ADVERT_LIST: IAdvertList[] = [
     {
@@ -47,6 +48,16 @@ export const ADVERT_LIST: IAdvertList[] = [
     },
 ]
 
+export const AVAILABLE_ESTATE_ADVERT: IAvailableEstateAdvert[] = [
+    {
+        id: '1',
+        estateName: 'Pepsi Estate',
+        state: 'Lagos',
+        address: 'No 1, Pepsi Street, Pepsi Estate, Lagos',
+        noOfResidents: 50
+    },
+]
+
 type PathSwitch = 'advertList' | 'availableEstates'
 
 function RenderAdverts() {
@@ -68,7 +79,11 @@ function RenderAdverts() {
     const handlePathSwitch: Record<PathSwitch, JSX.Element> = {
         advertList: <AdvertList fetchedAdvertList={fetchedAdvertList ?? []} />,
         availableEstates: (
-            <AdvertList fetchedAdvertList={fetchedAdvertList ?? []} />
+            <AvailableEstateAdvert
+                fetchedAvailableEstateAdvert={
+                    fetchedAvailableEstateAdvert ?? []
+                }
+            />
         ),
     }
 
