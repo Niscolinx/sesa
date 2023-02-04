@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react'
+import React, { ChangeEvent, FC, useState } from 'react'
 import { GrUp, GrDown } from 'react-icons/gr'
 
 interface ISelect {
@@ -82,7 +82,7 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
 
     const stateMenuToggler = () => setToggleStateMenu(!toggleStateMenu)
 
-    const handleSelectedState = (item: string) => {
+    const handleSelectedState = (e:ChangeEvent<HTMLInputElement>,  item: string) => {
         //setToggleStateMenu(false)
 
         if (selected && selected.includes(item)) {
@@ -130,6 +130,7 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
                                 className='cursor-pointer'
                                 name={item}
                                 id={item + index}
+                                onChange={(e) => handleSelectedState(e, item)}
                             />
                             <label
                                 htmlFor={item + index}
