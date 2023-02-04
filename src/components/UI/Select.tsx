@@ -1,9 +1,7 @@
 import React, {
     ChangeEvent,
     FC,
-    useEffect,
     useState,
-    MouseEvent,
     useMemo,
 } from 'react'
 import { GrUp, GrDown } from 'react-icons/gr'
@@ -87,6 +85,7 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
     placeholder,
 }) => {
     const [toggleStateMenu, setToggleStateMenu] = useState(false)
+    const [search, setSearch] = useState('')
 
     const stateMenuToggler = () => setToggleStateMenu(!toggleStateMenu)
 
@@ -101,6 +100,10 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
         } else {
             setSelected((prev) => prev.filter((i) => i !== item))
         }
+    }
+
+    const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
+        setSearch(e.target.value)
     }
 
     const memoizedList = useMemo(() => {
@@ -190,7 +193,8 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
                         <input
                             type='text'
                             placeholder='Search Parameters'
-                            
+                            value={search}
+                            onChange={handleSearch}
                             className='pl-16 w-[25rem] rounded-lg border border-color-blue-light py-4 px-8 outline-none appearance-none'
                         />
                     </div>
