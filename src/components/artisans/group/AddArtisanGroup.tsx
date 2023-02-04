@@ -1,9 +1,6 @@
 import React, { FormEvent, useRef, useState } from 'react'
-import { GrDown, GrUp } from 'react-icons/gr'
-import { IoMdAdd, IoMdClose } from 'react-icons/io'
-import { getPhotoUrl } from '../../../utils/getPhotoUrl'
-import { BsQuestionCircle } from 'react-icons/bs'
-import Select from '../../UI/Select'
+import { IoMdAdd } from 'react-icons/io'
+
 import { toast, ToastContainer } from 'react-toastify'
 
 type DialogType = 'validate' | 'add-Artisan'
@@ -13,7 +10,6 @@ const AddArtisanGroup = () => {
     const [isAddArtisanGroup, setIsAddArtisanGroup] = useState(true)
    
 
-    const [photoUrl, setPhotoUrl] = useState('')
 
 
     const handleSubmit = (e: React.FormEvent) => {
