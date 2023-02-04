@@ -20,7 +20,6 @@ const AddArtisanGroup = () => {
   
 
     const addArtisanGroupHandler = () => {
-        // navigate('/dashboard/artisanCategory/add')
     }
 
    
