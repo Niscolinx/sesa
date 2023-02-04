@@ -107,12 +107,7 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
 
     const removeSelectedItem = (item:string) => {
         console.log('remove')
-        
-        selected.slice(selected.indexOf(item), 1)
-
         setSelected((prev) => prev.filter((i) => i !== item))
-
-        
     }
 
     return (
