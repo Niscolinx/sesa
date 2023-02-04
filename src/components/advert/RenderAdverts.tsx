@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
+import ArtisanCategory, { IArtisanCategory } from '../artisans/category/ArtisanCategory'
+import ArtisanGroup, { IArtisanGroup } from '../artisans/group/ArtisanGroup'
+import ArtisanList, { IArtisanList } from '../artisans/list/ArtisanList'
 
-import ArtisanCategory, { IArtisanCategory } from './category/ArtisanCategory'
-import ArtisanGroup, { IArtisanGroup } from './group/ArtisanGroup'
-import ArtisanList, { IArtisanList } from './list/ArtisanList'
 
 export const ARTISAN_LIST: IArtisanList[] = [
     {
