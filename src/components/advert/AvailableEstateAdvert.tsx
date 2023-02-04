@@ -17,7 +17,7 @@ export interface IAvailableEstateAdvert {
     estateName: string
     state: string
     address: string
-    NoOfResidents: number
+    noOfResidents: number
 }
 
 
@@ -170,12 +170,11 @@ const AvailableEstateAdvert: FC<{
                     >
                         <p className='flex items-center gap-2'>
                             <input type='checkbox' className='cursor-pointer' />
-                            <p>Advert Name</p>
+                            <p>Estate Name</p>
                         </p>
-                        <p>Start Date</p>
-                        <p>End Date</p>
-                        <p>End Date</p>
-                        <p>Status</p>
+                        <p>State</p>
+                        <p>Address</p>
+                        <p>No of Residents</p>
                     </div>
 
                     <div className='grid gap-8 mt-8 p-8'>
@@ -184,16 +183,14 @@ const AvailableEstateAdvert: FC<{
                                 slicedPages[paginate.index].map(
                                     (
                                         {
-                                            id,
-                                            advertName,
-                                            startDate,
-                                            endDate,
-                                            status,
+                                           estateName,
+                                            state,
+                                            address,
+                                            noOfResidents,
                                         },
                                         i
                                     ) => {
-                                        const { isDropDownOpen, index } =
-                                            toggleDropDown
+                                      
                                         return (
                                             <div className='grid justify-between border-b grid-cols-6 gap-8 '>
                                                 <p className='flex items-center gap-4'>
