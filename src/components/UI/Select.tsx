@@ -11,8 +11,8 @@ interface ISelect {
 
 interface IMultipleSelect {
     selectFrom: Array<string>
-    selected: Array<string> | null
-    setSelected: React.Dispatch<React.SetStateAction<string[] | null>>
+    selected: Array<string>
+    setSelected: React.Dispatch<React.SetStateAction<string[]>>
     label: string
     placeholder?: string
 }
@@ -73,11 +73,13 @@ export const Select: FC<ISelect> = ({
 
 export const MultipleSelect: FC<IMultipleSelect> = ({
     selectFrom,
-    selected,
+    //selected = ['hello', 'world'],
     setSelected,
     label,
     placeholder,
 }) => {
+    const selected = ['hello', 'world']
+
     const [toggleStateMenu, setToggleStateMenu] = useState(false)
 
     const stateMenuToggler = () => setToggleStateMenu(!toggleStateMenu)
@@ -91,7 +93,6 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
         const checked = e.target.checked
 
         if (checked) {
-        
             if (selected && selected.includes(item)) {
                 const newSelected = selected.filter((i) => i !== item)
                 setSelected(newSelected)
@@ -109,15 +110,17 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
             <p className='text-[1.4rem] font-semibold'>{label}</p>
             <div className='relative flex items-center'>
                 <p
-                    className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer min-h-[5rem] overflow-scroll'
+                    className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer min-h-[5rem] overflow-scroll flex gap-4'
                     onClick={stateMenuToggler}
                 >
-                    {(selected &&
+
+                    {selected && selected.length > 0 ? (
                         selected.map((item) => (
-                            <span className='text-gray-500 overflow-hidden text-ellipsis whitespace-nowrap'>
+                            <span className='text-white overflow-hidden text-ellipsis whitespace-nowrap w-[8rem] bg-color-blue rounded-lg px-4'>
                                 {item}
                             </span>
-                        ))) || (
+                        ))
+                    ) : (
                         <span className='text-gray-500'>
                             {placeholder || ''}
                         </span>
@@ -133,16 +136,11 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
             {toggleStateMenu && (
                 <div className='absolute top-[8rem]  left-0 border border-color-primary-light min-w-[12rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
                     {selectFrom.map((item, index) => (
-                        // <p
-                        //     className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
-                        //     key={index}
-                        //     onClick={() => handleSelectedState(item)}
-                        // >
-                        //     {item}
-                        // </p>
-                        <div className='flex items-center pl-4 cursor-pointer hover:bg-color-grey'>
+                        <div
+                            className='flex items-center pl-4 cursor-pointer hover:bg-color-grey'
+                            key={index}
+                        >
                             <input
-                                key={index}
                                 type='checkbox'
                                 className='cursor-pointer'
                                 name={item}

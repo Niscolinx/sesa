@@ -9,7 +9,7 @@ type DialogType = 'validate' | 'add-Artisan'
 const AddArtisanGroup = () => {
 
     const [isAddArtisanGroup, setIsAddArtisanGroup] = useState(true)
-    const [selected, setSelected] = useState<string[] | null>(null)
+    const [selected, setSelected] = useState<string[]>([])
    
 
 
