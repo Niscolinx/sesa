@@ -146,7 +146,7 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
                     {selected && selected.length > 0 ? (
                         selected.map((item, i) => (
                             <span
-                                className='text-white whitespace-nowrap bg-color-blue rounded-lg px-4 relative flex items-center h-[3.8rem] z-[2] pr-12'
+                                className='text-white whitespace-nowrap bg-color-blue-1 rounded-lg px-4 relative flex items-center h-[3.8rem] z-[2] pr-12'
                                 key={i}
                             >
                                 {item}
@@ -181,6 +181,18 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
 
             {toggleStateMenu && (
                 <div className='absolute top-[8rem]  left-0 border border-color-primary-light min-w-[12rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
+                    <div className='relative flex items-center text-[1.4rem]'>
+                        <img
+                            src='/icons/admins/search.svg'
+                            alt=''
+                            className='absolute left-4'
+                        />
+                        <input
+                            type='text'
+                            placeholder='Search Parameters'
+                            className='pl-16 w-[25rem] rounded-lg border border-color-blue-light py-4 px-8 outline-none appearance-none'
+                        />
+                    </div>
                     {memoizedList}
                 </div>
             )}
