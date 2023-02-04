@@ -78,33 +78,23 @@ function RenderAdverts() {
                 <input
                     type='radio'
                     name='advert'
-                    id='advertCategory'
-                    className='hidden'
-                    onChange={() => setPathToSwitch('advertCategory')}
-                    defaultChecked
-                />
-                <label htmlFor='advertCategory'>Advert Category</label>
-
-                <input
-                    type='radio'
-                    name='advert'
                     id='advertList'
                     className='hidden'
+                    defaultChecked
                     onChange={() => setPathToSwitch('advertList')}
                 />
                 <label htmlFor='advertList' className='capitalize'>
                     Advert List
                 </label>
+
                 <input
                     type='radio'
                     name='advert'
-                    id='advertGroup'
+                    id='availableEstates'
                     className='hidden'
-                    onChange={() => setPathToSwitch('advertGroup')}
+                    onChange={() => setPathToSwitch('availableEstates')}
                 />
-                <label htmlFor='advertGroup' className='capitalize'>
-                    Advert Group
-                </label>
+                <label htmlFor='availableEstates'>Available Estates</label>
             </div>
             <div className='mt-8 grid gap-8'>
                 <section className='bg-color-white rounded-lg border min-w-[112rem] overflow-scroll'>
