@@ -1,5 +1,6 @@
 import React, { ChangeEvent, FC, useEffect, useState } from 'react'
 import { GrUp, GrDown } from 'react-icons/gr'
+import { IoMdClose } from 'react-icons/io'
 
 interface ISelect {
     state: Array<string>
@@ -73,16 +74,15 @@ export const Select: FC<ISelect> = ({
 
 export const MultipleSelect: FC<IMultipleSelect> = ({
     selectFrom,
-    //selected = ['hello', 'world'],
+    selected,
     setSelected,
     label,
     placeholder,
 }) => {
-    const selected = ['hello', 'world']
 
     const [toggleStateMenu, setToggleStateMenu] = useState(false)
 
-    const stateMenuToggler = () => setToggleStateMenu(!toggleStateMenu)
+    // const stateMenuToggler = () => setToggleStateMenu(!toggleStateMenu)
 
     const handleSelectedState = (
         e: ChangeEvent<HTMLInputElement>,
@@ -105,19 +105,32 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
         console.log(selected)
     }, [selected])
 
+    const removeSelectedItem = (item:string) => {
+        console.log('remove')
+        
+        selected.slice(selected.indexOf(item), 1)
+
+        setSelected((prev) => prev.filter((i) => i !== item))
+
+        
+    }
+
     return (
         <div className='relative grid gap-4'>
             <p className='text-[1.4rem] font-semibold'>{label}</p>
             <div className='relative flex items-center'>
                 <p
                     className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer min-h-[5rem] overflow-scroll flex gap-4'
-                    onClick={stateMenuToggler}
+                    // onClick={stateMenuToggler}
                 >
-
                     {selected && selected.length > 0 ? (
                         selected.map((item) => (
-                            <span className='text-white overflow-hidden text-ellipsis whitespace-nowrap w-[8rem] bg-color-blue rounded-lg px-4'>
+                            <span className='text-white overflow-hidden text-ellipsis whitespace-nowrap w-[10rem] bg-color-blue rounded-lg px-4 relative flex items-center h-[3.8rem]'>
                                 {item}
+                                <IoMdClose
+                                    className='absolute right-2 text-[1.4rem] cursor-pointer'
+                                    onClick={() => removeSelectedItem(item)}
+                                />
                             </span>
                         ))
                     ) : (
