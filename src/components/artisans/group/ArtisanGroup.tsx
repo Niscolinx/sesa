@@ -23,7 +23,7 @@ export interface IArtisanGroup {
 
 }
 
-type Actions = 'Delete' | 'View Details'
+type Actions = 'Delete' | 'View Details' | 'Edit' | 'Deactivate'
 
 const ArtisanGroup: FC<{
     fetchedArtisanCategories: IArtisanGroup[]
@@ -99,9 +99,6 @@ const ArtisanGroup: FC<{
         slicedPages: null,
     })
 
-    // const handleSelectedSort = (item: SortBy) => {
-    //     setToggleSortMenu(false)
-    // }
 
     const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
         const item = parseInt(e.target.value)
