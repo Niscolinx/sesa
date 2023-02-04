@@ -82,7 +82,7 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
 
     const [toggleStateMenu, setToggleStateMenu] = useState(false)
 
-    // const stateMenuToggler = () => setToggleStateMenu(!toggleStateMenu)
+     const stateMenuToggler = () => setToggleStateMenu(!toggleStateMenu)
 
     const handleSelectedState = (
         e: ChangeEvent<HTMLInputElement>,
@@ -116,7 +116,7 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
             <div className='relative flex items-center'>
                 <p
                     className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer min-h-[5rem] overflow-scroll flex gap-4'
-                    // onClick={stateMenuToggler}
+                     onClick={stateMenuToggler}
                 >
                     {selected && selected.length > 0 ? (
                         selected.map((item) => (
