@@ -135,7 +135,9 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
     return (
         <div className='relative grid gap-4'>
             <p className='text-[1.4rem] font-semibold'>{label}</p>
-            <div className='relative flex items-center w-[40rem]'>
+            <div className='relative items-center w-[40rem] tp' style={{
+
+            }}>
                 <p className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer h-[5rem] overflow-scroll flex gap-4 items-center pr-12'>
                     {selected && selected.length > 0 ? (
                         selected.map((item, i) => (
