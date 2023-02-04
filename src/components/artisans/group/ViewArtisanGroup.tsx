@@ -131,13 +131,13 @@ const ViewArtisanGroup = () => {
     }
 
     const itemsPerPageArr = [2, 4, 6, 8]
-
+    const perPage = 4
     const [paginate, setPaginate] = useState<Paginate>({
         index: 0,
         currentPage: 1,
-        itemsPerPage: 6,
+        itemsPerPage: perPage,
 
-        totalPage: Math.ceil(fetchedArtisanCategories.length / 2),
+        totalPage: Math.ceil(fetchedArtisanCategories.length / perPage),
         slicedPages: null,
     })
 
