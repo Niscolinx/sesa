@@ -90,8 +90,6 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
 
     const stateMenuToggler = () => setToggleStateMenu(!toggleStateMenu)
 
-    const checkBoxRef = React.useRef<HTMLInputElement>(null)
-
     const handleSelectedState = (
         e: ChangeEvent<HTMLInputElement>,
         item: string
@@ -112,11 +110,11 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
                 key={index}
             >
                 <input
-                    ref={checkBoxRef}
                     type='checkbox'
                     className='cursor-pointer'
                     name={item + index}
                     id={item + index}
+                    checked={selected.includes(item)}
                     onChange={(e) => handleSelectedState(e, item)}
                 />
                 <label
@@ -127,12 +125,10 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
                 </label>
             </div>
         ))
-    }, [selectFrom, selected])
+    }, [selectFrom])
 
     const removeSelectedItem = (item: string) => {
         setSelected((prev) => prev.filter((i) => i !== item))
-
-        console.log(checkBoxRef.current)
     }
 
     return (
