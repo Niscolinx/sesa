@@ -82,8 +82,8 @@ const AddArtisanGroup = () => {
         <>
             <ToastContainer />
 
-            <div className='grid p-8 bg-white h-[80vh] items-baseline overflow-y-scroll rounded-lg gap-10'>
-                <div className='grid gap-8 border-b py-10'>
+            <div className='p-8 bg-white h-[80vh] overflow-y-scroll rounded-lg'>
+                <div className='grid gap-8 border-b py-10 self-start'>
                     <h2
                         className='text-[2rem] '
                         style={{
@@ -95,7 +95,7 @@ const AddArtisanGroup = () => {
                 </div>
                 <form
                     onSubmit={handleSubmit}
-                    className='grid max-w-[84rem] gap-16 mt-12'
+                    className='grid max-w-[84rem] gap-16 mt-12 items-start'
                     style={{
                         gridTemplateColumns:
                             ' repeat(auto-fit, minmax(35rem, 1fr))',
@@ -117,8 +117,7 @@ const AddArtisanGroup = () => {
                     </div>
                   
                     <button
-                        className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
-                        style={{ justifySelf: 'start' }}
+                        className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg col-span-full justify-self-start'
                         onClick={addArtisanGroupHandler}
                     >
                         <span>
