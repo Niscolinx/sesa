@@ -9,22 +9,12 @@ import { toast, ToastContainer } from 'react-toastify'
 type DialogType = 'validate' | 'add-Artisan'
 
 const AddArtisanGroup = () => {
-    const [selectedState, setSelectedState] = useState<string | null>(null)
-    const [selectedArtisan, setSelectedArtisan] = useState<string | null>(null)
-    const [selectedGender, setSelectedGender] = useState<string | null>(null)
+
     const [isAddArtisanGroup, setIsAddArtisanGroup] = useState(true)
-    const [validationType, setValidationType] = useState<string | null>(
-        'Phone Number'
-    )
+   
 
     const [photoUrl, setPhotoUrl] = useState('')
 
-    const handlePhotoPreview = async (
-        _: React.MouseEvent<HTMLInputElement>
-    ) => {
-        const getUrl = await getPhotoUrl(`#photoUpload`)
-        setPhotoUrl(getUrl)
-    }
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
@@ -82,7 +72,7 @@ const AddArtisanGroup = () => {
         <>
             <ToastContainer />
 
-            <div className='p-8 bg-white h-[80vh] overflow-y-scroll rounded-lg'>
+            <div className='p-8 bg-white h-[70vh] rounded-lg'>
                 <div className='grid gap-8 border-b py-10 self-start'>
                     <h2
                         className='text-[2rem] '
@@ -95,7 +85,7 @@ const AddArtisanGroup = () => {
                 </div>
                 <form
                     onSubmit={handleSubmit}
-                    className='grid max-w-[84rem] gap-16 mt-12 items-start'
+                    className='grid max-w-[84rem] gap-16 mt-12 items-start h-full'
                     style={{
                         gridTemplateColumns:
                             ' repeat(auto-fit, minmax(35rem, 1fr))',
@@ -117,7 +107,7 @@ const AddArtisanGroup = () => {
                     </div>
                   
                     <button
-                        className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg col-span-full justify-self-start'
+                        className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg col-span-full justify-self-start mt-auto'
                         onClick={addArtisanGroupHandler}
                     >
                         <span>
