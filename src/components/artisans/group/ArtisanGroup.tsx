@@ -204,7 +204,7 @@ const ArtisanGroup: FC<{
         })
     }
 
-    const addCategoryHandler = () => {
+    const addGroupHandler = () => {
         // navigate('/dashboard/artisanGroup/add')
     }
 
@@ -272,7 +272,7 @@ const ArtisanGroup: FC<{
             <div className='grid text-[1.6rem]'>
                 <div className='flex w-full items-center gap-12 p-10 bg-white rounded-lg'>
                     <p className=' font-bold'>
-                        Artisan Category <span>(10)</span>
+                        Artisan Group <span>(10)</span>
                     </p>
                     <div className='relative flex items-center'>
                         <img
@@ -289,12 +289,12 @@ const ArtisanGroup: FC<{
 
                     <button
                         className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg ml-auto'
-                        onClick={addCategoryHandler}
+                        onClick={addGroupHandler}
                     >
                         <span>
                             <IoMdAdd />
                         </span>{' '}
-                        Add Artisan Category
+                        Add Artisan Group
                     </button>
                 </div>
 
