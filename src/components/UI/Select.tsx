@@ -140,7 +140,7 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
                     {selected && selected.length > 0 ? (
                         selected.map((item, i) => (
                             <span
-                                className='text-white overflow-hidden text-ellipsis whitespace-nowrap w-[10rem] bg-color-blue rounded-lg px-4 relative flex items-center h-[3.8rem] z-[2]'
+                                className='text-white overflow-hidden text-ellipsis whitespace-nowrap bg-color-blue rounded-lg px-4 relative flex items-center h-[3.8rem] z-[2] pr-12'
                                 key={i}
                             >
                                 {item}

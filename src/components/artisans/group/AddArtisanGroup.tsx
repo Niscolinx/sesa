@@ -61,7 +61,7 @@ const AddArtisanGroup = () => {
                     </div>
 
                     <MultipleSelect
-                        selectFrom={['Lagos', 'Abuja', 'Ogunhbggvbbbbbvv']}
+                        selectFrom={['Artisan 1', 'Artisan 2', 'Artisan 3']}
                         label='Artisans'
                         placeholder='Select Artisans'
                         selected={selected}
