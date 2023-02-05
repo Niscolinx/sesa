@@ -40,6 +40,7 @@ import ArtisanDetail from '../components/artisans/list/ArtisanDetail'
 import AddArtisanGroup from '../components/artisans/group/AddArtisanGroup'
 import ViewArtisanGroup from '../components/artisans/group/ViewArtisanGroup'
 import Advert from '../pages/dashboard/Advert'
+import AddAdvert from '../components/advert/AddAdvert'
 
 const router = createBrowserRouter(
     createRoutesFromElements([
@@ -114,6 +115,10 @@ const router = createBrowserRouter(
             <Route
                 path='advert'
                 element={<Advert />}
+            />
+            <Route
+                path='advert/add'
+                element={<AddAdvert />}
             />
         </Route>,
         <Route path='*' element={<Navigate to='/' />} />,
