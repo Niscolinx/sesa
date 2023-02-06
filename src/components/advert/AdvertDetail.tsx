@@ -3,6 +3,7 @@ import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { AiOutlineLink } from 'react-icons/ai'
 import { GrUp, GrDown } from 'react-icons/gr'
 import { HiArrowSmUp, HiArrowSmDown } from 'react-icons/hi'
+import { LineChart } from 'recharts'
 import { Trend } from '../../pages/dashboard/Wallet/EstateWallet'
 import WalletBarChart from '../charts/WalletBarChart'
 
@@ -168,7 +169,7 @@ const AdvertDetail = () => {
                             )}
                         </div>
                     </div>
-                    <WalletBarChart />
+                    < />
                 </div>
             </section>
         </div>
