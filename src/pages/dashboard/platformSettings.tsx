@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import PlatformChanges from '../../components/platformSettings/PlatformChanges'
+import PlatformType from '../../components/platformSettings/PlatformType'
 
 type PathSwitch =
     | 'platformChanges'
@@ -13,7 +14,7 @@ function PlatformSettings() {
 
     const handlePathSwitch: Record<PathSwitch, JSX.Element> = {
         platformChanges: <PlatformChanges />,
-        propertyType: <PlatformChanges />,
+        propertyType: <PlatformType />,
         SOSDetails: <PlatformChanges />,
         accountSettings: <PlatformChanges />,
     }
