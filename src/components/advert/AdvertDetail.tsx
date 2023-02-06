@@ -19,7 +19,7 @@ const AdvertDetail = () => {
                     alt=''
                     className='h-[40rem] w-[120rem] object-cover rounded-lg flex self-stretch'
                 />
-                <div className='pt-20'>
+                <div className='pt-20 grid gap-10'>
                     <h2
                         style={{
                             fontFamily: 'Satoshi-medium',
@@ -29,7 +29,7 @@ const AdvertDetail = () => {
                         Advert Overview
                     </h2>
 
-                    <div className='flex justify-between mt-10'>
+                    <div className='flex justify-between'>
                         <div className='flex gap-4 items-center'>
                             <img
                                 src='/img/video.svg'
@@ -83,11 +83,11 @@ const AdvertDetail = () => {
                         </div>
                     </div>
 
-                    <div className='bg-gray-100 text-gray-400 rounded-lg px-5 flex'>
-                        <AiOutlineLink className='text-[1.8rem]' />
-                        <p className=''>{link}</p>
+                    <div className='bg-gray-100 text-gray-400 rounded-lg px-5 flex items-center py-2'>
+                        <AiOutlineLink className='text-[1.8rem] border-r' />
+                        <p className='border-l'>{link}</p>
                         <CopyToClipboard text={link}>
-                            <button className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg ml-auto'>
+                            <button className='btn text-white bg-color-blue-1 w-[10rem] rounded-lg ml-auto'>
                                 Copy
                             </button>
                         </CopyToClipboard>{' '}
