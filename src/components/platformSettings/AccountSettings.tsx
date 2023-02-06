@@ -5,21 +5,12 @@ import { ModalContext } from '../../Context/ModalContext'
 import { getPhotoUrl } from '../../utils/getPhotoUrl'
 import SecurityCompSvg from '../icons/sidebar/SecurityCompSvg'
 
-type State = 'Lagos' | 'Imo' | 'Abia' | 'FCT'
 
 const AccountSettings = () => {
-    const state: Array<State> = ['Lagos', 'Imo', 'Abia', 'FCT']
 
-    const [toggleStateMenu, setToggleStateMenu] = useState(false)
-    const [selectedState, setSelectedState] = useState<State | null>(null)
     const [isWarning, setIsWarning] = useState(true)
 
-    const stateMenuToggler = () => setToggleStateMenu(!toggleStateMenu)
-
-    const handleSelectedState = (item: State) => {
-        setSelectedState(item)
-        setToggleStateMenu(false)
-    }
+    
 
     const [photoUrl, setPhotoUrl] = useState('')
 

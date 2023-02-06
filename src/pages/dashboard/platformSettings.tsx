@@ -61,7 +61,7 @@ function PlatformSettings() {
                     className='hidden'
                     onChange={() => setPathToSwitch('accountSettings')}
                 />
-                <label htmlFor='accountSettings'>SOS Table</label>
+                <label htmlFor='accountSettings'>Account Settings</label>
             </div>
             <div className='mt-8 grid gap-8'>
                 <section className='bg-color-white rounded-lg border min-w-[112rem] overflow-scroll'>
