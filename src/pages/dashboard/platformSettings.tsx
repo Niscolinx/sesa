@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
 
 
-type PathSwitch = 'advertList' | 'availableEstates'
+type PathSwitch = 'platformChanges' | 'propertyType' | 'SOSDetails' | 'Account Settings'
 
 function PlatformSettings() {
 
