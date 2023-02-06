@@ -113,6 +113,20 @@ const AddSOS = () => {
                             value={'09023238423'}
                         />
                     </div>
+                    <div className='w-full grid gap-4'>
+                        <label
+                            htmlFor='startDate'
+                            className='text-[1.4rem] font-semibold'
+                        >
+                            Start Date
+                        </label>
+                        <input
+                            type='date'
+                            required
+                            id='startDate'
+                            className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] curaddddDDddsdfsr-pointer'
+                        />
+                    </div>
 
                     <div className='w-full grid gap-4'>
                         <label
@@ -155,38 +169,6 @@ const AddSOS = () => {
                         selectFrom={['Estate 1', 'Estate 2', 'Estate 3']}
                         setSelected={setSelectedEstates}
                     />
-                    <div className='w-full grid gap-4'>
-                        <label
-                            htmlFor='startDate'
-                            className='text-[1.4rem] font-semibold'
-                        >
-                            Start Date
-                        </label>
-                        <input
-                            type='date'
-                            required
-                            id='startDate'
-                            className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] curaddddDDddsdfsr-pointer'
-                        />
-                    </div>
-                    <div className='w-full grid gap-4'>
-                        <label
-                            htmlFor='endDate'
-                            className='text-[1.4rem] font-semibold'
-                        >
-                            End Date
-                        </label>
-                        <input
-                            type='date'
-                            required
-                            id='endDate'
-                            className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] curaddddDDddsdfsr-pointer'
-                        />
-                    </div>
-
-                  
-
-                 
 
                     <button
                         className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg col-span-full'
