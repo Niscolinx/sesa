@@ -152,8 +152,12 @@ const SOSTable = () => {
         })
     }
 
-    const addPropertyHandler = () => {
-        navigate('/dashboard/platformSettings/addProperty')
+    const addSOSHandler = () => {
+        navigate('/dashboard/platformSettings/addSOS')
+    }
+
+    const detailsHandler = (id: string) => {
+        navigate(`/dashboard/platformSettings/SOSDetails/${id}`)
     }
 
     return (
@@ -165,18 +169,18 @@ const SOSTable = () => {
 
                         <button
                             className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg ml-auto'
-                            onClick={addPropertyHandler}
+                            onClick={addSOSHandler}
                         >
                             <span>
                                 <IoMdAdd />
                             </span>{' '}
-                            Add Property
+                            Add SOS
                         </button>
                     </div>
                 </div>
 
                 <div className='grid bg-white'>
-                    <div className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-2 gap-8 text-[1.6rem]'>
+                    <div className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-5 gap-8 text-[1.6rem]'>
                         <p className='flex items-center gap-4'>
                             <input type='checkbox' name='sos' id='sos' />
                             <label htmlFor='sos'>Files</label>
@@ -193,7 +197,7 @@ const SOSTable = () => {
                                 slicedPages[paginate.index].map(
                                     ({ id, file, estates, count, createdAt}) => {
                                         return (
-                                            <div className='grid justify-between border-b grid-cols-2 items-center gap-8 '>
+                                            <div className='grid justify-between border-b grid-cols-5 items-center gap-8 '>
                                                 <p className='flex items-center gap-4'>
                                                     <input
                                                         type='checkbox'
@@ -207,7 +211,7 @@ const SOSTable = () => {
                                                 <p>{count}</p>
                                                 <p>{estates}</p>
                                                 <p>{createdAt}</p>
-                                                <button className='text-color-primary'>
+                                                <button className='text-color-primary' onClick={() => detailsHandler(id)}>
                                                     View Details
                                                 </button>
                                             </div>
