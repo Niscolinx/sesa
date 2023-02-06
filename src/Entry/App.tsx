@@ -47,6 +47,7 @@ import AdvertClickrateDecrease from '../components/advert/AdvertClickrateDecreas
 import PlatformSettings from '../pages/dashboard/platformSettings'
 import AddProperty from '../components/platformSettings/AddProperty'
 import AddSOS from '../components/platformSettings/AddSOS'
+import SOSDetails from '../components/platformSettings/SOSDetails'
 
 const router = createBrowserRouter(
     createRoutesFromElements([
@@ -149,6 +150,10 @@ const router = createBrowserRouter(
             <Route
                 path='platformSettings/addSOS'
                 element={<AddSOS />}
+            />
+            <Route
+                path='platformSettings/SOSDetails'
+                element={<SOSDetails />}
             />
         </Route>,
         <Route path='*' element={<Navigate to='/' />} />,
