@@ -7,10 +7,8 @@ const AdvertDetail = () => {
         <div className='grid p-8 bg-white h-[80vh] items-baseline overflow-y-scroll rounded-lg text-[1.6rem] gap-10'>
             <section className='grid gap-8'>
                 <h2
-                    style={{
-                        fontFamily: 'Satoshi-medium',
-                    }}
-                    className='text-[2rem]'
+                   
+                    className='text-[2rem] font-Satoshi-Medium'
                 >
                     Advert Preview
                 </h2>
@@ -21,10 +19,8 @@ const AdvertDetail = () => {
                 />
                 <div className='pt-20 grid gap-10'>
                     <h2
-                        style={{
-                            fontFamily: 'Satoshi-medium',
-                        }}
-                        className='text-[2rem]'
+                       
+                        className='text-[2rem] font-Satoshi-Medium'
                     >
                         Advert Overview
                     </h2>
@@ -38,9 +34,7 @@ const AdvertDetail = () => {
                             />
                             <div>
                                 <p
-                                    style={{
-                                        fontFamily: 'Satoshi-light',
-                                    }}
+                                   className='font-Satoshi-Light'
                                 >
                                     Advert Name
                                 </p>
@@ -55,9 +49,7 @@ const AdvertDetail = () => {
                             />
                             <div>
                                 <p
-                                    style={{
-                                        fontFamily: 'Satoshi-light',
-                                    }}
+                                   className='font-Satoshi-Light'
                                 >
                                     Start Date
                                 </p>
@@ -72,9 +64,7 @@ const AdvertDetail = () => {
                             />
                             <div>
                                 <p
-                                    style={{
-                                        fontFamily: 'Satoshi-light',
-                                    }}
+                                   className='font-Satoshi-Light'
                                 >
                                     End Date
                                 </p>
@@ -99,15 +89,18 @@ const AdvertDetail = () => {
 
             <section className='grid gap-8'>
                 <h2
-                    style={{
-                        fontFamily: 'Satoshi-medium',
-                    }}
-                    className='text-[2rem]'
+                   
+                    className='text-[2rem] font-Satoshi-Medium' 
                 >
                     Advert Numbers
                 </h2>
-                <div>
-                    
+                <div className='grid grid-cols-2'>
+                    <div className='grid gap-4'>
+                        <p>Advert Clicks</p>
+                        <div>
+                            <h1 className='font-Satoshi-Medium'>164</h1>
+                        </div>
+                    </div>
                 </div>
             </section>
         </div>
