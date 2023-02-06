@@ -169,7 +169,7 @@ const AddSOS = () => {
                     </div>
 
                     <div className='col-span-full'>
-                        <h2 className=''>Add Estates</h2>
+                        <h2 className='heading2'>Add Estates</h2>
                         <MultipleSelect
                             label='Estates'
                             placeholder='Select Estates'
