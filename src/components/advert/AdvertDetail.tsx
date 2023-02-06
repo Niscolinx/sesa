@@ -15,7 +15,7 @@ const AdvertDetail = () => {
                     alt=''
                     className='h-[40rem] w-[120rem] object-cover rounded-lg flex self-stretch'
                 />
-                <div className="pt-10">
+                <div className='pt-10'>
                     <h2
                         style={{
                             fontFamily: 'Satoshi-medium',
@@ -25,18 +25,58 @@ const AdvertDetail = () => {
                         Advert Overview
                     </h2>
 
-
-                    <div className="flex justify-between">
-
-                    <div className="flex gap-4">
-                        <img src="/icons/video.svg" alt="" className="object-cover w-[4rem] h-[4rem] rounded-full"/>
-                        <div>
-                            <p style={{
-                                fontFamily: 'Satoshi-light',
-                            }}>Advert Name</p>
-                            <p>Pepsi Advert</p>
+                    <div className='flex justify-between'>
+                        <div className='flex gap-4'>
+                            <img
+                                src='/icons/video.svg'
+                                alt=''
+                                className='object-cover w-[4rem] h-[4rem] rounded-full'
+                            />
+                            <div>
+                                <p
+                                    style={{
+                                        fontFamily: 'Satoshi-light',
+                                    }}
+                                >
+                                    Advert Name
+                                </p>
+                                <p>Pepsi Advert</p>
+                            </div>
                         </div>
-                    </div>
+                        <div className='flex gap-4'>
+                            <img
+                                src='/icons/startDate.svg'
+                                alt=''
+                                className='object-cover w-[4rem] h-[4rem] rounded-full'
+                            />
+                            <div>
+                                <p
+                                    style={{
+                                        fontFamily: 'Satoshi-light',
+                                    }}
+                                >
+                                    Start Date
+                                </p>
+                                <p>12 May, 2022</p>
+                            </div>
+                        </div>
+                        <div className='flex gap-4'>
+                            <img
+                                src='/icons/video.svg'
+                                alt=''
+                                className='object-cover w-[4rem] h-[4rem] rounded-full'
+                            />
+                            <div>
+                                <p
+                                    style={{
+                                        fontFamily: 'Satoshi-light',
+                                    }}
+                                >
+                                    End Date
+                                </p>
+                                <p>12 Aug, 2022</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
