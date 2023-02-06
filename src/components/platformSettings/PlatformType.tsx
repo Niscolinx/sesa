@@ -199,10 +199,9 @@ const PlatformType = () => {
                                 slicedPages[paginate.index].map(
                                     (
                                         {
-                                            estateName,
-                                            location,
-                                            noOfResidents,
-                                            noOfViews,
+                                           id,
+                                           propertyType,
+                                           description
                                         },
                                         i
                                     ) => {
