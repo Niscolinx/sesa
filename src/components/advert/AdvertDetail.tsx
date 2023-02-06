@@ -13,16 +13,16 @@ const AdvertDetail = () => {
                 <img
                     src='/img/advertHero.png'
                     alt=''
-                    className='h-[40rem] object-cover rounded-lg flex self-stretch'
+                    className='h-[40rem] w-[120rem] object-cover rounded-lg flex self-stretch'
                 />
-                <div>
+                <div className="pt-10">
                     <h2
                         style={{
                             fontFamily: 'Satoshi-medium',
                         }}
                         className='text-[2rem]'
                     >
-                        Advert Preview
+                        Advert Overview
                     </h2>
                 </div>
             </section>
