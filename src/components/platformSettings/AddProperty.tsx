@@ -106,9 +106,13 @@ const PropertyType = () => {
                         </label>
                         <textarea
                             required
+                            rows={4}
                             id='description'
                             className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                         />
+                        <p className=' text-[1.2rem] text-gray-400'>
+                            Charges Per sms notification
+                        </p>
                     </div>
                 </div>
             </div>
