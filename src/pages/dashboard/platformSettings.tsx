@@ -21,12 +21,12 @@ function PlatformSettings() {
                 <input
                     type='radio'
                     name='platform'
-                    id='platformList'
+                    id='platformChanges'
                     className='hidden'
                     defaultChecked
-                    onChange={() => setPathToSwitch('platformList')}
+                    onChange={() => setPathToSwitch('platformChanges')}
                 />
-                <label htmlFor='platformList' className='capitalize'>
+                <label htmlFor='platformChanges' className='capitalize'>
                     Platform Changes
                 </label>
 
