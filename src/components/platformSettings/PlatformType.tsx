@@ -189,13 +189,8 @@ const PlatformType = () => {
                             fontSize: '1.4rem',
                         }}
                     >
-                        <p className='flex items-center gap-2'>
-                            <input type='checkbox' className='cursor-pointer' />
-                            <p>Estate Name</p>
-                        </p>
-                        <p>Location</p>
-                        <p>No of Views</p>
-                        <p>No of Residents</p>
+                        <p>Property Type</p>
+                        <p>Description</p>
                     </div>
 
                     <div className='grid gap-8 mt-8 p-8'>
