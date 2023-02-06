@@ -75,7 +75,7 @@ const AdvertDetail = () => {
 
     const showClickRateIncrease = () => {
 
-        navigate
+        navigate('/dashboard/advert/clickrate/increase')
     }
 
     return (

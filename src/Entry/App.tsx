@@ -127,11 +127,11 @@ const router = createBrowserRouter(
                 element={<AdvertDetail />}
             />
             <Route
-                path='advert/clickrate/increase:Id'
+                path='advert/clickrate/increase'
                 element={<AdvertClickrateIncrease />}
             />
             <Route
-                path='advert/clickrate/decrease:Id'
+                path='advert/clickrate/decrease'
                 element={<AdvertClickrateIncrease />}
             />
         </Route>,
