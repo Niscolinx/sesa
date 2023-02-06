@@ -5,33 +5,14 @@ import { CgSpinnerTwo } from 'react-icons/cg'
 type PathSwitch = 'advertList' | 'availableEstates'
 
 function PlatformSettings() {
-    const [fetchedAdvertList, setFetchedAdvertList] = useState<
-        IAdvertList[] | null
-    >(null)
-    const [fetchedAvailableEstateAdvert, setFetchedAvailableEstateAdvert] =
-        useState<IAvailableEstateAdvert[] | null>(null)
+
 
     const [pathToSwitch, setPathToSwitch] = useState<PathSwitch>('advertList')
 
-    useEffect(() => {
-        const fetchData = async () => {
-            setTimeout(() => {
-                setFetchedAdvertList(ADVERT_LIST)
-                setFetchedAvailableEstateAdvert(AVAILABLE_ESTATE_ADVERT)
-            }, 1000)
-        }
-        fetchData()
-    }, [])
+  
 
     const handlePathSwitch: Record<PathSwitch, JSX.Element> = {
-        advertList: <AdvertList fetchedAdvertList={fetchedAdvertList ?? []} />,
-        availableEstates: (
-            <AvailableEstateAdvert
-                fetchedAvailableEstateAdvert={
-                    fetchedAvailableEstateAdvert ?? []
-                }
-            />
-        ),
+      
     }
 
     return (
