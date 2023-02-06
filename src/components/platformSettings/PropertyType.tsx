@@ -140,8 +140,8 @@ const PropertyType = () => {
         })
     }
 
-    const addGroupHandler = () => {
-        console.log('add😎')
+    const addPropertyHandler = () => {
+        navigate('/dashboard/platformSettings/addProperty')
     }
 
     return (
@@ -153,7 +153,7 @@ const PropertyType = () => {
 
                         <button
                             className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg ml-auto'
-                            onClick={addGroupHandler}
+                            onClick={addPropertyHandler}
                         >
                             <span>
                                 <IoMdAdd />
