@@ -250,7 +250,7 @@ const AdvertDetail = () => {
                             </div>
                             <button
                                 className=' text-color-blue-1'
-                                onClick={() => navigate('')}
+                                onClick={showClickRateDecrease}
                             >
                                 View Details
                             </button>
