@@ -177,10 +177,10 @@ const SOSTable = () => {
 
                 <div className='grid bg-white'>
                     <div className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-2 gap-8 text-[1.6rem]'>
-                        <div className='flex items-center gap-4'>
+                        <p className='flex items-center gap-4'>
                             <input type='checkbox' name='sos' id='sos' />
                             <label htmlFor='sos'>Files</label>
-                        </div>
+                        </p>
                         <p>Count</p>
                         <p>Estates</p>
                         <p>Created At</p>
@@ -191,10 +191,10 @@ const SOSTable = () => {
                         {slicedPages && slicedPages.length > 0 ? (
                             React.Children.toArray(
                                 slicedPages[paginate.index].map(
-                                    ({ id, file, estates, count}, i) => {
+                                    ({ id, file, estates, count, createdAt}) => {
                                         return (
                                             <div className='grid justify-between border-b grid-cols-2 items-center gap-8 '>
-                                                <div className='flex items-center gap-4'>
+                                                <p className='flex items-center gap-4'>
                                                     <input
                                                         type='checkbox'
                                                         name='file'
@@ -203,7 +203,13 @@ const SOSTable = () => {
                                                     <label htmlFor='file'>
                                                         {file}
                                                     </label>
-                                                </div>
+                                                </p>
+                                                <p>{count}</p>
+                                                <p>{estates}</p>
+                                                <p>{createdAt}</p>
+                                                <button className='text-color-primary'>
+                                                    View Details
+                                                </button>
                                             </div>
                                         )
                                     }
