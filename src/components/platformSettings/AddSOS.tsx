@@ -153,9 +153,10 @@ const AddSOS = () => {
                             Address
                         </label>
                         <input
-                            type='emai'
+                            type='text'
                             required
                             id='Address'
+                            placeholder='Felix Drive, Lekki, Lagos'
                             className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer'
                         />
                     </div>
