@@ -48,7 +48,6 @@ import PlatformSettings from '../pages/dashboard/platformSettings'
 import AddProperty from '../components/platformSettings/AddProperty'
 import AddSOS from '../components/platformSettings/AddSOS'
 import SOSDetails from '../components/platformSettings/SOSDetails'
-import AccountSettings from '../components/platformSettings/AccountSettings'
 
 const router = createBrowserRouter(
     createRoutesFromElements([
@@ -156,10 +155,7 @@ const router = createBrowserRouter(
                 path='platformSettings/SOSDetails/:Id'
                 element={<SOSDetails />}
             />
-            <Route
-                path='platformSettings/account'
-                element={<AccountSettings />}
-            />
+            
         </Route>,
         <Route path='*' element={<Navigate to='/' />} />,
     ])

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import AccountSettings from '../../components/platformSettings/AccountSettings'
 import PlatformChanges from '../../components/platformSettings/PlatformChanges'
 import PropertyType from '../../components/platformSettings/PropertyType'
 import SOSTable from '../../components/platformSettings/SOSTable'
@@ -17,7 +18,7 @@ function PlatformSettings() {
         platformChanges: <PlatformChanges />,
         propertyType: <PropertyType />,
         SOSTable: <SOSTable />,
-        accountSettings: <PlatformChanges />,
+        accountSettings: <AccountSettings />,
     }
 
     return (
@@ -53,6 +54,14 @@ function PlatformSettings() {
                     onChange={() => setPathToSwitch('SOSTable')}
                 />
                 <label htmlFor='SOSTable'>SOS Table</label>
+                <input
+                    type='radio'
+                    name='platform'
+                    id='accountSettings'
+                    className='hidden'
+                    onChange={() => setPathToSwitch('accountSettings')}
+                />
+                <label htmlFor='accountSettings'>SOS Table</label>
             </div>
             <div className='mt-8 grid gap-8'>
                 <section className='bg-color-white rounded-lg border min-w-[112rem] overflow-scroll'>
