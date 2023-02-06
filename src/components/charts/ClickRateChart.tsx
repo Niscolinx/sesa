@@ -16,7 +16,7 @@ const series = [
             { category: 'Tue', value: 17 },
             { category: 'Wed', value: 5 },
             { category: 'Thur', value: 12 },
-            { category: 'Fri', value:  11},
+            { category: 'Fri', value: 11 },
             { category: 'Sat', value: 10 },
             { category: 'Sun', value: 8 },
         ],
@@ -26,7 +26,6 @@ const series = [
 export default function ClickRateChart() {
     return (
         <LineChart width={500} height={300}>
-            <CartesianGrid strokeDasharray='3 3' />
             <XAxis
                 dataKey='category'
                 type='category'
