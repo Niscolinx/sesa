@@ -3,19 +3,19 @@ import { IoMdAdd, IoMdClose } from 'react-icons/io'
 import { BsQuestionCircle } from 'react-icons/bs'
 import { toast, ToastContainer } from 'react-toastify'
 
-type DialogType = 'validate' | 'add-Artisan'
-
 const PlatformChanges = () => {
- 
+    const handleSubmit = (e: FormEvent) => {
+        e.preventDefault()
 
-  const handleSubmit = (e: FormEvent) => {
-    e.preventDefault()
-  }
-  
-
+        toast('Changes saved successfully', {
+            type: 'success',
+            className: 'bg-green-100 text-green-600 text-[1.4rem]',
+        })
+    }
 
     return (
         <>
+            <ToastContainer />
             <div className='grid p-8 bg-white h-[80vh] items-baseline overflow-y-scroll rounded-lg'>
                 <h2 className='heading2'>Platform Changes</h2>
                 <form
