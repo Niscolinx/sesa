@@ -44,6 +44,7 @@ import AddAdvert from '../components/advert/AddAdvert'
 import AdvertDetail from '../components/advert/AdvertDetail'
 import AdvertClickrateIncrease from '../components/advert/AdvertClickrateIncrease'
 import AdvertClickrateDecrease from '../components/advert/AdvertClickrateDecrease'
+import PlatformSettings from '../pages/dashboard/platformSettings'
 
 const router = createBrowserRouter(
     createRoutesFromElements([
@@ -136,8 +137,8 @@ const router = createBrowserRouter(
                 element={<AdvertClickrateDecrease />}
             />
             <Route
-                path='advert/clickrate/decrease'
-                element={<AdvertClickrateDecrease />}
+                path='platformSettings'
+                element={<PlatformSettings />}
             />
         </Route>,
         <Route path='*' element={<Navigate to='/' />} />,
