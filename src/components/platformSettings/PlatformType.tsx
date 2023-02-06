@@ -3,6 +3,7 @@ import { CgSpinnerTwo } from 'react-icons/cg'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { FiDownload } from 'react-icons/fi'
 import { useNavigate } from 'react-router'
+import { IoMdAdd } from 'react-icons/io'
 
 export interface IPlatformType {
     id: string
@@ -158,7 +159,7 @@ const PlatformType = () => {
         })
     }
 
-    const handleCSVDownload = () => {
+    const addGroupHandler = () => {
         console.log('download csv')
     }
 
@@ -182,11 +183,13 @@ const PlatformType = () => {
                         />
                     </div>
                     <button
-                        className='btn border-[#0556E5] text-[#0556E5] border rounded-lg gap-3 ml-auto flex items-center'
-                        onClick={handleCSVDownload}
+                        className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg ml-auto'
+                        onClick={addGroupHandler}
                     >
-                        <FiDownload />
-                        Download CSV
+                        <span>
+                            <IoMdAdd />
+                        </span>{' '}
+                        Add Artisan Group
                     </button>
                 </div>
 
