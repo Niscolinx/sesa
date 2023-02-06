@@ -94,6 +94,10 @@ const AdvertDetail = () => {
                     </div>
                 </div>
             </section>
+
+            <section className='grid gap-8'>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ea recusandae optio velit error soluta, dicta fugit porro quae repellendus at veritatis consequuntur est suscipit accusantium facere culpa expedita. Accusamus, ab?
+            </section>
         </div>
     )
 }
