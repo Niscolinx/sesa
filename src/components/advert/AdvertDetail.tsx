@@ -1,6 +1,6 @@
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { AiOutlineLink } from 'react-icons/ai'
-import { HiArrowSmUp } from 'react-icons/hi'
+import { HiArrowSmUp, HiArrowSmDown } from 'react-icons/hi'
 
 const link = 'https://sesadigital.com/thelink_copyhere'
 const AdvertDetail = () => {
@@ -83,6 +83,19 @@ const AdvertDetail = () => {
                             <p className='text-[3rem]'>164</p>
                             <p className=' font-Satoshi-Light text-green-500 flex items-center'>
                                 <HiArrowSmUp />
+                                <span>5% increase from yesterday</span>
+                            </p>
+                        </div>
+                        <button className=' text-color-blue-1'>
+                            View Details
+                        </button>
+                    </div>
+                    <div className='grid justify-items-start'>
+                        <p>Advert Views</p>
+                        <div className='flex gap-4'>
+                            <p className='text-[3rem]'>164</p>
+                            <p className=' font-Satoshi-Light text-red-500 flex items-center'>
+                                <HiArrowSmDown />
                                 <span>5% increase from yesterday</span>
                             </p>
                         </div>
