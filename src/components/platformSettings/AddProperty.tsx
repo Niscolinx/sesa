@@ -11,153 +11,119 @@ export interface IPropertyType {
     description: string
 }
 
-export const PROPERTY_TYPE: IPropertyType[] = [
-    {
-        id: '1',
-        propertyType: '2 Bedroom Flat',
-        description: 'Flat with 2 bedrooms and parlour with POP finishing',
-    },
-    {
-        id: '2',
-        propertyType: 'Duplex',
-        description: 'Flat with 2 bedrooms and parlour with POP finishing',
-    },
-    {
-        id: '3',
-        propertyType: 'Semi Detached Duplex',
-        description: 'Flat with 2 bedrooms and parlour with POP finishing',
-    },
-]
+
 
 const PropertyType = () => {
     const navigate = useNavigate()
 
-    const [fetchedPropertyType, setFetchedPropertyType] = useState<
-        IPropertyType[]
-    >([])
 
-    useEffect(() => {
-        setTimeout(() => {
-            setFetchedPropertyType(PROPERTY_TYPE)
-        }, 1000)
-    }, [])
+    const dialogRef = useRef<HTMLDialogElement | null>(null)
 
-    interface Paginate {
-        index: number
-        currentPage: number
-        itemsPerPage: number
-        totalPage: number
-        slicedPages: IPropertyType[][] | null
-    }
-
-    const itemsPerPageArr = [2, 4, 6, 8]
-    const perPage = 4
-
-    const [paginate, setPaginate] = useState<Paginate>({
-        index: 0,
-        currentPage: 1,
-        itemsPerPage: perPage,
-        totalPage: Math.ceil(fetchedPropertyType.length / perPage),
-        slicedPages: null,
-    })
-
-    const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
-        const item = parseInt(e.target.value)
-
-        const slicedPages: IPropertyType[][] = []
-        for (let i = 0; i < fetchedPropertyType.length; i += item) {
-            slicedPages.push(fetchedPropertyType.slice(i, i + item))
+    const handleClose = () => {
+        if (dialogRef.current) {
+            dialogRef.current.close()
         }
-
-        setPaginate((prev) => {
-            return {
-                ...prev,
-                itemsPerPage: item,
-                index: 0,
-                currentPage: 1,
-                slicedPages,
-                totalPage: Math.ceil(fetchedPropertyType.length / item),
-            }
-        })
     }
 
-    useEffect(() => {
-        const slicedPages: IPropertyType[][] = []
-        for (
-            let i = 0;
-            i < fetchedPropertyType.length;
-            i += paginate.itemsPerPage
-        ) {
-            slicedPages.push(
-                fetchedPropertyType.slice(i, i + paginate.itemsPerPage)
-            )
+    const handleOpen = () => {
+       
+        if (dialogRef.current) {
+            dialogRef.current.showModal()
         }
-
-        setPaginate((prev) => {
-            return {
-                ...prev,
-                slicedPages,
-                totalPage: Math.ceil(
-                    fetchedPropertyType.length / paginate.itemsPerPage
-                ),
-            }
-        })
-    }, [fetchedPropertyType])
-
-    const handleNext = () => {
-        console.log(paginate.currentPage, paginate.totalPage)
-        if (paginate.currentPage === paginate.totalPage) return
-        setPaginate((prev) => {
-            return {
-                ...prev,
-                index: prev.index + 1,
-                currentPage: prev.currentPage + 1,
-            }
-        })
     }
 
-    const handlePrev = () => {
-        if (paginate.currentPage === 1) return
-        setPaginate((prev) => {
-            return {
-                ...prev,
-                index: prev.index - 1,
-                currentPage: prev.currentPage - 1,
-            }
+    
+
+    const handleDeleteArtisan = () => {
+        handleClose()
+
+        toast('Artisan deleted successfully', {
+            type: 'error',
+            className: 'bg-red-100 text-red-600 text-[1.4rem]',
         })
     }
+    const handleDeactivateArtisan = () => {
+        handleClose()
 
-    const { currentPage, slicedPages, itemsPerPage } = paginate
-
-    const jumpToPage = (e: React.MouseEvent, index: number) => {
-        setPaginate((prev) => {
-            return {
-                ...prev,
-                index,
-                currentPage: index + 1,
-            }
+        toast('Artisan deactivated successfully', {
+            type: 'error',
+            className: 'bg-red-100 text-red-600 text-[1.4rem]',
         })
-    }
-
-    const addPropertyHandler = () => {
-        navigate('/dashboard/platformSettings/addProperty')
     }
 
     return (
         <>
+            <dialog className='dialog' ref={dialogRef}>
+                <section className='grid place-content-center w-full h-[100vh]'>
+                    <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
+                        {dialogType === 'Deactivate' ? (
+                            <>
+                                <img
+                                    src='/icons/admins/modalDeactivate.svg'
+                                    alt=''
+                                />
+                                <p className='text-[1.6rem]'>
+                                    Are you sure you want to deactivate this
+                                    Artisan
+                                </p>
+
+                                <div className='flex w-full justify-center gap-8'>
+                                    <button
+                                        className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
+                                        onClick={() => handleClose()}
+                                    >
+                                        Cancel
+                                    </button>
+                                    <button
+                                        className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
+                                        onClick={handleDeactivateArtisan}
+                                    >
+                                        Deactivate
+                                    </button>
+                                </div>
+                            </>
+                        ) : (
+                            <>
+                                <img
+                                    src='/icons/admins/modalWarning.svg'
+                                    alt=''
+                                />
+                                <p className='text-[1.6rem]'>
+                                    Are you sure you want to delete this Artisan
+                                </p>
+
+                                <div className='flex w-full justify-center gap-8'>
+                                    <button
+                                        className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
+                                        onClick={() => handleClose()}
+                                    >
+                                        Cancel
+                                    </button>
+                                    <button
+                                        className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
+                                        onClick={handleDeleteArtisan}
+                                    >
+                                        Delete
+                                    </button>
+                                </div>
+                            </>
+                        )}
+                    </div>
+                </section>
+            </dialog>
             <div className='grid text-[1.6rem] border rounded-lg'>
                 <div className=' p-10 bg-white rounded-lg '>
                     <div className='flex w-full border-b items-center pb-5'>
                         <h2 className='heading2'>Property Type</h2>
 
                         <button
-                            className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg ml-auto'
-                            onClick={addPropertyHandler}
+                            className='border border-red-600 px-16 py-4 flex items-center  rounded-lg gap-4'
+                            onClick={() => handleSelectedAction('Delete')}
                         >
-                            <span>
-                                <IoMdAdd />
-                            </span>{' '}
-                            Add Property
+                            <img src='/icons/admins/delete.svg' alt='' />
+                            <span className='text-red-600 text-[1.4rem] font-semibold'>
+                                Delete
+                            </span>
                         </button>
                     </div>
                 </div>
