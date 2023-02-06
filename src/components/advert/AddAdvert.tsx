@@ -4,7 +4,7 @@ import { IoMdAdd, IoMdClose } from 'react-icons/io'
 import { BsQuestionCircle } from 'react-icons/bs'
 import { toast, ToastContainer } from 'react-toastify'
 import { getPhotoUrl } from '../../utils/getPhotoUrl'
-import { Select } from '../UI/Select'
+import { MultipleSelect, Select } from '../UI/Select'
 
 type DialogType = 'validate' | 'add-Artisan'
 
@@ -119,27 +119,7 @@ const AddAdvert = () => {
                 </section>
             </dialog>
             <div className='grid p-8 bg-white h-[80vh] items-baseline overflow-y-scroll rounded-lg'>
-                <div className='grid gap-8 max-w-[40rem]'>
-                    <p className='text-[2rem] font-bold'>
-                        KYA <span className='text-gray-500'>(Optional)</span>
-                    </p>
-                    <div className='flex justify-between text-[1.6rem]'>
-                        <p
-                            className='text-[#098DFF] cursor-pointer'
-                            onClick={() => handleOpen('validate')}
-                        >
-                            Click her to validate this person
-                        </p>
-                        <p
-                            className='text-[#043FA7] flex items-center gap-2'
-                            style={{
-                                fontFamily: 'Satoshi-Light',
-                            }}
-                        >
-                            What is KYA <BsQuestionCircle />
-                        </p>
-                    </div>
-                </div>
+                
                 <form
                     onSubmit={handleSubmit}
                     className='grid max-w-[84rem] gap-16 mt-12'
@@ -150,37 +130,22 @@ const AddAdvert = () => {
                 >
                     <div className='grid gap-4 relative '>
                         <label
-                            htmlFor='firstName'
+                            htmlFor='advertName'
                             className='text-[1.4rem] font-medium'
                         >
-                            First Name *
+                            Advert Name *
                         </label>
                         <input
                             type='text'
                             required
-                            id='firstName'
+                            id='advertName'
                             className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                         />
                     </div>
-                    <div className='grid gap-4 relative '>
-                        <label
-                            htmlFor='lastName'
-                            className='text-[1.4rem] font-medium'
-                        >
-                            Last Name *
-                        </label>
-                        <input
-                            type='text'
-                            required
-                            id='lastName'
-                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                        />
-                    </div>
-                    <Select
-                        label='Gender'
-                        state={['Male', 'Female']}
-                        selectedState={selectedGender}
-                        setSelectedState={setSelectedGender}
+                    
+                    <MultipleSelect
+                        label='Select Artisan'
+                        
                     />
                     <div className='grid gap-4'>
                         <label
