@@ -1,14 +1,16 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
-import { GrDown, GrUp } from 'react-icons/gr'
-import { IoMdAdd } from 'react-icons/io'
-import { ModalContext } from '../../Context/ModalContext'
 import { getPhotoUrl } from '../../utils/getPhotoUrl'
-import SecurityCompSvg from '../icons/sidebar/SecurityCompSvg'
+import { AiOutlineEyeInvisible, AiOutlineEye } from 'react-icons/ai'
 
 const AccountSettings = () => {
     const [isWarning, setIsWarning] = useState(true)
 
     const [photoUrl, setPhotoUrl] = useState('')
+
+      const [eyeIcon, setEyeIcon] = useState(false)
+            const toggleEyeIcon = () => setEyeIcon(!eyeIcon)
+
+
 
     const handlePhotoPreview = async (
         value: React.MouseEvent<HTMLInputElement>
@@ -45,6 +47,8 @@ const AccountSettings = () => {
     const confirmDeactivation = () => {
         handleClose()
     }
+
+
 
     return (
         <>
@@ -104,38 +108,28 @@ const AccountSettings = () => {
                 </section>
             </dialog>
             <div className='grid p-8 bg-white h-[80vh] items-baseline overflow-y-scroll rounded-lg'>
-                <div className='flex justify-between items-center'>
-                    <figure>
-                        <input
-                            type='file'
-                            name='photoUpload'
-                            id='photoUpload'
-                            accept='image/*'
-                            className='hidden'
-                            onClick={handlePhotoPreview}
-                        />
-                        <img
-                            src={photoUrl ? photoUrl : '/img/me.jpeg'}
-                            alt='photoPreview'
-                            className='object-cover w-[11rem] h-[11rem] rounded-full object-top'
-                        />
-                        <label
-                            htmlFor='photoUpload'
-                            className='cursor-pointer text-color-blue-1'
-                        >
-                            Edit
-                        </label>
-                    </figure>
-                    <button
-                        className='border border-red-600 px-16 py-4 flex items-center  rounded-lg gap-4'
-                        onClick={() => handleOpen('warning')}
+                <figure>
+                    <input
+                        type='file'
+                        name='photoUpload'
+                        id='photoUpload'
+                        accept='image/*'
+                        className='hidden'
+                        onClick={handlePhotoPreview}
+                    />
+                    <img
+                        src={photoUrl ? photoUrl : '/img/me.jpeg'}
+                        alt='photoPreview'
+                        className='object-cover w-[11rem] h-[11rem] rounded-full object-top'
+                    />
+                    <label
+                        htmlFor='photoUpload'
+                        className='cursor-pointer text-color-blue-1'
                     >
-                        <img src='/icons/admins/delete.svg' alt='' />
-                        <span className='text-red-600 text-[1.4rem] font-semibold'>
-                            Deactivate
-                        </span>
-                    </button>
-                </div>
+                        Edit
+                    </label>
+                </figure>
+
                 <form
                     onSubmit={handleSubmit}
                     className='grid max-w-[84rem] gap-16 mt-12'
@@ -144,150 +138,26 @@ const AccountSettings = () => {
                             ' repeat(auto-fit, minmax(35rem, 1fr))',
                     }}
                 >
-                    <div className='grid gap-4 relative '>
-                        <label
-                            htmlFor='securityCompany'
-                            className='text-[1.4rem] font-medium'
-                        >
-                            Security Company *
-                        </label>
-                        <input
-                            type='text'
-                            value='Orca Security'
-                            required
-                            disabled={true}
-                            id='securityCompany'
-                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4 disabled:text-gray-500'
-                        />
-                    </div>
-                    <div className='grid gap-4 relative'>
-                        <label
-                            htmlFor='email'
-                            className='text-[1.4rem] font-medium'
-                        >
-                            Email Address
-                        </label>
-                        <input
-                            type='email'
-                            required
-                            disabled
-                            value={`orcas@gmail.com`}
-                            id='email'
-                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4 disabled:text-gray-500'
-                        />
-                    </div>
-
-                    <div className='grid gap-4 relative'>
-                        <label
-                            htmlFor='address'
-                            className='text-[1.4rem] font-medium'
-                        >
-                            Address
-                        </label>
-                        <input
-                            type='text'
-                            required
-                            disabled
-                            value={`04, Wright Avenue Lagos, Nigeria`}
-                            id='address'
-                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4 disabled:text-gray-500'
-                        />
-                    </div>
-                    <div className='grid gap-4 relative'>
-                        <label
-                            htmlFor='noOfGuards'
-                            className='text-[1.4rem] font-medium'
-                        >
-                            No of Security Guards
-                        </label>
-                        <input
-                            type='text'
-                            required
-                            disabled
-                            value={`10`}
-                            id='noOfGuards'
-                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4 disabled:text-gray-500'
-                        />
-                    </div>
-                    <div className='grid gap-4 relative'>
-                        <label
-                            htmlFor='walletBalance'
-                            className='text-[1.4rem] font-medium'
-                        >
-                            Wallet Balance
-                        </label>
-                        <input
-                            type='text'
-                            required
-                            disabled
-                            value={`₦5,000`}
-                            id='walletBalance'
-                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4 disabled:text-gray-500'
-                        />
-                    </div>
-                    <div className='grid gap-4 relative'>
-                        <label
-                            htmlFor='joinedDate'
-                            className='text-[1.4rem] font-medium'
-                        >
-                            Joined Date
-                        </label>
-                        <input
-                            type='text'
-                            required
-                            disabled
-                            value={`02-May-22`}
-                            id='joinedDate'
-                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4 disabled:text-gray-500'
-                        />
-                    </div>
-                    <div className='grid gap-4 relative'>
-                        <label
-                            htmlFor='NoOfAssignedGuards'
-                            className='text-[1.4rem] font-medium'
-                        >
-                            No of Assigned Security Guards
-                        </label>
-                        <input
-                            type='text'
-                            required
-                            disabled
-                            value={`10`}
-                            id='NoOfAssignedGuards'
-                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4 disabled:text-gray-500'
-                        />
-                    </div>
-                    <div className='grid gap-4 relative'>
-                        <label
-                            htmlFor='noOfBankAccountsOpened'
-                            className='text-[1.4rem] font-medium'
-                        >
-                            No of Bank Accounts Opened
-                        </label>
-                        <input
-                            type='text'
-                            required
-                            disabled
-                            value={`10`}
-                            id='noOfBankAccountsOpened'
-                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4 disabled:text-gray-500'
-                        />
-                    </div>
-                    <div className='grid gap-4 relative'>
-                        <label
-                            htmlFor='status'
-                            className='text-[1.4rem] font-medium'
-                        >
-                            Status
-                        </label>
-                        <input
-                            type='text'
-                            required
-                            disabled
-                            value={`Active`}
-                            id='status'
-                            className='w-full bg-white text-[1.6rem] outline-none disabled:text-color-green-light'
-                        />
+                    <div className='form__input relative'>
+                        <label className='input__label'>Create Password</label>
+                        <div className='relative'>
+                            <input
+                                type={eyeIcon ? 'text' : 'password'}
+                                placeholder='create a password...'
+                                className={`input__item w-full`}
+                                name='password'
+                            />
+                            <span className='form__eyeIcon'>
+                                {eyeIcon ? (
+                                    <AiOutlineEyeInvisible
+                                        onClick={toggleEyeIcon}
+                                    />
+                                ) : (
+                                    <AiOutlineEye onClick={toggleEyeIcon} />
+                                )}
+                            </span>
+                        </div>
+                        
                     </div>
 
                     <button
