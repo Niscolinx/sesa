@@ -15,7 +15,7 @@ const PlatformChanges = () => {
     return (
         <>
             <ToastContainer />
-            <div className='grid p-8 bg-white h-[80vh] items-baseline overflow-y-scroll rounded-lg'>
+            <div className=' p-8 bg-white h-[80vh] rounded-lg'>
                 <h2 className='heading2'>Platform Changes</h2>
                 <form
                     onSubmit={handleSubmit}
@@ -57,7 +57,7 @@ const PlatformChanges = () => {
                     </div>
 
                     <button
-                        className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg col-span-full'
+                        className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg col-span-full mt-auto'
                         style={{ justifySelf: 'start' }}
                     >
                         <span>
