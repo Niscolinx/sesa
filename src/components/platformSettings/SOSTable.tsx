@@ -7,34 +7,47 @@ import { IoMdAdd } from 'react-icons/io'
 
 export interface ISOSTable {
     id: string
-    sOSTable: string
-    description: string
+    file: string
+    count: number
+    estates: number
+    createdAt: string
 }
 
 export const PROPERTY_TYPE: ISOSTable[] = [
     {
         id: '1',
-        sOSTable: '2 Bedroom Flat',
-        description: 'Flat with 2 bedrooms and parlour with POP finishing',
+        file: 'file 1',
+        count: 2,
+        estates: 2,
+        createdAt: '01 Feb 2023 12:00pm',
+    },
+    {
+        id: '2',
+        file: 'file 2',
+        count: 22,
+        estates: 42,
+        createdAt: '01 Feb 2023 12:00pm',
     },
     {
         id: '1',
-        sOSTable: 'Duplex',
-        description: 'Flat with 2 bedrooms and parlour with POP finishing',
+        file: 'file 3',
+        count: 31,
+        estates: 12,
+        createdAt: '01 Feb 2023 12:00pm',
     },
     {
         id: '1',
-        sOSTable: 'Semi Detached Duplex',
-        description: 'Flat with 2 bedrooms and parlour with POP finishing',
+        file: 'file 4',
+        count: 2,
+        estates: 2,
+        createdAt: '01 Feb 2023 12:00pm',
     },
 ]
 
 const SOSTable = () => {
     const navigate = useNavigate()
 
-    const [fetchedSOSTable, setFetchedSOSTable] = useState<
-        ISOSTable[]
-    >([])
+    const [fetchedSOSTable, setFetchedSOSTable] = useState<ISOSTable[]>([])
 
     useEffect(() => {
         setTimeout(() => {
@@ -164,19 +177,33 @@ const SOSTable = () => {
 
                 <div className='grid bg-white'>
                     <div className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-2 gap-8 text-[1.6rem]'>
-                        <p>Property Type</p>
-                        <p>Description</p>
+                        <div className='flex items-center gap-4'>
+                            <input type='checkbox' name='sos' id='sos' />
+                            <label htmlFor='sos'>Files</label>
+                        </div>
+                        <p>Count</p>
+                        <p>Estates</p>
+                        <p>Created At</p>
+                        <p>Actions</p>
                     </div>
 
                     <div className='grid gap-8 mt-8 p-8'>
                         {slicedPages && slicedPages.length > 0 ? (
                             React.Children.toArray(
                                 slicedPages[paginate.index].map(
-                                    ({ id, sOSTable, description }, i) => {
+                                    ({ id, file, estates, count}, i) => {
                                         return (
                                             <div className='grid justify-between border-b grid-cols-2 items-center gap-8 '>
-                                                <p>{sOSTable}</p>
-                                                <p>{description}</p>
+                                                <div className='flex items-center gap-4'>
+                                                    <input
+                                                        type='checkbox'
+                                                        name='file'
+                                                        id='file'
+                                                    />
+                                                    <label htmlFor='file'>
+                                                        {file}
+                                                    </label>
+                                                </div>
                                             </div>
                                         )
                                     }
