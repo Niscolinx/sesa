@@ -172,7 +172,7 @@ const AddSOS = () => {
                     </div>
 
                     <button
-                        className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg col-span-full'
+                        className='btn border-color-blue-1 text-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg col-span-full'
                         style={{ justifySelf: 'start' }}
                         onClick={() => handleOpen()}
                     >
