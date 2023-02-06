@@ -103,8 +103,8 @@ const AccountSettings = () => {
                     </div>
                 </section>
             </dialog>
-            <div className='grid p-8 bg-white h-[80vh] items-baseline overflow-y-scroll rounded-lg'>
-                <figure>
+            <div className=' p-8 bg-white h-[80vh] overflow-y-scroll rounded-lg'>
+                <figure className='grid text-center justify-start'>
                     <input
                         type='file'
                         name='photoUpload'
@@ -120,7 +120,7 @@ const AccountSettings = () => {
                     />
                     <label
                         htmlFor='photoUpload'
-                        className='cursor-pointer text-color-blue-1'
+                        className='cursor-pointer text-color-blue-1 text-[1.2rem] text-center'
                     >
                         Edit
                     </label>
@@ -128,19 +128,18 @@ const AccountSettings = () => {
 
                 <form
                     onSubmit={handleSubmit}
-                    className='grid max-w-[84rem] gap-16 mt-12'
+                    className='grid max-w-[84rem] text-[1.6rem] mt-10'
                     style={{
                         gridTemplateColumns:
                             ' repeat(auto-fit, minmax(35rem, 1fr))',
                     }}
                 >
                     <div className='form__input relative'>
-                        <label className='input__label'>Create Password</label>
+                        <label className='input__label'>Current Password</label>
                         <div className='relative'>
                             <input
                                 type={eyeIcon ? 'text' : 'password'}
-                                placeholder='create a password...'
-                                className={`input__item w-full`}
+                                className='border pl-8 border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem]'
                                 name='password'
                             />
                             <span className='form__eyeIcon'>
