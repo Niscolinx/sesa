@@ -165,12 +165,12 @@ const PlatformType = () => {
 
     return (
         <>
-            <div className='grid text-[1.6rem] border'>
+            <div className='grid text-[1.6rem] border rounded-lg'>
                 <div className='flex w-full items-center gap-12 p-10 bg-white rounded-lg'>
-                    <p className=' font-bold'>
+                    <h2 className='heading2 border-b pb-10'>
                         Platform Type
-                    </p>
-                    
+                    </h2>
+
                     <button
                         className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg ml-auto'
                         onClick={addGroupHandler}
@@ -197,17 +197,9 @@ const PlatformType = () => {
                         {slicedPages && slicedPages.length > 0 ? (
                             React.Children.toArray(
                                 slicedPages[paginate.index].map(
-                                    (
-                                        {
-                                           id,
-                                           propertyType,
-                                           description
-                                        },
-                                        i
-                                    ) => {
+                                    ({ id, propertyType, description }, i) => {
                                         return (
                                             <div className='grid justify-between border-b grid-cols-2 items-center gap-8 '>
-                                                
                                                 <p>{propertyType}</p>
                                                 <p>{description}</p>
                                             </div>
