@@ -7,10 +7,8 @@ const AccountSettings = () => {
 
     const [photoUrl, setPhotoUrl] = useState('')
 
-      const [eyeIcon, setEyeIcon] = useState(false)
-            const toggleEyeIcon = () => setEyeIcon(!eyeIcon)
-
-
+    const [eyeIcon, setEyeIcon] = useState(false)
+    const toggleEyeIcon = () => setEyeIcon(!eyeIcon)
 
     const handlePhotoPreview = async (
         value: React.MouseEvent<HTMLInputElement>
@@ -47,8 +45,6 @@ const AccountSettings = () => {
     const confirmDeactivation = () => {
         handleClose()
     }
-
-
 
     return (
         <>
@@ -157,7 +153,6 @@ const AccountSettings = () => {
                                 )}
                             </span>
                         </div>
-                        
                     </div>
 
                     <button
