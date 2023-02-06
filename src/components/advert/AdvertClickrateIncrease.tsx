@@ -129,6 +129,9 @@ const AdvertClickrateIncrease = () => {
             return {
                 ...prev,
                 slicedPages,
+                totalPage: Math.ceil(
+                    fetchedAdvertClickrateIncrease.length / paginate.itemsPerPage
+                )
             }
         })
     }, [fetchedAdvertClickrateIncrease])
