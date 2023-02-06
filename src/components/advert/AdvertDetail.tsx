@@ -87,8 +87,8 @@ const AdvertDetail = () => {
                         <AiOutlineLink />
                         <p>{link}</p>
                         <CopyToClipboard text={link}>
-                            <button className='bg-orange-300 rounded-lg py-2 px-3 font-semibold justify-self-center place-self-end'>
-                                Copy Link
+                            <button className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg ml-auto'>
+                                Copy
                             </button>
                         </CopyToClipboard>{' '}
                     </div>
