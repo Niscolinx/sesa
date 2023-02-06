@@ -132,11 +132,10 @@ const AddAdvert = () => {
                             Start Date
                         </label>
                         <input
-                            type='text'
+                            type='date'
                             required
                             id='startDate'
                             className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] disabled:text-gray-500 disabled:cursor-not-allowed'
-                            value={'12-May-22'}
                         />
                     </div>
                     <div className='w-full grid gap-4'>
@@ -147,11 +146,10 @@ const AddAdvert = () => {
                             End Date
                         </label>
                         <input
-                            type='text'
+                            type='date'
                             required
                             id='endDate'
                             className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] disabled:text-gray-500 disabled:cursor-not-allowed'
-                            value={'12-May-22'}
                         />
                     </div>
 
