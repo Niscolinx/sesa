@@ -1,7 +1,3 @@
-import React, { FormEvent, useRef, useState } from 'react'
-import { IoMdAdd, IoMdClose } from 'react-icons/io'
-import { getPhotoUrl } from '../../utils/getPhotoUrl'
-import { MultipleSelect } from '../UI/Select'
 
 const AdvertDetail = () => {
     return (
