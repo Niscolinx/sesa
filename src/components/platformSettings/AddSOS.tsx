@@ -20,7 +20,6 @@ const AddSOS = () => {
     }
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
-    const validateDialogRef = useRef<HTMLDialogElement | null>(null)
 
     const handleClose = () => {
         if (dialogRef.current) {
