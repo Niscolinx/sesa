@@ -17,6 +17,8 @@ const series = [
             { category: 'C', value: Math.random() },
             { category: 'D', value: Math.random() },
             { category: 'E', value: Math.random() },
+            { category: 'F', value: Math.random() },
+            { category: 'G', value: Math.random() },
         ],
     },
 ]
