@@ -176,7 +176,7 @@ const AdvertClickrateIncrease = () => {
 
     return (
         <>
-            <div className='grid text-[1.6rem]'>
+            <div className='grid text-[1.6rem] border'>
                 <div className='flex w-full items-center gap-12 p-10 bg-white rounded-lg'>
                     <p className=' font-bold'>
                         Availabe Estate Adverts <span>(10)</span>
@@ -205,7 +205,7 @@ const AdvertClickrateIncrease = () => {
                     </button> */}
                 </div>
 
-                <div className='grid'>
+                <div className='grid bg-white'>
                     <div
                         className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-4 gap-8'
                         style={{
