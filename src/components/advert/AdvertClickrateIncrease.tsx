@@ -23,54 +23,53 @@ export interface IAdvertClickrateIncrease {
 export const ADVERT_CLICK_RATE_INCREASE: IAdvertClickrateIncrease[] = [
     {
         id: '1',
-        estateName: 'Pepsi Estate',
+        estateName: 'Sun City',
         location: 'Lagos',
         noOfResidents: 50,
-        noOfViews:100
+        noOfViews: 100,
     },
     {
         id: '1',
-        estateName: 'Pepsi Estate',
+        estateName: 'Sun City',
         location: 'Lagos',
         noOfResidents: 50,
-        noOfViews:100
+        noOfViews: 100,
     },
     {
         id: '1',
-        estateName: 'Pepsi Estate',
+        estateName: 'Sun City',
         location: 'Lagos',
         noOfResidents: 50,
-        noOfViews:100
+        noOfViews: 100,
     },
     {
         id: '1',
-        estateName: 'Pepsi Estate',
+        estateName: 'Sun City',
         location: 'Lagos',
         noOfResidents: 50,
-        noOfViews:100
+        noOfViews: 100,
     },
     {
         id: '1',
-        estateName: 'Pepsi Estate',
+        estateName: 'Sun City',
         location: 'Lagos',
         noOfResidents: 50,
-        noOfViews:100
+        noOfViews: 100,
     },
     {
         id: '1',
-        estateName: 'Pepsi Estate',
+        estateName: 'Sun City',
         location: 'Lagos',
         noOfResidents: 50,
-        noOfViews:100
+        noOfViews: 100,
     },
 ]
 
 const AdvertClickrateIncrease = () => {
     const navigate = useNavigate()
 
-    const [fetchedAdvertClickrateIncrease, setFetchedAdvertClickrateIncrease] = useState<
-        IAdvertClickrateIncrease[]
-    >([])
+    const [fetchedAdvertClickrateIncrease, setFetchedAdvertClickrateIncrease] =
+        useState<IAdvertClickrateIncrease[]>([])
 
     useEffect(() => {
         setTimeout(() => {
@@ -112,7 +111,9 @@ const AdvertClickrateIncrease = () => {
                 index: 0,
                 currentPage: 1,
                 slicedPages,
-                totalPage: Math.ceil(fetchedAdvertClickrateIncrease.length / item),
+                totalPage: Math.ceil(
+                    fetchedAdvertClickrateIncrease.length / item
+                ),
             }
         })
     }
@@ -125,14 +126,17 @@ const AdvertClickrateIncrease = () => {
             i += paginate.itemsPerPage
         ) {
             slicedPages.push(
-                fetchedAdvertClickrateIncrease.slice(i, i + paginate.itemsPerPage)
+                fetchedAdvertClickrateIncrease.slice(
+                    i,
+                    i + paginate.itemsPerPage
+                )
             )
         }
 
         setPaginate((prev) => {
             return {
                 ...prev,
-                slicedPages
+                slicedPages,
             }
         })
     }, [fetchedAdvertClickrateIncrease])
@@ -171,8 +175,6 @@ const AdvertClickrateIncrease = () => {
             }
         })
     }
-
-  
 
     return (
         <>
