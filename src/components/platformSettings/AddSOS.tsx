@@ -105,12 +105,10 @@ const AddSOS = () => {
                             Phone Number
                         </label>
                         <input
-                            disabled
                             type='text'
                             required
                             id='phoneNumber'
-                            className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] disabled:text-gray-500 disabled:cursor-not-allowed'
-                            value={'09023238423'}
+                            className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] '
                         />
                     </div>
                     <div className='w-full grid gap-4'>
@@ -136,12 +134,10 @@ const AddSOS = () => {
                             Phone Number
                         </label>
                         <input
-                            disabled
                             type='text'
                             required
                             id='phoneNumber'
-                            className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] disabled:text-gray-500 disabled:cursor-not-allowed'
-                            value={'09023238423'}
+                            className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] '
                         />
                     </div>
 
@@ -169,12 +165,10 @@ const AddSOS = () => {
                             Phone Number
                         </label>
                         <input
-                            disabled
                             type='text'
                             required
                             id='phoneNumber'
-                            className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] disabled:text-gray-500 disabled:cursor-not-allowed'
-                            value={'09023238423'}
+                            className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] '
                         />
                     </div>
 
