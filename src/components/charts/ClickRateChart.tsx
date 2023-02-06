@@ -17,17 +17,27 @@ const series = [
 
 export default function ClickRateChart() {
     return (
-        <LineChart width={1000} height={300}>
+        <LineChart
+            width={1000}
+            height={300}
+            margin={{
+                top: 5,
+                right: 30,
+                left: 20,
+                bottom: 5,
+            }}
+        >
             <XAxis
                 dataKey='category'
                 type='category'
                 allowDuplicatedCategory={false}
             />
-            <YAxis dataKey='value' fill='#fff' />
+            <YAxis dataKey='value'  />
             <Tooltip />
             {series.map((s) => (
                 <Line
                     fill='#08D231'
+                    stroke='#08D231'
                     dataKey='value'
                     data={s.data}
                     name={s.name}
