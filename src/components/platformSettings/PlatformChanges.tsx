@@ -42,7 +42,7 @@ const PlatformChanges = () => {
                                 className='border pl-8 border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem]'
                             />
                         </div>
-                        <p className=''>Charges Per Validation</p>
+                        <p className=' text-[1.2rem] text-gray-400'>Charges Per Validation</p>
                     </div>
                     <div className='relative flex items-center'>
                         <img
