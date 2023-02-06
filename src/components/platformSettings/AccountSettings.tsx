@@ -80,6 +80,44 @@ const AccountSettings = () => {
                             </span>
                         </div>
                     </div>
+                    <div>
+                        <label className='font-bold'>New Password</label>
+                        <div className='relative flex items-center'>
+                            <input
+                                type={eyeIcon ? 'text' : 'password'}
+                                className='border pr-12 border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem]'
+                                name='password'
+                            />
+                            <span className='absolute right-2'>
+                                {eyeIcon ? (
+                                    <AiOutlineEyeInvisible
+                                        onClick={toggleEyeIcon}
+                                    />
+                                ) : (
+                                    <AiOutlineEye onClick={toggleEyeIcon} />
+                                )}
+                            </span>
+                        </div>
+                    </div>
+                    <div>
+                        <label className='font-bold'>Re-Enter New Password</label>
+                        <div className='relative flex items-center'>
+                            <input
+                                type={eyeIcon ? 'text' : 'password'}
+                                className='border pr-12 border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem]'
+                                name='password'
+                            />
+                            <span className='absolute right-2'>
+                                {eyeIcon ? (
+                                    <AiOutlineEyeInvisible
+                                        onClick={toggleEyeIcon}
+                                    />
+                                ) : (
+                                    <AiOutlineEye onClick={toggleEyeIcon} />
+                                )}
+                            </span>
+                        </div>
+                    </div>
 
                     <button
                         className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg col-span-full mt-[10rem]'
