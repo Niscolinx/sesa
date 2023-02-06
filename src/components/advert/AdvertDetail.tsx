@@ -1,15 +1,13 @@
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { AiOutlineLink } from 'react-icons/ai'
+import { HiArrowSmUp } from 'react-icons/hi'
 
 const link = 'https://sesadigital.com/thelink_copyhere'
 const AdvertDetail = () => {
     return (
         <div className='grid p-8 bg-white h-[80vh] items-baseline overflow-y-scroll rounded-lg text-[1.6rem] gap-10'>
             <section className='grid gap-8'>
-                <h2
-                   
-                    className='text-[2rem] font-Satoshi-Medium'
-                >
+                <h2 className='text-[2rem] font-Satoshi-Medium'>
                     Advert Preview
                 </h2>
                 <img
@@ -18,10 +16,7 @@ const AdvertDetail = () => {
                     className='h-[40rem] w-[120rem] object-cover rounded-lg flex self-stretch'
                 />
                 <div className='pt-20 grid gap-10'>
-                    <h2
-                       
-                        className='text-[2rem] font-Satoshi-Medium'
-                    >
+                    <h2 className='text-[2rem] font-Satoshi-Medium'>
                         Advert Overview
                     </h2>
 
@@ -33,9 +28,7 @@ const AdvertDetail = () => {
                                 className='object-cover w-[4rem] h-[4rem] rounded-full'
                             />
                             <div>
-                                <p
-                                   className='font-Satoshi-Light'
-                                >
+                                <p className='font-Satoshi-Light'>
                                     Advert Name
                                 </p>
                                 <p>Pepsi Advert</p>
@@ -48,11 +41,7 @@ const AdvertDetail = () => {
                                 className='object-cover w-[4rem] h-[4rem] rounded-full'
                             />
                             <div>
-                                <p
-                                   className='font-Satoshi-Light'
-                                >
-                                    Start Date
-                                </p>
+                                <p className='font-Satoshi-Light'>Start Date</p>
                                 <p>12 May, 2022</p>
                             </div>
                         </div>
@@ -63,11 +52,7 @@ const AdvertDetail = () => {
                                 className='object-cover w-[4rem] h-[4rem] rounded-full'
                             />
                             <div>
-                                <p
-                                   className='font-Satoshi-Light'
-                                >
-                                    End Date
-                                </p>
+                                <p className='font-Satoshi-Light'>End Date</p>
                                 <p>12 Aug, 2022</p>
                             </div>
                         </div>
@@ -88,22 +73,22 @@ const AdvertDetail = () => {
             </section>
 
             <section className='grid gap-8'>
-                <h2
-                   
-                    className='text-[2rem] font-Satoshi-Medium' 
-                >
+                <h2 className='text-[2rem] font-Satoshi-Medium'>
                     Advert Numbers
                 </h2>
                 <div className='grid grid-cols-2'>
-                    <div className='grid gap-4'>
+                    <div className='grid justify-items-start'>
                         <p>Advert Clicks</p>
-                        <div>
+                        <div className='flex gap-4'>
                             <p className='text-[3rem]'>164</p>
-                            <p className=' font-Satoshi-Light text-green-500'>
-                                <HiArrowSmUp/>
-                                5% increase from yesterday
+                            <p className=' font-Satoshi-Light text-green-500 flex items-center'>
+                                <HiArrowSmUp />
+                                <span>5% increase from yesterday</span>
                             </p>
                         </div>
+                        <button className=' text-color-blue-1'>
+                            View Details
+                        </button>
                     </div>
                 </div>
             </section>
