@@ -6,11 +6,11 @@ const SOSDetails = () => {
                 <div className='p-8'>
                     <p className='text-[1.6rem]'>Details</p>
 
-                    <div className="grid grid-cols-2">
-                    <div>
-                        <p>Name :</p>
-                        <p>Adiyan Police Station</p>
-                    </div>
+                    <div className='grid grid-cols-2'>
+                        <div className='grid grid-cols-2'>
+                            <p>Name :</p>
+                            <p>Adiyan Police Station</p>
+                        </div>
                     </div>
                 </div>
             </div>
