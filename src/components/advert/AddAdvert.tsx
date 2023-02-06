@@ -136,7 +136,9 @@ const AddAdvert = () => {
                     
                     <MultipleSelect
                         label='Select Artisan'
-                        
+                        selected={selectedEstates}
+                        selectFrom={['Estate 1', 'Estate 2', 'Estate 3']}
+                        setSelected={setSelectedEstates}
                     />
                     <div className='grid gap-4'>
                         <label
