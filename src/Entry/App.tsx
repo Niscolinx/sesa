@@ -152,7 +152,7 @@ const router = createBrowserRouter(
                 element={<AddSOS />}
             />
             <Route
-                path='platformSettings/SOSDetails'
+                path='platformSettings/SOSDetails/:Id'
                 element={<SOSDetails />}
             />
         </Route>,
