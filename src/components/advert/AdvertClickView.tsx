@@ -65,16 +65,14 @@ export const ADVERT_CLICK_VIEW: IAdvertClickView[] = [
     },
 ]
 
-
 const AdvertClickView = () => {
     const navigate = useNavigate()
 
     const [fetchedAdvertClickView, setFetchedAdvertClickView] = useState<
-        IAdvertClickView[] | null
-    >(null)
+        IAdvertClickView[]
+    >([])
 
     useEffect(() => {
-
         setTimeout(() => {
             setFetchedAdvertClickView(ADVERT_CLICK_VIEW)
         }, 1000)
@@ -114,9 +112,7 @@ const AdvertClickView = () => {
                 index: 0,
                 currentPage: 1,
                 slicedPages,
-                totalPage: Math.ceil(
-                    fetchedAdvertClickView.length / item
-                ),
+                totalPage: Math.ceil(fetchedAdvertClickView.length / item),
             }
         })
     }
