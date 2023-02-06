@@ -202,7 +202,7 @@ const AdvertList: FC<{
     }
 
     const addAdvert = () => {
-        navigate('/dashboard/advert/group/add')
+        navigate('/dashboard/advert/add')
     }
 
     return (

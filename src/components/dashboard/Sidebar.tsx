@@ -21,7 +21,7 @@ function Sidebar() {
     }
 
     return (
-        <div className='sidebar shadow' ref={sidebarRef}>
+        <div className='sidebar shadow overflow-scroll' ref={sidebarRef}>
             <div
                 className={`sidebar__container ${
                     openSidebar ? 'items-start' : 'items-center justify-center'
