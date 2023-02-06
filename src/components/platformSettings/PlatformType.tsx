@@ -168,20 +168,9 @@ const PlatformType = () => {
             <div className='grid text-[1.6rem] border'>
                 <div className='flex w-full items-center gap-12 p-10 bg-white rounded-lg'>
                     <p className=' font-bold'>
-                        Total Views <span>(10)</span>
+                        Platform Type
                     </p>
-                    <div className='relative flex items-center'>
-                        <img
-                            src='/icons/admins/search.svg'
-                            alt=''
-                            className='absolute left-4 text-[4rem]'
-                        />
-                        <input
-                            type='text'
-                            placeholder='Search Parameters'
-                            className='pl-16 w-[25rem] rounded-lg border border-color-blue-light appearance-none outline-none p-4'
-                        />
-                    </div>
+                    
                     <button
                         className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg ml-auto'
                         onClick={addGroupHandler}
@@ -189,7 +178,7 @@ const PlatformType = () => {
                         <span>
                             <IoMdAdd />
                         </span>{' '}
-                        Add Artisan Group
+                        Add Platform
                     </button>
                 </div>
 
