@@ -1,4 +1,5 @@
 import { CopyToClipboard } from 'react-copy-to-clipboard'
+import {AiOutlineLink} from 'react-icons/ai'
 
 const AdvertDetail = () => {
     return (
