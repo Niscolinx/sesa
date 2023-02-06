@@ -12,10 +12,10 @@ function PlatformSettings() {
         useState<PathSwitch>('platformChanges')
 
     const handlePathSwitch: Record<PathSwitch, JSX.Element> = {
-        platformChanges: <PlatformChanges/>,
-        propertyType: <PlatformChanges/>,
-        SOSDetails: <PlatformChanges/>,
-        accountSettings: <PlatformChanges/>,
+        platformChanges: <PlatformChanges />,
+        propertyType: <PlatformChanges />,
+        SOSDetails: <PlatformChanges />,
+        accountSettings: <PlatformChanges />,
     }
 
     return (
@@ -46,7 +46,7 @@ function PlatformSettings() {
             </div>
             <div className='mt-8 grid gap-8'>
                 <section className='bg-color-white rounded-lg border min-w-[112rem] overflow-scroll'>
-                    handlePathSwitch[pathToSwitch]
+                    {handlePathSwitch[pathToSwitch]}
                 </section>
             </div>
         </div>
