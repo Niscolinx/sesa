@@ -176,7 +176,7 @@ const AdvertList: FC<{
         })
 
         if (item === 'View Details') {
-            navigate(`/dashboard/advert/list/:${id}`)
+            navigate(`/dashboard/advert/detail/:${id}`)
         }
 
         if (item === 'Delete') {
