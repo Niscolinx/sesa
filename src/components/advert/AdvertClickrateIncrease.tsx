@@ -171,9 +171,7 @@ const AdvertClickrateIncrease = () => {
         })
     }
 
-    const addAdvert = () => {
-        navigate('/dashboard/advert/group/add')
-    }
+  
 
     return (
         <>
