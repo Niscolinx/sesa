@@ -47,7 +47,7 @@ const AddSOS = () => {
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid items-baseline w-[64rem] min-h-[30rem] p-10 gap-8 text-[1.6rem] relative'>
                         <IoMdClose
-                            className='abaddddDDddsdfslute right-4 top-4 text-[2rem] curaddddDDddsdfsr-pointer'
+                            className='absolute right-4 top-4 text-[2rem] cursor-pointer'
                             onClick={() => handleClose()}
                         />
 
@@ -124,7 +124,7 @@ const AddSOS = () => {
                             type='email'
                             placeholder='Optional'
                             id='email'
-                            className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] curaddddDDddsdfsr-pointer'
+                            className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer'
                         />
                     </div>
 
@@ -156,7 +156,7 @@ const AddSOS = () => {
                             type='emai'
                             required
                             id='Address'
-                            className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] curaddddDDddsdfsr-pointer'
+                            className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer'
                         />
                     </div>
 
