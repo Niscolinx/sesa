@@ -22,7 +22,7 @@ const series = [
     },
 ]
 
- export default function ClickRate() {
+ export default function ClickRateChart() {
     return (
         <LineChart width={500} height={300}>
             <CartesianGrid strokeDasharray='3 3' />

@@ -5,6 +5,7 @@ import { GrUp, GrDown } from 'react-icons/gr'
 import { HiArrowSmUp, HiArrowSmDown } from 'react-icons/hi'
 import { LineChart } from 'recharts'
 import { Trend } from '../../pages/dashboard/Wallet/EstateWallet'
+import ClickRateChart from '../charts/ClickRateChart'
 import WalletBarChart from '../charts/WalletBarChart'
 
 const link = 'https://sesadigital.com/thelink_copyhere'
@@ -169,7 +170,7 @@ const AdvertDetail = () => {
                             )}
                         </div>
                     </div>
-                    < />
+                    <ClickRateChart />
                 </div>
             </section>
         </div>
