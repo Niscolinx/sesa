@@ -9,13 +9,8 @@ import { MultipleSelect, Select } from '../UI/Select'
 type DialogType = 'validate' | 'add-Artisan'
 
 const AddAdvert = () => {
-    const [selectedState, setSelectedState] = useState<string | null>(null)
-    const [selectedArtisan, setSelectedArtisan] = useState<string | null>(null)
-    const [selectedGender, setSelectedGender] = useState<string | null>(null)
-    const [isAddAdvert, setIsAddAdvert] = useState(true)
-    const [validationType, setValidationType] = useState<string | null>(
-        'Phone Number'
-    )
+    const [selectedEstates, setSelectedEstates] = useState<string[]>([])
+    
 
     const [photoUrl, setPhotoUrl] = useState('')
 
