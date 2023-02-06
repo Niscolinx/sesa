@@ -24,6 +24,20 @@ const AdvertDetail = () => {
                     >
                         Advert Overview
                     </h2>
+
+
+                    <div className="flex justify-between">
+
+                    <div className="flex gap-4">
+                        <img src="/icons/video.svg" alt="" className="object-cover w-[4rem] h-[4rem] rounded-full"/>
+                        <div>
+                            <p style={{
+                                fontFamily: 'Satoshi-light',
+                            }}>Advert Name</p>
+                            <p>Pepsi Advert</p>
+                        </div>
+                    </div>
+                    </div>
                 </div>
             </section>
         </div>
