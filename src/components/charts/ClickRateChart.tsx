@@ -12,18 +12,39 @@ const series = [
     {
         name: 'Series 1',
         data: [
-            { category: 'A', value: Math.random() },
-            { category: 'B', value: Math.random() },
-            { category: 'C', value: Math.random() },
-            { category: 'D', value: Math.random() },
-            { category: 'E', value: Math.random() },
-            { category: 'F', value: Math.random() },
-            { category: 'G', value: Math.random() },
+            {
+                name: 'Mon',
+                pv: 25_000,
+            },
+            {
+                name: 'Tue',
+                pv: 30_000,
+            },
+            {
+                name: 'Wed',
+                pv: 18_000,
+            },
+            {
+                name: 'Thur',
+                pv: 15_000,
+            },
+            {
+                name: 'Fri',
+                pv: 22_000,
+            },
+            {
+                name: 'Sat',
+                pv: 21_000,
+            },
+            {
+                name: 'Sun',
+                pv: 22_000,
+            },
         ],
     },
 ]
 
- export default function ClickRateChart() {
+export default function ClickRateChart() {
     return (
         <LineChart width={500} height={300}>
             <CartesianGrid strokeDasharray='3 3' />
