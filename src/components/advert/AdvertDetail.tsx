@@ -1,6 +1,6 @@
 const AdvertDetail = () => {
     return (
-        <div className='grid p-8 bg-white h-[80vh] items-baseline overflow-y-scroll rounded-lg'>
+        <div className='grid p-8 bg-white h-[80vh] items-baseline overflow-y-scroll rounded-lg text-[1.6rem]'>
             <section className='grid gap-8'>
                 <h2
                     style={{
@@ -26,9 +26,9 @@ const AdvertDetail = () => {
                     </h2>
 
                     <div className='flex justify-between'>
-                        <div className='flex gap-4'>
+                        <div className='flex gap-4 items-center'>
                             <img
-                                src='/icons/video.svg'
+                                src='/img/video.svg'
                                 alt=''
                                 className='object-cover w-[4rem] h-[4rem] rounded-full'
                             />
@@ -43,9 +43,9 @@ const AdvertDetail = () => {
                                 <p>Pepsi Advert</p>
                             </div>
                         </div>
-                        <div className='flex gap-4'>
+                        <div className='flex gap-4 items-center'>
                             <img
-                                src='/icons/startDate.svg'
+                                src='/img/startDate.svg'
                                 alt=''
                                 className='object-cover w-[4rem] h-[4rem] rounded-full'
                             />
@@ -60,9 +60,9 @@ const AdvertDetail = () => {
                                 <p>12 May, 2022</p>
                             </div>
                         </div>
-                        <div className='flex gap-4'>
+                        <div className='flex gap-4 items-center'>
                             <img
-                                src='/icons/video.svg'
+                                src='/img/endDate.svg'
                                 alt=''
                                 className='object-cover w-[4rem] h-[4rem] rounded-full'
                             />
