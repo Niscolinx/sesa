@@ -165,7 +165,7 @@ const SOSTable = () => {
             <div className='grid text-[1.6rem] border rounded-lg'>
                 <div className=' p-10 bg-white rounded-lg '>
                     <div className='flex w-full border-b items-center pb-5'>
-                        <h2 className='heading2'>Property Type</h2>
+                        <h2 className='heading2'>SOS Table</h2>
 
                         <button
                             className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg ml-auto'
