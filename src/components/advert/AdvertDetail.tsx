@@ -77,7 +77,7 @@ const AdvertDetail = () => {
                     Advert Numbers
                 </h2>
                 <div className='grid' style={{
-                    gridTemplateColumns: '1fr min-content 1fr'
+                    gridTemplateColumns: '2fr 1fr 2fr'
                 }}>
                     <div className='grid justify-items-start'>
                         <p>Advert Clicks</p>
@@ -92,7 +92,7 @@ const AdvertDetail = () => {
                             View Details
                         </button>
                     </div>
-                    <div className='h-full w-[1px] bg-gray-500'>
+                    <div className='h-full w-[1px] bg-gray-300'>
                         &nbsp;
                     </div>
                     <div className='grid justify-items-start'>
