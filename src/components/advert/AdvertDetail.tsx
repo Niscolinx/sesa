@@ -5,7 +5,10 @@ const AdvertDetail = () => {
 
 
             <section>
-                <img src="/img/advertHero.png" alt="" className="w-[100rem] h-[40rem] object-cover rounded-lg" />
+                <h2 style={{
+                    fontFamily: 'Satoshi-medium'
+                }} className='text-[2rem]'>Advert Preview</h2>
+                <img src="/img/advertHero.png" alt="" className=" h-[40rem] object-cover rounded-lg" />
             </section>
 
         </div>
