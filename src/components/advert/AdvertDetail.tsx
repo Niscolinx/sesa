@@ -1,6 +1,7 @@
 import { CopyToClipboard } from 'react-copy-to-clipboard'
-import {AiOutlineLink} from 'react-icons/ai'
+import { AiOutlineLink } from 'react-icons/ai'
 
+const link = 'https://sesadigital.com/thelink_copyhere'
 const AdvertDetail = () => {
     return (
         <div className='grid p-8 bg-white h-[80vh] items-baseline overflow-y-scroll rounded-lg text-[1.6rem]'>
@@ -82,8 +83,10 @@ const AdvertDetail = () => {
                         </div>
                     </div>
 
-                    <div>
-                        <CopyToClipboard text={user.referralLink}>
+                    <div className='bg-gray-400 text-gray-500'>
+                        <AiOutlineLink />
+                        <p>{link}</p>
+                        <CopyToClipboard text={link}>
                             <button className='bg-orange-300 rounded-lg py-2 px-3 font-semibold justify-self-center place-self-end'>
                                 Copy Link
                             </button>
