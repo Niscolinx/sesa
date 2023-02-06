@@ -132,7 +132,6 @@ const AddAdvert = () => {
                             Start Date
                         </label>
                         <input
-                            disabled
                             type='text'
                             required
                             id='startDate'
@@ -148,7 +147,6 @@ const AddAdvert = () => {
                             End Date
                         </label>
                         <input
-                            disabled
                             type='text'
                             required
                             id='endDate'
