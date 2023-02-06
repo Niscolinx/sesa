@@ -169,7 +169,7 @@ const AddSOS = () => {
                     </div>
 
                     <div className='col-span-full'>
-                        <p className='text-[2rem] font-Satoshi-Medium'>Add Estates</p>
+                        <p className='text-[2rem] font-Satoshi-Medium py-4'>Add Estates</p>
                         <MultipleSelect
                             label='Estates'
                             placeholder='Select Estates'
