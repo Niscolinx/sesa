@@ -36,7 +36,9 @@ const AddSOS = () => {
         }
     }
 
-   
+   const confirmAddedSOS = () => {
+    console.log("hellow ")
+   }
 
    
 
@@ -64,7 +66,7 @@ const AddSOS = () => {
                                 </button>
                                 <button
                                     className='bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
-                                    onClick={confirmADDDDDDDDSDFS}
+                                    onClick={confirmAddedSOS}
                                 >
                                     Ok
                                 </button>
