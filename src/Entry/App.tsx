@@ -140,6 +140,10 @@ const router = createBrowserRouter(
                 path='platformSettings'
                 element={<PlatformSettings />}
             />
+            <Route
+                path='platformSettings/addProperty'
+                element={<PlatformSettings />}
+            />
         </Route>,
         <Route path='*' element={<Navigate to='/' />} />,
     ])

@@ -15,33 +15,19 @@ export const PLATFORM_TYPE: IPlatformType[] = [
     {
         id: '1',
         propertyType: '2 Bedroom Flat',
-        description: 'Flat with 2 bedrooms',
+        description: 'Flat with 2 bedrooms and parlour with POP finishing',
     },
     {
         id: '1',
-        propertyType: '2 Bedroom Flat',
-        description: 'Flat with 2 bedrooms',
+        propertyType: 'Duplex',
+        description: 'Flat with 2 bedrooms and parlour with POP finishing',
     },
     {
         id: '1',
-        propertyType: '2 Bedroom Flat',
-        description: 'Flat with 2 bedrooms',
+        propertyType: 'Semi Detached Duplex',
+        description: 'Flat with 2 bedrooms and parlour with POP finishing',
     },
-    {
-        id: '1',
-        propertyType: '2 Bedroom Flat',
-        description: 'Flat with 2 bedrooms',
-    },
-    {
-        id: '1',
-        propertyType: '2 Bedroom Flat',
-        description: 'Flat with 2 bedrooms',
-    },
-    {
-        id: '1',
-        propertyType: '2 Bedroom Flat',
-        description: 'Flat with 2 bedrooms',
-    },
+    
 ]
 
 const PlatformType = () => {
