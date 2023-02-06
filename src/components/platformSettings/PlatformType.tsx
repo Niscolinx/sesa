@@ -184,7 +184,7 @@ const PlatformType = () => {
 
                 <div className='grid bg-white'>
                     <div
-                        className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-4 gap-8'
+                        className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-2 gap-8'
                         style={{
                             fontSize: '1.4rem',
                         }}
@@ -206,18 +206,10 @@ const PlatformType = () => {
                                         i
                                     ) => {
                                         return (
-                                            <div className='grid justify-between border-b grid-cols-4 items-center gap-8 '>
-                                                <p className='flex items-center gap-4'>
-                                                    <input
-                                                        type='checkbox'
-                                                        className='cursor-pointer'
-                                                    />
-
-                                                    <span>{estateName}</span>
-                                                </p>
-                                                <p>{location}</p>
-                                                <p>{noOfResidents}</p>
-                                                <p>{noOfViews}</p>
+                                            <div className='grid justify-between border-b grid-cols-2 items-center gap-8 '>
+                                                
+                                                <p>{propertyType}</p>
+                                                <p>{description}</p>
                                             </div>
                                         )
                                     }
