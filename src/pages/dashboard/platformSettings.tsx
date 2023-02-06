@@ -33,11 +33,11 @@ function PlatformSettings() {
                 <input
                     type='radio'
                     name='platform'
-                    id='availableEstates'
+                    id='propertyType'
                     className='hidden'
-                    onChange={() => setPathToSwitch('availableEstates')}
+                    onChange={() => setPathToSwitch('propertyType')}
                 />
-                <label htmlFor='availableEstates'>Available Estates</label>
+                <label htmlFor='propertyType'>Available Estates</label>
             </div>
             <div className='mt-8 grid gap-8'>
                 <section className='bg-color-white rounded-lg border min-w-[112rem] overflow-scroll'>
