@@ -15,53 +15,53 @@ import { toast, ToastContainer } from 'react-toastify'
 export interface IAdvertClickrateIncrease {
     id: string
     estateName: string
-    state: string
-    address: string
+    location: string
     noOfResidents: number
+    noOfViews: number
 }
 
 export const ADVERT_CLICK_RATE_INCREASE: IAdvertClickrateIncrease[] = [
     {
         id: '1',
         estateName: 'Pepsi Estate',
-        state: 'Lagos',
-        address: 'No 1, Pepsi Street, Pepsi Estate',
+        location: 'Lagos',
         noOfResidents: 50,
+        noOfViews:100
     },
     {
         id: '1',
         estateName: 'Pepsi Estate',
-        state: 'Lagos',
-        address: 'No 1, Pepsi Street, Pepsi Estate',
+        location: 'Lagos',
         noOfResidents: 50,
+        noOfViews:100
     },
     {
         id: '1',
         estateName: 'Pepsi Estate',
-        state: 'Lagos',
-        address: 'No 1, Pepsi Street, Pepsi Estate',
+        location: 'Lagos',
         noOfResidents: 50,
+        noOfViews:100
     },
     {
         id: '1',
         estateName: 'Pepsi Estate',
-        state: 'Lagos',
-        address: 'No 1, Pepsi Street, Pepsi Estate',
+        location: 'Lagos',
         noOfResidents: 50,
+        noOfViews:100
     },
     {
         id: '1',
         estateName: 'Pepsi Estate',
-        state: 'Lagos',
-        address: 'No 1, Pepsi Street, Pepsi Estate',
+        location: 'Lagos',
         noOfResidents: 50,
+        noOfViews:100
     },
     {
         id: '1',
         estateName: 'Pepsi Estate',
-        state: 'Lagos',
-        address: 'No 1, Pepsi Street, Pepsi Estate',
+        location: 'Lagos',
         noOfResidents: 50,
+        noOfViews:100
     },
 ]
 
@@ -179,7 +179,7 @@ const AdvertClickrateIncrease = () => {
             <div className='grid text-[1.6rem] border'>
                 <div className='flex w-full items-center gap-12 p-10 bg-white rounded-lg'>
                     <p className=' font-bold'>
-                        Availabe Estate Adverts <span>(10)</span>
+                        Total Views <span>(10)</span>
                     </p>
                     <div className='relative flex items-center'>
                         <img
@@ -228,9 +228,9 @@ const AdvertClickrateIncrease = () => {
                                     (
                                         {
                                             estateName,
-                                            state,
-                                            address,
+                                            location,
                                             noOfResidents,
+                                            noOfViews,
                                         },
                                         i
                                     ) => {
