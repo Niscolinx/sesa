@@ -1,4 +1,3 @@
-import React from 'react'
 import { BarChart, Bar, XAxis, YAxis, Tooltip } from 'recharts'
 
 const data = [
