@@ -98,7 +98,10 @@ const AdvertDetail = () => {
                     <div className='grid gap-4'>
                         <p>Advert Clicks</p>
                         <div>
-                            <h1 className='font-Satoshi-Medium'>164</h1>
+                            <p className='text-[3rem]'>164</p>
+                            <p className=' font-Satoshi-Light text-green-600'>
+                                5% increase from yesterday
+                            </p>
                         </div>
                     </div>
                 </div>
