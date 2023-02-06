@@ -88,13 +88,13 @@ const AccountSettings = () => {
                                 className='border pr-12 border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem]'
                                 name='password'
                             />
-                            <span className='absolute right-2 '>
+                            <span className='absolute right-2 cursor-pointer'>
                                 {eyeIcon ? (
                                     <AiOutlineEyeInvisible
-                                        onClick={toggleEyeIcon} className='cursor-pointer'
+                                        onClick={toggleEyeIcon}
                                     />
                                 ) : (
-                                    <AiOutlineEye onClick={toggleEyeIcon} className='cursor-pointer' />
+                                    <AiOutlineEye onClick={toggleEyeIcon} />
                                 )}
                             </span>
                         </div>
@@ -109,7 +109,7 @@ const AccountSettings = () => {
                                 className='border pr-12 border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem]'
                                 name='password'
                             />
-                            <span className='absolute right-2'>
+                            <span className='absolute right-2 cursor-pointer'>
                                 {eyeIcon ? (
                                     <AiOutlineEyeInvisible
                                         onClick={toggleEyeIcon}
