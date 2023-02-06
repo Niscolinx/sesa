@@ -132,13 +132,12 @@ const AdvertClickView = () => {
         setPaginate((prev) => {
             return {
                 ...prev,
-                slicedPages,
+                slicedPages
             }
         })
     }, [fetchedAdvertClickView])
 
     const handleNext = () => {
-        console.log(paginate.currentPage, paginate.totalPage, slicedPages)
         if (paginate.currentPage === paginate.totalPage) return
         setPaginate((prev) => {
             return {
