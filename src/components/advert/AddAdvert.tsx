@@ -157,20 +157,6 @@ const AddAdvert = () => {
 
                     <div className='grid gap-4 relative'>
                         <label
-                            htmlFor='address1'
-                            className='text-[1.4rem] font-medium'
-                        >
-                            Address Line 1*
-                        </label>
-                        <input
-                            type='text'
-                            required
-                            id='address1'
-                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                        />
-                    </div>
-                    <div className='grid gap-4 relative'>
-                        <label
                             htmlFor='url'
                             className='text-[1.4rem] font-medium'
                         >
@@ -184,7 +170,6 @@ const AddAdvert = () => {
                         />
                     </div>
 
-               
                     <div className='col-span-full rounded-lg border border-width-[.2rem] border-dashed border-color-grey-1 p-8 text-[1.6rem] relative w-full'>
                         <label
                             htmlFor='photoUpload'
@@ -225,14 +210,18 @@ const AddAdvert = () => {
                     </div>
 
                     <button
-                        className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
+                        className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg col-span-full'
                         style={{ justifySelf: 'start' }}
-                        onClick={addAdvertHandler}
+                        onClick={() => handleOpen()}
                     >
                         <span>
-                            <IoMdAdd />
+                            <img
+                                src='/icons/admins/saveDisk.svg'
+                                alt=''
+                                className='w-[1.7rem] h-[1.7rem]'
+                            />
                         </span>{' '}
-                        Add Advert
+                        Save Changes
                     </button>
                 </form>
             </div>
