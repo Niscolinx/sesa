@@ -4,7 +4,7 @@ import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { FiDownload } from 'react-icons/fi'
 import { useNavigate } from 'react-router'
 import { IoMdAdd } from 'react-icons/io'
-import { toast } from 'react-toastify'
+import { toast, ToastContainer } from 'react-toastify'
 
 export interface IPropertyType {
     id: string
@@ -32,9 +32,9 @@ const PropertyType = () => {
     const handleDeleteProperty = () => {
         handleClose()
 
-        toast('Artisan deleted successfully', {
-            type: 'error',
-            className: 'bg-red-100 text-red-600 text-[1.4rem]',
+        toast('Property Deleted successfully', {
+            type: 'success',
+            className: 'bg-green-100 text-green-600 text-[1.4rem]',
         })
     }
 
@@ -44,12 +44,13 @@ const PropertyType = () => {
 
     return (
         <>
+        <ToastContainer/>
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
                         <img src='/icons/admins/modalWarning.svg' alt='' />
                         <p className='text-[1.6rem]'>
-                            Are you sure you want to delete this Property
+                            Are you sure you want to delete this Property Type
                         </p>
 
                         <div className='flex w-full justify-center gap-8'>
