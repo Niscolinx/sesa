@@ -1,7 +1,7 @@
 import React, { ChangeEvent, useEffect, useState } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
-import { IoMdAdd } from 'react-icons/io'
+import { FiDownload } from 'react-icons/fi'
 import { useNavigate } from 'react-router'
 import { toast, ToastContainer } from 'react-toastify'
 
@@ -196,6 +196,7 @@ const AdvertClickrateIncrease = () => {
                         className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem] ml-auto'
                         onClick={handleCSVDownload}
                     >
+                        <FiDownload/>
                         Download CSV
                     </button>
                 </div>
