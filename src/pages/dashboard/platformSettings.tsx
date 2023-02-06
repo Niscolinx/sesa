@@ -6,7 +6,7 @@ import SOSTable from '../../components/platformSettings/SOSTable'
 type PathSwitch =
     | 'platformChanges'
     | 'propertyType'
-    | 'SOSDTable'
+    | 'SOSTable'
     | 'accountSettings'
 
 function PlatformSettings() {
@@ -16,7 +16,7 @@ function PlatformSettings() {
     const handlePathSwitch: Record<PathSwitch, JSX.Element> = {
         platformChanges: <PlatformChanges />,
         propertyType: <PropertyType />,
-        SOSDTable: <SOSTable />,
+        SOSTable: <SOSTable />,
         accountSettings: <PlatformChanges />,
     }
 
@@ -45,6 +45,14 @@ function PlatformSettings() {
                     onChange={() => setPathToSwitch('propertyType')}
                 />
                 <label htmlFor='propertyType'>Property Type</label>
+                <input
+                    type='radio'
+                    name='platform'
+                    id='SOSTable'
+                    className='hidden'
+                    onChange={() => setPathToSwitch('SOSTable')}
+                />
+                <label htmlFor='SOSTable'>SOS Table</label>
             </div>
             <div className='mt-8 grid gap-8'>
                 <section className='bg-color-white rounded-lg border min-w-[112rem] overflow-scroll'>
