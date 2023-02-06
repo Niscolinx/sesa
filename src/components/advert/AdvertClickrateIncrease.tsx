@@ -195,16 +195,12 @@ const AdvertClickrateIncrease = () => {
                             className='pl-16 w-[25rem] rounded-lg border border-color-blue-light appearance-none outline-none p-4'
                         />
                     </div>
-
-                    {/* <button
-                        className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg ml-auto'
-                        onClick={addAdvert}
+                    <button
+                        className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
+                        onClick={handleCSVDownload}
                     >
-                        <span>
-                            <IoMdAdd />
-                        </span>{' '}
-                        Add Advert
-                    </button> */}
+                        Download CSV
+                    </button>
                 </div>
 
                 <div className='grid bg-white'>
