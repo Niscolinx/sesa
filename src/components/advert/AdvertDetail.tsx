@@ -4,7 +4,7 @@ import { AiOutlineLink } from 'react-icons/ai'
 const link = 'https://sesadigital.com/thelink_copyhere'
 const AdvertDetail = () => {
     return (
-        <div className='grid p-8 bg-white h-[80vh] items-baseline overflow-y-scroll rounded-lg text-[1.6rem]'>
+        <div className='grid p-8 bg-white h-[80vh] items-baseline overflow-y-scroll rounded-lg text-[1.6rem] gap-10'>
             <section className='grid gap-8'>
                 <h2
                     style={{
@@ -106,7 +106,9 @@ const AdvertDetail = () => {
                 >
                     Advert Numbers
                 </h2>
-                <div></div>
+                <div>
+                    
+                </div>
             </section>
         </div>
     )
