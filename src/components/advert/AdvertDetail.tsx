@@ -74,10 +74,12 @@ const AdvertDetail = () => {
     }
 
     const showClickRateIncrease = () => {
-
         navigate('/dashboard/advert/clickrate/increase')
     }
 
+    const showClickRateDecrease = () => {
+        navigate('/dashboard/advert/clickrate/decrease')
+    }
     return (
         <>
             <ToastContainer />
@@ -243,10 +245,13 @@ const AdvertDetail = () => {
                                 <p className='text-[3rem]'>164</p>
                                 <p className=' font-Satoshi-Light text-red-500 flex items-center'>
                                     <HiArrowSmDown />
-                                    <span>5% increase from yesterday</span>
+                                    <span>5% decrease from yesterday</span>
                                 </p>
                             </div>
-                            <button className=' text-color-blue-1'>
+                            <button
+                                className=' text-color-blue-1'
+                                onClick={() => navigate('')}
+                            >
                                 View Details
                             </button>
                         </div>
