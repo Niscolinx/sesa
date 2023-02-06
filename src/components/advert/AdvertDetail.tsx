@@ -3,17 +3,18 @@ import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { AiOutlineLink } from 'react-icons/ai'
 import { GrUp, GrDown } from 'react-icons/gr'
 import { HiArrowSmUp, HiArrowSmDown } from 'react-icons/hi'
+import { useNavigate } from 'react-router-dom'
 import { toast, ToastContainer } from 'react-toastify'
-import { LineChart } from 'recharts'
 import { Trend } from '../../pages/dashboard/Wallet/EstateWallet'
 import ClickRateChart from '../charts/ClickRateChart'
-import WalletBarChart from '../charts/WalletBarChart'
 
 const link = 'https://sesadigital.com/thelink_copyhere'
 type Actions = 'Deactivate' | 'Delete'
 const trend: Array<Trend> = ['This Week', 'This Month', 'This Year']
 
 const AdvertDetail = () => {
+    const navigate = useNavigate()
+
     const [toggleTrendMenu, setToggleTrendMenu] = useState(false)
     const trendMenuToggler = () => setToggleTrendMenu(!toggleTrendMenu)
     const [selectedTrend, setSelectedTrend] = useState<Trend>('This Week')
@@ -70,6 +71,11 @@ const AdvertDetail = () => {
             type: 'error',
             className: 'bg-red-100 text-red-600 text-[1.4rem]',
         })
+    }
+
+    const showClickRateIncrease = () => {
+
+        navigate
     }
 
     return (
@@ -237,7 +243,7 @@ const AdvertDetail = () => {
                                     <span>5% increase from yesterday</span>
                                 </p>
                             </div>
-                            <button className=' text-color-blue-1'>
+                            <button className=' text-color-blue-1' onClick={showClickRateIncrease}>
                                 View Details
                             </button>
                         </div>
