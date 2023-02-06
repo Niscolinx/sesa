@@ -229,7 +229,10 @@ const AdvertDetail = () => {
                                     <span>5% increase from yesterday</span>
                                 </p>
                             </div>
-                            <button className=' text-color-blue-1'>
+                            <button
+                                className=' text-color-blue-1'
+                                onClick={showClickRateIncrease}
+                            >
                                 View Details
                             </button>
                         </div>
@@ -243,7 +246,7 @@ const AdvertDetail = () => {
                                     <span>5% increase from yesterday</span>
                                 </p>
                             </div>
-                            <button className=' text-color-blue-1' onClick={showClickRateIncrease}>
+                            <button className=' text-color-blue-1'>
                                 View Details
                             </button>
                         </div>
