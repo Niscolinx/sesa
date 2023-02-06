@@ -3,7 +3,8 @@ const SOSDetails = () => {
         <div className='grid overflow-y-scroll '>
             <p className='text-[2rem] font-Satoshi-Medium pb-8'>SOS Details</p>
             <div className='bg-white h-[80vh] rounded-lg p-8 text-[1.6rem]'>
-                <div className="flex justify-between max-w-[70rem] mx-auto">
+                <div className="flex justify-between max-w-[70rem] mx-auto relative">
+                    <img src="/img/closeIcon.svg" alt="" className="absolute left-0 right-0" />
                     <div className='grid'>
                         <div className='flex items-center justify-start gap-4'>
                             <p className='font-Satoshi-Light'>Name :</p>
