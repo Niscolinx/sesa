@@ -132,10 +132,10 @@ const AdvertDetail = () => {
                         </button>
                     </div>
                 </div>
-                <div className='border-l border-l-color-grey'>
+                <div>
                     <div className='flex justify-between'>
                         <p className='text-[1.6rem] font-bold p-8'>
-                            Wallet Trend
+                            Click Rate
                         </p>
 
                         <div className='relative grid gap-4'>
