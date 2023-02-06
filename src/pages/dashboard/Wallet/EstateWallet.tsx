@@ -8,7 +8,7 @@ import WalletBarChart from '../../../components/charts/WalletBarChart'
 import { OverviewWallet } from '../../../components/overview/OverviewWallets'
 import { ToastContainer, toast } from 'react-toastify'
 
-type Trend = 'This Week' | 'This Month' | 'This Year'
+export type Trend = 'This Week' | 'This Month' | 'This Year'
 
 export interface IWithdrawalHistory {
     id: string
