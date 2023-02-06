@@ -14,17 +14,17 @@ const PlatformChanges = () => {
     return (
         <>
             <ToastContainer />
-            <div className='grid p-8 bg-white h-[80vh] rounded-lg items-baseline content-start gap-10'>
+            <div className='p-8 bg-white h-[80vh] rounded-lg'>
                 <h2 className='heading2 border-b pb-10'>Platform Changes</h2>
                 <form
                     onSubmit={handleSubmit}
-                    className='grid max-w-[84rem] gap-16 mt-12'
+                    className='grid max-w-[84rem] gap-16 mt-12 h-full items-center'
                     style={{
                         gridTemplateColumns:
                             ' repeat(auto-fit, minmax(35rem, 1fr))',
                     }}
                 >
-                    <div>
+                    <div >
                       <label htmlFor="KYR">
                         <p className="text-[1.4rem] font-Satoshi-Medium">KYR Validation</p>
                       </label>
