@@ -91,10 +91,10 @@ const AccountSettings = () => {
                             <span className='absolute right-2 '>
                                 {eyeIcon ? (
                                     <AiOutlineEyeInvisible
-                                        onClick={toggleEyeIcon}
+                                        onClick={toggleEyeIcon} className='cursor-pointer'
                                     />
                                 ) : (
-                                    <AiOutlineEye onClick={toggleEyeIcon} />
+                                    <AiOutlineEye onClick={toggleEyeIcon} className='cursor-pointer' />
                                 )}
                             </span>
                         </div>
