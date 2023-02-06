@@ -5,12 +5,8 @@ import { ModalContext } from '../../Context/ModalContext'
 import { getPhotoUrl } from '../../utils/getPhotoUrl'
 import SecurityCompSvg from '../icons/sidebar/SecurityCompSvg'
 
-
 const AccountSettings = () => {
-
     const [isWarning, setIsWarning] = useState(true)
-
-    
 
     const [photoUrl, setPhotoUrl] = useState('')
 
@@ -109,7 +105,7 @@ const AccountSettings = () => {
             </dialog>
             <div className='grid p-8 bg-white h-[80vh] items-baseline overflow-y-scroll rounded-lg'>
                 <div className='flex justify-between items-center'>
-                    <div>
+                    <figure>
                         <input
                             type='file'
                             name='photoUpload'
@@ -123,10 +119,13 @@ const AccountSettings = () => {
                             alt='photoPreview'
                             className='object-cover w-[11rem] h-[11rem] rounded-full object-top'
                         />
-                        <label htmlFor='photoUpload' className='cursor-pointer text-color-blue-1'>
+                        <label
+                            htmlFor='photoUpload'
+                            className='cursor-pointer text-color-blue-1'
+                        >
                             Edit
-                            </label>
-                    </div>
+                        </label>
+                    </figure>
                     <button
                         className='border border-red-600 px-16 py-4 flex items-center  rounded-lg gap-4'
                         onClick={() => handleOpen('warning')}
