@@ -24,7 +24,7 @@ const PlatformChanges = () => {
                             ' repeat(auto-fit, minmax(35rem, 1fr))',
                     }}
                 >
-                    <div >
+                    <div>
                       <label htmlFor="KYR">
                         <p className="text-[1.4rem] font-Satoshi-Medium">KYR Validation</p>
                       </label>
@@ -44,20 +44,27 @@ const PlatformChanges = () => {
                         </div>
                         <p className=' text-[1.2rem] text-gray-400'>Charges Per Validation</p>
                     </div>
-                    <div className='relative flex items-center'>
-                        <img
-                            src='/icons/Naira.svg'
-                            alt=''
-                            className='absolute left-3'
-                        />
-                        <input
-                            type='number'
-                            required
-                            placeholder='40'
-                            id='description'
-                            className='border pl-8 border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem]'
-                        />
+                    <div>
+                      <label htmlFor="KYR">
+                        <p className="text-[1.4rem] font-Satoshi-Medium">SMS Notification</p>
+                      </label>
+                        <div className='relative flex items-center'>
+                            <img
+                                src='/icons/Naira.svg'
+                                alt=''
+                                className='absolute left-3'
+                            />
+                            <input
+                                type='number'
+                                required
+                                placeholder='40'
+                                id='description'
+                                className='border pl-8 border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem]'
+                            />
+                        </div>
+                        <p className=' text-[1.2rem] text-gray-400'>Charges Per sms notification</p>
                     </div>
+                    
 
                     <button
                         className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg col-span-full mt-[10rem]'
