@@ -42,6 +42,7 @@ import ViewArtisanGroup from '../components/artisans/group/ViewArtisanGroup'
 import Advert from '../pages/dashboard/Advert'
 import AddAdvert from '../components/advert/AddAdvert'
 import AdvertDetail from '../components/advert/AdvertDetail'
+import AdvertClickView from '../components/advert/AdvertClickView'
 
 const router = createBrowserRouter(
     createRoutesFromElements([
@@ -124,6 +125,10 @@ const router = createBrowserRouter(
             <Route
                 path='advert/detail/:Id'
                 element={<AdvertDetail />}
+            />
+            <Route
+                path='advert/clickrate/increase:Id'
+                element={<AdvertClickView />}
             />
         </Route>,
         <Route path='*' element={<Navigate to='/' />} />,
