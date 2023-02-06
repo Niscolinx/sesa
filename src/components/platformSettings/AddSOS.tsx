@@ -28,31 +28,17 @@ const AddSOS = () => {
         }
     }
 
-    const closeValidateDialog = () => {
-        if (validateDialogRef.current) {
-            validateDialogRef.current.close()
-        }
-    }
 
-    const openValidateDialog = () => {
-        if (validateDialogRef.current) {
-            validateDialogRef.current.showModal()
-        }
-    }
+   
     const handleOpen = () => {
         if (dialogRef.current) {
             dialogRef.current.showModal()
         }
     }
 
-    const addddDDddsdfsHandler = () => {
-        // navigate('/dashboard/artisanCategory/add')
-        handleOpen()
-    }
+   
 
-    const confirmADDDDDDDDSDFS = () => {
-        handleClose()
-    }
+   
 
     return (
         <>
