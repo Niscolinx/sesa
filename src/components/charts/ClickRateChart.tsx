@@ -12,18 +12,18 @@ const series = [
     {
         name: 'Series 1',
         data: [
-            { category: 'Mon', value: Math.random() },
-            { category: 'Tue', value: Math.random() },
-            { category: 'Wed', value: Math.random() },
-            { category: 'Thur', value: Math.random() },
-            { category: 'Fri', value: Math.random() },
-            { category: 'Sat', value: Math.random() },
-            { category: 'Sun', value: Math.random() },
+            { category: 'Mon', value: 14 },
+            { category: 'Tue', value: 20 },
+            { category: 'Wed', value: 5 },
+            { category: 'Thur', value: 12 },
+            { category: 'Fri', value:  18},
+            { category: 'Sat', value: 10 },
+            { category: 'Sun', value: 8 },
         ],
     },
 ]
 
- export default function ClickRateChart() {
+export default function ClickRateChart() {
     return (
         <LineChart width={500} height={300}>
             <CartesianGrid strokeDasharray='3 3' />
