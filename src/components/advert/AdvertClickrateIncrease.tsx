@@ -12,7 +12,7 @@ import { IoMdAdd } from 'react-icons/io'
 import { useNavigate } from 'react-router'
 import { toast, ToastContainer } from 'react-toastify'
 
-export interface IAdvertClickView {
+export interface IAdvertClickrateIncrease {
     id: string
     estateName: string
     state: string
@@ -20,7 +20,7 @@ export interface IAdvertClickView {
     noOfResidents: number
 }
 
-export const ADVERT_CLICK_VIEW: IAdvertClickView[] = [
+export const ADVERT_CLICK_RATE_INCREASE: IAdvertClickrateIncrease[] = [
     {
         id: '1',
         estateName: 'Pepsi Estate',
@@ -65,16 +65,16 @@ export const ADVERT_CLICK_VIEW: IAdvertClickView[] = [
     },
 ]
 
-const AdvertClickView = () => {
+const AdvertClickrateIncrease = () => {
     const navigate = useNavigate()
 
-    const [fetchedAdvertClickView, setFetchedAdvertClickView] = useState<
-        IAdvertClickView[]
+    const [fetchedAdvertClickrateIncrease, setFetchedAdvertClickrateIncrease] = useState<
+        IAdvertClickrateIncrease[]
     >([])
 
     useEffect(() => {
         setTimeout(() => {
-            setFetchedAdvertClickView(ADVERT_CLICK_VIEW)
+            setFetchedAdvertClickrateIncrease(ADVERT_CLICK_RATE_INCREASE)
         }, 1000)
     }, [])
 
@@ -83,7 +83,7 @@ const AdvertClickView = () => {
         currentPage: number
         itemsPerPage: number
         totalPage: number
-        slicedPages: IAdvertClickView[][] | null
+        slicedPages: IAdvertClickrateIncrease[][] | null
     }
 
     const itemsPerPageArr = [2, 4, 6, 8]
@@ -93,16 +93,16 @@ const AdvertClickView = () => {
         index: 0,
         currentPage: 1,
         itemsPerPage: perPage,
-        totalPage: Math.ceil(fetchedAdvertClickView.length / perPage),
+        totalPage: Math.ceil(fetchedAdvertClickrateIncrease.length / perPage),
         slicedPages: null,
     })
 
     const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
         const item = parseInt(e.target.value)
 
-        const slicedPages: IAdvertClickView[][] = []
-        for (let i = 0; i < fetchedAdvertClickView.length; i += item) {
-            slicedPages.push(fetchedAdvertClickView.slice(i, i + item))
+        const slicedPages: IAdvertClickrateIncrease[][] = []
+        for (let i = 0; i < fetchedAdvertClickrateIncrease.length; i += item) {
+            slicedPages.push(fetchedAdvertClickrateIncrease.slice(i, i + item))
         }
 
         setPaginate((prev) => {
@@ -112,20 +112,20 @@ const AdvertClickView = () => {
                 index: 0,
                 currentPage: 1,
                 slicedPages,
-                totalPage: Math.ceil(fetchedAdvertClickView.length / item),
+                totalPage: Math.ceil(fetchedAdvertClickrateIncrease.length / item),
             }
         })
     }
 
     useEffect(() => {
-        const slicedPages: IAdvertClickView[][] = []
+        const slicedPages: IAdvertClickrateIncrease[][] = []
         for (
             let i = 0;
-            i < fetchedAdvertClickView.length;
+            i < fetchedAdvertClickrateIncrease.length;
             i += paginate.itemsPerPage
         ) {
             slicedPages.push(
-                fetchedAdvertClickView.slice(i, i + paginate.itemsPerPage)
+                fetchedAdvertClickrateIncrease.slice(i, i + paginate.itemsPerPage)
             )
         }
 
@@ -135,7 +135,7 @@ const AdvertClickView = () => {
                 slicedPages
             }
         })
-    }, [fetchedAdvertClickView])
+    }, [fetchedAdvertClickrateIncrease])
 
     const handleNext = () => {
         if (paginate.currentPage === paginate.totalPage) return
@@ -327,4 +327,4 @@ const AdvertClickView = () => {
     )
 }
 
-export default AdvertClickView
+export default AdvertClickrateIncrease
