@@ -54,7 +54,7 @@ const AddSOS = () => {
                         <div className='bg-white rounded-2xl grid place-content-center justify-items-center h-[30rem] gap-8 text-[1.6rem]'>
                             <img src='/icons/admins/modalSuccess.svg' alt='' />
 
-                            <p>You have successfully added an Advert</p>
+                            <p>You have successfully added SOS</p>
 
                             <div className='flex w-full justify-center gap-8'>
                                 <button
@@ -85,16 +85,66 @@ const AddSOS = () => {
                 >
                     <div className='grid gap-4 relative '>
                         <label
-                            htmlFor='advertName'
+                            htmlFor='SOSName'
                             className='text-[1.4rem] font-medium'
                         >
-                            Advert Name *
+                            Name
                         </label>
                         <input
                             type='text'
                             required
-                            id='advertName'
+                            id='SOSName'
                             className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                        />
+                    </div>
+                    <div className='w-full grid gap-4'>
+                        <label
+                            htmlFor='phoneNumber'
+                            className='text-[1.4rem] font-semibold'
+                        >
+                            Phone Number
+                        </label>
+                        <input
+                            disabled
+                            type='text'
+                            required
+                            id='phoneNumber'
+                            className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] disabled:text-gray-500 disabled:cursor-not-allowed'
+                            value={'09023238423'}
+                        />
+                    </div>
+
+                    <div className='w-full grid gap-4'>
+                        <label
+                            htmlFor='phoneNumber'
+                            className='text-[1.4rem] font-semibold'
+                        >
+                            Phone Number
+                        </label>
+                        <input
+                            disabled
+                            type='text'
+                            required
+                            id='phoneNumber'
+                            className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] disabled:text-gray-500 disabled:cursor-not-allowed'
+                            value={'09023238423'}
+                        />
+                    </div>
+
+                    <div className='w-full grid gap-4'>
+                        <label
+                            htmlFor='phoneNumber'
+                            className='text-[1.4rem] font-semibold'
+                        >
+                            Phone Number
+                        </label>
+                        <input
+                            disabled
+                            type='text'
+                            required
+                            id='phoneNumber'
+                            className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] disabled:text-gray-500 disabled:cursor-not-allowed'
+                            value={'09023238423'}
                         />
                     </div>
 
@@ -134,59 +184,9 @@ const AddSOS = () => {
                         />
                     </div>
 
-                    <div className='grid gap-4 relative'>
-                        <label
-                            htmlFor='url'
-                            className='text-[1.4rem] font-medium'
-                        >
-                            URL
-                        </label>
-                        <input
-                            type='text'
-                            required
-                            id='url'
-                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                        />
-                    </div>
+                  
 
-                    <div className='col-span-full rounded-lg border border-width-[.2rem] border-dashed border-color-grey-1 p-8 text-[1.6rem] relative w-full'>
-                        <label
-                            htmlFor='photoUpload'
-                            className='flex justify-center gap-4 items-center curaddddDDddsdfsr-pointer'
-                        >
-                            <img src='/icons/admins/photo_library.svg' alt='' />
-                            <p
-                                className='text-color-dark-1'
-                                style={{
-                                    fontFamily: 'Satoshi-Light',
-                                }}
-                            >
-                                Drag estate manager picture here or{' '}
-                                <span className='text-color-blue font-bold'>
-                                    click
-                                </span>{' '}
-                                to upload
-                            </p>
-                        </label>
-                        <input
-                            type='file'
-                            name='photoUpload'
-                            id='photoUpload'
-                            accept='image/*'
-                            className='hidden'
-                            onClick={handlePhotoPreview}
-                        />
-
-                        {photoUrl && (
-                            <div className='flex justify-center justify-self-center'>
-                                <img
-                                    src={photoUrl}
-                                    alt='photoPreview'
-                                    className='object-cover w-[11rem] h-[11rem] rounded-full'
-                                />
-                            </div>
-                        )}
-                    </div>
+                 
 
                     <button
                         className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg col-span-full'
