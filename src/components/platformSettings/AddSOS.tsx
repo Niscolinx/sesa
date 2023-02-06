@@ -115,15 +115,15 @@ const AddSOS = () => {
                     </div>
                     <div className='w-full grid gap-4'>
                         <label
-                            htmlFor='startDate'
+                            htmlFor='email'
                             className='text-[1.4rem] font-semibold'
                         >
-                            Start Date
+                            Email
                         </label>
                         <input
-                            type='date'
-                            required
-                            id='startDate'
+                            type='email'
+                            placeholder='Optional'
+                            id='email'
                             className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] curaddddDDddsdfsr-pointer'
                         />
                     </div>
@@ -142,6 +142,21 @@ const AddSOS = () => {
                             id='phoneNumber'
                             className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] disabled:text-gray-500 disabled:cursor-not-allowed'
                             value={'09023238423'}
+                        />
+                    </div>
+
+                    <div className='w-full grid gap-4'>
+                        <label
+                            htmlFor='Address'
+                            className='text-[1.4rem] font-semibold'
+                        >
+                            Address
+                        </label>
+                        <input
+                            type='emai'
+                            required
+                            id='Address'
+                            className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] curaddddDDddsdfsr-pointer'
                         />
                     </div>
 
