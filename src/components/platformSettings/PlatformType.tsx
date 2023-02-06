@@ -12,43 +12,44 @@ export interface IPlatformType {
 }
 
 export const PLATFORM_TYPE: IPlatformType[] = [
-  {
-    id: '1',
-    propertyType: '2 Bedroom Flat',
-    description: 'Flat with 2 bedrooms',
-  },
-  {
-    id: '1',
-    propertyType: '2 Bedroom Flat',
-    description: 'Flat with 2 bedrooms',
-  },
-  {
-    id: '1',
-    propertyType: '2 Bedroom Flat',
-    description: 'Flat with 2 bedrooms',
-  },
-  {
-    id: '1',
-    propertyType: '2 Bedroom Flat',
-    description: 'Flat with 2 bedrooms',
-  },
-  {
-    id: '1',
-    propertyType: '2 Bedroom Flat',
-    description: 'Flat with 2 bedrooms',
-  },
-  {
-    id: '1',
-    propertyType: '2 Bedroom Flat',
-    description: 'Flat with 2 bedrooms',
-  },
+    {
+        id: '1',
+        propertyType: '2 Bedroom Flat',
+        description: 'Flat with 2 bedrooms',
+    },
+    {
+        id: '1',
+        propertyType: '2 Bedroom Flat',
+        description: 'Flat with 2 bedrooms',
+    },
+    {
+        id: '1',
+        propertyType: '2 Bedroom Flat',
+        description: 'Flat with 2 bedrooms',
+    },
+    {
+        id: '1',
+        propertyType: '2 Bedroom Flat',
+        description: 'Flat with 2 bedrooms',
+    },
+    {
+        id: '1',
+        propertyType: '2 Bedroom Flat',
+        description: 'Flat with 2 bedrooms',
+    },
+    {
+        id: '1',
+        propertyType: '2 Bedroom Flat',
+        description: 'Flat with 2 bedrooms',
+    },
 ]
 
 const PlatformType = () => {
     const navigate = useNavigate()
 
-    const [fetchedPlatformType, setFetchedPlatformType] =
-        useState<IPlatformType[]>([])
+    const [fetchedPlatformType, setFetchedPlatformType] = useState<
+        IPlatformType[]
+    >([])
 
     useEffect(() => {
         setTimeout(() => {
@@ -90,9 +91,7 @@ const PlatformType = () => {
                 index: 0,
                 currentPage: 1,
                 slicedPages,
-                totalPage: Math.ceil(
-                    fetchedPlatformType.length / item
-                ),
+                totalPage: Math.ceil(fetchedPlatformType.length / item),
             }
         })
     }
@@ -105,10 +104,7 @@ const PlatformType = () => {
             i += paginate.itemsPerPage
         ) {
             slicedPages.push(
-                fetchedPlatformType.slice(
-                    i,
-                    i + paginate.itemsPerPage
-                )
+                fetchedPlatformType.slice(i, i + paginate.itemsPerPage)
             )
         }
 
@@ -117,8 +113,7 @@ const PlatformType = () => {
                 ...prev,
                 slicedPages,
                 totalPage: Math.ceil(
-                    fetchedPlatformType.length /
-                        paginate.itemsPerPage
+                    fetchedPlatformType.length / paginate.itemsPerPage
                 ),
             }
         })
@@ -166,28 +161,25 @@ const PlatformType = () => {
     return (
         <>
             <div className='grid text-[1.6rem] border rounded-lg'>
-                <div className='flex w-full items-center gap-12 p-10 bg-white rounded-lg'>
-                    <h2 className='heading2 border-b pb-10'>
-                        Platform Type
-                    </h2>
+                <div className=' p-10 bg-white rounded-lg '>
+                    <div className='flex w-full border-b items-center pb-5'>
+                        <h2 className='heading2'>Platform Type</h2>
 
-                    <button
-                        className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg ml-auto'
-                        onClick={addGroupHandler}
-                    >
-                        <span>
-                            <IoMdAdd />
-                        </span>{' '}
-                        Add Platform
-                    </button>
+                        <button
+                            className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg ml-auto'
+                            onClick={addGroupHandler}
+                        >
+                            <span>
+                                <IoMdAdd />
+                            </span>{' '}
+                            Add Platform
+                        </button>
+                    </div>
                 </div>
 
                 <div className='grid bg-white'>
                     <div
-                        className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-2 gap-8'
-                        style={{
-                            fontSize: '1.4rem',
-                        }}
+                        className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-2 gap-8 text-[1.6rem]'
                     >
                         <p>Property Type</p>
                         <p>Description</p>
