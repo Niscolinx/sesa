@@ -62,7 +62,7 @@ const AccountSettings = () => {
                     }}
                 >
                     <div>
-                        <label className='font-bold'>Current Password</label>
+                        <label className='font-medium'>Current Password</label>
                         <div className='relative flex items-center'>
                             <input
                                 type={eyeIcon ? 'text' : 'password'}
@@ -81,14 +81,14 @@ const AccountSettings = () => {
                         </div>
                     </div>
                     <div>
-                        <label className='font-bold'>New Password</label>
+                        <label className='font-medium'>New Password</label>
                         <div className='relative flex items-center'>
                             <input
                                 type={eyeIcon ? 'text' : 'password'}
                                 className='border pr-12 border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem]'
                                 name='password'
                             />
-                            <span className='absolute right-2'>
+                            <span className='absolute right-2 '>
                                 {eyeIcon ? (
                                     <AiOutlineEyeInvisible
                                         onClick={toggleEyeIcon}
@@ -100,7 +100,9 @@ const AccountSettings = () => {
                         </div>
                     </div>
                     <div>
-                        <label className='font-bold'>Re-Enter New Password</label>
+                        <label className='font-medium'>
+                            Re-Enter New Password
+                        </label>
                         <div className='relative flex items-center'>
                             <input
                                 type={eyeIcon ? 'text' : 'password'}
