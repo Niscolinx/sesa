@@ -13,10 +13,10 @@ const series = [
         name: 'Series 1',
         data: [
             { category: 'Mon', value: 14 },
-            { category: 'Tue', value: 20 },
+            { category: 'Tue', value: 17 },
             { category: 'Wed', value: 5 },
             { category: 'Thur', value: 12 },
-            { category: 'Fri', value:  18},
+            { category: 'Fri', value:  11},
             { category: 'Sat', value: 10 },
             { category: 'Sun', value: 8 },
         ],
