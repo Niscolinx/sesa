@@ -27,19 +27,15 @@ const AddSOS = () => {
         }
     }
 
-
-   
     const handleOpen = () => {
         if (dialogRef.current) {
             dialogRef.current.showModal()
         }
     }
 
-   const confirmAddedSOS = () => {
-    console.log("hellow ")
-   }
-
-   
+    const confirmAddedSOS = () => {
+        console.log('hellow ')
+    }
 
     return (
         <>
@@ -172,13 +168,16 @@ const AddSOS = () => {
                         />
                     </div>
 
-                    <MultipleSelect
-                        label='Estates'
-                        placeholder='Select Estates'
-                        selected={selectedEstates}
-                        selectFrom={['Estate 1', 'Estate 2', 'Estate 3']}
-                        setSelected={setSelectedEstates}
-                    />
+                    <div className='col-span-full'>
+                        <h2 className=''>Add Estates</h2>
+                        <MultipleSelect
+                            label='Estates'
+                            placeholder='Select Estates'
+                            selected={selectedEstates}
+                            selectFrom={['Estate 1', 'Estate 2', 'Estate 3']}
+                            setSelected={setSelectedEstates}
+                        />
+                    </div>
 
                     <button
                         className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg col-span-full'
