@@ -7,7 +7,7 @@ type PathSwitch = 'platformChanges' | 'propertyType' | 'SOSDetails' | 'Account S
 function PlatformSettings() {
 
 
-    const [pathToSwitch, setPathToSwitch] = useState<PathSwitch>('advertList')
+    const [pathToSwitch, setPathToSwitch] = useState<PathSwitch>('platformChanges')
 
   
 
@@ -20,19 +20,19 @@ function PlatformSettings() {
             <div className='estateDetail__radioBox'>
                 <input
                     type='radio'
-                    name='advert'
-                    id='advertList'
+                    name='platform'
+                    id='platformList'
                     className='hidden'
                     defaultChecked
-                    onChange={() => setPathToSwitch('advertList')}
+                    onChange={() => setPathToSwitch('platformList')}
                 />
-                <label htmlFor='advertList' className='capitalize'>
-                    Advert List
+                <label htmlFor='platformList' className='capitalize'>
+                    Platform Changes
                 </label>
 
                 <input
                     type='radio'
-                    name='advert'
+                    name='platform'
                     id='availableEstates'
                     className='hidden'
                     onChange={() => setPathToSwitch('availableEstates')}
