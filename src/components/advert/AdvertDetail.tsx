@@ -85,7 +85,9 @@ const AdvertDetail = () => {
 
                     <div className='bg-gray-100 text-gray-400 rounded-lg px-5 flex items-center py-2 gap-4'>
                         <AiOutlineLink className='text-[1.8rem]' />
-                        <p className='border-l border-l-gray-300 pl-4'>{link}</p>
+                        <p className='border-l border-l-gray-300 pl-4'>
+                            {link}
+                        </p>
                         <CopyToClipboard text={link}>
                             <button className='btn text-white bg-color-blue-1 w-[10rem] rounded-lg ml-auto'>
                                 Copy
@@ -96,7 +98,15 @@ const AdvertDetail = () => {
             </section>
 
             <section className='grid gap-8'>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ea recusandae optio velit error soluta, dicta fugit porro quae repellendus at veritatis consequuntur est suscipit accusantium facere culpa expedita. Accusamus, ab?
+                <h2
+                    style={{
+                        fontFamily: 'Satoshi-medium',
+                    }}
+                    className='text-[2rem]'
+                >
+                    Advert Numbers
+                </h2>
+                <div></div>
             </section>
         </div>
     )
