@@ -18,7 +18,7 @@ const PlatformChanges = () => {
                 <h2 className='heading2 border-b pb-10'>Platform Changes</h2>
                 <form
                     onSubmit={handleSubmit}
-                    className='grid max-w-[84rem] gap-16 mt-12 h-full items-center'
+                    className='grid max-w-[84rem] gap-16 mt-12 items-center'
                     style={{
                         gridTemplateColumns:
                             ' repeat(auto-fit, minmax(35rem, 1fr))',
@@ -60,7 +60,7 @@ const PlatformChanges = () => {
                     </div>
 
                     <button
-                        className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg col-span-full mt-auto'
+                        className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg col-span-full mt-[10rem]'
                         style={{ justifySelf: 'start' }}
                     >
                         <span>
