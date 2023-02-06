@@ -90,6 +90,9 @@ const AdvertDetail = () => {
                             View Details
                         </button>
                     </div>
+                    <div className='h-full w-[1px] bg-gray-500'>
+                        &nbsp;
+                    </div>
                     <div className='grid justify-items-start'>
                         <p>Advert Views</p>
                         <div className='flex gap-4'>
