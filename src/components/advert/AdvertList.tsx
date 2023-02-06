@@ -27,6 +27,8 @@ const AdvertList: FC<{
 }> = ({ fetchedAdvertList }) => {
     const navigate = useNavigate()
 
+    
+
     const [dialogType, setDialogType] = useState<Actions>('Delete')
 
     const actions = [
