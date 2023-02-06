@@ -45,12 +45,8 @@ const AddAdvert = () => {
             validateDialogRef.current.showModal()
         }
     }
-    const handleOpen = (modalState: DialogType) => {
-        if (modalState === 'validate') {
-            setIsAddAdvert(true)
-        } else {
-            setIsAddAdvert(false)
-        }
+    const handleOpen = () => {
+       
 
         if (dialogRef.current) {
             dialogRef.current.showModal()
@@ -59,7 +55,7 @@ const AddAdvert = () => {
 
     const addAdvertHandler = () => {
         // navigate('/dashboard/artisanCategory/add')
-        handleOpen('add-Artisan')
+        handleOpen()
     }
 
     const confirmAddAdvert = () => {
@@ -208,24 +204,7 @@ const AddAdvert = () => {
                         />
                     </div>
 
-                    <Select
-                        label='State'
-                        state={['Lagos', 'Imo', 'Abia', 'FCT']}
-                        placeholder='Select State'
-                        selectedState={selectedState}
-                        setSelectedState={setSelectedState}
-                    />
-                    <Select
-                        label='Artisan Category'
-                        state={[
-                            'Plumber',
-                            'Electrician',
-                            'Carpenter',
-                            'Painter',
-                        ]}
-                        selectedState={selectedArtisan}
-                        setSelectedState={setSelectedArtisan}
-                    />
+                  
                     <div className='grid gap-4 relative'>
                         <label
                             htmlFor='businessName'
