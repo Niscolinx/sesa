@@ -5,7 +5,7 @@ const AdvertDetail = () => {
 
 
             <section>
-                <img src="/img/advertHero.png" alt="" />
+                <img src="/img/advertHero.png" alt="" className="w-[100rem] h-[40rem] object-cover rounded-lg" />
             </section>
 
         </div>
