@@ -1,4 +1,3 @@
-
 import { FormEvent } from 'react'
 import { toast, ToastContainer } from 'react-toastify'
 
@@ -15,8 +14,8 @@ const PlatformChanges = () => {
     return (
         <>
             <ToastContainer />
-            <div className=' p-8 bg-white h-[80vh] rounded-lg'>
-                <h2 className='heading2'>Platform Changes</h2>
+            <div className='grid p-8 bg-white h-[80vh] rounded-lg items-baseline content-start gap-10'>
+                <h2 className='heading2 border-b pb-10'>Platform Changes</h2>
                 <form
                     onSubmit={handleSubmit}
                     className='grid max-w-[84rem] gap-16 mt-12'
@@ -25,19 +24,25 @@ const PlatformChanges = () => {
                             ' repeat(auto-fit, minmax(35rem, 1fr))',
                     }}
                 >
-                    <div className='relative flex items-center'>
-                        <img
-                            src='/icons/Naira.svg'
-                            alt=''
-                            className='absolute left-3'
-                        />
-                        <input
-                            type='number'
-                            required
-                            placeholder='40'
-                            id='description'
-                            className='border pl-8 border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem]'
-                        />
+                    <div>
+                      <label htmlFor="KYR">
+                        <p className="text-[1.4rem] font-Satoshi-Medium">KYR Validation</p>
+                      </label>
+                        <div className='relative flex items-center'>
+                            <img
+                                src='/icons/Naira.svg'
+                                alt=''
+                                className='absolute left-3'
+                            />
+                            <input
+                                type='number'
+                                required
+                                placeholder='40'
+                                id='description'
+                                className='border pl-8 border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem]'
+                            />
+                        </div>
+                        <p className=''>Charges Per Validation</p>
                     </div>
                     <div className='relative flex items-center'>
                         <img
