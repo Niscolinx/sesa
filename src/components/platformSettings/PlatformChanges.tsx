@@ -32,12 +32,10 @@ const PlatformChanges = () => {
                             className='absolute left-3'
                         />
                         <input
-                            disabled
-                            type='text'
+                            type='number'
                             required
                             id='description'
                             className='border pl-8 border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] disabled:text-gray-500 disabled:cursor-not-allowed'
-                            value={6000}
                         />
                     </div>
                     <div className='relative flex items-center'>
@@ -47,12 +45,11 @@ const PlatformChanges = () => {
                             className='absolute left-3'
                         />
                         <input
-                            disabled
-                            type='text'
+                            type='number'
                             required
+                            placeholder='40'
                             id='description'
                             className='border pl-8 border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] disabled:text-gray-500 disabled:cursor-not-allowed'
-                            value={6000}
                         />
                     </div>
 
