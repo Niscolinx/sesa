@@ -1,11 +1,4 @@
-import React, {
-    ChangeEvent,
-    FC,
-    FormEvent,
-    useEffect,
-    useRef,
-    useState,
-} from 'react'
+import React, { ChangeEvent, useEffect, useState } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { IoMdAdd } from 'react-icons/io'
@@ -176,6 +169,10 @@ const AdvertClickrateIncrease = () => {
         })
     }
 
+    const handleCSVDownload = () => {
+        console.log('download csv')
+    }
+
     return (
         <>
             <div className='grid text-[1.6rem] border'>
@@ -196,7 +193,7 @@ const AdvertClickrateIncrease = () => {
                         />
                     </div>
                     <button
-                        className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
+                        className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem] ml-auto'
                         onClick={handleCSVDownload}
                     >
                         Download CSV
