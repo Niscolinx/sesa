@@ -58,17 +58,10 @@ const AddAdvert = () => {
         handleClose()
     }
 
-    const handleDialogSubmit = (e: FormEvent) => {
-        e.preventDefault()
-        handleClose()
-
-        openValidateDialog()
-    }
+   
 
     return (
         <>
-            <ToastContainer />
-
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid items-baseline w-[64rem] min-h-[30rem] p-10 gap-8 text-[1.6rem] relative'>
@@ -80,7 +73,7 @@ const AddAdvert = () => {
                         <div className='bg-white rounded-2xl grid place-content-center justify-items-center h-[30rem] gap-8 text-[1.6rem]'>
                             <img src='/icons/admins/modalSuccess.svg' alt='' />
 
-                            <p>You have successfully added an Artisan</p>
+                            <p>You have successfully added an Advert</p>
 
                             <div className='flex w-full justify-center gap-8'>
                                 <button
@@ -125,7 +118,8 @@ const AddAdvert = () => {
                     </div>
 
                     <MultipleSelect
-                        label='Select Artisan'
+                        label='Estates'
+                        placeholder='Select Estates'
                         selected={selectedEstates}
                         selectFrom={['Estate 1', 'Estate 2', 'Estate 3']}
                         setSelected={setSelectedEstates}
@@ -179,15 +173,15 @@ const AddAdvert = () => {
                     </div>
                     <div className='grid gap-4 relative'>
                         <label
-                            htmlFor='address2'
+                            htmlFor='url'
                             className='text-[1.4rem] font-medium'
                         >
-                            Address Line 2*
+                            URL
                         </label>
                         <input
                             type='text'
                             required
-                            id='address2'
+                            id='url'
                             className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                         />
                     </div>
@@ -240,7 +234,7 @@ const AddAdvert = () => {
                         <span>
                             <IoMdAdd />
                         </span>{' '}
-                        Add Artisan
+                        Add Advert
                     </button>
                 </form>
             </div>
