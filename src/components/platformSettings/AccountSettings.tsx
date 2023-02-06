@@ -47,7 +47,7 @@ const AccountSettings = () => {
                     />
                     <label
                         htmlFor='photoUpload'
-                        className='cursor-pointer text-color-blue-1 text-[1.2rem] text-center'
+                        className='cursor-pointer text-color-blue-1 text-[1.6rem] text-center'
                     >
                         Edit
                     </label>
@@ -55,7 +55,7 @@ const AccountSettings = () => {
 
                 <form
                     onSubmit={handleSubmit}
-                    className='grid max-w-[84rem] text-[1.6rem] mt-10'
+                    className='grid max-w-[84rem] text-[1.6rem] mt-[5rem] gap-10'
                     style={{
                         gridTemplateColumns:
                             ' repeat(auto-fit, minmax(35rem, 1fr))',
