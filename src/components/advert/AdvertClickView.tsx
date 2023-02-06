@@ -73,6 +73,13 @@ const AdvertClickView = () => {
         IAdvertClickView[] | null
     >(null)
 
+    useEffect(() => {
+
+        setTimeout(() => {
+            setFetchedAdvertClickView(ADVERT_CLICK_VIEW)
+        }, 1000)
+    }, [])
+
     interface Paginate {
         index: number
         currentPage: number
