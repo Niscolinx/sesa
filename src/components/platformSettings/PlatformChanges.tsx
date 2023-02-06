@@ -34,8 +34,9 @@ const PlatformChanges = () => {
                         <input
                             type='number'
                             required
+                            placeholder='40'
                             id='description'
-                            className='border pl-8 border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] disabled:text-gray-500 disabled:cursor-not-allowed'
+                            className='border pl-8 border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem]'
                         />
                     </div>
                     <div className='relative flex items-center'>
@@ -49,7 +50,7 @@ const PlatformChanges = () => {
                             required
                             placeholder='40'
                             id='description'
-                            className='border pl-8 border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] disabled:text-gray-500 disabled:cursor-not-allowed'
+                            className='border pl-8 border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem]'
                         />
                     </div>
 
