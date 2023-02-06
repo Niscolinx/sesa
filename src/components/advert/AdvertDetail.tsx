@@ -1,3 +1,5 @@
+import { CopyToClipboard } from 'react-copy-to-clipboard'
+
 const AdvertDetail = () => {
     return (
         <div className='grid p-8 bg-white h-[80vh] items-baseline overflow-y-scroll rounded-lg text-[1.6rem]'>
@@ -15,7 +17,7 @@ const AdvertDetail = () => {
                     alt=''
                     className='h-[40rem] w-[120rem] object-cover rounded-lg flex self-stretch'
                 />
-                <div className='pt-10'>
+                <div className='pt-20'>
                     <h2
                         style={{
                             fontFamily: 'Satoshi-medium',
@@ -25,7 +27,7 @@ const AdvertDetail = () => {
                         Advert Overview
                     </h2>
 
-                    <div className='flex justify-between'>
+                    <div className='flex justify-between mt-10'>
                         <div className='flex gap-4 items-center'>
                             <img
                                 src='/img/video.svg'
@@ -77,6 +79,14 @@ const AdvertDetail = () => {
                                 <p>12 Aug, 2022</p>
                             </div>
                         </div>
+                    </div>
+
+                    <div>
+                        <CopyToClipboard text={user.referralLink}>
+                            <button className='bg-orange-300 rounded-lg py-2 px-3 font-semibold justify-self-center place-self-end'>
+                                Copy Link
+                            </button>
+                        </CopyToClipboard>{' '}
                     </div>
                 </div>
             </section>
