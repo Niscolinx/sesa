@@ -182,7 +182,12 @@ const SOSTable = () => {
                 <div className='grid bg-white'>
                     <div className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-5 gap-8 text-[1.6rem]'>
                         <p className='flex items-center gap-4'>
-                            <input type='checkbox' name='sos' id='sos' />
+                            <input
+                                type='checkbox'
+                                name='sos'
+                                id='sos'
+                                className='cursor-pointer'
+                            />
                             <label htmlFor='sos'>Files</label>
                         </p>
                         <p>Count</p>
@@ -195,12 +200,19 @@ const SOSTable = () => {
                         {slicedPages && slicedPages.length > 0 ? (
                             React.Children.toArray(
                                 slicedPages[paginate.index].map(
-                                    ({ id, file, estates, count, createdAt}) => {
+                                    ({
+                                        id,
+                                        file,
+                                        estates,
+                                        count,
+                                        createdAt,
+                                    }) => {
                                         return (
                                             <div className='grid justify-between border-b grid-cols-5 items-center gap-8 '>
                                                 <p className='flex items-center gap-4'>
                                                     <input
                                                         type='checkbox'
+                                                        className='cursor-pointer'
                                                         name='file'
                                                         id='file'
                                                     />
@@ -211,7 +223,12 @@ const SOSTable = () => {
                                                 <p>{count}</p>
                                                 <p>{estates}</p>
                                                 <p>{createdAt}</p>
-                                                <button className='text-color-primary' onClick={() => detailsHandler(id)}>
+                                                <button
+                                                    className='text-color-primary'
+                                                    onClick={() =>
+                                                        detailsHandler(id)
+                                                    }
+                                                >
                                                     View Details
                                                 </button>
                                             </div>
