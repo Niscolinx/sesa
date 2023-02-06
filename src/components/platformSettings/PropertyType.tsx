@@ -5,13 +5,13 @@ import { FiDownload } from 'react-icons/fi'
 import { useNavigate } from 'react-router'
 import { IoMdAdd } from 'react-icons/io'
 
-export interface IPlatformType {
+export interface IPropertyType {
     id: string
     propertyType: string
     description: string
 }
 
-export const PLATFORM_TYPE: IPlatformType[] = [
+export const PROPERTY_TYPE: IPropertyType[] = [
     {
         id: '1',
         propertyType: '2 Bedroom Flat',
@@ -30,16 +30,16 @@ export const PLATFORM_TYPE: IPlatformType[] = [
     
 ]
 
-const PlatformType = () => {
+const PropertyType = () => {
     const navigate = useNavigate()
 
-    const [fetchedPlatformType, setFetchedPlatformType] = useState<
-        IPlatformType[]
+    const [fetchedPropertyType, setFetchedPropertyType] = useState<
+        IPropertyType[]
     >([])
 
     useEffect(() => {
         setTimeout(() => {
-            setFetchedPlatformType(PLATFORM_TYPE)
+            setFetchedPropertyType(PROPERTY_TYPE)
         }, 1000)
     }, [])
 
@@ -48,7 +48,7 @@ const PlatformType = () => {
         currentPage: number
         itemsPerPage: number
         totalPage: number
-        slicedPages: IPlatformType[][] | null
+        slicedPages: IPropertyType[][] | null
     }
 
     const itemsPerPageArr = [2, 4, 6, 8]
@@ -58,16 +58,16 @@ const PlatformType = () => {
         index: 0,
         currentPage: 1,
         itemsPerPage: perPage,
-        totalPage: Math.ceil(fetchedPlatformType.length / perPage),
+        totalPage: Math.ceil(fetchedPropertyType.length / perPage),
         slicedPages: null,
     })
 
     const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
         const item = parseInt(e.target.value)
 
-        const slicedPages: IPlatformType[][] = []
-        for (let i = 0; i < fetchedPlatformType.length; i += item) {
-            slicedPages.push(fetchedPlatformType.slice(i, i + item))
+        const slicedPages: IPropertyType[][] = []
+        for (let i = 0; i < fetchedPropertyType.length; i += item) {
+            slicedPages.push(fetchedPropertyType.slice(i, i + item))
         }
 
         setPaginate((prev) => {
@@ -77,20 +77,20 @@ const PlatformType = () => {
                 index: 0,
                 currentPage: 1,
                 slicedPages,
-                totalPage: Math.ceil(fetchedPlatformType.length / item),
+                totalPage: Math.ceil(fetchedPropertyType.length / item),
             }
         })
     }
 
     useEffect(() => {
-        const slicedPages: IPlatformType[][] = []
+        const slicedPages: IPropertyType[][] = []
         for (
             let i = 0;
-            i < fetchedPlatformType.length;
+            i < fetchedPropertyType.length;
             i += paginate.itemsPerPage
         ) {
             slicedPages.push(
-                fetchedPlatformType.slice(i, i + paginate.itemsPerPage)
+                fetchedPropertyType.slice(i, i + paginate.itemsPerPage)
             )
         }
 
@@ -99,11 +99,11 @@ const PlatformType = () => {
                 ...prev,
                 slicedPages,
                 totalPage: Math.ceil(
-                    fetchedPlatformType.length / paginate.itemsPerPage
+                    fetchedPropertyType.length / paginate.itemsPerPage
                 ),
             }
         })
-    }, [fetchedPlatformType])
+    }, [fetchedPropertyType])
 
     const handleNext = () => {
         console.log(paginate.currentPage, paginate.totalPage)
@@ -141,7 +141,7 @@ const PlatformType = () => {
     }
 
     const addGroupHandler = () => {
-        console.log('download csv')
+        console.log('add😎')
     }
 
     return (
@@ -149,7 +149,7 @@ const PlatformType = () => {
             <div className='grid text-[1.6rem] border rounded-lg'>
                 <div className=' p-10 bg-white rounded-lg '>
                     <div className='flex w-full border-b items-center pb-5'>
-                        <h2 className='heading2'>Platform Type</h2>
+                        <h2 className='heading2'>Property Type</h2>
 
                         <button
                             className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg ml-auto'
@@ -158,7 +158,7 @@ const PlatformType = () => {
                             <span>
                                 <IoMdAdd />
                             </span>{' '}
-                            Add Platform
+                            Add Property
                         </button>
                     </div>
                 </div>
@@ -259,4 +259,4 @@ const PlatformType = () => {
     )
 }
 
-export default PlatformType
+export default PropertyType

@@ -45,6 +45,7 @@ import AdvertDetail from '../components/advert/AdvertDetail'
 import AdvertClickrateIncrease from '../components/advert/AdvertClickrateIncrease'
 import AdvertClickrateDecrease from '../components/advert/AdvertClickrateDecrease'
 import PlatformSettings from '../pages/dashboard/platformSettings'
+import AddProperty from '../components/platformSettings/AddProperty'
 
 const router = createBrowserRouter(
     createRoutesFromElements([
@@ -142,7 +143,7 @@ const router = createBrowserRouter(
             />
             <Route
                 path='platformSettings/addProperty'
-                element={<PlatformSettings />}
+                element={<AddProperty />}
             />
         </Route>,
         <Route path='*' element={<Navigate to='/' />} />,
