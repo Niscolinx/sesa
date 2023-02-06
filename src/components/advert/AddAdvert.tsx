@@ -1,12 +1,7 @@
 import React, { FormEvent, useRef, useState } from 'react'
-import { GrDown, GrUp } from 'react-icons/gr'
 import { IoMdAdd, IoMdClose } from 'react-icons/io'
-import { BsQuestionCircle } from 'react-icons/bs'
-import { toast, ToastContainer } from 'react-toastify'
 import { getPhotoUrl } from '../../utils/getPhotoUrl'
-import { MultipleSelect, Select } from '../UI/Select'
 
-type DialogType = 'validate' | 'add-Artisan'
 
 const AddAdvert = () => {
     const [selectedEstates, setSelectedEstates] = useState<string[]>([])
