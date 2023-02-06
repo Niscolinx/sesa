@@ -224,7 +224,7 @@ const SOSTable = () => {
                                                 <p>{estates}</p>
                                                 <p>{createdAt}</p>
                                                 <button
-                                                    className='text-color-primary'
+                                                    className='text-color-primary text-left'
                                                     onClick={() =>
                                                         detailsHandler(id)
                                                     }
