@@ -83,8 +83,8 @@ const AdvertDetail = () => {
                         </div>
                     </div>
 
-                    <div className='bg-gray-400 text-gray-500 rounded-lg px-5 flex'>
-                        <AiOutlineLink />
+                    <div className='bg-gray-100 text-gray-400 rounded-lg px-5 flex'>
+                        <AiOutlineLink className='text-[1.8rem]' />
                         <p className=''>{link}</p>
                         <CopyToClipboard text={link}>
                             <button className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg ml-auto'>
