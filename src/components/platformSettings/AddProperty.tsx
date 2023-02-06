@@ -38,6 +38,10 @@ const PropertyType = () => {
         })
     }
 
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
+    }
+
     return (
         <>
             <dialog className='dialog' ref={dialogRef}>
@@ -67,7 +71,7 @@ const PropertyType = () => {
             </dialog>
             <div className='grid text-[1.6rem] border rounded-lg bg-white'>
                 <div className=' p-10  rounded-lg '>
-                    <div className='flex w-full border-b items-center pb-5'>
+                    <div className='flex w-full border-b items-center pb-5 justify-between'>
                         <h2 className='heading2'>Property Type</h2>
 
                         <button
@@ -82,7 +86,10 @@ const PropertyType = () => {
                     </div>
                 </div>
 
-                <div className='grid gap-8 mt-8 p-8'>
+                <form
+                    className='grid gap-8 mt-8 p-8 max-w-[60rem]'
+                    onSubmit={handleSubmit}
+                >
                     <div className='grid gap-4 relative '>
                         <label
                             htmlFor='propertyType'
@@ -94,7 +101,7 @@ const PropertyType = () => {
                             type='text'
                             required
                             id='propertyType'
-                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                            className='w-[40rem] rounded-lg border border-color-grey text-[1.6rem] outline-color-blue-1 py-4 px-4'
                         />
                     </div>
                     <div className='grid gap-4 relative '>
@@ -108,13 +115,27 @@ const PropertyType = () => {
                             required
                             rows={4}
                             id='description'
-                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-color-blue-1 py-4 px-4'
                         />
                         <p className=' text-[1.2rem] text-gray-400'>
-                            Charges Per sms notification
+                            Maximum of 30 Characters
                         </p>
                     </div>
-                </div>
+
+                    <button
+                        className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg col-span-full mt-[10rem]'
+                        style={{ justifySelf: 'start' }}
+                    >
+                        <span>
+                            <img
+                                src='/icons/admins/saveDisk.svg'
+                                alt=''
+                                className='w-[1.7rem] h-[1.7rem]'
+                            />
+                        </span>{' '}
+                        Save Changes
+                    </button>
+                </form>
             </div>
         </>
     )
