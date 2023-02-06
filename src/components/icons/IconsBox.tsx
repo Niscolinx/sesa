@@ -81,7 +81,7 @@ function IconsBox() {
               </Link>
           </li>
           <li className='iconsBox__list'>
-              <Link to='/dashboard/settings' className='fillIcon'>
+              <Link to='/dashboard/platformSettings' className='fillIcon'>
                   <SettingsSvg />
                   <span>Settings</span>
               </Link>

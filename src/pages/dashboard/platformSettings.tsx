@@ -1,5 +1,4 @@
-import { useState, useEffect } from 'react'
-import { CgSpinnerTwo } from 'react-icons/cg'
+import { useState } from 'react'
 import PlatformChanges from '../../components/platformSettings/PlatformChanges'
 
 type PathSwitch =
@@ -21,6 +20,8 @@ function PlatformSettings() {
 
     return (
         <div>
+            <h1 className='heading2'>Platform Settings</h1>
+
             <div className='estateDetail__radioBox'>
                 <input
                     type='radio'
