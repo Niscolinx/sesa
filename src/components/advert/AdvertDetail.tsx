@@ -76,7 +76,9 @@ const AdvertDetail = () => {
                 <h2 className='text-[2rem] font-Satoshi-Medium'>
                     Advert Numbers
                 </h2>
-                <div className='grid grid-cols-2'>
+                <div className='grid' style={{
+                    gridTemplateColumns: '1fr min-content 1fr'
+                }}>
                     <div className='grid justify-items-start'>
                         <p>Advert Clicks</p>
                         <div className='flex gap-4'>
