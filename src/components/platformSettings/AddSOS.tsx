@@ -1,19 +1,11 @@
 import React, { FormEvent, useRef, useState } from 'react'
-import { IoMdAdd, IoMdClose } from 'react-icons/io'
-import { getPhotoUrl } from '../../utils/getPhotoUrl'
+import {  IoMdClose } from 'react-icons/io'
 import { MultipleSelect } from '../UI/Select'
 
 const AddSOS = () => {
     const [selectedEstates, setSelectedEstates] = useState<string[]>([])
 
-    const [photoUrl, setPhotoUrl] = useState('')
 
-    const handlePhotoPreview = async (
-        _: React.MouseEvent<HTMLInputElement>
-    ) => {
-        const getUrl = await getPhotoUrl(`#photoUpload`)
-        setPhotoUrl(getUrl)
-    }
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
@@ -169,7 +161,7 @@ const AddSOS = () => {
                     </div>
 
                     <div className='col-span-full'>
-                        <p className='text-[2rem] font-Satoshi-Medium py-4'>Add Estates</p>
+                        <p className='text-[2rem] font-Satoshi-Medium py-8'>Add Estates</p>
                         <MultipleSelect
                             label='Estates'
                             placeholder='Select Estates'
@@ -184,14 +176,8 @@ const AddSOS = () => {
                         style={{ justifySelf: 'start' }}
                         onClick={() => handleOpen()}
                     >
-                        <span>
-                            <img
-                                src='/icons/admins/saveDisk.svg'
-                                alt=''
-                                className='w-[1.7rem] h-[1.7rem]'
-                            />
-                        </span>{' '}
-                        Save Changes
+                        
+                        Add SOS
                     </button>
                 </form>
             </div>
