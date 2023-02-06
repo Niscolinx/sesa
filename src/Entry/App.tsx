@@ -135,6 +135,10 @@ const router = createBrowserRouter(
                 path='advert/clickrate/decrease'
                 element={<AdvertClickrateDecrease />}
             />
+            <Route
+                path='advert/clickrate/decrease'
+                element={<AdvertClickrateDecrease />}
+            />
         </Route>,
         <Route path='*' element={<Navigate to='/' />} />,
     ])

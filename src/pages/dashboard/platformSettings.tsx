@@ -1,17 +1,23 @@
 import { useState, useEffect } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
+import PlatformChanges from '../../components/platformSettings/PlatformChanges'
 
 type PathSwitch =
     | 'platformChanges'
     | 'propertyType'
     | 'SOSDetails'
-    | 'Account Settings'
+    | 'accountSettings'
 
 function PlatformSettings() {
     const [pathToSwitch, setPathToSwitch] =
         useState<PathSwitch>('platformChanges')
 
-    const handlePathSwitch: Record<PathSwitch, JSX.Element> = {}
+    const handlePathSwitch: Record<PathSwitch, JSX.Element> = {
+        platformChanges: <PlatformChanges/>,
+        propertyType: <PlatformChanges/>,
+        SOSDetails: <PlatformChanges/>,
+        accountSettings: <PlatformChanges/>,
+    }
 
     return (
         <div>
