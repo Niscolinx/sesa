@@ -216,8 +216,8 @@ const AdvertClickrateIncrease = () => {
                             <input type='checkbox' className='cursor-pointer' />
                             <p>Estate Name</p>
                         </p>
-                        <p>State</p>
-                        <p>Address</p>
+                        <p>Location</p>
+                        <p>No of Views</p>
                         <p>No of Residents</p>
                     </div>
 
@@ -244,9 +244,9 @@ const AdvertClickrateIncrease = () => {
 
                                                     <span>{estateName}</span>
                                                 </p>
-                                                <p>{state}</p>
-                                                <p>{address}</p>
+                                                <p>{location}</p>
                                                 <p>{noOfResidents}</p>
+                                                <p>{noOfViews}</p>
                                             </div>
                                         )
                                     }
