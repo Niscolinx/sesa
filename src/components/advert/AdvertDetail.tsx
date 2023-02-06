@@ -99,7 +99,8 @@ const AdvertDetail = () => {
                         <p>Advert Clicks</p>
                         <div>
                             <p className='text-[3rem]'>164</p>
-                            <p className=' font-Satoshi-Light text-green-600'>
+                            <p className=' font-Satoshi-Light text-green-500'>
+                                <HiArrowSmUp/>
                                 5% increase from yesterday
                             </p>
                         </div>
