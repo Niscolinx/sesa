@@ -215,19 +215,31 @@ function SecurityCompanyOverview() {
                 </section>
                 <section className='bg-color-white rounded-lg border min-w-[112rem]'>
                     <div className='grid text-[1.6rem] border rounded-lg'>
-                        <div className=' p-10 bg-white rounded-lg '>
-                            <div className='flex w-full border-b items-center pb-5'>
-                                <h2 className='heading2'>SOS Table</h2>
-
-                                <button
-                                    className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg ml-auto'
-                                    onClick={addSOSHandler}
-                                >
-                                    <span>
-                                        <IoMdAdd />
-                                    </span>{' '}
-                                    Add SOS
-                                </button>
+                        <div className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
+                            <p className=' font-bold'>
+                                HouseHold List <span>(200)</span>
+                            </p>
+                            <div className='relative flex items-center'>
+                                <img
+                                    src='/icons/admins/search.svg'
+                                    alt=''
+                                    className='absolute left-4 text-[4rem]'
+                                />
+                                <input
+                                    type='text'
+                                    placeholder='Search Parameters'
+                                    className='pl-16 w-[25rem] rounded-lg border border-color-blue-light appearance-none outline-none p-4'
+                                />
+                            </div>
+                            <div className='relative flex items-center'>
+                                <select className=' cursor-pointer w-[25rem] rounded-lg border border-color-blue-light appearance-none outline-none p-4'>
+                                    <option hidden value=''>
+                                        Sort By
+                                    </option>
+                                    <option value='date'>date</option>
+                                    <option value='alpha'>Alpha</option>
+                                </select>
+                                <GrDown className='absolute right-4 text-[1.3rem]' />
                             </div>
                         </div>
 
