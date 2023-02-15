@@ -12,7 +12,7 @@ export interface Overview {
     id: number
     guardName: string
     guardCode: number
-    phoneNo: number
+    phoneNumber: number
     kyc: 'Validated' | 'NotValidated'
 }
 
@@ -21,7 +21,28 @@ export const SECURITY_GUARDS: Overview[] = [
         id: 1,
         guardName: 'John Doe',
         guardCode: 123456,
-        phoneNo: 08023238423,
+        phoneNumber: 08023238423,
+        kyc: 'Validated',
+    },
+    {
+        id: 2,
+        guardName: 'John Doe',
+        guardCode: 123456,
+        phoneNumber: 08023238423,
+        kyc: 'Validated',
+    },
+    {
+        id: 3,
+        guardName: 'John Doe',
+        guardCode: 123456,
+        phoneNumber: 08023238423,
+        kyc: 'Validated',
+    },
+    {
+        id: 4,
+        guardName: 'John Doe',
+        guardCode: 123456,
+        phoneNumber: 08023238423,
         kyc: 'Validated',
     },
 ]
@@ -152,17 +173,46 @@ function ViewEstate() {
         <div className='estateDetail'>
             <h1 className='heading2'>Estates</h1>
             <div className='mt-8 grid gap-8'>
-                <div className=' justify-center bg-white rounded-lg p-8 grid w-[40rem] '>
-                    <OverviewCard
-                        title='Total Estates'
-                        number={18_000}
-                        iconUrl='/icons/securityCompany/totalEstates.svg'
-                        percent={5}
-                        arrow='/icons/securityCompany/arrowUp.svg'
-                        bgColor='bg-[#DDFCDC]'
-                        textColor='text-[#1A8F56]'
-                    />
-                </div>
+                <section className='bg-white rounded-lg p-8 grid h-[28rem] text-[1.4rem]'>
+                    <div className='flex w-full justify-between'>
+                        <p>Iba Housing Estate</p>
+                        <p className='text-[#666869]'>
+                            Joined:{' '}
+                            <span className='text-black'>08 May, 2022</span>
+                        </p>
+                    </div>
+                    <div className='overview flex justify-between'>
+                        <OverviewCard
+                            title='Residents'
+                            number={18_000}
+                            iconUrl='/icons/overview/residents.svg'
+                            bgColor='bg-[#DDFCDC]'
+                            textColor='text-[#1A8F56]'
+                        />
+                        <OverviewCard
+                            title='Property'
+                            number={4}
+                            iconUrl='/icons/overview/property.svg'
+                            bgColor='bg-[#F5F9FA]'
+                            textColor='text-[#00C2FF]'
+                        />
+                        <OverviewCard
+                            title='Household'
+                            number={40}
+                            iconUrl='/icons/overview/household2.svg'
+                            bgColor='bg-[#FCF3FA]'
+                            textColor='text-[#B6008E]'
+                        />
+                    </div>
+                    <div className='flex justify-end'>
+                        <Link
+                            to={`/dashboard/estates/detail/:4`}
+                            className='text-[#0660FE] text-[1.4rem]'
+                        >
+                            View Estate Report
+                        </Link>
+                    </div>
+                </section>
 
                 <section className='bg-color-white rounded-lg border min-w-[112rem]'>
                     <div className='grid text-[1.6rem] border rounded-lg'>
@@ -220,8 +270,9 @@ function ViewEstate() {
                                             ({
                                                 id,
                                                 guardName,
-                                                noOfSecurityGuards,
-                                                address,
+                                                guardCode,
+                                                phoneNumber,
+                                                kyc,
                                             }) => {
                                                 return (
                                                     <div className='grid justify-between border-b grid-cols-4 items-center gap-8 '>
