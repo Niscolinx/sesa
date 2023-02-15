@@ -1,11 +1,12 @@
 import { Outlet } from 'react-router'
-import Header from '../components/dashboard/Header'
-import Sidebar from '../components/dashboard/Sidebar'
+
 
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
-import Modal from '../components/Modal'
+import Header from '../../components/SuperAdmin/dashboard/Header'
+import Sidebar from '../../components/SuperAdmin/dashboard/Sidebar'
+import Modal from '../../components/SuperAdmin/Modal'
 
 function Dashboard() {
    
