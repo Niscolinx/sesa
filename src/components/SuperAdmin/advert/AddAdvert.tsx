@@ -1,6 +1,7 @@
 import React, {  useRef, useState } from 'react'
 import {  IoMdClose } from 'react-icons/io'
 import { getPhotoUrl } from '../../../utils/getPhotoUrl'
+import { MultipleSelect } from '../UI/Select'
 
 
 
