@@ -159,7 +159,7 @@ function SecurityCompanyOverview() {
 
     const detailsHandler = (id: number) => {
         // navigate(`/superAdmin/platformSettings/SOSDetails/${id}`)
-        alert('navigate')
+        alert('navigate' + id)
     }
 
     
