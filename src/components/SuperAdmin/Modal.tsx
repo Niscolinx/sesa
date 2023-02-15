@@ -55,7 +55,7 @@ const Modal:FC<Modal> = ({children}) => {
             }}
         >
             <div>
-                `<dialog className='dialog' ref={dialogRef}>
+                <dialog className='dialog' ref={dialogRef}>
                     <section className='grid place-content-center w-full h-[100vh]'>
                         <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
                             <img src='/icons/admins/modalSuccess.svg' alt='' />
@@ -71,7 +71,7 @@ const Modal:FC<Modal> = ({children}) => {
                             </div>
                         </div>
                     </section>
-                </dialog>`
+                </dialog>
 
                     {children}
             </div>
