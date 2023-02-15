@@ -5,6 +5,7 @@ import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 
 import { Link } from 'react-router-dom'
 import OverviewCard from '../../../components/SuperAdmin/overview/OverviewCard'
+import { OverviewWallet } from '../../../components/SuperAdmin/overview/OverviewWallets'
 
 interface Overview {
     id: string
@@ -116,9 +117,10 @@ function SecurityCompanyOverview() {
         <div className='estateDetail'>
             <h1 className='heading2'>Overview</h1>
             <div className='mt-8 grid gap-8'>
-                <section className='bg-white rounded-lg p-8 grid h-[28rem] text-[1.4rem]'>
-                    
-                    <div className='overview flex justify-between'>
+                <section className=' text-[1.4rem] flex '>
+                    <div className='overview justify-between bg-white rounded-lg p-8 grid gap-10 basis-3/4' style={{
+                        gridTemplateColumns: 'repeat(auto-fit, minmax(30rem, 1fr))'
+                    }}>
                         <OverviewCard
                             title='Total Estates'
                             number={18_000}
@@ -147,7 +149,15 @@ function SecurityCompanyOverview() {
                             textColor='text-[#B6008E]'
                         />
                     </div>
-                    
+
+                    <OverviewWallet
+                        amount={160_847}
+                        title={'Security Company Wallet'}
+                        isWalletScreen
+                        bgImgUri='/icons/overview/card/bgS.svg'
+                        lefIconUri='/icons/overview/card/leftS.svg'
+                        bgColor='bg-[#6AB95F]'
+                    />
                 </section>
                 <section className='bg-color-white rounded-lg border min-w-[112rem]'>
                     <div className='grid text-[1.6rem]'>
