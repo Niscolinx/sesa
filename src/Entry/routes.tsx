@@ -34,17 +34,19 @@ import AddProperty from '../components/SuperAdmin/platformSettings/AddProperty'
 import AddSOS from '../components/SuperAdmin/platformSettings/AddSOS'
 import SOSDetails from '../components/SuperAdmin/platformSettings/SOSDetails'
 import AddSecurityCompany from '../components/SuperAdmin/securityCompany/AddSecurityCompany'
-import Dashboard from '../pages/SuperAdmin/Dashboard'
+import SuperAdminDashboard from '../pages/SuperAdmin/Dashboard'
 import Admins from '../pages/SuperAdmin/dashboard/Admins'
 import Overview from '../pages/SuperAdmin/dashboard/Overview'
 
+import SecurityCompanyDashboard from '../pages/SecurityCompany/Dashboard'
+
 
 export const SecurityCompanyRoutes = (
-    <Route path='/securityCompany' element={<Dashboard />}/>
+    <Route path='/securityCompany' element={<SecurityCompanyDashboard />}/>
 )
 
 export const superAdminRoutes = (
-    <Route path='/superAdmin' element={<Dashboard />}>
+    <Route path='/superAdmin' element={<SuperAdminDashboard />}>
         <Route index element={<Overview />} />
         <Route path='admins' element={<Admins />} />
         <Route path='estates' element={<Estates />} />
