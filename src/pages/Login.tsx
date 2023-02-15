@@ -45,7 +45,10 @@ const Login = () => {
                     Login
                 </button>
             </form>
+            <figure>
+
             <img src='/img/hero.png' alt='' />
+            </figure>
         </div>
     )
 }
