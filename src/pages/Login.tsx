@@ -32,7 +32,9 @@ const Login = () => {
                         </label>
                         <input
                             type='email'
+                            name='email'
                             required
+                            value={inputs.email}
                             id='email'
                             className='border border-color-grey p-4 rounded-lg w-full outline-color-primary outline-[0.5px]'
                         />
@@ -44,6 +46,7 @@ const Login = () => {
                         <input
                             type='password'
                             required
+                            name='password'
                             id='password'
                             className='border border-color-grey p-4  rounded-lg w-full'
                         />
