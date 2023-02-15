@@ -339,7 +339,7 @@ const EstateWallet = () => {
         })
 
         if (item === 'View Details') {
-            navigate(`/dashboard/wallet/estate/:${index}`)
+            navigate(`/superAdmin/wallet/estate/:${index}`)
         }
 
         if (item === 'Approve') {

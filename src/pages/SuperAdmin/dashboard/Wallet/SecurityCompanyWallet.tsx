@@ -106,10 +106,12 @@ const SecurityCompanyWallet = () => {
     const trend: Array<Trend> = ['This Week', 'This Month', 'This Year']
     const [isWarning, setIsWarning] = useState(true)
 
-    const [togglSecurityCompanyMenu, setTogglSecurityCompanyMenu] = useState(false)
+    const [togglSecurityCompanyMenu, setTogglSecurityCompanyMenu] =
+        useState(false)
     const [selectedTrend, setSelectedTrend] = useState<Trend>('This Week')
 
-    const menuToggler = () => setTogglSecurityCompanyMenu(!togglSecurityCompanyMenu)
+    const menuToggler = () =>
+        setTogglSecurityCompanyMenu(!togglSecurityCompanyMenu)
 
     const handleSelectedTrend = (item: Trend) => {
         setSelectedTrend(item)
@@ -305,7 +307,7 @@ const SecurityCompanyWallet = () => {
         })
 
         if (item === 'View Details') {
-            navigate(`/dashboard/wallet/security-company/:${index}`)
+            navigate(`/superAdmin/wallet/security-company/:${index}`)
         }
     }
 
@@ -382,7 +384,6 @@ const SecurityCompanyWallet = () => {
                                 />
                             </div>
                         </div>
-                       
 
                         <table>
                             <thead>

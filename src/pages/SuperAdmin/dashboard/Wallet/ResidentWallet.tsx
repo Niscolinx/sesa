@@ -279,7 +279,7 @@ const ResidentWallet = () => {
         })
 
         if (item === 'View Details') {
-            navigate(`/dashboard/wallet/resident/:${index}`)
+            navigate(`/superAdmin/wallet/resident/:${index}`)
         }
     }
 

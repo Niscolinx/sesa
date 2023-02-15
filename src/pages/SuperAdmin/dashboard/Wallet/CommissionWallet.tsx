@@ -166,8 +166,6 @@ const CommissionWallet = () => {
         })
     }
 
-  
-
     const sortBy: SortBy[] = ['A-Z', 'date']
 
     interface Paginate {
@@ -296,8 +294,6 @@ const CommissionWallet = () => {
         }
     }
 
-  
-
     const handleSelectedAction = (item: Actions, index: string) => {
         setToggleDropDown(() => {
             return {
@@ -307,15 +303,12 @@ const CommissionWallet = () => {
         })
 
         if (item === 'View Details') {
-            navigate(`/dashboard/wallet/commission/:${index}`)
+            navigate(`/superAdmin/wallet/commission/:${index}`)
         }
     }
 
- 
-
     const handleFormSubmit = (e: FormEvent) => {
         e.preventDefault()
-
     }
 
     return (
@@ -426,7 +419,7 @@ const CommissionWallet = () => {
                                         className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem]'
                                     />
                                 </div>
-                           
+
                                 <div className='w-full grid gap-4'>
                                     <label
                                         htmlFor='commissionWalletAttachment'

@@ -181,7 +181,7 @@ const ArtisanGroup: FC<{
         })
 
         if (item === 'View Details') {
-            navigate(`/dashboard/artisan/group/:${id}`)
+            navigate(`/superAdmin/artisan/group/:${id}`)
         }
 
         if (item === 'Deactivate') {
