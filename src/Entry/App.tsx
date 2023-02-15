@@ -52,7 +52,8 @@ import Dashboard from '../pages/SuperAdmin/Dashboard'
 const router = createBrowserRouter(
     createRoutesFromElements([
         <Route path='/' element={<Navigate to='/dashboard' />} />,
-        <Route path='/dashboard' element={<Overview />}>
+        <Route path='/dashboard' element={<Dashboard />}>
+            <Route index element={<Overview />} />
             <Route path='admins' element={<Admins />} />
             <Route path='estates' element={<Estates />} />
             <Route path='estates/detail/:Id' element={<EstateDetails />} />
