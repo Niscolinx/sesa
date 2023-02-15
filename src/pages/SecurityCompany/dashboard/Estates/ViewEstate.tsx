@@ -247,7 +247,7 @@ function ViewEstate() {
                         </div>
 
                         <div className='grid bg-white'>
-                            <div className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-4 gap-8 text-[1.6rem]'>
+                            <div className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-5 gap-8 text-[1.6rem]'>
                                 <p className='flex items-center gap-4'>
                                     <input
                                         type='checkbox'
@@ -275,7 +275,7 @@ function ViewEstate() {
                                                 kyc,
                                             }) => {
                                                 return (
-                                                    <div className='grid justify-between border-b grid-cols-4 items-center gap-8 '>
+                                                    <div className='grid justify-between border-b grid-cols-5 items-center gap-8 '>
                                                         <p className='flex items-center gap-4'>
                                                             <input
                                                                 type='checkbox'
