@@ -20,13 +20,10 @@ export interface IAvailableEstateAdvert {
     noOfResidents: number
 }
 
-
 const AvailableEstateAdvert: FC<{
     fetchedAvailableEstateAdvert: IAvailableEstateAdvert[]
 }> = ({ fetchedAvailableEstateAdvert }) => {
     const navigate = useNavigate()
-
-  
 
     interface Paginate {
         index: number
@@ -124,14 +121,12 @@ const AvailableEstateAdvert: FC<{
         })
     }
 
-    
     const addAdvert = () => {
-        navigate('/dashboard/advert/group/add')
+        navigate('/superAdmin/advert/group/add')
     }
 
     return (
         <>
-           
             <div className='grid text-[1.6rem]'>
                 <div className='flex w-full items-center gap-12 p-10 bg-white rounded-lg'>
                     <p className=' font-bold'>
@@ -183,14 +178,13 @@ const AvailableEstateAdvert: FC<{
                                 slicedPages[paginate.index].map(
                                     (
                                         {
-                                           estateName,
+                                            estateName,
                                             state,
                                             address,
                                             noOfResidents,
                                         },
                                         i
                                     ) => {
-                                      
                                         return (
                                             <div className='grid justify-between border-b grid-cols-4 items-center gap-8 '>
                                                 <p className='flex items-center gap-4'>
@@ -204,8 +198,6 @@ const AvailableEstateAdvert: FC<{
                                                 <p>{state}</p>
                                                 <p>{address}</p>
                                                 <p>{noOfResidents}</p>
-
-                                              
                                             </div>
                                         )
                                     }

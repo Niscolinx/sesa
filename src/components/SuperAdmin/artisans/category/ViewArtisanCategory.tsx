@@ -110,7 +110,7 @@ const ViewArtisanCategory = () => {
         }
 
         if (item === 'View Details') {
-            navigate('/dashboard/artisan/category/:Id')
+            navigate('/superAdmin/artisan/category/:Id')
         }
 
         setToggleDropDown({
@@ -241,7 +241,7 @@ const ViewArtisanCategory = () => {
     }
 
     const addCategoryHandler = () => {
-        // navigate('/dashboard/viewArtisanCategory/add')
+        // navigate('/superAdmin/viewArtisanCategory/add')
         handleOpen('add-Category')
     }
 
@@ -335,7 +335,7 @@ const ViewArtisanCategory = () => {
                             htmlFor='categoryName'
                             className='text-[1.4rem] font-semibold'
                         >
-                           Category Name
+                            Category Name
                         </label>
 
                         <input

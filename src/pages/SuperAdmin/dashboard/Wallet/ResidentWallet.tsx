@@ -6,9 +6,11 @@ import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { useNavigate } from 'react-router'
 import WalletBarChart from '../../../../components/SuperAdmin/charts/WalletBarChart'
 import { OverviewWallet } from '../../../../components/SuperAdmin/overview/OverviewWallets'
-import { ResidentTransactions, RESIDENT_BALANCE, RESIDENT_TRANSACTION_HISTORY } from '../../../../components/SuperAdmin/wallet/resident/ResidentTransactions'
-
-
+import {
+    ResidentTransactions,
+    RESIDENT_BALANCE,
+    RESIDENT_TRANSACTION_HISTORY,
+} from '../../../../components/SuperAdmin/wallet/resident/ResidentTransactions'
 
 type Trend = 'This Week' | 'This Month' | 'This Year'
 
@@ -134,7 +136,7 @@ const ResidentWallet = () => {
 
     const navigate = useNavigate()
 
-    type Actions = 'View Details' 
+    type Actions = 'View Details'
 
     const actions = ['View Details'] satisfies Actions[]
 
@@ -160,7 +162,7 @@ const ResidentWallet = () => {
 
     const selectAction = (e: React.MouseEvent, item: string) => {
         if (item === 'View Details') {
-            navigate('/dashboard/wallet/resident/:id')
+            navigate('/superAdmin/wallet/resident/:id')
         }
     }
 
@@ -213,8 +215,6 @@ const ResidentWallet = () => {
             }
         })
     }
-
-  
 
     useEffect(() => {
         const slicedPages: ITransactions[][] = []
@@ -270,10 +270,7 @@ const ResidentWallet = () => {
         })
     }
 
-  
-
     const handleSelectedAction = (item: Actions, index: string) => {
-
         setToggleDropDown(() => {
             return {
                 isDropDownOpen: false,
@@ -284,10 +281,7 @@ const ResidentWallet = () => {
         if (item === 'View Details') {
             navigate(`/dashboard/wallet/resident/:${index}`)
         }
-
-       
     }
-
 
     const [fetchedResidentBalance, setFetchedResidentBalance] = useState<
         ResidentTransactions[] | null
@@ -298,27 +292,21 @@ const ResidentWallet = () => {
 
     type PathIndex = 'resident-transaction-history' | 'resident-balance'
 
-
     useEffect(() => {
-
-
-            setTimeout(() => {
-
-                setFetchedResidentBalance(RESIDENT_BALANCE)
-                setFetchedTransactionHistory(RESIDENT_TRANSACTION_HISTORY)
-            }, 1000)
-
+        setTimeout(() => {
+            setFetchedResidentBalance(RESIDENT_BALANCE)
+            setFetchedTransactionHistory(RESIDENT_TRANSACTION_HISTORY)
+        }, 1000)
     }, [])
 
-    const [pathIndex, setpathIndex] = useState<PathIndex>('resident-transaction-history')
-
-
+    const [pathIndex, setpathIndex] = useState<PathIndex>(
+        'resident-transaction-history'
+    )
 
     const handlePathSwitch = {
         'resident-transaction-history': (
             <ResidentTransactions
                 fetchedResidentTransactions={fetchedTransactionHistory ?? []}
-
             />
         ),
         'resident-balance': (
@@ -328,8 +316,6 @@ const ResidentWallet = () => {
             />
         ),
     }
-
-   
 
     return (
         <div>
@@ -394,7 +380,9 @@ const ResidentWallet = () => {
                                 name='resident'
                                 id='residentTransactionHistory'
                                 className='hidden'
-                                onChange={() => setpathIndex('resident-transaction-history')}
+                                onChange={() =>
+                                    setpathIndex('resident-transaction-history')
+                                }
                             />
                             <label htmlFor='residentTransactionHistory'>
                                 Transaction History
@@ -405,14 +393,15 @@ const ResidentWallet = () => {
                                 name='resident'
                                 id='residentBalance'
                                 className='hidden'
-                                onChange={() => setpathIndex('resident-balance')}
+                                onChange={() =>
+                                    setpathIndex('resident-balance')
+                                }
                             />
                             <label htmlFor='residentBalance'>
                                 Resident Balance
                             </label>
                         </div>
                         <div className='mt-8 grid gap-8'>
-                           
                             <section className='bg-color-white rounded-lg border min-w-[112rem] overflow-scroll'>
                                 {fetchedResidentBalance &&
                                     handlePathSwitch[pathIndex]}

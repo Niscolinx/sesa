@@ -16,72 +16,72 @@ function IconsBox() {
   return (
       <ul className='iconsBox'>
           <li className='iconsBox__list'>
-              <Link to='/dashboard'>
+              <Link to='/superAdmin'>
                   <OverviewSvg />
                   <span>Overview</span>
               </Link>
           </li>
           <li className='iconsBox__list'>
-              <Link to='/dashboard/admins'>
+              <Link to='/superAdmin/admins'>
                   {' '}
                   <AdminsSvg />
                   <span>Admins</span>
               </Link>
           </li>
           <li className='iconsBox__list'>
-              <Link to='/dashboard/estates' className='fillIcon'>
+              <Link to='/superAdmin/estates' className='fillIcon'>
                   <EstatesSvg />
                   <span>Estates</span>
               </Link>
           </li>
           <li className='iconsBox__list'>
-              <Link to='/dashboard/estateManagers' className='fillIcon'>
+              <Link to='/superAdmin/estateManagers' className='fillIcon'>
                   {' '}
                   <EstateManagerSvg />
                   <span>Estate Manager</span>
               </Link>
           </li>
           <li className='iconsBox__list'>
-              <Link to='/dashboard/rolesAndPerm'>
+              <Link to='/superAdmin/rolesAndPerm'>
                   <RolesAndPermSvg />
                   <span>Roles & Permissions</span>
               </Link>
           </li>
           <li className='iconsBox__list'>
-              <Link to='/dashboard/additional-resident'>
+              <Link to='/superAdmin/additional-resident'>
                   {' '}
                   <AdditionalResidentSvg />
                   <span>Additional Resident</span>{' '}
               </Link>
           </li>
           <li className='iconsBox__list'>
-              <Link to='/dashboard/security-company' className='fillIcon'>
+              <Link to='/superAdmin/security-company' className='fillIcon'>
                   {' '}
                   <SecurityCompSvg />
                   <span>Security Company</span>
               </Link>
           </li>
           <li className='iconsBox__list'>
-              <Link to='/dashboard/wallet' className='fillIcon'>
+              <Link to='/superAdmin/wallet' className='fillIcon'>
                   <WalletSvg />
                   <span>Wallet</span>
               </Link>
           </li>
           <li className='iconsBox__list'>
-              <Link to='/dashboard/artisan' className='fillIcon'>
+              <Link to='/superAdmin/artisan' className='fillIcon'>
                   {' '}
                   <ArtisanSvg />
                   <span>Artisan</span>
               </Link>
           </li>
           <li className='iconsBox__list'>
-              <Link to='/dashboard/advert'>
+              <Link to='/superAdmin/advert'>
                   <AdvertSvg />
                   <span>Advert</span>
               </Link>
           </li>
           <li className='iconsBox__list'>
-              <Link to='/dashboard/platformSettings' className='fillIcon'>
+              <Link to='/superAdmin/platformSettings' className='fillIcon'>
                   <SettingsSvg />
                   <span>Settings</span>
               </Link>

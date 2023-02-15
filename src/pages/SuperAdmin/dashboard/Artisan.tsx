@@ -10,7 +10,7 @@ function Artisan() {
 
     const addArtisanHandler = () => {
         setArtisan(true)
-        //navigate('/dashboard/artisan/add')
+        //navigate('/superAdmin/artisan/add')
     }
 
     return (

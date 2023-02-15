@@ -1,8 +1,4 @@
-import React, {
-    FormEvent,
-    useRef,
-    useState,
-} from 'react'
+import React, { FormEvent, useRef, useState } from 'react'
 import { IoMdAdd, IoMdClose } from 'react-icons/io'
 import { getPhotoUrl } from '../../../../utils/getPhotoUrl'
 import { BsQuestionCircle } from 'react-icons/bs'
@@ -16,11 +12,11 @@ const AddArtisan = () => {
     const [selectedArtisan, setSelectedArtisan] = useState<string | null>(null)
     const [selectedGender, setSelectedGender] = useState<string | null>(null)
     const [isAddArtisan, setIsAddArtisan] = useState(true)
-    const [validationType, setValidationType] = useState<string | null>('Phone Number')
+    const [validationType, setValidationType] = useState<string | null>(
+        'Phone Number'
+    )
 
     const [photoUrl, setPhotoUrl] = useState('')
-
-    
 
     const handlePhotoPreview = async (
         _: React.MouseEvent<HTMLInputElement>
@@ -66,13 +62,12 @@ const AddArtisan = () => {
     }
 
     const addArtisanHandler = () => {
-        // navigate('/dashboard/artisanCategory/add')
+        // navigate('/superAdmin/artisanCategory/add')
         handleOpen('add-Artisan')
     }
 
     const confirmAddArtisan = () => {
         handleClose()
-      
     }
 
     const handleDialogSubmit = (e: FormEvent) => {

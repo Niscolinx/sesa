@@ -153,11 +153,11 @@ const SOSTable = () => {
     }
 
     const addSOSHandler = () => {
-        navigate('/dashboard/platformSettings/addSOS')
+        navigate('/superAdmin/platformSettings/addSOS')
     }
 
     const detailsHandler = (id: string) => {
-        navigate(`/dashboard/platformSettings/SOSDetails/${id}`)
+        navigate(`/superAdmin/platformSettings/SOSDetails/${id}`)
     }
 
     return (

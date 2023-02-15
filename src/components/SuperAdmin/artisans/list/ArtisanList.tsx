@@ -151,7 +151,7 @@ const ArtisanList: FC<{
     }
 
     const addArtisan = () => {
-        navigate('/dashboard/artisan/add')
+        navigate('/superAdmin/artisan/add')
     }
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)

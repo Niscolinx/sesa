@@ -13,7 +13,7 @@ import { useNavigate } from 'react-router'
 import { toast, ToastContainer } from 'react-toastify'
 import EstateListTable from './EstateListTable'
 
-type DialogType = 'warning' 
+type DialogType = 'warning'
 
 export interface IViewArtisanGroup {
     id: string
@@ -86,7 +86,8 @@ const ViewArtisanGroup = () => {
     const actions = [
         'View Details',
         'Edit Details',
-        'Delete'] satisfies Actions[]
+        'Delete',
+    ] satisfies Actions[]
 
     const [toggleDropDown, setToggleDropDown] = useState<{
         isDropDownOpen: boolean
@@ -114,7 +115,7 @@ const ViewArtisanGroup = () => {
         }
 
         if (item === 'View Details') {
-            navigate('/dashboard/artisan/group/:Id')
+            navigate('/superAdmin/artisan/group/:Id')
         }
 
         setToggleDropDown({
@@ -245,7 +246,7 @@ const ViewArtisanGroup = () => {
     }
 
     const addGroupHandler = () => {
-        // navigate('/dashboard/viewArtisanGroup/add')
+        // navigate('/superAdmin/viewArtisanGroup/add')
     }
 
     const confirmDeactivation = () => {
@@ -308,8 +309,8 @@ const ViewArtisanGroup = () => {
                                 />
 
                                 <p>
-                                    Are you sure you want to delete this
-                                    Artisan Group?
+                                    Are you sure you want to delete this Artisan
+                                    Group?
                                 </p>
 
                                 <div className='flex w-full justify-center gap-8'>
@@ -564,7 +565,7 @@ const ViewArtisanGroup = () => {
                         />
                     </ul>
                 </footer>
-                <EstateListTable/>
+                <EstateListTable />
             </div>
         </>
     )

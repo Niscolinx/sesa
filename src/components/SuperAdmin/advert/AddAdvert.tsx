@@ -1,13 +1,10 @@
-import React, {  useRef, useState } from 'react'
-import {  IoMdClose } from 'react-icons/io'
+import React, { useRef, useState } from 'react'
+import { IoMdClose } from 'react-icons/io'
 import { getPhotoUrl } from '../../../utils/getPhotoUrl'
 import { MultipleSelect } from '../UI/Select'
 
-
-
 const AddAdvert = () => {
     const [selectedEstates, setSelectedEstates] = useState<string[]>([])
-    
 
     const [photoUrl, setPhotoUrl] = useState('')
 
@@ -43,23 +40,19 @@ const AddAdvert = () => {
         }
     }
     const handleOpen = () => {
-       
-
         if (dialogRef.current) {
             dialogRef.current.showModal()
         }
     }
 
     const addAdvertHandler = () => {
-        // navigate('/dashboard/artisanCategory/add')
+        // navigate('/superAdmin/artisanCategory/add')
         handleOpen()
     }
 
     const confirmAddAdvert = () => {
         handleClose()
     }
-
-   
 
     return (
         <>

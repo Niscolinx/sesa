@@ -159,7 +159,7 @@ const EstateWallet = () => {
 
     const selectAction = (e: React.MouseEvent, item: string) => {
         if (item === 'View Details') {
-            navigate('/dashboard/wallet/estate/:id')
+            navigate('/superAdmin/wallet/estate/:id')
         }
     }
 
@@ -505,7 +505,6 @@ const EstateWallet = () => {
                                 />
                             </div>
                         </div>
-                     
 
                         <table>
                             <thead>

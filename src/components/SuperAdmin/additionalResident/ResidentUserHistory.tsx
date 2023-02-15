@@ -51,14 +51,13 @@ const ResidentUserHistory: FC<{
         item: 'View Details' | 'Deactivate'
     ) => {
         if (item === 'View Details') {
-            navigate('/dashboard/additional-resident/:Id')
+            navigate('/superAdmin/additional-resident/:Id')
         }
     }
 
     const sortBy: SortBy[] = ['A-Z', 'date']
 
     interface Paginate {
-      
         index: number
         currentPage: number
         itemsPerPage: number
@@ -153,8 +152,7 @@ const ResidentUserHistory: FC<{
         })
     }
 
-    const {  currentPage, slicedPages } =
-        paginate
+    const { currentPage, slicedPages } = paginate
 
     const jumpToPage = (e: React.MouseEvent, index: number) => {
         console.log({ index })

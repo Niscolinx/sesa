@@ -27,8 +27,6 @@ const AdvertList: FC<{
 }> = ({ fetchedAdvertList }) => {
     const navigate = useNavigate()
 
-    
-
     const [dialogType, setDialogType] = useState<Actions>('Delete')
 
     const actions = [
@@ -178,7 +176,7 @@ const AdvertList: FC<{
         })
 
         if (item === 'View Details') {
-            navigate(`/dashboard/advert/detail/:${id}`)
+            navigate(`/superAdmin/advert/detail/:${id}`)
         }
 
         if (item === 'Delete') {
@@ -204,7 +202,7 @@ const AdvertList: FC<{
     }
 
     const addAdvert = () => {
-        navigate('/dashboard/advert/add')
+        navigate('/superAdmin/advert/add')
     }
 
     return (

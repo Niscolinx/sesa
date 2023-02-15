@@ -10,7 +10,6 @@ import {
 } from 'react-icons/hi'
 import { TbCurrencyNaira } from 'react-icons/tb'
 
-
 import { useNavigate } from 'react-router-dom'
 import { useAppDispatch } from '../../../store/app/hooks'
 
@@ -110,7 +109,7 @@ function RenderedSecurityCompanies() {
     }, [])
 
     const handlePathSwitch = () => {
-        navigate('/dashboard/security-company/add')
+        navigate('/superAdmin/security-company/add')
     }
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
@@ -142,7 +141,7 @@ function RenderedSecurityCompanies() {
         })
 
         if (item === 'View Details') {
-            navigate(`/dashboard/security-company/:${index}`)
+            navigate(`/superAdmin/security-company/:${index}`)
         }
 
         if (item === 'Deactivate') {

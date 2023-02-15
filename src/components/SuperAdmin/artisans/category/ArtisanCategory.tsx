@@ -29,22 +29,18 @@ const ArtisanCategory: FC<{
 
     const [isWarning, setIsWarning] = useState(true)
 
-   
-
     const handleDialogSubmit = (e: FormEvent) => {
         e.preventDefault()
         handleClose()
 
         toast('Category Created successfully', {
             type: 'success',
-            className: 'bg-green-100 text-green-600 text-[1.4rem] outline-green-200 outline',
+            className:
+                'bg-green-100 text-green-600 text-[1.4rem] outline-green-200 outline',
         })
     }
 
-    const actions = [
-        'View Details',
-        'Delete'
-    ] satisfies Actions[]
+    const actions = ['View Details', 'Delete'] satisfies Actions[]
 
     const [toggleDropDown, setToggleDropDown] = useState<{
         isDropDownOpen: boolean
@@ -71,10 +67,9 @@ const ArtisanCategory: FC<{
             handleOpen('warning')
         }
 
-        if(item === 
-            'View Details'){
-                navigate('/dashboard/artisan/category/:Id')
-            }
+        if (item === 'View Details') {
+            navigate('/superAdmin/artisan/category/:Id')
+        }
 
         setToggleDropDown({
             isDropDownOpen: false,
@@ -146,7 +141,7 @@ const ArtisanCategory: FC<{
     }, [fetchedArtisanCategories])
 
     const handleNext = () => {
-        if (paginate.currentPage  === paginate.totalPage) return
+        if (paginate.currentPage === paginate.totalPage) return
         setPaginate((prev) => {
             return {
                 ...prev,
@@ -200,10 +195,8 @@ const ArtisanCategory: FC<{
     }
 
     const addCategoryHandler = () => {
-        // navigate('/dashboard/artisanCategory/add')
+        // navigate('/superAdmin/artisanCategory/add')
         handleOpen('add-Category')
-
-       
     }
 
     const confirmDeactivation = () => {
@@ -215,7 +208,7 @@ const ArtisanCategory: FC<{
     }
     return (
         <>
-        <ToastContainer/>
+            <ToastContainer />
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid items-baseline w-[64rem] min-h-[30rem] p-10 gap-8 text-[1.6rem] relative'>

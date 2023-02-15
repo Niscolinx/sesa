@@ -48,12 +48,13 @@ import AddSOS from '../components/SuperAdmin/platformSettings/AddSOS'
 import SOSDetails from '../components/SuperAdmin/platformSettings/SOSDetails'
 import AddSecurityCompany from '../components/SuperAdmin/securityCompany/AddSecurityCompany'
 import Dashboard from '../pages/SuperAdmin/Dashboard'
+import Login from '../pages/Login'
 
 
 const router = createBrowserRouter(
     createRoutesFromElements([
-        <Route path='/' element={<Navigate to='/dashboard' />} />,
-        <Route path='/dashboard' element={<Dashboard />}>
+        <Route path='/' element={<Login />} />,
+        <Route path='/superAdmin' element={<Dashboard />}>
             <Route index element={<Overview />} />
             <Route path='admins' element={<Admins />} />
             <Route path='estates' element={<Estates />} />

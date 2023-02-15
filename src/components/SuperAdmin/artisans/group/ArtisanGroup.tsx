@@ -30,8 +30,12 @@ const ArtisanGroup: FC<{
 
     const [dialogType, setDialogType] = useState<Actions>('Deactivate')
 
-    const actions = ['View Details', 
-    'Edit Details', 'Deactivate', 'Delete'] satisfies Actions[]
+    const actions = [
+        'View Details',
+        'Edit Details',
+        'Deactivate',
+        'Delete',
+    ] satisfies Actions[]
 
     const [toggleDropDown, setToggleDropDown] = useState<{
         isDropDownOpen: boolean
@@ -113,7 +117,7 @@ const ArtisanGroup: FC<{
     }, [fetchedArtisanGroups])
 
     const handleNext = () => {
-console.log(paginate.currentPage, paginate.totalPage, slicedPages)
+        console.log(paginate.currentPage, paginate.totalPage, slicedPages)
         if (paginate.currentPage === paginate.totalPage) return
         setPaginate((prev) => {
             return {
@@ -207,7 +211,7 @@ console.log(paginate.currentPage, paginate.totalPage, slicedPages)
     }
 
     const addGroupHandler = () => {
-        navigate('/dashboard/artisan/group/add')
+        navigate('/superAdmin/artisan/group/add')
     }
 
     return (
@@ -323,7 +327,14 @@ console.log(paginate.currentPage, paginate.totalPage, slicedPages)
                             React.Children.toArray(
                                 slicedPages[paginate.index].map(
                                     (
-                                        { name, createdAt, NoOfArtisans, id, NoOfEstates, status },
+                                        {
+                                            name,
+                                            createdAt,
+                                            NoOfArtisans,
+                                            id,
+                                            NoOfEstates,
+                                            status,
+                                        },
                                         i
                                     ) => {
                                         const { isDropDownOpen, index } =
@@ -340,11 +351,17 @@ console.log(paginate.currentPage, paginate.totalPage, slicedPages)
                                                 </p>
                                                 <p>{NoOfArtisans}</p>
                                                 <p>{NoOfEstates}</p>
-                                                <p>{status === 'Active' ? (<span className='text-green-600'>
-                                                    {status}
-                                                </span>):(
-                                                    <span className='text-red-600'>{status}</span>
-                                                )}</p>
+                                                <p>
+                                                    {status === 'Active' ? (
+                                                        <span className='text-green-600'>
+                                                            {status}
+                                                        </span>
+                                                    ) : (
+                                                        <span className='text-red-600'>
+                                                            {status}
+                                                        </span>
+                                                    )}
+                                                </p>
                                                 <p>{createdAt}</p>
 
                                                 <div className='relative'>

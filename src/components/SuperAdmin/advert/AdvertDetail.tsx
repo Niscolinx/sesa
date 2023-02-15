@@ -74,11 +74,11 @@ const AdvertDetail = () => {
     }
 
     const showClickRateIncrease = () => {
-        navigate('/dashboard/advert/clickrate/increase')
+        navigate('/superAdmin/advert/clickrate/increase')
     }
 
     const showClickRateDecrease = () => {
-        navigate('/dashboard/advert/clickrate/decrease')
+        navigate('/superAdmin/advert/clickrate/decrease')
     }
     return (
         <>
