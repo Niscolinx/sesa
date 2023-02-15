@@ -13,6 +13,12 @@ const Login = () => {
     const handleLogin = (e: FormEvent) => {
         e.preventDefault()
     }
+
+
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        
+    }
+
     return (
         <div className='flex h-screen overflow-hidden'>
             <form
@@ -25,7 +31,7 @@ const Login = () => {
                     </h1>
                     <p>Kindly enter your details</p>
                 </div>
-                <div className='grid gap-8'>
+                <div className='grid gap-8' onChange={handleInputChange}>
                     <div className='w-full grid gap-4'>
                         <label htmlFor='email' className='font-semibold'>
                             Email
