@@ -16,7 +16,7 @@ import { SuperAdminRoutes } from './routes'
 const router = createBrowserRouter(
     createRoutesFromElements([
         <Route path='/' element={<Login />} />,
-        <SuperAdminRoutes/>,
+        {SuperAdminRoutes},
         <Route path='*' element={<Navigate to='/' />} />,
     ])
 )

@@ -38,85 +38,67 @@ import Dashboard from '../pages/SuperAdmin/Dashboard'
 import Admins from '../pages/SuperAdmin/dashboard/Admins'
 import Overview from '../pages/SuperAdmin/dashboard/Overview'
 
-    const SuperAdminRoutes = (
-        <Route path='/superAdmin' element={<Dashboard />}>
-            <Route index element={<Overview />} />
-            <Route path='admins' element={<Admins />} />
-            <Route path='estates' element={<Estates />} />
-            <Route path='estates/detail/:Id' element={<EstateDetails />} />
-            <Route path='estates/report/:Id' element={<EstateReport />} />
-            <Route path='security-company' element={<SecurityCompany />} />
-            <Route
-                path='security-company/:Id'
-                element={<SecurityCompanyDetail />}
-            />
-            <Route
-                path='security-company/add'
-                element={<AddSecurityCompany />}
-            />
-            <Route path='estateManagers' element={<EstateManagers />} />
-            <Route path='rolesAndPerm' element={<RolesAndPerm />} />
-            <Route
-                path='additional-resident'
-                element={<AdditionalResident />}
-            />
-            <Route
-                path='additional-resident/:Id'
-                element={<AdditionalResidentDetails />}
-            />
-            <Route path='wallet' element={<Wallet />} />
-            <Route path='wallet/estate' element={<EstateWallet />} />
-            <Route path='wallet/estate/:id' element={<EstateWalletDetails />} />
-            <Route path='wallet/resident' element={<ResidentWallet />} />
-            <Route
-                path='wallet/resident/:id'
-                element={<ResidentWalletDetails />}
-            />
-            <Route path='wallet/commission' element={<CommissionWallet />} />
-            <Route
-                path='wallet/commision/:id'
-                element={<CommissionWalletDetails />}
-            />
-            <Route
-                path='wallet/security-company'
-                element={<SecurityCompanyWallet />}
-            />
-            <Route
-                path='wallet/security-company/:id'
-                element={<SecurityCompanyWalletDetails />}
-            />
-            <Route path='artisan' element={<Artisan />} />
-            <Route
-                path='artisan/category/:Id'
-                element={<ViewArtisanCategory />}
-            />
-            <Route path='artisan/detail/:Id' element={<ArtisanDetail />} />
-            <Route path='artisan/add' element={<AddArtisan />} />
-            <Route path='artisan/group/add' element={<AddArtisanGroup />} />
-            <Route path='artisan/group/:Id' element={<ViewArtisanGroup />} />
-            <Route path='advert' element={<Advert />} />
-            <Route path='advert/add' element={<AddAdvert />} />
-            <Route path='advert/detail/:Id' element={<AdvertDetail />} />
-            <Route
-                path='advert/clickrate/increase'
-                element={<AdvertClickrateIncrease />}
-            />
-            <Route
-                path='advert/clickrate/decrease'
-                element={<AdvertClickrateDecrease />}
-            />
-            <Route path='platformSettings' element={<PlatformSettings />} />
-            <Route
-                path='platformSettings/addProperty'
-                element={<AddProperty />}
-            />
-            <Route path='platformSettings/addSOS' element={<AddSOS />} />
-            <Route
-                path='platformSettings/SOSDetails/:Id'
-                element={<SOSDetails />}
-            />
-        </Route>
-    )
-  
-   
-
+export const SuperAdminRoutes = (
+    <Route path='/superAdmin' element={<Dashboard />}>
+        <Route index element={<Overview />} />
+        <Route path='admins' element={<Admins />} />
+        <Route path='estates' element={<Estates />} />
+        <Route path='estates/detail/:Id' element={<EstateDetails />} />
+        <Route path='estates/report/:Id' element={<EstateReport />} />
+        <Route path='security-company' element={<SecurityCompany />} />
+        <Route
+            path='security-company/:Id'
+            element={<SecurityCompanyDetail />}
+        />
+        <Route path='security-company/add' element={<AddSecurityCompany />} />
+        <Route path='estateManagers' element={<EstateManagers />} />
+        <Route path='rolesAndPerm' element={<RolesAndPerm />} />
+        <Route path='additional-resident' element={<AdditionalResident />} />
+        <Route
+            path='additional-resident/:Id'
+            element={<AdditionalResidentDetails />}
+        />
+        <Route path='wallet' element={<Wallet />} />
+        <Route path='wallet/estate' element={<EstateWallet />} />
+        <Route path='wallet/estate/:id' element={<EstateWalletDetails />} />
+        <Route path='wallet/resident' element={<ResidentWallet />} />
+        <Route path='wallet/resident/:id' element={<ResidentWalletDetails />} />
+        <Route path='wallet/commission' element={<CommissionWallet />} />
+        <Route
+            path='wallet/commision/:id'
+            element={<CommissionWalletDetails />}
+        />
+        <Route
+            path='wallet/security-company'
+            element={<SecurityCompanyWallet />}
+        />
+        <Route
+            path='wallet/security-company/:id'
+            element={<SecurityCompanyWalletDetails />}
+        />
+        <Route path='artisan' element={<Artisan />} />
+        <Route path='artisan/category/:Id' element={<ViewArtisanCategory />} />
+        <Route path='artisan/detail/:Id' element={<ArtisanDetail />} />
+        <Route path='artisan/add' element={<AddArtisan />} />
+        <Route path='artisan/group/add' element={<AddArtisanGroup />} />
+        <Route path='artisan/group/:Id' element={<ViewArtisanGroup />} />
+        <Route path='advert' element={<Advert />} />
+        <Route path='advert/add' element={<AddAdvert />} />
+        <Route path='advert/detail/:Id' element={<AdvertDetail />} />
+        <Route
+            path='advert/clickrate/increase'
+            element={<AdvertClickrateIncrease />}
+        />
+        <Route
+            path='advert/clickrate/decrease'
+            element={<AdvertClickrateDecrease />}
+        />
+        <Route path='platformSettings' element={<PlatformSettings />} />
+        <Route path='platformSettings/addProperty' element={<AddProperty />} />
+        <Route path='platformSettings/addSOS' element={<AddSOS />} />
+        <Route
+            path='platformSettings/SOSDetails/:Id'
+            element={<SOSDetails />}
+        />
+    </Route>
+)
