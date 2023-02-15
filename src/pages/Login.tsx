@@ -19,8 +19,11 @@ const Login = () => {
 
         if(email === 'superAdmin'){
             navigate('/superAdmin')
-            
         }
+        if(email === 'securityCompany'){
+            navigate('/securityCompany')
+        }
+
     
     }
 
