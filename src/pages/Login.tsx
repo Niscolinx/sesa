@@ -41,7 +41,9 @@ const Login = () => {
                         />
                     </div>
                 </div>
-                <div></div>
+                <button className='btn bg-[#0556E5] text-white rounded-lg py-4 place-self-start w-[15rem]'>
+                    Login
+                </button>
             </form>
             <img src='/img/hero.png' alt='' />
         </div>
