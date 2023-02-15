@@ -49,6 +49,7 @@ import SOSDetails from '../components/SuperAdmin/platformSettings/SOSDetails'
 import AddSecurityCompany from '../components/SuperAdmin/securityCompany/AddSecurityCompany'
 import Dashboard from '../pages/SuperAdmin/Dashboard'
 
+
 const router = createBrowserRouter(
     createRoutesFromElements([
         <Route path='/' element={<Navigate to='/dashboard' />} />,
