@@ -1,7 +1,7 @@
 import React, { FormEvent } from 'react'
 
 const Login = () => {
-    const handleLogin = (e:FormEvent) => {
+    const handleLogin = (e: FormEvent) => {
         e.preventDefault()
     }
     return (
@@ -28,18 +28,16 @@ const Login = () => {
                     </div>
                     <div className='w-full grid gap-4'>
                         <label
-                            htmlFor='status'
+                            htmlFor='password'
                             className='text-[1.4rem] font-semibold'
                         >
-                            Transaction Type
+                            Password
                         </label>
                         <input
-                            disabled
-                            type='text'
+                            type='password'
                             required
-                            id='status'
+                            id='password'
                             className='border border-color-grey p-4 outline-none rounded-lg w-full'
-                            value={'Credit'}
                         />
                     </div>
                 </div>
