@@ -20,7 +20,7 @@ import EstateManagers from '../pages/dashboard/EstateManagers'
 import Estates from '../pages/dashboard/Estate/Estates'
 import RolesAndPerm from '../pages/dashboard/RolesAndPerm'
 import AdditionalResident from '../pages/dashboard/AdditionalResident'
-import AdditionalResidentDetails from '../components/additionalResident/AdditionalResidentDetails'
+import AdditionalResidentDetails from '../components/SuperAdmin/additionalResident/AdditionalResidentDetails'
 import SecurityCompany from '../pages/dashboard/SecurityCompany'
 import AddSecurityCompany from '../components/securityCompany/AddSecurityCompany'
 import SecurityCompanyDetail from '../components/securityCompany/SecurityCompanyDetail'
@@ -103,34 +103,13 @@ const router = createBrowserRouter(
                 path='artisan/category/:Id'
                 element={<ViewArtisanCategory />}
             />
-            <Route
-                path='artisan/detail/:Id'
-                element={<ArtisanDetail />}
-            />
-            <Route
-                path='artisan/add'
-                element={<AddArtisan />}
-            />
-            <Route
-                path='artisan/group/add'
-                element={<AddArtisanGroup />}
-            />
-            <Route
-                path='artisan/group/:Id'
-                element={<ViewArtisanGroup />}
-            />
-            <Route
-                path='advert'
-                element={<Advert />}
-            />
-            <Route
-                path='advert/add'
-                element={<AddAdvert />}
-            />
-            <Route
-                path='advert/detail/:Id'
-                element={<AdvertDetail />}
-            />
+            <Route path='artisan/detail/:Id' element={<ArtisanDetail />} />
+            <Route path='artisan/add' element={<AddArtisan />} />
+            <Route path='artisan/group/add' element={<AddArtisanGroup />} />
+            <Route path='artisan/group/:Id' element={<ViewArtisanGroup />} />
+            <Route path='advert' element={<Advert />} />
+            <Route path='advert/add' element={<AddAdvert />} />
+            <Route path='advert/detail/:Id' element={<AdvertDetail />} />
             <Route
                 path='advert/clickrate/increase'
                 element={<AdvertClickrateIncrease />}
@@ -139,23 +118,16 @@ const router = createBrowserRouter(
                 path='advert/clickrate/decrease'
                 element={<AdvertClickrateDecrease />}
             />
-            <Route
-                path='platformSettings'
-                element={<PlatformSettings />}
-            />
+            <Route path='platformSettings' element={<PlatformSettings />} />
             <Route
                 path='platformSettings/addProperty'
                 element={<AddProperty />}
             />
-            <Route
-                path='platformSettings/addSOS'
-                element={<AddSOS />}
-            />
+            <Route path='platformSettings/addSOS' element={<AddSOS />} />
             <Route
                 path='platformSettings/SOSDetails/:Id'
                 element={<SOSDetails />}
             />
-            
         </Route>,
         <Route path='*' element={<Navigate to='/' />} />,
     ])

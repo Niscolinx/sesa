@@ -2,9 +2,9 @@ import React, { useContext, useEffect, useState } from 'react'
 import { GrDown, GrUp } from 'react-icons/gr'
 import { IoMdAdd } from 'react-icons/io'
 import { i } from 'vitest/dist/types-71ccd11d'
-import { ModalContext } from '../../Context/ModalContext'
-import RolesAndPerm from '../../pages/dashboard/RolesAndPerm'
-import { getPhotoUrl } from '../../utils/getPhotoUrl'
+import { ModalContext } from '../../../Context/ModalContext'
+import RolesAndPerm from '../../../pages/dashboard/RolesAndPerm'
+import { getPhotoUrl } from '../../../utils/getPhotoUrl'
 
 type Packages = 'package 1' | 'package 2' | 'package 3' | 'package 4'
 type Frequency = 'monthly' | 'weekly' | 'quarterly' | 'yearly'
@@ -26,18 +26,20 @@ const AddResidentUserPackage = () => {
     ])
 
     const [togglePackageMenu, setTogglePackageMenu] = useState(false)
-    const [selectedPackage, setSelectedPackage] = useState<Packages>('package 1')
+    const [selectedPackage, setSelectedPackage] =
+        useState<Packages>('package 1')
     const [toggleFrequencyMenu, setToggleFrequencyMenu] = useState(false)
-    const [selectedFrequency, setSelectedFrequency] = useState<Frequency>('monthly')
-  
+    const [selectedFrequency, setSelectedFrequency] =
+        useState<Frequency>('monthly')
 
-    const packageMenuToggler = () =>  setTogglePackageMenu(!togglePackageMenu)
+    const packageMenuToggler = () => setTogglePackageMenu(!togglePackageMenu)
 
     const handleSelectedPackage = (item: Packages) => {
         setSelectedPackage(item)
         setTogglePackageMenu(false)
     }
-    const frequencyMenuToggler = () =>  setToggleFrequencyMenu(!toggleFrequencyMenu)
+    const frequencyMenuToggler = () =>
+        setToggleFrequencyMenu(!toggleFrequencyMenu)
 
     const handleSelectedFrequency = (item: Frequency) => {
         setSelectedFrequency(item)
@@ -53,7 +55,9 @@ const AddResidentUserPackage = () => {
                 }}
             >
                 <div className='relative self-end grid gap-4'>
-                    <p className='text-[1.4rem] font-semibold'>Name of Package</p>
+                    <p className='text-[1.4rem] font-semibold'>
+                        Name of Package
+                    </p>
                     <p
                         className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer'
                         onClick={packageMenuToggler}
@@ -90,7 +94,9 @@ const AddResidentUserPackage = () => {
                                 <p
                                     className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
                                     key={index}
-                                    onClick={() => handleSelectedFrequency(item)}
+                                    onClick={() =>
+                                        handleSelectedFrequency(item)
+                                    }
                                 >
                                     {item}
                                 </p>
@@ -99,7 +105,6 @@ const AddResidentUserPackage = () => {
                     )}
                 </div>
 
-                
                 <div className='w-full grid gap-4'>
                     <label
                         htmlFor='packageName'

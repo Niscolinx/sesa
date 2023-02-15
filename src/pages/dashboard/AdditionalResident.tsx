@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
-import AddResidentPackage from '../../components/additionalResident/AddResidentUserPackage'
-import ResidentUsers from '../../components/additionalResident/ResidentUsers'
+import AddResidentPackage from '../../components/SuperAdmin/additionalResident/AddResidentUserPackage'
+import ResidentUsers from '../../components/SuperAdmin/additionalResident/ResidentUsers'
 import { useAppDispatch, useAppSelector } from '../../store/app/hooks'
 import {
     RenderAdditionalResidentPath,

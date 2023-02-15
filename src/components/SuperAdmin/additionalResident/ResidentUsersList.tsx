@@ -1,11 +1,10 @@
-import React, { FC, useState } from "react"
-import { CgSpinnerTwo } from "react-icons/cg"
-import { GrDown } from "react-icons/gr"
-import { HiOutlineChevronLeft, HiOutlineChevronRight } from "react-icons/hi"
-import { IoMdAdd } from "react-icons/io"
-import { useAppDispatch } from "../../store/app/hooks"
-import { setAdditionalResidentPath } from "../../store/features/routeChange"
-
+import React, { FC, useState } from 'react'
+import { CgSpinnerTwo } from 'react-icons/cg'
+import { GrDown } from 'react-icons/gr'
+import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
+import { IoMdAdd } from 'react-icons/io'
+import { useAppDispatch } from '../../../store/app/hooks'
+import { setAdditionalResidentPath } from '../../../store/features/routeChange'
 
 export interface IResidentUsersList {
     id: string
@@ -23,7 +22,6 @@ export type Actions = 'View Details' | 'Activate' | 'Deactivate' | 'Delete'
 //     Deactivate: 'Deactivate'
 //     Delete: 'Delete'
 // }
-
 
 export const RESIDENT_LISTS: IResidentUsersList[] = [
     {
