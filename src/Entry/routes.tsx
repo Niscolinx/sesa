@@ -39,10 +39,13 @@ import Admins from '../pages/SuperAdmin/dashboard/Admins'
 import Overview from '../pages/SuperAdmin/dashboard/Overview'
 
 import SecurityCompanyDashboard from '../pages/SecurityCompany/Dashboard'
+import SecurityCompanyOverview from '../pages/SecurityCompany/dashboard/SecurityCompanyOverview'
 
 
 export const securityCompanyRoutes = (
-    <Route path='/securityCompany' element={<SecurityCompanyDashboard />}/>
+    <Route path='/securityCompany' element={<SecurityCompanyDashboard />}>
+        <Route index element={<SecurityCompanyOverview />} />
+    </Route>
 )
 
 export const superAdminRoutes = (

@@ -6,7 +6,7 @@ import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { Link } from 'react-router-dom'
 import OverviewCard from '../../../components/SuperAdmin/overview/OverviewCard'
 
-interface EstateManager {
+interface Overview {
     id: string
     propertyCode: string
     address: string
@@ -18,7 +18,7 @@ interface EstateManager {
     status: string
 }
 
-const ESTATEMANAGERDATA: EstateManager[] = [
+const OVERVIEWDATA: Overview[] = [
     {
         id: '1',
         propertyCode: 'H09985',
@@ -98,13 +98,13 @@ const ESTATEMANAGERDATA: EstateManager[] = [
     },
 ]
 
-function Overview() {
-    const [fetchedUsers, setFetchedUsers] = useState<EstateManager[] | null>([])
+function SecurityCompanyOverview() {
+    const [fetchedUsers, setFetchedUsers] = useState<Overview[] | null>([])
 
     useEffect(() => {
         const fetchData = async () => {
             setTimeout(() => {
-                setFetchedUsers(ESTATEMANAGERDATA)
+                setFetchedUsers(OVERVIEWDATA)
             }, 1000)
         }
         fetchData()
@@ -160,7 +160,7 @@ function Overview() {
                     <div className='grid text-[1.6rem]'>
                         <caption className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
                             <p className=' font-bold'>
-                                EstateManager List <span>(200)</span>
+                                Overview List <span>(200)</span>
                             </p>
                             <div className='relative flex items-center'>
                                 <img
@@ -292,4 +292,4 @@ function Overview() {
     )
 }
 
-export default Overview
+export default SecurityCompanyOverview
