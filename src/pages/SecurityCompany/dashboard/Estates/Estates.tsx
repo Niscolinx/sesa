@@ -154,7 +154,9 @@ function SecurityCompanyOverview() {
         alert('navigate' + id)
     }
 
-    const handleSearch = () => {
+    const handleSearch = (e:ChangeEvent<HTMLInputElement>) => {
+        setSearch(e.target.value)
+
         const filtered = HOUSEHOLD_LIST.filter((item) =>
             item.estateName.toLowerCase().includes(search.toLowerCase())
         )
