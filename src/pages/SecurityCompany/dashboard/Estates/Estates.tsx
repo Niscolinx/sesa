@@ -155,34 +155,20 @@ function SecurityCompanyOverview() {
 
     return (
         <div className='estateDetail'>
-            <h1 className='heading2'>Overview</h1>
+            <h1 className='heading2'>Estates</h1>
             <div className='mt-8 grid gap-8'>
-                <section
-                    className=' text-[1.4rem] grid '
-                    style={{
-                        gridTemplateColumns: '60% auto',
-                    }}
-                >
-                    <div
-                        className='overview justify-between bg-white rounded-lg p-8 grid gap-10'
-                        style={{
-                            gridTemplateColumns:
-                                'repeat(auto-fit, minmax(30rem, 1fr))',
-                        }}
-                    >
-                        <OverviewCard
-                            title='Total Estates'
-                            number={18_000}
-                            iconUrl='/icons/securityCompany/totalEstates.svg'
-                            percent={5}
-                            arrow='/icons/securityCompany/arrowUp.svg'
-                            bgColor='bg-[#DDFCDC]'
-                            textColor='text-[#1A8F56]'
-                        />
-                        
-                    </div>
-                    
-                </section>
+                <div className=' justify-center bg-white rounded-lg p-8 grid w-[40rem] '>
+                    <OverviewCard
+                        title='Total Estates'
+                        number={18_000}
+                        iconUrl='/icons/securityCompany/totalEstates.svg'
+                        percent={5}
+                        arrow='/icons/securityCompany/arrowUp.svg'
+                        bgColor='bg-[#DDFCDC]'
+                        textColor='text-[#1A8F56]'
+                    />
+                </div>
+
                 <section className='bg-color-white rounded-lg border min-w-[112rem]'>
                     <div className='grid text-[1.6rem] border rounded-lg'>
                         <div className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
