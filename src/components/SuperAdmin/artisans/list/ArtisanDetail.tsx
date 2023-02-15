@@ -5,7 +5,6 @@ import React, {
 } from 'react'
 import { GrDown, GrUp } from 'react-icons/gr'
 import { IoMdAdd, IoMdClose } from 'react-icons/io'
-import { getPhotoUrl } from '../../../utils/getPhotoUrl'
 import { BsQuestionCircle } from 'react-icons/bs'
 import {Select} from '../../UI/Select'
 import { toast, ToastContainer } from 'react-toastify'
