@@ -42,7 +42,7 @@ export const HOUSEHOLD_LIST: Overview[] = [
     },
 ]
 
-function Estate() {
+function ViewEstate() {
     const navigate = useNavigate()
 
     const [houseHoldList, setHouseHoldList] = useState<Overview[]>([])
@@ -145,13 +145,16 @@ function Estate() {
         })
     }
 
-  
-
-    const detailsHandler = (id: number) => {
-        navigate(`/securityCompany/estates/detail/:${id}`)
+    const addSOSHandler = () => {
+        navigate('/superAdmin/platformSettings/addSOS')
     }
 
-    const handleSearch = (e:ChangeEvent<HTMLInputElement>) => {
+    const detailsHandler = (id: number) => {
+        // navigate(`/superAdmin/platformSettings/SOSDetails/${id}`)
+        alert('navigate' + id)
+    }
+
+    const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
         const { value } = e.target
         setSearch(value)
 
@@ -341,4 +344,4 @@ function Estate() {
     )
 }
 
-export default Estate
+export default ViewEstate
