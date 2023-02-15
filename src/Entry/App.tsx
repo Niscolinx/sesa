@@ -15,7 +15,10 @@ import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 
 import Login from '../pages/Login'
-import { superAdminRoutes, securityCompanyRoutes } from './routes'
+import {
+    superAdminRoutes,
+    securityCompanyRoutes,
+} from './routes/superAdminRoutes'
 
 const router = createBrowserRouter(
     createRoutesFromElements([
@@ -29,9 +32,9 @@ const router = createBrowserRouter(
 const App = () => {
     return (
         <div className='text-[1.6rem]'>
-        <SkeletonTheme baseColor='#202020' highlightColor='#444'>
-            <RouterProvider router={router} />
-        </SkeletonTheme>
+            <SkeletonTheme baseColor='#202020' highlightColor='#444'>
+                <RouterProvider router={router} />
+            </SkeletonTheme>
         </div>
     )
 }

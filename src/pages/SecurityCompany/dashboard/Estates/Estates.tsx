@@ -179,39 +179,9 @@ function SecurityCompanyOverview() {
                             bgColor='bg-[#DDFCDC]'
                             textColor='text-[#1A8F56]'
                         />
-                        <OverviewCard
-                            title='Security Guard'
-                            number={1532}
-                            iconUrl='/icons/securityCompany/securityGuards.svg'
-                            percent={5}
-                            arrow='/icons/securityCompany/arrowUp.svg'
-                            bgColor='bg-[#F5F9FA]'
-                            textColor='text-[#00C2FF]'
-                        />
-                        <OverviewCard
-                            title='Assigned Security Guards'
-                            number={1200}
-                            iconUrl='/icons/securityCompany/AssignedSecurityGuards.svg'
-                            percent={5}
-                            arrow='/icons/securityCompany/arrowUp.svg'
-                            bgColor='bg-[#FCF3FA]'
-                            textColor='text-[#B6008E]'
-                        />
+                        
                     </div>
-                    <div className='w-full grid justify-center'>
-                        <OverviewWallet
-                            amount={20_333_500.89}
-                            title={'Security Wallet'}
-                            isWalletScreen
-                            bgImgUri='/icons/overview/card/bgS.svg'
-                            lefIconUri='/icons/overview/card/leftS.svg'
-                            bgColor='bg-[#6AB95F]'
-                        />
-
-                        <button className='btn bg-green-700 text-white self-center rounded-lg'>
-                            Fund Wallet
-                        </button>
-                    </div>
+                    
                 </section>
                 <section className='bg-color-white rounded-lg border min-w-[112rem]'>
                     <div className='grid text-[1.6rem] border rounded-lg'>
