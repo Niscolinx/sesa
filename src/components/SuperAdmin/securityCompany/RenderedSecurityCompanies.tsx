@@ -10,9 +10,9 @@ import {
 } from 'react-icons/hi'
 import { TbCurrencyNaira } from 'react-icons/tb'
 
-import { useAppDispatch } from '../../store/app/hooks'
-import { setSecurityCompanyPath } from '../../store/features/routeChange'
+
 import { useNavigate } from 'react-router-dom'
+import { useAppDispatch } from '../../../store/app/hooks'
 
 type SecurityCompanyDetails = {
     companyName: string
