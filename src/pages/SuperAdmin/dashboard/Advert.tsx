@@ -1,6 +1,5 @@
-import { useState } from 'react'
-import { useNavigate } from 'react-router'
-import RenderAdverts from '../../components/advert/RenderAdverts'
+
+import RenderAdverts from '../../../components/SuperAdmin/advert/RenderAdverts'
 
 function Advert() {
 
