@@ -9,15 +9,14 @@ import OverviewCard from '../../../components/SuperAdmin/overview/OverviewCard'
 import { OverviewWallet } from '../../../components/SuperAdmin/overview/OverviewWallets'
 
 
-export interface ISOSTable {
+export interface Overview {
     id: string
-    file: string
-    count: number
-    estates: number
-    createdAt: string
+    estateName: string
+    address: string
+    noOfSecurityGuards: number
 }
 
-export const PROPERTY_TYPE: ISOSTable[] = [
+export const HOUSEHOLD_LIST: Overview[] = [
     {
         id: '1',
         file: 'file 1',
@@ -53,11 +52,11 @@ function SecurityCompanyOverview() {
 
     const navigate = useNavigate()
 
-    const [fetchedSOSTable, setFetchedSOSTable] = useState<ISOSTable[]>([])
+    const [fetchedSOSTable, setFetchedSOSTable] = useState<Overview[]>([])
 
     useEffect(() => {
         setTimeout(() => {
-            setFetchedSOSTable(PROPERTY_TYPE)
+            setFetchedSOSTable(HOUSEHOLD_LIST)
         }, 1000)
     }, [])
 
@@ -66,7 +65,7 @@ function SecurityCompanyOverview() {
         currentPage: number
         itemsPerPage: number
         totalPage: number
-        slicedPages: ISOSTable[][] | null
+        slicedPages: Overview[][] | null
     }
 
     const itemsPerPageArr = [2, 4, 6, 8]
@@ -83,7 +82,7 @@ function SecurityCompanyOverview() {
     const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
         const item = parseInt(e.target.value)
 
-        const slicedPages: ISOSTable[][] = []
+        const slicedPages: Overview[][] = []
         for (let i = 0; i < fetchedSOSTable.length; i += item) {
             slicedPages.push(fetchedSOSTable.slice(i, i + item))
         }
@@ -101,7 +100,7 @@ function SecurityCompanyOverview() {
     }
 
     useEffect(() => {
-        const slicedPages: ISOSTable[][] = []
+        const slicedPages: Overview[][] = []
         for (
             let i = 0;
             i < fetchedSOSTable.length;
