@@ -24,7 +24,6 @@ const Login = () => {
                             required
                             id='email'
                             className='border border-color-grey p-4 outline-none rounded-lg w-full'
-                            value={'Credit'}
                         />
                     </div>
                     <div className='w-full grid gap-4'>
