@@ -1,9 +1,6 @@
-import React, { useContext, useEffect, useRef, useState } from 'react'
-import { GrDown, GrUp } from 'react-icons/gr'
-import { IoMdAdd } from 'react-icons/io'
-import { ModalContext } from '../../Context/ModalContext'
-import { getPhotoUrl } from '../../utils/getPhotoUrl'
-import SecurityCompSvg from '../icons/sidebar/SecurityCompSvg'
+import React, { useRef, useState } from 'react'
+
+import { getPhotoUrl } from '../../../utils/getPhotoUrl'
 
 type State = 'Lagos' | 'Imo' | 'Abia' | 'FCT'
 
