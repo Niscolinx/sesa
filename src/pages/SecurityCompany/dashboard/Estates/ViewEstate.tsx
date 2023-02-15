@@ -26,21 +26,21 @@ export const SECURITY_GUARDS: Overview[] = [
     },
     {
         id: 2,
-        guardName: 'John Doe',
+        guardName: 'Samuel Eky',
         guardCode: 123456,
         phoneNumber: 08023238423,
         kyc: 'Validated',
     },
     {
         id: 3,
-        guardName: 'John Doe',
+        guardName: 'Kingsley Bush',
         guardCode: 123456,
         phoneNumber: 08023238423,
         kyc: 'Validated',
     },
     {
         id: 4,
-        guardName: 'John Doe',
+        guardName: 'Innocent Eze',
         guardCode: 123456,
         phoneNumber: 08023238423,
         kyc: 'Validated',
@@ -285,9 +285,19 @@ function ViewEstate() {
                                                                 {guardName}
                                                             </label>
                                                         </p>
-                                                        <p>{address}</p>
+                                                        <p>{guardCode}</p>
+                                                        <p>{phoneNumber}</p>
                                                         <p>
-                                                            {noOfSecurityGuards}
+                                                            {kyc ===
+                                                            'Validated' ? (
+                                                                <span className='text-green-600'>
+                                                                    {kyc}
+                                                                </span>
+                                                            ) : (
+                                                                <span className='text-red-600'>
+                                                                    {kyc}
+                                                                </span>
+                                                            )}
                                                         </p>
                                                         <button
                                                             className='text-color-primary text-left'
