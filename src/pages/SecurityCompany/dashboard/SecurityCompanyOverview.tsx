@@ -8,7 +8,6 @@ import { Link, useNavigate } from 'react-router-dom'
 import OverviewCard from '../../../components/SuperAdmin/overview/OverviewCard'
 import { OverviewWallet } from '../../../components/SuperAdmin/overview/OverviewWallets'
 
-
 export interface Overview {
     id: number
     estateName: string
@@ -40,12 +39,10 @@ export const HOUSEHOLD_LIST: Overview[] = [
         estateName: 'Estate 1',
         address: 'No 1, Ogunlana Drive, Surulere, Lagos',
         noOfSecurityGuards: 10,
-    }
+    },
 ]
 
 function SecurityCompanyOverview() {
-   
-
     const navigate = useNavigate()
 
     const [houseHoldList, setHouseHoldList] = useState<Overview[]>([])
@@ -97,14 +94,8 @@ function SecurityCompanyOverview() {
 
     useEffect(() => {
         const slicedPages: Overview[][] = []
-        for (
-            let i = 0;
-            i < houseHoldList.length;
-            i += paginate.itemsPerPage
-        ) {
-            slicedPages.push(
-                houseHoldList.slice(i, i + paginate.itemsPerPage)
-            )
+        for (let i = 0; i < houseHoldList.length; i += paginate.itemsPerPage) {
+            slicedPages.push(houseHoldList.slice(i, i + paginate.itemsPerPage))
         }
 
         setPaginate((prev) => {
@@ -161,8 +152,6 @@ function SecurityCompanyOverview() {
         // navigate(`/superAdmin/platformSettings/SOSDetails/${id}`)
         alert('navigate' + id)
     }
-
-    
 
     return (
         <div className='estateDetail'>
@@ -266,7 +255,7 @@ function SecurityCompanyOverview() {
                                                 id,
                                                 estateName,
                                                 noOfSecurityGuards,
-                                                address
+                                                address,
                                             }) => {
                                                 return (
                                                     <div className='grid justify-between border-b grid-cols-4 items-center gap-8 '>
@@ -274,14 +263,15 @@ function SecurityCompanyOverview() {
                                                             <input
                                                                 type='checkbox'
                                                                 className='cursor-pointer'
-                                                              
                                                             />
                                                             <label htmlFor='file'>
                                                                 {estateName}
                                                             </label>
                                                         </p>
                                                         <p>{address}</p>
-                                                        <p>{noOfSecurityGuards}</p>
+                                                        <p>
+                                                            {noOfSecurityGuards}
+                                                        </p>
                                                         <button
                                                             className='text-color-primary text-left'
                                                             onClick={() =>
