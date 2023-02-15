@@ -3,8 +3,9 @@ import { CgSpinnerTwo } from 'react-icons/cg'
 import { GrDown } from 'react-icons/gr'
 import { IoMdAdd } from 'react-icons/io'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
-import { useAppDispatch } from '../../store/app/hooks'
-import { setAdminPath } from '../../store/features/routeChange'
+import { useAppDispatch } from '../../../store/app/hooks'
+import { setAdminPath } from '../../../store/features/routeChange'
+
 
 type Admin = {
     id: string

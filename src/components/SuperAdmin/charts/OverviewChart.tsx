@@ -1,5 +1,5 @@
 import { PieChart, Pie, Cell } from 'recharts'
-import { overviewChart_colors, overviewChart_data } from '../../pages/dashboard/Overview'
+import { overviewChart_data, overviewChart_colors } from '../../../pages/SuperAdmin/dashboard/Overview'
 
 
 
