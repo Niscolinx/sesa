@@ -28,9 +28,11 @@ const router = createBrowserRouter(
 
 const App = () => {
     return (
+        <div className='text-[1.6rem]'>
         <SkeletonTheme baseColor='#202020' highlightColor='#444'>
             <RouterProvider router={router} />
         </SkeletonTheme>
+        </div>
     )
 }
 
