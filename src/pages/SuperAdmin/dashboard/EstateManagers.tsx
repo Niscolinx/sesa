@@ -2,12 +2,12 @@ import { useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
 import AddEstateManager from '../../components/estateManagers/AddEstateManager'
 import RenderedEstateManagers from '../../components/estateManagers/RenderedEstateManagers'
-import { useAppDispatch, useAppSelector } from '../../store/app/hooks'
+import { useAppDispatch, useAppSelector } from '../../../store/app/hooks'
 import {
     routeChangeSelector,
     RenderEstateManagerPath,
     setEstateManagerPath,
-} from '../../store/features/routeChange'
+} from '../../../store/features/routeChange'
 
 function EstateManagers() {
     const dispatch = useAppDispatch()

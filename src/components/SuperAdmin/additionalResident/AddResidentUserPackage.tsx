@@ -3,7 +3,7 @@ import { GrDown, GrUp } from 'react-icons/gr'
 import { IoMdAdd } from 'react-icons/io'
 import { i } from 'vitest/dist/types-71ccd11d'
 import { ModalContext } from '../../../Context/ModalContext'
-import RolesAndPerm from '../../../pages/dashboard/RolesAndPerm'
+import RolesAndPerm from '../../../pages/SuperAdmin/dashboard/RolesAndPerm'
 import { getPhotoUrl } from '../../../utils/getPhotoUrl'
 
 type Packages = 'package 1' | 'package 2' | 'package 3' | 'package 4'

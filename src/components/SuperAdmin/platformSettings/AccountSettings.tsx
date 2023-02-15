@@ -1,5 +1,5 @@
-import React, { useContext, useEffect, useRef, useState } from 'react'
-import { getPhotoUrl } from '../../utils/getPhotoUrl'
+import React, { useState } from 'react'
+import { getPhotoUrl } from '../../../utils/getPhotoUrl'
 import { AiOutlineEyeInvisible, AiOutlineEye } from 'react-icons/ai'
 import { toast, ToastContainer } from 'react-toastify'
 

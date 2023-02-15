@@ -1,13 +1,13 @@
 import { useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
-import AddResidentPackage from '../../components/SuperAdmin/additionalResident/AddResidentUserPackage'
-import ResidentUsers from '../../components/SuperAdmin/additionalResident/ResidentUsers'
-import { useAppDispatch, useAppSelector } from '../../store/app/hooks'
+import AddResidentPackage from '../../../components/SuperAdmin/additionalResident/AddResidentUserPackage'
+import ResidentUsers from '../../../components/SuperAdmin/additionalResident/ResidentUsers'
+import { useAppDispatch, useAppSelector } from '../../../store/app/hooks'
 import {
     RenderAdditionalResidentPath,
     routeChangeSelector,
     setAdditionalResidentPath,
-} from '../../store/features/routeChange'
+} from '../../../store/features/routeChange'
 
 function AdditionalResident() {
     const dispatch = useAppDispatch()

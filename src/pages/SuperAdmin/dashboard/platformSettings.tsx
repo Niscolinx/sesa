@@ -1,8 +1,9 @@
 import { useState } from 'react'
-import AccountSettings from '../../components/platformSettings/AccountSettings'
-import PlatformChanges from '../../components/platformSettings/PlatformChanges'
-import PropertyType from '../../components/platformSettings/PropertyType'
-import SOSTable from '../../components/platformSettings/SOSTable'
+import AccountSettings from '../../../components/SuperAdmin/platformSettings/AccountSettings'
+import PropertyType from '../../../components/SuperAdmin/platformSettings/AddProperty'
+import PlatformChanges from '../../../components/SuperAdmin/platformSettings/PlatformChanges'
+import SOSTable from '../../../components/SuperAdmin/platformSettings/SOSTable'
+
 
 type PathSwitch =
     | 'platformChanges'
