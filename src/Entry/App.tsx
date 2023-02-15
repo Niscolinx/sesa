@@ -11,12 +11,13 @@ import { SkeletonTheme } from 'react-loading-skeleton'
 import 'react-toastify/dist/ReactToastify.css'
 
 import Login from '../pages/Login'
-import { superAdminRoutes } from './routes'
+import { superAdminRoutes, securityCompanyRoutes } from './routes'
 
 const router = createBrowserRouter(
     createRoutesFromElements([
         <Route path='/' element={<Login />} />,
         superAdminRoutes,
+        securityCompanyRoutes,
         <Route path='*' element={<Navigate to='/' />} />,
     ])
 )

@@ -41,7 +41,7 @@ import Overview from '../pages/SuperAdmin/dashboard/Overview'
 import SecurityCompanyDashboard from '../pages/SecurityCompany/Dashboard'
 
 
-export const SecurityCompanyRoutes = (
+export const securityCompanyRoutes = (
     <Route path='/securityCompany' element={<SecurityCompanyDashboard />}/>
 )
 
