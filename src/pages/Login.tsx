@@ -11,7 +11,7 @@ const Login = () => {
                     <h1 className='text-[4.5rem] font-Satoshi-ExtraBold'>Welcome back!</h1>
                     <p>Kindly enter your details</p>
                 </div>
-                <div>
+                <div className='grid gap-8'>
                     <div className='w-full grid gap-4'>
                         <label
                             htmlFor='email'
@@ -23,7 +23,7 @@ const Login = () => {
                             type='email'
                             required
                             id='email'
-                            className='border border-color-grey p-4 outline-none rounded-lg w-full'
+                            className='border border-color-grey p-4  rounded-lg w-full'
                         />
                     </div>
                     <div className='w-full grid gap-4'>
@@ -37,7 +37,7 @@ const Login = () => {
                             type='password'
                             required
                             id='password'
-                            className='border border-color-grey p-4 outline-none rounded-lg w-full'
+                            className='border border-color-grey p-4  rounded-lg w-full'
                         />
                     </div>
                 </div>
