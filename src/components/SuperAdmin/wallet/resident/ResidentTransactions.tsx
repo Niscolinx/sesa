@@ -1,9 +1,7 @@
 import React, { ChangeEvent, useEffect, useState } from 'react'
 import { FC } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
-import { GrDown } from 'react-icons/gr'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
-import { ITransactions } from '../../../pages/dashboard/Wallet/ResidentWallet'
 
 export interface ResidentTransactions {
     id: string
