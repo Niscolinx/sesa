@@ -6,7 +6,7 @@ const Login = () => {
     }
     return (
         <div className='flex h-screen overflow-hidden'>
-            <form onSubmit={handleLogin} className='basis-1/2 grid place-content-center'>
+            <form onSubmit={handleLogin} className='basis-1/2 grid place-content-center gap-10'>
                 <div>
                     <h1 className='text-[4.5rem] font-Satoshi-ExtraBold'>Welcome back!</h1>
                     <p>Kindly enter your details</p>
