@@ -1,6 +1,8 @@
 import React, { FormEvent, useState } from 'react'
+import { useNavigate } from 'react-router'
 
 const Login = () => {
+    const navigate = useNavigate()
     interface Inputs {
         email: string
         password: string
@@ -12,6 +14,14 @@ const Login = () => {
 
     const handleLogin = (e: FormEvent) => {
         e.preventDefault()
+
+        const {email, password} = inputs
+
+        if(email === 'superAdmin'){
+            navigate('/superAdmin')
+            
+        }
+    
     }
 
 
