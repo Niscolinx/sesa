@@ -1,5 +1,6 @@
-import React, { FormEvent, useRef, useState } from 'react'
-import { IoMdAdd, IoMdClose } from 'react-icons/io'
+import React, {  useRef, useState } from 'react'
+import {  IoMdClose } from 'react-icons/io'
+import { getPhotoUrl } from '../../../utils/getPhotoUrl'
 
 
 
