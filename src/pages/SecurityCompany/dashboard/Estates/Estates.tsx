@@ -36,7 +36,7 @@ export const HOUSEHOLD_LIST: Overview[] = [
     },
     {
         id: 4,
-        estateName: 'Estate 1',
+        estateName: 'Estate 4',
         address: 'No 1, Ogunlana Drive, Surulere, Lagos',
         noOfSecurityGuards: 10,
     },
@@ -155,12 +155,13 @@ function SecurityCompanyOverview() {
     }
 
     const handleSearch = (e:ChangeEvent<HTMLInputElement>) => {
-        setSearch(e.target.value)
+        const { value } = e.target
+        setSearch(value)
 
         const filtered = HOUSEHOLD_LIST.filter((item) =>
-            item.estateName.toLowerCase().includes(search.toLowerCase())
+            item.estateName.toLowerCase().includes(value.toLowerCase())
         )
-        setHouseHoldList(filtered)
+        setHouseHoldList([...filtered])
     }
 
     return (
