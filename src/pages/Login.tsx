@@ -16,7 +16,10 @@ const Login = () => {
 
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        
+            setInputs((prev) => ({
+            ...prev,
+            [e.target.name]: e.target.value,
+        }))
     }
 
     return (
