@@ -3,20 +3,16 @@ import React, {
     useRef,
     useState,
 } from 'react'
-import { GrDown, GrUp } from 'react-icons/gr'
-import { IoMdAdd, IoMdClose } from 'react-icons/io'
-import { BsQuestionCircle } from 'react-icons/bs'
-import {Select} from '../../UI/Select'
 import { toast, ToastContainer } from 'react-toastify'
+import { getPhotoUrl } from '../../../../utils/getPhotoUrl'
+import { Select } from '../../UI/Select'
 import StarRating from '../../UI/StarRating'
 
 type Actions = 'Deactivate' | 'Delete'
 
 const ArtisanDetail = () => {
-    const [selectedState, setSelectedState] = useState<string | null>(null)
-    const [selectedArtisan, setSelectedArtisan] = useState<string | null>(null)
+ 
     const [selectedGender, setSelectedGender] = useState<string | null>(null)
-    const [isArtisanDetail, setIsArtisanDetail] = useState(true)
     const [dialogType, setDialogType] = useState<Actions>('Deactivate')
 
     const [photoUrl, setPhotoUrl] = useState('')
