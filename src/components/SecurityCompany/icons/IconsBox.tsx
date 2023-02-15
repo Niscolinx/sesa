@@ -1,13 +1,7 @@
 import { Link } from 'react-router-dom';
-
-import AdditionalResidentSvg from './sidebar/AdditionalResidentSvg';
-import AdminsSvg from './sidebar/AdminsSvg';
-import AdvertSvg from './sidebar/AdvertSvg';
-import ArtisanSvg from './sidebar/ArtisanSvg';
-import EstateManagerSvg from './sidebar/EstateManagerSvg';
+;
 import EstatesSvg from './sidebar/EstatesSvg';
 import OverviewSvg from './sidebar/overviewSvg';
-import RolesAndPermSvg from './sidebar/RolesAndPermSvg';
 import SecurityCompSvg from './sidebar/SecurityCompSvg';
 import SettingsSvg from './sidebar/SettingsSvg';
 import WalletSvg from './sidebar/WalletSvg';
@@ -33,6 +27,13 @@ function IconsBox() {
               <Link to='/securityCompany/security-company' className='fillIcon'>
                   {' '}
                   <SecurityCompSvg />
+                  <span>Security Company</span>
+              </Link>
+          </li>
+          <li className='iconsBox__list'>
+              <Link to='/securityCompany/wallet' className='fillIcon'>
+                  {' '}
+                  <WalletSvg />
                   <span>Security Company</span>
               </Link>
           </li>
