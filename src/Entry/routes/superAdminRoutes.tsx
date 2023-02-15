@@ -38,7 +38,7 @@ import SuperAdminDashboard from '../../pages/SuperAdmin/Dashboard'
 import Admins from '../../pages/SuperAdmin/dashboard/Admins'
 import Overview from '../../pages/SuperAdmin/dashboard/Overview'
 
-export const superAdminRoutes = (
+ const superAdminRoutes = (
     <Route path='/superAdmin' element={<SuperAdminDashboard />}>
         <Route index element={<Overview />} />
         <Route path='admins' element={<Admins />} />
@@ -102,3 +102,5 @@ export const superAdminRoutes = (
         />
     </Route>
 )
+
+export default superAdminRoutes

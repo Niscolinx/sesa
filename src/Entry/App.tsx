@@ -15,10 +15,8 @@ import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 
 import Login from '../pages/Login'
-import {
-    superAdminRoutes,
-    securityCompanyRoutes,
-} from './routes/superAdminRoutes'
+import superAdminRoutes from './routes/superAdminRoutes'
+import securityCompanyRoutes from './routes/securityCompanyRoutes'
 
 const router = createBrowserRouter(
     createRoutesFromElements([
