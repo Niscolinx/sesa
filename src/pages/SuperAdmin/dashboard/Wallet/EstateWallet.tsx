@@ -4,9 +4,9 @@ import { CgSpinnerTwo } from 'react-icons/cg'
 import { GrUp, GrDown } from 'react-icons/gr'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { useNavigate } from 'react-router'
-import WalletBarChart from '../../../components/charts/WalletBarChart'
-import { OverviewWallet } from '../../../components/overview/OverviewWallets'
 import { ToastContainer, toast } from 'react-toastify'
+import WalletBarChart from '../../../../components/SuperAdmin/charts/WalletBarChart'
+import { OverviewWallet } from '../../../../components/SuperAdmin/overview/OverviewWallets'
 
 export type Trend = 'This Week' | 'This Month' | 'This Year'
 
@@ -505,80 +505,7 @@ const EstateWallet = () => {
                                 />
                             </div>
                         </div>
-                        {/* <div
-                            className='grid border-t border-t-color-grey p-10 gap-10'
-                            style={{
-                                gridTemplateColumns: '1fr 1rem 1fr',
-                            }}
-                        >
-                            <div className='grid grid-cols-2'>
-                                <div className='grid gap-8'>
-                                    <p>Estate List</p>
-                                    <div className='grid gap-4'>
-                                        {estateWalletList.map((item) => (
-                                            <div className='flex items-center gap-2 border-b border-b-color-grey h-[5rem]'>
-                                                <img
-                                                    src={item.imgUri}
-                                                    alt=''
-                                                    className='w-[3rem] h-[3rem] object-cover rounded-full'
-                                                />
-                                                <p>{item.estateName}</p>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </div>
-                                <div className='grid gap-8'>
-                                    <p>Wallet Balance</p>
-                                    <div className='grid gap-4'>
-                                        {estateWalletList.map((item) => (
-                                            <div className='flex items-center gap-2 border-b border-b-color-grey h-[5rem]'>
-                                                <img
-                                                    src='/icons/Naira.svg'
-                                                    alt=''
-                                                />
-                                                <p>
-                                                    {item.amount.toLocaleString()}
-                                                </p>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </div>
-                            </div>
-                            <div className='h-full w-[.1rem] bg-color-grey justify-self-center'></div>
-                            <div className='grid grid-cols-2 '>
-                                <div className='grid gap-8'>
-                                    <p>Estate List</p>
-                                    <div className='grid gap-4'>
-                                        {estateWalletList.map((item) => (
-                                            <div className='flex items-center gap-2 border-b border-b-color-grey h-[5rem]'>
-                                                <img
-                                                    src={item.imgUri}
-                                                    alt=''
-                                                    className='w-[3rem] h-[3rem] object-cover rounded-full'
-                                                />
-                                                <p>{item.estateName}</p>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </div>
-                                <div className='grid gap-8'>
-                                    <p>Wallet Balance</p>
-                                    <div className='grid gap-4'>
-                                        {estateWalletList.map((item) => (
-                                            <div className='flex items-center gap-2 border-b border-b-color-grey h-[5rem]'>
-                                                <img
-                                                    src='/icons/Naira.svg'
-                                                    alt=''
-                                                />
-                                                <p>
-                                                    {item.amount.toLocaleString()}
-                                                </p>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </div>
-                            </div>
-                        </div> */}
+                     
 
                         <table>
                             <thead>

@@ -1,13 +1,14 @@
-import React, { useRef } from 'react'
+import React from 'react'
 import { ChangeEvent, useEffect, useState } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
 import { GrUp, GrDown } from 'react-icons/gr'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { useNavigate } from 'react-router'
-import WalletBarChart from '../../../components/charts/WalletBarChart'
-import { OverviewWallet } from '../../../components/overview/OverviewWallets'
-import { ToastContainer, toast } from 'react-toastify'
-import { ResidentTransactions, RESIDENT_BALANCE, RESIDENT_TRANSACTION_HISTORY } from '../../../components/wallet/resident/ResidentTransactions'
+import WalletBarChart from '../../../../components/SuperAdmin/charts/WalletBarChart'
+import { OverviewWallet } from '../../../../components/SuperAdmin/overview/OverviewWallets'
+import { ResidentTransactions, RESIDENT_BALANCE, RESIDENT_TRANSACTION_HISTORY } from '../../../../components/SuperAdmin/wallet/resident/ResidentTransactions'
+
+
 
 type Trend = 'This Week' | 'This Month' | 'This Year'
 
