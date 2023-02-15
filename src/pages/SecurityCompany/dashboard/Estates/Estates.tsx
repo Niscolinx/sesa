@@ -24,13 +24,13 @@ export const HOUSEHOLD_LIST: Overview[] = [
     },
     {
         id: 2,
-        estateName: 'Estate 1',
+        estateName: 'Estate 2',
         address: 'No 1, Ogunlana Drive, Surulere, Lagos',
         noOfSecurityGuards: 10,
     },
     {
         id: 3,
-        estateName: 'Estate 1',
+        estateName: 'Estate 3',
         address: 'No 1, Ogunlana Drive, Surulere, Lagos',
         noOfSecurityGuards: 10,
     },
