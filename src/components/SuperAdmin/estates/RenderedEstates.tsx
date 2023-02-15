@@ -10,9 +10,10 @@ import {
 } from 'react-icons/hi'
 import { TbCurrencyNaira } from 'react-icons/tb'
 
-import { useAppDispatch } from '../../store/app/hooks'
-import { setEstatePath } from '../../store/features/routeChange'
+
 import { Link } from 'react-router-dom'
+import { useAppDispatch } from '../../../store/app/hooks'
+import { setEstatePath } from '../../../store/features/routeChange'
 
 type EstateDetails = {
     estateName: string
