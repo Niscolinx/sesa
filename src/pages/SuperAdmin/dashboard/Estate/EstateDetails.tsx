@@ -3,9 +3,6 @@ import { CgSpinnerTwo } from 'react-icons/cg'
 import { GrDown } from 'react-icons/gr'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 
-import { Link } from 'react-router-dom'
-import OverviewCard from '../../../components/overview/OverviewCard'
-
 interface ActivityReport {
     id: string
     guardName: string
