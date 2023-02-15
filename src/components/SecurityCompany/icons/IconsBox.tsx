@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 ;
 import EstatesSvg from './sidebar/EstatesSvg';
+import MessagesSvg from './sidebar/MessagesSvg';
 import OverviewSvg from './sidebar/overviewSvg';
 import SecurityCompSvg from './sidebar/SecurityCompSvg';
 import SettingsSvg from './sidebar/SettingsSvg';
@@ -40,7 +41,7 @@ function IconsBox() {
           <li className='iconsBox__list'>
               <Link to='/securityCompany/messages' className='fillIcon'>
                   {' '}
-                  <SecurityCompSvg />
+                  <MessagesSvg />
                   <span>Messages</span>
               </Link>
           </li>
