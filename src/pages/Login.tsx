@@ -17,10 +17,10 @@ const Login = () => {
 
         const {email, password} = inputs
 
-        if(email === 'superAdmin'){
+        if(email === 'superAdmin@sesa.com'){
             navigate('/superAdmin')
         }
-        if(email === 'securityCompany'){
+        if(email === 'securityCompany@sesa.com'){
             navigate('/securityCompany')
         }
 
