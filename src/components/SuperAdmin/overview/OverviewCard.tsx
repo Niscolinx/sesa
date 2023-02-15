@@ -6,9 +6,11 @@ type OverviewCard = {
     number: number
     bgColor: string
     textColor: string
+    percent?: number
+    arrow?: string
 }
 
-const OverviewCard:FC<OverviewCard> = ({iconUrl, title, number, bgColor, textColor = 'black'}) => {
+const OverviewCard:FC<OverviewCard> = ({iconUrl, title, number, bgColor, percent, arrow, textColor = 'black'}) => {
     return (
         <div className={`overviewCard ${bgColor}`}>
             <img
