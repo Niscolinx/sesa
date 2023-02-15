@@ -1,9 +1,5 @@
 import { Outlet } from 'react-router'
 
-
-import 'swiper/css'
-import 'swiper/css/navigation'
-import 'swiper/css/pagination'
 import Header from '../../components/SuperAdmin/dashboard/Header'
 import Sidebar from '../../components/SuperAdmin/dashboard/Sidebar'
 import Modal from '../../components/SuperAdmin/Modal'

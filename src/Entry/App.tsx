@@ -10,6 +10,10 @@ import 'react-loading-skeleton/dist/skeleton.css'
 import { SkeletonTheme } from 'react-loading-skeleton'
 import 'react-toastify/dist/ReactToastify.css'
 
+import 'swiper/css'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
+
 import Login from '../pages/Login'
 import { superAdminRoutes, securityCompanyRoutes } from './routes'
 
