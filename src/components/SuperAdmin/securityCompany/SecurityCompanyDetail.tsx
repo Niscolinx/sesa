@@ -1,31 +1,11 @@
 import React, { useRef, useState } from 'react'
 
-import { getPhotoUrl } from '../../../utils/getPhotoUrl'
-
-type State = 'Lagos' | 'Imo' | 'Abia' | 'FCT'
-
 const SecurityCompanyDetail = () => {
-    const state: Array<State> = ['Lagos', 'Imo', 'Abia', 'FCT']
 
-    const [toggleStateMenu, setToggleStateMenu] = useState(false)
-    const [selectedState, setSelectedState] = useState<State | null>(null)
+ 
     const [isWarning, setIsWarning] = useState(true)
 
-    const stateMenuToggler = () => setToggleStateMenu(!toggleStateMenu)
-
-    const handleSelectedState = (item: State) => {
-        setSelectedState(item)
-        setToggleStateMenu(false)
-    }
-
-    const [photoUrl, setPhotoUrl] = useState('')
-
-    const handlePhotoPreview = async (
-        value: React.MouseEvent<HTMLInputElement>
-    ) => {
-        const getUrl = await getPhotoUrl(`#photoUpload`)
-        setPhotoUrl(getUrl)
-    }
+    
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
