@@ -46,6 +46,7 @@ function SecurityCompanyOverview() {
     const navigate = useNavigate()
 
     const [houseHoldList, setHouseHoldList] = useState<Overview[]>([])
+    const [search, setSearch] = useState<string>('')
 
     useEffect(() => {
         setTimeout(() => {
@@ -153,6 +154,13 @@ function SecurityCompanyOverview() {
         alert('navigate' + id)
     }
 
+    const handleSearch = () => {
+        const filtered = HOUSEHOLD_LIST.filter((item) =>
+            item.estateName.toLowerCase().includes(search.toLowerCase())
+        )
+        setHouseHoldList(filtered)
+    }
+
     return (
         <div className='estateDetail'>
             <h1 className='heading2'>Estates</h1>
@@ -183,6 +191,8 @@ function SecurityCompanyOverview() {
                                 />
                                 <input
                                     type='text'
+                                    value={search}
+                                    onChange={handleSearch}
                                     placeholder='Search Parameters'
                                     className='pl-16 w-[25rem] rounded-lg border border-color-blue-light appearance-none outline-none p-4'
                                 />
