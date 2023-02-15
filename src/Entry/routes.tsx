@@ -38,6 +38,11 @@ import Dashboard from '../pages/SuperAdmin/Dashboard'
 import Admins from '../pages/SuperAdmin/dashboard/Admins'
 import Overview from '../pages/SuperAdmin/dashboard/Overview'
 
+
+export const SecurityCompanyRoutes = (
+    <Route path='/securityCompany' element={<Dashboard />}/>
+)
+
 export const superAdminRoutes = (
     <Route path='/superAdmin' element={<Dashboard />}>
         <Route index element={<Overview />} />
