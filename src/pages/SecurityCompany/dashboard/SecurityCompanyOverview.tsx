@@ -3,115 +3,169 @@ import { CgSpinnerTwo } from 'react-icons/cg'
 import { GrDown } from 'react-icons/gr'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import OverviewCard from '../../../components/SuperAdmin/overview/OverviewCard'
 import { OverviewWallet } from '../../../components/SuperAdmin/overview/OverviewWallets'
 
-interface Overview {
+
+export interface ISOSTable {
     id: string
-    propertyCode: string
-    address: string
-    propertyCategory: string
-    propertyName: string
-    occupants: number
-    RFID: number
-    accessCard: number
-    status: string
+    file: string
+    count: number
+    estates: number
+    createdAt: string
 }
 
-const OVERVIEWDATA: Overview[] = [
+export const PROPERTY_TYPE: ISOSTable[] = [
     {
         id: '1',
-        propertyCode: 'H09985',
-        address: 'Blk.2, Flt. 3, Zone A',
-        propertyCategory: 'Residential',
-        propertyName: 'Property 1',
-        occupants: 122,
-        RFID: 12331,
-        accessCard: 8212,
-        status: 'Active',
+        file: 'file 1',
+        count: 2,
+        estates: 2,
+        createdAt: '01 Feb 2023 12:00pm',
     },
     {
         id: '2',
-        propertyCode: 'H09985',
-        address: 'Blk.2, Flt. 3, Zone A',
-        propertyCategory: 'Residential',
-        propertyName: 'Property 1',
-        occupants: 122,
-        RFID: 12331,
-        accessCard: 8212,
-        status: 'Active',
+        file: 'file 2',
+        count: 22,
+        estates: 42,
+        createdAt: '01 Feb 2023 12:00pm',
     },
     {
-        id: '3',
-        propertyCode: 'H09985',
-        address: 'Blk.2, Flt. 3, Zone A',
-        propertyCategory: 'Residential',
-        propertyName: 'Property 1',
-        occupants: 122,
-        RFID: 12331,
-        accessCard: 8212,
-        status: 'Active',
+        id: '1',
+        file: 'file 3',
+        count: 31,
+        estates: 12,
+        createdAt: '01 Feb 2023 12:00pm',
     },
     {
-        id: '4',
-        propertyCode: 'H09985',
-        address: 'Blk.2, Flt. 3, Zone A',
-        propertyCategory: 'Residential',
-        propertyName: 'Property 1',
-        occupants: 122,
-        RFID: 12331,
-        accessCard: 8212,
-        status: 'Active',
-    },
-    {
-        id: '5',
-        propertyCode: 'H09985',
-        address: 'Blk.2, Flt. 3, Zone A',
-        propertyCategory: 'Residential',
-        propertyName: 'Property 1',
-        occupants: 122,
-        RFID: 12331,
-        accessCard: 8212,
-        status: 'Active',
-    },
-    {
-        id: '6',
-        propertyCode: 'H09985',
-        address: 'Blk.2, Flt. 3, Zone A',
-        propertyCategory: 'Residential',
-        propertyName: 'Property 1',
-        occupants: 122,
-        RFID: 12331,
-        accessCard: 8212,
-        status: 'Active',
-    },
-    {
-        id: '7',
-        propertyCode: 'H09985',
-        address: 'Blk.2, Flt. 3, Zone A',
-        propertyCategory: 'Residential',
-        propertyName: 'Property 1',
-        occupants: 122,
-        RFID: 12331,
-        accessCard: 8212,
-        status: 'Active',
+        id: '1',
+        file: 'file 4',
+        count: 2,
+        estates: 2,
+        createdAt: '01 Feb 2023 12:00pm',
     },
 ]
 
 function SecurityCompanyOverview() {
-    const [fetchedUsers, setFetchedUsers] = useState<Overview[] | null>([])
+   
+
+    const navigate = useNavigate()
+
+    const [fetchedSOSTable, setFetchedSOSTable] = useState<ISOSTable[]>([])
 
     useEffect(() => {
-        const fetchData = async () => {
-            setTimeout(() => {
-                setFetchedUsers(OVERVIEWDATA)
-            }, 1000)
-        }
-        fetchData()
+        setTimeout(() => {
+            setFetchedSOSTable(PROPERTY_TYPE)
+        }, 1000)
     }, [])
 
-    const handlePathSwitch = () => {}
+    interface Paginate {
+        index: number
+        currentPage: number
+        itemsPerPage: number
+        totalPage: number
+        slicedPages: ISOSTable[][] | null
+    }
+
+    const itemsPerPageArr = [2, 4, 6, 8]
+    const perPage = 4
+
+    const [paginate, setPaginate] = useState<Paginate>({
+        index: 0,
+        currentPage: 1,
+        itemsPerPage: perPage,
+        totalPage: Math.ceil(fetchedSOSTable.length / perPage),
+        slicedPages: null,
+    })
+
+    const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
+        const item = parseInt(e.target.value)
+
+        const slicedPages: ISOSTable[][] = []
+        for (let i = 0; i < fetchedSOSTable.length; i += item) {
+            slicedPages.push(fetchedSOSTable.slice(i, i + item))
+        }
+
+        setPaginate((prev) => {
+            return {
+                ...prev,
+                itemsPerPage: item,
+                index: 0,
+                currentPage: 1,
+                slicedPages,
+                totalPage: Math.ceil(fetchedSOSTable.length / item),
+            }
+        })
+    }
+
+    useEffect(() => {
+        const slicedPages: ISOSTable[][] = []
+        for (
+            let i = 0;
+            i < fetchedSOSTable.length;
+            i += paginate.itemsPerPage
+        ) {
+            slicedPages.push(
+                fetchedSOSTable.slice(i, i + paginate.itemsPerPage)
+            )
+        }
+
+        setPaginate((prev) => {
+            return {
+                ...prev,
+                slicedPages,
+                totalPage: Math.ceil(
+                    fetchedSOSTable.length / paginate.itemsPerPage
+                ),
+            }
+        })
+    }, [fetchedSOSTable])
+
+    const handleNext = () => {
+        console.log(paginate.currentPage, paginate.totalPage)
+        if (paginate.currentPage === paginate.totalPage) return
+        setPaginate((prev) => {
+            return {
+                ...prev,
+                index: prev.index + 1,
+                currentPage: prev.currentPage + 1,
+            }
+        })
+    }
+
+    const handlePrev = () => {
+        if (paginate.currentPage === 1) return
+        setPaginate((prev) => {
+            return {
+                ...prev,
+                index: prev.index - 1,
+                currentPage: prev.currentPage - 1,
+            }
+        })
+    }
+
+    const { currentPage, slicedPages, itemsPerPage } = paginate
+
+    const jumpToPage = (e: React.MouseEvent, index: number) => {
+        setPaginate((prev) => {
+            return {
+                ...prev,
+                index,
+                currentPage: index + 1,
+            }
+        })
+    }
+
+    const addSOSHandler = () => {
+        navigate('/superAdmin/platformSettings/addSOS')
+    }
+
+    const detailsHandler = (id: string) => {
+        navigate(`/superAdmin/platformSettings/SOSDetails/${id}`)
+    }
+
+    
 
     return (
         <div className='estateDetail'>
@@ -155,15 +209,19 @@ function SecurityCompanyOverview() {
                             textColor='text-[#B6008E]'
                         />
                     </div>
-                    <div className='w-full flex justify-cente'>
+                    <div className='w-full grid justify-center'>
                         <OverviewWallet
-                            amount={160_847}
-                            title={'Security Company Wallet'}
+                            amount={20_333_500.89}
+                            title={'Security Wallet'}
                             isWalletScreen
                             bgImgUri='/icons/overview/card/bgS.svg'
                             lefIconUri='/icons/overview/card/leftS.svg'
                             bgColor='bg-[#6AB95F]'
                         />
+
+                        <button className='btn bg-green-700 text-white self-center rounded-lg'>
+                            Fund Wallet
+                        </button>
                     </div>
                 </section>
                 <section className='bg-color-white rounded-lg border min-w-[112rem]'>
