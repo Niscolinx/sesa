@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
-import AddEstateManager from '../../components/estateManagers/AddEstateManager'
-import RenderedEstateManagers from '../../components/estateManagers/RenderedEstateManagers'
+import AddEstateManager from '../../../components/SuperAdmin/estateManagers/AddEstateManager'
+import RenderedEstateManagers from '../../../components/SuperAdmin/estateManagers/RenderedEstateManagers'
+
 import { useAppDispatch, useAppSelector } from '../../../store/app/hooks'
 import {
     routeChangeSelector,

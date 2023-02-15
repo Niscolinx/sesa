@@ -1,10 +1,10 @@
 import React from 'react'
 
-import OverviewChart from '../../components/charts/OverviewChart'
 
-import { OverviewWallet } from '../../components/overview/OverviewWallets'
 import { TbCurrencyNaira } from 'react-icons/tb'
 import { Link } from 'react-router-dom'
+import OverviewChart from '../../../components/SuperAdmin/charts/OverviewChart'
+import { OverviewWallet } from '../../../components/SuperAdmin/overview/OverviewWallets'
 
 export const overviewChart_data = [
     { name: 'Resident Wallet', value: 10, color: '#098DFF' },

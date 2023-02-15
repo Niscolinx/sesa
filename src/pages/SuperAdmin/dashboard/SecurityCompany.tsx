@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
-import RenderSecurityCompanies from '../../components/securityCompany/RenderedSecurityCompanies'
+import RenderSecurityCompanies from '../../../components/SuperAdmin/securityCompany/RenderedSecurityCompanies'
 import { useNavigate } from 'react-router'
 
 
