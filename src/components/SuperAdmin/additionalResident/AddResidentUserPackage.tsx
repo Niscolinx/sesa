@@ -1,14 +1,11 @@
-import  { useContext, useState } from 'react'
-
-import { ModalContext } from '../../../Context/ModalContext'
+import  {  useState } from 'react'
 
 
 type Packages = 'package 1' | 'package 2' | 'package 3' | 'package 4'
 type Frequency = 'monthly' | 'weekly' | 'quarterly' | 'yearly'
 
 const AddResidentUserPackage = () => {
-    const ModalContextData = useContext(ModalContext)
-    const { handleOpen } = ModalContextData
+  
     const [packages, setPackages] = useState<Packages[]>([
         'package 1',
         'package 2',
