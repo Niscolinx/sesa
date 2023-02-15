@@ -18,28 +18,28 @@ function IconsBox() {
           </li>
           
           <li className='iconsBox__list'>
-              <Link to='/securityCompany/estates' className='fillIcon'>
+              <Link to='/securityCompany/' className='fillIcon'>
                   <EstatesSvg />
                   <span>Estates</span>
               </Link>
           </li>
         
           <li className='iconsBox__list'>
-              <Link to='/securityCompany/security-company' className='fillIcon'>
+              <Link to='/securityCompany/' className='fillIcon'>
                   {' '}
                   <SecurityCompSvg />
                   <span>Security Company</span>
               </Link>
           </li>
           <li className='iconsBox__list'>
-              <Link to='/securityCompany/wallet' className='fillIcon'>
+              <Link to='/securityCompany/' className='fillIcon'>
                   {' '}
                   <WalletSvg />
                   <span>Security Company</span>
               </Link>
           </li>
           <li className='iconsBox__list'>
-              <Link to='/securityCompany/messages' className='fillIcon'>
+              <Link to='/securityCompany' className=''>
                   {' '}
                   <MessagesSvg />
                   <span>Messages</span>
@@ -47,7 +47,7 @@ function IconsBox() {
           </li>
           
           <li className='iconsBox__list'>
-              <Link to='/securityCompany/platformSettings' className='fillIcon'>
+              <Link to='/securityCompany' className='fillIcon'>
                   <SettingsSvg />
                   <span>Platform Settings</span>
               </Link>
