@@ -8,7 +8,7 @@ const Login = () => {
         <div className='flex h-screen overflow-hidden'>
             <form onSubmit={handleLogin} className='basis-1/2 grid place-content-center'>
                 <div>
-                    <h1>Welcome back!</h1>
+                    <h1 className='text-[4.5rem] font-Satoshi-bold'>Welcome back!</h1>
                     <p>Kindly enter your details</p>
                 </div>
                 <div>
