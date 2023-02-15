@@ -12,7 +12,7 @@ export interface Overview {
     id: number
     guardName: string
     guardCode: number
-    phoneNumber: number
+    phoneNumber: string
     kyc: 'Validated' | 'NotValidated'
 }
 
@@ -21,28 +21,28 @@ export const SECURITY_GUARDS: Overview[] = [
         id: 1,
         guardName: 'John Doe',
         guardCode: 123456,
-        phoneNumber: 08023238423,
+        phoneNumber: '+234 8023238423',
         kyc: 'Validated',
     },
     {
         id: 2,
         guardName: 'Samuel Eky',
         guardCode: 123456,
-        phoneNumber: 08023238423,
+        phoneNumber: '+234 8023238423',
         kyc: 'Validated',
     },
     {
         id: 3,
         guardName: 'Kingsley Bush',
         guardCode: 123456,
-        phoneNumber: 08023238423,
+        phoneNumber: '+234 8023238423',
         kyc: 'Validated',
     },
     {
         id: 4,
         guardName: 'Innocent Eze',
         guardCode: 123456,
-        phoneNumber: 08023238423,
+        phoneNumber: '+234 8023238423',
         kyc: 'Validated',
     },
 ]
