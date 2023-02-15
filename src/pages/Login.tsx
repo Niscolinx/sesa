@@ -6,7 +6,15 @@ const Login = () => {
     }
     return (
         <div className='flex'>
-            <form onSubmit={handleLogin}></form>
+            <form onSubmit={handleLogin}>
+            <div>
+                <h1>Welcome back!</h1>
+                <p>Kindly enter your details</p>
+            </div>
+            <div></div>
+            <div></div>
+
+            </form>
             <img src='/img/hero.png' alt='' />
         </div>
     )
