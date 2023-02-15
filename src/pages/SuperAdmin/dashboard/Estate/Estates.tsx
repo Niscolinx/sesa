@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
-import AddEstate from '../../../components/estates/AddEstate'
-import RenderedEstates from '../../../components/estates/RenderedEstates'
+import AddEstate from '../../../../components/SuperAdmin/estates/AddEstate'
+import RenderedEstates from '../../../../components/SuperAdmin/estates/RenderedEstates'
 import { useAppDispatch, useAppSelector } from '../../../../store/app/hooks'
 import {
     RenderEstatePath,
