@@ -10,47 +10,31 @@ import { OverviewWallet } from '../../../../components/SuperAdmin/overview/Overv
 
 export interface Overview {
     id: number
-    estateName: string
-    address: string
-    noOfSecurityGuards: number
+    guardName: string
+    guardCode: number
+    phoneNo: number
+    kyc: 'Validated' | 'NotValidated'
 }
 
-export const HOUSEHOLD_LIST: Overview[] = [
+export const SECURITY_GUARDS: Overview[] = [
     {
         id: 1,
-        estateName: 'Estate 1',
-        address: 'No 1, Ogunlana Drive, Surulere, Lagos',
-        noOfSecurityGuards: 10,
-    },
-    {
-        id: 2,
-        estateName: 'Estate 2',
-        address: 'No 1, Ogunlana Drive, Surulere, Lagos',
-        noOfSecurityGuards: 10,
-    },
-    {
-        id: 3,
-        estateName: 'Estate 3',
-        address: 'No 1, Ogunlana Drive, Surulere, Lagos',
-        noOfSecurityGuards: 10,
-    },
-    {
-        id: 4,
-        estateName: 'Estate 4',
-        address: 'No 1, Ogunlana Drive, Surulere, Lagos',
-        noOfSecurityGuards: 10,
+        guardName: 'John Doe',
+        guardCode: 123456,
+        phoneNo: 08023238423,
+        kyc: 'Validated',
     },
 ]
 
 function ViewEstate() {
     const navigate = useNavigate()
 
-    const [houseHoldList, setHouseHoldList] = useState<Overview[]>([])
+    const [securityGuards, setSecurityGuards] = useState<Overview[]>([])
     const [search, setSearch] = useState<string>('')
 
     useEffect(() => {
         setTimeout(() => {
-            setHouseHoldList(HOUSEHOLD_LIST)
+            setSecurityGuards(SECURITY_GUARDS)
         }, 1000)
     }, [])
 
@@ -69,7 +53,7 @@ function ViewEstate() {
         index: 0,
         currentPage: 1,
         itemsPerPage: perPage,
-        totalPage: Math.ceil(houseHoldList.length / perPage),
+        totalPage: Math.ceil(securityGuards.length / perPage),
         slicedPages: null,
     })
 
@@ -77,8 +61,8 @@ function ViewEstate() {
         const item = parseInt(e.target.value)
 
         const slicedPages: Overview[][] = []
-        for (let i = 0; i < houseHoldList.length; i += item) {
-            slicedPages.push(houseHoldList.slice(i, i + item))
+        for (let i = 0; i < securityGuards.length; i += item) {
+            slicedPages.push(securityGuards.slice(i, i + item))
         }
 
         setPaginate((prev) => {
@@ -88,15 +72,15 @@ function ViewEstate() {
                 index: 0,
                 currentPage: 1,
                 slicedPages,
-                totalPage: Math.ceil(houseHoldList.length / item),
+                totalPage: Math.ceil(securityGuards.length / item),
             }
         })
     }
 
     useEffect(() => {
         const slicedPages: Overview[][] = []
-        for (let i = 0; i < houseHoldList.length; i += paginate.itemsPerPage) {
-            slicedPages.push(houseHoldList.slice(i, i + paginate.itemsPerPage))
+        for (let i = 0; i < securityGuards.length; i += paginate.itemsPerPage) {
+            slicedPages.push(securityGuards.slice(i, i + paginate.itemsPerPage))
         }
 
         setPaginate((prev) => {
@@ -104,11 +88,11 @@ function ViewEstate() {
                 ...prev,
                 slicedPages,
                 totalPage: Math.ceil(
-                    houseHoldList.length / paginate.itemsPerPage
+                    securityGuards.length / paginate.itemsPerPage
                 ),
             }
         })
-    }, [houseHoldList])
+    }, [securityGuards])
 
     const handleNext = () => {
         console.log(paginate.currentPage, paginate.totalPage)
@@ -158,10 +142,10 @@ function ViewEstate() {
         const { value } = e.target
         setSearch(value)
 
-        const filtered = HOUSEHOLD_LIST.filter((item) =>
-            item.estateName.toLowerCase().includes(value.toLowerCase())
+        const filtered = SECURITY_GUARDS.filter((item) =>
+            item.guardName.toLowerCase().includes(value.toLowerCase())
         )
-        setHouseHoldList([...filtered])
+        setSecurityGuards([...filtered])
     }
 
     return (
@@ -184,7 +168,7 @@ function ViewEstate() {
                     <div className='grid text-[1.6rem] border rounded-lg'>
                         <div className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
                             <p className=' font-bold'>
-                                HouseHold List <span>(200)</span>
+                                Security Guards <span>(200)</span>
                             </p>
                             <div className='relative flex items-center'>
                                 <img
@@ -221,10 +205,11 @@ function ViewEstate() {
                                         id='sos'
                                         className='cursor-pointer'
                                     />
-                                    <label htmlFor='sos'>Estate Name</label>
+                                    <label htmlFor='sos'>Guard Name</label>
                                 </p>
-                                <p>Address</p>
-                                <p>No of Security Guards</p>
+                                <p>Guard Code</p>
+                                <p>Phone Number</p>
+                                <p>KYC</p>
                                 <p>Actions</p>
                             </div>
 
@@ -234,7 +219,7 @@ function ViewEstate() {
                                         slicedPages[paginate.index].map(
                                             ({
                                                 id,
-                                                estateName,
+                                                guardName,
                                                 noOfSecurityGuards,
                                                 address,
                                             }) => {
@@ -246,7 +231,7 @@ function ViewEstate() {
                                                                 className='cursor-pointer'
                                                             />
                                                             <label htmlFor='file'>
-                                                                {estateName}
+                                                                {guardName}
                                                             </label>
                                                         </p>
                                                         <p>{address}</p>
