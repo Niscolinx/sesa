@@ -5,8 +5,8 @@ const Login = () => {
         e.preventDefault()
     }
     return (
-        <div className='flex'>
-            <form onSubmit={handleLogin}>
+        <div className='flex h-screen overflow-hidden'>
+            <form onSubmit={handleLogin} className='basis-1/2 grid place-content-center'>
                 <div>
                     <h1>Welcome back!</h1>
                     <p>Kindly enter your details</p>
