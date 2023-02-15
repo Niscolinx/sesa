@@ -1,4 +1,7 @@
 import { useRef, FC, useState } from 'react'
+import { OpenPath, ModalContext } from '../../Context/ModalContext'
+import { useAppDispatch } from '../../store/app/hooks'
+import { setEstatePath, setAdminPath, setEstateManagerPath } from '../../store/features/routeChange'
 
 
 interface Modal {
