@@ -1,3 +1,4 @@
+import { Route } from 'react-router-dom'
 
 import EstateDetails from '../pages/SuperAdmin/dashboard/Estate/EstateDetails'
 import EstateReport from '../pages/SuperAdmin/dashboard/Estate/EstateReport'
@@ -37,9 +38,8 @@ import Dashboard from '../pages/SuperAdmin/Dashboard'
 import Admins from '../pages/SuperAdmin/dashboard/Admins'
 import Overview from '../pages/SuperAdmin/dashboard/Overview'
 
-export const superAdmin = () => {
-  return (
-<Route path='/superAdmin' element={<Dashboard />}>
+    const SuperAdminRoutes = (
+        <Route path='/superAdmin' element={<Dashboard />}>
             <Route index element={<Overview />} />
             <Route path='admins' element={<Admins />} />
             <Route path='estates' element={<Estates />} />
@@ -115,6 +115,8 @@ export const superAdmin = () => {
                 path='platformSettings/SOSDetails/:Id'
                 element={<SOSDetails />}
             />
-        </Route>,  )
-}
+        </Route>
+    )
+  
+   
 
