@@ -10,7 +10,7 @@ import { OverviewWallet } from '../../../components/SuperAdmin/overview/Overview
 
 
 export interface Overview {
-    id: string
+    id: number
     estateName: string
     address: string
     noOfSecurityGuards: number
@@ -18,33 +18,29 @@ export interface Overview {
 
 export const HOUSEHOLD_LIST: Overview[] = [
     {
-        id: '1',
-        file: 'file 1',
-        count: 2,
-        estates: 2,
-        createdAt: '01 Feb 2023 12:00pm',
+        id: 1,
+        estateName: 'Estate 1',
+        address: 'No 1, Ogunlana Drive, Surulere, Lagos',
+        noOfSecurityGuards: 10,
     },
     {
-        id: '2',
-        file: 'file 2',
-        count: 22,
-        estates: 42,
-        createdAt: '01 Feb 2023 12:00pm',
+        id: 2,
+        estateName: 'Estate 1',
+        address: 'No 1, Ogunlana Drive, Surulere, Lagos',
+        noOfSecurityGuards: 10,
     },
     {
-        id: '1',
-        file: 'file 3',
-        count: 31,
-        estates: 12,
-        createdAt: '01 Feb 2023 12:00pm',
+        id: 3,
+        estateName: 'Estate 1',
+        address: 'No 1, Ogunlana Drive, Surulere, Lagos',
+        noOfSecurityGuards: 10,
     },
     {
-        id: '1',
-        file: 'file 4',
-        count: 2,
-        estates: 2,
-        createdAt: '01 Feb 2023 12:00pm',
-    },
+        id: 4,
+        estateName: 'Estate 1',
+        address: 'No 1, Ogunlana Drive, Surulere, Lagos',
+        noOfSecurityGuards: 10,
+    }
 ]
 
 function SecurityCompanyOverview() {
@@ -52,11 +48,11 @@ function SecurityCompanyOverview() {
 
     const navigate = useNavigate()
 
-    const [fetchedSOSTable, setFetchedSOSTable] = useState<Overview[]>([])
+    const [houseHoldList, setHouseHoldList] = useState<Overview[]>([])
 
     useEffect(() => {
         setTimeout(() => {
-            setFetchedSOSTable(HOUSEHOLD_LIST)
+            setHouseHoldList(HOUSEHOLD_LIST)
         }, 1000)
     }, [])
 
@@ -75,7 +71,7 @@ function SecurityCompanyOverview() {
         index: 0,
         currentPage: 1,
         itemsPerPage: perPage,
-        totalPage: Math.ceil(fetchedSOSTable.length / perPage),
+        totalPage: Math.ceil(houseHoldList.length / perPage),
         slicedPages: null,
     })
 
@@ -83,8 +79,8 @@ function SecurityCompanyOverview() {
         const item = parseInt(e.target.value)
 
         const slicedPages: Overview[][] = []
-        for (let i = 0; i < fetchedSOSTable.length; i += item) {
-            slicedPages.push(fetchedSOSTable.slice(i, i + item))
+        for (let i = 0; i < houseHoldList.length; i += item) {
+            slicedPages.push(houseHoldList.slice(i, i + item))
         }
 
         setPaginate((prev) => {
@@ -94,7 +90,7 @@ function SecurityCompanyOverview() {
                 index: 0,
                 currentPage: 1,
                 slicedPages,
-                totalPage: Math.ceil(fetchedSOSTable.length / item),
+                totalPage: Math.ceil(houseHoldList.length / item),
             }
         })
     }
@@ -103,11 +99,11 @@ function SecurityCompanyOverview() {
         const slicedPages: Overview[][] = []
         for (
             let i = 0;
-            i < fetchedSOSTable.length;
+            i < houseHoldList.length;
             i += paginate.itemsPerPage
         ) {
             slicedPages.push(
-                fetchedSOSTable.slice(i, i + paginate.itemsPerPage)
+                houseHoldList.slice(i, i + paginate.itemsPerPage)
             )
         }
 
@@ -116,11 +112,11 @@ function SecurityCompanyOverview() {
                 ...prev,
                 slicedPages,
                 totalPage: Math.ceil(
-                    fetchedSOSTable.length / paginate.itemsPerPage
+                    houseHoldList.length / paginate.itemsPerPage
                 ),
             }
         })
-    }, [fetchedSOSTable])
+    }, [houseHoldList])
 
     const handleNext = () => {
         console.log(paginate.currentPage, paginate.totalPage)
@@ -161,8 +157,9 @@ function SecurityCompanyOverview() {
         navigate('/superAdmin/platformSettings/addSOS')
     }
 
-    const detailsHandler = (id: string) => {
-        navigate(`/superAdmin/platformSettings/SOSDetails/${id}`)
+    const detailsHandler = (id: number) => {
+        // navigate(`/superAdmin/platformSettings/SOSDetails/${id}`)
+        alert('navigate')
     }
 
     
@@ -246,7 +243,7 @@ function SecurityCompanyOverview() {
                         </div>
 
                         <div className='grid bg-white'>
-                            <div className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-5 gap-8 text-[1.6rem]'>
+                            <div className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-4 gap-8 text-[1.6rem]'>
                                 <p className='flex items-center gap-4'>
                                     <input
                                         type='checkbox'
@@ -254,11 +251,10 @@ function SecurityCompanyOverview() {
                                         id='sos'
                                         className='cursor-pointer'
                                     />
-                                    <label htmlFor='sos'>Files</label>
+                                    <label htmlFor='sos'>Estate Name</label>
                                 </p>
-                                <p>Count</p>
-                                <p>Estates</p>
-                                <p>Created At</p>
+                                <p>Address</p>
+                                <p>No of Security Guards</p>
                                 <p>Actions</p>
                             </div>
 
@@ -268,27 +264,24 @@ function SecurityCompanyOverview() {
                                         slicedPages[paginate.index].map(
                                             ({
                                                 id,
-                                                file,
-                                                estates,
-                                                count,
-                                                createdAt,
+                                                estateName,
+                                                noOfSecurityGuards,
+                                                address
                                             }) => {
                                                 return (
-                                                    <div className='grid justify-between border-b grid-cols-5 items-center gap-8 '>
+                                                    <div className='grid justify-between border-b grid-cols-4 items-center gap-8 '>
                                                         <p className='flex items-center gap-4'>
                                                             <input
                                                                 type='checkbox'
                                                                 className='cursor-pointer'
-                                                                name='file'
-                                                                id='file'
+                                                              
                                                             />
                                                             <label htmlFor='file'>
-                                                                {file}
+                                                                {estateName}
                                                             </label>
                                                         </p>
-                                                        <p>{count}</p>
-                                                        <p>{estates}</p>
-                                                        <p>{createdAt}</p>
+                                                        <p>{address}</p>
+                                                        <p>{noOfSecurityGuards}</p>
                                                         <button
                                                             className='text-color-primary text-left'
                                                             onClick={() =>
