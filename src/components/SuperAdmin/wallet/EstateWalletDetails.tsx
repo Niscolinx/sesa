@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
+import { ModalContext } from '../../../Context/ModalContext'
 
-import { ModalContext } from '../../Context/ModalContext'
 
 const EstateWalletDetails = () => {
     const ModalContextData = useContext(ModalContext)
