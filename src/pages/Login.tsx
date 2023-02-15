@@ -14,17 +14,16 @@ const Login = () => {
                 <div>
                     <div className='w-full grid gap-4'>
                         <label
-                            htmlFor='status'
+                            htmlFor='email'
                             className='text-[1.4rem] font-semibold'
                         >
-                            Transaction Type
+                            Email
                         </label>
                         <input
-                            disabled
-                            type='text'
+                            type='email'
                             required
-                            id='status'
-                            className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] disabled:text-green-500 disabled:cursor-not-allowed'
+                            id='email'
+                            className='border border-color-grey p-4 outline-none rounded-lg w-full'
                             value={'Credit'}
                         />
                     </div>
@@ -40,7 +39,7 @@ const Login = () => {
                             type='text'
                             required
                             id='status'
-                            className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] disabled:text-green-500 disabled:cursor-not-allowed'
+                            className='border border-color-grey p-4 outline-none rounded-lg w-full'
                             value={'Credit'}
                         />
                     </div>
