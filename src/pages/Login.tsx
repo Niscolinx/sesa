@@ -14,7 +14,7 @@ const Login = () => {
 
     const handleLogin = (e: FormEvent) => {
         e.preventDefault()
-
+        e.persist()
         const {email, password} = inputs
 
         if(email === 'superAdmin@sesa.com'){
