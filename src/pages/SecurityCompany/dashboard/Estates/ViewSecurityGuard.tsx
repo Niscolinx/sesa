@@ -136,7 +136,7 @@ const ViewSecurityGuard = () => {
             </dialog>
 
             <div className='grid p-8 bg-white  rounded-lg gap-[10rem]'>
-                <div>
+                <div className='border-b border-b-light-100 pb-20'>
                     <div className='flex justify-between items-center'>
                         <label
                             htmlFor='photoUpload'
@@ -368,178 +368,14 @@ const ViewSecurityGuard = () => {
                 </div>
                 <section>
                     <h2
-                        className='text-[2rem] py-10'
+                        className='text-[2rem]'
                         style={{
                             fontFamily: 'Satoshi-Medium',
                         }}
                     >
-                        Testimonials
+                        Assigned Estate Details
                     </h2>
-                    <div
-                        className='grid grid-cols-2 rounded-lg border p-10 border-color-grey'
-                        style={{
-                            boxShadow:
-                                '0px 12.6316px 31.5789px rgba(102, 104, 105, 0.15)',
-                        }}
-                    >
-                        <div className='grid gap-8 '>
-                            <div
-                                className='flex gap-4 justify-between items-center border rounded-lg h-[9rem] max-w-[38rem] px-10'
-                                style={{
-                                    boxShadow:
-                                        '0px 12.6316px 31.5789px rgba(102, 104, 105, 0.15)',
-                                }}
-                            >
-                                <div className='flex gap-4 items-center'>
-                                    <img
-                                        src='/img/avatar1.png'
-                                        alt=''
-                                        className='w-[5rem] h-[5rem] object-cover rounded-full'
-                                    />
-
-                                    <div>
-                                        <p
-                                            className='text-[1.4rem]'
-                                            style={{
-                                                fontFamily: 'Satoshi-Medium',
-                                            }}
-                                        >
-                                            Jessica Okafor
-                                        </p>
-                                        <StarRating starsNum={4} />
-                                    </div>
-                                </div>
-
-                                <div className='text-[1.4rem]'>
-                                    <p
-                                        style={{
-                                            fontFamily: 'Satoshi-Light',
-                                        }}
-                                    >
-                                        7 Aug 2022
-                                    </p>
-                                    <p
-                                        style={{
-                                            fontFamily: 'Satoshi-Light',
-                                        }}
-                                    >
-                                        Peace Estate
-                                    </p>
-                                </div>
-                            </div>
-                            <div
-                                className='flex gap-4 justify-between items-center border rounded-lg h-[9rem] max-w-[38rem] px-10'
-                                style={{
-                                    boxShadow:
-                                        '0px 12.6316px 31.5789px rgba(102, 104, 105, 0.15)',
-                                }}
-                            >
-                                <div className='flex gap-4 items-center'>
-                                    <img
-                                        src='/img/avatar2.png'
-                                        alt=''
-                                        className='w-[5rem] h-[5rem] object-cover rounded-full'
-                                    />
-
-                                    <div>
-                                        <p
-                                            className='text-[1.4rem]'
-                                            style={{
-                                                fontFamily: 'Satoshi-Medium',
-                                            }}
-                                        >
-                                            Jessica Okafor
-                                        </p>
-                                        <StarRating starsNum={4} />
-                                    </div>
-                                </div>
-
-                                <div className='text-[1.4rem]'>
-                                    <p
-                                        style={{
-                                            fontFamily: 'Satoshi-Light',
-                                        }}
-                                    >
-                                        7 Aug 2022
-                                    </p>
-                                    <p
-                                        style={{
-                                            fontFamily: 'Satoshi-Light',
-                                        }}
-                                    >
-                                        Peace Estate
-                                    </p>
-                                </div>
-                            </div>
-                            <div
-                                className='flex gap-4 justify-between items-center border rounded-lg h-[9rem] max-w-[38rem] px-10'
-                                style={{
-                                    boxShadow:
-                                        '0px 12.6316px 31.5789px rgba(102, 104, 105, 0.15)',
-                                }}
-                            >
-                                <div className='flex gap-4 items-center'>
-                                    <img
-                                        src='/img/avatar3.png'
-                                        alt=''
-                                        className='w-[5rem] h-[5rem] object-cover rounded-full'
-                                    />
-
-                                    <div>
-                                        <p
-                                            className='text-[1.4rem]'
-                                            style={{
-                                                fontFamily: 'Satoshi-Medium',
-                                            }}
-                                        >
-                                            Jessica Okafor
-                                        </p>
-                                        <StarRating starsNum={4} />
-                                    </div>
-                                </div>
-
-                                <div className='text-[1.4rem]'>
-                                    <p
-                                        style={{
-                                            fontFamily: 'Satoshi-Light',
-                                        }}
-                                    >
-                                        7 Aug 2022
-                                    </p>
-                                    <p
-                                        style={{
-                                            fontFamily: 'Satoshi-Light',
-                                        }}
-                                    >
-                                        Peace Estate
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div className='grid gap-8'>
-                            <h3
-                                className='text-[2rem]'
-                                style={{
-                                    fontFamily: 'Satoshi-Medium',
-                                }}
-                            >
-                                Wonderful Service
-                            </h3>
-                            <p className='text-[1.8rem]'>
-                                Lorem ipsum dolor sit amet consectetur
-                                adipisicing elit. Nulla optio labore autem
-                                provident, dolore dolorum dicta vel tempore
-                                voluptatibus deserunt recusandae porro deleniti
-                                dolores illum, temporibus eveniet earum.
-                                Ducimus, repellendus? Lorem ipsum dolor sit amet
-                                consectetur adipisicing elit. Quos adipisci
-                                voluptatem molestias, obcaecati molestiae
-                                veritatis libero eveniet porro accusamus,
-                                reiciendis facilis. Illum et doloremque fuga quo
-                                aut laudantium consequatur nemo.
-                            </p>
-                        </div>
-                    </div>
+                   
                 </section>
              
             </div>
