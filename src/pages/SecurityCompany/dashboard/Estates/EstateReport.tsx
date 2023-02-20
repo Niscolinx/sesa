@@ -23,11 +23,9 @@ interface AttendanceReport {
     clockOutCount: number
 }
 
-
-
-
-
-const ATTENDANCE_REPORT_DATA: AttendanceReport[] = Array.from({length: 20}).map((_, i) => ({
+const ATTENDANCE_REPORT_DATA: AttendanceReport[] = Array.from({
+    length: 20,
+}).map((_, i) => ({
     id: i,
     guardName: 'John Doe',
     date: '12-May-2023',
@@ -36,137 +34,124 @@ const ATTENDANCE_REPORT_DATA: AttendanceReport[] = Array.from({length: 20}).map(
     clockInCount: Math.floor(Math.random() * 10 + 1),
     clockOutCount: Math.floor(Math.random() * 10 + 1),
 }))
-const ACTIVITY_REPORT_DATA: ActivityReport[] = Array.from({length: 20}).map((_, i) => ({
-    id: i,
-    guardName: 'John Doe',
-    date: '12-May-2023',
-    guardCode: Math.floor(Math.random() * 3000 + 1000),
-    clockInCount: Math.floor(Math.random() * 10 + 1),
-    clockOutCount: Math.floor(Math.random() * 10 + 1),
-}))
-
+const ACTIVITY_REPORT_DATA: ActivityReport[] = Array.from({ length: 20 }).map(
+    (_, i) => ({
+        id: i,
+        guardName: 'John Doe',
+        date: '12-May-2023',
+        guardCode: Math.floor(Math.random() * 3000 + 1000),
+        clockInCount: Math.floor(Math.random() * 10 + 1),
+        clockOutCount: Math.floor(Math.random() * 10 + 1),
+    })
+)
 
 const ActivityReport = () => {
+    const [fetchedActivityReportData, setFetchedActivityReportData] = useState<
+        ActivityReport[]
+    >([])
 
-      const [
-          fetchedActivityReportData,
-          setFetchedActivityReportData,
-      ] = useState<ActivityReport[]>([])
+    useEffect(() => {
+        setTimeout(() => {
+            setFetchedActivityReportData(ACTIVITY_REPORT_DATA)
+        }, 1000)
+    }, [])
 
-      useEffect(() => {
-          setTimeout(() => {
-              setFetchedActivityReportData(ACTIVITY_REPORT_DATA)
-          }, 1000)
-      }, [])
+    interface Paginate {
+        index: number
+        currentPage: number
+        itemsPerPage: number
+        totalPage: number
+        slicedPages: ActivityReport[][] | null
+    }
 
-      interface Paginate {
-          index: number
-          currentPage: number
-          itemsPerPage: number
-          totalPage: number
-          slicedPages: ActivityReport[][] | null
-      }
+    const itemsPerPageArr = [2, 4, 6, 8]
+    const perPage = 4
 
-      const itemsPerPageArr = [2, 4, 6, 8]
-      const perPage = 4
+    const [paginate, setPaginate] = useState<Paginate>({
+        index: 0,
+        currentPage: 1,
+        itemsPerPage: perPage,
+        totalPage: Math.ceil(fetchedActivityReportData.length / perPage),
+        slicedPages: null,
+    })
 
-      const [paginate, setPaginate] = useState<Paginate>({
-          index: 0,
-          currentPage: 1,
-          itemsPerPage: perPage,
-          totalPage: Math.ceil(fetchedActivityReportData.length / perPage),
-          slicedPages: null,
-      })
+    const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
+        const item = parseInt(e.target.value)
 
-      const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
-          const item = parseInt(e.target.value)
+        const slicedPages: ActivityReport[][] = []
+        for (let i = 0; i < fetchedActivityReportData.length; i += item) {
+            slicedPages.push(fetchedActivityReportData.slice(i, i + item))
+        }
 
-          const slicedPages: ActivityReport[][] = []
-          for (
-              let i = 0;
-              i < fetchedActivityReportData.length;
-              i += item
-          ) {
-              slicedPages.push(
-                  fetchedActivityReportData.slice(i, i + item)
-              )
-          }
+        setPaginate((prev) => {
+            return {
+                ...prev,
+                itemsPerPage: item,
+                index: 0,
+                currentPage: 1,
+                slicedPages,
+                totalPage: Math.ceil(fetchedActivityReportData.length / item),
+            }
+        })
+    }
 
-          setPaginate((prev) => {
-              return {
-                  ...prev,
-                  itemsPerPage: item,
-                  index: 0,
-                  currentPage: 1,
-                  slicedPages,
-                  totalPage: Math.ceil(
-                      fetchedActivityReportData.length / item
-                  ),
-              }
-          })
-      }
+    useEffect(() => {
+        const slicedPages: ActivityReport[][] = []
+        for (
+            let i = 0;
+            i < fetchedActivityReportData.length;
+            i += paginate.itemsPerPage
+        ) {
+            slicedPages.push(
+                fetchedActivityReportData.slice(i, i + paginate.itemsPerPage)
+            )
+        }
 
-      useEffect(() => {
-          const slicedPages: ActivityReport[][] = []
-          for (
-              let i = 0;
-              i < fetchedActivityReportData.length;
-              i += paginate.itemsPerPage
-          ) {
-              slicedPages.push(
-                  fetchedActivityReportData.slice(
-                      i,
-                      i + paginate.itemsPerPage
-                  )
-              )
-          }
+        setPaginate((prev) => {
+            return {
+                ...prev,
+                slicedPages,
+                totalPage: Math.ceil(
+                    fetchedActivityReportData.length / paginate.itemsPerPage
+                ),
+            }
+        })
+    }, [fetchedActivityReportData])
 
-          setPaginate((prev) => {
-              return {
-                  ...prev,
-                  slicedPages,
-                  totalPage: Math.ceil(
-                      fetchedActivityReportData.length /
-                          paginate.itemsPerPage
-                  ),
-              }
-          })
-      }, [fetchedActivityReportData])
+    const handleNext = () => {
+        console.log(paginate.currentPage, paginate.totalPage)
+        if (paginate.currentPage === paginate.totalPage) return
+        setPaginate((prev) => {
+            return {
+                ...prev,
+                index: prev.index + 1,
+                currentPage: prev.currentPage + 1,
+            }
+        })
+    }
 
-      const handleNext = () => {
-          console.log(paginate.currentPage, paginate.totalPage)
-          if (paginate.currentPage === paginate.totalPage) return
-          setPaginate((prev) => {
-              return {
-                  ...prev,
-                  index: prev.index + 1,
-                  currentPage: prev.currentPage + 1,
-              }
-          })
-      }
+    const handlePrev = () => {
+        if (paginate.currentPage === 1) return
+        setPaginate((prev) => {
+            return {
+                ...prev,
+                index: prev.index - 1,
+                currentPage: prev.currentPage - 1,
+            }
+        })
+    }
 
-      const handlePrev = () => {
-          if (paginate.currentPage === 1) return
-          setPaginate((prev) => {
-              return {
-                  ...prev,
-                  index: prev.index - 1,
-                  currentPage: prev.currentPage - 1,
-              }
-          })
-      }
+    const { currentPage, slicedPages, itemsPerPage } = paginate
 
-      const { currentPage, slicedPages, itemsPerPage } = paginate
-
-      const jumpToPage = (e: React.MouseEvent, index: number) => {
-          setPaginate((prev) => {
-              return {
-                  ...prev,
-                  index,
-                  currentPage: index + 1,
-              }
-          })
-      }
+    const jumpToPage = (e: React.MouseEvent, index: number) => {
+        setPaginate((prev) => {
+            return {
+                ...prev,
+                index,
+                currentPage: index + 1,
+            }
+        })
+    }
 
     return (
         <div className='grid text-[1.6rem]'>
@@ -341,114 +326,113 @@ const ActivityReport = () => {
     )
 }
 const AttendanceReport = () => {
-       const [fetchedActivityReportData, setFetchedActivityReportData] =
-           useState<ActivityReport[]>([])
+    const [fetchedAttendanceReportData, setFetchedAttendanceReportData] = useState<
+        AttendanceReport[]
+    >([])
 
-       useEffect(() => {
-           setTimeout(() => {
-               setFetchedActivityReportData(ACTIVITY_REPORT_DATA)
-           }, 1000)
-       }, [])
+    useEffect(() => {
+        setTimeout(() => {
+            setFetchedAttendanceReportData(ATTENDANCE_REPORT_DATA)
+        }, 1000)
+    }, [])
 
-       interface Paginate {
-           index: number
-           currentPage: number
-           itemsPerPage: number
-           totalPage: number
-           slicedPages: ActivityReport[][] | null
-       }
+    interface Paginate {
+        index: number
+        currentPage: number
+        itemsPerPage: number
+        totalPage: number
+        slicedPages: AttendanceReport[][] | null
+    }
 
-       const itemsPerPageArr = [2, 4, 6, 8]
-       const perPage = 4
+    const itemsPerPageArr = [2, 4, 6, 8]
+    const perPage = 4
 
-       const [paginate, setPaginate] = useState<Paginate>({
-           index: 0,
-           currentPage: 1,
-           itemsPerPage: perPage,
-           totalPage: Math.ceil(fetchedActivityReportData.length / perPage),
-           slicedPages: null,
-       })
+    const [paginate, setPaginate] = useState<Paginate>({
+        index: 0,
+        currentPage: 1,
+        itemsPerPage: perPage,
+        totalPage: Math.ceil(fetchedAttendanceReportData.length / perPage),
+        slicedPages: null,
+    })
 
-       const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
-           const item = parseInt(e.target.value)
+    const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
+        const item = parseInt(e.target.value)
 
-           const slicedPages: ActivityReport[][] = []
-           for (let i = 0; i < fetchedActivityReportData.length; i += item) {
-               slicedPages.push(fetchedActivityReportData.slice(i, i + item))
-           }
+        const slicedPages: AttendanceReport[][] = []
+        for (let i = 0; i < fetchedAttendanceReportData.length; i += item) {
+            slicedPages.push(fetchedAttendanceReportData.slice(i, i + item))
+        }
 
-           setPaginate((prev) => {
-               return {
-                   ...prev,
-                   itemsPerPage: item,
-                   index: 0,
-                   currentPage: 1,
-                   slicedPages,
-                   totalPage: Math.ceil(
-                       fetchedActivityReportData.length / item
-                   ),
-               }
-           })
-       }
+        setPaginate((prev) => {
+            return {
+                ...prev,
+                itemsPerPage: item,
+                index: 0,
+                currentPage: 1,
+                slicedPages,
+                totalPage: Math.ceil(fetchedAttendanceReportData.length / item),
+            }
+        })
+    }
 
-       useEffect(() => {
-           const slicedPages: ActivityReport[][] = []
-           for (
-               let i = 0;
-               i < fetchedActivityReportData.length;
-               i += paginate.itemsPerPage
-           ) {
-               slicedPages.push(
-                   fetchedActivityReportData.slice(i, i + paginate.itemsPerPage)
-               )
-           }
+    useEffect(() => {
+        const slicedPages: AttendanceReport[][] = []
+        for (
+            let i = 0;
+            i < fetchedAttendanceReportData.length;
+            i += paginate.itemsPerPage
+        ) {
+            slicedPages.push(
+                fetchedAttendanceReportData.slice(i, i + paginate.itemsPerPage)
+            )
+        }
 
-           setPaginate((prev) => {
-               return {
-                   ...prev,
-                   slicedPages,
-                   totalPage: Math.ceil(
-                       fetchedActivityReportData.length / paginate.itemsPerPage
-                   ),
-               }
-           })
-       }, [fetchedActivityReportData])
+        setPaginate((prev) => {
+            return {
+                ...prev,
+                slicedPages,
+                totalPage: Math.ceil(
+                    fetchedAttendanceReportData.length / paginate.itemsPerPage
+                ),
+            }
+        })
+    }, [fetchedAttendanceReportData])
 
-       const handleNext = () => {
-           console.log(paginate.currentPage, paginate.totalPage)
-           if (paginate.currentPage === paginate.totalPage) return
-           setPaginate((prev) => {
-               return {
-                   ...prev,
-                   index: prev.index + 1,
-                   currentPage: prev.currentPage + 1,
-               }
-           })
-       }
+    const handleNext = () => {
+        console.log(paginate.currentPage, paginate.totalPage)
+        if (paginate.currentPage === paginate.totalPage) return
+        setPaginate((prev) => {
+            return {
+                ...prev,
+                index: prev.index + 1,
+                currentPage: prev.currentPage + 1,
+            }
+        })
+    }
 
-       const handlePrev = () => {
-           if (paginate.currentPage === 1) return
-           setPaginate((prev) => {
-               return {
-                   ...prev,
-                   index: prev.index - 1,
-                   currentPage: prev.currentPage - 1,
-               }
-           })
-       }
+    const handlePrev = () => {
+        if (paginate.currentPage === 1) return
+        setPaginate((prev) => {
+            return {
+                ...prev,
+                index: prev.index - 1,
+                currentPage: prev.currentPage - 1,
+            }
+        })
+    }
 
-       const { currentPage, slicedPages, itemsPerPage } = paginate
+    const { currentPage, slicedPages, itemsPerPage } = paginate
 
-       const jumpToPage = (e: React.MouseEvent, index: number) => {
-           setPaginate((prev) => {
-               return {
-                   ...prev,
-                   index,
-                   currentPage: index + 1,
-               }
-           })
-       }
-       
+    const jumpToPage = (e: React.MouseEvent, index: number) => {
+        setPaginate((prev) => {
+            return {
+                ...prev,
+                index,
+                currentPage: index + 1,
+            }
+        })
+    }
+
     return (
         <div className='grid text-[1.6rem]'>
             <caption className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
@@ -518,10 +502,9 @@ const AttendanceReport = () => {
                 </div>
 
                 <div className='grid gap-8 mt-8 p-8'>
-                    {fetchedAttendanceReport &&
-                    fetchedAttendanceReport.length > 0 ? (
+                    {slicedPages && slicedPages.length > 0 ? (
                         React.Children.toArray(
-                            fetchedAttendanceReport.map(
+                            slicedPages[paginate.index].map(
                                 ({
                                     guardCode,
                                     guardName,
@@ -622,7 +605,6 @@ const AttendanceReport = () => {
 }
 
 function EstateReport() {
-  
     const [fetchedAttendanceReport, setFetchedAttendanceReport] = useState<
         AttendanceReport[] | null
     >(null)
@@ -650,25 +632,10 @@ function EstateReport() {
 
     getDate()
 
-    const handlePathSwitch = (pageNum: number) => {
-        switch (pageNum) {
-            case 1:
-                return (
-                    <ActivityReport/>
-                     
-                )
-            case 2:
-                return (
-                    <AttendanceReport
-                        fetchedAttendanceReport={fetchedAttendanceReport ?? []}
-                    />
-                )
-            default:
-                return (
-                    <ActivityReport
-                       />
-                )
-        }
+    const handlePathSwitch = {
+        1: <ActivityReport />,
+        2: <AttendanceReport />,
+
     }
 
     return (
