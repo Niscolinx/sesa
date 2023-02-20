@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react'
 import { toast, ToastContainer } from 'react-toastify'
-import { Select } from '../../../../components/SuperAdmin/UI/Select'
+import { ComplexSelect, Select } from '../../../../components/SuperAdmin/UI/Select'
 import StarRating from '../../../../components/SuperAdmin/UI/StarRating'
 import { getPhotoUrl } from '../../../../utils/getPhotoUrl'
 
@@ -427,7 +427,7 @@ const ViewSecurityGuard = () => {
                                 </p>
                             </div>
                             <div>
-                                <Select
+                                <ComplexSelect
                                     state={[
                                         { name: 'Gwarimpa Estate', No: 3 },
                                         { name: 'Ibara Estate', No: 12 },
@@ -438,7 +438,6 @@ const ViewSecurityGuard = () => {
                                         },
                                     ]}
                                     placeholder='Gwarimpa Estate'
-                                    complex={true}
                                     selectedState={selectedState}
                                     isSearchable={true}
                                     setSelectedState={setSelectedState}

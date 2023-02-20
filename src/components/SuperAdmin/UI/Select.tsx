@@ -21,10 +21,8 @@ interface ISelect {
     
 }
 
-interface ComplexSelect extends Omit<ISelect, 'state' | 'setSelectedState'> {
-    complex?: boolean
+interface ComplexSelect extends Omit<ISelect, 'state'> {
     state: Array<Complex>
-    setSelectedState: React.Dispatch<React.SetStateAction<Complex[]>>
 }
 
 interface IMultipleSelect {
@@ -131,7 +129,6 @@ export const ComplexSelect: FC<ComplexSelect> = ({
     selectedState,
     setSelectedState,
     label,
-    complex = false,
     placeholder,
     isSearchable = false,
 }) => {
@@ -155,7 +152,7 @@ export const ComplexSelect: FC<ComplexSelect> = ({
         if (value.length > 0) {
             setSelectFrom((prev) => {
                 return prev.filter((item) => {
-                    return item.toLowerCase().includes(value.toLowerCase())
+                    return item.name.toLowerCase().includes(value.toLowerCase())
                 })
             })
         } else {
