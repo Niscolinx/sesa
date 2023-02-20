@@ -5,57 +5,21 @@ import { FiDownload } from 'react-icons/fi'
 import { useNavigate } from 'react-router'
 
 export interface IAdvertClickrateDecrease {
-    id: string
+    id: number
     estateName: string
     location: string
     noOfResidents: number
     noOfViews: number
 }
 
-export const ADVERT_CLICK_RATE_DECREASE: IAdvertClickrateDecrease[] = [
-    {
-        id: '1',
-        estateName: 'Sun City',
-        location: 'Lagos',
-        noOfResidents: 50,
-        noOfViews: 100,
-    },
-    {
-        id: '1',
-        estateName: 'Sun City',
-        location: 'Lagos',
-        noOfResidents: 50,
-        noOfViews: 100,
-    },
-    {
-        id: '1',
-        estateName: 'Sun City',
-        location: 'Lagos',
-        noOfResidents: 50,
-        noOfViews: 100,
-    },
-    {
-        id: '1',
-        estateName: 'Sun City',
-        location: 'Lagos',
-        noOfResidents: 50,
-        noOfViews: 100,
-    },
-    {
-        id: '1',
-        estateName: 'Sun City',
-        location: 'Lagos',
-        noOfResidents: 50,
-        noOfViews: 100,
-    },
-    {
-        id: '1',
-        estateName: 'Sun City',
-        location: 'Lagos',
-        noOfResidents: 50,
-        noOfViews: 100,
-    },
-]
+export const ADVERT_CLICK_RATE_DECREASE: IAdvertClickrateDecrease[] = Array.from({length: 10}).map((_, i) => ({
+    id: i,
+    estateName: 'Sun City',
+    location: 'Lagos',
+    noOfResidents: Math.floor(Math.random() * 100 + 10),
+    noOfViews: Math.floor(Math.random() * 100 + 10),
+}))
+
 
 const AdvertClickrateDecrease = () => {
     const navigate = useNavigate()

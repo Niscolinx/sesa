@@ -23,6 +23,8 @@ interface AttendanceReport {
     panicAlert: number
 }
 
+
+
 const ATTENDANCE_REPORT_DATA: AttendanceReport[] = [
     {
         id: '1',
@@ -93,6 +95,94 @@ const ACTIVITY_REPORT_DATA: ActivityReport[] = Array.from({length: 20}).map((_, 
 const ActivityReport: FC<{
     fetchedActivityReport: ActivityReport[]
 }> = ({ fetchedActivityReport }) => {
+
+     const itemsPerPageArr = [2, 4, 6, 8]
+
+     const [paginate, setPaginate] = useState<Paginate>({
+         index: 0,
+         currentPage: 1,
+         itemsPerPage: 4,
+
+         totalPage: Math.ceil(fetchedResidentTransactions.length / 2),
+         slicedPages: null,
+     })
+
+     const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
+         const item = parseInt(e.target.value)
+
+         const slicedPages: ResidentTransactions[][] = []
+         for (let i = 0; i < fetchedResidentTransactions.length; i += item) {
+             slicedPages.push(fetchedResidentTransactions.slice(i, i + item))
+         }
+
+         setPaginate((prev) => {
+             return {
+                 ...prev,
+                 itemsPerPage: item,
+                 index: 0,
+                 currentPage: 1,
+                 slicedPages,
+                 totalPage: Math.ceil(
+                     fetchedResidentTransactions.length / item
+                 ),
+             }
+         })
+     }
+
+     useEffect(() => {
+         const slicedPages: ResidentTransactions[][] = []
+         for (
+             let i = 0;
+             i < fetchedResidentTransactions.length;
+             i += paginate.itemsPerPage
+         ) {
+             slicedPages.push(
+                 fetchedResidentTransactions.slice(i, i + paginate.itemsPerPage)
+             )
+         }
+
+         setPaginate((prev) => {
+             return {
+                 ...prev,
+                 slicedPages,
+             }
+         })
+     }, [fetchedResidentTransactions])
+
+     const handleNext = () => {
+         if (paginate.currentPage === paginate.totalPage) return
+         setPaginate((prev) => {
+             return {
+                 ...prev,
+                 index: prev.index + 1,
+                 currentPage: prev.currentPage + 1,
+             }
+         })
+     }
+
+     const handlePrev = () => {
+         if (paginate.currentPage === 1) return
+         setPaginate((prev) => {
+             return {
+                 ...prev,
+                 index: prev.index - 1,
+                 currentPage: prev.currentPage - 1,
+             }
+         })
+     }
+
+     const jumpToPage = (e: React.MouseEvent, index: number) => {
+         setPaginate((prev) => {
+             return {
+                 ...prev,
+                 index,
+                 currentPage: index + 1,
+             }
+         })
+     }
+
+     const { currentPage, slicedPages, itemsPerPage } = paginate
+
     return (
         <div className='grid text-[1.6rem]'>
             <caption className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
