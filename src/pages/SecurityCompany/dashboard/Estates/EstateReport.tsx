@@ -14,74 +14,28 @@ interface ActivityReport {
 }
 
 interface AttendanceReport {
-    id: string
+    id: number
     guardName: string
+    phoneNumber: string
     date: string
     guardCode: number
-    checkInCount: number
-    checkOutCount: number
-    panicAlert: number
+    clockInCount: number
+    clockOutCount: number
 }
 
 
 
-const ATTENDANCE_REPORT_DATA: AttendanceReport[] = [
-    {
-        id: '1',
-        guardName: 'Jacinta Sage',
-        date: '12/12/2021',
-        guardCode: 1234,
-        checkInCount: 8,
-        checkOutCount: 5,
-        panicAlert: 2,
-    },
-    {
-        id: '1',
-        guardName: 'Jacinta Sage',
-        date: '12/12/2021',
-        guardCode: 1234,
-        checkInCount: 8,
-        checkOutCount: 5,
-        panicAlert: 2,
-    },
-    {
-        id: '1',
-        guardName: 'Jacinta Sage',
-        date: '12/12/2021',
-        guardCode: 1234,
-        checkInCount: 8,
-        checkOutCount: 5,
-        panicAlert: 2,
-    },
-    {
-        id: '1',
-        guardName: 'Jacinta Sage',
-        date: '12/12/2021',
-        guardCode: 1234,
-        checkInCount: 8,
-        checkOutCount: 5,
-        panicAlert: 2,
-    },
-    {
-        id: '1',
-        guardName: 'Jacinta Sage',
-        date: '12/12/2021',
-        guardCode: 1234,
-        checkInCount: 8,
-        checkOutCount: 5,
-        panicAlert: 2,
-    },
-    {
-        id: '1',
-        guardName: 'Jacinta Sage',
-        date: '12/12/2021',
-        guardCode: 1234,
-        checkInCount: 8,
-        checkOutCount: 5,
-        panicAlert: 2,
-    },
-]
 
+
+const ATTENDANCE_REPORT_DATA: AttendanceReport[] = Array.from({length: 20}).map((_, i) => ({
+    id: i,
+    guardName: 'John Doe',
+    date: '12-May-2023',
+    phoneNumber: '+2347024954270',
+    guardCode: Math.floor(Math.random() * 3000 + 1000),
+    clockInCount: Math.floor(Math.random() * 10 + 1),
+    clockOutCount: Math.floor(Math.random() * 10 + 1),
+}))
 const ACTIVITY_REPORT_DATA: ActivityReport[] = Array.from({length: 20}).map((_, i) => ({
     id: i,
     guardName: 'John Doe',
@@ -96,92 +50,133 @@ const ActivityReport: FC<{
     fetchedActivityReport: ActivityReport[]
 }> = ({ fetchedActivityReport }) => {
 
-     const itemsPerPageArr = [2, 4, 6, 8]
+   export interface IAdvertClickrateDecrease {
+       id: number
+       estateName: string
+       location: string
+       noOfResidents: number
+       noOfViews: number
+   }
 
-     const [paginate, setPaginate] = useState<Paginate>({
-         index: 0,
-         currentPage: 1,
-         itemsPerPage: 4,
+      const [
+          fetchedAdvertClickrateDecrease,
+          setFetchedAdvertClickrateDecrease,
+      ] = useState<IAdvertClickrateDecrease[]>([])
 
-         totalPage: Math.ceil(fetchedResidentTransactions.length / 2),
-         slicedPages: null,
-     })
+      useEffect(() => {
+          setTimeout(() => {
+              setFetchedAdvertClickrateDecrease(ADVERT_CLICK_RATE_DECREASE)
+          }, 1000)
+      }, [])
 
-     const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
-         const item = parseInt(e.target.value)
+      interface Paginate {
+          index: number
+          currentPage: number
+          itemsPerPage: number
+          totalPage: number
+          slicedPages: IAdvertClickrateDecrease[][] | null
+      }
 
-         const slicedPages: ResidentTransactions[][] = []
-         for (let i = 0; i < fetchedResidentTransactions.length; i += item) {
-             slicedPages.push(fetchedResidentTransactions.slice(i, i + item))
-         }
+      const itemsPerPageArr = [2, 4, 6, 8]
+      const perPage = 4
 
-         setPaginate((prev) => {
-             return {
-                 ...prev,
-                 itemsPerPage: item,
-                 index: 0,
-                 currentPage: 1,
-                 slicedPages,
-                 totalPage: Math.ceil(
-                     fetchedResidentTransactions.length / item
-                 ),
-             }
-         })
-     }
+      const [paginate, setPaginate] = useState<Paginate>({
+          index: 0,
+          currentPage: 1,
+          itemsPerPage: perPage,
+          totalPage: Math.ceil(fetchedAdvertClickrateDecrease.length / perPage),
+          slicedPages: null,
+      })
 
-     useEffect(() => {
-         const slicedPages: ResidentTransactions[][] = []
-         for (
-             let i = 0;
-             i < fetchedResidentTransactions.length;
-             i += paginate.itemsPerPage
-         ) {
-             slicedPages.push(
-                 fetchedResidentTransactions.slice(i, i + paginate.itemsPerPage)
-             )
-         }
+      const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
+          const item = parseInt(e.target.value)
 
-         setPaginate((prev) => {
-             return {
-                 ...prev,
-                 slicedPages,
-             }
-         })
-     }, [fetchedResidentTransactions])
+          const slicedPages: IAdvertClickrateDecrease[][] = []
+          for (
+              let i = 0;
+              i < fetchedAdvertClickrateDecrease.length;
+              i += item
+          ) {
+              slicedPages.push(
+                  fetchedAdvertClickrateDecrease.slice(i, i + item)
+              )
+          }
 
-     const handleNext = () => {
-         if (paginate.currentPage === paginate.totalPage) return
-         setPaginate((prev) => {
-             return {
-                 ...prev,
-                 index: prev.index + 1,
-                 currentPage: prev.currentPage + 1,
-             }
-         })
-     }
+          setPaginate((prev) => {
+              return {
+                  ...prev,
+                  itemsPerPage: item,
+                  index: 0,
+                  currentPage: 1,
+                  slicedPages,
+                  totalPage: Math.ceil(
+                      fetchedAdvertClickrateDecrease.length / item
+                  ),
+              }
+          })
+      }
 
-     const handlePrev = () => {
-         if (paginate.currentPage === 1) return
-         setPaginate((prev) => {
-             return {
-                 ...prev,
-                 index: prev.index - 1,
-                 currentPage: prev.currentPage - 1,
-             }
-         })
-     }
+      useEffect(() => {
+          const slicedPages: IAdvertClickrateDecrease[][] = []
+          for (
+              let i = 0;
+              i < fetchedAdvertClickrateDecrease.length;
+              i += paginate.itemsPerPage
+          ) {
+              slicedPages.push(
+                  fetchedAdvertClickrateDecrease.slice(
+                      i,
+                      i + paginate.itemsPerPage
+                  )
+              )
+          }
 
-     const jumpToPage = (e: React.MouseEvent, index: number) => {
-         setPaginate((prev) => {
-             return {
-                 ...prev,
-                 index,
-                 currentPage: index + 1,
-             }
-         })
-     }
+          setPaginate((prev) => {
+              return {
+                  ...prev,
+                  slicedPages,
+                  totalPage: Math.ceil(
+                      fetchedAdvertClickrateDecrease.length /
+                          paginate.itemsPerPage
+                  ),
+              }
+          })
+      }, [fetchedAdvertClickrateDecrease])
 
-     const { currentPage, slicedPages, itemsPerPage } = paginate
+      const handleNext = () => {
+          console.log(paginate.currentPage, paginate.totalPage)
+          if (paginate.currentPage === paginate.totalPage) return
+          setPaginate((prev) => {
+              return {
+                  ...prev,
+                  index: prev.index + 1,
+                  currentPage: prev.currentPage + 1,
+              }
+          })
+      }
+
+      const handlePrev = () => {
+          if (paginate.currentPage === 1) return
+          setPaginate((prev) => {
+              return {
+                  ...prev,
+                  index: prev.index - 1,
+                  currentPage: prev.currentPage - 1,
+              }
+          })
+      }
+
+      const { currentPage, slicedPages, itemsPerPage } = paginate
+
+      const jumpToPage = (e: React.MouseEvent, index: number) => {
+          setPaginate((prev) => {
+              return {
+                  ...prev,
+                  index,
+                  currentPage: index + 1,
+              }
+          })
+      }
 
     return (
         <div className='grid text-[1.6rem]'>
