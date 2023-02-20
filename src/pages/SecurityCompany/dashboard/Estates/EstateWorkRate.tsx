@@ -1,4 +1,4 @@
-import OverviewChart from '../../../../components/SuperAdmin/charts/OverviewChart'
+import OverviewChart, { EstateChart } from '../../../../components/SuperAdmin/charts/OverviewChart'
 import WalletBarChart from '../../../../components/SuperAdmin/charts/WalletBarChart'
 
 const EstateWorkRate = () => {
@@ -9,7 +9,7 @@ const EstateWorkRate = () => {
                 <WalletBarChart />
 
                 <div className='overviewChart__box'>
-                    <OverviewChart />
+                    <EstateChart/>
 
                     <div className='overviewChart__label'>
                         <p className='text-[3.4rem] font-bold relative'>

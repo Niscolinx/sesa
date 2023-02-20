@@ -12,7 +12,7 @@ export const estateChart_data = [
    
 ]
 
-export const estateChart_colors = ['#08d231', '#23C375', '#098DFF', '#404243']
+export const estateChart_colors = ['#08d231', '#f7e541']
 
 export const EstateChart = () => {
 
