@@ -5,7 +5,7 @@ import { GrUp, GrDown } from 'react-icons/gr'
 import { HiArrowSmUp, HiArrowSmDown } from 'react-icons/hi'
 import { useNavigate } from 'react-router'
 import { toast, ToastContainer } from 'react-toastify'
-import { Trend } from '../../pages/dashboard/Wallet/EstateWallet'
+import { Trend } from '../../../pages/SuperAdmin/dashboard/Wallet/EstateWallet'
 import ClickRateChart from '../charts/ClickRateChart'
 
 const link = 'https://sesadigital.com/thelink_copyhere'
