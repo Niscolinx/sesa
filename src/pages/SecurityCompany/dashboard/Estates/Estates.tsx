@@ -58,14 +58,15 @@ export const FIRST_LIST: List[] = Array.from({ length: 20 }, (_, i) => ({
     price: Math.floor(Math.random() * 100 + 20),
 }))
 
-console.log({ FIRST_LIST })
 
-// const SECOND_LIST: List[] = new Array(20).fill(0).map((_, i) => ({
-//     id: i + 1,
-//     estateName: `Estate ${i + 1}`,
-//     address: 'No 1, Ogunlana Drive, Surulere, Lagos',
-//     noOfSecurityGuards: 10,
-// }))
+const SECOND_LIST: List[] = new Array(20).fill(0).map((_, i) => ({
+    id: i + 1,
+    item: listKey[Math.floor(Math.random() * listKey.length)],
+    quantity: Math.floor(Math.random() * 10 + 1),
+    price: Math.floor(Math.random() * 100 + 20),
+}))
+
+
 
 function Estate() {
     const navigate = useNavigate()
