@@ -441,9 +441,9 @@ const ViewSecurityGuard = () => {
                                         },
                                     ]}
                                     placeholder='Gwarimpa Estate'
-                                    selectedState={selectedState}
+                                    selectedState={selectedEstate1}
                                     isSearchable={true}
-                                    setSelectedState={setSelectedState}
+                                    setSelectedState={setSelectedEstate1}
                                 />
                             </div>
 
@@ -464,12 +464,20 @@ const ViewSecurityGuard = () => {
                                 </p>
                             </div>
                             <div>
-                                <Select
-                                    state={['Lagos', 'Imo', 'Abia', 'FCT']}
-                                    placeholder='Se'
-                                    selectedState={selectedState}
+                                <ComplexSelect
+                                    state={[
+                                        { name: 'Gwarimpa Estate', No: 3 },
+                                        { name: 'Ibara Estate', No: 12 },
+                                        { name: 'Peace estate', No: 1 },
+                                        {
+                                            name: 'Iba Estate',
+                                            No: 2,
+                                        },
+                                    ]}
+                                    placeholder='Iba Estate'
+                                    selectedState={selectedEstate2}
                                     isSearchable={true}
-                                    setSelectedState={setSelectedState}
+                                    setSelectedState={setSelectedEstate3}
                                 />
                             </div>
 
@@ -490,12 +498,20 @@ const ViewSecurityGuard = () => {
                                 </p>
                             </div>
                             <div>
-                                <Select
-                                    state={['Lagos', 'Imo', 'Abia', 'FCT']}
-                                    placeholder='Select State'
-                                    selectedState={selectedState}
+                                <ComplexSelect
+                                    state={[
+                                        { name: 'Gwarimpa Estate', No: 3 },
+                                        { name: 'Ibara Estate', No: 12 },
+                                        { name: 'Peace estate', No: 1 },
+                                        {
+                                            name: 'Iba Estate',
+                                            No: 2,
+                                        },
+                                    ]}
+                                    placeholder='Peace Estate'
+                                    selectedState={selectedEstate3}
                                     isSearchable={true}
-                                    setSelectedState={setSelectedState}
+                                    setSelectedState={setSelectedEstate3}
                                 />
                             </div>
 
@@ -516,12 +532,20 @@ const ViewSecurityGuard = () => {
                                 </p>
                             </div>
                             <div>
-                                <Select
-                                    state={['Lagos', 'Imo', 'Abia', 'FCT']}
-                                    placeholder='Select State'
-                                    selectedState={selectedState}
+                                <ComplexSelect
+                                    state={[
+                                        { name: 'Gwarimpa Estate', No: 3 },
+                                        { name: 'Ibara Estate', No: 12 },
+                                        { name: 'Peace estate', No: 1 },
+                                        {
+                                            name: 'Ibara Estate',
+                                            No: 2,
+                                        },
+                                    ]}
+                                    placeholder='Gwarimpa Estate'
+                                    selectedState={selectedEstate4}
                                     isSearchable={true}
-                                    setSelectedState={setSelectedState}
+                                    setSelectedState={setSelectedEstate4}
                                 />
                             </div>
 
