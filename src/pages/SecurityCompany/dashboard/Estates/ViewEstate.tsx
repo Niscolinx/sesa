@@ -189,65 +189,21 @@ function ViewEstate() {
                                     Estate&nbsp;Name
                                 </p>
                                 <p className='font-[1.6rem] whitespace-nowrap'>
-                                    Iba Housing
+                                    Iba Housing Estate
                                 </p>
                             </div>
                             <div>
                                 <p className='text-[#043FA7]'>
-                                    Security Company
+                                    Number of Security Guards
                                 </p>
-                                <p>{securityCompany}</p>
+                                <p>21</p>
                             </div>
                             <div>
                                 <p className='text-[#043FA7]'>Status</p>
-                                <p className='text-[#1D9F5F]'>{status}</p>
+                                <p className='text-[#1D9F5F]'>Active</p>
                             </div>
                         </td>
-                        <td>
-                            <div>
-                                <p className='text-[#043FA7]'>Estate Balance</p>
-                                <p className='flex items-center'>
-                                    <TbCurrencyNaira className='text-[2rem]' />
-                                    {estateBalance}
-                                </p>
-                            </div>
-                            <div>
-                                <p className='text-[#043FA7]'>
-                                    No of Residents
-                                </p>
-                                <p>{NoOfResidents}</p>
-                            </div>
-                            <div>
-                                <p className='text-[#043FA7]'>
-                                    Sign Out Required
-                                </p>
-                                <p>{signOutRequired ? 'Yes' : 'No'}</p>
-                            </div>
-                        </td>
-                        <td className=' grid content-start'>
-                            <div>
-                                <p className='text-[#043FA7]'>Estate Manager</p>
-                                <p>{estateManager}</p>
-                            </div>
-                            <div className=' mt-10'>
-                                <p className='text-[#043FA7]'>
-                                    {' '}
-                                    No of Households
-                                </p>
-                                <p>{NoOfHouseholds}</p>
-                            </div>
-                        </td>
-
-                        <td
-                            className='flex items-start content-start mr-4'
-                            style={{
-                                width: '1rem',
-                            }}
-                        >
-                            <button>
-                                <HiOutlineDotsVertical className='text-[2rem]' />
-                            </button>
-                        </td>
+                        
                     </tr>
                 </div>
                 <section className='bg-white rounded-lg p-8 grid h-[28rem] text-[1.4rem]'>
