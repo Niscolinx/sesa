@@ -84,9 +84,9 @@ const ACTIVITY_REPORT_DATA: ActivityReport[] = Array.from({length: 20}).map((_, 
     id: i,
     guardName: 'John Doe',
     date: '12-May-2023',
-    guardCode: Math.random() * 3000 + 1000,
-    clockInCount: Math.random() * 10 + 1,
-    clockOutCount: Math.random() * 10 + 1,
+    guardCode: Math.floor(Math.random() * 3000 + 1000),
+    clockInCount: Math.floor(Math.random() * 10 + 1),
+    clockOutCount: Math.floor(Math.random() * 10 + 1),
 }))
 
 
