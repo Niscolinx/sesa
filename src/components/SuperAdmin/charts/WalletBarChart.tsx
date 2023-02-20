@@ -31,6 +31,33 @@ const data = [
     },
 ]
 
+export const EstateBarChart = () => {
+    return (
+        <BarChart
+            width={600}
+            height={300}
+            data={data}
+            margin={{
+                top: 5,
+                right: 30,
+                left: 20,
+                bottom: 5,
+            }}
+        >
+            <XAxis dataKey='name' tickMargin={20}  
+             />
+            <YAxis
+                tickCount={7}
+                tickFormatter={(tick) => {
+                    return '₦' + tick
+                }}
+            />
+            <Tooltip />
+
+            <Bar dataKey='pv' fill='#08D231' barSize={40} />
+        </BarChart>
+    )
+}
 export default function WalletBarChart() {
     return (
         <BarChart

@@ -1,14 +1,14 @@
-import OverviewChart, {
+import  {
     EstateChart,
 } from '../../../../components/SuperAdmin/charts/OverviewChart'
-import WalletBarChart from '../../../../components/SuperAdmin/charts/WalletBarChart'
+import { EstateBarChart } from '../../../../components/SuperAdmin/charts/WalletBarChart'
 
 const EstateWorkRate = () => {
     return (
         <div>
             <h1 className='heading2'>Estate Work Rate</h1>
             <div className='mt-8 grid gap-8 bg-white p-8 rounded-lg'>
-                <WalletBarChart />
+                <EstateBarChart />
                 <div>
                     <section className='overviewChart__box'>
                         <EstateChart />
