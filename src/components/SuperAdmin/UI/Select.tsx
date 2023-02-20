@@ -8,11 +8,8 @@ type Complex = {
     No: number
 }
 
-interface ComplexSelect extends ISelect {
-    complex: boolean
-    complexData: Array<Complex>
-    setComplexData: React.Dispatch<React.SetStateAction<Complex[]>>
-}
+
+
 
 interface ISelect {
     state: Array<string>
@@ -22,6 +19,12 @@ interface ISelect {
     placeholder?: string
     isSearchable?: boolean
     
+}
+
+interface ComplexSelect extends Omit<ISelect, 'state' | 'setSelectedState'> {
+    complex?: boolean
+    state: Array<Complex>
+    setSelectedState: React.Dispatch<React.SetStateAction<Complex[]>>
 }
 
 interface IMultipleSelect {
@@ -192,7 +195,7 @@ export const ComplexSelect: FC<ComplexSelect> = ({
                                 alt=''
                                 className='absolute left-4'
                             />
-                            {complex ? (
+                           
                                 <input
                                     type='text'
                                     placeholder='Search Parameters'
@@ -200,24 +203,17 @@ export const ComplexSelect: FC<ComplexSelect> = ({
                                     onChange={handleSearch}
                                     className='pl-16 w-[25rem] rounded-lg border border-color-blue-light py-4 px-8 outline-none appearance-none'
                                 />
-                            ) : (
-                                <input
-                                    type='text'
-                                    placeholder='Search Parameters'
-                                    value={search}
-                                    onChange={handleSearch}
-                                    className='pl-16 w-[25rem] rounded-lg border border-color-blue-light py-4 px-8 outline-none appearance-none'
-                                />
-                            )}
+                            
                         </div>
                     )}
                     {selectFrom.map((item, index) => (
                         <p
-                            className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
+                            className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer flex justify-between'
                             key={index}
-                            onClick={() => handleSelectedState(item)}
+                            onClick={() => handleSelectedState(item.name)}
                         >
-                            {item}
+                            <span>{item.name}</span>
+                            <span>{item.No}</span>
                         </p>
                     ))}
                 </div>
