@@ -7,12 +7,10 @@ import OverviewCard from '../../../../components/SuperAdmin/overview/OverviewCar
 interface ActivityReport {
     id: string
     guardName: string
-    phoneNumber: string
     date: string
     guardCode: number
-    clockIn: number
-    clockOut: number
-    imgUri?: string
+    clockInCount: number
+    clockOutCount: number
 }
 
 interface AttendanceReport {
@@ -81,6 +79,8 @@ const ATTENDANCE_REPORT_DATA: AttendanceReport[] = [
         panicAlert: 2,
     },
 ]
+
+
 
 const ACTIVITY_REPORT_DATA: ActivityReport[] = [
     {
@@ -529,33 +529,37 @@ function EstateReport() {
                 <label htmlFor='attendanceReport'>Attendance Report</label>
             </div>
             <div className='mt-8 grid gap-8'>
-                <section className='bg-white rounded-lg p-8 grid h-[28rem] text-[1.4rem]'>
-                    <div className='flex w-full justify-between'>
-                        <p className='font-medium text-[2rem]'>
-                            Security Report
-                        </p>
-                        <p className='text-[#666869]'>
-                            Showing current Day:{' '}
-                            <span className='text-black'>{dateString}</span>
-                        </p>
-                    </div>
-                    <div className='overview flex gap-8'>
-                        <OverviewCard
-                            title='Total number of Guards'
-                            number={14}
-                            iconUrl='/icons/admins/people.svg'
-                            bgColor='bg-[#F5F9FA]'
-                            textColor='text-[#00C2FF]'
-                        />
-                        <OverviewCard
-                            title='Guards on Duty'
-                            number={40}
-                            iconUrl='/icons/admins/housePeople.svg'
-                            bgColor='bg-[#FCF3FA]'
-                            textColor='text-[#B6008E]'
-                        />
-                    </div>
-                </section>
+                {currentPage === 2 && (
+                    <section className='bg-white rounded-lg p-8 grid h-[28rem] text-[1.4rem]'>
+                        <div className='flex w-full justify-between'>
+                            <p className='font-medium text-[2rem]'>
+                                Security Report
+                            </p>
+                            <p className='text-[#666869]'>
+                                Showing current Day:{' '}
+                                <span className='text-black'>{dateString}</span>
+                            </p>
+                        </div>
+                        <div className='overview flex gap-8'>
+                            <OverviewCard
+                                title='Total Estates'
+                                number={18_000}
+                                iconUrl='/icons/securityCompany/totalEstates.svg'
+                                percent={5}
+                                arrow='/icons/securityCompany/arrowUp.svg'
+                                bgColor='bg-[#DDFCDC]'
+                                textColor='text-[#1A8F56]'
+                            />
+                            <OverviewCard
+                                title='Guards on Duty'
+                                number={40}
+                                iconUrl='/icons/admins/housePeople.svg'
+                                bgColor='bg-[#FCF3FA]'
+                                textColor='text-[#B6008E]'
+                            />
+                        </div>
+                    </section>
+                )}
                 <section className='bg-color-white rounded-lg border min-w-[112rem] overflow-scroll'>
                     {fetchedActivityReport && handlePathSwitch(currentPage)}
                 </section>
