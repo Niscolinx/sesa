@@ -54,18 +54,18 @@ const ViewSecurityGuard = () => {
         }
     }
 
-    const handleDeleteArtisan = () => {
+    const handleDeleteSecurityGuard = () => {
         handleClose()
 
-        toast('Artisan deleted successfully', {
+        toast('SecurityGuard deleted successfully', {
             type: 'error',
             className: 'bg-red-100 text-red-600 text-[1.4rem]',
         })
     }
-    const handleDeactivateArtisan = () => {
+    const handleDeactivateSecurityGuard = () => {
         handleClose()
 
-        toast('Artisan deactivated successfully', {
+        toast('SecurityGuard deactivated successfully', {
             type: 'error',
             className: 'bg-red-100 text-red-600 text-[1.4rem]',
         })
@@ -86,7 +86,7 @@ const ViewSecurityGuard = () => {
                                 />
                                 <p className='text-[1.6rem]'>
                                     Are you sure you want to deactivate this
-                                    Artisan
+                                    SecurityGuard
                                 </p>
 
                                 <div className='flex w-full justify-center gap-8'>
@@ -98,7 +98,7 @@ const ViewSecurityGuard = () => {
                                     </button>
                                     <button
                                         className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
-                                        onClick={handleDeactivateArtisan}
+                                        onClick={handleDeactivateSecurityGuard}
                                     >
                                         Deactivate
                                     </button>
@@ -111,7 +111,7 @@ const ViewSecurityGuard = () => {
                                     alt=''
                                 />
                                 <p className='text-[1.6rem]'>
-                                    Are you sure you want to delete this Artisan
+                                    Are you sure you want to delete this SecurityGuard
                                 </p>
 
                                 <div className='flex w-full justify-center gap-8'>
@@ -123,7 +123,7 @@ const ViewSecurityGuard = () => {
                                     </button>
                                     <button
                                         className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
-                                        onClick={handleDeleteArtisan}
+                                        onClick={handleDeleteSecurityGuard}
                                     >
                                         Delete
                                     </button>
@@ -205,15 +205,15 @@ const ViewSecurityGuard = () => {
                         </div>
                         <div className='grid gap-4 relative '>
                             <label
-                                htmlFor='artisanCode'
+                                htmlFor='SecurityGuardCode'
                                 className='text-[1.4rem] font-medium'
                             >
-                                Artisan Code
+                                SecurityGuard Code
                             </label>
                             <input
                                 type='text'
                                 required
-                                id='artisanCode'
+                                id='SecurityGuardCode'
                                 className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                             />
                         </div>
@@ -306,15 +306,15 @@ const ViewSecurityGuard = () => {
                         </div>
                         <div className='grid gap-4 relative'>
                             <label
-                                htmlFor='artisanGroup'
+                                htmlFor='SecurityGuardGroup'
                                 className='text-[1.4rem] font-medium'
                             >
-                                Artisan Group
+                                SecurityGuard Group
                             </label>
                             <input
                                 type='text'
                                 required
-                                id='artisanGroup'
+                                id='SecurityGuardGroup'
                                 className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                             />
                         </div>
@@ -589,7 +589,7 @@ const ViewSecurityGuard = () => {
                             fontFamily: 'Satoshi-Medium',
                         }}
                     >
-                        Know Your Artisan (KYA)
+                        Know Your SecurityGuard (KYA)
                     </h3>
                     <div className='bg-white rounded-2xl grid items-baseline  p-10 text-[1.6rem] relative gap-20'>
                         <div className='relative h-[14rem] bg-blue-600 w-full mt-10 rounded-lg'>

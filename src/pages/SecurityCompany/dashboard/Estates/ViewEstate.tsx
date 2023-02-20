@@ -159,8 +159,7 @@ function ViewEstate() {
     }
 
     const detailsHandler = (id: number) => {
-        // navigate(`/superAdmin/platformSettings/SOSDetails/${id}`)
-        alert('navigate' + id)
+         navigate(`/securityCompany/estates/securityGuard/${id}`)
     }
 
     const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
