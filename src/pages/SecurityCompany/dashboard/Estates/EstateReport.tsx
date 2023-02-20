@@ -46,11 +46,7 @@ const ACTIVITY_REPORT_DATA: ActivityReport[] = Array.from({length: 20}).map((_, 
 }))
 
 
-const ActivityReport: FC<{
-    fetchedActivityReport: ActivityReport[]
-}> = ({ fetchedActivityReport }) => {
-
-  
+const ActivityReport = () => {
 
       const [
           fetchedActivityReportData,
