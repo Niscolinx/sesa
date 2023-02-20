@@ -42,7 +42,7 @@ export const HOUSEHOLD_LIST: Overview[] = [
     },
 ]
 
-const listKey = ['Sugar', 'Milk', 'Bread', 'Eggs', 'Milk', 'Butter']
+const listKey = ['Sugar', 'Milk', 'Bread', 'Eggs', 'Milk', 'Butter'] as const
 
 interface List {
     id: number
@@ -51,7 +51,7 @@ interface List {
     price: number
 }
 
-export const FIRST_LIST: List[] = Array.from({ length: 20 }, (_, i) => ({
+ const FIRST_LIST: List[] = Array.from({ length: 20 }, (_, i) => ({
     id: i + 1,
     item: listKey[Math.floor(Math.random() * listKey.length)],
     quantity: Math.floor(Math.random() * 10 + 1),
