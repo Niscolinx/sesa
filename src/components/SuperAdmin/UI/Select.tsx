@@ -2,13 +2,20 @@ import React, { ChangeEvent, FC, useState, useMemo } from 'react'
 import { GrUp, GrDown } from 'react-icons/gr'
 import { IoMdClose } from 'react-icons/io'
 
+
+type Complex = {
+    name: string,
+    No: number
+}
+
 interface ISelect {
-    state: Array<string>
+    state: Array<string | Complex>
     selectedState: string | null
     setSelectedState: React.Dispatch<React.SetStateAction<string | null>>
     label?: string
     placeholder?: string
     isSearchable?: boolean
+    complex?: boolean
 }
 
 interface IMultipleSelect {
@@ -17,7 +24,6 @@ interface IMultipleSelect {
     setSelected: React.Dispatch<React.SetStateAction<string[]>>
     label: string
     placeholder?: string
-    complex?: boolean
 }
 
 export const Select: FC<ISelect> = ({
