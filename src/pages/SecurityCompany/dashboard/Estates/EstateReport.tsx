@@ -480,9 +480,7 @@ const AttendanceReport: FC<{
 }
 
 function EstateReport() {
-    const [fetchedActivityReport, setFetchedActivityReport] = useState<
-        ActivityReport[] | null
-    >(null)
+  
     const [fetchedAttendanceReport, setFetchedAttendanceReport] = useState<
         AttendanceReport[] | null
     >(null)
@@ -492,7 +490,6 @@ function EstateReport() {
     useEffect(() => {
         const fetchData = async () => {
             setTimeout(() => {
-                setFetchedActivityReport(ACTIVITY_REPORT_DATA)
                 setFetchedAttendanceReport(ATTENDANCE_REPORT_DATA)
             }, 1000)
         }
@@ -515,9 +512,8 @@ function EstateReport() {
         switch (pageNum) {
             case 1:
                 return (
-                    <ActivityReport
-                        fetchedActivityReport={fetchedActivityReport ?? []}
-                    />
+                    <ActivityReport/>
+                     
                 )
             case 2:
                 return (
@@ -528,8 +524,7 @@ function EstateReport() {
             default:
                 return (
                     <ActivityReport
-                        fetchedActivityReport={fetchedActivityReport ?? []}
-                    />
+                       />
                 )
         }
     }
@@ -590,7 +585,7 @@ function EstateReport() {
                     </section>
                 )}
                 <section className='bg-color-white rounded-lg border min-w-[112rem] overflow-scroll'>
-                    {fetchedActivityReport && handlePathSwitch(currentPage)}
+                    {handlePathSwitch(currentPage)}
                 </section>
             </div>
         </div>
