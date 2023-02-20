@@ -51,6 +51,8 @@ interface List {
     price: number
 }
 
+
+//This will create an array of 20 objects with random values using Array.from()
  const FIRST_LIST: List[] = Array.from({ length: 20 }, (_, i) => ({
     id: i + 1,
     item: listKey[Math.floor(Math.random() * listKey.length)],
@@ -58,7 +60,7 @@ interface List {
     price: Math.floor(Math.random() * 100 + 20),
 }))
 
-
+//This will create an array of 20 objects with random values using new Array.fill()
 const SECOND_LIST: List[] = new Array(20).fill(0).map((_, i) => ({
     id: i + 1,
     item: listKey[Math.floor(Math.random() * listKey.length)],
