@@ -177,7 +177,7 @@ function ViewEstate() {
         <div className='estateDetail'>
             <h1 className='heading2'>Estates</h1>
             <div className='mt-8 grid gap-8'>
-                <section className='w-full flex'>
+                <section className='w-full flex bg-white p-8 rounded-lg gap-16 relative'>
                     <div>
                         <img
                             src={'/img/img3.png'}
@@ -186,7 +186,7 @@ function ViewEstate() {
                         />
                     </div>
 
-                    <div>
+                    <div className='grid'>
                         <div>
                             <p className='text-[1.4rem] text-[#043FA7]'>
                                 Estate&nbsp;Name
@@ -205,6 +205,14 @@ function ViewEstate() {
                             <p className='text-[#043FA7]'>Status</p>
                             <p className='text-[#1D9F5F]'>Active</p>
                         </div>
+                    </div>
+                    <div className='flex justify-end absolute right-0 bottom-0 p-8'>
+                        <Link
+                            to={`/dashboard/estates/detail/:4`}
+                            className='text-[#0660FE] text-[1.4rem]'
+                        >
+                            View Work Rate
+                        </Link>
                     </div>
                 </section>
                 <section className='bg-white rounded-lg p-8 grid h-[28rem] text-[1.4rem]'>
