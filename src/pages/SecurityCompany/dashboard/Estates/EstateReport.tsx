@@ -509,9 +509,10 @@ const AttendanceReport = () => {
                                     guardCode,
                                     guardName,
                                     date,
-                                    checkInCount,
-                                    checkOutCount,
-                                    panicAlert,
+                                    clockInCount,
+                                    clockOutCount,
+                                    phoneNumber
+                                
                                 }) => {
                                     return (
                                         <div className='grid justify-between border-b grid-cols-6 gap-8 '>
@@ -525,9 +526,10 @@ const AttendanceReport = () => {
                                             </p>
                                             <p>{date}</p>
                                             <p>{guardCode}</p>
-                                            <p>{checkInCount}</p>
-                                            <p>{checkOutCount}</p>
-                                            <p>{panicAlert}</p>
+                                            <p>{phoneNumber}</p>
+                                            <p>{clockInCount}</p>
+                                            <p>{clockOutCount}</p>
+                                          
                                         </div>
                                     )
                                 }
