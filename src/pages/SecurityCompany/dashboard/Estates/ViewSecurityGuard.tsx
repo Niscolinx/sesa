@@ -208,7 +208,7 @@ const ViewSecurityGuard = () => {
                                 htmlFor='SecurityGuardCode'
                                 className='text-[1.4rem] font-medium'
                             >
-                                SecurityGuard Code
+                                Security Guard Code
                             </label>
                             <input
                                 type='text'
@@ -290,34 +290,8 @@ const ViewSecurityGuard = () => {
                                 className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                             />
                         </div>
-                        <div className='grid gap-4 relative'>
-                            <label
-                                htmlFor='businessName'
-                                className='text-[1.4rem] font-medium'
-                            >
-                                Business Name
-                            </label>
-                            <input
-                                type='text'
-                                required
-                                id='businessName'
-                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                            />
-                        </div>
-                        <div className='grid gap-4 relative'>
-                            <label
-                                htmlFor='SecurityGuardGroup'
-                                className='text-[1.4rem] font-medium'
-                            >
-                                SecurityGuard Group
-                            </label>
-                            <input
-                                type='text'
-                                required
-                                id='SecurityGuardGroup'
-                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                            />
-                        </div>
+                        
+                    
 
                         <div className='grid gap-4 relative'>
                             <label
