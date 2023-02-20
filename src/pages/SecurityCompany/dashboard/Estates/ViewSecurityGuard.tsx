@@ -8,7 +8,7 @@ type Actions = 'Deactivate' | 'Delete'
 
 const ViewSecurityGuard = () => {
     const [selectedGender, setSelectedGender] = useState<string | null>(null)
-        const [selectedState, setSelectedState] = useState<string | null>(null)
+    const [selectedState, setSelectedState] = useState<string | null>(null)
 
     const [dialogType, setDialogType] = useState<Actions>('Deactivate')
 
@@ -377,7 +377,7 @@ const ViewSecurityGuard = () => {
                         Assigned Estate Details
                     </h2>
 
-                    <div className='flex items-center justify-between'>
+                    <div className=' items-center grid grid-cols-3'>
                         <div>
                             <p className='text-[1.4rem] font-medium'>
                                 Primary Assigned Estate
@@ -386,19 +386,17 @@ const ViewSecurityGuard = () => {
                                 Last Assigned on: 12-May-2023
                             </p>
                         </div>
-                        <Select
-                            label='State'
-                            state={['Lagos', 'Imo', 'Abia', 'FCT']}
-                            placeholder='Select State'
-                            selectedState={selectedState}
-                            isSearchable={true}
-                            setSelectedState={setSelectedState}
-                        />
+                        <div>
+                            <Select
+                                state={['Lagos', 'Imo', 'Abia', 'FCT']}
+                                placeholder='Select State'
+                                selectedState={selectedState}
+                                isSearchable={true}
+                                setSelectedState={setSelectedState}
+                            />
+                        </div>
 
-                        <button
-                            className='btn text-color-blue-1 '
-                        >
-                            
+                        <button className='btn text-color-blue-1 '>
                             Reassign
                         </button>
                     </div>

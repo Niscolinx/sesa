@@ -6,7 +6,7 @@ interface ISelect {
     state: Array<string>
     selectedState: string | null
     setSelectedState: React.Dispatch<React.SetStateAction<string | null>>
-    label: string
+    label?: string
     placeholder?: string
     isSearchable?: boolean
 }
