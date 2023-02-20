@@ -438,6 +438,7 @@ const ViewSecurityGuard = () => {
                                         },
                                     ]}
                                     placeholder='Gwarimpa Estate'
+                                    complex={true}
                                     selectedState={selectedState}
                                     isSearchable={true}
                                     setSelectedState={setSelectedState}

@@ -17,6 +17,7 @@ interface IMultipleSelect {
     setSelected: React.Dispatch<React.SetStateAction<string[]>>
     label: string
     placeholder?: string
+    complex?: boolean
 }
 
 export const Select: FC<ISelect> = ({
@@ -24,6 +25,7 @@ export const Select: FC<ISelect> = ({
     selectedState,
     setSelectedState,
     label,
+    complex = false,
     placeholder,
     isSearchable = false,
 }) => {
