@@ -14,21 +14,20 @@ const Login = () => {
 
     const handleLogin = (e: FormEvent) => {
         e.preventDefault()
-        const {email, password} = inputs
 
-        if(email === 'superAdmin@sesa.com'){
+        const { email, password } = inputs
+
+        if (email === 'superAdmin@sesa.com') {
             navigate('/superAdmin')
         }
-        if(email === 'securityCompany@sesa.com'){
+        
+        if (email === 'securityCompany@sesa.com') {
             navigate('/securityCompany')
         }
-
-    
     }
 
-
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-            setInputs((prev) => ({
+        setInputs((prev) => ({
             ...prev,
             [e.target.name]: e.target.value,
         }))

@@ -15,32 +15,40 @@ export interface Overview {
     noOfSecurityGuards: number
 }
 
-export const HOUSEHOLD_LIST: Overview[] = [
-    {
-        id: 1,
-        estateName: 'Estate 1',
-        address: 'No 1, Ogunlana Drive, Surulere, Lagos',
-        noOfSecurityGuards: 10,
-    },
-    {
-        id: 2,
-        estateName: 'Estate 2',
-        address: 'No 1, Ogunlana Drive, Surulere, Lagos',
-        noOfSecurityGuards: 10,
-    },
-    {
-        id: 3,
-        estateName: 'Estate 3',
-        address: 'No 1, Ogunlana Drive, Surulere, Lagos',
-        noOfSecurityGuards: 10,
-    },
-    {
-        id: 4,
-        estateName: 'Estate 4',
-        address: 'No 1, Ogunlana Drive, Surulere, Lagos',
-        noOfSecurityGuards: 10,
-    },
-]
+// export const HOUSEHOLD_LIST: Overview[] = [
+//     {
+//         id: 1,
+//         estateName: 'Estate 1',
+//         address: 'No 1, Ogunlana Drive, Surulere, Lagos',
+//         noOfSecurityGuards: 10,
+//     },
+//     {
+//         id: 2,
+//         estateName: 'Estate 2',
+//         address: 'No 1, Ogunlana Drive, Surulere, Lagos',
+//         noOfSecurityGuards: 10,
+//     },
+//     {
+//         id: 3,
+//         estateName: 'Estate 3',
+//         address: 'No 1, Ogunlana Drive, Surulere, Lagos',
+//         noOfSecurityGuards: 10,
+//     },
+//     {
+//         id: 4,
+//         estateName: 'Estate 4',
+//         address: 'No 1, Ogunlana Drive, Surulere, Lagos',
+//         noOfSecurityGuards: 10,
+//     },
+// ]
+
+export const HOUSEHOLD_LIST: Overview[] = Array.from({ length: 20 }, (_, i) => ({
+    id: i + 1,
+    estateName: `Estate ${i + 1}`,
+    address: 'No 1, Ogunlana Drive, Surulere, Lagos',
+    noOfSecurityGuards: 10,
+}))
+
 
 function Estate() {
     const navigate = useNavigate()
