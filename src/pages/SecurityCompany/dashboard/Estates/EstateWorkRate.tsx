@@ -23,8 +23,8 @@ const EstateWorkRate = () => {
                         </div>
                     </section>
                     <div>
-                        <section>
-                            <div>
+                        <section className='flex items-center justify-between'>
+                            <div className='flex items-center gap-2'>
                                 <span className='bg-[#08d231] rounded-full w-[1rem] h-[1rem] flex'>
                                     {' '}
                                 </span>{' '}
@@ -32,8 +32,8 @@ const EstateWorkRate = () => {
                             </div>
                             <p>20,000</p>
                         </section>
-                        <section>
-                            <div>
+                        <section className='flex items-center justify-between'>
+                            <div className='flex items-center gap-2'>
                                 <span className='bg-[#f7e541] rounded-full w-[1rem] h-[1rem] flex'>
                                     {' '}
                                 </span>{' '}
