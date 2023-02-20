@@ -416,32 +416,119 @@ const ViewSecurityGuard = () => {
                     >
                         Assigned Estate Details
                     </h2>
+                    <div className='grid gap-4'>
+                        <div className=' items-center grid grid-cols-3'>
+                            <div>
+                                <p className='text-[1.4rem] font-medium'>
+                                    Primary Assigned Estate
+                                </p>
+                                <p className='text-[1.4rem] font-light'>
+                                    Last Assigned on: 12-May-2023
+                                </p>
+                            </div>
+                            <div>
+                                <Select
+                                    state={[
+                                        { name: 'Gwarimpa Estate', No: 3 },
+                                        { name: 'Ibara Estate', No: 12 },
+                                        { name: 'Peace estate', No: 1 },
+                                        {
+                                            name: 'Iba Estate',
+                                            No: 2,
+                                        },
+                                    ]}
+                                    placeholder='Gwarimpa Estate'
+                                    selectedState={selectedState}
+                                    isSearchable={true}
+                                    setSelectedState={setSelectedState}
+                                />
+                            </div>
 
-                    <div className=' items-center grid grid-cols-3'>
-                        <div>
-                            <p className='text-[1.4rem] font-medium'>
-                                Primary Assigned Estate
-                            </p>
-                            <p className='text-[1.4rem] font-light'>
-                                Last Assigned on: 12-May-2023
-                            </p>
+                            <button
+                                className='btn text-color-blue-1 '
+                                onClick={() => handleSelectedAction('ReAssign')}
+                            >
+                                Reassign
+                            </button>
                         </div>
-                        <div>
-                            <Select
-                                state={['Lagos', 'Imo', 'Abia', 'FCT']}
-                                placeholder='Select State'
-                                selectedState={selectedState}
-                                isSearchable={true}
-                                setSelectedState={setSelectedState}
-                            />
-                        </div>
+                        <div className=' items-center grid grid-cols-3'>
+                            <div>
+                                <p className='text-[1.4rem] font-medium'>
+                                    Secondary Assigned Estate
+                                </p>
+                                <p className='text-[1.4rem] font-light'>
+                                    Last Assigned on: 12-May-2023
+                                </p>
+                            </div>
+                            <div>
+                                <Select
+                                    state={['Lagos', 'Imo', 'Abia', 'FCT']}
+                                    placeholder='Se'
+                                    selectedState={selectedState}
+                                    isSearchable={true}
+                                    setSelectedState={setSelectedState}
+                                />
+                            </div>
 
-                        <button
-                            className='btn text-color-blue-1 '
-                            onClick={() => handleSelectedAction('ReAssign')}
-                        >
-                            Reassign
-                        </button>
+                            <button
+                                className='btn text-color-blue-1 '
+                                onClick={() => handleSelectedAction('ReAssign')}
+                            >
+                                Reassign
+                            </button>
+                        </div>
+                        <div className=' items-center grid grid-cols-3'>
+                            <div>
+                                <p className='text-[1.4rem] font-medium'>
+                                    Primary Assigned Estate
+                                </p>
+                                <p className='text-[1.4rem] font-light'>
+                                    Last Assigned on: 12-May-2023
+                                </p>
+                            </div>
+                            <div>
+                                <Select
+                                    state={['Lagos', 'Imo', 'Abia', 'FCT']}
+                                    placeholder='Select State'
+                                    selectedState={selectedState}
+                                    isSearchable={true}
+                                    setSelectedState={setSelectedState}
+                                />
+                            </div>
+
+                            <button
+                                className='btn text-color-blue-1 '
+                                onClick={() => handleSelectedAction('ReAssign')}
+                            >
+                                Reassign
+                            </button>
+                        </div>
+                        <div className=' items-center grid grid-cols-3'>
+                            <div>
+                                <p className='text-[1.4rem] font-medium'>
+                                    Primary Assigned Estate
+                                </p>
+                                <p className='text-[1.4rem] font-light'>
+                                    Last Assigned on: 12-May-2023
+                                </p>
+                            </div>
+                            <div>
+                                <Select
+                                    state={['Lagos', 'Imo', 'Abia', 'FCT']}
+                                    placeholder='Select State'
+                                    selectedState={selectedState}
+                                    isSearchable={true}
+                                    setSelectedState={setSelectedState}
+                                />
+                            </div>
+
+                            <button
+                                className='btn text-color-blue-1 '
+                                onClick={() => handleSelectedAction('ReAssign')}
+                            >
+                                Reassign
+                            </button>
+                        </div>
                     </div>
                 </section>
             </div>
