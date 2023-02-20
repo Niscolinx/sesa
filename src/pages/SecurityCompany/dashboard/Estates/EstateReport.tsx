@@ -608,7 +608,9 @@ function EstateReport() {
         AttendanceReport[] | null
     >(null)
 
-    const [currentPage, setCurrentPage] = useState(1)
+    type Report = 'activityReport' | 'attendanceReport'
+
+    const [currentPage, setCurrentPage] = useState<Report>('activityReport')
 
     useEffect(() => {
         const fetchData = async () => {
@@ -631,9 +633,9 @@ function EstateReport() {
 
     getDate()
 
-    const handlePathSwitch = {
-        1: <ActivityReport />,
-        2: <AttendanceReport />,
+    const handlePathSwitch:Record<Report, JSX.Element> = {
+        'activityReport': <ActivityReport />,
+        'attendanceReport': <AttendanceReport />,
     }
 
     return (
@@ -646,7 +648,7 @@ function EstateReport() {
                     name='report'
                     id='activityReport'
                     className='hidden'
-                    onChange={() => setCurrentPage(1)}
+                    onChange={() => setCurrentPage('activityReport')}
                 />
                 <label htmlFor='activityReport'>Activity Report</label>
 
@@ -655,12 +657,12 @@ function EstateReport() {
                     name='report'
                     id='attendanceReport'
                     className='hidden'
-                    onChange={() => setCurrentPage(2)}
+                    onChange={() => setCurrentPage('attendanceReport')}
                 />
                 <label htmlFor='attendanceReport'>Attendance Report</label>
             </div>
             <div className='mt-8 grid gap-8'>
-                {currentPage === 2 && (
+                {currentPage === 'attendanceReport' && (
                     <section className='bg-white rounded-lg p-8 grid h-[28rem] text-[1.4rem]'>
                         <div className='flex w-full justify-between'>
                             <p className='font-medium text-[2rem]'>
@@ -692,7 +694,7 @@ function EstateReport() {
                     </section>
                 )}
                 <section className='bg-color-white rounded-lg border min-w-[112rem] overflow-scroll'>
-                    handlePathSwitch[currentPage]
+                    {handlePathSwitch[currentPage]}
                 </section>
             </div>
         </div>
