@@ -8,6 +8,8 @@ type Actions = 'Deactivate' | 'Delete'
 
 const ViewSecurityGuard = () => {
     const [selectedGender, setSelectedGender] = useState<string | null>(null)
+        const [selectedState, setSelectedState] = useState<string | null>(null)
+
     const [dialogType, setDialogType] = useState<Actions>('Deactivate')
 
     const [photoUrl, setPhotoUrl] = useState('')
@@ -135,7 +137,7 @@ const ViewSecurityGuard = () => {
                 </section>
             </dialog>
 
-            <div className='grid p-8 bg-white  rounded-lg gap-[10rem]'>
+            <div className='grid p-8 bg-white  rounded-lg gap-[5rem]'>
                 <div className='border-b border-b-light-100 pb-20'>
                     <div className='flex justify-between items-center'>
                         <label
@@ -349,7 +351,6 @@ const ViewSecurityGuard = () => {
                                 className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                             />
                         </div>
-                        
 
                         {/* <button
                             className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg col-span-full mt-10'
@@ -375,9 +376,18 @@ const ViewSecurityGuard = () => {
                     >
                         Assigned Estate Details
                     </h2>
-                   
+
+                    <div>
+                        <div></div>
+                        <Select
+                            label='State'
+                            state={['Lagos', 'Imo', 'Abia', 'FCT']}
+                            placeholder='Select State'
+                            selectedState={selectedState}
+                            setSelectedState={setSelectedState}
+                        />
+                    </div>
                 </section>
-             
             </div>
         </>
     )

@@ -13,6 +13,7 @@ interface ISelect {
     setSelectedState: React.Dispatch<React.SetStateAction<string | null>>
     label: string
     placeholder?: string
+    isSearchable?: boolean
 }
 
 interface IMultipleSelect {
