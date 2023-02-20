@@ -395,24 +395,12 @@ const ViewSecurityGuard = () => {
                             />
                         </div>
 
-                        {/* <button
-                            className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg col-span-full mt-10'
-                            style={{ justifySelf: 'start' }}
-                        >
-                            <span>
-                                <img
-                                    src='/icons/admins/saveDisk.svg'
-                                    alt=''
-                                    className='w-[1.7rem] h-[1.7rem]'
-                                />
-                            </span>{' '}
-                            Save Changes
-                        </button> */}
+                        
                     </form>
                 </div>
                 <section>
                     <h2
-                        className='text-[2rem]'
+                        className='text-[2rem] mb-10'
                         style={{
                             fontFamily: 'Satoshi-Medium',
                         }}
