@@ -50,8 +50,8 @@ export const EstateBarChart = () => {
                 bottom: 5,
             }}
         >
-            <XAxis dataKey='name' tickMargin={10} />
-            <YAxis tickCount={7} />
+            <XAxis dataKey='name'  />
+            <YAxis tickCount={5} />
             <Tooltip />
 
             <Bar dataKey='pv' fill='#08D231' />
