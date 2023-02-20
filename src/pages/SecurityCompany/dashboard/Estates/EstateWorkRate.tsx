@@ -13,11 +13,10 @@ const EstateWorkRate = () => {
 
                     <div className='overviewChart__label'>
                         <p className='text-[3.4rem] font-bold relative'>
-                            45
-                            <span>%</span>
+                            50,000
                         </p>
                         <p className='text-[1rem] max-w-[9.8rem]'>
-                            Resident Wallet
+                            Total Check-Out
                         </p>
                     </div>
                 </div>
