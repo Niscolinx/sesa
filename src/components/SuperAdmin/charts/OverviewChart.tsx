@@ -7,8 +7,8 @@ interface OverviewChart {
 }
 
 export const estateChart_data = [
-    { name: 'security guard', value: 60 },
-    { name: 'sesa', value: 40 },
+    { name: 'security guard', value: 120 },
+    { name: 'sesa', value: 120 },
 ]
 
 export const estateChart_colors = ['#08d231', '#f7e541']
