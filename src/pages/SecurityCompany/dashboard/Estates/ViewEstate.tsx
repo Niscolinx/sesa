@@ -1,7 +1,11 @@
 import React, { useState, useEffect, ChangeEvent } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
 import { GrDown } from 'react-icons/gr'
-import { HiOutlineChevronLeft, HiOutlineChevronRight, HiOutlineDotsVertical } from 'react-icons/hi'
+import {
+    HiOutlineChevronLeft,
+    HiOutlineChevronRight,
+    HiOutlineDotsVertical,
+} from 'react-icons/hi'
 import { IoMdAdd } from 'react-icons/io'
 
 import { Link, useNavigate } from 'react-router-dom'
@@ -173,39 +177,36 @@ function ViewEstate() {
         <div className='estateDetail'>
             <h1 className='heading2'>Estates</h1>
             <div className='mt-8 grid gap-8'>
-                <div>
-                    <tr className='w-full'>
-                        <td>
-                            <img
-                                src={'/img/img3.png'}
-                                alt=''
-                                className='table__img'
-                            />
-                        </td>
+                <section className='w-full flex'>
+                    <div>
+                        <img
+                            src={'/img/img3.png'}
+                            alt=''
+                            className='w-[42rem] h-[26rem] object-cover rounded-lg'
+                        />
+                    </div>
 
-                        <td>
-                            <div>
-                                <p className='text-[1.4rem] text-[#043FA7]'>
-                                    Estate&nbsp;Name
-                                </p>
-                                <p className='font-[1.6rem] whitespace-nowrap'>
-                                    Iba Housing Estate
-                                </p>
-                            </div>
-                            <div>
-                                <p className='text-[#043FA7]'>
-                                    Number of Security Guards
-                                </p>
-                                <p>21</p>
-                            </div>
-                            <div>
-                                <p className='text-[#043FA7]'>Status</p>
-                                <p className='text-[#1D9F5F]'>Active</p>
-                            </div>
-                        </td>
-                        
-                    </tr>
-                </div>
+                    <div>
+                        <div>
+                            <p className='text-[1.4rem] text-[#043FA7]'>
+                                Estate&nbsp;Name
+                            </p>
+                            <p className='font-[1.6rem] whitespace-nowrap'>
+                                Iba Housing Estate
+                            </p>
+                        </div>
+                        <div>
+                            <p className='text-[#043FA7]'>
+                                Number of Security Guards
+                            </p>
+                            <p>21</p>
+                        </div>
+                        <div>
+                            <p className='text-[#043FA7]'>Status</p>
+                            <p className='text-[#1D9F5F]'>Active</p>
+                        </div>
+                    </div>
+                </section>
                 <section className='bg-white rounded-lg p-8 grid h-[28rem] text-[1.4rem]'>
                     <div className='flex w-full justify-between'>
                         <p>Iba Housing Estate</p>
