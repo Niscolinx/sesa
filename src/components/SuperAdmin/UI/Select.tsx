@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FC, useState, useMemo } from 'react'
+import React, { ChangeEvent, FC, useState, useMemo, useEffect } from 'react'
 import { GrUp, GrDown } from 'react-icons/gr'
 import { IoMdClose } from 'react-icons/io'
 
@@ -41,12 +41,28 @@ export const Select: FC<ISelect> = ({
     const [search, setSearch] = useState('')
     const [selectFrom, setSelectFrom] = useState(state)
 
+    
+
     const handleSelectedState = (item: string) => {
         setSelectedState(item)
         setToggleStateMenu(false)
     }
 
     const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
+        const { value } = e.target
+        setSearch(value)
+
+        if (value.length > 0) {
+            setSelectFrom((prev) => {
+                return prev.filter((item) => {
+                    return item.toLowerCase().includes(value.toLowerCase())
+                })
+            })
+        } else {
+            setSelectFrom(selectFrom)
+        }
+    }
+    const handleComplexSearch = (e: ChangeEvent<HTMLInputElement>) => {
         const { value } = e.target
         setSearch(value)
 
@@ -91,13 +107,23 @@ export const Select: FC<ISelect> = ({
                                 alt=''
                                 className='absolute left-4'
                             />
-                            <input
-                                type='text'
-                                placeholder='Search Parameters'
-                                value={search}
-                                onChange={handleSearch}
-                                className='pl-16 w-[25rem] rounded-lg border border-color-blue-light py-4 px-8 outline-none appearance-none'
-                            />
+                            {complex ? (
+                                <input
+                                    type='text'
+                                    placeholder='Search Parameters'
+                                    value={search}
+                                    onChange={handleSearch}
+                                    className='pl-16 w-[25rem] rounded-lg border border-color-blue-light py-4 px-8 outline-none appearance-none'
+                                />
+                            ) : (
+                                <input
+                                    type='text'
+                                    placeholder='Search Parameters'
+                                    value={search}
+                                    onChange={handleSearch}
+                                    className='pl-16 w-[25rem] rounded-lg border border-color-blue-light py-4 px-8 outline-none appearance-none'
+                                />
+                            )}
                         </div>
                     )}
                     {selectFrom.map((item, index) => (
