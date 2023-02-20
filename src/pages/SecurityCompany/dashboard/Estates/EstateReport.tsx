@@ -5,7 +5,7 @@ import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import OverviewCard from '../../../../components/SuperAdmin/overview/OverviewCard'
 
 interface ActivityReport {
-    id: string
+    id: number
     guardName: string
     date: string
     guardCode: number
@@ -80,64 +80,15 @@ const ATTENDANCE_REPORT_DATA: AttendanceReport[] = [
     },
 ]
 
+const ACTIVITY_REPORT_DATA: ActivityReport[] = Array.from({length: 20}).map((_, i) => ({
+    id: i,
+    guardName: 'John Doe',
+    date: '12-May-2023',
+    guardCode: Math.random() * 3000 + 1000,
+    clockInCount: Math.random() * 10 + 1,
+    clockOutCount: Math.random() * 10 + 1,
+}))
 
-
-const ACTIVITY_REPORT_DATA: ActivityReport[] = [
-    {
-        id: '1',
-        guardName: 'John Sage',
-        phoneNumber: '08012345678',
-        date: '12/12/2021',
-        guardCode: 1234,
-        clockIn: 8,
-        clockOut: 5,
-    },
-    {
-        id: '1',
-        guardName: 'John Doe',
-        phoneNumber: '08012345678',
-        date: '12/12/2021',
-        guardCode: 1234,
-        clockIn: 8,
-        clockOut: 5,
-    },
-    {
-        id: '1',
-        guardName: 'John Doe',
-        phoneNumber: '08012345678',
-        date: '12/12/2021',
-        guardCode: 1234,
-        clockIn: 8,
-        clockOut: 5,
-    },
-    {
-        id: '1',
-        guardName: 'John Doe',
-        phoneNumber: '08012345678',
-        date: '12/12/2021',
-        guardCode: 1234,
-        clockIn: 8,
-        clockOut: 5,
-    },
-    {
-        id: '1',
-        guardName: 'John Doe',
-        phoneNumber: '08012345678',
-        date: '12/12/2021',
-        guardCode: 1234,
-        clockIn: 8,
-        clockOut: 5,
-    },
-    {
-        id: '1',
-        guardName: 'John Doe',
-        phoneNumber: '08012345678',
-        date: '12/12/2021',
-        guardCode: 1234,
-        clockIn: 8,
-        clockOut: 5,
-    },
-]
 
 const ActivityReport: FC<{
     fetchedActivityReport: ActivityReport[]
@@ -203,11 +154,11 @@ const ActivityReport: FC<{
                         <input type='checkbox' className='cursor-pointer' />
                         <p>Guard Name</p>
                     </p>
-                    <p>Phone Number</p>
                     <p>Date</p>
                     <p>Guard Code</p>
-                    <p>Clock In</p>
-                    <p>Clock Out</p>
+                    <p>Clock-In Count</p>
+                    <p>Clock-Out Count</p>
+                    <p>Panic Alert</p>
                 </div>
 
                 <div className='grid gap-8 mt-8 p-8'>
@@ -218,9 +169,8 @@ const ActivityReport: FC<{
                                 ({
                                     guardCode,
                                     guardName,
-                                    phoneNumber,
-                                    clockIn,
-                                    clockOut,
+                                    clockInCount,
+                                    clockOutCount,
                                     date,
                                 }) => {
                                     return (
@@ -233,11 +183,11 @@ const ActivityReport: FC<{
 
                                                 <span>{guardName}</span>
                                             </p>
-                                            <p>{phoneNumber}</p>
                                             <p>{date}</p>
                                             <p>{guardCode}</p>
-                                            <p>{clockIn}</p>
-                                            <p>{clockOut}</p>
+                                            <p>{clockInCount}</p>
+                                            <p>{clockOutCount}</p>
+                                            <p>0</p>
                                         </div>
                                     )
                                 }
