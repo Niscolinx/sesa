@@ -509,7 +509,7 @@ const ViewSecurityGuard = () => {
                                         },
                                     ]}
                                     placeholder='Peace Estate'
-                                    selectedState={selectedEstate3}
+                                    selectedState={selectedEstate2}
                                     isSearchable={true}
                                     setSelectedState={setSelectedEstate3}
                                 />
