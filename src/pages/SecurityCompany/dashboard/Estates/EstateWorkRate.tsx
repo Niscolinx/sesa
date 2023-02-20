@@ -5,7 +5,7 @@ const EstateWorkRate = () => {
     return (
         <div>
             <h1 className='heading2'>Estate Work Rate</h1>
-            <main>
+            <main className='grid gap-10'>
                 <div className='mt-8 flex gap-8 justify-between'>
                     <div className='bg-white p-8 rounded-lg grid justify-center'>
                         <section className='flex items-center mb-20'>
@@ -68,7 +68,7 @@ const EstateWorkRate = () => {
                     <div className='bg-white p-8 rounded-lg grid justify-center'>
                         <section className='flex items-center mb-20'>
                             <p className='text-[1.8rem] whitespace-nowrap'>
-                                Check-In
+                                Check-Out
                             </p>
                             <div className='flex justify-center gap-20 w-full '>
                                 <div className='flex items-center gap-2'>
