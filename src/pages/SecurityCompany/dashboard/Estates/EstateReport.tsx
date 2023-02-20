@@ -1,4 +1,4 @@
-import React, { useState, useEffect, FC } from 'react'
+import React, { useState, useEffect, FC, ChangeEvent } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
 import { GrDown } from 'react-icons/gr'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
@@ -237,17 +237,19 @@ const ActivityReport = () => {
                 </div>
 
                 <div className='grid gap-8 mt-8 p-8'>
-                    {fetchedActivityReport &&
-                    fetchedActivityReport.length > 0 ? (
+                    {slicedPages && slicedPages.length > 0 ? (
                         React.Children.toArray(
-                            fetchedActivityReport.map(
-                                ({
-                                    guardCode,
-                                    guardName,
-                                    clockInCount,
-                                    clockOutCount,
-                                    date,
-                                }) => {
+                            slicedPages[paginate.index].map(
+                                (
+                                    {
+                                        guardName,
+                                        date,
+                                        guardCode,
+                                        clockInCount,
+                                        clockOutCount,
+                                    },
+                                    i
+                                ) => {
                                     return (
                                         <div className='grid justify-between border-b grid-cols-6 gap-8 '>
                                             <p className='flex items-center gap-4'>
@@ -282,38 +284,57 @@ const ActivityReport = () => {
             <footer className='flex items-center p-4 mt-4 bg-color-white rounded-lg'>
                 <div className='flex gap-8 items-center'>
                     <p>View</p>
-                    <div className='flex items-center border px-4 rounded-lg'>
-                        <input
-                            type='text'
-                            className='w-8 outline-none border-none cursor-pointer '
-                            value={6}
-                            inputMode='numeric'
-                        />
-                        <GrDown className='text-[1.3rem]' />
-                    </div>
+                    <select
+                        name=''
+                        id=''
+                        className='flex items-center border px-4 rounded-lg outline-none cursor-pointer'
+                        onChange={handleItemsPerPage}
+                    >
+                        {itemsPerPageArr.map((item, index) => (
+                            <option
+                                value={item}
+                                key={index}
+                                selected={item === itemsPerPage}
+                                className='capitalize cursor-pointer bg-white'
+                            >
+                                {item}
+                            </option>
+                        ))}
+                    </select>
                     <p className='text'>List per page</p>
                 </div>
                 <ul className='flex items-center gap-5 ml-10'>
-                    <HiOutlineChevronLeft />
-                    <li className='grid place-content-center border w-[3rem] h-[3rem] cursor-pointer'>
-                        1
-                    </li>
-                    <li className='grid place-content-center border w-[3rem] h-[3rem] cursor-pointer'>
-                        2
-                    </li>
-                    <li className='grid place-content-center border w-[3rem] h-[3rem] cursor-pointer'>
-                        3
-                    </li>
-                    <li className='grid place-content-center border w-[3rem] h-[3rem] cursor-pointer'>
-                        4
-                    </li>
-                    <li className='grid place-content-center w-[3rem] h-[3rem] cursor-pointer'>
-                        ....
-                    </li>
-                    <li className='grid place-content-center border w-[3rem] h-[3rem] cursor-pointer'>
-                        10
-                    </li>
-                    <HiOutlineChevronRight />
+                    <HiOutlineChevronLeft
+                        onClick={handlePrev}
+                        className='cursor-pointer'
+                    />
+
+                    {slicedPages?.map((item, index) => {
+                        return (
+                            <li key={index}>
+                                {index + 1 === currentPage ? (
+                                    <span className='bg-color-primary text-white grid place-content-center w-[3rem] h-[3rem] cursor-pointer'>
+                                        {index + 1}
+                                    </span>
+                                ) : (
+                                    <span
+                                        className='text-color-primary bg-white grid place-content-center border w-[3rem] h-[3rem] cursor-pointer'
+                                        onClick={(e) => jumpToPage(e, index)}
+                                    >
+                                        {index + 1}
+                                    </span>
+                                )}
+                            </li>
+                        )
+                    })}
+
+                    {/* <li className='grid place-content-center border w-[3rem] h-[3rem] cursor-pointer'>
+                        {totalPage}
+                    </li> */}
+                    <HiOutlineChevronRight
+                        onClick={handleNext}
+                        className='cursor-pointer'
+                    />
                 </ul>
             </footer>
         </div>
@@ -321,7 +342,7 @@ const ActivityReport = () => {
 }
 const AttendanceReport: FC<{
     fetchedAttendanceReport: AttendanceReport[]
-}> = ({ fetchedAttendanceReport }) => {
+}> = () => {
     return (
         <div className='grid text-[1.6rem]'>
             <caption className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
@@ -437,38 +458,57 @@ const AttendanceReport: FC<{
             <footer className='flex items-center p-4 mt-4 bg-color-white rounded-lg'>
                 <div className='flex gap-8 items-center'>
                     <p>View</p>
-                    <div className='flex items-center border px-4 rounded-lg'>
-                        <input
-                            type='text'
-                            className='w-8 outline-none border-none cursor-pointer '
-                            value={6}
-                            inputMode='numeric'
-                        />
-                        <GrDown className='text-[1.3rem]' />
-                    </div>
+                    <select
+                        name=''
+                        id=''
+                        className='flex items-center border px-4 rounded-lg outline-none cursor-pointer'
+                        onChange={handleItemsPerPage}
+                    >
+                        {itemsPerPageArr.map((item, index) => (
+                            <option
+                                value={item}
+                                key={index}
+                                selected={item === itemsPerPage}
+                                className='capitalize cursor-pointer bg-white'
+                            >
+                                {item}
+                            </option>
+                        ))}
+                    </select>
                     <p className='text'>List per page</p>
                 </div>
                 <ul className='flex items-center gap-5 ml-10'>
-                    <HiOutlineChevronLeft />
-                    <li className='grid place-content-center border w-[3rem] h-[3rem] cursor-pointer'>
-                        1
-                    </li>
-                    <li className='grid place-content-center border w-[3rem] h-[3rem] cursor-pointer'>
-                        2
-                    </li>
-                    <li className='grid place-content-center border w-[3rem] h-[3rem] cursor-pointer'>
-                        3
-                    </li>
-                    <li className='grid place-content-center border w-[3rem] h-[3rem] cursor-pointer'>
-                        4
-                    </li>
-                    <li className='grid place-content-center w-[3rem] h-[3rem] cursor-pointer'>
-                        ....
-                    </li>
-                    <li className='grid place-content-center border w-[3rem] h-[3rem] cursor-pointer'>
-                        10
-                    </li>
-                    <HiOutlineChevronRight />
+                    <HiOutlineChevronLeft
+                        onClick={handlePrev}
+                        className='cursor-pointer'
+                    />
+
+                    {slicedPages?.map((item, index) => {
+                        return (
+                            <li key={index}>
+                                {index + 1 === currentPage ? (
+                                    <span className='bg-color-primary text-white grid place-content-center w-[3rem] h-[3rem] cursor-pointer'>
+                                        {index + 1}
+                                    </span>
+                                ) : (
+                                    <span
+                                        className='text-color-primary bg-white grid place-content-center border w-[3rem] h-[3rem] cursor-pointer'
+                                        onClick={(e) => jumpToPage(e, index)}
+                                    >
+                                        {index + 1}
+                                    </span>
+                                )}
+                            </li>
+                        )
+                    })}
+
+                    {/* <li className='grid place-content-center border w-[3rem] h-[3rem] cursor-pointer'>
+                        {totalPage}
+                    </li> */}
+                    <HiOutlineChevronRight
+                        onClick={handleNext}
+                        className='cursor-pointer'
+                    />
                 </ul>
             </footer>
         </div>
