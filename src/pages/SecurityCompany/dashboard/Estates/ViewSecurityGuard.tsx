@@ -378,7 +378,14 @@ const ViewSecurityGuard = () => {
                     </h2>
 
                     <div>
-                        <div></div>
+                        <div>
+                            <p className='text-[1.4rem] font-medium'>
+                                Primary Assigned Estate
+                            </p>
+                            <p className='text-[1.4rem] font-light'>
+                                Last Assigned on: 12-May-2023
+                            </p>
+                        </div>
                         <Select
                             label='State'
                             state={['Lagos', 'Imo', 'Abia', 'FCT']}
@@ -387,6 +394,13 @@ const ViewSecurityGuard = () => {
                             isSearchable={true}
                             setSelectedState={setSelectedState}
                         />
+
+                        <button
+                            className='btn text-color-blue-1 '
+                        >
+                            
+                            Reassign
+                        </button>
                     </div>
                 </section>
             </div>
