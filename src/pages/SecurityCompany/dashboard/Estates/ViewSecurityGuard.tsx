@@ -120,7 +120,7 @@ const ViewSecurityGuard = () => {
                                     </button>
                                 </div>
                             </>
-                        ) : (
+                        ) : dialogType === 'Delete' ? (
                             <>
                                 <img
                                     src='/icons/admins/modalWarning.svg'
@@ -143,6 +143,32 @@ const ViewSecurityGuard = () => {
                                         onClick={handleDeleteSecurityGuard}
                                     >
                                         Delete
+                                    </button>
+                                </div>
+                            </>
+                        ) : (
+                            <>
+                                <img
+                                    src='/icons/admins/modalDeactivate.svg'
+                                    alt=''
+                                />
+                                <p className='text-[1.6rem]'>
+                                    Are you sure you want to reassign this
+                                    security guard primary estate
+                                </p>
+
+                                <div className='flex w-full justify-center gap-8'>
+                                    <button
+                                        className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
+                                        onClick={() => handleClose()}
+                                    >
+                                        Cancel
+                                    </button>
+                                    <button
+                                        className=' bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
+                                        onClick={handleReAssign}
+                                    >
+                                        Yes
                                     </button>
                                 </div>
                             </>
