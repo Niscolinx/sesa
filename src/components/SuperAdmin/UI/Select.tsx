@@ -38,7 +38,7 @@ export const Select: FC<ISelect> = ({
         setToggleStateMenu(false)
     }
 
-   const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
+    const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
         const { value } = e.target
         setSearch(value)
 
@@ -92,7 +92,7 @@ export const Select: FC<ISelect> = ({
                             />
                         </div>
                     )}
-                    {state.map((item, index) => (
+                    {selectFrom.map((item, index) => (
                         <p
                             className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
                             key={index}

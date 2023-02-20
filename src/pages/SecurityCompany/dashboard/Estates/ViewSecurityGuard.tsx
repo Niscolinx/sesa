@@ -384,6 +384,7 @@ const ViewSecurityGuard = () => {
                             state={['Lagos', 'Imo', 'Abia', 'FCT']}
                             placeholder='Select State'
                             selectedState={selectedState}
+                            isSearchable={true}
                             setSelectedState={setSelectedState}
                         />
                     </div>
