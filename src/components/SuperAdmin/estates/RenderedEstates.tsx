@@ -155,7 +155,7 @@ function RenderedEstates() {
                                         },
                                     }) => {
                                         return (
-                                            <Link to={`/dashboard/estates/report/:${id}`}>
+                                            <Link to={`/superAdmin/estates/report/:${id}`}>
                                                 <tr className='w-full'>
                                                     <td>
                                                         <img

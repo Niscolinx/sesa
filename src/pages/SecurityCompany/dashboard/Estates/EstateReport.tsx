@@ -23,7 +23,6 @@ interface AttendanceReport {
     checkInCount: number
     checkOutCount: number
     panicAlert: number
-
 }
 
 const ATTENDANCE_REPORT_DATA: AttendanceReport[] = [
@@ -451,7 +450,7 @@ const AttendanceReport: FC<{
     )
 }
 
-function EstateDetails() {
+function EstateReport() {
     const [fetchedActivityReport, setFetchedActivityReport] = useState<
         ActivityReport[] | null
     >(null)
@@ -565,4 +564,4 @@ function EstateDetails() {
     )
 }
 
-export default EstateDetails
+export default EstateReport
