@@ -4,7 +4,7 @@ import { Select } from '../../../../components/SuperAdmin/UI/Select'
 import StarRating from '../../../../components/SuperAdmin/UI/StarRating'
 import { getPhotoUrl } from '../../../../utils/getPhotoUrl'
 
-type Actions = 'Deactivate' | 'Delete'
+type Actions = 'Deactivate' | 'Delete' | 'ReAssign'
 
 const ViewSecurityGuard = () => {
     const [selectedGender, setSelectedGender] = useState<string | null>(null)
@@ -40,6 +40,9 @@ const ViewSecurityGuard = () => {
         if (dialogType === 'Delete') {
             setDialogType('Delete')
         }
+        if (dialogType === 'ReAssign') {
+            setDialogType('ReAssign')
+        }
 
         if (dialogRef.current) {
             dialogRef.current.showModal()
@@ -53,6 +56,9 @@ const ViewSecurityGuard = () => {
 
         if (item === 'Delete') {
             handleOpen('Delete')
+        }
+        if (item === 'ReAssign') {
+            handleOpen('ReAssign')
         }
     }
 
