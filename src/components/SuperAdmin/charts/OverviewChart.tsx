@@ -7,9 +7,8 @@ interface OverviewChart {
 }
 
 export const estateChart_data = [
-    { name: 'security guard', value: 10 },
-    { name: 'sesa', value: 10 },
-   
+    { name: 'security guard', value: 60 },
+    { name: 'sesa', value: 40 },
 ]
 
 export const estateChart_colors = ['#08d231', '#f7e541']
@@ -20,7 +19,7 @@ export const EstateChart = () => {
     return (
         <PieChart width={253} height={253} className='relative'>
             <Pie
-                data={overviewChart_data}
+                data={estateChart_data}
                 className='overviewChart__pie'
                 innerRadius={68}
                 outerRadius={80}
@@ -28,12 +27,12 @@ export const EstateChart = () => {
                 paddingAngle={5}
                 dataKey='value'
             >
-                {overviewChart_data.map((entry, index) => (
+                {estateChart_data.map((entry, index) => (
                     <Cell
                         key={`cell-${index}`}
                         fill={
-                            overviewChart_colors[
-                                index % overviewChart_colors.length
+                            estateChart_colors[
+                                index % estateChart_colors.length
                             ]
                         }
                     />
