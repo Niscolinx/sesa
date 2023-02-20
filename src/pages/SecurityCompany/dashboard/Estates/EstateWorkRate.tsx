@@ -7,9 +7,25 @@ const EstateWorkRate = () => {
     return (
         <div>
             <h1 className='heading2'>Estate Work Rate</h1>
-            <div className='mt-8 grid gap-8 bg-white p-8 rounded-lg'>
-                <EstateBarChart />
-                <div>
+            <div className='mt-8 flex gap-8 justify-between'>
+                <div className='bg-white p-8 rounded-lg basis-4/5'>
+                    <div>
+                        <div className='flex items-center gap-2'>
+                            <span className='bg-[#08d231] rounded-full w-[1rem] h-[1rem] flex'>
+                                {' '}
+                            </span>{' '}
+                            <p>Security Guard</p>
+                        </div>
+                        <div className='flex items-center gap-2'>
+                            <span className='bg-[#f7e541] rounded-full w-[1rem] h-[1rem] flex'>
+                                {' '}
+                            </span>{' '}
+                            <p>System</p>
+                        </div>
+                    </div>
+                    <EstateBarChart />
+                </div>
+                <div className='bg-white p-8 rounded-lg'>
                     <section className='overviewChart__box'>
                         <EstateChart />
 
