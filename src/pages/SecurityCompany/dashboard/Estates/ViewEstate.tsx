@@ -173,7 +173,7 @@ function ViewEstate() {
     }
 
     return (
-        <div className='estateDetail'>
+        <div className=''>
             <h1 className='heading2'>Estates</h1>
             <div className='mt-8 grid gap-8'>
                 <section className='w-full flex bg-white p-8 rounded-lg gap-16 relative'>
@@ -207,7 +207,7 @@ function ViewEstate() {
                     </div>
                     <div className='flex justify-end absolute right-0 bottom-0 p-8'>
                         <Link
-                            to={`/dashboard/estates/detail/:4`}
+                            to={`/securityCompany/estates/workrate`}
                             className='text-[#0660FE] text-[1.4rem]'
                         >
                             View Work Rate

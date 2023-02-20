@@ -67,7 +67,7 @@ const Wallet = () => {
                             'repeat(auto-fit, minmax(35rem, 1fr))',
                     }}
                 >
-                    <Link to='/dashboard/wallet/resident'>
+                    <Link to='/superAdmin/wallet/resident'>
                         <OverviewWallet
                             amount={200_333_500.89}
                             title='Resident Wallet'
@@ -75,7 +75,7 @@ const Wallet = () => {
                         />
                     </Link>
 
-                    <Link to='/dashboard/wallet/security-company'>
+                    <Link to='/superAdmin/wallet/security-company'>
                         <OverviewWallet
                             amount={160_847}
                             title={'Security Company Wallet'}
@@ -86,7 +86,7 @@ const Wallet = () => {
                         />
                     </Link>
 
-                    <Link to='/dashboard/wallet/estate'>
+                    <Link to='/superAdmin/wallet/estate'>
                         <OverviewWallet
                             amount={1_032_422}
                             title={'Estate Wallet'}
@@ -96,7 +96,7 @@ const Wallet = () => {
                             bgColor='bg-[#97346F]'
                         />
                     </Link>
-                    <Link to='/dashboard/wallet/commission'>
+                    <Link to='/superAdmin/wallet/commission'>
                         <OverviewWallet
                             amount={4_000_832}
                             title={'Commission Wallet'}
