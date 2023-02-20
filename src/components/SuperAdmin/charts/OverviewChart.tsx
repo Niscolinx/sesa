@@ -1,20 +1,21 @@
 import { PieChart, Pie, Cell } from 'recharts'
 import { overviewChart_data, overviewChart_colors } from '../../../pages/SuperAdmin/dashboard/Overview'
+import { IEstateChart } from './WalletBarChart'
 
 
-interface OverviewChart {
-    currentSwiperIndex?: number
-}
 
 export const estateChart_data = [
     { name: 'security guard', value: 120 },
     { name: 'sesa', value: 120 },
 ]
 
-export const estateChart_colors = ['#08d231', '#f7e541']
 
-export const EstateChart = () => {
-
+export const EstateChart = ({
+    color1 = '#08d231',
+    color2 = '#f7e541',
+}: IEstateChart) => {
+    
+    const estateChart_colors = [color1, color2]
 
     return (
         <PieChart width={253} height={253} className='relative'>
@@ -41,7 +42,7 @@ export const EstateChart = () => {
         </PieChart>
     )
 }
-export default function OverviewChart({ currentSwiperIndex }: OverviewChart) {
+export default function OverviewChart() {
 
 
     return (
@@ -55,7 +56,7 @@ export default function OverviewChart({ currentSwiperIndex }: OverviewChart) {
                 paddingAngle={5}
                 dataKey='value'
             >
-                {overviewChart_data.map((entry, index) => (
+                {overviewChart_data.map((_, index) => (
                     <Cell
                         key={`cell-${index}`}
                         fill={

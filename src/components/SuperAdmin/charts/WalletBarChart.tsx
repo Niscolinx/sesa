@@ -37,15 +37,15 @@ const estateData = Array.from({ length: 10 }).map((_, i) => ({
     uv: Math.floor(Math.random() * 200 + 10),
 }))
 
-interface IEstateBarChart {
-    color1: string
-    color2: string
+export interface IEstateChart {
+    color1?: string
+    color2?: string
 }
 
 export const EstateBarChart = ({
     color1,
     color2,
-}: IEstateBarChart) => {
+}: IEstateChart) => {
     return (
         <BarChart
             width={700}
@@ -62,8 +62,8 @@ export const EstateBarChart = ({
             <YAxis tickCount={5} />
             <Tooltip />
 
-            <Bar dataKey='pv' fill='#08D231' barSize={20} />
-            <Bar dataKey='pv' fill='#f7e541' barSize={20} />
+            <Bar dataKey='pv' fill={color1} barSize={20} />
+            <Bar dataKey='pv' fill={color2} barSize={20} />
         </BarChart>
     )
 }
