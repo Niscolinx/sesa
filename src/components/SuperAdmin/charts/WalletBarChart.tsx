@@ -32,7 +32,7 @@ const data = [
 ]
 
 const estateData = Array.from({ length: 10 }).map((_, i) => ({
-    name: (i: number) => (7 ? `${i - 6}am` : `${i + 5}am`),
+    name: (i >= 8 ? `${i - 7}pm` : `${i + 5}am`),
     pv: Math.floor(Math.random() * 200 + 10),
     uv: Math.floor(Math.random() * 200 + 10),
 }))
@@ -42,7 +42,7 @@ export const EstateBarChart = () => {
         <BarChart
             width={600}
             height={300}
-            data={data}
+            data={estateData}
             margin={{
                 top: 5,
                 right: 30,
@@ -50,16 +50,12 @@ export const EstateBarChart = () => {
                 bottom: 5,
             }}
         >
-            <XAxis dataKey='name' tickMargin={20} />
-            <YAxis
-                tickCount={7}
-                tickFormatter={(tick) => {
-                    return '₦' + tick
-                }}
-            />
+            <XAxis dataKey='name' tickMargin={10} />
+            <YAxis tickCount={7} />
             <Tooltip />
 
-            <Bar dataKey='pv' fill='#08D231' barSize={40} />
+            <Bar dataKey='pv' fill='#08D231' />
+            <Bar dataKey='pv' fill='#f7e541' />
         </BarChart>
     )
 }
