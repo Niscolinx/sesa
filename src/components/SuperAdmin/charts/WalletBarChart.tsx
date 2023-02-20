@@ -31,6 +31,12 @@ const data = [
     },
 ]
 
+const estateData = Array.from({ length: 10 }).map((_, i) => ({
+    name: (i: number) => (7 ? `${i - 6}am` : `${i + 5}am`),
+    pv: Math.floor(Math.random() * 200 + 10),
+    uv: Math.floor(Math.random() * 200 + 10),
+}))
+
 export const EstateBarChart = () => {
     return (
         <BarChart
@@ -44,8 +50,7 @@ export const EstateBarChart = () => {
                 bottom: 5,
             }}
         >
-            <XAxis dataKey='name' tickMargin={20}  
-             />
+            <XAxis dataKey='name' tickMargin={20} />
             <YAxis
                 tickCount={7}
                 tickFormatter={(tick) => {
@@ -71,8 +76,7 @@ export default function WalletBarChart() {
                 bottom: 5,
             }}
         >
-            <XAxis dataKey='name' tickMargin={20}  
-             />
+            <XAxis dataKey='name' tickMargin={20} />
             <YAxis
                 tickCount={7}
                 tickFormatter={(tick) => {
