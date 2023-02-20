@@ -50,22 +50,16 @@ const ActivityReport: FC<{
     fetchedActivityReport: ActivityReport[]
 }> = ({ fetchedActivityReport }) => {
 
-   export interface IAdvertClickrateDecrease {
-       id: number
-       estateName: string
-       location: string
-       noOfResidents: number
-       noOfViews: number
-   }
+  
 
       const [
-          fetchedAdvertClickrateDecrease,
-          setFetchedAdvertClickrateDecrease,
-      ] = useState<IAdvertClickrateDecrease[]>([])
+          fetchedActivityReportData,
+          setFetchedActivityReportData,
+      ] = useState<ActivityReport[]>([])
 
       useEffect(() => {
           setTimeout(() => {
-              setFetchedAdvertClickrateDecrease(ADVERT_CLICK_RATE_DECREASE)
+              setFetchedActivityReportData(ACTIVITY_REPORT_DATA)
           }, 1000)
       }, [])
 
@@ -74,7 +68,7 @@ const ActivityReport: FC<{
           currentPage: number
           itemsPerPage: number
           totalPage: number
-          slicedPages: IAdvertClickrateDecrease[][] | null
+          slicedPages: ActivityReport[][] | null
       }
 
       const itemsPerPageArr = [2, 4, 6, 8]
@@ -84,21 +78,21 @@ const ActivityReport: FC<{
           index: 0,
           currentPage: 1,
           itemsPerPage: perPage,
-          totalPage: Math.ceil(fetchedAdvertClickrateDecrease.length / perPage),
+          totalPage: Math.ceil(fetchedActivityReportData.length / perPage),
           slicedPages: null,
       })
 
       const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
           const item = parseInt(e.target.value)
 
-          const slicedPages: IAdvertClickrateDecrease[][] = []
+          const slicedPages: ActivityReport[][] = []
           for (
               let i = 0;
-              i < fetchedAdvertClickrateDecrease.length;
+              i < fetchedActivityReportData.length;
               i += item
           ) {
               slicedPages.push(
-                  fetchedAdvertClickrateDecrease.slice(i, i + item)
+                  fetchedActivityReportData.slice(i, i + item)
               )
           }
 
@@ -110,21 +104,21 @@ const ActivityReport: FC<{
                   currentPage: 1,
                   slicedPages,
                   totalPage: Math.ceil(
-                      fetchedAdvertClickrateDecrease.length / item
+                      fetchedActivityReportData.length / item
                   ),
               }
           })
       }
 
       useEffect(() => {
-          const slicedPages: IAdvertClickrateDecrease[][] = []
+          const slicedPages: ActivityReport[][] = []
           for (
               let i = 0;
-              i < fetchedAdvertClickrateDecrease.length;
+              i < fetchedActivityReportData.length;
               i += paginate.itemsPerPage
           ) {
               slicedPages.push(
-                  fetchedAdvertClickrateDecrease.slice(
+                  fetchedActivityReportData.slice(
                       i,
                       i + paginate.itemsPerPage
                   )
@@ -136,12 +130,12 @@ const ActivityReport: FC<{
                   ...prev,
                   slicedPages,
                   totalPage: Math.ceil(
-                      fetchedAdvertClickrateDecrease.length /
+                      fetchedActivityReportData.length /
                           paginate.itemsPerPage
                   ),
               }
           })
-      }, [fetchedAdvertClickrateDecrease])
+      }, [fetchedActivityReportData])
 
       const handleNext = () => {
           console.log(paginate.currentPage, paginate.totalPage)
