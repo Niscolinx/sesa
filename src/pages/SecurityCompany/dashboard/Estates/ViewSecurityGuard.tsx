@@ -8,7 +8,10 @@ type Actions = 'Deactivate' | 'Delete' | 'ReAssign'
 
 const ViewSecurityGuard = () => {
     const [selectedGender, setSelectedGender] = useState<string | null>(null)
-    const [selectedState, setSelectedState] = useState<string | null>(null)
+    const [selectedEstate1, setSelectedEstate1] = useState<string | null>(null)
+    const [selectedEstate2, setSelectedEstate2] = useState<string | null>(null)
+    const [selectedEstate3, setSelectedEstate3] = useState<string | null>(null)
+    const [selectedEstate4, setSelectedEstate4] = useState<string | null>(null)
 
     const [dialogType, setDialogType] = useState<Actions>('Deactivate')
 
