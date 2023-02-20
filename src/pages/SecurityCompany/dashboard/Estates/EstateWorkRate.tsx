@@ -4,7 +4,9 @@ const EstateWorkRate = () => {
     return (
         <div>
             <h1 className='heading2'>Estate Work Rate</h1>
-            <div className='mt-8 grid gap-8'></div>
+            <div className='mt-8 grid gap-8'>
+                <WalletBarChart />
+            </div>
         </div>
     )
 }
