@@ -15,40 +15,57 @@ export interface Overview {
     noOfSecurityGuards: number
 }
 
-// export const HOUSEHOLD_LIST: Overview[] = [
-//     {
-//         id: 1,
-//         estateName: 'Estate 1',
-//         address: 'No 1, Ogunlana Drive, Surulere, Lagos',
-//         noOfSecurityGuards: 10,
-//     },
-//     {
-//         id: 2,
-//         estateName: 'Estate 2',
-//         address: 'No 1, Ogunlana Drive, Surulere, Lagos',
-//         noOfSecurityGuards: 10,
-//     },
-//     {
-//         id: 3,
-//         estateName: 'Estate 3',
-//         address: 'No 1, Ogunlana Drive, Surulere, Lagos',
-//         noOfSecurityGuards: 10,
-//     },
-//     {
-//         id: 4,
-//         estateName: 'Estate 4',
-//         address: 'No 1, Ogunlana Drive, Surulere, Lagos',
-//         noOfSecurityGuards: 10,
-//     },
-// ]
+export const HOUSEHOLD_LIST: Overview[] = [
+    {
+        id: 1,
+        estateName: 'Estate 1',
+        address: 'No 1, Ogunlana Drive, Surulere, Lagos',
+        noOfSecurityGuards: 10,
+    },
+    {
+        id: 2,
+        estateName: 'Estate 2',
+        address: 'No 1, Ogunlana Drive, Surulere, Lagos',
+        noOfSecurityGuards: 10,
+    },
+    {
+        id: 3,
+        estateName: 'Estate 3',
+        address: 'No 1, Ogunlana Drive, Surulere, Lagos',
+        noOfSecurityGuards: 10,
+    },
+    {
+        id: 4,
+        estateName: 'Estate 4',
+        address: 'No 1, Ogunlana Drive, Surulere, Lagos',
+        noOfSecurityGuards: 10,
+    },
+]
 
-export const HOUSEHOLD_LIST: Overview[] = Array.from({ length: 20 }, (_, i) => ({
+const listKey = ['Sugar', 'Milk', 'Bread', 'Eggs', 'Milk', 'Butter']
+
+interface List {
+    id: number
+    item: typeof listKey[number]
+    quantity: number
+    price: number
+}
+
+export const FIRST_LIST: List[] = Array.from({ length: 20 }, (_, i) => ({
     id: i + 1,
-    estateName: `Estate ${i + 1}`,
-    address: 'No 1, Ogunlana Drive, Surulere, Lagos',
-    noOfSecurityGuards: 10,
+    item: listKey[Math.floor(Math.random() * listKey.length)],
+    quantity: Math.floor(Math.random() * 10 + 1),
+    price: Math.floor(Math.random() * 100 + 20),
 }))
 
+console.log({ FIRST_LIST })
+
+// const SECOND_LIST: List[] = new Array(20).fill(0).map((_, i) => ({
+//     id: i + 1,
+//     estateName: `Estate ${i + 1}`,
+//     address: 'No 1, Ogunlana Drive, Surulere, Lagos',
+//     noOfSecurityGuards: 10,
+// }))
 
 function Estate() {
     const navigate = useNavigate()
@@ -153,13 +170,11 @@ function Estate() {
         })
     }
 
-  
-
     const detailsHandler = (id: number) => {
         navigate(`/securityCompany/estates/detail/:${id}`)
     }
 
-    const handleSearch = (e:ChangeEvent<HTMLInputElement>) => {
+    const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
         const { value } = e.target
         setSearch(value)
 
