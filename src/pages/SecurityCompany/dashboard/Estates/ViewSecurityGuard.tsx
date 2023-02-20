@@ -111,7 +111,8 @@ const ViewSecurityGuard = () => {
                                     alt=''
                                 />
                                 <p className='text-[1.6rem]'>
-                                    Are you sure you want to delete this SecurityGuard
+                                    Are you sure you want to delete this
+                                    SecurityGuard
                                 </p>
 
                                 <div className='flex w-full justify-center gap-8'>
@@ -290,23 +291,21 @@ const ViewSecurityGuard = () => {
                                 className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                             />
                         </div>
-                        
-                    
-
                         <div className='grid gap-4 relative'>
                             <label
-                                htmlFor='overallRating'
+                                htmlFor='idType'
                                 className='text-[1.4rem] font-medium'
                             >
-                                Overall Rating
+                                ID Type
                             </label>
                             <input
                                 type='text'
-                                placeholder='Optional'
-                                id='overallRating'
+                                required
+                                id='idType'
                                 className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                             />
                         </div>
+
                         <div className='grid gap-4 relative'>
                             <label
                                 htmlFor='idNumber'
@@ -319,6 +318,21 @@ const ViewSecurityGuard = () => {
                                 placeholder='Optional'
                                 id='idNumber'
                                 className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                            />
+                        </div>
+                        <div className='grid gap-4 relative'>
+                            <label
+                                htmlFor='kya'
+                                className='text-[1.4rem] font-medium'
+                            >
+                                KYA
+                            </label>
+                            <input
+                                type='text'
+                                placeholder='Optional'
+                                id='kya'
+                                value={'Not validated'}
+                                className='w-full rounded-lg border-none text-[1.6rem] outline-none underline text-red-500'
                             />
                         </div>
                         <div className='grid gap-4 relative'>
@@ -348,21 +362,6 @@ const ViewSecurityGuard = () => {
                                 id='status'
                                 value={'Active'}
                                 className='w-full rounded-lg border-none text-[1.6rem] outline-none text-green-500'
-                            />
-                        </div>
-                        <div className='grid gap-4 relative'>
-                            <label
-                                htmlFor='kya'
-                                className='text-[1.4rem] font-medium'
-                            >
-                                KYA
-                            </label>
-                            <input
-                                type='text'
-                                placeholder='Optional'
-                                id='kya'
-                                value={'Not validated'}
-                                className='w-full rounded-lg border-none text-[1.6rem] outline-none underline text-red-500'
                             />
                         </div>
 
