@@ -7,15 +7,14 @@ interface OverviewChart {
 }
 
 export const estateChart_data = [
-    { name: 'Resident Wallet', value: 10 },
-    { name: 'Security Company Wallet', value: 10 },
-    { name: 'Estate Wallet', value: 45 },
-    { name: 'Commission Wallet', value: 17 },
+    { name: 'security guard', value: 10 },
+    { name: 'sesa', value: 10 },
+   
 ]
 
-export const estateChart_colors = ['#EA0B90', '#23C375', '#098DFF', '#404243']
+export const estateChart_colors = ['#08d231', '#23C375', '#098DFF', '#404243']
 
-export const estateChart = ({ currentSwiperIndex }: OverviewChart) => {
+export const EstateChart = () => {
 
 
     return (
