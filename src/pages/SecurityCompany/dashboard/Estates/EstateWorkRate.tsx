@@ -1,4 +1,3 @@
-import React from 'react'
 import OverviewChart from '../../../../components/SuperAdmin/charts/OverviewChart'
 import WalletBarChart from '../../../../components/SuperAdmin/charts/WalletBarChart'
 
