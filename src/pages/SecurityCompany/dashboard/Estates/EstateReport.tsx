@@ -326,9 +326,8 @@ const ActivityReport = () => {
     )
 }
 const AttendanceReport = () => {
-    const [fetchedAttendanceReportData, setFetchedAttendanceReportData] = useState<
-        AttendanceReport[]
-    >([])
+    const [fetchedAttendanceReportData, setFetchedAttendanceReportData] =
+        useState<AttendanceReport[]>([])
 
     useEffect(() => {
         setTimeout(() => {
@@ -511,8 +510,7 @@ const AttendanceReport = () => {
                                     date,
                                     clockInCount,
                                     clockOutCount,
-                                    phoneNumber
-                                
+                                    phoneNumber,
                                 }) => {
                                     return (
                                         <div className='grid justify-between border-b grid-cols-6 gap-8 '>
@@ -529,7 +527,6 @@ const AttendanceReport = () => {
                                             <p>{phoneNumber}</p>
                                             <p>{clockInCount}</p>
                                             <p>{clockOutCount}</p>
-                                          
                                         </div>
                                     )
                                 }
@@ -637,7 +634,6 @@ function EstateReport() {
     const handlePathSwitch = {
         1: <ActivityReport />,
         2: <AttendanceReport />,
-
     }
 
     return (
@@ -696,7 +692,7 @@ function EstateReport() {
                     </section>
                 )}
                 <section className='bg-color-white rounded-lg border min-w-[112rem] overflow-scroll'>
-                    {handlePathSwitch(currentPage)}
+                    handlePathSwitch[currentPage]
                 </section>
             </div>
         </div>
