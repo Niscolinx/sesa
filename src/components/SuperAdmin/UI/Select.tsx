@@ -1,9 +1,4 @@
-import React, {
-    ChangeEvent,
-    FC,
-    useState,
-    useMemo,
-} from 'react'
+import React, { ChangeEvent, FC, useState, useMemo } from 'react'
 import { GrUp, GrDown } from 'react-icons/gr'
 import { IoMdClose } from 'react-icons/io'
 
@@ -30,14 +25,32 @@ export const Select: FC<ISelect> = ({
     setSelectedState,
     label,
     placeholder,
+    isSearchable = false,
 }) => {
     const [toggleStateMenu, setToggleStateMenu] = useState(false)
 
     const stateMenuToggler = () => setToggleStateMenu(!toggleStateMenu)
+    const [search, setSearch] = useState('')
+    const [selectFrom, setSelectFrom] = useState(state)
 
     const handleSelectedState = (item: string) => {
         setSelectedState(item)
         setToggleStateMenu(false)
+    }
+
+   const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
+        const { value } = e.target
+        setSearch(value)
+
+        if (value.length > 0) {
+            setSelectFrom((prev) => {
+                return prev.filter((item) => {
+                    return item.toLowerCase().includes(value.toLowerCase())
+                })
+            })
+        } else {
+            setSelectFrom(selectFrom)
+        }
     }
 
     return (
@@ -63,6 +76,22 @@ export const Select: FC<ISelect> = ({
 
             {toggleStateMenu && (
                 <div className='absolute top-[8rem]  left-0 border border-color-primary-light min-w-[12rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
+                    {isSearchable && (
+                        <div className='relative flex items-center text-[1.4rem]'>
+                            <img
+                                src='/icons/admins/search.svg'
+                                alt=''
+                                className='absolute left-4'
+                            />
+                            <input
+                                type='text'
+                                placeholder='Search Parameters'
+                                value={search}
+                                onChange={handleSearch}
+                                className='pl-16 w-[25rem] rounded-lg border border-color-blue-light py-4 px-8 outline-none appearance-none'
+                            />
+                        </div>
+                    )}
                     {state.map((item, index) => (
                         <p
                             className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
@@ -105,21 +134,18 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
     }
 
     const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
-        const {value} = e.target
+        const { value } = e.target
         setSearch(value)
 
         if (value.length > 0) {
-            setSelectedFrom(
-                (prev) => {
-                    return prev.filter((item) => {
-                        return item.toLowerCase().includes(value.toLowerCase())
-                    })
-                }
-            )
+            setSelectedFrom((prev) => {
+                return prev.filter((item) => {
+                    return item.toLowerCase().includes(value.toLowerCase())
+                })
+            })
         } else {
             setSelectedFrom(selectFrom)
         }
-
     }
 
     const memoizedList = useMemo(() => {
