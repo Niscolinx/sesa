@@ -436,7 +436,10 @@ const ViewSecurityGuard = () => {
                             />
                         </div>
 
-                        <button className='btn text-color-blue-1 '>
+                        <button
+                            className='btn text-color-blue-1 '
+                            onClick={() => handleSelectedAction('ReAssign')}
+                        >
                             Reassign
                         </button>
                     </div>
