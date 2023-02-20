@@ -1,6 +1,4 @@
-import  {
-    EstateChart,
-} from '../../../../components/SuperAdmin/charts/OverviewChart'
+import { EstateChart } from '../../../../components/SuperAdmin/charts/OverviewChart'
 import { EstateBarChart } from '../../../../components/SuperAdmin/charts/WalletBarChart'
 
 const EstateWorkRate = () => {
@@ -8,21 +6,24 @@ const EstateWorkRate = () => {
         <div>
             <h1 className='heading2'>Estate Work Rate</h1>
             <div className='mt-8 flex gap-8 justify-between'>
-                <div className='bg-white p-8 rounded-lg basis-4/5'>
-                    <div>
-                        <div className='flex items-center gap-2'>
-                            <span className='bg-[#08d231] rounded-full w-[1rem] h-[1rem] flex'>
-                                {' '}
-                            </span>{' '}
-                            <p>Security Guard</p>
+                <div className='bg-white p-8 rounded-lg grid justify-center'>
+                    <section className='flex items-center mb-20'>
+                        <p className='text-[1.8rem] whitespace-nowrap'>Check-In</p>
+                        <div className='flex justify-center gap-20 w-full '>
+                            <div className='flex items-center gap-2'>
+                                <span className='bg-[#08d231] w-[1rem] h-[1rem] flex'>
+                                    {' '}
+                                </span>{' '}
+                                <p>Security Guard</p>
+                            </div>
+                            <div className='flex items-center gap-2'>
+                                <span className='bg-[#f7e541] w-[1rem] h-[1rem] flex'>
+                                    {' '}
+                                </span>{' '}
+                                <p>System</p>
+                            </div>
                         </div>
-                        <div className='flex items-center gap-2'>
-                            <span className='bg-[#f7e541] rounded-full w-[1rem] h-[1rem] flex'>
-                                {' '}
-                            </span>{' '}
-                            <p>System</p>
-                        </div>
-                    </div>
+                    </section>
                     <EstateBarChart />
                 </div>
                 <div className='bg-white p-8 rounded-lg'>
