@@ -1,7 +1,7 @@
 import React, { useState, useEffect, ChangeEvent } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
 import { GrDown } from 'react-icons/gr'
-import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
+import { HiOutlineChevronLeft, HiOutlineChevronRight, HiOutlineDotsVertical } from 'react-icons/hi'
 import { IoMdAdd } from 'react-icons/io'
 
 import { Link, useNavigate } from 'react-router-dom'
@@ -173,6 +173,83 @@ function ViewEstate() {
         <div className='estateDetail'>
             <h1 className='heading2'>Estates</h1>
             <div className='mt-8 grid gap-8'>
+                <div>
+                    <tr className='w-full'>
+                        <td>
+                            <img
+                                src={'/img/img3.png'}
+                                alt=''
+                                className='table__img'
+                            />
+                        </td>
+
+                        <td>
+                            <div>
+                                <p className='text-[1.4rem] text-[#043FA7]'>
+                                    Estate&nbsp;Name
+                                </p>
+                                <p className='font-[1.6rem] whitespace-nowrap'>
+                                    Iba Housing
+                                </p>
+                            </div>
+                            <div>
+                                <p className='text-[#043FA7]'>
+                                    Security Company
+                                </p>
+                                <p>{securityCompany}</p>
+                            </div>
+                            <div>
+                                <p className='text-[#043FA7]'>Status</p>
+                                <p className='text-[#1D9F5F]'>{status}</p>
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <p className='text-[#043FA7]'>Estate Balance</p>
+                                <p className='flex items-center'>
+                                    <TbCurrencyNaira className='text-[2rem]' />
+                                    {estateBalance}
+                                </p>
+                            </div>
+                            <div>
+                                <p className='text-[#043FA7]'>
+                                    No of Residents
+                                </p>
+                                <p>{NoOfResidents}</p>
+                            </div>
+                            <div>
+                                <p className='text-[#043FA7]'>
+                                    Sign Out Required
+                                </p>
+                                <p>{signOutRequired ? 'Yes' : 'No'}</p>
+                            </div>
+                        </td>
+                        <td className=' grid content-start'>
+                            <div>
+                                <p className='text-[#043FA7]'>Estate Manager</p>
+                                <p>{estateManager}</p>
+                            </div>
+                            <div className=' mt-10'>
+                                <p className='text-[#043FA7]'>
+                                    {' '}
+                                    No of Households
+                                </p>
+                                <p>{NoOfHouseholds}</p>
+                            </div>
+                        </td>
+
+                        <td
+                            className='flex items-start content-start mr-4'
+                            style={{
+                                width: '1rem',
+                            }}
+                        >
+                            <button>
+                                <HiOutlineDotsVertical className='text-[2rem]' />
+                            </button>
+                        </td>
+                    </tr>
+                </div>
                 <section className='bg-white rounded-lg p-8 grid h-[28rem] text-[1.4rem]'>
                     <div className='flex w-full justify-between'>
                         <p>Iba Housing Estate</p>
