@@ -48,7 +48,7 @@ export const EstateBarChart = ({
 }: IEstateChart) => {
     return (
         <BarChart
-            width={700}
+            width={750}
             height={300}
             data={estateData}
             // margin={{
