@@ -66,16 +66,24 @@ const ViewSecurityGuard = () => {
         handleClose()
 
         toast('SecurityGuard deleted successfully', {
-            type: 'error',
-            className: 'bg-red-100 text-red-600 text-[1.4rem]',
+            type: 'success',
+            className: 'bg-green-100 text-green-600 text-[1.4rem]',
         })
     }
     const handleDeactivateSecurityGuard = () => {
         handleClose()
 
         toast('SecurityGuard deactivated successfully', {
-            type: 'error',
-            className: 'bg-red-100 text-red-600 text-[1.4rem]',
+            type: 'success',
+            className: 'bg-green-100 text-green-600 text-[1.4rem]',
+        })
+    }
+    const handleReAssign = () => {
+        handleClose()
+
+        toast(' Reassigned successfully', {
+            type: 'success',
+            className: 'bg-green-100 text-green-600 text-[1.4rem]',
         })
     }
 
