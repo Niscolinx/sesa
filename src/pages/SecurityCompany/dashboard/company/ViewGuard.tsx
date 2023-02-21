@@ -772,7 +772,7 @@ const ViewGuard = () => {
                             </div>
                         </div>
                     </div>): (
-                        <p>
+                        <p className='flex items-center gap-4'>
                             <span className='text-[1.4rem]'>
                                 No account Information created. 
                             </span>
