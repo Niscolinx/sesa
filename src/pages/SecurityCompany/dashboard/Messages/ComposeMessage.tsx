@@ -73,21 +73,21 @@ const ComposeMessage = () => {
                         >
                             Confirm Send Message
                         </p>
-<p>Are you sure you wanna send this message?</p>
+                        <p>Are you sure you want to send this message?</p>
 
                         <div className='flex w-full justify-center gap-8'>
                             <button
                                 className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
                                 onClick={() => handleClose()}
                             >
-                                View Details
+                                Cancel
                             </button>
 
                             <button
                                 className='btn text-white bg-[#0556E5] border rounded-lg w-[15rem]'
                                 onClick={() => handleClose()}
                             >
-                                View Details
+                                Yes
                             </button>
                         </div>
                     </div>
