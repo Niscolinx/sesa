@@ -776,7 +776,9 @@ const ViewGuard = () => {
                             <span className='text-[1.4rem]'>
                                 No account Information created. 
                             </span>
-                            <span>
+                            <span className='text-[2rem] text-color-blue' style={{
+                                fontFamily: 'Satoshi-Medium'
+                            }}>
                                 Open A Bank Account 
                             </span>
                         </p>
