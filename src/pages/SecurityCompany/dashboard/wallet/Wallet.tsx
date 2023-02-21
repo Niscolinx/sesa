@@ -162,7 +162,6 @@ function Wallet() {
     const [toggleMenu, setToggleMenu] = useState(false)
     const [selectedTrend, setSelectedTrend] = useState<Trend>('This Week')
     const [isWithdrawal, setIsWithdrawal] = useState(true)
-    const [sendToMenu, setSendToMenu] = useState(false)
 
     const menuToggler = () => setToggleMenu(!toggleMenu)
 
