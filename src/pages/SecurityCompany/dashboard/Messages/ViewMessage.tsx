@@ -22,6 +22,12 @@ const ViewMessage = () => {
         }
     }
 
+
+    const handleOpen = () => {
+        if(dialogRef.current){
+            dialogRef.current.showModal()
+        }
+    }
  
 
     const handleDeleteMessage = () => {
