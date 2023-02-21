@@ -145,7 +145,7 @@ function RenderedMessages() {
         setSearch(value)
 
         const filtered = MESSAGE_LIST.filter((item) =>
-            item.estateName.toLowerCase().includes(value.toLowerCase())
+            item.subject.toLowerCase().includes(value.toLowerCase())
         )
         setMessageList([...filtered])
     }
@@ -198,21 +198,7 @@ function RenderedMessages() {
                         </button>
                     </div>
 
-                    <div className='grid bg-white'>
-                        <div className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-4 gap-8 text-[1.6rem]'>
-                            <p className='flex items-center gap-4'>
-                                <input
-                                    type='checkbox'
-                                    name='sos'
-                                    id='sos'
-                                    className='cursor-pointer'
-                                />
-                                <label htmlFor='sos'>Estate Name</label>
-                            </p>
-                            <p>Address</p>
-                            <p>No of Security Guards</p>
-                            <p>Actions</p>
-                        </div>
+                    
 
                         <div className='grid gap-8 mt-8 p-8'>
                             {slicedPages && slicedPages.length > 0 ? (
