@@ -214,7 +214,7 @@ const ViewGuard = () => {
                 </section>
             </dialog> */}
 
-            {/* <dialog className='dialog' ref={validatedDialogRef}>
+            <dialog className='dialog' ref={validatedDialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid items-baseline w-[90rem] min-h-[30rem] p-10 text-[1.6rem] relative gap-20'>
                         <IoMdClose
@@ -300,7 +300,7 @@ const ViewGuard = () => {
                         </button>
                     </div>
                 </section>
-            </dialog> */}
+            </dialog>
 
             {/* <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
