@@ -69,7 +69,7 @@ export const AddBankAccount = () => {
             </div>
 
             <button
-                className='bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg'
+                className='bg-[#0556E5] py-6 px-12 w-full text-white text-[1.6rem] rounded-lg'
                 onClick={() =>
                     setAddedSecurityGuardStep('openedBankAccountSuccessful')
                 }
@@ -99,14 +99,15 @@ export const OpenedBankAccountSuccessful = () => {
                 guard
             </p>
 
-            <div className='grid justify-center gap-4'>
+            <div className='grid justify-items-center gap-4'>
                 <h2
-                    className='font-bold text-[2rem] text-center uppercase flex items-center'
+                    className='font-bold text-[2rem] text-center uppercase flex items-center gap-4'
                     style={{
                         fontFamily: 'Satoshi-Medium',
                     }}
                 >
-                    2094828922 <TbCopy /> - {selectedBank}
+                    2094828922 <TbCopy className='text-[#0556E5]' /> -{' '}
+                    {selectedBank}
                 </h2>
                 <p
                     className='uppercase text-[2rem] font-bold'
