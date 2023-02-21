@@ -495,9 +495,9 @@ const AttendanceReport = () => {
                     </p>
                     <p>Date</p>
                     <p>Guard Code</p>
-                    <p>Check In Count</p>
-                    <p>Check Out Count</p>
-                    <p>Panic Alert</p>
+                    <p>Phone Number</p>
+                    <p>Clock In</p>
+                    <p>Clock Out </p>
                 </div>
 
                 <div className='grid gap-8 mt-8 p-8'>
