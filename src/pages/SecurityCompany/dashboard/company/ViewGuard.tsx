@@ -753,7 +753,7 @@ const ViewGuard = () => {
                                 type='text'
                                 required
                                 id='bankName'
-                                value={`First City Monument Bank`}
+                                placeholder={`First City Monument Bank`}
                                 className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                             />
                         </div>
@@ -770,7 +770,7 @@ const ViewGuard = () => {
                                     type='number'
                                     required
                                     id='firstName'
-                                    value={`2084827323`}
+                                    placeholder={`2084827323`}
                                     className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                                 />
 
