@@ -55,7 +55,7 @@ const ViewGuard = () => {
     const knowYourGuardDialogRef = useRef<HTMLDialogElement | null>(null)
     const validateDialogRef = useRef<HTMLDialogElement | null>(null)
     const validatedDialogRef = useRef<HTMLDialogElement | null>(null)
-    const dialogRef = useRef(HTMLDialogElement | null)(null)
+    const dialogRef = useRef<HTMLDialogElement | null>(null)
     const [dialogType, setDialogType] = useState<Actions>('Deactivate')
 
     const handleClose = () => {
