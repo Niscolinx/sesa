@@ -14,7 +14,7 @@ const NotificationSettings = () => {
         <>
             <ToastContainer />
             <div className=' p-8 bg-white h-[80vh] overflow-y-scroll rounded-lg'>
-                <section>
+                <section className='mb-20 grid gap-2'>
                     <p
                         style={{
                             fontFamily: 'Satoshi-Medium',
