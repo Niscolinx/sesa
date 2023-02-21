@@ -341,7 +341,7 @@ const AddSecurityGuard = () => {
                         {!isValidated ? (
                             <div className='flex justify-between text-[1.6rem]'>
                                 <p
-                                    className='text-[#098DFF] cursor-pointer'
+                                    className='text-[#098DFF] cursor-pointer flex items-center'
                                     onClick={() => handleOpen('validate')}
                                 >
                                     Validated <IoMdCheckmarkCircleOutline />
