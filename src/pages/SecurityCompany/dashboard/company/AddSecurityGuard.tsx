@@ -5,11 +5,10 @@ import { BsQuestionCircle } from 'react-icons/bs'
 import { ToastContainer } from 'react-toastify'
 import { Select } from '../../../../components/SuperAdmin/UI/Select'
 
-type DialogType = 'validate' | 'add-Artisan'
+type DialogType = 'validate' | 'add-Security Guard'
 
 const AddSecurityGuard = () => {
     const [selectedState, setSelectedState] = useState<string | null>(null)
-    const [selectedArtisan, setSelectedArtisan] = useState<string | null>(null)
     const [selectedGender, setSelectedGender] = useState<string | null>(null)
     const [isAddSecurityGuard, setIsAddSecurityGuard] = useState(true)
     const [validationType, setValidationType] = useState<string | null>(
@@ -62,8 +61,8 @@ const AddSecurityGuard = () => {
     }
 
     const addSecurityGuardHandler = () => {
-        // navigate('/superAdmin/artisanCategory/add')
-        handleOpen('add-Artisan')
+        // navigate('/superAdmin/Security GuardCategory/add')
+        handleOpen('add-Security Guard')
     }
 
     const confirmAddSecurityGuard = () => {
@@ -187,7 +186,7 @@ const AddSecurityGuard = () => {
                                         fontFamily: 'Satoshi-Medium',
                                     }}
                                 >
-                                    Know Your Artisan (KYA)
+                                    Know Your Security Guard (KYA)
                                 </h3>
 
                                 <Select
@@ -240,7 +239,7 @@ const AddSecurityGuard = () => {
                                     alt=''
                                 />
 
-                                <p>You have successfully added an Artisan</p>
+                                <p>You have successfully added an Security Guard</p>
 
                                 <div className='flex w-full justify-center gap-8'>
                                     <button
@@ -428,7 +427,7 @@ const AddSecurityGuard = () => {
                                     fontFamily: 'Satoshi-Light',
                                 }}
                             >
-                                Drag Estate Security Guard picture here or{' '}
+                                Drag Security Guard picture here or{' '}
                                 <span className='text-color-blue font-bold'>
                                     click
                                 </span>{' '}
@@ -463,7 +462,7 @@ const AddSecurityGuard = () => {
                         <span>
                             <IoMdAdd />
                         </span>{' '}
-                        Add Artisan
+                        Add Security Guard
                     </button>
                 </form>
             </div>
