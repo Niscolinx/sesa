@@ -26,7 +26,7 @@ export const NIN_Number = () => {
     return (
         <div className='grid gap-4'>
             <label htmlFor='phoneNumber' className='text-[1.4rem] font-medium'>
-                Phone Number
+                NIN (Number)
             </label>
 
             <div className='flex text-[1.6rem] gap-4 h-[5rem]'>
