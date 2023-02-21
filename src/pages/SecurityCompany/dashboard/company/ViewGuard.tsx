@@ -774,7 +774,10 @@ const ViewGuard = () => {
                     </div>): (
                         <p>
                             <span className='text-[1.4rem]'>
-                                No account created
+                                No account Information created. 
+                            </span>
+                            <span>
+                                Open A Bank Account 
                             </span>
                         </p>
                     )}
