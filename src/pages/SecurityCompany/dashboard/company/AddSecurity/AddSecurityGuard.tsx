@@ -1,4 +1,4 @@
-import React, { FormEvent, useRef, useState } from 'react'
+import React, { createContext, FormEvent, useRef, useState } from 'react'
 import { IoMdAdd, IoMdCheckmarkCircleOutline, IoMdClose } from 'react-icons/io'
 import { getPhotoUrl } from '../../../../../utils/getPhotoUrl'
 import { BsQuestionCircle } from 'react-icons/bs'
@@ -140,8 +140,20 @@ const AddSecurityGuard = () => {
         ['openedBankAccountSuccessful', <AddedSecuritySuccessfully />],
     ])
 
+    interface AddedSecurityGuardContext {
+        addedSecurityGuardStep: AddedSecurityGuardSteps
+        setAddedSecurityGuardStep: React.Dispatch<
+            React.SetStateAction<AddedSecurityGuardSteps>
+        >
+    }
+
+    const CreateAddedSecurityGuardContext = createContext<AddedSecurityGuardContext>(null as any)
+
     return (
-        <>
+        <CreateAddedSecurityGuardContext.Provider value={{
+            addedSecurityGuardStep,
+            setAddedSecurityGuardStep
+        }}>
             <ToastContainer />
 
             <dialog className='dialog' ref={validateDialogRef}>
@@ -670,7 +682,7 @@ const AddSecurityGuard = () => {
                     </button>
                 </section>
             </main>
-        </>
+        </CreateAddedSecurityGuardContext.Provider>
     )
 }
 
