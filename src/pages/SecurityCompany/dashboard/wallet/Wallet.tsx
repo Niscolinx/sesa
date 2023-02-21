@@ -28,8 +28,8 @@ export interface TransactionHistory {
 
 export const TRANSACTION_HISTORY: TransactionHistory[] = Array.from({length: 10}).map((_, i) => ({
     id: i,
-    transactionType: 'Debit',
-    transactionCategory: 'Salary',
+    transactionType: 'Credit',
+    transactionCategory: 'Fund Wallet',
     transactionId: 783239232,
     narration: '---',
     amount: 10000,
@@ -42,7 +42,7 @@ type Trend = 'This Week' | 'This Month' | 'This Year'
 function Wallet() {
     const navigate = useNavigate()
 
-    const [houseHoldList, setHouseHoldList] = useState<Overview[]>([])
+    const [houseHoldList, setHouseHoldList] = useState<TransactionHistory[]>([])
 
     useEffect(() => {
         setTimeout(() => {
