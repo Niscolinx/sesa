@@ -154,7 +154,7 @@ function RenderedMessages() {
     }
 
     return (
-        <div className='bg-color-white rounded-lg border min-w-[112rem]'>
+        <div className='grid gap-10 rounded-lg border min-w-[112rem]'>
             <div className='grid text-[1.6rem] border rounded-lg'>
                 <div className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
                     <p className=' font-bold'>
@@ -196,8 +196,8 @@ function RenderedMessages() {
                     </button>
                 </div>
 
-                <div className='grid gap-8 mt-8 p-8' style={{
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(30rem, 1fr))'
+                <div className='grid gap-8 mt-8' style={{
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(40rem, 1fr))'
                 }}>
                     {slicedPages && slicedPages.length > 0 ? (
                         React.Children.toArray(
