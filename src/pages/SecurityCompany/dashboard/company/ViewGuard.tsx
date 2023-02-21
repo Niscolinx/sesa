@@ -27,7 +27,7 @@ const ViewGuard = () => {
     const [selectedEstate4, setSelectedEstate4] = useState<string | null>(null)
     const [selectedState, setSelectedState] = useState<string | null>(null)
     const [selectedGender, setSelectedGender] = useState<string | null>(null)
-    const [isAccountCreated, setIsAccountCreated] = useState(false)
+    const [isAccountCreated, setIsAccountCreated] = useState(true)
     const [isValidated, setIsValidated] = useState(false)
 
     const [photoUrl, setPhotoUrl] = useState('')
@@ -735,55 +735,57 @@ const ViewGuard = () => {
                         Account Information
                     </h2>
 
-                    {isAccountCreated ? ( <div className='columns-2 justify-between items-center gap-10'>
-                        <div className='grid gap-4 relative '>
-                            <label
-                                htmlFor='bankName'
-                                className='text-[1.4rem] font-medium'
-                            >
-                                Bank Name
-                            </label>
-                            <input
-                                type='text'
-                                required
-                                id='bankName'
-                                placeholder={`First City Monument Bank`}
-                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                            />
-                        </div>
-
-                        <div className='grid gap-4 relative '>
-                            <label
-                                htmlFor='firstName'
-                                className='text-[1.4rem] font-medium'
-                            >
-                                Account Number
-                            </label>
-                            <div className='relative flex items-center pr-20 w-full rounded-lg border border-color-grey'>
+                    {isAccountCreated ? (
+                        <div className='columns-2 justify-between items-center gap-10'>
+                            <div className='grid gap-4 relative '>
+                                <label
+                                    htmlFor='bankName'
+                                    className='text-[1.4rem] font-medium'
+                                >
+                                    Bank Name
+                                </label>
                                 <input
-                                    type='number'
+                                    type='text'
                                     required
-                                    id='firstName'
-                                    placeholder={`2084827323`}
-                                    className=' text-[1.6rem] outline-transparent py-4 px-4 w-full'
+                                    id='bankName'
+                                    placeholder={`First City Monument Bank`}
+                                    className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                                 />
+                            </div>
 
-                                <TbCopy className='text-[#0556E5] absolute right-8 text-[2rem]' />
+                            <div className='grid gap-4 relative '>
+                                <label
+                                    htmlFor='firstName'
+                                    className='text-[1.4rem] font-medium'
+                                >
+                                    Account Number
+                                </label>
+                                <div className='relative flex items-center pr-20 w-full rounded-lg border border-color-grey'>
+                                    <input
+                                        type='number'
+                                        required
+                                        id='firstName'
+                                        placeholder={`2084827323`}
+                                        className=' text-[1.6rem] outline-transparent py-4 px-4 w-full'
+                                    />
+
+                                    <TbCopy className='text-[#0556E5] absolute right-8 text-[2rem]' />
+                                </div>
                             </div>
                         </div>
-                    </div>): (
+                    ) : (
                         <p className='flex items-cente gap-2'>
-                            <span>
-                                No account Information created. 
-                            </span>
-                            <span className=' text-color-blue' style={{
-                                fontFamily: 'Satoshi-Medium'
-                            }}>
-                                Open a bank account 
+                            <span>No account Information created.</span>
+                            <span
+                                className=' text-color-blue'
+                                style={{
+                                    fontFamily: 'Satoshi-Medium',
+                                }}
+                            >
+                                Open a bank account
                             </span>
                         </p>
                     )}
-                   
                 </section>
             </main>
         </>
