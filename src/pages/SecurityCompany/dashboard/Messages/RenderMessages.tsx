@@ -196,7 +196,9 @@ function RenderedMessages() {
                     </button>
                 </div>
 
-                <div className='grid gap-8 mt-8 p-8'>
+                <div className='grid gap-8 mt-8 p-8' style={{
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(30rem, 1fr))'
+                }}>
                     {slicedPages && slicedPages.length > 0 ? (
                         React.Children.toArray(
                             slicedPages[paginate.index].map(
@@ -211,7 +213,7 @@ function RenderedMessages() {
                                 }) => {
                                     return (
                                         <div className='grid relative '>
-                                            <div className='flex items-center gap-2'>
+                                            <div className='flex items-center gap-2 absolute right-0 top-0'>
                                                 <p>Status:</p>
                                                 <p
                                                     style={{
@@ -221,7 +223,7 @@ function RenderedMessages() {
                                                 >
                                                     {status === 'Sent' ? (<span className='text-green-600'>
                                                         {status}
-                                                    </span>) : (<span>
+                                                    </span>) : (<span className='text-orange-500'>
                                                         {status}
                                                     </span>)}
                                                 </p>
