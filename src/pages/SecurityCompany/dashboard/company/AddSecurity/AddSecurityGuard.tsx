@@ -31,6 +31,17 @@ export type ValidateInputTypes =
     | 'International Passport'
     | 'Voters Card'
 
+interface AddedSecurityGuardContext {
+    addedSecurityGuardStep: AddedSecurityGuardSteps
+    setAddedSecurityGuardStep: React.Dispatch<
+        React.SetStateAction<AddedSecurityGuardSteps>
+    >
+    handleClose: () => void
+}
+
+export const CreateAddedSecurityGuardContext =
+    createContext<AddedSecurityGuardContext>(null as any)
+
 const AddSecurityGuard = () => {
     const [selectedEstate1, setSelectedEstate1] = useState<string | null>(null)
     const [selectedEstate2, setSelectedEstate2] = useState<string | null>(null)
@@ -140,22 +151,14 @@ const AddSecurityGuard = () => {
         ['openedBankAccountSuccessful', <AddedSecuritySuccessfully />],
     ])
 
-    interface AddedSecurityGuardContext {
-        addedSecurityGuardStep: AddedSecurityGuardSteps
-        setAddedSecurityGuardStep: React.Dispatch<
-            React.SetStateAction<AddedSecurityGuardSteps>
-        >
-        handleClose: () => void
-    }
-
-    const CreateAddedSecurityGuardContext = createContext<AddedSecurityGuardContext>(null as any)
-
     return (
-        <CreateAddedSecurityGuardContext.Provider value={{
-            addedSecurityGuardStep,
-            setAddedSecurityGuardStep,
-            handleClose
-        }}>
+        <CreateAddedSecurityGuardContext.Provider
+            value={{
+                addedSecurityGuardStep,
+                setAddedSecurityGuardStep,
+                handleClose,
+            }}
+        >
             <ToastContainer />
 
             <dialog className='dialog' ref={validateDialogRef}>

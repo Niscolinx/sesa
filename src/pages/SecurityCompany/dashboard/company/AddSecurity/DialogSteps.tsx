@@ -1,7 +1,9 @@
+import { useContext } from 'react'
+import { CreateAddedSecurityGuardContext } from './AddSecurityGuard'
 
 export const AddedSecuritySuccessfully = () => {
-    
-    
+    const { handleClose } = useContext(CreateAddedSecurityGuardContext)
+
     return (
         <>
             <img src='/icons/admins/modalSuccess.svg' alt='' />
