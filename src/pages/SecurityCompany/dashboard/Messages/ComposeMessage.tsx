@@ -20,6 +20,19 @@ const ComposeMessage = () => {
     const dialogRef = useRef<HTMLDialogElement | null>(null)
     const recipient_List_DialogRef = useRef<HTMLDialogElement | null>(null)
 
+
+    const closeRecipientListDialog = () => {
+        if (recipient_List_DialogRef.current) {
+            recipient_List_DialogRef.current.close()
+        }
+    }
+
+    const openRecipientListDialog = () => {
+        if (recipient_List_DialogRef.current) {
+            recipient_List_DialogRef.current.showModal()
+        }
+    }
+
     const handleClose = () => {
         if (dialogRef.current) {
             dialogRef.current.close()
