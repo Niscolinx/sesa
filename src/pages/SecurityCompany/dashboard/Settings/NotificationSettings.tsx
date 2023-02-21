@@ -32,7 +32,7 @@ const NotificationSettings = () => {
                     <div className='grid gap-10 w-[60rem]'>
                         <div className='grid grid-cols-2 items-center gap-16 '>
                             <p>In-App</p>
-                            <div onClick={toggleIsInAppOn}>
+                            <div onClick={toggleIsInAppOn} className='cursor-pointer'>
                                 {isInAppOn ? (
                                     <img
                                         src='/icons/admins/switchOn.svg'
@@ -48,7 +48,7 @@ const NotificationSettings = () => {
                         </div>
                         <div className='grid grid-cols-2 items-center gap-16'>
                             <p>SMS</p>
-                            <div onClick={toggleIsSmsOn}>
+                            <div onClick={toggleIsSmsOn} className='cursor-pointer'>
                                 {isSmsOn ? (
                                     <img
                                         src='/icons/admins/switchOn.svg'
