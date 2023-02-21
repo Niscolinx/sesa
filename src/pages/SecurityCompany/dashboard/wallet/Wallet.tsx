@@ -190,11 +190,12 @@ function Wallet() {
         }
     }
 
-    const handleWithdrawal = () => {
+    const handleWithdrawal = (e: FormEvent) => {
+        e.preventDefault()
         handleClose()
     }
 
-    const handleFormSubmit = (e: FormEvent) => {
+    const handleFundWallet = (e: FormEvent) => {
         e.preventDefault()
     }
 
@@ -220,7 +221,7 @@ function Wallet() {
                         {isWithdrawal ? (
                             <form
                                 className='grid gap-12'
-                                onSubmit={handleFormSubmit}
+                                onSubmit={handleWithdrawal}
                             >
                                 <div className='w-full grid gap-4'>
                                     <label
@@ -266,7 +267,7 @@ function Wallet() {
                         ) : (
                             <form
                                 className='grid gap-12'
-                                onSubmit={handleFormSubmit}
+                                onSubmit={handleFundWallet}
                             >
                                 <div className='w-full grid gap-4'>
                                     <label
