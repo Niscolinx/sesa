@@ -225,7 +225,7 @@ const AddSecurityGuard = () => {
 
                         {dialogState === 'validate' ? (
                             <form
-                                className='grid gap-12 max-w-[40rem]'
+                                className='grid gap-12'
                                 onSubmit={handleDialogSubmit}
                             >
                                 <h3
