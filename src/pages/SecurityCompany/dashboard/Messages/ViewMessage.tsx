@@ -1,5 +1,4 @@
-import React, { useRef, useState } from 'react'
-import { getPhotoUrl } from '../../../../utils/getPhotoUrl'
+import { useRef } from 'react'
 import { toast, ToastContainer } from 'react-toastify'
 
 
