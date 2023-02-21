@@ -7,6 +7,7 @@ import {
     ComplexSelect,
     Select,
 } from '../../../../components/SuperAdmin/UI/Select'
+import { PhoneNumber, BVN_Number, NIN_Number, DriversLicence, International_PassPort, Voters_Card } from './AddSecurity/Inputs'
 
 type DialogType = 'validate' | 'add-security-guard' | 'reassign'
 type Actions = 'Deactivate' | 'Delete'
