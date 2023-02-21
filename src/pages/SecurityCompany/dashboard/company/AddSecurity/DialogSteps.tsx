@@ -79,7 +79,7 @@ export const AddBankAccount = () => {
 }
 
 export const openedBankAccountSuccessful = () => {
-    const { handleClose, setAddedSecurityGuardStep } = useContext(
+    const { handleClose, setAddedSecurityGuardStep, selectedBank } = useContext(
         CreateAddedSecurityGuardContext
     )
 
@@ -92,15 +92,15 @@ export const openedBankAccountSuccessful = () => {
                 guard
             </p>
 
-            <p
-                className='font-bold text-[1.8rem] max-w-[40rem] text-center'
+            <h2
+                className='font-bold text-[2rem] max-w-[40rem] text-center uppercase'
                 style={{
                     fontFamily: 'Satoshi-Medium',
                 }}
             >
-                <TbCopy /> Do you want to open a bank account for this Security
-                Guard?
-            </p>
+                2094828922 <TbCopy /> -{selectedBank}
+            </h2>
+            <p className='uppercase text-[2rem]'>Ajayi Suileman Adeyemi</p>
 
             <div className='flex w-full justify-center gap-8'>
                 <button
