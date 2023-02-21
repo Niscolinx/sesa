@@ -26,9 +26,8 @@ const AddSecurityGuard = () => {
     const [selectedState, setSelectedState] = useState<string | null>(null)
     const [selectedGender, setSelectedGender] = useState<string | null>(null)
     const [dialogState, setDialogState] = useState<DialogType>('validate')
-    const [validationType, setValidationType] = useState<string | null>(
-        'Phone Number'
-    )
+    const [validationType, setValidationType] =
+        useState<ValidateInputTypes>('phoneNumber')
 
     const [photoUrl, setPhotoUrl] = useState('')
 
@@ -104,8 +103,6 @@ const AddSecurityGuard = () => {
         ['phoneNumber', <PhoneNumber />],
         ['NIN-number', <PhoneNumber />],
     ]) as Map<ValidateInputTypes, JSX.Element>
-
-    
 
     return (
         <>
@@ -231,10 +228,10 @@ const AddSecurityGuard = () => {
                                     ]}
                                     label='Validation Option'
                                     selectedState={validationType}
-                                    setSelectedState={setValidationType}
+                                    setSelectedState={setValidationType as any}
                                 />
 
-                                <PhoneNumber />
+                                {renderValidationType.get(validationType)}
 
                                 <p
                                     className='text-[#043FA7] flex items-center gap-2'
