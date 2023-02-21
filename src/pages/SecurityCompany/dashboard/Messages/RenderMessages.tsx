@@ -141,13 +141,17 @@ function RenderedMessages() {
         setHouseHoldList([...filtered])
     }
 
+    const composeMessageHandler = () => {
+        navigate('/securityCompany/messages/compose')
+    }
+
     return (
         <div className='estateDetail'>
             <section className='bg-color-white rounded-lg border min-w-[112rem]'>
                 <div className='grid text-[1.6rem] border rounded-lg'>
                     <div className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
                         <p className=' font-bold'>
-                            HouseHold List <span>(200)</span>
+                            Messages <span>(200)</span>
                         </p>
                         <div className='relative flex items-center'>
                             <img
@@ -173,6 +177,16 @@ function RenderedMessages() {
                             </select>
                             <GrDown className='absolute right-4 text-[1.3rem]' />
                         </div>
+
+                        <button
+                            className='btn ml-auto bg-color-blue-1 text-white flex gap-2 items-center self-center rounded-lg py-4 px-8 capitalize'
+                            onClick={composeMessageHandler}
+                        >
+                            <span>
+                                <IoMdAdd />
+                            </span>{' '}
+                            <p>compose Message</p>
+                        </button>
                     </div>
 
                     <div className='grid bg-white'>
