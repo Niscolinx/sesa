@@ -115,9 +115,9 @@ const ComposeMessage = () => {
             </dialog>
             <dialog className='dialog' ref={recipient_List_DialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
-                    
-                        <RecipientList/>
-                 
+                    <RecipientList
+                        closeRecipientListDialog={closeRecipientListDialog}
+                    />
                 </section>
             </dialog>
             <div className='grid p-8 bg-white items-baseline rounded-lg'>
@@ -207,7 +207,6 @@ const ComposeMessage = () => {
                             style={{ justifySelf: 'start' }}
                             onClick={() => openRecipientListDialog()}
                         >
-                            
                             View Receipt List
                         </button>
                     </div>
