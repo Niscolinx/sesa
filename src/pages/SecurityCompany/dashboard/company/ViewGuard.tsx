@@ -730,16 +730,7 @@ const ViewGuard = () => {
                             </button>
                         </div>
                     </div>
-                    <button
-                        className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg mt-32'
-                        style={{ justifySelf: 'start' }}
-                        // onClick={viewGuardHandler}
-                    >
-                        <span>
-                            <IoMdAdd />
-                        </span>{' '}
-                        save
-                    </button>
+                    
                 </section>
             </main>
         </>
