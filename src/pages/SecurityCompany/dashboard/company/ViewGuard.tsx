@@ -1,5 +1,5 @@
-import React, { FormEvent, useRef, useState } from 'react'
-import { IoMdAdd, IoMdClose } from 'react-icons/io'
+import React, { useRef, useState } from 'react'
+import { IoMdClose } from 'react-icons/io'
 import { getPhotoUrl } from '../../../../utils/getPhotoUrl'
 import { BsQuestionCircle } from 'react-icons/bs'
 import { toast, ToastContainer } from 'react-toastify'
@@ -7,17 +7,9 @@ import {
     ComplexSelect,
     Select,
 } from '../../../../components/SuperAdmin/UI/Select'
-import {
-    PhoneNumber,
-    BVN_Number,
-    NIN_Number,
-    DriversLicence,
-    International_PassPort,
-    Voters_Card,
-} from './AddSecurity/Inputs'
+
 import { TbCopy } from 'react-icons/tb'
 
-type DialogType = 'validate' | 'add-security-guard' | 'reassign'
 type Actions = 'Deactivate' | 'Delete'
 
 export type ValidateInputTypes =
