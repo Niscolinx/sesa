@@ -35,11 +35,11 @@ function Settings() {
                 <input
                     type='radio'
                     name='platform'
-                    id='propertyType'
+                    id='notificationSettings'
                     className='hidden'
-                    onChange={() => setPathToSwitch('propertyType')}
+                    onChange={() => setPathToSwitch('notificationSettings')}
                 />
-                <label htmlFor='propertyType'>Property Type</label>
+                <label htmlFor='notificationSettings'>Property Type</label>
                 
             </div>
             <div className='mt-8 grid gap-8'>
