@@ -29,19 +29,28 @@ const NotificationSettings = () => {
                 </section>
 
                 <section>
+                    <div>
                         <div>
-                                <div>
-                                    <p>In-App</p>
-                                    <div>
-                                        {
-                                            
-                                        }
-                                    </div>
-                                    <img src="/icons/admins/switchOn.svg" alt="" />
-                                </div>
+                            <p>In-App</p>
+                            <div>
+                                {isInAppOn ? (
+                                    <img
+                                        src='/icons/admins/switchOn.svg'
+                                        alt=''
+                                    />
+                                ) : (
+                                    <img
+                                        src='/icons/admins/switchOn.svg'
+                                        alt=''
+                                    />
+                                )}
+                            </div>
                         </div>
-                        
-                    <p className='text-color-blue-1'>NB: A charge of N3 would be incured for this process</p>
+                    </div>
+
+                    <p className='text-color-blue-1'>
+                        NB: A charge of N3 would be incured for this process
+                    </p>
                 </section>
             </div>
         </>
