@@ -55,15 +55,14 @@ export const AddBankAccount = () => {
                 Open a bank Account
             </p>
             <Select
-                label='State'
-                state={['Lagos', 'Imo', 'Abia', 'FCT']}
-                placeholder='Select State'
+                label='Select Bank'
+                state={['FCMB Easy Wallet', 'FCMB Account', 'Parallex ']}
                 selectedState={selectedBank}
                 setSelectedState={setSelectedBank}
             />
 
             <button
-                className='bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[20rem]'
+                className='bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg'
                 onClick={() =>
                     setAddedSecurityGuardStep('openedBankAccountSuccessful')
                 }
