@@ -32,9 +32,11 @@ const NotificationSettings = () => {
                         <div>
                                 <div>
                                     <p>In-App</p>
-                                    {
-
-                                    }
+                                    <div>
+                                        {
+                                            
+                                        }
+                                    </div>
                                     <img src="/icons/admins/switchOn.svg" alt="" />
                                 </div>
                         </div>
