@@ -386,12 +386,19 @@ const ViewGuard = () => {
                                 onClick={handlePhotoPreview}
                             />
                             <div>
-                                <p className='' style={{
-                                    fontFamily: 'Satoshi-Light',
-                                }}>
-                                    Guard Code : <span style={{
-                                        fontFamily: 'Satoshi-Medium',
-                                    }}>SG09897</span>
+                                <p
+                                    style={{
+                                        fontFamily: 'Satoshi-Light',
+                                    }}
+                                >
+                                    Guard Code :{' '}
+                                    <span
+                                        style={{
+                                            fontFamily: 'Satoshi-Medium',
+                                        }}
+                                    >
+                                        SG09897
+                                    </span>
                                 </p>
                                 <p className='flex items-center gap-8'>
                                     KYG Status <BsQuestionCircle />:{' '}
@@ -415,6 +422,7 @@ const ViewGuard = () => {
                                         </span>
                                     )}
                                 </p>
+                                <p>Click here to view results</p>
                             </div>
                         </div>
 
