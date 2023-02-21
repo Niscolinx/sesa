@@ -321,7 +321,7 @@ function Wallet() {
                                             className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] '
                                         />
                                     </div>
-                                    <div>
+                                    <div className='w-full'>
                                         <label
                                             htmlFor='description'
                                             className='text-[1.4rem] font-semibold'
@@ -339,7 +339,7 @@ function Wallet() {
                                 </div>
 
                                 <button className='btn bg-[#0556E5] text-white rounded-lg py-4 place-self-start w-[15rem]'>
-                                    Request
+                                    Fund
                                 </button>
                             </form>
                         )}
