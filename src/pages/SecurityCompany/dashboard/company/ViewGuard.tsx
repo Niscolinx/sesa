@@ -383,7 +383,7 @@ const ViewGuard = () => {
                                 className='hidden'
                                 onClick={handlePhotoPreview}
                             />
-                            <div className='grid gap-2'>
+                            <div className='grid gap-2 justify-items-start'>
                                 <p
                                     style={{
                                         fontFamily: 'Satoshi-Light',
