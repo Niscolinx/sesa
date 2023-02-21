@@ -3,7 +3,7 @@ import { IoMdAdd } from 'react-icons/io'
 import { useNavigate } from 'react-router'
 import RenderArtisans from '../../../components/SuperAdmin/artisans/RenderArtisans'
 
-function Artisan() {
+function Messages() {
     const navigate = useNavigate()
 
     const [artisan, setArtisan] = useState(false)
