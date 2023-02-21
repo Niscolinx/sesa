@@ -35,10 +35,7 @@ const ViewGuard = () => {
     const [selectedState, setSelectedState] = useState<string | null>(null)
     const [selectedGender, setSelectedGender] = useState<string | null>(null)
     const [isValidated, setIsValidated] = useState(false)
-    const [dialogState, setDialogState] = useState<DialogType>('validate')
-    const [validationType, setValidationType] = useState<string | null>(
-        'Phone Number'
-    )
+    
 
     const [photoUrl, setPhotoUrl] = useState('')
 
