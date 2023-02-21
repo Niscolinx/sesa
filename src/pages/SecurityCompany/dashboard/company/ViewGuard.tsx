@@ -389,7 +389,9 @@ const ViewGuard = () => {
                                 <p className='' style={{
                                     fontFamily: 'Satoshi-Light',
                                 }}>
-                                    Guard Code : <span>SG09897</span>
+                                    Guard Code : <span style={{
+                                        fontFamily: 'Satoshi-Medium',
+                                    }}>SG09897</span>
                                 </p>
                                 <p className='flex items-center gap-8'>
                                     KYG Status <BsQuestionCircle />:{' '}
