@@ -765,16 +765,16 @@ const ViewGuard = () => {
                             >
                                 Account Number
                             </label>
-                            <div>
+                            <div className='relative flex items-center pr-20 w-full rounded-lg border border-color-grey'>
                                 <input
                                     type='number'
                                     required
                                     id='firstName'
                                     placeholder={`2084827323`}
-                                    className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                                    className=' text-[1.6rem] outline-transparent py-4 px-4 w-full'
                                 />
 
-                                <TbCopy className='text-[#0556E5]' />
+                                <TbCopy className='text-[#0556E5] absolute right-8 text-[1.8rem]' />
                             </div>
                         </div>
                     </div>
