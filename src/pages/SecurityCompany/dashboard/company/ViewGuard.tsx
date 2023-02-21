@@ -658,7 +658,8 @@ const ViewGuard = () => {
                         <span>
                             <IoMdAdd />
                         </span>{' '}
-                        Add Security Guard
+                        
+                        save
                     </button>
                 </section>
             </main>

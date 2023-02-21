@@ -19,7 +19,7 @@ import ViewGuard from '../../pages/SecurityCompany/dashboard/company/ViewGuard'
          <Route path='estates/workrate' element={<EstateWorkRate />} />
          <Route path='estates/estateReport' element={<EstateReport />} />
          <Route path='company-overview' element={<CompanyOverview />} />
-         <Route path='company-overview/viewGuard' element={<ViewGuard />} />
+         <Route path='company-overview/viewGuard/:Id' element={<ViewGuard />} />
      </Route>
  )
 
