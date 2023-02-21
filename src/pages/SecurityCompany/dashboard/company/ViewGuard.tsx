@@ -310,7 +310,7 @@ const ViewGuard = () => {
                     </div>
                 </section>
             </dialog>
-            <main>
+            <main className='bg-white'>
                 <section className='grid p-8 bg-white items-baseline rounded-lg'>
                     <div className='flex justify-between items-center'>
                         <div className='flex gap-8 items-center'>
@@ -732,7 +732,7 @@ const ViewGuard = () => {
                         </div>
                     </div>
                 </section>
-                <section className='grid p-8 bg-white max-w-3/5'>
+                <section className='grid p-8 bg-white w-3/5'>
                     <h2
                         className='text-[2rem] mb-10'
                         style={{
