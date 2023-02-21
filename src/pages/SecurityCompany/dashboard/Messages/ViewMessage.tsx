@@ -6,6 +6,18 @@ import { toast, ToastContainer } from 'react-toastify'
 const ViewMessage = () => {
     let location = useLocation()
     location.state
+
+    console.log({ location })
+
+    const {
+        id,
+        date,
+        subject,
+        description,
+        status,
+        transmissionChannel,
+        transmissionDate,
+    } = location.state
     
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
@@ -84,7 +96,7 @@ const ViewMessage = () => {
                                 ' repeat(auto-fit, minmax(35rem, 1fr))',
                         }}
                     >
-                        {/* <div className='grid relative p-8 bg-white rounded-lg gap-2'>
+                        <div className='grid relative p-8 bg-white rounded-lg gap-2'>
                             <div className='flex items-center gap-2 absolute right-0 top-0 p-8'>
                                 <p>Status:</p>
                                 <p
@@ -174,7 +186,7 @@ const ViewMessage = () => {
                                     {description}
                                 </p>
                             </div>
-                        </div> */}
+                        </div>
                     </div>
                 </section>
             </main>
