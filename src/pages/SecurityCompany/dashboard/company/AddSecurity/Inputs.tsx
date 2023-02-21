@@ -38,18 +38,18 @@ export const NIN_Number = () => {
                     type='number'
                     inputMode='numeric'
                     id='phoneNumber'
-                    placeholder='Phone Number'
+                    placeholder='NIN (Number)'
                     className='w-full rounded-lg border border-color-grey py-4.8 px-8 outline-none text-color-dark'
                 />
             </div>
         </div>
     )
 }
-export const NIN_Number = () => {
+export const BVN_Number = () => {
     return (
         <div className='grid gap-4'>
             <label htmlFor='phoneNumber' className='text-[1.4rem] font-medium'>
-                NIN (Number)
+                BVN (Number)
             </label>
 
             <div className='flex text-[1.6rem] gap-4 h-[5rem]'>
@@ -61,7 +61,7 @@ export const NIN_Number = () => {
                     type='number'
                     inputMode='numeric'
                     id='phoneNumber'
-                    placeholder='Phone Number'
+                    placeholder='BVN (Number)'
                     className='w-full rounded-lg border border-color-grey py-4.8 px-8 outline-none text-color-dark'
                 />
             </div>
