@@ -11,7 +11,7 @@ type Complex = {
 
 
 
-interface ISelect<T extends any[]>{
+interface ISelect<T>{
     state: Array<string>
     selectedState: string | null
     setSelectedState: React.Dispatch<React.SetStateAction<T>>
@@ -21,7 +21,7 @@ interface ISelect<T extends any[]>{
     
 }
 
-interface ComplexSelect extends Omit<ISelect, 'state'> {
+interface ComplexSelect extends Omit<ISelect<string>, 'state'> {
     state: Array<Complex>
 }
 
@@ -33,7 +33,7 @@ interface IMultipleSelect {
     placeholder?: string
 }
 
-export const Select: FC<ISelect> = ({
+export const Select: FC<ISelect<string>> = ({
     state,
     selectedState,
     setSelectedState,
