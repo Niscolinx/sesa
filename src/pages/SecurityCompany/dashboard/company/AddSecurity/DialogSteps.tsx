@@ -2,7 +2,7 @@ import { useContext } from 'react'
 import { CreateAddedSecurityGuardContext } from './AddSecurityGuard'
 
 export const AddedSecuritySuccessfully = () => {
-    const { handleClose } = useContext(CreateAddedSecurityGuardContext)
+    const { handleClose, setAddedSecurityGuardStep} = useContext(CreateAddedSecurityGuardContext)
 
     return (
         <>
@@ -28,7 +28,7 @@ export const AddedSecuritySuccessfully = () => {
                 </button>
                 <button
                     className='bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[20rem]'
-                    onClick={() => handleClose()}
+                    onClick={() => setAddedSecurityGuardStep('addBankAccount')}
                 >
                     Open an Account
                 </button>
