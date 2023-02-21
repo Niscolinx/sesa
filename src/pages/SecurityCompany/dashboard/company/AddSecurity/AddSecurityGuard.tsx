@@ -15,10 +15,14 @@ import {
     PhoneNumber,
     Voters_Card,
 } from './Inputs'
+import { AddedSecuritySuccessfully } from './DialogSteps'
 
 type DialogType = 'validate' | 'add-security-guard' | 'reassign'
 
-export type AddedGuardSteps = 'addedSecuritySuccessful' | 'addBankAccount' | 'openedBankAccountSuccessful'
+export type AddedSecurityGuardSteps =
+    | 'addedSecuritySuccessful'
+    | 'addBankAccount'
+    | 'openedBankAccountSuccessful'
 export type ValidateInputTypes =
     | 'Phone Number'
     | 'BVN Number'
@@ -43,6 +47,9 @@ const AddSecurityGuard = () => {
     const [validationType, setValidationType] = useState<
         ValidateInputTypes | string | null
     >('Phone Number')
+
+    const [addedSecurityGuardStep, setAddedSecurityGuardStep] =
+        useState<AddedSecurityGuardSteps>('addedSecuritySuccessful')
 
     const [photoUrl, setPhotoUrl] = useState('')
 
@@ -126,6 +133,12 @@ const AddSecurityGuard = () => {
     const handleValidate = () => {
         setIsValidated(true)
     }
+
+    const AddedSecurityGuardSteps = new Map([
+        ['addedSecuritySuccessful', <AddedSecuritySuccessfully />],
+        ['addBankAccount', <AddedSecuritySuccessfully />],
+        ['openedBankAccountSuccessful', <AddedSecuritySuccessfully />],
+    ])
 
     return (
         <>
