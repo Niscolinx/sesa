@@ -8,8 +8,8 @@ function Messages() {
 
     const [isMessage, setIsMessage] = useState(false)
 
-    const addArtisanHandler = () => {
-        setIsMessage(false)
+    const addMessageHandler = () => {
+        setIsMessage(true)
         //navigate('/superAdmin/artisan/add')
     }
 
@@ -29,7 +29,7 @@ function Messages() {
                         </p>
                         <button
                             className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
-                            onClick={addArtisanHandler}
+                            onClick={addMessageHandler}
                         >
                             <span>
                                 <IoMdAdd />
