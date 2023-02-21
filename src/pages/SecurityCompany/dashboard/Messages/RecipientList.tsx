@@ -164,11 +164,11 @@ const RecipientList = () => {
                                 <input
                                     type='text'
                                     placeholder='Search Parameters'
-                                    className='pl-16 w-[18rem] rounded-lg border border-color-blue-light appearance-none outline-none p-4'
+                                    className='pl-16 w-[20rem] rounded-lg border border-color-blue-light appearance-none outline-none p-4'
                                 />
                             </div>
                             <div className='relative flex items-center'>
-                                <select className=' cursor-pointer w-[18rem] rounded-lg border border-color-blue-light appearance-none outline-none p-4 bg-white'>
+                                <select className=' cursor-pointer w-[20rem] rounded-lg border border-color-blue-light appearance-none outline-none p-4 bg-white'>
                                     <option hidden value=''>
                                         Sort By
                                     </option>
