@@ -202,9 +202,13 @@ function RenderedMessages() {
                             slicedPages[paginate.index].map(
                                 ({
                                     id,
-                                    estateName,
-                                    noOfSecurityGuards,
-                                    address,
+                                    date,
+                                    subject,
+                                    description,
+                                    status,
+                                    transmissionChannel,
+                                    transmissionDate,
+                                    
                                 }) => {
                                     return (
                                         <div className='grid justify-between border-b grid-cols-4 items-center gap-8 '>
