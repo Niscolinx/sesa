@@ -734,7 +734,8 @@ const ViewGuard = () => {
                     >
                         Account Information
                     </h2>
-                    <div className='columns-2 justify-between items-center gap-10'>
+
+                    {isAccountCreated ? ( <div className='columns-2 justify-between items-center gap-10'>
                         <div className='grid gap-4 relative '>
                             <label
                                 htmlFor='bankName'
@@ -770,7 +771,14 @@ const ViewGuard = () => {
                                 <TbCopy className='text-[#0556E5] absolute right-8 text-[2rem]' />
                             </div>
                         </div>
-                    </div>
+                    </div>): (
+                        <p>
+                            <span className='text-[1.4rem]'>
+                                No account created
+                            </span>
+                        </p>
+                    )}
+                   
                 </section>
             </main>
         </>
