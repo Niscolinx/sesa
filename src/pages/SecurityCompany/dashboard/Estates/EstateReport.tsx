@@ -633,9 +633,9 @@ function EstateReport() {
 
     getDate()
 
-    const handlePathSwitch:Record<Report, JSX.Element> = {
-        'activityReport': <ActivityReport />,
-        'attendanceReport': <AttendanceReport />,
+    const handlePathSwitch: Record<Report, JSX.Element> = {
+        activityReport: <ActivityReport />,
+        attendanceReport: <AttendanceReport />,
     }
 
     return (
@@ -678,17 +678,15 @@ function EstateReport() {
                                 title='Total Estates'
                                 number={18_000}
                                 iconUrl='/icons/securityCompany/totalEstates.svg'
-                                percent={5}
-                                arrow='/icons/securityCompany/arrowUp.svg'
                                 bgColor='bg-[#DDFCDC]'
                                 textColor='text-[#1A8F56]'
                             />
                             <OverviewCard
-                                title='Guards on Duty'
-                                number={40}
-                                iconUrl='/icons/admins/housePeople.svg'
-                                bgColor='bg-[#FCF3FA]'
-                                textColor='text-[#B6008E]'
+                                title='Security Guard'
+                                number={1532}
+                                iconUrl='/icons/securityCompany/securityGuards.svg'
+                                bgColor='bg-[#F5F9FA]'
+                                textColor='text-[#00C2FF]'
                             />
                         </div>
                     </section>
