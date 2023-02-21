@@ -226,7 +226,7 @@ const AddSecurityGuard = () => {
                                         fontFamily: 'Satoshi-Light',
                                     }}
                                 >
-                                    What is KYA <BsQuestionCircle />
+                                    What is KYS <BsQuestionCircle />
                                 </p>
 
                                 <button className='btn bg-[#0556E5] text-white rounded-lg py-4 place-self-start w-[15rem]'>
