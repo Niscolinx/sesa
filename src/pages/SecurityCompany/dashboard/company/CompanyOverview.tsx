@@ -139,6 +139,9 @@ const CompanyHome = () => {
         console.log('add security guard')
     }
 
+    const detailsHandler = (id: number) => {
+        console.log(id)
+    }
     return (
         <div>
             <h1 className='heading2'>Security Company</h1>
@@ -234,6 +237,7 @@ const CompanyHome = () => {
                                                 assignedEstate,
                                                 kys,
                                                 status,
+                                                id,
                                                 phoneNumber,
                                             }) => {
                                                 return (
@@ -275,6 +279,16 @@ const CompanyHome = () => {
                                                                 </span>
                                                             )}
                                                         </p>
+                                                        <button
+                                                            className='text-color-primary text-left'
+                                                            onClick={() =>
+                                                                detailsHandler(
+                                                                    id
+                                                                )
+                                                            }
+                                                        >
+                                                            View Details
+                                                        </button>
                                                     </div>
                                                 )
                                             }
