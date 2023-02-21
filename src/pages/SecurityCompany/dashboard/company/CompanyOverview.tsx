@@ -245,7 +245,7 @@ const CompanyHome = () => {
                                                 phoneNumber,
                                             }) => {
                                                 return (
-                                                    <div className='grid justify-between border-b grid-cols-7 gap-8 '>
+                                                    <div className='grid justify-between border-b grid-cols-7 gap-8 py-4'>
                                                         <p className='flex items-center gap-4'>
                                                             <input
                                                                 type='checkbox'
