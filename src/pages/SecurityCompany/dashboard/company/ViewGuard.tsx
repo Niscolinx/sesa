@@ -730,7 +730,19 @@ const ViewGuard = () => {
                             </button>
                         </div>
                     </div>
-                    
+                </section>
+                <section className='grid p-8 bg-white'>
+                     <h2
+                        className='text-[2rem] mb-10'
+                        style={{
+                            fontFamily: 'Satoshi-Medium',
+                        }}
+                    >
+                        A
+                    </h2>
+                    <div>
+
+                    </div>
                 </section>
             </main>
         </>
