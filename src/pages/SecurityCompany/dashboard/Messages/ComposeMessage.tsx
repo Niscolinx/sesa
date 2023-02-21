@@ -1,13 +1,13 @@
 import React, { useRef, useState } from 'react'
 import { GrDown, GrUp } from 'react-icons/gr'
 import { IoMdAdd } from 'react-icons/io'
-
+import { Select } from '../../../../components/SuperAdmin/UI/Select'
 
 const ComposeMessage = () => {
-
-    const [selectedState, setSelectedState] = useState<State | null>(null)
+    const [selectedChannelType, setSelectedChannelType] = useState<
+        string | null
+    >(null)
     const [isWarning, setIsWarning] = useState(true)
-
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
@@ -169,20 +169,19 @@ const ComposeMessage = () => {
                             className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                         />
                     </div>
-                    <MultipleSelect
-                        selectFrom={[
-                            'Estate 1',
-                            'Estate 2',
-                            'Estate 3',
-                            'Estate 4',
-                            'Estate 5',
-                            'Estate 6',
-                            'Estate 7',
+                    <Select
+                        state={[
+                            'Channel 1',
+                            'Channel 2',
+                            'Channel 3',
+                            'Channel 4',
+                            'Channel 5',
+                           
                         ]}
                         label='Estates'
                         placeholder='Select Estate'
-                        selected={selectedEstates}
-                        setSelected={setSelectedEstates}
+                        selectedState={selectedChannelType}
+                        setSelectedState={setSelectedChannelType}
                     />
 
                     <button
