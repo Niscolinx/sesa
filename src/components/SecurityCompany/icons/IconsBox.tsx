@@ -25,7 +25,7 @@ function IconsBox() {
           </li>
         
           <li className='iconsBox__list'>
-              <Link to='/securityCompany/company' className='fillIcon'>
+              <Link to='/securityCompany/company-overview' className='fillIcon'>
                   {' '}
                   <SecurityCompSvg />
                   <span>Security Company</span>

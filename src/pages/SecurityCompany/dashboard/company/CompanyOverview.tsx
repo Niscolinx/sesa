@@ -27,7 +27,7 @@ const ATTENDANCE_REPORT_DATA: AttendanceReport[] = Array.from({
 }))
 
 
-const Overview = () => {
+const CompanyHome = () => {
     const [fetchedAttendanceReportData, setFetchedAttendanceReportData] =
         useState<AttendanceReport[]>([])
 
@@ -305,4 +305,4 @@ const Overview = () => {
     )
 }
 
-export default Overview
+export default CompanyHome
