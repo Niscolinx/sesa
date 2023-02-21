@@ -105,6 +105,8 @@ const AddSecurityGuard = () => {
         ['NIN-number', <PhoneNumber />],
     ]) as Map<ValidateInputTypes, JSX.Element>
 
+    
+
     return (
         <>
             <ToastContainer />
