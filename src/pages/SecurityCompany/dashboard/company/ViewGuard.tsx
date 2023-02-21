@@ -34,6 +34,7 @@ const ViewGuard = () => {
     const [selectedEstate4, setSelectedEstate4] = useState<string | null>(null)
     const [selectedState, setSelectedState] = useState<string | null>(null)
     const [selectedGender, setSelectedGender] = useState<string | null>(null)
+    const [validated, setValidated] = useState(false)
     const [dialogState, setDialogState] = useState<DialogType>('validate')
     const [validationType, setValidationType] = useState<string | null>(
         'Phone Number'
@@ -87,8 +88,6 @@ const ViewGuard = () => {
         }
     }
 
-    
-
     const handleCloseDeleteOrDeactivateDialog = () => {
         if (dialogRef.current) {
             dialogRef.current.close()
@@ -106,7 +105,6 @@ const ViewGuard = () => {
 
         // openValidateDialog()
     }
-
 
     const handleReAssign = () => {
         handleClose()
@@ -304,7 +302,6 @@ const ViewGuard = () => {
                 </section>
             </dialog> */}
 
-          
             {/* <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
@@ -367,28 +364,37 @@ const ViewGuard = () => {
                 <section className='grid p-8 bg-white items-baseline rounded-lg'>
                     <div className='flex justify-between items-center'>
                         <div>
-
-                        <label
-                            htmlFor='photoUpload'
-                            className='grid gap-4 cursor-pointer justify-items-center'
-                        >
-                            <img
-                                src={photoUrl ? photoUrl : '/img/me.jpeg'}
-                                alt='photoPreview'
-                                className='object-cover w-[11rem] h-[11rem] rounded-full object-top'
+                            <label
+                                htmlFor='photoUpload'
+                                className='grid gap-4 cursor-pointer justify-items-center'
+                            >
+                                <img
+                                    src={photoUrl ? photoUrl : '/img/me.jpeg'}
+                                    alt='photoPreview'
+                                    className='object-cover w-[11rem] h-[11rem] rounded-full object-top'
+                                />
+                                <span className='text-color-blue-1 text-[1.4rem]'>
+                                    Edit
+                                </span>
+                            </label>
+                            <input
+                                type='file'
+                                name='photoUpload'
+                                id='photoUpload'
+                                accept='image/*'
+                                className='hidden'
+                                onClick={handlePhotoPreview}
                             />
-                            <span className='text-color-blue-1 text-[1.4rem]'>
-                                Edit
-                            </span>
-                        </label>
-                        <input
-                            type='file'
-                            name='photoUpload'
-                            id='photoUpload'
-                            accept='image/*'
-                            className='hidden'
-                            onClick={handlePhotoPreview}
-                        />
+                            <div>
+                                <p>
+                                    Guard Code : <span>SG09897</span>
+                                </p>
+                                <p>
+                                    KYG Status <BsQuestionCircle />: {isValidated ? (<span>
+
+                                    </span>) : (<span></span>)}
+                                </p>
+                            </div>
                         </div>
 
                         <div className='flex gap-8'>
