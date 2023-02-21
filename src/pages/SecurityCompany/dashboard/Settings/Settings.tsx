@@ -23,13 +23,13 @@ function Settings() {
                 <input
                     type='radio'
                     name='platform'
-                    id='platformChanges'
+                    id='passwordSettings'
                     className='hidden'
                     defaultChecked
-                    onChange={() => setPathToSwitch('platformChanges')}
+                    onChange={() => setPathToSwitch('passwordSettings')}
                 />
-                <label htmlFor='platformChanges' className='capitalize'>
-                    Platform Changes
+                <label htmlFor='passwordSettings' className='capitalize'>
+                    Password Settings
                 </label>
 
                 <input
@@ -40,22 +40,7 @@ function Settings() {
                     onChange={() => setPathToSwitch('propertyType')}
                 />
                 <label htmlFor='propertyType'>Property Type</label>
-                <input
-                    type='radio'
-                    name='platform'
-                    id='SOSTable'
-                    className='hidden'
-                    onChange={() => setPathToSwitch('SOSTable')}
-                />
-                <label htmlFor='SOSTable'>SOS Table</label>
-                <input
-                    type='radio'
-                    name='platform'
-                    id='accountSettings'
-                    className='hidden'
-                    onChange={() => setPathToSwitch('accountSettings')}
-                />
-                <label htmlFor='accountSettings'>Account Settings</label>
+                
             </div>
             <div className='mt-8 grid gap-8'>
                 <section className='bg-color-white rounded-lg border min-w-[112rem] overflow-scroll'>
