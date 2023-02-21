@@ -41,9 +41,8 @@ export const AddedSecuritySuccessfully = () => {
 }
 
 export const AddBankAccount = () => {
-     const { selectedBank, setSelectedBank, setAddedSecurityGuardStep } = useContext(
-         CreateAddedSecurityGuardContext
-     )
+    const { selectedBank, setSelectedBank, setAddedSecurityGuardStep } =
+        useContext(CreateAddedSecurityGuardContext)
 
     return (
         <div className='grid gap-10'>
@@ -65,7 +64,9 @@ export const AddBankAccount = () => {
 
             <button
                 className='bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[20rem]'
-                onClick={() => setAddedSecurityGuardStep('openedBankAccountSuccessful')}
+                onClick={() =>
+                    setAddedSecurityGuardStep('openedBankAccountSuccessful')
+                }
             >
                 Generate Account Number
             </button>
