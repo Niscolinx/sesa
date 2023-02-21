@@ -326,7 +326,7 @@ function Wallet() {
                                             htmlFor='description'
                                             className='text-[1.4rem] font-semibold'
                                         >
-                                            Card Number
+                                            Expiry Date
                                         </label>
 
                                         <input
