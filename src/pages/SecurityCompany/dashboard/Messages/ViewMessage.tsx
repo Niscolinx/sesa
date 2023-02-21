@@ -1,8 +1,12 @@
 import { useRef } from 'react'
+import { useLocation } from 'react-router-dom'
 import { toast, ToastContainer } from 'react-toastify'
 
 
 const ViewMessage = () => {
+    let location = useLocation()
+    location.state
+    
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
     const handleClose = () => {
