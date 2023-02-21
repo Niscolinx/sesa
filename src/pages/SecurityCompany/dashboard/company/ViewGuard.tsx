@@ -422,7 +422,9 @@ const ViewGuard = () => {
                                         </span>
                                     )}
                                 </p>
-                                <p>Click here to view results</p>
+                                <p style={{
+                                    fontFamily: 'Satoshi-Medium'
+                                }} className='text-color-blue'>Click here to view results</p>
                             </div>
                         </div>
 
