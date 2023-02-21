@@ -452,19 +452,20 @@ function Wallet() {
                                             slicedPages[paginate.index].map(
                                                 ({
                                                     id,
+                                                    date,
+                                                    transactionType,
+                                                    transactionCategory,
+                                                    transactionId,
+                                                    narration,
+                                                    amount,
+                                                    time,
+                                                    balance,
+
                                                 
                                                 }) => {
                                                     return (
                                                         <div className='grid justify-between border-b grid-cols-9 items-center gap-8 '>
-                                                            <p className='flex items-center gap-4'>
-                                                                <input
-                                                                    type='checkbox'
-                                                                    className='cursor-pointer'
-                                                                />
-                                                                <label htmlFor='file'>
-                                                                    {estateName}
-                                                                </label>
-                                                            </p>
+                                                            
                                                             <p>{address}</p>
                                                             <p>
                                                                 {
