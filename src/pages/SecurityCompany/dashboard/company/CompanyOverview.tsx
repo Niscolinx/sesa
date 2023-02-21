@@ -6,7 +6,7 @@ import { IoMdAdd } from 'react-icons/io'
 import { useNavigate } from 'react-router-dom'
 import OverviewCard from '../../../../components/SuperAdmin/overview/OverviewCard'
 
-interface AttendanceReport {
+interface CompanyOverview {
     id: number
     guardCode: number
     guardName: string
@@ -16,7 +16,7 @@ interface AttendanceReport {
     kys: 'Validated' | 'Not Validated'
 }
 
-const ATTENDANCE_REPORT_DATA: AttendanceReport[] = Array.from({
+const COMPANY_OVERVIEW_DATA: CompanyOverview[] = Array.from({
     length: 20,
 }).map((_, i) => ({
     id: i,
@@ -31,12 +31,12 @@ const ATTENDANCE_REPORT_DATA: AttendanceReport[] = Array.from({
 const CompanyHome = () => {
     const navigate = useNavigate()
 
-    const [fetchedAttendanceReportData, setFetchedAttendanceReportData] =
-        useState<AttendanceReport[]>([])
+    const [fetchedCompanyOverviewData, setFetchedCompanyOverviewData] =
+        useState<CompanyOverview[]>([])
 
     useEffect(() => {
         setTimeout(() => {
-            setFetchedAttendanceReportData(ATTENDANCE_REPORT_DATA)
+            setFetchedCompanyOverviewData(COMPANY_OVERVIEW_DATA)
         }, 1000)
     }, [])
 
@@ -45,7 +45,7 @@ const CompanyHome = () => {
         currentPage: number
         itemsPerPage: number
         totalPage: number
-        slicedPages: AttendanceReport[][] | null
+        slicedPages: CompanyOverview[][] | null
     }
 
     const itemsPerPageArr = [2, 4, 6, 8]
@@ -55,16 +55,16 @@ const CompanyHome = () => {
         index: 0,
         currentPage: 1,
         itemsPerPage: perPage,
-        totalPage: Math.ceil(fetchedAttendanceReportData.length / perPage),
+        totalPage: Math.ceil(fetchedCompanyOverviewData.length / perPage),
         slicedPages: null,
     })
 
     const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
         const item = parseInt(e.target.value)
 
-        const slicedPages: AttendanceReport[][] = []
-        for (let i = 0; i < fetchedAttendanceReportData.length; i += item) {
-            slicedPages.push(fetchedAttendanceReportData.slice(i, i + item))
+        const slicedPages: CompanyOverview[][] = []
+        for (let i = 0; i < fetchedCompanyOverviewData.length; i += item) {
+            slicedPages.push(fetchedCompanyOverviewData.slice(i, i + item))
         }
 
         setPaginate((prev) => {
@@ -74,20 +74,20 @@ const CompanyHome = () => {
                 index: 0,
                 currentPage: 1,
                 slicedPages,
-                totalPage: Math.ceil(fetchedAttendanceReportData.length / item),
+                totalPage: Math.ceil(fetchedCompanyOverviewData.length / item),
             }
         })
     }
 
     useEffect(() => {
-        const slicedPages: AttendanceReport[][] = []
+        const slicedPages: CompanyOverview[][] = []
         for (
             let i = 0;
-            i < fetchedAttendanceReportData.length;
+            i < fetchedCompanyOverviewData.length;
             i += paginate.itemsPerPage
         ) {
             slicedPages.push(
-                fetchedAttendanceReportData.slice(i, i + paginate.itemsPerPage)
+                fetchedCompanyOverviewData.slice(i, i + paginate.itemsPerPage)
             )
         }
 
@@ -96,11 +96,11 @@ const CompanyHome = () => {
                 ...prev,
                 slicedPages,
                 totalPage: Math.ceil(
-                    fetchedAttendanceReportData.length / paginate.itemsPerPage
+                    fetchedCompanyOverviewData.length / paginate.itemsPerPage
                 ),
             }
         })
-    }, [fetchedAttendanceReportData])
+    }, [fetchedCompanyOverviewData])
 
     const handleNext = () => {
         console.log(paginate.currentPage, paginate.totalPage)
