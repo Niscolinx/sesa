@@ -173,7 +173,7 @@ const CompanyHome = () => {
                     <div className='grid text-[1.6rem]'>
                         <caption className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
                             <p className=' font-bold'>
-                                Attendance Report List <span>(4)</span>
+                                Security Guard List <span>(4)</span>
                             </p>
                             <div className='relative flex items-center'>
                                 <img
