@@ -311,7 +311,8 @@ function RenderedMessages() {
                                                 </p>
                                             </div>
 
-                                            <p
+                                            <Link
+                                            to={`/securityCompany/messages/view/${id}`}
                                                 className='text-color-blue'
                                                 style={{
                                                     fontFamily:
@@ -319,7 +320,7 @@ function RenderedMessages() {
                                                 }}
                                             >
                                                 View More Details
-                                            </p>
+                                            </Link>
                                         </div>
                                     )
                                 }
