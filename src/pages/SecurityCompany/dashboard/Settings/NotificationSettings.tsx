@@ -30,9 +30,9 @@ const NotificationSettings = () => {
 
                 <section>
                     <div>
-                        <div>
+                        <div className='flex items-center gap-16'>
                             <p>In-App</p>
-                            <div>
+                            <div onClick={toggleIsInAppOn}>
                                 {isInAppOn ? (
                                     <img
                                         src='/icons/admins/switchOn.svg'
@@ -40,7 +40,7 @@ const NotificationSettings = () => {
                                     />
                                 ) : (
                                     <img
-                                        src='/icons/admins/switchOn.svg'
+                                        src='/icons/admins/switchOff.svg'
                                         alt=''
                                     />
                                 )}
