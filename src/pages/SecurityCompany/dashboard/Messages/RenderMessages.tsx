@@ -292,11 +292,15 @@ function RenderedMessages() {
                                                         fontFamily:
                                                             'Satoshi-Medium',
                                                     }}
-                                                    className='overflow-hidden text-ellipsis whitespace-nowrap'
+                                                    className='overflow-hidden text-ellipsis whitespace-nowrap '
                                                 >
                                                     {description}
                                                 </p>
                                             </div>
+
+                                            <p>
+                                                View More
+                                            </p>
                                         </div>
                                     )
                                 }
