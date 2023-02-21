@@ -135,7 +135,6 @@ const CompanyHome = () => {
         })
     }
 
-
     const handleAddSecurityGuard = () => {
         console.log('add security guard')
     }
@@ -232,9 +231,9 @@ const CompanyHome = () => {
                                             ({
                                                 guardCode,
                                                 guardName,
-                                                date,
-                                                clockInCount,
-                                                clockOutCount,
+                                                assignedEstate,
+                                                kys,
+                                                status,
                                                 phoneNumber,
                                             }) => {
                                                 return (
@@ -246,14 +245,19 @@ const CompanyHome = () => {
                                                             />
 
                                                             <span>
-                                                                {guardName}
+                                                                {guardCode}
                                                             </span>
                                                         </p>
-                                                        <p>{date}</p>
-                                                        <p>{guardCode}</p>
+                                                        <p>{guardName}</p>
                                                         <p>{phoneNumber}</p>
-                                                        <p>{clockInCount}</p>
-                                                        <p>{clockOutCount}</p>
+                                                        <p>{assignedEstate}</p>
+                                                        <p>{status === 'Active' ? (
+                                                            <span className='text-[#1A8F56]'>
+                                                                {status}
+                                                            </span>
+                                                        ) : ( <span className='text-red-600'>
+                                                            {status}
+                                                        </span> )}</p>
                                                     </div>
                                                 )
                                             }
