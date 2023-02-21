@@ -62,6 +62,11 @@ const ViewGuard = () => {
             assignGuardRef.current.close()
         }
     }
+
+    const openAssignGuardDialog = () => {
+        if (assignGuardRef.current) {
+            assignGuardRef.current.showModal()
+        }}
   
 
     const closeValidatedDialog = () => {
