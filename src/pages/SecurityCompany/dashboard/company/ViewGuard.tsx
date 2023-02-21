@@ -7,7 +7,14 @@ import {
     ComplexSelect,
     Select,
 } from '../../../../components/SuperAdmin/UI/Select'
-import { PhoneNumber, BVN_Number, NIN_Number, DriversLicence, International_PassPort, Voters_Card } from './AddSecurity/Inputs'
+import {
+    PhoneNumber,
+    BVN_Number,
+    NIN_Number,
+    DriversLicence,
+    International_PassPort,
+    Voters_Card,
+} from './AddSecurity/Inputs'
 
 type DialogType = 'validate' | 'add-security-guard' | 'reassign'
 type Actions = 'Deactivate' | 'Delete'
@@ -48,6 +55,7 @@ const ViewGuard = () => {
     const knowYourGuardDialogRef = useRef<HTMLDialogElement | null>(null)
     const validateDialogRef = useRef<HTMLDialogElement | null>(null)
     const validatedDialogRef = useRef<HTMLDialogElement | null>(null)
+    const dialogRef = useRef(HTMLDialogElement | null)(null)
     const [dialogType, setDialogType] = useState<Actions>('Deactivate')
 
     const handleClose = () => {
@@ -57,12 +65,11 @@ const ViewGuard = () => {
     }
 
     const handleValidate = () => {
-
         handleClose()
     }
 
     const closeValidatedDialog = () => {
-        if(validateDialogRef.current){
+        if (validateDialogRef.current) {
             validateDialogRef.current.close()
         }
     }
@@ -89,7 +96,7 @@ const ViewGuard = () => {
         e.preventDefault()
         handleClose()
 
-       // openValidateDialog()
+        // openValidateDialog()
     }
 
     const handleReAssign = () => {
@@ -128,20 +135,20 @@ const ViewGuard = () => {
         })
     }
 
-     const renderValidationType = new Map([
-         ['Phone Number', <PhoneNumber />],
-         ['BVN Number', <BVN_Number />],
-         ['NIN Number', <NIN_Number />],
-         ['Drivers License', <DriversLicence />],
-         ['International Passport', <International_PassPort />],
-         ['Voters Card', <Voters_Card />],
-     ]) satisfies Map<ValidateInputTypes, JSX.Element>
+    const renderValidationType = new Map([
+        ['Phone Number', <PhoneNumber />],
+        ['BVN Number', <BVN_Number />],
+        ['NIN Number', <NIN_Number />],
+        ['Drivers License', <DriversLicence />],
+        ['International Passport', <International_PassPort />],
+        ['Voters Card', <Voters_Card />],
+    ]) satisfies Map<ValidateInputTypes, JSX.Element>
 
     return (
         <>
             <ToastContainer />
 
-            <dialog className='dialog' ref={knowYourGuardDialogRef}>
+            {/* <dialog className='dialog' ref={knowYourGuardDialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid items-baseline w-[64rem] min-h-[30rem] p-10 gap-8 text-[1.6rem] relative'>
                         <IoMdClose
@@ -149,62 +156,58 @@ const ViewGuard = () => {
                             onClick={() => handleClose()}
                         />
 
-                    
-                            <form
-                                className='grid gap-12'
-                                onSubmit={handleDialogSubmit}
+                        <form
+                            className='grid gap-12'
+                            onSubmit={handleDialogSubmit}
+                        >
+                            <h3
+                                className='text-[2rem] font-bold border-b '
+                                style={{
+                                    fontFamily: 'Satoshi-Medium',
+                                }}
                             >
-                                <h3
-                                    className='text-[2rem] font-bold border-b '
-                                    style={{
-                                        fontFamily: 'Satoshi-Medium',
-                                    }}
-                                >
-                                    Know Your Guard (KYG)
-                                </h3>
+                                Know Your Guard (KYG)
+                            </h3>
 
-                                <Select
-                                    state={[
-                                        'Phone Number',
-                                        'BVN Number',
-                                        'NIN Number',
-                                        'Drivers License',
-                                        'International Passport',
-                                        'Voters Card',
-                                    ]}
-                                    label='Validation Option'
-                                    validate
-                                    selectedState={validationType}
-                                    setSelectedState={setValidationType}
-                                />
+                            <Select
+                                state={[
+                                    'Phone Number',
+                                    'BVN Number',
+                                    'NIN Number',
+                                    'Drivers License',
+                                    'International Passport',
+                                    'Voters Card',
+                                ]}
+                                label='Validation Option'
+                                validate
+                                selectedState={validationType}
+                                setSelectedState={setValidationType}
+                            />
 
-                                <p
-                                    className='text-[#043FA7] flex items-center gap-2 border-b pb-10 w-full'
-                                    style={{
-                                        fontFamily: 'Satoshi-Light',
-                                    }}
-                                >
-                                    What is KYG <BsQuestionCircle />
-                                </p>
-                                {renderValidationType.get(
-                                    validationType as ValidateInputTypes
-                                )}
+                            <p
+                                className='text-[#043FA7] flex items-center gap-2 border-b pb-10 w-full'
+                                style={{
+                                    fontFamily: 'Satoshi-Light',
+                                }}
+                            >
+                                What is KYG <BsQuestionCircle />
+                            </p>
+                            {renderValidationType.get(
+                                validationType as ValidateInputTypes
+                            )}
 
-                                <button
-                                    className='btn bg-[#0556E5] text-white rounded-lg py-4 place-self-start w-[15rem]'
-                                    onClick={handleValidate}
-                                >
-                                    Validate
-                                </button>
-                            </form>
-                        
-                           
-                      
+                            <button
+                                className='btn bg-[#0556E5] text-white rounded-lg py-4 place-self-start w-[15rem]'
+                                onClick={handleValidate}
+                            >
+                                Validate
+                            </button>
+                        </form>
                     </div>
                 </section>
-            </dialog>
+            </dialog> */}
 
-            <dialog className='dialog' ref={validatedDialogRef}>
+            {/* <dialog className='dialog' ref={validatedDialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid items-baseline w-[90rem] min-h-[30rem] p-10 text-[1.6rem] relative gap-20'>
                         <IoMdClose
@@ -290,8 +293,8 @@ const ViewGuard = () => {
                         </button>
                     </div>
                 </section>
-            </dialog>
-            <dialog className='dialog' ref={knowYourGuardDialogRef}>
+            </dialog> */}
+            <dialog className='dialog' ref={dialog}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid items-baseline w-[64rem] min-h-[30rem] p-10 gap-8 text-[1.6rem] relative'>
                         <IoMdClose
