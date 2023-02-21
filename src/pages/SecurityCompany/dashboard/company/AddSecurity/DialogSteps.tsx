@@ -69,7 +69,7 @@ export const AddBankAccount = () => {
             </div>
 
             <button
-                className='bg-[#0556E5] py-6 px-12 w-full text-white text-[1.6rem] rounded-lg'
+                className='bg-[#0556E5] py-6 px-12 w-full text-white text-[1.6rem] rounded-lg mt-10'
                 onClick={() =>
                     setAddedSecurityGuardStep('openedBankAccountSuccessful')
                 }
@@ -118,9 +118,9 @@ export const OpenedBankAccountSuccessful = () => {
                     Ajayi Suileman Adeyemi
                 </p>
             </div>
-            <div className='flex justify-center gap-8 w-full'>
+            <div className='flex justify-center gap-8 w-full mt-10'>
                 <button
-                    className='bg-[#0556E5] py-6 px-12 text-white text-[1.6rem] rounded-lg w-[20rem]'
+                    className='bg-[#0556E5] py-4 px-12 text-white text-[1.6rem] rounded-lg w-[20rem]'
                     onClick={() => closeSteps()}
                 >
                     Ok
