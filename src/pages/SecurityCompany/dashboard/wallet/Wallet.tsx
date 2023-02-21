@@ -159,18 +159,16 @@ function Wallet() {
 
     const trend: Array<Trend> = ['This Week', 'This Month', 'This Year']
 
-    const [togglResidentMenu, setTogglResidentMenu] = useState(false)
+    const [toggleMenu, setToggleMenu] = useState(false)
     const [selectedTrend, setSelectedTrend] = useState<Trend>('This Week')
     const [isWithdrawal, setIsWithdrawal] = useState(true)
-    const [togglCommissionMenu, setTogglCommissionMenu] = useState(false)
     const [sendToMenu, setSendToMenu] = useState(false)
 
-    const menuToggler = () => setTogglCommissionMenu(!togglCommissionMenu)
-    const sendToMenuToggle = () => setSendToMenu(!sendToMenu)
+    const menuToggler = () => setToggleMenu(!toggleMenu)
 
     const handleSelectedTrend = (item: Trend) => {
         setSelectedTrend(item)
-        setTogglCommissionMenu(false)
+        setToggleMenu(false)
     }
 
 
@@ -400,14 +398,14 @@ function Wallet() {
                                             >
                                                 {selectedTrend}
                                             </p>
-                                            {togglResidentMenu ? (
+                                            {toggleMenu ? (
                                                 <GrUp className='absolute right-4' />
                                             ) : (
                                                 <GrDown className='absolute right-4' />
                                             )}
                                         </div>
 
-                                        {togglResidentMenu && (
+                                        {toggleMenu && (
                                             <div className='absolute top-[8rem]  left-0 border border-color-primary-light  bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
                                                 {trend.map((item, index) => (
                                                     <p
