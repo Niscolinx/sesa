@@ -39,7 +39,7 @@ const ViewMessage = () => {
 
         toast('Message deleted successfully', {
             type: 'success',
-            className: 'bg-red-100 text-red-600 text-[1.4rem]',
+            className: 'bg-green-100 text-green-600 text-[1.4rem]',
         })
     }
 
@@ -182,7 +182,7 @@ const ViewMessage = () => {
                                     {subject}
                                 </p>
                             </div>
-                            <div className='flex items-center gap-2 my-[10rem]'>
+                            <div className='flex items-center gap-2 my-[8rem]'>
                                 <p className=' '>
                                     {description}
                                 </p>
