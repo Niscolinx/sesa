@@ -732,7 +732,7 @@ const ViewGuard = () => {
                         </div>
                     </div>
                 </section>
-                <section className='grid p-8 bg-white'>
+                <section className='grid p-8 bg-white max-w-3/5'>
                     <h2
                         className='text-[2rem] mb-10'
                         style={{
@@ -741,7 +741,7 @@ const ViewGuard = () => {
                     >
                         Account Information
                     </h2>
-                    <div className='flex justify-between items-center'>
+                    <div className='columns-2 justify-between items-center'>
                         <div className='grid gap-4 relative '>
                             <label
                                 htmlFor='bankName'
