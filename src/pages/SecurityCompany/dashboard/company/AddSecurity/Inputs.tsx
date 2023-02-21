@@ -1,3 +1,5 @@
+import { useState } from "react"
+
 export const PhoneNumber = () => {
     return (
         <div className='grid gap-4'>
@@ -153,7 +155,7 @@ export const International_PassPort = () => {
     )
 }
 export const Voters_Card = () => {
-    const [selectedState, setSelectedState] = useState('Lagos' as string)
+    const [selectedState, setSelectedState] = useState()
     return (
         <div className='grid gap-4'>
             <div>
