@@ -35,7 +35,6 @@ const ViewGuard = () => {
     const [selectedState, setSelectedState] = useState<string | null>(null)
     const [selectedGender, setSelectedGender] = useState<string | null>(null)
     const [isValidated, setIsValidated] = useState(false)
-    
 
     const [photoUrl, setPhotoUrl] = useState('')
 
@@ -55,9 +54,7 @@ const ViewGuard = () => {
     const dialogRef = useRef<HTMLDialogElement | null>(null)
     const [dialogType, setDialogType] = useState<Actions>('Deactivate')
 
-    
     const closeAssignGuardDialog = () => {
-
         if (assignGuardRef.current) {
             assignGuardRef.current.close()
         }
@@ -66,8 +63,8 @@ const ViewGuard = () => {
     const openAssignGuardDialog = () => {
         if (assignGuardRef.current) {
             assignGuardRef.current.showModal()
-        }}
-  
+        }
+    }
 
     const closeValidatedDialog = () => {
         if (validatedDialogRef.current) {
@@ -79,8 +76,6 @@ const ViewGuard = () => {
             validatedDialogRef.current.showModal()
         }
     }
-
-
 
     const openDeleteOrDeactivateDialog = (dialogType: Actions) => {
         if (dialogType === 'Deactivate') {
@@ -101,9 +96,6 @@ const ViewGuard = () => {
         }
     }
 
-   
-
-
     const handleReAssign = () => {
         closeAssignGuardDialog()
 
@@ -112,7 +104,6 @@ const ViewGuard = () => {
             className: 'bg-green-100 text-green-600 text-[1.4rem]',
         })
     }
-
 
     const handleDeleteSecurityGuard = () => {
         handleCloseDeleteOrDeactivateDialog()
@@ -131,40 +122,39 @@ const ViewGuard = () => {
         })
     }
 
-
     return (
         <>
             <ToastContainer />
 
             <dialog className='dialog' ref={assignGuardRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
-                    <div className='bg-white rounded-2xl grid items-baseline w-[90rem] min-h-[30rem] p-10 text-[1.6rem] relative gap-20'>
+                    <div className='bg-white rounded-2xl grid items-baseline w-[90rem] min-h-[30rem] p-10 text-[1.6rem] relative gap-20 justify-items-center'>
                         <IoMdClose
                             className='absolute right-4 top-4 text-[2rem] cursor-pointer'
                             onClick={() => closeValidatedDialog()}
                         />
 
-                <img src='/icons/admins/modalDeactivate.svg' alt='' />
-                <p className='text-[1.6rem]'>
-                    Are you sure you want to reassign this security guard
-                    primary estate
-                </p>
+                        <img src='/icons/admins/modalDeactivate.svg' alt='' />
+                        <p className='text-[1.6rem]'>
+                            Are you sure you want to reassign this security
+                            guard primary estate
+                        </p>
 
-                <div className='flex w-full justify-center gap-8'>
-                    <button
-                        className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
-                        onClick={() => closeAssignGuardDialog()}
-                    >
-                        Cancel
-                    </button>
-                    <button
-                        className=' bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
-                        onClick={handleReAssign}
-                    >
-                        Yes
-                    </button>
-                </div>
-                </div>
+                        <div className='flex w-full justify-center gap-8'>
+                            <button
+                                className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
+                                onClick={() => closeAssignGuardDialog()}
+                            >
+                                Cancel
+                            </button>
+                            <button
+                                className=' bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
+                                onClick={handleReAssign}
+                            >
+                                Yes
+                            </button>
+                        </div>
+                    </div>
                 </section>
             </dialog>
 
