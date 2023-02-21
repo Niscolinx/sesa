@@ -5,7 +5,7 @@ import { BsQuestionCircle } from 'react-icons/bs'
 import { toast, ToastContainer } from 'react-toastify'
 import { ComplexSelect, Select } from '../../../../components/SuperAdmin/UI/Select'
 
-type DialogType = 'validate' | 'add-Security-guard' | 'reassign'
+type DialogType = 'validate' | 'add-security-guard' | 'reassign'
 
 const AddSecurityGuard = () => {
        const [selectedEstate1, setSelectedEstate1] = useState<string | null>(
@@ -64,8 +64,8 @@ const AddSecurityGuard = () => {
         if (modalState === 'validate') {
             setDialogState('validate')
         }
-        if(modalState === 'add-Security-guard'){
-            setDialogState('add-Security-guard')
+        if(modalState === 'add-security-guard'){
+            setDialogState('add-security-guard')
         }
         if(modalState === 'reassign'){
             setDialogState('reassign')
@@ -78,7 +78,7 @@ const AddSecurityGuard = () => {
 
     const addSecurityGuardHandler = () => {
         // navigate('/superAdmin/Security GuardCategory/add')
-        handleOpen('add-Security-guard')
+        handleOpen('add-security-guard')
     }
 
     
@@ -198,7 +198,7 @@ const AddSecurityGuard = () => {
                             onClick={() => handleClose()}
                         />
 
-                        {dialogState === 'val' ? (
+                        {dialogState === 'validate' ? (
                             <form
                                 className='grid gap-12 max-w-[40rem]'
                                 onSubmit={handleDialogSubmit}
@@ -276,13 +276,13 @@ const AddSecurityGuard = () => {
                                     </button>
                                     <button
                                         className='bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
-                                        onClick={confirmAddSecurityGuard}
+                                        onClick={() => handleClose()}
                                     >
                                         Ok
                                     </button>
                                 </div>
                             </div>
-                        ): (
+                        ) : (
                             <>
                                 <img
                                     src='/icons/admins/modalDeactivate.svg'
@@ -308,7 +308,6 @@ const AddSecurityGuard = () => {
                                     </button>
                                 </div>
                             </>
-                        
                         )}
                     </div>
                 </section>
@@ -561,7 +560,7 @@ const AddSecurityGuard = () => {
 
                             <button
                                 className='btn text-color-blue-1 '
-                                onClick={() => handleOpen('ReAssign')}
+                                onClick={() => handleOpen('reassign')}
                             >
                                 Reassign
                             </button>
@@ -595,9 +594,9 @@ const AddSecurityGuard = () => {
 
                             <button
                                 className='btn text-color-blue-1 '
-                                onClick={() => handleOpen('ReAssign')}
+                                onClick={() => handleOpen('reassign')}
                             >
-                                Reassign
+                                Ressign
                             </button>
                         </div>
                         <div className=' items-center grid grid-cols-3'>
@@ -629,7 +628,7 @@ const AddSecurityGuard = () => {
 
                             <button
                                 className='btn text-color-blue-1 '
-                                onClick={() => handleOpen('ReAssign')}
+                                onClick={() => handleOpen('reassign')}
                             >
                                 Reassign
                             </button>
@@ -663,7 +662,7 @@ const AddSecurityGuard = () => {
 
                             <button
                                 className='btn text-color-blue-1 '
-                                onClick={() => handleOpen('ReAssign')}
+                                onClick={() => handleOpen('reassign')}
                             >
                                 Reassign
                             </button>
