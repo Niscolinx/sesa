@@ -88,7 +88,6 @@ export const DriversLicence = () => {
                         type='number'
                         inputMode='numeric'
                         id='phoneNumber'
-                        placeholder='BVN (Number)'
                         className='w-full rounded-lg border border-color-grey py-4.8 px-8 outline-none text-color-dark'
                     />
                 </div>
@@ -110,7 +109,6 @@ export const DriversLicence = () => {
                         type='date'
                         inputMode='numeric'
                         id='phoneNumber'
-                        placeholder='BVN (Number)'
                         className='w-full rounded-lg border border-color-grey py-4.8 px-8 outline-none text-color-dark'
                     />
                 </div>
@@ -118,7 +116,7 @@ export const DriversLicence = () => {
         </div>
     )
 }
-export const DriversLicence = () => {
+export const International_PassPort = () => {
     return (
         <div className='grid gap-4'>
             <div>
@@ -126,7 +124,7 @@ export const DriversLicence = () => {
                     htmlFor='phoneNumber'
                     className='text-[1.4rem] font-medium'
                 >
-                    License (Number)
+                    Int`l Passport (Number)
                 </label>
 
                 <div className='flex text-[1.6rem] gap-4 h-[5rem]'>
