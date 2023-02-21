@@ -115,9 +115,9 @@ const ComposeMessage = () => {
             </dialog>
             <dialog className='dialog' ref={recipient_List_DialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
-                    <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8 text-[1.6rem]'>
+                    
                         <RecipientList/>
-                    </div>
+                 
                 </section>
             </dialog>
             <div className='grid p-8 bg-white items-baseline rounded-lg'>
