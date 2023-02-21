@@ -1,6 +1,7 @@
 
 export const AddedSecuritySuccessfully = () => {
-
+    
+    
     return (
         <>
             <img src='/icons/admins/modalSuccess.svg' alt='' />
