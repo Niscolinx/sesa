@@ -4,14 +4,12 @@ import { GrDown } from 'react-icons/gr'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { IoMdAdd } from 'react-icons/io'
 
-import {Link, useNavigate } from 'react-router-dom'
-
+import { Link, useNavigate } from 'react-router-dom'
 
 export interface Overview {
     id: number
-    estateName: string
-    address: string
-    noOfSecurityGuards: number
+    date: string
+    
 }
 
 export const HOUSEHOLD_LIST: Overview[] = Array.from({ length: 10 }).map(
