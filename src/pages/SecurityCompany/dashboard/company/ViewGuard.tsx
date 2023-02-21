@@ -128,7 +128,7 @@ const ViewGuard = () => {
 
             <dialog className='dialog' ref={assignGuardRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
-                    <div className='bg-white rounded-2xl grid items-baseline w-[90rem] min-h-[30rem] p-10 text-[1.6rem] relative gap-20 justify-items-center'>
+                    <div className='bg-white rounded-2xl grid items-baseline w-[90rem] min-h-[30rem] p-10 text-[1.6rem] relative justify-items-center'>
                         <IoMdClose
                             className='absolute right-4 top-4 text-[2rem] cursor-pointer'
                             onClick={() => closeValidatedDialog()}
