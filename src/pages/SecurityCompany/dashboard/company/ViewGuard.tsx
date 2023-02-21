@@ -54,7 +54,7 @@ const ViewGuard = () => {
     }
 
     const knowYourGuardDialogRef = useRef<HTMLDialogElement | null>(null)
-    const validateDialogRef = useRef<HTMLDialogElement | null>(null)
+    const assignGuardRef = useRef<HTMLDialogElement | null>(null)
     const validatedDialogRef = useRef<HTMLDialogElement | null>(null)
     const dialogRef = useRef<HTMLDialogElement | null>(null)
     const [dialogType, setDialogType] = useState<Actions>('Deactivate')
@@ -101,17 +101,8 @@ const ViewGuard = () => {
         }
     }
 
-    // const viewGuardHandler = () => {
-    //     // navigate('/superAdmin/Security GuardCategory/add')
-    //     handleOpenValidate('add-security-guard')
-    // }
+   
 
-    const handleDialogSubmit = (e: FormEvent) => {
-        e.preventDefault()
-        handleClose()
-
-        // openValidateDialog()
-    }
 
     const handleReAssign = () => {
         handleClose()
