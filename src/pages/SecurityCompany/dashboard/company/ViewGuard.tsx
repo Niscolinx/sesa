@@ -310,7 +310,7 @@ const ViewGuard = () => {
                     </div>
                 </section>
             </dialog>
-            <main className='bg-white'>
+            <main className='bg-white grid gap-10'>
                 <section className='grid p-8 bg-white items-baseline rounded-lg'>
                     <div className='flex justify-between items-center'>
                         <div className='flex gap-8 items-center'>
@@ -584,7 +584,7 @@ const ViewGuard = () => {
                         </div>
                     </form>
                 </section>
-                <section className='grid p-8 bg-white'>
+                <section className='grid p-8 bg-white border-t-gray-100 border-t'>
                     <h2
                         className='text-[2rem] mb-10'
                         style={{
@@ -732,7 +732,7 @@ const ViewGuard = () => {
                         </div>
                     </div>
                 </section>
-                <section className='grid p-8 bg-white w-4/5'>
+                <section className='grid p-8 bg-white w-4/5 border-t border-t-gray-100'>
                     <h2
                         className='text-[2rem] mb-10'
                         style={{
@@ -741,7 +741,7 @@ const ViewGuard = () => {
                     >
                         Account Information
                     </h2>
-                    <div className='columns-2 justify-between items-center'>
+                    <div className='columns-2 justify-between items-center gap-10'>
                         <div className='grid gap-4 relative '>
                             <label
                                 htmlFor='bankName'
@@ -774,7 +774,7 @@ const ViewGuard = () => {
                                     className=' text-[1.6rem] outline-transparent py-4 px-4 w-full'
                                 />
 
-                                <TbCopy className='text-[#0556E5] absolute right-8 text-[5rem]' />
+                                <TbCopy className='text-[#0556E5] absolute right-8 text-[2rem]' />
                             </div>
                         </div>
                     </div>
