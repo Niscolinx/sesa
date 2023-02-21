@@ -87,8 +87,9 @@ const ViewGuard = () => {
         }
     }
 
-    const closeDeleteOrDeactivateDialog = () => {
-        alert('ddd')
+    
+
+    const handleCloseDeleteOrDeactivateDialog = () => {
         if (dialogRef.current) {
             dialogRef.current.close()
         }
@@ -105,6 +106,7 @@ const ViewGuard = () => {
 
         // openValidateDialog()
     }
+
 
     const handleReAssign = () => {
         handleClose()
@@ -320,7 +322,7 @@ const ViewGuard = () => {
                                 <div className='flex w-full justify-center gap-8'>
                                     <button
                                         className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
-                                        onClick={() => closeDeleteOrDeactivateDialog()}
+                                        onClick={() => handleCloseDeleteOrDeactivateDialog()}
                                     >
                                         Cancel
                                     </button>
@@ -345,7 +347,7 @@ const ViewGuard = () => {
                                 <div className='flex w-full justify-center gap-8'>
                                     <button
                                         className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
-                                        onClick={() => closeDeleteOrDeactivateDialog()}
+                                        onClick={() => handleCloseDeleteOrDeactivateDialog()}
                                     >
                                         Cancel
                                     </button>
