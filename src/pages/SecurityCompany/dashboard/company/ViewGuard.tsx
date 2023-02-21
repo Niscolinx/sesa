@@ -76,7 +76,7 @@ const ViewGuard = () => {
     }
     const openValidatedDialog = () => {
         if (validatedDialogRef.current) {
-            validatedDialogRef.current.show()
+            validatedDialogRef.current.showModal()
         }
     }
 
