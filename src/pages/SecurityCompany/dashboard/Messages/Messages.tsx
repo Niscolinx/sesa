@@ -18,7 +18,7 @@ function Messages() {
             <div className='rounded-lg mt-[3rem] h-[80vh]'>
                 {isMessage ? (
                     <section>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi maxime, ipsum exercitationem reiciendis adipisci quidem maiores est voluptas officiis soluta nam earum optio harum quo explicabo eum laboriosam nostrum quas.
+                       <RenderMessages/>
                     </section>
                 ) : (
                     <section className='grid  place-content-center w-full h-full justify-items-center gap-4 bg-white rounded-lg'>
