@@ -9,6 +9,7 @@ import {
 } from '../../../../components/SuperAdmin/UI/Select'
 
 type DialogType = 'validate' | 'add-security-guard' | 'reassign'
+type Actions = 'Deactivate' | 'Delete'
 
 const ViewGuard = () => {
     const [selectedEstate1, setSelectedEstate1] = useState<string | null>(null)
@@ -37,6 +38,8 @@ const ViewGuard = () => {
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
     const validateDialogRef = useRef<HTMLDialogElement | null>(null)
+    const validatedDialogRef = useRef<HTMLDialogElement | null>(null)
+    const [dialogType, setDialogType] = useState<Actions>('Deactivate')
 
     const handleClose = () => {
         if (dialogRef.current) {
@@ -44,26 +47,12 @@ const ViewGuard = () => {
         }
     }
 
-    const closeValidateDialog = () => {
-        if (validateDialogRef.current) {
-            validateDialogRef.current.close()
+    const handleOpen = (dialogType: Actions) => {
+        if (dialogType === 'Deactivate') {
+            setDialogType('Deactivate')
         }
-    }
-
-    const openValidateDialog = () => {
-        if (validateDialogRef.current) {
-            validateDialogRef.current.showModal()
-        }
-    }
-    const handleOpen = (modalState: DialogType) => {
-        if (modalState === 'validate') {
-            setDialogState('validate')
-        }
-        if (modalState === 'add-security-guard') {
-            setDialogState('add-security-guard')
-        }
-        if (modalState === 'reassign') {
-            setDialogState('reassign')
+        if (dialogType === 'Delete') {
+            setDialogType('Delete')
         }
 
         if (dialogRef.current) {
@@ -73,7 +62,7 @@ const ViewGuard = () => {
 
     const viewGuardHandler = () => {
         // navigate('/superAdmin/Security GuardCategory/add')
-        handleOpen('add-security-guard')
+        handleOpenValidate('add-security-guard')
     }
 
     const handleDialogSubmit = (e: FormEvent) => {
@@ -92,11 +81,131 @@ const ViewGuard = () => {
         })
     }
 
+    const handleSelectedAction = (item: Actions) => {
+        if (item === 'Deactivate') {
+            handleOpen('Deactivate')
+        }
+
+        if (item === 'Delete') {
+            handleOpen('Delete')
+        }
+    }
+
+    const handleDeleteArtisan = () => {
+        handleClose()
+
+        toast('Artisan deleted successfully', {
+            type: 'error',
+            className: 'bg-red-100 text-red-600 text-[1.4rem]',
+        })
+    }
+    const handleDeactivateArtisan = () => {
+        handleClose()
+
+        toast('Artisan deactivated successfully', {
+            type: 'error',
+            className: 'bg-red-100 text-red-600 text-[1.4rem]',
+        })
+    }
+
     return (
         <>
             <ToastContainer />
 
-            <dialog className='dialog' ref={validateDialogRef}>
+            <dialog className='dialog' ref={dialogRef}>
+                <section className='grid place-content-center w-full h-[100vh]'>
+                    <div className='bg-white rounded-2xl grid items-baseline w-[64rem] min-h-[30rem] p-10 gap-8 text-[1.6rem] relative'>
+                        <IoMdClose
+                            className='absolute right-4 top-4 text-[2rem] cursor-pointer'
+                            onClick={() => handleClose()}
+                        />
+
+                        {dialogState === 'validate' ? (
+                            <form
+                                className='grid gap-12'
+                                onSubmit={handleDialogSubmit}
+                            >
+                                <h3
+                                    className='text-[2rem] font-bold border-b '
+                                    style={{
+                                        fontFamily: 'Satoshi-Medium',
+                                    }}
+                                >
+                                    Know Your Guard (KYG)
+                                </h3>
+
+                                <Select
+                                    state={[
+                                        'Phone Number',
+                                        'BVN Number',
+                                        'NIN Number',
+                                        'Drivers License',
+                                        'International Passport',
+                                        'Voters Card',
+                                    ]}
+                                    label='Validation Option'
+                                    validate
+                                    selectedState={validationType}
+                                    setSelectedState={setValidationType}
+                                />
+
+                                <p
+                                    className='text-[#043FA7] flex items-center gap-2 border-b pb-10 w-full'
+                                    style={{
+                                        fontFamily: 'Satoshi-Light',
+                                    }}
+                                >
+                                    What is KYG <BsQuestionCircle />
+                                </p>
+                                {renderValidationType.get(
+                                    validationType as ValidateInputTypes
+                                )}
+
+                                <button
+                                    className='btn bg-[#0556E5] text-white rounded-lg py-4 place-self-start w-[15rem]'
+                                    onClick={handleValidate}
+                                >
+                                    Validate
+                                </button>
+                            </form>
+                        ) : dialogState === 'add-security-guard' ? (
+                            <div className='bg-white rounded-2xl grid place-content-center justify-items-center h-[30rem] gap-8 text-[1.6rem]'>
+                                {addedSecurityGuardSteps.get(
+                                    addedSecurityGuardStep
+                                )}
+                            </div>
+                        ) : (
+                            <div className='bg-white rounded-2xl grid place-content-center justify-items-center h-[30rem] gap-8 text-[1.6rem]'>
+                                {' '}
+                                <img
+                                    src='/icons/admins/modalDeactivate.svg'
+                                    alt=''
+                                />
+                                <p className='text-[1.6rem]'>
+                                    Are you sure you want to reassign this
+                                    security guard primary estate
+                                </p>
+                                <div className='flex w-full justify-center gap-8'>
+                                    <button
+                                        className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
+                                        onClick={() => handleClose()}
+                                    >
+                                        Cancel
+                                    </button>
+                                    <button
+                                        className=' bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
+                                        onClick={handleReAssign}
+                                    >
+                                        Yes
+                                    </button>
+                                </div>
+                            </div>
+                        )}
+                    </div>
+                </section>
+            </dialog>
+
+            <dialog className='dialog' ref={validatedDialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid items-baseline w-[90rem] min-h-[30rem] p-10 text-[1.6rem] relative gap-20'>
                         <IoMdClose
@@ -307,26 +416,49 @@ const ViewGuard = () => {
             </dialog>
             <main>
                 <section className='grid p-8 bg-white items-baseline rounded-lg'>
-                    <div className='grid gap-8 max-w-[40rem]'>
-                        <p className='text-[2rem] font-bold'>
-                            KYG{' '}
-                            <span className='text-gray-500'>(Optional)</span>
-                        </p>
-                        <div className='flex justify-between text-[1.6rem]'>
-                            <p
-                                className='text-[#098DFF] cursor-pointer'
-                                onClick={() => handleOpen('validate')}
+                    <div className='flex justify-between items-center'>
+                        <label
+                            htmlFor='photoUpload'
+                            className='grid gap-4 cursor-pointer justify-items-center'
+                        >
+                            <img
+                                src={photoUrl ? photoUrl : '/img/me.jpeg'}
+                                alt='photoPreview'
+                                className='object-cover w-[11rem] h-[11rem] rounded-full object-top'
+                            />
+                            <span className='text-color-blue-1 text-[1.4rem]'>
+                                Edit
+                            </span>
+                        </label>
+                        <input
+                            type='file'
+                            name='photoUpload'
+                            id='photoUpload'
+                            accept='image/*'
+                            className='hidden'
+                            onClick={handlePhotoPreview}
+                        />
+
+                        <div className='flex gap-8'>
+                            <button
+                                className='border border-color-blue-1 text-color-blue-1 px-16 py-4 flex items-center  rounded-lg gap-4'
+                                onClick={() =>
+                                    handleSelectedAction('Deactivate')
+                                }
                             >
-                                Click her to validate this person
-                            </p>
-                            <p
-                                className='text-[#043FA7] flex items-center gap-2'
-                                style={{
-                                    fontFamily: 'Satoshi-Light',
-                                }}
+                                <span className=' text-[1.4rem] font-semibold'>
+                                    Deactivate
+                                </span>
+                            </button>
+                            <button
+                                className='border border-red-600 px-16 py-4 flex items-center  rounded-lg gap-4'
+                                onClick={() => handleSelectedAction('Delete')}
                             >
-                                What is KYG <BsQuestionCircle />
-                            </p>
+                                <img src='/icons/admins/delete.svg' alt='' />
+                                <span className='text-red-600 text-[1.4rem] font-semibold'>
+                                    Delete
+                                </span>
+                            </button>
                         </div>
                     </div>
                     <form
@@ -658,7 +790,6 @@ const ViewGuard = () => {
                         <span>
                             <IoMdAdd />
                         </span>{' '}
-                        
                         save
                     </button>
                 </section>
