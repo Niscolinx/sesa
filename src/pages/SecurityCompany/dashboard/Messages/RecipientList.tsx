@@ -198,9 +198,9 @@ const RecipientList = () => {
                                         type='checkbox'
                                         className='cursor-pointer'
                                     />
-                                    <p>Guard Code</p>
+                                    <p>Guard Name</p>
                                 </p>
-                                <p>Guard Name</p>
+                                <p>Guard Code</p>
                                 <p>Phone Number</p>
                                 <p>Assigned Estate</p>
                                 <p>Status</p>
@@ -222,7 +222,7 @@ const RecipientList = () => {
                                                 phoneNumber,
                                             }) => {
                                                 return (
-                                                    <div className='grid justify-between border-b grid-cols-7 gap-8 py-4'>
+                                                    <div className='grid justify-between border-b grid-cols-6 gap-8 py-4'>
                                                         <p className='flex items-center gap-4'>
                                                             <input
                                                                 type='checkbox'
@@ -230,10 +230,10 @@ const RecipientList = () => {
                                                             />
 
                                                             <span>
-                                                                {guardCode}
+                                                                {guardName}
                                                             </span>
                                                         </p>
-                                                        <p>{guardName}</p>
+                                                        <p>{guardCode}</p>
                                                         <p>{phoneNumber}</p>
                                                         <p>{assignedEstate}</p>
                                                         <p>
