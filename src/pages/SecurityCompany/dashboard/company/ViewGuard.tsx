@@ -74,6 +74,13 @@ const ViewGuard = () => {
             validateDialogRef.current.close()
         }
     }
+    const openValidatedDialog = () => {
+        if (validateDialogRef.current) {
+            validateDialogRef.current.show()
+        }
+    }
+
+
 
     const openDeleteOrDeactivateDialog = (dialogType: Actions) => {
         if (dialogType === 'Deactivate') {
@@ -115,15 +122,6 @@ const ViewGuard = () => {
         })
     }
 
-    // const handleSelectedAction = (item: Actions) => {
-    //     if (item === 'Deactivate') {
-    //         handleOpen('Deactivate')
-    //     }
-
-    //     if (item === 'Delete') {
-    //         handleOpen('Delete')
-    //     }
-    // }
 
     const handleDeleteArtisan = () => {
         handleClose()
@@ -302,7 +300,7 @@ const ViewGuard = () => {
                 </section>
             </dialog>
 
-            {/* <dialog className='dialog' ref={dialogRef}>
+            <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
                         {dialogType === 'Deactivate' ? (
@@ -359,7 +357,7 @@ const ViewGuard = () => {
                         )}
                     </div>
                 </section>
-            </dialog> */}
+            </dialog>
             <main>
                 <section className='grid p-8 bg-white items-baseline rounded-lg'>
                     <div className='flex justify-between items-center'>
@@ -429,6 +427,7 @@ const ViewGuard = () => {
                                         fontFamily: 'Satoshi-Medium',
                                     }}
                                     className='text-color-blue'
+                                    onClick={() => openValidatedDialog()}
                                 >
                                     Click here to view results
                                 </button>
