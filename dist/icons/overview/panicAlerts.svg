@@ -1,6 +1,6 @@
 <svg width="54" height="54" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect width="54" height="54" rx="27" fill="#FDCECE"/>
-<path fillRule="evenodd" clip-rule="evenodd" d="M24.7191 15.4799L13.4257 34.3333C12.9519 35.1538 12.9491 36.1641 13.4183 36.9873C13.8875 37.8105 14.7583 38.3229 15.7057 38.3333H38.2924C39.2398 38.3229 40.1106 37.8105 40.5798 36.9873C41.049 36.1641 41.0462 35.1538 40.5724 34.3333L29.2791 15.4799C28.7956 14.683 27.9312 14.1963 26.9991 14.1963C26.0669 14.1963 25.2025 14.683 24.7191 15.4799Z" stroke="#FF2B2B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M27 22.3335V27.6668" stroke="#FF2B2B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path fillRule="evenodd" clipRule="evenodd" d="M24.7191 15.4799L13.4257 34.3333C12.9519 35.1538 12.9491 36.1641 13.4183 36.9873C13.8875 37.8105 14.7583 38.3229 15.7057 38.3333H38.2924C39.2398 38.3229 40.1106 37.8105 40.5798 36.9873C41.049 36.1641 41.0462 35.1538 40.5724 34.3333L29.2791 15.4799C28.7956 14.683 27.9312 14.1963 26.9991 14.1963C26.0669 14.1963 25.2025 14.683 24.7191 15.4799Z" stroke="#FF2B2B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+<path d="M27 22.3335V27.6668" stroke="#FF2B2B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
 <ellipse cx="26.9993" cy="32.9998" rx="1.33333" ry="1.33333" fill="#FF2B2B"/>
 </svg>
