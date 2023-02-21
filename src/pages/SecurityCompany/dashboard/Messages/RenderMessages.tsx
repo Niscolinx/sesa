@@ -208,17 +208,75 @@ function RenderedMessages() {
                                     status,
                                     transmissionChannel,
                                     transmissionDate,
-                                    
                                 }) => {
                                     return (
                                         <div className='grid relative '>
-                                           
-                                           <div className='flex items-center'>
-                                            <p>Date:</p>
-                                            <p style={{
-                                                fontFamily: 'Satoshi-Medium'
-                                            }}>{date}</p>
-                                           </div>
+                                            <div className='flex items-center gap-2'>
+                                                <p>Date:</p>
+                                                <p
+                                                    style={{
+                                                        fontFamily:
+                                                            'Satoshi-Medium',
+                                                    }}
+                                                >
+                                                    {date}
+                                                </p>
+                                            </div>
+                                            <div className='flex items-center gap-2'>
+                                                <p>Transmission Date:</p>
+                                                <p
+                                                    style={{
+                                                        fontFamily:
+                                                            'Satoshi-Medium',
+                                                    }}
+                                                >
+                                                    {transmissionDate}
+                                                </p>
+                                            </div>
+                                            <div className='flex items-center gap-2'>
+                                                <p>Recipients:</p>
+                                                <p
+                                                    style={{
+                                                        fontFamily:
+                                                            'Satoshi-Medium',
+                                                    }}
+                                                >
+                                                    {date}
+                                                </p>
+                                            </div>
+                                            <div className='flex items-center gap-2'>
+                                                <p>Date:</p>
+                                                <p
+                                                    style={{
+                                                        fontFamily:
+                                                            'Satoshi-Medium',
+                                                    }}
+                                                >
+                                                    {date}
+                                                </p>
+                                            </div>
+                                            <div className='flex items-center gap-2'>
+                                                <p>Date:</p>
+                                                <p
+                                                    style={{
+                                                        fontFamily:
+                                                            'Satoshi-Medium',
+                                                    }}
+                                                >
+                                                    {date}
+                                                </p>
+                                            </div>
+                                            <div className='flex items-center gap-2'>
+                                                <p>Date:</p>
+                                                <p
+                                                    style={{
+                                                        fontFamily:
+                                                            'Satoshi-Medium',
+                                                    }}
+                                                >
+                                                    {date}
+                                                </p>
+                                            </div>
                                         </div>
                                     )
                                 }
