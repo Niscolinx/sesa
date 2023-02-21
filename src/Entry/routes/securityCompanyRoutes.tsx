@@ -56,7 +56,7 @@ const securityCompanyRoutes = (
         />
         <Route
             path='settings/'
-            element={<PasswordSettings/>}
+            element={<Settings/>}
         />
     </Route>
 )
