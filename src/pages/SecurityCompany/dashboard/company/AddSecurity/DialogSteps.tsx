@@ -1,4 +1,5 @@
 import { useContext } from 'react'
+import { Select } from '../../../../../components/SuperAdmin/UI/Select'
 import { CreateAddedSecurityGuardContext } from './AddSecurityGuard'
 
 export const AddedSecuritySuccessfully = () => {
@@ -39,6 +40,15 @@ export const AddedSecuritySuccessfully = () => {
 
 export const AddBankAccount = () => {
     return (
-        
+        <div>
+              <p>Open a Ban</p>
+            <Select
+                label='State'
+                state={['Lagos', 'Imo', 'Abia', 'FCT']}
+                placeholder='Select State'
+                selectedState={selectedState}
+                setSelectedState={setSelectedState}
+            />
+        </div>
     )
 }
