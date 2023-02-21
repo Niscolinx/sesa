@@ -8,12 +8,10 @@ import { Overview } from '../SecurityCompanyOverview'
 
 interface AttendanceReport {
     id: number
+    guardCode: number
     guardName: string
     phoneNumber: string
-    date: string
-    guardCode: number
-    clockInCount: number
-    clockOutCount: number
+    
 }
 
 const ATTENDANCE_REPORT_DATA: AttendanceReport[] = Array.from({
@@ -191,7 +189,7 @@ const CompanyHome = () => {
                                 </select>
                                 <GrDown className='absolute right-4 text-[1.3rem]' />
                             </div>
-                            <div>
+                            <div className='ml-auto'>
                                 <button
                                     className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
                                     onClick={handleAddSecurityGuard}
