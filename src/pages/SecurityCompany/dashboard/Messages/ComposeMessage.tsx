@@ -1,5 +1,4 @@
 import React, { useRef, useState } from 'react'
-import { GrDown, GrUp } from 'react-icons/gr'
 import { IoMdAdd } from 'react-icons/io'
 import { Select } from '../../../../components/SuperAdmin/UI/Select'
 import RecipientList from './RecipientList'
