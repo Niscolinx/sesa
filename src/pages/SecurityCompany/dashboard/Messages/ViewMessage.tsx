@@ -19,7 +19,7 @@ const ViewMessage = () => {
         transmissionChannel,
         transmissionDate,
         recipients
-    } = location.state satisfies Message
+    } = location.state as Message
     
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
