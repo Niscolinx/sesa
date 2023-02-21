@@ -145,6 +145,7 @@ const AddSecurityGuard = () => {
         setAddedSecurityGuardStep: React.Dispatch<
             React.SetStateAction<AddedSecurityGuardSteps>
         >
+        handleClose: () => void
     }
 
     const CreateAddedSecurityGuardContext = createContext<AddedSecurityGuardContext>(null as any)
@@ -152,7 +153,8 @@ const AddSecurityGuard = () => {
     return (
         <CreateAddedSecurityGuardContext.Provider value={{
             addedSecurityGuardStep,
-            setAddedSecurityGuardStep
+            setAddedSecurityGuardStep,
+            handleClose
         }}>
             <ToastContainer />
 
