@@ -26,32 +26,17 @@ export interface TransactionHistory {
     balance: number
 }
 
-export const TRANSACTION_HISTORY: TransactionHistory[] = [
-    {
-        id: 1,
-        estateName: 'Estate 1',
-        address: 'No 1, Ogunlana Drive, Surulere, Lagos',
-        noOfSecurityGuards: 10,
-    },
-    {
-        id: 2,
-        estateName: 'Estate 1',
-        address: 'No 1, Ogunlana Drive, Surulere, Lagos',
-        noOfSecurityGuards: 10,
-    },
-    {
-        id: 3,
-        estateName: 'Estate 1',
-        address: 'No 1, Ogunlana Drive, Surulere, Lagos',
-        noOfSecurityGuards: 10,
-    },
-    {
-        id: 4,
-        estateName: 'Estate 1',
-        address: 'No 1, Ogunlana Drive, Surulere, Lagos',
-        noOfSecurityGuards: 10,
-    },
-]
+export const TRANSACTION_HISTORY: TransactionHistory[] = Array.from({length: 10}).map((_, i) => ({
+    id: i,
+    transactionType: 'Debit',
+    transactionCategory: 'Salary',
+    transactionId: 783239232,
+    narration: '---',
+    amount: 10000,
+    time: '12:00pm',
+    balance: 100000,
+}))
+
 type Trend = 'This Week' | 'This Month' | 'This Year'
 
 function Wallet() {
