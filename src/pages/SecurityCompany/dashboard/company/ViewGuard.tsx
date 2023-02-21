@@ -45,14 +45,14 @@ const ViewGuard = () => {
         e.preventDefault()
     }
 
-    const knowYourGuardRef = useRef<HTMLDialogElement | null>(null)
+    const knowYourGuardDialogRef = useRef<HTMLDialogElement | null>(null)
     const validateDialogRef = useRef<HTMLDialogElement | null>(null)
     const validatedDialogRef = useRef<HTMLDialogElement | null>(null)
     const [dialogType, setDialogType] = useState<Actions>('Deactivate')
 
     const handleClose = () => {
-        if (knowYourGuardRef.current) {
-            knowYourGuardRef.current.close()
+        if (knowYourGuardDialogRef.current) {
+            knowYourGuardDialogRef.current.close()
         }
     }
 
@@ -75,8 +75,8 @@ const ViewGuard = () => {
             setDialogType('Delete')
         }
 
-        if (dialogRef.current) {
-            dialogRef.current.showModal()
+        if (validateDialogRef.current) {
+            validateDialogRef.current.showModal()
         }
     }
 
@@ -141,7 +141,7 @@ const ViewGuard = () => {
         <>
             <ToastContainer />
 
-            <dialog className='dialog' ref={knowYourGuardRef}>
+            <dialog className='dialog' ref={knowYourGuardDialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid items-baseline w-[64rem] min-h-[30rem] p-10 gap-8 text-[1.6rem] relative'>
                         <IoMdClose
