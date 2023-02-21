@@ -29,37 +29,37 @@ const AddSecurityGuard = () => {
 
     const [photoUrl, setPhotoUrl] = useState('')
 
-    // const handlePhotoPreview = async (
-    //     _: React.MouseEvent<HTMLInputElement>
-    // ) => {
-    //     const getUrl = await getPhotoUrl(`#photoUpload`)
-    //     setPhotoUrl(getUrl)
-    // }
+    const handlePhotoPreview = async (
+        _: React.MouseEvent<HTMLInputElement>
+    ) => {
+        const getUrl = await getPhotoUrl(`#photoUpload`)
+        setPhotoUrl(getUrl)
+    }
 
-    // const handleSubmit = (e: React.FormEvent) => {
-    //     e.preventDefault()
-    // }
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault()
+    }
 
-    // const dialogRef = useRef<HTMLDialogElement | null>(null)
-    // const validateDialogRef = useRef<HTMLDialogElement | null>(null)
+    const dialogRef = useRef<HTMLDialogElement | null>(null)
+    const validateDialogRef = useRef<HTMLDialogElement | null>(null)
 
-    // const handleClose = () => {
-    //     if (dialogRef.current) {
-    //         dialogRef.current.close()
-    //     }
-    // }
+    const handleClose = () => {
+        if (dialogRef.current) {
+            dialogRef.current.close()
+        }
+    }
 
-    // const closeValidateDialog = () => {
-    //     if (validateDialogRef.current) {
-    //         validateDialogRef.current.close()
-    //     }
-    // }
+    const closeValidateDialog = () => {
+        if (validateDialogRef.current) {
+            validateDialogRef.current.close()
+        }
+    }
 
-    // const openValidateDialog = () => {
-    //     if (validateDialogRef.current) {
-    //         validateDialogRef.current.showModal()
-    //     }
-    // }
+    const openValidateDialog = () => {
+        if (validateDialogRef.current) {
+            validateDialogRef.current.showModal()
+        }
+    }
     // const handleOpen = (modalState: DialogType) => {
     //     if (modalState === 'validate') {
     //         setDialogState('validate')
