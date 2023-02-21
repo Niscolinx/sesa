@@ -1,8 +1,6 @@
 import { useState } from 'react'
-import AccountSettings from '../../../components/SuperAdmin/platformSettings/AccountSettings'
-import PropertyType from '../../../components/SuperAdmin/platformSettings/AddProperty'
-import PlatformChanges from '../../../components/SuperAdmin/platformSettings/PlatformChanges'
-import SOSTable from '../../../components/SuperAdmin/platformSettings/SOSTable'
+
+import PasswordSettings from './PasswordSettings'
 
 type PathSwitch =
     | 'platformChanges'
@@ -15,7 +13,7 @@ function Settings() {
         useState<PathSwitch>('platformChanges')
 
     const handlePathSwitch: Record<PathSwitch, JSX.Element> = {
-        platformChanges: <PlatformChanges />,
+        platformChanges: <PasswordSettings />,
         propertyType: <PropertyType />,
         SOSTable: <SOSTable />,
         accountSettings: <AccountSettings />,
