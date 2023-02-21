@@ -339,21 +339,19 @@ const AddSecurityGuard = () => {
                         </p>
 
                         {!isValidated ? (
-                            <div className='flex justify-between text-[1.6rem]'>
-                                <p
-                                    className='text-[#098DFF] cursor-pointer flex items-center'
-                                    onClick={() => handleOpen('validate')}
-                                >
-                                    Validated <IoMdCheckmarkCircleOutline />
+                            <div className='flex gap-8 text-[1.6rem]'>
+                                <p className='text-[#098DFF] cursor-pointer flex items-center font-medium'>
+                                    KYG Validated <IoMdCheckmarkCircleOutline />
                                 </p>
-                                <p
+                                <button
                                     className='text-green-600 flex items-center gap-2'
                                     style={{
                                         fontFamily: 'Satoshi-Medium',
                                     }}
+                                    onClick={() => openValidateDialog()}
                                 >
                                     View Results <BsQuestionCircle />
-                                </p>
+                                </button>
                             </div>
                         ) : (
                             <div className='flex justify-between text-[1.6rem]'>
