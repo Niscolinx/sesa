@@ -774,7 +774,7 @@ const ViewGuard = () => {
                                     className=' text-[1.6rem] outline-transparent py-4 px-4 w-full'
                                 />
 
-                                <TbCopy className='text-[#0556E5] absolute right-8 text-[1.8rem]' />
+                                <TbCopy className='text-[#0556E5] absolute right-8 text-[5rem]' />
                             </div>
                         </div>
                     </div>
