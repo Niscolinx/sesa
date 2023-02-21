@@ -732,7 +732,7 @@ const ViewGuard = () => {
                         </div>
                     </div>
                 </section>
-                <section className='grid p-8 bg-white w-3/5'>
+                <section className='grid p-8 bg-white w-4/5'>
                     <h2
                         className='text-[2rem] mb-10'
                         style={{
