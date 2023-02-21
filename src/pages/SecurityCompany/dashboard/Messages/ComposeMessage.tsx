@@ -181,7 +181,7 @@ const ComposeMessage = () => {
                     <div className='grid gap-4 relative'>
                         <p className='text-[1.4rem] font-medium'>Receipts</p>
                         <button
-                            className='btn bg-color-blue-1 text-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
+                            className='btn border border-color-blue-1 text-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
                             style={{ justifySelf: 'start' }}
                             onClick={() => handleOpen('success')}
                         >
