@@ -36,3 +36,9 @@ export const AddedSecuritySuccessfully = () => {
         </>
     )
 }
+
+export const AddBankAccount = () => {
+    return (
+        
+    )
+}
