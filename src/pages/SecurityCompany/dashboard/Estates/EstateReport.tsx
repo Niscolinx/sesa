@@ -604,22 +604,12 @@ const AttendanceReport = () => {
 }
 
 function EstateReport() {
-    const [fetchedAttendanceReport, setFetchedAttendanceReport] = useState<
-        AttendanceReport[] | null
-    >(null)
+   
 
     type Report = 'activityReport' | 'attendanceReport'
 
     const [currentPage, setCurrentPage] = useState<Report>('activityReport')
 
-    useEffect(() => {
-        const fetchData = async () => {
-            setTimeout(() => {
-                setFetchedAttendanceReport(ATTENDANCE_REPORT_DATA)
-            }, 1000)
-        }
-        fetchData()
-    }, [])
 
     const getDate = () => {
         const newDate = new Date()
