@@ -1,4 +1,4 @@
-import React, { FormEvent, useEffect, useRef, useState } from 'react'
+import React, { FormEvent, useRef, useState } from 'react'
 import { IoMdAdd, IoMdClose } from 'react-icons/io'
 import { getPhotoUrl } from '../../../../../utils/getPhotoUrl'
 import { BsQuestionCircle } from 'react-icons/bs'
@@ -241,7 +241,6 @@ const AddSecurityGuard = () => {
                                     Know Your Guard (KYG)
                                 </h3>
 
-                            
                                 <Select
                                     state={[
                                         'Phone Number',
@@ -269,7 +268,10 @@ const AddSecurityGuard = () => {
                                     validationType as ValidateInputTypes
                                 )}
 
-                                <button className='btn bg-[#0556E5] text-white rounded-lg py-4 place-self-start w-[15rem]' onClick={handleValidate}>
+                                <button
+                                    className='btn bg-[#0556E5] text-white rounded-lg py-4 place-self-start w-[15rem]'
+                                    onClick={handleValidate}
+                                >
                                     Validate
                                 </button>
                             </form>
@@ -337,22 +339,42 @@ const AddSecurityGuard = () => {
                             KYG{' '}
                             <span className='text-gray-500'>(Optional)</span>
                         </p>
-                        <div className='flex justify-between text-[1.6rem]'>
-                            <p
-                                className='text-[#098DFF] cursor-pointer'
-                                onClick={() => handleOpen('validate')}
-                            >
-                                Click here to validate this person
-                            </p>
-                            <p
-                                className='text-[#043FA7] flex items-center gap-2'
-                                style={{
-                                    fontFamily: 'Satoshi-Light',
-                                }}
-                            >
-                                What is KYG <BsQuestionCircle />
-                            </p>
-                        </div>
+                        
+                        {isValidated ? (
+                            <div className='flex justify-between text-[1.6rem]'>
+                                <p
+                                    className='text-[#098DFF] cursor-pointer'
+                                    onClick={() => handleOpen('validate')}
+                                >
+                                    
+                                </p>
+                                <p
+                                    className='text-[#043FA7] flex items-center gap-2'
+                                    style={{
+                                        fontFamily: 'Satoshi-Light',
+                                    }}
+                                >
+                                    What is KYG <BsQuestionCircle />
+                                </p>
+                            </div>
+                        ) : (
+                            <div className='flex justify-between text-[1.6rem]'>
+                                <p
+                                    className='text-[#098DFF] cursor-pointer'
+                                    onClick={() => handleOpen('validate')}
+                                >
+                                    Click here to validate this person
+                                </p>
+                                <p
+                                    className='text-[#043FA7] flex items-center gap-2'
+                                    style={{
+                                        fontFamily: 'Satoshi-Light',
+                                    }}
+                                >
+                                    What is KYG <BsQuestionCircle />
+                                </p>
+                            </div>
+                        )}
                     </div>
                     <form
                         onSubmit={handleSubmit}
