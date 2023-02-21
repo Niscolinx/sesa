@@ -207,7 +207,7 @@ const AddSecurityGuard = () => {
                                 </h3>
 
                                 <Select
-                                    state={['Phone Number', 'Name']}
+                                    state={['Phone Number', 'BVN Number', 'NIN Number', 'Drivers License', 'International Passport', 'Voters Card']}
                                     label='Validation Option'
                                     selectedState={validationType}
                                     setSelectedState={setValidationType}
