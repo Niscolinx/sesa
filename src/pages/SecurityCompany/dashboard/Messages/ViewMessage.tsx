@@ -22,14 +22,7 @@ const ViewMessage = () => {
         }
     }
 
-    const handleReAssign = () => {
-        closeAssignGuardDialog()
-
-        toast(' Reassigned successfully', {
-            type: 'success',
-            className: 'bg-green-100 text-green-600 text-[1.4rem]',
-        })
-    }
+ 
 
     const handleDeleteSecurityGuard = () => {
         handleCloseDeleteOrDeactivateDialog()
