@@ -100,20 +100,16 @@ export const openedBankAccountSuccessful = () => {
             >
                 2094828922 <TbCopy /> -{selectedBank}
             </h2>
-            <p className='uppercase text-[2rem]'>Ajayi Suileman Adeyemi</p>
+            <p className='uppercase text-[2rem] font-bold'>
+                Ajayi Suileman Adeyemi
+            </p>
 
             <div className='flex w-full justify-center gap-8'>
                 <button
-                    className='btn bg-white text-[#0556E5] border-[#0556E5] border rounded-lg w-[20rem] font-bold'
+                    className='bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[20rem]'
                     onClick={() => handleClose()}
                 >
-                    Skip, Later
-                </button>
-                <button
-                    className='bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[20rem]'
-                    onClick={() => setAddedSecurityGuardStep('addBankAccount')}
-                >
-                    Open an Account
+                    Ok
                 </button>
             </div>
         </>
