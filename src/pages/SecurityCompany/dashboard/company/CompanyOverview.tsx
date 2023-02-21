@@ -212,7 +212,7 @@ const CompanyHome = () => {
 
                         <div className='grid'>
                             <div
-                                className='grid justify-between text-color-dark-1 bg-gray-100 p-8 grid-cols-6 gap-8'
+                                className='grid justify-between text-color-dark-1 bg-gray-100 p-8 grid-cols-7 gap-8'
                                 style={{
                                     fontSize: '1.6rem',
                                 }}
@@ -245,7 +245,7 @@ const CompanyHome = () => {
                                                 phoneNumber,
                                             }) => {
                                                 return (
-                                                    <div className='grid justify-between border-b grid-cols-6 gap-8 '>
+                                                    <div className='grid justify-between border-b grid-cols-7 gap-8 '>
                                                         <p className='flex items-center gap-4'>
                                                             <input
                                                                 type='checkbox'
