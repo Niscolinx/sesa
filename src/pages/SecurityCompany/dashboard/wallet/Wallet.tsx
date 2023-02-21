@@ -305,8 +305,8 @@ function Wallet() {
                                         className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem]'
                                     />
                                 </div>
-                                <div className='w-full grid gap-4'>
-                                    <div>
+                                <div className='w-full flex gap-4'>
+                                    <div className='w-full'>
                                         <label
                                             htmlFor='description'
                                             className='text-[1.4rem] font-semibold'
@@ -318,7 +318,7 @@ function Wallet() {
                                             type='number'
                                             required
                                             id='description'
-                                            className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem]'
+                                            className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] '
                                         />
                                     </div>
                                     <div>
@@ -330,7 +330,7 @@ function Wallet() {
                                         </label>
 
                                         <input
-                                            type='number'
+                                            type='date'
                                             required
                                             id='description'
                                             className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem]'
