@@ -444,9 +444,9 @@ const ViewGuard = () => {
                         <div className='flex gap-8'>
                             <button
                                 className='border border-color-blue-1 text-color-blue-1 px-16 py-4 flex items-center  rounded-lg gap-4'
-                                // onClick={() =>
-                                //     handleSelectedAction('Deactivate')
-                                // }
+                                onClick={() =>
+                                    openDeleteOrDeactivateDialog('Deactivate')
+                                }
                             >
                                 <span className=' text-[1.4rem] font-semibold'>
                                     Deactivate
@@ -454,7 +454,9 @@ const ViewGuard = () => {
                             </button>
                             <button
                                 className='border border-red-600 px-16 py-4 flex items-center  rounded-lg gap-4'
-                                // onClick={() => handleSelectedAction('Delete')}
+                                onClick={() =>
+                                    openDeleteOrDeactivateDialog('Delete')
+                                }
                             >
                                 <img src='/icons/admins/delete.svg' alt='' />
                                 <span className='text-red-600 text-[1.4rem] font-semibold'>
