@@ -99,21 +99,24 @@ export const OpenedBankAccountSuccessful = () => {
                 guard
             </p>
 
-            <div className='flex itemss-center'>
-
-            <h2
-                className='font-bold text-[2rem] text-center uppercase'
-                style={{
-                    fontFamily: 'Satoshi-Medium',
-                }}
+            <div className='grid justify-center gap-4'>
+                <h2
+                    className='font-bold text-[2rem] text-center uppercase flex items-center'
+                    style={{
+                        fontFamily: 'Satoshi-Medium',
+                    }}
                 >
-                2094828922 <TbCopy /> - {selectedBank}
-            </h2>
-            <p className='uppercase text-[2rem] font-bold'>
-                Ajayi Suileman Adeyemi
-            </p>
-
-                </div>
+                    2094828922 <TbCopy /> - {selectedBank}
+                </h2>
+                <p
+                    className='uppercase text-[2rem] font-bold'
+                    style={{
+                        fontFamily: 'Satoshi-Medium',
+                    }}
+                >
+                    Ajayi Suileman Adeyemi
+                </p>
+            </div>
             <div className='flex w-full justify-center gap-8'>
                 <button
                     className='bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[20rem]'
