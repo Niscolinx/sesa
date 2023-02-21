@@ -200,15 +200,16 @@ function RenderedMessages() {
                     {slicedPages && slicedPages.length > 0 ? (
                         React.Children.toArray(
                             slicedPages[paginate.index].map(
-                                ({
-                                    id,
-                                    date,
-                                    subject,
-                                    description,
-                                    status,
-                                    transmissionChannel,
-                                    transmissionDate,
-                                }) => {
+                                (messageBody) => {
+                                    const {
+                                        id,
+                                        date,
+                                        subject,
+                                        description,
+                                        status,
+                                        transmissionChannel,
+                                        transmissionDate,
+                                    } = messageBody
                                     return (
                                         <div className='grid relative p-8 bg-white rounded-lg gap-2'>
                                             <div className='flex items-center gap-2 absolute right-0 top-0 p-8'>
