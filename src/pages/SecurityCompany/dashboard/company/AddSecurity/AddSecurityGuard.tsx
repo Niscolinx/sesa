@@ -342,7 +342,7 @@ const AddSecurityGuard = () => {
                                 className='text-[#098DFF] cursor-pointer'
                                 onClick={() => handleOpen('validate')}
                             >
-                                Click her to validate this person
+                                Click here to validate this person
                             </p>
                             <p
                                 className='text-[#043FA7] flex items-center gap-2'
