@@ -21,7 +21,6 @@ const ComposeMessage = () => {
     const dialogRef = useRef<HTMLDialogElement | null>(null)
     const recipient_List_DialogRef = useRef<HTMLDialogElement | null>(null)
 
-
     const closeRecipientListDialog = () => {
         if (recipient_List_DialogRef.current) {
             recipient_List_DialogRef.current.close()
@@ -67,48 +66,22 @@ const ComposeMessage = () => {
                             <img src='/icons/admins/modalSuccess.svg' alt='' />
                         )}
 
-                        {isWarning ? (
-                            <p>
-                                Are you sure you want to deactivate this
-                                security company?
-                            </p>
-                        ) : (
-                            <p>
-                                You have successfully added a security Company
-                            </p>
-                        )}
+                        <p>You have successfully added a security Company</p>
 
                         <div className='flex w-full justify-center gap-8'>
-                            {isWarning ? (
-                                <button
-                                    className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
-                                    onClick={() => handleClose()}
-                                >
-                                    Cancel
-                                </button>
-                            ) : (
-                                <button
-                                    className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
-                                    onClick={() => handleClose()}
-                                >
-                                    View Details
-                                </button>
-                            )}
-                            {isWarning ? (
-                                <button
-                                    className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
-                                    onClick={confirmDeactivation}
-                                >
-                                    Deactivate
-                                </button>
-                            ) : (
-                                <button
-                                    className='btn text-white bg-[#0556E5] border rounded-lg w-[15rem]'
-                                    onClick={() => handleClose()}
-                                >
-                                    View Details
-                                </button>
-                            )}
+                            <button
+                                className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
+                                onClick={() => handleClose()}
+                            >
+                                View Details
+                            </button>
+
+                            <button
+                                className='btn text-white bg-[#0556E5] border rounded-lg w-[15rem]'
+                                onClick={() => handleClose()}
+                            >
+                                View Details
+                            </button>
                         </div>
                     </div>
                 </section>
