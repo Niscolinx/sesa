@@ -428,7 +428,7 @@ const AddSecurityGuard = () => {
                                     fontFamily: 'Satoshi-Light',
                                 }}
                             >
-                                Drag estate manager picture here or{' '}
+                                Drag Estate Security Guard picture here or{' '}
                                 <span className='text-color-blue font-bold'>
                                     click
                                 </span>{' '}
