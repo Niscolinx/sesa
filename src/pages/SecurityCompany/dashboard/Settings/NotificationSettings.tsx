@@ -46,6 +46,22 @@ const NotificationSettings = () => {
                                 )}
                             </div>
                         </div>
+                        <div className='flex items-center gap-16'>
+                            <p>In-App</p>
+                            <div onClick={toggleIsInAppOn}>
+                                {isInAppOn ? (
+                                    <img
+                                        src='/icons/admins/switchOn.svg'
+                                        alt=''
+                                    />
+                                ) : (
+                                    <img
+                                        src='/icons/admins/switchOff.svg'
+                                        alt=''
+                                    />
+                                )}
+                            </div>
+                        </div>
                     </div>
 
                     <p className='text-color-blue-1'>
