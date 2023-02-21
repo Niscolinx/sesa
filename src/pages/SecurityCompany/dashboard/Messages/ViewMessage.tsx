@@ -16,7 +16,7 @@ const ViewMessage = () => {
 
 
 
-    const handleCloseDeleteOrDeactivateDialog = () => {
+    const handleClose = () => {
         if (dialogRef.current) {
             dialogRef.current.close()
         }
@@ -24,22 +24,15 @@ const ViewMessage = () => {
 
  
 
-    const handleDeleteSecurityGuard = () => {
-        handleCloseDeleteOrDeactivateDialog()
+    const handleDeleteMessage = () => {
+        handleClose()
 
-        toast('Security Guard deleted successfully', {
-            type: 'error',
+        toast('Message deleted successfully', {
+            type: 'success',
             className: 'bg-red-100 text-red-600 text-[1.4rem]',
         })
     }
-    const handleDeactivateSecurityGuard = () => {
-        handleCloseDeleteOrDeactivateDialog()
-
-        toast('Security Guard deactivated successfully', {
-            type: 'error',
-            className: 'bg-red-100 text-red-600 text-[1.4rem]',
-        })
-    }
+  
 
     return (
         <>
@@ -51,8 +44,7 @@ const ViewMessage = () => {
                         <>
                             <img src='/icons/admins/modalWarning.svg' alt='' />
                             <p className='text-[1.6rem]'>
-                                Are you sure you want to delete this Security
-                                Guard
+                                Are you sure you want to delete this Message
                             </p>
 
                             <div className='flex w-full justify-center gap-8'>
