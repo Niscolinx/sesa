@@ -12,6 +12,7 @@ import ViewGuard from '../../pages/SecurityCompany/dashboard/company/ViewGuard'
 import AddSecurityGuard from '../../pages/SecurityCompany/dashboard/company/AddSecurity/AddSecurityGuard'
 import Messages from '../../pages/SecurityCompany/dashboard/Messages/Messages'
 import ComposeMessage from '../../pages/SecurityCompany/dashboard/Messages/ComposeMessage'
+import ViewMessage from '../../pages/SecurityCompany/dashboard/Messages/ViewMessage'
 
 const securityCompanyRoutes = (
     <Route path='/securityCompany' element={<SecurityCompanyDashboard />}>
@@ -37,6 +38,10 @@ const securityCompanyRoutes = (
         <Route
             path='messages/compose'
             element={<ComposeMessage />}
+        />
+        <Route
+            path='messages/view/:Id'
+            element={<ViewMessage/>}
         />
     </Route>
 )
