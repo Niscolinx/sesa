@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { AiOutlineEyeInvisible, AiOutlineEye } from 'react-icons/ai'
 import { toast, ToastContainer } from 'react-toastify'
+import { getPhotoUrl } from '../../../../utils/getPhotoUrl'
 
 const PasswordSettings = () => {
     const [isWarning, setIsWarning] = useState(true)
