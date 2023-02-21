@@ -2,18 +2,31 @@ import React, { FormEvent, useRef, useState } from 'react'
 import { IoMdAdd, IoMdClose } from 'react-icons/io'
 import { getPhotoUrl } from '../../../../utils/getPhotoUrl'
 import { BsQuestionCircle } from 'react-icons/bs'
-import { ToastContainer } from 'react-toastify'
-import { Select } from '../../../../components/SuperAdmin/UI/Select'
+import { toast, ToastContainer } from 'react-toastify'
+import { ComplexSelect, Select } from '../../../../components/SuperAdmin/UI/Select'
 
-type DialogType = 'validate' | 'add-Security Guard'
+type DialogType = 'validate' | 'add-Security-guard' | 'reassign'
 
 const AddSecurityGuard = () => {
+       const [selectedEstate1, setSelectedEstate1] = useState<string | null>(
+           null
+       )
+       const [selectedEstate2, setSelectedEstate2] = useState<string | null>(
+           null
+       )
+       const [selectedEstate3, setSelectedEstate3] = useState<string | null>(
+           null
+       )
+       const [selectedEstate4, setSelectedEstate4] = useState<string | null>(
+           null
+       )
     const [selectedState, setSelectedState] = useState<string | null>(null)
     const [selectedGender, setSelectedGender] = useState<string | null>(null)
-    const [isAddSecurityGuard, setIsAddSecurityGuard] = useState(true)
+    const [dialogState, setDialogState] = useState<DialogType>('validate')
     const [validationType, setValidationType] = useState<string | null>(
         'Phone Number'
     )
+
 
     const [photoUrl, setPhotoUrl] = useState('')
 
@@ -50,8 +63,8 @@ const AddSecurityGuard = () => {
     }
     const handleOpen = (modalState: DialogType) => {
         if (modalState === 'validate') {
-            setIsAddSecurityGuard(true)
-        } else {
+            setIsAddSecurityGuard(true)}
+        if(modalState === 'add-Security-guard')
             setIsAddSecurityGuard(false)
         }
 
@@ -62,7 +75,7 @@ const AddSecurityGuard = () => {
 
     const addSecurityGuardHandler = () => {
         // navigate('/superAdmin/Security GuardCategory/add')
-        handleOpen('add-Security Guard')
+        handleOpen('add-Security-guard')
     }
 
     const confirmAddSecurityGuard = () => {
@@ -76,6 +89,15 @@ const AddSecurityGuard = () => {
         openValidateDialog()
     }
 
+     const handleReAssign = () => {
+         handleClose()
+
+         toast(' Reassigned successfully', {
+             type: 'success',
+             className: 'bg-green-100 text-green-600 text-[1.4rem]',
+         })
+     }
+     
     return (
         <>
             <ToastContainer />
@@ -175,7 +197,7 @@ const AddSecurityGuard = () => {
                             onClick={() => handleClose()}
                         />
 
-                        {isAddSecurityGuard ? (
+                        {dialogState === 'validate' ? (
                             <form
                                 className='grid gap-12 max-w-[40rem]'
                                 onSubmit={handleDialogSubmit}
@@ -239,7 +261,10 @@ const AddSecurityGuard = () => {
                                     alt=''
                                 />
 
-                                <p>You have successfully added an Security Guard</p>
+                                <p>
+                                    You have successfully added an Security
+                                    Guard
+                                </p>
 
                                 <div className='flex w-full justify-center gap-8'>
                                     <button
@@ -260,212 +285,364 @@ const AddSecurityGuard = () => {
                     </div>
                 </section>
             </dialog>
-            <div className='grid p-8 bg-white h-[80vh] items-baseline overflow-y-scroll rounded-lg'>
-                <div className='grid gap-8 max-w-[40rem]'>
-                    <p className='text-[2rem] font-bold'>
-                        KYG <span className='text-gray-500'>(Optional)</span>
-                    </p>
-                    <div className='flex justify-between text-[1.6rem]'>
-                        <p
-                            className='text-[#098DFF] cursor-pointer'
-                            onClick={() => handleOpen('validate')}
-                        >
-                            Click her to validate this person
+            <main>
+                <div className='grid p-8 bg-white h-[80vh] items-baseline overflow-y-scroll rounded-lg'>
+                    <div className='grid gap-8 max-w-[40rem]'>
+                        <p className='text-[2rem] font-bold'>
+                            KYG{' '}
+                            <span className='text-gray-500'>(Optional)</span>
                         </p>
-                        <p
-                            className='text-[#043FA7] flex items-center gap-2'
-                            style={{
-                                fontFamily: 'Satoshi-Light',
-                            }}
-                        >
-                            What is KYG <BsQuestionCircle />
-                        </p>
-                    </div>
-                </div>
-                <form
-                    onSubmit={handleSubmit}
-                    className='grid max-w-[84rem] gap-16 mt-12'
-                    style={{
-                        gridTemplateColumns:
-                            ' repeat(auto-fit, minmax(35rem, 1fr))',
-                    }}
-                >
-                    <div className='grid gap-4 relative '>
-                        <label
-                            htmlFor='firstName'
-                            className='text-[1.4rem] font-medium'
-                        >
-                            First Name *
-                        </label>
-                        <input
-                            type='text'
-                            required
-                            id='firstName'
-                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                        />
-                    </div>
-                    <div className='grid gap-4 relative '>
-                        <label
-                            htmlFor='lastName'
-                            className='text-[1.4rem] font-medium'
-                        >
-                            Last Name *
-                        </label>
-                        <input
-                            type='text'
-                            required
-                            id='lastName'
-                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                        />
-                    </div>
-                    <div className='grid gap-4 relative '>
-                        <label
-                            htmlFor='lastName'
-                            className='text-[1.4rem] font-medium'
-                        >
-                            Middle Name *
-                        </label>
-                        <input
-                            type='text'
-                            required
-                            id='lastName'
-                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                        />
-                    </div>
-                    <div className='grid gap-4 relative '>
-                        <label
-                            htmlFor='lastName'
-                            className='text-[1.4rem] font-medium'
-                        >
-                            Date of Birth
-                        </label>
-                        <input
-                            type='text'
-                            required
-                            id='lastName'
-                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                        />
-                    </div>
-
-                    <div className='grid gap-4'>
-                        <label
-                            htmlFor='phoneNumber'
-                            className='text-[1.4rem] font-medium'
-                        >
-                            Phone Number *
-                        </label>
-
-                        <div className='flex text-[1.6rem] gap-4   h-[5rem]'>
-                            <select className='w-[30%] rounded-lg border border-color-grey py-4.8 px-4 outline-none cursor-pointer text-color-dark relative h-full'>
-                                <option value='234'>+234</option>
-                            </select>
-                            <input
-                                required
-                                type='number'
-                                inputMode='numeric'
-                                id='phoneNumber'
-                                placeholder='Phone Number'
-                                className='w-full rounded-lg border border-color-grey py-4.8 px-8 outline-none text-color-dark'
-                            />
-                        </div>
-                    </div>
-                    <Select
-                        label='Gender'
-                        state={['Male', 'Female']}
-                        selectedState={selectedGender}
-                        setSelectedState={setSelectedGender}
-                    />
-                    <div className='grid gap-4 relative'>
-                        <label
-                            htmlFor='email'
-                            className='text-[1.4rem] font-medium'
-                        >
-                            Email Address *
-                        </label>
-                        <input
-                            type='email'
-                            required
-                            id='email'
-                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                        />
-                    </div>
-
-                    <div className='grid gap-4 relative'>
-                        <label
-                            htmlFor='address1'
-                            className='text-[1.4rem] font-medium'
-                        >
-                            Address
-                        </label>
-                        <input
-                            type='text'
-                            required
-                            id='address1'
-                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                        />
-                    </div>
-                    
-
-                    <Select
-                        label='State'
-                        state={['Lagos', 'Imo', 'Abia', 'FCT']}
-                        placeholder='Select State'
-                        selectedState={selectedState}
-                        setSelectedState={setSelectedState}
-                    />
-                    
-                    
-                    <div className='col-span-full rounded-lg border border-width-[.2rem] border-dashed border-color-grey-1 p-8 text-[1.6rem] relative w-full'>
-                        <label
-                            htmlFor='photoUpload'
-                            className='flex justify-center gap-4 items-center cursor-pointer'
-                        >
-                            <img src='/icons/admins/photo_library.svg' alt='' />
+                        <div className='flex justify-between text-[1.6rem]'>
                             <p
-                                className='text-color-dark-1'
+                                className='text-[#098DFF] cursor-pointer'
+                                onClick={() => handleOpen('validate')}
+                            >
+                                Click her to validate this person
+                            </p>
+                            <p
+                                className='text-[#043FA7] flex items-center gap-2'
                                 style={{
                                     fontFamily: 'Satoshi-Light',
                                 }}
                             >
-                                Drag Security Guard picture here or{' '}
-                                <span className='text-color-blue font-bold'>
-                                    click
-                                </span>{' '}
-                                to upload
+                                What is KYG <BsQuestionCircle />
                             </p>
-                        </label>
-                        <input
-                            type='file'
-                            name='photoUpload'
-                            id='photoUpload'
-                            accept='image/*'
-                            className='hidden'
-                            onClick={handlePhotoPreview}
-                        />
+                        </div>
+                    </div>
+                    <form
+                        onSubmit={handleSubmit}
+                        className='grid max-w-[84rem] gap-16 mt-12'
+                        style={{
+                            gridTemplateColumns:
+                                ' repeat(auto-fit, minmax(35rem, 1fr))',
+                        }}
+                    >
+                        <div className='grid gap-4 relative '>
+                            <label
+                                htmlFor='firstName'
+                                className='text-[1.4rem] font-medium'
+                            >
+                                First Name *
+                            </label>
+                            <input
+                                type='text'
+                                required
+                                id='firstName'
+                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                            />
+                        </div>
+                        <div className='grid gap-4 relative '>
+                            <label
+                                htmlFor='lastName'
+                                className='text-[1.4rem] font-medium'
+                            >
+                                Last Name *
+                            </label>
+                            <input
+                                type='text'
+                                required
+                                id='lastName'
+                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                            />
+                        </div>
+                        <div className='grid gap-4 relative '>
+                            <label
+                                htmlFor='lastName'
+                                className='text-[1.4rem] font-medium'
+                            >
+                                Middle Name *
+                            </label>
+                            <input
+                                type='text'
+                                required
+                                id='lastName'
+                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                            />
+                        </div>
+                        <div className='grid gap-4 relative '>
+                            <label
+                                htmlFor='lastName'
+                                className='text-[1.4rem] font-medium'
+                            >
+                                Date of Birth
+                            </label>
+                            <input
+                                type='text'
+                                required
+                                id='lastName'
+                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                            />
+                        </div>
 
-                        {photoUrl && (
-                            <div className='flex justify-center justify-self-center'>
-                                <img
-                                    src={photoUrl}
-                                    alt='photoPreview'
-                                    className='object-cover w-[11rem] h-[11rem] rounded-full'
+                        <div className='grid gap-4'>
+                            <label
+                                htmlFor='phoneNumber'
+                                className='text-[1.4rem] font-medium'
+                            >
+                                Phone Number *
+                            </label>
+
+                            <div className='flex text-[1.6rem] gap-4   h-[5rem]'>
+                                <select className='w-[30%] rounded-lg border border-color-grey py-4.8 px-4 outline-none cursor-pointer text-color-dark relative h-full'>
+                                    <option value='234'>+234</option>
+                                </select>
+                                <input
+                                    required
+                                    type='number'
+                                    inputMode='numeric'
+                                    id='phoneNumber'
+                                    placeholder='Phone Number'
+                                    className='w-full rounded-lg border border-color-grey py-4.8 px-8 outline-none text-color-dark'
                                 />
                             </div>
-                        )}
-                    </div>
+                        </div>
+                        <Select
+                            label='Gender'
+                            state={['Male', 'Female']}
+                            selectedState={selectedGender}
+                            setSelectedState={setSelectedGender}
+                        />
+                        <div className='grid gap-4 relative'>
+                            <label
+                                htmlFor='email'
+                                className='text-[1.4rem] font-medium'
+                            >
+                                Email Address *
+                            </label>
+                            <input
+                                type='email'
+                                required
+                                id='email'
+                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                            />
+                        </div>
 
-                    <button
-                        className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
-                        style={{ justifySelf: 'start' }}
-                        onClick={addSecurityGuardHandler}
+                        <div className='grid gap-4 relative'>
+                            <label
+                                htmlFor='address1'
+                                className='text-[1.4rem] font-medium'
+                            >
+                                Address
+                            </label>
+                            <input
+                                type='text'
+                                required
+                                id='address1'
+                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                            />
+                        </div>
+
+                        <Select
+                            label='State'
+                            state={['Lagos', 'Imo', 'Abia', 'FCT']}
+                            placeholder='Select State'
+                            selectedState={selectedState}
+                            setSelectedState={setSelectedState}
+                        />
+
+                        <div className='col-span-full rounded-lg border border-width-[.2rem] border-dashed border-color-grey-1 p-8 text-[1.6rem] relative w-full'>
+                            <label
+                                htmlFor='photoUpload'
+                                className='flex justify-center gap-4 items-center cursor-pointer'
+                            >
+                                <img
+                                    src='/icons/admins/photo_library.svg'
+                                    alt=''
+                                />
+                                <p
+                                    className='text-color-dark-1'
+                                    style={{
+                                        fontFamily: 'Satoshi-Light',
+                                    }}
+                                >
+                                    Drag Security Guard picture here or{' '}
+                                    <span className='text-color-blue font-bold'>
+                                        click
+                                    </span>{' '}
+                                    to upload
+                                </p>
+                            </label>
+                            <input
+                                type='file'
+                                name='photoUpload'
+                                id='photoUpload'
+                                accept='image/*'
+                                className='hidden'
+                                onClick={handlePhotoPreview}
+                            />
+
+                            {photoUrl && (
+                                <div className='flex justify-center justify-self-center'>
+                                    <img
+                                        src={photoUrl}
+                                        alt='photoPreview'
+                                        className='object-cover w-[11rem] h-[11rem] rounded-full'
+                                    />
+                                </div>
+                            )}
+                        </div>
+
+                        <button
+                            className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
+                            style={{ justifySelf: 'start' }}
+                            onClick={addSecurityGuardHandler}
+                        >
+                            <span>
+                                <IoMdAdd />
+                            </span>{' '}
+                            Add Security Guard
+                        </button>
+                    </form>
+                </div>
+                <section>
+                    <h2
+                        className='text-[2rem] mb-10'
+                        style={{
+                            fontFamily: 'Satoshi-Medium',
+                        }}
                     >
-                        <span>
-                            <IoMdAdd />
-                        </span>{' '}
-                        Add Security Guard
-                    </button>
-                </form>
-            </div>
+                        Assigned Estate Details
+                    </h2>
+                    <div className='grid gap-4'>
+                        <div className=' items-center grid grid-cols-3'>
+                            <div>
+                                <p className='text-[1.4rem] font-medium'>
+                                    Primary Assigned Estate
+                                </p>
+                                <p className='text-[1.4rem] font-light'>
+                                    Last Assigned on: 12-May-2023
+                                </p>
+                            </div>
+                            <div>
+                                <ComplexSelect
+                                    state={[
+                                        { name: 'Gwarimpa Estate', No: 3 },
+                                        { name: 'Ibara Estate', No: 12 },
+                                        { name: 'Peace estate', No: 1 },
+                                        {
+                                            name: 'Iba Estate',
+                                            No: 2,
+                                        },
+                                    ]}
+                                    placeholder='Gwarimpa Estate'
+                                    selectedState={selectedEstate1}
+                                    isSearchable={true}
+                                    setSelectedState={setSelectedEstate1}
+                                />
+                            </div>
+
+                            <button
+                                className='btn text-color-blue-1 '
+                                onClick={() => handleOpen('ReAssign')}
+                            >
+                                Reassign
+                            </button>
+                        </div>
+                        <div className=' items-center grid grid-cols-3'>
+                            <div>
+                                <p className='text-[1.4rem] font-medium'>
+                                    Secondary Assigned Estate
+                                </p>
+                                <p className='text-[1.4rem] font-light'>
+                                    Last Assigned on: 12-May-2023
+                                </p>
+                            </div>
+                            <div>
+                                <ComplexSelect
+                                    state={[
+                                        { name: 'Gwarimpa Estate', No: 3 },
+                                        { name: 'Ibara Estate', No: 12 },
+                                        { name: 'Peace estate', No: 1 },
+                                        {
+                                            name: 'Iba Estate',
+                                            No: 2,
+                                        },
+                                    ]}
+                                    placeholder='Iba Estate'
+                                    selectedState={selectedEstate2}
+                                    isSearchable={true}
+                                    setSelectedState={setSelectedEstate2}
+                                />
+                            </div>
+
+                            <button
+                                className='btn text-color-blue-1 '
+                                onClick={() => handleOpen('ReAssign')}
+                            >
+                                Reassign
+                            </button>
+                        </div>
+                        <div className=' items-center grid grid-cols-3'>
+                            <div>
+                                <p className='text-[1.4rem] font-medium'>
+                                    Primary Assigned Estate
+                                </p>
+                                <p className='text-[1.4rem] font-light'>
+                                    Last Assigned on: 12-May-2023
+                                </p>
+                            </div>
+                            <div>
+                                <ComplexSelect
+                                    state={[
+                                        { name: 'Gwarimpa Estate', No: 3 },
+                                        { name: 'Ibara Estate', No: 12 },
+                                        { name: 'Peace estate', No: 1 },
+                                        {
+                                            name: 'Iba Estate',
+                                            No: 2,
+                                        },
+                                    ]}
+                                    placeholder='Peace Estate'
+                                    selectedState={selectedEstate3}
+                                    isSearchable={true}
+                                    setSelectedState={setSelectedEstate3}
+                                />
+                            </div>
+
+                            <button
+                                className='btn text-color-blue-1 '
+                                onClick={() => handleOpen('ReAssign')}
+                            >
+                                Reassign
+                            </button>
+                        </div>
+                        <div className=' items-center grid grid-cols-3'>
+                            <div>
+                                <p className='text-[1.4rem] font-medium'>
+                                    Primary Assigned Estate
+                                </p>
+                                <p className='text-[1.4rem] font-light'>
+                                    Last Assigned on: 12-May-2023
+                                </p>
+                            </div>
+                            <div>
+                                <ComplexSelect
+                                    state={[
+                                        { name: 'Gwarimpa Estate', No: 3 },
+                                        { name: 'Ibara Estate', No: 12 },
+                                        { name: 'Peace estate', No: 1 },
+                                        {
+                                            name: 'Ibara Estate',
+                                            No: 2,
+                                        },
+                                    ]}
+                                    placeholder='Gwarimpa Estate'
+                                    selectedState={selectedEstate4}
+                                    isSearchable={true}
+                                    setSelectedState={setSelectedEstate4}
+                                />
+                            </div>
+
+                            <button
+                                className='btn text-color-blue-1 '
+                                onClick={() => handleOpen('ReAssign')}
+                            >
+                                Reassign
+                            </button>
+                        </div>
+                    </div>
+                </section>
+            </main>
         </>
     )
 }
