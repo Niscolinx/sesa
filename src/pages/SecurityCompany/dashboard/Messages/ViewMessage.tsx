@@ -182,7 +182,7 @@ const ViewMessage = () => {
                                     {subject}
                                 </p>
                             </div>
-                            <div className='flex items-center gap-2 my-5'>
+                            <div className='flex items-center gap-2 my-[10rem]'>
                                 <p className=' '>
                                     {description}
                                 </p>
