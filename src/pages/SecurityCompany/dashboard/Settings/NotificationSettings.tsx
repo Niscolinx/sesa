@@ -29,7 +29,7 @@ const NotificationSettings = () => {
                 </section>
 
                 <section>
-                    <div>
+                    <div className='grid gap-10'>
                         <div className='flex items-center gap-16'>
                             <p>In-App</p>
                             <div onClick={toggleIsInAppOn}>
