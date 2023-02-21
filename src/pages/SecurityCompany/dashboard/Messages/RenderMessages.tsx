@@ -6,7 +6,7 @@ import { IoMdAdd } from 'react-icons/io'
 
 import { Link, useNavigate } from 'react-router-dom'
 
-export interface Overview {
+export interface Message {
     id: number
     date: string
     transmissionDate: string
@@ -17,12 +17,15 @@ export interface Overview {
     status: 'Sent' | 'Pending'  
 }
 
-export const HOUSEHOLD_LIST: Overview[] = Array.from({ length: 10 }).map(
+const recipients = ['Thomas Nwaje', 'Solomon Nwaje']
+
+
+export const MESSAGE_LIST: Message[] = Array.from({ length: 10 }).map(
     (_, i) => ({
         id: i + 1,
-        estateName: `Estate ${i + 1}`,
-        address: 'No 1, Ogunlana Drive, Surulere, Lagos',
-        noOfSecurityGuards: 10,
+        date: '19-May-2023',
+        transmissionDate: '19-May-2023',
+        recipients: recipients
     })
 )
 
