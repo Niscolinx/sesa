@@ -4,7 +4,8 @@ import { toast, ToastContainer } from 'react-toastify'
 import { getPhotoUrl } from '../../../../utils/getPhotoUrl'
 
 const NotificationSettings = () => {
-    const [isSwitch]
+    const [isInAppOn, setISInAppOn] = useState(true)
+    const [isSmsOn, setIsSmsOn] = useState(false)
 
     return (
         <>
