@@ -434,7 +434,7 @@ function Wallet() {
                             </div>
 
                             <div className='grid bg-white'>
-                                <div className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-9 gap-8 text-[1.4rem]'>
+                                <div className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-9 gap-8 text-[1.4rem] items-center'>
                                     <p>Date</p>
                                     <p>Transaction Type</p>
                                     <p>Transaction Category</p>
@@ -465,12 +465,40 @@ function Wallet() {
                                                 }) => {
                                                     return (
                                                         <div className='grid justify-between border-b grid-cols-9 items-center gap-8 '>
-                                                            
-                                                            <p>{address}</p>
+                                                            <p>{date}</p>
                                                             <p>
                                                                 {
-                                                                    noOfSecurityGuards
+                                                                    transactionType
                                                                 }
+                                                            </p>
+                                                            <p>
+                                                                {
+                                                                    transactionCategory
+                                                                }
+                                                            </p>
+                                                            <p>
+                                                                {transactionId}
+                                                            </p>
+
+                                                            <p>{narration}</p>
+                                                            <p className='flex items-center gap-.5'>
+                                                                <img
+                                                                    src='/icons/Naira.svg'
+                                                                    alt=''
+                                                                />
+                                                                <span>
+                                                                    {amount.toLocaleString()}
+                                                                </span>
+                                                            </p>
+                                                            <p>{time}</p>
+                                                            <p className='flex items-center gap-.5'>
+                                                                <img
+                                                                    src='/icons/Naira.svg'
+                                                                    alt=''
+                                                                />
+                                                                <span>
+                                                                    {balance.toLocaleString()}
+                                                                </span>
                                                             </p>
                                                             <button
                                                                 className='text-color-primary text-left'
