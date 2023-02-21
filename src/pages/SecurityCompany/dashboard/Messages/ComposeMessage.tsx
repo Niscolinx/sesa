@@ -173,6 +173,9 @@ const ComposeMessage = () => {
                             fontFamily: 'Satoshi-Light'
                         }} className='text-[1.4rem]'>NB: SMS charges apply</p>
                     </div>
+
+                    <textarea name="" id="" cols="30" rows="10"/></textarea>
+
                     <button
                         className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
                         style={{ justifySelf: 'start' }}
