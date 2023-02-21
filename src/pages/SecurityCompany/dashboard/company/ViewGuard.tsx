@@ -386,16 +386,18 @@ const ViewGuard = () => {
                                 onClick={handlePhotoPreview}
                             />
                             <div>
-                                <p>
+                                <p className='' style={{
+                                    fontFamily: 'Satoshi-Light',
+                                }}>
                                     Guard Code : <span>SG09897</span>
                                 </p>
-                                <p className='flex items-center'>
+                                <p className='flex items-center gap-8'>
                                     KYG Status <BsQuestionCircle />:{' '}
                                     {isValidated ? (
                                         <span
                                             className='text-green-600'
                                             style={{
-                                                fontFamily: 'font-Light',
+                                                fontFamily: 'Satoshi-Light',
                                             }}
                                         >
                                             Validated
@@ -404,7 +406,7 @@ const ViewGuard = () => {
                                         <span
                                             className='text-red-600'
                                             style={{
-                                                fontFamily: 'font-Light',
+                                                fontFamily: 'Satoshi-Light',
                                             }}
                                         >
                                             Not Validated
