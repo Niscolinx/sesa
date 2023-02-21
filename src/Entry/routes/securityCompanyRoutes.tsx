@@ -33,6 +33,10 @@ const securityCompanyRoutes = (
             path='messages'
             element={<Messages />}
         />
+        <Route
+            path='messages/compose'
+            element={<Messages />}
+        />
     </Route>
 )
 
