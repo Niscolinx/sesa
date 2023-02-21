@@ -70,13 +70,13 @@ const ViewGuard = () => {
     }
 
     const closeValidatedDialog = () => {
-        if (validateDialogRef.current) {
-            validateDialogRef.current.close()
+        if (validatedDialogRef.current) {
+            validatedDialogRef.current.close()
         }
     }
     const openValidatedDialog = () => {
-        if (validateDialogRef.current) {
-            validateDialogRef.current.show()
+        if (validatedDialogRef.current) {
+            validatedDialogRef.current.show()
         }
     }
 
