@@ -263,7 +263,7 @@ const AddSecurityGuard = () => {
             <div className='grid p-8 bg-white h-[80vh] items-baseline overflow-y-scroll rounded-lg'>
                 <div className='grid gap-8 max-w-[40rem]'>
                     <p className='text-[2rem] font-bold'>
-                        KYA <span className='text-gray-500'>(Optional)</span>
+                        KYG <span className='text-gray-500'>(Optional)</span>
                     </p>
                     <div className='flex justify-between text-[1.6rem]'>
                         <p
@@ -278,7 +278,7 @@ const AddSecurityGuard = () => {
                                 fontFamily: 'Satoshi-Light',
                             }}
                         >
-                            What is KYA <BsQuestionCircle />
+                            What is KYG <BsQuestionCircle />
                         </p>
                     </div>
                 </div>
