@@ -10,23 +10,11 @@ type Actions = 'Deactivate' | 'Delete'
 const ViewMessage = () => {
  
 
-    const [photoUrl, setPhotoUrl] = useState('')
-
-    const handlePhotoPreview = async (
-        _: React.MouseEvent<HTMLInputElement>
-    ) => {
-        const getUrl = await getPhotoUrl(`#photoUpload`)
-        setPhotoUrl(getUrl)
-    }
-
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault()
-    }
+    
 
     const assignGuardRef = useRef<HTMLDialogElement | null>(null)
     const validatedDialogRef = useRef<HTMLDialogElement | null>(null)
     const dialogRef = useRef<HTMLDialogElement | null>(null)
-    const [dialogType, setDialogType] = useState<Actions>('Deactivate')
 
     const closeAssignGuardDialog = () => {
         if (assignGuardRef.current) {
@@ -34,22 +22,7 @@ const ViewMessage = () => {
         }
     }
 
-    const openAssignGuardDialog = () => {
-        if (assignGuardRef.current) {
-            assignGuardRef.current.showModal()
-        }
-    }
-
-    const closeValidatedDialog = () => {
-        if (validatedDialogRef.current) {
-            validatedDialogRef.current.close()
-        }
-    }
-    const openValidatedDialog = () => {
-        if (validatedDialogRef.current) {
-            validatedDialogRef.current.showModal()
-        }
-    }
+    
 
     const openDeleteOrDeactivateDialog = (dialogType: Actions) => {
         if (dialogType === 'Deactivate') {
