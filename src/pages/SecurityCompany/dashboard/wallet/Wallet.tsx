@@ -27,7 +27,9 @@ export interface TransactionHistory {
     balance: number
 }
 
-export const TRANSACTION_HISTORY: TransactionHistory[] = Array.from({length: 10}).map((_, i) => ({
+export const TRANSACTION_HISTORY: TransactionHistory[] = Array.from({
+    length: 10,
+}).map((_, i) => ({
     id: i,
     transactionType: 'Credit',
     transactionCategory: 'Fund Wallet',
@@ -44,7 +46,9 @@ type Trend = 'This Week' | 'This Month' | 'This Year'
 function Wallet() {
     const navigate = useNavigate()
 
-    const [transactionHistory, setTransactionHistory] = useState<TransactionHistory[]>([])
+    const [transactionHistory, setTransactionHistory] = useState<
+        TransactionHistory[]
+    >([])
 
     useEffect(() => {
         setTimeout(() => {
@@ -93,8 +97,14 @@ function Wallet() {
 
     useEffect(() => {
         const slicedPages: TransactionHistory[][] = []
-        for (let i = 0; i < transactionHistory.length; i += paginate.itemsPerPage) {
-            slicedPages.push(transactionHistory.slice(i, i + paginate.itemsPerPage))
+        for (
+            let i = 0;
+            i < transactionHistory.length;
+            i += paginate.itemsPerPage
+        ) {
+            slicedPages.push(
+                transactionHistory.slice(i, i + paginate.itemsPerPage)
+            )
         }
 
         setPaginate((prev) => {
@@ -160,8 +170,6 @@ function Wallet() {
         setToggleMenu(false)
     }
 
-   
-
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
     const handleClose = () => {
@@ -181,8 +189,6 @@ function Wallet() {
             dialogRef.current.showModal()
         }
     }
-
-   
 
     const handleFormSubmit = (e: FormEvent) => {
         e.preventDefault()
@@ -330,49 +336,49 @@ function Wallet() {
                             gridTemplateColumns: '60% auto',
                         }}
                     >
-                            <div className='border-l border-l-color-grey bg-white rounded-lg p-8 grid gap-10'>
-                                <div className='flex justify-between'>
-                                    <p className='text-[1.6rem] font-bold p-8'>
-                                        Wallet Trend
-                                    </p>
+                        <div className='border-l border-l-color-grey bg-white rounded-lg p-8 grid gap-10'>
+                            <div className='flex justify-between'>
+                                <p className='text-[1.6rem] font-bold p-8'>
+                                    Wallet Trend
+                                </p>
 
-                                    <div className='relative grid gap-4'>
-                                        <div className='relative flex items-center w-[12rem]'>
-                                            <p
-                                                className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer'
-                                                onClick={menuToggler}
-                                            >
-                                                {selectedTrend}
-                                            </p>
-                                            {toggleMenu ? (
-                                                <GrUp className='absolute right-4' />
-                                            ) : (
-                                                <GrDown className='absolute right-4' />
-                                            )}
-                                        </div>
-
-                                        {toggleMenu && (
-                                            <div className='absolute top-[8rem]  left-0 border border-color-primary-light  bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
-                                                {trend.map((item, index) => (
-                                                    <p
-                                                        className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
-                                                        key={index}
-                                                        onClick={() =>
-                                                            handleSelectedTrend(
-                                                                item
-                                                            )
-                                                        }
-                                                    >
-                                                        {item}
-                                                    </p>
-                                                ))}
-                                            </div>
+                                <div className='relative grid gap-4'>
+                                    <div className='relative flex items-center w-[12rem]'>
+                                        <p
+                                            className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer'
+                                            onClick={menuToggler}
+                                        >
+                                            {selectedTrend}
+                                        </p>
+                                        {toggleMenu ? (
+                                            <GrUp className='absolute right-4' />
+                                        ) : (
+                                            <GrDown className='absolute right-4' />
                                         )}
                                     </div>
+
+                                    {toggleMenu && (
+                                        <div className='absolute top-[8rem]  left-0 border border-color-primary-light  bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
+                                            {trend.map((item, index) => (
+                                                <p
+                                                    className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
+                                                    key={index}
+                                                    onClick={() =>
+                                                        handleSelectedTrend(
+                                                            item
+                                                        )
+                                                    }
+                                                >
+                                                    {item}
+                                                </p>
+                                            ))}
+                                        </div>
+                                    )}
                                 </div>
-                                <WalletBarChart />
                             </div>
-                    
+                            <WalletBarChart />
+                        </div>
+
                         <div className='bg-white p-8 rounded-lg grid justify-center'>
                             <div className='grid items-end'>
                                 <OverviewWallet
@@ -457,11 +463,9 @@ function Wallet() {
                                                     amount,
                                                     time,
                                                     balance,
-
-                                                
                                                 }) => {
                                                     return (
-                                                        <div className='grid justify-between border-b grid-cols-9 items-center gap-8 '>
+                                                        <div className='grid justify-between border-b grid-cols-9 items-center gap-8 py-4'>
                                                             <p>{date}</p>
                                                             <p>
                                                                 {
