@@ -1,24 +1,20 @@
 import React, { ChangeEvent, FC, useState, useMemo, useEffect } from 'react'
 import { GrUp, GrDown } from 'react-icons/gr'
 import { IoMdClose } from 'react-icons/io'
-
+import { ValidateInputTypes } from '../../../pages/SecurityCompany/dashboard/company/AddSecurity/AddSecurityGuard'
 
 type Complex = {
-    name: string,
+    name: string
     No: number
 }
 
-
-
-
-interface ISelect<T>{
+interface ISelect<T> {
     state: Array<string>
     selectedState: string | null
     setSelectedState: React.Dispatch<React.SetStateAction<T>>
     label?: string
     placeholder?: string
     isSearchable?: boolean
-    
 }
 
 interface ComplexSelect extends Omit<ISelect<string>, 'state'> {
@@ -33,7 +29,7 @@ interface IMultipleSelect {
     placeholder?: string
 }
 
-export const Select: FC<ISelect<string>> = ({
+export const Select: FC<ISelect<string | ValidateInputTypes>> = ({
     state,
     selectedState,
     setSelectedState,
@@ -46,8 +42,6 @@ export const Select: FC<ISelect<string>> = ({
     const stateMenuToggler = () => setToggleStateMenu(!toggleStateMenu)
     const [search, setSearch] = useState('')
     const [selectFrom, setSelectFrom] = useState(state)
-
-    
 
     const handleSelectedState = (item: string) => {
         setSelectedState(item)
@@ -68,7 +62,6 @@ export const Select: FC<ISelect<string>> = ({
             setSelectFrom(selectFrom)
         }
     }
-   
 
     return (
         <div className='relative grid gap-4'>
@@ -100,14 +93,14 @@ export const Select: FC<ISelect<string>> = ({
                                 alt=''
                                 className='absolute left-4'
                             />
-                            
-                                <input
-                                    type='text'
-                                    placeholder='Search Parameters'
-                                    value={search}
-                                    onChange={handleSearch}
-                                    className='pl-16 w-[25rem] rounded-lg border border-color-blue-light py-4 px-8 outline-none appearance-none'
-                                />
+
+                            <input
+                                type='text'
+                                placeholder='Search Parameters'
+                                value={search}
+                                onChange={handleSearch}
+                                className='pl-16 w-[25rem] rounded-lg border border-color-blue-light py-4 px-8 outline-none appearance-none'
+                            />
                         </div>
                     )}
                     {selectFrom.map((item, index) => (
@@ -138,8 +131,6 @@ export const ComplexSelect: FC<ComplexSelect> = ({
     const [search, setSearch] = useState('')
     const [selectFrom, setSelectFrom] = useState(state)
 
-    
-
     const handleSelectedState = (item: string) => {
         setSelectedState(item)
         setToggleStateMenu(false)
@@ -159,8 +150,6 @@ export const ComplexSelect: FC<ComplexSelect> = ({
             setSelectFrom(selectFrom)
         }
     }
-   
-    
 
     return (
         <div className='relative grid gap-4'>
@@ -192,15 +181,14 @@ export const ComplexSelect: FC<ComplexSelect> = ({
                                 alt=''
                                 className='absolute left-4'
                             />
-                           
-                                <input
-                                    type='text'
-                                    placeholder='Search Parameters'
-                                    value={search}
-                                    onChange={handleSearch}
-                                    className='pl-16 w-[25rem] rounded-lg border border-color-blue-light py-4 px-8 outline-none appearance-none'
-                                />
-                            
+
+                            <input
+                                type='text'
+                                placeholder='Search Parameters'
+                                value={search}
+                                onChange={handleSearch}
+                                className='pl-16 w-[25rem] rounded-lg border border-color-blue-light py-4 px-8 outline-none appearance-none'
+                            />
                         </div>
                     )}
                     {selectFrom.map((item, index) => (
