@@ -247,6 +247,7 @@ function RenderedMessages() {
                                                             <p>{recipient}{i !== recipients.length -1 && ','}</p>
                                                         </div>
                                                     ))}
+                                                    <span > + 20 others</span>
                                                 </div>
                                             </div>
                                             <div className='flex items-center gap-2'>
