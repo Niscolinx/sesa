@@ -356,8 +356,6 @@ function Wallet() {
                                     />
                                 </div>
 
-                              
-
                                 <button className='btn bg-[#0556E5] text-white rounded-lg py-4 place-self-start w-[15rem]'>
                                     Request
                                 </button>
@@ -429,12 +427,12 @@ function Wallet() {
                         <div className='grid self-stretch justify-start'>
                             <div className='grid items-end'>
                                 <OverviewWallet
-                                    amount={4_000_832}
-                                    title={'Commission Wallet'}
+                                    amount={160_847}
+                                    title={'Security Company Wallet'}
                                     isWalletScreen
-                                    bgImgUri='/icons/overview/card/bgC.svg'
-                                    lefIconUri='/icons/overview/card/leftC.svg'
-                                    bgColor='bg-[#333333]'
+                                    bgImgUri='/icons/overview/card/bgS.svg'
+                                    lefIconUri='/icons/overview/card/leftS.svg'
+                                    bgColor='bg-[#6AB95F]'
                                 />
                             </div>
                             <div className='flex justify-center mt-auto gap-4'>
