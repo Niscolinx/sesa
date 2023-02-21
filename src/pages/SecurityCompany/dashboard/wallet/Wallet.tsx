@@ -15,14 +15,18 @@ import WalletBarChart from '../../../../components/SuperAdmin/charts/WalletBarCh
 import OverviewCard from '../../../../components/SuperAdmin/overview/OverviewCard'
 import { OverviewWallet } from '../../../../components/SuperAdmin/overview/OverviewWallets'
 
-export interface Overview {
+export interface TransactionHistory {
     id: number
-    estateName: string
-    address: string
-    noOfSecurityGuards: number
+    transactionType: string
+    transactionCategory: string
+    transactionId: number
+    narration: string
+    amount: number
+    time: string
+    balance: number
 }
 
-export const HOUSEHOLD_LIST: Overview[] = [
+export const TRANSACTION_HISTORY: TransactionHistory[] = [
     {
         id: 1,
         estateName: 'Estate 1',
@@ -57,7 +61,7 @@ function Wallet() {
 
     useEffect(() => {
         setTimeout(() => {
-            setHouseHoldList(HOUSEHOLD_LIST)
+            setHouseHoldList(TRANSACTION_HISTORY)
         }, 1000)
     }, [])
 
