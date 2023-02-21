@@ -178,8 +178,7 @@ const ComposeMessage = () => {
                             'Channel 5',
                            
                         ]}
-                        label='Estates'
-                        placeholder='Select Estate'
+                        label='Channel Type'
                         selectedState={selectedChannelType}
                         setSelectedState={setSelectedChannelType}
                     />
