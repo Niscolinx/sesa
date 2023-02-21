@@ -178,10 +178,23 @@ const ComposeMessage = () => {
                             NB: SMS charges apply
                         </p>
                     </div>
-                    <textarea
-                        rows={5}
-                        className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                    />
+                    <div>
+                        <label className='text-[1.4rem] font-medium'>
+                          Message
+                        </label>
+                        <textarea
+                            rows={5}
+                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4 col-span-full'
+                        />
+                        <p
+                            style={{
+                                fontFamily: 'Satoshi-Light',
+                            }}
+                            className='text-[1.4rem]'
+                        >
+                            NB: SMS charges apply
+                        </p>
+                    </div>
 
                     <button
                         className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
