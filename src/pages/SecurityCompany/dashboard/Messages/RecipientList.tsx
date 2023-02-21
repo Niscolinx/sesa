@@ -147,7 +147,7 @@ const RecipientList = () => {
             <main className='mt-10 grid gap-9'>
                
 
-                <section className='bg-color-white rounded-lg border min-w-[112rem] overflow-scroll max-h-[80vh]'>
+                <section className='bg-color-white rounded-lg border  overflow-scroll max-h-[80vh]'>
                     <div className='grid text-[1.6rem]'>
                         <caption className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
                             
@@ -188,7 +188,7 @@ const RecipientList = () => {
 
                         <div className='grid'>
                             <div
-                                className='grid justify-between text-color-dark-1 bg-gray-100 p-8 grid-cols-7 gap-8'
+                                className='grid justify-between text-color-dark-1 bg-gray-100 p-8 grid-cols-7 gap-7'
                                 style={{
                                     fontSize: '1.6rem',
                                 }}
@@ -205,7 +205,6 @@ const RecipientList = () => {
                                 <p>Assigned Estate</p>
                                 <p>Status</p>
                                 <p>KYG</p>
-                                <p>Action </p>
                             </div>
 
                             <div className='grid gap-8 mt-8 p-8'>
