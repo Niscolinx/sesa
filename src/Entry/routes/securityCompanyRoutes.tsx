@@ -17,7 +17,7 @@ import Overview from '../../pages/SecurityCompany/dashboard/company/Overview'
          <Route path='estates/securityGuard/:Id' element={<ViewSecurityGuard />} />
          <Route path='estates/workrate' element={<EstateWorkRate />} />
          <Route path='estates/estateReport' element={<EstateReport />} />
-         <Route path='company/' element={<Overview />} />
+         <Route path='company' element={<Overview />} />
      </Route>
  )
 
