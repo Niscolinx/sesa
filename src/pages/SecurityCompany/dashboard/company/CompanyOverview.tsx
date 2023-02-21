@@ -137,23 +137,22 @@ const CompanyHome = () => {
     return (
         <div>
             <h1 className='heading2'>Security Company</h1>
-
-            <div className='mt-8 grid gap-8'>
-                <section className='bg-white rounded-lg p-8 grid h-[28rem] text-[1.4rem]'>
+            <main>
+                <section className='bg-white rounded-lg p-8 grid text-[1.4rem]'>
                     <div className='overview flex gap-8'>
-                        <OverviewCard
-                            title='Total Estates'
-                            number={18_000}
-                            iconUrl='/icons/securityCompany/totalEstates.svg'
-                            bgColor='bg-[#DDFCDC]'
-                            textColor='text-[#1A8F56]'
-                        />
                         <OverviewCard
                             title='Security Guard'
                             number={1532}
                             iconUrl='/icons/securityCompany/securityGuards.svg'
                             bgColor='bg-[#F5F9FA]'
                             textColor='text-[#00C2FF]'
+                        />
+                        <OverviewCard
+                            title='Total Estates'
+                            number={18_000}
+                            iconUrl='/icons/securityCompany/totalEstates.svg'
+                            bgColor='bg-[#DDFCDC]'
+                            textColor='text-[#1A8F56]'
                         />
                     </div>
                 </section>
@@ -334,7 +333,7 @@ const CompanyHome = () => {
                         </footer>
                     </div>{' '}
                 </section>
-            </div>
+            </main>
         </div>
     )
 }
