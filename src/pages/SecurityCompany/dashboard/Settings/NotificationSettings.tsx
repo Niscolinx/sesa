@@ -4,28 +4,7 @@ import { toast, ToastContainer } from 'react-toastify'
 import { getPhotoUrl } from '../../../../utils/getPhotoUrl'
 
 const NotificationSettings = () => {
-    const [isWarning, setIsWarning] = useState(true)
-
-    const [photoUrl, setPhotoUrl] = useState('')
-
-    const [eyeIcon, setEyeIcon] = useState(false)
-    const toggleEyeIcon = () => setEyeIcon(!eyeIcon)
-
-    const handlePhotoPreview = async (
-        value: React.MouseEvent<HTMLInputElement>
-    ) => {
-        const getUrl = await getPhotoUrl(`#photoUpload`)
-        setPhotoUrl(getUrl)
-    }
-
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault()
-
-        toast('Password Updated successfully', {
-            type: 'success',
-            className: 'bg-green-100 text-green-600 text-[1.4rem]',
-        })
-    }
+    const [isSwitch]
 
     return (
         <>
@@ -49,6 +28,9 @@ const NotificationSettings = () => {
                         <div>
                                 <div>
                                     <p>In-App</p>
+                                    {
+
+                                    }
                                     <img src="/icons/admins/switchOn.svg" alt="" />
                                 </div>
                         </div>
