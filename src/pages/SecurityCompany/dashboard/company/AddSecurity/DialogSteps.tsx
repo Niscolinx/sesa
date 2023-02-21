@@ -3,7 +3,9 @@ import { Select } from '../../../../../components/SuperAdmin/UI/Select'
 import { CreateAddedSecurityGuardContext } from './AddSecurityGuard'
 
 export const AddedSecuritySuccessfully = () => {
-    const { handleClose, setAddedSecurityGuardStep} = useContext(CreateAddedSecurityGuardContext)
+    const { handleClose, setAddedSecurityGuardStep } = useContext(
+        CreateAddedSecurityGuardContext
+    )
 
     return (
         <>
@@ -39,9 +41,20 @@ export const AddedSecuritySuccessfully = () => {
 }
 
 export const AddBankAccount = () => {
+     const { handleClose, setAddedSecurityGuardStep } = useContext(
+         CreateAddedSecurityGuardContext
+     )
+
     return (
-        <div>
-              <p>Open a Ban</p>
+        <div className='grid gap-10'>
+            <p
+                className='border-b'
+                style={{
+                    fontFamily: 'Satoshi-Medium',
+                }}
+            >
+                Open a bank Account
+            </p>
             <Select
                 label='State'
                 state={['Lagos', 'Imo', 'Abia', 'FCT']}
@@ -49,6 +62,13 @@ export const AddBankAccount = () => {
                 selectedState={selectedState}
                 setSelectedState={setSelectedState}
             />
+
+            <button
+                className='bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[20rem]'
+                onClick={() => setAddedSecurityGuardStep('openedBankAccountSuccessful')}
+            >
+                Generate Account Number
+            </button>
         </div>
     )
 }
