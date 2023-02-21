@@ -2,9 +2,7 @@ import { useState } from 'react'
 
 import PasswordSettings from './PasswordSettings'
 
-type PathSwitch =
-    | 'passwordSettings'
-    | 'notificationSettings'
+type PathSwitch = 'passwordSettings' | 'notificationSettings'
 
 function Settings() {
     const [pathToSwitch, setPathToSwitch] =
@@ -39,8 +37,9 @@ function Settings() {
                     className='hidden'
                     onChange={() => setPathToSwitch('notificationSettings')}
                 />
-                <label htmlFor='notificationSettings'>Property Type</label>
-                
+                <label htmlFor='notificationSettings'>
+                    Notification Settings
+                </label>
             </div>
             <div className='mt-8 grid gap-8'>
                 <section className='bg-color-white rounded-lg border min-w-[112rem] overflow-scroll'>
