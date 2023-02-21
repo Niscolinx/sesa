@@ -46,7 +46,7 @@ export const AddBankAccount = () => {
         useContext(CreateAddedSecurityGuardContext)
 
     return (
-        <div className='w-full grid justify-items-center gap-4'>
+        <div className='w-[40rem] grid justify-items-center gap-4'>
             <p
                 className='border-b'
                 style={{
@@ -55,7 +55,7 @@ export const AddBankAccount = () => {
             >
                 Open a bank Account
             </p>
-            <div className='w-[40rem]'>
+            <div className='w-full'>
                 <Select
                     label='Select Bank'
                     state={[
