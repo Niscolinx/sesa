@@ -9,7 +9,12 @@ import { Link, useNavigate } from 'react-router-dom'
 export interface Overview {
     id: number
     date: string
-    
+    transmissionDate: string
+    recipients: string[]
+    transmissionChannel: string
+    subject: string
+    description: string
+    status: 'Sent' | 'Pending'  
 }
 
 export const HOUSEHOLD_LIST: Overview[] = Array.from({ length: 10 }).map(
