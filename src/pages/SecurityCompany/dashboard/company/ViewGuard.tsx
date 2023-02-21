@@ -56,6 +56,12 @@ const ViewGuard = () => {
         }
     }
 
+    const closeValidatedDialog = () => {
+        if(validateDialogRef.current){
+            validateDialogRef.current.close()
+        }
+    }
+
     const handleOpen = (dialogType: Actions) => {
         if (dialogType === 'Deactivate') {
             setDialogType('Deactivate')
@@ -198,7 +204,7 @@ const ViewGuard = () => {
                     <div className='bg-white rounded-2xl grid items-baseline w-[90rem] min-h-[30rem] p-10 text-[1.6rem] relative gap-20'>
                         <IoMdClose
                             className='absolute right-4 top-4 text-[2rem] cursor-pointer'
-                            onClick={() => closeValidateDialog()}
+                            onClick={() => closeValidatedDialog()}
                         />
 
                         <div className='relative h-[14rem] bg-blue-600 w-full mt-10 rounded-lg'>
@@ -273,7 +279,7 @@ const ViewGuard = () => {
                         </div>
                         <button
                             className='btn text-white bg-[#0556E5] border rounded-lg w-[15rem] justify-self-center'
-                            onClick={() => closeValidateDialog()}
+                            onClick={() => closeValidatedDialog()}
                         >
                             Ok
                         </button>
