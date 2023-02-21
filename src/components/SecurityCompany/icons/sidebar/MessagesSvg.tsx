@@ -10,7 +10,7 @@ const MessagesSvg = () => {
             xmlns='http://www.w3.org/2000/svg'
         >
             <path
-                fill-rule='evenodd'
+                fillRule='evenodd'
                 clip-rule='evenodd'
                 d='M23 7L16 12L23 17V7V7Z'
                 stroke-width='2'
@@ -18,7 +18,7 @@ const MessagesSvg = () => {
                 stroke-linejoin='round'
             />
             <path
-                fill-rule='evenodd'
+                fillRule='evenodd'
                 clip-rule='evenodd'
                 d='M1 7C1 5.89543 1.89543 5 3 5H14C15.1046 5 16 5.89543 16 7V17C16 18.1046 15.1046 19 14 19H3C1.89543 19 1 18.1046 1 17V7Z'
                 stroke-width='2'
