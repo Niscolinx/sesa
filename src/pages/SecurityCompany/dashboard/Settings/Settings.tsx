@@ -3,20 +3,16 @@ import { useState } from 'react'
 import PasswordSettings from './PasswordSettings'
 
 type PathSwitch =
-    | 'platformChanges'
-    | 'propertyType'
-    | 'SOSTable'
-    | 'accountSettings'
+    | 'passwordSettings'
+    | 'notificationSettings'
 
 function Settings() {
     const [pathToSwitch, setPathToSwitch] =
-        useState<PathSwitch>('platformChanges')
+        useState<PathSwitch>('passwordSettings')
 
     const handlePathSwitch: Record<PathSwitch, JSX.Element> = {
-        platformChanges: <PasswordSettings />,
-        propertyType: <PropertyType />,
-        SOSTable: <SOSTable />,
-        accountSettings: <AccountSettings />,
+        passwordSettings: <PasswordSettings />,
+        notificationSettings: <div>Notification Settings</div>,
     }
 
     return (
