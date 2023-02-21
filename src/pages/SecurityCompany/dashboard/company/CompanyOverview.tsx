@@ -3,6 +3,7 @@ import { CgSpinnerTwo } from 'react-icons/cg'
 import { GrDown } from 'react-icons/gr'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { IoMdAdd } from 'react-icons/io'
+import { useNavigate } from 'react-router'
 import OverviewCard from '../../../../components/SuperAdmin/overview/OverviewCard'
 import { Overview } from '../SecurityCompanyOverview'
 
@@ -29,6 +30,8 @@ const ATTENDANCE_REPORT_DATA: AttendanceReport[] = Array.from({
 }))
 
 const CompanyHome = () => {
+    const navigate = useNavigate()
+
     const [fetchedAttendanceReportData, setFetchedAttendanceReportData] =
         useState<AttendanceReport[]>([])
 
@@ -141,6 +144,8 @@ const CompanyHome = () => {
 
     const detailsHandler = (id: number) => {
         console.log(id)
+                 navigate(`/securityCompany/estates/securityGuard/${id}`)
+
     }
     return (
         <div>
