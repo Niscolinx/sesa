@@ -133,6 +133,11 @@ const ComposeMessage = () => {
                     </div>
 
                     <div className='grid gap-4'>
+                        <p
+                            className='text-[1.4rem] font-medium'
+                        >
+                            Schedule Message
+                        </p>
                         <div>
                             <input
                                 type='date'
@@ -142,7 +147,14 @@ const ComposeMessage = () => {
                                 min={new Date().toISOString().split('T')[0]}
                             />
                         </div>
-                        <div></div>
+                        <div>
+                            <input
+                                type='time'
+                                required
+                                id='address'
+                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                            />
+                        </div>
                     </div>
                     <div className='grid gap-4 relative'>
                         <label
