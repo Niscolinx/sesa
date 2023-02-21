@@ -39,7 +39,7 @@ function IconsBox() {
               </Link>
           </li>
           <li className='iconsBox__list'>
-              <Link to='/securityCompany' className=''>
+              <Link to='/securityCompany/messages' className=''>
                   {' '}
                   <MessagesSvg />
                   <span>Messages</span>

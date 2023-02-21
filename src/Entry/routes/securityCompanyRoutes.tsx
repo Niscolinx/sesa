@@ -10,6 +10,7 @@ import EstateReport from '../../pages/SecurityCompany/dashboard/Estates/EstateRe
 import CompanyOverview from '../../pages/SecurityCompany/dashboard/company/CompanyOverview'
 import ViewGuard from '../../pages/SecurityCompany/dashboard/company/ViewGuard'
 import AddSecurityGuard from '../../pages/SecurityCompany/dashboard/company/AddSecurity/AddSecurityGuard'
+import Messages from '../../pages/SecurityCompany/dashboard/Messages/Messages'
 
 const securityCompanyRoutes = (
     <Route path='/securityCompany' element={<SecurityCompanyDashboard />}>
@@ -30,7 +31,7 @@ const securityCompanyRoutes = (
         />
         <Route
             path='messages'
-            element={<AddSecurityGuard />}
+            element={<Messages />}
         />
     </Route>
 )
