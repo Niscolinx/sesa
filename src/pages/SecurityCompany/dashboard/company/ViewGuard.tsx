@@ -74,18 +74,18 @@ const ViewGuard = () => {
         }
     }
 
-    // const handleOpen = (dialogType: Actions) => {
-    //     if (dialogType === 'Deactivate') {
-    //         setDialogType('Deactivate')
-    //     }
-    //     if (dialogType === 'Delete') {
-    //         setDialogType('Delete')
-    //     }
+    const handleOpen = (dialogType: Actions) => {
+        if (dialogType === 'Deactivate') {
+            setDialogType('Deactivate')
+        }
+        if (dialogType === 'Delete') {
+            setDialogType('Delete')
+        }
 
-    //     if (validateDialogRef.current) {
-    //         validateDialogRef.current.showModal()
-    //     }
-    // }
+        if (dialogRef.current) {
+            dialogRe.current.showModal()
+        }
+    }
 
     // const viewGuardHandler = () => {
     //     // navigate('/superAdmin/Security GuardCategory/add')
