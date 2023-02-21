@@ -53,21 +53,16 @@ const ViewGuard = () => {
         e.preventDefault()
     }
 
-    const knowYourGuardDialogRef = useRef<HTMLDialogElement | null>(null)
     const assignGuardRef = useRef<HTMLDialogElement | null>(null)
     const validatedDialogRef = useRef<HTMLDialogElement | null>(null)
     const dialogRef = useRef<HTMLDialogElement | null>(null)
     const [dialogType, setDialogType] = useState<Actions>('Deactivate')
 
-    const handleClose = () => {
-        if (knowYourGuardDialogRef.current) {
-            knowYourGuardDialogRef.current.close()
-        }
+    
+    const closeAssignGuard = () => {
+        
     }
-
-    const handleValidate = () => {
-        handleClose()
-    }
+  
 
     const closeValidatedDialog = () => {
         if (validatedDialogRef.current) {
@@ -131,14 +126,6 @@ const ViewGuard = () => {
         })
     }
 
-    const renderValidationType = new Map([
-        ['Phone Number', <PhoneNumber />],
-        ['BVN Number', <BVN_Number />],
-        ['NIN Number', <NIN_Number />],
-        ['Drivers License', <DriversLicence />],
-        ['International Passport', <International_PassPort />],
-        ['Voters Card', <Voters_Card />],
-    ]) satisfies Map<ValidateInputTypes, JSX.Element>
 
     return (
         <>
@@ -154,7 +141,7 @@ const ViewGuard = () => {
                 <div className='flex w-full justify-center gap-8'>
                     <button
                         className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
-                        onClick={() => handleClose()}
+                        onClick={() => closeAssignGuard()}
                     >
                         Cancel
                     </button>
