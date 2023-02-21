@@ -67,29 +67,29 @@ const ViewGuard = () => {
         }
     }
 
-    const handleOpen = (dialogType: Actions) => {
-        if (dialogType === 'Deactivate') {
-            setDialogType('Deactivate')
-        }
-        if (dialogType === 'Delete') {
-            setDialogType('Delete')
-        }
+    // const handleOpen = (dialogType: Actions) => {
+    //     if (dialogType === 'Deactivate') {
+    //         setDialogType('Deactivate')
+    //     }
+    //     if (dialogType === 'Delete') {
+    //         setDialogType('Delete')
+    //     }
 
-        if (validateDialogRef.current) {
-            validateDialogRef.current.showModal()
-        }
-    }
+    //     if (validateDialogRef.current) {
+    //         validateDialogRef.current.showModal()
+    //     }
+    // }
 
-    const viewGuardHandler = () => {
-        // navigate('/superAdmin/Security GuardCategory/add')
-        handleOpenValidate('add-security-guard')
-    }
+    // const viewGuardHandler = () => {
+    //     // navigate('/superAdmin/Security GuardCategory/add')
+    //     handleOpenValidate('add-security-guard')
+    // }
 
     const handleDialogSubmit = (e: FormEvent) => {
         e.preventDefault()
         handleClose()
 
-        openValidateDialog()
+       // openValidateDialog()
     }
 
     const handleReAssign = () => {
@@ -101,15 +101,15 @@ const ViewGuard = () => {
         })
     }
 
-    const handleSelectedAction = (item: Actions) => {
-        if (item === 'Deactivate') {
-            handleOpen('Deactivate')
-        }
+    // const handleSelectedAction = (item: Actions) => {
+    //     if (item === 'Deactivate') {
+    //         handleOpen('Deactivate')
+    //     }
 
-        if (item === 'Delete') {
-            handleOpen('Delete')
-        }
-    }
+    //     if (item === 'Delete') {
+    //         handleOpen('Delete')
+    //     }
+    // }
 
     const handleDeleteArtisan = () => {
         handleClose()
@@ -291,7 +291,7 @@ const ViewGuard = () => {
                     </div>
                 </section>
             </dialog>
-            <dialog className='dialog' ref={dialogRef}>
+            <dialog className='dialog' ref={knowYourGuardDialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid items-baseline w-[64rem] min-h-[30rem] p-10 gap-8 text-[1.6rem] relative'>
                         <IoMdClose
@@ -441,9 +441,9 @@ const ViewGuard = () => {
                         <div className='flex gap-8'>
                             <button
                                 className='border border-color-blue-1 text-color-blue-1 px-16 py-4 flex items-center  rounded-lg gap-4'
-                                onClick={() =>
-                                    handleSelectedAction('Deactivate')
-                                }
+                                // onClick={() =>
+                                //     handleSelectedAction('Deactivate')
+                                // }
                             >
                                 <span className=' text-[1.4rem] font-semibold'>
                                     Deactivate
@@ -451,7 +451,7 @@ const ViewGuard = () => {
                             </button>
                             <button
                                 className='border border-red-600 px-16 py-4 flex items-center  rounded-lg gap-4'
-                                onClick={() => handleSelectedAction('Delete')}
+                                // onClick={() => handleSelectedAction('Delete')}
                             >
                                 <img src='/icons/admins/delete.svg' alt='' />
                                 <span className='text-red-600 text-[1.4rem] font-semibold'>
@@ -673,7 +673,7 @@ const ViewGuard = () => {
 
                             <button
                                 className='btn text-color-blue-1 '
-                                onClick={() => handleOpen('reassign')}
+                                // onClick={() => handleOpen('reassign')}
                             >
                                 Reassign
                             </button>
@@ -707,7 +707,7 @@ const ViewGuard = () => {
 
                             <button
                                 className='btn text-color-blue-1 '
-                                onClick={() => handleOpen('reassign')}
+                                // onClick={() => handleOpen('reassign')}
                             >
                                 Reassign
                             </button>
@@ -741,7 +741,7 @@ const ViewGuard = () => {
 
                             <button
                                 className='btn text-color-blue-1 '
-                                onClick={() => handleOpen('reassign')}
+                                // onClick={() => handleOpen('reassign')}
                             >
                                 Reassign
                             </button>
@@ -775,7 +775,7 @@ const ViewGuard = () => {
 
                             <button
                                 className='btn text-color-blue-1 '
-                                onClick={() => handleOpen('reassign')}
+                                // onClick={() => handleOpen('reassign')}
                             >
                                 Reassign
                             </button>
@@ -784,7 +784,7 @@ const ViewGuard = () => {
                     <button
                         className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg mt-32'
                         style={{ justifySelf: 'start' }}
-                        onClick={viewGuardHandler}
+                        // onClick={viewGuardHandler}
                     >
                         <span>
                             <IoMdAdd />
