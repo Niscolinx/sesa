@@ -235,18 +235,19 @@ function RenderedMessages() {
                                             </div>
                                             <div className='flex items-center gap-2'>
                                                 <p>Recipients:</p>
-                                                <p
+                                                <div
                                                     style={{
                                                         fontFamily:
                                                             'Satoshi-Medium',
                                                     }}
+                                                    className='flex gap-2'
                                                 >
                                                     {recipients.map((recipient, _) => (
                                                         <div className='flex gap-2' key={_}>
-
+                                                            <p>{recipient}{}</p>
                                                         </div>
                                                     ))}
-                                                </p>
+                                                </div>
                                             </div>
                                             <div className='flex items-center gap-2'>
                                                 <p>Date:</p>
