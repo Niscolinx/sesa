@@ -9,7 +9,7 @@ export const AddedSecuritySuccessfully = () => {
     )
 
     return (
-        <>
+        <div className='w-full grid justify-center'>
             <img src='/icons/admins/modalSuccess.svg' alt='' />
 
             <p>You have successfully added an Security Guard</p>
@@ -37,7 +37,7 @@ export const AddedSecuritySuccessfully = () => {
                     Open an Account
                 </button>
             </div>
-        </>
+        </div>
     )
 }
 
@@ -107,7 +107,7 @@ export const OpenedBankAccountSuccessful = () => {
             <div className='flex w-full justify-center gap-8'>
                 <button
                     className='bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[20rem]'
-                    onClick={() => handleClose()}
+                    onClick={() => closeSteps()}
                 >
                     Ok
                 </button>
