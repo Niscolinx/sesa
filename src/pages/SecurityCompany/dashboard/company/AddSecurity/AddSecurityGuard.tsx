@@ -23,6 +23,7 @@ export type AddedSecurityGuardSteps =
     | 'addedSecuritySuccessful'
     | 'addBankAccount'
     | 'openedBankAccountSuccessful'
+    
 export type ValidateInputTypes =
     | 'Phone Number'
     | 'BVN Number'
