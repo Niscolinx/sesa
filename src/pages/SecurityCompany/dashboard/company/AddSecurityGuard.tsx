@@ -313,7 +313,7 @@ const AddSecurityGuard = () => {
                 </section>
             </dialog>
             <main>
-                <div className='grid p-8 bg-white h-[80vh] items-baseline overflow-y-scroll rounded-lg'>
+                <section className='grid p-8 bg-white h-[80vh] items-baseline overflow-y-scroll rounded-lg'>
                     <div className='grid gap-8 max-w-[40rem]'>
                         <p className='text-[2rem] font-bold'>
                             KYG{' '}
@@ -520,8 +520,8 @@ const AddSecurityGuard = () => {
                             Add Security Guard
                         </button>
                     </form>
-                </div>
-                <div className='grid p-8 bg-white'>
+                </section>
+                <section className='grid p-8 bg-white'>
                     <h2
                         className='text-[2rem] mb-10'
                         style={{
@@ -668,7 +668,7 @@ const AddSecurityGuard = () => {
                             </button>
                         </div>
                     </div>
-                </div>
+                </section>
             </main>
         </>
     )
