@@ -47,9 +47,9 @@ const NotificationSettings = () => {
                             </div>
                         </div>
                         <div className='flex items-center gap-16'>
-                            <p>In-App</p>
-                            <div onClick={toggleIsInAppOn}>
-                                {isInAppOn ? (
+                            <p>SMS</p>
+                            <div onClick={toggleIsSmsOn}>
+                                {isSmsOn ? (
                                     <img
                                         src='/icons/admins/switchOn.svg'
                                         alt=''
