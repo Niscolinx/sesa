@@ -136,7 +136,7 @@ const ComposeMessage = () => {
                         <p className='text-[1.4rem] font-medium'>
                             Schedule Message
                         </p>
-                        <div>
+                        <div className='flex items-center gap-8'>
                             <input
                                 type='date'
                                 required
