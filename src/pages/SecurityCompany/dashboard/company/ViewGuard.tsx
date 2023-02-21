@@ -27,6 +27,7 @@ const ViewGuard = () => {
     const [selectedEstate4, setSelectedEstate4] = useState<string | null>(null)
     const [selectedState, setSelectedState] = useState<string | null>(null)
     const [selectedGender, setSelectedGender] = useState<string | null>(null)
+    const [isAccountCreated, setIsAccountCreated] = useState(false)
     const [isValidated, setIsValidated] = useState(false)
 
     const [photoUrl, setPhotoUrl] = useState('')
