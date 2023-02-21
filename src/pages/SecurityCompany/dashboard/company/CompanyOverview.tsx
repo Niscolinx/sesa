@@ -251,13 +251,30 @@ const CompanyHome = () => {
                                                         <p>{guardName}</p>
                                                         <p>{phoneNumber}</p>
                                                         <p>{assignedEstate}</p>
-                                                        <p>{status === 'Active' ? (
-                                                            <span className='text-[#1A8F56]'>
-                                                                {status}
-                                                            </span>
-                                                        ) : ( <span className='text-red-600'>
-                                                            {status}
-                                                        </span> )}</p>
+                                                        <p>
+                                                            {status ===
+                                                            'Active' ? (
+                                                                <span className='text-[#1A8F56]'>
+                                                                    {status}
+                                                                </span>
+                                                            ) : (
+                                                                <span className='text-red-600'>
+                                                                    {status}
+                                                                </span>
+                                                            )}
+                                                        </p>
+                                                        <p>
+                                                            {kys ===
+                                                            'Validated' ? (
+                                                                <span className='text-[#1A8F56]'>
+                                                                    {kys}
+                                                                </span>
+                                                            ) : (
+                                                                <span className='text-red-600'>
+                                                                    {kys}
+                                                                </span>
+                                                            )}
+                                                        </p>
                                                     </div>
                                                 )
                                             }
