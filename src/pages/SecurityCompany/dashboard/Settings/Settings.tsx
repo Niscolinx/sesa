@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import NotificationSettings from './NotificationSettings'
 
 import PasswordSettings from './PasswordSettings'
 
@@ -10,7 +11,7 @@ function Settings() {
 
     const handlePathSwitch: Record<PathSwitch, JSX.Element> = {
         passwordSettings: <PasswordSettings />,
-        notificationSettings: <div>Notification Settings</div>,
+        notificationSettings: <NotificationSettings/>,
     }
 
     return (
