@@ -7,7 +7,9 @@ const ComposeMessage = () => {
     const [selectedChannelType, setSelectedChannelType] = useState<
         string | null
     >(null)
-    const [transmissionChannel, setTransmissionChannel] = useState<string | null>(null)
+    const [transmissionChannel, setTransmissionChannel] = useState<
+        string | null
+    >(null)
     const [isWarning, setIsWarning] = useState(true)
 
     const handleSubmit = (e: React.FormEvent) => {
@@ -154,19 +156,21 @@ const ComposeMessage = () => {
                             />
                         </div>
                     </div>
-                    <Select
-                        state={[
-                            'Channel 1',
-                            'Channel 2',
-                            'Channel 3',
-                            'Channel 4',
-                            'Channel 5',
-                        ]}
-                        label='Transmission Channel'
-                        selectedState={transmissionChannel}
-                        setSelectedState={setTransmissionChannel}
-                    />
-
+                    <div>
+                        <Select
+                            state={[
+                                'Channel 1',
+                                'Channel 2',
+                                'Channel 3',
+                                'Channel 4',
+                                'Channel 5',
+                            ]}
+                            label='Transmission Channel'
+                            selectedState={transmissionChannel}
+                            setSelectedState={setTransmissionChannel}
+                        />
+                        <p>NB: SMS c</p>
+                    </div>
                     <button
                         className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
                         style={{ justifySelf: 'start' }}
