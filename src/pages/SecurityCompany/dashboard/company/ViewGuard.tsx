@@ -316,7 +316,7 @@ const ViewGuard = () => {
                                 />
                                 <p className='text-[1.6rem]'>
                                     Are you sure you want to deactivate this
-                                    Artisan
+                                    Security Guard
                                 </p>
 
                                 <div className='flex w-full justify-center gap-8'>

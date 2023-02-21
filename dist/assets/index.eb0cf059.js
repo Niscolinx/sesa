@@ -904,7 +904,7 @@ var Rv = /[\-:]([a-z])/g
 function Lv(e) {
     return e[1].toUpperCase()
 }
-'accent-height alignment-baseline arabic-form baseline-shift cap-height clip-path clipRule color-interpolation color-interpolation-filters color-profile color-rendering dominant-baseline enable-background fill-opacity fillRule flood-color flood-opacity font-family font-size font-size-adjust font-stretch font-style font-variant font-weight glyph-name glyph-orientation-horizontal glyph-orientation-vertical horiz-adv-x horiz-origin-x image-rendering letter-spacing lighting-color marker-end marker-mid marker-start overline-position overline-thickness paint-order panose-1 pointer-events rendering-intent shape-rendering stop-color stop-opacity strikethrough-position strikethrough-thickness stroke-dasharray stroke-dashoffset strokeLinecap strokeLinejoin stroke-miterlimit stroke-opacity strokeWidth text-anchor text-decoration text-rendering underline-position underline-thickness unicode-bidi unicode-range units-per-em v-alphabetic v-hanging v-ideographic v-mathematical vector-effect vert-adv-y vert-origin-x vert-origin-y word-spacing writing-mode xmlns:xlink x-height'
+'accent-height alignment-baseline arabic-form baseline-shift cap-height clip-path clipRule color-interpolation color-interpolation-filters color-profile color-rendering dominant-baseline enable-background fill-opacity fillRule flood-color flood-opacity font-family font-size font-size-adjust font-stretch font-style font-variant font-weight glyph-name glyph-orientation-horizontal glyph-orientation-vertical horiz-adv-x horiz-origin-x image-rendering letter-spacing lighting-color marker-end marker-mid marker-start overline-position overline-thickness paint-order panose-1 pointer-events rendering-intent shape-rendering stop-color stop-opacity strikethrough-position strikethrough-thickness stroke-dasharray stroke-dashoffset stroke-linecap stroke-linejoin stroke-miterlimit stroke-opacity stroke-width text-anchor text-decoration text-rendering underline-position underline-thickness unicode-bidi unicode-range units-per-em v-alphabetic v-hanging v-ideographic v-mathematical vector-effect vert-adv-y vert-origin-x vert-origin-y word-spacing writing-mode xmlns:xlink x-height'
     .split(' ')
     .forEach(function (e) {
         var t = e.replace(Rv, Lv)
@@ -1507,7 +1507,7 @@ var Sl = {
         strokeDashoffset: !0,
         strokeMiterlimit: !0,
         strokeOpacity: !0,
-        strokeWidth: !0,
+        stroke-width: !0,
     },
     AA = ['Webkit', 'ms', 'Moz', 'O']
 Object.keys(Sl).forEach(function (e) {
@@ -11992,7 +11992,7 @@ function eT(e) {
                     {
                         stroke: 'currentColor',
                         fill: 'currentColor',
-                        strokeWidth: '0',
+                        stroke-width: '0',
                     },
                     r.attr,
                     n,
@@ -12044,7 +12044,7 @@ function Se(e) {
                 attr: {
                     fill: 'none',
                     stroke: '#000',
-                    strokeWidth: '2',
+                    stroke-width: '2',
                     points: '7.086 3.174 17.086 13.174 7.086 23.174',
                     transform: 'scale(1 -1) rotate(-89 -1.32 0)',
                 },
@@ -12062,7 +12062,7 @@ function Qa(e) {
                 attr: {
                     fill: 'none',
                     stroke: '#000',
-                    strokeWidth: '2',
+                    stroke-width: '2',
                     points: '7.086 1.174 17.086 11.174 7.086 21.174',
                     transform: 'rotate(-89 12.086 11.174)',
                 },
@@ -12170,29 +12170,29 @@ const oT = () =>
             children: [
                 c('path', {
                     d: 'M16 21V19C16 16.7909 14.2091 15 12 15H5C2.79086 15 1 16.7909 1 19V21',
-                    strokeWidth: '2',
-                    strokeLinecap: 'round',
-                    strokeLinejoin: 'round',
+                    stroke-width: '2',
+                    stroke-linecap: 'round',
+                    stroke-linejoin: 'round',
                 }),
                 c('path', {
                     fillRule: 'evenodd',
                     clipRule: 'evenodd',
                     d: 'M8.5 11C10.7091 11 12.5 9.20914 12.5 7C12.5 4.79086 10.7091 3 8.5 3C6.29086 3 4.5 4.79086 4.5 7C4.5 9.20914 6.29086 11 8.5 11Z',
-                    strokeWidth: '2',
-                    strokeLinecap: 'round',
-                    strokeLinejoin: 'round',
+                    stroke-width: '2',
+                    stroke-linecap: 'round',
+                    stroke-linejoin: 'round',
                 }),
                 c('path', {
                     d: 'M20 8V14',
-                    strokeWidth: '2',
-                    strokeLinecap: 'round',
-                    strokeLinejoin: 'round',
+                    stroke-width: '2',
+                    stroke-linecap: 'round',
+                    stroke-linejoin: 'round',
                 }),
                 c('path', {
                     d: 'M23 11H17',
-                    strokeWidth: '2',
-                    strokeLinecap: 'round',
-                    strokeLinejoin: 'round',
+                    stroke-width: '2',
+                    stroke-linecap: 'round',
+                    stroke-linejoin: 'round',
                 }),
             ],
         }),
@@ -12207,17 +12207,17 @@ const oT = () =>
             children: [
                 c('path', {
                     d: 'M20 21V19C20 16.7909 18.2091 15 16 15H8C5.79086 15 4 16.7909 4 19V21',
-                    strokeWidth: '2',
-                    strokeLinecap: 'round',
-                    strokeLinejoin: 'round',
+                    stroke-width: '2',
+                    stroke-linecap: 'round',
+                    stroke-linejoin: 'round',
                 }),
                 c('path', {
                     fillRule: 'evenodd',
                     clipRule: 'evenodd',
                     d: 'M12 11C14.2091 11 16 9.20914 16 7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7C8 9.20914 9.79086 11 12 11Z',
-                    strokeWidth: '2',
-                    strokeLinecap: 'round',
-                    strokeLinejoin: 'round',
+                    stroke-width: '2',
+                    stroke-linecap: 'round',
+                    stroke-linejoin: 'round',
                 }),
             ],
         }),
@@ -12234,17 +12234,17 @@ const oT = () =>
                     fillRule: 'evenodd',
                     clipRule: 'evenodd',
                     d: 'M23 7L16 12L23 17V7V7Z',
-                    strokeWidth: '2',
-                    strokeLinecap: 'round',
-                    strokeLinejoin: 'round',
+                    stroke-width: '2',
+                    stroke-linecap: 'round',
+                    stroke-linejoin: 'round',
                 }),
                 c('path', {
                     fillRule: 'evenodd',
                     clipRule: 'evenodd',
                     d: 'M1 7C1 5.89543 1.89543 5 3 5H14C15.1046 5 16 5.89543 16 7V17C16 18.1046 15.1046 19 14 19H3C1.89543 19 1 18.1046 1 17V7Z',
-                    strokeWidth: '2',
-                    strokeLinecap: 'round',
-                    strokeLinejoin: 'round',
+                    stroke-width: '2',
+                    stroke-linecap: 'round',
+                    stroke-linejoin: 'round',
                 }),
             ],
         }),
@@ -12297,33 +12297,33 @@ const oT = () =>
                     fillRule: 'evenodd',
                     clipRule: 'evenodd',
                     d: 'M3 3H10V10H3V3Z',
-                    strokeWidth: '2',
-                    strokeLinecap: 'round',
-                    strokeLinejoin: 'round',
+                    stroke-width: '2',
+                    stroke-linecap: 'round',
+                    stroke-linejoin: 'round',
                 }),
                 c('path', {
                     fillRule: 'evenodd',
                     clipRule: 'evenodd',
                     d: 'M14 3H21V10H14V3Z',
-                    strokeWidth: '2',
-                    strokeLinecap: 'round',
-                    strokeLinejoin: 'round',
+                    stroke-width: '2',
+                    stroke-linecap: 'round',
+                    stroke-linejoin: 'round',
                 }),
                 c('path', {
                     fillRule: 'evenodd',
                     clipRule: 'evenodd',
                     d: 'M14 14H21V21H14V14Z',
-                    strokeWidth: '2',
-                    strokeLinecap: 'round',
-                    strokeLinejoin: 'round',
+                    stroke-width: '2',
+                    stroke-linecap: 'round',
+                    stroke-linejoin: 'round',
                 }),
                 c('path', {
                     fillRule: 'evenodd',
                     clipRule: 'evenodd',
                     d: 'M3 14H10V21H3V14Z',
-                    strokeWidth: '2',
-                    strokeLinecap: 'round',
-                    strokeLinejoin: 'round',
+                    stroke-width: '2',
+                    stroke-linecap: 'round',
+                    stroke-linejoin: 'round',
                 }),
             ],
         }),
@@ -12338,29 +12338,29 @@ const oT = () =>
             children: [
                 c('path', {
                     d: 'M17 21V19C17 16.7909 15.2091 15 13 15H5C2.79086 15 1 16.7909 1 19V21',
-                    strokeWidth: '2',
-                    strokeLinecap: 'round',
-                    strokeLinejoin: 'round',
+                    stroke-width: '2',
+                    stroke-linecap: 'round',
+                    stroke-linejoin: 'round',
                 }),
                 c('path', {
                     fillRule: 'evenodd',
                     clipRule: 'evenodd',
                     d: 'M9 11C11.2091 11 13 9.20914 13 7C13 4.79086 11.2091 3 9 3C6.79086 3 5 4.79086 5 7C5 9.20914 6.79086 11 9 11Z',
-                    strokeWidth: '2',
-                    strokeLinecap: 'round',
-                    strokeLinejoin: 'round',
+                    stroke-width: '2',
+                    stroke-linecap: 'round',
+                    stroke-linejoin: 'round',
                 }),
                 c('path', {
                     d: 'M23 20.9999V18.9999C22.9986 17.177 21.765 15.5856 20 15.1299',
-                    strokeWidth: '2',
-                    strokeLinecap: 'round',
-                    strokeLinejoin: 'round',
+                    stroke-width: '2',
+                    stroke-linecap: 'round',
+                    stroke-linejoin: 'round',
                 }),
                 c('path', {
                     d: 'M16 3.12988C17.7699 3.58305 19.0078 5.17787 19.0078 7.00488C19.0078 8.83189 17.7699 10.4267 16 10.8799',
-                    strokeWidth: '2',
-                    strokeLinecap: 'round',
-                    strokeLinejoin: 'round',
+                    stroke-width: '2',
+                    stroke-linecap: 'round',
+                    stroke-linejoin: 'round',
                 }),
             ],
         }),
@@ -15291,9 +15291,9 @@ function Tr(e) {
             {
                 tag: 'path',
                 attr: {
-                    strokeLinecap: 'round',
-                    strokeLinejoin: 'round',
-                    strokeWidth: '2',
+                    stroke-linecap: 'round',
+                    stroke-linejoin: 'round',
+                    stroke-width: '2',
                     d: 'M15 19l-7-7 7-7',
                 },
             },
@@ -15308,9 +15308,9 @@ function kr(e) {
             {
                 tag: 'path',
                 attr: {
-                    strokeLinecap: 'round',
-                    strokeLinejoin: 'round',
-                    strokeWidth: '2',
+                    stroke-linecap: 'round',
+                    stroke-linejoin: 'round',
+                    stroke-width: '2',
                     d: 'M9 5l7 7-7 7',
                 },
             },
@@ -15325,9 +15325,9 @@ function $C(e) {
             {
                 tag: 'path',
                 attr: {
-                    strokeLinecap: 'round',
-                    strokeLinejoin: 'round',
-                    strokeWidth: '2',
+                    stroke-linecap: 'round',
+                    stroke-linejoin: 'round',
+                    stroke-width: '2',
                     d: 'M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z',
                 },
             },
@@ -21069,11 +21069,11 @@ var V6 = ['viewBox', 'children'],
         'stroke',
         'strokeDasharray',
         'strokeDashoffset',
-        'strokeLinecap',
-        'strokeLinejoin',
+        'stroke-linecap',
+        'stroke-linejoin',
         'strokeMiterlimit',
         'strokeOpacity',
-        'strokeWidth',
+        'stroke-width',
         'surfaceScale',
         'systemLanguage',
         'tableValues',
@@ -24051,7 +24051,7 @@ var br = 32,
                             u = i.inactive ? a : i.color
                         if (i.type === 'plainline')
                             return c('line', {
-                                strokeWidth: 4,
+                                stroke-width: 4,
                                 fill: 'none',
                                 stroke: u,
                                 strokeDasharray: i.payload.strokeDasharray,
@@ -24063,7 +24063,7 @@ var br = 32,
                             })
                         if (i.type === 'line')
                             return c('path', {
-                                strokeWidth: 4,
+                                stroke-width: 4,
                                 fill: 'none',
                                 stroke: u,
                                 d: 'M0,'
@@ -35426,7 +35426,7 @@ function $d(e) {
 }
 $d.defaultProps = {
     stroke: 'black',
-    strokeWidth: 1.5,
+    stroke-width: 1.5,
     width: 5,
     offset: 0,
     layout: 'horizontal',
@@ -42825,7 +42825,7 @@ Gy.defaultProps = {
     fill: 'none',
     stroke: '#ccc',
     fillOpacity: 1,
-    strokeWidth: 1,
+    stroke-width: 1,
     position: 'middle',
 }
 function Os(e) {
@@ -42961,7 +42961,7 @@ Hs.defaultProps = {
     fill: '#fff',
     stroke: '#ccc',
     fillOpacity: 1,
-    strokeWidth: 1,
+    stroke-width: 1,
 }
 Hs.renderDot = function (e, t) {
     var r
@@ -43116,7 +43116,7 @@ Vs.defaultProps = {
     fill: '#ccc',
     fillOpacity: 0.5,
     stroke: 'none',
-    strokeWidth: 1,
+    stroke-width: 1,
 }
 Vs.renderRect = function (e, t) {
     var r
@@ -45787,7 +45787,7 @@ var Nee = { xAxis: ['bottom', 'top'], yAxis: ['left', 'right'] },
                                             cy: C.y,
                                             r: 4,
                                             fill: Wy(S.item),
-                                            strokeWidth: 2,
+                                            stroke-width: 2,
                                             stroke: '#fff',
                                             payload: C.payload,
                                             value: C.value,
@@ -49333,11 +49333,11 @@ function Ky(e) {
         tag: 'svg',
         attr: {
             viewBox: '0 0 24 24',
-            strokeWidth: '2',
+            stroke-width: '2',
             stroke: 'currentColor',
             fill: 'none',
-            strokeLinecap: 'round',
-            strokeLinejoin: 'round',
+            stroke-linecap: 'round',
+            stroke-linejoin: 'round',
         },
         child: [
             { tag: 'desc', attr: {}, child: [] },
