@@ -305,7 +305,7 @@ const ViewGuard = () => {
             </dialog> */}
 
           
-            <dialog className='dialog' ref={dialogRef}>
+            {/* <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
                         {dialogType === 'Deactivate' ? (
@@ -362,7 +362,7 @@ const ViewGuard = () => {
                         )}
                     </div>
                 </section>
-            </dialog>
+            </dialog> */}
             <main>
                 <section className='grid p-8 bg-white items-baseline rounded-lg'>
                     <div className='flex justify-between items-center'>
