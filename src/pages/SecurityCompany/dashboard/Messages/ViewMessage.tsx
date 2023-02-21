@@ -3,18 +3,8 @@ import { getPhotoUrl } from '../../../../utils/getPhotoUrl'
 import { toast, ToastContainer } from 'react-toastify'
 
 
-type Actions = 'Deactivate' | 'Delete'
-
-
-
 const ViewMessage = () => {
- 
-
-    
-
     const dialogRef = useRef<HTMLDialogElement | null>(null)
-
-
 
     const handleClose = () => {
         if (dialogRef.current) {
@@ -22,13 +12,11 @@ const ViewMessage = () => {
         }
     }
 
-
     const handleOpen = () => {
-        if(dialogRef.current){
+        if (dialogRef.current) {
             dialogRef.current.showModal()
         }
     }
- 
 
     const handleDeleteMessage = () => {
         handleClose()
@@ -38,7 +26,6 @@ const ViewMessage = () => {
             className: 'bg-red-100 text-red-600 text-[1.4rem]',
         })
     }
-  
 
     return (
         <>
@@ -56,9 +43,7 @@ const ViewMessage = () => {
                             <div className='flex w-full justify-center gap-8'>
                                 <button
                                     className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
-                                    onClick={() =>
-                                        handleClose()
-                                    }
+                                    onClick={() => handleClose()}
                                 >
                                     Cancel
                                 </button>
@@ -80,9 +65,7 @@ const ViewMessage = () => {
                         <div className='flex gap-8'>
                             <button
                                 className='border border-red-600 px-16 py-4 flex items-center  rounded-lg gap-4'
-                                onClick={() =>
-                                    handleOpen()
-                                }
+                                onClick={() => handleOpen()}
                             >
                                 <img src='/icons/admins/delete.svg' alt='' />
                                 <span className='text-red-600 text-[1.4rem] font-semibold'>
@@ -188,8 +171,6 @@ const ViewMessage = () => {
                                     {description}
                                 </p>
                             </div>
-
-                            
                         </div>
                     </div>
                 </section>
