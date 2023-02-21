@@ -1,5 +1,5 @@
 import React, { FormEvent, useRef, useState } from 'react'
-import { IoMdAdd, IoMdClose } from 'react-icons/io'
+import { IoMdAdd, IoMdCheckmarkCircleOutline, IoMdClose } from 'react-icons/io'
 import { getPhotoUrl } from '../../../../../utils/getPhotoUrl'
 import { BsQuestionCircle } from 'react-icons/bs'
 import { toast, ToastContainer } from 'react-toastify'
@@ -121,12 +121,10 @@ const AddSecurityGuard = () => {
         ['Voters Card', <Voters_Card />],
     ]) satisfies Map<ValidateInputTypes, JSX.Element>
 
-
-
-    
     const handleValidate = () => {
-        if (validationType === null) {}}
-        
+        if (validationType === null) {
+        }
+    }
 
     return (
         <>
@@ -339,14 +337,14 @@ const AddSecurityGuard = () => {
                             KYG{' '}
                             <span className='text-gray-500'>(Optional)</span>
                         </p>
-                        
+
                         {isValidated ? (
                             <div className='flex justify-between text-[1.6rem]'>
                                 <p
                                     className='text-[#098DFF] cursor-pointer'
                                     onClick={() => handleOpen('validate')}
                                 >
-                                    
+                                    Validated <IoMdCheckmarkCircleOutline />
                                 </p>
                                 <p
                                     className='text-[#043FA7] flex items-center gap-2'
