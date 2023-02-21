@@ -623,7 +623,7 @@ const ViewGuard = () => {
 
                             <button
                                 className='btn text-color-blue-1 '
-                                // onClick={() => handleOpen('reassign')}
+                                onClick={() => openAssignGuardDialog()}
                             >
                                 Reassign
                             </button>
@@ -657,7 +657,7 @@ const ViewGuard = () => {
 
                             <button
                                 className='btn text-color-blue-1 '
-                                // onClick={() => handleOpen('reassign')}
+                                onClick={() => openAssignGuardDialog()}
                             >
                                 Reassign
                             </button>
@@ -691,7 +691,7 @@ const ViewGuard = () => {
 
                             <button
                                 className='btn text-color-blue-1 '
-                                // onClick={() => handleOpen('reassign')}
+                                onClick={() => openAssignGuardDialog()}
                             >
                                 Reassign
                             </button>
@@ -725,7 +725,7 @@ const ViewGuard = () => {
 
                             <button
                                 className='btn text-color-blue-1 '
-                                // onClick={() => handleOpen('reassign')}
+                                onClick={() => openAssignGuardDialog()}
                             >
                                 Reassign
                             </button>
