@@ -212,8 +212,8 @@ function RenderedMessages() {
                                     transmissionDate,
                                 }) => {
                                     return (
-                                        <div className='grid relative '>
-                                            <div className='flex items-center gap-2 absolute right-0 top-0'>
+                                        <div className='grid relative p-8 bg-white rounded-lg'>
+                                            <div className='flex items-center gap-2 absolute right-0 top-0 p-8'>
                                                 <p>Status:</p>
                                                 <p
                                                     style={{
@@ -221,11 +221,15 @@ function RenderedMessages() {
                                                             'Satoshi-Medium',
                                                     }}
                                                 >
-                                                    {status === 'Sent' ? (<span className='text-green-600'>
-                                                        {status}
-                                                    </span>) : (<span className='text-orange-500'>
-                                                        {status}
-                                                    </span>)}
+                                                    {status === 'Sent' ? (
+                                                        <span className='text-green-600'>
+                                                            {status}
+                                                        </span>
+                                                    ) : (
+                                                        <span className='text-orange-500'>
+                                                            {status}
+                                                        </span>
+                                                    )}
                                                 </p>
                                             </div>
                                             <div className='flex items-center gap-2'>
@@ -315,9 +319,13 @@ function RenderedMessages() {
                                                 </p>
                                             </div>
 
-                                            <p className='text-color-blue' style={{
-                                                fontFamily: 'Satoshi-Medium'
-                                            }}>
+                                            <p
+                                                className='text-color-blue'
+                                                style={{
+                                                    fontFamily:
+                                                        'Satoshi-Medium',
+                                                }}
+                                            >
                                                 View More Details
                                             </p>
                                         </div>
