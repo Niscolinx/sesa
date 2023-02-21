@@ -16,6 +16,7 @@ import ViewMessage from '../../pages/SecurityCompany/dashboard/Messages/ViewMess
 import Wallet from '../../pages/SecurityCompany/dashboard/wallet/Wallet'
 import WalletTransactionDetails from '../../pages/SecurityCompany/dashboard/wallet/WalletTransactionDetails'
 import PasswordSettings from '../../pages/SecurityCompany/dashboard/Settings/PasswordSettings'
+import Settings from '../../pages/SecurityCompany/dashboard/Settings/Settings'
 
 const securityCompanyRoutes = (
     <Route path='/securityCompany' element={<SecurityCompanyDashboard />}>
