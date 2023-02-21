@@ -197,6 +197,7 @@ function Wallet() {
 
     const handleFundWallet = (e: FormEvent) => {
         e.preventDefault()
+        handleClose()
     }
 
     return (
