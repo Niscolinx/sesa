@@ -15,6 +15,7 @@ import {
     International_PassPort,
     Voters_Card,
 } from './AddSecurity/Inputs'
+import { TbCopy } from 'react-icons/tb'
 
 type DialogType = 'validate' | 'add-security-guard' | 'reassign'
 type Actions = 'Deactivate' | 'Delete'
@@ -740,7 +741,7 @@ const ViewGuard = () => {
                     >
                         Account Information
                     </h2>
-                    <div>
+                    <div className='flex  justbet'>
                         <div className='grid gap-4 relative '>
                             <label
                                 htmlFor='bankName'
@@ -769,6 +770,7 @@ const ViewGuard = () => {
                                     type='number'
                                     required
                                     id='firstName'
+                                    value={`2084827323`}
                                     className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                                 />
 
