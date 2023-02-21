@@ -284,7 +284,7 @@ const AddSecurityGuard = () => {
                                     Guard
                                 </p>
 
-                                <p className='font-bold' style={{
+                                <p className='font-bold text-[1.8rem] max-w-[40rem] text-center' style={{
                                     fontFamily: 'Satoshi-Medium',
                                 }}>
                                     Do you want to open a bank account for this
@@ -293,13 +293,13 @@ const AddSecurityGuard = () => {
 
                                 <div className='flex w-full justify-center gap-8'>
                                     <button
-                                        className='btn bg-white text-[#0556E5] border-[#0556E5] border rounded-lg w-[15rem]'
+                                        className='btn bg-white text-[#0556E5] border-[#0556E5] border rounded-lg w-[20rem] font-bold'
                                         onClick={() => handleClose()}
                                     >
                                         Skip, Later
                                     </button>
                                     <button
-                                        className='bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
+                                        className='bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[20rem]'
                                         onClick={() => handleClose()}
                                     >
                                         Open an Account
