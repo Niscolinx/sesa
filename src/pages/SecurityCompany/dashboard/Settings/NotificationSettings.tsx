@@ -29,8 +29,8 @@ const NotificationSettings = () => {
                 </section>
 
                 <section>
-                    <div className='grid gap-10'>
-                        <div className='grid grid-cols-2 items-center gap-16 w-[60rem]'>
+                    <div className='grid gap-10 w-[60rem]'>
+                        <div className='grid grid-cols-2 items-center gap-16 '>
                             <p>In-App</p>
                             <div onClick={toggleIsInAppOn}>
                                 {isInAppOn ? (
