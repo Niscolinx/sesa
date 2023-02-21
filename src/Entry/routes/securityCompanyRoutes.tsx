@@ -7,6 +7,7 @@ import ViewEstate from '../../pages/SecurityCompany/dashboard/Estates/ViewEstate
 import ViewSecurityGuard from '../../pages/SecurityCompany/dashboard/Estates/ViewSecurityGuard'
 import EstateWorkRate from '../../pages/SecurityCompany/dashboard/Estates/EstateWorkRate'
 import EstateReport from '../../pages/SecurityCompany/dashboard/Estates/EstateReport'
+import Overview from '../../pages/SecurityCompany/dashboard/company/Overview'
 
  const securityCompanyRoutes = (
      <Route path='/securityCompany' element={<SecurityCompanyDashboard />}>
@@ -16,6 +17,7 @@ import EstateReport from '../../pages/SecurityCompany/dashboard/Estates/EstateRe
          <Route path='estates/securityGuard/:Id' element={<ViewSecurityGuard />} />
          <Route path='estates/workrate' element={<EstateWorkRate />} />
          <Route path='estates/estateReport' element={<EstateReport />} />
+         <Route path='company/' element={<Overview />} />
      </Route>
  )
 
