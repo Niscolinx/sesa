@@ -117,7 +117,7 @@ const AddSecurityGuard = () => {
         ['NIN Number', <NIN_Number />],
         ['Drivers License', <DriversLicence />],
         ['International Passport', <International_PassPort />],
-        ['Voters card', <Voters_Card />],
+        ['Voters Card', <Voters_Card />],
     ]) satisfies Map<ValidateInputTypes, JSX.Element>
 
     useEffect(() => {
