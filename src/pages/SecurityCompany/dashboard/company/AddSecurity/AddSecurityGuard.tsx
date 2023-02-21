@@ -134,7 +134,7 @@ const AddSecurityGuard = () => {
         setIsValidated(true)
     }
 
-    const AddedSecurityGuardSteps = new Map([
+    const addedSecurityGuardSteps = new Map([
         ['addedSecuritySuccessful', <AddedSecuritySuccessfully />],
         ['addBankAccount', <AddedSecuritySuccessfully />],
         ['openedBankAccountSuccessful', <AddedSecuritySuccessfully />],
@@ -289,7 +289,9 @@ const AddSecurityGuard = () => {
                             </form>
                         ) : dialogState === 'add-security-guard' ? (
                             <div className='bg-white rounded-2xl grid place-content-center justify-items-center h-[30rem] gap-8 text-[1.6rem]'>
-                                //TODO
+                                {addedSecurityGuardSteps.get(
+                                    addedSecurityGuardStep
+                                )}
                             </div>
                         ) : (
                             <div className='bg-white rounded-2xl grid place-content-center justify-items-center h-[30rem] gap-8 text-[1.6rem]'>
