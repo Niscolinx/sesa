@@ -15,6 +15,7 @@ import ComposeMessage from '../../pages/SecurityCompany/dashboard/Messages/Compo
 import ViewMessage from '../../pages/SecurityCompany/dashboard/Messages/ViewMessage'
 import Wallet from '../../pages/SecurityCompany/dashboard/wallet/Wallet'
 import WalletTransactionDetails from '../../pages/SecurityCompany/dashboard/wallet/WalletTransactionDetails'
+import PasswordSettings from '../../pages/SecurityCompany/dashboard/Settings/PasswordSettings'
 
 const securityCompanyRoutes = (
     <Route path='/securityCompany' element={<SecurityCompanyDashboard />}>
@@ -52,6 +53,10 @@ const securityCompanyRoutes = (
         <Route
             path='wallet/transactions/:Id'
             element={<WalletTransactionDetails/>}
+        />
+        <Route
+            path='settings/'
+            element={<PasswordSettings/>}
         />
     </Route>
 )
