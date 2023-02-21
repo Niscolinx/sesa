@@ -55,7 +55,7 @@ export const AddBankAccount = () => {
             >
                 Open a bank Account
             </p>
-            <div>
+            <div className='w-[40rem]'>
                 <Select
                     label='Select Bank'
                     state={[
