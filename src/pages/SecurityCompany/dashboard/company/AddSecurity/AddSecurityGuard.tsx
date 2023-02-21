@@ -120,9 +120,12 @@ const AddSecurityGuard = () => {
         ['Voters Card', <Voters_Card />],
     ]) satisfies Map<ValidateInputTypes, JSX.Element>
 
-    useEffect(() => {
-        console.log({ validationType })
-    }, [validationType])
+
+
+    
+    const handleValidate = () => {
+        if (validationType === null) {
+        
 
     return (
         <>
@@ -265,7 +268,7 @@ const AddSecurityGuard = () => {
                                     validationType as ValidateInputTypes
                                 )}
 
-                                <button className='btn bg-[#0556E5] text-white rounded-lg py-4 place-self-start w-[15rem]'>
+                                <button className='btn bg-[#0556E5] text-white rounded-lg py-4 place-self-start w-[15rem]' onClick={handleValidate}>
                                     Validate
                                 </button>
                             </form>
