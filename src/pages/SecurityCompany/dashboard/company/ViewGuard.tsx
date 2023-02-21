@@ -732,7 +732,7 @@ const ViewGuard = () => {
                     </div>
                 </section>
                 <section className='grid p-8 bg-white'>
-                     <h2
+                    <h2
                         className='text-[2rem] mb-10'
                         style={{
                             fontFamily: 'Satoshi-Medium',
@@ -741,7 +741,37 @@ const ViewGuard = () => {
                         Account Information
                     </h2>
                     <div>
+                        <div className='grid gap-4 relative '>
+                            <label
+                                htmlFor='bankName'
+                                className='text-[1.4rem] font-medium'
+                            >
+                                Bank Name
+                            </label>
+                            <input
+                                type='text'
+                                required
+                                id='bankName'
+                                value={`First City Monument Bank`}
+                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                            />
+                        </div>
 
+                        <div className='grid gap-4 relative '>
+                            <label
+                                htmlFor='firstName'
+                                className='text-[1.4rem] font-medium'
+                            >
+                                Account Number
+                            </label>
+                            <input
+                                type='number'
+                                inputMode='number'
+                                required
+                                id='firstName'
+                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                            />
+                        </div>
                     </div>
                 </section>
             </main>
