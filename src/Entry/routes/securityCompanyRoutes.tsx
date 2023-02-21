@@ -28,6 +28,10 @@ const securityCompanyRoutes = (
             path='company-overview/addSecurity'
             element={<AddSecurityGuard />}
         />
+        <Route
+            path='messages'
+            element={<AddSecurityGuard />}
+        />
     </Route>
 )
 
