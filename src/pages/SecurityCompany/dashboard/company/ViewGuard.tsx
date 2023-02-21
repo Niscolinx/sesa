@@ -59,8 +59,11 @@ const ViewGuard = () => {
     const [dialogType, setDialogType] = useState<Actions>('Deactivate')
 
     
-    const closeAssignGuard = () => {
-        
+    const closeAssignGuardDialog = () => {
+
+        if (assignGuardRef.current) {
+            assignGuardRef.current.close()
+        }
     }
   
 
@@ -100,7 +103,7 @@ const ViewGuard = () => {
 
 
     const handleReAssign = () => {
-        handleClose()
+        closeAssignGuardDialog()
 
         toast(' Reassigned successfully', {
             type: 'success',
@@ -109,16 +112,16 @@ const ViewGuard = () => {
     }
 
 
-    const handleDeleteArtisan = () => {
-        handleClose()
+    const handleDeleteSecurityGuard = () => {
+        handleCloseDeleteOrDeactivateDialog()
 
         toast('Artisan deleted successfully', {
             type: 'error',
             className: 'bg-red-100 text-red-600 text-[1.4rem]',
         })
     }
-    const handleDeactivateArtisan = () => {
-        handleClose()
+    const handleDeactivateSecurityGuard = () => {
+        handleCloseDeleteOrDeactivateDialog()
 
         toast('Artisan deactivated successfully', {
             type: 'error',
@@ -141,7 +144,7 @@ const ViewGuard = () => {
                 <div className='flex w-full justify-center gap-8'>
                     <button
                         className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
-                        onClick={() => closeAssignGuard()}
+                        onClick={() => closeAssignGuardDialog()}
                     >
                         Cancel
                     </button>
@@ -267,7 +270,7 @@ const ViewGuard = () => {
                                     </button>
                                     <button
                                         className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
-                                        onClick={handleDeactivateArtisan}
+                                        onClick={handleDeactivateSecurityGuard}
                                     >
                                         Deactivate
                                     </button>
@@ -295,7 +298,7 @@ const ViewGuard = () => {
                                     </button>
                                     <button
                                         className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
-                                        onClick={handleDeleteArtisan}
+                                        onClick={handleDeleteSecurityGuard}
                                     >
                                         Delete
                                     </button>
