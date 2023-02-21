@@ -169,12 +169,19 @@ const ComposeMessage = () => {
                             selectedState={transmissionChannel}
                             setSelectedState={setTransmissionChannel}
                         />
-                        <p style={{
-                            fontFamily: 'Satoshi-Light'
-                        }} className='text-[1.4rem]'>NB: SMS charges apply</p>
+                        <p
+                            style={{
+                                fontFamily: 'Satoshi-Light',
+                            }}
+                            className='text-[1.4rem]'
+                        >
+                            NB: SMS charges apply
+                        </p>
                     </div>
-
-                    <textarea name="" id="" cols="30" rows="10"/></textarea>
+                    <textarea
+                        rows={5}
+                        className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                    />
 
                     <button
                         className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
@@ -184,7 +191,7 @@ const ComposeMessage = () => {
                         <span>
                             <IoMdAdd />
                         </span>{' '}
-                        Add Company
+                        Send Message
                     </button>
                 </form>
             </div>
