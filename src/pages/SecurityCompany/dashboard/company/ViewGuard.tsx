@@ -738,7 +738,7 @@ const ViewGuard = () => {
                             fontFamily: 'Satoshi-Medium',
                         }}
                     >
-                        A
+                        Account Information
                     </h2>
                     <div>
 
