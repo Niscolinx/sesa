@@ -211,26 +211,14 @@ function RenderedMessages() {
                                     
                                 }) => {
                                     return (
-                                        <div className='grid justify-between border-b grid-cols-4 items-center gap-8 '>
-                                            <p className='flex items-center gap-4'>
-                                                <input
-                                                    type='checkbox'
-                                                    className='cursor-pointer'
-                                                />
-                                                <label htmlFor='file'>
-                                                    {estateName}
-                                                </label>
-                                            </p>
-                                            <p>{address}</p>
-                                            <p>{noOfSecurityGuards}</p>
-                                            <button
-                                                className='text-color-primary text-left'
-                                                onClick={() =>
-                                                    detailsHandler(id)
-                                                }
-                                            >
-                                                View Details
-                                            </button>
+                                        <div className='grid relative '>
+                                           
+                                           <div>
+                                            <p>Date</p>
+                                            <p style={{
+                                                fontFamily: 'Satoshi-Medium'
+                                            }}>{date}</p>
+                                           </div>
                                         </div>
                                     )
                                 }
