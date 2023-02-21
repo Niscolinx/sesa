@@ -163,9 +163,7 @@ function Wallet() {
     const [selectedTrend, setSelectedTrend] = useState<Trend>('This Week')
     const [isWithdrawal, setIsWithdrawal] = useState(true)
     const [togglCommissionMenu, setTogglCommissionMenu] = useState(false)
-    const [sendTo, setSendTo] = useState<string | null>(null)
     const [sendToMenu, setSendToMenu] = useState(false)
-    const sendToArr: string[] = ['Howuja', 'Oluwaseun', 'Wojusun', 'Petherkwa']
 
     const menuToggler = () => setTogglCommissionMenu(!togglCommissionMenu)
     const sendToMenuToggle = () => setSendToMenu(!sendToMenu)
@@ -175,10 +173,6 @@ function Wallet() {
         setTogglCommissionMenu(false)
     }
 
-    const handleSendTo = (item: string) => {
-        setSendTo(item)
-        setSendToMenu(false)
-    }
 
     type Actions = 'View Details'
 
@@ -365,40 +359,7 @@ function Wallet() {
                                     />
                                 </div>
 
-                                <div className='relative grid gap-4'>
-                                    <p className='text-[1.4rem] font-semibold'>
-                                        SendTo
-                                    </p>
-                                    <div className='relative flex items-center w-[20rem]'>
-                                        <p
-                                            className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer'
-                                            onClick={sendToMenuToggle}
-                                        >
-                                            {sendTo}
-                                        </p>
-                                        {sendToMenu ? (
-                                            <GrUp className='absolute right-4' />
-                                        ) : (
-                                            <GrDown className='absolute right-4' />
-                                        )}
-                                    </div>
-
-                                    {sendToMenu && (
-                                        <div className='absolute top-[-2rem]  left-[22rem] border border-color-primary-light  bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
-                                            {sendToArr.map((item, index) => (
-                                                <p
-                                                    className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
-                                                    key={index}
-                                                    onClick={() =>
-                                                        handleSendTo(item)
-                                                    }
-                                                >
-                                                    {item}
-                                                </p>
-                                            ))}
-                                        </div>
-                                    )}
-                                </div>
+                              
 
                                 <button className='btn bg-[#0556E5] text-white rounded-lg py-4 place-self-start w-[15rem]'>
                                     Request
