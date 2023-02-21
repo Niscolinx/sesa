@@ -385,7 +385,7 @@ const ViewGuard = () => {
                                 className='hidden'
                                 onClick={handlePhotoPreview}
                             />
-                            <div>
+                            <div className='grid gap-2'>
                                 <p
                                     style={{
                                         fontFamily: 'Satoshi-Light',
@@ -424,14 +424,14 @@ const ViewGuard = () => {
                                         </span>
                                     )}
                                 </p>
-                                <p
+                                <button
                                     style={{
                                         fontFamily: 'Satoshi-Medium',
                                     }}
                                     className='text-color-blue'
                                 >
                                     Click here to view results
-                                </p>
+                                </button>
                             </div>
                         </div>
 
