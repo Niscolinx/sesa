@@ -137,16 +137,12 @@ const RecipientList = () => {
         })
     }
 
-    const handleAddSecurityGuard = () => {
+    const saveChangesHandler = () => {
         console.log('add security guard')
 
-        navigate(`/securityCompany/company-overview/addSecurity`)
     }
 
-    const detailsHandler = (id: number) => {
-        console.log(id)
-        navigate(`/securityCompany/company-overview/viewGuard/${id}`)
-    }
+   
     return (
             <main className='mt-10 grid gap-9'>
                
@@ -180,7 +176,7 @@ const RecipientList = () => {
                             <div className='ml-auto'>
                                 <button
                                     className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
-                                    onClick={handleAddSecurityGuard}
+                                    onClick={saveChangesHandler}
                                 >
                                     <span>
                                         <IoMdAdd />
@@ -264,16 +260,7 @@ const RecipientList = () => {
                                                                 </span>
                                                             )}
                                                         </p>
-                                                        <button
-                                                            className='text-color-primary text-left'
-                                                            onClick={() =>
-                                                                detailsHandler(
-                                                                    id
-                                                                )
-                                                            }
-                                                        >
-                                                            View Details
-                                                        </button>
+                                                        
                                                     </div>
                                                 )
                                             }
