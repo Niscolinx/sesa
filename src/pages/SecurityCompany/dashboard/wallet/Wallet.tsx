@@ -321,6 +321,21 @@ function Wallet() {
                                             className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem]'
                                         />
                                     </div>
+                                    <div>
+                                        <label
+                                            htmlFor='description'
+                                            className='text-[1.4rem] font-semibold'
+                                        >
+                                            Card Number
+                                        </label>
+
+                                        <input
+                                            type='number'
+                                            required
+                                            id='description'
+                                            className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem]'
+                                        />
+                                    </div>
                                 </div>
 
                                 <button className='btn bg-[#0556E5] text-white rounded-lg py-4 place-self-start w-[15rem]'>
