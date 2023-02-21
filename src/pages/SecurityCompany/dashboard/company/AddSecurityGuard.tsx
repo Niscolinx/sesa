@@ -396,7 +396,7 @@ const AddSecurityGuard = () => {
                             htmlFor='address1'
                             className='text-[1.4rem] font-medium'
                         >
-                            Address Line 1*
+                            Address
                         </label>
                         <input
                             type='text'
@@ -405,20 +405,7 @@ const AddSecurityGuard = () => {
                             className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                         />
                     </div>
-                    <div className='grid gap-4 relative'>
-                        <label
-                            htmlFor='address2'
-                            className='text-[1.4rem] font-medium'
-                        >
-                            Address Line 2*
-                        </label>
-                        <input
-                            type='text'
-                            required
-                            id='address2'
-                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                        />
-                    </div>
+                    
 
                     <Select
                         label='State'
@@ -427,31 +414,8 @@ const AddSecurityGuard = () => {
                         selectedState={selectedState}
                         setSelectedState={setSelectedState}
                     />
-                    <Select
-                        label='Artisan Category'
-                        state={[
-                            'Plumber',
-                            'Electrician',
-                            'Carpenter',
-                            'Painter',
-                        ]}
-                        selectedState={selectedArtisan}
-                        setSelectedState={setSelectedArtisan}
-                    />
-                    <div className='grid gap-4 relative'>
-                        <label
-                            htmlFor='businessName'
-                            className='text-[1.4rem] font-medium'
-                        >
-                            Business Name
-                        </label>
-                        <input
-                            type='text'
-                            placeholder='Optional'
-                            id='businessName'
-                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                        />
-                    </div>
+                    
+                    
                     <div className='col-span-full rounded-lg border border-width-[.2rem] border-dashed border-color-grey-1 p-8 text-[1.6rem] relative w-full'>
                         <label
                             htmlFor='photoUpload'
