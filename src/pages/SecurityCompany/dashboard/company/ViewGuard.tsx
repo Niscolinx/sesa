@@ -153,64 +153,28 @@ const ViewGuard = () => {
         <>
             <ToastContainer />
 
-            {/* <dialog className='dialog' ref={knowYourGuardDialogRef}>
-                <section className='grid place-content-center w-full h-[100vh]'>
-                    <div className='bg-white rounded-2xl grid items-baseline w-[64rem] min-h-[30rem] p-10 gap-8 text-[1.6rem] relative'>
-                        <IoMdClose
-                            className='absolute right-4 top-4 text-[2rem] cursor-pointer'
-                            onClick={() => handleClose()}
-                        />
+            <dialog className='dialog' ref={assignGuardRef}>
+                <img src='/icons/admins/modalDeactivate.svg' alt='' />
+                <p className='text-[1.6rem]'>
+                    Are you sure you want to reassign this security guard
+                    primary estate
+                </p>
 
-                        <form
-                            className='grid gap-12'
-                            onSubmit={handleDialogSubmit}
-                        >
-                            <h3
-                                className='text-[2rem] font-bold border-b '
-                                style={{
-                                    fontFamily: 'Satoshi-Medium',
-                                }}
-                            >
-                                Know Your Guard (KYG)
-                            </h3>
-
-                            <Select
-                                state={[
-                                    'Phone Number',
-                                    'BVN Number',
-                                    'NIN Number',
-                                    'Drivers License',
-                                    'International Passport',
-                                    'Voters Card',
-                                ]}
-                                label='Validation Option'
-                                validate
-                                selectedState={validationType}
-                                setSelectedState={setValidationType}
-                            />
-
-                            <p
-                                className='text-[#043FA7] flex items-center gap-2 border-b pb-10 w-full'
-                                style={{
-                                    fontFamily: 'Satoshi-Light',
-                                }}
-                            >
-                                What is KYG <BsQuestionCircle />
-                            </p>
-                            {renderValidationType.get(
-                                validationType as ValidateInputTypes
-                            )}
-
-                            <button
-                                className='btn bg-[#0556E5] text-white rounded-lg py-4 place-self-start w-[15rem]'
-                                onClick={handleValidate}
-                            >
-                                Validate
-                            </button>
-                        </form>
-                    </div>
-                </section>
-            </dialog> */}
+                <div className='flex w-full justify-center gap-8'>
+                    <button
+                        className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
+                        onClick={() => handleClose()}
+                    >
+                        Cancel
+                    </button>
+                    <button
+                        className=' bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
+                        onClick={handleReAssign}
+                    >
+                        Yes
+                    </button>
+                </div>
+            </dialog>
 
             <dialog className='dialog' ref={validatedDialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
@@ -317,7 +281,9 @@ const ViewGuard = () => {
                                 <div className='flex w-full justify-center gap-8'>
                                     <button
                                         className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
-                                        onClick={() => handleCloseDeleteOrDeactivateDialog()}
+                                        onClick={() =>
+                                            handleCloseDeleteOrDeactivateDialog()
+                                        }
                                     >
                                         Cancel
                                     </button>
@@ -336,13 +302,16 @@ const ViewGuard = () => {
                                     alt=''
                                 />
                                 <p className='text-[1.6rem]'>
-                                    Are you sure you want to delete this Security Guard
+                                    Are you sure you want to delete this
+                                    Security Guard
                                 </p>
 
                                 <div className='flex w-full justify-center gap-8'>
                                     <button
                                         className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
-                                        onClick={() => handleCloseDeleteOrDeactivateDialog()}
+                                        onClick={() =>
+                                            handleCloseDeleteOrDeactivateDialog()
+                                        }
                                     >
                                         Cancel
                                     </button>
