@@ -32,7 +32,7 @@ const AddSecurityGuard = () => {
     const [dialogState, setDialogState] = useState<DialogType>('validate')
     const [validationType, setValidationType] = useState<
         ValidateInputTypes | string | null
-    >('phoneNumber')
+    >('Phone Number')
 
     const [photoUrl, setPhotoUrl] = useState('')
 
@@ -225,7 +225,14 @@ const AddSecurityGuard = () => {
                                 >
                                     Know Your Guard (KYG)
                                 </h3>
-
+                                <p
+                                    className='text-[#043FA7] flex items-center gap-2'
+                                    style={{
+                                        fontFamily: 'Satoshi-Light',
+                                    }}
+                                >
+                                    What is KYG <BsQuestionCircle />
+                                </p>
                                 <Select
                                     state={[
                                         'Phone Number',
@@ -244,15 +251,6 @@ const AddSecurityGuard = () => {
                                 {renderValidationType.get(
                                     validationType as ValidateInputTypes
                                 )}
-
-                                <p
-                                    className='text-[#043FA7] flex items-center gap-2'
-                                    style={{
-                                        fontFamily: 'Satoshi-Light',
-                                    }}
-                                >
-                                    What is KYG <BsQuestionCircle />
-                                </p>
 
                                 <button className='btn bg-[#0556E5] text-white rounded-lg py-4 place-self-start w-[15rem]'>
                                     Validate
