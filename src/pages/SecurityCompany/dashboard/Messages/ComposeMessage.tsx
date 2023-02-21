@@ -65,12 +65,15 @@ const ComposeMessage = () => {
                         ) : (
                             <img src='/icons/admins/modalSuccess.svg' alt='' />
                         )}
-                        <h2 style={{
-                            fontFamily: 'Satoshi-Medium'
-                        }}>
+                        <p
+                            style={{
+                                fontFamily: 'Satoshi-Medium',
+                            }}
+                            className='text-[2rem]'
+                        >
                             Confirm Send Message
-                        </h2>
-                        <p>You have successfully added a security Company</p>
+                        </p>
+<p>Are you sure you wanna send this message?</p>
 
                         <div className='flex w-full justify-center gap-8'>
                             <button
