@@ -169,7 +169,9 @@ const ComposeMessage = () => {
                             selectedState={transmissionChannel}
                             setSelectedState={setTransmissionChannel}
                         />
-                        <p>NB: SMS c</p>
+                        <p style={{
+                            fontFamily: 'Satoshi-Light'
+                        }} className='text-[1.4rem]'>NB: SMS charges apply</p>
                     </div>
                     <button
                         className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
