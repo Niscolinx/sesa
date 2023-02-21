@@ -213,8 +213,8 @@ function RenderedMessages() {
                                     return (
                                         <div className='grid relative '>
                                            
-                                           <div>
-                                            <p>Date</p>
+                                           <div className='flex items-center'>
+                                            <p>Date:</p>
                                             <p style={{
                                                 fontFamily: 'Satoshi-Medium'
                                             }}>{date}</p>
