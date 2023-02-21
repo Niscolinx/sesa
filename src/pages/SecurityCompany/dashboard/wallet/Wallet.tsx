@@ -311,7 +311,7 @@ function Wallet() {
                                             htmlFor='description'
                                             className='text-[1.4rem] font-semibold'
                                         >
-                                            Card Number
+                                            CVV
                                         </label>
 
                                         <input
