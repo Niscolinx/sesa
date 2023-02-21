@@ -255,7 +255,7 @@ function Wallet() {
                                     />
                                 </div>
 
-                                <button className='btn bg-[#0556E5] text-white rounded-lg py-4 place-self-start w-[15rem]'>
+                                <button className='btn bg-[#0556E5] text-white rounded-lg py-4 place-self-start w-[15rem]' onClick={() => handleWithdrawal()}>
                                     Withdraw
                                 </button>
                             </form>
