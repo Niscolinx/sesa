@@ -144,8 +144,7 @@ function Wallet() {
     }
 
     const detailsHandler = (id: number) => {
-        // navigate(`/superAdmin/platformSettings/SOSDetails/${id}`)
-        alert('navigate' + id)
+        navigate(`/security-company/dashboard/wallet/transactions/${id}`)
     }
 
     const trend: Array<Trend> = ['This Week', 'This Month', 'This Year']
@@ -160,8 +159,6 @@ function Wallet() {
         setSelectedTrend(item)
         setToggleMenu(false)
     }
-
-    
 
    
 

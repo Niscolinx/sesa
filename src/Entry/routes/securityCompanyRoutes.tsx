@@ -50,7 +50,7 @@ const securityCompanyRoutes = (
             element={<Wallet/>}
         />
         <Route
-            path='wallet/transactions'
+            path='wallet/transactions/:Id'
             element={<WalletTransactionDetails/>}
         />
     </Route>
