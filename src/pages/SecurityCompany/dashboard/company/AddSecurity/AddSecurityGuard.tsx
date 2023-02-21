@@ -30,6 +30,7 @@ const AddSecurityGuard = () => {
     const [selectedEstate2, setSelectedEstate2] = useState<string | null>(null)
     const [selectedEstate3, setSelectedEstate3] = useState<string | null>(null)
     const [selectedEstate4, setSelectedEstate4] = useState<string | null>(null)
+    const [isValidated, setIsValidated] = useState(false)
     const [selectedState, setSelectedState] = useState<string | null>(
         null as any
     )
@@ -124,7 +125,7 @@ const AddSecurityGuard = () => {
 
     
     const handleValidate = () => {
-        if (validationType === null) {
+        if (validationType === null) {}}
         
 
     return (
