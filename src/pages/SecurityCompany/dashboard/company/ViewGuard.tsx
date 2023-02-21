@@ -390,8 +390,10 @@ const ViewGuard = () => {
                                     Guard Code : <span>SG09897</span>
                                 </p>
                                 <p>
-                                    KYG Status <BsQuestionCircle />: {isValidated ? (<span>
-
+                                    KYG Status <BsQuestionCircle />: {isValidated ? (<span className='text-green-600' style={{
+                                        fontFamily: 'font-Light'
+                                    }}>
+                                        Validated
                                     </span>) : (<span></span>)}
                                 </p>
                             </div>
