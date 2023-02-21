@@ -1,10 +1,11 @@
 import React, { useState, useEffect, ChangeEvent } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
-import { GrDown } from 'react-icons/gr'
+import { GrDown, GrUp } from 'react-icons/gr'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { IoMdAdd } from 'react-icons/io'
 
 import { Link, useNavigate } from 'react-router-dom'
+import WalletBarChart from '../../../../components/SuperAdmin/charts/WalletBarChart'
 import OverviewCard from '../../../../components/SuperAdmin/overview/OverviewCard'
 import { OverviewWallet } from '../../../../components/SuperAdmin/overview/OverviewWallets'
 
@@ -42,6 +43,8 @@ export const HOUSEHOLD_LIST: Overview[] = [
         noOfSecurityGuards: 10,
     },
 ]
+type Trend = 'This Week' | 'This Month' | 'This Year'
+
 
 function Wallet() {
     const navigate = useNavigate()
@@ -154,6 +157,55 @@ function Wallet() {
         alert('navigate' + id)
     }
 
+const trend: Array<Trend> = ['This Week', 'This Month', 'This Year']
+
+const [togglResidentMenu, setTogglResidentMenu] = useState(false)
+const [selectedTrend, setSelectedTrend] = useState<Trend>('This Week')
+
+const menuToggler = () => setTogglResidentMenu(!togglResidentMenu)
+
+const handleSelectedTrend = (item: Trend) => {
+    setSelectedTrend(item)
+    setTogglResidentMenu(false)
+}
+
+    type Actions = 'View Details'
+
+    const actions = ['View Details'] satisfies Actions[]
+
+    const [toggleDropDown, setToggleDropDown] = useState<{
+        isDropDownOpen: boolean
+        index: number | null
+    }>({
+        isDropDownOpen: false,
+        index: null,
+    })
+
+    const dropDownHandler = (
+        e: React.ChangeEvent<HTMLInputElement>,
+        index: number
+    ) => {
+        setToggleDropDown(() => {
+            return {
+                isDropDownOpen: e.target.checked,
+                index,
+            }
+        })
+    }
+
+    const handleSelectedAction = (item: Actions, index: string) => {
+        setToggleDropDown(() => {
+            return {
+                isDropDownOpen: false,
+                index: null,
+            }
+        })
+
+        if (item === 'View Details') {
+            navigate(`/superAdmin/wallet/resident/:${index}`)
+        }
+    }
+
     return (
         <div className='estateDetail'>
             <h1 className='heading2'>Overview</h1>
@@ -171,33 +223,48 @@ function Wallet() {
                                 'repeat(auto-fit, minmax(30rem, 1fr))',
                         }}
                     >
-                        <OverviewCard
-                            title='Total Estates'
-                            number={18_000}
-                            iconUrl='/icons/securityCompany/totalEstates.svg'
-                            percent={5}
-                            arrow='/icons/securityCompany/arrowUp.svg'
-                            bgColor='bg-[#DDFCDC]'
-                            textColor='text-[#1A8F56]'
-                        />
-                        <OverviewCard
-                            title='Security Guard'
-                            number={1532}
-                            iconUrl='/icons/securityCompany/securityGuards.svg'
-                            percent={5}
-                            arrow='/icons/securityCompany/arrowUp.svg'
-                            bgColor='bg-[#F5F9FA]'
-                            textColor='text-[#00C2FF]'
-                        />
-                        <OverviewCard
-                            title='Assigned Security Guards'
-                            number={1200}
-                            iconUrl='/icons/securityCompany/AssignedSecurityGuards.svg'
-                            percent={5}
-                            arrow='/icons/securityCompany/arrowUp.svg'
-                            bgColor='bg-[#FCF3FA]'
-                            textColor='text-[#B6008E]'
-                        />
+                        <div className='border-l border-l-color-grey'>
+                            <div className='flex justify-between'>
+                                <p className='text-[1.6rem] font-bold p-8'>
+                                    Wallet Trend
+                                </p>
+
+                                <div className='relative grid gap-4'>
+                                    <div className='relative flex items-center w-[12rem]'>
+                                        <p
+                                            className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer'
+                                            onClick={menuToggler}
+                                        >
+                                            {selectedTrend}
+                                        </p>
+                                        {togglResidentMenu ? (
+                                            <GrUp className='absolute right-4' />
+                                        ) : (
+                                            <GrDown className='absolute right-4' />
+                                        )}
+                                    </div>
+
+                                    {togglResidentMenu && (
+                                        <div className='absolute top-[8rem]  left-0 border border-color-primary-light  bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
+                                            {trend.map((item, index) => (
+                                                <p
+                                                    className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
+                                                    key={index}
+                                                    onClick={() =>
+                                                        handleSelectedTrend(
+                                                            item
+                                                        )
+                                                    }
+                                                >
+                                                    {item}
+                                                </p>
+                                            ))}
+                                        </div>
+                                    )}
+                                </div>
+                            </div>
+                            <WalletBarChart />
+                        </div>
                     </div>
                     <div className='w-full grid justify-center'>
                         <OverviewWallet
