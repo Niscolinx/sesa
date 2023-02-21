@@ -366,6 +366,8 @@ const ViewGuard = () => {
             <main>
                 <section className='grid p-8 bg-white items-baseline rounded-lg'>
                     <div className='flex justify-between items-center'>
+                        <div>
+
                         <label
                             htmlFor='photoUpload'
                             className='grid gap-4 cursor-pointer justify-items-center'
@@ -387,6 +389,7 @@ const ViewGuard = () => {
                             className='hidden'
                             onClick={handlePhotoPreview}
                         />
+                        </div>
 
                         <div className='flex gap-8'>
                             <button
