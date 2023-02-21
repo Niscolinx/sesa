@@ -31,27 +31,7 @@ const NotificationSettings = () => {
         <>
             <ToastContainer />
             <div className=' p-8 bg-white h-[80vh] overflow-y-scroll rounded-lg'>
-                <figure className='grid text-center justify-start'>
-                    <input
-                        type='file'
-                        name='photoUpload'
-                        id='photoUpload'
-                        accept='image/*'
-                        className='hidden'
-                        onClick={handlePhotoPreview}
-                    />
-                    <img
-                        src={photoUrl ? photoUrl : '/img/me.jpeg'}
-                        alt='photoPreview'
-                        className='object-cover w-[11rem] h-[11rem] rounded-full object-top'
-                    />
-                    <label
-                        htmlFor='photoUpload'
-                        className='cursor-pointer text-color-blue-1 text-[1.6rem] text-center'
-                    >
-                        Edit
-                    </label>
-                </figure>
+                   
 
                 <form
                     onSubmit={handleSubmit}
