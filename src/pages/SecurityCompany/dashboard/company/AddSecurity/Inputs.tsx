@@ -142,10 +142,9 @@ export const International_PassPort = () => {
                    
                     <input
                         required
-                        type='date'
+                        type='text'
                         inputMode='numeric'
                         id='phoneNumber'
-                        placeholder='BVN (Number)'
                         className='w-full rounded-lg border border-color-grey py-4.8 px-8 outline-none text-color-dark'
                     />
                 </div>
