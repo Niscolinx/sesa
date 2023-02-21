@@ -433,17 +433,11 @@ function Wallet() {
 
                             <div className='grid bg-white'>
                                 <div className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-4 gap-8 text-[1.6rem]'>
-                                    <p className='flex items-center gap-4'>
-                                        <input
-                                            type='checkbox'
-                                            name='sos'
-                                            id='sos'
-                                            className='cursor-pointer'
-                                        />
-                                        <label htmlFor='sos'>Estate Name</label>
-                                    </p>
-                                    <p>Address</p>
-                                    <p>No of Security Guards</p>
+                                    <p>Date</p>
+                                    <p>Transaction Type</p>
+                                    <p>Transaction Category</p>
+                                    <p>Transaction ID</p>
+                                    <p>Narration</p>
                                     <p>Actions</p>
                                 </div>
 
