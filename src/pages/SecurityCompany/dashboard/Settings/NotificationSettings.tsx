@@ -47,7 +47,10 @@ const NotificationSettings = () => {
 
                 <section>
                         <div>
-                            
+                                <div>
+                                    <p>In-App</p>
+                                    <img src="/icons/admins/switchOn.svg" alt="" />
+                                </div>
                         </div>
                         
                     <p className='text-color-blue-1'>NB: A charge of N3 would be incured for this process</p>
