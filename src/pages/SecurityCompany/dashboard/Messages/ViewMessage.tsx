@@ -152,7 +152,7 @@ const ViewMessage = () => {
             </dialog>
             <main>
                 <h2 className='heading'>Messages</h2>
-                <section className='items-baseline rounded-lg py-10 mt-20'>
+                <section className=' py-10 mt-20'>
                     <div className='flex justify-end'>
                         <div className='flex gap-8'>
                             <button
@@ -170,7 +170,7 @@ const ViewMessage = () => {
                     </div>
                     <form
                         onSubmit={handleSubmit}
-                        className='grid max-w-[84rem] gap-16 mt-12'
+                        className=' max-w-[84rem] gap-16 mt-12 grid p-8 bg-white rounded-lg '
                         style={{
                             gridTemplateColumns:
                                 ' repeat(auto-fit, minmax(35rem, 1fr))',
