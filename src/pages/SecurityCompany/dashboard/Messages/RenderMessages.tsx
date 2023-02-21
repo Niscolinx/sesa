@@ -212,7 +212,7 @@ function RenderedMessages() {
                                     transmissionDate,
                                 }) => {
                                     return (
-                                        <div className='grid relative p-8 bg-white rounded-lg'>
+                                        <div className='grid relative p-8 bg-white rounded-lg gap-2'>
                                             <div className='flex items-center gap-2 absolute right-0 top-0 p-8'>
                                                 <p>Status:</p>
                                                 <p
@@ -309,10 +309,7 @@ function RenderedMessages() {
                                             </div>
                                             <div className='flex items-center gap-2'>
                                                 <p
-                                                    style={{
-                                                        fontFamily:
-                                                            'Satoshi-Medium',
-                                                    }}
+                                               
                                                     className='overflow-hidden text-ellipsis whitespace-nowrap '
                                                 >
                                                     {description}
