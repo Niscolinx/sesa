@@ -254,7 +254,7 @@ function RenderedMessages() {
                                                     {transmissionDate}
                                                 </p>
                                             </div>
-                                            <div className='flex items-center gap-2'>
+                                            <div className='flex items-center gap-2 w-[10rem]'>
                                                 <p>Recipients:</p>
                                                 <div
                                                     style={{
@@ -266,10 +266,10 @@ function RenderedMessages() {
                                                     {recipients.map(
                                                         (recipient, i) => (
                                                             <div
-                                                                className='flex gap-2'
+                                                                className='flex gap-2 items-center'
                                                                 key={i}
                                                             >
-                                                                <p>
+                                                                <p className='overflow-hidden text-ellipsis whitespace-nowrap '>
                                                                     {recipient}
                                                                     {i !==
                                                                         recipients.length -
@@ -279,7 +279,7 @@ function RenderedMessages() {
                                                             </div>
                                                         )
                                                     )}
-                                                    <span className='text-color-blue'>
+                                                    <span className='text-color-blue overflow-hidden text-ellipsis whitespace-nowrap '>
                                                         {' '}
                                                         + 20 others
                                                     </span>
@@ -307,11 +307,8 @@ function RenderedMessages() {
                                                     {subject}
                                                 </p>
                                             </div>
-                                            <div className='flex items-center gap-2'>
-                                                <p
-                                               
-                                                    className='overflow-hidden text-ellipsis whitespace-nowrap '
-                                                >
+                                            <div className='flex items-center gap-2 my-5'>
+                                                <p className='overflow-hidden text-ellipsis whitespace-nowrap '>
                                                     {description}
                                                 </p>
                                             </div>
