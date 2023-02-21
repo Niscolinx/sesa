@@ -417,7 +417,7 @@ function Wallet() {
                                 <WalletBarChart />
                             </div>
                     
-                        <div className='bg-white p-8 rounded-lg'>
+                        <div className='bg-white p-8 rounded-lg grid justify-center'>
                             <div className='grid items-end'>
                                 <OverviewWallet
                                     amount={160_847}
