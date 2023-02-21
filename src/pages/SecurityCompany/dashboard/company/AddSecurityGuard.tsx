@@ -521,7 +521,7 @@ const AddSecurityGuard = () => {
                         </button>
                     </form>
                 </div>
-                <section>
+                <div className='grid p-8 bg-white'>
                     <h2
                         className='text-[2rem] mb-10'
                         style={{
@@ -596,7 +596,7 @@ const AddSecurityGuard = () => {
                                 className='btn text-color-blue-1 '
                                 onClick={() => handleOpen('reassign')}
                             >
-                                Ressign
+                                Reassign
                             </button>
                         </div>
                         <div className=' items-center grid grid-cols-3'>
@@ -668,7 +668,7 @@ const AddSecurityGuard = () => {
                             </button>
                         </div>
                     </div>
-                </section>
+                </div>
             </main>
         </>
     )
