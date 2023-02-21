@@ -266,19 +266,31 @@ const handleSelectedTrend = (item: Trend) => {
                             <WalletBarChart />
                         </div>
                     </div>
-                    <div className='w-full grid justify-center'>
-                        <OverviewWallet
-                            amount={20_333_500.89}
-                            title={'Security Wallet'}
-                            isWalletScreen
-                            bgImgUri='/icons/overview/card/bgS.svg'
-                            lefIconUri='/icons/overview/card/leftS.svg'
-                            bgColor='bg-[#6AB95F]'
-                        />
-
-                        <button className='btn bg-green-700 text-white self-center rounded-lg'>
-                            Fund Wallet
-                        </button>
+                    <div className='grid self-stretch justify-start'>
+                        <div className='grid items-end'>
+                            <OverviewWallet
+                                amount={4_000_832}
+                                title={'Commission Wallet'}
+                                isWalletScreen
+                                bgImgUri='/icons/overview/card/bgC.svg'
+                                lefIconUri='/icons/overview/card/leftC.svg'
+                                bgColor='bg-[#333333]'
+                            />
+                        </div>
+                        <div className='flex justify-center mt-auto gap-4'>
+                            <button
+                                className='btn text-white bg-[#0556E5] border rounded-lg w-[15rem]'
+                                onClick={() => handleOpen('withdraw')}
+                            >
+                                Withdraw
+                            </button>
+                            <button
+                                className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
+                                onClick={() => handleOpen('request')}
+                            >
+                                Request
+                            </button>
+                        </div>
                     </div>
                 </section>
                 <section className='bg-color-white rounded-lg border min-w-[112rem]'>
