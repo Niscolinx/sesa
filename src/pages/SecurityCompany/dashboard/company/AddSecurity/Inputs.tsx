@@ -135,13 +135,11 @@ export const International_PassPort = () => {
                     htmlFor='phoneNumber'
                     className='text-[1.4rem] font-medium'
                 >
-                    Date of Birth
+                    Last Name
                 </label>
 
                 <div className='flex text-[1.6rem] gap-4 h-[5rem]'>
-                    <select className='w-[30%] rounded-lg border border-color-grey py-4.8 px-4 outline-none cursor-pointer text-color-dark relative h-full'>
-                        <option value='234'>+234</option>
-                    </select>
+                   
                     <input
                         required
                         type='date'
