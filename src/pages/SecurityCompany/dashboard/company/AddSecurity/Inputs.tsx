@@ -7,14 +7,7 @@ export const PhoneNumber = () => {
             <label htmlFor='phoneNumber' className='text-[1.4rem] font-medium'>
                 Phone Number
             </label>
-            <p
-                className='text-[#043FA7] flex items-center gap-2'
-                style={{
-                    fontFamily: 'Satoshi-Light',
-                }}
-            >
-                What is KYG <BsQuestionCircle />
-            </p>
+           
             <div className='flex text-[1.6rem] gap-4 h-[5rem]'>
                 <select className='w-[30%] rounded-lg border border-color-grey py-4.8 px-4 outline-none cursor-pointer text-color-dark relative h-full'>
                     <option value='234'>+234</option>
