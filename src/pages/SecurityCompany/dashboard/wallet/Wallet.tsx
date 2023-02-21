@@ -144,7 +144,7 @@ function Wallet() {
     }
 
     const detailsHandler = (id: number) => {
-        navigate(`/security-company/dashboard/wallet/transactions/${id}`)
+        navigate(`/securityCompany/dashboard/wallet/transactions/${id}`)
     }
 
     const trend: Array<Trend> = ['This Week', 'This Month', 'This Year']
