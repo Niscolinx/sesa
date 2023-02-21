@@ -1,6 +1,7 @@
 import { useRef } from 'react'
 import { useLocation } from 'react-router-dom'
 import { toast, ToastContainer } from 'react-toastify'
+import { Message } from './RenderMessages'
 
 
 const ViewMessage = () => {
@@ -17,7 +18,8 @@ const ViewMessage = () => {
         status,
         transmissionChannel,
         transmissionDate,
-    } = location.state
+        recipients
+    } = location.state satisfies Message
     
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 

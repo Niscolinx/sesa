@@ -209,6 +209,7 @@ function RenderedMessages() {
                                         status,
                                         transmissionChannel,
                                         transmissionDate,
+                                        recipients
                                     } = messageBody
                                     return (
                                         <div className='grid relative p-8 bg-white rounded-lg gap-2'>
