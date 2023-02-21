@@ -266,15 +266,7 @@ const ViewMessage = () => {
                                 </p>
                             </div>
 
-                            <Link
-                                to={`/securityCompany/messages/view/${id}`}
-                                className='text-color-blue'
-                                style={{
-                                    fontFamily: 'Satoshi-Medium',
-                                }}
-                            >
-                                View More Details
-                            </Link>
+                            
                         </div>
                     </div>
                 </section>
