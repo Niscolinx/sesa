@@ -2,6 +2,7 @@ import React, { ChangeEvent, useEffect, useState } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
 import { GrDown } from 'react-icons/gr'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
+import { IoMdAdd } from 'react-icons/io'
 import OverviewCard from '../../../../components/SuperAdmin/overview/OverviewCard'
 import { Overview } from '../SecurityCompanyOverview'
 
@@ -134,11 +135,16 @@ const CompanyHome = () => {
         })
     }
 
+
+    const handleAddSecurityGuard = () => {
+        console.log('add security guard')
+    }
+
     return (
         <div>
             <h1 className='heading2'>Security Company</h1>
-            <main>
-                <section className='bg-white rounded-lg p-8 grid text-[1.4rem]'>
+            <main className='mt-10 grid gap-9'>
+                <section className='bg-white rounded-lg p-8 grid text-[1.4rem] w-max'>
                     <div className='overview flex gap-8'>
                         <OverviewCard
                             title='Security Guard'
@@ -185,31 +191,22 @@ const CompanyHome = () => {
                                 </select>
                                 <GrDown className='absolute right-4 text-[1.3rem]' />
                             </div>
-                            <div className='relative flex items-center'>
-                                <select className=' cursor-pointer w-[18rem] rounded-lg border border-color-blue-light appearance-none outline-none p-4 bg-white'>
-                                    <option hidden value=''>
-                                        Start Date
-                                    </option>
-                                    <option value='date'>date</option>
-                                    <option value='alpha'>Alpha</option>
-                                </select>
-                                <GrDown className='absolute right-4 text-[1.3rem]' />
-                            </div>
-                            <div className='relative flex items-center'>
-                                <select className=' cursor-pointer w-[18rem] rounded-lg border border-color-blue-light appearance-none outline-none p-4 bg-white'>
-                                    <option hidden value=''>
-                                        End Date
-                                    </option>
-                                    <option value='date'>date</option>
-                                    <option value='alpha'>Alpha</option>
-                                </select>
-                                <GrDown className='absolute right-4 text-[1.3rem]' />
+                            <div>
+                                <button
+                                    className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
+                                    onClick={handleAddSecurityGuard}
+                                >
+                                    <span>
+                                        <IoMdAdd />
+                                    </span>{' '}
+                                    Add Security Guard
+                                </button>
                             </div>
                         </caption>
 
                         <div className='grid'>
                             <div
-                                className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-6 gap-8'
+                                className='grid justify-between text-color-dark-1 bg-gray-100 p-8 grid-cols-6 gap-8'
                                 style={{
                                     fontSize: '1.6rem',
                                 }}
