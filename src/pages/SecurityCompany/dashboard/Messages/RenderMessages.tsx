@@ -298,8 +298,8 @@ function RenderedMessages() {
                                                 </p>
                                             </div>
 
-                                            <p>
-                                                View More
+                                            <p className='text-color-blue'>
+                                                View More Details
                                             </p>
                                         </div>
                                     )
