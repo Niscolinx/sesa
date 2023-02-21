@@ -247,40 +247,41 @@ function RenderedMessages() {
                                                             <p>{recipient}{i !== recipients.length -1 && ','}</p>
                                                         </div>
                                                     ))}
-                                                    <span > + 20 others</span>
+                                                    <span className='text-color-blue'> + 20 others</span>
                                                 </div>
+                                               
                                             </div>
                                             <div className='flex items-center gap-2'>
-                                                <p>Date:</p>
+                                                <p>Transmission Channel:</p>
                                                 <p
                                                     style={{
                                                         fontFamily:
                                                             'Satoshi-Medium',
                                                     }}
                                                 >
-                                                    {date}
+                                                    {transmissionChannel}
                                                 </p>
                                             </div>
                                             <div className='flex items-center gap-2'>
-                                                <p>Date:</p>
+                                                <p>Subject:</p>
                                                 <p
                                                     style={{
                                                         fontFamily:
                                                             'Satoshi-Medium',
                                                     }}
                                                 >
-                                                    {date}
+                                                    {subject}
                                                 </p>
                                             </div>
                                             <div className='flex items-center gap-2'>
-                                                <p>Date:</p>
+                                               
                                                 <p
                                                     style={{
                                                         fontFamily:
                                                             'Satoshi-Medium',
                                                     }}
                                                 >
-                                                    {date}
+                                                    {description}
                                                 </p>
                                             </div>
                                         </div>
