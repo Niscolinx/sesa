@@ -741,7 +741,7 @@ const ViewGuard = () => {
                     >
                         Account Information
                     </h2>
-                    <div className='flex  justbet'>
+                    <div className='flex justify-between items-center'>
                         <div className='grid gap-4 relative '>
                             <label
                                 htmlFor='bankName'
