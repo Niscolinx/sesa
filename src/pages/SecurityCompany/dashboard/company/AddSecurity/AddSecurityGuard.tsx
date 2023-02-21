@@ -10,6 +10,7 @@ import {
 import { PhoneNumber } from './Inputs'
 
 type DialogType = 'validate' | 'add-security-guard' | 'reassign'
+type ValidateInputTypes = 'phoneNumber' | 'NIN-number' | 'BVN-number' | 'Drivers-Licence' | 'International-Passport' | 'Voters-Card'
 
 const AddSecurityGuard = () => {
     const [selectedEstate1, setSelectedEstate1] = useState<string | null>(null)
