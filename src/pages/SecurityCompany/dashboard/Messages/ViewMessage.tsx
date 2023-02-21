@@ -57,14 +57,14 @@ const ViewMessage = () => {
                                 <button
                                     className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
                                     onClick={() =>
-                                        handleCloseDeleteOrDeactivateDialog()
+                                        handleClose()
                                     }
                                 >
                                     Cancel
                                 </button>
                                 <button
                                     className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
-                                    onClick={handleDeleteSecurityGuard}
+                                    onClick={handleDeleteMessage}
                                 >
                                     Delete
                                 </button>
@@ -81,7 +81,7 @@ const ViewMessage = () => {
                             <button
                                 className='border border-red-600 px-16 py-4 flex items-center  rounded-lg gap-4'
                                 onClick={() =>
-                                    openDeleteOrDeactivateDialog('Delete')
+                                    handleOpen()
                                 }
                             >
                                 <img src='/icons/admins/delete.svg' alt='' />
