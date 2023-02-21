@@ -104,29 +104,28 @@ const ComposeMessage = () => {
                             ' repeat(auto-fit, minmax(35rem, 1fr))',
                     }}
                 >
-                    <div className='grid gap-4 relative '>
-                        <label
-                            htmlFor='securityCompany'
-                            className='text-[1.4rem] font-medium'
-                        >
-                            Security Company *
-                        </label>
-                        <input
-                            type='text'
-                            required
-                            id='securityCompany'
-                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                        />
-                    </div>
+                    <Select
+                        state={[
+                            'Channel 1',
+                            'Channel 2',
+                            'Channel 3',
+                            'Channel 4',
+                            'Channel 5',
+                        ]}
+                        label='Channel Type'
+                        selectedState={selectedChannelType}
+                        setSelectedState={setSelectedChannelType}
+                    />
+
                     <div className='grid gap-4 relative'>
                         <label
                             htmlFor='email'
                             className='text-[1.4rem] font-medium'
                         >
-                            Email Address *
+                            Message Subject 
                         </label>
                         <input
-                            type='email'
+                            type='text'
                             required
                             id='email'
                             className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
@@ -169,19 +168,6 @@ const ComposeMessage = () => {
                             className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                         />
                     </div>
-                    <Select
-                        state={[
-                            'Channel 1',
-                            'Channel 2',
-                            'Channel 3',
-                            'Channel 4',
-                            'Channel 5',
-                           
-                        ]}
-                        label='Channel Type'
-                        selectedState={selectedChannelType}
-                        setSelectedState={setSelectedChannelType}
-                    />
 
                     <button
                         className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
