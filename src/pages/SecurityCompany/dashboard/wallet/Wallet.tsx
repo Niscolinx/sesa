@@ -215,7 +215,7 @@ function Wallet() {
                                 fontFamily: 'Satoshi-Medium',
                             }}
                         >
-                            {isWithdrawal ? 'Withdrawal' : 'Request For Funds'}
+                            {isWithdrawal ? 'Withdrawal' : 'Fund Wallet'}
                         </h3>
 
                         {isWithdrawal ? (
@@ -260,7 +260,7 @@ function Wallet() {
                                     />
                                 </div>
 
-                                <button className='btn bg-[#0556E5] text-white rounded-lg py-4 place-self-start w-[15rem]' onClick={() => handleWithdrawal()}>
+                                <button className='btn bg-[#0556E5] text-white rounded-lg py-4 place-self-start w-[15rem]'>
                                     Withdraw
                                 </button>
                             </form>
