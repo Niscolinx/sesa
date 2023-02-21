@@ -3,15 +3,15 @@ import { IoMdAdd, IoMdClose } from 'react-icons/io'
 import { getPhotoUrl } from '../../../../utils/getPhotoUrl'
 import { BsQuestionCircle } from 'react-icons/bs'
 import { ToastContainer } from 'react-toastify'
-import { Select } from '../../UI/Select'
+import { Select } from '../../../../components/SuperAdmin/UI/Select'
 
 type DialogType = 'validate' | 'add-Artisan'
 
-const AddArtisan = () => {
+const AddSecurityGuard = () => {
     const [selectedState, setSelectedState] = useState<string | null>(null)
     const [selectedArtisan, setSelectedArtisan] = useState<string | null>(null)
     const [selectedGender, setSelectedGender] = useState<string | null>(null)
-    const [isAddArtisan, setIsAddArtisan] = useState(true)
+    const [isAddSecurityGuard, setIsAddSecurityGuard] = useState(true)
     const [validationType, setValidationType] = useState<string | null>(
         'Phone Number'
     )
@@ -51,9 +51,9 @@ const AddArtisan = () => {
     }
     const handleOpen = (modalState: DialogType) => {
         if (modalState === 'validate') {
-            setIsAddArtisan(true)
+            setIsAddSecurityGuard(true)
         } else {
-            setIsAddArtisan(false)
+            setIsAddSecurityGuard(false)
         }
 
         if (dialogRef.current) {
@@ -61,12 +61,12 @@ const AddArtisan = () => {
         }
     }
 
-    const addArtisanHandler = () => {
+    const addSecurityGuardHandler = () => {
         // navigate('/superAdmin/artisanCategory/add')
         handleOpen('add-Artisan')
     }
 
-    const confirmAddArtisan = () => {
+    const confirmAddSecurityGuard = () => {
         handleClose()
     }
 
@@ -176,7 +176,7 @@ const AddArtisan = () => {
                             onClick={() => handleClose()}
                         />
 
-                        {isAddArtisan ? (
+                        {isAddSecurityGuard ? (
                             <form
                                 className='grid gap-12 max-w-[40rem]'
                                 onSubmit={handleDialogSubmit}
@@ -251,7 +251,7 @@ const AddArtisan = () => {
                                     </button>
                                     <button
                                         className='bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
-                                        onClick={confirmAddArtisan}
+                                        onClick={confirmAddSecurityGuard}
                                     >
                                         Ok
                                     </button>
@@ -465,7 +465,7 @@ const AddArtisan = () => {
                     <button
                         className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
                         style={{ justifySelf: 'start' }}
-                        onClick={addArtisanHandler}
+                        onClick={addSecurityGuardHandler}
                     >
                         <span>
                             <IoMdAdd />
@@ -478,4 +478,4 @@ const AddArtisan = () => {
     )
 }
 
-export default AddArtisan
+export default AddSecurityGuard
