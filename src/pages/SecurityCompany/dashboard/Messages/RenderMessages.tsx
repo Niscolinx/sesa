@@ -314,6 +314,7 @@ function RenderedMessages() {
 
                                             <Link
                                             to={`/securityCompany/messages/view/${id}`}
+                                            
                                                 className='text-color-blue'
                                                 style={{
                                                     fontFamily:
