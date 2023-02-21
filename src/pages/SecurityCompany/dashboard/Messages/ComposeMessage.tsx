@@ -7,6 +7,7 @@ const ComposeMessage = () => {
     const [selectedChannelType, setSelectedChannelType] = useState<
         string | null
     >(null)
+    const [transmissionChannel, setTransmissionChannel] = useState<string | null>(null)
     const [isWarning, setIsWarning] = useState(true)
 
     const handleSubmit = (e: React.FormEvent) => {
@@ -153,20 +154,18 @@ const ComposeMessage = () => {
                             />
                         </div>
                     </div>
-                    <div className='grid gap-4 relative'>
-                        <label
-                            htmlFor='address'
-                            className='text-[1.4rem] font-medium'
-                        >
-                            Address *
-                        </label>
-                        <input
-                            type='text'
-                            required
-                            id='address'
-                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                        />
-                    </div>
+                    <Select
+                        state={[
+                            'Channel 1',
+                            'Channel 2',
+                            'Channel 3',
+                            'Channel 4',
+                            'Channel 5',
+                        ]}
+                        label='Transmission Channel'
+                        selectedState={transmissionChannel}
+                        setSelectedState={setTransmissionChannel}
+                    />
 
                     <button
                         className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
