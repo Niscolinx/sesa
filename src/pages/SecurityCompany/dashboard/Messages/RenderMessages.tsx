@@ -25,7 +25,11 @@ export const MESSAGE_LIST: Message[] = Array.from({ length: 10 }).map(
         id: i + 1,
         date: '19-May-2023',
         transmissionDate: '19-May-2023',
-        recipients: recipients
+        recipients,
+        transmissionChannel: `Channel ${i + 1}`,
+        subject: `Monday Workings`,
+        description: 'The report for the month of May is ready for review ',
+        status: Math.random() > 0.5 ? 'Sent' : 'Pending',
     })
 )
 
