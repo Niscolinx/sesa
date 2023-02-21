@@ -46,7 +46,9 @@ const NotificationSettings = () => {
                 </section>
 
                 <section>
-                    <p >NB: A charge of N3 would be incured for this process</p>
+
+                        
+                    <p className='text-color-blue-1'>NB: A charge of N3 would be incured for this process</p>
                 </section>
             </div>
         </>
