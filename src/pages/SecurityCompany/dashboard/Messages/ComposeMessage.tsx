@@ -178,13 +178,13 @@ const ComposeMessage = () => {
                             NB: SMS charges apply
                         </p>
                     </div>
-                    <div>
-                        <label className='text-[1.4rem] font-medium'>
-                          Message
+                    <div className='col-span-full'>
+                        <label className=' font-medium'>
+                            Message
                         </label>
                         <textarea
                             rows={5}
-                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4 col-span-full'
+                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4 '
                         />
                         <p
                             style={{
