@@ -154,9 +154,7 @@ const RecipientList = () => {
                 <section className='bg-color-white rounded-lg border min-w-[112rem] overflow-scroll'>
                     <div className='grid text-[1.6rem]'>
                         <caption className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
-                            <p className=' font-bold'>
-                                Security Guard List <span>(4)</span>
-                            </p>
+                            
                             <div className='relative flex items-center'>
                                 <img
                                     src='/icons/admins/search.svg'
@@ -187,7 +185,7 @@ const RecipientList = () => {
                                     <span>
                                         <IoMdAdd />
                                     </span>{' '}
-                                    Add Security Guard
+                                    Save Changes
                                 </button>
                             </div>
                         </caption>
