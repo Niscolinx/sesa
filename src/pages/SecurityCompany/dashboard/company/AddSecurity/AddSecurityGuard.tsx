@@ -236,14 +236,7 @@ const AddSecurityGuard = () => {
                                 >
                                     Know Your Guard (KYG)
                                 </h3>
-                                <p
-                                    className='text-[#043FA7] flex items-center gap-2'
-                                    style={{
-                                        fontFamily: 'Satoshi-Light',
-                                    }}
-                                >
-                                    What is KYG <BsQuestionCircle />
-                                </p>
+                               
                                 <Select
                                     state={[
                                         'Phone Number',
