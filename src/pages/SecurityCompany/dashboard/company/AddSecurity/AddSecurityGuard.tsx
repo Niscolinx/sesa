@@ -11,12 +11,12 @@ import { PhoneNumber } from './Inputs'
 
 type DialogType = 'validate' | 'add-security-guard' | 'reassign'
 export type ValidateInputTypes =
-    | 'phoneNumber'
-    | 'NIN-number'
-    | 'BVN-number'
-    | 'Drivers-Licence'
-    | 'International-Passport'
-    | 'Voters-Card'
+    | 'Phone Number'
+    | 'BVN Number'
+    | 'NIN Number'
+    | 'Drivers License'
+    | 'International Passport'
+    | 'Voters Card'
 
 const AddSecurityGuard = () => {
     const [selectedEstate1, setSelectedEstate1] = useState<string | null>(null)
@@ -105,8 +105,8 @@ const AddSecurityGuard = () => {
     }
 
     const renderValidationType = new Map([
-        ['phoneNumber', <PhoneNumber />],
-        ['NIN-number', <PhoneNumber />],
+        ['Phone Number', <PhoneNumber />],
+        ['NIN Number', <PhoneNumber />],
     ]) as Map<ValidateInputTypes, JSX.Element>
 
     useEffect(() => {
