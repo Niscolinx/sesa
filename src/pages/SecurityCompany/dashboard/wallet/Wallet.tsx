@@ -190,6 +190,10 @@ function Wallet() {
         }
     }
 
+    const handleWithdrawal = () => {
+        handleClose()
+    }
+
     const handleFormSubmit = (e: FormEvent) => {
         e.preventDefault()
     }
