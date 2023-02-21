@@ -23,11 +23,16 @@ const AddSecurityGuard = () => {
     const [selectedEstate2, setSelectedEstate2] = useState<string | null>(null)
     const [selectedEstate3, setSelectedEstate3] = useState<string | null>(null)
     const [selectedEstate4, setSelectedEstate4] = useState<string | null>(null)
-    const [selectedState, setSelectedState] = useState<string | null>(null)
-    const [selectedGender, setSelectedGender] = useState<string | null>(null)
+    const [selectedState, setSelectedState] = useState<string | null>(
+        null as any
+    )
+    const [selectedGender, setSelectedGender] = useState<string | null>(
+        null as any
+    )
     const [dialogState, setDialogState] = useState<DialogType>('validate')
-    const [validationType, setValidationType] =
-        useState<ValidateInputTypes>('phoneNumber')
+    const [validationType, setValidationType] = useState<
+        ValidateInputTypes | string | null
+    >('phoneNumber')
 
     const [photoUrl, setPhotoUrl] = useState('')
 
@@ -227,11 +232,14 @@ const AddSecurityGuard = () => {
                                         'Voters Card',
                                     ]}
                                     label='Validation Option'
+                                    validate
                                     selectedState={validationType}
                                     setSelectedState={setValidationType}
                                 />
 
-                                {renderValidationType.get(validationType)}
+                                {renderValidationType.get(
+                                    validationType as ValidateInputTypes
+                                )}
 
                                 <p
                                     className='text-[#043FA7] flex items-center gap-2'
