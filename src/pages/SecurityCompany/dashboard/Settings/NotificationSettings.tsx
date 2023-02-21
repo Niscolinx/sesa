@@ -32,89 +32,11 @@ const NotificationSettings = () => {
             <ToastContainer />
             <div className=' p-8 bg-white h-[80vh] overflow-y-scroll rounded-lg'>
                    
+                   <section>
+                    <p>Notification Settings</p>
+                   </section>
 
-                <form
-                    onSubmit={handleSubmit}
-                    className='grid max-w-[84rem] text-[1.6rem] mt-[5rem] gap-10'
-                    style={{
-                        gridTemplateColumns:
-                            ' repeat(auto-fit, minmax(35rem, 1fr))',
-                    }}
-                >
-                    <div>
-                        <label className='font-medium'>Current Password</label>
-                        <div className='relative flex items-center'>
-                            <input
-                                type={eyeIcon ? 'text' : 'password'}
-                                className='border pr-12 border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem]'
-                                name='password'
-                            />
-                            <span className='absolute right-2 cursor-pointer'>
-                                {eyeIcon ? (
-                                    <AiOutlineEyeInvisible
-                                        onClick={toggleEyeIcon}
-                                    />
-                                ) : (
-                                    <AiOutlineEye onClick={toggleEyeIcon} />
-                                )}
-                            </span>
-                        </div>
-                    </div>
-                    <div>
-                        <label className='font-medium'>New Password</label>
-                        <div className='relative flex items-center'>
-                            <input
-                                type={eyeIcon ? 'text' : 'password'}
-                                className='border pr-12 border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem]'
-                                name='password'
-                            />
-                            <span className='absolute right-2 cursor-pointer'>
-                                {eyeIcon ? (
-                                    <AiOutlineEyeInvisible
-                                        onClick={toggleEyeIcon}
-                                    />
-                                ) : (
-                                    <AiOutlineEye onClick={toggleEyeIcon} />
-                                )}
-                            </span>
-                        </div>
-                    </div>
-                    <div>
-                        <label className='font-medium'>
-                            Re-Enter New Password
-                        </label>
-                        <div className='relative flex items-center'>
-                            <input
-                                type={eyeIcon ? 'text' : 'password'}
-                                className='border pr-12 border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem]'
-                                name='password'
-                            />
-                            <span className='absolute right-2 cursor-pointer'>
-                                {eyeIcon ? (
-                                    <AiOutlineEyeInvisible
-                                        onClick={toggleEyeIcon}
-                                    />
-                                ) : (
-                                    <AiOutlineEye onClick={toggleEyeIcon} />
-                                )}
-                            </span>
-                        </div>
-                    </div>
-
-                    <button
-                        className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg col-span-full mt-[10rem]'
-                        style={{ justifySelf: 'start' }}
-                    >
-                        <span>
-                            <img
-                                src='/icons/admins/saveDisk.svg'
-                                alt=''
-                                className='w-[1.7rem] h-[1.7rem]'
-                            />
-                        </span>{' '}
-                        Save Changes
-                    </button>
-                </form>
+            
             </div>
         </>
     )
