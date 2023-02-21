@@ -510,7 +510,7 @@ const AddSecurityGuard = () => {
                             fontFamily: 'Satoshi-Medium',
                         }}
                     >
-                        Assigned Estate Details
+                        Assigned Estate
                     </h2>
                     <div className='grid gap-4'>
                         <div className=' items-center grid grid-cols-3'>
@@ -540,12 +540,7 @@ const AddSecurityGuard = () => {
                                 />
                             </div>
 
-                            <button
-                                className='btn text-color-blue-1 '
-                                onClick={() => handleOpen('reassign')}
-                            >
-                                Reassign
-                            </button>
+                            
                         </div>
                         <div className=' items-center grid grid-cols-3'>
                             <div>
@@ -574,12 +569,7 @@ const AddSecurityGuard = () => {
                                 />
                             </div>
 
-                            <button
-                                className='btn text-color-blue-1 '
-                                onClick={() => handleOpen('reassign')}
-                            >
-                                Reassign
-                            </button>
+                            
                         </div>
                         <div className=' items-center grid grid-cols-3'>
                             <div>
@@ -608,12 +598,7 @@ const AddSecurityGuard = () => {
                                 />
                             </div>
 
-                            <button
-                                className='btn text-color-blue-1 '
-                                onClick={() => handleOpen('reassign')}
-                            >
-                                Reassign
-                            </button>
+                            
                         </div>
                         <div className=' items-center grid grid-cols-3'>
                             <div>
@@ -642,12 +627,7 @@ const AddSecurityGuard = () => {
                                 />
                             </div>
 
-                            <button
-                                className='btn text-color-blue-1 '
-                                onClick={() => handleOpen('reassign')}
-                            >
-                                Reassign
-                            </button>
+                            
                         </div>
                     </div>
                     <button
@@ -658,7 +638,7 @@ const AddSecurityGuard = () => {
                         <span>
                             <IoMdAdd />
                         </span>{' '}
-                        save
+                        Add Security Guard
                     </button>
                 </section>
             </main>
