@@ -27,7 +27,6 @@ const AddSecurityGuard = () => {
         'Phone Number'
     )
 
-
     const [photoUrl, setPhotoUrl] = useState('')
 
     const handlePhotoPreview = async (
@@ -63,9 +62,10 @@ const AddSecurityGuard = () => {
     }
     const handleOpen = (modalState: DialogType) => {
         if (modalState === 'validate') {
-            setIsAddSecurityGuard(true)}
+            
+        }
         if(modalState === 'add-Security-guard')
-            setIsAddSecurityGuard(false)
+           
         }
 
         if (dialogRef.current) {
@@ -78,9 +78,7 @@ const AddSecurityGuard = () => {
         handleOpen('add-Security-guard')
     }
 
-    const confirmAddSecurityGuard = () => {
-        handleClose()
-    }
+    
 
     const handleDialogSubmit = (e: FormEvent) => {
         e.preventDefault()
@@ -197,7 +195,7 @@ const AddSecurityGuard = () => {
                             onClick={() => handleClose()}
                         />
 
-                        {dialogState === 'validate' ? (
+                        {dialogState === 'val' ? (
                             <form
                                 className='grid gap-12 max-w-[40rem]'
                                 onSubmit={handleDialogSubmit}
@@ -254,7 +252,7 @@ const AddSecurityGuard = () => {
                                     Validate
                                 </button>
                             </form>
-                        ) : (
+                        ) : dialogState === 'add-security-guard' ? (
                             <div className='bg-white rounded-2xl grid place-content-center justify-items-center h-[30rem] gap-8 text-[1.6rem]'>
                                 <img
                                     src='/icons/admins/modalSuccess.svg'
@@ -281,6 +279,33 @@ const AddSecurityGuard = () => {
                                     </button>
                                 </div>
                             </div>
+                        ): (
+                            <>
+                                <img
+                                    src='/icons/admins/modalDeactivate.svg'
+                                    alt=''
+                                />
+                                <p className='text-[1.6rem]'>
+                                    Are you sure you want to reassign this
+                                    security guard primary estate
+                                </p>
+
+                                <div className='flex w-full justify-center gap-8'>
+                                    <button
+                                        className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
+                                        onClick={() => handleClose()}
+                                    >
+                                        Cancel
+                                    </button>
+                                    <button
+                                        className=' bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
+                                        onClick={handleReAssign}
+                                    >
+                                        Yes
+                                    </button>
+                                </div>
+                            </>
+                        
                         )}
                     </div>
                 </section>
