@@ -10,7 +10,13 @@ import {
 import { PhoneNumber } from './Inputs'
 
 type DialogType = 'validate' | 'add-security-guard' | 'reassign'
-type ValidateInputTypes = 'phoneNumber' | 'NIN-number' | 'BVN-number' | 'Drivers-Licence' | 'International-Passport' | 'Voters-Card'
+type ValidateInputTypes =
+    | 'phoneNumber'
+    | 'NIN-number'
+    | 'BVN-number'
+    | 'Drivers-Licence'
+    | 'International-Passport'
+    | 'Voters-Card'
 
 const AddSecurityGuard = () => {
     const [selectedEstate1, setSelectedEstate1] = useState<string | null>(null)
@@ -93,6 +99,11 @@ const AddSecurityGuard = () => {
             className: 'bg-green-100 text-green-600 text-[1.4rem]',
         })
     }
+
+    const renderValidationType = new Map([
+        ['phoneNumber', <PhoneNumber />],
+        ['NIN-number', <PhoneNumber />],
+    ]) as Map<ValidateInputTypes, JSX.Element>
 
     return (
         <>
@@ -208,13 +219,20 @@ const AddSecurityGuard = () => {
                                 </h3>
 
                                 <Select
-                                    state={['Phone Number', 'BVN Number', 'NIN Number', 'Drivers License', 'International Passport', 'Voters Card']}
+                                    state={[
+                                        'Phone Number',
+                                        'BVN Number',
+                                        'NIN Number',
+                                        'Drivers License',
+                                        'International Passport',
+                                        'Voters Card',
+                                    ]}
                                     label='Validation Option'
                                     selectedState={validationType}
                                     setSelectedState={setValidationType}
                                 />
 
-                                <PhoneNumber/>
+                                <PhoneNumber />
 
                                 <p
                                     className='text-[#043FA7] flex items-center gap-2'
