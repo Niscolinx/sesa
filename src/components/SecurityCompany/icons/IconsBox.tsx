@@ -47,7 +47,7 @@ function IconsBox() {
           </li>
           
           <li className='iconsBox__list'>
-              <Link to='/securityCompany' className='fillIcon'>
+              <Link to='/securityCompany/settings' className='fillIcon'>
                   <SettingsSvg />
                   <span>Platform Settings</span>
               </Link>
