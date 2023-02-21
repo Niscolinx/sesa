@@ -32,13 +32,21 @@ const NotificationSettings = () => {
             <ToastContainer />
             <div className=' p-8 bg-white h-[80vh] overflow-y-scroll rounded-lg'>
                 <section>
-                    <p style={{
-                        fontFamily: 'Satoshi-Medium'
-                    }}>Notification Settings</p>
+                    <p
+                        style={{
+                            fontFamily: 'Satoshi-Medium',
+                        }}
+                    >
+                        Notification Settings
+                    </p>
                     <p>
                         Select method of notifying security guards when
                         assigning or reassigning occurs
                     </p>
+                </section>
+
+                <section>
+                    <p >NB: A charge of N3 would be incured for this process</p>
                 </section>
             </div>
         </>
