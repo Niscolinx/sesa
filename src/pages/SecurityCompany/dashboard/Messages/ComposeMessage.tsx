@@ -18,6 +18,7 @@ const ComposeMessage = () => {
     }
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
+    const recipient_List_DialogRef = useRef<HTMLDialogElement | null>(null)
 
     const handleClose = () => {
         if (dialogRef.current) {
