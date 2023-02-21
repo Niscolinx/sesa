@@ -17,6 +17,8 @@ import {
 } from './Inputs'
 
 type DialogType = 'validate' | 'add-security-guard' | 'reassign'
+
+export type AddedGuardSteps = 'addedSecuritySuccessful' | 'addBankAccount' | 'openedBankAccountSuccessful'
 export type ValidateInputTypes =
     | 'Phone Number'
     | 'BVN Number'
