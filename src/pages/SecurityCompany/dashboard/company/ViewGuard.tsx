@@ -10,7 +10,7 @@ import {
 
 type DialogType = 'validate' | 'add-security-guard' | 'reassign'
 
-const AddSecurityGuard = () => {
+const ViewGuard = () => {
     const [selectedEstate1, setSelectedEstate1] = useState<string | null>(null)
     const [selectedEstate2, setSelectedEstate2] = useState<string | null>(null)
     const [selectedEstate3, setSelectedEstate3] = useState<string | null>(null)
@@ -71,7 +71,7 @@ const AddSecurityGuard = () => {
         }
     }
 
-    const addSecurityGuardHandler = () => {
+    const viewGuardHandler = () => {
         // navigate('/superAdmin/Security GuardCategory/add')
         handleOpen('add-security-guard')
     }
@@ -305,7 +305,7 @@ const AddSecurityGuard = () => {
                     </div>
                 </section>
             </dialog>
-            <main className='h-[80vh] overflow-y-scroll'>
+            <main>
                 <section className='grid p-8 bg-white items-baseline rounded-lg'>
                     <div className='grid gap-8 max-w-[40rem]'>
                         <p className='text-[2rem] font-bold'>
@@ -653,7 +653,7 @@ const AddSecurityGuard = () => {
                     <button
                         className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg mt-32'
                         style={{ justifySelf: 'start' }}
-                        onClick={addSecurityGuardHandler}
+                        onClick={viewGuardHandler}
                     >
                         <span>
                             <IoMdAdd />
@@ -666,4 +666,4 @@ const AddSecurityGuard = () => {
     )
 }
 
-export default AddSecurityGuard
+export default ViewGuard
