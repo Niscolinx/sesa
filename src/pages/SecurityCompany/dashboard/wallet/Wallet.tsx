@@ -170,30 +170,9 @@ function Wallet() {
         setToggleMenu(false)
     }
 
+    
 
-    type Actions = 'View Details'
-
-    const actions = ['View Details'] satisfies Actions[]
-
-    const [toggleDropDown, setToggleDropDown] = useState<{
-        isDropDownOpen: boolean
-        index: number | null
-    }>({
-        isDropDownOpen: false,
-        index: null,
-    })
-
-    const dropDownHandler = (
-        e: React.ChangeEvent<HTMLInputElement>,
-        index: number
-    ) => {
-        setToggleDropDown(() => {
-            return {
-                isDropDownOpen: e.target.checked,
-                index,
-            }
-        })
-    }
+   
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
@@ -215,18 +194,7 @@ function Wallet() {
         }
     }
 
-    const handleSelectedAction = (item: Actions, index: string) => {
-        setToggleDropDown(() => {
-            return {
-                isDropDownOpen: false,
-                index: null,
-            }
-        })
-
-        if (item === 'View Details') {
-            navigate(`/superAdmin/wallet/commission/:${index}`)
-        }
-    }
+   
 
     const handleFormSubmit = (e: FormEvent) => {
         e.preventDefault()
