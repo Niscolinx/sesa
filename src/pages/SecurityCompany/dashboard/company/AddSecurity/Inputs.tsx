@@ -153,6 +153,7 @@ export const International_PassPort = () => {
     )
 }
 export const Voters_Card = () => {
+    const [selectedState, setSelectedState] = useState('Lagos' as string)
     return (
         <div className='grid gap-4'>
             <div>
