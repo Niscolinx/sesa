@@ -23,6 +23,7 @@ export interface TransactionHistory {
     narration: string
     amount: number
     time: string
+    date: string
     balance: number
 }
 
@@ -34,6 +35,7 @@ export const TRANSACTION_HISTORY: TransactionHistory[] = Array.from({length: 10}
     narration: '---',
     amount: 10000,
     time: '12:00pm',
+    date: '12-May-2023',
     balance: 100000,
 }))
 
@@ -450,9 +452,7 @@ function Wallet() {
                                             slicedPages[paginate.index].map(
                                                 ({
                                                     id,
-                                                    estateName,
-                                                    noOfSecurityGuards,
-                                                    address,
+                                                
                                                 }) => {
                                                     return (
                                                         <div className='grid justify-between border-b grid-cols-9 items-center gap-8 '>
