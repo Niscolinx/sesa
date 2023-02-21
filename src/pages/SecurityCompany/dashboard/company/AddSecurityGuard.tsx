@@ -3,23 +3,18 @@ import { IoMdAdd, IoMdClose } from 'react-icons/io'
 import { getPhotoUrl } from '../../../../utils/getPhotoUrl'
 import { BsQuestionCircle } from 'react-icons/bs'
 import { toast, ToastContainer } from 'react-toastify'
-import { ComplexSelect, Select } from '../../../../components/SuperAdmin/UI/Select'
+import {
+    ComplexSelect,
+    Select,
+} from '../../../../components/SuperAdmin/UI/Select'
 
 type DialogType = 'validate' | 'add-security-guard' | 'reassign'
 
 const AddSecurityGuard = () => {
-       const [selectedEstate1, setSelectedEstate1] = useState<string | null>(
-           null
-       )
-       const [selectedEstate2, setSelectedEstate2] = useState<string | null>(
-           null
-       )
-       const [selectedEstate3, setSelectedEstate3] = useState<string | null>(
-           null
-       )
-       const [selectedEstate4, setSelectedEstate4] = useState<string | null>(
-           null
-       )
+    const [selectedEstate1, setSelectedEstate1] = useState<string | null>(null)
+    const [selectedEstate2, setSelectedEstate2] = useState<string | null>(null)
+    const [selectedEstate3, setSelectedEstate3] = useState<string | null>(null)
+    const [selectedEstate4, setSelectedEstate4] = useState<string | null>(null)
     const [selectedState, setSelectedState] = useState<string | null>(null)
     const [selectedGender, setSelectedGender] = useState<string | null>(null)
     const [dialogState, setDialogState] = useState<DialogType>('validate')
@@ -64,10 +59,10 @@ const AddSecurityGuard = () => {
         if (modalState === 'validate') {
             setDialogState('validate')
         }
-        if(modalState === 'add-security-guard'){
+        if (modalState === 'add-security-guard') {
             setDialogState('add-security-guard')
         }
-        if(modalState === 'reassign'){
+        if (modalState === 'reassign') {
             setDialogState('reassign')
         }
 
@@ -81,8 +76,6 @@ const AddSecurityGuard = () => {
         handleOpen('add-security-guard')
     }
 
-    
-
     const handleDialogSubmit = (e: FormEvent) => {
         e.preventDefault()
         handleClose()
@@ -90,15 +83,15 @@ const AddSecurityGuard = () => {
         openValidateDialog()
     }
 
-     const handleReAssign = () => {
-         handleClose()
+    const handleReAssign = () => {
+        handleClose()
 
-         toast(' Reassigned successfully', {
-             type: 'success',
-             className: 'bg-green-100 text-green-600 text-[1.4rem]',
-         })
-     }
-     
+        toast(' Reassigned successfully', {
+            type: 'success',
+            className: 'bg-green-100 text-green-600 text-[1.4rem]',
+        })
+    }
+
     return (
         <>
             <ToastContainer />
@@ -283,7 +276,8 @@ const AddSecurityGuard = () => {
                                 </div>
                             </div>
                         ) : (
-                            <>
+                            <div className='bg-white rounded-2xl grid place-content-center justify-items-center h-[30rem] gap-8 text-[1.6rem]'>
+                                {' '}
                                 <img
                                     src='/icons/admins/modalDeactivate.svg'
                                     alt=''
@@ -292,7 +286,6 @@ const AddSecurityGuard = () => {
                                     Are you sure you want to reassign this
                                     security guard primary estate
                                 </p>
-
                                 <div className='flex w-full justify-center gap-8'>
                                     <button
                                         className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
@@ -307,7 +300,7 @@ const AddSecurityGuard = () => {
                                         Yes
                                     </button>
                                 </div>
-                            </>
+                            </div>
                         )}
                     </div>
                 </section>
@@ -508,17 +501,6 @@ const AddSecurityGuard = () => {
                                 </div>
                             )}
                         </div>
-
-                        <button
-                            className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
-                            style={{ justifySelf: 'start' }}
-                            onClick={addSecurityGuardHandler}
-                        >
-                            <span>
-                                <IoMdAdd />
-                            </span>{' '}
-                            Add Security Guard
-                        </button>
                     </form>
                 </section>
                 <section className='grid p-8 bg-white'>
@@ -668,11 +650,20 @@ const AddSecurityGuard = () => {
                             </button>
                         </div>
                     </div>
+                    <button
+                        className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg mt-32'
+                        style={{ justifySelf: 'start' }}
+                        onClick={addSecurityGuardHandler}
+                    >
+                        <span>
+                            <IoMdAdd />
+                        </span>{' '}
+                        Add Security Guard
+                    </button>
                 </section>
             </main>
         </>
     )
 }
-
 
 export default AddSecurityGuard
