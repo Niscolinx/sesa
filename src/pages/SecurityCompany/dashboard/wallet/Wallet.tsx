@@ -42,11 +42,11 @@ type Trend = 'This Week' | 'This Month' | 'This Year'
 function Wallet() {
     const navigate = useNavigate()
 
-    const [houseHoldList, setHouseHoldList] = useState<TransactionHistory[]>([])
+    const [transactionHistory, setTransactionHistory] = useState<TransactionHistory[]>([])
 
     useEffect(() => {
         setTimeout(() => {
-            setHouseHoldList(TRANSACTION_HISTORY)
+            setTransactionHistory(TRANSACTION_HISTORY)
         }, 1000)
     }, [])
 
@@ -55,7 +55,7 @@ function Wallet() {
         currentPage: number
         itemsPerPage: number
         totalPage: number
-        slicedPages: Overview[][] | null
+        slicedPages: TransactionHistory[][] | null
     }
 
     const itemsPerPageArr = [2, 4, 6, 8]
@@ -65,16 +65,16 @@ function Wallet() {
         index: 0,
         currentPage: 1,
         itemsPerPage: perPage,
-        totalPage: Math.ceil(houseHoldList.length / perPage),
+        totalPage: Math.ceil(transactionHistory.length / perPage),
         slicedPages: null,
     })
 
     const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
         const item = parseInt(e.target.value)
 
-        const slicedPages: Overview[][] = []
-        for (let i = 0; i < houseHoldList.length; i += item) {
-            slicedPages.push(houseHoldList.slice(i, i + item))
+        const slicedPages: TransactionHistory[][] = []
+        for (let i = 0; i < transactionHistory.length; i += item) {
+            slicedPages.push(transactionHistory.slice(i, i + item))
         }
 
         setPaginate((prev) => {
@@ -84,15 +84,15 @@ function Wallet() {
                 index: 0,
                 currentPage: 1,
                 slicedPages,
-                totalPage: Math.ceil(houseHoldList.length / item),
+                totalPage: Math.ceil(transactionHistory.length / item),
             }
         })
     }
 
     useEffect(() => {
-        const slicedPages: Overview[][] = []
-        for (let i = 0; i < houseHoldList.length; i += paginate.itemsPerPage) {
-            slicedPages.push(houseHoldList.slice(i, i + paginate.itemsPerPage))
+        const slicedPages: TransactionHistory[][] = []
+        for (let i = 0; i < transactionHistory.length; i += paginate.itemsPerPage) {
+            slicedPages.push(transactionHistory.slice(i, i + paginate.itemsPerPage))
         }
 
         setPaginate((prev) => {
@@ -100,11 +100,11 @@ function Wallet() {
                 ...prev,
                 slicedPages,
                 totalPage: Math.ceil(
-                    houseHoldList.length / paginate.itemsPerPage
+                    transactionHistory.length / paginate.itemsPerPage
                 ),
             }
         })
-    }, [houseHoldList])
+    }, [transactionHistory])
 
     const handleNext = () => {
         console.log(paginate.currentPage, paginate.totalPage)
