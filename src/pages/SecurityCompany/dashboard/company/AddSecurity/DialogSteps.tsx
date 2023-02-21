@@ -59,8 +59,8 @@ export const AddBankAccount = () => {
                 label='State'
                 state={['Lagos', 'Imo', 'Abia', 'FCT']}
                 placeholder='Select State'
-                selectedState={selectedState}
-                setSelectedState={setSelectedState}
+                selectedState={selectedBank}
+                setSelectedState={setSelectedBank}
             />
 
             <button
