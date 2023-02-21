@@ -78,7 +78,7 @@ export const AddBankAccount = () => {
     )
 }
 
-export const openedBankAccountSuccessful = () => {
+export const OpenedBankAccountSuccessful = () => {
     const { handleClose, selectedBank } = useContext(
         CreateAddedSecurityGuardContext
     )

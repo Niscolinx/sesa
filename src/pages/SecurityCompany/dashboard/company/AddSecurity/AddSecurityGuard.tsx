@@ -15,7 +15,7 @@ import {
     PhoneNumber,
     Voters_Card,
 } from './Inputs'
-import { AddedSecuritySuccessfully } from './DialogSteps'
+import { AddBankAccount, AddedSecuritySuccessfully, OpenedBankAccountSuccessful } from './DialogSteps'
 
 type DialogType = 'validate' | 'add-security-guard' | 'reassign'
 
@@ -150,8 +150,8 @@ const AddSecurityGuard = () => {
 
     const addedSecurityGuardSteps = new Map([
         ['addedSecuritySuccessful', <AddedSecuritySuccessfully />],
-        ['addBankAccount', <AddedSecuritySuccessfully />],
-        ['openedBankAccountSuccessful', <AddedSecuritySuccessfully />],
+        ['addBankAccount', <AddBankAccount />],
+        ['openedBankAccountSuccessful', <OpenedBankAccountSuccessful />],
     ])
 
     return (
