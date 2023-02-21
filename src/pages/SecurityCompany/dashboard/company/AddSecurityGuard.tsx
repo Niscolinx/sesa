@@ -305,8 +305,8 @@ const AddSecurityGuard = () => {
                     </div>
                 </section>
             </dialog>
-            <main>
-                <section className='grid p-8 bg-white h-[80vh] items-baseline overflow-y-scroll rounded-lg'>
+            <main className='h-[80vh] overflow-y-scroll'>
+                <section className='grid p-8 bg-white items-baseline rounded-lg'>
                     <div className='grid gap-8 max-w-[40rem]'>
                         <p className='text-[2rem] font-bold'>
                             KYG{' '}
