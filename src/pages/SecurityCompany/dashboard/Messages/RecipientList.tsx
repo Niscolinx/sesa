@@ -143,6 +143,8 @@ const RecipientList: FC<IRecipientList> = ({ closeRecipientListDialog }) => {
 
     const saveChangesHandler = () => {
         console.log('add security guard')
+
+        closeRecipientListDialog()
     }
 
     return (
