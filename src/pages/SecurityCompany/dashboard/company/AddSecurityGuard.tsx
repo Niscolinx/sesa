@@ -186,7 +186,7 @@ const AddSecurityGuard = () => {
                                         fontFamily: 'Satoshi-Medium',
                                     }}
                                 >
-                                    Know Your Security Guard (KYA)
+                                    Know Your Guard (KYG)
                                 </h3>
 
                                 <Select
