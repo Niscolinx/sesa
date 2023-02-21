@@ -363,7 +363,7 @@ const ViewGuard = () => {
             <main>
                 <section className='grid p-8 bg-white items-baseline rounded-lg'>
                     <div className='flex justify-between items-center'>
-                        <div>
+                        <div className='flex gap-8 items-center'>
                             <label
                                 htmlFor='photoUpload'
                                 className='grid gap-4 cursor-pointer justify-items-center'
@@ -400,8 +400,10 @@ const ViewGuard = () => {
                                         SG09897
                                     </span>
                                 </p>
-                                <p className='flex items-center gap-8'>
-                                    KYG Status <BsQuestionCircle />:{' '}
+                                <p className='flex items-center gap-4'>
+                                    <span className='flex items-center gap-2'>
+                                        KYG Status <BsQuestionCircle />:
+                                    </span>
                                     {isValidated ? (
                                         <span
                                             className='text-green-600'
@@ -422,9 +424,14 @@ const ViewGuard = () => {
                                         </span>
                                     )}
                                 </p>
-                                <p style={{
-                                    fontFamily: 'Satoshi-Medium'
-                                }} className='text-color-blue'>Click here to view results</p>
+                                <p
+                                    style={{
+                                        fontFamily: 'Satoshi-Medium',
+                                    }}
+                                    className='text-color-blue'
+                                >
+                                    Click here to view results
+                                </p>
                             </div>
                         </div>
 
