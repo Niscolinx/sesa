@@ -242,9 +242,9 @@ function RenderedMessages() {
                                                     }}
                                                     className='flex gap-2'
                                                 >
-                                                    {recipients.map((recipient, _) => (
-                                                        <div className='flex gap-2' key={_}>
-                                                            <p>{recipient}{}</p>
+                                                    {recipients.map((recipient, i) => (
+                                                        <div className='flex gap-2' key={i}>
+                                                            <p>{recipient}{i !== recipients.length -1 && ','}</p>
                                                         </div>
                                                     ))}
                                                 </div>
