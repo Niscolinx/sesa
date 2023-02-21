@@ -46,9 +46,9 @@ export const AddBankAccount = () => {
         useContext(CreateAddedSecurityGuardContext)
 
     return (
-        <div className='w-[40rem] grid justify-items-center gap-4'>
+        <div className='w-[40rem] grid justify-items-center gap-10'>
             <p
-                className='border-b'
+                className='border-b w-full text-left pb-2'
                 style={{
                     fontFamily: 'Satoshi-Medium',
                 }}
