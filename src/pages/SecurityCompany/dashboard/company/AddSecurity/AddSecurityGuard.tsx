@@ -260,6 +260,14 @@ const AddSecurityGuard = () => {
                                     setSelectedState={setValidationType}
                                 />
 
+                                <p
+                                    className='text-[#043FA7] flex items-center gap-2'
+                                    style={{
+                                        fontFamily: 'Satoshi-Light',
+                                    }}
+                                >
+                                    What is KYG <BsQuestionCircle />
+                                </p>
                                 {renderValidationType.get(
                                     validationType as ValidateInputTypes
                                 )}
