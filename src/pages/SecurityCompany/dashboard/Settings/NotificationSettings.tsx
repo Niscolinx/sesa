@@ -7,6 +7,9 @@ const NotificationSettings = () => {
     const [isInAppOn, setISInAppOn] = useState(true)
     const [isSmsOn, setIsSmsOn] = useState(false)
 
+    const toggleIsInAppOn = () => setISInAppOn(!isInAppOn)
+    const toggleIsSmsOn = () => setIsSmsOn(!isSmsOn)
+
     return (
         <>
             <ToastContainer />
