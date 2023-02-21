@@ -137,6 +137,13 @@ const ViewGuard = () => {
             <ToastContainer />
 
             <dialog className='dialog' ref={assignGuardRef}>
+                <section className='grid place-content-center w-full h-[100vh]'>
+                    <div className='bg-white rounded-2xl grid items-baseline w-[90rem] min-h-[30rem] p-10 text-[1.6rem] relative gap-20'>
+                        <IoMdClose
+                            className='absolute right-4 top-4 text-[2rem] cursor-pointer'
+                            onClick={() => closeValidatedDialog()}
+                        />
+
                 <img src='/icons/admins/modalDeactivate.svg' alt='' />
                 <p className='text-[1.6rem]'>
                     Are you sure you want to reassign this security guard
@@ -157,6 +164,8 @@ const ViewGuard = () => {
                         Yes
                     </button>
                 </div>
+                </div>
+                </section>
             </dialog>
 
             <dialog className='dialog' ref={validatedDialogRef}>
