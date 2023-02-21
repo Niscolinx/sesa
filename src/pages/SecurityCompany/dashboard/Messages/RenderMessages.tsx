@@ -36,12 +36,12 @@ export const MESSAGE_LIST: Message[] = Array.from({ length: 10 }).map(
 function RenderedMessages() {
     const navigate = useNavigate()
 
-    const [houseHoldList, setHouseHoldList] = useState<Overview[]>([])
+    const [messageList, setMessageList] = useState<Message[]>([])
     const [search, setSearch] = useState<string>('')
 
     useEffect(() => {
         setTimeout(() => {
-            setHouseHoldList(HOUSEHOLD_LIST)
+            setMessageList(MESSAGE_LIST)
         }, 1000)
     }, [])
 
@@ -50,7 +50,7 @@ function RenderedMessages() {
         currentPage: number
         itemsPerPage: number
         totalPage: number
-        slicedPages: Overview[][] | null
+        slicedPages: Message[][] | null
     }
 
     const itemsPerPageArr = [2, 4, 6, 8]
@@ -60,16 +60,16 @@ function RenderedMessages() {
         index: 0,
         currentPage: 1,
         itemsPerPage: perPage,
-        totalPage: Math.ceil(houseHoldList.length / perPage),
+        totalPage: Math.ceil(messageList.length / perPage),
         slicedPages: null,
     })
 
     const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
         const item = parseInt(e.target.value)
 
-        const slicedPages: Overview[][] = []
-        for (let i = 0; i < houseHoldList.length; i += item) {
-            slicedPages.push(houseHoldList.slice(i, i + item))
+        const slicedPages: Message[][] = []
+        for (let i = 0; i < messageList.length; i += item) {
+            slicedPages.push(messageList.slice(i, i + item))
         }
 
         setPaginate((prev) => {
@@ -79,15 +79,15 @@ function RenderedMessages() {
                 index: 0,
                 currentPage: 1,
                 slicedPages,
-                totalPage: Math.ceil(houseHoldList.length / item),
+                totalPage: Math.ceil(messageList.length / item),
             }
         })
     }
 
     useEffect(() => {
-        const slicedPages: Overview[][] = []
-        for (let i = 0; i < houseHoldList.length; i += paginate.itemsPerPage) {
-            slicedPages.push(houseHoldList.slice(i, i + paginate.itemsPerPage))
+        const slicedPages: Message[][] = []
+        for (let i = 0; i < messageList.length; i += paginate.itemsPerPage) {
+            slicedPages.push(messageList.slice(i, i + paginate.itemsPerPage))
         }
 
         setPaginate((prev) => {
@@ -95,11 +95,11 @@ function RenderedMessages() {
                 ...prev,
                 slicedPages,
                 totalPage: Math.ceil(
-                    houseHoldList.length / paginate.itemsPerPage
+                    messageList.length / paginate.itemsPerPage
                 ),
             }
         })
-    }, [houseHoldList])
+    }, [messageList])
 
     const handleNext = () => {
         console.log(paginate.currentPage, paginate.totalPage)
@@ -144,10 +144,10 @@ function RenderedMessages() {
         const { value } = e.target
         setSearch(value)
 
-        const filtered = HOUSEHOLD_LIST.filter((item) =>
+        const filtered = MESSAGE_LIST.filter((item) =>
             item.estateName.toLowerCase().includes(value.toLowerCase())
         )
-        setHouseHoldList([...filtered])
+        setMessageList([...filtered])
     }
 
     const composeMessageHandler = () => {
