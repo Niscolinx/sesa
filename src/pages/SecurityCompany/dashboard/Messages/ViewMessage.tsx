@@ -175,8 +175,107 @@ const ViewMessage = () => {
                                 ' repeat(auto-fit, minmax(35rem, 1fr))',
                         }}
                     >
-                       
-                    
+                        <div className='grid relative p-8 bg-white rounded-lg gap-2'>
+                            <div className='flex items-center gap-2 absolute right-0 top-0 p-8'>
+                                <p>Status:</p>
+                                <p
+                                    style={{
+                                        fontFamily: 'Satoshi-Medium',
+                                    }}
+                                >
+                                    {status === 'Sent' ? (
+                                        <span className='text-green-600'>
+                                            {status}
+                                        </span>
+                                    ) : (
+                                        <span className='text-orange-500'>
+                                            {status}
+                                        </span>
+                                    )}
+                                </p>
+                            </div>
+                            <div className='flex items-center gap-2'>
+                                <p>Date:</p>
+                                <p
+                                    style={{
+                                        fontFamily: 'Satoshi-Medium',
+                                    }}
+                                >
+                                    {date}
+                                </p>
+                            </div>
+                            <div className='flex items-center gap-2'>
+                                <p>Transmission Date:</p>
+                                <p
+                                    style={{
+                                        fontFamily: 'Satoshi-Medium',
+                                    }}
+                                >
+                                    {transmissionDate}
+                                </p>
+                            </div>
+                            <div className='flex items-center gap-2 max-w-[40rem] overflow-hidden text-ellipsis whitespace-nowrap'>
+                                <p>Recipients:</p>
+                                <div
+                                    style={{
+                                        fontFamily: 'Satoshi-Medium',
+                                    }}
+                                    className='flex gap-2'
+                                >
+                                    {recipients.map((recipient, i) => (
+                                        <div
+                                            className='flex gap-2 items-center  text-ellipsis whitespace-nowrap'
+                                            key={i}
+                                        >
+                                            <p className=''>
+                                                {recipient}
+                                                {i !== recipients.length - 1 &&
+                                                    ','}
+                                            </p>
+                                        </div>
+                                    ))}
+                                    <span className='text-color-blue '>
+                                        {' '}
+                                        + 20 others
+                                    </span>
+                                </div>
+                            </div>
+                            <div className='flex items-center gap-2'>
+                                <p>Transmission Channel:</p>
+                                <p
+                                    style={{
+                                        fontFamily: 'Satoshi-Medium',
+                                    }}
+                                >
+                                    {transmissionChannel}
+                                </p>
+                            </div>
+                            <div className='flex items-center gap-2'>
+                                <p>Subject:</p>
+                                <p
+                                    style={{
+                                        fontFamily: 'Satoshi-Medium',
+                                    }}
+                                >
+                                    {subject}
+                                </p>
+                            </div>
+                            <div className='flex items-center gap-2 my-5'>
+                                <p className='overflow-hidden text-ellipsis whitespace-nowrap '>
+                                    {description}
+                                </p>
+                            </div>
+
+                            <Link
+                                to={`/securityCompany/messages/view/${id}`}
+                                className='text-color-blue'
+                                style={{
+                                    fontFamily: 'Satoshi-Medium',
+                                }}
+                            >
+                                View More Details
+                            </Link>
+                        </div>
                     </div>
                 </section>
             </main>
