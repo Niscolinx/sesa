@@ -148,27 +148,8 @@ const RecipientList = () => {
         navigate(`/securityCompany/company-overview/viewGuard/${id}`)
     }
     return (
-        <div>
-            <h1 className='heading2'>Security Company</h1>
             <main className='mt-10 grid gap-9'>
-                <section className='bg-white rounded-lg p-8 grid text-[1.4rem] w-max'>
-                    <div className='overview flex gap-8'>
-                        <OverviewCard
-                            title='Security Guard'
-                            number={1532}
-                            iconUrl='/icons/securityCompany/securityGuards.svg'
-                            bgColor='bg-[#F5F9FA]'
-                            textColor='text-[#00C2FF]'
-                        />
-                        <OverviewCard
-                            title='Total Estates'
-                            number={18_000}
-                            iconUrl='/icons/securityCompany/totalEstates.svg'
-                            bgColor='bg-[#DDFCDC]'
-                            textColor='text-[#1A8F56]'
-                        />
-                    </div>
-                </section>
+               
 
                 <section className='bg-color-white rounded-lg border min-w-[112rem] overflow-scroll'>
                     <div className='grid text-[1.6rem]'>
@@ -372,7 +353,7 @@ const RecipientList = () => {
                     </div>{' '}
                 </section>
             </main>
-        </div>
+      
     )
 }
 
