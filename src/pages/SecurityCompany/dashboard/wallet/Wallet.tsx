@@ -332,6 +332,11 @@ function Wallet() {
                                         <input
                                             type='date'
                                             required
+                                            min={
+                                                new Date()
+                                                    .toISOString()
+                                                    .split('T')[0]
+                                            }
                                             id='description'
                                             className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem]'
                                         />
