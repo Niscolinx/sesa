@@ -3,7 +3,6 @@ import { useLocation } from 'react-router-dom'
 import { toast, ToastContainer } from 'react-toastify'
 import { Message } from './RenderMessages'
 
-
 const ViewMessage = () => {
     let location = useLocation()
     location.state
@@ -18,9 +17,9 @@ const ViewMessage = () => {
         status,
         transmissionChannel,
         transmissionDate,
-        recipients
+        recipients,
     } = location.state as Message
-    
+
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
     const handleClose = () => {
