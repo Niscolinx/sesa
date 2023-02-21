@@ -135,9 +135,7 @@ function RenderedMessages() {
         })
     }
 
-    const detailsHandler = (id: number) => {
-        navigate(`/securityCompany/estates/detail/:${id}`)
-    }
+   
 
     const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
         const { value } = e.target
