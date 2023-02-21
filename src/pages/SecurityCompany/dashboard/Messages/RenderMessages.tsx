@@ -242,14 +242,27 @@ function RenderedMessages() {
                                                     }}
                                                     className='flex gap-2'
                                                 >
-                                                    {recipients.map((recipient, i) => (
-                                                        <div className='flex gap-2' key={i}>
-                                                            <p>{recipient}{i !== recipients.length -1 && ','}</p>
-                                                        </div>
-                                                    ))}
-                                                    <span className='text-color-blue'> + 20 others</span>
+                                                    {recipients.map(
+                                                        (recipient, i) => (
+                                                            <div
+                                                                className='flex gap-2'
+                                                                key={i}
+                                                            >
+                                                                <p>
+                                                                    {recipient}
+                                                                    {i !==
+                                                                        recipients.length -
+                                                                            1 &&
+                                                                        ','}
+                                                                </p>
+                                                            </div>
+                                                        )
+                                                    )}
+                                                    <span className='text-color-blue'>
+                                                        {' '}
+                                                        + 20 others
+                                                    </span>
                                                 </div>
-                                               
                                             </div>
                                             <div className='flex items-center gap-2'>
                                                 <p>Transmission Channel:</p>
@@ -274,12 +287,12 @@ function RenderedMessages() {
                                                 </p>
                                             </div>
                                             <div className='flex items-center gap-2'>
-                                               
                                                 <p
                                                     style={{
                                                         fontFamily:
                                                             'Satoshi-Medium',
                                                     }}
+                                                    className='overflow-hidden text-ellipsis whitespace-nowrap'
                                                 >
                                                     {description}
                                                 </p>
