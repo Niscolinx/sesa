@@ -112,7 +112,7 @@ const ViewGuard = () => {
     const handleDeleteSecurityGuard = () => {
         handleCloseDeleteOrDeactivateDialog()
 
-        toast('Artisan deleted successfully', {
+        toast('Security Guard deleted successfully', {
             type: 'error',
             className: 'bg-red-100 text-red-600 text-[1.4rem]',
         })
@@ -120,7 +120,7 @@ const ViewGuard = () => {
     const handleDeactivateSecurityGuard = () => {
         handleCloseDeleteOrDeactivateDialog()
 
-        toast('Artisan deactivated successfully', {
+        toast('Security Guard deactivated successfully', {
             type: 'error',
             className: 'bg-red-100 text-red-600 text-[1.4rem]',
         })
