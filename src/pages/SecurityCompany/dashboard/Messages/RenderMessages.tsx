@@ -241,7 +241,11 @@ function RenderedMessages() {
                                                             'Satoshi-Medium',
                                                     }}
                                                 >
-                                                    {date}
+                                                    {recipients.map((recipient, _) => (
+                                                        <div className='flex gap-2' key={_}>
+
+                                                        </div>
+                                                    ))}
                                                 </p>
                                             </div>
                                             <div className='flex items-center gap-2'>
