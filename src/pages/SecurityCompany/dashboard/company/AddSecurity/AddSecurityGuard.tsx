@@ -36,6 +36,8 @@ interface AddedSecurityGuardContext {
     setAddedSecurityGuardStep: React.Dispatch<
         React.SetStateAction<AddedSecurityGuardSteps>
     >
+    selectedBank: string | null
+    setSelectedBank: React.Dispatch<React.SetStateAction<string | null>>
     handleClose: () => void
 }
 
@@ -59,6 +61,7 @@ const AddSecurityGuard = () => {
         ValidateInputTypes | string | null
     >('Phone Number')
 
+    const [selectedBank, setSelectedBank] = useState<null | string>(null)
     const [addedSecurityGuardStep, setAddedSecurityGuardStep] =
         useState<AddedSecurityGuardSteps>('addedSecuritySuccessful')
 
@@ -157,6 +160,8 @@ const AddSecurityGuard = () => {
                 addedSecurityGuardStep,
                 setAddedSecurityGuardStep,
                 handleClose,
+                selectedBank,
+                setSelectedBank
             }}
         >
             <ToastContainer />
