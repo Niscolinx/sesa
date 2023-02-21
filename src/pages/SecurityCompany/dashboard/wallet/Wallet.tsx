@@ -432,12 +432,15 @@ function Wallet() {
                             </div>
 
                             <div className='grid bg-white'>
-                                <div className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-4 gap-8 text-[1.6rem]'>
+                                <div className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-9 gap-8 text-[1.4rem]'>
                                     <p>Date</p>
                                     <p>Transaction Type</p>
                                     <p>Transaction Category</p>
                                     <p>Transaction ID</p>
                                     <p>Narration</p>
+                                    <p>Amount</p>
+                                    <p>Time</p>
+                                    <p>Balance</p>
                                     <p>Actions</p>
                                 </div>
 
@@ -452,7 +455,7 @@ function Wallet() {
                                                     address,
                                                 }) => {
                                                     return (
-                                                        <div className='grid justify-between border-b grid-cols-4 items-center gap-8 '>
+                                                        <div className='grid justify-between border-b grid-cols-9 items-center gap-8 '>
                                                             <p className='flex items-center gap-4'>
                                                                 <input
                                                                     type='checkbox'
