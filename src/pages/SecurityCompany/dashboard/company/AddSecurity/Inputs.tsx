@@ -116,7 +116,7 @@ export const International_PassPort = () => {
                     htmlFor='phoneNumber'
                     className='text-[1.4rem] font-medium'
                 >
-                    Int`l Passport (Number)
+                    Int'l Passport (Number)
                 </label>
 
                 <div className='flex text-[1.6rem] gap-4 h-[5rem]'>
@@ -149,6 +149,55 @@ export const International_PassPort = () => {
                     />
                 </div>
             </div>
+        </div>
+    )
+}
+export const Voters_Card = () => {
+    return (
+        <div className='grid gap-4'>
+            <div>
+                <label
+                    htmlFor='phoneNumber'
+                    className='text-[1.4rem] font-medium'
+                >
+                    Voter's Card Number
+                </label>
+
+                <div className='flex text-[1.6rem] gap-4 h-[5rem]'>
+                    <input
+                        required
+                        type='number'
+                        inputMode='numeric'
+                        id='phoneNumber'
+                        className='w-full rounded-lg border border-color-grey py-4.8 px-8 outline-none text-color-dark'
+                    />
+                </div>
+            </div>
+            <div>
+                <label
+                    htmlFor='phoneNumber'
+                    className='text-[1.4rem] font-medium'
+                >
+                    Last Name
+                </label>
+
+                <div className='flex text-[1.6rem] gap-4 h-[5rem]'>
+                    <input
+                        required
+                        type='text'
+                        inputMode='numeric'
+                        id='phoneNumber'
+                        className='w-full rounded-lg border border-color-grey py-4.8 px-8 outline-none text-color-dark'
+                    />
+                </div>
+            </div>
+            <Select
+                label='State'
+                state={['Lagos', 'Imo', 'Abia', 'FCT']}
+                placeholder='Select State'
+                selectedState={selectedState}
+                setSelectedState={setSelectedState}
+            />
         </div>
     )
 }
