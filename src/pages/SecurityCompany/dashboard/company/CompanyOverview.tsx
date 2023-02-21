@@ -11,7 +11,9 @@ interface AttendanceReport {
     guardCode: number
     guardName: string
     phoneNumber: string
-    
+    assignedEstate: string
+    status: 'Active' | 'Deactivated'
+    kys: 'Validated' | 'Not Validated'
 }
 
 const ATTENDANCE_REPORT_DATA: AttendanceReport[] = Array.from({
@@ -19,11 +21,11 @@ const ATTENDANCE_REPORT_DATA: AttendanceReport[] = Array.from({
 }).map((_, i) => ({
     id: i,
     guardName: 'John Doe',
-    date: '12-May-2023',
     phoneNumber: '+2347024954270',
     guardCode: Math.floor(Math.random() * 3000 + 1000),
-    clockInCount: Math.floor(Math.random() * 10 + 1),
-    clockOutCount: Math.floor(Math.random() * 10 + 1),
+    assignedEstate: 'Estate 1',
+    status: Math.random() > 0.5 ? 'Active' : 'Deactivated',
+    kys: Math.random() > 0.5 ? 'Validated' : 'Not Validated',
 }))
 
 const CompanyHome = () => {
