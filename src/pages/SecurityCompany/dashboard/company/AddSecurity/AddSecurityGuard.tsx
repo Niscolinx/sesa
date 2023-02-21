@@ -1,12 +1,13 @@
 import React, { FormEvent, useRef, useState } from 'react'
 import { IoMdAdd, IoMdClose } from 'react-icons/io'
-import { getPhotoUrl } from '../../../../utils/getPhotoUrl'
+import { getPhotoUrl } from '../../../../../utils/getPhotoUrl'
 import { BsQuestionCircle } from 'react-icons/bs'
 import { toast, ToastContainer } from 'react-toastify'
 import {
     ComplexSelect,
     Select,
-} from '../../../../components/SuperAdmin/UI/Select'
+} from '../../../../../components/SuperAdmin/UI/Select'
+import { PhoneNumber } from './Inputs'
 
 type DialogType = 'validate' | 'add-security-guard' | 'reassign'
 
@@ -212,28 +213,7 @@ const AddSecurityGuard = () => {
                                     setSelectedState={setValidationType}
                                 />
 
-                                <div className='grid gap-4'>
-                                    <label
-                                        htmlFor='phoneNumber'
-                                        className='text-[1.4rem] font-medium'
-                                    >
-                                        Phone Number
-                                    </label>
-
-                                    <div className='flex text-[1.6rem] gap-4 h-[5rem]'>
-                                        <select className='w-[30%] rounded-lg border border-color-grey py-4.8 px-4 outline-none cursor-pointer text-color-dark relative h-full'>
-                                            <option value='234'>+234</option>
-                                        </select>
-                                        <input
-                                            required
-                                            type='number'
-                                            inputMode='numeric'
-                                            id='phoneNumber'
-                                            placeholder='Phone Number'
-                                            className='w-full rounded-lg border border-color-grey py-4.8 px-8 outline-none text-color-dark'
-                                        />
-                                    </div>
-                                </div>
+                                <PhoneNumber/>
 
                                 <p
                                     className='text-[#043FA7] flex items-center gap-2'
@@ -241,7 +221,7 @@ const AddSecurityGuard = () => {
                                         fontFamily: 'Satoshi-Light',
                                     }}
                                 >
-                                    What is KYS <BsQuestionCircle />
+                                    What is KYG <BsQuestionCircle />
                                 </p>
 
                                 <button className='btn bg-[#0556E5] text-white rounded-lg py-4 place-self-start w-[15rem]'>
@@ -539,8 +519,6 @@ const AddSecurityGuard = () => {
                                     setSelectedState={setSelectedEstate1}
                                 />
                             </div>
-
-                            
                         </div>
                         <div className=' items-center grid grid-cols-3'>
                             <div>
@@ -568,8 +546,6 @@ const AddSecurityGuard = () => {
                                     setSelectedState={setSelectedEstate2}
                                 />
                             </div>
-
-                            
                         </div>
                         <div className=' items-center grid grid-cols-3'>
                             <div>
@@ -597,8 +573,6 @@ const AddSecurityGuard = () => {
                                     setSelectedState={setSelectedEstate3}
                                 />
                             </div>
-
-                            
                         </div>
                         <div className=' items-center grid grid-cols-3'>
                             <div>
@@ -626,8 +600,6 @@ const AddSecurityGuard = () => {
                                     setSelectedState={setSelectedEstate4}
                                 />
                             </div>
-
-                            
                         </div>
                     </div>
                     <button
