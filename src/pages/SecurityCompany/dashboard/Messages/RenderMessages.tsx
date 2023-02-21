@@ -310,7 +310,7 @@ function RenderedMessages() {
                                             </p>
                                         </div>
                                         <div className='flex items-center gap-2 my-5'>
-                                            <p className='overflow-hidden text-ellipsis whitespace-nowrap '>
+                                            <p className='overflow-hidden text-ellipsis whitespace-nowrap max-w-[40rem] '>
                                                 {description}
                                             </p>
                                         </div>
