@@ -1,4 +1,4 @@
-import React, { FormEvent, useRef, useState } from 'react'
+import React, { FormEvent, useEffect, useRef, useState } from 'react'
 import { IoMdAdd, IoMdClose } from 'react-icons/io'
 import { getPhotoUrl } from '../../../../../utils/getPhotoUrl'
 import { BsQuestionCircle } from 'react-icons/bs'
@@ -108,6 +108,10 @@ const AddSecurityGuard = () => {
         ['phoneNumber', <PhoneNumber />],
         ['NIN-number', <PhoneNumber />],
     ]) as Map<ValidateInputTypes, JSX.Element>
+
+    useEffect(() => {
+        console.log({ validationType })
+    }, [validationType])
 
     return (
         <>
