@@ -118,9 +118,9 @@ export const OpenedBankAccountSuccessful = () => {
                     Ajayi Suileman Adeyemi
                 </p>
             </div>
-            <div className='flex w-full justify-center gap-8'>
+            <div className='flex w-full justify-center gap-8 w-full'>
                 <button
-                    className='bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[20rem]'
+                    className='bg-[#0556E5] py-6 px-12 text-white text-[1.6rem] rounded-lg w-[20rem]'
                     onClick={() => closeSteps()}
                 >
                     Ok
