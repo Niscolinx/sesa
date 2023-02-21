@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react'
 import { GrDown, GrUp } from 'react-icons/gr'
 import { IoMdAdd } from 'react-icons/io'
 import { Select } from '../../../../components/SuperAdmin/UI/Select'
+import RecipientList from './RecipientList'
 
 const ComposeMessage = () => {
     const [selectedChannelType, setSelectedChannelType] = useState<
@@ -115,55 +116,7 @@ const ComposeMessage = () => {
             <dialog className='dialog' ref={recipient_List_DialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8 text-[1.6rem]'>
-                        {isWarning ? (
-                            <img src='/icons/admins/modalWarning.svg' alt='' />
-                        ) : (
-                            <img src='/icons/admins/modalSuccess.svg' alt='' />
-                        )}
-
-                        {isWarning ? (
-                            <p>
-                                Are you sure you want to deactivate this
-                                security company?
-                            </p>
-                        ) : (
-                            <p>
-                                You have successfully added a security Company
-                            </p>
-                        )}
-
-                        <div className='flex w-full justify-center gap-8'>
-                            {isWarning ? (
-                                <button
-                                    className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
-                                    onClick={() => handleClose()}
-                                >
-                                    Cancel
-                                </button>
-                            ) : (
-                                <button
-                                    className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
-                                    onClick={() => handleClose()}
-                                >
-                                    View Details
-                                </button>
-                            )}
-                            {isWarning ? (
-                                <button
-                                    className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
-                                    onClick={confirmDeactivation}
-                                >
-                                    Deactivate
-                                </button>
-                            ) : (
-                                <button
-                                    className='btn text-white bg-[#0556E5] border rounded-lg w-[15rem]'
-                                    onClick={() => handleClose()}
-                                >
-                                    View Details
-                                </button>
-                            )}
-                        </div>
+                        <RecipientList/>
                     </div>
                 </section>
             </dialog>
@@ -252,7 +205,7 @@ const ComposeMessage = () => {
                         <button
                             className='btn border border-color-blue-1 text-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
                             style={{ justifySelf: 'start' }}
-                            onClick={() => handleOpen('success')}
+                            onClick={() => openRecipientListDialog()}
                         >
                             
                             View Receipt List
