@@ -5,23 +5,10 @@ import { toast, ToastContainer } from 'react-toastify'
 
 type Actions = 'Deactivate' | 'Delete'
 
-export type ValidateInputTypes =
-    | 'Phone Number'
-    | 'BVN Number'
-    | 'NIN Number'
-    | 'Drivers License'
-    | 'International Passport'
-    | 'Voters Card'
+
 
 const ViewMessage = () => {
-    const [selectedEstate1, setSelectedEstate1] = useState<string | null>(null)
-    const [selectedEstate2, setSelectedEstate2] = useState<string | null>(null)
-    const [selectedEstate3, setSelectedEstate3] = useState<string | null>(null)
-    const [selectedEstate4, setSelectedEstate4] = useState<string | null>(null)
-    const [selectedState, setSelectedState] = useState<string | null>(null)
-    const [selectedGender, setSelectedGender] = useState<string | null>(null)
-    const [isAccountCreated, setIsAccountCreated] = useState(true)
-    const [isValidated, setIsValidated] = useState(false)
+ 
 
     const [photoUrl, setPhotoUrl] = useState('')
 
