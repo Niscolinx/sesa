@@ -338,7 +338,7 @@ const AddSecurityGuard = () => {
                             <span className='text-gray-500'>(Optional)</span>
                         </p>
 
-                        {isValidated ? (
+                        {!isValidated ? (
                             <div className='flex justify-between text-[1.6rem]'>
                                 <p
                                     className='text-[#098DFF] cursor-pointer'
@@ -347,12 +347,12 @@ const AddSecurityGuard = () => {
                                     Validated <IoMdCheckmarkCircleOutline />
                                 </p>
                                 <p
-                                    className='text-[#043FA7] flex items-center gap-2'
+                                    className='text-green-600 flex items-center gap-2'
                                     style={{
                                         fontFamily: 'Satoshi-Light',
                                     }}
                                 >
-                                    What is KYG <BsQuestionCircle />
+                                    View Results <BsQuestionCircle />
                                 </p>
                             </div>
                         ) : (
