@@ -1,4 +1,10 @@
-import React, { useState, useEffect, ChangeEvent, FormEvent, useRef } from 'react'
+import React, {
+    useState,
+    useEffect,
+    ChangeEvent,
+    FormEvent,
+    useRef,
+} from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
 import { GrDown, GrUp } from 'react-icons/gr'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
@@ -8,7 +14,6 @@ import { Link, useNavigate } from 'react-router-dom'
 import WalletBarChart from '../../../../components/SuperAdmin/charts/WalletBarChart'
 import OverviewCard from '../../../../components/SuperAdmin/overview/OverviewCard'
 import { OverviewWallet } from '../../../../components/SuperAdmin/overview/OverviewWallets'
-
 
 export interface Overview {
     id: number
@@ -44,7 +49,6 @@ export const HOUSEHOLD_LIST: Overview[] = [
     },
 ]
 type Trend = 'This Week' | 'This Month' | 'This Year'
-
 
 function Wallet() {
     const navigate = useNavigate()
@@ -148,25 +152,33 @@ function Wallet() {
         })
     }
 
-
     const detailsHandler = (id: number) => {
         // navigate(`/superAdmin/platformSettings/SOSDetails/${id}`)
         alert('navigate' + id)
     }
 
-const trend: Array<Trend> = ['This Week', 'This Month', 'This Year']
+    const trend: Array<Trend> = ['This Week', 'This Month', 'This Year']
 
-const [togglResidentMenu, setTogglResidentMenu] = useState(false)
-const [selectedTrend, setSelectedTrend] = useState<Trend>('This Week')
+    const [togglResidentMenu, setTogglResidentMenu] = useState(false)
+    const [selectedTrend, setSelectedTrend] = useState<Trend>('This Week')
     const [isWithdrawal, setIsWithdrawal] = useState(true)
+    const [togglCommissionMenu, setTogglCommissionMenu] = useState(false)
+    const [sendTo, setSendTo] = useState<string | null>(null)
+    const [sendToMenu, setSendToMenu] = useState(false)
+    const sendToArr: string[] = ['Howuja', 'Oluwaseun', 'Wojusun', 'Petherkwa']
 
+    const menuToggler = () => setTogglCommissionMenu(!togglCommissionMenu)
+    const sendToMenuToggle = () => setSendToMenu(!sendToMenu)
 
-const menuToggler = () => setTogglResidentMenu(!togglResidentMenu)
+    const handleSelectedTrend = (item: Trend) => {
+        setSelectedTrend(item)
+        setTogglCommissionMenu(false)
+    }
 
-const handleSelectedTrend = (item: Trend) => {
-    setSelectedTrend(item)
-    setTogglResidentMenu(false)
-}
+    const handleSendTo = (item: string) => {
+        setSendTo(item)
+        setSendToMenu(false)
+    }
 
     type Actions = 'View Details'
 
@@ -192,44 +204,42 @@ const handleSelectedTrend = (item: Trend) => {
         })
     }
 
-   
+    const dialogRef = useRef<HTMLDialogElement | null>(null)
 
-     const dialogRef = useRef<HTMLDialogElement | null>(null)
+    const handleClose = () => {
+        if (dialogRef.current) {
+            dialogRef.current.close()
+        }
+    }
 
-     const handleClose = () => {
-         if (dialogRef.current) {
-             dialogRef.current.close()
-         }
-     }
+    const handleOpen = (modalState: 'withdraw' | 'request') => {
+        if (modalState === 'withdraw') {
+            setIsWithdrawal(true)
+        } else {
+            setIsWithdrawal(false)
+        }
 
-     const handleOpen = (modalState: 'withdraw' | 'request') => {
-         if (modalState === 'withdraw') {
-             setIsWithdrawal(true)
-         } else {
-             setIsWithdrawal(false)
-         }
+        if (dialogRef.current) {
+            dialogRef.current.showModal()
+        }
+    }
 
-         if (dialogRef.current) {
-             dialogRef.current.showModal()
-         }
-     }
+    const handleSelectedAction = (item: Actions, index: string) => {
+        setToggleDropDown(() => {
+            return {
+                isDropDownOpen: false,
+                index: null,
+            }
+        })
 
-     const handleSelectedAction = (item: Actions, index: string) => {
-         setToggleDropDown(() => {
-             return {
-                 isDropDownOpen: false,
-                 index: null,
-             }
-         })
+        if (item === 'View Details') {
+            navigate(`/superAdmin/wallet/commission/:${index}`)
+        }
+    }
 
-         if (item === 'View Details') {
-             navigate(`/superAdmin/wallet/commission/:${index}`)
-         }
-     }
-
-     const handleFormSubmit = (e: FormEvent) => {
-         e.preventDefault()
-     }
+    const handleFormSubmit = (e: FormEvent) => {
+        e.preventDefault()
+    }
 
     return (
         <>
