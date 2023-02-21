@@ -122,8 +122,7 @@ const AddSecurityGuard = () => {
     ]) satisfies Map<ValidateInputTypes, JSX.Element>
 
     const handleValidate = () => {
-        if (validationType === null) {
-        }
+        setIsValidated(true)
     }
 
     return (
@@ -338,7 +337,7 @@ const AddSecurityGuard = () => {
                             <span className='text-gray-500'>(Optional)</span>
                         </p>
 
-                        {!isValidated ? (
+                        {isValidated ? (
                             <div className='flex gap-8 text-[1.6rem]'>
                                 <p className='text-[#098DFF] cursor-pointer flex items-center font-medium'>
                                     KYG Validated <IoMdCheckmarkCircleOutline />
