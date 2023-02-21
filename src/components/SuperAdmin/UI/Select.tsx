@@ -11,10 +11,10 @@ type Complex = {
 
 
 
-interface ISelect {
+interface ISelect<T extends any[]>{
     state: Array<string>
     selectedState: string | null
-    setSelectedState: React.Dispatch<React.SetStateAction<string | null>>
+    setSelectedState: React.Dispatch<React.SetStateAction<T>>
     label?: string
     placeholder?: string
     isSearchable?: boolean

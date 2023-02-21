@@ -10,7 +10,7 @@ import {
 import { PhoneNumber } from './Inputs'
 
 type DialogType = 'validate' | 'add-security-guard' | 'reassign'
-type ValidateInputTypes =
+export type ValidateInputTypes =
     | 'phoneNumber'
     | 'NIN-number'
     | 'BVN-number'
@@ -228,7 +228,7 @@ const AddSecurityGuard = () => {
                                     ]}
                                     label='Validation Option'
                                     selectedState={validationType}
-                                    setSelectedState={setValidationType as any}
+                                    setSelectedState={setValidationType}
                                 />
 
                                 {renderValidationType.get(validationType)}
