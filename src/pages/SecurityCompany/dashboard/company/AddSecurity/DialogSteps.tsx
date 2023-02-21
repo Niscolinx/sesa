@@ -56,7 +56,7 @@ export const AddBankAccount = () => {
             </p>
             <Select
                 label='Select Bank'
-                state={['FCMB Easy Wallet', 'FCMB Account', 'Parallex ']}
+                state={['FCMB Easy Wallet', 'FCMB Account', 'Parallax Bank Account']}
                 selectedState={selectedBank}
                 setSelectedState={setSelectedBank}
             />
