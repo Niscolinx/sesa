@@ -177,7 +177,7 @@ export const Voters_Card = () => {
                     />
                 </div>
             </div>
-            <div>
+            {/* <div>
                 <label
                     htmlFor='phoneNumber'
                     className='text-[1.4rem] font-medium'
@@ -201,7 +201,7 @@ export const Voters_Card = () => {
                 placeholder='Select State'
                 selectedState={selectedState}
                 setSelectedState={setSelectedState}
-            />
+            /> */}
         </div>
     )
 }
