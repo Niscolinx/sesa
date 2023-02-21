@@ -369,19 +369,12 @@ function Wallet() {
                 <h1 className='heading2'>Overview</h1>
                 <div className='mt-8 grid gap-8'>
                     <section
-                        className=' text-[1.4rem] grid '
+                        className=' text-[1.4rem] grid gap-8'
                         style={{
                             gridTemplateColumns: '60% auto',
                         }}
                     >
-                        <div
-                            className='overview justify-between bg-white rounded-lg p-8 grid gap-10'
-                            style={{
-                                gridTemplateColumns:
-                                    'repeat(auto-fit, minmax(30rem, 1fr))',
-                            }}
-                        >
-                            <div className='border-l border-l-color-grey'>
+                            <div className='border-l border-l-color-grey bg-white rounded-lg p-8 grid gap-10'>
                                 <div className='flex justify-between'>
                                     <p className='text-[1.6rem] font-bold p-8'>
                                         Wallet Trend
@@ -423,8 +416,8 @@ function Wallet() {
                                 </div>
                                 <WalletBarChart />
                             </div>
-                        </div>
-                        <div className='grid self-stretch justify-start'>
+                    
+                        <div className='bg-white p-8 rounded-lg'>
                             <div className='grid items-end'>
                                 <OverviewWallet
                                     amount={160_847}
