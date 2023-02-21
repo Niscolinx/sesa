@@ -12,30 +12,9 @@ const ViewMessage = () => {
 
     
 
-    const assignGuardRef = useRef<HTMLDialogElement | null>(null)
-    const validatedDialogRef = useRef<HTMLDialogElement | null>(null)
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
-    const closeAssignGuardDialog = () => {
-        if (assignGuardRef.current) {
-            assignGuardRef.current.close()
-        }
-    }
 
-    
-
-    const openDeleteOrDeactivateDialog = (dialogType: Actions) => {
-        if (dialogType === 'Deactivate') {
-            setDialogType('Deactivate')
-        }
-        if (dialogType === 'Delete') {
-            setDialogType('Delete')
-        }
-
-        if (dialogRef.current) {
-            dialogRef.current.showModal()
-        }
-    }
 
     const handleCloseDeleteOrDeactivateDialog = () => {
         if (dialogRef.current) {
