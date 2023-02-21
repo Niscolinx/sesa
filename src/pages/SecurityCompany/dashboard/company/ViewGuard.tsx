@@ -772,14 +772,14 @@ const ViewGuard = () => {
                             </div>
                         </div>
                     </div>): (
-                        <p className='flex items-center gap-4'>
-                            <span className='text-[1.4rem]'>
+                        <p className='flex items-cente gap-2'>
+                            <span>
                                 No account Information created. 
                             </span>
-                            <span className='text-[2rem] text-color-blue' style={{
+                            <span className=' text-color-blue' style={{
                                 fontFamily: 'Satoshi-Medium'
                             }}>
-                                Open A Bank Account 
+                                Open a bank account 
                             </span>
                         </p>
                     )}
