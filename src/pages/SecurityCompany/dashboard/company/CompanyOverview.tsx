@@ -221,13 +221,14 @@ const CompanyHome = () => {
                                         type='checkbox'
                                         className='cursor-pointer'
                                     />
-                                    <p>Guard Name</p>
+                                    <p>Guard Code</p>
                                 </p>
-                                <p>Date</p>
-                                <p>Guard Code</p>
+                                <p>Guard Name</p>
                                 <p>Phone Number</p>
-                                <p>Clock In</p>
-                                <p>Clock Out </p>
+                                <p>Assigned Estate</p>
+                                <p>Status</p>
+                                <p>KYG</p>
+                                <p>Action </p>
                             </div>
 
                             <div className='grid gap-8 mt-8 p-8'>
