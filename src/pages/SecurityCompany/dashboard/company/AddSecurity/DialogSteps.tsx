@@ -9,7 +9,7 @@ export const AddedSecuritySuccessfully = () => {
     )
 
     return (
-        <div className='w-full grid justify-center'>
+        <div className='w-full grid justify-items-center gap-4'>
             <img src='/icons/admins/modalSuccess.svg' alt='' />
 
             <p>You have successfully added an Security Guard</p>
@@ -23,7 +23,7 @@ export const AddedSecuritySuccessfully = () => {
                 Do you want to open a bank account for this Security Guard?
             </p>
 
-            <div className='flex w-full justify-center gap-8'>
+            <div className='flex w-full justify-center gap-8 mt-10'>
                 <button
                     className='btn bg-white text-[#0556E5] border-[#0556E5] border rounded-lg w-[20rem] font-bold'
                     onClick={() => handleClose()}
@@ -46,7 +46,7 @@ export const AddBankAccount = () => {
         useContext(CreateAddedSecurityGuardContext)
 
     return (
-        <div className='grid gap-10'>
+        <div className='w-full grid justify-items-center gap-4'>
             <p
                 className='border-b'
                 style={{
@@ -55,16 +55,18 @@ export const AddBankAccount = () => {
             >
                 Open a bank Account
             </p>
-            <Select
-                label='Select Bank'
-                state={[
-                    'FCMB Easy Wallet',
-                    'FCMB Account',
-                    'Parallax Bank Account',
-                ]}
-                selectedState={selectedBank}
-                setSelectedState={setSelectedBank}
-            />
+            <div>
+                <Select
+                    label='Select Bank'
+                    state={[
+                        'FCMB Easy Wallet',
+                        'FCMB Account',
+                        'Parallax Bank Account',
+                    ]}
+                    selectedState={selectedBank}
+                    setSelectedState={setSelectedBank}
+                />
+            </div>
 
             <button
                 className='bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg'
@@ -89,7 +91,7 @@ export const OpenedBankAccountSuccessful = () => {
     }
 
     return (
-        <>
+        <div className='w-full grid justify-items-center gap-4'>
             <img src='/icons/admins/modalSuccess.svg' alt='' />
 
             <p>
@@ -117,6 +119,6 @@ export const OpenedBankAccountSuccessful = () => {
                     Ok
                 </button>
             </div>
-        </>
+        </div>
     )
 }
