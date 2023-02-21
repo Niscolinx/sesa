@@ -147,7 +147,7 @@ const RecipientList = () => {
             <main className='mt-10 grid gap-9'>
                
 
-                <section className='bg-color-white rounded-lg border min-w-[112rem] overflow-scroll'>
+                <section className='bg-color-white rounded-lg border min-w-[112rem] overflow-scroll max-h-[80vh]'>
                     <div className='grid text-[1.6rem]'>
                         <caption className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
                             
