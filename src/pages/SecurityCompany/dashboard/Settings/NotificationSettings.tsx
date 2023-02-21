@@ -30,7 +30,7 @@ const NotificationSettings = () => {
 
                 <section>
                     <div className='grid gap-10'>
-                        <div className='flex items-center gap-16'>
+                        <div className='grid grid-cols-2 items-center gap-16 w-[60rem]'>
                             <p>In-App</p>
                             <div onClick={toggleIsInAppOn}>
                                 {isInAppOn ? (
@@ -46,7 +46,7 @@ const NotificationSettings = () => {
                                 )}
                             </div>
                         </div>
-                        <div className='flex items-center gap-16'>
+                        <div className='grid grid-cols-2 items-center gap-16'>
                             <p>SMS</p>
                             <div onClick={toggleIsSmsOn}>
                                 {isSmsOn ? (
