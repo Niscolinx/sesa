@@ -79,9 +79,14 @@ export const AddBankAccount = () => {
 }
 
 export const OpenedBankAccountSuccessful = () => {
-    const { handleClose, selectedBank } = useContext(
+    const { handleClose, selectedBank, setAddedSecurityGuardStep } = useContext(
         CreateAddedSecurityGuardContext
     )
+
+    const closeSteps = () => {
+        handleClose()
+        setAddedSecurityGuardStep('addedSecuritySuccessful')
+    }
 
     return (
         <>
