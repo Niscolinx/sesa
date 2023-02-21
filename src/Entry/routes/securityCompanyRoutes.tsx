@@ -14,6 +14,7 @@ import Messages from '../../pages/SecurityCompany/dashboard/Messages/Messages'
 import ComposeMessage from '../../pages/SecurityCompany/dashboard/Messages/ComposeMessage'
 import ViewMessage from '../../pages/SecurityCompany/dashboard/Messages/ViewMessage'
 import Wallet from '../../pages/SecurityCompany/dashboard/wallet/Wallet'
+import WalletTransactionDetails from '../../pages/SecurityCompany/dashboard/wallet/WalletTransactionDetails'
 
 const securityCompanyRoutes = (
     <Route path='/securityCompany' element={<SecurityCompanyDashboard />}>
@@ -47,6 +48,10 @@ const securityCompanyRoutes = (
         <Route
             path='wallet'
             element={<Wallet/>}
+        />
+        <Route
+            path='wallet/transactions'
+            element={<WalletTransactionDetails/>}
         />
     </Route>
 )
