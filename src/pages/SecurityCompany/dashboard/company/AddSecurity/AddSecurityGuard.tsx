@@ -7,7 +7,14 @@ import {
     ComplexSelect,
     Select,
 } from '../../../../../components/SuperAdmin/UI/Select'
-import { PhoneNumber } from './Inputs'
+import {
+    BVN_Number,
+    DriversLicence,
+    International_PassPort,
+    NIN_Number,
+    PhoneNumber,
+    Voters_Card,
+} from './Inputs'
 
 type DialogType = 'validate' | 'add-security-guard' | 'reassign'
 export type ValidateInputTypes =
@@ -106,7 +113,11 @@ const AddSecurityGuard = () => {
 
     const renderValidationType = new Map([
         ['Phone Number', <PhoneNumber />],
-        ['NIN Number', <PhoneNumber />],
+        ['BVN Number', <BVN_Number />],
+        ['NIN Number', <NIN_Number />],
+        ['Drivers License', <DriversLicence />],
+        ['International Passport', <International_PassPort />],
+        ['voters card', <Voters_Card />],
     ]) as Map<ValidateInputTypes, JSX.Element>
 
     useEffect(() => {
