@@ -349,7 +349,7 @@ const AddSecurityGuard = () => {
                                 <p
                                     className='text-green-600 flex items-center gap-2'
                                     style={{
-                                        fontFamily: 'Satoshi-Light',
+                                        fontFamily: 'Satoshi-Medium',
                                     }}
                                 >
                                     View Results <BsQuestionCircle />
