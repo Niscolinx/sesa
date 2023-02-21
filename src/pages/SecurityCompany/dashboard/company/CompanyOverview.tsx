@@ -3,7 +3,7 @@ import { CgSpinnerTwo } from 'react-icons/cg'
 import { GrDown } from 'react-icons/gr'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { IoMdAdd } from 'react-icons/io'
-import { useNavigate } from 'react-router'
+import { useNavigate } from 'react-router-dom'
 import OverviewCard from '../../../../components/SuperAdmin/overview/OverviewCard'
 
 interface AttendanceReport {
