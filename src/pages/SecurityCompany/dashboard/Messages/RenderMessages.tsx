@@ -254,7 +254,7 @@ function RenderedMessages() {
                                                     {transmissionDate}
                                                 </p>
                                             </div>
-                                            <div className='flex items-center gap-2 w-[10rem]'>
+                                            <div className='flex items-center gap-2 max-w-[40rem] overflow-hidden text-ellipsis whitespace-nowrap'>
                                                 <p>Recipients:</p>
                                                 <div
                                                     style={{
@@ -266,10 +266,10 @@ function RenderedMessages() {
                                                     {recipients.map(
                                                         (recipient, i) => (
                                                             <div
-                                                                className='flex gap-2 items-center'
+                                                                className='flex gap-2 items-center  text-ellipsis whitespace-nowrap'
                                                                 key={i}
                                                             >
-                                                                <p className='overflow-hidden text-ellipsis whitespace-nowrap '>
+                                                                <p className=''>
                                                                     {recipient}
                                                                     {i !==
                                                                         recipients.length -
@@ -279,7 +279,7 @@ function RenderedMessages() {
                                                             </div>
                                                         )
                                                     )}
-                                                    <span className='text-color-blue overflow-hidden text-ellipsis whitespace-nowrap '>
+                                                    <span className='text-color-blue '>
                                                         {' '}
                                                         + 20 others
                                                     </span>
