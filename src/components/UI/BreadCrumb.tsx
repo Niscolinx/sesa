@@ -1,24 +1,25 @@
 import { NavLink } from 'react-router-dom'
 import useBreadcrumbs from 'use-react-router-breadcrumbs'
 import { BiChevronRight } from 'react-icons/bi'
-import { useEffect, useRef, useState } from 'react'
+import { useLocation, useParams } from 'react-router'
 
 function BreadCrumb() {
+    const location = useLocation()
+    const params = useParams()
     const breadcrumbs = useBreadcrumbs()
-    const crumbRef = useRef<HTMLParagraphElement | null>(null)
-    const [index, setIndex] = useState<number | null>(null)
-    
 
-    useEffect(() => {
+    const isParams = Object.keys(params)
 
-        console.log('crumbRef.current', crumbRef.current)
-        const crumb = crumbRef.current
-        if (crumb) {
-            console.log(crumb.id)
-            setIndex(Number(crumb.id))
-
+    const getIndex = () => {
+        const path = location.pathname.split('/')
+        if (isParams.length < 1) {
+            return path.length - 1
+        } else {
+            return path.length - 2
         }
-    }, [crumbRef.current])
+    }
+
+    const index = getIndex()
 
     return (
         <div className='flex gap-4 mb-[2rem]'>
@@ -26,24 +27,29 @@ function BreadCrumb() {
                 const isParams = Object.keys(match.params)
                 const showBreadCrumb = i > 1 && isParams.length < 1
 
-           
                 if (showBreadCrumb) {
-                    console.log({breadcrumb})
+                    // console.log({breadcrumb})
                     return (
                         <p
                             className='flex items-center gap-2'
                             key={match.pathname}
-                            ref={crumbRef}
-                            id={`${i}`}
-                            
                         >
-                            <NavLink to={match.pathname} className={
-                                index === i ? 'text-color-blue-1' : 'text-color-gray-1'
-                            }>{breadcrumb}</NavLink>
-
-                            <span>
-                                <BiChevronRight />
-                            </span>
+                            <NavLink
+                                to={match.pathname}
+                                className={
+                                    index === i
+                                        ? 'text-color-blue-1'
+                                        : 'text-color-gray-1'
+                                }
+                                // onClick={() => setIndex(i)}
+                            >
+                                <span>{breadcrumb}</span>
+                            </NavLink>
+                            {i !== index && (
+                                <span>
+                                    <BiChevronRight />
+                                </span>
+                            )}
                         </p>
                     )
                 }
