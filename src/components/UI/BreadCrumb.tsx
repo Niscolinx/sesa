@@ -16,7 +16,7 @@ function BreadCrumb() {
                         : i < breadcrumbs.length - 1
 
                     const isActive = i === breadcrumbs.length - 1
-                    console.log('=====', i, breadcrumb)
+                    console.log('=====', i, breadcrumb, isActive)
 
                 if (showBreadCrumb)
                     return (
