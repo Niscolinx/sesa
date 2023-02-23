@@ -10,7 +10,7 @@ function BreadCrumb() {
             {breadcrumbs.map(({ match, breadcrumb, location }, i) => {
                 if (i > 1 && Object.keys(match.params).length < 1)
                     return (
-                        <p>
+                        <p className='flex items-center gap-2'>
                             <NavLink key={match.pathname} to={match.pathname}>
                                 {breadcrumb}
                             </NavLink>
