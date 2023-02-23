@@ -645,19 +645,7 @@ const AddSecurityGuard = () => {
                             </div>
                         </div>
                     </div>
-                    <button
-                        className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg mt-32'
-                        style={{ justifySelf: 'start' }}
-                        onClick={addSecurityGuardHandler}
-                    >
-                        <span>
-                            <IoMdAdd />
-                        </span>{' '}
-                        Add Security Guard
-                    </button>
-                </section>
-                <section className='grid p-8 bg-white items-baseline rounded-lg'>
-                    <div className='grid gap-8 max-w-[40rem]'>
+                    <div className='grid gap-8 max-w-[40rem] mt-10'>
                         <p className='text-[2rem] font-bold'>
                             KYG{' '}
                             <span className='text-gray-500'>(Optional)</span>
@@ -697,7 +685,18 @@ const AddSecurityGuard = () => {
                             </div>
                         )}
                     </div>
+                    <button
+                        className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg mt-32'
+                        style={{ justifySelf: 'start' }}
+                        onClick={addSecurityGuardHandler}
+                    >
+                        <span>
+                            <IoMdAdd />
+                        </span>{' '}
+                        Add Security Guard
+                    </button>
                 </section>
+               
             </main>
         </CreateAddedSecurityGuardContext.Provider>
     )
