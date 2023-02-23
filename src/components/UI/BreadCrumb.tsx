@@ -6,13 +6,13 @@ import { useState } from 'react'
 function BreadCrumb() {
     const breadcrumbs = useBreadcrumbs()
 
-    let index = 0
+    let lastIndex = 0
     const getIndex = (index: number) => {
         
-        index = index
+        lastIndex = index
     }
 
-    console.log({index})
+    console.log({lastIndex})
 
     return (
         <div className='flex gap-4 mb-[2rem]'>
