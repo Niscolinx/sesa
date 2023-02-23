@@ -6,7 +6,6 @@ import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { useNavigate } from 'react-router-dom'
 import OverviewCard from '../../../../components/SuperAdmin/overview/OverviewCard'
 
-
 export interface Overview {
     id: number
     estateName: string
