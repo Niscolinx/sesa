@@ -1,4 +1,9 @@
-import { Route } from 'react-router-dom'
+//import { Route } from 'react-router-dom'
+import useBreadcrumbs, {
+    createRoutesFromChildren,
+    Route,
+} from 'use-react-router-breadcrumbs'
+
 
 import EstateDetails from '../../pages/SuperAdmin/dashboard/Estate/EstateDetails'
 import EstateReport from '../../pages/SuperAdmin/dashboard/Estate/EstateReport'
@@ -43,7 +48,7 @@ import Overview from '../../pages/SuperAdmin/dashboard/Overview'
         <Route index element={<Overview />} />
         <Route path='admins' element={<Admins />} />
         <Route path='estates' element={<Estates />} />
-        <Route path='estates/detail/:Id' element={<EstateDetails />} />
+        <Route path='estates/detail/:Id' element={<EstateDetails />} breadcrumb='view Estate' />
         <Route path='estates/report/:Id' element={<EstateReport />} />
         <Route path='security-company' element={<SecurityCompany />} />
         <Route

@@ -1,4 +1,8 @@
-import { Route } from 'react-router'
+
+import useBreadcrumbs, {
+    createRoutesFromChildren,
+    Route,
+} from 'use-react-router-breadcrumbs'
 
 import SecurityCompanyOverview from '../../pages/SecurityCompany/dashboard/SecurityCompanyOverview'
 import SecurityCompanyDashboard from '../../pages/SecurityCompany/Dashboard'
@@ -26,7 +30,8 @@ const securityCompanyRoutes = (
         <Route
             path='estates/detail/:Id'
             element={<ViewEstate />}
-           handle='viewEstate handle'
+           breadcrumb='viewEstate handle'
+           
         />
         <Route
             path='estates/securityGuard/:Id'

@@ -1,6 +1,6 @@
 import {
     Navigate,
-    Route,
+    //Route,
     createBrowserRouter,
     createRoutesFromElements,
     RouterProvider,
@@ -17,10 +17,11 @@ import 'swiper/css/pagination'
 import Login from '../pages/Login'
 import superAdminRoutes from './routes/superAdminRoutes'
 import securityCompanyRoutes from './routes/securityCompanyRoutes'
+import { Route } from 'use-react-router-breadcrumbs'
 
 const router = createBrowserRouter(
     createRoutesFromElements([
-        <Route path='/' element={<Login />} />,
+        <Route path='/' element={<Login />} breadcrumb='sdfdsfdfjkdfskdjfdkfdsfkfsdkfkdskfn' />,
         superAdminRoutes,
         securityCompanyRoutes,
         <Route path='*' element={<Navigate to='/' />} />,
@@ -38,3 +39,5 @@ const App = () => {
 }
 
 export default App
+
+
