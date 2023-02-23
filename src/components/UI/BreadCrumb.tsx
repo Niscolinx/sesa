@@ -6,19 +6,24 @@ import { useState } from 'react'
 function BreadCrumb() {
     const breadcrumbs = useBreadcrumbs()
 
+    let index = 0
     const getIndex = (index: number) => {
-        console.log({ index })
+        
+        index = index
     }
+
+    console.log({index})
 
     return (
         <div className='flex gap-4 mb-[2rem]'>
             {breadcrumbs.map(({ match, breadcrumb }, i) => {
                 const isParams = Object.keys(match.params)
                 const showBreadCrumb = i > 1 && isParams.length < 1
-                const showArrow =
-                    isParams.length < 1
-                        ? i < breadcrumbs.length - 2
-                        : i < breadcrumbs.length - 1
+
+                // const showArrow =
+                //     isParams.length < 1
+                //         ? i < breadcrumbs.length - 2
+                //         : i < breadcrumbs.length - 1
 
                 const isActive = i === breadcrumbs.length - 1
                 // console.log(
