@@ -1,8 +1,8 @@
 import React, { useRef, useState } from 'react'
 import { BsQuestionCircle } from 'react-icons/bs'
+import { IoMdClose } from 'react-icons/io'
 import { toast, ToastContainer } from 'react-toastify'
 import { ComplexSelect, Select } from '../../../../components/SuperAdmin/UI/Select'
-import StarRating from '../../../../components/SuperAdmin/UI/StarRating'
 import { getPhotoUrl } from '../../../../utils/getPhotoUrl'
 
 type Actions = 'Deactivate' | 'Delete' | 'ReAssign'
@@ -13,6 +13,8 @@ const ViewSecurityGuard = () => {
     const [selectedEstate2, setSelectedEstate2] = useState<string | null>(null)
     const [selectedEstate3, setSelectedEstate3] = useState<string | null>(null)
     const [selectedEstate4, setSelectedEstate4] = useState<string | null>(null)
+        const [isValidated, setIsValidated] = useState(false)
+
 
     const [dialogType, setDialogType] = useState<Actions>('Deactivate')
 
