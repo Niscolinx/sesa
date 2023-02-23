@@ -5,11 +5,13 @@ import { useState } from 'react'
 
 function BreadCrumb() {
     const breadcrumbs = useBreadcrumbs()
-   
-    
+
     const getIndex = (index: number) => {
-        console.log({index})
-        return index
+       const id =  setTimeout(() => {
+            console.log({ index })
+        }, 0)
+
+        return () => clearTimeout(id)
     }
 
     return (
@@ -22,19 +24,19 @@ function BreadCrumb() {
                         ? i < breadcrumbs.length - 2
                         : i < breadcrumbs.length - 1
 
-                    const isActive = i === breadcrumbs.length - 1
-                    // console.log(
-                    //     '=====',
-                    //     i,
-                    //     breadcrumbs.length - 1,
-                    //     { isActive },
-                    //     { breadcrumb },
-                    //     'parmas--->',
-                    //     isParams.length < 1
-                    // )
+                const isActive = i === breadcrumbs.length - 1
+                // console.log(
+                //     '=====',
+                //     i,
+                //     breadcrumbs.length - 1,
+                //     { isActive },
+                //     { breadcrumb },
+                //     'parmas--->',
+                //     isParams.length < 1
+                // )
 
-                if (showBreadCrumb){
-                    console.log({i}, '======', breadcrumb)
+                if (showBreadCrumb) {
+                    console.log({ i }, '======', breadcrumb)
                     getIndex(i)
                     return (
                         <p
