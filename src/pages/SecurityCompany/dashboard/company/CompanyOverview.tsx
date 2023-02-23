@@ -140,12 +140,12 @@ const CompanyHome = () => {
     const handleAddSecurityGuard = () => {
         console.log('add security guard')
 
-        navigate(`/securityCompany/company-overview/addSecurity`)
+        navigate(`/securityCompany/security-guard/addSecurity`)
     }
 
     const detailsHandler = (id: number) => {
         console.log(id)
-        navigate(`/securityCompany/company-overview/viewGuard/:${id}`)
+        navigate(`/securityCompany/security-guard/viewGuard/:${id}`)
     }
     return (
         <div>

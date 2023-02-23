@@ -38,10 +38,10 @@ const securityCompanyRoutes = (
         />
         <Route path='estates/workrate' element={<EstateWorkRate />} />
         <Route path='estates/estateReport' element={<EstateReport />} />
-        <Route path='company-overview' element={<CompanyOverview />} />
-        <Route path='company-overview/viewGuard/:Id' element={<ViewGuard />} />
+        <Route path='security-guard' element={<CompanyOverview />} />
+        <Route path='security-guard/viewGuard/:Id' element={<ViewGuard />} />
         <Route
-            path='company-overview/addSecurity'
+            path='security-guard/addSecurity'
             element={<AddSecurityGuard />}
         />
         <Route path='messages' element={<Messages />} />
