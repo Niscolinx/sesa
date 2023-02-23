@@ -36,23 +36,30 @@ function BreadCrumb() {
                 //     isParams.length < 1
                 // )
                 if (showBreadCrumb) {
-                    console.log({ i }, '======', breadcrumb)
-
-                    if(isParams.length < 1 ) {
-                        console.log('lastIndex 1', breadcrumbs.length - 2, i , {breadcrumb})
-                    }
-                    else{
-                        console.log('lastIndex 2', breadcrumbs.length - 1, i, {breadcrumb})
-                    }
                     
-                    getIndex(i)
+                    let lastIndex = 0
+                    if(isParams.length < 1 ) {
+                        console.log('no params', lastIndex, {breadcrumbs})
+                        lastIndex = breadcrumbs.length - 1
+                    }
+                    else if(isParams.length >= 1){
+                        console.log("has params", lastIndex, {breadcrumbs})
+                        lastIndex = breadcrumbs.length - 2
+                    }
+                    //getIndex(i)
+
+                    console.log({lastIndex})
+
+                    console.log(breadcrumbs[lastIndex].breadcrumb)
 
                     return (
                         <p
                             className='flex items-center gap-2'
                             key={match.pathname}
                         >
-                            <NavLink to={match.pathname}>{breadcrumb}</NavLink>
+                            <NavLink to={match.pathname} className={
+                                i === lastIndex ? 'text-color-blue-1' : 'text-black'
+                            }>{breadcrumb}</NavLink>
 
                             <span>
                                 <BiChevronRight />
