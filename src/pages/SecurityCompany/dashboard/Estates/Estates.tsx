@@ -26,6 +26,8 @@ export const HOUSEHOLD_LIST: Overview[] = Array.from({ length: 10 }).map(
 
 function Estate() {
     const navigate = useNavigate()
+      const breadcrumbs = useBreadcrumbs()
+
 
     const [houseHoldList, setHouseHoldList] = useState<Overview[]>([])
     const [search, setSearch] = useState<string>('')
@@ -144,6 +146,8 @@ function Estate() {
     return (
         <div className='estateDetail'>
             <h1 className='heading2'>Estates</h1>
+            {breadcrumbs.map(({ breadcrumb }) => breadcrumb)}
+
             <div className='mt-8 grid gap-8'>
                 <div className=' justify-center bg-white rounded-lg p-8 grid w-[40rem] '>
                     <OverviewCard
