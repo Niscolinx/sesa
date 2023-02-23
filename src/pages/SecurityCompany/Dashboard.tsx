@@ -19,16 +19,17 @@ function Dashboard() {
 
                 <div className='p-10 overflow-scroll max-h-[90vh]'>
                     <div className='flex gap-4'>
-                        {breadcrumbs.map(({ match, breadcrumb }, i) => {
+                        {breadcrumbs.map(({ match, breadcrumb, location }, i) => {
                             console.log({ match, breadcrumb })
                         console.log(
                             'bread length, i',
                             i,
                             breadcrumbs.length,
                             i,
-                            match.params
+                            match.params,
+                            
                         )
-                            if (i > 1)
+                            if (i > 1 && Object.keys(match.params).length < 1)
                                 return (
                                     <NavLink
                                         key={match.pathname}

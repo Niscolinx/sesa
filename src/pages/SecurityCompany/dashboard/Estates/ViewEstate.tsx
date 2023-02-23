@@ -151,8 +151,7 @@ function ViewEstate() {
 
 
     return (
-        <div className=''>
-            <h1 className='heading2'>Estates</h1>
+        <div>
             
             <div className='mt-8 grid gap-8'>
                 <section className='w-full flex bg-white p-8 rounded-lg gap-16 relative'>
