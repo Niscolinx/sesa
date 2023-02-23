@@ -6,17 +6,15 @@ import { useEffect, useRef, useState } from 'react'
 function BreadCrumb() {
     const breadcrumbs = useBreadcrumbs()
     const crumbRef = useRef<HTMLParagraphElement | null>(null)
+    const [index, setIndex] = useState<number | null>(null)
     
 
     useEffect(() => {
         const crumb = crumbRef.current
         if (crumb) {
-            console.log({crumb})
-            const crumbText = crumb.textContent
-            console.log({crumbText})
-            let showCrumb = crumbText?.replace(/\/\w+/, '')
+            console.log(crumb.id)
+            setIndex(Number(crumb.id))
 
-            console.log({showCrumb})
         }
     }, [crumbRef.current])
 
@@ -35,6 +33,7 @@ function BreadCrumb() {
                             key={match.pathname}
                             ref={crumbRef}
                             id={`${i}`}
+                            
                         >
                             <NavLink to={match.pathname}>{breadcrumb}</NavLink>
 
