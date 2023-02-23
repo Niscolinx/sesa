@@ -9,9 +9,9 @@ function BreadCrumb() {
         <div className='flex gap-4 mb-[2rem]'>
             {breadcrumbs.map(({ match, breadcrumb }, i) => {
                 console.log({i},  breadcrumbs.length - 2)
-
-                const showBreadCrumb = i > 1 && Object.keys(match.params).length < 1
-                const showArrow = i < breadcrumbs.length - 2
+                const isParams = Object.keys(match.params)
+                const showBreadCrumb = i > 1 && isParams.length < 1
+                const showArrow =   
 
                 if (showBreadCrumb)
                     return (
