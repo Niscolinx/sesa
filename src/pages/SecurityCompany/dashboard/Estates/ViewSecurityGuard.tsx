@@ -381,51 +381,7 @@ const ViewSecurityGuard = () => {
                             </button>
                         </div>
                     </div>
-                    <div className='flex justify-between items-center'>
-                        <label
-                            htmlFor='photoUpload'
-                            className='grid gap-4 cursor-pointer justify-items-center'
-                        >
-                            <img
-                                src={photoUrl ? photoUrl : '/img/me.jpeg'}
-                                alt='photoPreview'
-                                className='object-cover w-[11rem] h-[11rem] rounded-full object-top'
-                            />
-                            <span className='text-color-blue-1 text-[1.4rem]'>
-                                Edit
-                            </span>
-                        </label>
-                        <input
-                            type='file'
-                            name='photoUpload'
-                            id='photoUpload'
-                            accept='image/*'
-                            className='hidden'
-                            onClick={handlePhotoPreview}
-                        />
-
-                        <div className='flex gap-8'>
-                            <button
-                                className='border border-color-blue-1 text-color-blue-1 px-16 py-4 flex items-center  rounded-lg gap-4'
-                                onClick={() =>
-                                    handleSelectedAction('Deactivate')
-                                }
-                            >
-                                <span className=' text-[1.4rem] font-semibold'>
-                                    Deactivate
-                                </span>
-                            </button>
-                            <button
-                                className='border border-red-600 px-16 py-4 flex items-center  rounded-lg gap-4'
-                                onClick={() => handleSelectedAction('Delete')}
-                            >
-                                <img src='/icons/admins/delete.svg' alt='' />
-                                <span className='text-red-600 text-[1.4rem] font-semibold'>
-                                    Delete
-                                </span>
-                            </button>
-                        </div>
-                    </div>
+                  
                     <form
                         onSubmit={handleSubmit}
                         className='grid max-w-[84rem] gap-16 mt-12'
