@@ -645,7 +645,7 @@ const AddSecurityGuard = () => {
                             </div>
                         </div>
                     </div>
-                    <div className='grid gap-8 max-w-[40rem] mt-10'>
+                    <div className='grid gap-8 max-w-[40rem] mt-[5rem]'>
                         <p className='text-[2rem] font-bold flex items-center gap-2'>
                             KYG{' '}
                             <span className='text-[#043FA7]'>
@@ -673,6 +673,9 @@ const AddSecurityGuard = () => {
                                 <p
                                     className='text-[#098DFF] cursor-pointer'
                                     onClick={() => handleOpen('validate')}
+                                    style={{
+                                        fontFamily: 'Satoshi-Medium'
+                                    }}
                                 >
                                     Click here to validate this person
                                 </p>
