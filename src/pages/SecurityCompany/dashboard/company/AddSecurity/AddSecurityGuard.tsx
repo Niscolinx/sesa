@@ -162,7 +162,7 @@ const AddSecurityGuard = () => {
                 setAddedSecurityGuardStep,
                 handleClose,
                 selectedBank,
-                setSelectedBank
+                setSelectedBank,
             }}
         >
             <ToastContainer />
@@ -347,50 +347,9 @@ const AddSecurityGuard = () => {
                 </section>
             </dialog>
             <main>
-                <section className='grid p-8 bg-white items-baseline rounded-lg'>
-                    <div className='grid gap-8 max-w-[40rem]'>
-                        <p className='text-[2rem] font-bold'>
-                            KYG{' '}
-                            <span className='text-gray-500'>(Optional)</span>
-                        </p>
-
-                        {isValidated ? (
-                            <div className='flex gap-8 text-[1.6rem]'>
-                                <p className='text-[#098DFF] cursor-pointer flex items-center font-medium'>
-                                    KYG Validated <IoMdCheckmarkCircleOutline />
-                                </p>
-                                <button
-                                    className='text-green-600 flex items-center gap-2'
-                                    style={{
-                                        fontFamily: 'Satoshi-Medium',
-                                    }}
-                                    onClick={() => openValidateDialog()}
-                                >
-                                    View Results <BsQuestionCircle />
-                                </button>
-                            </div>
-                        ) : (
-                            <div className='flex justify-between text-[1.6rem]'>
-                                <p
-                                    className='text-[#098DFF] cursor-pointer'
-                                    onClick={() => handleOpen('validate')}
-                                >
-                                    Click here to validate this person
-                                </p>
-                                <p
-                                    className='text-[#043FA7] flex items-center gap-2'
-                                    style={{
-                                        fontFamily: 'Satoshi-Light',
-                                    }}
-                                >
-                                    What is KYG <BsQuestionCircle />
-                                </p>
-                            </div>
-                        )}
-                    </div>
                     <form
                         onSubmit={handleSubmit}
-                        className='grid max-w-[84rem] gap-16 mt-12'
+                        className='grid max-w-[84rem] gap-16 mt-12 p-8 bg-white items-baseline rounded-lg'
                         style={{
                             gridTemplateColumns:
                                 ' repeat(auto-fit, minmax(35rem, 1fr))',
@@ -692,6 +651,45 @@ const AddSecurityGuard = () => {
                         Add Security Guard
                     </button>
                 </section>
+                <div className='grid gap-8 max-w-[40rem]'>
+                    <p className='text-[2rem] font-bold'>
+                        KYG <span className='text-gray-500'>(Optional)</span>
+                    </p>
+
+                    {isValidated ? (
+                        <div className='flex gap-8 text-[1.6rem]'>
+                            <p className='text-[#098DFF] cursor-pointer flex items-center font-medium'>
+                                KYG Validated <IoMdCheckmarkCircleOutline />
+                            </p>
+                            <button
+                                className='text-green-600 flex items-center gap-2'
+                                style={{
+                                    fontFamily: 'Satoshi-Medium',
+                                }}
+                                onClick={() => openValidateDialog()}
+                            >
+                                View Results <BsQuestionCircle />
+                            </button>
+                        </div>
+                    ) : (
+                        <div className='flex justify-between text-[1.6rem]'>
+                            <p
+                                className='text-[#098DFF] cursor-pointer'
+                                onClick={() => handleOpen('validate')}
+                            >
+                                Click here to validate this person
+                            </p>
+                            <p
+                                className='text-[#043FA7] flex items-center gap-2'
+                                style={{
+                                    fontFamily: 'Satoshi-Light',
+                                }}
+                            >
+                                What is KYG <BsQuestionCircle />
+                            </p>
+                        </div>
+                    )}
+                </div>
             </main>
         </CreateAddedSecurityGuardContext.Provider>
     )
