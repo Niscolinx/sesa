@@ -55,6 +55,9 @@ const AddSecurityGuard = () => {
     const [selectedEstate3, setSelectedEstate3] = useState<string | null>(null)
     const [selectedEstate4, setSelectedEstate4] = useState<string | null>(null)
     const [isValidated, setIsValidated] = useState(false)
+    const [iskyg, setIskyg] = useState(false)
+
+    const toggleIskyg = () => setIskyg(!iskyg)
     const [selectedState, setSelectedState] = useState<string | null>(
         null as any
     )
@@ -535,7 +538,7 @@ const AddSecurityGuard = () => {
                     >
                         Assigned Estate
                     </h2>
-                    <div className='grid gap-4'>
+                    <div className='grid gap-4 border-b pb-20'>
                         <div className=' items-center grid grid-cols-3'>
                             <div>
                                 <p className='text-[1.4rem] font-medium'>
@@ -645,13 +648,31 @@ const AddSecurityGuard = () => {
                             </div>
                         </div>
                     </div>
-                    <div className='grid gap-8 max-w-[40rem] mt-[5rem]'>
-                        <p className='text-[2rem] font-bold flex items-center gap-2'>
-                            KYG{' '}
-                            <span className='text-[#043FA7]'>
-                                <BsQuestionCircle />
-                            </span>
-                        </p>
+                    <div className='grid gap-8 max-w-[40rem] mt-[5rem] '>
+                        <div className='flex items-center justify-between'>
+                            <p className='text-[2rem] font-bold flex items-center gap-2'>
+                                KYG{' '}
+                                <span className='text-[#043FA7]'>
+                                    <BsQuestionCircle />
+                                </span>
+                            </p>
+                            <div
+                                onClick={toggleIskyg}
+                                className='cursor-pointer'
+                            >
+                                {iskyg ? (
+                                    <img
+                                        src='/icons/admins/switchOn.svg'
+                                        alt=''
+                                    />
+                                ) : (
+                                    <img
+                                        src='/icons/admins/switchOff.svg'
+                                        alt=''
+                                    />
+                                )}
+                            </div>
+                        </div>
 
                         {isValidated ? (
                             <div className='flex gap-8 text-[1.6rem]'>
@@ -674,12 +695,11 @@ const AddSecurityGuard = () => {
                                     className='text-[#098DFF] cursor-pointer'
                                     onClick={() => handleOpen('validate')}
                                     style={{
-                                        fontFamily: 'Satoshi-Medium'
+                                        fontFamily: 'Satoshi-Medium',
                                     }}
                                 >
                                     Click here to validate this person
                                 </p>
-                                
                             </div>
                         )}
                     </div>
