@@ -155,7 +155,6 @@ function SecurityCompanyOverview() {
 
     return (
         <div className='estateDetail'>
-            <h1 className='heading2'>Overview</h1>
             <div className='mt-8 grid gap-8'>
                 <section
                     className=' text-[1.4rem] grid '

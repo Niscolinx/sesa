@@ -149,7 +149,6 @@ const CompanyHome = () => {
     }
     return (
         <div>
-            <h1 className='heading2'>Security Guard</h1>
             <main className='mt-10 grid gap-9'>
                 <section className='bg-white rounded-lg p-8 grid text-[1.4rem] w-max'>
                     <div className='overview flex gap-8'>
