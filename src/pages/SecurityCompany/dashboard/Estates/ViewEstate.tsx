@@ -152,17 +152,13 @@ function ViewEstate() {
     }
 
     let matches = useMatches()
-    let crumbs = matches
-        // first get rid of any matches that don't have handle and crumb
-        .filter((match) => Boolean(match.handle?.crumb))
-        // now map them into an array of elements, passing the loader
-        // data to each one
-        .map((match) => match.handle.crumb(match.data))
+   
 
     return (
         <div className=''>
             <h1 className='heading2'>Estates</h1>
-            {breadcrumbs.map(({ match, breadcrumb, location}) => {
+           
+            {breadcrumbs.map(({ match, breadcrumb, location }) => {
                 return (
                     <NavLink key={match.pathname} to={match.pathname}>
                         {breadcrumb}

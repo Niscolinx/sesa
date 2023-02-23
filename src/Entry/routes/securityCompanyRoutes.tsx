@@ -26,13 +26,7 @@ const securityCompanyRoutes = (
         <Route
             path='estates/detail/:Id'
             element={<ViewEstate />}
-            handle={{
-                // `crumb` is your own abstraction, we decided
-                // to make this one a function so we can pass
-                // the data from the loader to it so that our
-                // breadcrumb is made up of dynamic content
-                crumb: (data) => <span>{data.threadName}</span>,
-            }}
+           
         />
         <Route
             path='estates/securityGuard/:Id'
