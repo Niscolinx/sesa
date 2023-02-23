@@ -1,10 +1,13 @@
 import { Outlet } from 'react-router'
 import Sidebar from '../../components/SecurityCompany/Sidebar'
 import Header from '../../components/SuperAdmin/dashboard/Header'
+import useBreadcrumbs from 'use-react-router-breadcrumbs'
 
 
 
 function Dashboard() {
+            const breadcrumbs = useBreadcrumbs()
+
     return (
             <div className='dashboard'>
                 <Sidebar />
