@@ -16,6 +16,10 @@ function BreadCrumb() {
                         ? i < breadcrumbs.length - 2
                         : i < breadcrumbs.length - 1
 
+                    const isActive = i === breadcrumbs.length - 1
+                    console.log(i, breadcrumb)
+
+                    console.log({ isActive })
                 if (showBreadCrumb)
                     return (
                         <p
