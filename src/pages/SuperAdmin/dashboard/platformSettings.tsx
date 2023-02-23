@@ -24,7 +24,6 @@ function PlatformSettings() {
 
     return (
         <div>
-            <h1 className='heading2'>Platform Settings</h1>
 
             <div className='estateDetail__radioBox'>
                 <input

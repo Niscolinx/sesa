@@ -40,7 +40,6 @@ function Admins() {
 
     return (
         <div className='admins'>
-            <h1 className='heading2'>Admins</h1>
             <div className='admins__container'>
                 {adminsLoaded ? (
                     <section>{switchRoute[adminPath]}</section>

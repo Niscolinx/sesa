@@ -480,7 +480,6 @@ const CommissionWallet = () => {
                     </div>
                 </section>
             </dialog>
-            <h1 className='heading2'>Commission Wallet</h1>
             <div className='grid mt-12 pb-10 rounded-lg  items-baseline gap-10'>
                 <div className='grid grid-cols-2 justify-between items-center content-start bg-white p-8 rounded-lg'>
                     <div className='grid self-stretch justify-start'>

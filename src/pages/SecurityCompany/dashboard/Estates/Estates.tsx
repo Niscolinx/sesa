@@ -141,7 +141,6 @@ function Estate() {
 
     return (
         <div className='estateDetail'>
-            <h1 className='heading2'>Estates</h1>
 
             <div className='mt-8 grid gap-8'>
                 <div className=' justify-center bg-white rounded-lg p-8 grid w-[40rem] '>

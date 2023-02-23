@@ -35,7 +35,6 @@ function Estates() {
 
     return (
         <div className='estates'>
-            <h1 className='heading2'>Estates</h1>
             <div className='estates__container'>
                 {estatesLoaded ? (
                     <section>{switchRoute(estatePath)}</section>

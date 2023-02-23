@@ -56,7 +56,6 @@ const Overview = () => {
 
     return (
         <div className='overview'>
-            <h1 className='heading2'>Overview</h1>
             <div className='overview__container'>
                 <section className='overview__left'>
                     <OverviewCards />

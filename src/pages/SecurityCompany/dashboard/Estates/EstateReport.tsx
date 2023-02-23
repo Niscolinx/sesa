@@ -630,7 +630,6 @@ function EstateReport() {
 
     return (
         <div className='estateDetail'>
-            <h1 className='heading2'>Estate Details</h1>
             <div className='estateDetail__radioBox'>
                 <input
                     defaultChecked

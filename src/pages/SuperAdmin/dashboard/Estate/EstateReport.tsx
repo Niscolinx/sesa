@@ -114,7 +114,6 @@ function EstateReport() {
 
     return (
         <div className='estateDetail'>
-            <h1 className='heading2'>Iba Estate Report</h1>
             <div className='mt-8 grid gap-8'>
                 <section className='bg-white rounded-lg p-8 grid h-[28rem] text-[1.4rem]'>
                     <div className='flex w-full justify-between'>

@@ -15,7 +15,6 @@ function RolesAndPerm() {
 
     return (
         <div className='estateManagers'>
-            <h1 className='heading2'>Roles Manager</h1>
             <div className='estateManagers__container'>
                 {estateManagersLoaded ? (
                     <section><RenderedRolesAndPerm/></section>

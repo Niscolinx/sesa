@@ -36,7 +36,6 @@ function EstateManagers() {
 
     return (
         <div className='estateManagers'>
-            <h1 className='heading2'>EstateManagers</h1>
             <div className='estateManagers__container'>
                 {estateManagersLoaded ? (
                     <section>{switchRoute(estateManagerPath)}</section>

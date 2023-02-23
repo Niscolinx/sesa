@@ -319,7 +319,6 @@ const ResidentWallet = () => {
 
     return (
         <div>
-            <h1 className='heading2'>Resident Wallet</h1>
             <div className='grid mt-12 pb-10 rounded-lg  items-baseline gap-10'>
                 <div className='flex justify-between items-center content-start bg-white p-8 rounded-lg'>
                     <div className=''>

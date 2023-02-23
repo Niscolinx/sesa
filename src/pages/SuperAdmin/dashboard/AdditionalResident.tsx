@@ -35,7 +35,6 @@ function AdditionalResident() {
 
     return (
         <div>
-            <h1 className='heading2'>Additional Resident Package</h1>
             <div className='rounded-lg mt-[3rem] h-[80vh]'>
                 {additionalResident ? (
                     <section>{switchRoute(additionalResidentPath)}</section>

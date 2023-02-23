@@ -16,7 +16,6 @@ function SecurityCompany() {
 
     return (
         <div>
-            <h1 className='heading2'>Security Company</h1>
             <div className='rounded-lg mt-[3rem] h-[80vh]'>
                 {!securityCompanies ? (
                     <section>

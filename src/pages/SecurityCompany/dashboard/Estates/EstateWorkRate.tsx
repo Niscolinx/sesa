@@ -4,7 +4,6 @@ import { EstateBarChart } from '../../../../components/SuperAdmin/charts/WalletB
 const EstateWorkRate = () => {
     return (
         <div>
-            <h1 className='heading2'>Estate Work Rate</h1>
             <main className='grid gap-10'>
                 <div className='mt-8 flex gap-8 justify-between'>
                     <div className='bg-white p-8 rounded-lg grid justify-center'>

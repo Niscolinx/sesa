@@ -15,7 +15,6 @@ function Messages() {
 
     return (
         <div>
-            <h1 className='heading2'>Messages</h1>
             <div className='rounded-lg mt-[3rem] h-[80vh]'>
                 {isMessage ? (
                     <section>
