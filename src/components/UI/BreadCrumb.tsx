@@ -9,7 +9,7 @@ function BreadCrumb() {
     const getIndex = (index: number) => {
        const id =  setTimeout(() => {
             console.log({ index })
-        }, 0)
+        }, 100)
 
         return () => clearTimeout(id)
     }
