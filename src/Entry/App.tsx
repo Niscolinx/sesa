@@ -4,7 +4,6 @@ import {
     createBrowserRouter,
     createRoutesFromElements,
     RouterProvider,
-    NavLink,
 } from 'react-router-dom'
 
 import 'react-loading-skeleton/dist/skeleton.css'
