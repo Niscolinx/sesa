@@ -26,7 +26,7 @@ const securityCompanyRoutes = (
         <Route
             path='estates/detail/:Id'
             element={<ViewEstate />}
-           
+           handle='viewEstate handle'
         />
         <Route
             path='estates/securityGuard/:Id'

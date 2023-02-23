@@ -152,6 +152,8 @@ function ViewEstate() {
     }
 
     let matches = useMatches()
+
+    console.log({matches})
    
 
     return (
