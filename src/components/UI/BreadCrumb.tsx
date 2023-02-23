@@ -1,10 +1,14 @@
 import { NavLink } from 'react-router-dom'
 import useBreadcrumbs from 'use-react-router-breadcrumbs'
 import { BiChevronRight } from 'react-icons/bi'
+import { useState } from 'react'
 
 function BreadCrumb() {
     const breadcrumbs = useBreadcrumbs()
+   
+    let index = 0
 
+    
     return (
         <div className='flex gap-4 mb-[2rem]'>
             {breadcrumbs.map(({ match, breadcrumb }, i) => {
@@ -16,27 +20,32 @@ function BreadCrumb() {
                         : i < breadcrumbs.length - 1
 
                     const isActive = i === breadcrumbs.length - 1
-                    console.log('=====', i, breadcrumbs.length - 1, {isActive}, {breadcrumb}, {isParams})
+                    // console.log(
+                    //     '=====',
+                    //     i,
+                    //     breadcrumbs.length - 1,
+                    //     { isActive },
+                    //     { breadcrumb },
+                    //     'parmas--->',
+                    //     isParams.length < 1
+                    // )
 
-                if (showBreadCrumb)
+                if (showBreadCrumb){
+                    console.log({i}, '======', breadcrumb)
+                    index = i
                     return (
                         <p
                             className='flex items-center gap-2'
                             key={match.pathname}
                         >
-                            <NavLink
-                                to={match.pathname}
-                        
-                            >
-                                {breadcrumb}
-                            </NavLink>
-                            
-                                <span>
-                                    <BiChevronRight />
-                                </span>
-                            
+                            <NavLink to={match.pathname}>{breadcrumb}</NavLink>
+
+                            <span>
+                                <BiChevronRight />
+                            </span>
                         </p>
                     )
+                }
             })}
         </div>
     )
