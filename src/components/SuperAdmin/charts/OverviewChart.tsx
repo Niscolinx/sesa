@@ -42,7 +42,7 @@ export const EstateChart = ({
         </PieChart>
     )
 }
-export default function OverviewChart({ currentSwiperIndex }: { currentSwiperIndex: number}) {
+export default function OverviewChart() {
     return (
         <PieChart width={253} height={253} className='relative'>
             <Pie

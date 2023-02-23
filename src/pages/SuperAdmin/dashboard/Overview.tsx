@@ -90,7 +90,6 @@ const Overview = () => {
                         <p className='overviewChart__heading'>Today's Inflow</p>
                         <div className='overviewChart__box'>
                             <OverviewChart
-                                currentSwiperIndex={currentSwiperIndex}
                             />
 
                             {currentSwiperIndex && (
