@@ -646,9 +646,11 @@ const AddSecurityGuard = () => {
                         </div>
                     </div>
                     <div className='grid gap-8 max-w-[40rem] mt-10'>
-                        <p className='text-[2rem] font-bold'>
+                        <p className='text-[2rem] font-bold flex items-center gap-2'>
                             KYG{' '}
-                            <span className='text-gray-500'>(Optional)</span>
+                            <span className='text-[#043FA7]'>
+                                <BsQuestionCircle />
+                            </span>
                         </p>
 
                         {isValidated ? (
@@ -674,14 +676,7 @@ const AddSecurityGuard = () => {
                                 >
                                     Click here to validate this person
                                 </p>
-                                <p
-                                    className='text-[#043FA7] flex items-center gap-2'
-                                    style={{
-                                        fontFamily: 'Satoshi-Light',
-                                    }}
-                                >
-                                    What is KYG <BsQuestionCircle />
-                                </p>
+                                
                             </div>
                         )}
                     </div>
@@ -696,7 +691,6 @@ const AddSecurityGuard = () => {
                         Add Security Guard
                     </button>
                 </section>
-               
             </main>
         </CreateAddedSecurityGuardContext.Provider>
     )
