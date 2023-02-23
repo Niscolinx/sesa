@@ -38,6 +38,13 @@ function BreadCrumb() {
                 if (showBreadCrumb) {
                     console.log({ i }, '======', breadcrumb)
 
+                    if(isParams.length < 1 ) {
+                        console.log('lastIndex 1', breadcrumbs.length - 2, i , {breadcrumb})
+                    }
+                    else{
+                        console.log('lastIndex 2', breadcrumbs.length - 1, i, {breadcrumb})
+                    }
+                    
                     getIndex(i)
 
                     return (
