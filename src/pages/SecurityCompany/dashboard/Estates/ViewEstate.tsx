@@ -19,36 +19,15 @@ export interface Overview {
     kyc: 'Validated' | 'NotValidated'
 }
 
-export const SECURITY_GUARDS: Overview[] = [
-    {
-        id: 1,
-        guardName: 'John Doe',
-        guardCode: 123456,
-        phoneNumber: '+234 8023238423',
-        kyc: 'Validated',
-    },
-    {
-        id: 2,
-        guardName: 'Samuel Eky',
-        guardCode: 123456,
-        phoneNumber: '+234 8023238423',
-        kyc: 'Validated',
-    },
-    {
-        id: 3,
-        guardName: 'Kingsley Bush',
-        guardCode: 123456,
-        phoneNumber: '+234 8023238423',
-        kyc: 'Validated',
-    },
-    {
-        id: 4,
-        guardName: 'Innocent Eze',
-        guardCode: 123456,
-        phoneNumber: '+234 8023238423',
-        kyc: 'Validated',
-    },
-]
+export const SECURITY_GUARDS: Overview[] = Array.from({ length: 10 }, (_, i) => ({
+    id: i + 1,
+    guardName: `John Doe ${i + 1}`,
+    guardCode: 123456,
+    phoneNumber: '+234 8023238423',
+    kyc: 'Validated',
+}))
+
+
 
 function ViewEstate() {
     const navigate = useNavigate()
