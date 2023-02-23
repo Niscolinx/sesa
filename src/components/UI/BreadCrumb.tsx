@@ -6,9 +6,13 @@ import { useState } from 'react'
 function BreadCrumb() {
     const breadcrumbs = useBreadcrumbs()
    
-    let index = 0
-
     
+    const getIndex = (index: number) => {
+        console.log({index})
+        return index
+    }
+
+    console.log({index})
     return (
         <div className='flex gap-4 mb-[2rem]'>
             {breadcrumbs.map(({ match, breadcrumb }, i) => {
@@ -32,7 +36,7 @@ function BreadCrumb() {
 
                 if (showBreadCrumb){
                     console.log({i}, '======', breadcrumb)
-                    index = i
+                    getIndex(i)
                     return (
                         <p
                             className='flex items-center gap-2'
