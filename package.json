@@ -27,6 +27,7 @@
         "redux-persist": "^6.0.0",
         "sass": "^1.56.2",
         "swiper": "^8.4.5",
+        "use-react-router-breadcrumbs": "^4.0.1",
         "vite-plugin-windicss": "^1.8.8",
         "windicss": "^3.5.6"
     },
