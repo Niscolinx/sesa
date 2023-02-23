@@ -11,7 +11,7 @@ function BreadCrumb() {
                 console.log({ i }, breadcrumbs.length - 2)
                 const isParams = Object.keys(match.params)
                 const showBreadCrumb = i > 1 && isParams.length < 1
-                const showArrow = isParams.length
+                const showArrow = isParams.length < 1
                     ? i < breadcrumbs.length - 2
                     : i < breadcrumbs.length - 1
 
