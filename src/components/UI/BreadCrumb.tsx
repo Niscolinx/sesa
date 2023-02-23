@@ -10,6 +10,8 @@ function BreadCrumb() {
     
 
     useEffect(() => {
+
+        console.log('crumbRef.current', crumbRef.current)
         const crumb = crumbRef.current
         if (crumb) {
             console.log(crumb.id)
@@ -35,7 +37,9 @@ function BreadCrumb() {
                             id={`${i}`}
                             
                         >
-                            <NavLink to={match.pathname}>{breadcrumb}</NavLink>
+                            <NavLink to={match.pathname} className={
+                                index === i ? 'text-color-blue-1' : 'text-color-gray-1'
+                            }>{breadcrumb}</NavLink>
 
                             <span>
                                 <BiChevronRight />
