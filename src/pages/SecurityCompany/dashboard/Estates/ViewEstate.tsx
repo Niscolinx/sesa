@@ -1,15 +1,11 @@
 import React, { useState, useEffect, ChangeEvent } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
 import { GrDown } from 'react-icons/gr'
-import {
-    HiOutlineChevronLeft,
-    HiOutlineChevronRight,
-} from 'react-icons/hi'
+import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
 import OverviewCard from '../../../../components/SuperAdmin/overview/OverviewCard'
 import useBreadcrumbs from 'use-react-router-breadcrumbs'
-
 
 export interface Overview {
     id: number
@@ -19,20 +15,20 @@ export interface Overview {
     kyc: 'Validated' | 'NotValidated'
 }
 
-export const SECURITY_GUARDS: Overview[] = Array.from({ length: 10 }, (_, i) => ({
-    id: i + 1,
-    guardName: `John Doe ${i + 1}`,
-    guardCode: 123456,
-    phoneNumber: '+234 8023238423',
-    kyc: 'Validated',
-}))
-
-
+export const SECURITY_GUARDS: Overview[] = Array.from(
+    { length: 10 },
+    (_, i) => ({
+        id: i + 1,
+        guardName: `John Doe ${i + 1}`,
+        guardCode: 123456,
+        phoneNumber: '+234 8023238423',
+        kyc: 'Validated',
+    })
+)
 
 function ViewEstate() {
     const navigate = useNavigate()
-          const breadcrumbs = useBreadcrumbs()
-
+    const breadcrumbs = useBreadcrumbs()
 
     const [securityGuards, setSecurityGuards] = useState<Overview[]>([])
     const [search, setSearch] = useState<string>('')
@@ -139,7 +135,7 @@ function ViewEstate() {
     }
 
     const detailsHandler = (id: number) => {
-         navigate(`/securityCompany/estates/securityGuard/${id}`)
+        navigate(`/securityCompany/estates/securityGuard/${id}`)
     }
 
     const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
@@ -155,8 +151,14 @@ function ViewEstate() {
     return (
         <div className=''>
             <h1 className='heading2'>Estates</h1>
-            {breadcrumbs.map(({ breadcrumb }) => breadcrumb)}
-
+            {breadcrumbs.map(({ match, breadcrumb }) => {
+                console.log({ match, breadcrumb })
+                return (
+                    <NavLink key={match.pathname} to={match.pathname}>
+                        {breadcrumb}
+                    </NavLink>
+                )
+            })}
             <div className='mt-8 grid gap-8'>
                 <section className='w-full flex bg-white p-8 rounded-lg gap-16 relative'>
                     <div>
