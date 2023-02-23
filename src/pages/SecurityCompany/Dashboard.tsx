@@ -21,6 +21,13 @@ function Dashboard() {
                     <div className='flex gap-4'>
                         {breadcrumbs.map(({ match, breadcrumb }, i) => {
                             console.log({ match, breadcrumb })
+                        console.log(
+                            'bread length, i',
+                            i,
+                            breadcrumbs.length,
+                            i,
+                            match.params
+                        )
                             if (i > 1)
                                 return (
                                     <NavLink
