@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from 'react'
 function BreadCrumb() {
     const breadcrumbs = useBreadcrumbs()
     const crumbRef = useRef<HTMLParagraphElement | null>(null)
+    
 
     useEffect(() => {
         const crumb = crumbRef.current
@@ -27,14 +28,15 @@ function BreadCrumb() {
 
            
                 if (showBreadCrumb) {
-
+                    console.log({breadcrumb})
                     return (
                         <p
                             className='flex items-center gap-2'
                             key={match.pathname}
                             ref={crumbRef}
+                            id={`${i}`}
                         >
-                            <NavLink to={match.pathname} >{breadcrumb}</NavLink>
+                            <NavLink to={match.pathname}>{breadcrumb}</NavLink>
 
                             <span>
                                 <BiChevronRight />
