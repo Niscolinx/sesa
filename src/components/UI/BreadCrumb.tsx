@@ -24,17 +24,7 @@ function BreadCrumb() {
                         >
                             <NavLink
                                 to={match.pathname}
-                                style={({ isActive }) => {
-                                    console.log({ isActive })
-                                    return {
-                                        color: isActive
-                                            ? 'red'
-                                            : '#2D2D2D',
-                                        fontWeight: isActive
-                                            ? 'bold'
-                                            : 'normal',
-                                    }
-                                }}
+                                
                             >
                                 {breadcrumb}
                             </NavLink>
