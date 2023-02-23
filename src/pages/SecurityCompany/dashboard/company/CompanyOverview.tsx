@@ -145,7 +145,7 @@ const CompanyHome = () => {
 
     const detailsHandler = (id: number) => {
         console.log(id)
-        navigate(`/securityCompany/company-overview/viewGuard/${id}`)
+        navigate(`/securityCompany/company-overview/viewGuard/:${id}`)
     }
     return (
         <div>
