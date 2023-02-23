@@ -187,7 +187,7 @@ const ComposeMessage = () => {
                             style={{ justifySelf: 'start' }}
                             onClick={() => openRecipientListDialog()}
                         >
-                            View Receipt List
+                            Add Recipients
                         </button>
                     </div>
                     <div className='col-span-full'>
