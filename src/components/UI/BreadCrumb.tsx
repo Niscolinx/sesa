@@ -12,7 +12,6 @@ function BreadCrumb() {
         return index
     }
 
-    console.log({index})
     return (
         <div className='flex gap-4 mb-[2rem]'>
             {breadcrumbs.map(({ match, breadcrumb }, i) => {
