@@ -16,7 +16,7 @@ function BreadCrumb() {
                         : i < breadcrumbs.length - 1
 
                     const isActive = i === breadcrumbs.length - 1
-                    console.log('=====', i, breadcrumb, isActive)
+                    console.log('=====', i, breadcrumb, {isActive})
 
                 if (showBreadCrumb)
                     return (
@@ -30,11 +30,11 @@ function BreadCrumb() {
                             >
                                 {breadcrumb}
                             </NavLink>
-                            {showArrow && (
+                            
                                 <span>
                                     <BiChevronRight />
                                 </span>
-                            )}
+                            
                         </p>
                     )
             })}
