@@ -161,7 +161,7 @@ const CompanyHome = () => {
                             textColor='text-[#00C2FF]'
                         />
                         <OverviewCard
-                            title='Total Estates'
+                            title='Assigned Security Guards'
                             number={18_000}
                             iconUrl='/icons/securityCompany/totalEstates.svg'
                             bgColor='bg-[#DDFCDC]'
