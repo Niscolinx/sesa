@@ -1,12 +1,23 @@
 import { NavLink } from 'react-router-dom'
 import useBreadcrumbs from 'use-react-router-breadcrumbs'
 import { BiChevronRight } from 'react-icons/bi'
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 function BreadCrumb() {
     const breadcrumbs = useBreadcrumbs()
     const crumbRef = useRef<HTMLParagraphElement | null>(null)
 
+    useEffect(() => {
+        const crumb = crumbRef.current
+        if (crumb) {
+            console.log({crumb})
+            const crumbText = crumb.textContent
+            console.log({crumbText})
+            let showCrumb = crumbText?.replace(/\/\w+/, '')
+
+            console.log({showCrumb})
+        }
+    }, [crumbRef.current])
 
     return (
         <div className='flex gap-4 mb-[2rem]'>
