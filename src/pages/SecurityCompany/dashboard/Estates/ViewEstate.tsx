@@ -2,6 +2,8 @@ import React, { useState, useEffect, ChangeEvent } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
 import { GrDown } from 'react-icons/gr'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
+import { useMatches } from 'react-router-dom'
+
 
 import { Link, NavLink, useNavigate } from 'react-router-dom'
 import OverviewCard from '../../../../components/SuperAdmin/overview/OverviewCard'
@@ -27,6 +29,7 @@ export const SECURITY_GUARDS: Overview[] = Array.from(
 )
 
 function ViewEstate() {
+      
     const navigate = useNavigate()
     const breadcrumbs = useBreadcrumbs()
 
@@ -148,11 +151,18 @@ function ViewEstate() {
         setSecurityGuards([...filtered])
     }
 
+    let matches = useMatches()
+    let crumbs = matches
+        // first get rid of any matches that don't have handle and crumb
+        .filter((match) => Boolean(match.handle?.crumb))
+        // now map them into an array of elements, passing the loader
+        // data to each one
+        .map((match) => match.handle.crumb(match.data))
+
     return (
         <div className=''>
             <h1 className='heading2'>Estates</h1>
-            {breadcrumbs.map(({ match, breadcrumb }) => {
-                console.log({ match, breadcrumb })
+            {breadcrumbs.map(({ match, breadcrumb, location}) => {
                 return (
                     <NavLink key={match.pathname} to={match.pathname}>
                         {breadcrumb}

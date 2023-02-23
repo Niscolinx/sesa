@@ -17,12 +17,23 @@ import Wallet from '../../pages/SecurityCompany/dashboard/wallet/Wallet'
 import WalletTransactionDetails from '../../pages/SecurityCompany/dashboard/wallet/WalletTransactionDetails'
 import PasswordSettings from '../../pages/SecurityCompany/dashboard/Settings/PasswordSettings'
 import Settings from '../../pages/SecurityCompany/dashboard/Settings/Settings'
+import { Link } from 'react-router-dom'
 
 const securityCompanyRoutes = (
     <Route path='/securityCompany' element={<SecurityCompanyDashboard />}>
         <Route index element={<SecurityCompanyOverview />} />
         <Route path='estates' element={<Estates />} />
-        <Route path='estates/detail/:Id' element={<ViewEstate />} />
+        <Route
+            path='estates/detail/:Id'
+            element={<ViewEstate />}
+            handle={{
+                // `crumb` is your own abstraction, we decided
+                // to make this one a function so we can pass
+                // the data from the loader to it so that our
+                // breadcrumb is made up of dynamic content
+                crumb: (data) => <span>{data.threadName}</span>,
+            }}
+        />
         <Route
             path='estates/securityGuard/:Id'
             element={<ViewSecurityGuard />}
@@ -35,30 +46,15 @@ const securityCompanyRoutes = (
             path='company-overview/addSecurity'
             element={<AddSecurityGuard />}
         />
-        <Route
-            path='messages'
-            element={<Messages />}
-        />
-        <Route
-            path='messages/compose'
-            element={<ComposeMessage />}
-        />
-        <Route
-            path='messages/view/:Id'
-            element={<ViewMessage/>}
-        />
-        <Route
-            path='wallet'
-            element={<Wallet/>}
-        />
+        <Route path='messages' element={<Messages />} />
+        <Route path='messages/compose' element={<ComposeMessage />} />
+        <Route path='messages/view/:Id' element={<ViewMessage />} />
+        <Route path='wallet' element={<Wallet />} />
         <Route
             path='wallet/transactions/:Id'
-            element={<WalletTransactionDetails/>}
+            element={<WalletTransactionDetails />}
         />
-        <Route
-            path='settings/'
-            element={<Settings/>}
-        />
+        <Route path='settings/' element={<Settings />} />
     </Route>
 )
 
