@@ -7,11 +7,7 @@ function BreadCrumb() {
     const breadcrumbs = useBreadcrumbs()
 
     const getIndex = (index: number) => {
-       const id =  setTimeout(() => {
-            console.log({ index })
-        }, 100)
-
-        return () => clearTimeout(id)
+        console.log({ index })
     }
 
     return (
@@ -34,10 +30,11 @@ function BreadCrumb() {
                 //     'parmas--->',
                 //     isParams.length < 1
                 // )
-
                 if (showBreadCrumb) {
                     console.log({ i }, '======', breadcrumb)
+
                     getIndex(i)
+
                     return (
                         <p
                             className='flex items-center gap-2'
