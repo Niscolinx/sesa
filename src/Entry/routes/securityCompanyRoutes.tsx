@@ -30,7 +30,6 @@ const securityCompanyRoutes = (
         <Route
             path='estates/detail/:Id'
             element={<ViewEstate />}
-           breadcrumb='viewEstate handle'
            
         />
         <Route

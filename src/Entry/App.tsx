@@ -24,7 +24,7 @@ import useBreadcrumbs from 'use-react-router-breadcrumbs'
 
 const router = createBrowserRouter(
     createRoutesFromElements([
-        <Route path='/' element={<Login />} breadcrumb='sdfdsfdfjkdfskdjfdkfdsfkfsdkfkdskfn' />,
+        <Route path='/' element={<Login />}  />,
         superAdminRoutes,
         securityCompanyRoutes,
         <Route path='*' element={<Navigate to='/' />} />,
