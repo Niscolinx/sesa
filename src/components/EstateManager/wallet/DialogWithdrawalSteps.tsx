@@ -17,8 +17,8 @@ export default function DialogWithdrawalSteps({
     }
 
     const handleWithdrawal = () => {
-        setStep('first')
         handleClose()
+        setStep('first')
     }
 
     const first = (
@@ -72,7 +72,7 @@ export default function DialogWithdrawalSteps({
             <img src='/icons/admins/modalDeactivate.svg' alt='' />
             <p className='text-[1.6rem]'>
                 Are you sure you want to withdraw{' '}
-                <span className='font-SatoshiMedium'>N{amount}</span> from the estate
+                <span className='font-Satoshi-Medium'>N{amount}</span> from the estate
                 wallet{' '}
             </p>
 
@@ -103,7 +103,7 @@ export default function DialogWithdrawalSteps({
             <div className='flex w-full justify-center gap-8'>
                 <button
                     className='btn bg-[#0556E5] text-white border-none rounded-lg w-[15rem]'
-                    onClick={() => handleWithdrawal}
+                    onClick={() => handleWithdrawal()}
                 >
                     Continue
                 </button>
