@@ -64,7 +64,7 @@ export default function DialogWithdrawalSteps({
         </form>
     )
     const second = (
-        <>
+        <div className='grid justify-items-center max-w-[40rem] mx-auto gap-8'>
             <img src='/icons/admins/modalDeactivate.svg' alt='' />
             <p className='text-[1.6rem]'>
                 Are you sure you want to withdraw{' '}
@@ -86,7 +86,7 @@ export default function DialogWithdrawalSteps({
                     Proceed
                 </button>
             </div>
-        </>
+        </div>
     )
     const third = (
         <div className='grid justify-items-center max-w-[40rem] mx-auto gap-8'>
