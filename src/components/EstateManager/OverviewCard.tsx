@@ -41,5 +41,21 @@ const OverviewCard: FC<OverviewCard> = ({
         </div>
     )
 }
+const OverviewCard_CheckIn: FC<OverviewCard> = () => {
+    return (
+        <div className={` rounded-2xl p-8 grid gap-8 bg-[#EEE5FB]`}>
+            <div>
+                <img src='/icons/estateManager/walkRight.svg' alt='' />
+                <p>Check-In</p>
+                <p className='text-[#33F110]'>25,000</p>
+            </div>
+            <div>
+                <img src='/icons/estateManager/walkLeft.svg' alt='' />
+                <p>Check-Out</p>
+                <p className='text-[#A36EE6]'>25,000</p>
+            </div>
+        </div>
+    )
+}
 
 export default OverviewCard
