@@ -1,10 +1,7 @@
-import  {
-    Route,
-} from 'use-react-router-breadcrumbs'
+import { Route } from 'use-react-router-breadcrumbs'
 import Dashboard from '../../pages/EstateManager/Dashboard'
 import Overview from '../../pages/EstateManager/Overview'
-import Wallet from '../../pages/EstateManager/Wallet'
-
+import Wallet from '../../pages/EstateManager/wallet/Wallet'
 
 const estateManagerRoutes = (
     <Route path='/estateManager' element={<Dashboard />}>

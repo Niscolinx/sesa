@@ -10,11 +10,10 @@ import { GrDown, GrUp } from 'react-icons/gr'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { IoMdAdd, IoMdClose } from 'react-icons/io'
 
-import {  useNavigate } from 'react-router-dom'
-import DialogWithdrawalSteps from '../../components/EstateManager/wallet/DialogWithdrawalSteps'
-import WalletBarChart from '../../components/SuperAdmin/charts/WalletBarChart'
-import { OverviewWallet } from '../../components/SuperAdmin/overview/OverviewWallets'
-
+import { useNavigate } from 'react-router-dom'
+import DialogWithdrawalSteps from '../../../components/EstateManager/wallet/DialogWithdrawalSteps'
+import WalletBarChart from '../../../components/SuperAdmin/charts/WalletBarChart'
+import { OverviewWallet } from '../../../components/SuperAdmin/overview/OverviewWallets'
 
 export interface TransactionHistory {
     id: number
@@ -189,8 +188,6 @@ function Wallet() {
         }
     }
 
-    
-
     const handleFundWallet = (e: FormEvent) => {
         e.preventDefault()
         handleClose()
@@ -216,8 +213,7 @@ function Wallet() {
                         </h3>
 
                         {isWithdrawal ? (
-                            <DialogWithdrawalSteps handleClose={handleClose}/>
-                          
+                            <DialogWithdrawalSteps handleClose={handleClose} />
                         ) : (
                             <form
                                 className='grid gap-12'
