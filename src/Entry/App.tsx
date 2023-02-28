@@ -18,12 +18,14 @@ import Login from '../pages/Login'
 import superAdminRoutes from './routes/superAdminRoutes'
 import securityCompanyRoutes from './routes/securityCompanyRoutes'
 import { Route } from 'use-react-router-breadcrumbs'
+import estateManagerRoutes from './routes/estateManagerRoutes'
 
 const router = createBrowserRouter(
     createRoutesFromElements([
         <Route path='/' element={<Login />} />,
         superAdminRoutes,
         securityCompanyRoutes,
+        estateManagerRoutes,
         <Route path='*' element={<Navigate to='/' />} />,
     ])
 )

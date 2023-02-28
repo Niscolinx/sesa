@@ -15,14 +15,22 @@ const Login = () => {
     const handleLogin = (e: FormEvent) => {
         e.preventDefault()
 
-        const { email, password } = inputs
+        let { email, password } = inputs
 
-        if (email === 'superAdmin@sesa.com') {
+        email = email.toLowerCase().trim()
+
+        console.log({email})
+        if (email === 'superadmin@sesa.com') {
             navigate('/superAdmin')
         }
         
-        if (email === 'securityCompany@sesa.com') {
+        if (email === 'securitycompany@sesa.com') {
             navigate('/securityCompany')
+        }
+
+        if(email === 'estatemanager@sesa.com') {
+            alert('')
+            navigate('/estateManager')
         }
     }
 
