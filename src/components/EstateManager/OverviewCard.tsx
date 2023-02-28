@@ -41,7 +41,7 @@ const OverviewCard: FC<OverviewCard> = ({
         </div>
     )
 }
-export const OverviewCard_CheckIn: FC<OverviewCard> = () => {
+export const OverviewCard_CheckIn: FC = () => {
     return (
         <div className={` rounded-2xl p-8 grid gap-8 bg-[#EEE5FB]`}>
             <div>
