@@ -1,10 +1,10 @@
-
 import OverviewChart from '../../components/SuperAdmin/charts/OverviewChart'
 
-import  { OverviewWallet } from '../../components/SuperAdmin/overview/OverviewWallets'
-import OverviewCard, { OverviewCard_CheckIn } from '../../components/EstateManager/OverviewCard'
+import { OverviewWallet } from '../../components/SuperAdmin/overview/OverviewWallets'
+import OverviewCard, {
+    OverviewCard_CheckIn,
+} from '../../components/EstateManager/OverviewCard'
 import React from 'react'
-
 
 export const overviewChart_data = [
     { name: 'Resident Wallet', value: 10 },
@@ -16,11 +16,6 @@ export const overviewChart_data = [
 export const overviewChart_colors = ['#EA0B90', '#23C375', '#098DFF', '#404243']
 
 const Overview = () => {
-
-
-  
-
-
     return (
         <div className=''>
             <div
@@ -29,41 +24,45 @@ const Overview = () => {
                     gridTemplateColumns: '60% auto',
                 }}
             >
-                <section
-                    className=' bg-white rounded-lg grid p-8 gap-10'
-                    style={{
-                        gridTemplateColumns:
-                            'repeat(auto-fit, minmax(30rem, 1fr))',
-                    }}
-                >
-                    <OverviewCard
-                        title='Total Residents'
-                        number={18_000}
-                        iconUrl='/icons/securityCompany/totalEstates.svg'
-                        bgColor='bg-[#EDFDEC]'
-                        textColor='text-[#1A8F56]'
-                        bottomLeft='Alpha 56%'
-                        bottomRight='Res. User 44%'
-                    />
-                    <OverviewCard
-                        title='Properties'
-                        number={1532}
-                        iconUrl='/icons/securityCompany/securityGuards.svg'
-                        bgColor='bg-[#F5F9FA]'
-                        textColor='text-[#00C2FF]'
-                        bottomLeft='Residential 56%'
-                        bottomRight='Business 44%'
-                    />
-                    <OverviewCard
-                        title='Security Guards'
-                        number={1200}
-                        iconUrl='/icons/securityCompany/AssignedSecurityGuards.svg'
-                        bgColor='bg-[#FCF3FA]'
-                        textColor='text-[#B6008E]'
-                        bottomLeft='23 guards on duty'
-                    />
-                    <OverviewCard_CheckIn/>
+                <section>
+                    <div
+                        className=' bg-white rounded-lg grid p-8 gap-10'
+                        style={{
+                            gridTemplateColumns:
+                                'repeat(auto-fit, minmax(30rem, 1fr))',
+                        }}
+                    >
+                        <OverviewCard
+                            title='Total Residents'
+                            number={18_000}
+                            iconUrl='/icons/securityCompany/totalEstates.svg'
+                            bgColor='bg-[#EDFDEC]'
+                            textColor='text-[#1A8F56]'
+                            bottomLeft='Alpha 56%'
+                            bottomRight='Res. User 44%'
+                        />
+                        <OverviewCard
+                            title='Properties'
+                            number={1532}
+                            iconUrl='/icons/securityCompany/securityGuards.svg'
+                            bgColor='bg-[#F5F9FA]'
+                            textColor='text-[#00C2FF]'
+                            bottomLeft='Residential 56%'
+                            bottomRight='Business 44%'
+                        />
+                        <OverviewCard
+                            title='Security Guards'
+                            number={1200}
+                            iconUrl='/icons/securityCompany/AssignedSecurityGuards.svg'
+                            bgColor='bg-[#FCF3FA]'
+                            textColor='text-[#B6008E]'
+                            bottomLeft='23 guards on duty'
+                        />
+                        <OverviewCard_CheckIn />
+                    </div>
+                    <img src='/img/advertHero.png' alt='' />
                 </section>
+
                 <section className='overview__right'>
                     <OverviewWallet
                         amount={200_333_500.89}

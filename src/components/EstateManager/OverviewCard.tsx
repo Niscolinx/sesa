@@ -43,7 +43,9 @@ const OverviewCard: FC<OverviewCard> = ({
 }
 export const OverviewCard_CheckIn: FC = () => {
     return (
-        <div className={` rounded-2xl p-8 grid gap-8 bg-[#EEE5FB]`}>
+        <div
+            className={` rounded-2xl p-8 flex justify-between gap-8 bg-[#73738b12]`}
+        >
             <div>
                 <img src='/icons/estateManager/walkRight.svg' alt='' />
                 <p>Check-In</p>
