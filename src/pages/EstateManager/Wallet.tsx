@@ -219,7 +219,7 @@ function Wallet() {
                         </h3>
 
                         {isWithdrawal ? (
-                            <DialogWithdrawalSteps handleWithdrawal={handleWithdrawal}/>
+                            <DialogWithdrawalSteps handleWithdrawal={handleWithdrawal} handleClose={handleClose}/>
                           
                         ) : (
                             <form
