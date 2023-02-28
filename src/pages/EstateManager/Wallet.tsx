@@ -20,7 +20,6 @@ export interface TransactionHistory {
     transactionType: string
     transactionCategory: string
     transactionId: number
-    narration: string
     amount: number
     time: string
     date: string
@@ -34,7 +33,6 @@ export const TRANSACTION_HISTORY: TransactionHistory[] = Array.from({
     transactionType: 'Credit',
     transactionCategory: 'Fund Wallet',
     transactionId: 783239232,
-    narration: '---',
     amount: 10000,
     time: '12:00pm',
     date: '12-May-2023',
@@ -407,12 +405,9 @@ function Wallet() {
                         <div className='bg-white p-8 rounded-lg grid justify-center items-baseline'>
                             <div className='grid items-end'>
                                 <OverviewWallet
-                                    amount={160_847}
-                                    title={'Security Company Wallet'}
+                                    amount={200_333_500.89}
+                                    title='Estate Wallet'
                                     isWalletScreen
-                                    bgImgUri='/icons/overview/card/bgS.svg'
-                                    lefIconUri='/icons/overview/card/leftS.svg'
-                                    bgColor='bg-[#6AB95F]'
                                 />
                             </div>
                             <div className='flex justify-center gap-4'>
@@ -485,7 +480,6 @@ function Wallet() {
                                                     transactionType,
                                                     transactionCategory,
                                                     transactionId,
-                                                    narration,
                                                     amount,
                                                     time,
                                                     balance,
