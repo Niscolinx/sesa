@@ -14,6 +14,10 @@ export default function DialogWithdrawalSteps({handleWithdrawal}: DialogWithdraw
 
     const [step, setStep] = useState<Steps>('first');
 
+
+    
+
+
     const first = (
         <form className='grid gap-12' onSubmit={handleWithdrawal}>
             <div className='w-full grid gap-4'>
@@ -78,9 +82,14 @@ export default function DialogWithdrawalSteps({handleWithdrawal}: DialogWithdraw
             </div>
         </>
     )
+
+    const DisplaySteps = new Map<Steps, JSX.Element>([
+        ['first', first],
+        ['second', second],
+    ])
   return (
-      <>
-         
-      </>
+    <>
+        {DisplaySteps.get(step)}
+    </>
   )
 }
