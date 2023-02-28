@@ -31,23 +31,23 @@ function BreadCrumb() {
 
                 // console.log({ eachParam }, 'lower', eachParam.length, params.id)
 
-                let matchPath = match.pathname
 
                 const showBreadCrumb = i > 1 && eachParam.length < 1
 
                 if (showBreadCrumb) {
                     const isParams = Object.keys(params)
 
-                    const showPath =
-                        isParams.length > 0 ? location.pathname : matchPath
+
+                    const showPath = isParams.length > 0 ? location.pathname : null
+
+                    
 
                     return (
                         <p
                             className='flex items-center gap-2'
-                            key={showPath}
+                            key={match.pathname}
                             onClick={() =>
                                 console.log({
-                                    matchPath,
                                     breadcrumb,
                                     isParams,
                                     location,
@@ -55,15 +55,18 @@ function BreadCrumb() {
                             }
                         >
                             <NavLink
-                                to={match.pathname}
+                                to={showPath ? showPath : match.pathname}
                                 className={
                                     index === i
                                         ? 'text-color-blue-1'
                                         : 'text-color-gray-1'
                                 }
                             >
-                                <span>{breadcrumb}</span>
+                                <span>
+                                    { breadcrumb}
+                                </span> 
                             </NavLink>
+                         {/* <span>{breadcrumb}</span> */}
                             {i !== index && eachParam.length < 1 && (
                                 <span>
                                     <BiChevronRight />
