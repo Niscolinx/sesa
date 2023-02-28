@@ -17,7 +17,7 @@ export default function DialogWithdrawalSteps({
     }
 
     const handleWithdrawal = () => {
-
+        setStep('first')
         handleClose()
     }
 
