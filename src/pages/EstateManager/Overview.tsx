@@ -61,30 +61,7 @@ const Overview = () => {
                     <OverviewCards />
                 </section>
                 <section className='overview__right'>
-                    <div className='overviewWallet__wrapper'>
-                        <Swiper
-                            ref={swiperRef}
-                            spaceBetween={30}
-                            centeredSlides={true}
-                            loop={true}
-                            modules={[Autoplay, Pagination]}
-                            className='overviewWallet__swiper'
-                            onSlideChange={handleSlideChange}
-                        >
-                            {React.Children.toArray(
-                                OverviewWallets.map((item) => {
-                                    return item
-                                })
-                            )}
-                        </Swiper>
-
-                        <OverviewWalletNav
-                            currentSwiperIndex={currentSwiperIndex}
-                            prev={handlePrevButtonClick}
-                            next={handleNextButtonClick}
-                            max={4}
-                        />
-                    </div>
+                    
 
                     <div className='overviewChart'>
                         <p className='overviewChart__heading'>Today's Inflow</p>
