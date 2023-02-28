@@ -1,5 +1,4 @@
 import { Outlet } from 'react-router'
-import Sidebar from '../../components/SecurityCompany/Sidebar'
 import Header from '../../components/SuperAdmin/dashboard/Header'
 import BreadCrumb from '../../components/UI/BreadCrumb'
 
