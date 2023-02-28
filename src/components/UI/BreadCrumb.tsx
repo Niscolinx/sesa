@@ -28,7 +28,6 @@ function BreadCrumb() {
                 const showBreadCrumb = i > 1 && isParams.length < 1
 
                 if (showBreadCrumb) {
-                    // console.log({breadcrumb})
                     return (
                         <p
                             className='flex items-center gap-2'
