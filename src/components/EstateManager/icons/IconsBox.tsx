@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 
 import AdditionalResidentSvg from './sidebar/AdditionalResidentSvg';
 import AdminsSvg from './sidebar/AdminsSvg';
-import AdvertSvg from './sidebar/AdvertSvg';
 import ApprovalsSvg from './sidebar/ApprovalsSvg';
 import ArtisanSvg from './sidebar/ArtisanSvg';
 import EnergyTokenSvg from './sidebar/EnergyTokenSvg';
