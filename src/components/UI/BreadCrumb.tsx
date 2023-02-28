@@ -57,13 +57,13 @@ function BreadCrumb() {
                                         ? 'text-color-blue-1'
                                         : 'text-color-gray-1'
                                 }
-                                // onClick={() => setIndex(i)}
                             >
-                                <span>
+                                {/* <span>
                                     {eachParam.length < 1 ? breadcrumb : null}
-                                </span>
+                                </span> */}
+                                <span>{breadcrumb}</span>
                             </NavLink>
-                            {i !== index && (
+                            {i !== index && eachParam.length < 1 && (
                                 <span>
                                     <BiChevronRight />
                                 </span>
