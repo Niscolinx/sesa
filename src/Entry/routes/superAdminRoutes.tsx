@@ -4,8 +4,8 @@ import  {
 } from 'use-react-router-breadcrumbs'
 
 
-import EstateDetails from '../../pages/SuperAdmin/dashboard/Estate/EstateDetails'
-import EstateReport from '../../pages/SuperAdmin/dashboard/Estate/EstateReport'
+import EstateDetails from '../../pages/SuperAdmin/dashboard/Estate/EstateReport'
+import EstateReport from '../../pages/SuperAdmin/dashboard/Estate/EstateDetail'
 import EstateManagers from '../../pages/SuperAdmin/dashboard/EstateManagers'
 import Estates from '../../pages/SuperAdmin/dashboard/Estate/Estates'
 import RolesAndPerm from '../../pages/SuperAdmin/dashboard/RolesAndPerm'
@@ -48,7 +48,7 @@ import Overview from '../../pages/SuperAdmin/dashboard/Overview'
         <Route path='admins' element={<Admins />} />
         <Route path='estates' element={<Estates />} />
         <Route path='estates/detail/:Id' element={<EstateDetails />}/>
-        <Route path='estates/report/:Id' element={<EstateReport />} />
+        <Route path='estates/detail/report/:Id' element={<EstateReport />} />
         <Route path='security-company' element={<SecurityCompany />} />
         <Route
             path='security-company/:Id'
