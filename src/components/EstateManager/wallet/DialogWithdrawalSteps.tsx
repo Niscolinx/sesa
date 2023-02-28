@@ -10,7 +10,9 @@ interface DialogWithdrawalStepsProps {
 
 export default function DialogWithdrawalSteps({handleWithdrawal}: DialogWithdrawalStepsProps) {
 
-    const [step, setStep] = useState();
+    type Steps = 'first' | 'second' | 'third';
+
+    const [step, setStep] = useState<Steps>('first');
 
     const first = (
         <form className='grid gap-12' onSubmit={handleWithdrawal}>
