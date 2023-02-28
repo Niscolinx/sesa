@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 
 interface DialogWithdrawalStepsProps {
     handleWithdrawal: (event: React.FormEvent<HTMLFormElement>) => void;
@@ -9,6 +9,8 @@ interface DialogWithdrawalStepsProps {
 
 
 export default function DialogWithdrawalSteps({handleWithdrawal}: DialogWithdrawalStepsProps) {
+
+    const [step, setStep] = useState();
 
     const first = (
         <form className='grid gap-12' onSubmit={handleWithdrawal}>
