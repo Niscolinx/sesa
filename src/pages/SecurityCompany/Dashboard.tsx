@@ -10,7 +10,7 @@ function Dashboard() {
             <div className='dashboard__container'>
                 <Header
                     fullName='Collins Igboanugwo'
-                    role='Super Admin'
+                    role='Security Guard'
                     imgUrl='/img/me.jpeg'
                 />
 
