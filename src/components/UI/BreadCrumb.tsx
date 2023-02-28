@@ -30,7 +30,9 @@ function BreadCrumb() {
 
               const eachParam = Object.keys(match.params)
 
-                console.log({ eachParam }, 'lower', eachParam.length, params)
+               // console.log({ eachParam }, 'lower', eachParam.length, params.id)
+
+               
 
                 
             
