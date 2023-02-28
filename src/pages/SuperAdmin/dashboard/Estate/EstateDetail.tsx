@@ -148,7 +148,7 @@ function EstateDetail() {
                     </div>
                     <div className='flex justify-end'>
                         <Link
-                            to={`/superAdmin/estates/report/detail/:4`}
+                            to={`/superAdmin/estates/detail/report/:4`}
                             className='text-[#0660FE] text-[1.4rem]'
                         >
                             View Estate Report

@@ -1,14 +1,16 @@
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import useBreadcrumbs from 'use-react-router-breadcrumbs'
 import { BiChevronRight } from 'react-icons/bi'
 import { useLocation, useParams } from 'react-router'
 
 function BreadCrumb() {
+    const navigate = useNavigate()
     const location = useLocation()
     const params = useParams()
     const breadcrumbs = useBreadcrumbs()
 
     const isParams = Object.keys(params)
+
 
     const getIndex = () => {
         const path = location.pathname.split('/')
@@ -24,16 +26,25 @@ function BreadCrumb() {
     return (
         <div className='flex gap-4 mb-[2rem]'>
             {breadcrumbs.map(({ match, breadcrumb }, i) => {
-                const isParams = Object.keys(match.params)
-                const showBreadCrumb = i > 1 && isParams.length < 1
+              //  const isParams = Object.keys(match.params)
+
+              const eachParam = Object.keys(match.params)
+
+                console.log({ eachParam }, 'lower', eachParam.length, params)
+
+                
+            
+                const showBreadCrumb = i > 1 && eachParam.length < 1
 
                 if (showBreadCrumb) {
+                    console.log({ match })
                     return (
                         <p
                             className='flex items-center gap-2'
                             key={match.pathname}
+                            onClick={() => console.log({ match, breadcrumb, isParams, location })}
                         >
-                            <NavLink
+                            {/* <NavLink
                                 to={match.pathname}
                                 className={
                                     index === i
@@ -43,7 +54,8 @@ function BreadCrumb() {
                                 // onClick={() => setIndex(i)}
                             >
                                 <span>{breadcrumb}</span>
-                            </NavLink>
+                            </NavLink> */}
+                            <span>{breadcrumb}</span>
                             {i !== index && (
                                 <span>
                                     <BiChevronRight />
