@@ -22,14 +22,14 @@ function IconsBox() {
               </Link>
           </li>
           <li className='iconsBox__list'>
-              <Link to='/estateManager/wallet'>
+              <Link to='/estateManager/wallet' className='fillIcon'>
                   {' '}
                   <WalletSvg />
                   <span>Wallet</span>
               </Link>
           </li>
           <li className='iconsBox__list'>
-              <Link to='/estateManager/residents' className='fillIcon'>
+              <Link to='/estateManager/residents'>
                   <AdminsSvg />
                   <span>Residents</span>
               </Link>
