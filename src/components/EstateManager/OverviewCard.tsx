@@ -34,7 +34,7 @@ const OverviewCard: FC<OverviewCard> = ({
                     </p>
                 </div>
             </div>
-            <div className={`${textColor} border-t `}>
+            <div className={`${textColor} border-t flex items-center justify-around `}>
                 <p>{bottomLeft}</p>
                 <p>{bottomRight}</p>
             </div>

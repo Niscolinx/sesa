@@ -46,11 +46,13 @@ const Overview = () => {
                         bottomRight='Res. User 44%'
                     />
                     <OverviewCard
-                        title='Security Guard'
+                        title='Properties'
                         number={1532}
                         iconUrl='/icons/securityCompany/securityGuards.svg'
                         bgColor='bg-[#F5F9FA]'
                         textColor='text-[#00C2FF]'
+                        bottomLeft='Residential 56%'
+                        bottomRight='Business 44%'
                     />
                     <OverviewCard
                         title='Assigned Security Guards'
