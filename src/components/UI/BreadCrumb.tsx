@@ -55,7 +55,8 @@ function BreadCrumb() {
                             }
                         >
                             <NavLink
-                                to={showPath ? showPath : match.pathname}
+                               // to={showPath ? showPath : match.pathname}
+                                to={match.pathname}
                                 className={
                                     index === i
                                         ? 'text-color-blue-1'
