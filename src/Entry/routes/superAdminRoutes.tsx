@@ -69,7 +69,7 @@ import Overview from '../../pages/SuperAdmin/dashboard/Overview'
         <Route path='wallet/resident/:id' element={<ResidentWalletDetails />} />
         <Route path='wallet/commission' element={<CommissionWallet />} />
         <Route
-            path='wallet/commision/:id'
+            path='wallet/commission/:id'
             element={<CommissionWalletDetails />}
         />
         <Route

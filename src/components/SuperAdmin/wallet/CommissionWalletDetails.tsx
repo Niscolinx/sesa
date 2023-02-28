@@ -1,10 +1,6 @@
-import React, { useContext } from 'react'
-import { ModalContext } from '../../../Context/ModalContext'
 
 
 const CommissionWalletDetails = () => {
-    const ModalContextData = useContext(ModalContext)
-    const { handleOpen } = ModalContextData
 
     return (
         <div className=' p-8 bg-white h-[80vh] rounded-lg overflow-y-scroll'>
