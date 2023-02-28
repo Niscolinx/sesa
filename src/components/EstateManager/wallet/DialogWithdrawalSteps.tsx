@@ -1,22 +1,22 @@
-
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 
 interface DialogWithdrawalStepsProps {
-    handleWithdrawal: (event: React.FormEvent<HTMLFormElement>) => void;
+    handleWithdrawal: (event: React.FormEvent<HTMLFormElement>) => void
+    handleClose: () => void
 }
 
+export default function DialogWithdrawalSteps({
+    handleWithdrawal,
+    handleClose,
+}: DialogWithdrawalStepsProps) {
+    type Steps = 'first' | 'second' | 'third'
 
+    const [step, setStep] = useState<Steps>('first')
+    const [amount, setAmount] = useState('')
 
-
-export default function DialogWithdrawalSteps({handleWithdrawal}: DialogWithdrawalStepsProps) {
-
-    type Steps = 'first' | 'second' | 'third';
-
-    const [step, setStep] = useState<Steps>('first');
-
-
-    
-
+    const handleProceed = () => {
+        setStep('third')
+    }
 
     const first = (
         <form className='grid gap-12' onSubmit={handleWithdrawal}>
@@ -34,6 +34,8 @@ export default function DialogWithdrawalSteps({handleWithdrawal}: DialogWithdraw
                         type='number'
                         required
                         id='amount'
+                        value={amount}
+                        onChange={(e) => setAmount(e.target.value)}
                         className='border pl-8 border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem]'
                     />
                 </div>
@@ -75,7 +77,7 @@ export default function DialogWithdrawalSteps({handleWithdrawal}: DialogWithdraw
                 </button>
                 <button
                     className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
-                    onClick={handleDeactivateArtisan}
+                    onClick={handleProceed}
                 >
                     Deactivate
                 </button>
@@ -87,9 +89,5 @@ export default function DialogWithdrawalSteps({handleWithdrawal}: DialogWithdraw
         ['first', first],
         ['second', second],
     ])
-  return (
-    <>
-        {DisplaySteps.get(step)}
-    </>
-  )
+    return <>{DisplaySteps.get(step)}</>
 }
