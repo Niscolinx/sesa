@@ -30,7 +30,7 @@ const Overview = () => {
                 }}
             >
                 <section
-                    className=' bg-white rounded-lg grid p-8'
+                    className=' bg-white rounded-lg grid p-8 gap-10'
                     style={{
                         gridTemplateColumns:
                             'repeat(auto-fit, minmax(30rem, 1fr))',
@@ -40,7 +40,7 @@ const Overview = () => {
                         title='Total Residents'
                         number={18_000}
                         iconUrl='/icons/securityCompany/totalEstates.svg'
-                        bgColor='bg-[#DDFCDC]'
+                        bgColor='bg-[#EDFDEC]'
                         textColor='text-[#1A8F56]'
                         bottomLeft='Alpha 56%'
                         bottomRight='Res. User 44%'
