@@ -50,7 +50,7 @@ function Residents() {
                     <section className='grid place-content-center w-full h-full justify-items-center gap-4 bg-white'>
                         <img src='/icons/admins/errorSvg.svg' alt='' />
                         <p className='text'>
-                            Ooops you have not added any Package yet
+                            Ooops you have not any resident list yet
                         </p>
                         <button
                             className='bg-color-blue-1 text-white flex gap-2 items-center rounded-lg justify-self-center py-4 px-16 text-[1.6rem]'
@@ -59,7 +59,7 @@ function Residents() {
                             <span>
                                 <IoMdAdd />
                             </span>{' '}
-                            Add Package
+                            Add Resident
                         </button>
                     </section>
                 )}
