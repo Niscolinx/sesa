@@ -36,7 +36,17 @@ const Overview = () => {
                         <div className='overviewChart__box'>
                             <OverviewChart />
 
-                            
+                           
+                                <div className='overviewChart__label'>
+                                    <p className='overviewChart__label--percentage'>
+                                        45
+                                        <span>%</span>
+                                    </p>
+                                    <p className='overviewChart__label--title'>
+                                        Estate Wallet
+                                    </p>
+                                </div>
+                       
                         </div>
                         <ul className='overviewChart__list'>
                             {React.Children.toArray(
