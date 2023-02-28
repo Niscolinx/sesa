@@ -11,7 +11,6 @@ function BreadCrumb() {
 
     const isParams = Object.keys(params)
 
-
     const getIndex = () => {
         const path = location.pathname.split('/')
         if (isParams.length < 1) {
@@ -26,27 +25,32 @@ function BreadCrumb() {
     return (
         <div className='flex gap-4 mb-[2rem]'>
             {breadcrumbs.map(({ match, breadcrumb }, i) => {
-              //  const isParams = Object.keys(match.params)
+                //  const isParams = Object.keys(match.params)
 
-              const eachParam = Object.keys(match.params)
+                const eachParam = Object.keys(match.params)
 
-               // console.log({ eachParam }, 'lower', eachParam.length, params.id)
+                // console.log({ eachParam }, 'lower', eachParam.length, params.id)
 
-               
+                console.log({ match }, 'outside')
 
-                
-            
-                const showBreadCrumb = i > 1 && eachParam.length < 1
+                const showBreadCrumb = i > 1
 
                 if (showBreadCrumb) {
-                    console.log({ match })
+                    console.log({ match }, 'inside')
                     return (
                         <p
                             className='flex items-center gap-2'
                             key={match.pathname}
-                            onClick={() => console.log({ match, breadcrumb, isParams, location })}
+                            onClick={() =>
+                                console.log({
+                                    match,
+                                    breadcrumb,
+                                    isParams,
+                                    location,
+                                })
+                            }
                         >
-                            {/* <NavLink
+                            <NavLink
                                 to={match.pathname}
                                 className={
                                     index === i
@@ -55,9 +59,10 @@ function BreadCrumb() {
                                 }
                                 // onClick={() => setIndex(i)}
                             >
-                                <span>{breadcrumb}</span>
-                            </NavLink> */}
-                            <span>{breadcrumb}</span>
+                                <span>
+                                    {eachParam.length < 1 ? breadcrumb : null}
+                                </span>
+                            </NavLink>
                             {i !== index && (
                                 <span>
                                     <BiChevronRight />
