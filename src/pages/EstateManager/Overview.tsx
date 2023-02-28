@@ -24,18 +24,44 @@ const Overview = () => {
     return (
         <div className=''>
             <div
-                className='grid justify-items-center'
+                className='grid gap-8'
                 style={{
                     gridTemplateColumns: '60% auto',
                 }}
             >
-                <section className='overview__left'>
+                <section
+                    className=' bg-white rounded-lg grid gap-8'
+                    style={{
+                        gridTemplateColumns:
+                            'repeat(auto-fit, minmax(30rem, 1fr))',
+                    }}
+                >
                     <OverviewCard
-                        amount={800_836_709.74}
-                        title={'Security Company Wallet'}
-                        bgImgUri='/icons/overview/card/bgS.svg'
-                        lefIconUri='/icons/overview/card/leftS.svg'
-                        bgColor='bg-[#6AB95F]'
+                        title='Total Estates'
+                        number={18_000}
+                        iconUrl='/icons/securityCompany/totalEstates.svg'
+                        percent={5}
+                        arrow='/icons/securityCompany/arrowUp.svg'
+                        bgColor='bg-[#DDFCDC]'
+                        textColor='text-[#1A8F56]'
+                    />
+                    <OverviewCard
+                        title='Security Guard'
+                        number={1532}
+                        iconUrl='/icons/securityCompany/securityGuards.svg'
+                        percent={5}
+                        arrow='/icons/securityCompany/arrowUp.svg'
+                        bgColor='bg-[#F5F9FA]'
+                        textColor='text-[#00C2FF]'
+                    />
+                    <OverviewCard
+                        title='Assigned Security Guards'
+                        number={1200}
+                        iconUrl='/icons/securityCompany/AssignedSecurityGuards.svg'
+                        percent={5}
+                        arrow='/icons/securityCompany/arrowUp.svg'
+                        bgColor='bg-[#FCF3FA]'
+                        textColor='text-[#B6008E]'
                     />
                 </section>
                 <section className='overview__right'>

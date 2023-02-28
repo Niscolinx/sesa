@@ -1,64 +1,48 @@
-import { FC, Fragment } from 'react'
-import { SwiperSlide } from 'swiper/react'
+import React, { FC } from 'react'
 
-type OverviewWallet = {
-    amount: number
+type OverviewCard = {
+    iconUrl: string
     title: string
-    bgImgUri?: string
-    lefIconUri?: string
-    bgColor?: string
-    isWalletScreen?: boolean
+    number: number
+    bgColor: string
+    textColor: string
+    percent?: number
+    arrow?: string
 }
 
- const OverviewWallet: FC<OverviewWallet> = ({
-    amount,
+const OverviewCard: FC<OverviewCard> = ({
+    iconUrl,
     title,
-    bgColor = 'bg-[#5c8bff]',
-    lefIconUri = '/icons/overview/card/leftR.svg',
-    bgImgUri = '/icons/overview/card/bgR.svg',
-    isWalletScreen = false,
+    number,
+    bgColor,
+    percent,
+    arrow,
+    textColor = 'black',
 }) => {
-    const formattedAmount = new Intl.NumberFormat('en-US', {
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2,
-    }).format(amount)
-
-    const splittedAmount = formattedAmount.split('.')
-    const wholeNum = splittedAmount[0]
-    const fraction = splittedAmount[1]
-
     return (
-        <div
-            className={`overviewWallet relative overflow-hidden ${bgColor} ${
-                isWalletScreen ? 'h-[18rem]' : 'h-[14rem]'
-            }`}
-        >
-            <img
-                src={bgImgUri}
-                alt=''
-                role={'presentation'}
-                className='absolute top-0 z-[1]'
-            />
+        <div className={`overviewCard ${bgColor}`}>
+            <img src={iconUrl} alt='' className='overviewCard__img' />
+            <div
+                className={`overviewCard__content ${percent ? 'relative' : ''}`}
+            >
+                <p className='overviewCard__title'>{title}</p>
+                <p className={`overviewCard__number ${textColor}`}>
+                    {number.toLocaleString()}
+                </p>
 
-            <img
-                src={lefIconUri}
-                alt=''
-                className='overviewWallet__leftIcon z-[2]'
-            />
-            <div className='overviewWallet__content relative z-[2]'>
-                <p className='overviewWallet__title'>{title}</p>
-                <div className='overviewWallet__box'>
-                    <img src='/icons/overview/card/naira.svg' alt='' />
-                    <p className='overviewWallet__amount'>
-                        {wholeNum}
-                        <span className='text-[1.8rem]'>.{fraction}</span>
-                    </p>
-                </div>
+                {percent && (
+                    <div className='absolute bottom-0 right-0'>
+                        <img
+                            src={arrow}
+                            alt=''
+                            className='overviewCard__arrow'
+                        />
+                        <p className='text-green-600'>{percent}%</p>
+                    </div>
+                )}
             </div>
         </div>
     )
 }
 
-
-
-export default OverviewWallet
+export default OverviewCard
