@@ -30,14 +30,14 @@ const Overview = () => {
                 }}
             >
                 <section
-                    className=' bg-white rounded-lg grid gap-8'
+                    className=' bg-white rounded-lg grid p-8'
                     style={{
                         gridTemplateColumns:
                             'repeat(auto-fit, minmax(30rem, 1fr))',
                     }}
                 >
                     <OverviewCard
-                        title='Total Estates'
+                        title='Total Residents'
                         number={18_000}
                         iconUrl='/icons/securityCompany/totalEstates.svg'
                         percent={5}

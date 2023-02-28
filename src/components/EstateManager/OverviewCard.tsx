@@ -8,6 +8,8 @@ type OverviewCard = {
     textColor: string
     percent?: number
     arrow?: string
+    bottomLeft?: string
+    bottomRight?: string
 }
 
 const OverviewCard: FC<OverviewCard> = ({
@@ -17,6 +19,8 @@ const OverviewCard: FC<OverviewCard> = ({
     bgColor,
     percent,
     arrow,
+    bottomLeft,
+    bottomRight,
     textColor = 'black',
 }) => {
     return (
