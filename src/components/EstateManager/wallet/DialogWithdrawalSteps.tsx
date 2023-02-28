@@ -56,7 +56,9 @@ export default function DialogWithdrawalSteps({
                 />
             </div>
 
-            <button className='btn bg-[#0556E5] text-white rounded-lg py-4 place-self-start w-[15rem]'>
+            <button className='btn bg-[#0556E5] text-white rounded-lg py-4 place-self-start w-[15rem]' onClick={
+                () => setStep('second')
+            }>
                 Withdraw
             </button>
         </form>
@@ -65,7 +67,9 @@ export default function DialogWithdrawalSteps({
         <>
             <img src='/icons/admins/modalDeactivate.svg' alt='' />
             <p className='text-[1.6rem]'>
-                Are you sure you want to deactivate this Artisan
+                Are you sure you want to withdraw{' '}
+                <span className='font-medium'>N{amount}</span> from the estate
+                wallet{' '}
             </p>
 
             <div className='flex w-full justify-center gap-8'>
@@ -76,10 +80,10 @@ export default function DialogWithdrawalSteps({
                     Cancel
                 </button>
                 <button
-                    className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
+                    className='bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
                     onClick={handleProceed}
                 >
-                    Deactivate
+                    Proceed
                 </button>
             </div>
         </>
