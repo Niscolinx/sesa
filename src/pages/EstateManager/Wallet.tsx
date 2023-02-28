@@ -427,7 +427,7 @@ function Wallet() {
                                     className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
                                     onClick={() => handleOpen('withdraw')}
                                 >
-                                    Request
+                                    Withdraw
                                 </button>
                             </div>
                         </div>
