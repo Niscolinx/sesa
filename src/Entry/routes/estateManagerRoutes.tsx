@@ -8,7 +8,7 @@ const estateManagerRoutes = (
     <Route path='/estateManager' element={<Dashboard />}>
         <Route index element={<Overview />} />
         <Route path='wallet' element={<Wallet />} />
-        <Route path='wallet/:id' element={<WalletDetails />} />
+        <Route path='wallet/transaction-details/:id' element={<WalletDetails />} />
     </Route>
 )
 

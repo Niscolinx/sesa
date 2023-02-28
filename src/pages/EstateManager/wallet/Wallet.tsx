@@ -152,7 +152,7 @@ function Wallet() {
     }
 
     const detailsHandler = (id: number) => {
-        navigate(`/estateManager/wallet/${id}`)
+        navigate(`/estateManager/wallet/transaction-details/:${id}`)
     }
 
     const trend: Array<Trend> = ['This Week', 'This Month', 'This Year']
