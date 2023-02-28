@@ -30,15 +30,15 @@ function IconsBox() {
           </li>
           <li className='iconsBox__list'>
               <Link to='/estateManager/residents' className='fillIcon'>
-                  <EstatesSvg />
+                  <AdminsSvg />
                   <span>Residents</span>
               </Link>
           </li>
           <li className='iconsBox__list'>
-              <Link to='/estateManager/estateManagers' className='fillIcon'>
+              <Link to='/estateManager/properties' className='fillIcon'>
                   {' '}
-                  <EstateManagerSvg />
-                  <span>Estate Manager</span>
+                  <EstatesSvg />
+                  <span>Properties</span>
               </Link>
           </li>
           <li className='iconsBox__list'>
