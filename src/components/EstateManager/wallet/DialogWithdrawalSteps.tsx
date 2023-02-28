@@ -90,19 +90,19 @@ export default function DialogWithdrawalSteps({
     )
     const third = (
         <>
-            <img src='/icons/admins/modalDeactivate.svg' alt='' />
+            <img src='/icons/admins/modalSuccess.svg' alt='' />
             <p className='text-[1.6rem]'>
-                Are you sure you want to deactivate this Artisan
+                Your request has been sent to SESA admin. The registered estate
+                bank account will be credited within 1 working day{' '}
             </p>
 
             <div className='flex w-full justify-center gap-8'>
                 <button
-                    className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
+                    className='btn bg-[#0556E5] text-white border-none rounded-lg w-[15rem]'
                     onClick={() => handleClose()}
                 >
-                    Cancel
+                    Continue
                 </button>
-                
             </div>
         </>
     )
@@ -110,6 +110,7 @@ export default function DialogWithdrawalSteps({
     const DisplaySteps = new Map<Steps, JSX.Element>([
         ['first', first],
         ['second', second],
+        ['third', third]
     ])
     return <>{DisplaySteps.get(step)}</>
 }
