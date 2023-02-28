@@ -31,19 +31,23 @@ function BreadCrumb() {
 
                 // console.log({ eachParam }, 'lower', eachParam.length, params.id)
 
-                console.log({ match }, 'outside')
+                let matchPath = match.pathname
 
-                const showBreadCrumb = i > 1
+                const showBreadCrumb = i > 1 && eachParam.length < 1
 
                 if (showBreadCrumb) {
-                    console.log({ match }, 'inside')
+                    const isParams = Object.keys(params)
+
+                    const showPath =
+                        isParams.length > 0 ? location.pathname : matchPath
+
                     return (
                         <p
                             className='flex items-center gap-2'
-                            key={match.pathname}
+                            key={showPath}
                             onClick={() =>
                                 console.log({
-                                    match,
+                                    matchPath,
                                     breadcrumb,
                                     isParams,
                                     location,
@@ -58,9 +62,6 @@ function BreadCrumb() {
                                         : 'text-color-gray-1'
                                 }
                             >
-                                {/* <span>
-                                    {eachParam.length < 1 ? breadcrumb : null}
-                                </span> */}
                                 <span>{breadcrumb}</span>
                             </NavLink>
                             {i !== index && eachParam.length < 1 && (
