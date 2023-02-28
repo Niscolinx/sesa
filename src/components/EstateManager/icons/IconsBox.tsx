@@ -16,72 +16,72 @@ function IconsBox() {
   return (
       <ul className='iconsBox'>
           <li className='iconsBox__list'>
-              <Link to='/superAdmin'>
+              <Link to='/estateManager'>
                   <OverviewSvg />
                   <span>Overview</span>
               </Link>
           </li>
           <li className='iconsBox__list'>
-              <Link to='/superAdmin/admins'>
+              <Link to='/estateManager/wallet'>
                   {' '}
-                  <AdminsSvg />
-                  <span>Admins</span>
+                  <WalletSvg />
+                  <span>Wallet</span>
               </Link>
           </li>
           <li className='iconsBox__list'>
-              <Link to='/superAdmin/estates' className='fillIcon'>
+              <Link to='/estateManager/residents' className='fillIcon'>
                   <EstatesSvg />
-                  <span>Estates</span>
+                  <span>Residents</span>
               </Link>
           </li>
           <li className='iconsBox__list'>
-              <Link to='/superAdmin/estateManagers' className='fillIcon'>
+              <Link to='/estateManager/estateManagers' className='fillIcon'>
                   {' '}
                   <EstateManagerSvg />
                   <span>Estate Manager</span>
               </Link>
           </li>
           <li className='iconsBox__list'>
-              <Link to='/superAdmin/rolesAndPerm'>
+              <Link to='/estateManager/rolesAndPerm'>
                   <RolesAndPermSvg />
                   <span>Roles & Permissions</span>
               </Link>
           </li>
           <li className='iconsBox__list'>
-              <Link to='/superAdmin/additional-resident'>
+              <Link to='/estateManager/additional-resident'>
                   {' '}
                   <AdditionalResidentSvg />
                   <span>Additional Resident</span>{' '}
               </Link>
           </li>
           <li className='iconsBox__list'>
-              <Link to='/superAdmin/security-company' className='fillIcon'>
+              <Link to='/estateManager/security-company' className='fillIcon'>
                   {' '}
                   <SecurityCompSvg />
                   <span>Security Company</span>
               </Link>
           </li>
           <li className='iconsBox__list'>
-              <Link to='/superAdmin/wallet' className='fillIcon'>
+              <Link to='/estateManager/wallet' className='fillIcon'>
                   <WalletSvg />
                   <span>Wallet</span>
               </Link>
           </li>
           <li className='iconsBox__list'>
-              <Link to='/superAdmin/artisan' className='fillIcon'>
+              <Link to='/estateManager/artisan' className='fillIcon'>
                   {' '}
                   <ArtisanSvg />
                   <span>Artisan</span>
               </Link>
           </li>
           <li className='iconsBox__list'>
-              <Link to='/superAdmin/advert'>
+              <Link to='/estateManager/advert'>
                   <AdvertSvg />
                   <span>Advert</span>
               </Link>
           </li>
           <li className='iconsBox__list'>
-              <Link to='/superAdmin/platformSettings' className='fillIcon'>
+              <Link to='/estateManager/platformSettings' className='fillIcon'>
                   <SettingsSvg />
                   <span>Settings</span>
               </Link>
