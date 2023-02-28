@@ -24,7 +24,7 @@ const OverviewCard: FC<OverviewCard> = ({
     textColor = 'black',
 }) => {
     return (
-        <div className={` rounded-2xl p-8 grid gap-8 ${bgColor}`}>
+        <div className={` rounded-2xl p-8 grid gap-6 h-[15rem] ${bgColor}`}>
             <div className='flex gap-10 items-center'>
                 <img src={iconUrl} alt='' className='w-[5rem]' />
                 <div>
@@ -34,7 +34,7 @@ const OverviewCard: FC<OverviewCard> = ({
                     </p>
                 </div>
             </div>
-            <div className={`${textColor} border-t flex items-center justify-around `}>
+            <div className={`${textColor} border-t flex items-center justify-around pt-4`}>
                 <p>{bottomLeft}</p>
                 <p>{bottomRight}</p>
             </div>
@@ -44,7 +44,7 @@ const OverviewCard: FC<OverviewCard> = ({
 export const OverviewCard_CheckIn: FC = () => {
     return (
         <div
-            className={` rounded-2xl p-8 flex justify-between gap-8 bg-[#73738b12]`}
+            className={` rounded-2xl p-8 flex justify-between gap-8 bg-[#73738b12] h-[15rem]`}
         >
             <div>
                 <img src='/icons/estateManager/walkRight.svg' alt='' />

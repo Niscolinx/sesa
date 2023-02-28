@@ -24,7 +24,7 @@ const Overview = () => {
                     gridTemplateColumns: '60% auto',
                 }}
             >
-                <section>
+                <section className='grid gap-8'>
                     <div
                         className=' bg-white rounded-lg grid p-8 gap-10'
                         style={{
