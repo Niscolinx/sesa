@@ -3,14 +3,18 @@ import { IoMdAdd } from 'react-icons/io'
 
 
 function Residents() {
-  
+    
+    const [isResident, setIsResident] = useState(false)
 
+    const addResident = () => {
+        setIsResident(true)
+    }
    
     return (
         <div>
             <div className='rounded-lg mt-[3rem] h-[80vh]'>
-                {additionalResident ? (
-                    <section>{switchRoute(additionalResidentPath)}</section>
+                {isResident ? (
+                    <section></section>
                 ) : (
                     <section className='grid place-content-center w-full h-full justify-items-center gap-4 bg-white'>
                         <img src='/icons/admins/errorSvg.svg' alt='' />
@@ -19,7 +23,7 @@ function Residents() {
                         </p>
                         <button
                             className='bg-color-blue-1 text-white flex gap-2 items-center rounded-lg justify-self-center py-4 px-16 text-[1.6rem]'
-                            onClick={handleAddEstate}
+                            onClick={addResident}
                         >
                             <span>
                                 <IoMdAdd />
