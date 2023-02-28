@@ -19,7 +19,7 @@ const Overview = () => {
     return (
         <div className=''>
             <div
-                className='grid gap-8'
+                className='grid gap-16'
                 style={{
                     gridTemplateColumns: '60% auto',
                 }}
@@ -63,7 +63,7 @@ const Overview = () => {
                     <img src='/img/advertHero.png' alt='' />
                 </section>
 
-                <section className='overview__right'>
+                <section className='grid '>
                     <OverviewWallet
                         amount={200_333_500.89}
                         title='Estate Wallet'
