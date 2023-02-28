@@ -2,7 +2,7 @@
 import OverviewChart from '../../components/SuperAdmin/charts/OverviewChart'
 
 import  { OverviewWallet } from '../../components/SuperAdmin/overview/OverviewWallets'
-import OverviewCard from '../../components/EstateManager/OverviewCard'
+import OverviewCard, { OverviewCard_CheckIn } from '../../components/EstateManager/OverviewCard'
 import React from 'react'
 
 
@@ -62,6 +62,7 @@ const Overview = () => {
                         textColor='text-[#B6008E]'
                         bottomLeft='23 guards on duty'
                     />
+                    <OverviewCard_CheckIn/>
                 </section>
                 <section className='overview__right'>
                     <OverviewWallet
