@@ -28,8 +28,8 @@ const OverviewCard: FC<OverviewCard> = ({
             <div className='flex gap-4 items-baseline'>
                 <img src={iconUrl} alt='' className='' />
                 <div>
-                    <p className='overviewCard__title'>{title}</p>
-                    <p className={`overviewCard__number ${textColor}`}>
+                    <p className='font-medium'>{title}</p>
+                    <p className={`text-[2.6rem] font-medium ${textColor}`}>
                         {number.toLocaleString()}
                     </p>
                 </div>
