@@ -25,7 +25,7 @@ const OverviewCard: FC<OverviewCard> = ({
 }) => {
     return (
         <div className={`h-[15rem] rounded-2xl p-8 ${bgColor}`}>
-            <div className='flex gap-4 items-baseline'>
+            <div className='flex gap-4'>
                 <img src={iconUrl} alt='' className='' />
                 <div>
                     <p className='font-medium'>{title}</p>
@@ -34,7 +34,7 @@ const OverviewCard: FC<OverviewCard> = ({
                     </p>
                 </div>
             </div>
-            <div className={`${textColor}`}>
+            <div className={`${textColor} `}>
                 <p>{bottomLeft}</p>
                 <p>{bottomRight}</p>
             </div>

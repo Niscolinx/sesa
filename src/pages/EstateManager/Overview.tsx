@@ -40,17 +40,15 @@ const Overview = () => {
                         title='Total Residents'
                         number={18_000}
                         iconUrl='/icons/securityCompany/totalEstates.svg'
-                        percent={5}
-                        arrow='/icons/securityCompany/arrowUp.svg'
                         bgColor='bg-[#DDFCDC]'
                         textColor='text-[#1A8F56]'
+                        bottomLeft='Alpha 56%'
+                        bottomRight='Res. User 44%'
                     />
                     <OverviewCard
                         title='Security Guard'
                         number={1532}
                         iconUrl='/icons/securityCompany/securityGuards.svg'
-                        percent={5}
-                        arrow='/icons/securityCompany/arrowUp.svg'
                         bgColor='bg-[#F5F9FA]'
                         textColor='text-[#00C2FF]'
                     />
@@ -58,8 +56,6 @@ const Overview = () => {
                         title='Assigned Security Guards'
                         number={1200}
                         iconUrl='/icons/securityCompany/AssignedSecurityGuards.svg'
-                        percent={5}
-                        arrow='/icons/securityCompany/arrowUp.svg'
                         bgColor='bg-[#FCF3FA]'
                         textColor='text-[#B6008E]'
                     />
