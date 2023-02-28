@@ -1,10 +1,8 @@
-import { Swiper, SwiperRef, SwiperSlide } from 'swiper/react'
-import { Autoplay, Pagination } from 'swiper'
-import React, { MutableRefObject, useEffect, useRef, useState } from 'react'
+
 import OverviewChart from '../../components/SuperAdmin/charts/OverviewChart'
-import OverviewCards from '../../components/SuperAdmin/overview/OverviewCards'
-import OverviewWalletNav from '../../components/SuperAdmin/overview/OverviewWalletNav'
-import OverviewWallets from '../../components/SuperAdmin/overview/OverviewWallets'
+
+import  { OverviewWallet } from '../../components/SuperAdmin/overview/OverviewWallets'
+import OverviewCard from '../../components/EstateManager/OverviewCard'
 
 
 export const overviewChart_data = [
@@ -26,27 +24,29 @@ const Overview = () => {
         <div className='overview'>
             <div className='overview__container'>
                 <section className='overview__left'>
-                    <OverviewCards />
+                    <OverviewCard iconUrl={''} title={''} number={0} bgColor={''} textColor={''} />
                 </section>
                 <section className='overview__right'>
-                    
+                    <OverviewWallet
+                        amount={200_333_500.89}
+                        title='Estate Wallet'
+                        isWalletScreen
+                    />
 
                     <div className='overviewChart'>
                         <p className='overviewChart__heading'>Today's Inflow</p>
                         <div className='overviewChart__box'>
                             <OverviewChart />
 
-                           
-                                <div className='overviewChart__label'>
-                                    <p className='overviewChart__label--percentage'>
-                                        45
-                                        <span>%</span>
-                                    </p>
-                                    <p className='overviewChart__label--title'>
-                                        Estate Wallet
-                                    </p>
-                                </div>
-                       
+                            <div className='overviewChart__label'>
+                                <p className='overviewChart__label--percentage'>
+                                    45
+                                    <span>%</span>
+                                </p>
+                                <p className='overviewChart__label--title'>
+                                    Estate Wallet
+                                </p>
+                            </div>
                         </div>
                         <ul className='overviewChart__list'>
                             {React.Children.toArray(
