@@ -459,7 +459,14 @@ function Wallet() {
 
                             <div className='grid bg-white'>
                                 <div className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-9 gap-8 text-[1.4rem] items-center'>
-                                    <p>Date</p>
+                                    <p className='flex items-center gap-4'>
+                                        <input
+                                            type='checkbox'
+                                            className='cursor-pointer'
+                                        />
+
+                                        <span> Date</span>
+                                    </p>
                                     <p>Transaction Type</p>
                                     <p>Transaction Category</p>
                                     <p>Transaction ID</p>
@@ -486,7 +493,17 @@ function Wallet() {
                                                 }) => {
                                                     return (
                                                         <div className='grid justify-between border-b grid-cols-9 items-center gap-8 py-4'>
-                                                            <p>{date}</p>
+                                                            <p className='flex items-center gap-4'>
+                                                                <input
+                                                                    type='checkbox'
+                                                                    className='cursor-pointer'
+                                                                />
+
+                                                                <span>
+                                                                    {' '}
+                                                                    {date}
+                                                                </span>
+                                                            </p>
                                                             <p>
                                                                 {
                                                                     transactionType
@@ -501,7 +518,6 @@ function Wallet() {
                                                                 {transactionId}
                                                             </p>
 
-                                                            <p>{narration}</p>
                                                             <p className='flex items-center gap-.5'>
                                                                 <img
                                                                     src='/icons/Naira.svg'
