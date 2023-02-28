@@ -19,19 +19,19 @@ function Residents() {
                         <div className='estateDetail__radioBox'>
                             <input
                                 type='radio'
-                                name='report'
+                                name='resident'
                                 id='additionalResidentUsr'
                                 className='hidden'
                                 onChange={() => setCurrentPage(1)}
                                 defaultChecked
                             />
                             <label htmlFor='additionalResidentUsr'>
-                                Additional Resident Package
+                                Unique Resident
                             </label>
 
                             <input
                                 type='radio'
-                                name='report'
+                                name='resident'
                                 id='residentUserHistory'
                                 className='hidden'
                                 onChange={() => setCurrentPage(2)}
