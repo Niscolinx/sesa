@@ -89,9 +89,9 @@ export default function DialogWithdrawalSteps({
         </>
     )
     const third = (
-        <>
+        <div className='grid justify-items-center max-w-[40rem] mx-auto gap-8'>
             <img src='/icons/admins/modalSuccess.svg' alt='' />
-            <p className='text-[1.6rem]'>
+            <p className='text-[1.6rem] text-center'>
                 Your request has been sent to SESA admin. The registered estate
                 bank account will be credited within 1 working day{' '}
             </p>
@@ -104,7 +104,7 @@ export default function DialogWithdrawalSteps({
                     Continue
                 </button>
             </div>
-        </>
+        </div>
     )
 
     const DisplaySteps = new Map<Steps, JSX.Element>([
