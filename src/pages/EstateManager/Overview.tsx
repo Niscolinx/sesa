@@ -17,42 +17,10 @@ export const overviewChart_data = [
 export const overviewChart_colors = ['#EA0B90', '#23C375', '#098DFF', '#404243']
 
 const Overview = () => {
-    const swiperRef: MutableRefObject<SwiperRef> = useRef(null as any)
-    const [currentSwiperIndex, setCurrentSwiperIndex] = useState<number>(
-        null as any
-    )
 
-    const handlePrevButtonClick = () => {
-        if (swiperRef.current && swiperRef.current.swiper) {
-            swiperRef.current.swiper.slidePrev()
-        }
-    }
 
-    const handleNextButtonClick = () => {
-        if (swiperRef.current && swiperRef.current.swiper) {
-            swiperRef.current.swiper.slideNext()
-        }
-    }
+  
 
-    useEffect(() => {
-        const swiperProps = swiperRef.current
-        if (swiperProps && swiperProps.swiper) {
-            setCurrentSwiperIndex(swiperProps.swiper.activeIndex)
-        }
-    }, [swiperRef.current])
-
-    const handleSlideChange = (swiper: { activeIndex: number }) => {
-        setCurrentSwiperIndex(() => {
-            if (swiper.activeIndex === OverviewWallets.length + 1) {
-                return 1
-            } else if (swiper.activeIndex === 0) {
-                return OverviewWallets.length
-            }
-            return swiper.activeIndex
-        })
-    }
-
-    console.log({ currentSwiperIndex })
 
     return (
         <div className='overview'>
@@ -68,25 +36,7 @@ const Overview = () => {
                         <div className='overviewChart__box'>
                             <OverviewChart />
 
-                            {currentSwiperIndex && (
-                                <div className='overviewChart__label'>
-                                    <p className='overviewChart__label--percentage'>
-                                        {
-                                            overviewChart_data[
-                                                currentSwiperIndex - 1
-                                            ].value
-                                        }
-                                        <span>%</span>
-                                    </p>
-                                    <p className='overviewChart__label--title'>
-                                        {
-                                            overviewChart_data[
-                                                currentSwiperIndex - 1
-                                            ].name
-                                        }
-                                    </p>
-                                </div>
-                            )}
+                            
                         </div>
                         <ul className='overviewChart__list'>
                             {React.Children.toArray(
