@@ -117,9 +117,9 @@ function IconsBox() {
               </Link>
           </li>
           <li className='iconsBox__list'>
-              <Link to='/estateManager/platformSettings' className='fillIcon'>
+              <Link to='/estateManager/rules-and-regulations' className='fillIcon'>
                   <SettingsSvg />
-                  <span>Settings</span>
+                  <span>Estate Rules and Regulations</span>
               </Link>
           </li>
       </ul>
