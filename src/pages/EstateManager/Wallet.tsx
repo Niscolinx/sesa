@@ -418,14 +418,14 @@ function Wallet() {
                             <div className='flex justify-center gap-4'>
                                 <button
                                     className='btn text-white bg-[#0556E5] border rounded-lg w-[15rem]'
-                                    onClick={() => handleOpen('withdraw')}
+                                    onClick={() => handleOpen('request')}
                                 >
                                     Fund Wallet
                                 </button>
 
                                 <button
                                     className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
-                                    onClick={() => handleOpen('request')}
+                                    onClick={() => handleOpen('withdraw')}
                                 >
                                     Request
                                 </button>
