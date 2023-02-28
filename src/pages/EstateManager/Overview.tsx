@@ -63,7 +63,7 @@ const Overview = () => {
                     <img src='/img/advertHero.png' alt='' />
                 </section>
 
-                <section className='grid '>
+                <section className='grid justify-center'>
                     <OverviewWallet
                         amount={200_333_500.89}
                         title='Estate Wallet'

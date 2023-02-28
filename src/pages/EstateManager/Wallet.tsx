@@ -10,10 +10,8 @@ import { GrDown, GrUp } from 'react-icons/gr'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { IoMdAdd, IoMdClose } from 'react-icons/io'
 
-import { Link, useNavigate } from 'react-router-dom'
-import WalletBarChart from '../../../../components/SuperAdmin/charts/WalletBarChart'
-import OverviewCard from '../../../../components/SuperAdmin/overview/OverviewCard'
-import { OverviewWallet } from '../../../../components/SuperAdmin/overview/OverviewWallets'
+import {  useNavigate } from 'react-router-dom'
+
 
 export interface TransactionHistory {
     id: number
