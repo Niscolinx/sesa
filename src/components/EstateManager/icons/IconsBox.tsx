@@ -3,11 +3,15 @@ import { Link } from 'react-router-dom';
 import AdditionalResidentSvg from './sidebar/AdditionalResidentSvg';
 import AdminsSvg from './sidebar/AdminsSvg';
 import AdvertSvg from './sidebar/AdvertSvg';
+import ApprovalsSvg from './sidebar/ApprovalsSvg';
 import ArtisanSvg from './sidebar/ArtisanSvg';
+import EnergyTokenSvg from './sidebar/EnergyTokenSvg';
 import EstateManagerSvg from './sidebar/EstateManagerSvg';
 import EstatesSvg from './sidebar/EstatesSvg';
 import MessageSvg from './sidebar/MessageSvg';
 import OverviewSvg from './sidebar/overviewSvg';
+import PaymentsSvg from './sidebar/PaymentsSvg';
+import ReportsSvg from './sidebar/ReportsSvg';
 import RolesAndPermSvg from './sidebar/RolesAndPermSvg';
 import SecurityCompSvg from './sidebar/SecurityCompSvg';
 import SettingsSvg from './sidebar/SettingsSvg';
@@ -89,15 +93,27 @@ function IconsBox() {
               </Link>
           </li>
           <li className='iconsBox__list'>
-              <Link to='/estateManager/advert'>
-                  <AdvertSvg />
-                  <span>Advert</span>
+              <Link to='/estateManager/payments'>
+                  <PaymentsSvg />
+                  <span>Payments</span>
               </Link>
           </li>
           <li className='iconsBox__list'>
-              <Link to='/estateManager/advert'>
-                  <AdvertSvg />
-                  <span>Advert</span>
+              <Link to='/estateManager/energy-token'>
+                  <EnergyTokenSvg />
+                  <span>Energy Token</span>
+              </Link>
+          </li>
+          <li className='iconsBox__list'>
+              <Link to='/estateManager/reports'>
+                  <ReportsSvg />
+                  <span>Reports</span>
+              </Link>
+          </li>
+          <li className='iconsBox__list'>
+              <Link to='/estateManager/approvals'>
+                  <ApprovalsSvg />
+                  <span>Approvals</span>
               </Link>
           </li>
           <li className='iconsBox__list'>
