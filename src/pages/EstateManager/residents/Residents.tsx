@@ -3,9 +3,10 @@ import { IoMdAdd } from 'react-icons/io'
 
 
 function Residents() {
-    
+    type Path = 'unique' | 'profile'
+
     const [isResident, setIsResident] = useState(false)
-    const [currentPage, setCurrentPage] = useState(1)
+    const [currentPage, setCurrentPage] = useState<Path>('unique')
 
     const addResident = () => {
         setIsResident(true)
@@ -20,29 +21,28 @@ function Residents() {
                             <input
                                 type='radio'
                                 name='resident'
-                                id='additionalResidentUsr'
+                                id='unique'
                                 className='hidden'
-                                onChange={() => setCurrentPage(1)}
+                                onChange={() => setCurrentPage('unique')}
                                 defaultChecked
                             />
-                            <label htmlFor='additionalResidentUsr'>
+                            <label htmlFor='unique'>
                                 Unique Resident
                             </label>
 
                             <input
                                 type='radio'
                                 name='resident'
-                                id='residentUserHistory'
+                                id='profile'
                                 className='hidden'
-                                onChange={() => setCurrentPage(2)}
+                                onChange={() => setCurrentPage('profile')}
                             />
                             <label
-                                htmlFor='residentUserHistory'
+                                htmlFor='profile'
                                 className='capitalize'
                             >
-                                Package purchase history
-                                {/* //TODO Change the custom select of package to be normal input field
-                    //comma separated in Amount */}
+                                Resident Profile
+                             
                             </label>
                         </div>
                     </section>
