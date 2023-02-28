@@ -1,12 +1,10 @@
-import React, { useState } from 'react'
+import React, { FormEvent, useState } from 'react'
 
 interface DialogWithdrawalStepsProps {
-    handleWithdrawal: (event: React.FormEvent<HTMLFormElement>) => void
     handleClose: () => void
 }
 
 export default function DialogWithdrawalSteps({
-    handleWithdrawal,
     handleClose,
 }: DialogWithdrawalStepsProps) {
     type Steps = 'first' | 'second' | 'third'
@@ -18,8 +16,13 @@ export default function DialogWithdrawalSteps({
         setStep('third')
     }
 
+    const handleWithdrawal = () => {
+
+        handleClose()
+    }
+
     const first = (
-        <form className='grid gap-12' onSubmit={handleWithdrawal}>
+        <div className='grid gap-12' onSubmit={() => setStep('second')}>
             <div className='w-full grid gap-4'>
                 <label htmlFor='amount' className='text-[1.4rem] font-semibold'>
                     Amount
@@ -56,19 +59,20 @@ export default function DialogWithdrawalSteps({
                 />
             </div>
 
-            <button className='btn bg-[#0556E5] text-white rounded-lg py-4 place-self-start w-[15rem]' onClick={
-                () => setStep('second')
-            }>
+            <button
+                className='btn bg-[#0556E5] text-white rounded-lg py-4 place-self-start w-[15rem]'
+                onClick={() => setStep('second')}
+            >
                 Withdraw
             </button>
-        </form>
+        </div>
     )
     const second = (
-        <div className='grid justify-items-center max-w-[40rem] mx-auto gap-8'>
+        <div className='grid justify-items-center max-w-[40rem] mx-auto gap-8 text-center'>
             <img src='/icons/admins/modalDeactivate.svg' alt='' />
             <p className='text-[1.6rem]'>
                 Are you sure you want to withdraw{' '}
-                <span className='font-medium'>N{amount}</span> from the estate
+                <span className='font-SatoshiMedium'>N{amount}</span> from the estate
                 wallet{' '}
             </p>
 
@@ -99,7 +103,7 @@ export default function DialogWithdrawalSteps({
             <div className='flex w-full justify-center gap-8'>
                 <button
                     className='btn bg-[#0556E5] text-white border-none rounded-lg w-[15rem]'
-                    onClick={() => handleClose()}
+                    onClick={() => handleWithdrawal}
                 >
                     Continue
                 </button>
@@ -110,7 +114,7 @@ export default function DialogWithdrawalSteps({
     const DisplaySteps = new Map<Steps, JSX.Element>([
         ['first', first],
         ['second', second],
-        ['third', third]
+        ['third', third],
     ])
     return <>{DisplaySteps.get(step)}</>
 }

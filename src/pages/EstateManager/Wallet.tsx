@@ -189,10 +189,7 @@ function Wallet() {
         }
     }
 
-    const handleWithdrawal = (e: FormEvent) => {
-        e.preventDefault()
-        handleClose()
-    }
+    
 
     const handleFundWallet = (e: FormEvent) => {
         e.preventDefault()
@@ -219,7 +216,7 @@ function Wallet() {
                         </h3>
 
                         {isWithdrawal ? (
-                            <DialogWithdrawalSteps handleWithdrawal={handleWithdrawal} handleClose={handleClose}/>
+                            <DialogWithdrawalSteps handleClose={handleClose}/>
                           
                         ) : (
                             <form
