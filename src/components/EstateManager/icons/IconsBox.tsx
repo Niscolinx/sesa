@@ -6,6 +6,7 @@ import AdvertSvg from './sidebar/AdvertSvg';
 import ArtisanSvg from './sidebar/ArtisanSvg';
 import EstateManagerSvg from './sidebar/EstateManagerSvg';
 import EstatesSvg from './sidebar/EstatesSvg';
+import MessageSvg from './sidebar/MessageSvg';
 import OverviewSvg from './sidebar/overviewSvg';
 import RolesAndPermSvg from './sidebar/RolesAndPermSvg';
 import SecurityCompSvg from './sidebar/SecurityCompSvg';
@@ -79,6 +80,18 @@ function IconsBox() {
               <Link to='/estateManager/wallet' className='fillIcon'>
                   <WalletSvg />
                   <span>Wallet</span>
+              </Link>
+          </li>
+          <li className='iconsBox__list'>
+              <Link to='/estateManager/message'>
+                  <MessageSvg />
+                  <span>Message</span>
+              </Link>
+          </li>
+          <li className='iconsBox__list'>
+              <Link to='/estateManager/advert'>
+                  <AdvertSvg />
+                  <span>Advert</span>
               </Link>
           </li>
           <li className='iconsBox__list'>
