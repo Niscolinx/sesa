@@ -3,6 +3,7 @@ import OverviewChart from '../../components/SuperAdmin/charts/OverviewChart'
 
 import  { OverviewWallet } from '../../components/SuperAdmin/overview/OverviewWallets'
 import OverviewCard from '../../components/EstateManager/OverviewCard'
+import React from 'react'
 
 
 export const overviewChart_data = [
@@ -21,10 +22,21 @@ const Overview = () => {
 
 
     return (
-        <div className='overview'>
-            <div className='overview__container'>
+        <div className=''>
+            <div
+                className='grid justify-items-center'
+                style={{
+                    gridTemplateColumns: '60% auto',
+                }}
+            >
                 <section className='overview__left'>
-                    <OverviewCard iconUrl={''} title={''} number={0} bgColor={''} textColor={''} />
+                    <OverviewCard
+                        amount={800_836_709.74}
+                        title={'Security Company Wallet'}
+                        bgImgUri='/icons/overview/card/bgS.svg'
+                        lefIconUri='/icons/overview/card/leftS.svg'
+                        bgColor='bg-[#6AB95F]'
+                    />
                 </section>
                 <section className='overview__right'>
                     <OverviewWallet
