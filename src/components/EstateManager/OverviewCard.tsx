@@ -24,29 +24,14 @@ const OverviewCard: FC<OverviewCard> = ({
     textColor = 'black',
 }) => {
     return (
-        <div className={`overviewCard ${bgColor}`}>
+        <div className={`h-[15rem] rounded-2xl p-8 ${bgColor}`}>
             <div>
-                <img src={iconUrl} alt='' className='overviewCard__img' />
-                <div
-                    className={`overviewCard__content ${
-                        percent ? 'relative' : ''
-                    }`}
-                >
+                <img src={iconUrl} alt='' className='' />
+                <div>
                     <p className='overviewCard__title'>{title}</p>
                     <p className={`overviewCard__number ${textColor}`}>
                         {number.toLocaleString()}
                     </p>
-
-                    {percent && (
-                        <div className='absolute bottom-0 right-0'>
-                            <img
-                                src={arrow}
-                                alt=''
-                                className='overviewCard__arrow'
-                            />
-                            <p className='text-green-600'>{percent}%</p>
-                        </div>
-                    )}
                 </div>
             </div>
             <div className={`${textColor}`}>
