@@ -42,9 +42,16 @@ function IconsBox() {
               </Link>
           </li>
           <li className='iconsBox__list'>
-              <Link to='/estateManager/rolesAndPerm'>
+              <Link to='/estateManager/household' className='fillIcon'>
+                  {' '}
+                  <EstateManagerSvg />
+                  <span>Household</span>
+              </Link>
+          </li>
+          <li className='iconsBox__list'>
+              <Link to='/estateManager/estate-staff'>
                   <RolesAndPermSvg />
-                  <span>Roles & Permissions</span>
+                  <span>Estate Staff</span>
               </Link>
           </li>
           <li className='iconsBox__list'>
