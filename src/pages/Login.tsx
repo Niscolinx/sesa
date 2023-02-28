@@ -29,7 +29,6 @@ const Login = () => {
         }
 
         if(email === 'estatemanager@sesa.com') {
-            alert('')
             navigate('/estateManager')
         }
     }
