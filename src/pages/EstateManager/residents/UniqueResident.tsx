@@ -185,6 +185,10 @@ const UniqueResident = () => {
         }
     }
 
+    const deleteSelectedList = () => {
+        console.log(selectedList)
+    }
+
     const selectAction = (e: React.MouseEvent, item: string, index: number) => {
         setSelectedAction((prev) => {
             return {
@@ -235,7 +239,7 @@ const UniqueResident = () => {
                                     Add Resident
                                 </button>
                                 <button
-                                    className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
+                                    className='btn text-white bg-red-600 flex items-center gap-4 py-4 px-16 rounded-lg'
                                     onClick={deleteSelectedList}
                                 >
                                    
