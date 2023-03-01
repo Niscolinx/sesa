@@ -141,7 +141,6 @@ const PropertyTable = () => {
     }
 
     const handleAddPropertyTable = () => {
-
         navigate('/estateManager/property/add')
         // navigate(`/securityCompany/security-guard/addSecurity`)
     }
@@ -150,11 +149,7 @@ const PropertyTable = () => {
         console.log(id)
     }
 
-    const [actions, setActions] = useState<Actions[]>([
-        'View Details',
-        'Edit Details',
-        'Delete',
-    ])
+    const actions: Actions[] = ['View Details', 'Edit Details', 'Delete']
     const [selectedAction, setSelectedAction] = useState<{
         [key: string]: Actions
     }>(null as any)
@@ -288,7 +283,7 @@ const PropertyTable = () => {
                                 <p>Property Type</p>
                                 <p>Property Category</p>
                                 <p>Property Name</p>
-                                
+
                                 <p>Action </p>
                             </div>
 
@@ -302,7 +297,7 @@ const PropertyTable = () => {
                                                 propertyName,
                                                 propertyType,
                                                 address,
-                                                id
+                                                id,
                                             }) => {
                                                 const {
                                                     isDropDownOpen,
@@ -329,10 +324,11 @@ const PropertyTable = () => {
                                                         </p>
                                                         <p>{address}</p>
                                                         <p>{propertyType}</p>
-                                                        <p>{propertyCategory}</p>
+                                                        <p>
+                                                            {propertyCategory}
+                                                        </p>
                                                         <p>{propertyName}</p>
-                                                    
-                                                        
+
                                                         <div className='relative'>
                                                             <label
                                                                 className='font-semibold capitalize cursor-pointer flex items-center gap-2 relative z-10'
