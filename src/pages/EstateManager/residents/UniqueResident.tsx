@@ -204,7 +204,6 @@ const UniqueResident = () => {
         console.log(selectedList)
     }
 
-
     const selectAction = (e: React.MouseEvent, item: string, index: number) => {
         setSelectedAction((prev) => {
             return {
