@@ -18,9 +18,8 @@ function Property() {
             {isProperty ? (
                 <div>
                     <section className='bg-white rounded-lg p-8 grid text-[1.4rem] grid-cols-2 '>
-                        
                         <div className='overviewChart__box'>
-                            <EstateChart color1='#3d08d2' color2='#F74183' />
+                            <EstateChart color1='#098DFF' color2='#23C375' />
 
                             <div className='overviewChart__label'>
                                 <p className='text-[3rem] font-bold relative'>
@@ -32,7 +31,24 @@ function Property() {
                             </div>
                         </div>
                         <div>
-                            
+                            <section className='flex items-center justify-between'>
+                                <div className='flex items-center gap-2'>
+                                    <span className='bg-[#098DFF] rounded-full w-[1rem] h-[1rem] flex'>
+                                        {' '}
+                                    </span>{' '}
+                                    <p>Security Guard</p>
+                                </div>
+                                <p>20,000</p>
+                            </section>
+                            <section className='flex items-center justify-between'>
+                                <div className='flex items-center gap-2'>
+                                    <span className='bg-[#23C375] rounded-full w-[1rem] h-[1rem] flex'>
+                                        {' '}
+                                    </span>{' '}
+                                    <p>SESA</p>
+                                </div>
+                                <p>30,000</p>
+                            </section>
                         </div>
                     </section>
 
