@@ -191,7 +191,7 @@ const ResidentProfile = () => {
 
                         <div className='grid'>
                             <div
-                                className='grid justify-between text-color-dark-1 bg-gray-100 p-8 grid-cols-7 gap-8'
+                                className='grid justify-between text-color-dark-1 bg-gray-100 p-8 grid-cols-7 gap-8 items-center'
                                 style={{
                                     fontSize: '1.6rem',
                                 }}
@@ -201,13 +201,13 @@ const ResidentProfile = () => {
                                         type='checkbox'
                                         className='cursor-pointer'
                                     />
-                                    <p>Guard Code</p>
+                                    <p>Resident Code</p>
                                 </p>
-                                <p>Guard Name</p>
+                                <p> Name</p>
                                 <p>Phone Number</p>
-                                <p>Assigned Estate</p>
-                                <p>Status</p>
-                                <p>KYG</p>
+                                <p>Category</p>
+                                <p>Resident Class</p>
+                                <p>status</p>
                                 <p>Action </p>
                             </div>
 
