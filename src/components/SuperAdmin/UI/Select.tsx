@@ -5,7 +5,8 @@ import { ValidateInputTypes } from '../../../pages/SecurityCompany/dashboard/com
 
 type Complex = {
     name: string
-    No: number
+    No?: number
+    sub?: string
 }
 
 interface ISelect<T> {
@@ -21,6 +22,7 @@ interface ISelect<T> {
 
 interface ComplexSelect extends Omit<ISelect<string>, 'state'> {
     state: Array<Complex>
+    double?: boolean
 }
 
 interface IMultipleSelect {
@@ -131,6 +133,7 @@ export const ComplexSelect: FC<ComplexSelect> = ({
     setSelectedState,
     label,
     placeholder,
+    double,
     isSearchable = false,
 }) => {
     const [toggleStateMenu, setToggleStateMenu] = useState(false)
@@ -201,12 +204,18 @@ export const ComplexSelect: FC<ComplexSelect> = ({
                     )}
                     {selectFrom.map((item, index) => (
                         <p
-                            className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer flex justify-between'
+                            className={`text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer ${
+                                double ? 'grid' : 'flex justify-between'
+                            }`}
                             key={index}
                             onClick={() => handleSelectedState(item.name)}
                         >
                             <span>{item.name}</span>
-                            <span>{item.No}</span>
+                            {double ? (
+                                <span>{item.sub}</span>
+                            ) : (
+                                <span>{item.No}</span>
+                            )}
                         </p>
                     ))}
                 </div>
