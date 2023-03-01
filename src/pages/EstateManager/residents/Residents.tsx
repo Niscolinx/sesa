@@ -1,18 +1,24 @@
 import { useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
 import OverviewCard from '../../../components/EstateManager/OverviewCard'
-
+import ResidentProfile from './ResidentProfile'
+import UniqueResident from './UniqueResident'
 
 function Residents() {
     type Path = 'unique' | 'profile'
 
     const [isResident, setIsResident] = useState(false)
-    const [currentPage, setCurrentPage] = useState<Path>('unique')
+    const [currentPath, setCurrentPath] = useState<Path>('unique')
 
     const addResident = () => {
         setIsResident(true)
     }
-   
+
+    const paths = new Map<Path, JSX.Element>([
+        ['unique', <UniqueResident />],
+        ['profile', <ResidentProfile/>],
+    ])
+
     return (
         <div>
             <section className='bg-white rounded-lg p-8 grid text-[1.4rem] w-max'>
@@ -45,7 +51,7 @@ function Residents() {
                     />
                 </div>
             </section>
-            
+
             <div className='rounded-lg mt-[3rem] h-[80vh]'>
                 {isResident ? (
                     <section>
@@ -55,7 +61,7 @@ function Residents() {
                                 name='resident'
                                 id='unique'
                                 className='hidden'
-                                onChange={() => setCurrentPage('unique')}
+                                onChange={() => setCurrentPath('unique')}
                                 defaultChecked
                             />
                             <label htmlFor='unique'>Unique Resident</label>
@@ -65,7 +71,7 @@ function Residents() {
                                 name='resident'
                                 id='profile'
                                 className='hidden'
-                                onChange={() => setCurrentPage('profile')}
+                                onChange={() => setCurrentPath('profile')}
                             />
                             <label htmlFor='profile' className='capitalize'>
                                 Resident Profile
