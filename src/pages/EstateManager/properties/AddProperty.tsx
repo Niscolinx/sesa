@@ -4,13 +4,6 @@ import { BsQuestionCircle } from 'react-icons/bs'
 import { ToastContainer } from 'react-toastify'
 import { Select } from '../../../components/SuperAdmin/UI/Select'
 import { getPhotoUrl } from '../../../utils/getPhotoUrl'
-import {
-    PhoneNumber,
-    BVN_Number,
-    NIN_Number,
-    DriversLicence,
-    International_PassPort,
-} from '../../SecurityCompany/dashboard/company/AddSecurity/Inputs'
 
 
 
@@ -85,7 +78,6 @@ const AddProperty = () => {
                 </section>
             </dialog>
             <div className='grid p-8 bg-white h-[80vh] items-baseline overflow-y-scroll rounded-lg'>
-               
                 <form
                     onSubmit={handleSubmit}
                     className='grid max-w-[84rem] gap-16 mt-12'
@@ -113,11 +105,12 @@ const AddProperty = () => {
                             htmlFor='lastName'
                             className='text-[1.4rem] font-medium'
                         >
-                            Middle Name *
+                            Property (Block No. & Flat No.) *
                         </label>
                         <input
                             type='text'
                             required
+                            placeholder='Block No. & Flat No.'
                             id='lastName'
                             className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                         />
@@ -127,7 +120,7 @@ const AddProperty = () => {
                             htmlFor='lastName'
                             className='text-[1.4rem] font-medium'
                         >
-                            Last Name *
+                            Area/Street *
                         </label>
                         <input
                             type='text'
@@ -136,21 +129,13 @@ const AddProperty = () => {
                             className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                         />
                     </div>
+                    <Select
+                        label='Property Category'
+                        state={['Business', 'Residential']}
+                        selectedState={selectedGender}
+                        setSelectedState={setSelectedGender}
+                    />
 
-                    <div className='grid gap-4 relative '>
-                        <label
-                            htmlFor='lastName'
-                            className='text-[1.4rem] font-medium'
-                        >
-                            Date of Birth
-                        </label>
-                        <input
-                            type='text'
-                            required
-                            id='lastName'
-                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                        />
-                    </div>
                     <div className='grid gap-4 relative'>
                         <label
                             htmlFor='email'
