@@ -10,7 +10,6 @@ import {
     NIN_Number,
     DriversLicence,
     International_PassPort,
-    Voters_Card,
 } from '../../SecurityCompany/dashboard/company/AddSecurity/Inputs'
 
 type DialogType = 'validate' | 'add-Resident'
@@ -23,10 +22,7 @@ export type ValidateInputTypes =
     | 'International Passport'
 
 const AddResident = () => {
-    const [selectedState, setSelectedState] = useState<string | null>(null)
-    const [selectedResident, setSelectedResident] = useState<string | null>(
-        null
-    )
+    
     const [selectedGender, setSelectedGender] = useState<string | null>(null)
     const [isValidated, setIsValidated] = useState(false)
 
