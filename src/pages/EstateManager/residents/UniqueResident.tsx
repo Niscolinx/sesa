@@ -145,6 +145,7 @@ const UniqueResident = () => {
     const handleAddUniqueResident = () => {
         console.log('add security guard')
 
+        navigate('/estateManager/residents/add')
         // navigate(`/securityCompany/security-guard/addSecurity`)
     }
 
