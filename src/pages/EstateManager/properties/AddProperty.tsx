@@ -96,15 +96,15 @@ const AddProperty = () => {
                 >
                     <div className='grid gap-4 relative '>
                         <label
-                            htmlFor='firstName'
+                            htmlFor='Estate'
                             className='text-[1.4rem] font-medium'
                         >
-                            First Name *
+                            Estate
                         </label>
                         <input
                             type='text'
                             required
-                            id='firstName'
+                            id='Estate'
                             className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                         />
                     </div>
