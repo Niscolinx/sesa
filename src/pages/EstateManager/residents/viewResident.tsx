@@ -71,8 +71,8 @@ const ViewResident = () => {
         handleCloseDeleteOrDeactivateDialog()
 
         toast('Resident deactivated successfully', {
-            type: 'error',
-            className: 'bg-red-100 text-red-600 text-[1.4rem]',
+            type: 'success',
+            className: 'bg-green-100 text-green-600 text-[1.4rem]',
         })
     }
 
