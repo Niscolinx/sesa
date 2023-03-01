@@ -266,7 +266,7 @@ const UniqueResident = () => {
                                                     status,
                                                     kyr,
                                                     NoOfProfiles,
-                                                    
+
                                                 },
                                                 i
                                             ) => {
@@ -283,12 +283,13 @@ const UniqueResident = () => {
                                                             />
 
                                                             <span>
-                                                                {guardCode}
+                                                                {residentCode}
                                                             </span>
                                                         </p>
-                                                        <p>{guardName}</p>
+                                                        <p>{name}</p>
+                                                        <p>{gender}</p>
                                                         <p>{phoneNumber}</p>
-                                                        <p>{assignedEstate}</p>
+                                                        <p>{NoOfProfiles}</p>
                                                         <p>
                                                             {status ===
                                                             'Active' ? (
@@ -302,14 +303,14 @@ const UniqueResident = () => {
                                                             )}
                                                         </p>
                                                         <p>
-                                                            {kys ===
+                                                            {kyr ===
                                                             'Validated' ? (
                                                                 <span className='text-[#1A8F56]'>
-                                                                    {kys}
+                                                                    {kyr}
                                                                 </span>
                                                             ) : (
                                                                 <span className='text-red-600'>
-                                                                    {kys}
+                                                                    {kyr}
                                                                 </span>
                                                             )}
                                                         </p>
