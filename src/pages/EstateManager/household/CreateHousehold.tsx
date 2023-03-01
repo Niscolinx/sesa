@@ -4,11 +4,13 @@ type PathSwitch = 'add-property' | 'add-resident' | 'add-RFID' | 'add-accessKey'
 
 function CreateHousehold() {
     const [pathToSwitch, setPathToSwitch] =
-        useState<PathSwitch>('passwordSettings')
+        useState<PathSwitch>('add-property')
 
     const handlePathSwitch = new Map<PathSwitch, JSX.Element>([
-        ['passwordSettings', <></>],
-        ['notificationSettings', <></>],
+        ['add-property', <></>],
+        ['add-resident', <></>],
+        ['add-RFID', <></>],
+        ['add-accessKey', <></>],
     ])
     return (
         <div>
