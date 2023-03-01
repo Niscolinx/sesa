@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-type PathSwitch = 'add-property' | 'add-resident' | 'add-RFID' | 'add-accessKey'
+type PathSwitch = 'add-property' | 'add-resident' | 'add-RFID' | 'add-accessCard'
 
 function CreateHousehold() {
     const [pathToSwitch, setPathToSwitch] =
@@ -10,11 +10,12 @@ function CreateHousehold() {
         ['add-property', <></>],
         ['add-resident', <></>],
         ['add-RFID', <></>],
-        ['add-accessKey', <></>],
+        ['add-accessCard', <></>],
     ])
     return (
         <div>
             <div className='estateDetail__radioBox'>
+                <label htmlFor='add-property' className='capitalize'>
                 <input
                     type='radio'
                     name='household'
@@ -23,19 +24,38 @@ function CreateHousehold() {
                     defaultChecked
                     onChange={() => setPathToSwitch('add-property')}
                 />
-                <label htmlFor='add-property' className='capitalize'>
                     Add Property
                 </label>
 
+                <label htmlFor='add-resident'>
                 <input
                     type='radio'
                     name='household'
-                    id='notificationSettings'
+                    id='add-resident'
                     className='hidden'
                     onChange={() => setPathToSwitch('add-resident')}
                 />
-                <label htmlFor='notificationSettings'>
-                    Notification Settings
+                    Add Resident
+                </label>
+                <label htmlFor='add-resident'>
+                <input
+                    type='radio'
+                    name='household'
+                    id='add-RFID'
+                    className='hidden'
+                    onChange={() => setPathToSwitch('add-RFID')}
+                />
+                    Add RFID (Car Sticker)
+                </label>
+                <label htmlFor='add-resident'>
+                <input
+                    type='radio'
+                    name='household'
+                    id='add-accessCard'
+                    className='hidden'
+                    onChange={() => setPathToSwitch('add-accessCard')}
+                />
+                    Add Access Card
                 </label>
             </div>
             <div className='mt-8 grid gap-8'>
