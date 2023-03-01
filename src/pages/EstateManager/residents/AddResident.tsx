@@ -248,6 +248,20 @@ const AddResident = () => {
                             htmlFor='lastName'
                             className='text-[1.4rem] font-medium'
                         >
+                            Middle Name *
+                        </label>
+                        <input
+                            type='text'
+                            required
+                            id='lastName'
+                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                        />
+                    </div>
+                    <div className='grid gap-4 relative '>
+                        <label
+                            htmlFor='lastName'
+                            className='text-[1.4rem] font-medium'
+                        >
                             Last Name *
                         </label>
                         <input
@@ -257,12 +271,7 @@ const AddResident = () => {
                             className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                         />
                     </div>
-                    <Select
-                        label='Gender'
-                        state={['Male', 'Female']}
-                        selectedState={selectedGender}
-                        setSelectedState={setSelectedGender}
-                    />
+
                     <div className='grid gap-4'>
                         <label
                             htmlFor='phoneNumber'
@@ -285,6 +294,12 @@ const AddResident = () => {
                             />
                         </div>
                     </div>
+                    <Select
+                        label='Gender'
+                        state={['Male', 'Female']}
+                        selectedState={selectedGender}
+                        setSelectedState={setSelectedGender}
+                    />
                     <div className='grid gap-4 relative'>
                         <label
                             htmlFor='email'
@@ -300,53 +315,7 @@ const AddResident = () => {
                         />
                     </div>
 
-                    <div className='grid gap-4 relative'>
-                        <label
-                            htmlFor='address1'
-                            className='text-[1.4rem] font-medium'
-                        >
-                            Address Line 1*
-                        </label>
-                        <input
-                            type='text'
-                            required
-                            id='address1'
-                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                        />
-                    </div>
-                    <div className='grid gap-4 relative'>
-                        <label
-                            htmlFor='address2'
-                            className='text-[1.4rem] font-medium'
-                        >
-                            Address Line 2*
-                        </label>
-                        <input
-                            type='text'
-                            required
-                            id='address2'
-                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                        />
-                    </div>
 
-                    <Select
-                        label='State'
-                        state={['Lagos', 'Imo', 'Abia', 'FCT']}
-                        placeholder='Select State'
-                        selectedState={selectedState}
-                        setSelectedState={setSelectedState}
-                    />
-                    <Select
-                        label='Resident Category'
-                        state={[
-                            'Plumber',
-                            'Electrician',
-                            'Carpenter',
-                            'Painter',
-                        ]}
-                        selectedState={selectedResident}
-                        setSelectedState={setSelectedResident}
-                    />
                     <div className='grid gap-4 relative'>
                         <label
                             htmlFor='businessName'
