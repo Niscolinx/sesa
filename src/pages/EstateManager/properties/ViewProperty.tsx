@@ -268,8 +268,7 @@ const ViewProperty = () => {
                         />
                     </div>
 
-                    <div className='col-span-full items-center justify-between grid grid-cols-2 gap-16'>
-                        <div className=' '>
+                    <div className='col-span-full items-center grid'>
                             <label
                                 htmlFor='address'
                                 className='flex mb-2 gap-4 items-center cursor-pointer'
@@ -287,48 +286,8 @@ const ViewProperty = () => {
                             <p className='text-gray-400 text-[1.4rem]'>
                                 Maximum of 80 characters
                             </p>
-                        </div>
-                        <div className=' rounded-lg border border-width-[.2rem] border-dashed border-color-grey-1 p-8 text-[1.6rem] relative w-full h-[13rem] content-center grid'>
-                            <label
-                                htmlFor='photoUpload'
-                                className='grid justify-items-center justify-center gap-4 items-center cursor-pointer'
-                            >
-                                <img
-                                    src='/icons/admins/photo_library.svg'
-                                    alt=''
-                                />
-                                <p
-                                    className='text-color-dark-1'
-                                    style={{
-                                        fontFamily: 'Satoshi-Light',
-                                    }}
-                                >
-                                    Drag estate manager picture here or{' '}
-                                    <span className='text-color-blue font-bold'>
-                                        click
-                                    </span>{' '}
-                                    to upload
-                                </p>
-                            </label>
-                            <input
-                                type='file'
-                                name='photoUpload'
-                                id='photoUpload'
-                                accept='image/*'
-                                className='hidden'
-                                onClick={handlePhotoPreview}
-                            />
-
-                            {photoUrl && (
-                                <div className='flex justify-center justify-self-center'>
-                                    <img
-                                        src={photoUrl}
-                                        alt='photoPreview'
-                                        className='object-cover w-[11rem] h-[11rem] rounded-full'
-                                    />
-                                </div>
-                            )}
-                        </div>
+                     
+                       
                     </div>
 
                     <button
