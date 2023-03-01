@@ -106,17 +106,15 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                             </div>
                         )}
                         {selectFrom.map((item, index) => (
-                           
-                                <p
-                                    className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
-                                    key={index}
-                                    onClick={() => handleSelectedState(item)}
-                                >
-                                    {item}
-                                </p>
-                          
-                          ))}
-                          <p>lorem</p>
+                            <p
+                                className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
+                                key={index}
+                                onClick={() => handleSelectedState(item)}
+                            >
+                                {item}
+                            </p>
+                        ))}
+                        <p className='text-color-primary px-8 text-[1.4rem]'>NB: Choice of validation is ₦200</p>
                     </div>
                 )}
             </div>
