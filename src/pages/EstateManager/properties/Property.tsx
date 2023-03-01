@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
 import { Link } from 'react-router-dom'
-import OverviewCard from '../../../components/EstateManager/OverviewCard'
 import { EstateChart } from '../../../components/SuperAdmin/charts/OverviewChart'
 import UniqueResident from '../residents/UniqueResident'
+import PropertyTable from './PropertyTable'
 
 function Property() {
     const [isProperty, setIsProperty] = useState(false)
@@ -109,7 +109,7 @@ function Property() {
 
                     <div className='rounded-lg mt-[3rem] h-[80vh]'>
                         <section>
-                            <UniqueResident />
+                            <PropertyTable />
                         </section>
                     </div>
                 </div>
