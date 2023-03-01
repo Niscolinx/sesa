@@ -1,27 +1,27 @@
 import { useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
 import OverviewCard from '../../../components/EstateManager/OverviewCard'
-import ResidentProfile from '../residents/ResidentProfile'
-import UniqueResident from '../residents/UniqueResident'
+import propertyProfile from '../propertys/propertyProfile'
+import Uniqueproperty from '../propertys/Uniqueproperty'
 
 function Property() {
     type Path = 'unique' | 'profile'
 
-    const [isResident, setIsResident] = useState(false)
+    const [isProperty, setIsProperty] = useState(false)
     const [currentPath, setCurrentPath] = useState<Path>('unique')
 
-    const addResident = () => {
-        setIsResident(true)
+    const addproperty = () => {
+        setIsProperty(true)
     }
 
     const paths = new Map<Path, JSX.Element>([
-        ['unique', <UniqueResident />],
-        ['profile', <ResidentProfile />],
+        ['unique', <Uniqueproperty />],
+        ['profile', <propertyProfile />],
     ])
 
     return (
         <>
-            {isResident ? (
+            {isProperty ? (
                 <div>
                     <section className='bg-white rounded-lg p-8 grid text-[1.4rem] '>
                         <div
@@ -32,7 +32,7 @@ function Property() {
                             }}
                         >
                             <OverviewCard
-                                title='Unique Residents'
+                                title='Unique propertys'
                                 number={1532}
                                 iconUrl='/icons/estateManager/people.svg'
                                 bgColor='bg-[#F5F9FA]'
@@ -46,10 +46,10 @@ function Property() {
                                 iconUrl='/icons/estateManager/validation.svg'
                                 bgColor='bg-[#EDFDEC]'
                                 textColor='text-[#1A8F56]'
-                                bottomLeft='% of residents whose identity has been validated'
+                                bottomLeft='% of propertys whose identity has been validated'
                             />
                             <OverviewCard
-                                title='Resident Profiles'
+                                title='property Profiles'
                                 number={18100}
                                 iconUrl='/icons/estateManager/profiles.svg'
                                 bgColor='bg-[#FCF3FA]'
@@ -65,7 +65,7 @@ function Property() {
                             <div className='estateDetail__radioBox'>
                                 <input
                                     type='radio'
-                                    name='resident'
+                                    name='property'
                                     id='unique'
                                     className='hidden'
                                     onChange={() => setCurrentPath('unique')}
@@ -79,12 +79,12 @@ function Property() {
                                             : 'capitalize'
                                     }`}
                                 >
-                                    Unique Resident
+                                    Unique property
                                 </label>
 
                                 <input
                                     type='radio'
-                                    name='resident'
+                                    name='property'
                                     id='profile'
                                     className='hidden'
                                     onChange={() => setCurrentPath('profile')}
@@ -97,7 +97,7 @@ function Property() {
                                             : 'capitalize'
                                     }`}
                                 >
-                                    Resident Profile
+                                    property Profile
                                 </label>
                             </div>
 
@@ -110,16 +110,16 @@ function Property() {
                     <section className='grid place-content-center w-full h-full justify-items-center gap-4 bg-white'>
                         <img src='/icons/admins/errorSvg.svg' alt='' />
                         <p className='text'>
-                            Ooops you have not any resident list yet
+                            Ooops you have not any property list yet
                         </p>
                         <button
                             className='bg-color-blue-1 text-white flex gap-2 items-center rounded-lg justify-self-center py-4 px-16 text-[1.6rem]'
-                            onClick={addResident}
+                            onClick={addproperty}
                         >
                             <span>
                                 <IoMdAdd />
                             </span>{' '}
-                            Add Resident
+                            Add property
                         </button>
                     </section>
                 </div>
