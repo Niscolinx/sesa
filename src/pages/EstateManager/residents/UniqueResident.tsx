@@ -174,7 +174,7 @@ const UniqueResident = () => {
         setToggleDropDown((prev) => {
             return {
                 isDropDownOpen: e.target.checked,
-                index: index,
+                index
             }
         })
     }
@@ -262,6 +262,7 @@ const UniqueResident = () => {
                                                 {
                                                     residentCode,
                                                     name,
+                                                    id,
                                                     gender,
                                                     phoneNumber,
                                                     status,
@@ -327,7 +328,7 @@ const UniqueResident = () => {
                                                                             return {
                                                                                 isDropDownOpen:
                                                                                     !prev.isDropDownOpen,
-                                                                                index: i,
+                                                                                index: id,
                                                                             }
                                                                         }
                                                                     )
@@ -348,13 +349,13 @@ const UniqueResident = () => {
                                                                 onChange={(e) =>
                                                                     dropDownHandler(
                                                                         e,
-                                                                        i
+                                                                        id
                                                                     )
                                                                 }
                                                             />
 
                                                             {isDropDownOpen &&
-                                                                index === i && (
+                                                                index === id && (
                                                                     <div className='absolute top-0 translate-x-[5rem] border border-color-primary-light w-[10rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
                                                                         {actions.map(
                                                                             (
@@ -365,7 +366,7 @@ const UniqueResident = () => {
                                                                                     className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
                                                                                     key={
                                                                                         index +
-                                                                                        i
+                                                                                        id
                                                                                     }
                                                                                     onClick={(
                                                                                         e
