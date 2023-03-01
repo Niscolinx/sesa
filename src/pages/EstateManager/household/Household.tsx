@@ -2,7 +2,7 @@ import React, { ChangeEvent, useEffect, useRef, useState } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
 import { GrDown } from 'react-icons/gr'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
-import { IoMdAdd } from 'react-icons/io'
+import { IoMdAdd, IoMdClose } from 'react-icons/io'
 import { useNavigate } from 'react-router-dom'
 import { Select } from '../../../components/SuperAdmin/UI/Select'
 
@@ -36,7 +36,9 @@ export type Actions = 'View Details' | 'Edit Details' | 'Delete'
 
 function HouseHold() {
     const [isHousehold, setIsHousehold] = useState(false)
-    const [selectedPropertyCode, setSelectedPropertyCode] = useState<string | null>(null)
+    const [selectedPropertyCode, setSelectedPropertyCode] = useState<
+        string | null
+    >(null)
     const addhousehold = () => {
         setIsHousehold(true)
     }
@@ -151,8 +153,6 @@ function HouseHold() {
         })
     }
 
-   
-
     const detailsHandler = (id: number) => {
         console.log(id)
     }
@@ -239,7 +239,12 @@ function HouseHold() {
         <>
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
-                    <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
+                    <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8 relative'>
+                        <IoMdClose
+                            className='absolute right-4 top-4 text-[2rem] cursor-pointer'
+                            onClick={() => handleClose()}
+                        />
+
                         <div className='grid gap-12'>
                             <h3
                                 className='text-[2rem] font-bold border-b '
@@ -249,24 +254,23 @@ function HouseHold() {
                             >
                                 Create Household
                             </h3>
-
-                            <Select
-                                state={[
-                                    'ThomasEstate/SO-2345CDGK1',
-                                    'ThomasEstate/SO-2345CDGK2',
-                                    'ThomasEstate/SO-2345CDGK3',
-                                    'ThomasEstate/SO-2345CDGK4',
-                                    'ThomasEstate/SO-2345CDGK5',
-                                ]}
-                                label='Property Code*'                                
-                                isSearchable
-                                
-                                selectedState={selectedPropertyCode}
-                                setSelectedState={setSelectedPropertyCode}
-                            />
-
+                            <div className='w-[30rem]'>
+                                <Select
+                                    state={[
+                                        'ThomasEstate/SO-2345CDGK1',
+                                        'ThomasEstate/SO-2345CDGK2',
+                                        'ThomasEstate/SO-2345CDGK3',
+                                        'ThomasEstate/SO-2345CDGK4',
+                                        'ThomasEstate/SO-2345CDGK5',
+                                    ]}
+                                    label='Property Code*'
+                                    isSearchable
+                                    selectedState={selectedPropertyCode}
+                                    setSelectedState={setSelectedPropertyCode}
+                                />
+                            </div>
                             <button className='btn bg-[#0556E5] text-white rounded-lg py-4 place-self-start w-[15rem]'>
-                                Validate
+                                Continue
                             </button>
                         </div>
                     </div>
