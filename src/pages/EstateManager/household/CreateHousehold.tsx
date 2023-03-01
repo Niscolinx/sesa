@@ -18,13 +18,13 @@ function CreateHousehold() {
                 <input
                     type='radio'
                     name='household'
-                    id='passwordSettings'
+                    id='add-property'
                     className='hidden'
                     defaultChecked
-                    onChange={() => setPathToSwitch('passwordSettings')}
+                    onChange={() => setPathToSwitch('add-property')}
                 />
-                <label htmlFor='passwordSettings' className='capitalize'>
-                    Password Settings
+                <label htmlFor='add-property' className='capitalize'>
+                    Add Property
                 </label>
 
                 <input
@@ -32,7 +32,7 @@ function CreateHousehold() {
                     name='household'
                     id='notificationSettings'
                     className='hidden'
-                    onChange={() => setPathToSwitch('notificationSettings')}
+                    onChange={() => setPathToSwitch('add-resident')}
                 />
                 <label htmlFor='notificationSettings'>
                     Notification Settings
