@@ -172,6 +172,7 @@ const UniqueResident = () => {
         e: React.ChangeEvent<HTMLInputElement>,
         index: number
     ) => {
+        console.log("sfsf", e.target.checked, e.target)
         setToggleDropDown((prev) => {
             return {
                 isDropDownOpen: e.target.checked,
@@ -179,7 +180,10 @@ const UniqueResident = () => {
             }
         })
 
+
+
         if (e.target.checked) {
+            console.log('checked')
             selectedList.add(index)
         } else {
             selectedList.delete(index)
