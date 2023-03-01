@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom'
 
 interface ResidentProfile {
     id: number
-    residentCode: number
+    residentCode: string
     name: string,
     phoneNumber: string,
     category: string,
