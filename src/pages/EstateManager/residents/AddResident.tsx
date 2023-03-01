@@ -4,17 +4,30 @@ import { BsQuestionCircle } from 'react-icons/bs'
 import { ToastContainer } from 'react-toastify'
 import { Select } from '../../../components/SuperAdmin/UI/Select'
 import { getPhotoUrl } from '../../../utils/getPhotoUrl'
+import { PhoneNumber, BVN_Number, NIN_Number, DriversLicence, International_PassPort, Voters_Card } from '../../SecurityCompany/dashboard/company/AddSecurity/Inputs'
+import { ValidateInputTypes } from '../../SecurityCompany/dashboard/company/ViewGuard'
 
-type DialogType = 'validate' | 'add-Artisan'
+type DialogType = 'validate' | 'add-Resident'
 
+export type ValidateInputTypes =
+    | 'Phone Number'
+    | 'BVN Number'
+    | 'NIN Number'
+    | 'Drivers License'
+    | 'International Passport'
+    | 'Voters Card'
+    
 const AddResident = () => {
     const [selectedState, setSelectedState] = useState<string | null>(null)
-    const [selectedArtisan, setSelectedArtisan] = useState<string | null>(null)
+    const [selectedResident, setSelectedResident] = useState<string | null>(null)
     const [selectedGender, setSelectedGender] = useState<string | null>(null)
-    const [isAddArtisan, setIsAddArtisan] = useState(true)
-    const [validationType, setValidationType] = useState<string | null>(
-        'Phone Number'
-    )
+    const [isValidated, setIsValidated] = useState(false)
+
+    
+    const [dialogState, setDialogState] = useState<DialogType>('validate')
+    const [validationType, setValidationType] = useState<
+        ValidateInputTypes | string | null
+    >('Phone Number')
 
     const [photoUrl, setPhotoUrl] = useState('')
 
@@ -51,9 +64,9 @@ const AddResident = () => {
     }
     const handleOpen = (modalState: DialogType) => {
         if (modalState === 'validate') {
-            setIsAddArtisan(true)
+            setIsAddResident(true)
         } else {
-            setIsAddArtisan(false)
+            setIsAddResident(false)
         }
 
         if (dialogRef.current) {
@@ -61,12 +74,12 @@ const AddResident = () => {
         }
     }
 
-    const addArtisanHandler = () => {
-        // navigate('/superAdmin/artisanCategory/add')
-        handleOpen('add-Artisan')
+    const addResidentHandler = () => {
+        // navigate('/superAdmin/residentCategory/add')
+        handleOpen('add-Resident')
     }
 
-    const confirmAddArtisan = () => {
+    const confirmAddResident = () => {
         handleClose()
     }
 
@@ -77,6 +90,22 @@ const AddResident = () => {
         openValidateDialog()
     }
 
+
+
+    const renderValidationType = new Map([
+        ['Phone Number', <PhoneNumber />],
+        ['BVN Number', <BVN_Number />],
+        ['NIN Number', <NIN_Number />],
+        ['Drivers License', <DriversLicence />],
+        ['International Passport', <International_PassPort />],
+        ['Voters Card', <Voters_Card />],
+    ]) satisfies Map<ValidateInputTypes, JSX.Element>
+
+    const handleValidate = () => {
+        setIsValidated(true)
+    }
+
+   
     return (
         <>
             <ToastContainer />
@@ -304,15 +333,15 @@ const AddResident = () => {
                         setSelectedState={setSelectedState}
                     />
                     <Select
-                        label='Artisan Category'
+                        label='Resident Category'
                         state={[
                             'Plumber',
                             'Electrician',
                             'Carpenter',
                             'Painter',
                         ]}
-                        selectedState={selectedArtisan}
-                        setSelectedState={setSelectedArtisan}
+                        selectedState={selectedResident}
+                        setSelectedState={setSelectedResident}
                     />
                     <div className='grid gap-4 relative'>
                         <label
@@ -370,12 +399,12 @@ const AddResident = () => {
                     <button
                         className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
                         style={{ justifySelf: 'start' }}
-                        onClick={addArtisanHandler}
+                        onClick={addResidentHandler}
                     >
                         <span>
                             <IoMdAdd />
                         </span>{' '}
-                        Add Artisan
+                        Add Resident
                     </button>
                 </form>
             </div>
