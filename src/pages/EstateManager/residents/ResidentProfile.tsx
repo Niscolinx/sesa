@@ -152,7 +152,7 @@ const ResidentProfile = () => {
                     <div className='grid text-[1.6rem]'>
                         <caption className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
                             <p className=' font-bold'>
-                                Unique Resident <span>(4)</span>
+                                 Resident Profile <span>(4)</span>
                             </p>
                             <div className='relative flex items-center'>
                                 <img
