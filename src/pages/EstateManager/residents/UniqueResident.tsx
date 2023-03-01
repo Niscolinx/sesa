@@ -180,14 +180,6 @@ const UniqueResident = () => {
             }
         })
 
-
-
-        if (e.target.checked) {
-            console.log('checked')
-            selectedList.add(index)
-        } else {
-            selectedList.delete(index)
-        }
     }
 
     const deleteSelectedList = () => {
