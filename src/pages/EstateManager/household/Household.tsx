@@ -7,31 +7,31 @@ import { useNavigate } from 'react-router-dom'
 
 interface Household {
     id: number
-    propertyCode: string
+    householdCode: string
     address: string
-    propertyType: string
-    propertyCategory: 'business' | 'residential'
-    propertyName: string
+    householdType: string
+    householdCategory: 'business' | 'residential'
+    householdName: string
 }
 
 const HOUSEHOLD_DATA: Household[] = Array.from({
     length: 20,
 }).map((_, i) => ({
     id: i + 1,
-    propertyCode: (Math.random() * 0.1 + 0.9).toFixed(7).split('.')[1],
+    householdCode: (Math.random() * 0.1 + 0.9).toFixed(7).split('.')[1],
     address: 'Blk.2, Flt. 3, Zone ',
-    propertyType: '2-bedroom Self Con',
-    propertyCategory: Math.random() > 0.5 ? 'business' : 'residential',
-    propertyName: 'grey autos',
+    householdType: '2-bedroom Self Con',
+    householdCategory: Math.random() > 0.5 ? 'business' : 'residential',
+    householdName: 'grey autos',
 }))
 
 export type Actions = 'View Details' | 'Edit Details' | 'Delete'
 
 function HouseHold() {
-    const [isProperty, setIsProperty] = useState(false)
+    const [isHousehold, setIsHousehold] = useState(false)
 
-    const addproperty = () => {
-        setIsProperty(true)
+    const addhousehold = () => {
+        setIsHousehold(true)
     }
 
    
@@ -149,7 +149,7 @@ function HouseHold() {
     }
 
     const handleAddHousehold = () => {
-        navigate('/estateManager/property/add')
+        navigate('/estateManager/household/add')
         // navigate(`/securityCompany/security-guard/addSecurity`)
     }
 
@@ -213,24 +213,24 @@ function HouseHold() {
         })
 
         if (item === 'View Details') {
-            navigate(`/estateManager/property/view/:${index}`)
+            navigate(`/estateManager/household/view/:${index}`)
         }
 
         if (item === 'Edit Details') {
-            navigate(`/estateManager/property/view/:${index}`)
+            navigate(`/estateManager/household/view/:${index}`)
         }
     }
 
     return (
         <>
-            {isProperty ? (
+            {isHousehold ? (
                 <div className='rounded-lg mt-[3rem] h-[80vh]'>
                     <main className='mt-10 grid gap-9'>
                         <section className='bg-color-white rounded-lg border min-w-[112rem] overflow-scroll'>
                             <div className='grid text-[1.6rem]'>
                                 <caption className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
                                     <p className=' font-bold'>
-                                        Property List <span>(50)</span>
+                                        Household List <span>(50)</span>
                                     </p>
                                     <div className='relative flex items-center'>
                                         <img
@@ -270,7 +270,7 @@ function HouseHold() {
                                                 <span>
                                                     <IoMdAdd />
                                                 </span>{' '}
-                                                Add Property
+                                                Add Household
                                             </button>
                                         )}
                                     </div>
@@ -288,12 +288,12 @@ function HouseHold() {
                                                 type='checkbox'
                                                 className='cursor-pointer'
                                             />
-                                            <p>Property Code</p>
+                                            <p>Household Code</p>
                                         </p>
                                         <p> Address</p>
-                                        <p>Property Type</p>
-                                        <p>Property Category</p>
-                                        <p>Property Name</p>
+                                        <p>Household Type</p>
+                                        <p>Household Category</p>
+                                        <p>Household Name</p>
 
                                         <p>Action </p>
                                     </div>
@@ -304,10 +304,10 @@ function HouseHold() {
                                             React.Children.toArray(
                                                 slicedPages[paginate.index].map(
                                                     ({
-                                                        propertyCategory,
-                                                        propertyCode,
-                                                        propertyName,
-                                                        propertyType,
+                                                        householdCategory,
+                                                        householdCode,
+                                                        householdName,
+                                                        householdType,
                                                         address,
                                                         id,
                                                     }) => {
@@ -334,24 +334,24 @@ function HouseHold() {
 
                                                                     <span>
                                                                         {
-                                                                            propertyCode
+                                                                            householdCode
                                                                         }
                                                                     </span>
                                                                 </p>
                                                                 <p>{address}</p>
                                                                 <p>
                                                                     {
-                                                                        propertyType
+                                                                        householdType
                                                                     }
                                                                 </p>
                                                                 <p>
                                                                     {
-                                                                        propertyCategory
+                                                                        householdCategory
                                                                     }
                                                                 </p>
                                                                 <p>
                                                                     {
-                                                                        propertyName
+                                                                        householdName
                                                                     }
                                                                 </p>
 
@@ -528,16 +528,16 @@ function HouseHold() {
                     <section className='grid place-content-center w-full h-full justify-items-center gap-4 bg-white'>
                         <img src='/icons/admins/errorSvg.svg' alt='' />
                         <p className='text'>
-                            Ooops you have not any property list yet
+                            Ooops you have not any household list yet
                         </p>
                         <button
                             className='bg-color-blue-1 text-white flex gap-2 items-center rounded-lg justify-self-center py-4 px-16 text-[1.6rem]'
-                            onClick={addproperty}
+                            onClick={addhousehold}
                         >
                             <span>
                                 <IoMdAdd />
                             </span>{' '}
-                            Add property
+                            Add household
                         </button>
                     </section>
                 </div>
