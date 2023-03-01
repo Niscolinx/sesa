@@ -176,7 +176,7 @@ const AddProperty = () => {
                         />
                     </div>
 
-                    <div className='col-span-full items-end justify-between grid grid-cols-2 gap-16'>
+                    <div className='col-span-full items-center justify-between grid grid-cols-2 gap-16'>
                         <div className=' '>
                             <label
                                 htmlFor='address'
@@ -192,9 +192,9 @@ const AddProperty = () => {
                                 rows={4}
                                 className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                             />
-                            <p className='text-gray-500 text-[1.4rem]'>Maximum of 80 characters</p>
+                            <p className='text-gray-400 text-[1.4rem]'>Maximum of 80 characters</p>
                         </div>
-                        <div className=' rounded-lg border border-width-[.2rem] border-dashed border-color-grey-1 p-8 text-[1.6rem] relative w-full h-[15rem] content-center grid'>
+                        <div className=' rounded-lg border border-width-[.2rem] border-dashed border-color-grey-1 p-8 text-[1.6rem] relative w-full h-[13rem] content-center grid'>
                             <label
                                 htmlFor='photoUpload'
                                 className='grid justify-items-center justify-center gap-4 items-center cursor-pointer'
@@ -238,14 +238,14 @@ const AddProperty = () => {
                     </div>
 
                     <button
-                        className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
+                        className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg mt-[5rem]'
                         style={{ justifySelf: 'start' }}
                         onClick={addResidentHandler}
                     >
                         <span>
                             <IoMdAdd />
                         </span>{' '}
-                        Add Resident
+                        Add Property
                     </button>
                 </form>
             </div>
