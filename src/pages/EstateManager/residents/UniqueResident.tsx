@@ -194,7 +194,7 @@ const UniqueResident = () => {
         } else {
             selectedList.delete(id)
 
-            console.log(selectedList.size, 'delete size')
+            console.log(selectedList.size, 'delete size', selectedList)
             setSelectedListCount(selectedList.size)
         }
     }
