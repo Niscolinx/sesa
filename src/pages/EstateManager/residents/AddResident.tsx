@@ -73,7 +73,7 @@ const AddResident = () => {
         if (modalState === 'validate') {
             setDialogState('validate')
         } else {
-            setDialogState('validate')
+            setDialogState('add-Resident')
         }
 
         if (dialogRef.current) {
@@ -272,6 +272,35 @@ const AddResident = () => {
                         />
                     </div>
 
+                    <div className='grid gap-4 relative '>
+                        <label
+                            htmlFor='lastName'
+                            className='text-[1.4rem] font-medium'
+                        >
+                            Date of Birth
+                        </label>
+                        <input
+                            type='text'
+                            required
+                            id='lastName'
+                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                        />
+                    </div>
+                    <div className='grid gap-4 relative'>
+                        <label
+                            htmlFor='email'
+                            className='text-[1.4rem] font-medium'
+                        >
+                            Email Address *
+                        </label>
+                        <input
+                            type='email'
+                            required
+                            id='email'
+                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                        />
+                    </div>
+
                     <div className='grid gap-4'>
                         <label
                             htmlFor='phoneNumber'
@@ -300,36 +329,7 @@ const AddResident = () => {
                         selectedState={selectedGender}
                         setSelectedState={setSelectedGender}
                     />
-                    <div className='grid gap-4 relative'>
-                        <label
-                            htmlFor='email'
-                            className='text-[1.4rem] font-medium'
-                        >
-                            Email Address *
-                        </label>
-                        <input
-                            type='email'
-                            required
-                            id='email'
-                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                        />
-                    </div>
 
-
-                    <div className='grid gap-4 relative'>
-                        <label
-                            htmlFor='businessName'
-                            className='text-[1.4rem] font-medium'
-                        >
-                            Business Name
-                        </label>
-                        <input
-                            type='text'
-                            placeholder='Optional'
-                            id='businessName'
-                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                        />
-                    </div>
                     <div className='col-span-full rounded-lg border border-width-[.2rem] border-dashed border-color-grey-1 p-8 text-[1.6rem] relative w-full'>
                         <label
                             htmlFor='photoUpload'
