@@ -5,26 +5,28 @@ import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { IoMdAdd } from 'react-icons/io'
 import { useNavigate } from 'react-router-dom'
 
-interface CompanyOverview {
+interface UniqueResidents {
     id: number
-    guardCode: number
-    guardName: string
+    residentCode: number
+    name: string
+    gender: string
     phoneNumber: string
-    assignedEstate: string
-    status: 'Active' | 'Deactivated'
-    kys: 'Validated' | 'Not Validated'
+    NoOfProfiles: number
+    status: 'Active'
+    kyr: 'Validated'
 }
 
-const COMPANY_OVERVIEW_DATA: CompanyOverview[] = Array.from({
+const UNIQUE_RESIDENTS_DATA: UniqueResidents[] = Array.from({
     length: 20,
 }).map((_, i) => ({
     id: i,
-    guardName: 'John Doe',
-    phoneNumber: '+2347024954270',
-    guardCode: Math.floor(Math.random() * 3000 + 1000),
-    assignedEstate: 'Estate 1',
-    status: Math.random() > 0.5 ? 'Active' : 'Deactivated',
-    kys: Math.random() > 0.5 ? 'Validated' : 'Not Validated',
+    residentCode: Math.floor(Math.random() * 0.100000 + 0.90000),
+    name: `Resident ${i}`,
+    gender: Math.random() > 0.5 ? 'Male' : 'Female',
+    phoneNumber: `+234 80 1234 567${i}`,
+    NoOfProfiles: Math.floor(Math.random() * 5 + 1),
+    status: 'Active',
+    kyr: 'Validated',
 }))
 
 export type Actions = 'View Details' | 'Edit Details' | 'Delete'
@@ -32,12 +34,12 @@ export type Actions = 'View Details' | 'Edit Details' | 'Delete'
 const UniqueResident = () => {
     const navigate = useNavigate()
 
-    const [fetchedCompanyOverviewData, setFetchedCompanyOverviewData] =
-        useState<CompanyOverview[]>([])
+    const [fetchedUniqueResidents, setFetchedUniqueResidents] =
+        useState<UniqueResidents[]>([])
 
     useEffect(() => {
         setTimeout(() => {
-            setFetchedCompanyOverviewData(COMPANY_OVERVIEW_DATA)
+            setFetchedUniqueResidents(UNIQUE_RESIDENTS_DATA)
         }, 500)
     }, [])
 
@@ -46,7 +48,7 @@ const UniqueResident = () => {
         currentPage: number
         itemsPerPage: number
         totalPage: number
-        slicedPages: CompanyOverview[][] | null
+        slicedPages: UniqueResidents[][] | null
     }
 
     const itemsPerPageArr = [2, 4, 6, 8]
@@ -56,16 +58,16 @@ const UniqueResident = () => {
         index: 0,
         currentPage: 1,
         itemsPerPage: perPage,
-        totalPage: Math.ceil(fetchedCompanyOverviewData.length / perPage),
+        totalPage: Math.ceil(fetchedUniqueResidents.length / perPage),
         slicedPages: null,
     })
 
     const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
         const item = parseInt(e.target.value)
 
-        const slicedPages: CompanyOverview[][] = []
-        for (let i = 0; i < fetchedCompanyOverviewData.length; i += item) {
-            slicedPages.push(fetchedCompanyOverviewData.slice(i, i + item))
+        const slicedPages: UniqueResidents[][] = []
+        for (let i = 0; i < fetchedUniqueResidents.length; i += item) {
+            slicedPages.push(fetchedUniqueResidents.slice(i, i + item))
         }
 
         setPaginate((prev) => {
@@ -75,20 +77,20 @@ const UniqueResident = () => {
                 index: 0,
                 currentPage: 1,
                 slicedPages,
-                totalPage: Math.ceil(fetchedCompanyOverviewData.length / item),
+                totalPage: Math.ceil(fetchedUniqueResidents.length / item),
             }
         })
     }
 
     useEffect(() => {
-        const slicedPages: CompanyOverview[][] = []
+        const slicedPages: UniqueResidents[][] = []
         for (
             let i = 0;
-            i < fetchedCompanyOverviewData.length;
+            i < fetchedUniqueResidents.length;
             i += paginate.itemsPerPage
         ) {
             slicedPages.push(
-                fetchedCompanyOverviewData.slice(i, i + paginate.itemsPerPage)
+                fetchedUniqueResidents.slice(i, i + paginate.itemsPerPage)
             )
         }
 
@@ -97,11 +99,11 @@ const UniqueResident = () => {
                 ...prev,
                 slicedPages,
                 totalPage: Math.ceil(
-                    fetchedCompanyOverviewData.length / paginate.itemsPerPage
+                    fetchedUniqueResidents.length / paginate.itemsPerPage
                 ),
             }
         })
-    }, [fetchedCompanyOverviewData])
+    }, [fetchedUniqueResidents])
 
     const handleNext = () => {
         console.log(paginate.currentPage, paginate.totalPage)
@@ -257,13 +259,14 @@ const UniqueResident = () => {
                                         slicedPages[paginate.index].map(
                                             (
                                                 {
-                                                    guardCode,
-                                                    guardName,
-                                                    assignedEstate,
-                                                    kys,
-                                                    status,
-                                                    id,
+                                                    residentCode,
+                                                    name,
+                                                    gender,
                                                     phoneNumber,
+                                                    status,
+                                                    kyr,
+                                                    NoOfProfiles,
+                                                    
                                                 },
                                                 i
                                             ) => {
