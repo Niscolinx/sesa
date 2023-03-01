@@ -184,7 +184,9 @@ export const ComplexSelect: FC<ComplexSelect> = ({
             </div>
 
             {toggleStateMenu && (
-                <div className='absolute top-[8rem]  left-0 border border-color-primary-light min-w-[12rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
+                <div
+                    className={`absolute top-[8rem]  left-0 border border-color-primary-light min-w-[12rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize`}
+                >
                     {isSearchable && (
                         <div className='relative flex items-center text-[1.4rem]'>
                             <img
@@ -212,7 +214,9 @@ export const ComplexSelect: FC<ComplexSelect> = ({
                         >
                             {double ? (
                                 <>
-                                    <span className='font-Satoshi-Medium text-[1.6rem]'>{item.name}</span>
+                                    <span className='font-Satoshi-Medium text-[1.6rem]'>
+                                        {item.name}
+                                    </span>
                                     <span>{item.sub}</span>
                                 </>
                             ) : (

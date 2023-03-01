@@ -138,10 +138,16 @@ const AddProperty = () => {
                     />
                     <ComplexSelect
                         label='Property Type'
-                        state={[{
-                            name: 'Duplex',
-                            sub: 'lorem'
-                        }]}
+                        state={[
+                            {
+                                name: 'Duplex',
+                                sub: 'A housing unit built on teo floors.',
+                            },
+                            {
+                                name: 'Detached Duplex',
+                                sub: 'A single unit of duplex standing on its own.',
+                            },
+                        ]}
                         placeholder='Residential'
                         isSearchable
                         double
@@ -163,8 +169,6 @@ const AddProperty = () => {
                             className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                         />
                     </div>
-
-                 
 
                     <div className='col-span-full rounded-lg border border-width-[.2rem] border-dashed border-color-grey-1 p-8 text-[1.6rem] relative w-full'>
                         <label
