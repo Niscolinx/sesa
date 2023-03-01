@@ -4,8 +4,14 @@ import { BsQuestionCircle } from 'react-icons/bs'
 import { ToastContainer } from 'react-toastify'
 import { Select } from '../../../components/SuperAdmin/UI/Select'
 import { getPhotoUrl } from '../../../utils/getPhotoUrl'
-import { PhoneNumber, BVN_Number, NIN_Number, DriversLicence, International_PassPort, Voters_Card } from '../../SecurityCompany/dashboard/company/AddSecurity/Inputs'
-import { ValidateInputTypes } from '../../SecurityCompany/dashboard/company/ViewGuard'
+import {
+    PhoneNumber,
+    BVN_Number,
+    NIN_Number,
+    DriversLicence,
+    International_PassPort,
+    Voters_Card,
+} from '../../SecurityCompany/dashboard/company/AddSecurity/Inputs'
 
 type DialogType = 'validate' | 'add-Resident'
 
@@ -16,14 +22,16 @@ export type ValidateInputTypes =
     | 'Drivers License'
     | 'International Passport'
     | 'Voters Card'
-    
+
 const AddResident = () => {
     const [selectedState, setSelectedState] = useState<string | null>(null)
-    const [selectedResident, setSelectedResident] = useState<string | null>(null)
+    const [selectedResident, setSelectedResident] = useState<string | null>(
+        null
+    )
     const [selectedGender, setSelectedGender] = useState<string | null>(null)
     const [isValidated, setIsValidated] = useState(false)
+    const [isAddResident, setIsAddResident] = useState(false)
 
-    
     const [dialogState, setDialogState] = useState<DialogType>('validate')
     const [validationType, setValidationType] = useState<
         ValidateInputTypes | string | null
@@ -90,8 +98,6 @@ const AddResident = () => {
         openValidateDialog()
     }
 
-
-
     const renderValidationType = new Map([
         ['Phone Number', <PhoneNumber />],
         ['BVN Number', <BVN_Number />],
@@ -105,7 +111,6 @@ const AddResident = () => {
         setIsValidated(true)
     }
 
-   
     return (
         <>
             <ToastContainer />
