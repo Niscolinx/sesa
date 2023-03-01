@@ -11,14 +11,19 @@ function CreateHousehold() {
     const [pathToSwitch, setPathToSwitch] = useState<PathSwitch>('add-property')
 
     const handlePathSwitch = new Map<PathSwitch, JSX.Element>([
-        ['add-property', <AddProperty/>],
+        ['add-property', <AddProperty />],
         ['add-resident', <></>],
         ['add-RFID', <></>],
         ['add-accessCard', <></>],
     ])
     return (
-        <div className='bg-white'>
-            <div className='estateDetail__radioBox'>
+        <div className='bg-white p-16 rounded-lg h-[90vh]'>
+            <div
+                className='estateDetail__radioBox'
+                style={{
+                    marginTop: '0',
+                }}
+            >
                 <>
                     <input
                         type='radio'
@@ -65,11 +70,10 @@ function CreateHousehold() {
                     <label htmlFor='add-accessCard'>Add Access Card</label>
                 </>
             </div>
-            <div className=' grid gap-8'>
-                <section className='bg-color-white rounded-lg min-w-[112rem] overflow-scroll'>
-                    {handlePathSwitch.get(pathToSwitch)}
-                </section>
-            </div>
+            <section className='bg-color-white rounded-lg mt-[5rem]'>
+                {handlePathSwitch.get(pathToSwitch)}
+               
+            </section>
         </div>
     )
 }

@@ -20,6 +20,7 @@ function AddProperty() {
                 selectedState={selectedPropertyCode}
                 setSelectedState={setSelectedPropertyCode}
             />
+           
         </div>
     )
 }
