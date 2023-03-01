@@ -70,27 +70,13 @@ const ViewResident = () => {
         }
     }
 
-    const handleReAssign = () => {
-        closeAssignGuardDialog()
+   
 
-        toast(' Reassigned successfully', {
-            type: 'success',
-            className: 'bg-green-100 text-green-600 text-[1.4rem]',
-        })
-    }
-
-    const handleDeleteSecurityGuard = () => {
+   
+    const handleDeactivateResident = () => {
         handleCloseDeleteOrDeactivateDialog()
 
-        toast('Security Guard deleted successfully', {
-            type: 'error',
-            className: 'bg-red-100 text-red-600 text-[1.4rem]',
-        })
-    }
-    const handleDeactivateSecurityGuard = () => {
-        handleCloseDeleteOrDeactivateDialog()
-
-        toast('Security Guard deactivated successfully', {
+        toast('Resident deactivated successfully', {
             type: 'error',
             className: 'bg-red-100 text-red-600 text-[1.4rem]',
         })
@@ -212,7 +198,7 @@ const ViewResident = () => {
                                 </button>
                                 <button
                                     className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
-                                    onClick={handleDeactivateSecurityGuard}
+                                    onClick={handleDeactivateResident}
                                 >
                                     Deactivate
                                 </button>
