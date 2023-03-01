@@ -65,7 +65,9 @@ function Property() {
                                 <p className='font-Satoshi-Medium'>Property Type</p>
 
                                 <div>
-                                    <p></p>
+                                    <p> <span>2</span> - <span>bedroom Self Con.</span></p>
+                                    <p> <span>3</span> - <span>bedroom Self Con.</span></p>
+                                    <p> <span>4</span> - <span>bedroom Self Con.</span></p>
                                 </div>
                             </div>
                             <div></div>
