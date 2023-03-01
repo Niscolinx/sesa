@@ -71,7 +71,16 @@ function Residents() {
                                     onChange={() => setCurrentPath('unique')}
                                     defaultChecked
                                 />
-                                <label htmlFor='unique'>Unique Resident</label>
+                                <label
+                                    htmlFor='unique'
+                                    className={` ${
+                                        currentPath === 'unique'
+                                            ? 'font-Satoshi-Medium'
+                                            : 'capitalize'
+                                    }`}
+                                >
+                                    Unique Resident
+                                </label>
 
                                 <input
                                     type='radio'
@@ -80,7 +89,14 @@ function Residents() {
                                     className='hidden'
                                     onChange={() => setCurrentPath('profile')}
                                 />
-                                <label htmlFor='profile' className='capitalize'>
+                                <label
+                                    htmlFor='profile'
+                                    className={` ${
+                                        currentPath === 'profile'
+                                            ? 'font-Satoshi-Medium'
+                                            : 'capitalize'
+                                    }`}
+                                >
                                     Resident Profile
                                 </label>
                             </div>
