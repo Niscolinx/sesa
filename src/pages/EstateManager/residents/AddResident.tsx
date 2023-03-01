@@ -21,7 +21,6 @@ export type ValidateInputTypes =
     | 'NIN Number'
     | 'Drivers License'
     | 'International Passport'
-    | 'Voters Card'
 
 const AddResident = () => {
     const [selectedState, setSelectedState] = useState<string | null>(null)
@@ -102,8 +101,7 @@ const AddResident = () => {
         ['BVN Number', <BVN_Number />],
         ['NIN Number', <NIN_Number />],
         ['Drivers License', <DriversLicence />],
-        ['International Passport', <International_PassPort />],
-        ['Voters Card', <Voters_Card />],
+        ['International Passport', <International_PassPort />]
     ]) satisfies Map<ValidateInputTypes, JSX.Element>
 
     const handleValidate = () => {
@@ -143,7 +141,6 @@ const AddResident = () => {
                                         'NIN Number',
                                         'Drivers License',
                                         'International Passport',
-                                        'Voters Card',
                                     ]}
                                     label='Validation Option'
                                     validate
