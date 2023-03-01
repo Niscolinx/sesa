@@ -5,22 +5,6 @@ import { toast, ToastContainer } from 'react-toastify'
 
 
 
-
-type DialogType = 'validate' | 'add-security-guard' | 'reassign'
-
-export type AddedSecurityGuardSteps =
-    | 'addedSecuritySuccessful'
-    | 'addBankAccount'
-    | 'openedBankAccountSuccessful'
-
-export type ValidateInputTypes =
-    | 'Phone Number'
-    | 'BVN Number'
-    | 'NIN Number'
-    | 'Drivers License'
-    | 'International Passport'
-    | 'Voters Card'
-
 interface AddedSecurityGuardContext {
     addedSecurityGuardStep: AddedSecurityGuardSteps
     setAddedSecurityGuardStep: React.Dispatch<
