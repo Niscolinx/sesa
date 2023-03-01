@@ -19,7 +19,7 @@ interface UniqueResidents {
 const UNIQUE_RESIDENTS_DATA: UniqueResidents[] = Array.from({
     length: 20,
 }).map((_, i) => ({
-    id: i,
+    id: i + 1,
     residentCode: (Math.random() * 0.1 + 0.9).toFixed(7).split('.')[1],
     name: `Resident ${i}`,
     gender: Math.random() > 0.5 ? 'Male' : 'Female',
@@ -306,7 +306,7 @@ const UniqueResident = () => {
                                                     kyr,
                                                     NoOfProfiles,
                                                 },
-                                                i
+                                               
                                             ) => {
                                                 const {
                                                     isDropDownOpen,
@@ -361,7 +361,7 @@ const UniqueResident = () => {
                                                         <div className='relative'>
                                                             <label
                                                                 className='font-semibold capitalize cursor-pointer flex items-center gap-2 relative z-10'
-                                                                htmlFor={i.toString()}
+                                                                htmlFor={id.toString()}
                                                                 onClick={() =>
                                                                     setToggleDropDown(
                                                                         (
@@ -387,7 +387,7 @@ const UniqueResident = () => {
                                                                 type='radio'
                                                                 name='dropdown'
                                                                 className='hidden'
-                                                                id={i.toString()}
+                                                                id={id.toString()}
                                                                 onChange={(e) =>
                                                                     dropDownHandler(
                                                                         e,
@@ -417,7 +417,7 @@ const UniqueResident = () => {
                                                                                         selectAction(
                                                                                             e,
                                                                                             item,
-                                                                                            i
+                                                                                            id
                                                                                         )
                                                                                     }
                                                                                 >
