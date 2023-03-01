@@ -3,14 +3,11 @@ import { IoMdAdd } from 'react-icons/io'
 import { ComplexSelect, Select } from '../../../components/SuperAdmin/UI/Select'
 import { getPhotoUrl } from '../../../utils/getPhotoUrl'
 
-
 const ViewProperty = () => {
- const [selectedPropertyType, setSelectedPropertyType] = useState<
-     string | null
- >(null)
+    const [selectedPropertyType, setSelectedPropertyType] = useState<
+        string | null
+    >(null)
     const [isDelete, setIsDelete] = useState(true)
-
-    
 
     const [photoUrl, setPhotoUrl] = useState('')
 
@@ -41,17 +38,16 @@ const ViewProperty = () => {
             setIsDelete(false)
         }
 
-            dialogRef.current?.showModal()
-       
+        dialogRef.current?.showModal()
     }
 
     const confirmDeactivation = () => {
         handleClose()
     }
 
-     const addResidentHandler = () => {
-         handleOpen()
-     }
+    const addResidentHandler = () => {
+        handleOpen()
+    }
 
     return (
         <>
@@ -66,13 +62,10 @@ const ViewProperty = () => {
 
                         {isDelete ? (
                             <p>
-                                Are you sure you want to deactivate this
-                                security company?
+                                Are you sure you want to delete this property?
                             </p>
                         ) : (
-                            <p>
-                                You have successfully added a security Company
-                            </p>
+                            <p>You have successfully added a property</p>
                         )}
 
                         <div className='flex w-full justify-center gap-8'>
@@ -88,7 +81,7 @@ const ViewProperty = () => {
                                     className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
                                     onClick={() => handleClose()}
                                 >
-                                    View Details
+                                Ok
                                 </button>
                             )}
                             {isDelete ? (
@@ -96,7 +89,7 @@ const ViewProperty = () => {
                                     className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
                                     onClick={confirmDeactivation}
                                 >
-                                    Deactivate
+                                    Delete
                                 </button>
                             ) : (
                                 <button
@@ -149,7 +142,7 @@ const ViewProperty = () => {
                     </div>
                     <button
                         className='border border-red-600 px-16 py-4 flex items-center  rounded-lg gap-4'
-                        onClick={() => handleOpen('warning')}
+                        onClick={() => handleOpen('isDelete')}
                     >
                         <img src='/icons/admins/delete.svg' alt='' />
                         <span className='text-red-600 text-[1.4rem] font-semibold'>
@@ -266,25 +259,23 @@ const ViewProperty = () => {
                     </div>
 
                     <div className='col-span-full items-center grid'>
-                            <label
-                                htmlFor='address'
-                                className='flex mb-2 gap-4 items-center cursor-pointer'
-                            >
-                                Address Description
-                            </label>
+                        <label
+                            htmlFor='address'
+                            className='flex mb-2 gap-4 items-center cursor-pointer'
+                        >
+                            Address Description
+                        </label>
 
-                            <textarea
-                                name='address'
-                                id='address'
-                                placeholder='This is the address direction that would be displayed on the print out handed to the visitor at check in.'
-                                rows={4}
-                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                            />
-                            <p className='text-gray-400 text-[1.4rem]'>
-                                Maximum of 80 characters
-                            </p>
-                     
-                       
+                        <textarea
+                            name='address'
+                            id='address'
+                            placeholder='This is the address direction that would be displayed on the print out handed to the visitor at check in.'
+                            rows={4}
+                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                        />
+                        <p className='text-gray-400 text-[1.4rem]'>
+                            Maximum of 80 characters
+                        </p>
                     </div>
 
                     <button
