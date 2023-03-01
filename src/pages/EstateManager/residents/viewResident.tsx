@@ -45,12 +45,7 @@ const ViewResident = () => {
         }
     }
 
-    const openAssignGuardDialog = () => {
-        if (assignGuardRef.current) {
-            assignGuardRef.current.showModal()
-        }
-    }
-
+   
     const closeValidatedDialog = () => {
         if (validatedDialogRef.current) {
             validatedDialogRef.current.close()
