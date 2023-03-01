@@ -3,7 +3,7 @@ import React, { FC } from 'react'
 type OverviewCard = {
     iconUrl: string
     title: string
-    number: number
+    number: number | string
     bgColor: string
     textColor: string
     percent?: number
