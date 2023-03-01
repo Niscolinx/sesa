@@ -59,8 +59,16 @@ function Property() {
                                 </section>
                             </div>
                         </div>
-                        <div>
+                        <div className='grid grid-cols-2 justify-items-end'>
 
+                            <div>
+                                <p className='font-Satoshi-Medium'>Property Type</p>
+
+                                <div>
+                                    <p></p>
+                                </div>
+                            </div>
+                            <div></div>
                         </div>
                     </section>
 
