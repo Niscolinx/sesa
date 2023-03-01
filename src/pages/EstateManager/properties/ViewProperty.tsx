@@ -1,5 +1,4 @@
 import React, { useRef, useState } from 'react'
-import { GrDown, GrUp } from 'react-icons/gr'
 import { IoMdAdd } from 'react-icons/io'
 import { ComplexSelect, Select } from '../../../components/SuperAdmin/UI/Select'
 import { getPhotoUrl } from '../../../utils/getPhotoUrl'
@@ -9,8 +8,7 @@ const ViewProperty = () => {
  const [selectedPropertyType, setSelectedPropertyType] = useState<
      string | null
  >(null)
-    const [toggleStateMenu, setToggleStateMenu] = useState(false)
-    const [isWarning, setIsWarning] = useState(true)
+    const [isDelete, setIsDelete] = useState(true)
 
     
 
@@ -25,7 +23,7 @@ const ViewProperty = () => {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
-        handleOpen('success')
+        handleOpen('isDelete')
     }
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
@@ -36,16 +34,15 @@ const ViewProperty = () => {
         }
     }
 
-    const handleOpen = (modalState: 'warning' | 'success') => {
-        if (modalState === 'warning') {
-            setIsWarning(true)
+    const handleOpen = (modalState?: 'isDelete') => {
+        if (modalState === 'isDelete') {
+            setIsDelete(true)
         } else {
-            setIsWarning(false)
+            setIsDelete(false)
         }
 
-        if (dialogRef.current) {
-            dialogRef.current.showModal()
-        }
+            dialogRef.current?.showModal()
+       
     }
 
     const confirmDeactivation = () => {
@@ -61,13 +58,13 @@ const ViewProperty = () => {
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8 text-[1.6rem]'>
-                        {isWarning ? (
+                        {isDelete ? (
                             <img src='/icons/admins/modalWarning.svg' alt='' />
                         ) : (
                             <img src='/icons/admins/modalSuccess.svg' alt='' />
                         )}
 
-                        {isWarning ? (
+                        {isDelete ? (
                             <p>
                                 Are you sure you want to deactivate this
                                 security company?
@@ -79,7 +76,7 @@ const ViewProperty = () => {
                         )}
 
                         <div className='flex w-full justify-center gap-8'>
-                            {isWarning ? (
+                            {isDelete ? (
                                 <button
                                     className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
                                     onClick={() => handleClose()}
@@ -94,7 +91,7 @@ const ViewProperty = () => {
                                     View Details
                                 </button>
                             )}
-                            {isWarning ? (
+                            {isDelete ? (
                                 <button
                                     className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
                                     onClick={confirmDeactivation}
