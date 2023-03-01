@@ -45,7 +45,7 @@ const ViewProperty = () => {
         handleClose()
     }
 
-    const addResidentHandler = () => {
+    const addPropertyHandler = () => {
         handleOpen()
     }
 
@@ -81,7 +81,7 @@ const ViewProperty = () => {
                                     className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
                                     onClick={() => handleClose()}
                                 >
-                                Ok
+                                    Ok
                                 </button>
                             )}
                             {isDelete ? (
@@ -203,8 +203,8 @@ const ViewProperty = () => {
                     </div>
                     <Select
                         label='Property Category'
-                        state={['Business', 'Residential']}
-                        placeholder='Residential'
+                        state={['Business', 'Propertyial']}
+                        placeholder='Propertyial'
                         selectedState={selectedPropertyType}
                         setSelectedState={setSelectedPropertyType}
                     />
@@ -236,7 +236,7 @@ const ViewProperty = () => {
                                 sub: 'A housing unit built on teo floors',
                             },
                         ]}
-                        placeholder='Residential'
+                        placeholder='Propertyial'
                         isSearchable
                         double
                         selectedState={selectedPropertyType}
@@ -281,12 +281,16 @@ const ViewProperty = () => {
                     <button
                         className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg mt-[5rem]'
                         style={{ justifySelf: 'start' }}
-                        onClick={addResidentHandler}
+                        onClick={addPropertyHandler}
                     >
                         <span>
-                            <IoMdAdd />
+                            <img
+                                src='/icons/admins/saveDisk.svg'
+                                alt=''
+                                className='w-[1.7rem] h-[1.7rem]'
+                            />
                         </span>{' '}
-                        Add Property
+                        Save Changes
                     </button>
                 </form>
             </div>
