@@ -64,207 +64,23 @@ const AddProperty = () => {
         <>
             <ToastContainer />
 
-            <dialog className='dialog' ref={validateDialogRef}>
-                <section className='grid place-content-center w-full h-[100vh]'>
-                    <div className='bg-white rounded-2xl grid items-baseline w-[90rem] min-h-[30rem] p-10 text-[1.6rem] relative gap-20'>
-                        <IoMdClose
-                            className='absolute right-4 top-4 text-[2rem] cursor-pointer'
-                            onClick={() => closeValidateDialog()}
-                        />
-
-                        <div className='relative h-[14rem] bg-blue-600 w-full mt-10 rounded-lg'>
-                            <img
-                                src='/img/me.jpeg'
-                                alt=''
-                                className='w-[10rem] h-[10rem] border rounded-full border-green-600 object-cover absolute bottom-[-6rem] left-10 object-top'
-                            />
-                        </div>
-                        <div className='mt-20'>
-                            <h2>Validation Result</h2>
-
-                            <div className='border grid mt-5'>
-                                <div className='grid grid-cols-2 border-b gap-4'>
-                                    <p
-                                        className='border-r py-4 pl-4 text-gray-700'
-                                        style={{
-                                            fontFamily: 'Satoshi-Light',
-                                        }}
-                                    >
-                                        Validation Option
-                                    </p>
-                                    <p className='py-4'>
-                                        Phone Number | (+234) 813238432
-                                    </p>
-                                </div>
-                                <div className='grid grid-cols-2 border-b gap-4'>
-                                    <p
-                                        className='border-r py-4 pl-4 text-gray-700'
-                                        style={{
-                                            fontFamily: 'Satoshi-Light',
-                                        }}
-                                    >
-                                        Full Name
-                                    </p>
-                                    <p className='py-4'>Michael Okonkwo</p>
-                                </div>
-                                <div className='grid grid-cols-2 border-b gap-4'>
-                                    <p
-                                        className='border-r py-4 pl-4 text-gray-700'
-                                        style={{
-                                            fontFamily: 'Satoshi-Light',
-                                        }}
-                                    >
-                                        Date of Birth
-                                    </p>
-                                    <p className='py-4'>15 May, 1998</p>
-                                </div>
-                                <div className='grid grid-cols-2 border-b gap-4'>
-                                    <p
-                                        className='border-r py-4 pl-4 text-gray-700'
-                                        style={{
-                                            fontFamily: 'Satoshi-Light',
-                                        }}
-                                    >
-                                        Phone Number
-                                    </p>
-                                    <p className='py-4'> (+234) 813238432</p>
-                                </div>
-                                <div className='grid grid-cols-2  gap-4'>
-                                    <p
-                                        className='border-r py-4 pl-4 text-gray-700'
-                                        style={{
-                                            fontFamily: 'Satoshi-Light',
-                                        }}
-                                    >
-                                        Gender
-                                    </p>
-                                    <p className='py-4'>Male</p>
-                                </div>
-                            </div>
-                        </div>
-                        <button
-                            className='btn text-white bg-[#0556E5] border rounded-lg w-[15rem] justify-self-center'
-                            onClick={() => closeValidateDialog()}
-                        >
-                            Ok
-                        </button>
-                    </div>
-                </section>
-            </dialog>
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
-                    <div className='bg-white rounded-2xl grid items-baseline w-[64rem] min-h-[30rem] p-10 gap-8 text-[1.6rem] relative'>
-                        <IoMdClose
-                            className='absolute right-4 top-4 text-[2rem] cursor-pointer'
-                            onClick={() => handleClose()}
-                        />
+                    <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
+                        <img src='/icons/admins/modalSuccess.svg' alt='' />
+                        <p>You have successfully added an Property</p>
 
-                        {dialogState === 'validate' ? (
-                            <form
-                                className='grid gap-12'
-                                onSubmit={handleDialogSubmit}
+                        <div className='flex w-full justify-center gap-8'>
+                            <button className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'>
+                                View details
+                            </button>
+                            <button
+                                className='bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
+                                onClick={() => handleClose()}
                             >
-                                <h3
-                                    className='text-[2rem] font-bold border-b '
-                                    style={{
-                                        fontFamily: 'Satoshi-Medium',
-                                    }}
-                                >
-                                    Know Your Guard (KYG)
-                                </h3>
-
-                                <Select
-                                    state={[
-                                        'Phone Number',
-                                        'BVN Number',
-                                        'NIN Number',
-                                        'Drivers License',
-                                        'International Passport',
-                                    ]}
-                                    label='Validation Option'
-                                    validate
-                                    kyr
-                                    selectedState={validationType}
-                                    setSelectedState={setValidationType}
-                                />
-
-                                <p
-                                    className='text-[#043FA7] flex items-center gap-2 border-b pb-10 w-full'
-                                    style={{
-                                        fontFamily: 'Satoshi-Light',
-                                    }}
-                                    onClick={() => handleOpen('view-kyr')}
-                                >
-                                    What is KYG <BsQuestionCircle />
-                                </p>
-                                {renderValidationType.get(
-                                    validationType as ValidateInputTypes
-                                )}
-
-                                <button
-                                    className='btn bg-[#0556E5] text-white rounded-lg py-4 place-self-start w-[15rem]'
-                                    onClick={handleValidate}
-                                >
-                                    Validate
-                                </button>
-                            </form>
-                        ) : dialogState === 'add-resident' ? (
-                            <div className='bg-white rounded-2xl grid place-content-center justify-items-center h-[30rem] gap-8 text-[1.6rem]'>
-                                {' '}
-                                <img
-                                    src='/icons/admins/modalSuccess.svg'
-                                    alt=''
-                                />
-                                <p className='text-[1.6rem]'>
-                                    You have successfully added a Resident
-                                </p>
-                                <div className='flex w-full justify-center gap-8'>
-                                    <button
-                                        className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
-                                        onClick={() => handleClose()}
-                                    >
-                                        View details
-                                    </button>
-                                    <button
-                                        className=' bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
-                                        onClick={() => handleClose()}
-                                    >
-                                        Ok
-                                    </button>
-                                </div>
-                            </div>
-                        ) : (
-                            <div className='bg-white rounded-2xl grid place-content-center justify-items-center h-[30rem] gap-8 text-[1.6rem]'>
-                                <p className='font-Satoshi-Medium text-[#0446B9]'>
-                                    What is KYR?
-                                </p>
-
-                                <div className='grid gap-4'>
-                                    <p>
-                                        Know Your Resident (KYR) is a service
-                                        that allows you confirm the true
-                                        identity of your users (ie: resident).
-                                        With basic information like phone number
-                                        or any valid ID type, you can know "who
-                                        is who"
-                                    </p>
-                                    <p>
-                                        Please note: this service costs N200 per
-                                        successful validation and it will be
-                                        charged from your SESA wallet
-                                    </p>
-                                </div>
-
-                                <div className='flex w-full justify-center gap-8'>
-                                    <button
-                                        className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
-                                        onClick={() => handleClose()}
-                                    >
-                                        Ok
-                                    </button>
-                                </div>
-                            </div>
-                        )}
+                                Ok
+                            </button>
+                        </div>
                     </div>
                 </section>
             </dialog>
