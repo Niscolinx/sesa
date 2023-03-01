@@ -20,7 +20,7 @@ const UNIQUE_RESIDENTS_DATA: UniqueResidents[] = Array.from({
     length: 20,
 }).map((_, i) => ({
     id: i,
-    residentCode: (Math.random() * 0.100000 + 0.90000).toFixed(7).split('.')[1],
+    residentCode: (Math.random() * 0.1 + 0.9).toFixed(7).split('.')[1],
     name: `Resident ${i}`,
     gender: Math.random() > 0.5 ? 'Male' : 'Female',
     phoneNumber: `+234 801234567${i}`,
@@ -34,8 +34,9 @@ export type Actions = 'View Details' | 'Edit Details' | 'Delete'
 const UniqueResident = () => {
     const navigate = useNavigate()
 
-    const [fetchedUniqueResidents, setFetchedUniqueResidents] =
-        useState<UniqueResidents[]>([])
+    const [fetchedUniqueResidents, setFetchedUniqueResidents] = useState<
+        UniqueResidents[]
+    >([])
 
     useEffect(() => {
         setTimeout(() => {
@@ -174,7 +175,7 @@ const UniqueResident = () => {
         setToggleDropDown((prev) => {
             return {
                 isDropDownOpen: e.target.checked,
-                index
+                index,
             }
         })
 
@@ -229,22 +230,24 @@ const UniqueResident = () => {
                                 <GrDown className='absolute right-4 text-[1.3rem]' />
                             </div>
                             <div className='ml-auto'>
-                                <button
-                                    className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
-                                    onClick={handleAddUniqueResident}
-                                >
-                                    <span>
-                                        <IoMdAdd />
-                                    </span>{' '}
-                                    Add Resident
-                                </button>
-                                <button
-                                    className='btn text-white bg-red-600 flex items-center gap-4 py-4 px-16 rounded-lg'
-                                    onClick={deleteSelectedList}
-                                >
-                                   
-                                    Deactivate
-                                </button>
+                                {selectedList.size > 0 ? (
+                                    <button
+                                        className='btn text-white bg-red-600 flex items-center gap-4 py-4 px-16 rounded-lg'
+                                        onClick={deleteSelectedList}
+                                    >
+                                        Deactivate
+                                    </button>
+                                ) : (
+                                    <button
+                                        className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
+                                        onClick={handleAddUniqueResident}
+                                    >
+                                        <span>
+                                            <IoMdAdd />
+                                        </span>{' '}
+                                        Add Resident
+                                    </button>
+                                )}
                             </div>
                         </caption>
 
@@ -285,7 +288,6 @@ const UniqueResident = () => {
                                                     status,
                                                     kyr,
                                                     NoOfProfiles,
-
                                                 },
                                                 i
                                             ) => {
@@ -372,7 +374,8 @@ const UniqueResident = () => {
                                                             />
 
                                                             {isDropDownOpen &&
-                                                                index === id && (
+                                                                index ===
+                                                                    id && (
                                                                     <div className='absolute top-0 translate-x-[5rem] border border-color-primary-light w-[10rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
                                                                         {actions.map(
                                                                             (
@@ -395,8 +398,8 @@ const UniqueResident = () => {
                                                                                         )
                                                                                     }
                                                                                 >
-                                                                                    { item ===
-                                                                                      'Delete' ? (
+                                                                                    {item ===
+                                                                                    'Delete' ? (
                                                                                         <span className='text-red-600'>
                                                                                             {
                                                                                                 item
