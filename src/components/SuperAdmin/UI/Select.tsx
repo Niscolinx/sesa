@@ -185,7 +185,7 @@ export const ComplexSelect: FC<ComplexSelect> = ({
 
             {toggleStateMenu && (
                 <div
-                    className={`absolute top-[8rem]  left-0 border border-color-primary-light min-w-[12rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize`}
+                    className={`absolute top-[8rem]  left-0 border border-color-primary-light min-w-[12rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize max-h-[40rem] overflow-y-scroll`}
                 >
                     {isSearchable && (
                         <div className='relative flex items-center text-[1.4rem]'>
