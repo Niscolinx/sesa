@@ -141,9 +141,8 @@ const PropertyTable = () => {
     }
 
     const handleAddPropertyTable = () => {
-        console.log('add security guard')
 
-        navigate('/estateManager/residents/add')
+        navigate('/estateManager/property/add')
         // navigate(`/securityCompany/security-guard/addSecurity`)
     }
 
