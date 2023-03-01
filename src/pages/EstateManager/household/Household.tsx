@@ -22,9 +22,13 @@ const HOUSEHOLD_DATA: Household[] = Array.from({
 }).map((_, i) => ({
     id: i + 1,
     housecode: `H${(Math.random() * 0.1 + 0.9).toFixed(7).split('.')[1]}`,
-   propertyType: Math.random() > 0.5 ? 'duplex' : '1-bedroom',
+    propertyType: Math.random() > 0.5 ? 'duplex' : '1-bedroom',
     propertyCategory: Math.random() > 0.5 ? 'business/nestle' : 'residential',
-    tenancyType: 'landland(resident)'
+    tenancyType: 'landland(resident)',
+    occupants: Math.floor(Math.random() * 10 + 3),
+    RFID: Math.floor(Math.random() * 7 + 3),
+    AccessCard: Math.floor(Math.random() * 7 + 3),
+    status: 'active',
 }))
 
 export type Actions = 'View Details' | 'Edit Details' | 'Delete'
@@ -36,16 +40,12 @@ function HouseHold() {
         setIsHousehold(true)
     }
 
-   
-
     const navigate = useNavigate()
     const [selectedList, setSelectedList] = useState<Map<string, number>>(
         new Map()
     )
 
-    const [fetchedHousehold, setFetchedHousehold] = useState<
-        Household[]
-    >([])
+    const [fetchedHousehold, setFetchedHousehold] = useState<Household[]>([])
 
     useEffect(() => {
         setTimeout(() => {
@@ -280,7 +280,7 @@ function HouseHold() {
 
                                 <div className='grid'>
                                     <div
-                                        className='grid items-center justify-between text-color-dark-1 bg-gray-100 p-8 grid-cols-6 gap-8'
+                                        className='grid items-center justify-between text-color-dark-1 bg-gray-100 p-8 grid-cols-9 gap-8'
                                         style={{
                                             fontSize: '1.6rem',
                                         }}
@@ -290,13 +290,15 @@ function HouseHold() {
                                                 type='checkbox'
                                                 className='cursor-pointer'
                                             />
-                                            <p>Household Code</p>
+                                            <p>House Code</p>
                                         </p>
-                                        <p> Address</p>
-                                        <p>Household Type</p>
-                                        <p>Household Category</p>
-                                        <p>Household Name</p>
-
+                                        <p>Property Type</p>
+                                        <p>Category/Name</p>
+                                        <p>Tenancy Type</p>
+                                        <p>Occupants</p>
+                                        <p>RFID</p>
+                                        <p>Access Card</p>
+                                        <p>Status</p>
                                         <p>Action </p>
                                     </div>
 
@@ -306,11 +308,14 @@ function HouseHold() {
                                             React.Children.toArray(
                                                 slicedPages[paginate.index].map(
                                                     ({
-                                                        householdCategory,
-                                                        householdCode,
-                                                        householdName,
-                                                        householdType,
-                                                        address,
+                                                        housecode,
+                                                        propertyType,
+                                                        propertyCategory,
+                                                        tenancyType,
+                                                        status,
+                                                        occupants,
+                                                        RFID,
+                                                        AccessCard,
                                                         id,
                                                     }) => {
                                                         const {
@@ -318,7 +323,7 @@ function HouseHold() {
                                                             index,
                                                         } = toggleDropDown
                                                         return (
-                                                            <div className='grid justify-between border-b grid-cols-6 gap-8 py-4 items-center capitalize'>
+                                                            <div className='grid justify-between border-b grid-cols-9 gap-8 py-4 items-center capitalize'>
                                                                 <p className='flex items-center gap-4'>
                                                                     <input
                                                                         type='checkbox'
@@ -336,25 +341,37 @@ function HouseHold() {
 
                                                                     <span>
                                                                         {
-                                                                            householdCode
+                                                                            housecode
                                                                         }
                                                                     </span>
                                                                 </p>
-                                                                <p>{address}</p>
                                                                 <p>
                                                                     {
-                                                                        householdType
+                                                                        propertyType
                                                                     }
                                                                 </p>
                                                                 <p>
                                                                     {
-                                                                        householdCategory
+                                                                        propertyCategory
                                                                     }
                                                                 </p>
                                                                 <p>
                                                                     {
-                                                                        householdName
+                                                                        tenancyType
                                                                     }
+                                                                </p>
+                                                                <p>
+                                                                    {occupants}
+                                                                </p>
+                                                                <p>
+                                                                    {RFID}
+                                                                </p>
+                                                                <p>
+                                                                    {AccessCard}
+                                                                </p>
+
+                                                                <p className='text-green-600'>
+                                                                    {status}
                                                                 </p>
 
                                                                 <div className='relative'>
