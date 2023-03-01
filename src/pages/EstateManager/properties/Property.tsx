@@ -20,8 +20,8 @@ function Property() {
         <>
             {isProperty ? (
                 <div>
-                    <section className='bg-white rounded-lg p-8 grid text-[1.4rem] grid-cols-2 '>
-                        <div className='flex items-center '>
+                    <section className=' grid grid-cols-2 gap-16 '>
+                        <div className='flex items-center gap-8 bg-white rounded-lg p-8'>
                             <div className='overviewChart__box'>
                                 <EstateChart
                                     color1='#098DFF'
@@ -59,7 +59,7 @@ function Property() {
                                 </section>
                             </div>
                         </div>
-                        <div className='grid grid-cols-2 justify-items-end'>
+                        <div className='grid grid-cols-2 justify-items-end bg-white rounded-lg p-8'>
                             <div>
                                 <p className='font-Satoshi-Medium text-[1.8rem]'>
                                     Property Type
@@ -68,7 +68,7 @@ function Property() {
                                 <div>
                                     {Array.from({ length: 3 }).map((_, i) => {
                                         return (
-                                            <p className='flex items-center gap-4 text-[1.6rem]'>
+                                            <p className='flex items-center gap-4'>
                                                 <span className='bg-[#5856D6] rounded-full w-[1rem] h-[1rem] flex'>
                                                     &nbsp;
                                                 </span>
