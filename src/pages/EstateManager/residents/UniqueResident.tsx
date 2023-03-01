@@ -21,7 +21,7 @@ const UNIQUE_RESIDENTS_DATA: UniqueResidents[] = Array.from({
 }).map((_, i) => ({
     id: i + 1,
     residentCode: (Math.random() * 0.1 + 0.9).toFixed(7).split('.')[1],
-    name: `Resident ${i}`,
+    name: `Resident ${i + 1}`,
     gender: Math.random() > 0.5 ? 'Male' : 'Female',
     phoneNumber: `+234 801234567${i}`,
     NoOfProfiles: Math.floor(Math.random() * 5 + 1),
