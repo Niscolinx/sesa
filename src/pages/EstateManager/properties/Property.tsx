@@ -1,8 +1,7 @@
 import { useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
 import OverviewCard from '../../../components/EstateManager/OverviewCard'
-import propertyProfile from '../propertys/propertyProfile'
-import Uniqueproperty from '../propertys/Uniqueproperty'
+import UniqueResident from '../residents/UniqueResident'
 
 function Property() {
     type Path = 'unique' | 'profile'
@@ -14,10 +13,7 @@ function Property() {
         setIsProperty(true)
     }
 
-    const paths = new Map<Path, JSX.Element>([
-        ['unique', <Uniqueproperty />],
-        ['profile', <propertyProfile />],
-    ])
+    
 
     return (
         <>
@@ -62,46 +58,9 @@ function Property() {
 
                     <div className='rounded-lg mt-[3rem] h-[80vh]'>
                         <section>
-                            <div className='estateDetail__radioBox'>
-                                <input
-                                    type='radio'
-                                    name='property'
-                                    id='unique'
-                                    className='hidden'
-                                    onChange={() => setCurrentPath('unique')}
-                                    defaultChecked
-                                />
-                                <label
-                                    htmlFor='unique'
-                                    className={` ${
-                                        currentPath === 'unique'
-                                            ? 'font-Satoshi-Medium'
-                                            : 'capitalize'
-                                    }`}
-                                >
-                                    Unique property
-                                </label>
+                            
 
-                                <input
-                                    type='radio'
-                                    name='property'
-                                    id='profile'
-                                    className='hidden'
-                                    onChange={() => setCurrentPath('profile')}
-                                />
-                                <label
-                                    htmlFor='profile'
-                                    className={` ${
-                                        currentPath === 'profile'
-                                            ? 'font-Satoshi-Medium'
-                                            : 'capitalize'
-                                    }`}
-                                >
-                                    property Profile
-                                </label>
-                            </div>
-
-                            <div>{paths.get(currentPath)}</div>
+                          <UniqueResident/>
                         </section>
                     </div>
                 </div>
