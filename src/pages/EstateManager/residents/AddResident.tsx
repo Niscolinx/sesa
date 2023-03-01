@@ -5,28 +5,14 @@ import { toast, ToastContainer } from 'react-toastify'
 
 
 
-interface AddedSecurityGuardContext {
-    addedSecurityGuardStep: AddedSecurityGuardSteps
-    setAddedSecurityGuardStep: React.Dispatch<
-        React.SetStateAction<AddedSecurityGuardSteps>
-    >
-    selectedBank: string | null
-    setSelectedBank: React.Dispatch<React.SetStateAction<string | null>>
-    handleClose: () => void
-}
 
-export const CreateAddedSecurityGuardContext =
-    createContext<AddedSecurityGuardContext>(null as any)
 
 const AddResident = () => {
-    const [selectedEstate1, setSelectedEstate1] = useState<string | null>(null)
-    const [selectedEstate2, setSelectedEstate2] = useState<string | null>(null)
-    const [selectedEstate3, setSelectedEstate3] = useState<string | null>(null)
-    const [selectedEstate4, setSelectedEstate4] = useState<string | null>(null)
-    const [isValidated, setIsValidated] = useState(false)
-    const [iskyg, setIskyg] = useState(false)
+    const [gender, setGender] = useState<string | null>(null)
+   
+    const [iskyr, setIskyr] = useState(false)
 
-    const toggleIskyg = () => setIskyg(!iskyg)
+    const toggleIskyr = () => setIskyr(!iskyr)
     const [selectedState, setSelectedState] = useState<string | null>(
         null as any
     )
@@ -626,10 +612,10 @@ const AddResident = () => {
                                 </span>
                             </p>
                             <div
-                                onClick={toggleIskyg}
+                                onClick={toggleIskyr}
                                 className='cursor-pointer'
                             >
-                                {iskyg ? (
+                                {iskyr ? (
                                     <img
                                         src='/icons/admins/switchOn.svg'
                                         alt=''
