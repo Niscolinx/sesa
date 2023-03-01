@@ -7,7 +7,6 @@ function Property() {
     type Path = 'unique' | 'profile'
 
     const [isProperty, setIsProperty] = useState(false)
-    const [currentPath, setCurrentPath] = useState<Path>('unique')
 
     const addproperty = () => {
         setIsProperty(true)
