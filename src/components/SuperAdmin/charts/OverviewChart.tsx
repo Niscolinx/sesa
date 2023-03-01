@@ -13,6 +13,7 @@ export const estateChart_data = [
 export const EstateChart = ({
     color1 = '#08d231',
     color2 = '#f7e541',
+    data = estateChart_data
 }: IEstateChart) => {
     
     const estateChart_colors = [color1, color2]
@@ -20,7 +21,7 @@ export const EstateChart = ({
     return (
         <PieChart width={253} height={253} className='relative'>
             <Pie
-                data={estateChart_data}
+                data={data}
                 className='overviewChart__pie'
                 innerRadius={68}
                 outerRadius={80}
@@ -28,7 +29,7 @@ export const EstateChart = ({
                 paddingAngle={5}
                 dataKey='value'
             >
-                {estateChart_data.map((entry, index) => (
+                {data.map((entry, index) => (
                     <Cell
                         key={`cell-${index}`}
                         fill={

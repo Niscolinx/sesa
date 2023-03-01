@@ -40,6 +40,10 @@ const estateData = Array.from({ length: 10 }).map((_, i) => ({
 export interface IEstateChart {
     color1?: string
     color2?: string
+    data?: {
+        name: string
+        value: number
+    }[]
 }
 
 export const EstateBarChart = ({

@@ -11,7 +11,10 @@ function Property() {
         setIsProperty(true)
     }
 
-    
+     const property_data = [
+        { name: 'residential', value: 120 },
+        { name: 'business', value: 80 },
+    ]
 
     return (
         <>
@@ -19,7 +22,7 @@ function Property() {
                 <div>
                     <section className='bg-white rounded-lg p-8 grid text-[1.4rem] grid-cols-2 '>
                         <div className='overviewChart__box'>
-                            <EstateChart color1='#098DFF' color2='#23C375' />
+                            <EstateChart color1='#098DFF' color2='#23C375' data={property_data} />
 
                             <div className='overviewChart__label'>
                                 <p className='text-[3rem] font-bold relative'>
