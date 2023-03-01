@@ -315,7 +315,6 @@ const ViewResident = () => {
                         </div>
 
                         <div className='flex gap-8'>
-                            
                             <button
                                 className='border border-red-600 px-16 py-4 flex items-center  rounded-lg gap-4'
                                 onClick={() =>
@@ -356,20 +355,6 @@ const ViewResident = () => {
                                 htmlFor='lastName'
                                 className='text-[1.4rem] font-medium'
                             >
-                                Last Name *
-                            </label>
-                            <input
-                                type='text'
-                                required
-                                id='lastName'
-                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                            />
-                        </div>
-                        <div className='grid gap-4 relative '>
-                            <label
-                                htmlFor='lastName'
-                                className='text-[1.4rem] font-medium'
-                            >
                                 Middle Name *
                             </label>
                             <input
@@ -384,10 +369,25 @@ const ViewResident = () => {
                                 htmlFor='lastName'
                                 className='text-[1.4rem] font-medium'
                             >
-                                Date of Birth
+                                Last Name *
                             </label>
                             <input
                                 type='text'
+                                required
+                                id='lastName'
+                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                            />
+                        </div>
+
+                        <div className='grid gap-4 relative '>
+                            <label
+                                htmlFor='lastName'
+                                className='text-[1.4rem] font-medium'
+                            >
+                                Date of Birth
+                            </label>
+                            <input
+                                type='date'
                                 required
                                 id='lastName'
                                 className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
@@ -416,12 +416,6 @@ const ViewResident = () => {
                                 />
                             </div>
                         </div>
-                        <Select
-                            label='Gender'
-                            state={['Male', 'Female']}
-                            selectedState={selectedGender}
-                            setSelectedState={setSelectedGender}
-                        />
                         <div className='grid gap-4 relative'>
                             <label
                                 htmlFor='email'
@@ -436,6 +430,12 @@ const ViewResident = () => {
                                 className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                             />
                         </div>
+                        <Select
+                            label='Gender'
+                            state={['Male', 'Female']}
+                            selectedState={selectedGender}
+                            setSelectedState={setSelectedGender}
+                        />
 
                         <div className='grid gap-4 relative'>
                             <label
