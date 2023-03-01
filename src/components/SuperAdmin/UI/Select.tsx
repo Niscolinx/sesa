@@ -114,7 +114,11 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                                 {item}
                             </p>
                         ))}
-                        <p className='text-color-primary px-4 text-[1.4rem] py-1'>NB: Choice of validation is ₦200</p>
+                        {kyr && (
+                            <p className='text-color-primary px-4 text-[1.4rem] py-1'>
+                                NB: Choice of validation is ₦200
+                            </p>
+                        )}
                     </div>
                 )}
             </div>
