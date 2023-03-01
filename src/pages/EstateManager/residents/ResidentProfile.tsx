@@ -224,7 +224,7 @@ const ResidentProfile = () => {
                                                 phoneNumber,
                                             }) => {
                                                 return (
-                                                    <div className='grid justify-between border-b grid-cols-6 gap-8 py-4'>
+                                                    <div className='grid justify-between border-b grid-cols-6 gap-8 py-4 items-center capitalize'>
                                                         <p className='flex items-center gap-4'>
                                                             <input
                                                                 type='checkbox'
