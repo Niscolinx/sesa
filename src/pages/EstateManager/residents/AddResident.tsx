@@ -192,7 +192,25 @@ const AddResident = () => {
                             </div>
                         ) : (
                             <div className='bg-white rounded-2xl grid place-content-center justify-items-center h-[30rem] gap-8 text-[1.6rem]'>
-                                <p>What is KYR?</p>
+                                <p className='font-Satoshi-Medium'>
+                                    What is KYR?
+                                </p>
+
+                                <div className='grid gap-4'>
+                                    <p>
+                                        Know Your Resident (KYR) is a service
+                                        that allows you confirm the true
+                                        identity of your users (ie: resident).
+                                        With basic information like phone number
+                                        or any valid ID type, you can know "who
+                                        is who"
+                                    </p>
+                                    <p>
+                                        Please note: this service costs N200 per
+                                        successful validation and it will be
+                                        charged from your SESA wallet
+                                    </p>
+                                </div>
 
                                 <p className='text-[1.6rem]'>
                                     You have successfully added a Resident
@@ -204,7 +222,6 @@ const AddResident = () => {
                                     >
                                         Ok
                                     </button>
-                                    
                                 </div>
                             </div>
                         )}
