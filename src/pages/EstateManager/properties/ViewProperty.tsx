@@ -236,7 +236,7 @@ const ViewProperty = () => {
                                 sub: 'A housing unit built on teo floors',
                             },
                         ]}
-                        placeholder='Propertyial'
+                        placeholder='property'
                         isSearchable
                         double
                         selectedState={selectedPropertyType}
