@@ -2,31 +2,22 @@ import React, { createContext, FormEvent, useRef, useState } from 'react'
 import { IoMdAdd, IoMdCheckmarkCircleOutline, IoMdClose } from 'react-icons/io'
 import { BsQuestionCircle } from 'react-icons/bs'
 import { toast, ToastContainer } from 'react-toastify'
+import { getPhotoUrl } from '../../../utils/getPhotoUrl'
 
 
 
 
 
 const AddResident = () => {
-    const [gender, setGender] = useState<string | null>(null)
    
     const [iskyr, setIskyr] = useState(false)
 
     const toggleIskyr = () => setIskyr(!iskyr)
-    const [selectedState, setSelectedState] = useState<string | null>(
-        null as any
-    )
+   
     const [selectedGender, setSelectedGender] = useState<string | null>(
         null as any
     )
-    const [dialogState, setDialogState] = useState<DialogType>('validate')
-    const [validationType, setValidationType] = useState<
-        ValidateInputTypes | string | null
-    >('Phone Number')
 
-    const [selectedBank, setSelectedBank] = useState<null | string>(null)
-    const [addedSecurityGuardStep, setAddedSecurityGuardStep] =
-        useState<AddedSecurityGuardSteps>('addedSecuritySuccessful')
 
     const [photoUrl, setPhotoUrl] = useState('')
 
@@ -41,8 +32,7 @@ const AddResident = () => {
         e.preventDefault()
     }
 
-    const dialogRef = useRef<HTMLDialogElement | null>(null)
-    const validateDialogRef = useRef<HTMLDialogElement | null>(null)
+
 
     const handleClose = () => {
         if (dialogRef.current) {
