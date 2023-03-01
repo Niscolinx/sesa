@@ -400,7 +400,7 @@ const ViewResident = () => {
                         />
                     </form>
                 </section>
-                <button
+                {/* <button
                     className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg col-span-full'
                     style={{ justifySelf: 'start' }}
                 >
@@ -412,7 +412,7 @@ const ViewResident = () => {
                         />
                     </span>{' '}
                     Save Changes
-                </button>
+                </button> */}
             </main>
         </>
     )

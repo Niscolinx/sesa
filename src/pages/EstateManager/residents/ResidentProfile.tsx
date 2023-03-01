@@ -5,37 +5,37 @@ import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { IoMdAdd } from 'react-icons/io'
 import { useNavigate } from 'react-router-dom'
 
-interface CompanyOverview {
+interface ResidentProfile {
     id: number
-    guardCode: number
-    guardName: string
-    phoneNumber: string
-    assignedEstate: string
-    status: 'Active' | 'Deactivated'
-    kys: 'Validated' | 'Not Validated'
+    residentCode: number
+    name: string,
+    phoneNumber: string,
+    category: string,
+    residentClass: string,
+    status: 'Active' | 'Inactive',
 }
 
-const COMPANY_OVERVIEW_DATA: CompanyOverview[] = Array.from({
+const RESIDENT_PROFILE_DATA: ResidentProfile[] = Array.from({
     length: 20,
 }).map((_, i) => ({
-    id: i,
-    guardName: 'John Doe',
-    phoneNumber: '+2347024954270',
-    guardCode: Math.floor(Math.random() * 3000 + 1000),
-    assignedEstate: 'Estate 1',
-    status: Math.random() > 0.5 ? 'Active' : 'Deactivated',
-    kys: Math.random() > 0.5 ? 'Validated' : 'Not Validated',
+    id: i + 1,
+    residentCode: (Math.random() * 0.1 + 0.9).toFixed(7).split('.')[1],
+    name: `Resident ${i + 1}`,
+    phoneNumber: `+234 801234567${i}`,
+    category: 'alpha',
+    residentClass: 'landlord(developer)',
+    status: Math.random() > 0.5 ? 'Active' : 'Inactive',
 }))
 
 const ResidentProfile = () => {
     const navigate = useNavigate()
 
-    const [fetchedCompanyOverviewData, setFetchedCompanyOverviewData] =
-        useState<CompanyOverview[]>([])
+    const [fetchedResidentProfileData, setFetchedResidentProfileData] =
+        useState<ResidentProfile[]>([])
 
     useEffect(() => {
         setTimeout(() => {
-            setFetchedCompanyOverviewData(COMPANY_OVERVIEW_DATA)
+            setFetchedResidentProfileData(RESIDENT_PROFILE_DATA)
         }, 500)
     }, [])
 
@@ -44,7 +44,7 @@ const ResidentProfile = () => {
         currentPage: number
         itemsPerPage: number
         totalPage: number
-        slicedPages: CompanyOverview[][] | null
+        slicedPages: ResidentProfile[][] | null
     }
 
     const itemsPerPageArr = [2, 4, 6, 8]
@@ -54,16 +54,16 @@ const ResidentProfile = () => {
         index: 0,
         currentPage: 1,
         itemsPerPage: perPage,
-        totalPage: Math.ceil(fetchedCompanyOverviewData.length / perPage),
+        totalPage: Math.ceil(fetchedResidentProfileData.length / perPage),
         slicedPages: null,
     })
 
     const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
         const item = parseInt(e.target.value)
 
-        const slicedPages: CompanyOverview[][] = []
-        for (let i = 0; i < fetchedCompanyOverviewData.length; i += item) {
-            slicedPages.push(fetchedCompanyOverviewData.slice(i, i + item))
+        const slicedPages: ResidentProfile[][] = []
+        for (let i = 0; i < fetchedResidentProfileData.length; i += item) {
+            slicedPages.push(fetchedResidentProfileData.slice(i, i + item))
         }
 
         setPaginate((prev) => {
@@ -73,20 +73,20 @@ const ResidentProfile = () => {
                 index: 0,
                 currentPage: 1,
                 slicedPages,
-                totalPage: Math.ceil(fetchedCompanyOverviewData.length / item),
+                totalPage: Math.ceil(fetchedResidentProfileData.length / item),
             }
         })
     }
 
     useEffect(() => {
-        const slicedPages: CompanyOverview[][] = []
+        const slicedPages: ResidentProfile[][] = []
         for (
             let i = 0;
-            i < fetchedCompanyOverviewData.length;
+            i < fetchedResidentProfileData.length;
             i += paginate.itemsPerPage
         ) {
             slicedPages.push(
-                fetchedCompanyOverviewData.slice(i, i + paginate.itemsPerPage)
+                fetchedResidentProfileData.slice(i, i + paginate.itemsPerPage)
             )
         }
 
@@ -95,11 +95,11 @@ const ResidentProfile = () => {
                 ...prev,
                 slicedPages,
                 totalPage: Math.ceil(
-                    fetchedCompanyOverviewData.length / paginate.itemsPerPage
+                    fetchedResidentProfileData.length / paginate.itemsPerPage
                 ),
             }
         })
-    }, [fetchedCompanyOverviewData])
+    }, [fetchedResidentProfileData])
 
     const handleNext = () => {
         console.log(paginate.currentPage, paginate.totalPage)
