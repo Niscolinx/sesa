@@ -192,7 +192,7 @@ const AddProperty = () => {
                                 rows={4}
                                 className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                             />
-                            <p>Maximum of 80</p>
+                            <p className='text-gr'>Maximum of 80 characters</p>
                         </div>
                         <div className=' rounded-lg border border-width-[.2rem] border-dashed border-color-grey-1 p-8 text-[1.6rem] relative w-full h-[15rem] content-center grid'>
                             <label
