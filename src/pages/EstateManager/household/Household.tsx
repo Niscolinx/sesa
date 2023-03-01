@@ -34,10 +34,7 @@ function HouseHold() {
         setIsProperty(true)
     }
 
-    const hOUSEHOLD_DATA = [
-        { name: 'residential', value: 120 },
-        { name: 'business', value: 80 },
-    ]
+   
 
     const navigate = useNavigate()
     const [selectedList, setSelectedList] = useState<Map<string, number>>(
