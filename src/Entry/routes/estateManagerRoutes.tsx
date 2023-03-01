@@ -9,6 +9,7 @@ import ViewResident from '../../pages/EstateManager/residents/viewResident'
 import EditResident from '../../pages/EstateManager/residents/EditResident'
 import Property from '../../pages/EstateManager/properties/Property'
 import AddProperty from '../../pages/EstateManager/properties/AddProperty'
+import ViewProperty from '../../pages/EstateManager/properties/ViewProperty'
 
 const estateManagerRoutes = (
     <Route path='/estateManager' element={<Dashboard />}>
@@ -21,6 +22,7 @@ const estateManagerRoutes = (
         <Route path='residents/view/:id' element={<ViewResident />} />
         <Route path='property' element={<Property />} />
         <Route path='property/add' element={<AddProperty />} />
+        <Route path='property/view/:id' element={<ViewProperty />} />
     </Route>
 )
 

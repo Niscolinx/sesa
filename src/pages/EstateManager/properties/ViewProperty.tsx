@@ -115,14 +115,49 @@ const ViewProperty = () => {
                 </section>
             </dialog>
             <div className='grid p-8 bg-white h-[80vh] items-baseline overflow-y-scroll rounded-lg'>
-                <div className='flex justify-end'>
+                <div className='flex gap-8 items-center'>
+                    <div>
+                        <label
+                            htmlFor='photoUpload'
+                            className='grid gap-4 cursor-pointer justify-items-center'
+                        >
+                            <img
+                                src={photoUrl ? photoUrl : '/img/me.jpeg'}
+                                alt='photoPreview'
+                                className='object-cover w-[11rem] h-[11rem] rounded-full object-top'
+                            />
+                            
+                        <input
+                            type='file'
+                            name='photoUpload'
+                            id='photoUpload'
+                            accept='image/*'
+                            className='hidden'
+                            onClick={handlePhotoPreview}
+                        />
+                        </label>
+                        <p
+                            style={{
+                                fontFamily: 'Satoshi-Light',
+                            }}
+                        >
+                            Property Code :{' '}
+                            <span
+                                style={{
+                                    fontFamily: 'Satoshi-Medium',
+                                }}
+                            >
+                                SG09897
+                            </span>
+                        </p>
+                    </div>
                     <button
                         className='border border-red-600 px-16 py-4 flex items-center  rounded-lg gap-4'
                         onClick={() => handleOpen('warning')}
                     >
                         <img src='/icons/admins/delete.svg' alt='' />
                         <span className='text-red-600 text-[1.4rem] font-semibold'>
-                            Deactivate
+                            Delete
                         </span>
                     </button>
                 </div>
