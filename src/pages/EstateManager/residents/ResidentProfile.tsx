@@ -36,7 +36,7 @@ const ResidentProfile = () => {
     useEffect(() => {
         setTimeout(() => {
             setFetchedCompanyOverviewData(COMPANY_OVERVIEW_DATA)
-        }, 1000)
+        }, 500)
     }, [])
 
     interface Paginate {
