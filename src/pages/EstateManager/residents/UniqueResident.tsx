@@ -172,7 +172,6 @@ const UniqueResident = () => {
         e: React.ChangeEvent<HTMLInputElement>,
         index: number
     ) => {
-        console.log("sfsf", e.target.checked, e.target)
         setToggleDropDown((prev) => {
             return {
                 isDropDownOpen: e.target.checked,
@@ -180,6 +179,14 @@ const UniqueResident = () => {
             }
         })
 
+    }
+
+    const handleChecked = (e: React.ChangeEvent<HTMLInputElement>, id: number) => {
+        if (e.target.checked) {
+            selectedList.add(id)
+        } else {
+            selectedList.delete(id)
+        }
     }
 
     const deleteSelectedList = () => {
@@ -297,6 +304,12 @@ const UniqueResident = () => {
                                                             <input
                                                                 type='checkbox'
                                                                 className='cursor-pointer'
+                                                                onChange={(e) =>
+                                                                    handleChecked(
+                                                                        e,
+                                                                        id
+                                                                    )
+                                                                }
                                                             />
 
                                                             <span>
