@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-type PathSwitch = 'passwordSettings' | 'notificationSettings'
+type PathSwitch = 'add-property' | 'add-resident' | 'add-RFID' | 'add-accessKey'
 
 function CreateHousehold() {
     const [pathToSwitch, setPathToSwitch] =
@@ -15,7 +15,7 @@ function CreateHousehold() {
             <div className='estateDetail__radioBox'>
                 <input
                     type='radio'
-                    name='platform'
+                    name='household'
                     id='passwordSettings'
                     className='hidden'
                     defaultChecked
@@ -27,7 +27,7 @@ function CreateHousehold() {
 
                 <input
                     type='radio'
-                    name='platform'
+                    name='household'
                     id='notificationSettings'
                     className='hidden'
                     onChange={() => setPathToSwitch('notificationSettings')}
