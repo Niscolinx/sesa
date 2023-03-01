@@ -178,7 +178,7 @@ const AddResident = () => {
                                     alt=''
                                 />
                                 <p className='text-[1.6rem]'>
-                                    You have successfully added a resident
+                                    You have successfully added a Resident
                                 </p>
                                 <div className='flex w-full justify-center gap-8'>
                                     <button
