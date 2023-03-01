@@ -38,7 +38,6 @@ const ViewResident = () => {
     const assignGuardRef = useRef<HTMLDialogElement | null>(null)
     const validatedDialogRef = useRef<HTMLDialogElement | null>(null)
     const dialogRef = useRef<HTMLDialogElement | null>(null)
-    const [dialogType, setDialogType] = useState<Actions>('Deactivate')
 
     const closeAssignGuardDialog = () => {
         if (assignGuardRef.current) {
@@ -64,12 +63,7 @@ const ViewResident = () => {
     }
 
     const openDeleteOrDeactivateDialog = (dialogType: Actions) => {
-        if (dialogType === 'Deactivate') {
-            setDialogType('Deactivate')
-        }
-        if (dialogType === 'Delete') {
-            setDialogType('Delete')
-        }
+       
 
         if (dialogRef.current) {
             dialogRef.current.showModal()
