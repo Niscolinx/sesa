@@ -117,37 +117,7 @@ const ViewResident = () => {
         <>
             <ToastContainer />
 
-            <dialog className='dialog' ref={assignGuardRef}>
-                <section className='grid place-content-center w-full h-[100vh]'>
-                    <div className='bg-white rounded-2xl grid items-baseline w-[90rem] min-h-[30rem] p-10 text-[1.6rem] relative justify-items-center'>
-                        <IoMdClose
-                            className='absolute right-4 top-4 text-[2rem] cursor-pointer'
-                            onClick={() => closeValidatedDialog()}
-                        />
-
-                        <img src='/icons/admins/modalDeactivate.svg' alt='' />
-                        <p className='text-[1.6rem]'>
-                            Are you sure you want to reassign this security
-                            guard primary estate
-                        </p>
-
-                        <div className='flex w-full justify-center gap-8'>
-                            <button
-                                className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
-                                onClick={() => closeAssignGuardDialog()}
-                            >
-                                Cancel
-                            </button>
-                            <button
-                                className=' bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
-                                onClick={handleReAssign}
-                            >
-                                Yes
-                            </button>
-                        </div>
-                    </div>
-                </section>
-            </dialog>
+          
 
             <dialog className='dialog' ref={validatedDialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
@@ -240,7 +210,7 @@ const ViewResident = () => {
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
-                        {dialogType === 'Deactivate' ? (
+                       
                             <>
                                 <img
                                     src='/icons/admins/modalDeactivate.svg'
@@ -268,35 +238,8 @@ const ViewResident = () => {
                                     </button>
                                 </div>
                             </>
-                        ) : (
-                            <>
-                                <img
-                                    src='/icons/admins/modalWarning.svg'
-                                    alt=''
-                                />
-                                <p className='text-[1.6rem]'>
-                                    Are you sure you want to delete this
-                                    Security Guard
-                                </p>
-
-                                <div className='flex w-full justify-center gap-8'>
-                                    <button
-                                        className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
-                                        onClick={() =>
-                                            handleCloseDeleteOrDeactivateDialog()
-                                        }
-                                    >
-                                        Cancel
-                                    </button>
-                                    <button
-                                        className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
-                                        onClick={handleDeleteSecurityGuard}
-                                    >
-                                        Delete
-                                    </button>
-                                </div>
-                            </>
-                        )}
+                     
+                            
                     </div>
                 </section>
             </dialog>
