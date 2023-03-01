@@ -1,23 +1,18 @@
 import React, { useRef, useState } from 'react'
 import { GrDown, GrUp } from 'react-icons/gr'
 import { IoMdAdd } from 'react-icons/io'
+import { ComplexSelect, Select } from '../../../components/SuperAdmin/UI/Select'
 import { getPhotoUrl } from '../../../utils/getPhotoUrl'
 
-type State = 'Lagos' | 'Imo' | 'Abia' | 'FCT'
 
 const ViewProperty = () => {
-    const state: Array<State> = ['Lagos', 'Imo', 'Abia', 'FCT']
-
+ const [selectedPropertyType, setSelectedPropertyType] = useState<
+     string | null
+ >(null)
     const [toggleStateMenu, setToggleStateMenu] = useState(false)
-    const [selectedState, setSelectedState] = useState<State | null>(null)
     const [isWarning, setIsWarning] = useState(true)
 
-    const stateMenuToggler = () => setToggleStateMenu(!toggleStateMenu)
-
-    const handleSelectedState = (item: State) => {
-        setSelectedState(item)
-        setToggleStateMenu(false)
-    }
+    
 
     const [photoUrl, setPhotoUrl] = useState('')
 
@@ -56,6 +51,10 @@ const ViewProperty = () => {
     const confirmDeactivation = () => {
         handleClose()
     }
+
+     const addResidentHandler = () => {
+         handleOpen()
+     }
 
     return (
         <>

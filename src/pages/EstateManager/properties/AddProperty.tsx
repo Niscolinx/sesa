@@ -6,7 +6,6 @@ import { ComplexSelect, Select } from '../../../components/SuperAdmin/UI/Select'
 import { getPhotoUrl } from '../../../utils/getPhotoUrl'
 
 const AddProperty = () => {
-    const [selectedGender, setSelectedGender] = useState<string | null>(null)
     const [selectedPropertyType, setSelectedPropertyType] = useState<
         string | null
     >(null)
@@ -34,7 +33,7 @@ const AddProperty = () => {
         dialogRef.current?.showModal()
     }
 
-    const addResidentHandler = () => {
+    const addPropertyHandler = () => {
         handleOpen()
     }
 
@@ -118,8 +117,8 @@ const AddProperty = () => {
                     </div>
                     <Select
                         label='Property Category'
-                        state={['Business', 'Residential']}
-                        placeholder='Residential'
+                        state={['Business', 'Propertyial']}
+                        placeholder='Propertyial'
                         selectedState={selectedPropertyType}
                         setSelectedState={setSelectedPropertyType}
                     />
@@ -151,7 +150,7 @@ const AddProperty = () => {
                                 sub: 'A housing unit built on teo floors',
                             },
                         ]}
-                        placeholder='Residential'
+                        placeholder='Propertyial'
                         isSearchable
                         double
                         selectedState={selectedPropertyType}
@@ -237,7 +236,7 @@ const AddProperty = () => {
                     <button
                         className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg mt-[5rem]'
                         style={{ justifySelf: 'start' }}
-                        onClick={addResidentHandler}
+                        onClick={addPropertyHandler}
                     >
                         <span>
                             <IoMdAdd />
