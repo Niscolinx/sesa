@@ -9,7 +9,7 @@ import { getPhotoUrl } from '../../../utils/getPhotoUrl'
 
 const AddProperty = () => {
     const [selectedGender, setSelectedGender] = useState<string | null>(null)
-
+    const [selectedPropertyType, setSelectedPropertyType] = useState<string | null>(null)
   
 
     const [photoUrl, setPhotoUrl] = useState('')
@@ -132,8 +132,9 @@ const AddProperty = () => {
                     <Select
                         label='Property Category'
                         state={['Business', 'Residential']}
-                        selectedState={selectedGender}
-                        setSelectedState={setSelectedGender}
+                        placeholder='Residential'
+                        selectedState={selectedPropertyType}
+                        setSelectedState={setSelectedPropertyType}
                     />
 
                     <div className='grid gap-4 relative'>
