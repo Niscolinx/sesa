@@ -53,7 +53,7 @@ function Residents() {
             </section>
 
             <div className='rounded-lg mt-[3rem] h-[80vh]'>
-                {isResident ? (
+               
                     <section>
                         <div className='estateDetail__radioBox'>
                             <input
@@ -82,7 +82,7 @@ function Residents() {
                             {paths.get(currentPath)}
                         </div>
                     </section>
-                ) : (
+           
                     <section className='grid place-content-center w-full h-full justify-items-center gap-4 bg-white'>
                         <img src='/icons/admins/errorSvg.svg' alt='' />
                         <p className='text'>
@@ -98,7 +98,7 @@ function Residents() {
                             Add Resident
                         </button>
                     </section>
-                )}
+             
             </div>
         </div>
     )
