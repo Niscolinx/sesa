@@ -54,8 +54,8 @@ function Residents() {
                                 iconUrl='/icons/estateManager/profiles.svg'
                                 bgColor='bg-[#FCF3FA]'
                                 textColor='text-[#B6008E]'
-                                bottomLeft='LR 39%  TR 29%'
-                                bottomRight='LD 10%  LNR 2%'
+                                bottomLeft='LR 39% - TR 29%'
+                                bottomRight='LD 10% - LNR 2%'
                             />
                         </div>
                     </section>
