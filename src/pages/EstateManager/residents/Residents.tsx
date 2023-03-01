@@ -77,6 +77,10 @@ function Residents() {
                                 Resident Profile
                             </label>
                         </div>
+
+                        <div>
+                            {paths.get(currentPath)}
+                        </div>
                     </section>
                 ) : (
                     <section className='grid place-content-center w-full h-full justify-items-center gap-4 bg-white'>
