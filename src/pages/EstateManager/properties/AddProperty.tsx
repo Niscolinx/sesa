@@ -147,6 +147,22 @@ const AddProperty = () => {
                                 name: 'Detached Duplex',
                                 sub: 'A single unit of duplex standing on its own.',
                             },
+                            {
+                                name: 'Semi-Detached Duplex',
+                                sub: 'Two units of duplex connected together, sharing a common wall and roof.',
+                            },
+                            {
+                                name: 'Terrace',
+                                sub: 'A housing unit built on teo floors',
+                            },
+                            {
+                                name: 'Terrace',
+                                sub: 'A housing unit built on teo floors',
+                            },
+                            {
+                                name: 'Terrace',
+                                sub: 'A housing unit built on teo floors',
+                            },
                         ]}
                         placeholder='Residential'
                         isSearchable
