@@ -210,11 +210,16 @@ export const ComplexSelect: FC<ComplexSelect> = ({
                             key={index}
                             onClick={() => handleSelectedState(item.name)}
                         >
-                            <span>{item.name}</span>
                             {double ? (
-                                <span>{item.sub}</span>
+                                <>
+                                    <span>{item.name}</span>
+                                    <span>{item.sub}</span>
+                                </>
                             ) : (
-                                <span>{item.No}</span>
+                                <>
+                                    <span>{item.name}</span>
+                                    <span>{item.No}</span>
+                                </>
                             )}
                         </p>
                     ))}
