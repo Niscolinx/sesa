@@ -278,7 +278,7 @@ const PropertyTable = () => {
                                     fontSize: '1.6rem',
                                 }}
                             >
-                                <p className='flex items-center gap-2'>
+                                <p className='flex items-center gap-4'>
                                     <input
                                         type='checkbox'
                                         className='cursor-pointer'
@@ -310,7 +310,7 @@ const PropertyTable = () => {
                                                     index,
                                                 } = toggleDropDown
                                                 return (
-                                                    <div className='grid justify-between border-b grid-cols-6 gap-8 py-4 items-center'>
+                                                    <div className='grid justify-between border-b grid-cols-6 gap-8 py-4 items-center capitalize'>
                                                         <p className='flex items-center gap-4'>
                                                             <input
                                                                 type='checkbox'
