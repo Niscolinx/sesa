@@ -28,7 +28,7 @@ const COMPANY_OVERVIEW_DATA: CompanyOverview[] = Array.from({
     kys: Math.random() > 0.5 ? 'Validated' : 'Not Validated',
 }))
 
-const CompanyHome = () => {
+const UniqueResident = () => {
     const navigate = useNavigate()
 
     const [fetchedCompanyOverviewData, setFetchedCompanyOverviewData] =
