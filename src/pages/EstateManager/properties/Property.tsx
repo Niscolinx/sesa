@@ -21,37 +21,46 @@ function Property() {
             {isProperty ? (
                 <div>
                     <section className='bg-white rounded-lg p-8 grid text-[1.4rem] grid-cols-2 '>
-                        <div className='overviewChart__box'>
-                            <EstateChart color1='#098DFF' color2='#23C375' data={property_data} />
+                        <div>
+                            <div className='overviewChart__box'>
+                                <EstateChart
+                                    color1='#098DFF'
+                                    color2='#23C375'
+                                    data={property_data}
+                                />
 
-                            <div className='overviewChart__label'>
-                                <p className='text-[3rem] font-bold relative'>
-                                    50,000
-                                </p>
-                                <p className='text-[1.2rem] max-w-[9.8rem]'>
-                                    Total Properties
-                                </p>
+                                <div className='overviewChart__label'>
+                                    <p className='text-[3rem] font-bold relative'>
+                                        50,000
+                                    </p>
+                                    <p className='text-[1.2rem] max-w-[9.8rem]'>
+                                        Total Properties
+                                    </p>
+                                </div>
+                            </div>
+                            <div>
+                                <section className='flex items-center justify-between'>
+                                    <div className='flex items-center gap-2'>
+                                        <span className='bg-[#098DFF] rounded-full w-[1rem] h-[1rem] flex'>
+                                            {' '}
+                                        </span>{' '}
+                                        <p>Residential</p>
+                                    </div>
+                                    <p>20,000</p>
+                                </section>
+                                <section className='flex items-center justify-between'>
+                                    <div className='flex items-center gap-2'>
+                                        <span className='bg-[#23C375] rounded-full w-[1rem] h-[1rem] flex'>
+                                            {' '}
+                                        </span>{' '}
+                                        <p>Business</p>
+                                    </div>
+                                    <p>30,000</p>
+                                </section>
                             </div>
                         </div>
                         <div>
-                            <section className='flex items-center justify-between'>
-                                <div className='flex items-center gap-2'>
-                                    <span className='bg-[#098DFF] rounded-full w-[1rem] h-[1rem] flex'>
-                                        {' '}
-                                    </span>{' '}
-                                    <p>Residential</p>
-                                </div>
-                                <p>20,000</p>
-                            </section>
-                            <section className='flex items-center justify-between'>
-                                <div className='flex items-center gap-2'>
-                                    <span className='bg-[#23C375] rounded-full w-[1rem] h-[1rem] flex'>
-                                        {' '}
-                                    </span>{' '}
-                                    <p>Business</p>
-                                </div>
-                                <p>30,000</p>
-                            </section>
+                            
                         </div>
                     </section>
 
