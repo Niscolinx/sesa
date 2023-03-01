@@ -151,6 +151,7 @@ const AddResident = () => {
                                     style={{
                                         fontFamily: 'Satoshi-Light',
                                     }}
+                                    onClick={() => handleOpen('view-kyr')}
                                 >
                                     What is KYG <BsQuestionCircle />
                                 </p>
