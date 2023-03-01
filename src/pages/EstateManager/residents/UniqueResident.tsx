@@ -33,7 +33,7 @@ export type Actions = 'View Details' | 'Edit Details' | 'Delete'
 
 const UniqueResident = () => {
     const navigate = useNavigate()
-    const [selectedListCount, setSelectedListCount] = useState(0)
+    const [selectedList, setSelectedList] = useState(new Map())
 
     const [fetchedUniqueResidents, setFetchedUniqueResidents] = useState<
         UniqueResidents[]
@@ -168,7 +168,6 @@ const UniqueResident = () => {
         index: null,
     })
 
-    const selectedList = new Set()
     const dropDownHandler = (
         e: React.ChangeEvent<HTMLInputElement>,
         index: number
@@ -187,15 +186,19 @@ const UniqueResident = () => {
     ) => {
         console.log('checked', e.target.checked, id)
         if (e.target.checked) {
-            selectedList.add(id)
+            setSelectedList((prev) => {
+                return prev.set(id, id)
+            })
             console.log(selectedList.size, 'add size')
 
-            setSelectedListCount(selectedList.size)
         } else {
             selectedList.delete(id)
 
+            setSelectedList((prev) => {
+                return prev
+            })
+
             console.log(selectedList.size, 'delete size')
-            setSelectedListCount(selectedList.size)
         }
     }
 
@@ -243,7 +246,7 @@ const UniqueResident = () => {
                                 <GrDown className='absolute right-4 text-[1.3rem]' />
                             </div>
                             <div className='ml-auto'>
-                                {selectedListCount > 0 ? (
+                                {selectedList.size > 0 ? (
                                     <button
                                         className='btn text-white bg-red-600 flex items-center gap-4 py-4 px-16 rounded-lg'
                                         onClick={deleteSelectedList}
