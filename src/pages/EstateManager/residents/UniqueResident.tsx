@@ -247,9 +247,10 @@ const UniqueResident = () => {
                                 </p>
                                 <p> Name</p>
                                 <p>Gender</p>
-                                <p>Assigned Estate</p>
+                                <p>Phone Number</p>
+                                <p>No of Profiles</p>
                                 <p>Status</p>
-                                <p>KYG</p>
+                                <p>KYR</p>
                                 <p>Action </p>
                             </div>
 
