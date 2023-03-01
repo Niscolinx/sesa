@@ -29,7 +29,7 @@ function Property() {
                                     50,000
                                 </p>
                                 <p className='text-[1.2rem] max-w-[9.8rem]'>
-                                    Total Check-Out
+                                    Total Properties
                                 </p>
                             </div>
                         </div>
@@ -39,7 +39,7 @@ function Property() {
                                     <span className='bg-[#098DFF] rounded-full w-[1rem] h-[1rem] flex'>
                                         {' '}
                                     </span>{' '}
-                                    <p>Security Guard</p>
+                                    <p>Residential</p>
                                 </div>
                                 <p>20,000</p>
                             </section>
@@ -48,7 +48,7 @@ function Property() {
                                     <span className='bg-[#23C375] rounded-full w-[1rem] h-[1rem] flex'>
                                         {' '}
                                     </span>{' '}
-                                    <p>SESA</p>
+                                    <p>Business</p>
                                 </div>
                                 <p>30,000</p>
                             </section>
