@@ -191,7 +191,7 @@ const ResidentProfile = () => {
 
                         <div className='grid'>
                             <div
-                                className='grid justify-between text-color-dark-1 bg-gray-100 p-8 grid-cols-7 gap-8 items-center'
+                                className='grid justify-between text-color-dark-1 bg-gray-100 p-8 grid-cols-6 gap-8 items-center'
                                 style={{
                                     fontSize: '1.6rem',
                                 }}
@@ -208,7 +208,6 @@ const ResidentProfile = () => {
                                 <p>Category</p>
                                 <p>Resident Class</p>
                                 <p>status</p>
-                                <p>Action </p>
                             </div>
 
                             <div className='grid gap-8 mt-8 p-8'>
@@ -216,16 +215,16 @@ const ResidentProfile = () => {
                                     React.Children.toArray(
                                         slicedPages[paginate.index].map(
                                             ({
-                                                guardCode,
-                                                guardName,
-                                                assignedEstate,
-                                                kys,
+                                                residentCode,
+                                                name,
+                                                category,
+                                                residentClass,
                                                 status,
                                                 id,
                                                 phoneNumber,
                                             }) => {
                                                 return (
-                                                    <div className='grid justify-between border-b grid-cols-7 gap-8 py-4'>
+                                                    <div className='grid justify-between border-b grid-cols-6 gap-8 py-4'>
                                                         <p className='flex items-center gap-4'>
                                                             <input
                                                                 type='checkbox'
@@ -233,12 +232,13 @@ const ResidentProfile = () => {
                                                             />
 
                                                             <span>
-                                                                {guardCode}
+                                                                {residentCode}
                                                             </span>
                                                         </p>
-                                                        <p>{guardName}</p>
+                                                        <p>{name}</p>
                                                         <p>{phoneNumber}</p>
-                                                        <p>{assignedEstate}</p>
+                                                        <p>{category}</p>
+                                                        <p>{residentClass}</p>
                                                         <p>
                                                             {status ===
                                                             'Active' ? (
@@ -246,33 +246,13 @@ const ResidentProfile = () => {
                                                                     {status}
                                                                 </span>
                                                             ) : (
-                                                                <span className='text-red-600'>
+                                                                <span className='text-[#FF9500]'>
                                                                     {status}
                                                                 </span>
                                                             )}
                                                         </p>
-                                                        <p>
-                                                            {kys ===
-                                                            'Validated' ? (
-                                                                <span className='text-[#1A8F56]'>
-                                                                    {kys}
-                                                                </span>
-                                                            ) : (
-                                                                <span className='text-red-600'>
-                                                                    {kys}
-                                                                </span>
-                                                            )}
-                                                        </p>
-                                                        <button
-                                                            className='text-color-primary text-left'
-                                                            onClick={() =>
-                                                                detailsHandler(
-                                                                    id
-                                                                )
-                                                            }
-                                                        >
-                                                            View Details
-                                                        </button>
+                                                        
+                                                        
                                                     </div>
                                                 )
                                             }
