@@ -16,12 +16,8 @@ import {
 
 const AddProperty = () => {
     const [selectedGender, setSelectedGender] = useState<string | null>(null)
-    const [isValidated, setIsValidated] = useState(false)
 
-    const [dialogState, setDialogState] = useState<DialogType>('validate')
-    const [validationType, setValidationType] = useState<
-        ValidateInputTypes | string | null
-    >('Phone Number')
+  
 
     const [photoUrl, setPhotoUrl] = useState('')
 
@@ -37,12 +33,10 @@ const AddProperty = () => {
     }
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
-    const validateDialogRef = useRef<HTMLDialogElement | null>(null)
 
     const handleClose = () => {
-        if (dialogRef.current) {
-            dialogRef.current.close()
-        }
+            dialogRef.current?.close()
+        
     }
 
     const closeValidateDialog = () => {
@@ -56,16 +50,8 @@ const AddProperty = () => {
             validateDialogRef.current.showModal()
         }
     }
-    const handleOpen = (modalState: DialogType) => {
-        if (modalState === 'validate') {
-            setDialogState('validate')
-        }
-        if (modalState === 'add-resident') {
-            setDialogState('add-resident')
-        }
-        if (modalState === 'view-kyr') {
-            setDialogState('view-kyr')
-        }
+    const handleOpen = () => {
+        
 
         dialogRef.current?.showModal()
     }
