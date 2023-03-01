@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
+import { Link } from 'react-router-dom'
 import OverviewCard from '../../../components/EstateManager/OverviewCard'
 import { EstateChart } from '../../../components/SuperAdmin/charts/OverviewChart'
 import UniqueResident from '../residents/UniqueResident'
@@ -59,13 +60,13 @@ function Property() {
                                 </section>
                             </div>
                         </div>
-                        <div className='grid grid-cols-2 justify-items-end bg-white rounded-lg p-8'>
+                        <div className='flex justify-between bg-white rounded-lg p-8'>
                             <div>
-                                <p className='font-Satoshi-Medium text-[1.8rem]'>
+                                <p className='font-Satoshi-Medium text-[1.8rem] mb-5'>
                                     Property Type
                                 </p>
 
-                                <div>
+                                <div className='grid gap-4'>
                                     {Array.from({ length: 3 }).map((_, i) => {
                                         return (
                                             <p className='flex items-center gap-4'>
@@ -77,33 +78,30 @@ function Property() {
                                             </p>
                                         )
                                     })}
+                                    <p className='flex items-center gap-4'>
+                                        {' '}
+                                        <span className='bg-[#5856D6] rounded-full w-[1rem] h-[1rem] flex'>
+                                            &nbsp;
+                                        </span>
+                                        Duplex
+                                    </p>
                                 </div>
-
-                                <p className='flex items-center gap-4'>
-                                    {' '}
-                                    <span className='bg-[#5856D6] rounded-full w-[1rem] h-[1rem] flex'>
-                                        &nbsp;
-                                    </span>
-                                    Duplex
-                                </p>
                             </div>
                             <div>
-                                <p className='font-Satoshi-Medium text-[1.8rem]'>
+                                <p className='font-Satoshi-Medium text-[1.8rem] mb-5'>
                                     Count
                                 </p>
 
-                                <div>
-                                    {Array.from({ length: 3 }).map((_, i) => {
-                                        return (
-                                            <p>
-                                                <span className='bg-[#5856D6] rounded-full w-[1rem] h-[1rem] flex'>
-                                                    &nbsp;
-                                                </span>
-                                                <span>2</span> -
-                                                <span>bedroom Self Con.</span>
-                                            </p>
-                                        )
+                                <div className='grid gap-4'>
+                                    {Array.from({ length: 4 }).map((_, i) => {
+                                        return <p className=''>30</p>
                                     })}
+
+                                    <Link to='/estateManager/'>
+                                        <span className='text-[#098DFF]'>
+                                            See More
+                                        </span>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
