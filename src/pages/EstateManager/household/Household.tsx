@@ -9,7 +9,7 @@ interface Household {
     id: number
     housecode: string
     propertyType: string
-    propertyCategory: 'business' | 'residential'
+    propertyCategory: 'business/nestle' | 'residential'
     tenancyType: string
     occupants: number
     RFID: number
@@ -22,10 +22,9 @@ const HOUSEHOLD_DATA: Household[] = Array.from({
 }).map((_, i) => ({
     id: i + 1,
     housecode: `H${(Math.random() * 0.1 + 0.9).toFixed(7).split('.')[1]}`,
-    address: 'Blk.2, Flt. 3, Zone ',
-    householdType: '2-bedroom Self Con',
-    householdCategory: Math.random() > 0.5 ? 'business' : 'residential',
-    householdName: 'grey autos',
+   propertyType: Math.random() > 0.5 ? 'duplex' : '1-bedroom',
+    propertyCategory: Math.random() > 0.5 ? 'business/nestle' : 'residential',
+    tenancyType: 'landland(resident)'
 }))
 
 export type Actions = 'View Details' | 'Edit Details' | 'Delete'
