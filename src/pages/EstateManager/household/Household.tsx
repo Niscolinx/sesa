@@ -5,7 +5,7 @@ import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { IoMdAdd } from 'react-icons/io'
 import { useNavigate } from 'react-router-dom'
 
-interface PropertyTable {
+interface Household {
     id: number
     propertyCode: string
     address: string
@@ -14,7 +14,7 @@ interface PropertyTable {
     propertyName: string
 }
 
-const PROPERTY_DATA: PropertyTable[] = Array.from({
+const HOUSEHOLD_DATA: Household[] = Array.from({
     length: 20,
 }).map((_, i) => ({
     id: i + 1,
@@ -34,7 +34,7 @@ function HouseHold() {
         setIsProperty(true)
     }
 
-    const property_data = [
+    const hOUSEHOLD_DATA = [
         { name: 'residential', value: 120 },
         { name: 'business', value: 80 },
     ]
@@ -44,13 +44,13 @@ function HouseHold() {
         new Map()
     )
 
-    const [fetchedPropertyTable, setFetchedPropertyTable] = useState<
-        PropertyTable[]
+    const [fetchedHousehold, setFetchedHousehold] = useState<
+        Household[]
     >([])
 
     useEffect(() => {
         setTimeout(() => {
-            setFetchedPropertyTable(PROPERTY_DATA)
+            setFetchedHousehold(HOUSEHOLD_DATA)
         }, 500)
     }, [])
 
@@ -59,7 +59,7 @@ function HouseHold() {
         currentPage: number
         itemsPerPage: number
         totalPage: number
-        slicedPages: PropertyTable[][] | null
+        slicedPages: Household[][] | null
     }
 
     const itemsPerPageArr = [2, 4, 6, 8]
@@ -69,16 +69,16 @@ function HouseHold() {
         index: 0,
         currentPage: 1,
         itemsPerPage: perPage,
-        totalPage: Math.ceil(fetchedPropertyTable.length / perPage),
+        totalPage: Math.ceil(fetchedHousehold.length / perPage),
         slicedPages: null,
     })
 
     const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
         const item = parseInt(e.target.value)
 
-        const slicedPages: PropertyTable[][] = []
-        for (let i = 0; i < fetchedPropertyTable.length; i += item) {
-            slicedPages.push(fetchedPropertyTable.slice(i, i + item))
+        const slicedPages: Household[][] = []
+        for (let i = 0; i < fetchedHousehold.length; i += item) {
+            slicedPages.push(fetchedHousehold.slice(i, i + item))
         }
 
         setPaginate((prev) => {
@@ -88,20 +88,20 @@ function HouseHold() {
                 index: 0,
                 currentPage: 1,
                 slicedPages,
-                totalPage: Math.ceil(fetchedPropertyTable.length / item),
+                totalPage: Math.ceil(fetchedHousehold.length / item),
             }
         })
     }
 
     useEffect(() => {
-        const slicedPages: PropertyTable[][] = []
+        const slicedPages: Household[][] = []
         for (
             let i = 0;
-            i < fetchedPropertyTable.length;
+            i < fetchedHousehold.length;
             i += paginate.itemsPerPage
         ) {
             slicedPages.push(
-                fetchedPropertyTable.slice(i, i + paginate.itemsPerPage)
+                fetchedHousehold.slice(i, i + paginate.itemsPerPage)
             )
         }
 
@@ -110,11 +110,11 @@ function HouseHold() {
                 ...prev,
                 slicedPages,
                 totalPage: Math.ceil(
-                    fetchedPropertyTable.length / paginate.itemsPerPage
+                    fetchedHousehold.length / paginate.itemsPerPage
                 ),
             }
         })
-    }, [fetchedPropertyTable])
+    }, [fetchedHousehold])
 
     const handleNext = () => {
         console.log(paginate.currentPage, paginate.totalPage)
@@ -151,7 +151,7 @@ function HouseHold() {
         })
     }
 
-    const handleAddPropertyTable = () => {
+    const handleAddHousehold = () => {
         navigate('/estateManager/property/add')
         // navigate(`/securityCompany/security-guard/addSecurity`)
     }
@@ -268,7 +268,7 @@ function HouseHold() {
                                         ) : (
                                             <button
                                                 className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
-                                                onClick={handleAddPropertyTable}
+                                                onClick={handleAddHousehold}
                                             >
                                                 <span>
                                                     <IoMdAdd />
