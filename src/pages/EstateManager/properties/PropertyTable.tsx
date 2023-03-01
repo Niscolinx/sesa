@@ -205,11 +205,11 @@ const PropertyTable = () => {
         })
 
         if (item === 'View Details') {
-            navigate(`/estateManager/residents/view/:${index}`)
+            navigate(`/estateManager/property/view/:${index}`)
         }
 
         if (item === 'Edit Details') {
-            navigate(`/estateManager/residents/edit/:${index}`)
+            navigate(`/estateManager/property/view/:${index}`)
         }
     }
     return (
