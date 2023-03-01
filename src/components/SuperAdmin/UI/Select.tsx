@@ -200,7 +200,9 @@ export const ComplexSelect: FC<ComplexSelect> = ({
                                 placeholder='Search Parameters'
                                 value={search}
                                 onChange={handleSearch}
-                                className='pl-16 w-[25rem] rounded-lg border border-color-blue-light py-4 px-8 outline-none appearance-none'
+                                className={`pl-16 ${
+                                    double ? '' : 'w-[25rem] '
+                                } rounded-lg border border-color-blue-light py-4 px-8 outline-none appearance-none`}
                             />
                         </div>
                     )}
