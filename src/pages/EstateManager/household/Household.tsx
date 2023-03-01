@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useEffect, useState } from 'react'
+import React, { ChangeEvent, useEffect, useRef, useState } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
 import { GrDown } from 'react-icons/gr'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
@@ -223,8 +223,42 @@ function HouseHold() {
         }
     }
 
+    const dialogRef = useRef<HTMLDialogElement | null>(null)
+
+    const handleClose = () => {
+        dialogRef.current?.close()
+    }
+
+    const handleOpen = () => {
+        dialogRef.current?.showModal()
+    }
+
+    const addPropertyHandler = () => {
+        handleOpen()
+    }
+
     return (
         <>
+            <dialog className='dialog' ref={dialogRef}>
+                <section className='grid place-content-center w-full h-[100vh]'>
+                    <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
+                        <img src='/icons/admins/modalSuccess.svg' alt='' />
+                        <p>You have successfully added an Property</p>
+
+                        <div className='flex w-full justify-center gap-8'>
+                            <button className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'>
+                                View details
+                            </button>
+                            <button
+                                className='bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
+                                onClick={() => handleClose()}
+                            >
+                                Ok
+                            </button>
+                        </div>
+                    </div>
+                </section>
+            </dialog>
             {isHousehold ? (
                 <div className='rounded-lg mt-[3rem] h-[80vh]'>
                     <main className='mt-10 grid gap-9'>
@@ -272,7 +306,7 @@ function HouseHold() {
                                                 <span>
                                                     <IoMdAdd />
                                                 </span>{' '}
-                                                Add Household
+                                                Create Household
                                             </button>
                                         )}
                                     </div>
@@ -363,9 +397,7 @@ function HouseHold() {
                                                                 <p className='text-center'>
                                                                     {occupants}
                                                                 </p>
-                                                                <p>
-                                                                    {RFID}
-                                                                </p>
+                                                                <p>{RFID}</p>
                                                                 <p>
                                                                     {AccessCard}
                                                                 </p>
