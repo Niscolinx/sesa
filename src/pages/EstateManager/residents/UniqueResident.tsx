@@ -182,8 +182,10 @@ const UniqueResident = () => {
     }
 
     const handleChecked = (e: React.ChangeEvent<HTMLInputElement>, id: number) => {
+        console.log("checked", e.target.checked, id)
         if (e.target.checked) {
             selectedList.add(id)
+            console.log(selectedList)
         } else {
             selectedList.delete(id)
         }
@@ -203,6 +205,10 @@ const UniqueResident = () => {
     }
     return (
         <div>
+            {<>
+                {console.log({selectedList})}
+            </>
+            }
             <main className='mt-10 grid gap-9'>
                 <section className='bg-color-white rounded-lg border min-w-[112rem] overflow-scroll'>
                     <div className='grid text-[1.6rem]'>
