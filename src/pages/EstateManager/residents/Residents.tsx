@@ -23,30 +23,32 @@ function Residents() {
         <>
             {isResident ? (
                 <div>
-                    <section className='bg-white rounded-lg p-8 grid text-[1.4rem] w-max'>
-                        <div className='overview flex gap-8'>
+                    <section className='bg-white rounded-lg p-8 grid text-[1.4rem] '>
+                        <div className=' grid gap-8' style={{
+                            gridTemplateColumns: 'repeat(auto-fit, minmax(30rem, 1fr))',
+                        }}>
                             <OverviewCard
-                                title='Total Residents'
-                                number={18_000}
-                                iconUrl='/icons/securityCompany/totalEstates.svg'
-                                bgColor='bg-[#EDFDEC]'
-                                textColor='text-[#1A8F56]'
-                                bottomLeft='Alpha 56%'
-                                bottomRight='Res. User 44%'
-                            />
-                            <OverviewCard
-                                title='Properties'
+                                title='Unique Residents'
                                 number={1532}
-                                iconUrl='/icons/securityCompany/uniqueResidents.svg'
+                                iconUrl='/icons/estateManager/people.svg'
                                 bgColor='bg-[#F5F9FA]'
                                 textColor='text-[#00C2FF]'
                                 bottomLeft='Residential 56%'
                                 bottomRight='Business 44%'
                             />
                             <OverviewCard
+                                title='Total Residents'
+                                number={18_000}
+                                iconUrl='/icons/estateManager/validation.svg'
+                                bgColor='bg-[#EDFDEC]'
+                                textColor='text-[#1A8F56]'
+                                bottomLeft='Alpha 56%'
+                                bottomRight='Res. User 44%'
+                            />
+                            <OverviewCard
                                 title='Security Guards'
                                 number={1200}
-                                iconUrl='/icons/securityCompany/AssignedUniqueResidents.svg'
+                                iconUrl='/icons/estateManager/profiles.svg'
                                 bgColor='bg-[#FCF3FA]'
                                 textColor='text-[#B6008E]'
                                 bottomLeft='23 guards on duty'
