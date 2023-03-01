@@ -33,6 +33,7 @@ export type Actions = 'View Details' | 'Edit Details' | 'Delete'
 
 const UniqueResident = () => {
     const navigate = useNavigate()
+    const [selectedListCount, setSelectedListCount] = useState(0)
 
     const [fetchedUniqueResidents, setFetchedUniqueResidents] = useState<
         UniqueResidents[]
@@ -186,8 +187,12 @@ const UniqueResident = () => {
         if (e.target.checked) {
             selectedList.add(id)
             console.log(selectedList)
+            setSelectedListCount(selectedList.size)
         } else {
             selectedList.delete(id)
+
+            console.log(selectedList.size)
+            setSelectedListCount(selectedList.size)
         }
     }
 
@@ -205,10 +210,7 @@ const UniqueResident = () => {
     }
     return (
         <div>
-            {<>
-                {console.log({selectedList})}
-            </>
-            }
+            
             <main className='mt-10 grid gap-9'>
                 <section className='bg-color-white rounded-lg border min-w-[112rem] overflow-scroll'>
                     <div className='grid text-[1.6rem]'>
@@ -239,7 +241,7 @@ const UniqueResident = () => {
                                 <GrDown className='absolute right-4 text-[1.3rem]' />
                             </div>
                             <div className='ml-auto'>
-                                {selectedList.size > 0 ? (
+                                {selectedListCount > 0 ? (
                                     <button
                                         className='btn text-white bg-red-600 flex items-center gap-4 py-4 px-16 rounded-lg'
                                         onClick={deleteSelectedList}
