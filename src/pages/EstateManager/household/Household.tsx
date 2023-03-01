@@ -360,7 +360,7 @@ function HouseHold() {
                                                                         tenancyType
                                                                     }
                                                                 </p>
-                                                                <p>
+                                                                <p className='text-center'>
                                                                     {occupants}
                                                                 </p>
                                                                 <p>
