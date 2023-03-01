@@ -212,7 +212,7 @@ export const ComplexSelect: FC<ComplexSelect> = ({
                         >
                             {double ? (
                                 <>
-                                    <span>{item.name}</span>
+                                    <span className='font-Satoshi-Medium text-[1.6rem]'>{item.name}</span>
                                     <span>{item.sub}</span>
                                 </>
                             ) : (
