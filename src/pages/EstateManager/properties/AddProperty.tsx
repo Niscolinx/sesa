@@ -85,28 +85,7 @@ const AddProperty = () => {
                 </section>
             </dialog>
             <div className='grid p-8 bg-white h-[80vh] items-baseline overflow-y-scroll rounded-lg'>
-                <div className='grid gap-8 max-w-[40rem]'>
-                    <p className='text-[2rem] font-bold'>
-                        KYA <span className='text-gray-500'>(Optional)</span>
-                    </p>
-                    <div className='flex justify-between text-[1.6rem]'>
-                        <p
-                            className='text-[#098DFF] cursor-pointer'
-                            onClick={() => handleOpen('validate')}
-                        >
-                            Click here to validate this person
-                        </p>
-                        <button
-                            className='text-[#043FA7] flex items-center gap-2 border-none outline-transparent'
-                            style={{
-                                fontFamily: 'Satoshi-Light',
-                            }}
-                            onClick={() => handleOpen('view-kyr')}
-                        >
-                            What is KYA <BsQuestionCircle />
-                        </button>
-                    </div>
-                </div>
+               
                 <form
                     onSubmit={handleSubmit}
                     className='grid max-w-[84rem] gap-16 mt-12'
