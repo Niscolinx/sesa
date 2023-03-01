@@ -166,17 +166,23 @@ const UniqueResident = () => {
         index: null,
     })
 
+    const selectedList = new Set()
     const dropDownHandler = (
         e: React.ChangeEvent<HTMLInputElement>,
         index: number
     ) => {
-        console.log('clicked')
         setToggleDropDown((prev) => {
             return {
                 isDropDownOpen: e.target.checked,
                 index
             }
         })
+
+        if (e.target.checked) {
+            selectedList.add(index)
+        } else {
+            selectedList.delete(index)
+        }
     }
 
     const selectAction = (e: React.MouseEvent, item: string, index: number) => {
