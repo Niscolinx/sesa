@@ -33,7 +33,7 @@ export type Actions = 'View Details' | 'Edit Details' | 'Delete'
 
 const UniqueResident = () => {
     const navigate = useNavigate()
-    const [selectedListCount, setSelectedListCount] = useState(0)
+   const [selectedList, setSelectedList] = useState<Map<string, number>>(new Map())
 
     const [fetchedUniqueResidents, setFetchedUniqueResidents] = useState<
         UniqueResidents[]
@@ -168,7 +168,7 @@ const UniqueResident = () => {
         index: null,
     })
 
-    const selectedList = new Set()
+
     const dropDownHandler = (
         e: React.ChangeEvent<HTMLInputElement>,
         index: number
@@ -190,15 +190,14 @@ const UniqueResident = () => {
             //add dynamic id to selectedList
            
 
-            selectedList.add(e.target.name)
             console.log(selectedList.size, 'add size', selectedList)
 
-            setSelectedListCount(selectedList.size)
+            setSelectedList({ ...selectedList, [e.target.name]: id })
         } else {
             selectedList.delete(e.target.name)
 
             console.log(selectedList.size, 'delete size', selectedList)
-            setSelectedListCount(selectedList.size)
+            setSelectedList({ ...selectedList })
         }
     }
 
@@ -207,8 +206,8 @@ const UniqueResident = () => {
     }
 
     useEffect(() => {
-        console.log({ selectedListCount })
-    }, [selectedListCount])
+        console.log({ selectedList })
+    }, [selectedList])
 
     const selectAction = (e: React.MouseEvent, item: string, index: number) => {
         setSelectedAction((prev) => {
@@ -250,7 +249,7 @@ const UniqueResident = () => {
                                 <GrDown className='absolute right-4 text-[1.3rem]' />
                             </div>
                             <div className='ml-auto'>
-                                {selectedListCount > 0 ? (
+                                {selectedList.size > 0 ? (
                                     <button
                                         className='btn text-white bg-red-600 flex items-center gap-4 py-4 px-16 rounded-lg'
                                         onClick={deleteSelectedList}
