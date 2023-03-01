@@ -213,8 +213,8 @@ const UniqueResident = () => {
             }
         })
 
-        if(item === 'Delete'){
-
+        if(item === 'View Details'){
+            navigate(`/estateManager/residents/view/:${index}`)
         }
     }
     return (
