@@ -188,7 +188,7 @@ const UniqueResident = () => {
         console.log('checked', e.target.checked, id)
         if (e.target.checked) {
             selectedList.add(id)
-            console.log(selectedList.size, 'add size')
+            console.log(selectedList.size, 'add size', selectedList)
 
             setSelectedListCount(selectedList.size)
         } else {
