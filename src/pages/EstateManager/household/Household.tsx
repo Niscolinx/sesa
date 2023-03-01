@@ -4,6 +4,7 @@ import { GrDown } from 'react-icons/gr'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { IoMdAdd } from 'react-icons/io'
 import { useNavigate } from 'react-router-dom'
+import { Select } from '../../../components/SuperAdmin/UI/Select'
 
 interface Household {
     id: number
@@ -35,7 +36,7 @@ export type Actions = 'View Details' | 'Edit Details' | 'Delete'
 
 function HouseHold() {
     const [isHousehold, setIsHousehold] = useState(false)
-
+    const [selectedPropertyCode, setSelectedPropertyCode] = useState<string | null>(null)
     const addhousehold = () => {
         setIsHousehold(true)
     }
@@ -150,10 +151,7 @@ function HouseHold() {
         })
     }
 
-    const handleAddHousehold = () => {
-        navigate('/estateManager/household/add')
-        // navigate(`/securityCompany/security-guard/addSecurity`)
-    }
+   
 
     const detailsHandler = (id: number) => {
         console.log(id)
@@ -242,18 +240,33 @@ function HouseHold() {
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
-                        <img src='/icons/admins/modalSuccess.svg' alt='' />
-                        <p>You have successfully added an Property</p>
-
-                        <div className='flex w-full justify-center gap-8'>
-                            <button className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'>
-                                View details
-                            </button>
-                            <button
-                                className='bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
-                                onClick={() => handleClose()}
+                        <div className='grid gap-12'>
+                            <h3
+                                className='text-[2rem] font-bold border-b '
+                                style={{
+                                    fontFamily: 'Satoshi-Medium',
+                                }}
                             >
-                                Ok
+                                Create Household
+                            </h3>
+
+                            <Select
+                                state={[
+                                    'ThomasEstate/SO-2345CDGK1',
+                                    'ThomasEstate/SO-2345CDGK2',
+                                    'ThomasEstate/SO-2345CDGK3',
+                                    'ThomasEstate/SO-2345CDGK4',
+                                    'ThomasEstate/SO-2345CDGK5',
+                                ]}
+                                label='Property Code*'                                
+                                isSearchable
+                                
+                                selectedState={selectedPropertyCode}
+                                setSelectedState={setSelectedPropertyCode}
+                            />
+
+                            <button className='btn bg-[#0556E5] text-white rounded-lg py-4 place-self-start w-[15rem]'>
+                                Validate
                             </button>
                         </div>
                     </div>
@@ -301,7 +314,7 @@ function HouseHold() {
                                         ) : (
                                             <button
                                                 className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
-                                                onClick={handleAddHousehold}
+                                                onClick={() => handleOpen()}
                                             >
                                                 <span>
                                                     <IoMdAdd />

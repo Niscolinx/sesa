@@ -17,6 +17,7 @@ interface ISelect<T> {
     placeholder?: string
     validate?: boolean
     isSearchable?: boolean
+    fullWidth?: boolean
     kyr?: boolean
 }
 
@@ -39,8 +40,8 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
     setSelectedState,
     label,
     placeholder,
-    validate,
     kyr,
+    fullWidth,
     isSearchable = false,
 }) => {
     const [toggleStateMenu, setToggleStateMenu] = useState(false)
@@ -103,7 +104,9 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                                     placeholder='Search Parameters'
                                     value={search}
                                     onChange={handleSearch}
-                                    className='pl-16 w-[25rem] rounded-lg border border-color-blue-light py-4 px-8 outline-none appearance-none'
+                                    className={`pl-16 rounded-lg border border-color-blue-light py-4 px-8 outline-none appearance-none ${
+                                        fullWidth ? 'w-full' : 'w-[25rem]'
+                                    }`}
                                 />
                             </div>
                         )}
