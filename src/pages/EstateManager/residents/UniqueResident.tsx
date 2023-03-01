@@ -187,12 +187,15 @@ const UniqueResident = () => {
     ) => {
         console.log('checked', e.target.checked, id)
         if (e.target.checked) {
-            selectedList.add(id)
+            //add dynamic id to selectedList
+           
+
+            selectedList.add(e.target.name)
             console.log(selectedList.size, 'add size', selectedList)
 
             setSelectedListCount(selectedList.size)
         } else {
-            selectedList.delete(id)
+            selectedList.delete(e.target.name)
 
             console.log(selectedList.size, 'delete size', selectedList)
             setSelectedListCount(selectedList.size)
@@ -318,6 +321,7 @@ const UniqueResident = () => {
                                                             <input
                                                                 type='checkbox'
                                                                 className='cursor-pointer'
+                                                                name={`checkbox-${id}`}
                                                                 onChange={(e) =>
                                                                     handleChecked(
                                                                         e,
