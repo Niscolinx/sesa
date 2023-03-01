@@ -11,7 +11,7 @@ function Property() {
         setIsProperty(true)
     }
 
-     const property_data = [
+    const property_data = [
         { name: 'residential', value: 120 },
         { name: 'business', value: 80 },
     ]
@@ -60,17 +60,52 @@ function Property() {
                             </div>
                         </div>
                         <div className='grid grid-cols-2 justify-items-end'>
-
                             <div>
-                                <p className='font-Satoshi-Medium'>Property Type</p>
+                                <p className='font-Satoshi-Medium text-[1.8rem]'>
+                                    Property Type
+                                </p>
 
                                 <div>
-                                    <p> <span>2</span> - <span>bedroom Self Con.</span></p>
-                                    <p> <span>3</span> - <span>bedroom Self Con.</span></p>
-                                    <p> <span>4</span> - <span>bedroom Self Con.</span></p>
+                                    {Array.from({ length: 3 }).map((_, i) => {
+                                        return (
+                                            <p className='flex items-center gap-4 text-[1.6rem]'>
+                                                <span className='bg-[#5856D6] rounded-full w-[1rem] h-[1rem] flex'>
+                                                    &nbsp;
+                                                </span>
+                                                <span>{i + 2}</span> -
+                                                <span>bedroom Self Con.</span>
+                                            </p>
+                                        )
+                                    })}
+                                </div>
+
+                                <p className='flex items-center gap-4'>
+                                    {' '}
+                                    <span className='bg-[#5856D6] rounded-full w-[1rem] h-[1rem] flex'>
+                                        &nbsp;
+                                    </span>
+                                    Duplex
+                                </p>
+                            </div>
+                            <div>
+                                <p className='font-Satoshi-Medium text-[1.8rem]'>
+                                    Count
+                                </p>
+
+                                <div>
+                                    {Array.from({ length: 3 }).map((_, i) => {
+                                        return (
+                                            <p>
+                                                <span className='bg-[#5856D6] rounded-full w-[1rem] h-[1rem] flex'>
+                                                    &nbsp;
+                                                </span>
+                                                <span>2</span> -
+                                                <span>bedroom Self Con.</span>
+                                            </p>
+                                        )
+                                    })}
                                 </div>
                             </div>
-                            <div></div>
                         </div>
                     </section>
 
