@@ -205,13 +205,17 @@ const UniqueResident = () => {
         console.log(selectedList)
     }
 
-    const selectAction = (e: React.MouseEvent, item: string, index: number) => {
+    const selectAction = (e: React.MouseEvent, item: Actions, index: number) => {
         setSelectedAction((prev) => {
             return {
                 ...prev,
                 [index]: item,
             }
         })
+
+        if(item === 'Delete'){
+
+        }
     }
     return (
         <div>
