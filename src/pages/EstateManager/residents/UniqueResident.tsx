@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom'
 
 interface UniqueResidents {
     id: number
-    residentCode: number
+    residentCode: string
     name: string
     gender: string
     phoneNumber: string
@@ -20,10 +20,10 @@ const UNIQUE_RESIDENTS_DATA: UniqueResidents[] = Array.from({
     length: 20,
 }).map((_, i) => ({
     id: i,
-    residentCode: Math.floor(Math.random() * 0.100000 + 0.90000),
+    residentCode: (Math.random() * 0.100000 + 0.90000).toFixed(7).split('.')[1],
     name: `Resident ${i}`,
     gender: Math.random() > 0.5 ? 'Male' : 'Female',
-    phoneNumber: `+234 80 1234 567${i}`,
+    phoneNumber: `+234 801234567${i}`,
     NoOfProfiles: Math.floor(Math.random() * 5 + 1),
     status: 'Active',
     kyr: 'Validated',
