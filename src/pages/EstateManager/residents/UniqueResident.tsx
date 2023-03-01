@@ -27,8 +27,7 @@ const COMPANY_OVERVIEW_DATA: CompanyOverview[] = Array.from({
     kys: Math.random() > 0.5 ? 'Validated' : 'Not Validated',
 }))
 
-export type Actions = 'View Details' | 'Activate' | 'Deactivate' | 'Delete'
-
+export type Actions = 'View Details' | 'Edit Details' | 'Delete'
 
 const UniqueResident = () => {
     const navigate = useNavigate()
@@ -149,53 +148,46 @@ const UniqueResident = () => {
         console.log(id)
     }
 
-     const [actions, setActions] = useState<Actions[]>([
-         'View Details',
-         'Activate',
-         'Deactivate',
-         'Delete',
-     ])
-     const [selectedAction, setSelectedAction] = useState<{
-         [key: string]: Actions
-     }>(null as any)
-     const [toggleDropDown, setToggleDropDown] = useState<{
-         isDropDownOpen: boolean
-         index: number | null
-     }>({
-         isDropDownOpen: false,
-         index: null,
-     })
+    const [actions, setActions] = useState<Actions[]>([
+        'View Details',
+        'Edit Details',
+        'Delete',
+    ])
+    const [selectedAction, setSelectedAction] = useState<{
+        [key: string]: Actions
+    }>(null as any)
+    const [toggleDropDown, setToggleDropDown] = useState<{
+        isDropDownOpen: boolean
+        index: number | null
+    }>({
+        isDropDownOpen: false,
+        index: null,
+    })
 
-     const dropDownHandler = (
-         e: React.ChangeEvent<HTMLInputElement>,
-         index: number
-     ) => {
-         console.log('clicked')
-         setToggleDropDown((prev) => {
-             return {
-                 isDropDownOpen: e.target.checked,
-                 index: index,
-             }
-         })
-     }
+    const dropDownHandler = (
+        e: React.ChangeEvent<HTMLInputElement>,
+        index: number
+    ) => {
+        console.log('clicked')
+        setToggleDropDown((prev) => {
+            return {
+                isDropDownOpen: e.target.checked,
+                index: index,
+            }
+        })
+    }
 
-     const selectAction = (
-         e: React.MouseEvent,
-         item: string,
-         index: number
-     ) => {
-         setSelectedAction((prev) => {
-             return {
-                 ...prev,
-                 [index]: item,
-             }
-         })
-     }
+    const selectAction = (e: React.MouseEvent, item: string, index: number) => {
+        setSelectedAction((prev) => {
+            return {
+                ...prev,
+                [index]: item,
+            }
+        })
+    }
     return (
         <div>
             <main className='mt-10 grid gap-9'>
-               
-
                 <section className='bg-color-white rounded-lg border min-w-[112rem] overflow-scroll'>
                     <div className='grid text-[1.6rem]'>
                         <caption className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
@@ -263,15 +255,22 @@ const UniqueResident = () => {
                                 {slicedPages && slicedPages.length > 0 ? (
                                     React.Children.toArray(
                                         slicedPages[paginate.index].map(
-                                            ({
-                                                guardCode,
-                                                guardName,
-                                                assignedEstate,
-                                                kys,
-                                                status,
-                                                id,
-                                                phoneNumber,
-                                            }, i) => {
+                                            (
+                                                {
+                                                    guardCode,
+                                                    guardName,
+                                                    assignedEstate,
+                                                    kys,
+                                                    status,
+                                                    id,
+                                                    phoneNumber,
+                                                },
+                                                i
+                                            ) => {
+                                                const {
+                                                    isDropDownOpen,
+                                                    index,
+                                                } = toggleDropDown
                                                 return (
                                                     <div className='grid justify-between border-b grid-cols-7 gap-8 py-4'>
                                                         <p className='flex items-center gap-4'>
@@ -373,14 +372,7 @@ const UniqueResident = () => {
                                                                                         )
                                                                                     }
                                                                                 >
-                                                                                    {item ===
-                                                                                    'Activate' ? (
-                                                                                        <span className='text-green-600'>
-                                                                                            {
-                                                                                                item
-                                                                                            }
-                                                                                        </span>
-                                                                                    ) : item ===
+                                                                                    { item ===
                                                                                       'Delete' ? (
                                                                                         <span className='text-red-600'>
                                                                                             {
