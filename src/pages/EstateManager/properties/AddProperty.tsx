@@ -38,10 +38,7 @@ const AddProperty = () => {
         handleOpen()
     }
 
-    const handleDialogSubmit = (e: FormEvent) => {
-        e.preventDefault()
-        handleClose()
-    }
+   
 
     return (
         <>

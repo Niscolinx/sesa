@@ -115,8 +115,8 @@ const ViewProperty = () => {
                 </section>
             </dialog>
             <div className='grid p-8 bg-white h-[80vh] items-baseline overflow-y-scroll rounded-lg'>
-                <div className='flex gap-8 items-center'>
-                    <div>
+                <div className='flex gap-8 items-center justify-between'>
+                    <div className='flex items-center gap-8'>
                         <label
                             htmlFor='photoUpload'
                             className='grid gap-4 cursor-pointer justify-items-center'
@@ -126,15 +126,15 @@ const ViewProperty = () => {
                                 alt='photoPreview'
                                 className='object-cover w-[11rem] h-[11rem] rounded-full object-top'
                             />
-                            
-                        <input
-                            type='file'
-                            name='photoUpload'
-                            id='photoUpload'
-                            accept='image/*'
-                            className='hidden'
-                            onClick={handlePhotoPreview}
-                        />
+
+                            <input
+                                type='file'
+                                name='photoUpload'
+                                id='photoUpload'
+                                accept='image/*'
+                                className='hidden'
+                                onClick={handlePhotoPreview}
+                            />
                         </label>
                         <p
                             style={{
@@ -171,155 +171,176 @@ const ViewProperty = () => {
                 >
                     <div className='grid gap-4 relative '>
                         <label
-                            htmlFor='securityCompany'
+                            htmlFor='Estate'
                             className='text-[1.4rem] font-medium'
                         >
-                            Security Company *
+                            Estate
                         </label>
                         <input
                             type='text'
                             required
-                            id='securityCompany'
+                            id='Estate'
                             className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                         />
                     </div>
-                    <div className='grid gap-4 relative'>
+                    <div className='grid gap-4 relative '>
                         <label
-                            htmlFor='email'
+                            htmlFor='lastName'
                             className='text-[1.4rem] font-medium'
                         >
-                            Email Address *
-                        </label>
-                        <input
-                            type='email'
-                            required
-                            id='email'
-                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                        />
-                    </div>
-
-                    <div className='grid gap-4'>
-                        <label
-                            htmlFor='phoneNumber'
-                            className='text-[1.4rem] font-medium'
-                        >
-                            Phone Number *
-                        </label>
-
-                        <div className='flex text-[1.6rem] gap-4   h-[5rem]'>
-                            <select className='w-[30%] rounded-lg border border-color-grey py-4.8 px-4 outline-none cursor-pointer text-color-dark relative h-full'>
-                                <option value='234'>+234</option>
-                            </select>
-                            <input
-                                required
-                                type='number'
-                                inputMode='numeric'
-                                id='phoneNumber'
-                                placeholder='Phone Number'
-                                className='w-full rounded-lg border border-color-grey py-4.8 px-8 outline-none text-color-dark'
-                            />
-                        </div>
-                    </div>
-                    <div className='grid gap-4 relative'>
-                        <label
-                            htmlFor='address'
-                            className='text-[1.4rem] font-medium'
-                        >
-                            Address *
+                            Property (Block No. & Flat No.) *
                         </label>
                         <input
                             type='text'
                             required
-                            id='address'
+                            placeholder='Block No. & Flat No.'
+                            id='lastName'
                             className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                         />
                     </div>
-                    <div className='relative grid gap-4'>
-                        <p className='text-[1.4rem] font-semibold'>State</p>
-                        <div className='relative flex items-center'>
-                            <p
-                                className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer'
-                                onClick={stateMenuToggler}
+                    <div className='grid gap-4 relative '>
+                        <label
+                            htmlFor='lastName'
+                            className='text-[1.4rem] font-medium'
+                        >
+                            Area/Street *
+                        </label>
+                        <input
+                            type='text'
+                            required
+                            id='lastName'
+                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                        />
+                    </div>
+                    <Select
+                        label='Property Category'
+                        state={['Business', 'Residential']}
+                        placeholder='Residential'
+                        selectedState={selectedPropertyType}
+                        setSelectedState={setSelectedPropertyType}
+                    />
+                    <ComplexSelect
+                        label='Property Type'
+                        state={[
+                            {
+                                name: 'Duplex',
+                                sub: 'A housing unit built on teo floors.',
+                            },
+                            {
+                                name: 'Detached Duplex',
+                                sub: 'A single unit of duplex standing on its own.',
+                            },
+                            {
+                                name: 'Semi-Detached Duplex',
+                                sub: 'Two units of duplex connected together, sharing a common wall and roof.',
+                            },
+                            {
+                                name: 'Terrace',
+                                sub: 'A housing unit built on teo floors',
+                            },
+                            {
+                                name: 'Terrace',
+                                sub: 'A housing unit built on teo floors',
+                            },
+                            {
+                                name: 'Terrace',
+                                sub: 'A housing unit built on teo floors',
+                            },
+                        ]}
+                        placeholder='Residential'
+                        isSearchable
+                        double
+                        selectedState={selectedPropertyType}
+                        setSelectedState={setSelectedPropertyType}
+                    />
+
+                    <div className='grid gap-4 relative'>
+                        <label
+                            htmlFor='name'
+                            className='text-[1.4rem] font-medium'
+                        >
+                            Name
+                        </label>
+                        <input
+                            type='text'
+                            required
+                            id='name'
+                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                        />
+                    </div>
+
+                    <div className='col-span-full items-center justify-between grid grid-cols-2 gap-16'>
+                        <div className=' '>
+                            <label
+                                htmlFor='address'
+                                className='flex mb-2 gap-4 items-center cursor-pointer'
                             >
-                                {selectedState ? (
-                                    selectedState
-                                ) : (
-                                    <span className='text-gray-500'>
-                                        Select State
-                                    </span>
-                                )}
+                                Address Description
+                            </label>
+
+                            <textarea
+                                name='address'
+                                id='address'
+                                placeholder='This is the address direction that would be displayed on the print out handed to the visitor at check in.'
+                                rows={4}
+                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                            />
+                            <p className='text-gray-400 text-[1.4rem]'>
+                                Maximum of 80 characters
                             </p>
-                            {toggleStateMenu ? (
-                                <GrUp className='absolute right-4' />
-                            ) : (
-                                <GrDown className='absolute right-4' />
+                        </div>
+                        <div className=' rounded-lg border border-width-[.2rem] border-dashed border-color-grey-1 p-8 text-[1.6rem] relative w-full h-[13rem] content-center grid'>
+                            <label
+                                htmlFor='photoUpload'
+                                className='grid justify-items-center justify-center gap-4 items-center cursor-pointer'
+                            >
+                                <img
+                                    src='/icons/admins/photo_library.svg'
+                                    alt=''
+                                />
+                                <p
+                                    className='text-color-dark-1'
+                                    style={{
+                                        fontFamily: 'Satoshi-Light',
+                                    }}
+                                >
+                                    Drag estate manager picture here or{' '}
+                                    <span className='text-color-blue font-bold'>
+                                        click
+                                    </span>{' '}
+                                    to upload
+                                </p>
+                            </label>
+                            <input
+                                type='file'
+                                name='photoUpload'
+                                id='photoUpload'
+                                accept='image/*'
+                                className='hidden'
+                                onClick={handlePhotoPreview}
+                            />
+
+                            {photoUrl && (
+                                <div className='flex justify-center justify-self-center'>
+                                    <img
+                                        src={photoUrl}
+                                        alt='photoPreview'
+                                        className='object-cover w-[11rem] h-[11rem] rounded-full'
+                                    />
+                                </div>
                             )}
                         </div>
-
-                        {toggleStateMenu && (
-                            <div className='absolute top-[8rem]  left-0 border border-color-primary-light w-[24rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
-                                {state.map((item, index) => (
-                                    <p
-                                        className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
-                                        key={index}
-                                        onClick={() =>
-                                            handleSelectedState(item)
-                                        }
-                                    >
-                                        {item}
-                                    </p>
-                                ))}
-                            </div>
-                        )}
                     </div>
 
-                    <div className='col-span-full rounded-lg border border-width-[.2rem] border-dashed border-color-grey-1 p-8 text-[1.6rem] relative w-full'>
-                        <label
-                            htmlFor='photoUpload'
-                            className='flex justify-center gap-4 items-center cursor-pointer'
-                        >
-                            <img src='/icons/admins/photo_library.svg' alt='' />
-                            <p
-                                className='text-color-dark-1'
-                                style={{
-                                    fontFamily: 'Satoshi-Light',
-                                }}
-                            >
-                                Drag estate manager picture here or{' '}
-                                <span className='text-color-blue font-bold'>
-                                    click
-                                </span>{' '}
-                                to upload
-                            </p>
-                        </label>
-                        <input
-                            type='file'
-                            name='photoUpload'
-                            id='photoUpload'
-                            accept='image/*'
-                            className='hidden'
-                            onClick={handlePhotoPreview}
-                        />
-
-                        {photoUrl && (
-                            <div className='flex justify-center justify-self-center'>
-                                <img
-                                    src={photoUrl}
-                                    alt='photoPreview'
-                                    className='object-cover w-[11rem] h-[11rem] rounded-full'
-                                />
-                            </div>
-                        )}
-                    </div>
                     <button
-                        className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
+                        className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg mt-[5rem]'
                         style={{ justifySelf: 'start' }}
-                        onClick={() => handleOpen('success')}
+                        onClick={addResidentHandler}
                     >
                         <span>
                             <IoMdAdd />
                         </span>{' '}
-                        Add Company
+                        Add Property
                     </button>
                 </form>
             </div>
