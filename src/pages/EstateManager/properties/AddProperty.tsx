@@ -39,17 +39,7 @@ const AddProperty = () => {
         
     }
 
-    const closeValidateDialog = () => {
-        if (validateDialogRef.current) {
-            validateDialogRef.current.close()
-        }
-    }
-
-    const openValidateDialog = () => {
-        if (validateDialogRef.current) {
-            validateDialogRef.current.showModal()
-        }
-    }
+   
     const handleOpen = () => {
         
 
@@ -57,32 +47,18 @@ const AddProperty = () => {
     }
 
     const addResidentHandler = () => {
-        // navigate('/superAdmin/residentCategory/add')
-        handleOpen('add-resident')
+        handleOpen()
     }
 
-    const confirmAddResident = () => {
-        handleClose()
-    }
+    
 
     const handleDialogSubmit = (e: FormEvent) => {
         e.preventDefault()
         handleClose()
 
-        openValidateDialog()
     }
 
-    const renderValidationType = new Map([
-        ['Phone Number', <PhoneNumber />],
-        ['BVN Number', <BVN_Number />],
-        ['NIN Number', <NIN_Number />],
-        ['Drivers License', <DriversLicence />],
-        ['International Passport', <International_PassPort />],
-    ]) satisfies Map<ValidateInputTypes, JSX.Element>
-
-    const handleValidate = () => {
-        setIsValidated(true)
-    }
+   
 
     return (
         <>
