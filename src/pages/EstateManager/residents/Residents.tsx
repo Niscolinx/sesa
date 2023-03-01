@@ -54,7 +54,8 @@ function Residents() {
                                 iconUrl='/icons/estateManager/profiles.svg'
                                 bgColor='bg-[#FCF3FA]'
                                 textColor='text-[#B6008E]'
-                                bottomLeft='23 guards on duty'
+                                bottomLeft='LR 39%  TR 29%'
+                                bottomRight='LD 10%  LNR 2%'
                             />
                         </div>
                     </section>
