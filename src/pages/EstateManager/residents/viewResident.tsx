@@ -3,8 +3,7 @@ import { IoMdClose } from 'react-icons/io'
 import { BsQuestionCircle } from 'react-icons/bs'
 import { toast, ToastContainer } from 'react-toastify'
 
-import { TbCopy } from 'react-icons/tb'
-import { Select, ComplexSelect } from '../../../components/SuperAdmin/UI/Select'
+import { Select } from '../../../components/SuperAdmin/UI/Select'
 import { getPhotoUrl } from '../../../utils/getPhotoUrl'
 
 type Actions = 'Deactivate' | 'Delete'
