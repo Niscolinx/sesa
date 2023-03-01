@@ -298,14 +298,12 @@ const PropertyTable = () => {
                                     React.Children.toArray(
                                         slicedPages[paginate.index].map(
                                             ({
-                                                residentCode,
-                                                name,
-                                                id,
-                                                gender,
-                                                phoneNumber,
-                                                status,
-                                                kyr,
-                                                NoOfProfiles,
+                                                propertyCategory,
+                                                propertyCode,
+                                                propertyName,
+                                                propertyType,
+                                                address,
+                                                
                                             }) => {
                                                 const {
                                                     isDropDownOpen,
