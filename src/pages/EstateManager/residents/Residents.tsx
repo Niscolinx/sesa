@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
+import OverviewCard from '../../../components/EstateManager/OverviewCard'
 
 
 function Residents() {
@@ -14,6 +15,37 @@ function Residents() {
    
     return (
         <div>
+            <section className='bg-white rounded-lg p-8 grid text-[1.4rem] w-max'>
+                <div className='overview flex gap-8'>
+                    <OverviewCard
+                        title='Total Residents'
+                        number={18_000}
+                        iconUrl='/icons/securityCompany/totalEstates.svg'
+                        bgColor='bg-[#EDFDEC]'
+                        textColor='text-[#1A8F56]'
+                        bottomLeft='Alpha 56%'
+                        bottomRight='Res. User 44%'
+                    />
+                    <OverviewCard
+                        title='Properties'
+                        number={1532}
+                        iconUrl='/icons/securityCompany/uniqueResidents.svg'
+                        bgColor='bg-[#F5F9FA]'
+                        textColor='text-[#00C2FF]'
+                        bottomLeft='Residential 56%'
+                        bottomRight='Business 44%'
+                    />
+                    <OverviewCard
+                        title='Security Guards'
+                        number={1200}
+                        iconUrl='/icons/securityCompany/AssignedUniqueResidents.svg'
+                        bgColor='bg-[#FCF3FA]'
+                        textColor='text-[#B6008E]'
+                        bottomLeft='23 guards on duty'
+                    />
+                </div>
+            </section>
+            
             <div className='rounded-lg mt-[3rem] h-[80vh]'>
                 {isResident ? (
                     <section>
@@ -26,9 +58,7 @@ function Residents() {
                                 onChange={() => setCurrentPage('unique')}
                                 defaultChecked
                             />
-                            <label htmlFor='unique'>
-                                Unique Resident
-                            </label>
+                            <label htmlFor='unique'>Unique Resident</label>
 
                             <input
                                 type='radio'
@@ -37,12 +67,8 @@ function Residents() {
                                 className='hidden'
                                 onChange={() => setCurrentPage('profile')}
                             />
-                            <label
-                                htmlFor='profile'
-                                className='capitalize'
-                            >
+                            <label htmlFor='profile' className='capitalize'>
                                 Resident Profile
-                             
                             </label>
                         </div>
                     </section>
