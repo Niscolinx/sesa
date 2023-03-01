@@ -21,7 +21,7 @@ function Property() {
             {isProperty ? (
                 <div>
                     <section className='bg-white rounded-lg p-8 grid text-[1.4rem] grid-cols-2 '>
-                        <div>
+                        <div className='flex items-center '>
                             <div className='overviewChart__box'>
                                 <EstateChart
                                     color1='#098DFF'
@@ -38,8 +38,8 @@ function Property() {
                                     </p>
                                 </div>
                             </div>
-                            <div>
-                                <section className='flex items-center justify-between'>
+                            <div className='grid gap-4'>
+                                <section className='flex items-center justify-between gap-4'>
                                     <div className='flex items-center gap-2'>
                                         <span className='bg-[#098DFF] rounded-full w-[1rem] h-[1rem] flex'>
                                             {' '}
@@ -48,7 +48,7 @@ function Property() {
                                     </div>
                                     <p>20,000</p>
                                 </section>
-                                <section className='flex items-center justify-between'>
+                                <section className='flex items-center justify-between gap-4'>
                                     <div className='flex items-center gap-2'>
                                         <span className='bg-[#23C375] rounded-full w-[1rem] h-[1rem] flex'>
                                             {' '}
@@ -60,7 +60,7 @@ function Property() {
                             </div>
                         </div>
                         <div>
-                            
+
                         </div>
                     </section>
 
