@@ -303,7 +303,7 @@ const PropertyTable = () => {
                                                 propertyName,
                                                 propertyType,
                                                 address,
-                                                
+                                                id
                                             }) => {
                                                 const {
                                                     isDropDownOpen,
@@ -325,37 +325,15 @@ const PropertyTable = () => {
                                                             />
 
                                                             <span>
-                                                                {residentCode}
+                                                                {propertyCode}
                                                             </span>
                                                         </p>
-                                                        <p>{name}</p>
-                                                        <p>{gender}</p>
-                                                        <p>{phoneNumber}</p>
-                                                        <p>{NoOfProfiles}</p>
-                                                        <p>
-                                                            {status ===
-                                                            'Active' ? (
-                                                                <span className='text-[#1A8F56]'>
-                                                                    {status}
-                                                                </span>
-                                                            ) : (
-                                                                <span className='text-red-600'>
-                                                                    {status}
-                                                                </span>
-                                                            )}
-                                                        </p>
-                                                        <p>
-                                                            {kyr ===
-                                                            'Validated' ? (
-                                                                <span className='text-[#1A8F56]'>
-                                                                    {kyr}
-                                                                </span>
-                                                            ) : (
-                                                                <span className='text-red-600'>
-                                                                    {kyr}
-                                                                </span>
-                                                            )}
-                                                        </p>
+                                                        <p>{address}</p>
+                                                        <p>{propertyType}</p>
+                                                        <p>{propertyCategory}</p>
+                                                        <p>{propertyName}</p>
+                                                    
+                                                        
                                                         <div className='relative'>
                                                             <label
                                                                 className='font-semibold capitalize cursor-pointer flex items-center gap-2 relative z-10'
