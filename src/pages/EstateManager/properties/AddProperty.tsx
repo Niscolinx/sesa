@@ -176,8 +176,8 @@ const AddProperty = () => {
                         />
                     </div>
 
-                    <div className='col-span-full items-center justify-between grid grid-cols-2'>
-                        <div className='h-[20rem] '>
+                    <div className='col-span-full items-end justify-between grid grid-cols-2 gap-16'>
+                        <div className=' '>
                             <label
                                 htmlFor='address'
                                 className='flex mb-2 gap-4 items-center cursor-pointer'
@@ -192,8 +192,9 @@ const AddProperty = () => {
                                 rows={4}
                                 className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                             />
+                            <p>Maximum of 80</p>
                         </div>
-                        <div className=' rounded-lg border border-width-[.2rem] border-dashed border-color-grey-1 p-8 text-[1.6rem] relative w-full h-[20rem] content-center'>
+                        <div className=' rounded-lg border border-width-[.2rem] border-dashed border-color-grey-1 p-8 text-[1.6rem] relative w-full h-[15rem] content-center grid'>
                             <label
                                 htmlFor='photoUpload'
                                 className='grid justify-items-center justify-center gap-4 items-center cursor-pointer'
