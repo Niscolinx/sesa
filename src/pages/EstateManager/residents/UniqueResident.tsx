@@ -4,7 +4,7 @@ import { GrDown } from 'react-icons/gr'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { IoMdAdd } from 'react-icons/io'
 import { useNavigate } from 'react-router-dom'
-import OverviewCard from '../../../../components/SuperAdmin/overview/OverviewCard'
+import OverviewCard from '../../../components/EstateManager/OverviewCard'
 
 interface CompanyOverview {
     id: number
@@ -152,18 +152,30 @@ const CompanyHome = () => {
                 <section className='bg-white rounded-lg p-8 grid text-[1.4rem] w-max'>
                     <div className='overview flex gap-8'>
                         <OverviewCard
-                            title='Security Guard'
+                            title='Total Residents'
+                            number={18_000}
+                            iconUrl='/icons/securityCompany/totalEstates.svg'
+                            bgColor='bg-[#EDFDEC]'
+                            textColor='text-[#1A8F56]'
+                            bottomLeft='Alpha 56%'
+                            bottomRight='Res. User 44%'
+                        />
+                        <OverviewCard
+                            title='Properties'
                             number={1532}
                             iconUrl='/icons/securityCompany/securityGuards.svg'
                             bgColor='bg-[#F5F9FA]'
                             textColor='text-[#00C2FF]'
+                            bottomLeft='Residential 56%'
+                            bottomRight='Business 44%'
                         />
                         <OverviewCard
-                            title='Assigned Security Guards'
-                            number={18_000}
-                            iconUrl='/icons/securityCompany/totalEstates.svg'
-                            bgColor='bg-[#DDFCDC]'
-                            textColor='text-[#1A8F56]'
+                            title='Security Guards'
+                            number={1200}
+                            iconUrl='/icons/securityCompany/AssignedSecurityGuards.svg'
+                            bgColor='bg-[#FCF3FA]'
+                            textColor='text-[#B6008E]'
+                            bottomLeft='23 guards on duty'
                         />
                     </div>
                 </section>
