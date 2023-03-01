@@ -234,6 +234,13 @@ const UniqueResident = () => {
                                     </span>{' '}
                                     Add Resident
                                 </button>
+                                <button
+                                    className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
+                                    onClick={deleteSelectedList}
+                                >
+                                   
+                                    Deactivate
+                                </button>
                             </div>
                         </caption>
 
