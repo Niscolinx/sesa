@@ -179,19 +179,22 @@ const UniqueResident = () => {
                 index,
             }
         })
-
     }
 
-    const handleChecked = (e: React.ChangeEvent<HTMLInputElement>, id: number) => {
-        console.log("checked", e.target.checked, id)
+    const handleChecked = (
+        e: React.ChangeEvent<HTMLInputElement>,
+        id: number
+    ) => {
+        console.log('checked', e.target.checked, id)
         if (e.target.checked) {
             selectedList.add(id)
-            console.log(selectedList)
+            console.log(selectedList.size, 'add size')
+
             setSelectedListCount(selectedList.size)
         } else {
             selectedList.delete(id)
 
-            console.log(selectedList.size)
+            console.log(selectedList.size, 'delete size')
             setSelectedListCount(selectedList.size)
         }
     }
@@ -210,7 +213,6 @@ const UniqueResident = () => {
     }
     return (
         <div>
-            
             <main className='mt-10 grid gap-9'>
                 <section className='bg-color-white rounded-lg border min-w-[112rem] overflow-scroll'>
                     <div className='grid text-[1.6rem]'>
