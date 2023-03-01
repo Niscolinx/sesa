@@ -23,6 +23,7 @@ function CreateHousehold() {
                         type='radio'
                         name='household'
                         id='add-property'
+                        defaultChecked
                         className='hidden'
                         onChange={() => setPathToSwitch('add-property')}
                     />
