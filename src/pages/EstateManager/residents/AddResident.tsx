@@ -144,6 +144,7 @@ const AddResident = () => {
                                     ]}
                                     label='Validation Option'
                                     validate
+                                    kyr
                                     selectedState={validationType}
                                     setSelectedState={setValidationType}
                                 />

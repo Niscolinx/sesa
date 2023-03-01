@@ -16,6 +16,7 @@ interface ISelect<T> {
     placeholder?: string
     validate?: boolean
     isSearchable?: boolean
+    kyr?: boolean
 }
 
 interface ComplexSelect extends Omit<ISelect<string>, 'state'> {
@@ -37,6 +38,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
     label,
     placeholder,
     validate,
+    kyr,
     isSearchable = false,
 }) => {
     const [toggleStateMenu, setToggleStateMenu] = useState(false)
@@ -84,38 +86,40 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                 ) : (
                     <GrDown className='absolute right-4' />
                 )}
-            {toggleStateMenu && (
-                <div className='absolute top-[6rem] left-0 border border-color-primary-light min-w-[12rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
-                    {isSearchable && (
-                        <div className='relative flex items-center text-[1.4rem]'>
-                            <img
-                                src='/icons/admins/search.svg'
-                                alt=''
-                                className='absolute left-4'
-                            />
+                {toggleStateMenu && (
+                    <div className='absolute top-[6rem] left-0 border border-color-primary-light min-w-[12rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
+                        {isSearchable && (
+                            <div className='relative flex items-center text-[1.4rem]'>
+                                <img
+                                    src='/icons/admins/search.svg'
+                                    alt=''
+                                    className='absolute left-4'
+                                />
 
-                            <input
-                                type='text'
-                                placeholder='Search Parameters'
-                                value={search}
-                                onChange={handleSearch}
-                                className='pl-16 w-[25rem] rounded-lg border border-color-blue-light py-4 px-8 outline-none appearance-none'
-                            />
-                        </div>
-                    )}
-                    {selectFrom.map((item, index) => (
-                        <p
-                            className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
-                            key={index}
-                            onClick={() => handleSelectedState(item)}
-                        >
-                            {item}
-                        </p>
-                    ))}
-                </div>
-            )}
+                                <input
+                                    type='text'
+                                    placeholder='Search Parameters'
+                                    value={search}
+                                    onChange={handleSearch}
+                                    className='pl-16 w-[25rem] rounded-lg border border-color-blue-light py-4 px-8 outline-none appearance-none'
+                                />
+                            </div>
+                        )}
+                        {selectFrom.map((item, index) => (
+                           
+                                <p
+                                    className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
+                                    key={index}
+                                    onClick={() => handleSelectedState(item)}
+                                >
+                                    {item}
+                                </p>
+                          
+                          ))}
+                          <p>lorem</p>
+                    </div>
+                )}
             </div>
-
         </div>
     )
 }
