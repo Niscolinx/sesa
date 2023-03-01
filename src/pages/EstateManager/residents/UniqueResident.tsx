@@ -233,7 +233,7 @@ const UniqueResident = () => {
 
                         <div className='grid'>
                             <div
-                                className='grid justify-between text-color-dark-1 bg-gray-100 p-8 grid-cols-7 gap-8'
+                                className='grid justify-between text-color-dark-1 bg-gray-100 p-8 grid-cols-8 gap-8'
                                 style={{
                                     fontSize: '1.6rem',
                                 }}
@@ -276,7 +276,7 @@ const UniqueResident = () => {
                                                     index,
                                                 } = toggleDropDown
                                                 return (
-                                                    <div className='grid justify-between border-b grid-cols-7 gap-8 py-4'>
+                                                    <div className='grid justify-between border-b grid-cols-8 gap-8 py-4'>
                                                         <p className='flex items-center gap-4'>
                                                             <input
                                                                 type='checkbox'
