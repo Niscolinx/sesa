@@ -177,8 +177,7 @@ const ViewResident = () => {
                                 alt=''
                             />
                             <p className='text-[1.6rem]'>
-                                Are you sure you want to deactivate this
-                                Security Guard
+                                Are you sure you want to deactivate this resident?
                             </p>
 
                             <div className='flex w-full justify-center gap-8'>
