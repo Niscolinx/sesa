@@ -30,7 +30,6 @@ const AddResident = () => {
     )
     const [selectedGender, setSelectedGender] = useState<string | null>(null)
     const [isValidated, setIsValidated] = useState(false)
-    const [isAddResident, setIsAddResident] = useState(false)
 
     const [dialogState, setDialogState] = useState<DialogType>('validate')
     const [validationType, setValidationType] = useState<
@@ -72,9 +71,9 @@ const AddResident = () => {
     }
     const handleOpen = (modalState: DialogType) => {
         if (modalState === 'validate') {
-            setIsAddResident(true)
+            setDialogState('validate')
         } else {
-            setIsAddResident(false)
+            setDialogState('validate')
         }
 
         if (dialogRef.current) {

@@ -4,7 +4,7 @@ import Overview from '../../pages/EstateManager/Overview'
 import Wallet from '../../pages/EstateManager/wallet/Wallet'
 import WalletDetails from '../../pages/EstateManager/wallet/WalletDetails'
 import Residents from '../../pages/EstateManager/residents/Residents'
-import AddResident from '../../pages/EstateManager/residents/addResident'
+import AddResident from '../../pages/EstateManager/residents/AddResident'
 
 const estateManagerRoutes = (
     <Route path='/estateManager' element={<Dashboard />}>
