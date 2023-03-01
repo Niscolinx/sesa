@@ -243,10 +243,10 @@ const UniqueResident = () => {
                                         type='checkbox'
                                         className='cursor-pointer'
                                     />
-                                    <p>Guard Code</p>
+                                    <p>Resident Code</p>
                                 </p>
-                                <p>Guard Name</p>
-                                <p>Phone Number</p>
+                                <p> Name</p>
+                                <p>Gender</p>
                                 <p>Assigned Estate</p>
                                 <p>Status</p>
                                 <p>KYG</p>
