@@ -265,7 +265,7 @@ const PropertyTable = () => {
                                         <span>
                                             <IoMdAdd />
                                         </span>{' '}
-                                        Add Resident
+                                        Add Property
                                     </button>
                                 )}
                             </div>
@@ -273,7 +273,7 @@ const PropertyTable = () => {
 
                         <div className='grid'>
                             <div
-                                className='grid items-center justify-between text-color-dark-1 bg-gray-100 p-8 grid-cols-8 gap-8'
+                                className='grid items-center justify-between text-color-dark-1 bg-gray-100 p-8 grid-cols-6 gap-8'
                                 style={{
                                     fontSize: '1.6rem',
                                 }}
@@ -310,7 +310,7 @@ const PropertyTable = () => {
                                                     index,
                                                 } = toggleDropDown
                                                 return (
-                                                    <div className='grid justify-between border-b grid-cols-8 gap-8 py-4 items-center'>
+                                                    <div className='grid justify-between border-b grid-cols-6 gap-8 py-4 items-center'>
                                                         <p className='flex items-center gap-4'>
                                                             <input
                                                                 type='checkbox'
