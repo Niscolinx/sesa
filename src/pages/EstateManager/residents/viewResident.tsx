@@ -34,16 +34,10 @@ const ViewResident = () => {
         e.preventDefault()
     }
 
-    const assignGuardRef = useRef<HTMLDialogElement | null>(null)
     const validatedDialogRef = useRef<HTMLDialogElement | null>(null)
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
-    const closeAssignGuardDialog = () => {
-        if (assignGuardRef.current) {
-            assignGuardRef.current.close()
-        }
-    }
-
+   
    
     const closeValidatedDialog = () => {
         if (validatedDialogRef.current) {
