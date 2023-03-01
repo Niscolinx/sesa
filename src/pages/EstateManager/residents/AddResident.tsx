@@ -190,9 +190,23 @@ const AddResident = () => {
                                     </button>
                                 </div>
                             </div>
-                        ): (
-                            <>
-                            </>
+                        ) : (
+                            <div className='bg-white rounded-2xl grid place-content-center justify-items-center h-[30rem] gap-8 text-[1.6rem]'>
+                                <p>What is KYR?</p>
+
+                                <p className='text-[1.6rem]'>
+                                    You have successfully added a Resident
+                                </p>
+                                <div className='flex w-full justify-center gap-8'>
+                                    <button
+                                        className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
+                                        onClick={() => handleClose()}
+                                    >
+                                        Ok
+                                    </button>
+                                    
+                                </div>
+                            </div>
                         )}
                     </div>
                 </section>
