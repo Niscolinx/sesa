@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import AddProperty from './AddProperty'
 
 type PathSwitch =
     | 'add-property'
@@ -10,13 +11,13 @@ function CreateHousehold() {
     const [pathToSwitch, setPathToSwitch] = useState<PathSwitch>('add-property')
 
     const handlePathSwitch = new Map<PathSwitch, JSX.Element>([
-        ['add-property', <></>],
+        ['add-property', <AddProperty/>],
         ['add-resident', <></>],
         ['add-RFID', <></>],
         ['add-accessCard', <></>],
     ])
     return (
-        <div>
+        <div className='bg-white'>
             <div className='estateDetail__radioBox'>
                 <>
                     <input
@@ -64,7 +65,7 @@ function CreateHousehold() {
                     <label htmlFor='add-accessCard'>Add Access Card</label>
                 </>
             </div>
-            <div className='mt-8 grid gap-8'>
+            <div className=' grid gap-8'>
                 <section className='bg-color-white rounded-lg min-w-[112rem] overflow-scroll'>
                     {handlePathSwitch.get(pathToSwitch)}
                 </section>
