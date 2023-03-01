@@ -7,18 +7,21 @@ import { useNavigate } from 'react-router-dom'
 
 interface Household {
     id: number
-    householdCode: string
-    address: string
-    householdType: string
-    householdCategory: 'business' | 'residential'
-    householdName: string
+    housecode: string
+    propertyType: string
+    propertyCategory: 'business' | 'residential'
+    tenancyType: string
+    occupants: number
+    RFID: number
+    AccessCard: number
+    status: 'active' | 'inactive'
 }
 
 const HOUSEHOLD_DATA: Household[] = Array.from({
     length: 20,
 }).map((_, i) => ({
     id: i + 1,
-    householdCode: (Math.random() * 0.1 + 0.9).toFixed(7).split('.')[1],
+    housecode: `H${(Math.random() * 0.1 + 0.9).toFixed(7).split('.')[1]}`,
     address: 'Blk.2, Flt. 3, Zone ',
     householdType: '2-bedroom Self Con',
     householdCategory: Math.random() > 0.5 ? 'business' : 'residential',
