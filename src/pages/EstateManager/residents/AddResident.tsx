@@ -12,7 +12,7 @@ import {
     International_PassPort,
 } from '../../SecurityCompany/dashboard/company/AddSecurity/Inputs'
 
-type DialogType = 'validate' | 'add-Resident'
+type DialogType = 'validate' | 'add-resident' | 'view-kyr'
 
 export type ValidateInputTypes =
     | 'Phone Number'
@@ -22,7 +22,6 @@ export type ValidateInputTypes =
     | 'International Passport'
 
 const AddResident = () => {
-    
     const [selectedGender, setSelectedGender] = useState<string | null>(null)
     const [isValidated, setIsValidated] = useState(false)
 
@@ -67,18 +66,20 @@ const AddResident = () => {
     const handleOpen = (modalState: DialogType) => {
         if (modalState === 'validate') {
             setDialogState('validate')
-        } else {
-            setDialogState('add-Resident')
+        } if (modalState === 'add-resident') {
+            setDialogState('add-resident')
+        }
+        if(modalState === 'view-kyr'){
+            setDialogState('view-kyr')
         }
 
-        if (dialogRef.current) {
-            dialogRef.current.showModal()
-        }
+
+        dialogRef.current?.showModal()
     }
 
     const addResidentHandler = () => {
         // navigate('/superAdmin/residentCategory/add')
-        handleOpen('add-Resident')
+        handleOpen('add-resident')
     }
 
     const confirmAddResident = () => {
@@ -97,7 +98,7 @@ const AddResident = () => {
         ['BVN Number', <BVN_Number />],
         ['NIN Number', <NIN_Number />],
         ['Drivers License', <DriversLicence />],
-        ['International Passport', <International_PassPort />]
+        ['International Passport', <International_PassPort />],
     ]) satisfies Map<ValidateInputTypes, JSX.Element>
 
     const handleValidate = () => {
@@ -164,7 +165,7 @@ const AddResident = () => {
                                     Validate
                                 </button>
                             </form>
-                        ) : (
+                        ) : dialogState === 'add-resident' ? (
                             <div className='bg-white rounded-2xl grid place-content-center justify-items-center h-[30rem] gap-8 text-[1.6rem]'>
                                 {' '}
                                 <img
@@ -189,6 +190,9 @@ const AddResident = () => {
                                     </button>
                                 </div>
                             </div>
+                        ): (
+                            <>
+                            </>
                         )}
                     </div>
                 </section>
