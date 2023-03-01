@@ -33,7 +33,9 @@ export type Actions = 'View Details' | 'Edit Details' | 'Delete'
 
 const UniqueResident = () => {
     const navigate = useNavigate()
-   const [selectedList, setSelectedList] = useState<Map<string, number>>(new Map())
+    const [selectedList, setSelectedList] = useState<Map<string, number>>(
+        new Map()
+    )
 
     const [fetchedUniqueResidents, setFetchedUniqueResidents] = useState<
         UniqueResidents[]
@@ -169,7 +171,6 @@ const UniqueResident = () => {
         index: null,
     })
 
-
     const dropDownHandler = (
         e: React.ChangeEvent<HTMLInputElement>,
         index: number
@@ -187,17 +188,13 @@ const UniqueResident = () => {
         id: number
     ) => {
         if (e.target.checked) {
-           
             const newMap = new Map(selectedList)
             newMap.set(e.target.name, id)
             setSelectedList(newMap)
-
         } else {
-
             const newMap = new Map(selectedList)
             newMap.delete(e.target.name)
             setSelectedList(newMap)
-            
         }
     }
 
@@ -205,7 +202,11 @@ const UniqueResident = () => {
         console.log(selectedList)
     }
 
-    const selectAction = (e: React.MouseEvent, item: Actions, index: number) => {
+    const selectAction = (
+        e: React.MouseEvent,
+        item: Actions,
+        index: number
+    ) => {
         setSelectedAction((prev) => {
             return {
                 ...prev,
@@ -213,8 +214,12 @@ const UniqueResident = () => {
             }
         })
 
-        if(item === 'View Details'){
+        if (item === 'View Details') {
             navigate(`/estateManager/residents/view/:${index}`)
+        }
+
+        if(item === 'Edit Details'){
+            navigate(`/estateManager/residents/edit/:${index}`)
         }
     }
     return (
@@ -297,19 +302,16 @@ const UniqueResident = () => {
                                 {slicedPages && slicedPages.length > 0 ? (
                                     React.Children.toArray(
                                         slicedPages[paginate.index].map(
-                                            (
-                                                {
-                                                    residentCode,
-                                                    name,
-                                                    id,
-                                                    gender,
-                                                    phoneNumber,
-                                                    status,
-                                                    kyr,
-                                                    NoOfProfiles,
-                                                },
-                                               
-                                            ) => {
+                                            ({
+                                                residentCode,
+                                                name,
+                                                id,
+                                                gender,
+                                                phoneNumber,
+                                                status,
+                                                kyr,
+                                                NoOfProfiles,
+                                            }) => {
                                                 const {
                                                     isDropDownOpen,
                                                     index,
