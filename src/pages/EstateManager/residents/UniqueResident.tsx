@@ -185,19 +185,18 @@ const UniqueResident = () => {
         e: React.ChangeEvent<HTMLInputElement>,
         id: number
     ) => {
-        console.log('checked', e.target.checked, id)
         if (e.target.checked) {
-            //add dynamic id to selectedList
            
+            const newMap = new Map(selectedList)
+            newMap.set(e.target.name, id)
+            setSelectedList(newMap)
 
-            console.log(selectedList.size, 'add size', selectedList)
-
-            setSelectedList({ ...selectedList, [e.target.name]: id })
         } else {
-            selectedList.delete(e.target.name)
 
-            console.log(selectedList.size, 'delete size', selectedList)
-            setSelectedList({ ...selectedList })
+            const newMap = new Map(selectedList)
+            newMap.delete(e.target.name)
+            setSelectedList(newMap)
+            
         }
     }
 
@@ -205,9 +204,6 @@ const UniqueResident = () => {
         console.log(selectedList)
     }
 
-    useEffect(() => {
-        console.log({ selectedList })
-    }, [selectedList])
 
     const selectAction = (e: React.MouseEvent, item: string, index: number) => {
         setSelectedAction((prev) => {
