@@ -137,7 +137,7 @@ const UniqueResident = () => {
         })
     }
 
-    const handleAddSecurityGuard = () => {
+    const handleAddUniqueResident = () => {
         console.log('add security guard')
 
         // navigate(`/securityCompany/security-guard/addSecurity`)
@@ -163,7 +163,7 @@ const UniqueResident = () => {
                         <OverviewCard
                             title='Properties'
                             number={1532}
-                            iconUrl='/icons/securityCompany/securityGuards.svg'
+                            iconUrl='/icons/securityCompany/uniqueResidents.svg'
                             bgColor='bg-[#F5F9FA]'
                             textColor='text-[#00C2FF]'
                             bottomLeft='Residential 56%'
@@ -172,7 +172,7 @@ const UniqueResident = () => {
                         <OverviewCard
                             title='Security Guards'
                             number={1200}
-                            iconUrl='/icons/securityCompany/AssignedSecurityGuards.svg'
+                            iconUrl='/icons/securityCompany/AssignedUniqueResidents.svg'
                             bgColor='bg-[#FCF3FA]'
                             textColor='text-[#B6008E]'
                             bottomLeft='23 guards on duty'
@@ -184,7 +184,7 @@ const UniqueResident = () => {
                     <div className='grid text-[1.6rem]'>
                         <caption className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
                             <p className=' font-bold'>
-                                Security Guard List <span>(4)</span>
+                                Unique Resident <span>(4)</span>
                             </p>
                             <div className='relative flex items-center'>
                                 <img
@@ -211,12 +211,12 @@ const UniqueResident = () => {
                             <div className='ml-auto'>
                                 <button
                                     className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
-                                    onClick={handleAddSecurityGuard}
+                                    onClick={handleAddUniqueResident}
                                 >
                                     <span>
                                         <IoMdAdd />
                                     </span>{' '}
-                                    Add Security Guard
+                                    Add Resident
                                 </button>
                             </div>
                         </caption>
