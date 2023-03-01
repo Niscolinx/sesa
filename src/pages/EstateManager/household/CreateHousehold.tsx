@@ -1,10 +1,13 @@
 import { useState } from 'react'
 
-type PathSwitch = 'add-property' | 'add-resident' | 'add-RFID' | 'add-accessCard'
+type PathSwitch =
+    | 'add-property'
+    | 'add-resident'
+    | 'add-RFID'
+    | 'add-accessCard'
 
 function CreateHousehold() {
-    const [pathToSwitch, setPathToSwitch] =
-        useState<PathSwitch>('add-property')
+    const [pathToSwitch, setPathToSwitch] = useState<PathSwitch>('add-property')
 
     const handlePathSwitch = new Map<PathSwitch, JSX.Element>([
         ['add-property', <></>],
@@ -15,7 +18,10 @@ function CreateHousehold() {
     return (
         <div>
             <div className='estateDetail__radioBox'>
+               
                 <label htmlFor='add-property' className='capitalize'>
+                    Add Property
+                </label>
                 <input
                     type='radio'
                     name='household'
@@ -24,10 +30,8 @@ function CreateHousehold() {
                     defaultChecked
                     onChange={() => setPathToSwitch('add-property')}
                 />
-                    Add Property
-                </label>
 
-                <label htmlFor='add-resident'>
+                <label htmlFor='add-property'>Add Resident</label>
                 <input
                     type='radio'
                     name='household'
@@ -35,9 +39,7 @@ function CreateHousehold() {
                     className='hidden'
                     onChange={() => setPathToSwitch('add-resident')}
                 />
-                    Add Resident
-                </label>
-                <label htmlFor='add-resident'>
+                <label htmlFor='add-resident'>Add RFID (Car Sticker)</label>
                 <input
                     type='radio'
                     name='household'
@@ -45,9 +47,7 @@ function CreateHousehold() {
                     className='hidden'
                     onChange={() => setPathToSwitch('add-RFID')}
                 />
-                    Add RFID (Car Sticker)
-                </label>
-                <label htmlFor='add-resident'>
+                <label htmlFor='add-resident'>Add Access Card</label>
                 <input
                     type='radio'
                     name='household'
@@ -55,8 +55,6 @@ function CreateHousehold() {
                     className='hidden'
                     onChange={() => setPathToSwitch('add-accessCard')}
                 />
-                    Add Access Card
-                </label>
             </div>
             <div className='mt-8 grid gap-8'>
                 <section className='bg-color-white rounded-lg border min-w-[112rem] overflow-scroll'>
