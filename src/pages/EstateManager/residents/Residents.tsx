@@ -16,73 +16,75 @@ function Residents() {
 
     const paths = new Map<Path, JSX.Element>([
         ['unique', <UniqueResident />],
-        ['profile', <ResidentProfile/>],
+        ['profile', <ResidentProfile />],
     ])
 
     return (
-        <div>
-            <section className='bg-white rounded-lg p-8 grid text-[1.4rem] w-max'>
-                <div className='overview flex gap-8'>
-                    <OverviewCard
-                        title='Total Residents'
-                        number={18_000}
-                        iconUrl='/icons/securityCompany/totalEstates.svg'
-                        bgColor='bg-[#EDFDEC]'
-                        textColor='text-[#1A8F56]'
-                        bottomLeft='Alpha 56%'
-                        bottomRight='Res. User 44%'
-                    />
-                    <OverviewCard
-                        title='Properties'
-                        number={1532}
-                        iconUrl='/icons/securityCompany/uniqueResidents.svg'
-                        bgColor='bg-[#F5F9FA]'
-                        textColor='text-[#00C2FF]'
-                        bottomLeft='Residential 56%'
-                        bottomRight='Business 44%'
-                    />
-                    <OverviewCard
-                        title='Security Guards'
-                        number={1200}
-                        iconUrl='/icons/securityCompany/AssignedUniqueResidents.svg'
-                        bgColor='bg-[#FCF3FA]'
-                        textColor='text-[#B6008E]'
-                        bottomLeft='23 guards on duty'
-                    />
-                </div>
-            </section>
-
-            <div className='rounded-lg mt-[3rem] h-[80vh]'>
-               
-                    <section>
-                        <div className='estateDetail__radioBox'>
-                            <input
-                                type='radio'
-                                name='resident'
-                                id='unique'
-                                className='hidden'
-                                onChange={() => setCurrentPath('unique')}
-                                defaultChecked
+        <>
+            {isResident ? (
+                <div>
+                    <section className='bg-white rounded-lg p-8 grid text-[1.4rem] w-max'>
+                        <div className='overview flex gap-8'>
+                            <OverviewCard
+                                title='Total Residents'
+                                number={18_000}
+                                iconUrl='/icons/securityCompany/totalEstates.svg'
+                                bgColor='bg-[#EDFDEC]'
+                                textColor='text-[#1A8F56]'
+                                bottomLeft='Alpha 56%'
+                                bottomRight='Res. User 44%'
                             />
-                            <label htmlFor='unique'>Unique Resident</label>
-
-                            <input
-                                type='radio'
-                                name='resident'
-                                id='profile'
-                                className='hidden'
-                                onChange={() => setCurrentPath('profile')}
+                            <OverviewCard
+                                title='Properties'
+                                number={1532}
+                                iconUrl='/icons/securityCompany/uniqueResidents.svg'
+                                bgColor='bg-[#F5F9FA]'
+                                textColor='text-[#00C2FF]'
+                                bottomLeft='Residential 56%'
+                                bottomRight='Business 44%'
                             />
-                            <label htmlFor='profile' className='capitalize'>
-                                Resident Profile
-                            </label>
-                        </div>
-
-                        <div>
-                            {paths.get(currentPath)}
+                            <OverviewCard
+                                title='Security Guards'
+                                number={1200}
+                                iconUrl='/icons/securityCompany/AssignedUniqueResidents.svg'
+                                bgColor='bg-[#FCF3FA]'
+                                textColor='text-[#B6008E]'
+                                bottomLeft='23 guards on duty'
+                            />
                         </div>
                     </section>
-           
+
+                    <div className='rounded-lg mt-[3rem] h-[80vh]'>
+                        <section>
+                            <div className='estateDetail__radioBox'>
+                                <input
+                                    type='radio'
+                                    name='resident'
+                                    id='unique'
+                                    className='hidden'
+                                    onChange={() => setCurrentPath('unique')}
+                                    defaultChecked
+                                />
+                                <label htmlFor='unique'>Unique Resident</label>
+
+                                <input
+                                    type='radio'
+                                    name='resident'
+                                    id='profile'
+                                    className='hidden'
+                                    onChange={() => setCurrentPath('profile')}
+                                />
+                                <label htmlFor='profile' className='capitalize'>
+                                    Resident Profile
+                                </label>
+                            </div>
+
+                            <div>{paths.get(currentPath)}</div>
+                        </section>
+                    </div>
+                </div>
+            ) : (
+                <div className='h-[80vh]'>
                     <section className='grid place-content-center w-full h-full justify-items-center gap-4 bg-white'>
                         <img src='/icons/admins/errorSvg.svg' alt='' />
                         <p className='text'>
@@ -98,9 +100,9 @@ function Residents() {
                             Add Resident
                         </button>
                     </section>
-             
-            </div>
-        </div>
+                </div>
+            )}
+        </>
     )
 }
 
