@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 import { Select } from '../../../../components/SuperAdmin/UI/Select'
 
 function AddResident() {
-    const [selectedPropertyCode, setSelectedPropertyCode] = useState<
-        string | null
-    >(null)
+    const [tenancyType, setTenancyType] = useState<string | null>(
+        'Landlord (developer)'
+    )
 
     return (
         <div className='grid gap-16'>
@@ -69,8 +69,8 @@ function AddResident() {
                         ]}
                         label='Tenancy Type'
                         isSearchable
-                        selectedState={selectedPropertyCode}
-                        setSelectedState={setSelectedPropertyCode}
+                        selectedState={tenancyType}
+                        setSelectedState={setTenancyType}
                     />
                 </div>
             </section>
