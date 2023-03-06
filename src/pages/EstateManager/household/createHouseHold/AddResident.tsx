@@ -9,6 +9,8 @@ function AddResident() {
         'Alice James/SO-2345CDGK'
     )
 
+    const [careTaker, setCareTaker] = useState<string | null>('careTaker 1')
+
     return (
         <div className='grid gap-16'>
             <section className='w-full flex gap-16 relative'>
@@ -95,22 +97,23 @@ function AddResident() {
                             selectedState={selectLandLord}
                             setSelectedState={setSelectLandLord}
                         />
-                        <p className='text-color-blue-1 font-light'>View Details</p>
+                        <p className='text-color-blue-1 font-light'>
+                            View Details
+                        </p>
                     </div>
                     <div>
                         <Select
                             state={[
-                                'Alice James/SO-2345CDGK',
-                                'Osaji James/SO-2345CDGK',
-                                'Ruth James/SO-2345CDGK',
-                                'Timothy James/SO-2345CDGK',
+                                'careTaker 1',
+                                'careTaker 2',
+                                'careTaker 3',
+                                'careTaker 4',
                             ]}
-                            label='Select Landlord'
+                            label='Add Caretaker/Property Admin (optional)'
                             isSearchable
-                            selectedState={selectLandLord}
-                            setSelectedState={setSelectLandLord}
+                            selectedState={careTaker}
+                            setSelectedState={setCareTaker}
                         />
-                        <p></p>
                     </div>
                 </div>
             </section>
