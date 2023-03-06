@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { TfiArrowCircleLeft } from 'react-icons/tfi'
+import { TfiArrowCircleLeft, TfiArrowCircleRight } from 'react-icons/tfi'
 import AddProperty from './AddProperty'
 
 type PathSwitch =
@@ -77,6 +77,10 @@ function CreateHousehold() {
                     <div>
                         <TfiArrowCircleLeft className='overviewWalletNav__toggle' />
                         <span>Previous</span>
+                    </div>
+                    <div>
+                        <TfiArrowCircleRight className='overviewWalletNav__toggle' />
+                        <span>Next</span>
                     </div>
                 </div>
             </section>
