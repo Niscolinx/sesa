@@ -84,15 +84,15 @@ function AddResident() {
                 <div>
                     <Select
                         state={[
-                            'Landlord (developer)',
-                            'Landlord (resident)',
-                            'Landlord (non-resident)',
-                            'Tenant (resident)',
+                            'Alice James/SO-2345CDGK',
+                            'Osaji James/SO-2345CDGK',
+                            'Ruth James/SO-2345CDGK',
+                            'Timothy James/SO-2345CDGK',
                         ]}
-                        label='Tenancy Type'
+                        label='Select Landlord'
                         isSearchable
-                        selectedState={tenancyType}
-                        setSelectedState={setTenancyType}
+                        selectedState={selectLandLord}
+                        setSelectedState={setSelectLandLord}
                     />
                     <p></p>
                 </div>
