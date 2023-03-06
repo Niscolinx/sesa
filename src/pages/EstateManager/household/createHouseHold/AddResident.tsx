@@ -58,6 +58,10 @@ function AddResident() {
 
             <section>
               <p> Step 1 (Select Tenanacy Type)</p>
+
+              <div>
+                
+              </div>
             </section>
         </div>
     )
