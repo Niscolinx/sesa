@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { Fragment, useState } from 'react'
 import { TfiArrowCircleLeft, TfiArrowCircleRight } from 'react-icons/tfi'
 import AddProperty from './AddProperty'
 
@@ -9,6 +9,22 @@ import AddProperty from './AddProperty'
 //     | 'add-accessCard'
 
 const paths = [
+    {
+        name: 'add Property',
+        index: 1
+    },
+    {
+        name: 'add Property',
+        index: 1
+    },
+    {
+        name: 'add Property',
+        index: 1
+    },
+    {
+        name: 'add Property',
+        index: 1
+    },
     'add property',
     'add resident',
     'add RFID',
@@ -32,7 +48,24 @@ function CreateHousehold() {
                 }}
             >
                 {
-                    
+                    paths.map((item) => {
+                        <Fragment key={item}>
+                            <input
+                                type='radio'
+                                name='household'
+                                id={item}
+                                defaultChecked
+                                className='hidden'
+                                onChange={() => setPathToSwitch(1)}
+                            />
+                            <label
+                                htmlFor={item}
+                                className='capitalize'
+                            >
+                                Add Property
+                            </label>
+                        </Fragment>
+                    })
                 }
 
                 <>
