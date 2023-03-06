@@ -95,6 +95,21 @@ function AddResident() {
                             selectedState={selectLandLord}
                             setSelectedState={setSelectLandLord}
                         />
+                        <p className='text-color-blue-1 font-light'>View Details</p>
+                    </div>
+                    <div>
+                        <Select
+                            state={[
+                                'Alice James/SO-2345CDGK',
+                                'Osaji James/SO-2345CDGK',
+                                'Ruth James/SO-2345CDGK',
+                                'Timothy James/SO-2345CDGK',
+                            ]}
+                            label='Select Landlord'
+                            isSearchable
+                            selectedState={selectLandLord}
+                            setSelectedState={setSelectLandLord}
+                        />
                         <p></p>
                     </div>
                 </div>
