@@ -59,42 +59,44 @@ function AddResident() {
                 </div>
             </section>
 
-            <section
-                className='grid'
-                style={{
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(40rem, 1fr))',
-                }}
-            >
+            <section>
                 <p> Step 1 (Select Tenanacy Type)</p>
-
-                <div>
-                    <Select
-                        state={[
-                            'Landlord (developer)',
-                            'Landlord (resident)',
-                            'Landlord (non-resident)',
-                            'Tenant (resident)',
-                        ]}
-                        label='Tenancy Type'
-                        isSearchable
-                        selectedState={tenancyType}
-                        setSelectedState={setTenancyType}
-                    />
-                </div>
-                <div>
-                    <Select
-                        state={[
-                            'Alice James/SO-2345CDGK',
-                            'Osaji James/SO-2345CDGK',
-                            'Ruth James/SO-2345CDGK',
-                            'Timothy James/SO-2345CDGK',
-                        ]}
-                        label='Select Landlord'
-                        isSearchable
-                        selectedState={selectLandLord}
-                        setSelectedState={setSelectLandLord}
-                    />
-                    <p></p>
+                <div
+                    className='grid'
+                    style={{
+                        gridTemplateColumns:
+                            'repeat(auto-fit, minmax(40rem, 1fr))',
+                    }}
+                >
+                    <div>
+                        <Select
+                            state={[
+                                'Landlord (developer)',
+                                'Landlord (resident)',
+                                'Landlord (non-resident)',
+                                'Tenant (resident)',
+                            ]}
+                            label='Tenancy Type'
+                            isSearchable
+                            selectedState={tenancyType}
+                            setSelectedState={setTenancyType}
+                        />
+                    </div>
+                    <div>
+                        <Select
+                            state={[
+                                'Alice James/SO-2345CDGK',
+                                'Osaji James/SO-2345CDGK',
+                                'Ruth James/SO-2345CDGK',
+                                'Timothy James/SO-2345CDGK',
+                            ]}
+                            label='Select Landlord'
+                            isSearchable
+                            selectedState={selectLandLord}
+                            setSelectedState={setSelectLandLord}
+                        />
+                        <p></p>
+                    </div>
                 </div>
             </section>
         </div>
