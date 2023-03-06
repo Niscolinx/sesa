@@ -213,7 +213,7 @@ function HouseHold() {
         })
 
         if (item === 'View Details') {
-            navigate(`/estateManager/household/view/:${index}`)
+            navigate(`/estateManager/household/view-details/:${index}`)
         }
 
         if (item === 'Edit Details') {

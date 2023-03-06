@@ -12,6 +12,7 @@ import AddProperty from '../../pages/EstateManager/properties/AddProperty'
 import ViewProperty from '../../pages/EstateManager/properties/ViewProperty'
 import HouseHold from '../../pages/EstateManager/household/Household'
 import CreateHousehold from '../../pages/EstateManager/household/createHouseHold/CreateHousehold'
+import ViewHouseHold from '../../pages/EstateManager/household/ViewHouseHold'
 
 const estateManagerRoutes = (
     <Route path='/estateManager' element={<Dashboard />}>
@@ -27,6 +28,7 @@ const estateManagerRoutes = (
         <Route path='property/view/:id' element={<ViewProperty />} />
         <Route path='household' element={<HouseHold />} />
         <Route path='household/create-household' element={<CreateHousehold />} />
+        <Route path='household/view-details/:id' element={<ViewHouseHold />} />
     </Route>
 )
 
