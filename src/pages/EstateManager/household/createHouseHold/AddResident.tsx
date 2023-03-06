@@ -6,7 +6,6 @@ function AddResident() {
         string | null
     >(null)
 
-
     return (
         <div className='grid gap-16'>
             <section className='w-full flex gap-16 relative'>
@@ -57,7 +56,9 @@ function AddResident() {
                 </div>
             </section>
 
-            
+            <section>
+              
+            </section>
         </div>
     )
 }
