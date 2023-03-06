@@ -57,11 +57,23 @@ function AddResident() {
             </section>
 
             <section>
-              <p> Step 1 (Select Tenanacy Type)</p>
+                <p> Step 1 (Select Tenanacy Type)</p>
 
-              <div>
-                
-              </div>
+                <div>
+                    <Select
+                        state={[
+                            'ThomasEstate/SO-2345CDGK1',
+                            'ThomasEstate/SO-2345CDGK2',
+                            'ThomasEstate/SO-2345CDGK3',
+                            'ThomasEstate/SO-2345CDGK4',
+                            'ThomasEstate/SO-2345CDGK5',
+                        ]}
+                        label='Property Code*'
+                        isSearchable
+                        selectedState={selectedPropertyCode}
+                        setSelectedState={setSelectedPropertyCode}
+                    />
+                </div>
             </section>
         </div>
     )
