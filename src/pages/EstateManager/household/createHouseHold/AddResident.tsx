@@ -62,11 +62,10 @@ function AddResident() {
                 <div>
                     <Select
                         state={[
-                            'ThomasEstate/SO-2345CDGK1',
-                            'ThomasEstate/SO-2345CDGK2',
-                            'ThomasEstate/SO-2345CDGK3',
-                            'ThomasEstate/SO-2345CDGK4',
-                            'ThomasEstate/SO-2345CDGK5',
+                            'Landlord (developer)',
+                            'Landlord (developer)',
+                            'Landlord (developer)',
+                            'Landlord (developer)',
                         ]}
                         label='Property Code*'
                         isSearchable
