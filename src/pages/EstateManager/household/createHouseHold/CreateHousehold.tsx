@@ -11,19 +11,19 @@ import AddProperty from './AddProperty'
 const paths = [
     {
         name: 'add Property',
-        index: 1,
+        id: 1,
     },
     {
         name: 'add resident',
-        index: 2,
+        id: 2,
     },
     {
         name: 'add RFID',
-        index: 3,
+        id: 3,
     },
     {
         name: 'add accessCard',
-        index: 4,
+        id: 4,
     },
 ]
 function CreateHousehold() {
@@ -51,9 +51,9 @@ function CreateHousehold() {
                                     type='radio'
                                     name='household'
                                     id={item.name}
-                                    checked={item.index === pathToSwitch}
+                                    checked={item.id === pathToSwitch}
                                     className='hidden'
-                                    onChange={() => setPathToSwitch(item.index)}
+                                    onChange={() => setPathToSwitch(item.id)}
                                 />
                                 <label
                                     htmlFor={item.name}
