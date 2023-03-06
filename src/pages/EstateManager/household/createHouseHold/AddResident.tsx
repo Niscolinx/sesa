@@ -64,7 +64,7 @@ function AddResident() {
             <section>
                 <p className='font-semibold'> Step 1 (Select Tenanacy Type)</p>
                 <div
-                    className='grid'
+                    className='grid mt-[5rem]'
                     style={{
                         gridTemplateColumns:
                             'repeat(auto-fit, minmax(40rem, 1fr))',
