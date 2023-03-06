@@ -74,14 +74,14 @@ function CreateHousehold() {
             <section className='bg-color-white rounded-lg mt-[5rem] '>
                 {handlePathSwitch.get(pathToSwitch)}
                 <div className='absolute bottom-0 right-0 flex items-center gap-16 m-10'>
-                    <div className='flex gap items-center cursor-pointer gap-4'>
+                    <button className='flex gap items-center cursor-pointer gap-4'>
                         <TfiArrowCircleLeft className='w-[3rem] h-[3rem] text-color-blue' />
                         <span>Previous</span>
-                    </div>
-                    <div className='flex gap items-center cursor-pointer gap-4'>
+                    </button>
+                    <button className='flex gap items-center cursor-pointer gap-4'>
                         <TfiArrowCircleRight className='w-[3rem] h-[3rem] text-color-blue' />
                         <span className=''>Next</span>
-                    </div>
+                    </button>
                 </div>
             </section>
         </div>
