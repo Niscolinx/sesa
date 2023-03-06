@@ -75,11 +75,11 @@ function CreateHousehold() {
                 {handlePathSwitch.get(pathToSwitch)}
                 <div>
                     <div>
-                        <TfiArrowCircleLeft className='overviewWalletNav__toggle' />
+                        <TfiArrowCircleLeft className='w-[4rem] text-color-blue' />
                         <span>Previous</span>
                     </div>
                     <div>
-                        <TfiArrowCircleRight className='overviewWalletNav__toggle' />
+                        <TfiArrowCircleRight className='w-[4rem] text-color-blue' />
                         <span>Next</span>
                     </div>
                 </div>
