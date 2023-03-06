@@ -76,14 +76,14 @@ function CreateHousehold() {
                 <div className='absolute bottom-0 right-0 flex items-center gap-16 m-10'>
                     <button
                         className='flex gap items-center cursor-pointer gap-4 disabled:opacity-50 disabled:cursor-not-allowed'
-                        disabled={pathToSwitch === 'add-property'}
+                        disabled={pathToSwitch === 1}
                     >
                         <TfiArrowCircleLeft className='w-[3rem] h-[3rem] text-color-blue' />
                         <span>Previous</span>
                     </button>
                     <button
                         className='flex gap items-center cursor-pointer gap-4 disabled:opacity-50 disabled:cursor-not-allowed'
-                        disabled={pathToSwitch === 'add-accessCard'}
+                        disabled={pathToSwitch === 4}
                     >
                         {' '}
                         <TfiArrowCircleRight className='w-[3rem] h-[3rem] text-color-blue' />
