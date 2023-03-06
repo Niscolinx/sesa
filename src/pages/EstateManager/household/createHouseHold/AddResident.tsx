@@ -65,9 +65,9 @@ function AddResident() {
                             'Landlord (developer)',
                             'Landlord (resident)',
                             'Landlord (non-resident)',
-                            'Landlord (developer)',
+                            'Tenant (resident)',
                         ]}
-                        label='Property Code*'
+                        label='Tenancy Type'
                         isSearchable
                         selectedState={selectedPropertyCode}
                         setSelectedState={setSelectedPropertyCode}
