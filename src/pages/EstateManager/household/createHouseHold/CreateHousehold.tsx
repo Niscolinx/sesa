@@ -45,7 +45,7 @@ function CreateHousehold() {
             >
                 <>
                     {paths.map((item) => {
-                        ;<Fragment key={item.name}>
+                        <Fragment key={item.name}>
                             <input
                                 type='radio'
                                 name='household'
