@@ -2,20 +2,20 @@ import { useState } from 'react'
 import { TfiArrowCircleLeft, TfiArrowCircleRight } from 'react-icons/tfi'
 import AddProperty from './AddProperty'
 
-type PathSwitch =
-    | 'add-property'
-    | 'add-resident'
-    | 'add-RFID'
-    | 'add-accessCard'
+// type PathSwitch =
+//     | 'add-property'
+//     | 'add-resident'
+//     | 'add-RFID'
+//     | 'add-accessCard'
 
 function CreateHousehold() {
-    const [pathToSwitch, setPathToSwitch] = useState<PathSwitch>('add-property')
+    const [pathToSwitch, setPathToSwitch] = useState(1)
 
-    const handlePathSwitch = new Map<PathSwitch, JSX.Element>([
-        ['add-property', <AddProperty />],
-        ['add-resident', <></>],
-        ['add-RFID', <></>],
-        ['add-accessCard', <></>],
+    const handlePathSwitch = new Map<number, JSX.Element>([
+        [1, <AddProperty />],
+        [2, <></>],
+        [3, <></>],
+        [4, <></>],
     ])
     return (
         <div className='bg-white p-16 rounded-lg min-h-[90vh] relative'>
@@ -32,7 +32,7 @@ function CreateHousehold() {
                         id='add-property'
                         defaultChecked
                         className='hidden'
-                        onChange={() => setPathToSwitch('add-property')}
+                        onChange={() => setPathToSwitch(1)}
                     />
                     <label htmlFor='add-property' className='capitalize'>
                         Add Property
@@ -45,7 +45,7 @@ function CreateHousehold() {
                         name='household'
                         id='add-resident'
                         className='hidden'
-                        onChange={() => setPathToSwitch('add-resident')}
+                        onChange={() => setPathToSwitch(2)}
                     />
                     <label htmlFor='add-resident'>Add Resident</label>
                 </>
