@@ -242,7 +242,7 @@ const ViewResident = () => {
                                 </p>
                                 <p className='flex items-center gap-4'>
                                     <span className='flex items-center gap-2'>
-                                        KYG Status <BsQuestionCircle />:
+                                        KYR Status <BsQuestionCircle />:
                                     </span>
                                     {isValidated ? (
                                         <span
