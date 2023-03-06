@@ -51,7 +51,7 @@ function CreateHousehold() {
                                     type='radio'
                                     name='household'
                                     id={item.name}
-                                    defaultChecked = {item.name === 'add property'}
+                                    checked={item.index === pathToSwitch}
                                     className='hidden'
                                     onChange={() => setPathToSwitch(item.index)}
                                 />
