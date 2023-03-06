@@ -5,6 +5,7 @@ function AddResident() {
     const [selectedPropertyCode, setSelectedPropertyCode] = useState<
         string | null
     >(null)
+    
 
     return (
         <div className='grid gap-16'>
@@ -24,7 +25,7 @@ function AddResident() {
                                 Property Code
                             </p>
                             <p className='font-[1.6rem] whitespace-nowrap'>
-                                {selectedPropertyCode}
+                                ThomasEstate/SO-2345CDGK1
                             </p>
                         </div>
                         <div>
