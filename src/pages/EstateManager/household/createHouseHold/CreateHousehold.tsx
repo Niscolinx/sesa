@@ -24,8 +24,7 @@ const paths = [
     {
         name: 'add accessCard',
         index: 4,
-    }
-  
+    },
 ]
 function CreateHousehold() {
     const [pathToSwitch, setPathToSwitch] = useState(1)
@@ -44,71 +43,22 @@ function CreateHousehold() {
                     marginTop: '0',
                 }}
             >
-                {
-                    paths.map((item) => {
-                        <Fragment key={item}>
+                <>
+                    {paths.map((item) => {
+                        ;<Fragment key={item.name}>
                             <input
                                 type='radio'
                                 name='household'
-                                id={item}
+                                id={item.name}
                                 defaultChecked
                                 className='hidden'
-                                onChange={() => setPathToSwitch(1)}
+                                onChange={() => setPathToSwitch(item.index)}
                             />
-                            <label
-                                htmlFor={item}
-                                className='capitalize'
-                            >
-                                Add Property
+                            <label htmlFor={item.name} className='capitalize'>
+                                {item.name}
                             </label>
                         </Fragment>
-                    })
-                }
-
-                <>
-                    <input
-                        type='radio'
-                        name='household'
-                        id='add-property'
-                        defaultChecked
-                        className='hidden'
-                        onChange={() => setPathToSwitch(1)}
-                    />
-                    <label htmlFor='add-property' className='capitalize'>
-                        Add Property
-                    </label>
-                </>
-
-                <>
-                    <input
-                        type='radio'
-                        name='household'
-                        id='add-resident'
-                        className='hidden'
-                        onChange={() => setPathToSwitch(2)}
-                    />
-                    <label htmlFor='add-resident'>Add Resident</label>
-                </>
-
-                <>
-                    <input
-                        type='radio'
-                        name='household'
-                        id='add-RFID'
-                        className='hidden'
-                        onChange={() => setPathToSwitch(3)}
-                    />
-                    <label htmlFor='add-RFID'>Add RFID (Car Sticker)</label>
-                </>
-                <>
-                    <input
-                        type='radio'
-                        name='household'
-                        id='add-accessCard'
-                        className='hidden'
-                        onChange={() => setPathToSwitch(4)}
-                    />
-                    <label htmlFor='add-accessCard'>Add Access Card</label>
+                    })}
                 </>
             </div>
             <section className='bg-color-white rounded-lg mt-[5rem] '>
@@ -131,7 +81,7 @@ function CreateHousehold() {
                         disabled={pathToSwitch === 4}
                         onClick={() =>
                             setPathToSwitch((prev) => {
-                                console.log({prev})
+                                console.log({ prev })
                                 return prev === 4 ? prev : prev + 1
                             })
                         }
