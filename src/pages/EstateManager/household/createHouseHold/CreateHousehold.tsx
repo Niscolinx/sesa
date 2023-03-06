@@ -67,7 +67,7 @@ function CreateHousehold() {
                     })}
                 </>
             </div>
-            <section className='bg-color-white rounded-lg my-[5rem] '>
+            <section className='bg-color-white rounded-lg mt-[5rem] mb-[10rem] '>
                 {handlePathSwitch.get(pathToSwitch)}
             </section>
             <div className='absolute bottom-0 right-0 flex items-center gap-16 m-10'>
