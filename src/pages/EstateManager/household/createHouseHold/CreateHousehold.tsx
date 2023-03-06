@@ -75,7 +75,7 @@ function CreateHousehold() {
                 {handlePathSwitch.get(pathToSwitch)}
                 <div className='absolute bottom-0 right-0 flex items-center gap-16 m-10'>
                     <div className='flex gap items-center cursor-pointer'>
-                        <TfiArrowCircleLeft className='w-[4rem] text-color-blue' />
+                        <TfiArrowCircleLeft className='] h-[4rem] text-color-blue' />
                         <span>Previous</span>
                     </div>
                     <div className='flex gap items-center cursor-pointer'>
