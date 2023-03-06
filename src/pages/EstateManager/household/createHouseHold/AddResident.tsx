@@ -63,8 +63,8 @@ function AddResident() {
                     <Select
                         state={[
                             'Landlord (developer)',
-                            'Landlord (developer)',
-                            'Landlord (developer)',
+                            'Landlord (resident)',
+                            'Landlord (non-resident)',
                             'Landlord (developer)',
                         ]}
                         label='Property Code*'
