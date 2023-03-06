@@ -11,24 +11,21 @@ import AddProperty from './AddProperty'
 const paths = [
     {
         name: 'add Property',
-        index: 1
+        index: 1,
     },
     {
-        name: 'add Property',
-        index: 1
+        name: 'add resident',
+        index: 2,
     },
     {
-        name: 'add Property',
-        index: 1
+        name: 'add RFID',
+        index: 3,
     },
     {
-        name: 'add Property',
-        index: 1
-    },
-    'add property',
-    'add resident',
-    'add RFID',
-    'add accessCard'
+        name: 'add accessCard',
+        index: 4,
+    }
+  
 ]
 function CreateHousehold() {
     const [pathToSwitch, setPathToSwitch] = useState(1)
