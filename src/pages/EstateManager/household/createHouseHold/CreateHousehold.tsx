@@ -8,6 +8,12 @@ import AddProperty from './AddProperty'
 //     | 'add-RFID'
 //     | 'add-accessCard'
 
+const paths = [
+    'add property',
+    'add resident',
+    'add RFID',
+    'add accessCard'
+]
 function CreateHousehold() {
     const [pathToSwitch, setPathToSwitch] = useState(1)
 
@@ -25,6 +31,10 @@ function CreateHousehold() {
                     marginTop: '0',
                 }}
             >
+                {
+                    
+                }
+
                 <>
                     <input
                         type='radio'
@@ -78,9 +88,9 @@ function CreateHousehold() {
                         className='flex gap items-center cursor-pointer gap-4 disabled:opacity-50 disabled:cursor-not-allowed'
                         disabled={pathToSwitch === 1}
                         onClick={() =>
-                            setPathToSwitch((prev) =>
-                                prev === 1 ? prev : prev--
-                            )
+                            setPathToSwitch((prev) => {
+                                return prev === 1 ? prev : prev - 1
+                            })
                         }
                     >
                         <TfiArrowCircleLeft className='w-[3rem] h-[3rem] text-color-blue' />
@@ -90,9 +100,10 @@ function CreateHousehold() {
                         className='flex gap items-center cursor-pointer gap-4 disabled:opacity-50 disabled:cursor-not-allowed'
                         disabled={pathToSwitch === 4}
                         onClick={() =>
-                            setPathToSwitch((prev) =>
-                                prev === 4 ? prev : prev++
-                            )
+                            setPathToSwitch((prev) => {
+                                console.log({prev})
+                                return prev === 4 ? prev : prev + 1
+                            })
                         }
                     >
                         {' '}
