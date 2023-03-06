@@ -22,15 +22,35 @@ function AddProperty() {
                     setSelectedState={setSelectedPropertyCode}
                 />
             </div>
-            <section className='w-full flex bg-white p-8 rounded-lg gap-16 relative'>
+            <section className='w-full flex gap-16 relative'>
                 <div>
                     <img
                         src={'/img/img3.png'}
                         alt=''
-                        className='w-[42rem] h-[26rem] object-cover rounded-lg'
+                        className='w-[20rem] h-[18rem] object-cover rounded-lg'
                     />
                 </div>
 
+                <div className='grid'>
+                    <div>
+                        <p className='text-[1.4rem] text-[#043FA7]'>
+                            Estate&nbsp;Name
+                        </p>
+                        <p className='font-[1.6rem] whitespace-nowrap'>
+                            Iba Housing Estate
+                        </p>
+                    </div>
+                    <div>
+                        <p className='text-[#043FA7]'>
+                            Number of Security Guards
+                        </p>
+                        <p>21</p>
+                    </div>
+                    <div>
+                        <p className='text-[#043FA7]'>Status</p>
+                        <p className='text-[#1D9F5F]'>Active</p>
+                    </div>
+                </div>
                 <div className='grid'>
                     <div>
                         <p className='text-[1.4rem] text-[#043FA7]'>
