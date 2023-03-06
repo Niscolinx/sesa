@@ -5,8 +5,9 @@ function AddProperty() {
     const [selectedPropertyCode, setSelectedPropertyCode] = useState<
         string | null
     >(null)
+
     return (
-        <div>
+        <div className='grid gap-16'>
             <div className='w-[30rem]'>
                 <Select
                     state={[
@@ -34,44 +35,41 @@ function AddProperty() {
                 <div className='grid'>
                     <div>
                         <p className='text-[1.4rem] text-[#043FA7]'>
-                            Estate&nbsp;Name
+                            Property Code
                         </p>
                         <p className='font-[1.6rem] whitespace-nowrap'>
-                            Iba Housing Estate
+                            {selectedPropertyCode}
                         </p>
                     </div>
                     <div>
-                        <p className='text-[#043FA7]'>
-                            Number of Security Guards
-                        </p>
-                        <p>21</p>
+                        <p className='text-[#043FA7]'>Property Type</p>
+                        <p>Duplex</p>
                     </div>
                     <div>
-                        <p className='text-[#043FA7]'>Status</p>
-                        <p className='text-[#1D9F5F]'>Active</p>
+                        <p className='text-[#043FA7]'>Property Address</p>
+                        <p>
+                            10, Address Street, Address Avenue, Lagos, Nigeria.
+                        </p>{' '}
                     </div>
                 </div>
                 <div className='grid'>
                     <div>
                         <p className='text-[1.4rem] text-[#043FA7]'>
-                            Estate&nbsp;Name
+                            Property Category
                         </p>
                         <p className='font-[1.6rem] whitespace-nowrap'>
-                            Iba Housing Estate
+                            Business
                         </p>
                     </div>
                     <div>
-                        <p className='text-[#043FA7]'>
-                            Number of Security Guards
-                        </p>
-                        <p>21</p>
+                        <p className='text-[#043FA7]'>Property Name</p>
+                        <p>Wale House</p>
                     </div>
                     <div>
                         <p className='text-[#043FA7]'>Status</p>
                         <p className='text-[#1D9F5F]'>Active</p>
                     </div>
                 </div>
-               
             </section>
         </div>
     )
