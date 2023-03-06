@@ -9,6 +9,7 @@ import AddProperty from './AddProperty'
 //     | 'add-RFID'
 //     | 'add-accessCard'
 
+
 const paths = [
     {
         name: 'add Property',
