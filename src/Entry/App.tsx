@@ -13,6 +13,8 @@ import 'react-toastify/dist/ReactToastify.css'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
+import 'animate.css'
+
 
 import Login from '../pages/Login'
 import superAdminRoutes from './routes/superAdminRoutes'

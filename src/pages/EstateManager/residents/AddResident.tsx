@@ -259,6 +259,10 @@ const AddResident = () => {
                                 <img
                                     src='/icons/admins/modalSuccess.svg'
                                     alt=''
+                                    className='animate__animated animate__pulse '
+                                    style={{
+                                        animationIterationCount: 'infinite'
+                                    }}
                                 />
                                 <p className='text-[1.6rem]'>
                                     You have successfully added a Resident
