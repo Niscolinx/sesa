@@ -71,12 +71,14 @@ function CreateHousehold() {
                     <label htmlFor='add-accessCard'>Add Access Card</label>
                 </>
             </div>
-            <section className='bg-color-white rounded-lg mt-[5rem]'>
+            <section className='bg-color-white rounded-lg mt-[5rem] relative'>
                 {handlePathSwitch.get(pathToSwitch)}
-                <TfiArrowCircleLeft
-               
-                    className='overviewWalletNav__toggle'
-                />
+                <div>
+                    <div>
+                        <TfiArrowCircleLeft className='overviewWalletNav__toggle' />
+                        <span>Previous</span>
+                    </div>
+                </div>
             </section>
         </div>
     )
