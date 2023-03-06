@@ -56,7 +56,7 @@ function CreateHousehold() {
                         name='household'
                         id='add-RFID'
                         className='hidden'
-                        onChange={() => setPathToSwitch('add-RFID')}
+                        onChange={() => setPathToSwitch(3)}
                     />
                     <label htmlFor='add-RFID'>Add RFID (Car Sticker)</label>
                 </>
@@ -66,7 +66,7 @@ function CreateHousehold() {
                         name='household'
                         id='add-accessCard'
                         className='hidden'
-                        onChange={() => setPathToSwitch('add-accessCard')}
+                        onChange={() => setPathToSwitch(4)}
                     />
                     <label htmlFor='add-accessCard'>Add Access Card</label>
                 </>
