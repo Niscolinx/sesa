@@ -45,19 +45,24 @@ function CreateHousehold() {
             >
                 <>
                     {paths.map((item) => {
-                        <Fragment key={item.name}>
-                            <input
-                                type='radio'
-                                name='household'
-                                id={item.name}
-                                defaultChecked
-                                className='hidden'
-                                onChange={() => setPathToSwitch(item.index)}
-                            />
-                            <label htmlFor={item.name} className='capitalize'>
-                                {item.name}
-                            </label>
-                        </Fragment>
+                        return (
+                            <Fragment key={item.name}>
+                                <input
+                                    type='radio'
+                                    name='household'
+                                    id={item.name}
+                                    defaultChecked
+                                    className='hidden'
+                                    onChange={() => setPathToSwitch(item.index)}
+                                />
+                                <label
+                                    htmlFor={item.name}
+                                    className='capitalize'
+                                >
+                                    {item.name}
+                                </label>
+                            </Fragment>
+                        )
                     })}
                 </>
             </div>
