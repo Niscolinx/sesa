@@ -5,6 +5,9 @@ function AddResident() {
     const [tenancyType, setTenancyType] = useState<string | null>(
         'Landlord (developer)'
     )
+    const [selectLandLord, setSelectLandLord] = useState<string | null>(
+        'Alice James/SO-2345CDGK'
+    )
 
     return (
         <div className='grid gap-16'>
@@ -56,9 +59,12 @@ function AddResident() {
                 </div>
             </section>
 
-            <section className='grid' style={{
-                gridTemplateColumns: 'repeat(auto-fit, minmax(40rem, 1fr))'
-            }}>
+            <section
+                className='grid'
+                style={{
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(40rem, 1fr))',
+                }}
+            >
                 <p> Step 1 (Select Tenanacy Type)</p>
 
                 <div>
