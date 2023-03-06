@@ -1,5 +1,6 @@
 import { Fragment, useState } from 'react'
 import { TfiArrowCircleLeft, TfiArrowCircleRight } from 'react-icons/tfi'
+import AddResident from './AddResident'
 import AddProperty from './AddProperty'
 
 // type PathSwitch =
@@ -31,7 +32,7 @@ function CreateHousehold() {
 
     const handlePathSwitch = new Map<number, JSX.Element>([
         [1, <AddProperty />],
-        [2, <></>],
+        [2, <AddResident/>],
         [3, <></>],
         [4, <></>],
     ])
