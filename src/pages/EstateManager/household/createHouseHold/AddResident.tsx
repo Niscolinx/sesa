@@ -64,7 +64,7 @@ function AddResident() {
             <section>
                 <p className='font-semibold'> Step 1 (Select Tenanacy Type)</p>
                 <div
-                    className='grid mt-[5rem]'
+                    className='grid mt-[5rem] gap-16'
                     style={{
                         gridTemplateColumns:
                             'repeat(auto-fit, minmax(40rem, 1fr))',
@@ -97,7 +97,7 @@ function AddResident() {
                             selectedState={selectLandLord}
                             setSelectedState={setSelectLandLord}
                         />
-                        <p className='text-color-blue-1 font-light'>
+                        <p className='text-color-blue-1 font-light text-[1.2rem]'>
                             View Details
                         </p>
                     </div>
