@@ -62,7 +62,7 @@ function AddResident() {
             </section>
 
             <section>
-                <p> Step 1 (Select Tenanacy Type)</p>
+                <p className='font-semibold'> Step 1 (Select Tenanacy Type)</p>
                 <div
                     className='grid'
                     style={{
