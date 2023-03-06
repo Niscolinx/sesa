@@ -56,7 +56,9 @@ function AddResident() {
                 </div>
             </section>
 
-            <section>
+            <section className='grid' style={{
+                gridTemplateColumns: 'repeat(auto-fit, minmax(40rem, 1fr))'
+            }}>
                 <p> Step 1 (Select Tenanacy Type)</p>
 
                 <div>
@@ -72,6 +74,21 @@ function AddResident() {
                         selectedState={tenancyType}
                         setSelectedState={setTenancyType}
                     />
+                </div>
+                <div>
+                    <Select
+                        state={[
+                            'Landlord (developer)',
+                            'Landlord (resident)',
+                            'Landlord (non-resident)',
+                            'Tenant (resident)',
+                        ]}
+                        label='Tenancy Type'
+                        isSearchable
+                        selectedState={tenancyType}
+                        setSelectedState={setTenancyType}
+                    />
+                    <p></p>
                 </div>
             </section>
         </div>
