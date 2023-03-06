@@ -5,7 +5,7 @@ function AddResident() {
     const [selectedPropertyCode, setSelectedPropertyCode] = useState<
         string | null
     >(null)
-    
+
 
     return (
         <div className='grid gap-16'>
@@ -56,6 +56,8 @@ function AddResident() {
                     </div>
                 </div>
             </section>
+
+            
         </div>
     )
 }
