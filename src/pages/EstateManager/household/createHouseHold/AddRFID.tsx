@@ -237,7 +237,7 @@ function AddRFID() {
                             alt=''
                             className='self-end justify-self-end cursor-pointer'
                         />
-                        <div className='flex gap-16  items-center'>
+                        <div className='flex gap-16 items-center pb-8'>
                             <img
                                 src={photoUrl || '/img/avatar11.png'}
                                 alt='photoPreview'
