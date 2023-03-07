@@ -25,7 +25,7 @@ function AddResident() {
         setAddResidentUser,
     } = useContext(HouseholdContext)
     const [dialogType, setDialogType] = useState<DialogType>()
-    const [dialogDetails, setDialogDetails] = useState<DetailDialogType>()
+    const [dialogDetailType, setDialogDetailType] = useState<DetailDialogType>()
     const [addResidentUserCount, setAddResidentUserCount] = useState(2)
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
@@ -47,8 +47,8 @@ function AddResident() {
 
     const openDetailDialog = (detailDialogType: DetailDialogType) => {
         detailDialogType === 'alphaResident'
-            ? setDialogDetails('alphaResident')
-            : setDialogDetails('landlord')
+            ? setDialogDetailType('alphaResident')
+            : setDialogDetailType('landlord')
 
         if (DetailRef.current) {
             return DetailRef.current.showModal()
@@ -104,7 +104,11 @@ function AddResident() {
             <dialog className='dialog' ref={DetailRef}>
                 <section className='grid  w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid items-baseline w-[64rem] min-h-[30rem] p-10 gap-8 text-[1.6rem] relative'>
-                        {d}
+                        {dialogDetailType === 'alphaResident' ? (
+                            <p>Alpha Resident</p>
+                        ) : (
+                            <p>Alpha Resident</p>
+                        )}
 
                         <div className='flex w-full justify-center gap-8'>
                             <button
