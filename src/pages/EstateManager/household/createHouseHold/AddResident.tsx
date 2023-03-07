@@ -97,7 +97,7 @@ function AddResident() {
                             selectedState={selectLandLord}
                             setSelectedState={setSelectLandLord}
                         />
-                        <p className='text-color-blue-1 font-light text-[1.2rem] p-2'>
+                        <p className='text-color-blue-1 font-light text-[1.2rem] p-2 opacity-70'>
                             View Details
                         </p>
                     </div>
