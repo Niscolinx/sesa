@@ -1,5 +1,6 @@
 import React, { Fragment, useContext, useRef, useState } from 'react'
 import { BsQuestionCircle } from 'react-icons/bs'
+import { GrAdd } from 'react-icons/gr'
 import {
     MultipleSelect,
     Select,
@@ -323,15 +324,14 @@ function AddResident() {
                             </Fragment>
                         )
                     })}
-                     <div className='col-span-full rounded-lg border border-width-[.2rem] border-dashed border-color-grey-1 p-8 text-[1.6rem] relative w-full'>
-                        
-                        <p>
+                    <div className='col-span-full rounded-lg border border-width-[.2rem] border-dashed border-color-grey-1 p-8 text-[1.6rem] relative w-full justify-items-center'>
+                        <p className='flex items-center gap-8'>
                             <span>
-                                <GrAdd/>
+                                <GrAdd />
                             </span>
+                            <span>Add Resident User</span>
                         </p>
-
-                        </div>
+                    </div>
                 </section>
             </div>
         </>
