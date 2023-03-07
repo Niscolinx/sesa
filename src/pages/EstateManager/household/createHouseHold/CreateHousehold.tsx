@@ -60,9 +60,13 @@ function CreateHousehold() {
     const [tenancyType, setTenancyType] = useState<T>('')
     const [selectLandLord, setSelectLandLord] = useState<T>('')
     const [careTaker, setCareTaker] = useState<T>('')
-    const [alphaPropertyCode, setAlphaPropertyCode] = useState<T>('')
+    const [alphaPropertyCode, setAlphaPropertyCode] = useState<T>(
+        'Alice James/SO-2345CDGK'
+    )
 
-    const [alphaResident, setAlphaResident] = useState<T>('')
+    const [alphaResident, setAlphaResident] = useState<T>(
+        'Osaji Valentine/SE-73'
+    )
 
     const handlePathSwitch = new Map<number, JSX.Element>([
         [1, <AddProperty />],

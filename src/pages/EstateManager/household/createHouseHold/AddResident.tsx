@@ -1,6 +1,9 @@
 import React, { useContext, useRef, useState } from 'react'
 import { BsQuestionCircle } from 'react-icons/bs'
-import { MultipleSelect, Select } from '../../../../components/SuperAdmin/UI/Select'
+import {
+    MultipleSelect,
+    Select,
+} from '../../../../components/SuperAdmin/UI/Select'
 import { HouseholdContext } from './CreateHousehold'
 
 function AddResident() {
@@ -15,7 +18,7 @@ function AddResident() {
         alphaPropertyCode,
         setAlphaPropertyCode,
         alphaResident,
-        setAlphaResident
+        setAlphaResident,
     } = useContext(HouseholdContext)
     const [dialogType, setDialogType] = useState<DialogType>()
 
@@ -225,7 +228,6 @@ function AddResident() {
                                     ]}
                                     label='Property Type'
                                     isSearchable
-                                    placeholder='Alice James/SO-2345CDGK'
                                     selectedState={alphaPropertyCode}
                                     setSelectedState={setAlphaPropertyCode}
                                 />
@@ -243,10 +245,7 @@ function AddResident() {
                                     label='Alpha Resident 02*'
                                     color={'[#076AFF]'}
                                     isSearchable
-                                    placeholder='Osaji Valentine/SE-73'
-                                    selectedState={
-                                        alphaResident 
-                                    }
+                                    selectedState={alphaResident}
                                     setSelectedState={setAlphaResident}
                                 />
 
