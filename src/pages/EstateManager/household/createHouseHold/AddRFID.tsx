@@ -189,7 +189,7 @@ function AddRFID() {
                                 'Car',
                                 'SUV',
                                 'Bus',
-                                'Truck'
+                                'Truck',
                             ]}
                             label='Vehicle Type'
                             isSearchable
@@ -240,7 +240,13 @@ function AddRFID() {
                         </div>
                     </div>
                 </section>
-               
+                <button
+                    className='btn text-color-blue-1 border border-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
+                    style={{ justifySelf: 'start' }}
+                >
+                 
+                    Add 
+                </button>
             </div>
         </>
     )
