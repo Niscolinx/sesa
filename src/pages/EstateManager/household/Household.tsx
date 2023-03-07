@@ -269,9 +269,20 @@ function HouseHold() {
                                     setSelectedState={setSelectedPropertyCode}
                                 />
                             </div>
-                            <button className='btn bg-[#0556E5] text-white rounded-lg py-4 place-self-start w-[15rem]' onClick={
-                                () => navigate('/estateManager/household/create-household')
-                            }>
+                            <button
+                                className='btn bg-[#0556E5] text-white rounded-lg py-4 place-self-start w-[15rem]'
+                                onClick={() =>
+                                    navigate(
+                                        '/estateManager/household/create-household',
+                                        {
+                                            state: {
+                                                selectedPropertyCode,
+                                                setSelectedPropertyCode,
+                                            },
+                                        }
+                                    )
+                                }
+                            >
                                 Continue
                             </button>
                         </div>
