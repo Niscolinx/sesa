@@ -9,8 +9,14 @@ import { getPhotoUrl } from '../../../../utils/getPhotoUrl'
 import { HouseholdContext } from './CreateHousehold'
 
 function AddRFID() {
-   
+    
+    interface InputField {
+        
+    }
+
     const { vehicleType, setVehicleType } = useContext(HouseholdContext)
+
+    const [inputField, setInputField] = useState<>()
 
     const [photoUrl, setPhotoUrl] = useState('')
 
