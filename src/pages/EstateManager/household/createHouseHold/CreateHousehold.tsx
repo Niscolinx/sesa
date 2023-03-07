@@ -67,6 +67,12 @@ function CreateHousehold() {
                 value={{
                     selectedPropertyCode,
                     setSelectedPropertyCode,
+                    tenancyType,
+                    setTenancyType,
+                    selectLandLord,
+                    setSelectLandLord,
+                    careTaker,
+                    setCareTaker
                 }}
             >
                 <div className='bg-white p-16 rounded-lg min-h-[90vh] relative'>
