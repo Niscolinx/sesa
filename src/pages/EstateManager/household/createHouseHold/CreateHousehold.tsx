@@ -45,8 +45,12 @@ export interface HouseholdContext {
     setAlphaPropertyCode: D
     alphaResident: T
     setAlphaResident: D
-    addResidentUser:T
-    setAddResidentUser:D
+    addResidentUser: { [key: number]: string } | null
+    setAddResidentUser: Dispatch<
+        SetStateAction<{
+            [key: number]: string
+        } | null>
+    >
 }
 
 export const HouseholdContext = createContext<HouseholdContext>(null as any)
@@ -70,7 +74,9 @@ function CreateHousehold() {
         'Osaji Valentine/SE-73'
     )
 
-    const [addResidentUser, setAddResidentUser] = useState<T>(null)
+    const [addResidentUser, setAddResidentUser] = useState<{
+        [key: number]: string
+    } | null>(null)
 
     const handlePathSwitch = new Map<number, JSX.Element>([
         [1, <AddProperty />],
@@ -95,7 +101,7 @@ function CreateHousehold() {
                     alphaResident,
                     setAlphaResident,
                     addResidentUser,
-                    setAddResidentUser
+                    setAddResidentUser,
                 }}
             >
                 <div className='bg-white p-16 rounded-lg min-h-[90vh] relative'>
