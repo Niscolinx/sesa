@@ -17,7 +17,6 @@ function AddRFID() {
         photoUrl: string
     }
 
-    const formRef = useRef<HTMLFormElement | null>(null)
 
     const RFID_Details: InputField[] = []
 
@@ -41,6 +40,7 @@ function AddRFID() {
 
         RFID_Details.push(details)
 
+      
         
     }
 
@@ -157,7 +157,7 @@ function AddRFID() {
                         {' '}
                         Add an RFID to this property{' '}
                     </p>
-                    <form onSubmit={handleSubmit} ref={formRef}>
+                    <form onSubmit={handleSubmit}>
                         <div
                             className='grid mt-[5rem] gap-16'
                             style={{
