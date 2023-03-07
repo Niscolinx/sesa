@@ -10,7 +10,7 @@ import { HouseholdContext } from './CreateHousehold'
 
 function AddRFID() {
     interface InputField {
-        RFID: string
+        RFID: number | null
         vehicleRegNumber: number | null
         vehicleMake: string
         vehicleType: string
@@ -19,13 +19,11 @@ function AddRFID() {
     const { vehicleType, setVehicleType } = useContext(HouseholdContext)
 
     const [inputField, setInputField] = useState<InputField>({
-        RFID: '',
+        RFID: null,
         vehicleMake: '',
         vehicleRegNumber: null,
         vehicleType: '',
     })
-
-   
 
     const handleSubmit = (e: FormEvent) => {
         e.preventDefault()
@@ -54,10 +52,8 @@ function AddRFID() {
         }
     }
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement> ) => {
-        const {name, value} = e.target
-
-        
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target
     }
 
     return (
@@ -141,118 +137,122 @@ function AddRFID() {
                         {' '}
                         Add an RFID to this property{' '}
                     </p>
-                    <form
-                        className='grid mt-[5rem] gap-16'
-                        style={{
-                            gridTemplateColumns:
-                                'repeat(auto-fit, minmax(40rem, 1fr))',
-                        }}
-                        onSubmit={handleSubmit}
-                    >
-                        <div className='grid gap-4 relative ' onChange={handleChange}>
-                            <label
-                                htmlFor='RFID'
-                                className='text-[1.4rem] font-medium'
+                    <form onSubmit={handleSubmit}>
+                        <div
+                            className='grid mt-[5rem] gap-16'
+                            style={{
+                                gridTemplateColumns:
+                                    'repeat(auto-fit, minmax(40rem, 1fr))',
+                            }}
+                        >
+                            <div
+                                className='grid gap-4 relative '
+                                onChange={handleChange}
                             >
-                                RFID Seriel Number *
-                            </label>
-                            <input
-                                type='text'
-                                required
-                                id='RFID'
-                                name='RFID'
-                                value={inputField['RFID']}
-                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                            />
-                        </div>
-                        <div className='grid gap-4 relative '>
-                            <label
-                                htmlFor='vehicleRegNumber'
-                                className='text-[1.4rem] font-medium'
-                            >
-                                Vehicle Registration Number*
-                            </label>
-                            <input
-                                type='number'
-                                required
-                                id='vehicleRegNumber'
-                                name='vehicleRegNumber'
-                                value={inputField['vehicleRegNumber'] as number}
-                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                            />
-                        </div>
-                        <div className='grid gap-4 relative '>
-                            <label
-                                htmlFor='vehicleMake'
-                                className='text-[1.4rem] font-medium'
-                            >
-                                Vehicle Make *
-                            </label>
-                            <input
-                                type='text'
-                                required
-                                id='vehicleMake'
-                                name='vehicleMake'
-                                value={inputField['vehicleMake']}
-                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                            />
-                        </div>
-
-                        <Select
-                            state={[
-                                'Motor Bike',
-                                'Tricycle (keke)',
-                                'Car',
-                                'SUV',
-                                'Bus',
-                                'Truck',
-                            ]}
-                            label='Vehicle Type'
-                            isSearchable
-                            selectedState={vehicleType}
-                            setSelectedState={setVehicleType}
-                        />
-
-                        <div className='col-span-full rounded-lg border border-width-[.2rem] border-dashed border-color-grey-1 p-8 text-[1.6rem] relative w-full'>
-                            <label
-                                htmlFor='photoUpload'
-                                className='flex justify-center gap-4 items-center cursor-pointer'
-                            >
-                                <img
-                                    src='/icons/admins/photo_library.svg'
-                                    alt=''
-                                />
-                                <p
-                                    className='text-color-dark-1'
-                                    style={{
-                                        fontFamily: 'Satoshi-Light',
-                                    }}
+                                <label
+                                    htmlFor='RFID'
+                                    className='text-[1.4rem] font-medium'
                                 >
-                                    Drag estate manager picture here or{' '}
-                                    <span className='text-color-blue font-bold'>
-                                        click
-                                    </span>{' '}
-                                    to upload
-                                </p>
-                            </label>
-                            <input
-                                type='file'
-                                name='photoUpload'
-                                id='photoUpload'
-                                accept='image/*'
-                                className='hidden'
-                                onClick={handlePhotoPreview}
+                                    RFID Seriel Number *
+                                </label>
+                                <input
+                                    type='number'
+                                    required
+                                    id='RFID'
+                                    name='RFID'
+                                    value={inputField['RFID'] as number}
+                                    className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                                />
+                            </div>
+                            <div className='grid gap-4 relative '>
+                                <label
+                                    htmlFor='vehicleRegNumber'
+                                    className='text-[1.4rem] font-medium'
+                                >
+                                    Vehicle Registration Number*
+                                </label>
+                                <input
+                                    type='number'
+                                    required
+                                    id='vehicleRegNumber'
+                                    name='vehicleRegNumber'
+                                    value={
+                                        inputField['vehicleRegNumber'] as number
+                                    }
+                                    className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                                />
+                            </div>
+                            <div className='grid gap-4 relative '>
+                                <label
+                                    htmlFor='vehicleMake'
+                                    className='text-[1.4rem] font-medium'
+                                >
+                                    Vehicle Make *
+                                </label>
+                                <input
+                                    type='text'
+                                    required
+                                    id='vehicleMake'
+                                    name='vehicleMake'
+                                    value={inputField['vehicleMake']}
+                                    className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                                />
+                            </div>
+                            <Select
+                                state={[
+                                    'Motor Bike',
+                                    'Tricycle (keke)',
+                                    'Car',
+                                    'SUV',
+                                    'Bus',
+                                    'Truck',
+                                ]}
+                                label='Vehicle Type'
+                                isSearchable
+                                selectedState={vehicleType}
+                                setSelectedState={setVehicleType}
                             />
-
-                            {photoUrl && (
-                                <div className='flex justify-center justify-self-center'>
+                            <div className='col-span-full rounded-lg border border-width-[.2rem] border-dashed border-color-grey-1 p-8 text-[1.6rem] relative w-full'>
+                                <label
+                                    htmlFor='photoUpload'
+                                    className='flex justify-center gap-4 items-center cursor-pointer'
+                                >
                                     <img
-                                        src={photoUrl}
-                                        alt='photoPreview'
-                                        className='object-cover w-[11rem] h-[11rem] rounded-full'
+                                        src='/icons/admins/photo_library.svg'
+                                        alt=''
                                     />
-                                </div>
-                            )}
+                                    <p
+                                        className='text-color-dark-1'
+                                        style={{
+                                            fontFamily: 'Satoshi-Light',
+                                        }}
+                                    >
+                                        Drag estate manager picture here or{' '}
+                                        <span className='text-color-blue font-bold'>
+                                            click
+                                        </span>{' '}
+                                        to upload
+                                    </p>
+                                </label>
+                                <input
+                                    type='file'
+                                    name='photoUpload'
+                                    id='photoUpload'
+                                    accept='image/*'
+                                    className='hidden'
+                                    onClick={handlePhotoPreview}
+                                />
+
+                                {photoUrl && (
+                                    <div className='flex justify-center justify-self-center'>
+                                        <img
+                                            src={photoUrl}
+                                            alt='photoPreview'
+                                            className='object-cover w-[11rem] h-[11rem] rounded-full'
+                                        />
+                                    </div>
+                                )}
+                            </div>
                         </div>
                     </form>
                 </section>
