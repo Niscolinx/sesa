@@ -29,7 +29,11 @@ function AddResident() {
                     <div className='bg-white rounded-2xl grid items-baseline w-[64rem] min-h-[30rem] p-10 gap-8 text-[1.6rem] relative'>
                         <div className='bg-white rounded-2xl grid place-content-center justify-items-center h-[30rem] gap-8 text-[1.6rem]'>
                             <p className='font-Satoshi-Medium text-[#0446B9]'>
-                                Who is Alpha Resident?
+                                {dialogType === 'alphaResident' ? (
+                                    <span>Who is Alpha Resident?</span>
+                                ) : (
+                                    <span>Who is Resident User?</span>
+                                )}
                             </p>
 
                             <div className='grid gap-4'>
