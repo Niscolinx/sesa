@@ -22,6 +22,25 @@ interface ISelect<T> {
     color?: string
 }
 
+interface MappedSelect {
+    state: Array<string>
+    selectedState: {
+        [key: string]: string
+    }
+    setSelectedState: React.Dispatch<
+        React.SetStateAction<{
+            [key: string]: string
+        } | null>
+    >
+    label?: string
+    placeholder?: string
+    validate?: boolean
+    isSearchable?: boolean
+    fullWidth?: boolean
+    kyr?: boolean
+    color?: string
+}
+
 interface ComplexSelect extends Omit<ISelect<string>, 'state'> {
     state: Array<Complex>
     double?: boolean
@@ -420,9 +439,8 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
 }
 
 
-export const MappedSelect: FC<ISelect<{
-    [key: string] : string
-} | string>> = ({
+
+export const MappedSelect: FC<MappedSelect> = ({
     state,
     selectedState,
     setSelectedState,

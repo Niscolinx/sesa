@@ -22,7 +22,7 @@ function AddResident() {
         alphaResident,
         setAlphaResident,
         addResidentUser,
-        setAddResidentUser
+        setAddResidentUser,
     } = useContext(HouseholdContext)
     const [dialogType, setDialogType] = useState<DialogType>()
     const [addResidentUserCount, setAddResidentUserCount] = useState(1)
@@ -296,7 +296,7 @@ function AddResident() {
                                                 isSearchable
                                                 color={'[#076AFF]'}
                                                 selectedState={
-                                                  addResidentUser &&  addResidentUser[`${1 + idx}`]
+                                                    addResidentUser
                                                 }
                                                 setSelectedState={
                                                     setAddResidentUser
