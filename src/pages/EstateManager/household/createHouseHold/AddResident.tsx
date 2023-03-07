@@ -269,12 +269,14 @@ function AddResident() {
                         </p>
 
                         <div
-                            className='grid gap-16 opacity-50'
+                            className={`grid gap-16  ${
+                                tenancyType === 'Landlord (resident)'
+                                    ? ' pointer-events-none select-none opacity-50'
+                                    : ''
+                            }`}
                             style={{
                                 gridTemplateColumns:
                                     'repeat(auto-fit, minmax(40rem, 1fr))',
-                                    pointerEvents: 'none',
-                                    userSelect: 'none'
                             }}
                         >
                             <div>
@@ -308,9 +310,12 @@ function AddResident() {
                                     setSelectedState={setAlphaResident}
                                 />
 
-                                <button className='text-color-blue-1 font-light text-[1.2rem] p-2 opacity-70 border-none outline-transparent' onClick={
-                                    () => openDetailDialog('alphaResident')
-                                }>
+                                <button
+                                    className='text-color-blue-1 font-light text-[1.2rem] p-2 opacity-70 border-none outline-transparent'
+                                    onClick={() =>
+                                        openDetailDialog('alphaResident')
+                                    }
+                                >
                                     View Details
                                 </button>
                             </div>
