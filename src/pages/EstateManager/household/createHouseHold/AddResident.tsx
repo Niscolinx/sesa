@@ -226,8 +226,7 @@ function AddResident() {
                                     label='Property Type'
                                     isSearchable
                                     selectedState={
-                                        alphaPropertyCode ||
-                                        'Alice James/SO-2345CDGK'
+                                        alphaPropertyCode 
                                     }
                                     setSelectedState={setAlphaPropertyCode}
                                 />
@@ -246,7 +245,7 @@ function AddResident() {
                                     color={'[#076AFF]'}
                                     isSearchable
                                     selectedState={
-                                        alphaResident || 'Osaji Valentine/SE-73'
+                                        alphaResident 
                                     }
                                     setSelectedState={setAlphaResident}
                                 />

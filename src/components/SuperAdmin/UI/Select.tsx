@@ -74,17 +74,12 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
 
     const clearValue = (e: React.MouseEvent<SVGElement, MouseEvent>) => {
         e.stopPropagation()
-        console.log('clear value')
-        setSelectedState((prev) => {
-            console.log({prev})
-            return prev
-        })
-        console.log('cleared Value')
+       setSte
     }
 
     useEffect(() => {
         console.log({selectedState})
-    }, [selectedState])
+    })
 
     return (
         <div className='relative grid gap-4'>
