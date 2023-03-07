@@ -1,9 +1,10 @@
+import { useContext } from 'react'
 import { Select } from '../../../../components/SuperAdmin/UI/Select'
-
-
+import { HouseholdContext } from './CreateHousehold'
 
 function AddProperty() {
-       
+    const { selectedPropertyCode, setSelectedPropertyCode } =
+        useContext(HouseholdContext)
 
     return (
         <div className='grid gap-16'>

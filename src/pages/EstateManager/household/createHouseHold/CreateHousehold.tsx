@@ -6,7 +6,6 @@ import {
     SetStateAction,
 } from 'react'
 import { TfiArrowCircleLeft, TfiArrowCircleRight } from 'react-icons/tfi'
-import { Provider } from 'jotai'
 
 import AddResident from './AddResident'
 import AddProperty from './AddProperty'
@@ -35,7 +34,7 @@ export interface HouseholdContext {
     setSelectedPropertyCode: Dispatch<SetStateAction<string | null>>
 }
 
-const HouseholdContext = createContext<HouseholdContext | null>(null)
+export const HouseholdContext = createContext<HouseholdContext>(null as any)
 
 function CreateHousehold() {
     const [pathToSwitch, setPathToSwitch] = useState(1)
