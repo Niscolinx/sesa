@@ -262,11 +262,11 @@ function AddRFID() {
                                 )}
                             </div>
                         </div>
+                        <button className='btn text-color-blue-1 border border-color-blue-1 items-center gap-4 py-4 px-16 rounded-lg w-[15rem] mt-10'>
+                            Add
+                        </button>
                     </form>
                 </section>
-                <button className='btn text-color-blue-1 border border-color-blue-1 items-center gap-4 py-4 px-16 rounded-lg w-[15rem] '>
-                    Add
-                </button>
 
                 <section>
                     <p className='font-Satoshi-Medium'>RFID Details</p>
