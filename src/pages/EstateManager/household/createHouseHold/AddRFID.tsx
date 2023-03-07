@@ -12,24 +12,11 @@ function AddRFID() {
     type DialogType = 'alphaResident' | 'residentUser'
     type DetailDialogType = 'alphaResident' | 'landlord'
     const {
-        careTaker,
-        setCareTaker,
-        tenancyType,
-        setTenancyType,
-        selectLandLord,
-        setSelectLandLord,
-        alphaPropertyCode,
-        setAlphaPropertyCode,
-        alphaResident,
-        setAlphaResident,
-        addResidentUser,
-        setAddResidentUser,
+        
         vehicleType,
         setVehicleType,
     } = useContext(HouseholdContext)
-    const [dialogType, setDialogType] = useState<DialogType>()
-    const [dialogDetailType, setDialogDetailType] = useState<DetailDialogType>()
-    const [addResidentUserCount, setAddResidentUserCount] = useState(2)
+  
     const [photoUrl, setPhotoUrl] = useState('')
 
     const handlePhotoPreview = async (
@@ -44,35 +31,8 @@ function AddRFID() {
     }
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
-    const DetailRef = useRef<HTMLDialogElement | null>(null)
 
-    const closeDialog = () => {
-        dialogRef.current?.close()
-    }
-
-    const openDialog = (dialogType: DialogType) => {
-        dialogType === 'alphaResident'
-            ? setDialogType('alphaResident')
-            : setDialogType('residentUser')
-
-        if (dialogRef.current) {
-            return dialogRef.current.showModal()
-        }
-    }
-
-    const openDetailDialog = (detailDialogType: DetailDialogType) => {
-        detailDialogType === 'alphaResident'
-            ? setDialogDetailType('alphaResident')
-            : setDialogDetailType('landlord')
-
-        if (DetailRef.current) {
-            return DetailRef.current.showModal()
-        }
-    }
-
-    const closeDetailDialog = () => {
-        DetailRef.current?.close()
-    }
+  
 
     return (
         <>
