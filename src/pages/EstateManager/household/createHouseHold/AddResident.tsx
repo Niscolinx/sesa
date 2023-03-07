@@ -11,7 +11,9 @@ function AddResident() {
         tenancyType,
         setTenancyType,
         selectLandLord,
-        setSelectLandLord
+        setSelectLandLord,
+        alphaPropertyCode,
+        setAlphaPropertyCode
     } = useContext(HouseholdContext)
     const [dialogType, setDialogType] = useState<DialogType>()
 
@@ -193,7 +195,7 @@ function AddResident() {
                         Step 2 (Add Occupants)
                     </p>
 
-                    <div>
+                    <div className='grid gap-16'>
                         <p
                             className=' flex items-center gap-2 font-Satoshi-Medium border-b pb-10'
                             onClick={() => openDialog('alphaResident')}
@@ -208,16 +210,18 @@ function AddResident() {
                         <div>
                             <Select
                                 state={[
-                                    'careTaker 1',
-                                    'careTaker 2',
-                                    'careTaker 3',
-                                    'careTaker 4',
+                                    'Alice James/SO-2345CDGK',
+                                    'Osaji James/SO-2345CDGK',
+                                    'Ruth James/SO-2345CDGK',
+                                    'Timothy James/SO-2345CDGK',
                                 ]}
                                 label='Property Type'
                                 isSearchable
-                                placeholder='placeholder'
-                                selectedState={careTaker}
-                                setSelectedState={setCareTaker}
+                                selectedState={
+                                    alphaPropertyCode ||
+                                    'Alice James/SO-2345CDGK'
+                                }
+                                setSelectedState={setAlphaPropertyCode}
                             />
                         </div>
                     </div>

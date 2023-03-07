@@ -58,7 +58,9 @@ function CreateHousehold() {
     const [tenancyType, setTenancyType] = useState<string | null>('')
     const [selectLandLord, setSelectLandLord] = useState<string | null>('')
     const [careTaker, setCareTaker] = useState<string | null>('')
-    const [alphaPropertyCode, setAlphaPropertyCode] = useState<string | null>('')
+    const [alphaPropertyCode, setAlphaPropertyCode] = useState<string | null>(
+        ''
+    )
 
     const handlePathSwitch = new Map<number, JSX.Element>([
         [1, <AddProperty />],
@@ -79,7 +81,7 @@ function CreateHousehold() {
                     careTaker,
                     setCareTaker,
                     alphaPropertyCode,
-                    setAlphaPropertyCode
+                    setAlphaPropertyCode,
                 }}
             >
                 <div className='bg-white p-16 rounded-lg min-h-[90vh] relative'>
