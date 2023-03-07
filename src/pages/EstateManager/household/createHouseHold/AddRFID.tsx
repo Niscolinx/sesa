@@ -54,6 +54,12 @@ function AddRFID() {
         }
     }
 
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement> ) => {
+        const {name, value} = e.target
+
+        
+    }
+
     return (
         <>
             <dialog className='dialog' ref={dialogRef}>
@@ -143,7 +149,7 @@ function AddRFID() {
                         }}
                         onSubmit={handleSubmit}
                     >
-                        <div className='grid gap-4 relative '>
+                        <div className='grid gap-4 relative ' onChange={handleChange}>
                             <label
                                 htmlFor='RFID'
                                 className='text-[1.4rem] font-medium'
