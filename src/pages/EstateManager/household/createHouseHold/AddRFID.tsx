@@ -228,6 +228,46 @@ function AddRFID() {
                 <button className='btn text-color-blue-1 border border-color-blue-1 items-center gap-4 py-4 px-16 rounded-lg w-[15rem] '>
                     Add
                 </button>
+
+                <section>
+                    <p className='font-Satoshi-Medium'>RFID Details</p>
+                    <div className='grid relative border-b pb-4'>
+                        <img
+                            src='/img/closeIcon.svg'
+                            alt=''
+                            className='self-end justify-self-end'
+                        />
+                        <div className='flex max-w-[70rem] gap-16'>
+                            <img src='' alt='' />
+                            <div className='grid gap-4'>
+                                <div className='flex items-center justify-start gap-4 justify-items-start'>
+                                    <p className='font-Satoshi-Light'>
+                                        RFID Serial Number :
+                                    </p>
+                                    <p>Adiyan Police Station</p>
+                                </div>
+                                <div className='flex items-center justify-start gap-4'>
+                                    <p className='font-Satoshi-Light'>
+                                        Vehicle Registration Number :
+                                    </p>
+                                    <p>Adiyan@gmail.com</p>
+                                </div>
+                                <div className='flex items-center justify-start gap-4'>
+                                    <p className='font-Satoshi-Light'>
+                                        Vehicle Type :
+                                    </p>
+                                    <p>Felix Drive, Lekki Lagos</p>
+                                </div>
+                                <div className='flex items-center justify-start gap-4'>
+                                    <p className='font-Satoshi-Light'>
+                                        Vehicle Make :
+                                    </p>
+                                    <p>Felix Drive, Lekki Lagos</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </div>
         </>
     )
