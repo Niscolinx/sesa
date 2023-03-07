@@ -112,6 +112,11 @@ function AddResident() {
 
                         <div>
                             <img src="/icons/avatar1.png" alt="" className='w-[12rem] h-[12rem] rounded-full object-cover'/>
+                            <div>
+                                <p>
+                                    
+                                </p>
+                            </div>
                         </div>
                         <div className='flex w-full justify-center gap-8'>
                             <button
