@@ -455,7 +455,6 @@ export const MappedSelect: FC<MappedSelect> = ({
 
     const handleSelectedState = (item: string) => {
         setSelectedState((prev) => {
-            console.log({prev})
             return {
                 ...prev,
                 [idx]: item,
@@ -464,10 +463,6 @@ export const MappedSelect: FC<MappedSelect> = ({
 
         setToggleStateMenu(false)
     }
-
-    useEffect(() => {
-        console.log({selectedState})
-    }, [selectedState])
 
     const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
         const { value } = e.target
@@ -486,7 +481,8 @@ export const MappedSelect: FC<MappedSelect> = ({
 
     const clearValue = (e: React.MouseEvent<SVGElement, MouseEvent>) => {
         e.stopPropagation()
-        setSelectedState(null)
+        
+        set
     }
 
     useEffect(() => {
@@ -497,7 +493,7 @@ export const MappedSelect: FC<MappedSelect> = ({
         <div className='relative grid gap-4'>
             <p className='text-[1.4rem] font-semibold'>{label}</p>
             <div className='relative flex items-center'>
-                {selectedState ? (
+                {selectedState && selectedState[idx] ? (
                     <p
                         className='border border-color-grey px-4 py-2 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer min-h-[5rem] '
                         onClick={stateMenuToggler}
