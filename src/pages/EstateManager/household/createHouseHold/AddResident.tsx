@@ -199,8 +199,27 @@ function AddResident() {
                             onClick={() => openDialog('alphaResident')}
                         >
                             Add Alpha Resident{' '}
-                            <BsQuestionCircle className='text-[#043FA7] cursor-pointer' onClick={() => openDialog('alphaResident')} />
+                            <BsQuestionCircle
+                                className='text-[#043FA7] cursor-pointer'
+                                onClick={() => openDialog('alphaResident')}
+                            />
                         </p>
+
+                        <div>
+                            <Select
+                                state={[
+                                    'careTaker 1',
+                                    'careTaker 2',
+                                    'careTaker 3',
+                                    'careTaker 4',
+                                ]}
+                                label='Property Type'
+                                isSearchable
+                                placeholder='placeholder'
+                                selectedState={careTaker}
+                                setSelectedState={setCareTaker}
+                            />
+                        </div>
                     </div>
                 </section>
             </div>
