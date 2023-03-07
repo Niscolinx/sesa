@@ -3,7 +3,6 @@ import { BsQuestionCircle } from 'react-icons/bs'
 import { GrAdd } from 'react-icons/gr'
 import {
     MappedSelect,
-    MultipleSelect,
     Select,
 } from '../../../../components/SuperAdmin/UI/Select'
 import { HouseholdContext } from './CreateHousehold'
@@ -25,7 +24,7 @@ function AddResident() {
         setAddResidentUser,
     } = useContext(HouseholdContext)
     const [dialogType, setDialogType] = useState<DialogType>()
-    const [addResidentUserCount, setAddResidentUserCount] = useState(1)
+    const [addResidentUserCount, setAddResidentUserCount] = useState(2)
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
@@ -311,7 +310,7 @@ function AddResident() {
                         </div>
                     </div>
 
-                    <div className='col-span-full rounded-lg border border-width-[.2rem] border-dashed border-color-grey-1 p-8 text-[1.6rem] relative w-full flex justify-items-center justify-center  max-w-[70%]'>
+                    <div className='col-span-full rounded-lg border border-width-[.2rem] border-dashed border-color-grey-1 p-8 text-[1.6rem] relative w-full flex justify-items-center justify-center  max-w-[70%] mx-auto'>
                         <button
                             className='flex items-center gap-8'
                             onClick={() =>
