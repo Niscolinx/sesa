@@ -160,21 +160,23 @@ function AddRFID() {
                         </div>
                         <div className='grid gap-4 relative '>
                             <label
-                                htmlFor='lastName'
+                                htmlFor='vehicleRegNumber'
                                 className='text-[1.4rem] font-medium'
                             >
                                 Vehicle Registration Number*
                             </label>
                             <input
-                                type='text'
+                                type='number'
                                 required
-                                id='lastName'
+                                id='vehicleRegNumber'
+                                name='vehicleRegNumber'
+                                onChange={handleInput}
                                 className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                             />
                         </div>
                         <div className='grid gap-4 relative '>
                             <label
-                                htmlFor='lastName'
+                                htmlFor='vehicleMake'
                                 className='text-[1.4rem] font-medium'
                             >
                                 Vehicle Make *
@@ -182,7 +184,8 @@ function AddRFID() {
                             <input
                                 type='text'
                                 required
-                                id='lastName'
+                                id='vehicleMake'
+                                name='vehicleMake'
                                 className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                             />
                         </div>
