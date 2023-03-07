@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react'
+import { BsQuestionCircle } from 'react-icons/bs'
 import { Select } from '../../../../components/SuperAdmin/UI/Select'
 
 function AddResident() {
@@ -181,6 +182,15 @@ function AddResident() {
                         {' '}
                         Step 2 (Add Occupants)
                     </p>
+
+                    <div>
+                        <p
+                            className='text-[#043FA7] flex items-center gap-2 font-Satoshi-Medium'
+                            onClick={() => openDialog('alphaResident')}
+                        >
+                            Add Alpha Resident <BsQuestionCircle />
+                        </p>
+                    </div>
                 </section>
             </div>
         </>
