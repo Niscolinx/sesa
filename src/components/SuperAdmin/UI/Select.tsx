@@ -72,40 +72,52 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
         }
     }
 
+    const clearValue = () => {
+        console.log('clear value')
+        setSelectedState(null)
+    }
+
     return (
         <div className='relative grid gap-4'>
             <p className='text-[1.4rem] font-semibold'>{label}</p>
             <div className='relative flex items-center'>
-                <p
-                    className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer min-h-[5rem]'
-                    onClick={stateMenuToggler}
-                >
-                    {color ? (
-                        <>
+                {color ? (
+                    <p
+                        className='border border-color-grey px-4 py-2 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer min-h-[5rem] '
+                        //onClick={stateMenuToggler}
+                    >
+                        {selectedState ? (
                             <span
-                                className={`text-white whitespace-nowrap bg-${color}  rounded-lg px-4 relative flex items-center z-[2] pr-12`}
+                                className={`text-white whitespace-nowrap bg-${color}  rounded-lg px-4 relative flex items-center z-[2] pr-12 py-2 w-max`}
                             >
-                                {selectedState || (
-                                    <span className='text-gray-500'>
-                                        {placeholder || ''}
-                                    </span>
-                                )}
+                                {selectedState}
                                 <IoMdClose
                                     className='absolute right-2 text-[1.4rem] cursor-pointer'
-                                    onClick={() => setSelectedState(null)}
+                                    onClick={(e) => {
+                                        console.log('clicked'),
+                                            () => clearValue()
+                                    }}
                                 />
+
                             </span>
-                        </>
-                    ) : (
-                        <>
-                            {selectedState || (
-                                <span className='text-gray-500'>
-                                    {placeholder || ''}
-                                </span>
-                            )}
-                        </>
-                    )}
-                </p>
+                        ) : (
+                            <span className='text-gray-500'>
+                                {placeholder || ''}
+                            </span>
+                        )}
+                    </p>
+                ) : (
+                    <p
+                        className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer min-h-[5rem]'
+                        onClick={stateMenuToggler}
+                    >
+                        {selectedState || (
+                            <span className='text-gray-500'>
+                                {placeholder || ''}
+                            </span>
+                        )}
+                    </p>
+                )}
                 {toggleStateMenu ? (
                     <GrUp className='absolute right-4' />
                 ) : (
