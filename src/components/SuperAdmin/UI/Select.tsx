@@ -11,21 +11,9 @@ type Complex = {
 
 interface ISelect<T> {
     state: Array<string>
-    selectedState:
-        | string
-        | null
-        | {
-              [key: string]: string
-          }
-    setSelectedState: React.Dispatch<
-        React.SetStateAction<
-            | T
-            | null
-            | {
-                  [key: string]: string
-              }
-        >
-    >
+    selectedState: string
+
+    setSelectedState: React.Dispatch<React.SetStateAction<T | null>>
     label?: string
     placeholder?: string
     validate?: boolean
@@ -58,7 +46,6 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
     kyr,
     fullWidth,
     color,
-    multiple,
     isSearchable = false,
 }) => {
     const [toggleStateMenu, setToggleStateMenu] = useState(false)
