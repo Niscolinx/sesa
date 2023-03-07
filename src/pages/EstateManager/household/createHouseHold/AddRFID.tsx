@@ -1,4 +1,4 @@
-import React, { FormEvent, Fragment, useContext, useRef, useState } from 'react'
+import React, { FormEvent, Fragment, useContext, useEffect, useRef, useState } from 'react'
 import { BsQuestionCircle } from 'react-icons/bs'
 import { GrAdd } from 'react-icons/gr'
 import {
@@ -17,32 +17,39 @@ function AddRFID() {
         photoUrl: string
     }
 
-
     const RFID_Details: InputField[] = []
 
     const { vehicleType, setVehicleType } = useContext(HouseholdContext)
-
-    const [inputField, setInputField] = useState<Omit<InputField, 'vehicleType' | 'photoUrl'>>({
+    const defaultFormState = {
         RFID: null,
         vehicleMake: '',
         vehicleRegNumber: null,
-    })
+    }
+
+    const [inputField, setInputField] =
+        useState<Omit<InputField, 'vehicleType' | 'photoUrl'>>(defaultFormState)
     const [photoUrl, setPhotoUrl] = useState('')
 
     const handleSubmit = (e: FormEvent) => {
         e.preventDefault()
 
+        console.log('submitted')
+
         const details = {
             ...inputField,
             photoUrl,
-            vehicleType
+            vehicleType,
         }
 
         RFID_Details.push(details)
 
-      
-        
+        setInputField(defaultFormState)
     }
+
+
+    useEffect(() => {
+        console.log({inputField})
+    }, [inputField])
 
     const handlePhotoPreview = async (
         _: React.MouseEvent<HTMLInputElement>
