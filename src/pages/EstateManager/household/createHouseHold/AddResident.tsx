@@ -1,9 +1,12 @@
 import React, { useRef, useState } from 'react'
 import { Select } from '../../../../components/SuperAdmin/UI/Select'
 
+
 function AddResident() {
+    type DialogType = 'alpha' | 'residentUser'
     const [tenancyType, setTenancyType] = useState<string | null>('')
     const [selectLandLord, setSelectLandLord] = useState<string | null>('')
+    const [dialogType, setDialogType] = useState<DialogType>()
 
     const [careTaker, setCareTaker] = useState<string | null>('')
 
