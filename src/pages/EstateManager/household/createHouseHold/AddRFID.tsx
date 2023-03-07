@@ -1,8 +1,6 @@
-import React, { FormEvent, Fragment, useContext, useEffect, useRef, useState } from 'react'
-import { BsQuestionCircle } from 'react-icons/bs'
-import { GrAdd } from 'react-icons/gr'
+import React, { FormEvent, useContext, useEffect, useRef, useState } from 'react'
+
 import {
-    MappedSelect,
     Select,
 } from '../../../../components/SuperAdmin/UI/Select'
 import { getPhotoUrl } from '../../../../utils/getPhotoUrl'
@@ -166,7 +164,7 @@ function AddRFID() {
                         {' '}
                         Add an RFID to this property{' '}
                     </p>
-                    <form onSubmit={handleSubmit} ref={formRef}>
+                    <form onSubmit={handleSubmit}>
                         <>
                         {
                             console.log({inputField}, 'inside')
