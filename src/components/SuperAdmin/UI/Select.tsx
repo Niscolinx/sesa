@@ -72,7 +72,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
         }
     }
 
-    
+    console.log({selectedState})
     return (
         <div className='relative grid gap-4'>
             <p className='text-[1.4rem] font-semibold'>{label}</p>
