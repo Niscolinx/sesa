@@ -102,17 +102,17 @@ function AddResident() {
                 </section>
             </dialog>
             <dialog className='dialog' ref={DetailRef}>
-                <section className='grid w-full h-[100vh]'>
-                    <div className='bg-white rounded-2xl grid items-baseline w-[64rem] min-h-[30rem] p-10 gap-8 text-[1.6rem] relative'>
+                <section className='grid w-full h-[100vh] place-content-center'>
+                    <div className='bg-white rounded-2xl items-baseline w-[64rem] min-h-[30rem] p-10 gap-8 text-[1.6rem] relative grid'>
                         {dialogDetailType === 'alphaResident' ? (
                             <p>Alpha Resident</p>
                         ) : (
                             <p>Landlord Details</p>
                         )}
 
-                        <div>
+                        <div className='flex'>
                             <img
-                                src='/img/avatar.png'
+                                src='/img/avatar11.png'
                                 alt=''
                                 className='w-[12rem] h-[12rem] rounded-full object-cover'
                             />
@@ -127,7 +127,7 @@ function AddResident() {
                         </div>
                         <div className='flex w-full justify-center gap-8'>
                             <button
-                                className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
+                                className='btn bg-[#0556E5] text-white border rounded-lg w-[15rem]'
                                 onClick={() => closeDialog()}
                             >
                                 Ok
