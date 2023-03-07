@@ -33,6 +33,12 @@ const paths = [
 export interface HouseholdContext {
     selectedPropertyCode: string | null
     setSelectedPropertyCode: Dispatch<SetStateAction<string | null>>
+    tenancyType: string | null
+    setTenancyType: Dispatch<SetStateAction<string | null>>
+    selectLandLord: string | null
+    setSelectLandLord: Dispatch<SetStateAction<string | null>>
+    careTaker: string | null
+    setCareTaker: Dispatch<SetStateAction<string | null>>
 }
 
 export const HouseholdContext = createContext<HouseholdContext>(null as any)
@@ -45,8 +51,9 @@ function CreateHousehold() {
     const [selectedPropertyCode, setSelectedPropertyCode] = useState<
         string | null
     >(propertyCode || null)
-
- 
+    const [tenancyType, setTenancyType] = useState<string | null>('')
+    const [selectLandLord, setSelectLandLord] = useState<string | null>('')
+    const [careTaker, setCareTaker] = useState<string | null>('')
 
     const handlePathSwitch = new Map<number, JSX.Element>([
         [1, <AddProperty />],

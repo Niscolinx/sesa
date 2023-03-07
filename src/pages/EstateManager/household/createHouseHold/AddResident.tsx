@@ -4,11 +4,9 @@ import { Select } from '../../../../components/SuperAdmin/UI/Select'
 
 function AddResident() {
     type DialogType = 'alphaResident' | 'residentUser'
-    const [tenancyType, setTenancyType] = useState<string | null>('')
-    const [selectLandLord, setSelectLandLord] = useState<string | null>('')
+    
     const [dialogType, setDialogType] = useState<DialogType>()
 
-    const [careTaker, setCareTaker] = useState<string | null>('')
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
@@ -21,7 +19,10 @@ function AddResident() {
         dialogType === 'alphaResident'
             ? setDialogType('alphaResident')
             : setDialogType('residentUser')
-        dialogRef.current?.showModal
+
+        if(dialogRef.current){
+            return dialogRef.current.showModal()
+        }
     }
 
     return (
@@ -190,7 +191,7 @@ function AddResident() {
                             onClick={() => openDialog('alphaResident')}
                         >
                             Add Alpha Resident{' '}
-                            <BsQuestionCircle className='text-[#043FA7] cursor-pointer' onClick={() => openDialog()} />
+                            <BsQuestionCircle className='text-[#043FA7] cursor-pointer' onClick={() => openDialog('alphaResident')} />
                         </p>
                     </div>
                 </section>
