@@ -128,59 +128,7 @@ function AddResident() {
                     {' '}
                     Step 2 (Add Occupants)
                 </p>
-                <div
-                    className='grid mt-[5rem] gap-16'
-                    style={{
-                        gridTemplateColumns:
-                            'repeat(auto-fit, minmax(40rem, 1fr))',
-                    }}
-                >
-                    <div>
-                        <Select
-                            state={[
-                                'Landlord (developer)',
-                                'Landlord (resident)',
-                                'Landlord (non-resident)',
-                                'Tenant (resident)',
-                            ]}
-                            label='Tenancy Type'
-                            isSearchable
-                            selectedState={tenancyType}
-                            setSelectedState={setTenancyType}
-                        />
-                    </div>
-                    <div>
-                        <Select
-                            state={[
-                                'Alice James/SO-2345CDGK',
-                                'Osaji James/SO-2345CDGK',
-                                'Ruth James/SO-2345CDGK',
-                                'Timothy James/SO-2345CDGK',
-                            ]}
-                            label='Select Landlord'
-                            isSearchable
-                            selectedState={selectLandLord}
-                            setSelectedState={setSelectLandLord}
-                        />
-                        <p className='text-color-blue-1 font-light text-[1.2rem] p-2 opacity-70'>
-                            View Details
-                        </p>
-                    </div>
-                    <div>
-                        <Select
-                            state={[
-                                'careTaker 1',
-                                'careTaker 2',
-                                'careTaker 3',
-                                'careTaker 4',
-                            ]}
-                            label='Add Caretaker/Property Admin (optional)'
-                            isSearchable
-                            selectedState={careTaker}
-                            setSelectedState={setCareTaker}
-                        />
-                    </div>
-                </div>
+                
             </section>
         </div>
     )
