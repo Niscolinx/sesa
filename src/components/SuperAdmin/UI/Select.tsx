@@ -11,8 +11,7 @@ type Complex = {
 
 interface ISelect<T> {
     state: Array<string>
-    selectedState: string
-
+    selectedState: string | null
     setSelectedState: React.Dispatch<React.SetStateAction<T | null>>
     label?: string
     placeholder?: string
@@ -20,7 +19,6 @@ interface ISelect<T> {
     isSearchable?: boolean
     fullWidth?: boolean
     kyr?: boolean
-    multiple?: boolean
     color?: string
 }
 
