@@ -185,7 +185,7 @@ function AddResident() {
 
                     <div>
                         <p
-                            className='text-[#043FA7] flex items-center gap-2 font-Satoshi-Medium'
+                            className=' flex items-center gap-2 font-Satoshi-Medium border-b pb-10'
                             onClick={() => openDialog('alphaResident')}
                         >
                             Add Alpha Resident <BsQuestionCircle />
