@@ -26,7 +26,7 @@ function AddResident() {
 
                         <div className='bg-white rounded-2xl grid place-content-center justify-items-center h-[30rem] gap-8 text-[1.6rem]'>
                             <p className='font-Satoshi-Medium text-[#0446B9]'>
-                                What is KYR?
+                                Who is Alpha Resident?
                             </p>
 
                             <div className='grid gap-4'>
