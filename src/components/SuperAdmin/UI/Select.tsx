@@ -455,6 +455,7 @@ export const MappedSelect: FC<MappedSelect> = ({
 
     const handleSelectedState = (item: string) => {
         setSelectedState((prev) => {
+            console.log({prev})
             return {
                 ...prev,
                 [idx]: item,
@@ -496,17 +497,18 @@ export const MappedSelect: FC<MappedSelect> = ({
         <div className='relative grid gap-4'>
             <p className='text-[1.4rem] font-semibold'>{label}</p>
             <div className='relative flex items-center'>
-                {color ? (
+                {selectedState ? (
                     <p
                         className='border border-color-grey px-4 py-2 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer min-h-[5rem] '
                         onClick={stateMenuToggler}
                     >
-                        {selectedState ? (
+                        {color ? (
                             <span
                                 className={`text-white whitespace-nowrap bg-${color}  rounded-lg px-4 relative flex items-center z-[2] pr-12 py-2 w-max`}
                             >
                                 <>
-                                    {selectedState}
+                              
+                                    {selectedState[idx]}
                                     <IoMdClose
                                         className='absolute right-2 text-[1.4rem] cursor-pointer'
                                         onClick={(e) => clearValue(e)}
@@ -524,15 +526,9 @@ export const MappedSelect: FC<MappedSelect> = ({
                         className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer min-h-[5rem]'
                         onClick={stateMenuToggler}
                     >
-                        {/* { selectedState ? selectedState : (
-                            <span className='text-gray-500'>
-                                {placeholder || ''}
-                            </span>
-                        )} */}
-
-                        {
-                           selectedState && selectedState[idx]
-                        }
+                        <span className='text-gray-500'>
+                            {placeholder || ''}
+                        </span>
                     </p>
                 )}
                 {toggleStateMenu ? (
