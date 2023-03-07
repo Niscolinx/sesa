@@ -324,13 +324,13 @@ function AddResident() {
                             </Fragment>
                         )
                     })}
-                    <div className='col-span-full rounded-lg border border-width-[.2rem] border-dashed border-color-grey-1 p-8 text-[1.6rem] relative w-full justify-center'>
-                        <p className='flex items-center gap-8 w-full'>
+                    <div className='col-span-full rounded-lg border border-width-[.2rem] border-dashed border-color-grey-1 p-8 text-[1.6rem] relative w-full flex justify-items-center justify-center'>
+                        <button className='flex items-center gap-8'>
                             <span>
                                 <GrAdd />
                             </span>
                             <span>Add Resident User</span>
-                        </p>
+                        </button>
                     </div>
                 </section>
             </div>
