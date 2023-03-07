@@ -12,14 +12,19 @@ function AddRFID() {
     
     interface InputField {
         RFID: string
-        vehicleRegNumber: number
+        vehicleRegNumber: number | null
         vehicleMake: string
         vehicleType: string
     }
 
     const { vehicleType, setVehicleType } = useContext(HouseholdContext)
 
-    const [inputField, setInputField] = useState<InputField | null>(null)
+    const [inputField, setInputField] = useState<InputField>({
+        RFID: '',
+        vehicleMake: '',
+        vehicleRegNumber: null,
+        vehicleType: ''
+    })
 
     const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
         const {name, value} = e.target
@@ -147,6 +152,9 @@ function AddRFID() {
                                 type='text'
                                 required
                                 id='RFID'
+                                name='RFID'
+                                value={inputField['RFID']}
+                                onChange={handleInput}
                                 className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                             />
                         </div>
