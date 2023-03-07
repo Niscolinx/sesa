@@ -11,12 +11,19 @@ import { HouseholdContext } from './CreateHousehold'
 function AddRFID() {
     
     interface InputField {
-        
+        RFID: string
+        vehicleRegNumber: number
+        vehicleMake: string
+        vehicleType: string
     }
 
     const { vehicleType, setVehicleType } = useContext(HouseholdContext)
 
-    const [inputField, setInputField] = useState<>()
+    const [inputField, setInputField] = useState<InputField | null>(null)
+
+    const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const {name, value} = e.target
+    }
 
     const [photoUrl, setPhotoUrl] = useState('')
 
