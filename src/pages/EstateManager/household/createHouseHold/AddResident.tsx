@@ -273,7 +273,8 @@ function AddResident() {
                             style={{
                                 gridTemplateColumns:
                                     'repeat(auto-fit, minmax(40rem, 1fr))',
-                                    pointerEvents: 'none'
+                                    pointerEvents: 'none',
+                                    userSelect: 'none'
                             }}
                         >
                             <div>
