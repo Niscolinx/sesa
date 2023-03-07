@@ -51,6 +51,8 @@ export interface HouseholdContext {
             [key: string]: string
         } | null>
     >
+    vehicleType: T
+    setVehicleType: D
 }
 
 export const HouseholdContext = createContext<HouseholdContext>(null as any)
@@ -66,6 +68,7 @@ function CreateHousehold() {
     const [tenancyType, setTenancyType] = useState<T>(null)
     const [selectLandLord, setSelectLandLord] = useState<T>(null)
     const [careTaker, setCareTaker] = useState<T>(null)
+    const [vehicleType, setVehicleType] = useState<T>(null)
     const [alphaPropertyCode, setAlphaPropertyCode] = useState<T>(
         'Alice James/SO-2345CDGK'
     )
@@ -102,6 +105,8 @@ function CreateHousehold() {
                     setAlphaResident,
                     addResidentUser,
                     setAddResidentUser,
+                    vehicleType,
+                    setVehicleType,
                 }}
             >
                 <div className='bg-white p-16 rounded-lg min-h-[90vh] relative'>
