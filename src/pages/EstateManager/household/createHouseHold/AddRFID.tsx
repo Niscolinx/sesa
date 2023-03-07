@@ -13,14 +13,15 @@ function AddRFID() {
         RFID: number | null
         vehicleRegNumber: number | null
         vehicleMake: string
-        photoUrl?: string
+        vehicleType: string | null
+        photoUrl: string
     }
 
     const RFID_Details: InputField[] = []
 
     const { vehicleType, setVehicleType } = useContext(HouseholdContext)
 
-    const [inputField, setInputField] = useState<InputField>({
+    const [inputField, setInputField] = useState<Omit<InputField, 'vehicleType' | 'photoUrl'>>({
         RFID: null,
         vehicleMake: '',
         vehicleRegNumber: null,
@@ -31,6 +32,14 @@ function AddRFID() {
         e.preventDefault()
 
         console.log({ inputField, photoUrl, vehicleType })
+
+        const details = {
+            ...inputField,
+            photoUrl,
+            vehicleType
+        }
+
+        RFID_Details.push(details)
     }
 
     const handlePhotoPreview = async (
