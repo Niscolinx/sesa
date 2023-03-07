@@ -56,8 +56,7 @@ function AddResident() {
     }
 
     const closeDetailDialog = () => {
-                DetailRef.current?.close()
-
+        DetailRef.current?.close()
     }
 
     return (
@@ -104,11 +103,13 @@ function AddResident() {
             <dialog className='dialog' ref={DetailRef}>
                 <section className='grid w-full h-[100vh] place-content-center'>
                     <div className='bg-white rounded-2xl items-baseline w-[64rem] min-h-[30rem] p-10 gap-8 text-[1.6rem] relative grid'>
-                        {dialogDetailType === 'alphaResident' ? (
-                            <p>Alpha Resident</p>
-                        ) : (
-                            <p>Landlord Details</p>
-                        )}
+                        <p className='font-Satoshi-Medium'>
+                            {dialogDetailType === 'alphaResident' ? (
+                                <span>Alpha Resident</span>
+                            ) : (
+                                <span>Landlord Details</span>
+                            )}
+                        </p>
 
                         <div className='flex'>
                             <img
@@ -228,9 +229,10 @@ function AddResident() {
                                 selectedState={selectLandLord}
                                 setSelectedState={setSelectLandLord}
                             />
-                            <button className='text-color-blue-1 font-light text-[1.2rem] p-2 opacity-70 border-none outline-none' onClick={
-                                () => openDetailDialog('landlord')
-                            }>
+                            <button
+                                className='text-color-blue-1 font-light text-[1.2rem] p-2 opacity-70 border-none outline-none'
+                                onClick={() => openDetailDialog('landlord')}
+                            >
                                 View Details
                             </button>
                         </div>
