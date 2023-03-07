@@ -11,14 +11,28 @@ type Complex = {
 
 interface ISelect<T> {
     state: Array<string>
-    selectedState: string | null
-    setSelectedState: React.Dispatch<React.SetStateAction<T | null>>
+    selectedState:
+        | string
+        | null
+        | {
+              [key: string]: string
+          }
+    setSelectedState: React.Dispatch<
+        React.SetStateAction<
+            | T
+            | null
+            | {
+                  [key: string]: string
+              }
+        >
+    >
     label?: string
     placeholder?: string
     validate?: boolean
     isSearchable?: boolean
     fullWidth?: boolean
     kyr?: boolean
+    multiple?: boolean
     color?: string
 }
 
@@ -44,6 +58,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
     kyr,
     fullWidth,
     color,
+    multiple,
     isSearchable = false,
 }) => {
     const [toggleStateMenu, setToggleStateMenu] = useState(false)
@@ -74,11 +89,11 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
 
     const clearValue = (e: React.MouseEvent<SVGElement, MouseEvent>) => {
         e.stopPropagation()
-       setSelectedState(null)
+        setSelectedState(null)
     }
 
     useEffect(() => {
-        console.log({selectedState})
+        console.log({ selectedState })
     })
 
     return (
@@ -94,11 +109,13 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                             <span
                                 className={`text-white whitespace-nowrap bg-${color}  rounded-lg px-4 relative flex items-center z-[2] pr-12 py-2 w-max`}
                             >
-                                {selectedState}
-                                <IoMdClose
-                                    className='absolute right-2 text-[1.4rem] cursor-pointer'
-                                    onClick={(e) => clearValue(e)}
-                                />
+                                <>
+                                    {selectedState}
+                                    <IoMdClose
+                                        className='absolute right-2 text-[1.4rem] cursor-pointer'
+                                        onClick={(e) => clearValue(e)}
+                                    />
+                                </>
                             </span>
                         ) : (
                             <span className='text-gray-500'>
