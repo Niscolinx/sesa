@@ -3,13 +3,13 @@ import { Select } from '../../../../components/SuperAdmin/UI/Select'
 
 function AddResident() {
     const [tenancyType, setTenancyType] = useState<string | null>(
-        'Landlord (developer)'
+        ''
     )
     const [selectLandLord, setSelectLandLord] = useState<string | null>(
-        'Alice James/SO-2345CDGK'
+        ''
     )
 
-    const [careTaker, setCareTaker] = useState<string | null>('careTaker 1')
+    const [careTaker, setCareTaker] = useState<string | null>('')
 
     return (
         <div className='grid gap-16'>
@@ -62,7 +62,72 @@ function AddResident() {
             </section>
 
             <section className='mt-[5rem]'>
-                <p className='font-semibold border-b pb-2'> Step 1 (Select Tenanacy Type)</p>
+                <p className='font-semibold border-b pb-2'>
+                    {' '}
+                    Step 1 (Select Tenanacy Type)
+                </p>
+                <div
+                    className='grid mt-[5rem] gap-16'
+                    style={{
+                        gridTemplateColumns:
+                            'repeat(auto-fit, minmax(40rem, 1fr))',
+                    }}
+                >
+                    <div>
+                        <Select
+                            state={[
+                                'Landlord (developer)',
+                                'Landlord (resident)',
+                                'Landlord (non-resident)',
+                                'Tenant (resident)',
+                            ]}
+                            label='Tenancy Type'
+                            isSearchable
+                            placeholder='Landlord (resident)'
+                            selectedState={tenancyType}
+                            setSelectedState={setTenancyType}
+                        />
+                    </div>
+                    <div>
+                        <Select
+                            state={[
+                                'Alice James/SO-2345CDGK',
+                                'Osaji James/SO-2345CDGK',
+                                'Ruth James/SO-2345CDGK',
+                                'Timothy James/SO-2345CDGK',
+                            ]}
+                            label='Select Landlord'
+                            isSearchable
+                            placeholder='Alice James/SO-2345CDGK'
+                            selectedState={selectLandLord}
+                            setSelectedState={setSelectLandLord}
+                        />
+                        <p className='text-color-blue-1 font-light text-[1.2rem] p-2 opacity-70'>
+                            View Details
+                        </p>
+                    </div>
+                    <div>
+                        <Select
+                            state={[
+                                'careTaker 1',
+                                'careTaker 2',
+                                'careTaker 3',
+                                'careTaker 4',
+                            ]}
+                            label='Add Caretaker/Property Admin (optional)'
+                            isSearchable
+                            placeholder='placeholder'
+                            selectedState={careTaker}
+                            setSelectedState={setCareTaker}
+                        />
+                    </div>
+                </div>
+            </section>
+            <section className='mt-[5rem]'>
+                <p className='font-semibold border-b pb-2'>
+                    {' '}
+                    Step 2 (Add Occupants)
+                </p>
                 <div
                     className='grid mt-[5rem] gap-16'
                     style={{
