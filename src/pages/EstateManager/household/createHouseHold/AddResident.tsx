@@ -41,7 +41,6 @@ function AddResident() {
         }
     }
 
-  
     return (
         <>
             <dialog className='dialog' ref={dialogRef}>
@@ -277,7 +276,6 @@ function AddResident() {
                                     'repeat(auto-fit, minmax(40rem, 1fr))',
                             }}
                         >
-                           
                             {Array.from({ length: addResidentUserCount }).map(
                                 (item, idx) => {
                                     return (
@@ -289,13 +287,13 @@ function AddResident() {
                                                     'Ruth James/SO-2345CDGK',
                                                     'Timothy James/SO-2345CDGK',
                                                 ]}
-                                                label={`Resident User ${1+idx}`}
+                                                label={`Resident User ${
+                                                    1 + idx
+                                                }`}
                                                 isSearchable
-                                                selectedState={
-                                                    alphaPropertyCode
-                                                }
+                                                selectedState={residentUser}
                                                 setSelectedState={
-                                                    setAlphaPropertyCode
+                                                    setResidentUser
                                                 }
                                             />
                                             <p className='text-color-blue-1 font-light text-[1.2rem] p-2 opacity-70'>
