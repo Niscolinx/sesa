@@ -46,9 +46,7 @@ function CreateHousehold() {
         string | null
     >(propertyCode || null)
 
-    console.log({
-        selectedPropertyCode,
-    })
+ 
 
     const handlePathSwitch = new Map<number, JSX.Element>([
         [1, <AddProperty />],
