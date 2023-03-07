@@ -45,10 +45,10 @@ export interface HouseholdContext {
     setAlphaPropertyCode: D
     alphaResident: T
     setAlphaResident: D
-    addResidentUser: { [key: number]: string } | null
+    addResidentUser: { [key: string]: string } | null
     setAddResidentUser: Dispatch<
         SetStateAction<{
-            [key: number]: string
+            [key: string]: string
         } | null>
     >
 }
@@ -75,7 +75,7 @@ function CreateHousehold() {
     )
 
     const [addResidentUser, setAddResidentUser] = useState<{
-        [key: number]: string
+        [key: string]: string
     } | null>(null)
 
     const handlePathSwitch = new Map<number, JSX.Element>([
