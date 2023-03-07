@@ -72,9 +72,13 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
         }
     }
 
-    const clearValue = () => {
+    const clearValue = (e: React.MouseEvent<SVGElement, MouseEvent>) => {
+        e.stopPropagation()
         console.log('clear value')
-        setSelectedState('')
+        setSelectedState((prev) => {
+            console.log({prev})
+            return prev
+        })
         console.log('cleared Value')
     }
 
@@ -89,7 +93,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                 {color ? (
                     <p
                         className='border border-color-grey px-4 py-2 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer min-h-[5rem] '
-                        //onClick={stateMenuToggler}
+                        onClick={stateMenuToggler}
                     >
                         {selectedState ? (
                             <span
@@ -98,7 +102,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                                 {selectedState}
                                 <IoMdClose
                                     className='absolute right-2 text-[1.4rem] cursor-pointer'
-                                    onClick={() => clearValue()}
+                                    onClick={(e) => clearValue(e)}
                                 />
                             </span>
                         ) : (
