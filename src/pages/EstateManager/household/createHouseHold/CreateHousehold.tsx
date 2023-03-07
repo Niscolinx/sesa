@@ -1,11 +1,9 @@
-import { Fragment, useState } from 'react'
+import { Fragment, useState, createContext } from 'react'
 import { TfiArrowCircleLeft, TfiArrowCircleRight } from 'react-icons/tfi'
-import { atom, useAtom } from 'jotai'
-
+import { Provider, atom } from 'jotai'
 
 import AddResident from './AddResident'
 import AddProperty from './AddProperty'
-
 
 const paths = [
     {
@@ -26,11 +24,17 @@ const paths = [
     },
 ]
 
-const propertyCode = atom<string | null>(null)
+
+export interface HouseholdContext {
+    
+}
+
+const HouseholdContext = createContext<HouseholdContext>(null)
 
 function CreateHousehold() {
     const [pathToSwitch, setPathToSwitch] = useState(1)
-    const [selectedPropertyCode, setSelectedPropertyCode] = useAtom(propertyCode)
+        const [selectedPropertyCode, setSelectedPropertyCode] = useState<string | null>(null)
+
 
     const handlePathSwitch = new Map<number, JSX.Element>([
         [1, <AddProperty />],
@@ -39,68 +43,79 @@ function CreateHousehold() {
         [4, <></>],
     ])
     return (
-        <div className='bg-white p-16 rounded-lg min-h-[90vh] relative'>
-            <div
-                className='estateDetail__radioBox'
-                style={{
-                    marginTop: '0',
-                }}
-            >
-                <>
-                    {paths.map((item) => {
-                        return (
-                            <Fragment key={item.name}>
-                                <input
-                                    type='radio'
-                                    name='household'
-                                    id={item.name}
-                                    checked={item.id === pathToSwitch}
-                                    className='hidden'
-                                    onChange={() => setPathToSwitch(item.id)}
-                                />
-                                <label
-                                    htmlFor={item.name}
-                                    className='capitalize'
-                                >
-                                    {item.name}
-                                </label>
-                            </Fragment>
-                        )
-                    })}
-                </>
-            </div>
-            <section className='bg-color-white rounded-lg mt-[5rem] mb-[10rem] '>
-                {handlePathSwitch.get(pathToSwitch)}
-            </section>
-            <div className='absolute bottom-0 right-0 flex items-center gap-16 m-10'>
-                <button
-                    className='flex gap items-center cursor-pointer gap-4 disabled:opacity-50 disabled:cursor-not-allowed'
-                    disabled={pathToSwitch === 1}
-                    onClick={() =>
-                        setPathToSwitch((prev) => {
-                            return prev === 1 ? prev : prev - 1
-                        })
-                    }
-                >
-                    <TfiArrowCircleLeft className='w-[3rem] h-[3rem] text-color-blue' />
-                    <span>Previous</span>
-                </button>
-                <button
-                    className='flex gap items-center cursor-pointer gap-4 disabled:opacity-50 disabled:cursor-not-allowed'
-                    disabled={pathToSwitch === 4}
-                    onClick={() =>
-                        setPathToSwitch((prev) => {
-                            console.log({ prev })
-                            return prev === 4 ? prev : prev + 1
-                        })
-                    }
-                >
-                    {' '}
-                    <TfiArrowCircleRight className='w-[3rem] h-[3rem] text-color-blue' />
-                    <span className=''>Next</span>
-                </button>
-            </div>
-        </div>
+        <>
+            <HouseholdContext.Provider value={{
+
+            }}>
+                <div className='bg-white p-16 rounded-lg min-h-[90vh] relative'>
+                    <p>
+                        PropertyCode: <span>{JSON.stringify(propertyCode)}</span>
+                    </p>
+                    <div
+                        className='estateDetail__radioBox'
+                        style={{
+                            marginTop: '0',
+                        }}
+                    >
+                        <>
+                            {paths.map((item) => {
+                                return (
+                                    <Fragment key={item.name}>
+                                        <input
+                                            type='radio'
+                                            name='household'
+                                            id={item.name}
+                                            checked={item.id === pathToSwitch}
+                                            className='hidden'
+                                            onChange={() =>
+                                                setPathToSwitch(item.id)
+                                            }
+                                        />
+                                        <label
+                                            htmlFor={item.name}
+                                            className='capitalize'
+                                        >
+                                            {item.name}
+                                        </label>
+                                    </Fragment>
+                                )
+                            })}
+                        </>
+                    </div>
+                    <section className='bg-color-white rounded-lg mt-[5rem] mb-[10rem] '>
+                        {handlePathSwitch.get(pathToSwitch)}
+                    </section>
+                    <div className='absolute bottom-0 right-0 flex items-center gap-16 m-10'>
+                        <button
+                            className='flex gap items-center cursor-pointer gap-4 disabled:opacity-50 disabled:cursor-not-allowed'
+                            disabled={pathToSwitch === 1}
+                            onClick={() =>
+                                setPathToSwitch((prev) => {
+                                    return prev === 1 ? prev : prev - 1
+                                })
+                            }
+                        >
+                            <TfiArrowCircleLeft className='w-[3rem] h-[3rem] text-color-blue' />
+                            <span>Previous</span>
+                        </button>
+                        <button
+                            className='flex gap items-center cursor-pointer gap-4 disabled:opacity-50 disabled:cursor-not-allowed'
+                            disabled={pathToSwitch === 4}
+                            onClick={() =>
+                                setPathToSwitch((prev) => {
+                                    console.log({ prev })
+                                    return prev === 4 ? prev : prev + 1
+                                })
+                            }
+                        >
+                            {' '}
+                            <TfiArrowCircleRight className='w-[3rem] h-[3rem] text-color-blue' />
+                            <span className=''>Next</span>
+                        </button>
+                    </div>
+                </div>
+            </Provider>
+        </>
     )
 }
 

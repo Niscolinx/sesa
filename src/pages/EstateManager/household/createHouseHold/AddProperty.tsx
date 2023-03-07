@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
 import { Select } from '../../../../components/SuperAdmin/UI/Select'
 
+
+
 function AddProperty() {
-    
+       
 
     return (
         <div className='grid gap-16'>
