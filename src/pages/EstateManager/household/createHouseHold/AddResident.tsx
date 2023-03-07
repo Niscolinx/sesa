@@ -1,10 +1,18 @@
-import React, { useRef, useState } from 'react'
+import React, { useContext, useRef, useState } from 'react'
 import { BsQuestionCircle } from 'react-icons/bs'
 import { Select } from '../../../../components/SuperAdmin/UI/Select'
+import { HouseholdContext } from './CreateHousehold'
 
 function AddResident() {
     type DialogType = 'alphaResident' | 'residentUser'
-    
+    const {
+        careTaker,
+        setCareTaker,
+        tenancyType,
+        setTenancyType,
+        selectLandLord,
+        setSelectLandLord
+    } = useContext(HouseholdContext)
     const [dialogType, setDialogType] = useState<DialogType>()
 
 
