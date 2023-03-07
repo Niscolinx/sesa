@@ -1,13 +1,11 @@
 import { Fragment, useState } from 'react'
 import { TfiArrowCircleLeft, TfiArrowCircleRight } from 'react-icons/tfi'
+import { atom, useAtom } from 'jotai'
+
+
 import AddResident from './AddResident'
 import AddProperty from './AddProperty'
 
-// type PathSwitch =
-//     | 'add-property'
-//     | 'add-resident'
-//     | 'add-RFID'
-//     | 'add-accessCard'
 
 const paths = [
     {
@@ -29,6 +27,9 @@ const paths = [
 ]
 function CreateHousehold() {
     const [pathToSwitch, setPathToSwitch] = useState(1)
+    const [selectedPropertyCode, setSelectedPropertyCode] = useState<
+        string | null
+    >(null)
 
     const handlePathSwitch = new Map<number, JSX.Element>([
         [1, <AddProperty />],

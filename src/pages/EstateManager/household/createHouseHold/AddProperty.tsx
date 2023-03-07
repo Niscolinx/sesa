@@ -2,9 +2,7 @@ import React, { useState } from 'react'
 import { Select } from '../../../../components/SuperAdmin/UI/Select'
 
 function AddProperty() {
-    const [selectedPropertyCode, setSelectedPropertyCode] = useState<
-        string | null
-    >(null)
+    
 
     return (
         <div className='grid gap-16'>
