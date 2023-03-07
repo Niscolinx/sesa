@@ -270,9 +270,8 @@ function AddResident() {
 
                         <div
                             className={`grid gap-16  ${
-                                tenancyType === 'Landlord (resident)'
-                                    ? ' pointer-events-none select-none opacity-50'
-                                    : ''
+                                tenancyType === 'Landlord (resident)' &&
+                                ' pointer-events-none select-none opacity-50'
                             }`}
                             style={{
                                 gridTemplateColumns:
