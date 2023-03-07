@@ -228,9 +228,11 @@ function AddResident() {
                                 selectedState={selectLandLord}
                                 setSelectedState={setSelectLandLord}
                             />
-                            <p className='text-color-blue-1 font-light text-[1.2rem] p-2 opacity-70'>
+                            <button className='text-color-blue-1 font-light text-[1.2rem] p-2 opacity-70 border-none outline-none' onClick={
+                                () => openDetailDialog('')
+                            }>
                                 View Details
-                            </p>
+                            </button>
                         </div>
                         <div>
                             <Select
