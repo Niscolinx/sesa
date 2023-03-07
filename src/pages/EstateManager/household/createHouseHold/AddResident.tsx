@@ -9,6 +9,7 @@ import { HouseholdContext } from './CreateHousehold'
 
 function AddResident() {
     type DialogType = 'alphaResident' | 'residentUser'
+    type DetailDialogType = 'alphaResident' | 'landlord'
     const {
         careTaker,
         setCareTaker,
@@ -24,16 +25,17 @@ function AddResident() {
         setAddResidentUser,
     } = useContext(HouseholdContext)
     const [dialogType, setDialogType] = useState<DialogType>()
+    const [dialogDetails, setDialogDetails] = useState<DetailDialogType>()
     const [addResidentUserCount, setAddResidentUserCount] = useState(2)
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
+    const DetailRef = useRef<HTMLDialogElement | null>(null)
 
     const closeDialog = () => {
         dialogRef.current?.close()
     }
 
     const openDialog = (dialogType: DialogType) => {
-      
         dialogType === 'alphaResident'
             ? setDialogType('alphaResident')
             : setDialogType('residentUser')
@@ -43,9 +45,58 @@ function AddResident() {
         }
     }
 
+    const openDetailDialog = (detailDialogType: DetailDialogType) => {
+        detailDialogType === 'alphaResident'
+            ? setDialogDetails('alphaResident')
+            : setDialogDetails('landlord')
+
+        if (DetailRef.current) {
+            return DetailRef.current.showModal()
+        }
+    }
+
     return (
         <>
             <dialog className='dialog' ref={dialogRef}>
+                <section className='grid place-content-center w-full h-[100vh]'>
+                    <div className='bg-white rounded-2xl grid items-baseline w-[64rem] min-h-[30rem] p-10 gap-8 text-[1.6rem] relative'>
+                        <div className='bg-white rounded-2xl grid place-content-center justify-items-center h-[30rem] gap-8 text-[1.6rem]'>
+                            <p className='font-Satoshi-Medium text-[#0446B9]'>
+                                {dialogType === 'alphaResident' ? (
+                                    <span>Who is Alpha Resident?</span>
+                                ) : (
+                                    <span>Who is Resident User?</span>
+                                )}
+                            </p>
+
+                            <div className='grid gap-4'>
+                                <p>
+                                    Know Your Resident (KYR) is a service that
+                                    allows you confirm the true identity of your
+                                    users (ie: resident). With basic information
+                                    like phone number or any valid ID type, you
+                                    can know "who is who"
+                                </p>
+                                <p>
+                                    Please note: this service costs N200 per
+                                    successful validation and it will be charged
+                                    from your SESA wallet
+                                </p>
+                            </div>
+
+                            <div className='flex w-full justify-center gap-8'>
+                                <button
+                                    className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
+                                    onClick={() => closeDialog()}
+                                >
+                                    Ok
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </dialog>
+            <dialog className='dialog' ref={DetailRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid items-baseline w-[64rem] min-h-[30rem] p-10 gap-8 text-[1.6rem] relative'>
                         <div className='bg-white rounded-2xl grid place-content-center justify-items-center h-[30rem] gap-8 text-[1.6rem]'>
@@ -170,7 +221,7 @@ function AddResident() {
                                     'Ruth James/SO-2345CDGK',
                                     'Timothy James/SO-2345CDGK',
                                 ]}
-                                label='Select Landlord'
+                                label='Landlord Code'
                                 isSearchable
                                 placeholder='Alice James/SO-2345CDGK'
                                 selectedState={selectLandLord}
@@ -204,9 +255,7 @@ function AddResident() {
                     </p>
 
                     <div className='grid gap-8'>
-                        <p
-                            className=' flex items-center gap-2 font-Satoshi-Medium border-b pb-10'
-                        >
+                        <p className=' flex items-center gap-2 font-Satoshi-Medium border-b pb-10'>
                             Add Alpha Resident{' '}
                             <BsQuestionCircle
                                 className='text-[#043FA7] cursor-pointer w-ma'
@@ -259,9 +308,7 @@ function AddResident() {
                         </div>
                     </div>
                     <div className='grid gap-8'>
-                        <p
-                            className=' flex items-center gap-2 font-Satoshi-Medium border-b pb-10'
-                        >
+                        <p className=' flex items-center gap-2 font-Satoshi-Medium border-b pb-10'>
                             Add Resident User{' '}
                             <BsQuestionCircle
                                 className='text-[#043FA7] cursor-pointer'
@@ -293,9 +340,7 @@ function AddResident() {
                                                 }`}
                                                 isSearchable
                                                 color={'bg-[#076AFF]'}
-                                                selectedState={
-                                                   addResidentUser
-                                                }
+                                                selectedState={addResidentUser}
                                                 setSelectedState={
                                                     setAddResidentUser
                                                 }
