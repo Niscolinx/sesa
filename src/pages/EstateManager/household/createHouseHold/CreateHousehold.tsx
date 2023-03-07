@@ -57,9 +57,9 @@ function CreateHousehold() {
     const [selectedPropertyCode, setSelectedPropertyCode] = useState<T>(
         propertyCode || null
     )
-    const [tenancyType, setTenancyType] = useState<T>('')
-    const [selectLandLord, setSelectLandLord] = useState<T>('')
-    const [careTaker, setCareTaker] = useState<T>('')
+    const [tenancyType, setTenancyType] = useState<T>(null)
+    const [selectLandLord, setSelectLandLord] = useState<T>(null)
+    const [careTaker, setCareTaker] = useState<T>(null)
     const [alphaPropertyCode, setAlphaPropertyCode] = useState<T>(
         'Alice James/SO-2345CDGK'
     )
