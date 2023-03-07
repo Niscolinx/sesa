@@ -74,7 +74,8 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
 
     const clearValue = () => {
         console.log('clear value')
-        setSelectedState(null)
+        setSelectedState('')
+        console.log('cleared Value')
     }
 
     useEffect(() => {
