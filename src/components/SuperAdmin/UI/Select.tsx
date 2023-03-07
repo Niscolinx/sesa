@@ -72,7 +72,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
         }
     }
 
-    console.log({selectedState})
+    console.log({selectedState}, 'bg -', `bg-${color}`)
     return (
         <div className='relative grid gap-4'>
             <p className='text-[1.4rem] font-semibold'>{label}</p>
@@ -84,7 +84,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                     {color ? (
                         <>
                             <span
-                                className={`text-white whitespace-nowrap bg-${color} rounded-lg px-4 relative flex items-center z-[2] pr-12`}
+                                className={`text-white whitespace-nowrap ${color && `bg-${color}`}  rounded-lg px-4 relative flex items-center z-[2] pr-12`}
                             >
                                 {selectedState || (
                                     <span className='text-gray-500'>
