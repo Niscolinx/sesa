@@ -17,6 +17,7 @@ function AddResident() {
     }
 
     const openDialog = (dialogType: DialogType) => {
+        console.log('clicked')
         dialogType === 'alphaResident'
             ? setDialogType('alphaResident')
             : setDialogType('residentUser')
@@ -178,7 +179,7 @@ function AddResident() {
                     </div>
                 </section>
                 <section className='mt-[5rem]'>
-                    <p className='font-semibold border-b pb-2'>
+                    <p className='font-semibold border-b pb-2 mb-16'>
                         {' '}
                         Step 2 (Add Occupants)
                     </p>
@@ -188,7 +189,8 @@ function AddResident() {
                             className=' flex items-center gap-2 font-Satoshi-Medium border-b pb-10'
                             onClick={() => openDialog('alphaResident')}
                         >
-                            Add Alpha Resident <BsQuestionCircle />
+                            Add Alpha Resident{' '}
+                            <BsQuestionCircle className='text-[#043FA7] cursor-pointer' onClick={() => openDialog()} />
                         </p>
                     </div>
                 </section>
