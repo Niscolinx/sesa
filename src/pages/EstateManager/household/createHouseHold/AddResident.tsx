@@ -55,6 +55,11 @@ function AddResident() {
         }
     }
 
+    const closeDetailDialog = () => {
+                DetailRef.current?.close()
+
+    }
+
     return (
         <>
             <dialog className='dialog' ref={dialogRef}>
@@ -97,40 +102,17 @@ function AddResident() {
                 </section>
             </dialog>
             <dialog className='dialog' ref={DetailRef}>
-                <section className='grid place-content-center w-full h-[100vh]'>
+                <section className='grid  w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid items-baseline w-[64rem] min-h-[30rem] p-10 gap-8 text-[1.6rem] relative'>
-                        <div className='bg-white rounded-2xl grid place-content-center justify-items-center h-[30rem] gap-8 text-[1.6rem]'>
-                            <p className='font-Satoshi-Medium text-[#0446B9]'>
-                                {dialogType === 'alphaResident' ? (
-                                    <span>Who is Alpha Resident?</span>
-                                ) : (
-                                    <span>Who is Resident User?</span>
-                                )}
-                            </p>
+                        {d}
 
-                            <div className='grid gap-4'>
-                                <p>
-                                    Know Your Resident (KYR) is a service that
-                                    allows you confirm the true identity of your
-                                    users (ie: resident). With basic information
-                                    like phone number or any valid ID type, you
-                                    can know "who is who"
-                                </p>
-                                <p>
-                                    Please note: this service costs N200 per
-                                    successful validation and it will be charged
-                                    from your SESA wallet
-                                </p>
-                            </div>
-
-                            <div className='flex w-full justify-center gap-8'>
-                                <button
-                                    className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
-                                    onClick={() => closeDialog()}
-                                >
-                                    Ok
-                                </button>
-                            </div>
+                        <div className='flex w-full justify-center gap-8'>
+                            <button
+                                className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
+                                onClick={() => closeDialog()}
+                            >
+                                Ok
+                            </button>
                         </div>
                     </div>
                 </section>
