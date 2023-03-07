@@ -19,6 +19,7 @@ interface ISelect<T> {
     isSearchable?: boolean
     fullWidth?: boolean
     kyr?: boolean
+    color?: string
 }
 
 interface ComplexSelect extends Omit<ISelect<string>, 'state'> {
@@ -42,6 +43,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
     placeholder,
     kyr,
     fullWidth,
+    color,
     isSearchable = false,
 }) => {
     const [toggleStateMenu, setToggleStateMenu] = useState(false)
@@ -70,6 +72,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
         }
     }
 
+    
     return (
         <div className='relative grid gap-4'>
             <p className='text-[1.4rem] font-semibold'>{label}</p>
@@ -78,10 +81,30 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                     className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer min-h-[5rem]'
                     onClick={stateMenuToggler}
                 >
-                    {selectedState || (
-                        <span className='text-gray-500'>
-                            {placeholder || ''}
-                        </span>
+                    {color ? (
+                        <>
+                            <span
+                                className={`text-white whitespace-nowrap bg-${color} rounded-lg px-4 relative flex items-center z-[2] pr-12`}
+                            >
+                                {selectedState || (
+                                    <span className='text-gray-500'>
+                                        {placeholder || ''}
+                                    </span>
+                                )}
+                                {/* <IoMdClose
+                                    className='absolute right-2 text-[1.4rem] cursor-pointer'
+                                    onClick={() => setSelectedState(null)}
+                                /> */}
+                            </span>
+                        </>
+                    ) : (
+                        <>
+                            {selectedState || (
+                                <span className='text-gray-500'>
+                                    {placeholder || ''}
+                                </span>
+                            )}
+                        </>
                     )}
                 </p>
                 {toggleStateMenu ? (

@@ -42,8 +42,8 @@ export interface HouseholdContext {
     careTaker: T
     setCareTaker: D
     alphaPropertyCode: T
-    setAlphaPropertyCode: D,
-    alphaResident: D,
+    setAlphaPropertyCode: D
+    alphaResident: T
     setAlphaResident: D
 }
 
@@ -85,7 +85,7 @@ function CreateHousehold() {
                     alphaPropertyCode,
                     setAlphaPropertyCode,
                     alphaResident,
-                    setAlphaResident
+                    setAlphaResident,
                 }}
             >
                 <div className='bg-white p-16 rounded-lg min-h-[90vh] relative'>

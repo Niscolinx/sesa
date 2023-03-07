@@ -14,6 +14,8 @@ function AddResident() {
         setSelectLandLord,
         alphaPropertyCode,
         setAlphaPropertyCode,
+        alphaResident,
+        setAlphaResident
     } = useContext(HouseholdContext)
     const [dialogType, setDialogType] = useState<DialogType>()
 
@@ -234,20 +236,21 @@ function AddResident() {
                                 </p>
                             </div>
                             <div>
-                                <MultipleSelect
-                                    selectFrom={[
-                                       
+                                <Select
+                                    state={[
+                                        'Osaji Valentine/SE-73',
+                                        'Anthony Valentine/SE-73',
+                                        'Michael Valentine/SE-73',
                                     ]}
-                                    selected={[]}
-                                    setSelected={function (
-                                        value: React.SetStateAction<string[]>
-                                    ): void {
-                                        throw new Error(
-                                            'Function not implemented.'
-                                        )
-                                    }}
-                                    label={''}
+                                    label='Alpha Resident 02*'
+                                    color={'[#076AFF]'}
+                                    isSearchable
+                                    selectedState={
+                                        alphaResident || 'Osaji Valentine/SE-73'
+                                    }
+                                    setSelectedState={setAlphaResident}
                                 />
+
                                 <p className='text-color-blue-1 font-light text-[1.2rem] p-2 opacity-70'>
                                     View Details
                                 </p>
