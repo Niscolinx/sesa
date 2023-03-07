@@ -25,11 +25,9 @@ function AddRFID() {
         vehicleType: '',
     })
 
-    const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const { name, value } = e.target
-    }
+   
 
-    const handleSubmit = (e:FormEvent) => {
+    const handleSubmit = (e: FormEvent) => {
         e.preventDefault()
     }
 
@@ -143,7 +141,6 @@ function AddRFID() {
                             gridTemplateColumns:
                                 'repeat(auto-fit, minmax(40rem, 1fr))',
                         }}
-                        onChange={handleInput}
                         onSubmit={handleSubmit}
                     >
                         <div className='grid gap-4 relative '>
@@ -174,7 +171,7 @@ function AddRFID() {
                                 required
                                 id='vehicleRegNumber'
                                 name='vehicleRegNumber'
-                                value={inputField['vehicleRegNumber']}
+                                value={inputField['vehicleRegNumber'] as number}
                                 className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                             />
                         </div>
