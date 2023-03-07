@@ -64,7 +64,7 @@ function AddResident() {
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid items-baseline w-[64rem] min-h-[30rem] p-10 gap-8 text-[1.6rem] relative'>
-                        <div className='bg-white rounded-2xl grid place-content-center justify-items-center h-[30rem] gap-8 text-[1.6rem]'>
+                        <div className='bg-white rounded-2xl grid place-content-center justify-items-center gap-8 text-[1.6rem]'>
                             <p className='font-Satoshi-Medium text-[#0446B9]'>
                                 {dialogType === 'alphaResident' ? (
                                     <span>Who is Alpha Resident?</span>
@@ -103,7 +103,7 @@ function AddResident() {
             <dialog className='dialog' ref={DetailRef}>
                 <section className='grid w-full h-[100vh] place-content-center'>
                     <div className='bg-white rounded-2xl items-baseline w-[64rem] min-h-[30rem] p-10 gap-8 text-[1.6rem] relative grid'>
-                        <p className='font-Satoshi-Medium'>
+                        <p className='font-Satoshi-Medium border-b pb-5'>
                             {dialogDetailType === 'alphaResident' ? (
                                 <span>Alpha Resident</span>
                             ) : (
@@ -111,7 +111,7 @@ function AddResident() {
                             )}
                         </p>
 
-                        <div className='flex'>
+                        <div className='flex items-center gap-16'>
                             <img
                                 src='/img/avatar11.png'
                                 alt=''
@@ -129,7 +129,7 @@ function AddResident() {
                         <div className='flex w-full justify-center gap-8'>
                             <button
                                 className='btn bg-[#0556E5] text-white border rounded-lg w-[15rem]'
-                                onClick={() => closeDialog()}
+                                onClick={() => closeDetailDialog()}
                             >
                                 Ok
                             </button>
@@ -306,9 +306,9 @@ function AddResident() {
                                     setSelectedState={setAlphaResident}
                                 />
 
-                                <p className='text-color-blue-1 font-light text-[1.2rem] p-2 opacity-70'>
+                                <button className='text-color-blue-1 font-light text-[1.2rem] p-2 opacity-70'>
                                     View Details
-                                </p>
+                                </button>
                             </div>
                         </div>
                     </div>
