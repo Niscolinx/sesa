@@ -14,7 +14,10 @@ function AddRFID() {
         vehicleRegNumber: number | null
         vehicleMake: string
         vehicleType: string | null
+        photoUrl?: string
     }
+
+    const RFID_Details: InputField[] = []
 
     const { vehicleType, setVehicleType } = useContext(HouseholdContext)
 
@@ -58,7 +61,7 @@ function AddRFID() {
         setInputField((prev) => {
             return {
                 ...prev,
-                [name]: value
+                [name]: value,
             }
         })
     }
@@ -153,9 +156,7 @@ function AddRFID() {
                             }}
                             onChange={handleChange}
                         >
-                            <div
-                                className='grid gap-4 relative '
-                            >
+                            <div className='grid gap-4 relative '>
                                 <label
                                     htmlFor='RFID'
                                     className='text-[1.4rem] font-medium'
