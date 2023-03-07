@@ -111,11 +111,18 @@ function AddResident() {
                         )}
 
                         <div>
-                            <img src="/icons/avatar1.png" alt="" className='w-[12rem] h-[12rem] rounded-full object-cover'/>
+                            <img
+                                src='/icons/avatar1.png'
+                                alt=''
+                                className='w-[12rem] h-[12rem] rounded-full object-cover'
+                            />
                             <div>
-                                <p>
-                                    
-                                </p>
+                                <p>Resident Code</p>
+                                <p>Resident Name</p>
+                                <p>Phone Number</p>
+                                <p>Tenancy Type</p>
+                                <p>Resident Category</p>
+                                <p>KYR Status</p>
                             </div>
                         </div>
                         <div className='flex w-full justify-center gap-8'>
