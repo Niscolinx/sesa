@@ -13,7 +13,6 @@ function AddRFID() {
         RFID: number | null
         vehicleRegNumber: number | null
         vehicleMake: string
-        vehicleType: string | null
         photoUrl?: string
     }
 
@@ -25,14 +24,14 @@ function AddRFID() {
         RFID: null,
         vehicleMake: '',
         vehicleRegNumber: null,
-        vehicleType,
     })
+    const [photoUrl, setPhotoUrl] = useState('')
 
     const handleSubmit = (e: FormEvent) => {
         e.preventDefault()
-    }
 
-    const [photoUrl, setPhotoUrl] = useState('')
+        console.log({ inputField, photoUrl, vehicleType })
+    }
 
     const handlePhotoPreview = async (
         _: React.MouseEvent<HTMLInputElement>
@@ -168,7 +167,7 @@ function AddRFID() {
                                     required
                                     id='RFID'
                                     name='RFID'
-                                    value={inputField['RFID'] as number}
+                                    defaultValue={inputField['RFID'] as number}
                                     className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                                 />
                             </div>
@@ -184,7 +183,7 @@ function AddRFID() {
                                     required
                                     id='vehicleRegNumber'
                                     name='vehicleRegNumber'
-                                    value={
+                                    defaultValue={
                                         inputField['vehicleRegNumber'] as number
                                     }
                                     className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
@@ -202,7 +201,7 @@ function AddRFID() {
                                     required
                                     id='vehicleMake'
                                     name='vehicleMake'
-                                    value={inputField['vehicleMake']}
+                                    defaultValue={inputField['vehicleMake']}
                                     className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                                 />
                             </div>
@@ -262,7 +261,7 @@ function AddRFID() {
                                 )}
                             </div>
                         </div>
-                        <button className='btn text-color-blue-1 border border-color-blue-1 items-center gap-4 py-4 px-16 rounded-lg w-[15rem] mt-10'>
+                        <button className='btn text-color-blue-1 border border-color-blue-1 items-center gap-4 py-4 px-16 rounded-lg w-[15rem] mt-[5rem]'>
                             Add
                         </button>
                     </form>
