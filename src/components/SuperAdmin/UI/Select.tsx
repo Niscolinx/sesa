@@ -39,7 +39,7 @@ interface MappedSelect {
     fullWidth?: boolean
     kyr?: boolean
     idx: string
-    color?: string
+    color: string
 }
 
 interface ComplexSelect extends Omit<ISelect<string>, 'state'> {
@@ -504,7 +504,7 @@ export const MappedSelect: FC<MappedSelect> = ({
                     >
                         {color ? (
                             <span
-                                className={`text-white whitespace-nowrap bg-${color}  rounded-lg px-4 relative flex items-center z-[2] pr-12 py-2 w-max`}
+                                className={`text-white whitespace-nowrap ${color}  rounded-lg px-4 relative flex items-center z-[2] pr-12 py-2 w-max`}
                             >
                                 <>
                               
