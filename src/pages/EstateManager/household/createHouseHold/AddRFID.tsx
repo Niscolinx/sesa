@@ -117,7 +117,7 @@ function AddRFID() {
                         {' '}
                         Add an RFID to this property{' '}
                     </p>
-                    <div
+                    <form
                         className='grid mt-[5rem] gap-16'
                         style={{
                             gridTemplateColumns:
@@ -126,7 +126,7 @@ function AddRFID() {
                     >
                         <div className='grid gap-4 relative '>
                             <label
-                                htmlFor='firstName'
+                                htmlFor='RFID'
                                 className='text-[1.4rem] font-medium'
                             >
                                 RFID Seriel Number *
@@ -134,7 +134,7 @@ function AddRFID() {
                             <input
                                 type='text'
                                 required
-                                id='firstName'
+                                id='RFID'
                                 className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                             />
                         </div>
@@ -223,7 +223,7 @@ function AddRFID() {
                                 </div>
                             )}
                         </div>
-                    </div>
+                    </form>
                 </section>
                 <button className='btn text-color-blue-1 border border-color-blue-1 items-center gap-4 py-4 px-16 rounded-lg w-[15rem] '>
                     Add
