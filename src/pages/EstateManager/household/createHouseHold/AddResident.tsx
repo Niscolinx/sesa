@@ -290,6 +290,7 @@ function AddResident() {
                                                     'Ruth James/SO-2345CDGK',
                                                     'Timothy James/SO-2345CDGK',
                                                 ]}
+                                                idx={`${1 + idx}`}
                                                 label={`Resident User ${
                                                     1 + idx
                                                 }`}

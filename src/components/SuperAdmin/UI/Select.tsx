@@ -26,7 +26,7 @@ interface MappedSelect {
     state: Array<string>
     selectedState: {
         [key: string]: string
-    }
+    } | null
     setSelectedState: React.Dispatch<
         React.SetStateAction<{
             [key: string]: string
@@ -38,6 +38,7 @@ interface MappedSelect {
     isSearchable?: boolean
     fullWidth?: boolean
     kyr?: boolean
+    idx?: string
     color?: string
 }
 
@@ -449,6 +450,7 @@ export const MappedSelect: FC<MappedSelect> = ({
     kyr,
     fullWidth,
     color,
+    idx,
     isSearchable = false,
 }) => {
     const [toggleStateMenu, setToggleStateMenu] = useState(false)
