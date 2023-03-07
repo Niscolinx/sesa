@@ -323,6 +323,15 @@ function AddResident() {
                             </Fragment>
                         )
                     })}
+                     <div className='col-span-full rounded-lg border border-width-[.2rem] border-dashed border-color-grey-1 p-8 text-[1.6rem] relative w-full'>
+                        
+                        <p>
+                            <span>
+                                <GrAdd/>
+                            </span>
+                        </p>
+
+                        </div>
                 </section>
             </div>
         </>
