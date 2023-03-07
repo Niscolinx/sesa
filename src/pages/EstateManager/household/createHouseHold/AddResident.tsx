@@ -269,10 +269,11 @@ function AddResident() {
                         </p>
 
                         <div
-                            className='grid gap-16'
+                            className='grid gap-16 opacity-50'
                             style={{
                                 gridTemplateColumns:
                                     'repeat(auto-fit, minmax(40rem, 1fr))',
+                                    pointerEvents: 'none'
                             }}
                         >
                             <div>
