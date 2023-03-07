@@ -17,6 +17,8 @@ function AddRFID() {
         photoUrl: string
     }
 
+    const formRef = useRef<HTMLFormElement | null>(null)
+
     const RFID_Details: InputField[] = []
 
     const { vehicleType, setVehicleType } = useContext(HouseholdContext)
@@ -31,8 +33,6 @@ function AddRFID() {
     const handleSubmit = (e: FormEvent) => {
         e.preventDefault()
 
-        console.log({ inputField, photoUrl, vehicleType })
-
         const details = {
             ...inputField,
             photoUrl,
@@ -40,6 +40,8 @@ function AddRFID() {
         }
 
         RFID_Details.push(details)
+
+        
     }
 
     const handlePhotoPreview = async (
@@ -155,7 +157,7 @@ function AddRFID() {
                         {' '}
                         Add an RFID to this property{' '}
                     </p>
-                    <form onSubmit={handleSubmit}>
+                    <form onSubmit={handleSubmit} ref={formRef}>
                         <div
                             className='grid mt-[5rem] gap-16'
                             style={{
