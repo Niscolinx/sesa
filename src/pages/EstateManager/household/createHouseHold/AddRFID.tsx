@@ -44,8 +44,8 @@ function AddRFID() {
 
         RFID_Details.push(details)
 
-        //setInputField(defaultFormState)
-        formRef.current?.reset()
+        setInputField(defaultFormState)
+        
     }
 
 
