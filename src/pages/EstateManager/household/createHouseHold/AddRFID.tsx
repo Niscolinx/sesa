@@ -5,6 +5,7 @@ import {
     MappedSelect,
     Select,
 } from '../../../../components/SuperAdmin/UI/Select'
+import { getPhotoUrl } from '../../../../utils/getPhotoUrl'
 import { HouseholdContext } from './CreateHousehold'
 
 function AddRFID() {
@@ -27,6 +28,18 @@ function AddRFID() {
     const [dialogType, setDialogType] = useState<DialogType>()
     const [dialogDetailType, setDialogDetailType] = useState<DetailDialogType>()
     const [addResidentUserCount, setAddResidentUserCount] = useState(2)
+    const [photoUrl, setPhotoUrl] = useState('')
+
+    const handlePhotoPreview = async (
+        _: React.MouseEvent<HTMLInputElement>
+    ) => {
+        const getUrl = await getPhotoUrl(`#photoUpload`)
+        setPhotoUrl(getUrl)
+    }
+
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault()
+    }
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
     const DetailRef = useRef<HTMLDialogElement | null>(null)
@@ -129,7 +142,7 @@ function AddRFID() {
                                 htmlFor='firstName'
                                 className='text-[1.4rem] font-medium'
                             >
-                                First Name *
+                                RFID Seriel Number *
                             </label>
                             <input
                                 type='text'
@@ -143,7 +156,7 @@ function AddRFID() {
                                 htmlFor='lastName'
                                 className='text-[1.4rem] font-medium'
                             >
-                                Middle Name *
+                                Vehicle Registration Number*
                             </label>
                             <input
                                 type='text'
@@ -157,7 +170,7 @@ function AddRFID() {
                                 htmlFor='lastName'
                                 className='text-[1.4rem] font-medium'
                             >
-                                Last Name *
+                                Vehicle Make *
                             </label>
                             <input
                                 type='text'
@@ -167,19 +180,46 @@ function AddRFID() {
                             />
                         </div>
 
-                        <div className='grid gap-4 relative '>
+                        <div className='col-span-full rounded-lg border border-width-[.2rem] border-dashed border-color-grey-1 p-8 text-[1.6rem] relative w-full'>
                             <label
-                                htmlFor='lastName'
-                                className='text-[1.4rem] font-medium'
+                                htmlFor='photoUpload'
+                                className='flex justify-center gap-4 items-center cursor-pointer'
                             >
-                                Date of Birth
+                                <img
+                                    src='/icons/admins/photo_library.svg'
+                                    alt=''
+                                />
+                                <p
+                                    className='text-color-dark-1'
+                                    style={{
+                                        fontFamily: 'Satoshi-Light',
+                                    }}
+                                >
+                                    Drag estate manager picture here or{' '}
+                                    <span className='text-color-blue font-bold'>
+                                        click
+                                    </span>{' '}
+                                    to upload
+                                </p>
                             </label>
                             <input
-                                type='text'
-                                required
-                                id='lastName'
-                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                                type='file'
+                                name='photoUpload'
+                                id='photoUpload'
+                                accept='image/*'
+                                className='hidden'
+                                onClick={handlePhotoPreview}
                             />
+
+                            {photoUrl && (
+                                <div className='flex justify-center justify-self-center'>
+                                    <img
+                                        src={photoUrl}
+                                        alt='photoPreview'
+                                        className='object-cover w-[11rem] h-[11rem] rounded-full'
+                                    />
+                                </div>
+                            )}
                         </div>
                     </div>
                 </section>
