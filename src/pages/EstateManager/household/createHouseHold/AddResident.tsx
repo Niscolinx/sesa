@@ -33,6 +33,7 @@ function AddResident() {
     }
 
     const openDialog = (dialogType: DialogType) => {
+      
         dialogType === 'alphaResident'
             ? setDialogType('alphaResident')
             : setDialogType('residentUser')
