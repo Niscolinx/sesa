@@ -36,7 +36,7 @@ export type Actions = 'View Details' | 'Edit Details' | 'Delete'
 
 function HouseHold() {
     const [isHousehold, setIsHousehold] = useState(false)
-    const [selectedPropertyCode, setSelectedPropertyCode] = useState<
+    const [propertyCode, setPropertyCode] = useState<
         string | null
     >(null)
     const addhousehold = () => {
@@ -265,8 +265,8 @@ function HouseHold() {
                                     ]}
                                     label='Property Code*'
                                     isSearchable
-                                    selectedState={selectedPropertyCode}
-                                    setSelectedState={setSelectedPropertyCode}
+                                    selectedState={propertyCode}
+                                    setSelectedState={setPropertyCode}
                                 />
                             </div>
                             <button
@@ -276,8 +276,7 @@ function HouseHold() {
                                         '/estateManager/household/create-household',
                                         {
                                             state: {
-                                                selectedPropertyCode,
-                                                setSelectedPropertyCode,
+                                                propertyCode,
                                             },
                                         }
                                     )
