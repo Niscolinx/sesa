@@ -187,7 +187,6 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
     )
 }
 
-
 export const ComplexSelect: FC<ComplexSelect> = ({
     state,
     selectedState,
@@ -295,9 +294,6 @@ export const ComplexSelect: FC<ComplexSelect> = ({
         </div>
     )
 }
-
-
-
 
 export const MultipleSelect: FC<IMultipleSelect> = ({
     selectFrom,
@@ -439,8 +435,6 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
     )
 }
 
-
-
 export const MappedSelect: FC<MappedSelect> = ({
     state,
     selectedState,
@@ -459,8 +453,14 @@ export const MappedSelect: FC<MappedSelect> = ({
     const [search, setSearch] = useState('')
     const [selectFrom, setSelectFrom] = useState(state)
 
-    const handleSelectedState = (item: string) => {
-        setSelectedState(item)
+    const handleSelectedState = (idx: string, item: string) => {
+        setSelectedState((prev) => {
+            return {
+                ...prev,
+                [idx]: item,
+            }
+        })
+
         setToggleStateMenu(false)
     }
 
@@ -573,4 +573,3 @@ export const MappedSelect: FC<MappedSelect> = ({
         </div>
     )
 }
-
