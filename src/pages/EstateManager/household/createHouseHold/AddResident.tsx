@@ -306,7 +306,9 @@ function AddResident() {
                                     setSelectedState={setAlphaResident}
                                 />
 
-                                <button className='text-color-blue-1 font-light text-[1.2rem] p-2 opacity-70'>
+                                <button className='text-color-blue-1 font-light text-[1.2rem] p-2 opacity-70 border-none outline-transparent' onClick={
+                                    () => openDetailDialog('alphaResident')
+                                }>
                                     View Details
                                 </button>
                             </div>
