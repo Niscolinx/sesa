@@ -16,7 +16,6 @@ function AddRFID() {
     }
 
     const RFID_Details: InputField[] = []
-    const formRef = useRef<HTMLFormElement | null>(null)
 
     const { vehicleType, setVehicleType } = useContext(HouseholdContext)
     const defaultFormState = {
