@@ -97,7 +97,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                                 {selectedState}
                                 <IoMdClose
                                     className='absolute right-2 text-[1.4rem] cursor-pointer'
-                                    onClick={clearValue}
+                                    onClick={() => clearValue()}
                                 />
                             </span>
                         ) : (
