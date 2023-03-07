@@ -225,10 +225,7 @@ function AddRFID() {
                         </div>
                     </div>
                 </section>
-                <button
-                    className='btn text-color-blue-1 border border-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg w-[15rem]'
-                    style={{ justifySelf: 'start' }}
-                >
+                <button className='btn text-color-blue-1 border border-color-blue-1 items-center gap-4 py-4 px-16 rounded-lg w-[15rem] '>
                     Add
                 </button>
             </div>
