@@ -297,7 +297,9 @@ function AddResident() {
                                                 isSearchable
                                                 color={'[#076AFF]'}
                                                 selectedState={
-                                                    addResidentUser
+                                                   addResidentUser && addResidentUser[
+                                                        `${1 + idx}`
+                                                    ]
                                                 }
                                                 setSelectedState={
                                                     setAddResidentUser

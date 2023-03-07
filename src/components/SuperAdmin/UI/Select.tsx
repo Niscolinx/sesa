@@ -38,7 +38,7 @@ interface MappedSelect {
     isSearchable?: boolean
     fullWidth?: boolean
     kyr?: boolean
-    idx?: string
+    idx: string
     color?: string
 }
 
@@ -453,7 +453,7 @@ export const MappedSelect: FC<MappedSelect> = ({
     const [search, setSearch] = useState('')
     const [selectFrom, setSelectFrom] = useState(state)
 
-    const handleSelectedState = (idx: string, item: string) => {
+    const handleSelectedState = (item: string) => {
         setSelectedState((prev) => {
             return {
                 ...prev,
@@ -463,6 +463,10 @@ export const MappedSelect: FC<MappedSelect> = ({
 
         setToggleStateMenu(false)
     }
+
+    useEffect(() => {
+        console.log({selectedState})
+    }, [selectedState])
 
     const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
         const { value } = e.target
@@ -520,11 +524,15 @@ export const MappedSelect: FC<MappedSelect> = ({
                         className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer min-h-[5rem]'
                         onClick={stateMenuToggler}
                     >
-                        {selectedState || (
+                        {/* { selectedState ? selectedState : (
                             <span className='text-gray-500'>
                                 {placeholder || ''}
                             </span>
-                        )}
+                        )} */}
+
+                        {
+                           selectedState && selectedState[idx]
+                        }
                     </p>
                 )}
                 {toggleStateMenu ? (
