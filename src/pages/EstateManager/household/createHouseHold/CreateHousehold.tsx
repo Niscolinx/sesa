@@ -25,11 +25,12 @@ const paths = [
         id: 4,
     },
 ]
+
+const propertyCode = atom<string | null>(null)
+
 function CreateHousehold() {
     const [pathToSwitch, setPathToSwitch] = useState(1)
-    const [selectedPropertyCode, setSelectedPropertyCode] = useState<
-        string | null
-    >(null)
+    const [selectedPropertyCode, setSelectedPropertyCode] = useAtom(propertyCode)
 
     const handlePathSwitch = new Map<number, JSX.Element>([
         [1, <AddProperty />],
