@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState } from 'react'
+import React, { Fragment, useContext, useRef, useState } from 'react'
 import { BsQuestionCircle } from 'react-icons/bs'
 import {
     MultipleSelect,
@@ -21,6 +21,7 @@ function AddResident() {
         setAlphaResident,
     } = useContext(HouseholdContext)
     const [dialogType, setDialogType] = useState<DialogType>()
+    const [addResidentUserCount, setAddResidentUserCount] = useState([1])
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
@@ -39,6 +40,66 @@ function AddResident() {
         }
     }
 
+    const AddResidentUser = () => {
+        return (
+            <div className='grid gap-8'>
+                <p
+                    className=' flex items-center gap-2 font-Satoshi-Medium border-b pb-10'
+                    onClick={() => openDialog('alphaResident')}
+                >
+                    Add Alpha Resident{' '}
+                    <BsQuestionCircle
+                        className='text-[#043FA7] cursor-pointer'
+                        onClick={() => openDialog('alphaResident')}
+                    />
+                </p>
+
+                <div
+                    className='grid gap-16'
+                    style={{
+                        gridTemplateColumns:
+                            'repeat(auto-fit, minmax(40rem, 1fr))',
+                    }}
+                >
+                    <div>
+                        <Select
+                            state={[
+                                'Alice James/SO-2345CDGK',
+                                'Osaji James/SO-2345CDGK',
+                                'Ruth James/SO-2345CDGK',
+                                'Timothy James/SO-2345CDGK',
+                            ]}
+                            label='Property Type'
+                            isSearchable
+                            selectedState={alphaPropertyCode}
+                            setSelectedState={setAlphaPropertyCode}
+                        />
+                        <p className='text-color-blue-1 font-light text-[1.2rem] p-2 opacity-70'>
+                            View Details
+                        </p>
+                    </div>
+                    <div>
+                        <Select
+                            state={[
+                                'Osaji Valentine/SE-73',
+                                'Anthony Valentine/SE-73',
+                                'Michael Valentine/SE-73',
+                            ]}
+                            label='Alpha Resident 02*'
+                            color={'[#076AFF]'}
+                            isSearchable
+                            selectedState={alphaResident}
+                            setSelectedState={setAlphaResident}
+                        />
+
+                        <p className='text-color-blue-1 font-light text-[1.2rem] p-2 opacity-70'>
+                            View Details
+                        </p>
+                    </div>
+                </div>
+            </div>
+        )
+    }
     return (
         <>
             <dialog className='dialog' ref={dialogRef}>
@@ -255,62 +316,13 @@ function AddResident() {
                             </div>
                         </div>
                     </div>
-                    <div className='grid gap-8'>
-                        <p
-                            className=' flex items-center gap-2 font-Satoshi-Medium border-b pb-10'
-                            onClick={() => openDialog('alphaResident')}
-                        >
-                            Add Alpha Resident{' '}
-                            <BsQuestionCircle
-                                className='text-[#043FA7] cursor-pointer'
-                                onClick={() => openDialog('alphaResident')}
-                            />
-                        </p>
-
-                        <div
-                            className='grid gap-16'
-                            style={{
-                                gridTemplateColumns:
-                                    'repeat(auto-fit, minmax(40rem, 1fr))',
-                            }}
-                        >
-                            <div>
-                                <Select
-                                    state={[
-                                        'Alice James/SO-2345CDGK',
-                                        'Osaji James/SO-2345CDGK',
-                                        'Ruth James/SO-2345CDGK',
-                                        'Timothy James/SO-2345CDGK',
-                                    ]}
-                                    label='Property Type'
-                                    isSearchable
-                                    selectedState={alphaPropertyCode}
-                                    setSelectedState={setAlphaPropertyCode}
-                                />
-                                <p className='text-color-blue-1 font-light text-[1.2rem] p-2 opacity-70'>
-                                    View Details
-                                </p>
-                            </div>
-                            <div>
-                                <Select
-                                    state={[
-                                        'Osaji Valentine/SE-73',
-                                        'Anthony Valentine/SE-73',
-                                        'Michael Valentine/SE-73',
-                                    ]}
-                                    label='Alpha Resident 02*'
-                                    color={'[#076AFF]'}
-                                    isSearchable
-                                    selectedState={alphaResident}
-                                    setSelectedState={setAlphaResident}
-                                />
-
-                                <p className='text-color-blue-1 font-light text-[1.2rem] p-2 opacity-70'>
-                                    View Details
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                    {addResidentUserCount.map((item) => {
+                        return (
+                            <Fragment key={item}>
+                                <AddResidentUser />
+                            </Fragment>
+                        )
+                    })}
                 </section>
             </div>
         </>
