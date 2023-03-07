@@ -324,7 +324,7 @@ function AddResident() {
                             </Fragment>
                         )
                     })}
-                    <div className='col-span-full rounded-lg border border-width-[.2rem] border-dashed border-color-grey-1 p-8 text-[1.6rem] relative w-full justify-items-center'>
+                    <div className='col-span-full rounded-lg border border-width-[.2rem] border-dashed border-color-grey-1 p-8 text-[1.6rem] relative w-full justify-center'>
                         <p className='flex items-center gap-8'>
                             <span>
                                 <GrAdd />
