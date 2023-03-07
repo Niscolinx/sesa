@@ -193,12 +193,68 @@ function AddResident() {
                         </div>
                     </div>
                 </section>
-                <section className='mt-[5rem]'>
-                    <p className='font-semibold border-b pb-2 mb-16'>
+                <section className='mt-[5rem] grid gap-16'>
+                    <p className='font-semibold border-b pb-2'>
                         {' '}
                         Step 2 (Add Occupants)
                     </p>
 
+                    <div className='grid gap-8'>
+                        <p
+                            className=' flex items-center gap-2 font-Satoshi-Medium border-b pb-10'
+                            onClick={() => openDialog('alphaResident')}
+                        >
+                            Add Alpha Resident{' '}
+                            <BsQuestionCircle
+                                className='text-[#043FA7] cursor-pointer'
+                                onClick={() => openDialog('alphaResident')}
+                            />
+                        </p>
+
+                        <div
+                            className='grid gap-16'
+                            style={{
+                                gridTemplateColumns:
+                                    'repeat(auto-fit, minmax(40rem, 1fr))',
+                            }}
+                        >
+                            <div>
+                                <Select
+                                    state={[
+                                        'Alice James/SO-2345CDGK',
+                                        'Osaji James/SO-2345CDGK',
+                                        'Ruth James/SO-2345CDGK',
+                                        'Timothy James/SO-2345CDGK',
+                                    ]}
+                                    label='Property Type'
+                                    isSearchable
+                                    selectedState={alphaPropertyCode}
+                                    setSelectedState={setAlphaPropertyCode}
+                                />
+                                <p className='text-color-blue-1 font-light text-[1.2rem] p-2 opacity-70'>
+                                    View Details
+                                </p>
+                            </div>
+                            <div>
+                                <Select
+                                    state={[
+                                        'Osaji Valentine/SE-73',
+                                        'Anthony Valentine/SE-73',
+                                        'Michael Valentine/SE-73',
+                                    ]}
+                                    label='Alpha Resident 02*'
+                                    color={'[#076AFF]'}
+                                    isSearchable
+                                    selectedState={alphaResident}
+                                    setSelectedState={setAlphaResident}
+                                />
+
+                                <p className='text-color-blue-1 font-light text-[1.2rem] p-2 opacity-70'>
+                                    View Details
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                     <div className='grid gap-8'>
                         <p
                             className=' flex items-center gap-2 font-Satoshi-Medium border-b pb-10'
