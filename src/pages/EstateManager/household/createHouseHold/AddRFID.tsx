@@ -13,7 +13,7 @@ function AddRFID() {
         RFID: number | null
         vehicleRegNumber: number | null
         vehicleMake: string
-        vehicleType: string
+        vehicleType: string | null
     }
 
     const { vehicleType, setVehicleType } = useContext(HouseholdContext)
@@ -22,7 +22,7 @@ function AddRFID() {
         RFID: null,
         vehicleMake: '',
         vehicleRegNumber: null,
-        vehicleType: '',
+        vehicleType,
     })
 
     const handleSubmit = (e: FormEvent) => {
@@ -54,6 +54,13 @@ function AddRFID() {
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target
+
+        setInputField((prev) => {
+            return {
+                ...prev,
+                [name]: value
+            }
+        })
     }
 
     return (
@@ -144,10 +151,10 @@ function AddRFID() {
                                 gridTemplateColumns:
                                     'repeat(auto-fit, minmax(40rem, 1fr))',
                             }}
+                            onChange={handleChange}
                         >
                             <div
                                 className='grid gap-4 relative '
-                                onChange={handleChange}
                             >
                                 <label
                                     htmlFor='RFID'
