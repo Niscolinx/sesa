@@ -22,7 +22,7 @@ function AddResident() {
         setAlphaResident,
     } = useContext(HouseholdContext)
     const [dialogType, setDialogType] = useState<DialogType>()
-    const [addResidentUserCount, setAddResidentUserCount] = useState([1])
+    const [addResidentUserCount, setAddResidentUserCount] = useState(1)
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
@@ -317,15 +317,22 @@ function AddResident() {
                             </div>
                         </div>
                     </div>
-                    {addResidentUserCount.map((item) => {
-                        return (
-                            <Fragment key={item}>
-                                <AddResidentUser />
-                            </Fragment>
-                        )
-                    })}
+                    {Array.from({ length: addResidentUserCount }).map(
+                        (item, idx) => {
+                            return (
+                                <Fragment key={idx}>
+                                    <AddResidentUser />
+                                </Fragment>
+                            )
+                        }
+                    )}
                     <div className='col-span-full rounded-lg border border-width-[.2rem] border-dashed border-color-grey-1 p-8 text-[1.6rem] relative w-full flex justify-items-center justify-center'>
-                        <button className='flex items-center gap-8'>
+                        <button
+                            className='flex items-center gap-8'
+                            onClick={() =>
+                                setAddResidentUserCount((prev) => prev + 1)
+                            }
+                        >
                             <span>
                                 <GrAdd />
                             </span>
