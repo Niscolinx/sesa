@@ -246,7 +246,7 @@ function AddResident() {
                                     color={'[#076AFF]'}
                                     isSearchable
                                     selectedState={
-                                        'Osaji Valentine/SE-73'
+                                        alphaResident || 'Osaji Valentine/SE-73'
                                     }
                                     setSelectedState={setAlphaResident}
                                 />

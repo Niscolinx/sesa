@@ -72,7 +72,6 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
         }
     }
 
-    console.log({selectedState}, 'bg -', `bg-${color}`)
     return (
         <div className='relative grid gap-4'>
             <p className='text-[1.4rem] font-semibold'>{label}</p>
@@ -91,10 +90,10 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                                         {placeholder || ''}
                                     </span>
                                 )}
-                                {/* <IoMdClose
+                                <IoMdClose
                                     className='absolute right-2 text-[1.4rem] cursor-pointer'
                                     onClick={() => setSelectedState(null)}
-                                /> */}
+                                />
                             </span>
                         </>
                     ) : (
