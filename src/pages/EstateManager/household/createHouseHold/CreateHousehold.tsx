@@ -39,16 +39,16 @@ export const HouseholdContext = createContext<HouseholdContext>(null as any)
 
 function CreateHousehold() {
     const location = useLocation()
-    const {
-        propertyCode
-    } = location.state
+    const propertyCode = location.state?.propertyCode
 
     const [pathToSwitch, setPathToSwitch] = useState(1)
     const [selectedPropertyCode, setSelectedPropertyCode] = useState<
-       string | null
-    >(null)
-    
+        string | null
+    >(propertyCode || null)
 
+    console.log({
+        selectedPropertyCode,
+    })
 
     const handlePathSwitch = new Map<number, JSX.Element>([
         [1, <AddProperty />],
