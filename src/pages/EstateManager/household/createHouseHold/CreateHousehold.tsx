@@ -30,15 +30,19 @@ const paths = [
     },
 ]
 
+type T = string | null
+type D = Dispatch<SetStateAction<T>>
 export interface HouseholdContext {
-    selectedPropertyCode: string | null
-    setSelectedPropertyCode: Dispatch<SetStateAction<string | null>>
-    tenancyType: string | null
-    setTenancyType: Dispatch<SetStateAction<string | null>>
-    selectLandLord: string | null
-    setSelectLandLord: Dispatch<SetStateAction<string | null>>
-    careTaker: string | null
-    setCareTaker: Dispatch<SetStateAction<string | null>>
+    selectedPropertyCode: T
+    setSelectedPropertyCode: D
+    tenancyType: T
+    setTenancyType: D
+    selectLandLord: T
+    setSelectLandLord: D
+    careTaker: T
+    setCareTaker: D
+    alphaPropertyCode: T
+    setAlphaPropertyCode: D
 }
 
 export const HouseholdContext = createContext<HouseholdContext>(null as any)
@@ -54,6 +58,7 @@ function CreateHousehold() {
     const [tenancyType, setTenancyType] = useState<string | null>('')
     const [selectLandLord, setSelectLandLord] = useState<string | null>('')
     const [careTaker, setCareTaker] = useState<string | null>('')
+    const [alphaPropertyCode, setAlphaPropertyCode] = useState<string | null>('')
 
     const handlePathSwitch = new Map<number, JSX.Element>([
         [1, <AddProperty />],
@@ -72,7 +77,9 @@ function CreateHousehold() {
                     selectLandLord,
                     setSelectLandLord,
                     careTaker,
-                    setCareTaker
+                    setCareTaker,
+                    alphaPropertyCode,
+                    setAlphaPropertyCode
                 }}
             >
                 <div className='bg-white p-16 rounded-lg min-h-[90vh] relative'>
