@@ -1,4 +1,4 @@
-import React, { Fragment, useContext, useRef, useState } from 'react'
+import React, { FormEvent, Fragment, useContext, useRef, useState } from 'react'
 import { BsQuestionCircle } from 'react-icons/bs'
 import { GrAdd } from 'react-icons/gr'
 import {
@@ -9,7 +9,6 @@ import { getPhotoUrl } from '../../../../utils/getPhotoUrl'
 import { HouseholdContext } from './CreateHousehold'
 
 function AddRFID() {
-    
     interface InputField {
         RFID: string
         vehicleRegNumber: number | null
@@ -23,11 +22,15 @@ function AddRFID() {
         RFID: '',
         vehicleMake: '',
         vehicleRegNumber: null,
-        vehicleType: ''
+        vehicleType: '',
     })
 
     const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const {name, value} = e.target
+        const { name, value } = e.target
+    }
+
+    const handleSubmit = (e:FormEvent) => {
+        e.preventDefault()
     }
 
     const [photoUrl, setPhotoUrl] = useState('')
@@ -140,6 +143,8 @@ function AddRFID() {
                             gridTemplateColumns:
                                 'repeat(auto-fit, minmax(40rem, 1fr))',
                         }}
+                        onChange={handleInput}
+                        onSubmit={handleSubmit}
                     >
                         <div className='grid gap-4 relative '>
                             <label
@@ -154,7 +159,6 @@ function AddRFID() {
                                 id='RFID'
                                 name='RFID'
                                 value={inputField['RFID']}
-                                onChange={handleInput}
                                 className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                             />
                         </div>
@@ -170,7 +174,7 @@ function AddRFID() {
                                 required
                                 id='vehicleRegNumber'
                                 name='vehicleRegNumber'
-                                onChange={handleInput}
+                                value={inputField['vehicleRegNumber']}
                                 className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                             />
                         </div>
