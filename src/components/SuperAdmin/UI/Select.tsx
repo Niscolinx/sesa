@@ -479,15 +479,18 @@ export const MappedSelect: FC<MappedSelect> = ({
         }
     }
 
-    const clearValue = (e: React.MouseEvent<SVGElement, MouseEvent>) => {
+    const clearValue = (e: React.MouseEvent<SVGElement, MouseEvent>, idx: string) => {
         e.stopPropagation()
         
-        set
+       setSelectedState((prev) => {
+           return {
+               ...prev,
+               [idx]: '',
+           }
+       })
     }
 
-    useEffect(() => {
-        console.log({ selectedState })
-    })
+  
 
     return (
         <div className='relative grid gap-4'>
@@ -507,7 +510,7 @@ export const MappedSelect: FC<MappedSelect> = ({
                                     {selectedState[idx]}
                                     <IoMdClose
                                         className='absolute right-2 text-[1.4rem] cursor-pointer'
-                                        onClick={(e) => clearValue(e)}
+                                        onClick={(e) => clearValue(e, idx)}
                                     />
                                 </>
                             </span>
