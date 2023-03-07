@@ -1,6 +1,12 @@
-import { Fragment, useState, createContext } from 'react'
+import {
+    Fragment,
+    useState,
+    createContext,
+    Dispatch,
+    SetStateAction,
+} from 'react'
 import { TfiArrowCircleLeft, TfiArrowCircleRight } from 'react-icons/tfi'
-import { Provider, atom } from 'jotai'
+import { Provider } from 'jotai'
 
 import AddResident from './AddResident'
 import AddProperty from './AddProperty'
@@ -24,17 +30,18 @@ const paths = [
     },
 ]
 
-
 export interface HouseholdContext {
-    
+    selectedPropertyCode: string | null
+    setSelectedPropertyCode: Dispatch<SetStateAction<string | null>>
 }
 
-const HouseholdContext = createContext<HouseholdContext>(null)
+const HouseholdContext = createContext<HouseholdContext | null>(null)
 
 function CreateHousehold() {
     const [pathToSwitch, setPathToSwitch] = useState(1)
-        const [selectedPropertyCode, setSelectedPropertyCode] = useState<string | null>(null)
-
+    const [selectedPropertyCode, setSelectedPropertyCode] = useState<
+        string | null
+    >(null)
 
     const handlePathSwitch = new Map<number, JSX.Element>([
         [1, <AddProperty />],
@@ -44,13 +51,13 @@ function CreateHousehold() {
     ])
     return (
         <>
-            <HouseholdContext.Provider value={{
-
-            }}>
+            <HouseholdContext.Provider
+                value={{
+                    selectedPropertyCode,
+                    setSelectedPropertyCode,
+                }}
+            >
                 <div className='bg-white p-16 rounded-lg min-h-[90vh] relative'>
-                    <p>
-                        PropertyCode: <span>{JSON.stringify(propertyCode)}</span>
-                    </p>
                     <div
                         className='estateDetail__radioBox'
                         style={{
@@ -114,7 +121,7 @@ function CreateHousehold() {
                         </button>
                     </div>
                 </div>
-            </Provider>
+            </HouseholdContext.Provider>
         </>
     )
 }
