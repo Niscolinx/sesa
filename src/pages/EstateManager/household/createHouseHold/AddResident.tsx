@@ -225,9 +225,8 @@ function AddResident() {
                                     ]}
                                     label='Property Type'
                                     isSearchable
-                                    selectedState={
-                                        alphaPropertyCode 
-                                    }
+                                    placeholder='Alice James/SO-2345CDGK'
+                                    selectedState={alphaPropertyCode}
                                     setSelectedState={setAlphaPropertyCode}
                                 />
                                 <p className='text-color-blue-1 font-light text-[1.2rem] p-2 opacity-70'>
@@ -244,6 +243,7 @@ function AddResident() {
                                     label='Alpha Resident 02*'
                                     color={'[#076AFF]'}
                                     isSearchable
+                                    placeholder='Osaji Valentine/SE-73'
                                     selectedState={
                                         alphaResident 
                                     }
