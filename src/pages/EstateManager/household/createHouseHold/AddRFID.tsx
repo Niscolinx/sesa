@@ -61,7 +61,6 @@ function AddRFID() {
 
     return (
         <>
-           
             <div className='grid gap-16'>
                 <section className='w-full flex gap-16 relative'>
                     <div>
@@ -116,7 +115,7 @@ function AddRFID() {
                 <section className='mt-[5rem]'>
                     <p className='font-semibold border-b pb-2'>
                         {' '}
-                        Step 1 (Select Tenanacy Type)
+                        Add an RFID to this property{' '}
                     </p>
                     <div
                         className='grid mt-[5rem] gap-16'
@@ -125,55 +124,61 @@ function AddRFID() {
                                 'repeat(auto-fit, minmax(40rem, 1fr))',
                         }}
                     >
-                        <div>
-                            <Select
-                                state={[
-                                    'Landlord (developer)',
-                                    'Landlord (resident)',
-                                    'Landlord (non-resident)',
-                                    'Tenant (resident)',
-                                ]}
-                                label='Tenancy Type'
-                                isSearchable
-                                placeholder='Landlord (resident)'
-                                selectedState={tenancyType}
-                                setSelectedState={setTenancyType}
-                            />
-                        </div>
-                        <div>
-                            <Select
-                                state={[
-                                    'Alice James/SO-2345CDGK',
-                                    'Osaji James/SO-2345CDGK',
-                                    'Ruth James/SO-2345CDGK',
-                                    'Timothy James/SO-2345CDGK',
-                                ]}
-                                label='Landlord Code'
-                                isSearchable
-                                placeholder='Alice James/SO-2345CDGK'
-                                selectedState={selectLandLord}
-                                setSelectedState={setSelectLandLord}
-                            />
-                            <button
-                                className='text-color-blue-1 font-light text-[1.2rem] p-2 opacity-70 border-none outline-none'
-                                onClick={() => openDetailDialog('landlord')}
+                        <div className='grid gap-4 relative '>
+                            <label
+                                htmlFor='firstName'
+                                className='text-[1.4rem] font-medium'
                             >
-                                View Details
-                            </button>
+                                First Name *
+                            </label>
+                            <input
+                                type='text'
+                                required
+                                id='firstName'
+                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                            />
                         </div>
-                        <div>
-                            <Select
-                                state={[
-                                    'careTaker 1',
-                                    'careTaker 2',
-                                    'careTaker 3',
-                                    'careTaker 4',
-                                ]}
-                                label='Add Caretaker/Property Admin (optional)'
-                                isSearchable
-                                placeholder='placeholder'
-                                selectedState={careTaker}
-                                setSelectedState={setCareTaker}
+                        <div className='grid gap-4 relative '>
+                            <label
+                                htmlFor='lastName'
+                                className='text-[1.4rem] font-medium'
+                            >
+                                Middle Name *
+                            </label>
+                            <input
+                                type='text'
+                                required
+                                id='lastName'
+                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                            />
+                        </div>
+                        <div className='grid gap-4 relative '>
+                            <label
+                                htmlFor='lastName'
+                                className='text-[1.4rem] font-medium'
+                            >
+                                Last Name *
+                            </label>
+                            <input
+                                type='text'
+                                required
+                                id='lastName'
+                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                            />
+                        </div>
+
+                        <div className='grid gap-4 relative '>
+                            <label
+                                htmlFor='lastName'
+                                className='text-[1.4rem] font-medium'
+                            >
+                                Date of Birth
+                            </label>
+                            <input
+                                type='text'
+                                required
+                                id='lastName'
+                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                             />
                         </div>
                     </div>
