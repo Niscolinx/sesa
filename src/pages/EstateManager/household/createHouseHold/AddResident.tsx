@@ -112,7 +112,7 @@ function AddResident() {
 
                         <div>
                             <img
-                                src='/icons/avatar1.png'
+                                src='/img/avatar.png'
                                 alt=''
                                 className='w-[12rem] h-[12rem] rounded-full object-cover'
                             />
@@ -229,7 +229,7 @@ function AddResident() {
                                 setSelectedState={setSelectLandLord}
                             />
                             <button className='text-color-blue-1 font-light text-[1.2rem] p-2 opacity-70 border-none outline-none' onClick={
-                                () => openDetailDialog('')
+                                () => openDetailDialog('landlord')
                             }>
                                 View Details
                             </button>
