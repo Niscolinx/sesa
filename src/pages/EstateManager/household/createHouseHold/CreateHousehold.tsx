@@ -42,7 +42,9 @@ export interface HouseholdContext {
     careTaker: T
     setCareTaker: D
     alphaPropertyCode: T
-    setAlphaPropertyCode: D
+    setAlphaPropertyCode: D,
+    alphaResident: D,
+    setAlphaResident: D
 }
 
 export const HouseholdContext = createContext<HouseholdContext>(null as any)
@@ -52,15 +54,15 @@ function CreateHousehold() {
     const propertyCode = location.state?.propertyCode
 
     const [pathToSwitch, setPathToSwitch] = useState(1)
-    const [selectedPropertyCode, setSelectedPropertyCode] = useState<
-        string | null
-    >(propertyCode || null)
-    const [tenancyType, setTenancyType] = useState<string | null>('')
-    const [selectLandLord, setSelectLandLord] = useState<string | null>('')
-    const [careTaker, setCareTaker] = useState<string | null>('')
-    const [alphaPropertyCode, setAlphaPropertyCode] = useState<string | null>(
-        ''
+    const [selectedPropertyCode, setSelectedPropertyCode] = useState<T>(
+        propertyCode || null
     )
+    const [tenancyType, setTenancyType] = useState<T>('')
+    const [selectLandLord, setSelectLandLord] = useState<T>('')
+    const [careTaker, setCareTaker] = useState<T>('')
+    const [alphaPropertyCode, setAlphaPropertyCode] = useState<T>('')
+
+    const [alphaResident, setAlphaResident] = useState<T>('')
 
     const handlePathSwitch = new Map<number, JSX.Element>([
         [1, <AddProperty />],
@@ -82,6 +84,8 @@ function CreateHousehold() {
                     setCareTaker,
                     alphaPropertyCode,
                     setAlphaPropertyCode,
+                    alphaResident,
+                    setAlphaResident
                 }}
             >
                 <div className='bg-white p-16 rounded-lg min-h-[90vh] relative'>

@@ -1,6 +1,6 @@
 import React, { useContext, useRef, useState } from 'react'
 import { BsQuestionCircle } from 'react-icons/bs'
-import { Select } from '../../../../components/SuperAdmin/UI/Select'
+import { MultipleSelect, Select } from '../../../../components/SuperAdmin/UI/Select'
 import { HouseholdContext } from './CreateHousehold'
 
 function AddResident() {
@@ -13,10 +13,9 @@ function AddResident() {
         selectLandLord,
         setSelectLandLord,
         alphaPropertyCode,
-        setAlphaPropertyCode
+        setAlphaPropertyCode,
     } = useContext(HouseholdContext)
     const [dialogType, setDialogType] = useState<DialogType>()
-
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
@@ -30,7 +29,7 @@ function AddResident() {
             ? setDialogType('alphaResident')
             : setDialogType('residentUser')
 
-        if(dialogRef.current){
+        if (dialogRef.current) {
             return dialogRef.current.showModal()
         }
     }
@@ -195,7 +194,7 @@ function AddResident() {
                         Step 2 (Add Occupants)
                     </p>
 
-                    <div className='grid gap-16'>
+                    <div className='grid gap-8'>
                         <p
                             className=' flex items-center gap-2 font-Satoshi-Medium border-b pb-10'
                             onClick={() => openDialog('alphaResident')}
@@ -207,22 +206,52 @@ function AddResident() {
                             />
                         </p>
 
-                        <div>
-                            <Select
-                                state={[
-                                    'Alice James/SO-2345CDGK',
-                                    'Osaji James/SO-2345CDGK',
-                                    'Ruth James/SO-2345CDGK',
-                                    'Timothy James/SO-2345CDGK',
-                                ]}
-                                label='Property Type'
-                                isSearchable
-                                selectedState={
-                                    alphaPropertyCode ||
-                                    'Alice James/SO-2345CDGK'
-                                }
-                                setSelectedState={setAlphaPropertyCode}
-                            />
+                        <div
+                            className='grid gap-16'
+                            style={{
+                                gridTemplateColumns:
+                                    'repeat(auto-fit, minmax(40rem, 1fr))',
+                            }}
+                        >
+                            <div>
+                                <Select
+                                    state={[
+                                        'Alice James/SO-2345CDGK',
+                                        'Osaji James/SO-2345CDGK',
+                                        'Ruth James/SO-2345CDGK',
+                                        'Timothy James/SO-2345CDGK',
+                                    ]}
+                                    label='Property Type'
+                                    isSearchable
+                                    selectedState={
+                                        alphaPropertyCode ||
+                                        'Alice James/SO-2345CDGK'
+                                    }
+                                    setSelectedState={setAlphaPropertyCode}
+                                />
+                                <p className='text-color-blue-1 font-light text-[1.2rem] p-2 opacity-70'>
+                                    View Details
+                                </p>
+                            </div>
+                            <div>
+                                <MultipleSelect
+                                    selectFrom={[
+                                       
+                                    ]}
+                                    selected={[]}
+                                    setSelected={function (
+                                        value: React.SetStateAction<string[]>
+                                    ): void {
+                                        throw new Error(
+                                            'Function not implemented.'
+                                        )
+                                    }}
+                                    label={''}
+                                />
+                                <p className='text-color-blue-1 font-light text-[1.2rem] p-2 opacity-70'>
+                                    View Details
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </section>
