@@ -1,57 +1,58 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { Select } from '../../../../components/SuperAdmin/UI/Select'
 
 function AddResident() {
-    const [tenancyType, setTenancyType] = useState<string | null>(
-        ''
-    )
-    const [selectLandLord, setSelectLandLord] = useState<string | null>(
-        ''
-    )
+    const [tenancyType, setTenancyType] = useState<string | null>('')
+    const [selectLandLord, setSelectLandLord] = useState<string | null>('')
 
     const [careTaker, setCareTaker] = useState<string | null>('')
+
+    const dialogRef = useRef<HTMLDialogElement | null>(null)
+
+    const closeDialog = () => {
+        dialogRef.current?.close()
+    }
+
+    const openDialog = () => {
+        dialogRef.current?.showModal
+    }
 
     return (
         <>
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid items-baseline w-[64rem] min-h-[30rem] p-10 gap-8 text-[1.6rem] relative'>
-                        <IoMdClose
-                            className='absolute right-4 top-4 text-[2rem] cursor-pointer'
-                            onClick={() => handleClose()}
-                        />
+                        
 
-                            <div className='bg-white rounded-2xl grid place-content-center justify-items-center h-[30rem] gap-8 text-[1.6rem]'>
-                                <p className='font-Satoshi-Medium text-[#0446B9]'>
-                                    What is KYR?
+                        <div className='bg-white rounded-2xl grid place-content-center justify-items-center h-[30rem] gap-8 text-[1.6rem]'>
+                            <p className='font-Satoshi-Medium text-[#0446B9]'>
+                                What is KYR?
+                            </p>
+
+                            <div className='grid gap-4'>
+                                <p>
+                                    Know Your Resident (KYR) is a service that
+                                    allows you confirm the true identity of your
+                                    users (ie: resident). With basic information
+                                    like phone number or any valid ID type, you
+                                    can know "who is who"
                                 </p>
-
-                                <div className='grid gap-4'>
-                                    <p>
-                                        Know Your Resident (KYR) is a service
-                                        that allows you confirm the true
-                                        identity of your users (ie: resident).
-                                        With basic information like phone number
-                                        or any valid ID type, you can know "who
-                                        is who"
-                                    </p>
-                                    <p>
-                                        Please note: this service costs N200 per
-                                        successful validation and it will be
-                                        charged from your SESA wallet
-                                    </p>
-                                </div>
-
-                                <div className='flex w-full justify-center gap-8'>
-                                    <button
-                                        className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
-                                        onClick={() => handleClose()}
-                                    >
-                                        Ok
-                                    </button>
-                                </div>
+                                <p>
+                                    Please note: this service costs N200 per
+                                    successful validation and it will be charged
+                                    from your SESA wallet
+                                </p>
                             </div>
-                       
+
+                            <div className='flex w-full justify-center gap-8'>
+                                <button
+                                    className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
+                                    onClick={() => closeDialog()}
+                                >
+                                    Ok
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </section>
             </dialog>
