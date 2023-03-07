@@ -207,11 +207,10 @@ function AddResident() {
                     <div className='grid gap-8'>
                         <p
                             className=' flex items-center gap-2 font-Satoshi-Medium border-b pb-10'
-                            onClick={() => openDialog('alphaResident')}
                         >
                             Add Alpha Resident{' '}
                             <BsQuestionCircle
-                                className='text-[#043FA7] cursor-pointer'
+                                className='text-[#043FA7] cursor-pointer w-ma'
                                 onClick={() => openDialog('alphaResident')}
                             />
                         </p>
@@ -263,12 +262,11 @@ function AddResident() {
                     <div className='grid gap-8'>
                         <p
                             className=' flex items-center gap-2 font-Satoshi-Medium border-b pb-10'
-                            onClick={() => openDialog('alphaResident')}
                         >
                             Add Resident User{' '}
                             <BsQuestionCircle
                                 className='text-[#043FA7] cursor-pointer'
-                                onClick={() => openDialog('alphaResident')}
+                                onClick={() => openDialog('residentUser')}
                             />
                         </p>
 
