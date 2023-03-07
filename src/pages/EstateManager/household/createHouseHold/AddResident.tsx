@@ -1,9 +1,8 @@
 import React, { useRef, useState } from 'react'
 import { Select } from '../../../../components/SuperAdmin/UI/Select'
 
-
 function AddResident() {
-    type DialogType = 'alpha' | 'residentUser'
+    type DialogType = 'alphaResident' | 'residentUser'
     const [tenancyType, setTenancyType] = useState<string | null>('')
     const [selectLandLord, setSelectLandLord] = useState<string | null>('')
     const [dialogType, setDialogType] = useState<DialogType>()
@@ -16,7 +15,10 @@ function AddResident() {
         dialogRef.current?.close()
     }
 
-    const openDialog = () => {
+    const openDialog = (dialogType: DialogType) => {
+        dialogType === 'alphaResident'
+            ? setDialogType('alphaResident')
+            : setDialogType('residentUser')
         dialogRef.current?.showModal
     }
 
@@ -25,8 +27,6 @@ function AddResident() {
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid items-baseline w-[64rem] min-h-[30rem] p-10 gap-8 text-[1.6rem] relative'>
-                        
-
                         <div className='bg-white rounded-2xl grid place-content-center justify-items-center h-[30rem] gap-8 text-[1.6rem]'>
                             <p className='font-Satoshi-Medium text-[#0446B9]'>
                                 Who is Alpha Resident?
