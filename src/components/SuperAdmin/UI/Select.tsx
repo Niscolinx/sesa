@@ -93,12 +93,8 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                                 {selectedState}
                                 <IoMdClose
                                     className='absolute right-2 text-[1.4rem] cursor-pointer'
-                                    onClick={(e) => {
-                                        console.log('clicked'),
-                                            () => clearValue()
-                                    }}
+                                    onClick={clearValue}
                                 />
-
                             </span>
                         ) : (
                             <span className='text-gray-500'>
