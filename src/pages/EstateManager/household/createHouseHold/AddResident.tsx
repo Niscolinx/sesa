@@ -2,6 +2,7 @@ import React, { Fragment, useContext, useRef, useState } from 'react'
 import { BsQuestionCircle } from 'react-icons/bs'
 import { GrAdd } from 'react-icons/gr'
 import {
+    MappedSelect,
     MultipleSelect,
     Select,
 } from '../../../../components/SuperAdmin/UI/Select'
@@ -282,7 +283,7 @@ function AddResident() {
                                 (item, idx) => {
                                     return (
                                         <div key={idx}>
-                                            <Select
+                                            <MappedSelect
                                                 state={[
                                                     'Alice James/SO-2345CDGK',
                                                     'Osaji James/SO-2345CDGK',
