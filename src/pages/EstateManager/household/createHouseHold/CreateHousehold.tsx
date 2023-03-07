@@ -10,6 +10,7 @@ import { TfiArrowCircleLeft, TfiArrowCircleRight } from 'react-icons/tfi'
 import AddResident from './AddResident'
 import AddProperty from './AddProperty'
 import { useLocation } from 'react-router'
+import AddRFID from './AddRFID'
 
 const paths = [
     {
@@ -84,7 +85,7 @@ function CreateHousehold() {
     const handlePathSwitch = new Map<number, JSX.Element>([
         [1, <AddProperty />],
         [2, <AddResident />],
-        [3, <></>],
+        [3, <AddRFID/>],
         [4, <></>],
     ])
     return (
