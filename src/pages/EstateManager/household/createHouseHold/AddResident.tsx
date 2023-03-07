@@ -253,91 +253,93 @@ function AddResident() {
                         </div>
                     </div>
                 </section>
-                <section className='mt-[5rem] grid gap-16'>
-                    <p className='font-semibold border-b pb-2'>
-                        {' '}
-                        Step 2 (Add Occupants)
-                    </p>
-
-                    <div className='grid gap-8'>
-                        <p className=' flex items-center gap-2 font-Satoshi-Medium border-b pb-10'>
-                            Add Alpha Resident{' '}
-                            <BsQuestionCircle
-                                className='text-[#043FA7] cursor-pointer w-ma'
-                                onClick={() => openDialog('alphaResident')}
-                            />
+                {tenancyType !== 'Landlord (developer)' && (
+                    <section className='mt-[5rem] grid gap-16'>
+                        <p className='font-semibold border-b pb-2'>
+                            {' '}
+                            Step 2 (Add Occupants)
                         </p>
 
-                        <div
-                            className={`grid gap-16  ${
-                                tenancyType === 'Landlord (resident)' &&
-                                ' pointer-events-none select-none opacity-50'
-                            }`}
-                            style={{
-                                gridTemplateColumns:
-                                    'repeat(auto-fit, minmax(40rem, 1fr))',
-                            }}
-                        >
-                            <div>
-                                <Select
-                                    state={[
-                                        'Alice James/SO-2345CDGK',
-                                        'Osaji James/SO-2345CDGK',
-                                        'Ruth James/SO-2345CDGK',
-                                        'Timothy James/SO-2345CDGK',
-                                    ]}
-                                    label='Property Type'
-                                    isSearchable
-                                    selectedState={alphaPropertyCode}
-                                    setSelectedState={setAlphaPropertyCode}
+                        <div className='grid gap-8'>
+                            <p className=' flex items-center gap-2 font-Satoshi-Medium border-b pb-10'>
+                                Add Alpha Resident{' '}
+                                <BsQuestionCircle
+                                    className='text-[#043FA7] cursor-pointer w-ma'
+                                    onClick={() => openDialog('alphaResident')}
                                 />
-                                <p className='text-color-blue-1 font-light text-[1.2rem] p-2 opacity-70'>
-                                    View Details
-                                </p>
-                            </div>
-                            <div>
-                                <Select
-                                    state={[
-                                        'Osaji Valentine/SE-73',
-                                        'Anthony Valentine/SE-73',
-                                        'Michael Valentine/SE-73',
-                                    ]}
-                                    label='Alpha Resident 02*'
-                                    color={'[#076AFF]'}
-                                    isSearchable
-                                    selectedState={alphaResident}
-                                    setSelectedState={setAlphaResident}
-                                />
+                            </p>
 
-                                <button
-                                    className='text-color-blue-1 font-light text-[1.2rem] p-2 opacity-70 border-none outline-transparent'
-                                    onClick={() =>
-                                        openDetailDialog('alphaResident')
-                                    }
-                                >
-                                    View Details
-                                </button>
+                            <div
+                                className={`grid gap-16  ${
+                                    tenancyType === 'Landlord (resident)' &&
+                                    ' pointer-events-none select-none opacity-50 cursor-not-allowed'
+                                }`}
+                                style={{
+                                    gridTemplateColumns:
+                                        'repeat(auto-fit, minmax(40rem, 1fr))',
+                                }}
+                            >
+                                <div>
+                                    <Select
+                                        state={[
+                                            'Alice James/SO-2345CDGK',
+                                            'Osaji James/SO-2345CDGK',
+                                            'Ruth James/SO-2345CDGK',
+                                            'Timothy James/SO-2345CDGK',
+                                        ]}
+                                        label='Property Type'
+                                        isSearchable
+                                        selectedState={alphaPropertyCode}
+                                        setSelectedState={setAlphaPropertyCode}
+                                    />
+                                    <p className='text-color-blue-1 font-light text-[1.2rem] p-2 opacity-70'>
+                                        View Details
+                                    </p>
+                                </div>
+                                <div>
+                                    <Select
+                                        state={[
+                                            'Osaji Valentine/SE-73',
+                                            'Anthony Valentine/SE-73',
+                                            'Michael Valentine/SE-73',
+                                        ]}
+                                        label='Alpha Resident 02*'
+                                        color={'[#076AFF]'}
+                                        isSearchable
+                                        selectedState={alphaResident}
+                                        setSelectedState={setAlphaResident}
+                                    />
+
+                                    <button
+                                        className='text-color-blue-1 font-light text-[1.2rem] p-2 opacity-70 border-none outline-transparent'
+                                        onClick={() =>
+                                            openDetailDialog('alphaResident')
+                                        }
+                                    >
+                                        View Details
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div className='grid gap-8'>
-                        <p className=' flex items-center gap-2 font-Satoshi-Medium border-b pb-10'>
-                            Add Resident User{' '}
-                            <BsQuestionCircle
-                                className='text-[#043FA7] cursor-pointer'
-                                onClick={() => openDialog('residentUser')}
-                            />
-                        </p>
+                        <div className='grid gap-8'>
+                            <p className=' flex items-center gap-2 font-Satoshi-Medium border-b pb-10'>
+                                Add Resident User{' '}
+                                <BsQuestionCircle
+                                    className='text-[#043FA7] cursor-pointer'
+                                    onClick={() => openDialog('residentUser')}
+                                />
+                            </p>
 
-                        <div
-                            className='grid gap-16'
-                            style={{
-                                gridTemplateColumns:
-                                    'repeat(auto-fit, minmax(40rem, 1fr))',
-                            }}
-                        >
-                            {Array.from({ length: addResidentUserCount }).map(
-                                (item, idx) => {
+                            <div
+                                className='grid gap-16'
+                                style={{
+                                    gridTemplateColumns:
+                                        'repeat(auto-fit, minmax(40rem, 1fr))',
+                                }}
+                            >
+                                {Array.from({
+                                    length: addResidentUserCount,
+                                }).map((item, idx) => {
                                     return (
                                         <div key={idx}>
                                             <MappedSelect
@@ -363,25 +365,25 @@ function AddResident() {
                                             </p>
                                         </div>
                                     )
-                                }
-                            )}
+                                })}
+                            </div>
                         </div>
-                    </div>
 
-                    <div className='col-span-full rounded-lg border border-width-[.2rem] border-dashed border-color-grey-1 p-8 text-[1.6rem] relative w-full flex justify-items-center justify-center  max-w-[70%] mx-auto'>
-                        <button
-                            className='flex items-center gap-8'
-                            onClick={() =>
-                                setAddResidentUserCount((prev) => prev + 1)
-                            }
-                        >
-                            <span>
-                                <GrAdd />
-                            </span>
-                            <span>Add Resident User</span>
-                        </button>
-                    </div>
-                </section>
+                        <div className='col-span-full rounded-lg border border-width-[.2rem] border-dashed border-color-grey-1 p-8 text-[1.6rem] relative w-full flex justify-items-center justify-center  max-w-[70%] mx-auto'>
+                            <button
+                                className='flex items-center gap-8'
+                                onClick={() =>
+                                    setAddResidentUserCount((prev) => prev + 1)
+                                }
+                            >
+                                <span>
+                                    <GrAdd />
+                                </span>
+                                <span>Add Resident User</span>
+                            </button>
+                        </div>
+                    </section>
+                )}
             </div>
         </>
     )
