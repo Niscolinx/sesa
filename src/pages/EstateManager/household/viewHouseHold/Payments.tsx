@@ -7,7 +7,77 @@ function Payments() {
                 <p className='font-Satoshi-Medium text-[2rem] mb-4'>
                     Product Information
                 </p>
-                <section className='w-[60rem]'>
+                <section className='w-[60rem] grid gap-4'>
+                    <div className='grid grid-cols-2 gap-4 '>
+                        <div className='grid grid-cols-2 items-center gap-4 justify-start w-[20rem] whitespace-nowrap'>
+                            <p className='text-gray-700 font-Satoshi-Light  '>
+                                Product Code:
+                            </p>
+                            <p>R87231</p>
+                        </div>
+                        <div className='grid grid-cols-2 items-center gap-4 whitespace-nowrap w-[20rem]'>
+                            <p className='text-gray-700 font-Satoshi-Light '>
+                                Start Date:
+                            </p>
+                            <p>22 Feb 2023</p>
+                        </div>
+                    </div>
+                    <div className='grid grid-cols-2 gap-4 '>
+                        <div className='grid grid-cols-2 items-center gap-4 justify-start w-[20rem] whitespace-nowrap'>
+                            <p className='text-gray-700 font-Satoshi-Light  '>
+                                Product Name:
+                            </p>
+                            <p>Car</p>
+                        </div>
+                        <div className='grid grid-cols-2 items-center gap-4 whitespace-nowrap w-[20rem]'>
+                            <p className='text-gray-700 font-Satoshi-Light '>
+                                End Date:
+                            </p>
+                            <p>22 Feb 2023</p>
+                        </div>
+                    </div>
+                    <div className='grid grid-cols-2 gap-4 '>
+                        <div className='grid grid-cols-2 items-center gap-4 justify-start w-[20rem] whitespace-nowrap'>
+                            <p className='text-gray-700 font-Satoshi-Light  '>
+                                Amount Type:
+                            </p>
+                            <p>Installment</p>
+                        </div>
+                        <div className='grid grid-cols-2 items-center gap-4 whitespace-nowrap w-[20rem]'>
+                            <p className='text-gray-700 font-Satoshi-Light '>
+                                Start Date:
+                            </p>
+                            <p>22 Feb 2023</p>
+                        </div>
+                    </div>
+                    <div className='grid grid-cols-2 gap-4 '>
+                        <div className='grid grid-cols-2 items-center gap-4 justify-start w-[20rem] whitespace-nowrap'>
+                            <p className='text-gray-700 font-Satoshi-Light  '>
+                                Product Code:
+                            </p>
+                            <p>R87231</p>
+                        </div>
+                        <div className='grid grid-cols-2 items-center gap-4 whitespace-nowrap w-[20rem]'>
+                            <p className='text-gray-700 font-Satoshi-Light '>
+                                Start Date:
+                            </p>
+                            <p>22 Feb 2023</p>
+                        </div>
+                    </div>
+                    <div className='grid grid-cols-2 gap-4 '>
+                        <div className='grid grid-cols-2 items-center gap-4 justify-start w-[20rem] whitespace-nowrap'>
+                            <p className='text-gray-700 font-Satoshi-Light  '>
+                                Product Code:
+                            </p>
+                            <p>R87231</p>
+                        </div>
+                        <div className='grid grid-cols-2 items-center gap-4 whitespace-nowrap w-[20rem]'>
+                            <p className='text-gray-700 font-Satoshi-Light '>
+                                Start Date:
+                            </p>
+                            <p>22 Feb 2023</p>
+                        </div>
+                    </div>
                     <div className='grid grid-cols-2 gap-4 '>
                         <div className='grid grid-cols-2 items-center gap-4 justify-start w-[20rem] whitespace-nowrap'>
                             <p className='text-gray-700 font-Satoshi-Light  '>
