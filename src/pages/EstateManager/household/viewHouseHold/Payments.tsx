@@ -45,37 +45,37 @@ function Payments() {
                         </div>
                         <div className='grid grid-cols-2 items-center gap-4 whitespace-nowrap w-[20rem]'>
                             <p className='text-gray-700 font-Satoshi-Light '>
-                                Start Date:
+                                Track Payment:
                             </p>
-                            <p>22 Feb 2023</p>
+                            <p>In progress</p>
                         </div>
                     </div>
                     <div className='grid grid-cols-2 gap-4 '>
                         <div className='grid grid-cols-2 items-center gap-4 justify-start w-[20rem] whitespace-nowrap'>
                             <p className='text-gray-700 font-Satoshi-Light  '>
-                                Product Code:
+                                Payment Plan:
                             </p>
-                            <p>R87231</p>
+                            <p>Installment</p>
                         </div>
                         <div className='grid grid-cols-2 items-center gap-4 whitespace-nowrap w-[20rem]'>
                             <p className='text-gray-700 font-Satoshi-Light '>
-                                Start Date:
+                                Assigned Group
                             </p>
-                            <p>22 Feb 2023</p>
+                            <p>Assigned</p>
                         </div>
                     </div>
                     <div className='grid grid-cols-2 gap-4 '>
                         <div className='grid grid-cols-2 items-center gap-4 justify-start w-[20rem] whitespace-nowrap'>
                             <p className='text-gray-700 font-Satoshi-Light  '>
-                                Product Code:
+                                Amount (Total):
                             </p>
-                            <p>R87231</p>
+                            <p>239,092</p>
                         </div>
                         <div className='grid grid-cols-2 items-center gap-4 whitespace-nowrap w-[20rem]'>
                             <p className='text-gray-700 font-Satoshi-Light '>
-                                Start Date:
+                                Status
                             </p>
-                            <p>22 Feb 2023</p>
+                            <p className='text-green-600'>Active</p>
                         </div>
                     </div>
                     <div className='grid grid-cols-2 gap-4 '>
