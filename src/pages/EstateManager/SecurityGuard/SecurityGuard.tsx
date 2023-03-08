@@ -7,12 +7,9 @@ import { useNavigate } from 'react-router-dom'
 
 interface SecurityGuard {
     id: number
-    swCode: string
-    swName: string
+    guardCode: string
+    guardName: string
     phoneNumber: string
-    workDays: string
-    workPeriod: string
-    workLocation: string
     status: 'Active' | 'Inactive'
     kys: 'Validated' | 'Not Validated' | 'Full Match'
 }
@@ -21,13 +18,11 @@ const SECURITYGUARD: SecurityGuard[] = Array.from({
     length: 20,
 }).map((_, i) => ({
     id: i,
-    swName: 'John Doe',
+    guardName: 'John Doe',
     phoneNumber: '+2347024954270',
-    swCode: `H${(Math.random() * 0.1 + 0.9).toFixed(5).split('.')[1]}`,
-    workDays: 'Mon, Tue, Wed',
+    guardCode: `H${(Math.random() * 0.1 + 0.9).toFixed(5).split('.')[1]}`,
     status: Math.random() > 0.5 ? 'Active' : 'Inactive',
-    workPeriod: '01 Jan 23 - 03 March 23',
-    workLocation: 'No 1, Pepsi Street, Pepsi Estate',
+
     kys: Math.random() > 0.3 ? 'Validated' : 'Not Validated',
 }))
 
@@ -253,15 +248,15 @@ const SecurityGuard = () => {
                                             type='checkbox'
                                             className='cursor-pointer'
                                         />
-                                        <p>Sw Code</p>
+                                        <p>Guard Code</p>
                                     </p>
-                                    <p>Sw Name</p>
+                                    <p>Guard Name</p>
                                     <p>Phone Number</p>
                                     <p>Work Days</p>
                                     <p>Work Period</p>
                                     <p>Work Location</p>
                                     <p>Status</p>
-                                    <p>KYSW</p>
+                                    <p>KYGUARD</p>
                                     <p>Action </p>
                                 </div>
 
@@ -270,8 +265,8 @@ const SecurityGuard = () => {
                                         React.Children.toArray(
                                             slicedPages[paginate.index].map(
                                                 ({
-                                                    swCode,
-                                                    swName,
+                                                    guardCode,
+                                                    guardName,
                                                     workDays,
                                                     kys,
                                                     status,
@@ -294,10 +289,10 @@ const SecurityGuard = () => {
                                                                 />
 
                                                                 <span>
-                                                                    {swCode}
+                                                                    {guardCode}
                                                                 </span>
                                                             </p>
-                                                            <p>{swName}</p>
+                                                            <p>{guardName}</p>
                                                             <p className=' max-w-[40rem] overflow-hidden text-ellipsis whitespace-nowrap'>
                                                                 {phoneNumber}
                                                             </p>
