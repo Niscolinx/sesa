@@ -68,8 +68,8 @@ function ViewHouseHold() {
                 </section>
             </dialog>
             <dialog className='dialog' ref={dialogRef}>
-                <section className='grid place-content-center w-full h-[100vh]'>
-                    <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[80%] mx-auto gap-8'>
+                <section className=' w-full h-[90vh] bg-white rounded-2xl p-16'>
+                       
                         <div
                             className='estateDetail__radioBox'
                             style={{
@@ -84,9 +84,7 @@ function ViewHouseHold() {
                                                 type='radio'
                                                 name='household'
                                                 id={item}
-                                                checked={
-                                                    item === pathToSwitch
-                                                }
+                                                checked={item === pathToSwitch}
                                                 className='hidden'
                                                 onChange={() =>
                                                     setPathToSwitch(item)
@@ -106,7 +104,7 @@ function ViewHouseHold() {
                         <section className='bg-color-white rounded-lg mt-[5rem] mb-[10rem] '>
                             {handlePathSwitch.get(pathToSwitch)}
                         </section>
-                    </div>
+                   
                 </section>
             </dialog>
             <div className='bg-white p-16 rounded-lg min-h-[90vh] relative'>
@@ -233,9 +231,10 @@ function ViewHouseHold() {
                         </div>
                     </div>
                 </div>
-                <button className='border-none outline-none text-color-blue-1 mt-16' onClick={
-                  handleOpen
-                }>
+                <button
+                    className='border-none outline-none text-color-blue-1 mt-16'
+                    onClick={handleOpen}
+                >
                     Show more details
                 </button>
             </div>
