@@ -5,7 +5,7 @@ import { toast, ToastContainer } from 'react-toastify'
 
 import {
     AddBankAccount,
-    AddedEstateStaffSuccessfully,
+    AddedSiteWorkerSuccessfully,
     OpenedBankAccountSuccessful,
 } from './DialogSteps'
 import {
@@ -22,10 +22,10 @@ import {
     Voters_Card,
 } from '../../SecurityCompany/dashboard/company/AddSecurity/Inputs'
 
-type DialogType = 'validate' | 'add-estateStaff' | 'reassign'
+type DialogType = 'validate' | 'add-siteWorker' | 'reassign'
 
-export type AddedEstateStaffSteps =
-    | 'addedEstateStaffSuccessful'
+export type AddedSiteWorkerSteps =
+    | 'addedSiteWorkerSuccessful'
     | 'addBankAccount'
     | 'openedBankAccountSuccessful'
 
@@ -37,20 +37,20 @@ export type ValidateInputTypes =
     | 'International Passport'
     | 'Voters Card'
 
-export interface AddedEstateStaffContext {
-    addedEstateStaffStep: AddedEstateStaffSteps
-    setAddedEstateStaffStep: React.Dispatch<
-        React.SetStateAction<AddedEstateStaffSteps>
+export interface AddedSiteWorkerContext {
+    addedSiteWorkerStep: AddedSiteWorkerSteps
+    setAddedSiteWorkerStep: React.Dispatch<
+        React.SetStateAction<AddedSiteWorkerSteps>
     >
     selectedBank: string | null
     setSelectedBank: React.Dispatch<React.SetStateAction<string | null>>
     handleClose: () => void
 }
 
-export const CreateAddedEstateStaffContext =
-    createContext<AddedEstateStaffContext>(null as any)
+export const CreateAddedSiteWorkerContext =
+    createContext<AddedSiteWorkerContext>(null as any)
 
-const AddEstateStaff = () => {
+const AddSiteWorker = () => {
     const [workDays, setWorkDays] = useState<string[]>([])
     const [isValidated, setIsValidated] = useState(false)
     const [iskyg, setIskyg] = useState(false)
@@ -64,8 +64,8 @@ const AddEstateStaff = () => {
     >('Phone Number')
 
     const [selectedBank, setSelectedBank] = useState<null | string>(null)
-    const [addedEstateStaffStep, setAddedEstateStaffStep] =
-        useState<AddedEstateStaffSteps>('addedEstateStaffSuccessful')
+    const [addedSiteWorkerStep, setAddedSiteWorkerStep] =
+        useState<AddedSiteWorkerSteps>('addedSiteWorkerSuccessful')
 
     const [photoUrl, setPhotoUrl] = useState('')
 
@@ -104,8 +104,8 @@ const AddEstateStaff = () => {
         if (modalState === 'validate') {
             setDialogState('validate')
         }
-        if (modalState === 'add-estateStaff') {
-            setDialogState('add-estateStaff')
+        if (modalState === 'add-siteWorker') {
+            setDialogState('add-siteWorker')
         }
         if (modalState === 'reassign') {
             setDialogState('reassign')
@@ -116,8 +116,8 @@ const AddEstateStaff = () => {
         }
     }
 
-    const addEstateStaffHandler = () => {
-        handleOpen('add-estateStaff')
+    const addSiteWorkerHandler = () => {
+        handleOpen('add-siteWorker')
     }
 
     const handleDialogSubmit = (e: FormEvent) => {
@@ -149,17 +149,30 @@ const AddEstateStaff = () => {
         setIsValidated(true)
     }
 
-    const addedEstateStaffSteps = new Map([
-        ['addedEstateStaffSuccessful', <AddedEstateStaffSuccessfully context={CreateAddedEstateStaffContext}/>],
-        ['addBankAccount', <AddBankAccount context={CreateAddedEstateStaffContext}/>],
-        ['openedBankAccountSuccessful', <OpenedBankAccountSuccessful context={CreateAddedEstateStaffContext}/>],
+    const addedSiteWorkerSteps = new Map([
+        [
+            'addedSiteWorkerSuccessful',
+            <AddedSiteWorkerSuccessfully
+                context={CreateAddedSiteWorkerContext}
+            />,
+        ],
+        [
+            'addBankAccount',
+            <AddBankAccount context={CreateAddedSiteWorkerContext} />,
+        ],
+        [
+            'openedBankAccountSuccessful',
+            <OpenedBankAccountSuccessful
+                context={CreateAddedSiteWorkerContext}
+            />,
+        ],
     ])
 
     return (
-        <CreateAddedEstateStaffContext.Provider
+        <CreateAddedSiteWorkerContext.Provider
             value={{
-                addedEstateStaffStep,
-                setAddedEstateStaffStep,
+                addedSiteWorkerStep,
+                setAddedSiteWorkerStep,
                 handleClose,
                 selectedBank,
                 setSelectedBank,
@@ -310,37 +323,9 @@ const AddEstateStaff = () => {
                                     Validate
                                 </button>
                             </form>
-                        ) : dialogState === 'add-estateStaff' ? (
-                            <div className='bg-white rounded-2xl grid place-content-center justify-items-center h-[30rem] gap-8 text-[1.6rem]'>
-                                {addedEstateStaffSteps.get(
-                                    addedEstateStaffStep
-                                )}
-                            </div>
                         ) : (
                             <div className='bg-white rounded-2xl grid place-content-center justify-items-center h-[30rem] gap-8 text-[1.6rem]'>
-                                {' '}
-                                <img
-                                    src='/icons/admins/modalDeactivate.svg'
-                                    alt=''
-                                />
-                                <p className='text-[1.6rem]'>
-                                    Are you sure you want to reassign this
-                                    estate staff guard primary estate
-                                </p>
-                                <div className='flex w-full justify-center gap-8'>
-                                    <button
-                                        className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
-                                        onClick={() => handleClose()}
-                                    >
-                                        Cancel
-                                    </button>
-                                    <button
-                                        className=' bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
-                                        onClick={handleReAssign}
-                                    >
-                                        Yes
-                                    </button>
-                                </div>
+                                {addedSiteWorkerSteps.get(addedSiteWorkerStep)}
                             </div>
                         )}
                     </div>
@@ -614,7 +599,7 @@ const AddEstateStaff = () => {
                     <button
                         className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg mt-32'
                         style={{ justifySelf: 'start' }}
-                        onClick={addEstateStaffHandler}
+                        onClick={addSiteWorkerHandler}
                     >
                         <span>
                             <IoMdAdd />
@@ -623,8 +608,8 @@ const AddEstateStaff = () => {
                     </button>
                 </section>
             </main>
-        </CreateAddedEstateStaffContext.Provider>
+        </CreateAddedSiteWorkerContext.Provider>
     )
 }
 
-export default AddEstateStaff
+export default AddSiteWorker

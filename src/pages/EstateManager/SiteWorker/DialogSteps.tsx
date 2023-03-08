@@ -1,14 +1,14 @@
 import { useContext } from 'react'
 import { TbCopy } from 'react-icons/tb'
 import { Select } from '../../../components/SuperAdmin/UI/Select'
-import { AddedEstateStaffContext } from './AddSiteWorker'
+import { AddedSiteWorkerContext } from './AddSiteWorker'
 
-export const AddedEstateStaffSuccessfully = ({
+export const AddedSiteWorkerSuccessfully = ({
     context,
 }: {
-    context: React.Context<AddedEstateStaffContext>
+    context: React.Context<AddedSiteWorkerContext>
 }) => {
-    const { handleClose, setAddedEstateStaffStep } = useContext(context)
+    const { handleClose, setAddedSiteWorkerStep } = useContext(context)
 
     return (
         <div className='w-full grid justify-items-center gap-4'>
@@ -34,7 +34,7 @@ export const AddedEstateStaffSuccessfully = ({
                 </button>
                 <button
                     className='bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[20rem]'
-                    onClick={() => setAddedEstateStaffStep('addBankAccount')}
+                    onClick={() => setAddedSiteWorkerStep('addBankAccount')}
                 >
                     Open an Account
                 </button>
@@ -46,9 +46,9 @@ export const AddedEstateStaffSuccessfully = ({
 export const AddBankAccount = ({
     context,
 }: {
-    context: React.Context<AddedEstateStaffContext>
+    context: React.Context<AddedSiteWorkerContext>
 }) => {
-    const { selectedBank, setSelectedBank, setAddedEstateStaffStep } =
+    const { selectedBank, setSelectedBank, setAddedSiteWorkerStep } =
         useContext(context)
 
     return (
@@ -77,7 +77,7 @@ export const AddBankAccount = ({
             <button
                 className='bg-[#0556E5] py-6 px-12 w-full text-white text-[1.6rem] rounded-lg mt-10'
                 onClick={() =>
-                    setAddedEstateStaffStep('openedBankAccountSuccessful')
+                    setAddedSiteWorkerStep('openedBankAccountSuccessful')
                 }
             >
                 Generate Account Number
@@ -89,15 +89,15 @@ export const AddBankAccount = ({
 export const OpenedBankAccountSuccessful =  ({
     context,
 }: {
-    context: React.Context<AddedEstateStaffContext>
+    context: React.Context<AddedSiteWorkerContext>
 }) => {
-    const { handleClose, selectedBank, setAddedEstateStaffStep } = useContext(
+    const { handleClose, selectedBank, setAddedSiteWorkerStep } = useContext(
         context
     )
 
     const closeSteps = () => {
         handleClose()
-        setAddedEstateStaffStep('addedEstateStaffSuccessful')
+        setAddedSiteWorkerStep('addedSiteWorkerSuccessful')
     }
 
     return (
