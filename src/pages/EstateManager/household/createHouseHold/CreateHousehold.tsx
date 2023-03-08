@@ -170,7 +170,6 @@ function CreateHousehold() {
                             disabled={pathToSwitch === 4}
                             onClick={() =>
                                 setPathToSwitch((prev) => {
-                                    console.log({ prev })
                                     return prev === 4 ? prev : prev + 1
                                 })
                             }
