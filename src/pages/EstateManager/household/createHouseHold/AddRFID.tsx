@@ -34,8 +34,21 @@ function AddRFID() {
 
         console.log('submitted')
 
+        const details = {
+            vehicleMake,
+            vehicleRegNumber,
+            vehicleType,
+            RFID,
+            photoUrl
+        }
+
+        console.log({details})
         //  RFID_Details.push(details)
         setRFID(null)
+        setVehicleMake('')
+        setVehicleRegNumber(null)
+        setVehicleType(null)
+        setPhotoUrl('')
     }
 
     const handlePhotoPreview = async (
