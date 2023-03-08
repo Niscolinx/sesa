@@ -125,14 +125,7 @@ const AddSecurityGuard = () => {
         openValidateDialog()
     }
 
-    const handleReAssign = () => {
-        handleClose()
-
-        toast(' Reassigned successfully', {
-            type: 'success',
-            className: 'bg-green-100 text-green-600 text-[1.4rem]',
-        })
-    }
+  
 
     const renderValidationType = new Map([
         ['Phone Number', <PhoneNumber />],
