@@ -238,7 +238,7 @@ const SecurityGuard = () => {
 
                             <div className='grid'>
                                 <div
-                                    className='grid justify-between text-color-dark-1 bg-gray-100 p-8 grid-cols-9 gap-8 capitalize items-center'
+                                    className='grid justify-between text-color-dark-1 bg-gray-100 p-8 grid-cols-6 gap-8 capitalize items-center'
                                     style={{
                                         fontSize: '1.6rem',
                                     }}
@@ -275,7 +275,7 @@ const SecurityGuard = () => {
                                                     } = toggleDropDown
 
                                                     return (
-                                                        <div className='grid justify-between border-b grid-cols-9 gap-8 py-4 items-center'>
+                                                        <div className='grid justify-between border-b grid-cols-6 gap-8 py-4 items-center'>
                                                             <p className='flex items-center gap-4'>
                                                                 <input
                                                                     type='checkbox'
@@ -290,15 +290,7 @@ const SecurityGuard = () => {
                                                             <p className=' max-w-[40rem] overflow-hidden text-ellipsis whitespace-nowrap'>
                                                                 {phoneNumber}
                                                             </p>
-                                                            <p className=' max-w-[40rem] overflow-hidden text-ellipsis whitespace-nowrap'>
-                                                                {workDays}
-                                                            </p>
-                                                            <p className=' max-w-[40rem] overflow-hidden text-ellipsis whitespace-nowrap'>
-                                                                {workPeriod}
-                                                            </p>
-                                                            <p className=' max-w-[40rem] overflow-hidden text-ellipsis whitespace-nowrap'>
-                                                                {workLocation}
-                                                            </p>
+                                                           
                                                             <p>
                                                                 {status ===
                                                                 'Active' ? (
