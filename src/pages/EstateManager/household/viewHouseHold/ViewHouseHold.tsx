@@ -3,6 +3,7 @@ import { IoMdClose } from 'react-icons/io'
 import LandlandDetails from './LandlandDetails'
 import PropertyDetails from './PropertyDetails'
 import ResidentList from './ResidentList'
+import RFIDList from './RFIDList'
 
 
 
@@ -48,6 +49,7 @@ function ViewHouseHold() {
         ['Property Details', <PropertyDetails />],
         ['Resident List', <ResidentList/>],
         ['Landlord Details', <LandlandDetails/>],
+        ['RFID List', <RFIDList/>],
     ])
     return (
         <ViewHouseHoldContext.Provider
