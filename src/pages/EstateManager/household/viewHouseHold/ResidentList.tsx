@@ -141,11 +141,7 @@ function ResidentList() {
         })
     }
 
-    const saveChangesHandler = () => {
-        console.log('add security guard')
-
-        closeDialog()
-    }
+   
 
     return (
         <section className='bg-color-white rounded-lg border  overflow-scroll h-full'>
