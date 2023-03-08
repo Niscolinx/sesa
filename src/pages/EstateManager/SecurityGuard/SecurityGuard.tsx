@@ -193,7 +193,7 @@ const SecurityGuard = () => {
     }
 
     const addSecurityGuardHandler = () => {
-        navigate(`/estateManager/site-worker/add`)
+        navigate(`/estateManager/security-guard/add`)
     }
 
     return (
