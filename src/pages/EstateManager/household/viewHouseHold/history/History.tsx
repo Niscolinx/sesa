@@ -17,7 +17,7 @@ function History() {
 
     return (
         <>
-            <div className='estate__radioBox'>
+            <div className='radioBox'>
                 <>
                     {path.map((item) => {
                         return (
