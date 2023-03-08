@@ -144,17 +144,17 @@ const AddSecurityGuard = () => {
         [
             'addedSecurityGuardSuccessful',
             <AddedSecurityGuardSuccessfully
-                context={CreateAddedSecurityGuardContext}
+                contextData={CreateAddedSecurityGuardContext}
             />,
         ],
         [
             'addBankAccount',
-            <AddBankAccount context={CreateAddedSecurityGuardContext} />,
+            <AddBankAccount contextData={CreateAddedSecurityGuardContext} />,
         ],
         [
             'openedBankAccountSuccessful',
             <OpenedBankAccountSuccessful
-                context={CreateAddedSecurityGuardContext}
+                contextData={CreateAddedSecurityGuardContext}
             />,
         ],
     ])

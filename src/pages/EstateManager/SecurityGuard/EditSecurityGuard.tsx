@@ -10,8 +10,7 @@ import {
 import { getPhotoUrl } from '../../../utils/getPhotoUrl'
 import {
     AddBankAccount,
-        AddedSecurityGuardSuccessfully,
-,
+    AddedSecurityGuardSuccessfully,
     OpenedBankAccountSuccessful,
 } from './DialogSteps'
 
@@ -22,7 +21,7 @@ export type AddedEditSecurityGuardSteps =
     | 'addBankAccount'
     | 'openedBankAccountSuccessful'
 
-interface AddedEditSecurityGuardContext {
+interface AddedSecurityGuardContext {
     addedEditSecurityGuardStep: AddedEditSecurityGuardSteps
     setAddedEditSecurityGuardStep: React.Dispatch<
         React.SetStateAction<AddedEditSecurityGuardSteps>
@@ -33,9 +32,10 @@ interface AddedEditSecurityGuardContext {
 }
 
 export const CreateAddedEditSecurityGuardContext =
-    createContext<AddedEditSecurityGuardContext>(null as any)
+    createContext<AddedSecurityGuardContext>(null as any)
 
 type BankDialog = 'generateId' | 'openBank'
+
 const EditEditSecurityGuard = () => {
     const [workDays, setWorkDays] = useState<string[]>([])
     const [isValidated, setIsValidated] = useState(true)
@@ -47,7 +47,9 @@ const EditEditSecurityGuard = () => {
 
     const [selectedBank, setSelectedBank] = useState<null | string>(null)
     const [addedEditSecurityGuardStep, setAddedEditSecurityGuardStep] =
-        useState<AddedEditSecurityGuardSteps>('addedEditSecurityGuardSuccessful')
+        useState<AddedEditSecurityGuardSteps>(
+            'addedEditSecurityGuardSuccessful'
+        )
 
     const [photoUrl, setPhotoUrl] = useState('')
 
@@ -137,17 +139,17 @@ const EditEditSecurityGuard = () => {
         [
             'addedEditSecurityGuardSuccessful',
             <AddedSecurityGuardSuccessfully
-                context={CreateAddedEditSecurityGuardContext}
+                contextData={CreateAddedEditSecurityGuardContext}
             />,
         ],
         [
             'addBankAccount',
-            <AddBankAccount context={CreateAddedEditSecurityGuardContext} />,
+            <AddBankAccount contextData={CreateAddedEditSecurityGuardContext} />,
         ],
         [
             'openedBankAccountSuccessful',
             <OpenedBankAccountSuccessful
-                context={CreateAddedEditSecurityGuardContext}
+                contextData={CreateAddedEditSecurityGuardContext}
             />,
         ],
     ])
@@ -330,7 +332,9 @@ const EditEditSecurityGuard = () => {
                             </div>
                         ) : (
                             <div className='bg-white rounded-2xl grid place-content-center justify-items-center h-[30rem] gap-8 text-[1.6rem]'>
-                                {addedEditSecurityGuardSteps.get(addedEditSecurityGuardStep)}
+                                {addedEditSecurityGuardSteps.get(
+                                    addedEditSecurityGuardStep
+                                )}
                             </div>
                         )}
                     </div>
@@ -724,7 +728,6 @@ const EditEditSecurityGuard = () => {
                         </form>
                     </section>
 
-                  
                     <button
                         className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg col-span-full mt-[5rem]'
                         style={{ justifySelf: 'start' }}

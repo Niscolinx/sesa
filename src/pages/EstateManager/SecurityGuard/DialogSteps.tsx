@@ -4,11 +4,11 @@ import { Select } from '../../../components/SuperAdmin/UI/Select'
 import { AddedSecurityGuardContext } from './AddSecurityGuard'
 
 export const AddedSecurityGuardSuccessfully = ({
-    context,
+    contextData,
 }: {
-    context: React.Context<AddedSecurityGuardContext>
+    contextData: React.Context<AddedSecurityGuardContext>
 }) => {
-    const { handleClose, setAddedSecurityGuardStep } = useContext(context)
+    const { handleClose, setAddedSecurityGuardStep } = useContext(contextData)
 
     return (
         <div className='w-full grid justify-items-center gap-4'>
@@ -44,12 +44,12 @@ export const AddedSecurityGuardSuccessfully = ({
 }
 
 export const AddBankAccount = ({
-    context,
+    contextData,
 }: {
-    context: React.Context<AddedSecurityGuardContext>
+    contextData: React.Context<AddedSecurityGuardContext>
 }) => {
     const { selectedBank, setSelectedBank, setAddedSecurityGuardStep } =
-        useContext(context)
+        useContext(contextData)
 
     return (
         <div className='w-[40rem] grid justify-items-center gap-10'>
@@ -87,12 +87,12 @@ export const AddBankAccount = ({
 }
 
 export const OpenedBankAccountSuccessful =  ({
-    context,
+    contextData,
 }: {
-    context: React.Context<AddedSecurityGuardContext>
+    contextData: React.Context<AddedSecurityGuardContext>
 }) => {
     const { handleClose, selectedBank, setAddedSecurityGuardStep } = useContext(
-        context
+        contextData
     )
 
     const closeSteps = () => {
