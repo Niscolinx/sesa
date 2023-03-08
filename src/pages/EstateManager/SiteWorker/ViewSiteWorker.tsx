@@ -339,7 +339,7 @@ const ViewSiteWorker = () => {
             </dialog>
             <main>
                 <section className='grid p-8 bg-white items-baseline rounded-lg'>
-                    <section className='w-full flex gap-16 relative mt-[5rem]'>
+                    <section className='w-full flex gap-16 relative mb-[5rem]'>
                         <div>
                             <img
                                 src={'/img/img3.png'}
