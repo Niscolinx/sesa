@@ -9,26 +9,22 @@ function RFIDList() {
     const { closeDialog } = useContext(ViewHouseHoldContext)
 
     interface RFIDList {
-        resCode: string
-        name: string
-        gender: string
-        phoneNo: string
-        residentCategory: string
-        tenancyType: string
-        id: string
+        RFID: string
+        id: string,
+        vehicleRegNumber: string,
+        vehicleMake: string,
+        vehicleType: string,
         imgUrl: string
     }
 
     const RFID_LIST: RFIDList[] = Array.from({ length: 20 }, (_, i) => {
         return {
             id: `1 + ${i}`,
-            resCode: `R${(Math.random() * 0.1 + 0.9).toFixed(5).split('.')[1]}`,
+            RFID: `R${(Math.random() * 0.1 + 0.9).toFixed(5).split('.')[1]}`,
             imgUrl: '/img/avatar11.png',
-            gender: Math.random() > 0.5 ? 'Male' : 'Female',
-            name: 'Darlene Robert',
-            phoneNo: '(+234) 9076577689',
-            residentCategory: Math.random() > 0.5 ? 'Resident' : 'Alpha',
-            tenancyType: 'tenant (resident)',
+            vehicleRegNumber: 'APP-12-598',
+            vehicleMake: 'Toyota',
+            vehicleType: 'Car'
         }
     })
 
@@ -175,7 +171,7 @@ function RFIDList() {
 
                 <div className='grid'>
                     <div className='grid justify-between text-color-dark-1 bg-gray-100 p-8 grid-cols-6 gap-6 capitalize'>
-                        <p>Res. Code</p>
+                        <p>RFID Seriel Number</p>
                         <p>Name</p>
                         <p>Gender</p>
                         <p>Phone No.</p>
@@ -189,12 +185,10 @@ function RFIDList() {
                                 slicedPages[paginate.index].map(
                                     ({
                                         id,
-                                        gender,
-                                        name,
-                                        resCode,
-                                        residentCategory,
-                                        phoneNo,
-                                        tenancyType,
+                                        RFID,
+                                        vehicleMake,
+                                        vehicleRegNumber,
+                                        vehicleType,
                                         imgUrl,
                                     }) => {
                                         return (
