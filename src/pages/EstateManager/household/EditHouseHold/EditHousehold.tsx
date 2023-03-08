@@ -114,7 +114,7 @@ function EditHousehold() {
                                 animationIterationCount: 'infinite',
                             }}
                         />
-                        <p>You have successfully edited a Household</p>
+                        <p>You have successfully Updated this Household</p>
 
                         <div className='flex w-full justify-center gap-8'>
                             <button
