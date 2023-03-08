@@ -498,7 +498,7 @@ const ViewEstateStaff = () => {
                             </p>
                         </div>
                     </form>
-                    <section className='grid bg-white w-4/5 border-t border-t-gray-100'>
+                    <section className='grid bg-white w-4/5 border-t border-t-gray-100 mt-[5rem] pt-5'>
                         <h2
                             className='text-[2rem] mb-10'
                             style={{
