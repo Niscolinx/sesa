@@ -41,6 +41,7 @@ const ViewEstateStaff = () => {
     const [isAccountCreated, setIsAccountCreated] = useState(false)
     const [selectedState, setSelectedState] = useState<string | null>(null)
     const [selectedGender, setSelectedGender] = useState<string | null>(null)
+    const [bankDialogState, setBankDialogState] = useState(false)
 
     const [selectedBank, setSelectedBank] = useState<null | string>(null)
     const [addedEstateStaffStep, setAddedEstateStaffStep] =
@@ -309,9 +310,9 @@ const ViewEstateStaff = () => {
                     </div>
                 </section>
             </dialog>
-            <dialog className='dialog' ref={dialogRef}>
+            <dialog className='dialog' ref={bankRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
-                    <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] min-h-[30rem] gap-8'>
+                    <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] min-h-[30rem] gap-8 p-10'>
                         <div className='bg-white rounded-2xl grid place-content-center justify-items-center h-[30rem] gap-8 text-[1.6rem]'>
                             {addedEstateStaffSteps.get(addedEstateStaffStep)}
                         </div>
