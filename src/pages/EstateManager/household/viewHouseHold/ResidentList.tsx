@@ -7,7 +7,6 @@ import { ViewHouseHoldContext } from './ViewHouseHold'
 
 function ResidentList() {
     const { closeDialog } = useContext(ViewHouseHoldContext)
-    
 
     interface ResidentList {
         resCode: string
@@ -187,18 +186,15 @@ function ResidentList() {
 
                 <div className='grid'>
                     <div
-                        className='grid justify-between text-color-dark-1 bg-gray-100 p-8 grid-cols-6 gap-6'
-                        style={{
-                            fontSize: '1.6rem',
-                        }}
-                    >
-                            <p>Guard Name</p>
+                        className='grid justify-between text-color-dark-1 bg-gray-100 p-8 grid-cols-6 gap-6 capitalize'
                       
-                        <p>Guard Code</p>
-                        <p>Phone Number</p>
-                        <p>Assigned Estate</p>
-                        <p>Status</p>
-                        <p>KYG</p>
+                    >
+                        <p>Res. Code</p>
+                        <p>Name</p>
+                        <p>Gender</p>
+                        <p>Phone No.</p>
+                        <p>Resident Category</p>
+                        <p>Tenancy Type</p>
                     </div>
 
                     <div className='grid gap-8 mt-8 p-8'>
@@ -212,7 +208,7 @@ function ResidentList() {
                                         resCode,
                                         residentCategory,
                                         phoneNo,
-                                        tenancyType
+                                        tenancyType,
                                     }) => {
                                         return (
                                             <div className='grid justify-between border-b grid-cols-6 gap-8 py-4'>
