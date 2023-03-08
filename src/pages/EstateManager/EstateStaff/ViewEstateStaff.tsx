@@ -325,7 +325,9 @@ const ViewEstateStaff = () => {
                                 <img src='/img/new_Id.svg' alt='' />
                                 <button
                                     className='btn text-white bg-color-blue-1 py-4 px-16 rounded-lg w-[15rem]'
-                                    >
+                                    onClick={
+                                        () => handleClose()
+                                    }>
                                     Print
                                    
                                 </button>
