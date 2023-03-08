@@ -3,7 +3,7 @@ import { CgSpinnerTwo } from 'react-icons/cg'
 import { GrDown } from 'react-icons/gr'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { IoMdAdd } from 'react-icons/io'
-import { ViewHouseHoldContext } from './ViewHouseHold'
+import { ViewHouseHoldContext } from '../ViewHouseHold'
 
 function ResidentList() {
     const { closeDialog } = useContext(ViewHouseHoldContext)

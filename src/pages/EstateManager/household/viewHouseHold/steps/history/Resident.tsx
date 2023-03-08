@@ -5,36 +5,40 @@ import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { IoMdAdd } from 'react-icons/io'
 import { ViewHouseHoldContext } from './ViewHouseHold'
 
-function AccessCardList() {
+function ResidentList() {
     const { closeDialog } = useContext(ViewHouseHoldContext)
 
-    interface AccessCard {
-        id: string,
-        serialNum: string,
-        holderName: string,
-        phoneNum: string,
-        imgUrl: string,
+    interface ResidentList {
+        resCode: string
+        name: string
+        gender: string
+        phoneNo: string
+        residentCategory: string
+        tenancyType: string
+        id: string
+        imgUrl: string
     }
 
-    const ACCESSCARD_LIST: AccessCard[] = Array.from({ length: 2 }, (_, i) => {
+    const RESIDENT_LIST: ResidentList[] = Array.from({ length: 20 }, (_, i) => {
         return {
             id: `1 + ${i}`,
-            serialNum: `R${
-                (Math.random() * 0.1 + 0.9).toFixed(5).split('.')[1]
-            }`,
+            resCode: `R${(Math.random() * 0.1 + 0.9).toFixed(5).split('.')[1]}`,
             imgUrl: '/img/avatar11.png',
-            holderName: 'Darlene Robert',
-            phoneNum: '(+234) 814 324 6719',
+            gender: Math.random() > 0.5 ? 'Male' : 'Female',
+            name: 'Darlene Robert',
+            phoneNo: '(+234) 9076577689',
+            residentCategory: Math.random() > 0.5 ? 'Resident' : 'Alpha',
+            tenancyType: 'tenant (resident)',
         }
     })
 
-    const [fetchedAccessCardData, setFetchedAccessCardData] = useState<AccessCard[]>(
-        []
-    )
+    const [fetchedResidentListData, setFetchedResidentListData] = useState<
+        ResidentList[]
+    >([])
 
     useEffect(() => {
         setTimeout(() => {
-            setFetchedAccessCardData(ACCESSCARD_LIST)
+            setFetchedResidentListData(RESIDENT_LIST)
         }, 100)
     }, [])
 
@@ -43,7 +47,7 @@ function AccessCardList() {
         currentPage: number
         itemsPerPage: number
         totalPage: number
-        slicedPages: AccessCard[][] | null
+        slicedPages: ResidentList[][] | null
     }
 
     const itemsPerPageArr = [2, 4, 6, 8]
@@ -53,16 +57,16 @@ function AccessCardList() {
         index: 0,
         currentPage: 1,
         itemsPerPage: perPage,
-        totalPage: Math.ceil(fetchedAccessCardData.length / perPage),
+        totalPage: Math.ceil(fetchedResidentListData.length / perPage),
         slicedPages: null,
     })
 
     const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
         const item = parseInt(e.target.value)
 
-        const slicedPages: AccessCard[][] = []
-        for (let i = 0; i < fetchedAccessCardData.length; i += item) {
-            slicedPages.push(fetchedAccessCardData.slice(i, i + item))
+        const slicedPages: ResidentList[][] = []
+        for (let i = 0; i < fetchedResidentListData.length; i += item) {
+            slicedPages.push(fetchedResidentListData.slice(i, i + item))
         }
 
         setPaginate((prev) => {
@@ -72,20 +76,20 @@ function AccessCardList() {
                 index: 0,
                 currentPage: 1,
                 slicedPages,
-                totalPage: Math.ceil(fetchedAccessCardData.length / item),
+                totalPage: Math.ceil(fetchedResidentListData.length / item),
             }
         })
     }
 
     useEffect(() => {
-        const slicedPages: AccessCard[][] = []
+        const slicedPages: ResidentList[][] = []
         for (
             let i = 0;
-            i < fetchedAccessCardData.length;
+            i < fetchedResidentListData.length;
             i += paginate.itemsPerPage
         ) {
             slicedPages.push(
-                fetchedAccessCardData.slice(i, i + paginate.itemsPerPage)
+                fetchedResidentListData.slice(i, i + paginate.itemsPerPage)
             )
         }
 
@@ -94,11 +98,11 @@ function AccessCardList() {
                 ...prev,
                 slicedPages,
                 totalPage: Math.ceil(
-                    fetchedAccessCardData.length / paginate.itemsPerPage
+                    fetchedResidentListData.length / paginate.itemsPerPage
                 ),
             }
         })
-    }, [fetchedAccessCardData])
+    }, [fetchedResidentListData])
 
     const handleNext = () => {
         console.log(paginate.currentPage, paginate.totalPage)
@@ -135,12 +139,6 @@ function AccessCardList() {
         })
     }
 
-    const saveChangesHandler = () => {
-        console.log('add security guard')
-
-        closeDialog()
-    }
-
     return (
         <section className='bg-color-white rounded-lg border  overflow-scroll h-full'>
             <div className='grid text-[1.6rem]'>
@@ -170,10 +168,13 @@ function AccessCardList() {
                 </div>
 
                 <div className='grid'>
-                    <div className='grid justify-between text-color-dark-1 bg-gray-100 p-8 grid-cols-3 gap-6 capitalize'>
-                        <p>Access Card Seriel Nos.</p>
-                        <p>Holder’s Name</p>
-                        <p>Phone Number</p>
+                    <div className='grid justify-between text-color-dark-1 bg-gray-100 p-8 grid-cols-6 gap-6 capitalize'>
+                        <p>Res. Code</p>
+                        <p>Name</p>
+                        <p>Gender</p>
+                        <p>Phone No.</p>
+                        <p>Resident Category</p>
+                        <p>Tenancy Type</p>
                     </div>
 
                     <div className='grid gap-8 mt-8 p-8'>
@@ -182,14 +183,17 @@ function AccessCardList() {
                                 slicedPages[paginate.index].map(
                                     ({
                                         id,
-                                        serialNum,
-                                        holderName,
-                                        phoneNum,
-                                        imgUrl
+                                        gender,
+                                        name,
+                                        resCode,
+                                        residentCategory,
+                                        phoneNo,
+                                        tenancyType,
+                                        imgUrl,
                                     }) => {
                                         return (
-                                            <div className='grid justify-between border-b grid-cols-3 gap-8 py-4 items-center'>
-                                                <p>{serialNum}</p>
+                                            <div className='grid justify-between border-b grid-cols-6 gap-8 py-4 items-center'>
+                                                <p>{resCode}</p>
                                                 <p className='flex items-center gap-4'>
                                                     <img
                                                         src={imgUrl}
@@ -198,10 +202,13 @@ function AccessCardList() {
                                                     />
 
                                                     <span className=' max-w-[40rem] overflow-hidden text-ellipsis whitespace-nowrap'>
-                                                        {holderName}
+                                                        {name}
                                                     </span>
                                                 </p>
-                                                <p>{phoneNum}</p>
+                                                <p>{gender}</p>
+                                                <p>{phoneNo}</p>
+                                                <p>{residentCategory}</p>
+                                                <p>{tenancyType}</p>
                                             </div>
                                         )
                                     }
@@ -281,4 +288,4 @@ function AccessCardList() {
     )
 }
 
-export default AccessCardList
+export default ResidentList

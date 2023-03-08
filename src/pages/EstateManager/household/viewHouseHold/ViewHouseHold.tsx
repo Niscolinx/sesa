@@ -1,20 +1,20 @@
 import React, { createContext, Fragment, useRef, useState } from 'react'
 import { IoMdClose } from 'react-icons/io'
-import AccessCardList from './AccessCardList'
-import History from './history/History'
-import LandlandDetails from './LandlandDetails'
-import Payments from './Payments'
-import PropertyDetails from './PropertyDetails'
-import ResidentList from './ResidentList'
-import RFIDList from './RFIDList'
-
+import AccessCardList from './steps/AccessCardList'
+import LandlandDetails from './steps/LandlandDetails'
+import Payments from './steps/Payments'
+import PropertyDetails from './steps/PropertyDetails'
+import ResidentList from './steps/ResidentList'
+import RFIDList from './steps/RFIDList'
 
 
 interface ViewHouseHoldContext {
     closeDialog: () => void
 }
 
-export const ViewHouseHoldContext = createContext<ViewHouseHoldContext>(null as any)
+export const ViewHouseHoldContext = createContext<ViewHouseHoldContext>(
+    null as any
+)
 
 function ViewHouseHold() {
     type labelKeys =
@@ -64,7 +64,7 @@ function ViewHouseHold() {
         ['RFID List', <RFIDList />],
         ['Access Card List', <AccessCardList />],
         ['Payments', <Payments />],
-        ['History', <History/>]
+        ['History', <History />],
     ])
     return (
         <ViewHouseHoldContext.Provider

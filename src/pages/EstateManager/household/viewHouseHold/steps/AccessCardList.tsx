@@ -3,38 +3,38 @@ import { CgSpinnerTwo } from 'react-icons/cg'
 import { GrDown } from 'react-icons/gr'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { IoMdAdd } from 'react-icons/io'
-import { ViewHouseHoldContext } from './ViewHouseHold'
+import { ViewHouseHoldContext } from '../ViewHouseHold'
 
-function RFIDList() {
+function AccessCardList() {
     const { closeDialog } = useContext(ViewHouseHoldContext)
 
-    interface RFIDList {
-        RFID: string
+    interface AccessCard {
         id: string
-        vehicleRegNumber: string
-        vehicleMake: string
-        vehicleType: string
+        serialNum: string
+        holderName: string
+        phoneNum: string
         imgUrl: string
     }
 
-    const RFID_LIST: RFIDList[] = Array.from({ length: 2 }, (_, i) => {
+    const ACCESSCARD_LIST: AccessCard[] = Array.from({ length: 2 }, (_, i) => {
         return {
             id: `1 + ${i}`,
-            RFID: `R${(Math.random() * 0.1 + 0.9).toFixed(5).split('.')[1]}`,
+            serialNum: `R${
+                (Math.random() * 0.1 + 0.9).toFixed(5).split('.')[1]
+            }`,
             imgUrl: '/img/avatar11.png',
-            vehicleRegNumber: 'APP-12-598',
-            vehicleMake: 'Toyota',
-            vehicleType: 'Car',
+            holderName: 'Darlene Robert',
+            phoneNum: '(+234) 814 324 6719',
         }
     })
 
-    const [fetchedRFIDListData, setFetchedRFIDListData] = useState<RFIDList[]>(
-        []
-    )
+    const [fetchedAccessCardData, setFetchedAccessCardData] = useState<
+        AccessCard[]
+    >([])
 
     useEffect(() => {
         setTimeout(() => {
-            setFetchedRFIDListData(RFID_LIST)
+            setFetchedAccessCardData(ACCESSCARD_LIST)
         }, 100)
     }, [])
 
@@ -43,7 +43,7 @@ function RFIDList() {
         currentPage: number
         itemsPerPage: number
         totalPage: number
-        slicedPages: RFIDList[][] | null
+        slicedPages: AccessCard[][] | null
     }
 
     const itemsPerPageArr = [2, 4, 6, 8]
@@ -53,16 +53,16 @@ function RFIDList() {
         index: 0,
         currentPage: 1,
         itemsPerPage: perPage,
-        totalPage: Math.ceil(fetchedRFIDListData.length / perPage),
+        totalPage: Math.ceil(fetchedAccessCardData.length / perPage),
         slicedPages: null,
     })
 
     const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
         const item = parseInt(e.target.value)
 
-        const slicedPages: RFIDList[][] = []
-        for (let i = 0; i < fetchedRFIDListData.length; i += item) {
-            slicedPages.push(fetchedRFIDListData.slice(i, i + item))
+        const slicedPages: AccessCard[][] = []
+        for (let i = 0; i < fetchedAccessCardData.length; i += item) {
+            slicedPages.push(fetchedAccessCardData.slice(i, i + item))
         }
 
         setPaginate((prev) => {
@@ -72,20 +72,20 @@ function RFIDList() {
                 index: 0,
                 currentPage: 1,
                 slicedPages,
-                totalPage: Math.ceil(fetchedRFIDListData.length / item),
+                totalPage: Math.ceil(fetchedAccessCardData.length / item),
             }
         })
     }
 
     useEffect(() => {
-        const slicedPages: RFIDList[][] = []
+        const slicedPages: AccessCard[][] = []
         for (
             let i = 0;
-            i < fetchedRFIDListData.length;
+            i < fetchedAccessCardData.length;
             i += paginate.itemsPerPage
         ) {
             slicedPages.push(
-                fetchedRFIDListData.slice(i, i + paginate.itemsPerPage)
+                fetchedAccessCardData.slice(i, i + paginate.itemsPerPage)
             )
         }
 
@@ -94,11 +94,11 @@ function RFIDList() {
                 ...prev,
                 slicedPages,
                 totalPage: Math.ceil(
-                    fetchedRFIDListData.length / paginate.itemsPerPage
+                    fetchedAccessCardData.length / paginate.itemsPerPage
                 ),
             }
         })
-    }, [fetchedRFIDListData])
+    }, [fetchedAccessCardData])
 
     const handleNext = () => {
         console.log(paginate.currentPage, paginate.totalPage)
@@ -170,11 +170,10 @@ function RFIDList() {
                 </div>
 
                 <div className='grid'>
-                    <div className='grid justify-between text-color-dark-1 bg-gray-100 p-8 grid-cols-4 gap-6 capitalize'>
-                        <p>RFID Seriel Number</p>
-                        <p>Vehicle Reg. Number</p>
-                        <p>Vehicle Make</p>
-                        <p>Vehicle Type</p>
+                    <div className='grid justify-between text-color-dark-1 bg-gray-100 p-8 grid-cols-3 gap-6 capitalize'>
+                        <p>Access Card Seriel Nos.</p>
+                        <p>Holder’s Name</p>
+                        <p>Phone Number</p>
                     </div>
 
                     <div className='grid gap-8 mt-8 p-8'>
@@ -183,16 +182,14 @@ function RFIDList() {
                                 slicedPages[paginate.index].map(
                                     ({
                                         id,
-                                        RFID,
-                                        vehicleMake,
-                                        vehicleRegNumber,
-                                        vehicleType,
+                                        serialNum,
+                                        holderName,
+                                        phoneNum,
                                         imgUrl,
                                     }) => {
                                         return (
-                                            <div className='grid justify-between border-b grid-cols-4 gap-8 py-4 items-center'>
-                                                <p>{RFID}</p>
-                                                <p>{vehicleRegNumber}</p>
+                                            <div className='grid justify-between border-b grid-cols-3 gap-8 py-4 items-center'>
+                                                <p>{serialNum}</p>
                                                 <p className='flex items-center gap-4'>
                                                     <img
                                                         src={imgUrl}
@@ -201,10 +198,10 @@ function RFIDList() {
                                                     />
 
                                                     <span className=' max-w-[40rem] overflow-hidden text-ellipsis whitespace-nowrap'>
-                                                        {vehicleMake}
+                                                        {holderName}
                                                     </span>
                                                 </p>
-                                                <p>{vehicleType}</p>
+                                                <p>{phoneNum}</p>
                                             </div>
                                         )
                                     }
@@ -284,4 +281,4 @@ function RFIDList() {
     )
 }
 
-export default RFIDList
+export default AccessCardList
