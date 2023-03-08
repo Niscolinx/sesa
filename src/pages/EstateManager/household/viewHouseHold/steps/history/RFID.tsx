@@ -167,11 +167,13 @@ function RFIDList() {
                 </div>
 
                 <div className='grid'>
-                    <div className='grid justify-between text-color-dark-1 bg-gray-100 p-8 grid-cols-4 gap-6 capitalize'>
+                    <div className='grid justify-between text-color-dark-1 bg-gray-100 p-8 grid-cols-6 gap-6 capitalize'>
                         <p>RFID Seriel Number</p>
                         <p>Vehicle Reg. Number</p>
                         <p>Vehicle Make</p>
                         <p>Vehicle Type</p>
+                        <p>Date</p>
+                        <p>Action</p>
                     </div>
 
                     <div className='grid gap-8 mt-8 p-8'>
@@ -185,9 +187,10 @@ function RFIDList() {
                                         vehicleRegNumber,
                                         vehicleType,
                                         imgUrl,
+                                        date,
                                     }) => {
                                         return (
-                                            <div className='grid justify-between border-b grid-cols-4 gap-8 py-4 items-center'>
+                                            <div className='grid justify-between border-b grid-cols-6 gap-8 py-4 items-center'>
                                                 <p>{RFID}</p>
                                                 <p>{vehicleRegNumber}</p>
                                                 <p className='flex items-center gap-4'>
@@ -202,6 +205,9 @@ function RFIDList() {
                                                     </span>
                                                 </p>
                                                 <p>{vehicleType}</p>
+                                                <p className=' max-w-[40rem] overflow-hidden text-ellipsis whitespace-nowrap'>
+                                                    {date}
+                                                </p>
                                             </div>
                                         )
                                     }
