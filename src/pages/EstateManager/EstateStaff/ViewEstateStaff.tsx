@@ -9,8 +9,11 @@ import {
 } from '../../../components/SuperAdmin/UI/Select'
 import { getPhotoUrl } from '../../../utils/getPhotoUrl'
 import { TbCopy } from 'react-icons/tb'
-
-
+import {
+    AddBankAccount,
+    AddedEstateStaffSuccessfully,
+    OpenedBankAccountSuccessful,
+} from './DialogSteps'
 
 type Actions = 'Deactivate' | 'Delete'
 
@@ -18,7 +21,6 @@ export type AddedEstateStaffSteps =
     | 'addedEstateStaffSuccessful'
     | 'addBankAccount'
     | 'openedBankAccountSuccessful'
-
 
 interface AddedEstateStaffContext {
     addedEstateStaffStep: AddedEstateStaffSteps
@@ -37,9 +39,12 @@ const ViewEstateStaff = () => {
     const [workDays, setWorkDays] = useState<string[]>([])
     const [isValidated, setIsValidated] = useState(true)
     const [isAccountCreated, setIsAccountCreated] = useState(false)
-
     const [selectedState, setSelectedState] = useState<string | null>(null)
     const [selectedGender, setSelectedGender] = useState<string | null>(null)
+
+    const [selectedBank, setSelectedBank] = useState<null | string>(null)
+    const [addedEstateStaffStep, setAddedEstateStaffStep] =
+        useState<AddedEstateStaffSteps>('addedEstateStaffSuccessful')
 
     const [photoUrl, setPhotoUrl] = useState('')
 
@@ -107,17 +112,20 @@ const ViewEstateStaff = () => {
     }
 
     const openBankDialog = () => {
-       
-
         if (bankRef.current) {
             bankRef.current.showModal()
+        }
+    }
+
+    const handleClose = () => {
+        if (bankRef.current) {
+            bankRef.current.close()
         }
     }
 
     const openStaffBankAccount = () => {
         openBankDialog()
     }
-
 
     const addedEstateStaffSteps = new Map([
         ['addedEstateStaffSuccessful', <AddedEstateStaffSuccessfully />],
