@@ -1,6 +1,15 @@
-import React, { Fragment, useRef, useState } from 'react'
+import React, { createContext, Fragment, useRef, useState } from 'react'
 import { IoMdClose } from 'react-icons/io'
+import PropertyDetails from './PropertyDetails'
+import ResidentList from './ResidentList'
 
+
+
+interface ViewHouseHoldContext {
+    closeDialog: () => void
+}
+
+export const ViewHouseHoldContext = createContext<ViewHouseHoldContext | null>(null)
 function ViewHouseHold() {
     type labelKeys =
         | 'Property Details'
@@ -34,15 +43,8 @@ function ViewHouseHold() {
     }
 
     const handlePathSwitch = new Map<labelKeys, JSX.Element>([
-        [
-            'Property Details',
-            <>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Consectetur architecto quos odit soluta vero eveniet, iure
-                voluptates aut ea, quod nostrum, rerum deserunt asperiores
-                consequatur. Animi, libero saepe. Amet, harum.
-            </>,
-        ],
+        ['Property Details', <PropertyDetails />],
+        ['Resident List', <ResidentList/>]
     ])
     return (
         <>
