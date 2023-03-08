@@ -26,7 +26,7 @@ const SITEWORKER: SiteWorker[] = Array.from({
     swCode: `H${(Math.random() * 0.1 + 0.9).toFixed(5).split('.')[1]}`,
     workDays: 'Mon, Tue, Wed',
     status: Math.random() > 0.5 ? 'Active' : 'Inactive',
-    workPeriod: '1/2/23 - 3/4/23',
+    workPeriod: '01 Jan 23 - 03 March 23',
     workLocation: 'No 1, Pepsi Street, Pepsi Estate',
     kys: Math.random() > 0.3 ? 'Validated' : 'Not Validated',
 }))
@@ -302,8 +302,12 @@ const SiteWorker = () => {
                                                                 </span>
                                                             </p>
                                                             <p>{swName}</p>
-                                                            <p>{phoneNumber}</p>
-                                                            <p>{workDays}</p>
+                                                            <p className=' max-w-[40rem] overflow-hidden text-ellipsis whitespace-nowrap'>
+                                                                {phoneNumber}
+                                                            </p>
+                                                            <p className=' max-w-[40rem] overflow-hidden text-ellipsis whitespace-nowrap'>
+                                                                {workDays}
+                                                            </p>
                                                             <p className=' max-w-[40rem] overflow-hidden text-ellipsis whitespace-nowrap'>
                                                                 {workPeriod}
                                                             </p>
