@@ -83,11 +83,11 @@ const SecurityGuard = () => {
         })
 
         if (item === 'View Details') {
-            navigate(`/estateManager/site-worker/view/:${index}`)
+            navigate(`/estateManager/security-guard/view/:${index}`)
         }
 
         if (item === 'Edit Details') {
-            navigate(`/estateManager/site-worker/edit/:${index}`)
+            navigate(`/estateManager/security-guard/edit/:${index}`)
         }
     }
     interface Paginate {
