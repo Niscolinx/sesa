@@ -322,7 +322,7 @@ const ViewEstateStaff = () => {
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] min-h-[30rem] gap-8 p-10'>
                         {bankDialogState === 'generateId' ? (
                             <div className='bg-white rounded-2xl grid place-content-center justify-items-center h-[30rem] gap-8 text-[1.6rem]'>
-                               <img src="/img/new_id.png" alt="" />
+                                <img src='/img/new_id.png' alt='' />
                             </div>
                         ) : (
                             <div className='bg-white rounded-2xl grid place-content-center justify-items-center h-[30rem] gap-8 text-[1.6rem]'>
@@ -649,7 +649,7 @@ const ViewEstateStaff = () => {
                                     style={{
                                         fontFamily: 'Satoshi-Medium',
                                     }}
-                                    onClick={() => openBankDialog('')}
+                                    onClick={() => openBankDialog('openBank')}
                                 >
                                     Open a bank account
                                 </button>
@@ -659,6 +659,7 @@ const ViewEstateStaff = () => {
                     <button
                         className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg col-span-full mt-[5rem]'
                         style={{ justifySelf: 'start' }}
+                        onClick={() => openBankDialog('generateId')}
                     >
                         Generate ID Card
                     </button>
