@@ -9,13 +9,11 @@ import {
 import { TfiArrowCircleLeft, TfiArrowCircleRight } from 'react-icons/tfi'
 
 import EditResident from './EditResident'
-import EditProperty from './EditProperty'
 import { useLocation } from 'react-router'
 import EditRFID from './EditRFID'
 import EditAccessKey from './EditAccessCard'
 
 const paths = [
-   
     {
         name: 'edit resident',
         id: 1,
@@ -59,16 +57,13 @@ export interface HouseholdContext {
 
 export const EditHouseholdContext = createContext<HouseholdContext>(null as any)
 
-function CreateHousehold() {
+function EditHousehold() {
     const location = useLocation()
-    const propertyCode = location.state?.propertyCode
 
     const [pathToSwitch, setPathToSwitch] = useState(1)
     const [disabled, setDisabled] = useState(true)
 
-    const [selectedPropertyCode, setSelectedPropertyCode] = useState<T>(
-        propertyCode || null
-    )
+    const [selectedPropertyCode, setSelectedPropertyCode] = useState<T>(null)
     const [tenancyType, setTenancyType] = useState<T>(null)
     const [selectLandLord, setSelectLandLord] = useState<T>(null)
     const [careTaker, setCareTaker] = useState<T>(null)
@@ -214,14 +209,14 @@ function CreateHousehold() {
                                 disabled={disabled}
                                 onClick={() => handleSubmit()}
                             >
-                              Edit Household
+                                Edit Household
                             </button>
                         ) : (
                             <button
                                 className='flex gap items-center cursor-pointer gap-4 disabled:opacity-50 disabled:cursor-not-allowed'
                                 onClick={() =>
                                     setPathToSwitch((prev) => {
-                                        return prev === 4 ? prev : prev + 1
+                                        return prev === 3 ? prev : prev + 1
                                     })
                                 }
                             >
@@ -237,4 +232,4 @@ function CreateHousehold() {
     )
 }
 
-export default CreateHousehold
+export default EditHousehold
