@@ -5,17 +5,12 @@ import Resident from './Resident'
 function History() {
     type labelKeys = 'resident' | 'accessCard' | 'RFID'
 
-    const [path, setPath] = useState<labelKeys[]>([
-        'resident',
-        'accessCard',
-        'RFID',
-    ])
+    const path: labelKeys[] = ['resident', 'accessCard', 'RFID']
 
-    const dialogRef = useRef<HTMLDialogElement | null>(null)
     const [pathToSwitch, setPathToSwitch] = useState<labelKeys>('resident')
 
     const handlePathSwitch = new Map<labelKeys, JSX.Element>([
-        ['resident', <Resident/>]
+        ['resident', <Resident />],
     ])
 
     return (
