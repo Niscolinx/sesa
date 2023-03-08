@@ -7,20 +7,22 @@ function Payments() {
                 <p className='font-Satoshi-Medium text-[2rem] mb-4'>
                     Product Information
                 </p>
-                <div className='grid grid-cols-2 gap-4'>
-                    <div className='flex items-center gap-4'>
-                        <p className=' py-4  text-gray-700 font-Satoshi-Light '>
-                            Product Code:
-                        </p>
-                        <p className='py-4'>R87231</p>
+                <section>
+                    <div className='grid grid-cols-2 gap-4'>
+                        <div className='flex items-center gap-4'>
+                            <p className=' py-4  text-gray-700 font-Satoshi-Light '>
+                                Product Code:
+                            </p>
+                            <p className='py-4'>R87231</p>
+                        </div>
+                        <div className='flex items-center gap-4'>
+                            <p className=' py-4  text-gray-700 font-Satoshi-Light '>
+                                Start Date:
+                            </p>
+                            <p className='py-4'>22 Feb 2023</p>
+                        </div>
                     </div>
-                    <div className='flex items-center gap-4'>
-                        <p className=' py-4  text-gray-700 font-Satoshi-Light '>
-                            Start Date:
-                        </p>
-                        <p className='py-4'>22 Feb 2023</p>
-                    </div>
-                </div>
+                </section>
             </div>
         </div>
     )
