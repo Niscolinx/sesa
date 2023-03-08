@@ -97,6 +97,7 @@ function CreateHousehold() {
 
     const handleSubmit = () => {
         console.log('submitted')
+        handleOpen()
     }
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
@@ -109,9 +110,7 @@ function CreateHousehold() {
         dialogRef.current?.showModal()
     }
 
-    const addPropertyHandler = () => {
-        handleOpen()
-    }
+ 
 
     return (
         <>
