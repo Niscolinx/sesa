@@ -11,6 +11,7 @@ import AddResident from './AddResident'
 import AddProperty from './AddProperty'
 import { useLocation } from 'react-router'
 import AddRFID from './AddRFID'
+import AddAccessKey from './AddAccessKey'
 
 const paths = [
     {
@@ -86,7 +87,7 @@ function CreateHousehold() {
         [1, <AddProperty />],
         [2, <AddResident />],
         [3, <AddRFID/>],
-        [4, <></>],
+        [4, <AddAccessKey/>],
     ])
     return (
         <>
