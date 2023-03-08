@@ -476,7 +476,7 @@ const AddSiteWorker = () => {
                                 htmlFor='address'
                                 className='flex mb-2 gap-4 items-center cursor-pointer'
                             >
-                                Estate Staff Message
+                                Site Worker Message
                             </label>
 
                             <textarea
