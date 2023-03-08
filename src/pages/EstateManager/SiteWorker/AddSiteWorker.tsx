@@ -664,7 +664,7 @@ const AddSiteWorker = () => {
                         <span>
                             <IoMdAdd />
                         </span>{' '}
-                        Add Staff
+                        Add Site Worker
                     </button>
                 </section>
             </main>

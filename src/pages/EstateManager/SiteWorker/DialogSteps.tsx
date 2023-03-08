@@ -14,7 +14,7 @@ export const AddedSiteWorkerSuccessfully = ({
         <div className='w-full grid justify-items-center gap-4'>
             <img src='/icons/admins/modalSuccess.svg' alt='' />
 
-            <p>You have successfully added an Estate Staff </p>
+            <p>You have successfully added an Site Worker </p>
 
             <p
                 className='font-bold text-[1.8rem] max-w-[40rem] text-center'
@@ -22,7 +22,7 @@ export const AddedSiteWorkerSuccessfully = ({
                     fontFamily: 'Satoshi-Medium',
                 }}
             >
-                Do you want to open a bank account for this Estate Staff ?
+                Do you want to open a bank account for this Site Worker ?
             </p>
 
             <div className='flex w-full justify-center gap-8 mt-10'>
@@ -105,7 +105,7 @@ export const OpenedBankAccountSuccessful =  ({
             <img src='/icons/admins/modalSuccess.svg' alt='' />
 
             <p>
-                You have successfully opened an account number for this staff
+                You have successfully opened an account number for this Site Worker
                 
             </p>
 
