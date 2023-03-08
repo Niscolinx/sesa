@@ -9,7 +9,8 @@ interface ViewHouseHoldContext {
     closeDialog: () => void
 }
 
-export const ViewHouseHoldContext = createContext<ViewHouseHoldContext | null>(null)
+export const ViewHouseHoldContext = createContext<ViewHouseHoldContext>(null as any)
+
 function ViewHouseHold() {
     type labelKeys =
         | 'Property Details'
@@ -34,7 +35,7 @@ function ViewHouseHold() {
     const [pathToSwitch, setPathToSwitch] =
         useState<labelKeys>('Property Details')
 
-    const handleClose = () => {
+    const closeDialog = () => {
         dialogRef.current?.close()
     }
 
@@ -47,7 +48,11 @@ function ViewHouseHold() {
         ['Resident List', <ResidentList/>]
     ])
     return (
-        <>
+        <ViewHouseHoldContext.Provider
+            value={{
+                closeDialog,
+            }}
+        >
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
@@ -65,13 +70,13 @@ function ViewHouseHold() {
                         <div className='flex w-full justify-center gap-8'>
                             <button
                                 className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
-                                onClick={() => handleClose()}
+                                onClick={() => closeDialog()}
                             >
                                 Cancel
                             </button>
                             <button
                                 className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
-                                onClick={() => handleClose()}
+                                onClick={() => closeDialog()}
                             >
                                 Deactivate
                             </button>
@@ -83,7 +88,7 @@ function ViewHouseHold() {
                 <section className='  h-[90vh] bg-white rounded-2xl p-16 overflow-hidden relative w-[80%] mx-auto'>
                     <IoMdClose
                         className='absolute right-0 top-0 text-[2rem] cursor-pointer m-8'
-                        onClick={() => handleClose()}
+                        onClick={() => closeDialog()}
                     />
                     <p className='font-Satoshi-Medium text-[2rem] mb-10'>
                         HouseHold Details
@@ -260,7 +265,7 @@ function ViewHouseHold() {
                     Show more details
                 </button>
             </div>
-        </>
+        </ViewHouseHoldContext.Provider>
     )
 }
 
