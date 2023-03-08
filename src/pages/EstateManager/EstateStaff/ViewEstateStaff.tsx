@@ -65,25 +65,20 @@ const ViewEstateStaff = () => {
         }
     }
 
-    const handleReAssign = () => {
-        toast(' Reassigned successfully', {
-            type: 'success',
-            className: 'bg-green-100 text-green-600 text-[1.4rem]',
-        })
-    }
+   
 
-    const handleDeleteSecurityGuard = () => {
+    const handleDeleteStaff = () => {
         handleCloseDeleteOrDeactivateDialog()
 
-        toast('Security Guard deleted successfully', {
+        toast('Estate Staff deleted successfully', {
             type: 'error',
             className: 'bg-red-100 text-red-600 text-[1.4rem]',
         })
     }
-    const handleDeactivateSecurityGuard = () => {
+    const handleDeactivateStaff = () => {
         handleCloseDeleteOrDeactivateDialog()
 
-        toast('Security Guard deactivated successfully', {
+        toast('Estate Staff deactivated successfully', {
             type: 'error',
             className: 'bg-red-100 text-red-600 text-[1.4rem]',
         })
@@ -192,7 +187,7 @@ const ViewEstateStaff = () => {
                                 />
                                 <p className='text-[1.6rem]'>
                                     Are you sure you want to deactivate this
-                                    Security Guard
+                                    Estate Staff
                                 </p>
 
                                 <div className='flex w-full justify-center gap-8'>
@@ -206,7 +201,7 @@ const ViewEstateStaff = () => {
                                     </button>
                                     <button
                                         className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
-                                        onClick={handleDeactivateSecurityGuard}
+                                        onClick={handleDeactivateStaff}
                                     >
                                         Deactivate
                                     </button>
@@ -220,7 +215,7 @@ const ViewEstateStaff = () => {
                                 />
                                 <p className='text-[1.6rem]'>
                                     Are you sure you want to delete this
-                                    Security Guard
+                                    Estate Staff
                                 </p>
 
                                 <div className='flex w-full justify-center gap-8'>
@@ -234,7 +229,7 @@ const ViewEstateStaff = () => {
                                     </button>
                                     <button
                                         className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
-                                        onClick={handleDeleteSecurityGuard}
+                                        onClick={handleDeleteStaff}
                                     >
                                         Delete
                                     </button>
@@ -488,13 +483,13 @@ const ViewEstateStaff = () => {
                                 htmlFor='address'
                                 className='flex mb-2 gap-4 items-center cursor-pointer'
                             >
-                                Security Guard Message
+                                Estate Staff Message
                             </label>
 
                             <textarea
                                 name='address'
                                 id='address'
-                                placeholder='This message will be displayed to the security guard when the site worker checks in / out'
+                                placeholder='This message will be displayed to the estate Staff when the site worker checks in / out'
                                 rows={4}
                                 className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                             />
