@@ -620,7 +620,7 @@ const AddEstateStaff = () => {
                         <span>
                             <IoMdAdd />
                         </span>{' '}
-                        Add EstateStaff Guard
+                        Add Staff
                     </button>
                 </section>
             </main>
