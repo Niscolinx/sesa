@@ -155,11 +155,11 @@ const UniqueResident = () => {
         console.log(id)
     }
 
-    const [actions, setActions] = useState<Actions[]>([
+    const actions:Actions[] = [
         'View Details',
         'Edit Details',
         'Delete',
-    ])
+    ]
     const [selectedAction, setSelectedAction] = useState<{
         [key: string]: Actions
     }>(null as any)

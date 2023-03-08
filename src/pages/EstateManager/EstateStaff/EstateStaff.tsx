@@ -5,42 +5,42 @@ import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { IoMdAdd } from 'react-icons/io'
 import { useNavigate } from 'react-router-dom'
 
-interface CompanyOverview {
+interface EstateStaff {
     id: number
-    guardCode: number
-    guardName: string
+    staffCode: string
+    staffName: string
     phoneNumber: string
-    assignedEstate: string
-    status: 'Active' | 'Deactivated'
-    kys: 'Validated' | 'Not Validated'
+    workDays: string
+    status: 'Active' | 'Inactive'
+    kys: 'Validated' | 'Not Validated' | 'Full Match'
 }
 
-const COMPANY_OVERVIEW_DATA: CompanyOverview[] = Array.from({
+const ESTATE_STAFF: EstateStaff[] = Array.from({
     length: 20,
 }).map((_, i) => ({
     id: i,
-    guardName: 'John Doe',
+    staffName: 'John Doe',
     phoneNumber: '+2347024954270',
-    guardCode: Math.floor(Math.random() * 3000 + 1000),
-    assignedEstate: 'Estate 1',
-    status: Math.random() > 0.5 ? 'Active' : 'Deactivated',
-    kys: Math.random() > 0.5 ? 'Validated' : 'Not Validated',
+    staffCode: `H${(Math.random() * 0.1 + 0.9).toFixed(5).split('.')[1]}`,
+    workDays: 'Mon, Tue, Wed',
+    status: Math.random() > 0.5 ? 'Active' : 'Inactive',
+    kys: Math.random() > 0.3 ? 'Validated' : 'Not Validated',
 }))
 
 const EstateStaff = () => {
     const navigate = useNavigate()
 
-    const [isEstateStaff, setIsEstateStaff] = useState(false)
+    const [isEstateStaff, setIsEstateStaff] = useState(true)
 
-    const [fetchedCompanyOverviewData, setFetchedCompanyOverviewData] =
-        useState<CompanyOverview[]>([])
+    const [fetchedEstateStaffData, setFetchedEstateStaffData] =
+        useState<EstateStaff[]>([])
 
     const addEstateStaff = () => {
         setIsEstateStaff(true)
     }
     useEffect(() => {
         setTimeout(() => {
-            setFetchedCompanyOverviewData(COMPANY_OVERVIEW_DATA)
+            setFetchedEstateStaffData(ESTATE_STAFF)
         }, 1000)
     }, [])
 
@@ -49,7 +49,7 @@ const EstateStaff = () => {
         currentPage: number
         itemsPerPage: number
         totalPage: number
-        slicedPages: CompanyOverview[][] | null
+        slicedPages: EstateStaff[][] | null
     }
 
     const itemsPerPageArr = [2, 4, 6, 8]
@@ -59,16 +59,16 @@ const EstateStaff = () => {
         index: 0,
         currentPage: 1,
         itemsPerPage: perPage,
-        totalPage: Math.ceil(fetchedCompanyOverviewData.length / perPage),
+        totalPage: Math.ceil(fetchedEstateStaffData.length / perPage),
         slicedPages: null,
     })
 
     const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
         const item = parseInt(e.target.value)
 
-        const slicedPages: CompanyOverview[][] = []
-        for (let i = 0; i < fetchedCompanyOverviewData.length; i += item) {
-            slicedPages.push(fetchedCompanyOverviewData.slice(i, i + item))
+        const slicedPages: EstateStaff[][] = []
+        for (let i = 0; i < fetchedEstateStaffData.length; i += item) {
+            slicedPages.push(fetchedEstateStaffData.slice(i, i + item))
         }
 
         setPaginate((prev) => {
@@ -78,20 +78,20 @@ const EstateStaff = () => {
                 index: 0,
                 currentPage: 1,
                 slicedPages,
-                totalPage: Math.ceil(fetchedCompanyOverviewData.length / item),
+                totalPage: Math.ceil(fetchedEstateStaffData.length / item),
             }
         })
     }
 
     useEffect(() => {
-        const slicedPages: CompanyOverview[][] = []
+        const slicedPages: EstateStaff[][] = []
         for (
             let i = 0;
-            i < fetchedCompanyOverviewData.length;
+            i < fetchedEstateStaffData.length;
             i += paginate.itemsPerPage
         ) {
             slicedPages.push(
-                fetchedCompanyOverviewData.slice(i, i + paginate.itemsPerPage)
+                fetchedEstateStaffData.slice(i, i + paginate.itemsPerPage)
             )
         }
 
@@ -100,11 +100,11 @@ const EstateStaff = () => {
                 ...prev,
                 slicedPages,
                 totalPage: Math.ceil(
-                    fetchedCompanyOverviewData.length / paginate.itemsPerPage
+                    fetchedEstateStaffData.length / paginate.itemsPerPage
                 ),
             }
         })
-    }, [fetchedCompanyOverviewData])
+    }, [fetchedEstateStaffData])
 
     const handleNext = () => {
         console.log(paginate.currentPage, paginate.totalPage)
@@ -142,7 +142,7 @@ const EstateStaff = () => {
     }
 
     const handleAddSecurityGuard = () => {
-        console.log('add security guard')
+        console.log('add estate Staff')
 
         navigate(`/securityCompany/security-guard/addSecurity`)
     }
@@ -159,7 +159,7 @@ const EstateStaff = () => {
                         <div className='grid text-[1.6rem]'>
                             <caption className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
                                 <p className=' font-bold'>
-                                    Security Guard List <span>(4)</span>
+                                    Estate Staff List <span>(4)</span>
                                 </p>
                                 <div className='relative flex items-center'>
                                     <img
@@ -191,7 +191,7 @@ const EstateStaff = () => {
                                         <span>
                                             <IoMdAdd />
                                         </span>{' '}
-                                        Add Security Guard
+                                        Add Estate Staff
                                     </button>
                                 </div>
                             </caption>
@@ -223,9 +223,9 @@ const EstateStaff = () => {
                                         React.Children.toArray(
                                             slicedPages[paginate.index].map(
                                                 ({
-                                                    guardCode,
-                                                    guardName,
-                                                    assignedEstate,
+                                                    staffCode,
+                                                    staffName,
+                                                    workDays,
                                                     kys,
                                                     status,
                                                     id,
@@ -240,13 +240,13 @@ const EstateStaff = () => {
                                                                 />
 
                                                                 <span>
-                                                                    {guardCode}
+                                                                    {staffCode}
                                                                 </span>
                                                             </p>
-                                                            <p>{guardName}</p>
+                                                            <p>{staffName}</p>
                                                             <p>{phoneNumber}</p>
                                                             <p>
-                                                                {assignedEstate}
+                                                                {workDays}
                                                             </p>
                                                             <p>
                                                                 {status ===
@@ -272,15 +272,85 @@ const EstateStaff = () => {
                                                                     </span>
                                                                 )}
                                                             </p>
-                                                            <button
-                                                                className='text-color-primary text-left'
+                                                            <div className='relative'>
+                                                            <label
+                                                                className='font-semibold capitalize cursor-pointer flex items-center gap-2 relative z-10'
+                                                                htmlFor={id.toString()}
                                                                 onClick={() =>
-                                                                    detailsHandler(
-                                                                        id
+                                                                    setToggleDropDown(
+                                                                        (
+                                                                            prev
+                                                                        ) => {
+                                                                            return {
+                                                                                isDropDownOpen:
+                                                                                    !prev.isDropDownOpen,
+                                                                                index: id,
+                                                                            }
+                                                                        }
                                                                     )
                                                                 }
                                                             >
-                                                                View Details
+                                                                <span className='text-color-primary'>
+                                                                    <img
+                                                                        src='/icons/admins/threeDots.svg'
+                                                                        alt=''
+                                                                    />
+                                                                </span>
+                                                            </label>
+                                                            <input
+                                                                type='radio'
+                                                                name='dropdown'
+                                                                className='hidden'
+                                                                id={id.toString()}
+                                                                onChange={(e) =>
+                                                                    dropDownHandler(
+                                                                        e,
+                                                                        id
+                                                                    )
+                                                                }
+                                                            />
+
+                                                            {isDropDownOpen &&
+                                                                index ===
+                                                                    id && (
+                                                                    <div className='absolute top-0 translate-x-[5rem] border border-color-primary-light w-[10rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
+                                                                        {actions.map(
+                                                                            (
+                                                                                item,
+                                                                                index
+                                                                            ) => (
+                                                                                <p
+                                                                                    className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
+                                                                                    key={
+                                                                                        index +
+                                                                                        id
+                                                                                    }
+                                                                                    onClick={(
+                                                                                        e
+                                                                                    ) =>
+                                                                                        selectAction(
+                                                                                            e,
+                                                                                            item,
+                                                                                            id
+                                                                                        )
+                                                                                    }
+                                                                                >
+                                                                                    {item ===
+                                                                                    'Delete' ? (
+                                                                                        <span className='text-red-600'>
+                                                                                            {
+                                                                                                item
+                                                                                            }
+                                                                                        </span>
+                                                                                    ) : (
+                                                                                        item
+                                                                                    )}
+                                                                                </p>
+                                                                            )
+                                                                        )}
+                                                                    </div>
+                                                                )}
+                                                        </div>
                                                             </button>
                                                         </div>
                                                     )
