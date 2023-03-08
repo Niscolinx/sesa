@@ -26,7 +26,7 @@ function LandlandDetails() {
             gender: Math.random() > 0.5 ? 'Male' : 'Female',
             name: 'Darlene Robert',
             phoneNo: '(+234) 9076577689',
-            tenancyType: 'tenant (resident)',
+            tenancyType: 'Landlord (Non-Resident)',
         }
     })
 
@@ -37,7 +37,7 @@ function LandlandDetails() {
   
 
     return (
-        <section className='bg-color-white rounded-lg border  overflow-scroll h-full'>
+        <section className='bg-color-white rounded-lg   overflow-scroll h-full'>
             <div className='grid text-[1.6rem]'>
                 
 
