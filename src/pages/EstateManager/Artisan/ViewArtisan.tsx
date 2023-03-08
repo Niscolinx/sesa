@@ -45,15 +45,15 @@ const ViewArtisan = () => {
         }
     }
 
-    const handleSelectedAction = (item: Actions) => {
-        if (item === 'Deactivate') {
-            handleOpen('Deactivate')
-        }
+    // const handleSelectedAction = (item: Actions) => {
+    //     if (item === 'Deactivate') {
+    //         handleOpen('Deactivate')
+    //     }
 
-        if (item === 'Delete') {
-            handleOpen('Delete')
-        }
-    }
+    //     if (item === 'Delete') {
+    //         handleOpen('Delete')
+    //     }
+    // }
 
     // const handleDeleteArtisan = () => {
     //     handleClose()
