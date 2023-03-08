@@ -1,5 +1,6 @@
 import { useContext } from 'react'
 import { TbCopy } from 'react-icons/tb'
+import { Select } from '../../../components/SuperAdmin/UI/Select'
 import { CreateAddedEstateStaffContext } from './AddEstateStaff'
 
 export const AddedEstateStaffSuccessfully = () => {

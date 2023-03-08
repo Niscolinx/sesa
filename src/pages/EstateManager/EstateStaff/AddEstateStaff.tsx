@@ -10,7 +10,7 @@ import {
 } from './DialogSteps'
 import { Select, ComplexSelect } from '../../../components/SuperAdmin/UI/Select'
 import { getPhotoUrl } from '../../../utils/getPhotoUrl'
-import { PhoneNumber, BVN_Number, NIN_Number, DriversLicence, International_PassPort, Voters_Card } from '../../EstateStaffCompany/dashboard/company/AddEstateStaff/Inputs'
+import { BVN_Number, DriversLicence, International_PassPort, NIN_Number, PhoneNumber, Voters_Card } from '../../SecurityCompany/dashboard/company/AddSecurity/Inputs'
 
 type DialogType = 'validate' | 'add-estateStaff' | 'reassign'
 
