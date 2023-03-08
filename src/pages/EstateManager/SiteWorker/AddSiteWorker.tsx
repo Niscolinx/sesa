@@ -334,7 +334,9 @@ const [propertyCode, setPropertyCode] = useState<string | null>(null)
             </dialog>
             <main>
                 <section className='grid p-8 bg-white items-baseline rounded-lg'>
-                    <div className='w-[30rem]'>
+                    <div>
+                        <div className='w-[30rem]'>
+
                         <Select
                             state={[
                                 'ThomasEstate/SO-2345CDGK1',
@@ -347,10 +349,11 @@ const [propertyCode, setPropertyCode] = useState<string | null>(null)
                             isSearchable
                             selectedState={propertyCode}
                             setSelectedState={setPropertyCode}
-                        />
+                            />
+                            </div>
 
                         {propertyCode && (
-                            <section className='w-full flex gap-16 relative'>
+                            <section className='w-full flex gap-16 relative mt-[5rem]'>
                                 <div>
                                     <img
                                         src={'/img/img3.png'}
