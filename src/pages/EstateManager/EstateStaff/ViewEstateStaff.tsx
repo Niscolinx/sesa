@@ -128,9 +128,22 @@ const ViewEstateStaff = () => {
     }
 
     const addedEstateStaffSteps = new Map([
-        ['addedEstateStaffSuccessful', <AddedEstateStaffSuccessfully />],
-        ['addBankAccount', <AddBankAccount />],
-        ['openedBankAccountSuccessful', <OpenedBankAccountSuccessful />],
+        [
+            'addedEstateStaffSuccessful',
+            <AddedEstateStaffSuccessfully
+                context={CreateAddedEstateStaffContext}
+            />,
+        ],
+        [
+            'addBankAccount',
+            <AddBankAccount context={CreateAddedEstateStaffContext} />,
+        ],
+        [
+            'openedBankAccountSuccessful',
+            <OpenedBankAccountSuccessful
+                context={CreateAddedEstateStaffContext}
+            />,
+        ],
     ])
 
     return (

@@ -37,7 +37,7 @@ export type ValidateInputTypes =
     | 'International Passport'
     | 'Voters Card'
 
-interface AddedEstateStaffContext {
+export interface AddedEstateStaffContext {
     addedEstateStaffStep: AddedEstateStaffSteps
     setAddedEstateStaffStep: React.Dispatch<
         React.SetStateAction<AddedEstateStaffSteps>
@@ -150,9 +150,9 @@ const AddEstateStaff = () => {
     }
 
     const addedEstateStaffSteps = new Map([
-        ['addedEstateStaffSuccessful', <AddedEstateStaffSuccessfully />],
-        ['addBankAccount', <AddBankAccount />],
-        ['openedBankAccountSuccessful', <OpenedBankAccountSuccessful />],
+        ['addedEstateStaffSuccessful', <AddedEstateStaffSuccessfully context={CreateAddedEstateStaffContext}/>],
+        ['addBankAccount', <AddBankAccount context={CreateAddedEstateStaffContext}/>],
+        ['openedBankAccountSuccessful', <OpenedBankAccountSuccessful context={CreateAddedEstateStaffContext}/>],
     ])
 
     return (

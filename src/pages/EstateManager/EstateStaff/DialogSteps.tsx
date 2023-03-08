@@ -1,12 +1,14 @@
 import { useContext } from 'react'
 import { TbCopy } from 'react-icons/tb'
 import { Select } from '../../../components/SuperAdmin/UI/Select'
-import { CreateAddedEstateStaffContext } from './AddEstateStaff'
+import { AddedEstateStaffContext } from './AddEstateStaff'
 
-export const AddedEstateStaffSuccessfully = () => {
-    const { handleClose, setAddedEstateStaffStep } = useContext(
-        CreateAddedEstateStaffContext
-    )
+export const AddedEstateStaffSuccessfully = ({
+    context,
+}: {
+    context: React.Context<AddedEstateStaffContext>
+}) => {
+    const { handleClose, setAddedEstateStaffStep } = useContext(context)
 
     return (
         <div className='w-full grid justify-items-center gap-4'>
@@ -41,9 +43,13 @@ export const AddedEstateStaffSuccessfully = () => {
     )
 }
 
-export const AddBankAccount = () => {
+export const AddBankAccount = ({
+    context,
+}: {
+    context: React.Context<AddedEstateStaffContext>
+}) => {
     const { selectedBank, setSelectedBank, setAddedEstateStaffStep } =
-        useContext(CreateAddedEstateStaffContext)
+        useContext(context)
 
     return (
         <div className='w-[40rem] grid justify-items-center gap-10'>
@@ -80,9 +86,13 @@ export const AddBankAccount = () => {
     )
 }
 
-export const OpenedBankAccountSuccessful = () => {
+export const OpenedBankAccountSuccessful =  ({
+    context,
+}: {
+    context: React.Context<AddedEstateStaffContext>
+}) => {
     const { handleClose, selectedBank, setAddedEstateStaffStep } = useContext(
-        CreateAddedEstateStaffContext
+        context
     )
 
     const closeSteps = () => {
