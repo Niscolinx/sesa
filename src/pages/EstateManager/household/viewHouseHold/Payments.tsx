@@ -86,8 +86,8 @@ function Payments() {
                         <span className='font-Satoshi-Medium'>Payment Status: </span> <span>Installments(5)</span>
                     </p>
 
-                    <div className='flex items-center'>
-                        <img src="/img/check_circle.svg" alt="" />
+                    <div className='flex items-center steps'>
+                        <img src="/img/check_circle.svg" alt=""  />
                         <img src="/img/check_circle.svg" alt="" />
                         <img src="/img/check_empty.svg" alt="" />
                         <img src="/img/check_empty.svg" alt="" />
