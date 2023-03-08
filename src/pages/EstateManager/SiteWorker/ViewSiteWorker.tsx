@@ -339,65 +339,7 @@ const ViewSiteWorker = () => {
                 </section>
             </dialog>
             <main>
-                <section className='grid p-8 bg-white items-baseline rounded-lg'>
-                    <section className=' relative mb-[5rem]'>
-                        <p className='text-[2rem] font-Satoshi-Medium mb-10'>
-                            Work Location Details
-                        </p>
-                        <div className='w-full flex gap-16'>
-                            <div>
-                                <img
-                                    src={'/img/img3.png'}
-                                    alt=''
-                                    className=' object-cover rounded-lg'
-                                />
-                            </div>
-
-                            <div className='flex '>
-                                <div className='grid gap-8'>
-                                    <div>
-                                        <p className='text-[1.4rem] text-[#043FA7]'>
-                                            Property Code
-                                        </p>
-                                        <p className='font-[1.6rem] whitespace-nowrap'>
-                                            ThomasEstate/SO-2345CDGK1
-                                        </p>
-                                    </div>
-                                    <div>
-                                        <p className='text-[#043FA7]'>
-                                            Property Type
-                                        </p>
-                                        <p>Duplex</p>
-                                    </div>
-                                    <div>
-                                        <p className='text-[#043FA7]'>
-                                            Property Address
-                                        </p>
-                                        <p className='max-w-[30rem]'>
-                                            10, Address Street, Address Avenue,
-                                            Lagos, Nigeria.
-                                        </p>{' '}
-                                    </div>
-                                </div>
-                                <div className='grid gap-8 auto-rows-max'>
-                                    <div>
-                                        <p className='text-[1.4rem] text-[#043FA7]'>
-                                            Property Category
-                                        </p>
-                                        <p className='font-[1.6rem] whitespace-nowrap'>
-                                            Business
-                                        </p>
-                                    </div>
-                                    <div>
-                                        <p className='text-[#043FA7]'>
-                                            Property Name
-                                        </p>
-                                        <p>Wale House</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
+                <section className='grid p-8 bg-white items-baseline rounded-lg gap-16'>
                     <div className='flex justify-between items-center'>
                         <div className='flex gap-8 items-center'>
                             <label
@@ -496,9 +438,68 @@ const ViewSiteWorker = () => {
                             </button>
                         </div>
                     </div>
+                    <section className=' relative mb-[5rem]'>
+                        <p className='text-[2rem] font-Satoshi-Medium mb-10'>
+                            Work Location Details
+                        </p>
+                        <div className='w-full flex gap-16'>
+                            <div>
+                                <img
+                                    src={'/img/img3.png'}
+                                    alt=''
+                                    className=' object-cover rounded-lg'
+                                />
+                            </div>
+
+                            <div className='flex '>
+                                <div className='grid gap-8'>
+                                    <div>
+                                        <p className='text-[1.4rem] text-[#043FA7]'>
+                                            Property Code
+                                        </p>
+                                        <p className='font-[1.6rem] whitespace-nowrap'>
+                                            ThomasEstate/SO-2345CDGK1
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <p className='text-[#043FA7]'>
+                                            Property Type
+                                        </p>
+                                        <p>Duplex</p>
+                                    </div>
+                                    <div>
+                                        <p className='text-[#043FA7]'>
+                                            Property Address
+                                        </p>
+                                        <p className='max-w-[30rem]'>
+                                            10, Address Street, Address Avenue,
+                                            Lagos, Nigeria.
+                                        </p>{' '}
+                                    </div>
+                                </div>
+                                <div className='grid gap-8 auto-rows-max'>
+                                    <div>
+                                        <p className='text-[1.4rem] text-[#043FA7]'>
+                                            Property Category
+                                        </p>
+                                        <p className='font-[1.6rem] whitespace-nowrap'>
+                                            Business
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <p className='text-[#043FA7]'>
+                                            Property Name
+                                        </p>
+                                        <p>Wale House</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
                     <section>
                         <p className='text-[2rem] font-Satoshi-Medium'>
-                            Work Location Details
+                            Site Worker Information
                         </p>
                         <form
                             onSubmit={handleSubmit}
