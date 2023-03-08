@@ -55,6 +55,8 @@ export interface HouseholdContext {
     >
     vehicleType: T
     setVehicleType: D
+    disabled: boolean
+    setDisabled: Dispatch<SetStateAction<boolean>>
 }
 
 export const HouseholdContext = createContext<HouseholdContext>(null as any)
@@ -64,6 +66,8 @@ function CreateHousehold() {
     const propertyCode = location.state?.propertyCode
 
     const [pathToSwitch, setPathToSwitch] = useState(1)
+    const [disabled, setDisabled] = useState(true)
+
     const [selectedPropertyCode, setSelectedPropertyCode] = useState<T>(
         propertyCode || null
     )
@@ -86,8 +90,8 @@ function CreateHousehold() {
     const handlePathSwitch = new Map<number, JSX.Element>([
         [1, <AddProperty />],
         [2, <AddResident />],
-        [3, <AddRFID/>],
-        [4, <AddAccessKey/>],
+        [3, <AddRFID />],
+        [4, <AddAccessKey />],
     ])
     return (
         <>
@@ -109,6 +113,8 @@ function CreateHousehold() {
                     setAddResidentUser,
                     vehicleType,
                     setVehicleType,
+                    disabled,
+                    setDisabled
                 }}
             >
                 <div className='bg-white p-16 rounded-lg min-h-[90vh] relative'>

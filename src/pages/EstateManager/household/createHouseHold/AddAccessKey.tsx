@@ -1,10 +1,17 @@
-import React, { FormEvent, useContext, useRef, useState } from 'react'
+import React, {
+    FormEvent,
+    useContext,
+    useEffect,
+    useRef,
+    useState,
+} from 'react'
 
 import { Select } from '../../../../components/SuperAdmin/UI/Select'
 import { getPhotoUrl } from '../../../../utils/getPhotoUrl'
 import { HouseholdContext } from './CreateHousehold'
 
 function AddAccessKey() {
+    const {setDisabled} = HouseholdContext
     interface InputField {
         accessCardNumber: number
         holderName: string
@@ -60,15 +67,20 @@ function AddAccessKey() {
         handleClose()
     }
 
-    const details = {
-        phoneNumber,
-        holderName,
-        accessCardNumber,
-    }
-    const isDisabled = Object.values(details).map((item) => {
-        if (item === '' || item === 0) return true
-        return false
-    })
+    useEffect(() => {
+        const details = {
+            phoneNumber,
+            holderName,
+            accessCardNumber,
+        }
+
+        const isDisabled = Object.values(details).map((item) => {
+            if (item === '' || item === 0) return true
+            return false
+        })
+
+        setDisabled(isDisabled)
+    }, [phoneNumber, holderName, accessCardNumber])
 
     return (
         <>
