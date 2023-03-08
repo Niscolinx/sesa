@@ -11,7 +11,7 @@ import {
 import { getPhotoUrl } from '../../../utils/getPhotoUrl'
 
 
-type DialogType = 'validate' | 'add-estateStaff' | 'reassign'
+type Actions = 'Deactivate' | 'Delete'
 
 export type AddedEstateStaffSteps =
     | 'addedEstateStaffSuccessful'
@@ -41,20 +41,11 @@ export const CreateAddedEstateStaffContext =
 
 const ViewEstateStaff = () => {
     const [workDays, setWorkDays] = useState<string[]>([])
-    const [isValidated, setIsValidated] = useState(false)
     const [iskyg, setIskyg] = useState(false)
 
-    const toggleIskyg = () => setIskyg(!iskyg)
     const [selectedState, setSelectedState] = useState<string | null>(null)
     const [selectedGender, setSelectedGender] = useState<string | null>(null)
-    const [dialogState, setDialogState] = useState<DialogType>('validate')
-    const [validationType, setValidationType] = useState<
-        ValidateInputTypes | string | null
-    >('Phone Number')
-
-    const [selectedBank, setSelectedBank] = useState<null | string>(null)
-    const [addedEstateStaffStep, setAddedEstateStaffStep] =
-        useState<AddedEstateStaffSteps>('addedEstateStaffSuccessful')
+  
 
     const [photoUrl, setPhotoUrl] = useState('')
 
