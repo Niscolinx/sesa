@@ -5,7 +5,7 @@ import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { IoMdAdd } from 'react-icons/io'
 import { useNavigate } from 'react-router-dom'
 
-interface SiteWorker {
+interface SecurityGuard {
     id: number
     swCode: string
     swName: string
@@ -17,7 +17,7 @@ interface SiteWorker {
     kys: 'Validated' | 'Not Validated' | 'Full Match'
 }
 
-const SITEWORKER: SiteWorker[] = Array.from({
+const SECURITYGUARD: SecurityGuard[] = Array.from({
     length: 20,
 }).map((_, i) => ({
     id: i,
@@ -33,21 +33,21 @@ const SITEWORKER: SiteWorker[] = Array.from({
 
 export type Actions = 'View Details' | 'Edit Details' | 'Delete'
 
-const SiteWorker = () => {
+const SecurityGuard = () => {
     const navigate = useNavigate()
 
-    const [isSiteWorker, setIsSiteWorker] = useState(false)
+    const [isSecurityGuard, setIsSecurityGuard] = useState(false)
 
-    const [fetchedSiteWorkerData, setFetchedSiteWorkerData] = useState<
-        SiteWorker[]
+    const [fetchedSecurityGuardData, setFetchedSecurityGuardData] = useState<
+        SecurityGuard[]
     >([])
 
-    const addSiteWorker = () => {
-        setIsSiteWorker(true)
+    const addSecurityGuard = () => {
+        setIsSecurityGuard(true)
     }
     useEffect(() => {
         setTimeout(() => {
-            setFetchedSiteWorkerData(SITEWORKER)
+            setFetchedSecurityGuardData(SECURITYGUARD)
         }, 1000)
     }, [])
 
@@ -75,8 +75,6 @@ const SiteWorker = () => {
         })
     }
 
-
-
     const selectAction = (
         e: React.MouseEvent,
         item: Actions,
@@ -102,7 +100,7 @@ const SiteWorker = () => {
         currentPage: number
         itemsPerPage: number
         totalPage: number
-        slicedPages: SiteWorker[][] | null
+        slicedPages: SecurityGuard[][] | null
     }
 
     const itemsPerPageArr = [2, 4, 6, 8]
@@ -112,16 +110,16 @@ const SiteWorker = () => {
         index: 0,
         currentPage: 1,
         itemsPerPage: perPage,
-        totalPage: Math.ceil(fetchedSiteWorkerData.length / perPage),
+        totalPage: Math.ceil(fetchedSecurityGuardData.length / perPage),
         slicedPages: null,
     })
 
     const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
         const item = parseInt(e.target.value)
 
-        const slicedPages: SiteWorker[][] = []
-        for (let i = 0; i < fetchedSiteWorkerData.length; i += item) {
-            slicedPages.push(fetchedSiteWorkerData.slice(i, i + item))
+        const slicedPages: SecurityGuard[][] = []
+        for (let i = 0; i < fetchedSecurityGuardData.length; i += item) {
+            slicedPages.push(fetchedSecurityGuardData.slice(i, i + item))
         }
 
         setPaginate((prev) => {
@@ -131,20 +129,20 @@ const SiteWorker = () => {
                 index: 0,
                 currentPage: 1,
                 slicedPages,
-                totalPage: Math.ceil(fetchedSiteWorkerData.length / item),
+                totalPage: Math.ceil(fetchedSecurityGuardData.length / item),
             }
         })
     }
 
     useEffect(() => {
-        const slicedPages: SiteWorker[][] = []
+        const slicedPages: SecurityGuard[][] = []
         for (
             let i = 0;
-            i < fetchedSiteWorkerData.length;
+            i < fetchedSecurityGuardData.length;
             i += paginate.itemsPerPage
         ) {
             slicedPages.push(
-                fetchedSiteWorkerData.slice(i, i + paginate.itemsPerPage)
+                fetchedSecurityGuardData.slice(i, i + paginate.itemsPerPage)
             )
         }
 
@@ -153,11 +151,11 @@ const SiteWorker = () => {
                 ...prev,
                 slicedPages,
                 totalPage: Math.ceil(
-                    fetchedSiteWorkerData.length / paginate.itemsPerPage
+                    fetchedSecurityGuardData.length / paginate.itemsPerPage
                 ),
             }
         })
-    }, [fetchedSiteWorkerData])
+    }, [fetchedSecurityGuardData])
 
     const handleNext = () => {
         console.log(paginate.currentPage, paginate.totalPage)
@@ -194,21 +192,19 @@ const SiteWorker = () => {
         })
     }
 
-    const addSiteWorkerHandler = () => {
-
+    const addSecurityGuardHandler = () => {
         navigate(`/estateManager/site-worker/add`)
     }
 
-   
     return (
         <>
-            {isSiteWorker ? (
+            {isSecurityGuard ? (
                 <div>
                     <section className='bg-color-white rounded-lg border min-w-[112rem] overflow-scroll'>
                         <div className='grid text-[1.6rem]'>
                             <caption className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
                                 <p className=' font-bold'>
-                                    Site Worker List <span>(4)</span>
+                                    Security Guard List <span>(4)</span>
                                 </p>
                                 <div className='relative flex items-center'>
                                     <img
@@ -235,12 +231,12 @@ const SiteWorker = () => {
                                 <div className='ml-auto'>
                                     <button
                                         className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
-                                        onClick={addSiteWorkerHandler}
+                                        onClick={addSecurityGuardHandler}
                                     >
                                         <span>
                                             <IoMdAdd />
                                         </span>{' '}
-                                        Add Site Worker
+                                        Add Security Guard
                                     </button>
                                 </div>
                             </caption>
@@ -501,16 +497,16 @@ const SiteWorker = () => {
                     <section className='grid place-content-center w-full h-full justify-items-center gap-4 bg-white'>
                         <img src='/icons/admins/errorSvg.svg' alt='' />
                         <p className='text'>
-                            Ooops you have not any site Worker yet
+                            Ooops you have not any security Guard yet
                         </p>
                         <button
                             className='bg-color-blue-1 text-white flex gap-2 items-center rounded-lg justify-self-center py-4 px-16 text-[1.6rem]'
-                            onClick={addSiteWorker}
+                            onClick={addSecurityGuard}
                         >
                             <span>
                                 <IoMdAdd />
                             </span>{' '}
-                            Add Site Worker
+                            Add Security Guard
                         </button>
                     </section>
                 </div>
@@ -519,4 +515,4 @@ const SiteWorker = () => {
     )
 }
 
-export default SiteWorker
+export default SecurityGuard
