@@ -35,6 +35,7 @@ const ViewEstateStaff = () => {
 
     const validatedDialogRef = useRef<HTMLDialogElement | null>(null)
     const dialogRef = useRef<HTMLDialogElement | null>(null)
+    const bankRef = useRef<HTMLDialogElement | null>(null)
     const [dialogType, setDialogType] = useState<Actions>('Deactivate')
 
     const closeValidatedDialog = () => {
@@ -82,6 +83,18 @@ const ViewEstateStaff = () => {
             type: 'success',
             className: 'bg-green-100 text-green-600 text-[1.4rem]',
         })
+    }
+
+    const openBankDialog = () => {
+       
+
+        if (bankRef.current) {
+            bankRef.current.showModal()
+        }
+    }
+
+    const openStaffBankAccount = () => {
+        openBankDialog()
     }
 
     return (
@@ -549,14 +562,15 @@ const ViewEstateStaff = () => {
                         ) : (
                             <p className='flex items-cente gap-2'>
                                 <span>No account Information created.</span>
-                                <span
+                                <button
                                     className=' text-color-blue'
                                     style={{
                                         fontFamily: 'Satoshi-Medium',
                                     }}
+                                    onClick={openStaffBankAccount}
                                 >
                                     Open a bank account
-                                </span>
+                                </button>
                             </p>
                         )}
                     </section>
@@ -564,7 +578,6 @@ const ViewEstateStaff = () => {
                         className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg col-span-full mt-[5rem]'
                         style={{ justifySelf: 'start' }}
                     >
-                       
                         Generate ID Card
                     </button>
                 </section>

@@ -117,7 +117,6 @@ const AddEstateStaff = () => {
     }
 
     const addEstateStaffHandler = () => {
-        // navigate('/superAdmin/EstateStaff GuardCategory/add')
         handleOpen('add-estateStaff')
     }
 
