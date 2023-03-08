@@ -123,7 +123,7 @@ function CreateHousehold() {
                                 animationIterationCount: 'infinite',
                             }}
                         />
-                        <p>You have successfully added an Property</p>
+                        <p>You have successfully added a Household</p>
 
                         <div className='flex w-full justify-center gap-8'>
                             <button
@@ -214,11 +214,11 @@ function CreateHousehold() {
                         </button>
                         {pathToSwitch === 4 ? (
                             <button
-                                className=' cursor-pointer bg-color-blue py-4 px-4 text-white gap-4 disabled:opacity-50 disabled:cursor-not-allowed'
+                                className=' cursor-pointer bg-color-blue-1 rounded-2xl py-4 px-6 text-white gap-4 disabled:opacity-50 disabled:cursor-not-allowed'
                                 disabled={disabled}
                                 onClick={() => handleSubmit()}
                             >
-                              Create Household
+                              Add Household
                             </button>
                         ) : (
                             <button
