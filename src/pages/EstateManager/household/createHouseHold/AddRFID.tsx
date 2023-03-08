@@ -25,7 +25,6 @@ function AddRFID() {
     const handleSubmit = (e: FormEvent) => {
         e.preventDefault()
 
-        console.log('submitted')
 
         const details = {
             vehicleMake,
@@ -36,10 +35,7 @@ function AddRFID() {
         }
 
         setRFID_Details((prev) => {
-            return [
-                ...prev,
-                details
-            ]
+            return [...prev, details]
         })
         setRFID(0)
         setVehicleMake('')
@@ -72,8 +68,10 @@ function AddRFID() {
 
     const deleteRFIDHandler = () => {
         setRFID_Details((prev) => {
-            return [...prev]
+            return prev.filter((_, index) =>  index !== idxToDelete)
         })
+
+        handleClose()
     }
 
     return (
@@ -93,7 +91,7 @@ function AddRFID() {
                             </button>
                             <button
                                 className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
-                                onClick={ deleteRFIDHandler}
+                                onClick={deleteRFIDHandler}
                             >
                                 Delete
                             </button>
@@ -299,7 +297,13 @@ function AddRFID() {
                     )}
 
                     {RFID_Details.map((item, idx) => {
-                        const {photoUrl, vehicleMake, vehicleRegNumber, vehicleType, RFID} = item
+                        const {
+                            photoUrl,
+                            vehicleMake,
+                            vehicleRegNumber,
+                            vehicleType,
+                            RFID,
+                        } = item
                         return (
                             <div
                                 className='grid relative border-b pb-4'
