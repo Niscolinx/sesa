@@ -36,8 +36,8 @@ export const CreateAddedSecurityGuardContext =
     createContext<AddedSecurityGuardContext>(null as any)
 
     type BankDialog = 'generateId' | 'openBank'
+
 const ViewSecurityGuard = () => {
-    const [workDays, setWorkDays] = useState<string[]>([])
     const [isValidated, setIsValidated] = useState(true)
     const [isAccountCreated, setIsAccountCreated] = useState(false)
     const [selectedState, setSelectedState] = useState<string | null>(null)
@@ -99,7 +99,7 @@ const ViewSecurityGuard = () => {
     const handleDeleteStaff = () => {
         handleCloseDeleteOrDeactivateDialog()
 
-        toast('Site Worker deleted successfully', {
+        toast('Security Guard deleted successfully', {
             type: 'success',
             className: 'bg-green-100 text-green-600 text-[1.4rem]',
         })
@@ -107,7 +107,7 @@ const ViewSecurityGuard = () => {
     const handleDeactivateStaff = () => {
         handleCloseDeleteOrDeactivateDialog()
 
-        toast('Site Worker deactivated successfully', {
+        toast('Security Guard deactivated successfully', {
             type: 'success',
             className: 'bg-green-100 text-green-600 text-[1.4rem]',
         })
@@ -265,7 +265,7 @@ const ViewSecurityGuard = () => {
                                 />
                                 <p className='text-[1.6rem]'>
                                     Are you sure you want to deactivate this
-                                    Site Worker
+                                    Security Guard
                                 </p>
 
                                 <div className='flex w-full justify-center gap-8'>
@@ -499,7 +499,7 @@ const ViewSecurityGuard = () => {
 
                     <section>
                         <p className='text-[2rem] font-Satoshi-Medium'>
-                            Site Worker Information
+                            Security Guard Information
                         </p>
                         <form
                             onSubmit={handleSubmit}
@@ -631,98 +631,7 @@ const ViewSecurityGuard = () => {
                                 selectedState={selectedState}
                                 setSelectedState={setSelectedState}
                             />
-                            <MultipleSelect
-                                label='Work Day'
-                                selectFrom={[
-                                    'Mon',
-                                    'Tue',
-                                    'Wed',
-                                    'Thur',
-                                    'Fri',
-                                ]}
-                                placeholder='Select Work days'
-                                selected={workDays}
-                                setSelected={setWorkDays}
-                            />
-                            <div className='grid gap-4 relative'>
-                                <label
-                                    htmlFor='address1'
-                                    className='text-[1.4rem] font-medium'
-                                >
-                                    Clock-In Time
-                                </label>
-                                <input
-                                    type='time'
-                                    required
-                                    id='address1'
-                                    className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                                />
-                                <p className='text-[#666869] text-[1.4rem]'>
-                                    The System will only enforce clock-in time
-                                </p>
-                            </div>
-                            <div className='grid gap-4 relative self-start'>
-                                <label
-                                    htmlFor='address1'
-                                    className='text-[1.4rem] font-medium'
-                                >
-                                    Clock-Out Time
-                                </label>
-                                <input
-                                    type='time'
-                                    required
-                                    id='address1'
-                                    className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                                />
-                            </div>
-                            <div className='grid gap-4 relative'>
-                                <label
-                                    htmlFor='address1'
-                                    className='text-[1.4rem] font-medium'
-                                >
-                                    Work Period (Start Date)*
-                                </label>
-                                <input
-                                    type='date'
-                                    required
-                                    id='address1'
-                                    className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                                />
-                            </div>
-                            <div className='grid gap-4 relative'>
-                                <label
-                                    htmlFor='address1'
-                                    className='text-[1.4rem] font-medium'
-                                >
-                                    Work Period (End Date)*
-                                </label>
-                                <input
-                                    type='date'
-                                    required
-                                    id='address1'
-                                    className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                                />
-                            </div>
-
-                            <div className='col-span-full'>
-                                <label
-                                    htmlFor='address'
-                                    className='flex mb-2 gap-4 items-center cursor-pointer'
-                                >
-                                    Site Worker Message
-                                </label>
-
-                                <textarea
-                                    name='address'
-                                    id='address'
-                                    placeholder='This message will be displayed to the security guard when the site worker checks in / out'
-                                    rows={4}
-                                    className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                                />
-                                <p className='text-gray-400 text-[1.4rem]'>
-                                    Maximum of 30 characters
-                                </p>
-                            </div>
+                          
                         </form>
                     </section>
 
