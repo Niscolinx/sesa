@@ -12,7 +12,7 @@ import AddProperty from '../../pages/EstateManager/properties/AddProperty'
 import ViewProperty from '../../pages/EstateManager/properties/ViewProperty'
 import HouseHold from '../../pages/EstateManager/household/Household'
 import CreateHousehold from '../../pages/EstateManager/household/createHouseHold/CreateHousehold'
-import ViewHouseHold from '../../pages/EstateManager/household/ViewHouseHold'
+import ViewHouseHold from '../../pages/EstateManager/household/viewHouseHold/ViewHouseHold'
 import EditHousehold from '../../pages/EstateManager/household/EditHouseHold/EditHousehold'
 
 const estateManagerRoutes = (

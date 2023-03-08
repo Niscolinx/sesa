@@ -80,14 +80,14 @@ function ViewHouseHold() {
             <dialog className='dialog' ref={dialogRef}>
                 <section className='  h-[90vh] bg-white rounded-2xl p-16 overflow-hidden relative w-[80%] mx-auto'>
                     <IoMdClose
-                        className='absolute right-4 top-4 text-[2rem] cursor-pointer'
+                        className='absolute right-0 top-0 text-[2rem] cursor-pointer m-8'
                         onClick={() => handleClose()}
                     />
                     <p className='font-Satoshi-Medium text-[2rem] mb-10'>
                         HouseHold Details
                     </p>
                     <div
-                        className='flex gap-8 py-8 bg-[#EDEDFC]'
+                        className='flex justify-between gap-8 py-8 bg-[#EDEDFC]'
                         style={{
                             boxShadow: `0 0 0 100vmax #EDEDFC`,
                             clipPath: `inset(0 -100vmax)`,
