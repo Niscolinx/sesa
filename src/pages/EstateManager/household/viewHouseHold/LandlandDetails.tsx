@@ -5,147 +5,36 @@ import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { IoMdAdd } from 'react-icons/io'
 import { ViewHouseHoldContext } from './ViewHouseHold'
 
-function ResidentList() {
+function LandlandDetails() {
     const { closeDialog } = useContext(ViewHouseHoldContext)
 
-    interface ResidentList {
+    interface Landlord {
         resCode: string
         name: string
         gender: string
         phoneNo: string
-        residentCategory: string
         tenancyType: string
         id: string
         imgUrl: string
     }
 
-    const RESIDENT_LIST: ResidentList[] = Array.from({ length: 20 }, (_, i) => {
+    const LANDLORD_DETAIL: Landlord[] = Array.from({ length: 1 }, (_, i) => {
         return {
             id: `1 + ${i}`,
-            resCode: `R${
-                (Math.random() * 0.1 + 0.9).toFixed(5).split('.')[1]
-            }`,
+            resCode: `R${(Math.random() * 0.1 + 0.9).toFixed(5).split('.')[1]}`,
             imgUrl: '/img/avatar11.png',
             gender: Math.random() > 0.5 ? 'Male' : 'Female',
             name: 'Darlene Robert',
             phoneNo: '(+234) 9076577689',
-            residentCategory: Math.random() > 0.5 ? 'Resident' : 'Alpha',
             tenancyType: 'tenant (resident)',
         }
     })
 
-    const [fetchedResidentListData, setFetchedResidentListData] = useState<
-        ResidentList[]
-    >([])
+   
 
-    useEffect(() => {
-        setTimeout(() => {
-            setFetchedResidentListData(RESIDENT_LIST)
-        }, 100)
-    }, [])
+    
 
-    interface Paginate {
-        index: number
-        currentPage: number
-        itemsPerPage: number
-        totalPage: number
-        slicedPages: ResidentList[][] | null
-    }
-
-    const itemsPerPageArr = [2, 4, 6, 8]
-    const perPage = 4
-
-    const [paginate, setPaginate] = useState<Paginate>({
-        index: 0,
-        currentPage: 1,
-        itemsPerPage: perPage,
-        totalPage: Math.ceil(fetchedResidentListData.length / perPage),
-        slicedPages: null,
-    })
-
-    const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
-        const item = parseInt(e.target.value)
-
-        const slicedPages: ResidentList[][] = []
-        for (let i = 0; i < fetchedResidentListData.length; i += item) {
-            slicedPages.push(fetchedResidentListData.slice(i, i + item))
-        }
-
-        setPaginate((prev) => {
-            return {
-                ...prev,
-                itemsPerPage: item,
-                index: 0,
-                currentPage: 1,
-                slicedPages,
-                totalPage: Math.ceil(fetchedResidentListData.length / item),
-            }
-        })
-    }
-
-    useEffect(() => {
-        const slicedPages: ResidentList[][] = []
-        for (
-            let i = 0;
-            i < fetchedResidentListData.length;
-            i += paginate.itemsPerPage
-        ) {
-            slicedPages.push(
-                fetchedResidentListData.slice(i, i + paginate.itemsPerPage)
-            )
-        }
-
-        setPaginate((prev) => {
-            return {
-                ...prev,
-                slicedPages,
-                totalPage: Math.ceil(
-                    fetchedResidentListData.length / paginate.itemsPerPage
-                ),
-            }
-        })
-    }, [fetchedResidentListData])
-
-    const handleNext = () => {
-        console.log(paginate.currentPage, paginate.totalPage)
-        if (paginate.currentPage === paginate.totalPage) return
-        setPaginate((prev) => {
-            return {
-                ...prev,
-                index: prev.index + 1,
-                currentPage: prev.currentPage + 1,
-            }
-        })
-    }
-
-    const handlePrev = () => {
-        if (paginate.currentPage === 1) return
-        setPaginate((prev) => {
-            return {
-                ...prev,
-                index: prev.index - 1,
-                currentPage: prev.currentPage - 1,
-            }
-        })
-    }
-
-    const { currentPage, slicedPages, itemsPerPage } = paginate
-
-    const jumpToPage = (e: React.MouseEvent, index: number) => {
-        setPaginate((prev) => {
-            return {
-                ...prev,
-                index,
-                currentPage: index + 1,
-            }
-        })
-    }
-
-    const saveChangesHandler = () => {
-        console.log('add security guard')
-
-        closeDialog()
-    }
+  
 
     return (
         <section className='bg-color-white rounded-lg border  overflow-scroll h-full'>
@@ -173,7 +62,6 @@ function ResidentList() {
                         </select>
                         <GrDown className='absolute right-4 text-[1.3rem]' />
                     </div>
-                    
                 </div>
 
                 <div className='grid'>
@@ -187,15 +75,14 @@ function ResidentList() {
                     </div>
 
                     <div className='grid gap-8 mt-8 p-8'>
-                        {slicedPages && slicedPages.length > 0 ? (
+                        { LANDLORD_DETAIL.length > 0 ? (
                             React.Children.toArray(
-                                slicedPages[paginate.index].map(
+                                LANDLORD_DETAIL.map(
                                     ({
                                         id,
                                         gender,
                                         name,
                                         resCode,
-                                        residentCategory,
                                         phoneNo,
                                         tenancyType,
                                         imgUrl,
@@ -216,7 +103,6 @@ function ResidentList() {
                                                 </p>
                                                 <p>{gender}</p>
                                                 <p>{phoneNo}</p>
-                                                <p>{residentCategory}</p>
                                                 <p>{tenancyType}</p>
                                             </div>
                                         )
@@ -297,4 +183,4 @@ function ResidentList() {
     )
 }
 
-export default ResidentList
+export default LandlandDetails
