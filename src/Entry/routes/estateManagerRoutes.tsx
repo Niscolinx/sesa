@@ -46,6 +46,7 @@ const estateManagerRoutes = (
         <Route path='site-worker' element={<SiteWorker />} />
         <Route path='site-worker/add' element={<AddSiteWorker />} />
         <Route path='site-worker/view/:id' element={<ViewSiteWorker />} />
+        <Route path='site-worker/edit/:id' element={<EditSite />} />
     </Route>
 )
 

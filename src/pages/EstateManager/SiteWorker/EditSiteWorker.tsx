@@ -36,7 +36,7 @@ export const CreateAddedSiteWorkerContext =
     createContext<AddedSiteWorkerContext>(null as any)
 
 type BankDialog = 'generateId' | 'openBank'
-const ViewSiteWorker = () => {
+const EditSiteWorker = () => {
     const [workDays, setWorkDays] = useState<string[]>([])
     const [isValidated, setIsValidated] = useState(true)
     const [isAccountCreated, setIsAccountCreated] = useState(false)
@@ -806,4 +806,4 @@ const ViewSiteWorker = () => {
     )
 }
 
-export default ViewSiteWorker
+export default EditSiteWorker
