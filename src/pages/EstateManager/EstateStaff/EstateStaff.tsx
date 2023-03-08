@@ -4,7 +4,6 @@ import { GrDown } from 'react-icons/gr'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { IoMdAdd } from 'react-icons/io'
 import { useNavigate } from 'react-router-dom'
-import OverviewCard from '../../../../components/SuperAdmin/overview/OverviewCard'
 
 interface CompanyOverview {
     id: number
@@ -30,6 +29,8 @@ const COMPANY_OVERVIEW_DATA: CompanyOverview[] = Array.from({
 
 const EstateStaff = () => {
     const navigate = useNavigate()
+
+    const [isEstateStaff, setIsEstateStaff] = useState(false)
 
     const [fetchedCompanyOverviewData, setFetchedCompanyOverviewData] =
         useState<CompanyOverview[]>([])
@@ -149,26 +150,7 @@ const EstateStaff = () => {
     }
     return (
         <div>
-            <main className='mt-10 grid gap-9'>
-                <section className='bg-white rounded-lg p-8 grid text-[1.4rem] w-max'>
-                    <div className='overview flex gap-8'>
-                        <OverviewCard
-                            title='Security Guard'
-                            number={1532}
-                            iconUrl='/icons/securityCompany/securityGuards.svg'
-                            bgColor='bg-[#F5F9FA]'
-                            textColor='text-[#00C2FF]'
-                        />
-                        <OverviewCard
-                            title='Assigned Security Guards'
-                            number={18_000}
-                            iconUrl='/icons/securityCompany/totalEstates.svg'
-                            bgColor='bg-[#DDFCDC]'
-                            textColor='text-[#1A8F56]'
-                        />
-                    </div>
-                </section>
-
+            
                 <section className='bg-color-white rounded-lg border min-w-[112rem] overflow-scroll'>
                     <div className='grid text-[1.6rem]'>
                         <caption className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
@@ -370,7 +352,6 @@ const EstateStaff = () => {
                         </footer>
                     </div>{' '}
                 </section>
-            </main>
         </div>
     )
 }
