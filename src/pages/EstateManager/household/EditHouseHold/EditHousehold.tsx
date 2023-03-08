@@ -15,21 +15,18 @@ import EditRFID from './EditRFID'
 import EditAccessKey from './EditAccessCard'
 
 const paths = [
+   
     {
-        name: 'edit Property',
+        name: 'edit resident',
         id: 1,
     },
     {
-        name: 'edit resident',
+        name: 'edit RFID',
         id: 2,
     },
     {
-        name: 'edit RFID',
-        id: 3,
-    },
-    {
         name: 'edit accessCard',
-        id: 4,
+        id: 3,
     },
 ]
 
@@ -89,10 +86,9 @@ function CreateHousehold() {
     } | null>(null)
 
     const handlePathSwitch = new Map<number, JSX.Element>([
-        [1, <EditProperty />],
-        [2, <EditResident />],
-        [3, <EditRFID />],
-        [4, <EditAccessKey />],
+        [1, <EditResident />],
+        [2, <EditRFID />],
+        [3, <EditAccessKey />],
     ])
 
     const handleSubmit = () => {
