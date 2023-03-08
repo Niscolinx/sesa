@@ -31,7 +31,7 @@ interface AddedSecurityGuardContext {
     handleClose: () => void
 }
 
-export const CreateAddedEditSecurityGuardContext =
+export const CreateEditSecurityGuardContext =
     createContext<AddedSecurityGuardContext>(null as any)
 
 type BankDialog = 'generateId' | 'openBank'
@@ -102,7 +102,7 @@ const EditEditSecurityGuard = () => {
     const handleDeleteStaff = () => {
         handleCloseDeleteOrDeactivateDialog()
 
-        toast('Site Worker deleted successfully', {
+        toast('Security Guard deleted successfully', {
             type: 'success',
             className: 'bg-green-100 text-green-600 text-[1.4rem]',
         })
@@ -110,7 +110,7 @@ const EditEditSecurityGuard = () => {
     const handleDeactivateStaff = () => {
         handleCloseDeleteOrDeactivateDialog()
 
-        toast('Site Worker deactivated successfully', {
+        toast('Security Guard deactivated successfully', {
             type: 'success',
             className: 'bg-green-100 text-green-600 text-[1.4rem]',
         })
@@ -139,23 +139,23 @@ const EditEditSecurityGuard = () => {
         [
             'addedEditSecurityGuardSuccessful',
             <AddedSecurityGuardSuccessfully
-                contextData={CreateAddedEditSecurityGuardContext}
+                contextData={CreateEditSecurityGuardContext}
             />,
         ],
         [
             'addBankAccount',
-            <AddBankAccount contextData={CreateAddedEditSecurityGuardContext} />,
+            <AddBankAccount contextData={CreateEditSecurityGuardContext} />,
         ],
         [
             'openedBankAccountSuccessful',
             <OpenedBankAccountSuccessful
-                contextData={CreateAddedEditSecurityGuardContext}
+                contextData={CreateEditSecurityGuardContext}
             />,
         ],
     ])
 
     return (
-        <CreateAddedEditSecurityGuardContext.Provider
+        <CreateEditSecurityGuardContext.Provider
             value={{
                 addedEditSecurityGuardStep,
                 setAddedEditSecurityGuardStep,
@@ -265,7 +265,7 @@ const EditEditSecurityGuard = () => {
                                 />
                                 <p className='text-[1.6rem]'>
                                     Are you sure you want to deactivate this
-                                    Site Worker
+                                    Security Guard
                                 </p>
 
                                 <div className='flex w-full justify-center gap-8'>
@@ -501,7 +501,7 @@ const EditEditSecurityGuard = () => {
 
                     <section>
                         <p className='text-[2rem] font-Satoshi-Medium'>
-                            Site Worker Information
+                            Security Guard Information
                         </p>
                         <form
                             onSubmit={handleSubmit}
@@ -711,13 +711,13 @@ const EditEditSecurityGuard = () => {
                                     htmlFor='address'
                                     className='flex mb-2 gap-4 items-center cursor-pointer'
                                 >
-                                    Site Worker Message
+                                    Security Guard Message
                                 </label>
 
                                 <textarea
                                     name='address'
                                     id='address'
-                                    placeholder='This message will be displayed to the security guard when the site worker checks in / out'
+                                    placeholder='This message will be displayed to the security guard when the Security Guard checks in / out'
                                     rows={4}
                                     className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                                 />
@@ -743,7 +743,7 @@ const EditEditSecurityGuard = () => {
                     </button>
                 </section>
             </main>
-        </CreateAddedEditSecurityGuardContext.Provider>
+        </CreateEditSecurityGuardContext.Provider>
     )
 }
 
