@@ -87,7 +87,6 @@ function Payments() {
                     </p>
 
                     <div className='flex items-center'>
-
                         <img src="/img/check_circle.svg" alt="" />
                         <img src="/img/check_circle.svg" alt="" />
                         <img src="/img/check_empty.svg" alt="" />
