@@ -95,7 +95,7 @@ export const OpenedBankAccountSuccessful = () => {
             <img src='/icons/admins/modalSuccess.svg' alt='' />
 
             <p>
-                You have successfully opened an account number for this estateStaff
+                You have successfully opened an account number for this staff
                 
             </p>
 
