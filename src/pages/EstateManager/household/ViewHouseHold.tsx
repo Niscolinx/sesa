@@ -1,7 +1,9 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 
 function ViewHouseHold() {
    const dialogRef = useRef<HTMLDialogElement | null>(null)
+       const [pathToSwitch, setPathToSwitch] = useState(1)
+
 
    const handleClose = () => {
        dialogRef.current?.close()
@@ -10,6 +12,10 @@ function ViewHouseHold() {
    const handleOpen = () => {
        dialogRef.current?.showModal()
    }
+
+   const handlePathSwitch = new Map<number, JSX.Element>([
+       
+   ])
     return (
         <>
             <dialog className='dialog' ref={dialogRef}>
@@ -40,6 +46,48 @@ function ViewHouseHold() {
                                 Deactivate
                             </button>
                         </div>
+                    </div>
+                </section>
+            </dialog>
+            <dialog className='dialog' ref={dialogRef}>
+                <section className='grid place-content-center w-full h-[100vh]'>
+                    <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
+                        <div
+                            className='estateDetail__radioBox'
+                            style={{
+                                marginTop: '0',
+                            }}
+                        >
+                            <>
+                                {paths.map((item) => {
+                                    return (
+                                        <Fragment key={item.name}>
+                                            <input
+                                                type='radio'
+                                                name='household'
+                                                id={item.name}
+                                                checked={
+                                                    item.id === pathToSwitch
+                                                }
+                                                className='hidden'
+                                                onChange={() =>
+                                                    setPathToSwitch(item.id)
+                                                }
+                                            />
+                                            <label
+                                                htmlFor={item.name}
+                                                className='capitalize'
+                                            >
+                                                {item.name}
+                                            </label>
+                                        </Fragment>
+                                    )
+                                })}
+                            </>
+                        </div>
+                        <section className='bg-color-white rounded-lg mt-[5rem] mb-[10rem] '>
+                            {handlePathSwitch.get(pathToSwitch)}
+                        </section>
                     </div>
                 </section>
             </dialog>
@@ -168,7 +216,7 @@ function ViewHouseHold() {
                     </div>
                 </div>
                 <button className='border-none outline-none text-color-blue-1 mt-16'>
-                  Show more details
+                    Show more details
                 </button>
             </div>
         </>
