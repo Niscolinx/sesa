@@ -172,8 +172,9 @@ function RFIDList() {
                 <div className='grid'>
                     <div className='grid justify-between text-color-dark-1 bg-gray-100 p-8 grid-cols-6 gap-6 capitalize'>
                         <p>RFID Seriel Number</p>
-                        <p>Name</p>
-                        <p>Gender</p>
+                        <p>Vehicle Reg. Number</p>
+                        <p>Vehicle Make</p>
+                        <p>Vehicle Type</p>
                         <p>Phone No.</p>
                         <p>Resident Category</p>
                         <p>Tenancy Type</p>
