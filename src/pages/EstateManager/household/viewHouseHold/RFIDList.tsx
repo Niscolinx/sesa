@@ -10,27 +10,27 @@ function RFIDList() {
 
     interface RFIDList {
         RFID: string
-        id: string,
-        vehicleRegNumber: string,
-        vehicleMake: string,
-        vehicleType: string,
+        id: string
+        vehicleRegNumber: string
+        vehicleMake: string
+        vehicleType: string
         imgUrl: string
     }
 
-    const RFID_LIST: RFIDList[] = Array.from({ length: 20 }, (_, i) => {
+    const RFID_LIST: RFIDList[] = Array.from({ length: 2 }, (_, i) => {
         return {
             id: `1 + ${i}`,
             RFID: `R${(Math.random() * 0.1 + 0.9).toFixed(5).split('.')[1]}`,
             imgUrl: '/img/avatar11.png',
             vehicleRegNumber: 'APP-12-598',
             vehicleMake: 'Toyota',
-            vehicleType: 'Car'
+            vehicleType: 'Car',
         }
     })
 
-    const [fetchedRFIDListData, setFetchedRFIDListData] = useState<
-        RFIDList[]
-    >([])
+    const [fetchedRFIDListData, setFetchedRFIDListData] = useState<RFIDList[]>(
+        []
+    )
 
     useEffect(() => {
         setTimeout(() => {
@@ -170,14 +170,11 @@ function RFIDList() {
                 </div>
 
                 <div className='grid'>
-                    <div className='grid justify-between text-color-dark-1 bg-gray-100 p-8 grid-cols-6 gap-6 capitalize'>
+                    <div className='grid justify-between text-color-dark-1 bg-gray-100 p-8 grid-cols-4 gap-6 capitalize'>
                         <p>RFID Seriel Number</p>
                         <p>Vehicle Reg. Number</p>
                         <p>Vehicle Make</p>
                         <p>Vehicle Type</p>
-                        <p>Phone No.</p>
-                        <p>Resident Category</p>
-                        <p>Tenancy Type</p>
                     </div>
 
                     <div className='grid gap-8 mt-8 p-8'>
@@ -193,8 +190,9 @@ function RFIDList() {
                                         imgUrl,
                                     }) => {
                                         return (
-                                            <div className='grid justify-between border-b grid-cols-6 gap-8 py-4 items-center'>
-                                                <p>{resCode}</p>
+                                            <div className='grid justify-between border-b grid-cols-4 gap-8 py-4 items-center'>
+                                                <p>{RFID}</p>
+                                                <p>{vehicleRegNumber}</p>
                                                 <p className='flex items-center gap-4'>
                                                     <img
                                                         src={imgUrl}
@@ -203,13 +201,10 @@ function RFIDList() {
                                                     />
 
                                                     <span className=' max-w-[40rem] overflow-hidden text-ellipsis whitespace-nowrap'>
-                                                        {name}
+                                                        {vehicleMake}
                                                     </span>
                                                 </p>
-                                                <p>{gender}</p>
-                                                <p>{phoneNo}</p>
-                                                <p>{residentCategory}</p>
-                                                <p>{tenancyType}</p>
+                                                <p>{vehicleType}</p>
                                             </div>
                                         )
                                     }
