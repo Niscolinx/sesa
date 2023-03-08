@@ -13,7 +13,7 @@ type Actions = 'Deactivate' | 'Delete'
 
 const ViewEstateStaff = () => {
     const [workDays, setWorkDays] = useState<string[]>([])
-    const [isValidated, setIsValidated] = useState(false)
+    const [isValidated, setIsValidated] = useState(true)
 
     const [selectedState, setSelectedState] = useState<string | null>(null)
     const [selectedGender, setSelectedGender] = useState<string | null>(null)
@@ -71,16 +71,16 @@ const ViewEstateStaff = () => {
         handleCloseDeleteOrDeactivateDialog()
 
         toast('Estate Staff deleted successfully', {
-            type: 'error',
-            className: 'bg-red-100 text-red-600 text-[1.4rem]',
+            type: 'success',
+            className: 'bg-green-100 text-green-600 text-[1.4rem]',
         })
     }
     const handleDeactivateStaff = () => {
         handleCloseDeleteOrDeactivateDialog()
 
         toast('Estate Staff deactivated successfully', {
-            type: 'error',
-            className: 'bg-red-100 text-red-600 text-[1.4rem]',
+            type: 'success',
+            className: 'bg-green-100 text-green-600 text-[1.4rem]',
         })
     }
 
@@ -498,10 +498,8 @@ const ViewEstateStaff = () => {
                             </p>
                         </div>
                     </form>
-                </section>
-
                 <button
-                    className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg col-span-full mt-10'
+                    className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg col-span-full mt-[5rem]'
                     style={{ justifySelf: 'start' }}
                 >
                     <span>
@@ -513,6 +511,8 @@ const ViewEstateStaff = () => {
                     </span>{' '}
                     Save Changes
                 </button>
+                </section>
+
             </main>
         </>
     )
