@@ -20,6 +20,7 @@ function AddRFID() {
     const [RFID, setRFID] = useState<number>(0)
     const [vehicleRegNumber, setVehicleRegNumber] = useState<number>(0)
     const [vehicleMake, setVehicleMake] = useState('')
+    const [idxToDelete, setIdxToDelete] = useState(0)
 
     const handleSubmit = (e: FormEvent) => {
         e.preventDefault()
@@ -63,9 +64,16 @@ function AddRFID() {
     }
 
     const deleteDialog = (idx: number) => {
+        setIdxToDelete(idx)
         if (dialogRef.current) {
             dialogRef.current.showModal()
         }
+    }
+
+    const deleteRFIDHandler = () => {
+        setRFID_Details((prev) => {
+            return [...prev]
+        })
     }
 
     return (
@@ -85,7 +93,7 @@ function AddRFID() {
                             </button>
                             <button
                                 className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
-                                onClick={() => handleClose()}
+                                onClick={ deleteRFIDHandler}
                             >
                                 Delete
                             </button>
