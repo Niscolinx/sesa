@@ -1,8 +1,12 @@
-import React, { FormEvent, useContext, useEffect, useRef, useState } from 'react'
+import React, {
+    FormEvent,
+    useContext,
+    useEffect,
+    useRef,
+    useState,
+} from 'react'
 
-import {
-    Select,
-} from '../../../../components/SuperAdmin/UI/Select'
+import { Select } from '../../../../components/SuperAdmin/UI/Select'
 import { getPhotoUrl } from '../../../../utils/getPhotoUrl'
 import { HouseholdContext } from './CreateHousehold'
 
@@ -20,7 +24,9 @@ function AddRFID() {
     const { vehicleType, setVehicleType } = useContext(HouseholdContext)
     const [photoUrl, setPhotoUrl] = useState('')
     const [RFID, setRFID] = useState<number | null>(null)
-    const [vehicleRegNumber, setVehicleRegNumber] = useState<number | null>(null)
+    const [vehicleRegNumber, setVehicleRegNumber] = useState<number | null>(
+        null
+    )
     const [vehicleMake, setVehicleMake] = useState('')
 
     const handleSubmit = (e: FormEvent) => {
@@ -28,14 +34,9 @@ function AddRFID() {
 
         console.log('submitted')
 
-
-      //  RFID_Details.push(details)
+        //  RFID_Details.push(details)
         setRFID(null)
-
-      
-        
     }
-
 
     const handlePhotoPreview = async (
         _: React.MouseEvent<HTMLInputElement>
@@ -57,7 +58,6 @@ function AddRFID() {
             dialogRef.current.showModal()
         }
     }
-
 
     return (
         <>
@@ -205,9 +205,7 @@ function AddRFID() {
                                     name='vehicleMake'
                                     value={vehicleMake}
                                     onChange={(e) =>
-                                        setVehicleMake(
-                                            e.target.value as unknown as number
-                                        )
+                                        setVehicleMake(e.target.value)
                                     }
                                     className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                                 />
