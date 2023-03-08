@@ -327,7 +327,7 @@ function Artisan() {
                                 </button>
                             </div>
 
-                            <div className='grid'>
+                            <div className='grid bg-white'>
                                 <div
                                     className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-6 items-center gap-8'
                                     style={{
@@ -359,7 +359,6 @@ function Artisan() {
                                                         rating,
                                                         category,
                                                         phoneNumber,
-                                                        
                                                         id,
                                                     },
                                                     i
@@ -369,7 +368,7 @@ function Artisan() {
                                                         index,
                                                     } = toggleDropDown
                                                     return (
-                                                        <div className='grid justify-between border-b grid-cols-6 items-center gap-8 text-[1.6rem]'>
+                                                        <div className='grid justify-between border-b grid-cols-6 items-center gap-8 text-[1.6rem] py-4'>
                                                             <p className='flex items-center gap-4'>
                                                                 <input
                                                                     type='checkbox'
@@ -387,7 +386,7 @@ function Artisan() {
                                                             </p>
                                                             <p>{phoneNumber}</p>
                                                             <p>{category}</p>
-                                                           
+
                                                             <p>
                                                                 <StarRating
                                                                     starsNum={
@@ -458,7 +457,9 @@ function Artisan() {
                                                                                             )
                                                                                         }
                                                                                     >
-                                                                                        {item}
+                                                                                        {
+                                                                                            item
+                                                                                        }
                                                                                     </p>
                                                                                 )
                                                                             )}
