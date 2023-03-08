@@ -22,7 +22,7 @@ import {
     Voters_Card,
 } from '../../SecurityCompany/dashboard/company/AddSecurity/Inputs'
 
-type DialogType = 'validate' | 'add-estateStaff' | 'reassign'
+type DialogType = 'validate' | 'add-estateStaff' 
 
 export type AddedEstateStaffSteps =
     | 'addedEstateStaffSuccessful'
@@ -107,10 +107,7 @@ const AddEstateStaff = () => {
         if (modalState === 'add-estateStaff') {
             setDialogState('add-estateStaff')
         }
-        if (modalState === 'reassign') {
-            setDialogState('reassign')
-        }
-
+       
         if (dialogRef.current) {
             dialogRef.current.showModal()
         }
