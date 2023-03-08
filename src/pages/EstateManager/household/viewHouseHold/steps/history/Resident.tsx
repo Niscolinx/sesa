@@ -200,7 +200,7 @@ function Resident() {
                                         action
                                     }) => {
                                         return (
-                                            <div className='grid justify-between border-b grid-cols-6 gap-8 py-4 items-center'>
+                                            <div className='grid justify-between border-b grid-cols-6 gap-8 py-4 items-center capitalize'>
                                                 <p>{resCode}</p>
                                                 <p className='flex items-center gap-4'>
                                                     <img
@@ -217,6 +217,8 @@ function Resident() {
                                                 <p>{phoneNo}</p>
                                                 <p>{residentCategory}</p>
                                                 <p>{tenancyType}</p>
+                                                <p>{date}</p>
+                                                <p>{action}</p>
                                             </div>
                                         )
                                     }
