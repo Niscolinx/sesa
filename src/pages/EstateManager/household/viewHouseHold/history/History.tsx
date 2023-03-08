@@ -26,19 +26,10 @@ function History() {
     
 
     const handlePathSwitch = new Map<labelKeys, JSX.Element>([
-        ['Property Details', <PropertyDetails />],
-        ['Resident List', <ResidentList />],
-        ['Landlord Details', <LandlandDetails />],
-        ['RFID List', <RFIDList />],
-        ['Access Card List', <AccessCardList />],
-        ['Payments', <Payments />],
+       
     ])
     return (
-        <ViewHouseHoldContext.Provider
-            value={{
-                closeDialog,
-            }}
-        >
+        <>
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
@@ -251,7 +242,7 @@ function History() {
                     Show more details
                 </button>
             </div>
-        </ViewHouseHoldContext.Provider>
+        </>
     )
 }
 
