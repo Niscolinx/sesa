@@ -11,9 +11,11 @@ function AddAccessKey() {
         phoneNumber: number
     }
 
-    const [accessCardNumber_Details, setaccessCardNumber_Details] = useState<InputField[]>([])
+    const [accessCardNumber_Details, setaccessCardNumber_Details] = useState<
+        InputField[]
+    >([])
 
-    const [ phoneNumber, setPhoneNumber ] = useState(0)
+    const [phoneNumber, setPhoneNumber] = useState(0)
     const [accessCardNumber, setaccessCardNumber] = useState<number>(0)
     const [holderName, setHolderName] = useState('')
     const [idxToDelete, setIdxToDelete] = useState(0)
@@ -34,8 +36,6 @@ function AddAccessKey() {
         setHolderName('')
         setPhoneNumber(0)
     }
-
-   
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
@@ -236,7 +236,6 @@ function AddAccessKey() {
                         const {
                             phoneNumber,
                             holderName,
-                            
                             accessCardNumber,
                         } = item
                         return (
@@ -251,29 +250,22 @@ function AddAccessKey() {
                                     onClick={() => deleteDialog(idx)}
                                 />
                                 <div className='flex gap-16 items-center pb-8'>
-                                    
                                     <div className='grid gap-4 min-w-[70rem]'>
                                         <div className='grid grid-cols-2 items-center justify-start '>
                                             <p className='font-Satoshi-Light'>
-                                                accessCardNumber Serial Number :
+                                                accessCard Serial Number :
                                             </p>
                                             <p>{accessCardNumber}</p>
                                         </div>
                                         <div className='grid grid-cols-2 items-center justify-start '>
                                             <p className='font-Satoshi-Light'>
-                                                Vehicle Registration Number :
+                                                Holder's name' :
                                             </p>
                                             <p>{holderName}</p>
                                         </div>
                                         <div className='grid grid-cols-2 items-center justify-start '>
                                             <p className='font-Satoshi-Light'>
-                                                Vehicle Type :
-                                            </p>
-                                            <p>{phoneNumber}</p>
-                                        </div>
-                                        <div className='grid grid-cols-2 items-center justify-start '>
-                                            <p className='font-Satoshi-Light'>
-                                                Vehicle Make :
+                                                phone Number
                                             </p>
                                             <p>{phoneNumber}</p>
                                         </div>
