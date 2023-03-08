@@ -334,7 +334,7 @@ const [propertyCode, setPropertyCode] = useState<string | null>(null)
             </dialog>
             <main>
                 <section className='grid p-8 bg-white items-baseline rounded-lg'>
-                  <p className='text-[2rem] font-Satoshi-Medium mb-10'>Personal Information</p>
+                  <p className='text-[2rem] font-Satoshi-Medium mb-5'>Personal Information</p>
                     <form
                         onSubmit={handleSubmit}
                         className='grid max-w-[84rem] gap-16 mt-12 '
@@ -465,92 +465,8 @@ const [propertyCode, setPropertyCode] = useState<string | null>(null)
                             selectedState={selectedState}
                             setSelectedState={setSelectedState}
                         />
-                        <MultipleSelect
-                            label='Work Day'
-                            selectFrom={['Mon', 'Tue', 'Wed', 'Thur', 'Fri']}
-                            placeholder='Select Work days'
-                            selected={workDays}
-                            setSelected={setWorkDays}
-                        />
-                        <div className='grid gap-4 relative'>
-                            <label
-                                htmlFor='address1'
-                                className='text-[1.4rem] font-medium'
-                            >
-                                Clock-In Time
-                            </label>
-                            <input
-                                type='time'
-                                required
-                                id='address1'
-                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                            />
-                            <p className='text-[#666869] text-[1.4rem]'>
-                                The System will only enforce clock-in time
-                            </p>
-                        </div>
-                        <div className='grid gap-4 relative self-start'>
-                            <label
-                                htmlFor='address1'
-                                className='text-[1.4rem] font-medium'
-                            >
-                                Clock-Out Time
-                            </label>
-                            <input
-                                type='time'
-                                required
-                                id='address1'
-                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                            />
-                        </div>
-                        <div className='grid gap-4 relative'>
-                            <label
-                                htmlFor='address1'
-                                className='text-[1.4rem] font-medium'
-                            >
-                                Work Period (Start Date)*
-                            </label>
-                            <input
-                                type='date'
-                                required
-                                id='address1'
-                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                            />
-                        </div>
-                        <div className='grid gap-4 relative'>
-                            <label
-                                htmlFor='address1'
-                                className='text-[1.4rem] font-medium'
-                            >
-                                Work Period (End Date)*
-                            </label>
-                            <input
-                                type='date'
-                                required
-                                id='address1'
-                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                            />
-                        </div>
-
-                        <div className='col-span-full'>
-                            <label
-                                htmlFor='address'
-                                className='flex mb-2 gap-4 items-center cursor-pointer'
-                            >
-                                Site Worker Message
-                            </label>
-
-                            <textarea
-                                name='address'
-                                id='address'
-                                placeholder='This message will be displayed to the security guard when the site worker checks in / out'
-                                rows={4}
-                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                            />
-                            <p className='text-gray-400 text-[1.4rem]'>
-                                Maximum of 30 characters
-                            </p>
-                        </div>
+                       
+                        
 
                         <div className='col-span-full rounded-lg border border-width-[.2rem] border-dashed border-color-grey-1 p-8 text-[1.6rem] relative w-full'>
                             <label
