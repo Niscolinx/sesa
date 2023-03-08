@@ -8,7 +8,7 @@ import {
     AddedEstateStaffSuccessfully,
     OpenedBankAccountSuccessful,
 } from './DialogSteps'
-import { Select, ComplexSelect } from '../../../components/SuperAdmin/UI/Select'
+import { Select } from '../../../components/SuperAdmin/UI/Select'
 import { getPhotoUrl } from '../../../utils/getPhotoUrl'
 import { BVN_Number, DriversLicence, International_PassPort, NIN_Number, PhoneNumber, Voters_Card } from '../../SecurityCompany/dashboard/company/AddSecurity/Inputs'
 
@@ -521,124 +521,7 @@ const AddEstateStaff = () => {
                     </form>
                 </section>
                 <section className='grid p-8 bg-white'>
-                    <h2
-                        className='text-[2rem] mb-10'
-                        style={{
-                            fontFamily: 'Satoshi-Medium',
-                        }}
-                    >
-                        Assigned Estate
-                    </h2>
-                    <div className='grid gap-4 border-b pb-20'>
-                        <div className=' items-center grid grid-cols-3'>
-                            <div>
-                                <p className='text-[1.4rem] font-medium'>
-                                    Primary Assigned Estate
-                                </p>
-                                <p className='text-[1.4rem] font-light'>
-                                    Last Assigned on: 12-May-2023
-                                </p>
-                            </div>
-                            <div>
-                                <ComplexSelect
-                                    state={[
-                                        { name: 'Gwarimpa Estate', No: 3 },
-                                        { name: 'Ibara Estate', No: 12 },
-                                        { name: 'Peace estate', No: 1 },
-                                        {
-                                            name: 'Iba Estate',
-                                            No: 2,
-                                        },
-                                    ]}
-                                    placeholder='Gwarimpa Estate'
-                                    selectedState={selectedEstate1}
-                                    isSearchable={true}
-                                    setSelectedState={setSelectedEstate1}
-                                />
-                            </div>
-                        </div>
-                        <div className=' items-center grid grid-cols-3'>
-                            <div>
-                                <p className='text-[1.4rem] font-medium'>
-                                    Secondary Assigned Estate
-                                </p>
-                                <p className='text-[1.4rem] font-light'>
-                                    Last Assigned on: 12-May-2023
-                                </p>
-                            </div>
-                            <div>
-                                <ComplexSelect
-                                    state={[
-                                        { name: 'Gwarimpa Estate', No: 3 },
-                                        { name: 'Ibara Estate', No: 12 },
-                                        { name: 'Peace estate', No: 1 },
-                                        {
-                                            name: 'Iba Estate',
-                                            No: 2,
-                                        },
-                                    ]}
-                                    placeholder='Iba Estate'
-                                    selectedState={selectedEstate2}
-                                    isSearchable={true}
-                                    setSelectedState={setSelectedEstate2}
-                                />
-                            </div>
-                        </div>
-                        <div className=' items-center grid grid-cols-3'>
-                            <div>
-                                <p className='text-[1.4rem] font-medium'>
-                                    Primary Assigned Estate
-                                </p>
-                                <p className='text-[1.4rem] font-light'>
-                                    Last Assigned on: 12-May-2023
-                                </p>
-                            </div>
-                            <div>
-                                <ComplexSelect
-                                    state={[
-                                        { name: 'Gwarimpa Estate', No: 3 },
-                                        { name: 'Ibara Estate', No: 12 },
-                                        { name: 'Peace estate', No: 1 },
-                                        {
-                                            name: 'Iba Estate',
-                                            No: 2,
-                                        },
-                                    ]}
-                                    placeholder='Peace Estate'
-                                    selectedState={selectedEstate3}
-                                    isSearchable={true}
-                                    setSelectedState={setSelectedEstate3}
-                                />
-                            </div>
-                        </div>
-                        <div className=' items-center grid grid-cols-3'>
-                            <div>
-                                <p className='text-[1.4rem] font-medium'>
-                                    Primary Assigned Estate
-                                </p>
-                                <p className='text-[1.4rem] font-light'>
-                                    Last Assigned on: 12-May-2023
-                                </p>
-                            </div>
-                            <div>
-                                <ComplexSelect
-                                    state={[
-                                        { name: 'Gwarimpa Estate', No: 3 },
-                                        { name: 'Ibara Estate', No: 12 },
-                                        { name: 'Peace estate', No: 1 },
-                                        {
-                                            name: 'Ibara Estate',
-                                            No: 2,
-                                        },
-                                    ]}
-                                    placeholder='Gwarimpa Estate'
-                                    selectedState={selectedEstate4}
-                                    isSearchable={true}
-                                    setSelectedState={setSelectedEstate4}
-                                />
-                            </div>
-                        </div>
-                    </div>
+                    
                     <div className='grid gap-8 max-w-[40rem] mt-[5rem] '>
                         <div className='flex items-center justify-between'>
                             <p className='text-[2rem] font-bold flex items-center gap-2'>
