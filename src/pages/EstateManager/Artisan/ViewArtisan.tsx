@@ -305,8 +305,7 @@ const ViewArtisan = () => {
                                 className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                             />
                         </div>
-                       
-                       
+
                         <div className='grid gap-4 relative'>
                             <label
                                 htmlFor='status'
@@ -322,21 +321,8 @@ const ViewArtisan = () => {
                                 className='w-full rounded-lg border-none text-[1.6rem] outline-none text-green-500'
                             />
                         </div>
-                        
 
-                        <button
-                            className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg col-span-full mt-10'
-                            style={{ justifySelf: 'start' }}
-                        >
-                            <span>
-                                <img
-                                    src='/icons/admins/saveDisk.svg'
-                                    alt=''
-                                    className='w-[1.7rem] h-[1.7rem]'
-                                />
-                            </span>{' '}
-                            Save Changes
-                        </button>
+                        <StarRating starsNum={4} />
                     </form>
                 </div>
                 <section>
