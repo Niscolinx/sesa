@@ -192,13 +192,10 @@ const EstateStaff = () => {
 
     const handleAddSecurityGuard = () => {
 
-        navigate(`/securityCompany/security-guard/addSecurity`)
+        navigate(`/estateManager/estate-staff/add`)
     }
 
-    const detailsHandler = (id: number) => {
-        console.log(id)
-        navigate(`/securityCompany/security-guard/viewGuard/:${id}`)
-    }
+   
     return (
         <>
             {isEstateStaff ? (

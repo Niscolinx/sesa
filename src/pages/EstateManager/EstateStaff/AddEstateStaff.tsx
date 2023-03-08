@@ -323,7 +323,7 @@ const AddEstateStaff = () => {
                                 />
                                 <p className='text-[1.6rem]'>
                                     Are you sure you want to reassign this
-                                    estateStaff guard primary estate
+                                    estate staff guard primary estate
                                 </p>
                                 <div className='flex w-full justify-center gap-8'>
                                     <button
