@@ -54,6 +54,7 @@ const AddSiteWorker = () => {
     const [workDays, setWorkDays] = useState<string[]>([])
     const [isValidated, setIsValidated] = useState(false)
     const [iskysw, setIskysw] = useState(false)
+const [propertyCode, setPropertyCode] = useState<string | null>(null)
 
     const toggleIskysw = () => setIskysw(!iskysw)
     const [selectedState, setSelectedState] = useState<string | null>(null)
@@ -333,6 +334,21 @@ const AddSiteWorker = () => {
             </dialog>
             <main>
                 <section className='grid p-8 bg-white items-baseline rounded-lg'>
+                    <div className='w-[30rem]'>
+                        <Select
+                            state={[
+                                'ThomasEstate/SO-2345CDGK1',
+                                'ThomasEstate/SO-2345CDGK2',
+                                'ThomasEstate/SO-2345CDGK3',
+                                'ThomasEstate/SO-2345CDGK4',
+                                'ThomasEstate/SO-2345CDGK5',
+                            ]}
+                            label='Property Code*'
+                            isSearchable
+                            selectedState={propertyCode}
+                            setSelectedState={setPropertyCode}
+                        />
+                    </div>
                     <form
                         onSubmit={handleSubmit}
                         className='grid max-w-[84rem] gap-16 mt-12 '
