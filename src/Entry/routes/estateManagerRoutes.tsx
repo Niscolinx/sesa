@@ -23,6 +23,7 @@ import AddSiteWorker from '../../pages/EstateManager/SiteWorker/AddSiteWorker'
 import ViewSiteWorker from '../../pages/EstateManager/SiteWorker/ViewSiteWorker'
 import EditSiteWorker from '../../pages/EstateManager/SiteWorker/EditSiteWorker'
 import SecurityGuard from '../../pages/EstateManager/SecurityGuard/SecurityGuard'
+import AddSecurityGuard from '../../pages/EstateManager/SecurityGuard/AddSecurityGuard'
 
 const estateManagerRoutes = (
     <Route path='/estateManager' element={<Dashboard />}>
@@ -50,6 +51,7 @@ const estateManagerRoutes = (
         <Route path='site-worker/view/:id' element={<ViewSiteWorker />} />
         <Route path='site-worker/edit/:id' element={<EditSiteWorker />} />
         <Route path='security-guard' element={<SecurityGuard />} />
+        <Route path='security-guard/add' element={<AddSecurityGuard />} />
     </Route>
 )
 
