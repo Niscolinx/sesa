@@ -59,16 +59,16 @@ const ViewArtisan = () => {
         handleClose()
 
         toast('Artisan deleted successfully', {
-            type: 'error',
-            className: 'bg-red-100 text-red-600 text-[1.4rem]',
+            type: 'success',
+            className: 'bg-green-100 text-green-600 text-[1.4rem]',
         })
     }
     const handleDeactivateArtisan = () => {
         handleClose()
 
         toast('Artisan deactivated successfully', {
-            type: 'error',
-            className: 'bg-red-100 text-red-600 text-[1.4rem]',
+            type: 'success',
+            className: 'bg-green-100 text-green-600 text-[1.4rem]',
         })
     }
 
@@ -76,7 +76,7 @@ const ViewArtisan = () => {
         <>
             <ToastContainer />
 
-            <dialog className='dialog' ref={dialogRef}>
+            {/* <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
                         {dialogType === 'Deactivate' ? (
@@ -133,7 +133,7 @@ const ViewArtisan = () => {
                         )}
                     </div>
                 </section>
-            </dialog>
+            </dialog> */}
 
             <div className='grid p-8 bg-white  rounded-lg gap-[10rem]'>
                 <div>
@@ -160,7 +160,7 @@ const ViewArtisan = () => {
                             onClick={handlePhotoPreview}
                         />
 
-                        <div className='flex gap-8'>
+                        {/* <div className='flex gap-8'>
                             <button
                                 className='border border-color-blue-1 text-color-blue-1 px-16 py-4 flex items-center  rounded-lg gap-4'
                                 onClick={() =>
@@ -180,7 +180,7 @@ const ViewArtisan = () => {
                                     Delete
                                 </span>
                             </button>
-                        </div>
+                        </div> */}
                     </div>
                     <form
                         onSubmit={handleSubmit}

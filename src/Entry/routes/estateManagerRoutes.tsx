@@ -27,6 +27,7 @@ import AddSecurityGuard from '../../pages/EstateManager/SecurityGuard/AddSecurit
 import EditSecurityGuard from '../../pages/EstateManager/SecurityGuard/EditSecurityGuard'
 import ViewSecurityGuard from '../../pages/EstateManager/SecurityGuard/ViewSecurityGuard'
 import Artisan from '../../pages/EstateManager/Artisan/Artisan'
+import ViewArtisan from '../../pages/EstateManager/Artisan/ViewArtisan'
 
 const estateManagerRoutes = (
     <Route path='/estateManager' element={<Dashboard />}>
@@ -58,6 +59,7 @@ const estateManagerRoutes = (
         <Route path='security-guard/edit/:id' element={<EditSecurityGuard />} />
         <Route path='security-guard/view/:id' element={<ViewSecurityGuard />} />
         <Route path='artisan' element={<Artisan />} />
+        <Route path='artisan/view/id' element={<ViewArtisan />} />
     </Route>
 )
 
