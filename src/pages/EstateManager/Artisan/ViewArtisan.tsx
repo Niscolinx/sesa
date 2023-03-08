@@ -24,7 +24,7 @@ const ViewArtisan = () => {
         e.preventDefault()
     }
 
-    const dialogRef = useRef<HTMLDialogElement | null>(null)
+    // const dialogRef = useRef<HTMLDialogElement | null>(null)
 
     // const handleClose = () => {
     //     if (dialogRef.current) {
