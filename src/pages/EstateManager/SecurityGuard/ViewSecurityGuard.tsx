@@ -11,32 +11,32 @@ import { getPhotoUrl } from '../../../utils/getPhotoUrl'
 import { TbCopy } from 'react-icons/tb'
 import {
     AddBankAccount,
-    AddedSiteWorkerSuccessfully,
+    AddedSecurityGuardSuccessfully,
     OpenedBankAccountSuccessful,
 } from './DialogSteps'
 
 type Actions = 'Deactivate' | 'Delete'
 
-export type AddedSiteWorkerSteps =
-    | 'addedSiteWorkerSuccessful'
+export type AddedSecurityGuardSteps =
+    | 'addedSecurityGuardSuccessful'
     | 'addBankAccount'
     | 'openedBankAccountSuccessful'
 
-interface AddedSiteWorkerContext {
-    addedSiteWorkerStep: AddedSiteWorkerSteps
-    setAddedSiteWorkerStep: React.Dispatch<
-        React.SetStateAction<AddedSiteWorkerSteps>
+interface AddedSecurityGuardContext {
+    addedSecurityGuardStep: AddedSecurityGuardSteps
+    setAddedSecurityGuardStep: React.Dispatch<
+        React.SetStateAction<AddedSecurityGuardSteps>
     >
     selectedBank: string | null
     setSelectedBank: React.Dispatch<React.SetStateAction<string | null>>
     handleClose: () => void
 }
 
-export const CreateAddedSiteWorkerContext =
-    createContext<AddedSiteWorkerContext>(null as any)
+export const CreateAddedSecurityGuardContext =
+    createContext<AddedSecurityGuardContext>(null as any)
 
     type BankDialog = 'generateId' | 'openBank'
-const ViewSiteWorker = () => {
+const ViewSecurityGuard = () => {
     const [workDays, setWorkDays] = useState<string[]>([])
     const [isValidated, setIsValidated] = useState(true)
     const [isAccountCreated, setIsAccountCreated] = useState(false)
@@ -45,8 +45,8 @@ const ViewSiteWorker = () => {
     const [bankDialogState, setBankDialogState] = useState<BankDialog>('openBank')
 
     const [selectedBank, setSelectedBank] = useState<null | string>(null)
-    const [addedSiteWorkerStep, setAddedSiteWorkerStep] =
-        useState<AddedSiteWorkerSteps>('addedSiteWorkerSuccessful')
+    const [addedSecurityGuardStep, setAddedSecurityGuardStep] =
+        useState<AddedSecurityGuardSteps>('addedSecurityGuardSuccessful')
 
     const [photoUrl, setPhotoUrl] = useState('')
 
@@ -135,30 +135,30 @@ const ViewSiteWorker = () => {
         }
     }
 
-    const addedSiteWorkerSteps = new Map([
+    const addedSecurityGuardSteps = new Map([
         [
-            'addedSiteWorkerSuccessful',
-            <AddedSiteWorkerSuccessfully
-                context={CreateAddedSiteWorkerContext}
+            'addedSecurityGuardSuccessful',
+            <AddedSecurityGuardSuccessfully
+                contextData={CreateAddedSecurityGuardContext}
             />,
         ],
         [
             'addBankAccount',
-            <AddBankAccount context={CreateAddedSiteWorkerContext} />,
+            <AddBankAccount contextData={CreateAddedSecurityGuardContext} />,
         ],
         [
             'openedBankAccountSuccessful',
             <OpenedBankAccountSuccessful
-                context={CreateAddedSiteWorkerContext}
+                contextData={CreateAddedSecurityGuardContext}
             />,
         ],
     ])
 
     return (
-        <CreateAddedSiteWorkerContext.Provider
+        <CreateAddedSecurityGuardContext.Provider
             value={{
-                addedSiteWorkerStep,
-                setAddedSiteWorkerStep,
+                addedSecurityGuardStep,
+                setAddedSecurityGuardStep,
                 handleClose,
                 selectedBank,
                 setSelectedBank,
@@ -332,7 +332,7 @@ const ViewSiteWorker = () => {
                             </div>
                         ) : (
                             <div className='bg-white rounded-2xl grid place-content-center justify-items-center h-[30rem] gap-8 text-[1.6rem]'>
-                                {addedSiteWorkerSteps.get(addedSiteWorkerStep)}
+                                {addedSecurityGuardSteps.get(addedSecurityGuardStep)}
                             </div>
                         )}
                     </div>
@@ -798,8 +798,8 @@ const ViewSiteWorker = () => {
                     </button>
                 </section>
             </main>
-        </CreateAddedSiteWorkerContext.Provider>
+        </CreateAddedSecurityGuardContext.Provider>
     )
 }
 
-export default ViewSiteWorker
+export default ViewSecurityGuard
