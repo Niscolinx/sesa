@@ -172,7 +172,7 @@ function Resident() {
                 </div>
 
                 <div className='grid'>
-                    <div className='grid justify-between text-color-dark-1 bg-gray-100 p-8 grid-cols-6 gap-6 capitalize'>
+                    <div className='grid justify-between text-color-dark-1 bg-gray-100 p-8 grid-cols-8 gap-6 capitalize items-center'>
                         <p>Res. Code</p>
                         <p>Name</p>
                         <p>Gender</p>
@@ -200,7 +200,7 @@ function Resident() {
                                         action
                                     }) => {
                                         return (
-                                            <div className='grid justify-between border-b grid-cols-6 gap-8 py-4 items-center capitalize'>
+                                            <div className='grid justify-between border-b grid-cols-8 gap-8 py-4 items-center capitalize'>
                                                 <p>{resCode}</p>
                                                 <p className='flex items-center gap-4'>
                                                     <img
@@ -214,10 +214,14 @@ function Resident() {
                                                     </span>
                                                 </p>
                                                 <p>{gender}</p>
-                                                <p>{phoneNo}</p>
+                                                <p className=' max-w-[40rem] overflow-hidden text-ellipsis whitespace-nowrap'>
+                                                    {phoneNo}
+                                                </p>
                                                 <p>{residentCategory}</p>
                                                 <p>{tenancyType}</p>
-                                                <p>{date}</p>
+                                                <p className=' max-w-[40rem] overflow-hidden text-ellipsis whitespace-nowrap'>
+                                                    {date}
+                                                </p>
                                                 <p>{action}</p>
                                             </div>
                                         )
