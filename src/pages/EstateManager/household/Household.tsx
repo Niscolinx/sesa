@@ -217,7 +217,7 @@ function HouseHold() {
         }
 
         if (item === 'Edit Details') {
-            navigate(`/estateManager/household/view/:${index}`)
+            navigate(`/estateManager/household/edit-household/:${index}`)
         }
     }
 

@@ -29,7 +29,7 @@ const estateManagerRoutes = (
         <Route path='property/view/:id' element={<ViewProperty />} />
         <Route path='household' element={<HouseHold />} />
         <Route path='household/create-household' element={<CreateHousehold />} />
-        <Route path='household/edit-household' element={<EditHousehold />} />
+        <Route path='household/edit-household/:id' element={<EditHousehold />} />
         <Route path='household/view-details/:id' element={<ViewHouseHold />} />
     </Route>
 )
