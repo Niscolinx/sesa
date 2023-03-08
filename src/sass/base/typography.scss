@@ -48,7 +48,16 @@ h5 {
     }
 }
 
+.steps{
 
+  img {
+    position: relative;
+    
+    &::after{
+      position: absolute
+    }
+  }
+}
 
 //FONT
 /**
