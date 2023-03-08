@@ -13,35 +13,9 @@ import { getPhotoUrl } from '../../../utils/getPhotoUrl'
 
 type Actions = 'Deactivate' | 'Delete'
 
-export type AddedEstateStaffSteps =
-    | 'addedEstateStaffSuccessful'
-    | 'addBankAccount'
-    | 'openedBankAccountSuccessful'
-
-export type ValidateInputTypes =
-    | 'Phone Number'
-    | 'BVN Number'
-    | 'NIN Number'
-    | 'Drivers License'
-    | 'International Passport'
-    | 'Voters Card'
-
-interface AddedEstateStaffContext {
-    addedEstateStaffStep: AddedEstateStaffSteps
-    setAddedEstateStaffStep: React.Dispatch<
-        React.SetStateAction<AddedEstateStaffSteps>
-    >
-    selectedBank: string | null
-    setSelectedBank: React.Dispatch<React.SetStateAction<string | null>>
-    handleClose: () => void
-}
-
-export const CreateAddedEstateStaffContext =
-    createContext<AddedEstateStaffContext>(null as any)
 
 const ViewEstateStaff = () => {
     const [workDays, setWorkDays] = useState<string[]>([])
-    const [iskyg, setIskyg] = useState(false)
 
     const [selectedState, setSelectedState] = useState<string | null>(null)
     const [selectedGender, setSelectedGender] = useState<string | null>(null)
