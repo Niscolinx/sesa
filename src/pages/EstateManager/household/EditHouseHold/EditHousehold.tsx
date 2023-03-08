@@ -205,7 +205,7 @@ function EditHousehold() {
                         </button>
                         {pathToSwitch === 3 ? (
                             <button
-                                className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg col-span-full'
+                                className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg col-span-full disabled:opacity-50 disabled:cursor-not-allowed'
                                 disabled={disabled}
                                 onClick={() => handleSubmit()}
                             >
