@@ -247,7 +247,7 @@ const SiteWorker = () => {
 
                             <div className='grid'>
                                 <div
-                                    className='grid justify-between text-color-dark-1 bg-gray-100 p-8 grid-cols-7 gap-8 capitalize'
+                                    className='grid justify-between text-color-dark-1 bg-gray-100 p-8 grid-cols-9 gap-8 capitalize'
                                     style={{
                                         fontSize: '1.6rem',
                                     }}
@@ -280,6 +280,8 @@ const SiteWorker = () => {
                                                     kys,
                                                     status,
                                                     id,
+                                                    workLocation,
+                                                    workPeriod,
                                                     phoneNumber,
                                                 }) => {
                                                     const {
@@ -288,7 +290,7 @@ const SiteWorker = () => {
                                                     } = toggleDropDown
 
                                                     return (
-                                                        <div className='grid justify-between border-b grid-cols-7 gap-8 py-4'>
+                                                        <div className='grid justify-between border-b grid-cols-9 gap-8 py-4'>
                                                             <p className='flex items-center gap-4'>
                                                                 <input
                                                                     type='checkbox'
@@ -302,6 +304,12 @@ const SiteWorker = () => {
                                                             <p>{swName}</p>
                                                             <p>{phoneNumber}</p>
                                                             <p>{workDays}</p>
+                                                            <p className=' max-w-[40rem] overflow-hidden text-ellipsis whitespace-nowrap'>
+                                                                {workPeriod}
+                                                            </p>
+                                                            <p className=' max-w-[40rem] overflow-hidden text-ellipsis whitespace-nowrap'>
+                                                                {workLocation}
+                                                            </p>
                                                             <p>
                                                                 {status ===
                                                                 'Active' ? (
