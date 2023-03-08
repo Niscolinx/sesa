@@ -12,7 +12,8 @@ function AccessCardList() {
         id: string,
         serialNum: string,
         holderName: string,
-        phoneNum: string
+        phoneNum: string,
+        imgUrl: string,
     }
 
     const ACCESSCARD_LIST: AccessCard[] = Array.from({ length: 2 }, (_, i) => {
@@ -21,6 +22,7 @@ function AccessCardList() {
             serialNum: `R${
                 (Math.random() * 0.1 + 0.9).toFixed(5).split('.')[1]
             }`,
+            imgUrl: '/img/avatar11.png',
             holderName: 'Darlene Robert',
             phoneNum: '(+234) 814 324 6719',
         }
@@ -168,7 +170,7 @@ function AccessCardList() {
                 </div>
 
                 <div className='grid'>
-                    <div className='grid justify-between text-color-dark-1 bg-gray-100 p-8 grid-cols-4 gap-6 capitalize'>
+                    <div className='grid justify-between text-color-dark-1 bg-gray-100 p-8 grid-cols-3 gap-6 capitalize'>
                         <p>Access Card Seriel Nos.</p>
                         <p>Holder’s Name</p>
                         <p>Phone Number</p>
@@ -180,16 +182,14 @@ function AccessCardList() {
                                 slicedPages[paginate.index].map(
                                     ({
                                         id,
-                                        RFID,
-                                        vehicleMake,
-                                        vehicleRegNumber,
-                                        vehicleType,
-                                        imgUrl,
+                                        serialNum,
+                                        holderName,
+                                        phoneNum,
+                                        imgUrl
                                     }) => {
                                         return (
-                                            <div className='grid justify-between border-b grid-cols-4 gap-8 py-4 items-center'>
-                                                <p>{RFID}</p>
-                                                <p>{vehicleRegNumber}</p>
+                                            <div className='grid justify-between border-b grid-cols-3 gap-8 py-4 items-center'>
+                                                <p>{serialNum}</p>
                                                 <p className='flex items-center gap-4'>
                                                     <img
                                                         src={imgUrl}
@@ -198,10 +198,10 @@ function AccessCardList() {
                                                     />
 
                                                     <span className=' max-w-[40rem] overflow-hidden text-ellipsis whitespace-nowrap'>
-                                                        {vehicleMake}
+                                                        {holderName}
                                                     </span>
                                                 </p>
-                                                <p>{vehicleType}</p>
+                                                <p>{phoneNum}</p>
                                             </div>
                                         )
                                     }
