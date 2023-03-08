@@ -48,7 +48,7 @@ export const CreateAddedEstateStaffContext =
     createContext<AddedEstateStaffContext>(null as any)
 
 const AddEstateStaff = () => {
-    const [workDay, setWorkDay] = useState<string[]>([])
+    const [workDays, setWorkDays] = useState<string[]>([])
     const [isValidated, setIsValidated] = useState(false)
     const [iskyg, setIskyg] = useState(false)
 
@@ -480,8 +480,8 @@ const AddEstateStaff = () => {
                             label='Work Day'
                             selectFrom={['Mon', 'Tue', 'Wed', 'Thur', 'Fri']}
                             placeholder='Select State'
-                            selectedState={selectedState}
-                            setSelectedState={setSelectedState}
+                            selectedState={workDays}
+                            setSelectedState={setWorkDays}
                         />
                         <MultipleSelect selectFrom={['sdfs','sfsdf']} selected={[]} setSelected={function (value: React.SetStateAction<string[]>): void {
                             throw new Error('Function not implemented.')
