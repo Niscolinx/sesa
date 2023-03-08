@@ -14,9 +14,8 @@ function ViewHouseHold() {
 
                 <div className='flex gap-8'>
                     <button className='border border-red-600 px-16 py-4 flex items-center  rounded-lg gap-4'>
-                        <img src='/icons/admins/delete.svg' alt='' />
-                        <span className='text-red-600 text-[1.4rem] font-semibold'>
-                            Delete
+                        <span className='text-red-600 text-[1.4rem] font-Satoshi-Medium'>
+                            Deactivate
                         </span>
                     </button>
                 </div>
