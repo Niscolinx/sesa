@@ -1,5 +1,6 @@
 import React, { createContext, Fragment, useRef, useState } from 'react'
 import { IoMdClose } from 'react-icons/io'
+import LandlandDetails from './LandlandDetails'
 import PropertyDetails from './PropertyDetails'
 import ResidentList from './ResidentList'
 
@@ -45,7 +46,8 @@ function ViewHouseHold() {
 
     const handlePathSwitch = new Map<labelKeys, JSX.Element>([
         ['Property Details', <PropertyDetails />],
-        ['Resident List', <ResidentList/>]
+        ['Resident List', <ResidentList/>],
+        ['Landlord Details', <LandlandDetails/>],
     ])
     return (
         <ViewHouseHoldContext.Provider
