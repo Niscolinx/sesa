@@ -85,7 +85,7 @@ function ViewHouseHold() {
                 </section>
             </dialog>
             <dialog className='dialog' ref={dialogRef}>
-                <section className='  h-[90vh] bg-white rounded-2xl p-16 overflow-hidden relative w-[80%] mx-auto'>
+                <section className='  h-[90vh] bg-white rounded-2xl p-16 overflow-x-hidden relative w-[80%] mx-auto'>
                     <IoMdClose
                         className='absolute right-0 top-0 text-[2rem] cursor-pointer m-8'
                         onClick={() => closeDialog()}

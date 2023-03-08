@@ -23,7 +23,7 @@ function ResidentList() {
         return {
             id: `1 + ${i}`,
             resCode: `R${
-                (Math.random() * 0.1 + 0.9).toFixed(75).split('.')[1]
+                (Math.random() * 0.1 + 0.9).toFixed(5).split('.')[1]
             }`,
             imgUrl: '/img/avatar11.png',
             gender: Math.random() > 0.5 ? 'Male' : 'Female',
@@ -148,9 +148,9 @@ function ResidentList() {
     }
 
     return (
-        <section className='bg-color-white rounded-lg border  overflow-scroll max-h-[80vh]'>
+        <section className='bg-color-white rounded-lg border  overflow-scroll min-h-[80vh]'>
             <div className='grid text-[1.6rem]'>
-                <caption className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
+                <div className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
                     <div className='relative flex items-center'>
                         <img
                             src='/icons/admins/search.svg'
@@ -173,18 +173,8 @@ function ResidentList() {
                         </select>
                         <GrDown className='absolute right-4 text-[1.3rem]' />
                     </div>
-                    <div className='ml-auto'>
-                        <button
-                            className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
-                            onClick={saveChangesHandler}
-                        >
-                            <span>
-                                <IoMdAdd />
-                            </span>{' '}
-                            Save Changes
-                        </button>
-                    </div>
-                </caption>
+                    
+                </div>
 
                 <div className='grid'>
                     <div className='grid justify-between text-color-dark-1 bg-gray-100 p-8 grid-cols-6 gap-6 capitalize'>
@@ -211,7 +201,7 @@ function ResidentList() {
                                         imgUrl,
                                     }) => {
                                         return (
-                                            <div className='grid justify-between border-b grid-cols-6 gap-8 py-4'>
+                                            <div className='grid justify-between border-b grid-cols-6 gap-8 py-4 items-center'>
                                                 <p>{resCode}</p>
                                                 <p className='flex items-center gap-4'>
                                                     <img
