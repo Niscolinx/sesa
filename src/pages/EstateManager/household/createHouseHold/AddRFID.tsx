@@ -13,7 +13,7 @@ function AddRFID() {
         photoUrl: string
     }
 
-    const RFID_Details: InputField[] = []
+    const [RFID_Details, setRFID_Details] = useState<InputField[]>([])
 
     const { vehicleType, setVehicleType } = useContext(HouseholdContext)
     const [photoUrl, setPhotoUrl] = useState('')
@@ -34,8 +34,12 @@ function AddRFID() {
             photoUrl,
         }
 
-        console.log({ details })
-        RFID_Details.push(details)
+        setRFID_Details((prev) => {
+            return [
+                ...prev,
+                details
+            ]
+        })
         setRFID(0)
         setVehicleMake('')
         setVehicleRegNumber(0)
@@ -287,6 +291,7 @@ function AddRFID() {
                     )}
 
                     {RFID_Details.map((item, idx) => {
+                        const {photoUrl, vehicleMake, vehicleRegNumber, vehicleType, RFID} = item
                         return (
                             <div
                                 className='grid relative border-b pb-4'
@@ -299,7 +304,7 @@ function AddRFID() {
                                 />
                                 <div className='flex gap-16 items-center pb-8'>
                                     <img
-                                        src={photoUrl || '/img/avatar11.png'}
+                                        src={photoUrl}
                                         alt='photoPreview'
                                         className='object-cover w-[11rem] h-[11rem] rounded-full'
                                     />
@@ -308,25 +313,25 @@ function AddRFID() {
                                             <p className='font-Satoshi-Light'>
                                                 RFID Serial Number :
                                             </p>
-                                            <p>Adiyan Police Station</p>
+                                            <p>{RFID}</p>
                                         </div>
                                         <div className='grid grid-cols-2 items-center justify-start '>
                                             <p className='font-Satoshi-Light'>
                                                 Vehicle Registration Number :
                                             </p>
-                                            <p>Adiyan@gmail.com</p>
+                                            <p>{vehicleRegNumber}</p>
                                         </div>
                                         <div className='grid grid-cols-2 items-center justify-start '>
                                             <p className='font-Satoshi-Light'>
                                                 Vehicle Type :
                                             </p>
-                                            <p>Felix Drive, Lekki Lagos</p>
+                                            <p>{vehicleType}</p>
                                         </div>
                                         <div className='grid grid-cols-2 items-center justify-start '>
                                             <p className='font-Satoshi-Light'>
                                                 Vehicle Make :
                                             </p>
-                                            <p>Felix Drive, Lekki Lagos</p>
+                                            <p>{vehicleMake}</p>
                                         </div>
                                     </div>
                                 </div>
