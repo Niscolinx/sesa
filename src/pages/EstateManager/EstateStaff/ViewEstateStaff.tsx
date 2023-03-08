@@ -324,9 +324,10 @@ const ViewEstateStaff = () => {
                             <div className='bg-white rounded-2xl grid place-content-center justify-items-center  gap-8 text-[1.6rem]'>
                                 <img src='/img/new_Id.svg' alt='' />
                                 <button
-                                    className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg w-[15rem]'
-                                >
-                                   Print
+                                    className='btn text-white bg-color-blue-1 py-4 px-16 rounded-lg w-[15rem]'
+                                    >
+                                    Print
+                                   
                                 </button>
                             </div>
                         ) : (
