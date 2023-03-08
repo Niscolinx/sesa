@@ -16,15 +16,15 @@ import {
 
 type Actions = 'Deactivate' | 'Delete'
 
-export type AddedEditSecurityGuardSteps =
-    | 'addedEditSecurityGuardSuccessful'
+export type EditSecurityGuardSteps =
+    | 'editSecurityGuardSuccessful'
     | 'addBankAccount'
     | 'openedBankAccountSuccessful'
 
-interface AddedSecurityGuardContext {
-    addedEditSecurityGuardStep: AddedEditSecurityGuardSteps
-    setAddedEditSecurityGuardStep: React.Dispatch<
-        React.SetStateAction<AddedEditSecurityGuardSteps>
+export interface EditSecurityGuardContext {
+    editSecurityGuardStep: EditSecurityGuardSteps
+    setEditSecurityGuardStep: React.Dispatch<
+        React.SetStateAction<EditSecurityGuardSteps>
     >
     selectedBank: string | null
     setSelectedBank: React.Dispatch<React.SetStateAction<string | null>>
@@ -32,7 +32,7 @@ interface AddedSecurityGuardContext {
 }
 
 export const CreateEditSecurityGuardContext =
-    createContext<AddedSecurityGuardContext>(null as any)
+    createContext<EditSecurityGuardContext>(null as any)
 
 type BankDialog = 'generateId' | 'openBank'
 
@@ -46,9 +46,9 @@ const EditEditSecurityGuard = () => {
         useState<BankDialog>('openBank')
 
     const [selectedBank, setSelectedBank] = useState<null | string>(null)
-    const [addedEditSecurityGuardStep, setAddedEditSecurityGuardStep] =
-        useState<AddedEditSecurityGuardSteps>(
-            'addedEditSecurityGuardSuccessful'
+    const [editSecurityGuardStep, setEditSecurityGuardStep] =
+        useState<EditSecurityGuardSteps>(
+            'editSecurityGuardSuccessful'
         )
 
     const [photoUrl, setPhotoUrl] = useState('')
@@ -135,9 +135,9 @@ const EditEditSecurityGuard = () => {
         }
     }
 
-    const addedEditSecurityGuardSteps = new Map([
+    const editSecurityGuardSteps = new Map([
         [
-            'addedEditSecurityGuardSuccessful',
+            'editSecurityGuardSuccessful',
             <AddedSecurityGuardSuccessfully
                 contextData={CreateEditSecurityGuardContext}
             />,
@@ -157,8 +157,8 @@ const EditEditSecurityGuard = () => {
     return (
         <CreateEditSecurityGuardContext.Provider
             value={{
-                addedEditSecurityGuardStep,
-                setAddedEditSecurityGuardStep,
+                editSecurityGuardStep,
+                setEditSecurityGuardStep,
                 handleClose,
                 selectedBank,
                 setSelectedBank,
@@ -332,8 +332,8 @@ const EditEditSecurityGuard = () => {
                             </div>
                         ) : (
                             <div className='bg-white rounded-2xl grid place-content-center justify-items-center h-[30rem] gap-8 text-[1.6rem]'>
-                                {addedEditSecurityGuardSteps.get(
-                                    addedEditSecurityGuardStep
+                                {editSecurityGuardSteps.get(
+                                    editSecurityGuardStep
                                 )}
                             </div>
                         )}

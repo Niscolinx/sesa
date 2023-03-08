@@ -2,11 +2,12 @@ import { useContext } from 'react'
 import { TbCopy } from 'react-icons/tb'
 import { Select } from '../../../components/SuperAdmin/UI/Select'
 import { AddedSecurityGuardContext } from './AddSecurityGuard'
+import { EditSecurityGuardContext } from './EditSecurityGuard'
 
 export const AddedSecurityGuardSuccessfully = ({
     contextData,
 }: {
-    contextData: React.Context<AddedSecurityGuardContext>
+    contextData: React.Context<any>
 }) => {
     const { handleClose, setAddedSecurityGuardStep } = useContext(contextData)
 
@@ -46,7 +47,7 @@ export const AddedSecurityGuardSuccessfully = ({
 export const AddBankAccount = ({
     contextData,
 }: {
-    contextData: React.Context<AddedSecurityGuardContext>
+    contextData: React.Context<any>
 }) => {
     const { selectedBank, setSelectedBank, setAddedSecurityGuardStep } =
         useContext(contextData)
@@ -86,14 +87,13 @@ export const AddBankAccount = ({
     )
 }
 
-export const OpenedBankAccountSuccessful =  ({
+export const OpenedBankAccountSuccessful = ({
     contextData,
 }: {
-    contextData: React.Context<AddedSecurityGuardContext>
+    contextData: React.Context<any>
 }) => {
-    const { handleClose, selectedBank, setAddedSecurityGuardStep } = useContext(
-        contextData
-    )
+    const { handleClose, selectedBank, setAddedSecurityGuardStep } =
+        useContext(contextData)
 
     const closeSteps = () => {
         handleClose()
@@ -105,8 +105,8 @@ export const OpenedBankAccountSuccessful =  ({
             <img src='/icons/admins/modalSuccess.svg' alt='' />
 
             <p>
-                You have successfully opened an account number for this Security Guard
-                
+                You have successfully opened an account number for this Security
+                Guard
             </p>
 
             <div className='grid justify-items-center gap-4'>
