@@ -55,8 +55,22 @@ const ViewArtisan = () => {
         }
     }
 
-   
-   
+    // const handleDeleteArtisan = () => {
+    //     handleClose()
+
+    //     toast('Artisan deleted successfully', {
+    //         type: 'success',
+    //         className: 'bg-green-100 text-green-600 text-[1.4rem]',
+    //     })
+    // }
+    // const handleDeactivateArtisan = () => {
+    //     handleClose()
+
+    //     toast('Artisan deactivated successfully', {
+    //         type: 'success',
+    //         className: 'bg-green-100 text-green-600 text-[1.4rem]',
+    //     })
+    // }
 
     return (
         <>
