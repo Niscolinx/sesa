@@ -86,11 +86,11 @@ const EstateStaff = () => {
         })
 
         if (item === 'View Details') {
-            navigate(`/estateManager/residents/view/:${index}`)
+            navigate(`/estateManager/estate-staff/view/:${index}`)
         }
 
         if (item === 'Edit Details') {
-            navigate(`/estateManager/residents/edit/:${index}`)
+            navigate(`/estateManager/estate-staff/edit/:${index}`)
         }
     }
     interface Paginate {
