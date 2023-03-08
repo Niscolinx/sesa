@@ -5,7 +5,7 @@ import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { IoMdAdd } from 'react-icons/io'
 import { useNavigate } from 'react-router-dom'
 
-interface EstateStaff {
+interface SiteWorker {
     id: number
     staffCode: string
     staffName: string
@@ -15,7 +15,7 @@ interface EstateStaff {
     kys: 'Validated' | 'Not Validated' | 'Full Match'
 }
 
-const ESTATE_STAFF: EstateStaff[] = Array.from({
+const SITEWORKER: SiteWorker[] = Array.from({
     length: 20,
 }).map((_, i) => ({
     id: i,
@@ -29,21 +29,21 @@ const ESTATE_STAFF: EstateStaff[] = Array.from({
 
 export type Actions = 'View Details' | 'Edit Details' | 'Delete'
 
-const EstateStaff = () => {
+const SiteWorker = () => {
     const navigate = useNavigate()
 
-    const [isEstateStaff, setIsEstateStaff] = useState(true)
+    const [isSiteWorker, setIsSiteWorker] = useState(true)
 
-    const [fetchedEstateStaffData, setFetchedEstateStaffData] = useState<
-        EstateStaff[]
+    const [fetchedSiteWorkerData, setFetchedSiteWorkerData] = useState<
+        SiteWorker[]
     >([])
 
-    const addEstateStaff = () => {
-        setIsEstateStaff(true)
+    const addSiteWorker = () => {
+        setIsSiteWorker(true)
     }
     useEffect(() => {
         setTimeout(() => {
-            setFetchedEstateStaffData(ESTATE_STAFF)
+            setFetchedSiteWorkerData(SITEWORKER)
         }, 1000)
     }, [])
 
@@ -86,11 +86,11 @@ const EstateStaff = () => {
         })
 
         if (item === 'View Details') {
-            navigate(`/estateManager/estate-staff/view/:${index}`)
+            navigate(`/estateManager/site-worker/view/:${index}`)
         }
 
         if (item === 'Edit Details') {
-            navigate(`/estateManager/estate-staff/edit/:${index}`)
+            navigate(`/estateManager/site-worker/edit/:${index}`)
         }
     }
     interface Paginate {
@@ -98,7 +98,7 @@ const EstateStaff = () => {
         currentPage: number
         itemsPerPage: number
         totalPage: number
-        slicedPages: EstateStaff[][] | null
+        slicedPages: SiteWorker[][] | null
     }
 
     const itemsPerPageArr = [2, 4, 6, 8]
@@ -108,16 +108,16 @@ const EstateStaff = () => {
         index: 0,
         currentPage: 1,
         itemsPerPage: perPage,
-        totalPage: Math.ceil(fetchedEstateStaffData.length / perPage),
+        totalPage: Math.ceil(fetchedSiteWorkerData.length / perPage),
         slicedPages: null,
     })
 
     const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
         const item = parseInt(e.target.value)
 
-        const slicedPages: EstateStaff[][] = []
-        for (let i = 0; i < fetchedEstateStaffData.length; i += item) {
-            slicedPages.push(fetchedEstateStaffData.slice(i, i + item))
+        const slicedPages: SiteWorker[][] = []
+        for (let i = 0; i < fetchedSiteWorkerData.length; i += item) {
+            slicedPages.push(fetchedSiteWorkerData.slice(i, i + item))
         }
 
         setPaginate((prev) => {
@@ -127,20 +127,20 @@ const EstateStaff = () => {
                 index: 0,
                 currentPage: 1,
                 slicedPages,
-                totalPage: Math.ceil(fetchedEstateStaffData.length / item),
+                totalPage: Math.ceil(fetchedSiteWorkerData.length / item),
             }
         })
     }
 
     useEffect(() => {
-        const slicedPages: EstateStaff[][] = []
+        const slicedPages: SiteWorker[][] = []
         for (
             let i = 0;
-            i < fetchedEstateStaffData.length;
+            i < fetchedSiteWorkerData.length;
             i += paginate.itemsPerPage
         ) {
             slicedPages.push(
-                fetchedEstateStaffData.slice(i, i + paginate.itemsPerPage)
+                fetchedSiteWorkerData.slice(i, i + paginate.itemsPerPage)
             )
         }
 
@@ -149,11 +149,11 @@ const EstateStaff = () => {
                 ...prev,
                 slicedPages,
                 totalPage: Math.ceil(
-                    fetchedEstateStaffData.length / paginate.itemsPerPage
+                    fetchedSiteWorkerData.length / paginate.itemsPerPage
                 ),
             }
         })
-    }, [fetchedEstateStaffData])
+    }, [fetchedSiteWorkerData])
 
     const handleNext = () => {
         console.log(paginate.currentPage, paginate.totalPage)
@@ -192,19 +192,19 @@ const EstateStaff = () => {
 
     const handleAddSecurityGuard = () => {
 
-        navigate(`/estateManager/estate-staff/add`)
+        navigate(`/estateManager/site-worker/add`)
     }
 
    
     return (
         <>
-            {isEstateStaff ? (
+            {isSiteWorker ? (
                 <div>
                     <section className='bg-color-white rounded-lg border min-w-[112rem] overflow-scroll'>
                         <div className='grid text-[1.6rem]'>
                             <caption className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
                                 <p className=' font-bold'>
-                                    Estate Staff List <span>(4)</span>
+                                    Site Worker List <span>(4)</span>
                                 </p>
                                 <div className='relative flex items-center'>
                                     <img
@@ -236,7 +236,7 @@ const EstateStaff = () => {
                                         <span>
                                             <IoMdAdd />
                                         </span>{' '}
-                                        Add Estate Staff
+                                        Add Site Worker
                                     </button>
                                 </div>
                             </caption>
@@ -483,16 +483,16 @@ const EstateStaff = () => {
                     <section className='grid place-content-center w-full h-full justify-items-center gap-4 bg-white'>
                         <img src='/icons/admins/errorSvg.svg' alt='' />
                         <p className='text'>
-                            Ooops you have not any estate staff yet
+                            Ooops you have not any site Worker yet
                         </p>
                         <button
                             className='bg-color-blue-1 text-white flex gap-2 items-center rounded-lg justify-self-center py-4 px-16 text-[1.6rem]'
-                            onClick={addEstateStaff}
+                            onClick={addSiteWorker}
                         >
                             <span>
                                 <IoMdAdd />
                             </span>{' '}
-                            Add Estate Staff
+                            Add Site Worker
                         </button>
                     </section>
                 </div>
@@ -501,4 +501,4 @@ const EstateStaff = () => {
     )
 }
 
-export default EstateStaff
+export default SiteWorker
