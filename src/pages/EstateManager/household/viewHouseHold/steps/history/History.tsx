@@ -1,6 +1,8 @@
 import React, { createContext, Fragment, useRef, useState } from 'react'
 import { IoMdClose } from 'react-icons/io'
+import AccessCardList from './AccessCard'
 import Resident from './Resident'
+import RFIDList from './RFID'
 
 function History() {
     type labelKeys = 'resident' | 'access Card' | 'RFID (Car Sticker)'
@@ -11,6 +13,8 @@ function History() {
 
     const handlePathSwitch = new Map<labelKeys, JSX.Element>([
         ['resident', <Resident />],
+        ['RFID (Car Sticker)', <RFIDList/>],
+        ['access Card', <AccessCardList/>]
     ])
 
     return (
