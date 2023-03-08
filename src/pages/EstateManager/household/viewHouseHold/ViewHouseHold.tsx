@@ -6,7 +6,7 @@ import Payments from './steps/Payments'
 import PropertyDetails from './steps/PropertyDetails'
 import ResidentList from './steps/ResidentList'
 import RFIDList from './steps/RFIDList'
-
+import History from './steps/history/History'
 
 interface ViewHouseHoldContext {
     closeDialog: () => void
