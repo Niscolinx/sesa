@@ -191,7 +191,6 @@ const EstateStaff = () => {
     }
 
     const handleAddSecurityGuard = () => {
-        console.log('add estate Staff')
 
         navigate(`/securityCompany/security-guard/addSecurity`)
     }
@@ -247,7 +246,7 @@ const EstateStaff = () => {
 
                             <div className='grid'>
                                 <div
-                                    className='grid justify-between text-color-dark-1 bg-gray-100 p-8 grid-cols-7 gap-8'
+                                    className='grid justify-between text-color-dark-1 bg-gray-100 p-8 grid-cols-7 gap-8 capitalize'
                                     style={{
                                         fontSize: '1.6rem',
                                     }}
@@ -257,11 +256,11 @@ const EstateStaff = () => {
                                             type='checkbox'
                                             className='cursor-pointer'
                                         />
-                                        <p>Guard Code</p>
+                                        <p>Staff Code</p>
                                     </p>
-                                    <p>Guard Name</p>
+                                    <p>Staff Name</p>
                                     <p>Phone Number</p>
-                                    <p>Assigned Estate</p>
+                                    <p>Work Days</p>
                                     <p>Status</p>
                                     <p>KYG</p>
                                     <p>Action </p>
