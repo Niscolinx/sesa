@@ -252,7 +252,6 @@ const SecurityGuard = () => {
                                     </p>
                                     <p>Guard Name</p>
                                     <p>Phone Number</p>
-                                 
                                     <p>Status</p>
                                     <p>KYR</p>
                                     <p>Action </p>
@@ -263,14 +262,11 @@ const SecurityGuard = () => {
                                         React.Children.toArray(
                                             slicedPages[paginate.index].map(
                                                 ({
+                                                    id,
                                                     guardCode,
                                                     guardName,
-                                                    workDays,
                                                     kys,
                                                     status,
-                                                    id,
-                                                    workLocation,
-                                                    workPeriod,
                                                     phoneNumber,
                                                 }) => {
                                                     const {
