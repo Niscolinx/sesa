@@ -92,7 +92,7 @@ function Payments() {
                         <div className='w-full flex items-center' >
 
                         <img src='/img/check_circle.svg' alt='' />
-                        <span className='w-full h-[0.15rem] bg-color-blue-1' > </span>
+                        <hr className='w-full h-[0.15rem] bg-color-blue-1'/>  
                         </div>
                         <img src='/img/check_circle.svg' alt='' />
                         <img src='/img/check_empty.svg' alt='' />
