@@ -593,17 +593,23 @@ const AddEstateStaff = () => {
                                 </button>
                             </div>
                         ) : (
-                            <div className='flex justify-between text-[1.6rem]'>
-                                <p
-                                    className='text-[#098DFF] cursor-pointer'
-                                    onClick={() => handleOpen('validate')}
-                                    style={{
-                                        fontFamily: 'Satoshi-Medium',
-                                    }}
-                                >
-                                    Click here to validate this person
-                                </p>
-                            </div>
+                            <>
+                                {iskyg && (
+                                    <div className='flex justify-between text-[1.6rem]'>
+                                        <p
+                                            className='text-[#098DFF] cursor-pointer'
+                                            onClick={() =>
+                                                handleOpen('validate')
+                                            }
+                                            style={{
+                                                fontFamily: 'Satoshi-Medium',
+                                            }}
+                                        >
+                                            Click here to validate this person
+                                        </p>
+                                    </div>
+                                )}
+                            </>
                         )}
                     </div>
                     <button
