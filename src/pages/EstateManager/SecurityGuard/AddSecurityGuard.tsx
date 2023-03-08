@@ -9,7 +9,6 @@ import {
     OpenedBankAccountSuccessful,
 } from './DialogSteps'
 import {
-    MultipleSelect,
     Select,
 } from '../../../components/SuperAdmin/UI/Select'
 import { getPhotoUrl } from '../../../utils/getPhotoUrl'
@@ -54,7 +53,6 @@ const AddSecurityGuard = () => {
     const [workDays, setWorkDays] = useState<string[]>([])
     const [isValidated, setIsValidated] = useState(false)
     const [iskysw, setIskysw] = useState(false)
-const [propertyCode, setPropertyCode] = useState<string | null>(null)
 
     const toggleIskysw = () => setIskysw(!iskysw)
     const [selectedState, setSelectedState] = useState<string | null>(null)
