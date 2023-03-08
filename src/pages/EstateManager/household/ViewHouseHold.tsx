@@ -21,63 +21,17 @@ function ViewHouseHold() {
                 </div>
             </div>
             <div className='mt-20'>
-                <h2>Validation Result</h2>
-
-                <div className='border grid mt-5'>
-                    <div className='grid grid-cols-2 border-b gap-4'>
+                <div className='border grid mt-5 border-black'>
+                    <div className='grid grid-cols-2 border-b border-b-black gap-4'>
                         <p
-                            className='border-r py-4 pl-4 text-gray-700'
+                            className='border-r py-4 pl-4 text-gray-700 border-r-black'
                             style={{
                                 fontFamily: 'Satoshi-Light',
                             }}
                         >
-                            Validation Option
+                            Estate
                         </p>
-                        <p className='py-4'>Phone Number | (+234) 813238432</p>
-                    </div>
-                    <div className='grid grid-cols-2 border-b gap-4'>
-                        <p
-                            className='border-r py-4 pl-4 text-gray-700'
-                            style={{
-                                fontFamily: 'Satoshi-Light',
-                            }}
-                        >
-                            Full Name
-                        </p>
-                        <p className='py-4'>Michael Okonkwo</p>
-                    </div>
-                    <div className='grid grid-cols-2 border-b gap-4'>
-                        <p
-                            className='border-r py-4 pl-4 text-gray-700'
-                            style={{
-                                fontFamily: 'Satoshi-Light',
-                            }}
-                        >
-                            Date of Birth
-                        </p>
-                        <p className='py-4'>15 May, 1998</p>
-                    </div>
-                    <div className='grid grid-cols-2 border-b gap-4'>
-                        <p
-                            className='border-r py-4 pl-4 text-gray-700'
-                            style={{
-                                fontFamily: 'Satoshi-Light',
-                            }}
-                        >
-                            Phone Number
-                        </p>
-                        <p className='py-4'> (+234) 813238432</p>
-                    </div>
-                    <div className='grid grid-cols-2  gap-4'>
-                        <p
-                            className='border-r py-4 pl-4 text-gray-700'
-                            style={{
-                                fontFamily: 'Satoshi-Light',
-                            }}
-                        >
-                            Gender
-                        </p>
-                        <p className='py-4'>Male</p>
+                        <p className='py-4'>Sandfill</p>
                     </div>
                 </div>
             </div>
