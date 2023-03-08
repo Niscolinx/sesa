@@ -480,13 +480,10 @@ const AddEstateStaff = () => {
                             label='Work Day'
                             selectFrom={['Mon', 'Tue', 'Wed', 'Thur', 'Fri']}
                             placeholder='Select State'
-                            selectedState={workDays}
-                            setSelectedState={setWorkDays}
+                            selected={workDays}
+                            setSelected={setWorkDays}
                         />
-                        <MultipleSelect selectFrom={['sdfs','sfsdf']} selected={[]} setSelected={function (value: React.SetStateAction<string[]>): void {
-                            throw new Error('Function not implemented.')
-                        } } label={''}/>
-
+                       
                         <div className='col-span-full rounded-lg border border-width-[.2rem] border-dashed border-color-grey-1 p-8 text-[1.6rem] relative w-full'>
                             <label
                                 htmlFor='photoUpload'
