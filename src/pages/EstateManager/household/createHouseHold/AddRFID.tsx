@@ -292,46 +292,56 @@ function AddRFID() {
 
                 <section>
                     <p className='font-Satoshi-Medium'>RFID Details</p>
-                    <div className='grid relative border-b pb-4'>
-                        <img
-                            src='/img/closeIcon.svg'
-                            alt=''
-                            className='self-end justify-self-end cursor-pointer'
-                        />
-                        <div className='flex gap-16 items-center pb-8'>
-                            <img
-                                src={photoUrl || '/img/avatar11.png'}
-                                alt='photoPreview'
-                                className='object-cover w-[11rem] h-[11rem] rounded-full'
-                            />
-                            <div className='grid gap-4 min-w-[70rem]'>
-                                <div className='grid grid-cols-2 items-center justify-start '>
-                                    <p className='font-Satoshi-Light'>
-                                        RFID Serial Number :
-                                    </p>
-                                    <p>Adiyan Police Station</p>
+                    
+                    {
+                        RFID_Details.map((item, idx) => {
+                            return (
+                                <div className='grid relative border-b pb-4' key={idx}>
+                                    <img
+                                        src='/img/closeIcon.svg'
+                                        alt=''
+                                        className='self-end justify-self-end cursor-pointer'
+                                    />
+                                    <div className='flex gap-16 items-center pb-8'>
+                                        <img
+                                            src={
+                                                photoUrl || '/img/avatar11.png'
+                                            }
+                                            alt='photoPreview'
+                                            className='object-cover w-[11rem] h-[11rem] rounded-full'
+                                        />
+                                        <div className='grid gap-4 min-w-[70rem]'>
+                                            <div className='grid grid-cols-2 items-center justify-start '>
+                                                <p className='font-Satoshi-Light'>
+                                                    RFID Serial Number :
+                                                </p>
+                                                <p>Adiyan Police Station</p>
+                                            </div>
+                                            <div className='grid grid-cols-2 items-center justify-start '>
+                                                <p className='font-Satoshi-Light'>
+                                                    Vehicle Registration Number
+                                                    :
+                                                </p>
+                                                <p>Adiyan@gmail.com</p>
+                                            </div>
+                                            <div className='grid grid-cols-2 items-center justify-start '>
+                                                <p className='font-Satoshi-Light'>
+                                                    Vehicle Type :
+                                                </p>
+                                                <p>Felix Drive, Lekki Lagos</p>
+                                            </div>
+                                            <div className='grid grid-cols-2 items-center justify-start '>
+                                                <p className='font-Satoshi-Light'>
+                                                    Vehicle Make :
+                                                </p>
+                                                <p>Felix Drive, Lekki Lagos</p>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div className='grid grid-cols-2 items-center justify-start '>
-                                    <p className='font-Satoshi-Light'>
-                                        Vehicle Registration Number :
-                                    </p>
-                                    <p>Adiyan@gmail.com</p>
-                                </div>
-                                <div className='grid grid-cols-2 items-center justify-start '>
-                                    <p className='font-Satoshi-Light'>
-                                        Vehicle Type :
-                                    </p>
-                                    <p>Felix Drive, Lekki Lagos</p>
-                                </div>
-                                <div className='grid grid-cols-2 items-center justify-start '>
-                                    <p className='font-Satoshi-Light'>
-                                        Vehicle Make :
-                                    </p>
-                                    <p>Felix Drive, Lekki Lagos</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                            )
+                        })
+                    }
                 </section>
             </div>
         </>
