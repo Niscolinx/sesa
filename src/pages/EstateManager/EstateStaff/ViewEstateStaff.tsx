@@ -3,23 +3,20 @@ import { IoMdAdd, IoMdClose } from 'react-icons/io'
 import { BsQuestionCircle } from 'react-icons/bs'
 import { toast, ToastContainer } from 'react-toastify'
 
-
 import {
     MultipleSelect,
     Select,
 } from '../../../components/SuperAdmin/UI/Select'
 import { getPhotoUrl } from '../../../utils/getPhotoUrl'
 
-
 type Actions = 'Deactivate' | 'Delete'
-
 
 const ViewEstateStaff = () => {
     const [workDays, setWorkDays] = useState<string[]>([])
+    const [isValidated, setIsValidated] = useState(false)
 
     const [selectedState, setSelectedState] = useState<string | null>(null)
     const [selectedGender, setSelectedGender] = useState<string | null>(null)
-  
 
     const [photoUrl, setPhotoUrl] = useState('')
 
@@ -34,81 +31,63 @@ const ViewEstateStaff = () => {
         e.preventDefault()
     }
 
-    
+    const validatedDialogRef = useRef<HTMLDialogElement | null>(null)
+    const dialogRef = useRef<HTMLDialogElement | null>(null)
+    const [dialogType, setDialogType] = useState<Actions>('Deactivate')
 
-   const assignGuardRef = useRef<HTMLDialogElement | null>(null)
-   const validatedDialogRef = useRef<HTMLDialogElement | null>(null)
-   const dialogRef = useRef<HTMLDialogElement | null>(null)
-   const [dialogType, setDialogType] = useState<Actions>('Deactivate')
+    const closeValidatedDialog = () => {
+        if (validatedDialogRef.current) {
+            validatedDialogRef.current.close()
+        }
+    }
+    const openValidatedDialog = () => {
+        if (validatedDialogRef.current) {
+            validatedDialogRef.current.showModal()
+        }
+    }
 
-   const closeAssignGuardDialog = () => {
-       if (assignGuardRef.current) {
-           assignGuardRef.current.close()
-       }
-   }
+    const openDeleteOrDeactivateDialog = (dialogType: Actions) => {
+        if (dialogType === 'Deactivate') {
+            setDialogType('Deactivate')
+        }
+        if (dialogType === 'Delete') {
+            setDialogType('Delete')
+        }
 
-   const openAssignGuardDialog = () => {
-       if (assignGuardRef.current) {
-           assignGuardRef.current.showModal()
-       }
-   }
+        if (dialogRef.current) {
+            dialogRef.current.showModal()
+        }
+    }
 
-   const closeValidatedDialog = () => {
-       if (validatedDialogRef.current) {
-           validatedDialogRef.current.close()
-       }
-   }
-   const openValidatedDialog = () => {
-       if (validatedDialogRef.current) {
-           validatedDialogRef.current.showModal()
-       }
-   }
+    const handleCloseDeleteOrDeactivateDialog = () => {
+        if (dialogRef.current) {
+            dialogRef.current.close()
+        }
+    }
 
-   const openDeleteOrDeactivateDialog = (dialogType: Actions) => {
-       if (dialogType === 'Deactivate') {
-           setDialogType('Deactivate')
-       }
-       if (dialogType === 'Delete') {
-           setDialogType('Delete')
-       }
+    const handleReAssign = () => {
+        toast(' Reassigned successfully', {
+            type: 'success',
+            className: 'bg-green-100 text-green-600 text-[1.4rem]',
+        })
+    }
 
-       if (dialogRef.current) {
-           dialogRef.current.showModal()
-       }
-   }
+    const handleDeleteSecurityGuard = () => {
+        handleCloseDeleteOrDeactivateDialog()
 
-   const handleCloseDeleteOrDeactivateDialog = () => {
-       if (dialogRef.current) {
-           dialogRef.current.close()
-       }
-   }
+        toast('Security Guard deleted successfully', {
+            type: 'error',
+            className: 'bg-red-100 text-red-600 text-[1.4rem]',
+        })
+    }
+    const handleDeactivateSecurityGuard = () => {
+        handleCloseDeleteOrDeactivateDialog()
 
-   const handleReAssign = () => {
-       closeAssignGuardDialog()
-
-       toast(' Reassigned successfully', {
-           type: 'success',
-           className: 'bg-green-100 text-green-600 text-[1.4rem]',
-       })
-   }
-
-   const handleDeleteSecurityGuard = () => {
-       handleCloseDeleteOrDeactivateDialog()
-
-       toast('Security Guard deleted successfully', {
-           type: 'error',
-           className: 'bg-red-100 text-red-600 text-[1.4rem]',
-       })
-   }
-   const handleDeactivateSecurityGuard = () => {
-       handleCloseDeleteOrDeactivateDialog()
-
-       toast('Security Guard deactivated successfully', {
-           type: 'error',
-           className: 'bg-red-100 text-red-600 text-[1.4rem]',
-       })
-   }
-
+        toast('Security Guard deactivated successfully', {
+            type: 'error',
+            className: 'bg-red-100 text-red-600 text-[1.4rem]',
+        })
+    }
 
     return (
         <>
@@ -567,18 +546,17 @@ const ViewEstateStaff = () => {
                         </div>
                     </form>
                 </section>
-                   
-                    <button
-                        className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg mt-32'
-                        style={{ justifySelf: 'start' }}
-                       // onClick={viewEstateStaffHandler}
-                    >
-                        <span>
-                            <IoMdAdd />
-                        </span>{' '}
-                        Add Staff
-                    </button>
-             
+
+                <button
+                    className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg mt-32'
+                    style={{ justifySelf: 'start' }}
+                    // onClick={viewEstateStaffHandler}
+                >
+                    <span>
+                        <IoMdAdd />
+                    </span>{' '}
+                    Add Staff
+                </button>
             </main>
         </>
     )
