@@ -78,20 +78,23 @@ function Payments() {
                             <p className='text-green-600'>Active</p>
                         </div>
                     </div>
-                    
                 </section>
 
-                <section className='mt-[5rem]'>
+                <section className='mt-[5rem] w-[70rem]'>
                     <p className='flex items-center gap-2'>
-                        <span className='font-Satoshi-Medium'>Payment Status: </span> <span>Installments(5)</span>
+                        <span className='font-Satoshi-Medium'>
+                            Payment Status:{' '}
+                        </span>{' '}
+                        <span>Installments(5)</span>
                     </p>
 
-                    <div className='flex items-center steps'>
-                        <img src="/img/check_circle.svg" alt=""  />
-                        <img src="/img/check_circle.svg" alt="" />
-                        <img src="/img/check_empty.svg" alt="" />
-                        <img src="/img/check_empty.svg" alt="" />
-                        <img src="/img/check_empty.svg" alt="" />
+                    <div className='flex items-center w-full justify-between'>
+                        <img src='/img/check_circle.svg' alt='' />
+                        <hr className='w-[1rem] h-full' />
+                        <img src='/img/check_circle.svg' alt='' />
+                        <img src='/img/check_empty.svg' alt='' />
+                        <img src='/img/check_empty.svg' alt='' />
+                        <img src='/img/check_empty.svg' alt='' />
                     </div>
                 </section>
             </div>
