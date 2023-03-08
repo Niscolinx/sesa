@@ -238,7 +238,7 @@ function Artisan() {
     return (
         <>
             <ToastContainer />
-            <dialog className='dialog' ref={dialogRef}>
+            {/* <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
                         {dialogType === 'Deactivate' ? (
@@ -295,7 +295,7 @@ function Artisan() {
                         )}
                     </div>
                 </section>
-            </dialog>
+            </dialog> */}
             <div className='rounded-lg mt-[3rem] h-[80vh]'>
                 {artisan ? (
                     <>
