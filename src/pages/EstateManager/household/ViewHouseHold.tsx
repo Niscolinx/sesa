@@ -69,7 +69,7 @@ function ViewHouseHold() {
             </dialog>
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
-                    <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
+                    <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[80%] h-[30rem] gap-8'>
                         <div
                             className='estateDetail__radioBox'
                             style={{
@@ -233,7 +233,9 @@ function ViewHouseHold() {
                         </div>
                     </div>
                 </div>
-                <button className='border-none outline-none text-color-blue-1 mt-16'>
+                <button className='border-none outline-none text-color-blue-1 mt-16' onClick={
+                  handleOpen
+                }>
                     Show more details
                 </button>
             </div>
