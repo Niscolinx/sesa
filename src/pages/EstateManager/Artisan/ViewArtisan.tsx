@@ -325,7 +325,7 @@ const ViewArtisan = () => {
                             <p
                                 className='text-[1.4rem] font-medium'
                             >
-                                Status
+                                Rating
                             </p>
                             <StarRating starsNum={3} />
                         </div>
