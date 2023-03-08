@@ -8,7 +8,10 @@ import {
     AddedEstateStaffSuccessfully,
     OpenedBankAccountSuccessful,
 } from './DialogSteps'
-import { MultipleSelect, Select } from '../../../components/SuperAdmin/UI/Select'
+import {
+    MultipleSelect,
+    Select,
+} from '../../../components/SuperAdmin/UI/Select'
 import { getPhotoUrl } from '../../../utils/getPhotoUrl'
 import {
     BVN_Number,
@@ -479,11 +482,31 @@ const AddEstateStaff = () => {
                         <MultipleSelect
                             label='Work Day'
                             selectFrom={['Mon', 'Tue', 'Wed', 'Thur', 'Fri']}
-                            placeholder='Select State'
+                            placeholder='Select Work days'
                             selected={workDays}
                             setSelected={setWorkDays}
                         />
-                       
+
+                        <div className='col-span-full'>
+                            <label
+                                htmlFor='address'
+                                className='flex mb-2 gap-4 items-center cursor-pointer'
+                            >
+                                Security Guard Message
+                            </label>
+
+                            <textarea
+                                name='address'
+                                id='address'
+                                placeholder='This message will be displayed to the security guard when the site worker checks in / out'
+                                rows={4}
+                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                            />
+                            <p className='text-gray-400 text-[1.4rem]'>
+                                Maximum of 30 characters
+                            </p>
+                        </div>
+
                         <div className='col-span-full rounded-lg border border-width-[.2rem] border-dashed border-color-grey-1 p-8 text-[1.6rem] relative w-full'>
                             <label
                                 htmlFor='photoUpload'
@@ -499,7 +522,7 @@ const AddEstateStaff = () => {
                                         fontFamily: 'Satoshi-Light',
                                     }}
                                 >
-                                    Drag EstateStaff Guard picture here or{' '}
+                                    picture here
                                     <span className='text-color-blue font-bold'>
                                         click
                                     </span>{' '}
