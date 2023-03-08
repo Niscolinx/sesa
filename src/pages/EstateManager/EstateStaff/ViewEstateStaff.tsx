@@ -321,10 +321,10 @@ const ViewEstateStaff = () => {
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] min-h-[30rem] gap-8 p-10'>
                         {bankDialogState === 'generateId' ? (
-                            <div className='bg-white rounded-2xl grid place-content-center justify-items-center h-[30rem] gap-8 text-[1.6rem]'>
-                                <img src='/img/new_id.png' alt='' />
+                            <div className='bg-white rounded-2xl grid place-content-center justify-items-center  gap-8 text-[1.6rem]'>
+                                <img src='/img/new_Id.svg' alt='' />
                                 <button
-                                    className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg mt-[5rem]'
+                                    className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg w-[15rem]'
                                 >
                                    Print
                                 </button>
