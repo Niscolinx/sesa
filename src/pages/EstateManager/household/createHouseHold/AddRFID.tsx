@@ -40,7 +40,7 @@ function AddRFID() {
         }
 
         console.log({ details })
-        //  RFID_Details.push(details)
+        RFID_Details.push(details)
         setRFID(0)
         setVehicleMake('')
         setVehicleRegNumber(0)
@@ -171,7 +171,11 @@ function AddRFID() {
                                     required
                                     id='RFID'
                                     name='RFID'
-                                    value={RFID}
+                                    value={
+                                        RFID <= 0
+                                            ? ''
+                                            : RFID
+                                    }
                                     onChange={(e) =>
                                         setRFID(
                                             e.target.value as unknown as number
@@ -192,7 +196,11 @@ function AddRFID() {
                                     required
                                     id='vehicleRegNumber'
                                     name='vehicleRegNumber'
-                                    value={vehicleRegNumber}
+                                    value={
+                                        vehicleRegNumber <= 0
+                                            ? ''
+                                            : vehicleRegNumber
+                                    }
                                     onChange={(e) =>
                                         setVehicleRegNumber(
                                             e.target.value as unknown as number
