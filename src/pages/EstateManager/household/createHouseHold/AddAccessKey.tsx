@@ -228,7 +228,7 @@ function AddAccessKey() {
                 <section>
                     {accessCardNumber_Details.length > 0 && (
                         <p className='font-Satoshi-Medium'>
-                            accessCardNumber Details
+                            Access Card Details
                         </p>
                     )}
 
