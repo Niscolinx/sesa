@@ -110,8 +110,6 @@ function CreateHousehold() {
         dialogRef.current?.showModal()
     }
 
- 
-
     return (
         <>
             <dialog className='dialog' ref={dialogRef}>
@@ -128,7 +126,10 @@ function CreateHousehold() {
                         <p>You have successfully added an Property</p>
 
                         <div className='flex w-full justify-center gap-8'>
-                            <button className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'>
+                            <button
+                                className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
+                                onClick={() => handleClose()}
+                            >
                                 View details
                             </button>
                             <button
