@@ -81,10 +81,15 @@ function Payments() {
                     
                 </section>
 
-                <section>
+                <section className='mt-[5rem]'>
                     <p className='flex items-center gap-2'>
                         <span className='font-Satoshi-Medium'>Payment Status: </span> <span>Installments(5)</span>
                     </p>
+
+                    <div>
+
+                        <img src="/img/check_circle.svg" alt="" />
+                    </div>
                 </section>
             </div>
         </div>
