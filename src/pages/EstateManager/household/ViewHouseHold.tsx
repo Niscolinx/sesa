@@ -167,6 +167,9 @@ function ViewHouseHold() {
                         </div>
                     </div>
                 </div>
+                <button className='border-none outline-none text-color-blue-1 mt-16'>
+                  Show more details
+                </button>
             </div>
         </>
     )
