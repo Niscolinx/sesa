@@ -21,7 +21,8 @@ function ViewHouseHold() {
     ])
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
-    const [pathToSwitch, setPathToSwitch] = useState<labelKeys>('Property Details')
+    const [pathToSwitch, setPathToSwitch] =
+        useState<labelKeys>('Property Details')
 
     const handleClose = () => {
         dialogRef.current?.close()
@@ -76,11 +77,17 @@ function ViewHouseHold() {
                 </section>
             </dialog>
             <dialog className='dialog' ref={dialogRef}>
-                <section className=' w-full h-[90vh] bg-white rounded-2xl p-16'>
+                <section className=' w-full h-[90vh] bg-white rounded-2xl p-16 overflow-hidden'>
                     <p className='font-Satoshi-Medium text-[2rem] mb-10'>
                         HouseHold Details
                     </p>
-                    <div className='estateDetail__radioBox py-8 bg-[#EDEDFC]'>
+                    <div
+                        className='flex gap-8 py-8 bg-[#EDEDFC]'
+                        style={{
+                            boxShadow: `0 0 0 100vmax #EDEDFC`,
+                            clipPath: `inset(0 -100vmax)`,
+                        }}
+                    >
                         <>
                             {path.map((item) => {
                                 return (
@@ -97,7 +104,7 @@ function ViewHouseHold() {
                                         />
                                         <label
                                             htmlFor={item}
-                                            className='capitalize'
+                                            className={`capitalize cursor-pointer ${item === pathToSwitch ? 'text-color-primary' : ''}`}
                                         >
                                             {item}
                                         </label>
