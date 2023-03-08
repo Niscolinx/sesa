@@ -12,8 +12,8 @@ import { HouseholdContext } from './CreateHousehold'
 
 function AddRFID() {
     interface InputField {
-        RFID: number | undefined
-        vehicleRegNumber: number | null
+        RFID: number
+        vehicleRegNumber: number
         vehicleMake: string
         vehicleType: string | null
         photoUrl: string
@@ -23,10 +23,8 @@ function AddRFID() {
 
     const { vehicleType, setVehicleType } = useContext(HouseholdContext)
     const [photoUrl, setPhotoUrl] = useState('')
-    const [RFID, setRFID] = useState<number | undefined>(undefined)
-    const [vehicleRegNumber, setVehicleRegNumber] = useState<number | null>(
-        null
-    )
+    const [RFID, setRFID] = useState<number>(0)
+    const [vehicleRegNumber, setVehicleRegNumber] = useState<number>(0)
     const [vehicleMake, setVehicleMake] = useState('')
 
     const handleSubmit = (e: FormEvent) => {
@@ -39,14 +37,14 @@ function AddRFID() {
             vehicleRegNumber,
             vehicleType,
             RFID,
-            photoUrl
+            photoUrl,
         }
 
-        console.log({details})
+        console.log({ details })
         //  RFID_Details.push(details)
-        setRFID(undefined)
+        setRFID(0)
         setVehicleMake('')
-        setVehicleRegNumber(null)
+        setVehicleRegNumber(0)
         setVehicleType(null)
         setPhotoUrl('')
     }
@@ -195,7 +193,7 @@ function AddRFID() {
                                     required
                                     id='vehicleRegNumber'
                                     name='vehicleRegNumber'
-                                    value={vehicleRegNumber || 0}
+                                    value={vehicleRegNumber && vehicleRegNumber}
                                     onChange={(e) =>
                                         setVehicleRegNumber(
                                             e.target.value as unknown as number
