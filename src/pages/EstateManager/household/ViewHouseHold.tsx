@@ -1,21 +1,39 @@
-import React, { useRef, useState } from 'react'
+import React, { Fragment, useRef, useState } from 'react'
 
 function ViewHouseHold() {
-   const dialogRef = useRef<HTMLDialogElement | null>(null)
-       const [pathToSwitch, setPathToSwitch] = useState(1)
+    type labelKeys =
+        | 'Property Details'
+        | 'Resident List'
+        | 'Landlord Details'
+        | 'RFID List'
+        | 'Access Card List'
+        | 'Payments'
+        | 'History'
 
+    const [path, setPath] = useState<labelKeys[]>([
+        'Property Details',
+        'Resident List',
+        'Landlord Details',
+        'RFID List',
+        'Access Card List',
+        'Payments',
+        'History']
+    )
 
-   const handleClose = () => {
-       dialogRef.current?.close()
-   }
+    const dialogRef = useRef<HTMLDialogElement | null>(null)
+    const [pathToSwitch, setPathToSwitch] = useState('Property Details')
 
-   const handleOpen = () => {
-       dialogRef.current?.showModal()
-   }
+    const handleClose = () => {
+        dialogRef.current?.close()
+    }
 
-   const handlePathSwitch = new Map<number, JSX.Element>([
-       
-   ])
+    const handleOpen = () => {
+        dialogRef.current?.showModal()
+    }
+
+    const handlePathSwitch = new Map<number, JSX.Element>([
+      
+    ])
     return (
         <>
             <dialog className='dialog' ref={dialogRef}>
@@ -59,26 +77,26 @@ function ViewHouseHold() {
                             }}
                         >
                             <>
-                                {paths.map((item) => {
+                                {path.map((item) => {
                                     return (
-                                        <Fragment key={item.name}>
+                                        <Fragment key={item}>
                                             <input
                                                 type='radio'
                                                 name='household'
-                                                id={item.name}
+                                                id={item}
                                                 checked={
-                                                    item.id === pathToSwitch
+                                                    item === pathToSwitch
                                                 }
                                                 className='hidden'
                                                 onChange={() =>
-                                                    setPathToSwitch(item.id)
+                                                    setPathToSwitch(item)
                                                 }
                                             />
                                             <label
-                                                htmlFor={item.name}
+                                                htmlFor={item}
                                                 className='capitalize'
                                             >
-                                                {item.name}
+                                                {item}
                                             </label>
                                         </Fragment>
                                     )
