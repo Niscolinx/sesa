@@ -214,12 +214,11 @@ function CreateHousehold() {
                         </button>
                         {pathToSwitch === 4 ? (
                             <button
-                                className='flex gap items-center cursor-pointer gap-4 disabled:opacity-50 disabled:cursor-not-allowed'
+                                className=' cursor-pointer bg-color-blue py-4 px-4 text-white gap-4 disabled:opacity-50 disabled:cursor-not-allowed'
                                 disabled={disabled}
                                 onClick={() => handleSubmit()}
                             >
-                                {' '}
-                                <span className=''>Create Household</span>
+                              Create Household
                             </button>
                         ) : (
                             <button
