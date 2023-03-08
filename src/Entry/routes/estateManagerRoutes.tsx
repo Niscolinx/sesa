@@ -17,6 +17,7 @@ import EditHousehold from '../../pages/EstateManager/household/EditHouseHold/Edi
 import EstateStaff from '../../pages/EstateManager/EstateStaff/EstateStaff'
 import AddEstateStaff from '../../pages/EstateManager/EstateStaff/AddEstateStaff'
 import ViewEstateStaff from '../../pages/EstateManager/EstateStaff/ViewEstateStaff'
+import EditEstateStaff from '../../pages/EstateManager/EstateStaff/EditEstateStaff'
 
 const estateManagerRoutes = (
     <Route path='/estateManager' element={<Dashboard />}>
@@ -38,6 +39,7 @@ const estateManagerRoutes = (
         <Route path='estate-staff' element={<EstateStaff />} />
         <Route path='estate-staff/add' element={<AddEstateStaff />} />
         <Route path='estate-staff/view/:id' element={<ViewEstateStaff />} />
+        <Route path='estate-staff/edit/:id' element={<EditEstateStaff />} />
     </Route>
 )
 
