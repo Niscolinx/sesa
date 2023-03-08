@@ -522,7 +522,7 @@ const AddEstateStaff = () => {
                                         fontFamily: 'Satoshi-Light',
                                     }}
                                 >
-                                    picture here
+                                    picture here{' '}
                                     <span className='text-color-blue font-bold'>
                                         click
                                     </span>{' '}
