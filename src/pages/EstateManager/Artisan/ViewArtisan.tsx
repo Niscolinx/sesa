@@ -209,7 +209,7 @@ const ViewArtisan = () => {
                                 htmlFor='artisanCode'
                                 className='text-[1.4rem] font-medium'
                             >
-                                Artisan Code
+                                Business Name
                             </label>
                             <input
                                 type='text'
@@ -223,7 +223,7 @@ const ViewArtisan = () => {
                                 htmlFor='DateOfBirth'
                                 className='text-[1.4rem] font-medium'
                             >
-                                Date of Birth
+                                Artisan Category
                             </label>
                             <input
                                 type='text'
@@ -305,63 +305,8 @@ const ViewArtisan = () => {
                                 className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                             />
                         </div>
-                        <div className='grid gap-4 relative'>
-                            <label
-                                htmlFor='artisanGroup'
-                                className='text-[1.4rem] font-medium'
-                            >
-                                Artisan Group
-                            </label>
-                            <input
-                                type='text'
-                                required
-                                id='artisanGroup'
-                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                            />
-                        </div>
-
-                        <div className='grid gap-4 relative'>
-                            <label
-                                htmlFor='overallRating'
-                                className='text-[1.4rem] font-medium'
-                            >
-                                Overall Rating
-                            </label>
-                            <input
-                                type='text'
-                                placeholder='Optional'
-                                id='overallRating'
-                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                            />
-                        </div>
-                        <div className='grid gap-4 relative'>
-                            <label
-                                htmlFor='idNumber'
-                                className='text-[1.4rem] font-medium'
-                            >
-                                ID Number
-                            </label>
-                            <input
-                                type='text'
-                                placeholder='Optional'
-                                id='idNumber'
-                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                            />
-                        </div>
-                        <div className='grid gap-4 relative'>
-                            <label
-                                htmlFor='dateOfOnboarding'
-                                className='text-[1.4rem] font-medium'
-                            >
-                                Date of Onboarding
-                            </label>
-                            <input
-                                type='text'
-                                placeholder='Optional'
-                                id='dateOfOnboarding'
-                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                            />
-                        </div>
+                       
+                       
                         <div className='grid gap-4 relative'>
                             <label
                                 htmlFor='status'
@@ -377,21 +322,7 @@ const ViewArtisan = () => {
                                 className='w-full rounded-lg border-none text-[1.6rem] outline-none text-green-500'
                             />
                         </div>
-                        <div className='grid gap-4 relative'>
-                            <label
-                                htmlFor='kya'
-                                className='text-[1.4rem] font-medium'
-                            >
-                                KYA
-                            </label>
-                            <input
-                                type='text'
-                                placeholder='Optional'
-                                id='kya'
-                                value={'Not validated'}
-                                className='w-full rounded-lg border-none text-[1.6rem] outline-none underline text-red-500'
-                            />
-                        </div>
+                        
 
                         <button
                             className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg col-span-full mt-10'
