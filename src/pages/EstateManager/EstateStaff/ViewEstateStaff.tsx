@@ -35,13 +35,14 @@ interface AddedEstateStaffContext {
 export const CreateAddedEstateStaffContext =
     createContext<AddedEstateStaffContext>(null as any)
 
+    type BankDialog = 'generateId' | 'openBank'
 const ViewEstateStaff = () => {
     const [workDays, setWorkDays] = useState<string[]>([])
     const [isValidated, setIsValidated] = useState(true)
     const [isAccountCreated, setIsAccountCreated] = useState(false)
     const [selectedState, setSelectedState] = useState<string | null>(null)
     const [selectedGender, setSelectedGender] = useState<string | null>(null)
-    const [bankDialogState, setBankDialogState] = useState<'generateId' | 'openBank'>('openBank')
+    const [bankDialogState, setBankDialogState] = useState<BankDialog>('openBank')
 
     const [selectedBank, setSelectedBank] = useState<null | string>(null)
     const [addedEstateStaffStep, setAddedEstateStaffStep] =
@@ -112,11 +113,7 @@ const ViewEstateStaff = () => {
         })
     }
 
-    const openBankDialog = () => {
-        if (bankRef.current) {
-            bankRef.current.showModal()
-        }
-    }
+   
 
     const handleClose = () => {
         if (bankRef.current) {
@@ -124,8 +121,18 @@ const ViewEstateStaff = () => {
         }
     }
 
-    const openStaffBankAccount = () => {
-        openBankDialog()
+    const openBankDialog = (bankDialog: BankDialog) => {
+        if(bankDialog === 'openBank'){
+            setBankDialogState('openBank')
+        }
+        if(bankDialog === 'generateId'){
+            setBankDialogState('generateId')
+        }
+   
+       
+        if (bankRef.current) {
+            bankRef.current.showModal()
+        }
     }
 
     const addedEstateStaffSteps = new Map([
@@ -315,9 +322,7 @@ const ViewEstateStaff = () => {
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] min-h-[30rem] gap-8 p-10'>
                         {bankDialogState === 'generateId' ? (
                             <div className='bg-white rounded-2xl grid place-content-center justify-items-center h-[30rem] gap-8 text-[1.6rem]'>
-                                {addedEstateStaffSteps.get(
-                                    addedEstateStaffStep
-                                )}
+                               <img src="/img/new_id.png" alt="" />
                             </div>
                         ) : (
                             <div className='bg-white rounded-2xl grid place-content-center justify-items-center h-[30rem] gap-8 text-[1.6rem]'>
@@ -644,7 +649,7 @@ const ViewEstateStaff = () => {
                                     style={{
                                         fontFamily: 'Satoshi-Medium',
                                     }}
-                                    onClick={openStaffBankAccount}
+                                    onClick={() => openBankDialog('')}
                                 >
                                     Open a bank account
                                 </button>
