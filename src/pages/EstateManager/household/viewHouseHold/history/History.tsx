@@ -2,30 +2,20 @@ import React, { createContext, Fragment, useRef, useState } from 'react'
 import { IoMdClose } from 'react-icons/io'
 
 
-
-function ViewHouseHold() {
+ 
+function History() {
     type labelKeys =
-        | 'Property Details'
-        | 'Resident List'
-        | 'Landlord Details'
-        | 'RFID List'
-        | 'Access Card List'
-        | 'Payments'
-        | 'History'
+        | 'resident' | 'accessCard' | 'RFID'
 
     const [path, setPath] = useState<labelKeys[]>([
-        'Property Details',
-        'Resident List',
-        'Landlord Details',
-        'RFID List',
-        'Access Card List',
-        'Payments',
-        'History',
+        'resident',
+        'accessCard',
+        'RFID'
     ])
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
     const [pathToSwitch, setPathToSwitch] =
-        useState<labelKeys>('Property Details')
+        useState<labelKeys>('resident')
 
     const closeDialog = () => {
         dialogRef.current?.close()
