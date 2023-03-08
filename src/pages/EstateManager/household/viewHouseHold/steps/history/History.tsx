@@ -3,9 +3,9 @@ import { IoMdClose } from 'react-icons/io'
 import Resident from './Resident'
 
 function History() {
-    type labelKeys = 'resident' | 'accessCard' | 'RFID'
+    type labelKeys = 'resident' | 'access Card' | 'RFID (Car Sticker)'
 
-    const path: labelKeys[] = ['resident', 'accessCard', 'RFID']
+    const path: labelKeys[] = ['resident', 'access Card', 'RFID (Car Sticker)']
 
     const [pathToSwitch, setPathToSwitch] = useState<labelKeys>('resident')
 
