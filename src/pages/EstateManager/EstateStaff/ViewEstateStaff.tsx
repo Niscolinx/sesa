@@ -1,26 +1,15 @@
-import React, { createContext, FormEvent, useRef, useState } from 'react'
-import { IoMdAdd, IoMdCheckmarkCircleOutline, IoMdClose } from 'react-icons/io'
+import React, { createContext, useRef, useState } from 'react'
+import { IoMdAdd, IoMdClose } from 'react-icons/io'
 import { BsQuestionCircle } from 'react-icons/bs'
 import { toast, ToastContainer } from 'react-toastify'
 
-import {
-    AddBankAccount,
-    AddedEstateStaffSuccessfully,
-    OpenedBankAccountSuccessful,
-} from './DialogSteps'
+
 import {
     MultipleSelect,
     Select,
 } from '../../../components/SuperAdmin/UI/Select'
 import { getPhotoUrl } from '../../../utils/getPhotoUrl'
-import {
-    BVN_Number,
-    DriversLicence,
-    International_PassPort,
-    NIN_Number,
-    PhoneNumber,
-    Voters_Card,
-} from '../../SecurityCompany/dashboard/company/AddSecurity/Inputs'
+
 
 type DialogType = 'validate' | 'add-estateStaff' | 'reassign'
 
