@@ -1,7 +1,6 @@
 import React, {
     FormEvent,
     useContext,
-    useEffect,
     useRef,
     useState,
 } from 'react'
@@ -172,7 +171,7 @@ function AddRFID() {
                                     required
                                     id='RFID'
                                     name='RFID'
-                                    value={RFID!}
+                                    value={RFID}
                                     onChange={(e) =>
                                         setRFID(
                                             e.target.value as unknown as number
@@ -193,7 +192,7 @@ function AddRFID() {
                                     required
                                     id='vehicleRegNumber'
                                     name='vehicleRegNumber'
-                                    value={vehicleRegNumber && vehicleRegNumber}
+                                    value={vehicleRegNumber}
                                     onChange={(e) =>
                                         setVehicleRegNumber(
                                             e.target.value as unknown as number
