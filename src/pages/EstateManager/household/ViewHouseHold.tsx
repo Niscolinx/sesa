@@ -17,11 +17,11 @@ function ViewHouseHold() {
         'RFID List',
         'Access Card List',
         'Payments',
-        'History']
-    )
+        'History',
+    ])
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
-    const [pathToSwitch, setPathToSwitch] = useState('Property Details')
+    const [pathToSwitch, setPathToSwitch] = useState<labelKeys>('Property Details')
 
     const handleClose = () => {
         dialogRef.current?.close()
@@ -32,7 +32,15 @@ function ViewHouseHold() {
     }
 
     const handlePathSwitch = new Map<labelKeys, JSX.Element>([
-      ['Property Details', <>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur architecto quos odit soluta vero eveniet, iure voluptates aut ea, quod nostrum, rerum deserunt asperiores consequatur. Animi, libero saepe. Amet, harum.</>]
+        [
+            'Property Details',
+            <>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Consectetur architecto quos odit soluta vero eveniet, iure
+                voluptates aut ea, quod nostrum, rerum deserunt asperiores
+                consequatur. Animi, libero saepe. Amet, harum.
+            </>,
+        ],
     ])
     return (
         <>
@@ -69,42 +77,38 @@ function ViewHouseHold() {
             </dialog>
             <dialog className='dialog' ref={dialogRef}>
                 <section className=' w-full h-[90vh] bg-white rounded-2xl p-16'>
-                       
-                        <div
-                            className='estateDetail__radioBox'
-                            style={{
-                                marginTop: '0',
-                            }}
-                        >
-                            <>
-                                {path.map((item) => {
-                                    return (
-                                        <Fragment key={item}>
-                                            <input
-                                                type='radio'
-                                                name='household'
-                                                id={item}
-                                                checked={item === pathToSwitch}
-                                                className='hidden'
-                                                onChange={() =>
-                                                    setPathToSwitch(item)
-                                                }
-                                            />
-                                            <label
-                                                htmlFor={item}
-                                                className='capitalize'
-                                            >
-                                                {item}
-                                            </label>
-                                        </Fragment>
-                                    )
-                                })}
-                            </>
-                        </div>
-                        <section className='bg-color-white rounded-lg mt-[5rem] mb-[10rem] '>
-                            {handlePathSwitch.get(pathToSwitch)}
-                        </section>
-                   
+                    <p className='font-Satoshi-Medium text-[2rem] mb-10'>
+                        HouseHold Details
+                    </p>
+                    <div className='estateDetail__radioBox py-8 bg-[#EDEDFC]'>
+                        <>
+                            {path.map((item) => {
+                                return (
+                                    <Fragment key={item}>
+                                        <input
+                                            type='radio'
+                                            name='household'
+                                            id={item}
+                                            checked={item === pathToSwitch}
+                                            className='hidden'
+                                            onChange={() =>
+                                                setPathToSwitch(item)
+                                            }
+                                        />
+                                        <label
+                                            htmlFor={item}
+                                            className='capitalize'
+                                        >
+                                            {item}
+                                        </label>
+                                    </Fragment>
+                                )
+                            })}
+                        </>
+                    </div>
+                    <section className='bg-color-white rounded-lg mt-[5rem] mb-[10rem] '>
+                        {handlePathSwitch.get(pathToSwitch)}
+                    </section>
                 </section>
             </dialog>
             <div className='bg-white p-16 rounded-lg min-h-[90vh] relative'>
