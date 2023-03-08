@@ -16,27 +16,28 @@ function ViewHouseHold() {
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
                         <img
-                            src='/icons/admins/modalSuccess.svg'
+                            src='/icons/admins/modalWarning.svg'
                             alt=''
                             className='animate__animated animate__pulse'
                             style={{
                                 animationIterationCount: 'infinite',
                             }}
                         />
-                        <p>You have successfully added a Household</p>
-
+                        <p>
+                            Are you sure you want to deactivate this Household ?
+                        </p>
                         <div className='flex w-full justify-center gap-8'>
                             <button
                                 className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
                                 onClick={() => handleClose()}
                             >
-                                View details
+                                Cancel
                             </button>
                             <button
-                                className='bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
+                                className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
                                 onClick={() => handleClose()}
                             >
-                                Ok
+                                Deactivate
                             </button>
                         </div>
                     </div>
@@ -53,7 +54,10 @@ function ViewHouseHold() {
                     </div>
 
                     <div className='flex gap-8'>
-                        <button className='border border-red-600 px-16 py-4 flex items-center  rounded-lg gap-4'>
+                        <button
+                            className='border border-red-600 px-16 py-4 flex items-center  rounded-lg gap-4'
+                            onClick={handleOpen}
+                        >
                             <span className='text-red-600 text-[1.4rem] font-Satoshi-Medium'>
                                 Deactivate
                             </span>
