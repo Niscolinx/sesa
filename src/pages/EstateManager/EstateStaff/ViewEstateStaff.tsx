@@ -97,8 +97,23 @@ const ViewEstateStaff = () => {
         openBankDialog()
     }
 
+
+    const addedEstateStaffSteps = new Map([
+        ['addedEstateStaffSuccessful', <AddedEstateStaffSuccessfully />],
+        ['addBankAccount', <AddBankAccount />],
+        ['openedBankAccountSuccessful', <OpenedBankAccountSuccessful />],
+    ])
+
     return (
-        <>
+         <CreateAddedEstateStaffContext.Provider
+            value={{
+                addedEstateStaffStep,
+                setAddedEstateStaffStep,
+                handleClose,
+                selectedBank,
+                setSelectedBank,
+            }}
+        >
             <ToastContainer />
 
             <dialog className='dialog' ref={validatedDialogRef}>
@@ -249,6 +264,17 @@ const ViewEstateStaff = () => {
                                 </div>
                             </>
                         )}
+                    </div>
+                </section>
+            </dialog>
+            <dialog className='dialog' ref={dialogRef}>
+                <section className='grid place-content-center w-full h-[100vh]'>
+                    <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] min-h-[30rem] gap-8'>
+                        <div className='bg-white rounded-2xl grid place-content-center justify-items-center h-[30rem] gap-8 text-[1.6rem]'>
+                                {addedEstateStaffSteps.get(
+                                    addedEstateStaffStep
+                                )}
+                            </div>
                     </div>
                 </section>
             </dialog>
