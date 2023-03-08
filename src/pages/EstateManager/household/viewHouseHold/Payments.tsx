@@ -89,14 +89,41 @@ function Payments() {
                     </p>
 
                     <div className='grid grid-cols-6 items-center w-full justify-between'>
-                        <div className='w-full flex items-center' >
-
-                        <img src='/img/check_circle.svg' alt='' />
-                        <span className='w-full h-[0.15rem] bg-color-blue-1' > &nbsp; </span>
+                        <div className='w-full flex items-center'>
+                            <img src='/img/check_circle.svg' alt='' />
+                            <span className='w-full h-[0.15rem] bg-color-blue-1'>
+                                {' '}
+                                &nbsp;{' '}
+                            </span>
                         </div>
-                        <img src='/img/check_circle.svg' alt='' />
-                        <img src='/img/check_empty.svg' alt='' />
-                        <img src='/img/check_empty.svg' alt='' />
+                        <div className='w-full flex items-center'>
+                            <img src='/img/check_circle.svg' alt='' />
+                            <span className='w-full h-[0.15rem] bg-color-blue-1'>
+                                {' '}
+                                &nbsp;{' '}
+                            </span>
+                        </div>
+                        <div className='w-full flex items-center'>
+                            <img src='/img/check_empty.svg' alt='' />
+                            <span className='w-full h-[0.15rem] bg-color-blue-1'>
+                                {' '}
+                                &nbsp;{' '}
+                            </span>
+                        </div>
+                        <div className='w-full flex items-center'>
+                            <img src='/img/check_empty.svg' alt='' />
+                            <span className='w-full h-[0.15rem] bg-color-blue-1'>
+                                {' '}
+                                &nbsp;{' '}
+                            </span>
+                        </div>
+                        <div className='w-full flex items-center'>
+                            <img src='/img/check_empty.svg' alt='' />
+                            <span className='w-full h-[0.15rem] bg-color-blue-1'>
+                                {' '}
+                                &nbsp;{' '}
+                            </span>
+                        </div>
                         <img src='/img/check_empty.svg' alt='' />
                     </div>
                 </section>
