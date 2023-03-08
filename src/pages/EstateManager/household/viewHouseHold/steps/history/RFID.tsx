@@ -191,7 +191,7 @@ function RFIDList() {
                                         action
                                     }) => {
                                         return (
-                                            <div className='grid justify-between border-b grid-cols-6 gap-8 py-4 items-center'>
+                                            <div className='grid justify-between border-b grid-cols-6 gap-8 py-4 items-center capitalize'>
                                                 <p>{RFID}</p>
                                                 <p>{vehicleRegNumber}</p>
                                                 <p className='flex items-center gap-4'>

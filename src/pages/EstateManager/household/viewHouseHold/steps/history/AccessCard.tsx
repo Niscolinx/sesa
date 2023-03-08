@@ -167,7 +167,7 @@ function AccessCardList() {
                 </div>
 
                 <div className='grid'>
-                    <div className='grid justify-between text-color-dark-1 bg-gray-100 p-8 grid-cols-3 gap-6 capitalize'>
+                    <div className='grid justify-between text-color-dark-1 bg-gray-100 p-8 grid-cols-5 gap-6 capitalize'>
                         <p>Access Card Seriel Nos.</p>
                         <p>Holder’s Name</p>
                         <p>Phone Number</p>
@@ -189,7 +189,7 @@ function AccessCardList() {
                                         action
                                     }) => {
                                         return (
-                                            <div className='grid justify-between border-b grid-cols-3 gap-8 py-4 items-center'>
+                                            <div className='grid justify-between border-b grid-cols-5 gap-8 py-4 items-center capitalize'>
                                                 <p>{serialNum}</p>
                                                 <p className='flex items-center gap-4'>
                                                     <img
