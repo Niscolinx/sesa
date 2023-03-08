@@ -1,30 +1,21 @@
 import React, { createContext, FormEvent, useRef, useState } from 'react'
 import { IoMdAdd, IoMdCheckmarkCircleOutline, IoMdClose } from 'react-icons/io'
-import { getPhotoUrl } from '../../../../../utils/getPhotoUrl'
 import { BsQuestionCircle } from 'react-icons/bs'
 import { toast, ToastContainer } from 'react-toastify'
-import {
-    ComplexSelect,
-    Select,
-} from '../../../../../components/SuperAdmin/UI/Select'
-import {
-    BVN_Number,
-    DriversLicence,
-    International_PassPort,
-    NIN_Number,
-    PhoneNumber,
-    Voters_Card,
-} from './Inputs'
+
 import {
     AddBankAccount,
-    AddedSecuritySuccessfully,
+    AddedEstateStaffSuccessfully,
     OpenedBankAccountSuccessful,
 } from './DialogSteps'
+import { Select, ComplexSelect } from '../../../components/SuperAdmin/UI/Select'
+import { getPhotoUrl } from '../../../utils/getPhotoUrl'
+import { PhoneNumber, BVN_Number, NIN_Number, DriversLicence, International_PassPort, Voters_Card } from '../../EstateStaffCompany/dashboard/company/AddEstateStaff/Inputs'
 
-type DialogType = 'validate' | 'add-security-guard' | 'reassign'
+type DialogType = 'validate' | 'add-estateStaff' | 'reassign'
 
-export type AddedSecurityGuardSteps =
-    | 'addedSecuritySuccessful'
+export type AddedEstateStaffSteps =
+    | 'addedEstateStaffSuccessful'
     | 'addBankAccount'
     | 'openedBankAccountSuccessful'
 
@@ -36,18 +27,18 @@ export type ValidateInputTypes =
     | 'International Passport'
     | 'Voters Card'
 
-interface AddedSecurityGuardContext {
-    addedSecurityGuardStep: AddedSecurityGuardSteps
-    setAddedSecurityGuardStep: React.Dispatch<
-        React.SetStateAction<AddedSecurityGuardSteps>
+interface AddedEstateStaffContext {
+    addedEstateStaffStep: AddedEstateStaffSteps
+    setAddedEstateStaffStep: React.Dispatch<
+        React.SetStateAction<AddedEstateStaffSteps>
     >
     selectedBank: string | null
     setSelectedBank: React.Dispatch<React.SetStateAction<string | null>>
     handleClose: () => void
 }
 
-export const CreateAddedSecurityGuardContext =
-    createContext<AddedSecurityGuardContext>(null as any)
+export const CreateAddedEstateStaffContext =
+    createContext<AddedEstateStaffContext>(null as any)
 
 const AddEstateStaff = () => {
     const [selectedEstate1, setSelectedEstate1] = useState<string | null>(null)
@@ -70,8 +61,8 @@ const AddEstateStaff = () => {
     >('Phone Number')
 
     const [selectedBank, setSelectedBank] = useState<null | string>(null)
-    const [addedSecurityGuardStep, setAddedSecurityGuardStep] =
-        useState<AddedSecurityGuardSteps>('addedSecuritySuccessful')
+    const [addedEstateStaffStep, setAddedEstateStaffStep] =
+        useState<AddedEstateStaffSteps>('addedEstateStaffSuccessful')
 
     const [photoUrl, setPhotoUrl] = useState('')
 
@@ -110,8 +101,8 @@ const AddEstateStaff = () => {
         if (modalState === 'validate') {
             setDialogState('validate')
         }
-        if (modalState === 'add-security-guard') {
-            setDialogState('add-security-guard')
+        if (modalState === 'add-estateStaff') {
+            setDialogState('add-estateStaff')
         }
         if (modalState === 'reassign') {
             setDialogState('reassign')
@@ -122,9 +113,9 @@ const AddEstateStaff = () => {
         }
     }
 
-    const addSecurityGuardHandler = () => {
-        // navigate('/superAdmin/Security GuardCategory/add')
-        handleOpen('add-security-guard')
+    const addEstateStaffHandler = () => {
+        // navigate('/superAdmin/EstateStaff GuardCategory/add')
+        handleOpen('add-estateStaff')
     }
 
     const handleDialogSubmit = (e: FormEvent) => {
@@ -156,17 +147,17 @@ const AddEstateStaff = () => {
         setIsValidated(true)
     }
 
-    const addedSecurityGuardSteps = new Map([
-        ['addedSecuritySuccessful', <AddedSecuritySuccessfully />],
+    const addedEstateStaffSteps = new Map([
+        ['addedEstateStaffSuccessful', <AddedEstateStaffSuccessfully />],
         ['addBankAccount', <AddBankAccount />],
         ['openedBankAccountSuccessful', <OpenedBankAccountSuccessful />],
     ])
 
     return (
-        <CreateAddedSecurityGuardContext.Provider
+        <CreateAddedEstateStaffContext.Provider
             value={{
-                addedSecurityGuardStep,
-                setAddedSecurityGuardStep,
+                addedEstateStaffStep,
+                setAddedEstateStaffStep,
                 handleClose,
                 selectedBank,
                 setSelectedBank,
@@ -317,10 +308,10 @@ const AddEstateStaff = () => {
                                     Validate
                                 </button>
                             </form>
-                        ) : dialogState === 'add-security-guard' ? (
+                        ) : dialogState === 'add-estateStaff' ? (
                             <div className='bg-white rounded-2xl grid place-content-center justify-items-center h-[30rem] gap-8 text-[1.6rem]'>
-                                {addedSecurityGuardSteps.get(
-                                    addedSecurityGuardStep
+                                {addedEstateStaffSteps.get(
+                                    addedEstateStaffStep
                                 )}
                             </div>
                         ) : (
@@ -332,7 +323,7 @@ const AddEstateStaff = () => {
                                 />
                                 <p className='text-[1.6rem]'>
                                     Are you sure you want to reassign this
-                                    security guard primary estate
+                                    estateStaff guard primary estate
                                 </p>
                                 <div className='flex w-full justify-center gap-8'>
                                     <button
@@ -501,7 +492,7 @@ const AddEstateStaff = () => {
                                         fontFamily: 'Satoshi-Light',
                                     }}
                                 >
-                                    Drag Security Guard picture here or{' '}
+                                    Drag EstateStaff Guard picture here or{' '}
                                     <span className='text-color-blue font-bold'>
                                         click
                                     </span>{' '}
@@ -706,16 +697,16 @@ const AddEstateStaff = () => {
                     <button
                         className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg mt-32'
                         style={{ justifySelf: 'start' }}
-                        onClick={addSecurityGuardHandler}
+                        onClick={addEstateStaffHandler}
                     >
                         <span>
                             <IoMdAdd />
                         </span>{' '}
-                        Add Security Guard
+                        Add EstateStaff Guard
                     </button>
                 </section>
             </main>
-        </CreateAddedSecurityGuardContext.Provider>
+        </CreateAddedEstateStaffContext.Provider>
     )
 }
 
