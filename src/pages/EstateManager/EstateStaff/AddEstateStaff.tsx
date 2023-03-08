@@ -150,9 +150,22 @@ const AddEstateStaff = () => {
     }
 
     const addedEstateStaffSteps = new Map([
-        ['addedEstateStaffSuccessful', <AddedEstateStaffSuccessfully context={CreateAddedEstateStaffContext}/>],
-        ['addBankAccount', <AddBankAccount context={CreateAddedEstateStaffContext}/>],
-        ['openedBankAccountSuccessful', <OpenedBankAccountSuccessful context={CreateAddedEstateStaffContext}/>],
+        [
+            'addedEstateStaffSuccessful',
+            <AddedEstateStaffSuccessfully
+                context={CreateAddedEstateStaffContext}
+            />,
+        ],
+        [
+            'addBankAccount',
+            <AddBankAccount context={CreateAddedEstateStaffContext} />,
+        ],
+        [
+            'openedBankAccountSuccessful',
+            <OpenedBankAccountSuccessful
+                context={CreateAddedEstateStaffContext}
+            />,
+        ],
     ])
 
     return (
@@ -310,37 +323,11 @@ const AddEstateStaff = () => {
                                     Validate
                                 </button>
                             </form>
-                        ) : dialogState === 'add-estateStaff' ? (
+                        ) : (
                             <div className='bg-white rounded-2xl grid place-content-center justify-items-center h-[30rem] gap-8 text-[1.6rem]'>
                                 {addedEstateStaffSteps.get(
                                     addedEstateStaffStep
                                 )}
-                            </div>
-                        ) : (
-                            <div className='bg-white rounded-2xl grid place-content-center justify-items-center h-[30rem] gap-8 text-[1.6rem]'>
-                                {' '}
-                                <img
-                                    src='/icons/admins/modalDeactivate.svg'
-                                    alt=''
-                                />
-                                <p className='text-[1.6rem]'>
-                                    Are you sure you want to reassign this
-                                    estate staff guard primary estate
-                                </p>
-                                <div className='flex w-full justify-center gap-8'>
-                                    <button
-                                        className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
-                                        onClick={() => handleClose()}
-                                    >
-                                        Cancel
-                                    </button>
-                                    <button
-                                        className=' bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
-                                        onClick={handleReAssign}
-                                    >
-                                        Yes
-                                    </button>
-                                </div>
                             </div>
                         )}
                     </div>
