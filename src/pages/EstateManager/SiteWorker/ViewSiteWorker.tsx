@@ -99,7 +99,7 @@ const ViewSiteWorker = () => {
     const handleDeleteStaff = () => {
         handleCloseDeleteOrDeactivateDialog()
 
-        toast('Estate Staff deleted successfully', {
+        toast('Site Worker deleted successfully', {
             type: 'success',
             className: 'bg-green-100 text-green-600 text-[1.4rem]',
         })
@@ -107,7 +107,7 @@ const ViewSiteWorker = () => {
     const handleDeactivateStaff = () => {
         handleCloseDeleteOrDeactivateDialog()
 
-        toast('Estate Staff deactivated successfully', {
+        toast('Site Worker deactivated successfully', {
             type: 'success',
             className: 'bg-green-100 text-green-600 text-[1.4rem]',
         })
@@ -265,7 +265,7 @@ const ViewSiteWorker = () => {
                                 />
                                 <p className='text-[1.6rem]'>
                                     Are you sure you want to deactivate this
-                                    Estate Staff
+                                    Site Worker
                                 </p>
 
                                 <div className='flex w-full justify-center gap-8'>
@@ -292,8 +292,7 @@ const ViewSiteWorker = () => {
                                     alt=''
                                 />
                                 <p className='text-[1.6rem]'>
-                                    Are you sure you want to delete this Estate
-                                    Staff
+                                    Are you sure you want to delete this Site Worker?
                                 </p>
 
                                 <div className='flex w-full justify-center gap-8'>
@@ -356,7 +355,7 @@ const ViewSiteWorker = () => {
                                         Property Code
                                     </p>
                                     <p className='font-[1.6rem] whitespace-nowrap'>
-                                        {propertyCode}
+                                        ThomasEstate/SO-2345CDGK1
                                     </p>
                                 </div>
                                 <div>
@@ -635,13 +634,13 @@ const ViewSiteWorker = () => {
                                 htmlFor='address'
                                 className='flex mb-2 gap-4 items-center cursor-pointer'
                             >
-                                Estate Staff Message
+                                Site Worker Message
                             </label>
 
                             <textarea
                                 name='address'
                                 id='address'
-                                placeholder='This message will be displayed to the estate Staff when the site worker checks in / out'
+                                placeholder='This message will be displayed to the Site Worker when the site worker checks in / out'
                                 rows={4}
                                 className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                             />
