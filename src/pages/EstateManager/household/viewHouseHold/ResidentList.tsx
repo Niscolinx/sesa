@@ -3,21 +3,37 @@ import { CgSpinnerTwo } from 'react-icons/cg'
 import { GrDown } from 'react-icons/gr'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { IoMdAdd } from 'react-icons/io'
-import CompanyOverview from '../../../SecurityCompany/dashboard/company/CompanyOverview'
 
 function ResidentList() {
+
     interface ResidentList {
         resCode: string,
         name: string,
-        
+        gender: string,
+        phoneNo: string,
+        residentCategory: string,
+        tenancyType: string
     }
 
-    const [fetchedCompanyOverviewData, setFetchedCompanyOverviewData] =
-        useState<CompanyOverview[]>([])
+    const RESIDENT_LIST: ResidentList[]  = Array.from({length: 20}, (_, i) => {
+        return {
+            resCode: `R${
+                (Math.random() * 0.1 + 0.9).toFixed(75).split('.')[1]
+            }`,
+            propertyType: Math.random() > 0.5 ? 'duplex' : '1-bedroom',
+            propertyCategory:
+                Math.random() > 0.5 ? 'business/nestle' : 'residential',
+            tenancyType: 'tenant (resident)',
+           
+        }
+    })
+
+    const [fetchedResidentListData, setFetchedResidentListData] =
+        useState<ResidentList[]>([])
 
     useEffect(() => {
         setTimeout(() => {
-            setFetchedCompanyOverviewData(COMPANY_OVERVIEW_DATA)
+            setFetchedResidentListData(COMPANY_OVERVIEW_DATA)
         }, 1000)
     }, [])
 
@@ -26,7 +42,7 @@ function ResidentList() {
         currentPage: number
         itemsPerPage: number
         totalPage: number
-        slicedPages: CompanyOverview[][] | null
+        slicedPages: ResidentList[][] | null
     }
 
     const itemsPerPageArr = [2, 4, 6, 8]
@@ -36,16 +52,16 @@ function ResidentList() {
         index: 0,
         currentPage: 1,
         itemsPerPage: perPage,
-        totalPage: Math.ceil(fetchedCompanyOverviewData.length / perPage),
+        totalPage: Math.ceil(fetchedResidentListData.length / perPage),
         slicedPages: null,
     })
 
     const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
         const item = parseInt(e.target.value)
 
-        const slicedPages: CompanyOverview[][] = []
-        for (let i = 0; i < fetchedCompanyOverviewData.length; i += item) {
-            slicedPages.push(fetchedCompanyOverviewData.slice(i, i + item))
+        const slicedPages: ResidentList[][] = []
+        for (let i = 0; i < fetchedResidentListData.length; i += item) {
+            slicedPages.push(fetchedResidentListData.slice(i, i + item))
         }
 
         setPaginate((prev) => {
@@ -55,20 +71,20 @@ function ResidentList() {
                 index: 0,
                 currentPage: 1,
                 slicedPages,
-                totalPage: Math.ceil(fetchedCompanyOverviewData.length / item),
+                totalPage: Math.ceil(fetchedResidentListData.length / item),
             }
         })
     }
 
     useEffect(() => {
-        const slicedPages: CompanyOverview[][] = []
+        const slicedPages: ResidentList[][] = []
         for (
             let i = 0;
-            i < fetchedCompanyOverviewData.length;
+            i < fetchedResidentListData.length;
             i += paginate.itemsPerPage
         ) {
             slicedPages.push(
-                fetchedCompanyOverviewData.slice(i, i + paginate.itemsPerPage)
+                fetchedResidentListData.slice(i, i + paginate.itemsPerPage)
             )
         }
 
@@ -77,11 +93,11 @@ function ResidentList() {
                 ...prev,
                 slicedPages,
                 totalPage: Math.ceil(
-                    fetchedCompanyOverviewData.length / paginate.itemsPerPage
+                    fetchedResidentListData.length / paginate.itemsPerPage
                 ),
             }
         })
-    }, [fetchedCompanyOverviewData])
+    }, [fetchedResidentListData])
 
     const handleNext = () => {
         console.log(paginate.currentPage, paginate.totalPage)
