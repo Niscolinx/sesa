@@ -16,10 +16,12 @@ function ResidentList() {
         phoneNo: string
         residentCategory: string
         tenancyType: string
+        id: string
     }
 
     const RESIDENT_LIST: ResidentList[] = Array.from({ length: 20 }, (_, i) => {
         return {
+            id: `1 + ${i}`,
             resCode: `R${
                 (Math.random() * 0.1 + 0.9).toFixed(75).split('.')[1]
             }`,
@@ -206,13 +208,7 @@ function ResidentList() {
                             React.Children.toArray(
                                 slicedPages[paginate.index].map(
                                     ({
-                                        guardCode,
-                                        guardName,
-                                        assignedEstate,
-                                        kys,
-                                        status,
-                                        id,
-                                        phoneNumber,
+                                        
                                     }) => {
                                         return (
                                             <div className='grid justify-between border-b grid-cols-6 gap-8 py-4'>
