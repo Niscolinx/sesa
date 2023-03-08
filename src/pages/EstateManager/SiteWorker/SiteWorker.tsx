@@ -7,10 +7,12 @@ import { useNavigate } from 'react-router-dom'
 
 interface SiteWorker {
     id: number
-    staffCode: string
-    staffName: string
+    swCode: string
+    swName: string
     phoneNumber: string
     workDays: string
+    workPeriod: string
+    workLocation: string
     status: 'Active' | 'Inactive'
     kys: 'Validated' | 'Not Validated' | 'Full Match'
 }
@@ -19,11 +21,13 @@ const SITEWORKER: SiteWorker[] = Array.from({
     length: 20,
 }).map((_, i) => ({
     id: i,
-    staffName: 'John Doe',
+    swName: 'John Doe',
     phoneNumber: '+2347024954270',
-    staffCode: `H${(Math.random() * 0.1 + 0.9).toFixed(5).split('.')[1]}`,
+    swCode: `H${(Math.random() * 0.1 + 0.9).toFixed(5).split('.')[1]}`,
     workDays: 'Mon, Tue, Wed',
     status: Math.random() > 0.5 ? 'Active' : 'Inactive',
+    workPeriod: '1/2/23 - 3/4/23',
+    workLocation: 'No 1, Pepsi Street, Pepsi Estate',
     kys: Math.random() > 0.3 ? 'Validated' : 'Not Validated',
 }))
 
@@ -190,7 +194,7 @@ const SiteWorker = () => {
         })
     }
 
-    const handleAddSecurityGuard = () => {
+    const addSiteWorkerHandler = () => {
 
         navigate(`/estateManager/site-worker/add`)
     }
@@ -231,7 +235,7 @@ const SiteWorker = () => {
                                 <div className='ml-auto'>
                                     <button
                                         className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
-                                        onClick={handleAddSecurityGuard}
+                                        onClick={addSiteWorkerHandler}
                                     >
                                         <span>
                                             <IoMdAdd />
@@ -253,13 +257,15 @@ const SiteWorker = () => {
                                             type='checkbox'
                                             className='cursor-pointer'
                                         />
-                                        <p>Staff Code</p>
+                                        <p>Sw Code</p>
                                     </p>
-                                    <p>Staff Name</p>
+                                    <p>Sw Name</p>
                                     <p>Phone Number</p>
                                     <p>Work Days</p>
+                                    <p>Work Period</p>
+                                    <p>Work Location</p>
                                     <p>Status</p>
-                                    <p>KYG</p>
+                                    <p>KYSW</p>
                                     <p>Action </p>
                                 </div>
 
@@ -268,8 +274,8 @@ const SiteWorker = () => {
                                         React.Children.toArray(
                                             slicedPages[paginate.index].map(
                                                 ({
-                                                    staffCode,
-                                                    staffName,
+                                                    swCode,
+                                                    swName,
                                                     workDays,
                                                     kys,
                                                     status,
@@ -290,10 +296,10 @@ const SiteWorker = () => {
                                                                 />
 
                                                                 <span>
-                                                                    {staffCode}
+                                                                    {swCode}
                                                                 </span>
                                                             </p>
-                                                            <p>{staffName}</p>
+                                                            <p>{swName}</p>
                                                             <p>{phoneNumber}</p>
                                                             <p>{workDays}</p>
                                                             <p>
