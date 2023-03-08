@@ -321,8 +321,14 @@ const ViewArtisan = () => {
                                 className='w-full rounded-lg border-none text-[1.6rem] outline-none text-green-500'
                             />
                         </div>
-
-                        <StarRating starsNum={3} />
+                        <div>
+                            <p
+                                className='text-[1.4rem] font-medium'
+                            >
+                                Status
+                            </p>
+                            <StarRating starsNum={3} />
+                        </div>
                     </form>
                 </div>
                 <section>
@@ -500,7 +506,6 @@ const ViewArtisan = () => {
                         </div>
                     </div>
                 </section>
-              
             </div>
         </>
     )
