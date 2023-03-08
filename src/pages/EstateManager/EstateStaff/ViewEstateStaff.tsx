@@ -82,22 +82,82 @@ const ViewEstateStaff = () => {
 
     
 
-    const viewEstateStaffHandler = () => {
-        // navigate('/superAdmin/EstateStaff GuardCategory/add')
-        handleOpen('add-estateStaff')
-    }
+   const assignGuardRef = useRef<HTMLDialogElement | null>(null)
+   const validatedDialogRef = useRef<HTMLDialogElement | null>(null)
+   const dialogRef = useRef<HTMLDialogElement | null>(null)
+   const [dialogType, setDialogType] = useState<Actions>('Deactivate')
+
+   const closeAssignGuardDialog = () => {
+       if (assignGuardRef.current) {
+           assignGuardRef.current.close()
+       }
+   }
+
+   const openAssignGuardDialog = () => {
+       if (assignGuardRef.current) {
+           assignGuardRef.current.showModal()
+       }
+   }
+
+   const closeValidatedDialog = () => {
+       if (validatedDialogRef.current) {
+           validatedDialogRef.current.close()
+       }
+   }
+   const openValidatedDialog = () => {
+       if (validatedDialogRef.current) {
+           validatedDialogRef.current.showModal()
+       }
+   }
+
+   const openDeleteOrDeactivateDialog = (dialogType: Actions) => {
+       if (dialogType === 'Deactivate') {
+           setDialogType('Deactivate')
+       }
+       if (dialogType === 'Delete') {
+           setDialogType('Delete')
+       }
+
+       if (dialogRef.current) {
+           dialogRef.current.showModal()
+       }
+   }
+
+   const handleCloseDeleteOrDeactivateDialog = () => {
+       if (dialogRef.current) {
+           dialogRef.current.close()
+       }
+   }
+
+   const handleReAssign = () => {
+       closeAssignGuardDialog()
+
+       toast(' Reassigned successfully', {
+           type: 'success',
+           className: 'bg-green-100 text-green-600 text-[1.4rem]',
+       })
+   }
+
+   const handleDeleteSecurityGuard = () => {
+       handleCloseDeleteOrDeactivateDialog()
+
+       toast('Security Guard deleted successfully', {
+           type: 'error',
+           className: 'bg-red-100 text-red-600 text-[1.4rem]',
+       })
+   }
+   const handleDeactivateSecurityGuard = () => {
+       handleCloseDeleteOrDeactivateDialog()
+
+       toast('Security Guard deactivated successfully', {
+           type: 'error',
+           className: 'bg-red-100 text-red-600 text-[1.4rem]',
+       })
+   }
 
 
     return (
-        <CreateAddedEstateStaffContext.Provider
-            value={{
-                addedEstateStaffStep,
-                setAddedEstateStaffStep,
-                handleClose,
-                selectedBank,
-                setSelectedBank,
-            }}
-        >
+        <>
             <ToastContainer />
 
             <dialog className='dialog' ref={validatedDialogRef}>
@@ -553,81 +613,20 @@ const ViewEstateStaff = () => {
                         </div>
                     </form>
                 </section>
-                <section className='grid p-8 bg-white'>
-                    <div className='grid gap-8 max-w-[40rem] mt-[5rem] '>
-                        <div className='flex items-center justify-between'>
-                            <p className='text-[2rem] font-bold flex items-center gap-2'>
-                                KYG{' '}
-                                <span className='text-[#043FA7]'>
-                                    <BsQuestionCircle />
-                                </span>
-                            </p>
-                            <div
-                                onClick={toggleIskyg}
-                                className='cursor-pointer'
-                            >
-                                {iskyg ? (
-                                    <img
-                                        src='/icons/admins/switchOn.svg'
-                                        alt=''
-                                    />
-                                ) : (
-                                    <img
-                                        src='/icons/admins/switchOff.svg'
-                                        alt=''
-                                    />
-                                )}
-                            </div>
-                        </div>
-
-                        {isValidated ? (
-                            <div className='flex gap-8 text-[1.6rem]'>
-                                <p className='text-[#098DFF] cursor-pointer flex items-center font-medium'>
-                                    KYG Validated <IoMdCheckmarkCircleOutline />
-                                </p>
-                                <button
-                                    className='text-green-600 flex items-center gap-2'
-                                    style={{
-                                        fontFamily: 'Satoshi-Medium',
-                                    }}
-                                    onClick={() => openValidateDialog()}
-                                >
-                                    View Results <BsQuestionCircle />
-                                </button>
-                            </div>
-                        ) : (
-                            <>
-                                {iskyg && (
-                                    <div className='flex justify-between text-[1.6rem]'>
-                                        <p
-                                            className='text-[#098DFF] cursor-pointer'
-                                            onClick={() =>
-                                                handleOpen('validate')
-                                            }
-                                            style={{
-                                                fontFamily: 'Satoshi-Medium',
-                                            }}
-                                        >
-                                            Click here to validate this person
-                                        </p>
-                                    </div>
-                                )}
-                            </>
-                        )}
-                    </div>
+                   
                     <button
                         className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg mt-32'
                         style={{ justifySelf: 'start' }}
-                        onClick={viewEstateStaffHandler}
+                       // onClick={viewEstateStaffHandler}
                     >
                         <span>
                             <IoMdAdd />
                         </span>{' '}
                         Add Staff
                     </button>
-                </section>
+             
             </main>
-        </CreateAddedEstateStaffContext.Provider>
+        </>
     )
 }
 
