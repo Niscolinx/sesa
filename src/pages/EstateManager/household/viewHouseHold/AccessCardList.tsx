@@ -171,8 +171,7 @@ function AccessCardList() {
                     <div className='grid justify-between text-color-dark-1 bg-gray-100 p-8 grid-cols-4 gap-6 capitalize'>
                         <p>Access Card Seriel Nos.</p>
                         <p>Holder’s Name</p>
-                        <p>Vehicle Make</p>
-                        <p>Vehicle Type</p>
+                        <p>Phone Number</p>
                     </div>
 
                     <div className='grid gap-8 mt-8 p-8'>
