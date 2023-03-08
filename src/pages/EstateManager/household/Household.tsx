@@ -227,13 +227,12 @@ function HouseHold() {
         dialogRef.current?.close()
     }
 
+
     const handleOpen = () => {
         dialogRef.current?.showModal()
     }
 
-    const addPropertyHandler = () => {
-        handleOpen()
-    }
+  
 
     return (
         <>

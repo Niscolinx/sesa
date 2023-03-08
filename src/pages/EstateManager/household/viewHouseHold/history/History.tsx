@@ -4,18 +4,16 @@ import { IoMdClose } from 'react-icons/io'
 
  
 function History() {
-    type labelKeys =
-        | 'resident' | 'accessCard' | 'RFID'
+    type labelKeys = 'resident' | 'accessCard' | 'RFID'
 
     const [path, setPath] = useState<labelKeys[]>([
         'resident',
         'accessCard',
-        'RFID'
+        'RFID',
     ])
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
-    const [pathToSwitch, setPathToSwitch] =
-        useState<labelKeys>('resident')
+    const [pathToSwitch, setPathToSwitch] = useState<labelKeys>('resident')
 
     const closeDialog = () => {
         dialogRef.current?.close()
@@ -24,6 +22,8 @@ function History() {
     const handleOpen = () => {
         dialogRef.current?.showModal()
     }
+
+    
 
     const handlePathSwitch = new Map<labelKeys, JSX.Element>([
         ['Property Details', <PropertyDetails />],
