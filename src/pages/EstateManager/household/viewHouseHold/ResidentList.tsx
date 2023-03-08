@@ -16,6 +16,7 @@ function ResidentList() {
         residentCategory: string
         tenancyType: string
         id: string
+        imgUrl: string
     }
 
     const RESIDENT_LIST: ResidentList[] = Array.from({ length: 20 }, (_, i) => {
@@ -24,6 +25,7 @@ function ResidentList() {
             resCode: `R${
                 (Math.random() * 0.1 + 0.9).toFixed(75).split('.')[1]
             }`,
+            imgUrl: '/img/avatar11.png',
             gender: Math.random() > 0.5 ? 'Male' : 'Female',
             name: 'Darlene Robert',
             phoneNo: '(+234) 9076577689',
@@ -185,10 +187,7 @@ function ResidentList() {
                 </caption>
 
                 <div className='grid'>
-                    <div
-                        className='grid justify-between text-color-dark-1 bg-gray-100 p-8 grid-cols-6 gap-6 capitalize'
-                      
-                    >
+                    <div className='grid justify-between text-color-dark-1 bg-gray-100 p-8 grid-cols-6 gap-6 capitalize'>
                         <p>Res. Code</p>
                         <p>Name</p>
                         <p>Gender</p>
@@ -209,18 +208,20 @@ function ResidentList() {
                                         residentCategory,
                                         phoneNo,
                                         tenancyType,
+                                        imgUrl,
                                     }) => {
                                         return (
                                             <div className='grid justify-between border-b grid-cols-6 gap-8 py-4'>
+                                                <p>{resCode}</p>
                                                 <p className='flex items-center gap-4'>
-                                                    <input
-                                                        type='checkbox'
-                                                        className='cursor-pointer'
+                                                    <img
+                                                        src={imgUrl}
+                                                        alt=''
+                                                        className='w-[3.5rem] h-[h-3.5rem] rounded-full object-cover'
                                                     />
 
-                                                    <span>{guardName}</span>
+                                                    <span>{name}</span>
                                                 </p>
-                                                <p>{guardCode}</p>
                                                 <p>{phoneNumber}</p>
                                                 <p>{assignedEstate}</p>
                                                 <p>
