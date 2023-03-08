@@ -8,14 +8,14 @@ function Payments() {
                     Product Information
                 </p>
                 <section>
-                    <div className='grid grid-cols-2 gap-4'>
-                        <div className='flex items-center gap-4'>
-                            <p className=' py-4  text-gray-700 font-Satoshi-Light '>
+                    <div className='grid grid-cols-2 gap-4 w-[60rem]'>
+                        <div className='grid grid-cols-2 items-center gap-4 justify-start w-[20rem] whitespace-nowrap'>
+                            <p className=' py-4  text-gray-700 font-Satoshi-Light  '>
                                 Product Code:
                             </p>
                             <p className='py-4'>R87231</p>
                         </div>
-                        <div className='flex items-center gap-4'>
+                        <div className='grid grid-cols-2 items-center gap-4 whitespace-nowrap w-[20rem]'>
                             <p className=' py-4  text-gray-700 font-Satoshi-Light '>
                                 Start Date:
                             </p>
