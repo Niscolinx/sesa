@@ -5,10 +5,10 @@ import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { IoMdAdd } from 'react-icons/io'
 import { ViewHouseHoldContext } from '../../ViewHouseHold'
 
-function ResidentList() {
+function Resident() {
     const { closeDialog } = useContext(ViewHouseHoldContext)
 
-    interface ResidentList {
+    interface Resident {
         resCode: string
         name: string
         gender: string
@@ -16,10 +16,12 @@ function ResidentList() {
         residentCategory: string
         tenancyType: string
         id: string
+        date: string
+        action: 'added' | 'removed'
         imgUrl: string
     }
 
-    const RESIDENT_LIST: ResidentList[] = Array.from({ length: 20 }, (_, i) => {
+    const RESIDENT_LIST: Resident[] = Array.from({ length: 20 }, (_, i) => {
         return {
             id: `1 + ${i}`,
             resCode: `R${(Math.random() * 0.1 + 0.9).toFixed(5).split('.')[1]}`,
@@ -29,16 +31,18 @@ function ResidentList() {
             phoneNo: '(+234) 9076577689',
             residentCategory: Math.random() > 0.5 ? 'Resident' : 'Alpha',
             tenancyType: 'tenant (resident)',
+            date: '12th Nov, 2023',
+            action: Math.random() > 0.5 ? 'added' : 'removed',
         }
     })
 
-    const [fetchedResidentListData, setFetchedResidentListData] = useState<
-        ResidentList[]
-    >([])
+    const [fetchedResidentData, setFetchedResidentData] = useState<Resident[]>(
+        []
+    )
 
     useEffect(() => {
         setTimeout(() => {
-            setFetchedResidentListData(RESIDENT_LIST)
+            setFetchedResidentData(RESIDENT_LIST)
         }, 100)
     }, [])
 
@@ -47,7 +51,7 @@ function ResidentList() {
         currentPage: number
         itemsPerPage: number
         totalPage: number
-        slicedPages: ResidentList[][] | null
+        slicedPages: Resident[][] | null
     }
 
     const itemsPerPageArr = [2, 4, 6, 8]
@@ -57,16 +61,16 @@ function ResidentList() {
         index: 0,
         currentPage: 1,
         itemsPerPage: perPage,
-        totalPage: Math.ceil(fetchedResidentListData.length / perPage),
+        totalPage: Math.ceil(fetchedResidentData.length / perPage),
         slicedPages: null,
     })
 
     const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
         const item = parseInt(e.target.value)
 
-        const slicedPages: ResidentList[][] = []
-        for (let i = 0; i < fetchedResidentListData.length; i += item) {
-            slicedPages.push(fetchedResidentListData.slice(i, i + item))
+        const slicedPages: Resident[][] = []
+        for (let i = 0; i < fetchedResidentData.length; i += item) {
+            slicedPages.push(fetchedResidentData.slice(i, i + item))
         }
 
         setPaginate((prev) => {
@@ -76,20 +80,20 @@ function ResidentList() {
                 index: 0,
                 currentPage: 1,
                 slicedPages,
-                totalPage: Math.ceil(fetchedResidentListData.length / item),
+                totalPage: Math.ceil(fetchedResidentData.length / item),
             }
         })
     }
 
     useEffect(() => {
-        const slicedPages: ResidentList[][] = []
+        const slicedPages: Resident[][] = []
         for (
             let i = 0;
-            i < fetchedResidentListData.length;
+            i < fetchedResidentData.length;
             i += paginate.itemsPerPage
         ) {
             slicedPages.push(
-                fetchedResidentListData.slice(i, i + paginate.itemsPerPage)
+                fetchedResidentData.slice(i, i + paginate.itemsPerPage)
             )
         }
 
@@ -98,11 +102,11 @@ function ResidentList() {
                 ...prev,
                 slicedPages,
                 totalPage: Math.ceil(
-                    fetchedResidentListData.length / paginate.itemsPerPage
+                    fetchedResidentData.length / paginate.itemsPerPage
                 ),
             }
         })
-    }, [fetchedResidentListData])
+    }, [fetchedResidentData])
 
     const handleNext = () => {
         console.log(paginate.currentPage, paginate.totalPage)
@@ -175,6 +179,8 @@ function ResidentList() {
                         <p>Phone No.</p>
                         <p>Resident Category</p>
                         <p>Tenancy Type</p>
+                        <p>Date</p>
+                        <p>Action</p>
                     </div>
 
                     <div className='grid gap-8 mt-8 p-8'>
@@ -190,6 +196,8 @@ function ResidentList() {
                                         phoneNo,
                                         tenancyType,
                                         imgUrl,
+                                        date,
+                                        action
                                     }) => {
                                         return (
                                             <div className='grid justify-between border-b grid-cols-6 gap-8 py-4 items-center'>
@@ -288,4 +296,4 @@ function ResidentList() {
     )
 }
 
-export default ResidentList
+export default Resident
