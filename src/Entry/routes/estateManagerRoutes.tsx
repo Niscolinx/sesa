@@ -21,6 +21,7 @@ import EditEstateStaff from '../../pages/EstateManager/EstateStaff/EditEstateSta
 import SiteWorker from '../../pages/EstateManager/SiteWorker/SiteWorker'
 import AddSiteWorker from '../../pages/EstateManager/SiteWorker/AddSiteWorker'
 import ViewSiteWorker from '../../pages/EstateManager/SiteWorker/ViewSiteWorker'
+import EditSiteWorker from '../../pages/EstateManager/SiteWorker/EditSiteWorker'
 
 const estateManagerRoutes = (
     <Route path='/estateManager' element={<Dashboard />}>
@@ -46,7 +47,7 @@ const estateManagerRoutes = (
         <Route path='site-worker' element={<SiteWorker />} />
         <Route path='site-worker/add' element={<AddSiteWorker />} />
         <Route path='site-worker/view/:id' element={<ViewSiteWorker />} />
-        <Route path='site-worker/edit/:id' element={<EditSite />} />
+        <Route path='site-worker/edit/:id' element={<EditSiteWorker />} />
     </Route>
 )
 
