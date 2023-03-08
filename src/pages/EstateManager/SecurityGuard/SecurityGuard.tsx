@@ -252,11 +252,9 @@ const SecurityGuard = () => {
                                     </p>
                                     <p>Guard Name</p>
                                     <p>Phone Number</p>
-                                    <p>Work Days</p>
-                                    <p>Work Period</p>
-                                    <p>Work Location</p>
+                                 
                                     <p>Status</p>
-                                    <p>KYGUARD</p>
+                                    <p>KYR</p>
                                     <p>Action </p>
                                 </div>
 
