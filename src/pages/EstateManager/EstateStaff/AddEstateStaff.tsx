@@ -492,7 +492,7 @@ const AddEstateStaff = () => {
                                 htmlFor='address'
                                 className='flex mb-2 gap-4 items-center cursor-pointer'
                             >
-                                Security Guard Message
+                                Estate Staff Message
                             </label>
 
                             <textarea

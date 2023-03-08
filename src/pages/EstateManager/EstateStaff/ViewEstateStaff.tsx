@@ -214,8 +214,8 @@ const ViewEstateStaff = () => {
                                     alt=''
                                 />
                                 <p className='text-[1.6rem]'>
-                                    Are you sure you want to delete this
-                                    Estate Staff
+                                    Are you sure you want to delete this Estate
+                                    Staff
                                 </p>
 
                                 <div className='flex w-full justify-center gap-8'>
@@ -497,60 +497,21 @@ const ViewEstateStaff = () => {
                                 Maximum of 30 characters
                             </p>
                         </div>
-
-                        <div className='col-span-full rounded-lg border border-width-[.2rem] border-dashed border-color-grey-1 p-8 text-[1.6rem] relative w-full'>
-                            <label
-                                htmlFor='photoUpload'
-                                className='flex justify-center gap-4 items-center cursor-pointer'
-                            >
-                                <img
-                                    src='/icons/admins/photo_library.svg'
-                                    alt=''
-                                />
-                                <p
-                                    className='text-color-dark-1'
-                                    style={{
-                                        fontFamily: 'Satoshi-Light',
-                                    }}
-                                >
-                                    picture here{' '}
-                                    <span className='text-color-blue font-bold'>
-                                        click
-                                    </span>{' '}
-                                    to upload
-                                </p>
-                            </label>
-                            <input
-                                type='file'
-                                name='photoUpload'
-                                id='photoUpload'
-                                accept='image/*'
-                                className='hidden'
-                                onClick={handlePhotoPreview}
-                            />
-
-                            {photoUrl && (
-                                <div className='flex justify-center justify-self-center'>
-                                    <img
-                                        src={photoUrl}
-                                        alt='photoPreview'
-                                        className='object-cover w-[11rem] h-[11rem] rounded-full'
-                                    />
-                                </div>
-                            )}
-                        </div>
                     </form>
                 </section>
 
                 <button
-                    className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg mt-32'
+                    className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg col-span-full mt-10'
                     style={{ justifySelf: 'start' }}
-                    // onClick={viewEstateStaffHandler}
                 >
                     <span>
-                        <IoMdAdd />
+                        <img
+                            src='/icons/admins/saveDisk.svg'
+                            alt=''
+                            className='w-[1.7rem] h-[1.7rem]'
+                        />
                     </span>{' '}
-                    Add Staff
+                    Save Changes
                 </button>
             </main>
         </>
