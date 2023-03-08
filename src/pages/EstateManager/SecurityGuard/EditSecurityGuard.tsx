@@ -292,8 +292,7 @@ const EditEditSecurityGuard = () => {
                                     alt=''
                                 />
                                 <p className='text-[1.6rem]'>
-                                    Are you sure you want to delete this Site
-                                    Worker?
+                                    Are you sure you want to delete this Security Guard?
                                 </p>
 
                                 <div className='flex w-full justify-center gap-8'>
