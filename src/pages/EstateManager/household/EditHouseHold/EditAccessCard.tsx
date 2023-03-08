@@ -1,16 +1,9 @@
-import  {
-    FormEvent,
-    useContext,
-    useEffect,
-    useRef,
-    useState,
-} from 'react'
+import { FormEvent, useContext, useEffect, useRef, useState } from 'react'
 
+import { EditHouseholdContext } from './EditHousehold'
 
-import { HouseholdContext } from './CreateHousehold'
-
-function AddAccessKey() {
-    const { setDisabled } = useContext(HouseholdContext)
+function EditAccessKey() {
+    const { setDisabled } = useContext(EditHouseholdContext)
     interface InputField {
         accessCardNumber: number
         holderName: string
@@ -67,19 +60,10 @@ function AddAccessKey() {
     }
 
     useEffect(() => {
-        const details = {
-            phoneNumber,
-            holderName,
-            accessCardNumber,
-        }
-
-        const isDisabled = Object.values(details).some((item) => {
-            if (item === '' || item === 0) return true
-            return false
-        })
+        const isDisabled = accessCardNumber_Details.length <= 0
 
         setDisabled(isDisabled)
-    }, [phoneNumber, holderName, accessCardNumber])
+    }, [accessCardNumber_Details])
 
     return (
         <>
@@ -295,4 +279,4 @@ function AddAccessKey() {
     )
 }
 
-export default AddAccessKey
+export default EditAccessKey

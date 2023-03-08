@@ -8,27 +8,27 @@ import {
 } from 'react'
 import { TfiArrowCircleLeft, TfiArrowCircleRight } from 'react-icons/tfi'
 
-import AddResident from './AddResident'
-import AddProperty from './AddProperty'
+import EditResident from './EditResident'
+import EditProperty from './EditProperty'
 import { useLocation } from 'react-router'
-import AddRFID from './AddRFID'
-import AddAccessCard from './AddAccessCard'
+import EditRFID from './EditRFID'
+import EditAccessKey from './EditAccessCard'
 
 const paths = [
     {
-        name: 'add Property',
+        name: 'edit Property',
         id: 1,
     },
     {
-        name: 'add resident',
+        name: 'edit resident',
         id: 2,
     },
     {
-        name: 'add RFID',
+        name: 'edit RFID',
         id: 3,
     },
     {
-        name: 'add accessCard',
+        name: 'edit accessCard',
         id: 4,
     },
 ]
@@ -48,8 +48,8 @@ export interface HouseholdContext {
     setAlphaPropertyCode: D
     alphaResident: T
     setAlphaResident: D
-    addResidentUser: { [key: string]: string } | null
-    setAddResidentUser: Dispatch<
+    editResidentUser: { [key: string]: string } | null
+    setEditResidentUser: Dispatch<
         SetStateAction<{
             [key: string]: string
         } | null>
@@ -60,7 +60,7 @@ export interface HouseholdContext {
     setDisabled: Dispatch<SetStateAction<boolean>>
 }
 
-export const HouseholdContext = createContext<HouseholdContext>(null as any)
+export const EditHouseholdContext = createContext<HouseholdContext>(null as any)
 
 function CreateHousehold() {
     const location = useLocation()
@@ -84,15 +84,15 @@ function CreateHousehold() {
         'Osaji Valentine/SE-73'
     )
 
-    const [addResidentUser, setAddResidentUser] = useState<{
+    const [editResidentUser, setEditResidentUser] = useState<{
         [key: string]: string
     } | null>(null)
 
     const handlePathSwitch = new Map<number, JSX.Element>([
-        [1, <AddProperty />],
-        [2, <AddResident />],
-        [3, <AddRFID />],
-        [4, <AddAccessCard />],
+        [1, <EditProperty />],
+        [2, <EditResident />],
+        [3, <EditRFID />],
+        [4, <EditAccessKey />],
     ])
 
     const handleSubmit = () => {
@@ -123,7 +123,7 @@ function CreateHousehold() {
                                 animationIterationCount: 'infinite',
                             }}
                         />
-                        <p>You have successfully added a Household</p>
+                        <p>You have successfully edited a Household</p>
 
                         <div className='flex w-full justify-center gap-8'>
                             <button
@@ -142,7 +142,7 @@ function CreateHousehold() {
                     </div>
                 </section>
             </dialog>
-            <HouseholdContext.Provider
+            <EditHouseholdContext.Provider
                 value={{
                     selectedPropertyCode,
                     setSelectedPropertyCode,
@@ -156,8 +156,8 @@ function CreateHousehold() {
                     setAlphaPropertyCode,
                     alphaResident,
                     setAlphaResident,
-                    addResidentUser,
-                    setAddResidentUser,
+                    editResidentUser,
+                    setEditResidentUser,
                     vehicleType,
                     setVehicleType,
                     disabled,
@@ -218,7 +218,7 @@ function CreateHousehold() {
                                 disabled={disabled}
                                 onClick={() => handleSubmit()}
                             >
-                              Add Household
+                              Edit Household
                             </button>
                         ) : (
                             <button
@@ -236,7 +236,7 @@ function CreateHousehold() {
                         )}
                     </div>
                 </div>
-            </HouseholdContext.Provider>
+            </EditHouseholdContext.Provider>
         </>
     )
 }
