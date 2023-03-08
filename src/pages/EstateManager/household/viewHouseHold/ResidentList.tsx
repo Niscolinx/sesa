@@ -192,10 +192,8 @@ function ResidentList() {
                             fontSize: '1.6rem',
                         }}
                     >
-                        <p className='flex items-center gap-2'>
-                            <input type='checkbox' className='cursor-pointer' />
                             <p>Guard Name</p>
-                        </p>
+                      
                         <p>Guard Code</p>
                         <p>Phone Number</p>
                         <p>Assigned Estate</p>
@@ -208,7 +206,13 @@ function ResidentList() {
                             React.Children.toArray(
                                 slicedPages[paginate.index].map(
                                     ({
-                                        
+                                        id,
+                                        gender,
+                                        name,
+                                        resCode,
+                                        residentCategory,
+                                        phoneNo,
+                                        tenancyType
                                     }) => {
                                         return (
                                             <div className='grid justify-between border-b grid-cols-6 gap-8 py-4'>
