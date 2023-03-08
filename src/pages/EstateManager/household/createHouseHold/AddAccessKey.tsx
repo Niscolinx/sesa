@@ -14,7 +14,6 @@ function AddAccessKey() {
     const [accessCardNumber_Details, setaccessCardNumber_Details] = useState<InputField[]>([])
 
     const [ phoneNumber, setPhoneNumber ] = useState(0)
-    const [photoUrl, setPhotoUrl] = useState('')
     const [accessCardNumber, setaccessCardNumber] = useState<number>(0)
     const [holderName, setHolderName] = useState('')
     const [idxToDelete, setIdxToDelete] = useState(0)
@@ -26,7 +25,6 @@ function AddAccessKey() {
             phoneNumber,
             holderName,
             accessCardNumber,
-            photoUrl,
         }
 
         setaccessCardNumber_Details((prev) => {
@@ -37,12 +35,7 @@ function AddAccessKey() {
         setPhoneNumber(0)
     }
 
-    const handlePhotoPreview = async (
-        _: React.MouseEvent<HTMLInputElement>
-    ) => {
-        const getUrl = await getPhotoUrl(`#photoUpload`)
-        setPhotoUrl(getUrl)
-    }
+   
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
@@ -258,11 +251,7 @@ function AddAccessKey() {
                                     onClick={() => deleteDialog(idx)}
                                 />
                                 <div className='flex gap-16 items-center pb-8'>
-                                    <img
-                                        src={photoUrl}
-                                        alt='photoPreview'
-                                        className='object-cover w-[11rem] h-[11rem] rounded-full'
-                                    />
+                                    
                                     <div className='grid gap-4 min-w-[70rem]'>
                                         <div className='grid grid-cols-2 items-center justify-start '>
                                             <p className='font-Satoshi-Light'>
