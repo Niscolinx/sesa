@@ -32,18 +32,18 @@ const ViewArtisan = () => {
         }
     }
 
-    const handleOpen = (dialogType: Actions) => {
-        if (dialogType === 'Deactivate') {
-            setDialogType('Deactivate')
-        }
-        if (dialogType === 'Delete') {
-            setDialogType('Delete')
-        }
+    // const handleOpen = (dialogType: Actions) => {
+    //     if (dialogType === 'Deactivate') {
+    //         setDialogType('Deactivate')
+    //     }
+    //     if (dialogType === 'Delete') {
+    //         setDialogType('Delete')
+    //     }
 
-        if (dialogRef.current) {
-            dialogRef.current.showModal()
-        }
-    }
+    //     if (dialogRef.current) {
+    //         dialogRef.current.showModal()
+    //     }
+    // }
 
     // const handleSelectedAction = (item: Actions) => {
     //     if (item === 'Deactivate') {
