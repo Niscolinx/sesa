@@ -188,6 +188,7 @@ function RFIDList() {
                                         vehicleType,
                                         imgUrl,
                                         date,
+                                        action
                                     }) => {
                                         return (
                                             <div className='grid justify-between border-b grid-cols-6 gap-8 py-4 items-center'>
@@ -208,6 +209,7 @@ function RFIDList() {
                                                 <p className=' max-w-[40rem] overflow-hidden text-ellipsis whitespace-nowrap'>
                                                     {date}
                                                 </p>
+                                                <p>{action}</p>
                                             </div>
                                         )
                                     }

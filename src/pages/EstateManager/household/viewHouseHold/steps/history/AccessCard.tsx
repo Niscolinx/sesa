@@ -12,6 +12,8 @@ function AccessCardList() {
         holderName: string
         phoneNum: string
         imgUrl: string
+        date: string
+        action: 'added' | 'removed'
     }
 
     const ACCESSCARD_LIST: AccessCard[] = Array.from({ length: 2 }, (_, i) => {
@@ -23,6 +25,8 @@ function AccessCardList() {
             imgUrl: '/img/avatar11.png',
             holderName: 'Darlene Robert',
             phoneNum: '(+234) 814 324 6719',
+            date: '12 Feb. 2023',
+            action: Math.random() > 0.5 ? 'added' : 'removed',
         }
     })
 
@@ -133,12 +137,7 @@ function AccessCardList() {
         })
     }
 
-    const saveChangesHandler = () => {
-        console.log('add security guard')
-
-        closeDialog()
-    }
-
+   
     return (
         <section className='bg-color-white rounded-lg border  overflow-scroll h-full'>
             <div className='grid text-[1.6rem]'>
@@ -172,6 +171,8 @@ function AccessCardList() {
                         <p>Access Card Seriel Nos.</p>
                         <p>Holder’s Name</p>
                         <p>Phone Number</p>
+                        <p>Date</p>
+                        <p>Action</p>
                     </div>
 
                     <div className='grid gap-8 mt-8 p-8'>
