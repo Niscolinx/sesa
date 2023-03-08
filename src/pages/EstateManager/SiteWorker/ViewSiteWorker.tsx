@@ -325,18 +325,14 @@ const ViewSiteWorker = () => {
                                 <img src='/img/new_Id.svg' alt='' />
                                 <button
                                     className='btn text-white bg-color-blue-1 py-4 px-16 rounded-lg w-[15rem]'
-                                    onClick={
-                                        () => handleClose()
-                                    }>
+                                    onClick={() => handleClose()}
+                                >
                                     Print
-                                   
                                 </button>
                             </div>
                         ) : (
                             <div className='bg-white rounded-2xl grid place-content-center justify-items-center h-[30rem] gap-8 text-[1.6rem]'>
-                                {addedSiteWorkerSteps.get(
-                                    addedSiteWorkerStep
-                                )}
+                                {addedSiteWorkerSteps.get(addedSiteWorkerStep)}
                             </div>
                         )}
                     </div>
@@ -344,6 +340,59 @@ const ViewSiteWorker = () => {
             </dialog>
             <main>
                 <section className='grid p-8 bg-white items-baseline rounded-lg'>
+                    <section className='w-full flex gap-16 relative mt-[5rem]'>
+                        <div>
+                            <img
+                                src={'/img/img3.png'}
+                                alt=''
+                                className=' object-cover rounded-lg'
+                            />
+                        </div>
+
+                        <div className='flex '>
+                            <div className='grid gap-8'>
+                                <div>
+                                    <p className='text-[1.4rem] text-[#043FA7]'>
+                                        Property Code
+                                    </p>
+                                    <p className='font-[1.6rem] whitespace-nowrap'>
+                                        {propertyCode}
+                                    </p>
+                                </div>
+                                <div>
+                                    <p className='text-[#043FA7]'>
+                                        Property Type
+                                    </p>
+                                    <p>Duplex</p>
+                                </div>
+                                <div>
+                                    <p className='text-[#043FA7]'>
+                                        Property Address
+                                    </p>
+                                    <p className='max-w-[30rem]'>
+                                        10, Address Street, Address Avenue,
+                                        Lagos, Nigeria.
+                                    </p>{' '}
+                                </div>
+                            </div>
+                            <div className='grid gap-8 auto-rows-max'>
+                                <div>
+                                    <p className='text-[1.4rem] text-[#043FA7]'>
+                                        Property Category
+                                    </p>
+                                    <p className='font-[1.6rem] whitespace-nowrap'>
+                                        Business
+                                    </p>
+                                </div>
+                                <div>
+                                    <p className='text-[#043FA7]'>
+                                        Property Name
+                                    </p>
+                                    <p>Wale House</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
                     <div className='flex justify-between items-center'>
                         <div className='flex gap-8 items-center'>
                             <label
