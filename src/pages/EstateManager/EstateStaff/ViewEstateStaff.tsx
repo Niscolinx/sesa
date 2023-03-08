@@ -10,7 +10,28 @@ import {
 import { getPhotoUrl } from '../../../utils/getPhotoUrl'
 import { TbCopy } from 'react-icons/tb'
 
+
+
 type Actions = 'Deactivate' | 'Delete'
+
+export type AddedEstateStaffSteps =
+    | 'addedEstateStaffSuccessful'
+    | 'addBankAccount'
+    | 'openedBankAccountSuccessful'
+
+
+interface AddedEstateStaffContext {
+    addedEstateStaffStep: AddedEstateStaffSteps
+    setAddedEstateStaffStep: React.Dispatch<
+        React.SetStateAction<AddedEstateStaffSteps>
+    >
+    selectedBank: string | null
+    setSelectedBank: React.Dispatch<React.SetStateAction<string | null>>
+    handleClose: () => void
+}
+
+export const CreateAddedEstateStaffContext =
+    createContext<AddedEstateStaffContext>(null as any)
 
 const ViewEstateStaff = () => {
     const [workDays, setWorkDays] = useState<string[]>([])
@@ -105,7 +126,7 @@ const ViewEstateStaff = () => {
     ])
 
     return (
-         <CreateAddedEstateStaffContext.Provider
+        <CreateAddedEstateStaffContext.Provider
             value={{
                 addedEstateStaffStep,
                 setAddedEstateStaffStep,
@@ -271,10 +292,8 @@ const ViewEstateStaff = () => {
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] min-h-[30rem] gap-8'>
                         <div className='bg-white rounded-2xl grid place-content-center justify-items-center h-[30rem] gap-8 text-[1.6rem]'>
-                                {addedEstateStaffSteps.get(
-                                    addedEstateStaffStep
-                                )}
-                            </div>
+                            {addedEstateStaffSteps.get(addedEstateStaffStep)}
+                        </div>
                     </div>
                 </section>
             </dialog>
@@ -608,7 +627,7 @@ const ViewEstateStaff = () => {
                     </button>
                 </section>
             </main>
-        </>
+        </CreateAddedEstateStaffContext.Provider>
     )
 }
 
