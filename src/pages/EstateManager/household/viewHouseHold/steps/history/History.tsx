@@ -1,5 +1,6 @@
 import React, { createContext, Fragment, useRef, useState } from 'react'
 import { IoMdClose } from 'react-icons/io'
+import Resident from './Resident'
 
 function History() {
     type labelKeys = 'resident' | 'accessCard' | 'RFID'
@@ -14,7 +15,7 @@ function History() {
     const [pathToSwitch, setPathToSwitch] = useState<labelKeys>('resident')
 
     const handlePathSwitch = new Map<labelKeys, JSX.Element>([
-        ['resident', <>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo molestias dignissimos animi fuga. Magnam impedit dolores deleniti dignissimos. Adipisci, non quam! Cum aliquid voluptates numquam ipsam rerum, deserunt eligendi amet.</>]
+        ['resident', <Resident/>]
     ])
 
     return (
