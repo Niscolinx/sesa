@@ -446,7 +446,7 @@ const AddSiteWorker = () => {
                                 htmlFor='address1'
                                 className='text-[1.4rem] font-medium'
                             >
-                                Address
+                                Home Address
                             </label>
                             <input
                                 type='text'
@@ -470,6 +470,23 @@ const AddSiteWorker = () => {
                             selected={workDays}
                             setSelected={setWorkDays}
                         />
+                        <div className='grid gap-4 relative'>
+                            <label
+                                htmlFor='address1'
+                                className='text-[1.4rem] font-medium'
+                            >
+                                Clock-In Time
+                            </label>
+                            <input
+                                type='time'
+                                required
+                                id='address1'
+                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                            />
+                            <p className='text-[#666869] text-[1.4rem]'>
+                                The System will only enforce clock-in time
+                            </p>
+                        </div>
 
                         <div className='col-span-full'>
                             <label
@@ -564,7 +581,8 @@ const AddSiteWorker = () => {
                         {isValidated ? (
                             <div className='flex gap-8 text-[1.6rem]'>
                                 <p className='text-[#098DFF] cursor-pointer flex items-center font-medium'>
-                                    kysw Validated <IoMdCheckmarkCircleOutline />
+                                    kysw Validated{' '}
+                                    <IoMdCheckmarkCircleOutline />
                                 </p>
                                 <button
                                     className='text-green-600 flex items-center gap-2'
