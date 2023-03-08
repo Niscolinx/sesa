@@ -62,7 +62,7 @@ function AddRFID() {
         }
     }
 
-    const handleOpen = () => {
+    const deleteDialog = (idx: number) => {
         if (dialogRef.current) {
             dialogRef.current.showModal()
         }
@@ -301,6 +301,7 @@ function AddRFID() {
                                     src='/img/closeIcon.svg'
                                     alt=''
                                     className='self-end justify-self-end cursor-pointer'
+                                    onClick={() => deleteDialog(idx)}
                                 />
                                 <div className='flex gap-16 items-center pb-8'>
                                     <img
