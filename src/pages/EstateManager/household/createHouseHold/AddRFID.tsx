@@ -18,14 +18,10 @@ function AddRFID() {
     const RFID_Details: InputField[] = []
 
     const { vehicleType, setVehicleType } = useContext(HouseholdContext)
-    const defaultFormState = {
-        RFID: null,
-        vehicleMake: '',
-        vehicleRegNumber: null,
-    }
-
     const [photoUrl, setPhotoUrl] = useState('')
-    const [RFID, setRFID] = useState('')
+    const [RFID, setRFID] = useState<number | null>(null)
+    const [vehicleRegNumber, setVehicleRegNumber] = useState<number | null>(null)
+    const [vehicleMake, setVehicleMake] = useState('')
 
     const handleSubmit = (e: FormEvent) => {
         e.preventDefault()
@@ -34,7 +30,7 @@ function AddRFID() {
 
 
       //  RFID_Details.push(details)
-        setRFID('')
+        setRFID(null)
 
       
         
@@ -145,14 +141,13 @@ function AddRFID() {
                         Add an RFID to this property{' '}
                     </p>
                     <form onSubmit={handleSubmit}>
-                       
                         <div
                             className='grid mt-[5rem] gap-16'
                             style={{
                                 gridTemplateColumns:
                                     'repeat(auto-fit, minmax(40rem, 1fr))',
                             }}
-                           // onChange={handleChange}
+                            // onChange={handleChange}
                         >
                             <div className='grid gap-4 relative '>
                                 <label
@@ -166,8 +161,12 @@ function AddRFID() {
                                     required
                                     id='RFID'
                                     name='RFID'
-                                    value={RFID}
-                                    onChange={(e) => setRFID(e.target.value as number)}
+                                    value={RFID!}
+                                    onChange={(e) =>
+                                        setRFID(
+                                            e.target.value as unknown as number
+                                        )
+                                    }
                                     className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                                 />
                             </div>
@@ -183,8 +182,11 @@ function AddRFID() {
                                     required
                                     id='vehicleRegNumber'
                                     name='vehicleRegNumber'
-                                    defaultValue={
-                                        inputField['vehicleRegNumber'] as number
+                                    value={vehicleRegNumber || 0}
+                                    onChange={(e) =>
+                                        setVehicleRegNumber(
+                                            e.target.value as unknown as number
+                                        )
                                     }
                                     className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                                 />
@@ -201,7 +203,12 @@ function AddRFID() {
                                     required
                                     id='vehicleMake'
                                     name='vehicleMake'
-                                    defaultValue={inputField['vehicleMake']}
+                                    value={vehicleMake}
+                                    onChange={(e) =>
+                                        setVehicleMake(
+                                            e.target.value as unknown as number
+                                        )
+                                    }
                                     className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                                 />
                             </div>
