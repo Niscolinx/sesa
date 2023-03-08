@@ -53,9 +53,9 @@ export const CreateAddedSiteWorkerContext =
 const AddSiteWorker = () => {
     const [workDays, setWorkDays] = useState<string[]>([])
     const [isValidated, setIsValidated] = useState(false)
-    const [iskyg, setIskyg] = useState(false)
+    const [iskysw, setIskysw] = useState(false)
 
-    const toggleIskyg = () => setIskyg(!iskyg)
+    const toggleIskysw = () => setIskysw(!iskysw)
     const [selectedState, setSelectedState] = useState<string | null>(null)
     const [selectedGender, setSelectedGender] = useState<string | null>(null)
     const [dialogState, setDialogState] = useState<DialogType>('validate')
@@ -286,7 +286,7 @@ const AddSiteWorker = () => {
                                         fontFamily: 'Satoshi-Medium',
                                     }}
                                 >
-                                    Know Your Guard (KYG)
+                                    Know Your Guard (kysw)
                                 </h3>
 
                                 <Select
@@ -310,7 +310,7 @@ const AddSiteWorker = () => {
                                         fontFamily: 'Satoshi-Light',
                                     }}
                                 >
-                                    What is KYG <BsQuestionCircle />
+                                    What is kysw <BsQuestionCircle />
                                 </p>
                                 {renderValidationType.get(
                                     validationType as ValidateInputTypes
@@ -538,16 +538,16 @@ const AddSiteWorker = () => {
                     <div className='grid gap-8 max-w-[40rem] mt-[5rem] '>
                         <div className='flex items-center justify-between'>
                             <p className='text-[2rem] font-bold flex items-center gap-2'>
-                                KYG{' '}
+                                kysw{' '}
                                 <span className='text-[#043FA7]'>
                                     <BsQuestionCircle />
                                 </span>
                             </p>
                             <div
-                                onClick={toggleIskyg}
+                                onClick={toggleIskysw}
                                 className='cursor-pointer'
                             >
-                                {iskyg ? (
+                                {iskysw ? (
                                     <img
                                         src='/icons/admins/switchOn.svg'
                                         alt=''
@@ -564,7 +564,7 @@ const AddSiteWorker = () => {
                         {isValidated ? (
                             <div className='flex gap-8 text-[1.6rem]'>
                                 <p className='text-[#098DFF] cursor-pointer flex items-center font-medium'>
-                                    KYG Validated <IoMdCheckmarkCircleOutline />
+                                    kysw Validated <IoMdCheckmarkCircleOutline />
                                 </p>
                                 <button
                                     className='text-green-600 flex items-center gap-2'
@@ -578,7 +578,7 @@ const AddSiteWorker = () => {
                             </div>
                         ) : (
                             <>
-                                {iskyg && (
+                                {iskysw && (
                                     <div className='flex justify-between text-[1.6rem]'>
                                         <p
                                             className='text-[#098DFF] cursor-pointer'
