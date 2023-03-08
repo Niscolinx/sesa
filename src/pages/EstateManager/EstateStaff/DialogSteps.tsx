@@ -20,7 +20,7 @@ export const AddedEstateStaffSuccessfully = () => {
                     fontFamily: 'Satoshi-Medium',
                 }}
             >
-                Do you want to open a bank account for this EstateStaff ?
+                Do you want to open a bank account for this Estate Staff ?
             </p>
 
             <div className='flex w-full justify-center gap-8 mt-10'>
