@@ -11,7 +11,9 @@ function RFIDList() {
         vehicleRegNumber: string
         vehicleMake: string
         vehicleType: string
-        imgUrl: string
+        imgUrl: string,
+        date: string,
+        action: 'added' | 'removed'
     }
 
     const RFID_LIST: RFIDList[] = Array.from({ length: 2 }, (_, i) => {
@@ -22,6 +24,8 @@ function RFIDList() {
             vehicleRegNumber: 'APP-12-598',
             vehicleMake: 'Toyota',
             vehicleType: 'Car',
+            date: '12 Feb. 2023',
+            action: Math.random() > 0.5 ? 'added' : 'removed'
         }
     })
 
