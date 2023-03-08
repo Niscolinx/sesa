@@ -487,6 +487,21 @@ const AddSiteWorker = () => {
                                 The System will only enforce clock-in time
                             </p>
                         </div>
+                        <div className='grid gap-4 relative'>
+                            <label
+                                htmlFor='address1'
+                                className='text-[1.4rem] font-medium'
+                            >
+                                Clock-Out Time
+                            </label>
+                            <input
+                                type='time'
+                                required
+                                id='address1'
+                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                            />
+                          
+                        </div>
 
                         <div className='col-span-full'>
                             <label
