@@ -292,7 +292,8 @@ const ViewSiteWorker = () => {
                                     alt=''
                                 />
                                 <p className='text-[1.6rem]'>
-                                    Are you sure you want to delete this Site Worker?
+                                    Are you sure you want to delete this Site
+                                    Worker?
                                 </p>
 
                                 <div className='flex w-full justify-center gap-8'>
@@ -339,55 +340,60 @@ const ViewSiteWorker = () => {
             </dialog>
             <main>
                 <section className='grid p-8 bg-white items-baseline rounded-lg'>
-                    <section className='w-full flex gap-16 relative mb-[5rem]'>
-                        <div>
-                            <img
-                                src={'/img/img3.png'}
-                                alt=''
-                                className=' object-cover rounded-lg'
-                            />
-                        </div>
-
-                        <div className='flex '>
-                            <div className='grid gap-8'>
-                                <div>
-                                    <p className='text-[1.4rem] text-[#043FA7]'>
-                                        Property Code
-                                    </p>
-                                    <p className='font-[1.6rem] whitespace-nowrap'>
-                                        ThomasEstate/SO-2345CDGK1
-                                    </p>
-                                </div>
-                                <div>
-                                    <p className='text-[#043FA7]'>
-                                        Property Type
-                                    </p>
-                                    <p>Duplex</p>
-                                </div>
-                                <div>
-                                    <p className='text-[#043FA7]'>
-                                        Property Address
-                                    </p>
-                                    <p className='max-w-[30rem]'>
-                                        10, Address Street, Address Avenue,
-                                        Lagos, Nigeria.
-                                    </p>{' '}
-                                </div>
+                    <section className=' relative mb-[5rem]'>
+                        <p className='text-[2rem] font-Satoshi-Medium mb-10'>
+                            Work Location Details
+                        </p>
+                        <div className='w-full flex gap-16'>
+                            <div>
+                                <img
+                                    src={'/img/img3.png'}
+                                    alt=''
+                                    className=' object-cover rounded-lg'
+                                />
                             </div>
-                            <div className='grid gap-8 auto-rows-max'>
-                                <div>
-                                    <p className='text-[1.4rem] text-[#043FA7]'>
-                                        Property Category
-                                    </p>
-                                    <p className='font-[1.6rem] whitespace-nowrap'>
-                                        Business
-                                    </p>
+
+                            <div className='flex '>
+                                <div className='grid gap-8'>
+                                    <div>
+                                        <p className='text-[1.4rem] text-[#043FA7]'>
+                                            Property Code
+                                        </p>
+                                        <p className='font-[1.6rem] whitespace-nowrap'>
+                                            ThomasEstate/SO-2345CDGK1
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <p className='text-[#043FA7]'>
+                                            Property Type
+                                        </p>
+                                        <p>Duplex</p>
+                                    </div>
+                                    <div>
+                                        <p className='text-[#043FA7]'>
+                                            Property Address
+                                        </p>
+                                        <p className='max-w-[30rem]'>
+                                            10, Address Street, Address Avenue,
+                                            Lagos, Nigeria.
+                                        </p>{' '}
+                                    </div>
                                 </div>
-                                <div>
-                                    <p className='text-[#043FA7]'>
-                                        Property Name
-                                    </p>
-                                    <p>Wale House</p>
+                                <div className='grid gap-8 auto-rows-max'>
+                                    <div>
+                                        <p className='text-[1.4rem] text-[#043FA7]'>
+                                            Property Category
+                                        </p>
+                                        <p className='font-[1.6rem] whitespace-nowrap'>
+                                            Business
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <p className='text-[#043FA7]'>
+                                            Property Name
+                                        </p>
+                                        <p>Wale House</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -490,165 +496,235 @@ const ViewSiteWorker = () => {
                             </button>
                         </div>
                     </div>
-
-                    <form
-                        onSubmit={handleSubmit}
-                        className='grid max-w-[84rem] gap-16 mt-12 '
-                        style={{
-                            gridTemplateColumns:
-                                ' repeat(auto-fit, minmax(35rem, 1fr))',
-                        }}
-                    >
-                        <div className='grid gap-4 relative '>
-                            <label
-                                htmlFor='firstName'
-                                className='text-[1.4rem] font-medium'
-                            >
-                                First Name *
-                            </label>
-                            <input
-                                type='text'
-                                required
-                                id='firstName'
-                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                            />
-                        </div>
-                        <div className='grid gap-4 relative '>
-                            <label
-                                htmlFor='lastName'
-                                className='text-[1.4rem] font-medium'
-                            >
-                                Last Name *
-                            </label>
-                            <input
-                                type='text'
-                                required
-                                id='lastName'
-                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                            />
-                        </div>
-                        <div className='grid gap-4 relative '>
-                            <label
-                                htmlFor='lastName'
-                                className='text-[1.4rem] font-medium'
-                            >
-                                Middle Name *
-                            </label>
-                            <input
-                                type='text'
-                                required
-                                id='lastName'
-                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                            />
-                        </div>
-                        <div className='grid gap-4 relative '>
-                            <label
-                                htmlFor='lastName'
-                                className='text-[1.4rem] font-medium'
-                            >
-                                Date of Birth
-                            </label>
-                            <input
-                                type='text'
-                                required
-                                id='lastName'
-                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                            />
-                        </div>
-
-                        <div className='grid gap-4'>
-                            <label
-                                htmlFor='phoneNumber'
-                                className='text-[1.4rem] font-medium'
-                            >
-                                Phone Number *
-                            </label>
-
-                            <div className='flex text-[1.6rem] gap-4   h-[5rem]'>
-                                <select className='w-[30%] rounded-lg border border-color-grey py-4.8 px-4 outline-none cursor-pointer text-color-dark relative h-full'>
-                                    <option value='234'>+234</option>
-                                </select>
+                    <section>
+                        <p className='text-[2rem] font-Satoshi-Medium'>
+                            Work Location Details
+                        </p>
+                        <form
+                            onSubmit={handleSubmit}
+                            className='grid max-w-[84rem] gap-16 mt-12 '
+                            style={{
+                                gridTemplateColumns:
+                                    ' repeat(auto-fit, minmax(35rem, 1fr))',
+                            }}
+                        >
+                            <div className='grid gap-4 relative '>
+                                <label
+                                    htmlFor='firstName'
+                                    className='text-[1.4rem] font-medium'
+                                >
+                                    First Name *
+                                </label>
                                 <input
+                                    type='text'
                                     required
-                                    type='number'
-                                    inputMode='numeric'
-                                    id='phoneNumber'
-                                    placeholder='Phone Number'
-                                    className='w-full rounded-lg border border-color-grey py-4.8 px-8 outline-none text-color-dark'
+                                    id='firstName'
+                                    className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                                 />
                             </div>
-                        </div>
-                        <Select
-                            label='Gender'
-                            state={['Male', 'Female']}
-                            selectedState={selectedGender}
-                            setSelectedState={setSelectedGender}
-                        />
-                        <div className='grid gap-4 relative'>
-                            <label
-                                htmlFor='email'
-                                className='text-[1.4rem] font-medium'
-                            >
-                                Email Address *
-                            </label>
-                            <input
-                                type='email'
-                                required
-                                id='email'
-                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                            <div className='grid gap-4 relative '>
+                                <label
+                                    htmlFor='lastName'
+                                    className='text-[1.4rem] font-medium'
+                                >
+                                    Last Name *
+                                </label>
+                                <input
+                                    type='text'
+                                    required
+                                    id='lastName'
+                                    className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                                />
+                            </div>
+                            <div className='grid gap-4 relative '>
+                                <label
+                                    htmlFor='lastName'
+                                    className='text-[1.4rem] font-medium'
+                                >
+                                    Middle Name *
+                                </label>
+                                <input
+                                    type='text'
+                                    required
+                                    id='lastName'
+                                    className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                                />
+                            </div>
+                            <div className='grid gap-4 relative '>
+                                <label
+                                    htmlFor='lastName'
+                                    className='text-[1.4rem] font-medium'
+                                >
+                                    Date of Birth
+                                </label>
+                                <input
+                                    type='text'
+                                    required
+                                    id='lastName'
+                                    className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                                />
+                            </div>
+
+                            <div className='grid gap-4'>
+                                <label
+                                    htmlFor='phoneNumber'
+                                    className='text-[1.4rem] font-medium'
+                                >
+                                    Phone Number *
+                                </label>
+
+                                <div className='flex text-[1.6rem] gap-4   h-[5rem]'>
+                                    <select className='w-[30%] rounded-lg border border-color-grey py-4.8 px-4 outline-none cursor-pointer text-color-dark relative h-full'>
+                                        <option value='234'>+234</option>
+                                    </select>
+                                    <input
+                                        required
+                                        type='number'
+                                        inputMode='numeric'
+                                        id='phoneNumber'
+                                        placeholder='Phone Number'
+                                        className='w-full rounded-lg border border-color-grey py-4.8 px-8 outline-none text-color-dark'
+                                    />
+                                </div>
+                            </div>
+                            <Select
+                                label='Gender'
+                                state={['Male', 'Female']}
+                                selectedState={selectedGender}
+                                setSelectedState={setSelectedGender}
                             />
-                        </div>
+                            <div className='grid gap-4 relative'>
+                                <label
+                                    htmlFor='email'
+                                    className='text-[1.4rem] font-medium'
+                                >
+                                    Email Address *
+                                </label>
+                                <input
+                                    type='email'
+                                    required
+                                    id='email'
+                                    className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                                />
+                            </div>
 
-                        <div className='grid gap-4 relative'>
-                            <label
-                                htmlFor='address1'
-                                className='text-[1.4rem] font-medium'
-                            >
-                                Address
-                            </label>
-                            <input
-                                type='text'
-                                required
-                                id='address1'
-                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                            <div className='grid gap-4 relative'>
+                                <label
+                                    htmlFor='address1'
+                                    className='text-[1.4rem] font-medium'
+                                >
+                                    Home Address
+                                </label>
+                                <input
+                                    type='text'
+                                    required
+                                    id='address1'
+                                    className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                                />
+                            </div>
+
+                            <Select
+                                label='State'
+                                state={['Lagos', 'Imo', 'Abia', 'FCT']}
+                                placeholder='Select State'
+                                selectedState={selectedState}
+                                setSelectedState={setSelectedState}
                             />
-                        </div>
-
-                        <Select
-                            label='State'
-                            state={['Lagos', 'Imo', 'Abia', 'FCT']}
-                            placeholder='Select State'
-                            selectedState={selectedState}
-                            setSelectedState={setSelectedState}
-                        />
-                        <MultipleSelect
-                            label='Work Day'
-                            selectFrom={['Mon', 'Tue', 'Wed', 'Thur', 'Fri']}
-                            placeholder='Select Work days'
-                            selected={workDays}
-                            setSelected={setWorkDays}
-                        />
-
-                        <div className='col-span-full'>
-                            <label
-                                htmlFor='address'
-                                className='flex mb-2 gap-4 items-center cursor-pointer'
-                            >
-                                Site Worker Message
-                            </label>
-
-                            <textarea
-                                name='address'
-                                id='address'
-                                placeholder='This message will be displayed to the Site Worker when the site worker checks in / out'
-                                rows={4}
-                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                            <MultipleSelect
+                                label='Work Day'
+                                selectFrom={[
+                                    'Mon',
+                                    'Tue',
+                                    'Wed',
+                                    'Thur',
+                                    'Fri',
+                                ]}
+                                placeholder='Select Work days'
+                                selected={workDays}
+                                setSelected={setWorkDays}
                             />
-                            <p className='text-gray-400 text-[1.4rem]'>
-                                Maximum of 30 characters
-                            </p>
-                        </div>
-                    </form>
+                            <div className='grid gap-4 relative'>
+                                <label
+                                    htmlFor='address1'
+                                    className='text-[1.4rem] font-medium'
+                                >
+                                    Clock-In Time
+                                </label>
+                                <input
+                                    type='time'
+                                    required
+                                    id='address1'
+                                    className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                                />
+                                <p className='text-[#666869] text-[1.4rem]'>
+                                    The System will only enforce clock-in time
+                                </p>
+                            </div>
+                            <div className='grid gap-4 relative self-start'>
+                                <label
+                                    htmlFor='address1'
+                                    className='text-[1.4rem] font-medium'
+                                >
+                                    Clock-Out Time
+                                </label>
+                                <input
+                                    type='time'
+                                    required
+                                    id='address1'
+                                    className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                                />
+                            </div>
+                            <div className='grid gap-4 relative'>
+                                <label
+                                    htmlFor='address1'
+                                    className='text-[1.4rem] font-medium'
+                                >
+                                    Work Period (Start Date)*
+                                </label>
+                                <input
+                                    type='date'
+                                    required
+                                    id='address1'
+                                    className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                                />
+                            </div>
+                            <div className='grid gap-4 relative'>
+                                <label
+                                    htmlFor='address1'
+                                    className='text-[1.4rem] font-medium'
+                                >
+                                    Work Period (End Date)*
+                                </label>
+                                <input
+                                    type='date'
+                                    required
+                                    id='address1'
+                                    className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                                />
+                            </div>
+
+                            <div className='col-span-full'>
+                                <label
+                                    htmlFor='address'
+                                    className='flex mb-2 gap-4 items-center cursor-pointer'
+                                >
+                                    Site Worker Message
+                                </label>
+
+                                <textarea
+                                    name='address'
+                                    id='address'
+                                    placeholder='This message will be displayed to the security guard when the site worker checks in / out'
+                                    rows={4}
+                                    className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                                />
+                                <p className='text-gray-400 text-[1.4rem]'>
+                                    Maximum of 30 characters
+                                </p>
+                            </div>
+                        </form>
+                    </section>
+
                     <section className='grid bg-white w-4/5 border-t border-t-gray-100 mt-[5rem] pt-5'>
                         <h2
                             className='text-[2rem] mb-10'
