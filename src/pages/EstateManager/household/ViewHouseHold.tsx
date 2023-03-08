@@ -31,8 +31,8 @@ function ViewHouseHold() {
         dialogRef.current?.showModal()
     }
 
-    const handlePathSwitch = new Map<number, JSX.Element>([
-      
+    const handlePathSwitch = new Map<labelKeys, JSX.Element>([
+      ['Property Details', <>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur architecto quos odit soluta vero eveniet, iure voluptates aut ea, quod nostrum, rerum deserunt asperiores consequatur. Animi, libero saepe. Amet, harum.</>]
     ])
     return (
         <>
