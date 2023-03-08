@@ -8,15 +8,46 @@ import {
     Select,
 } from '../../../components/SuperAdmin/UI/Select'
 import { getPhotoUrl } from '../../../utils/getPhotoUrl'
+import { TbCopy } from 'react-icons/tb'
+import {
+    AddBankAccount,
+    AddedSiteWorkerSuccessfully,
+    OpenedBankAccountSuccessful,
+} from './DialogSteps'
 
 type Actions = 'Deactivate' | 'Delete'
 
-const EditEstateStaff = () => {
+export type AddedSiteWorkerSteps =
+    | 'addedSiteWorkerSuccessful'
+    | 'addBankAccount'
+    | 'openedBankAccountSuccessful'
+
+interface AddedSiteWorkerContext {
+    addedSiteWorkerStep: AddedSiteWorkerSteps
+    setAddedSiteWorkerStep: React.Dispatch<
+        React.SetStateAction<AddedSiteWorkerSteps>
+    >
+    selectedBank: string | null
+    setSelectedBank: React.Dispatch<React.SetStateAction<string | null>>
+    handleClose: () => void
+}
+
+export const CreateAddedSiteWorkerContext =
+    createContext<AddedSiteWorkerContext>(null as any)
+
+type BankDialog = 'generateId' | 'openBank'
+const ViewSiteWorker = () => {
     const [workDays, setWorkDays] = useState<string[]>([])
     const [isValidated, setIsValidated] = useState(true)
-
+    const [isAccountCreated, setIsAccountCreated] = useState(false)
     const [selectedState, setSelectedState] = useState<string | null>(null)
     const [selectedGender, setSelectedGender] = useState<string | null>(null)
+    const [bankDialogState, setBankDialogState] =
+        useState<BankDialog>('openBank')
+
+    const [selectedBank, setSelectedBank] = useState<null | string>(null)
+    const [addedSiteWorkerStep, setAddedSiteWorkerStep] =
+        useState<AddedSiteWorkerSteps>('addedSiteWorkerSuccessful')
 
     const [photoUrl, setPhotoUrl] = useState('')
 
@@ -33,6 +64,7 @@ const EditEstateStaff = () => {
 
     const validatedDialogRef = useRef<HTMLDialogElement | null>(null)
     const dialogRef = useRef<HTMLDialogElement | null>(null)
+    const bankRef = useRef<HTMLDialogElement | null>(null)
     const [dialogType, setDialogType] = useState<Actions>('Deactivate')
 
     const closeValidatedDialog = () => {
@@ -68,7 +100,7 @@ const EditEstateStaff = () => {
     const handleDeleteStaff = () => {
         handleCloseDeleteOrDeactivateDialog()
 
-        toast('Estate Staff deleted successfully', {
+        toast('Site Worker deleted successfully', {
             type: 'success',
             className: 'bg-green-100 text-green-600 text-[1.4rem]',
         })
@@ -76,14 +108,60 @@ const EditEstateStaff = () => {
     const handleDeactivateStaff = () => {
         handleCloseDeleteOrDeactivateDialog()
 
-        toast('Estate Staff deactivated successfully', {
+        toast('Site Worker deactivated successfully', {
             type: 'success',
             className: 'bg-green-100 text-green-600 text-[1.4rem]',
         })
     }
 
+    const handleClose = () => {
+        if (bankRef.current) {
+            bankRef.current.close()
+        }
+    }
+
+    const openBankDialog = (bankDialog: BankDialog) => {
+        if (bankDialog === 'openBank') {
+            setBankDialogState('openBank')
+        }
+        if (bankDialog === 'generateId') {
+            setBankDialogState('generateId')
+        }
+
+        if (bankRef.current) {
+            bankRef.current.showModal()
+        }
+    }
+
+    const addedSiteWorkerSteps = new Map([
+        [
+            'addedSiteWorkerSuccessful',
+            <AddedSiteWorkerSuccessfully
+                context={CreateAddedSiteWorkerContext}
+            />,
+        ],
+        [
+            'addBankAccount',
+            <AddBankAccount context={CreateAddedSiteWorkerContext} />,
+        ],
+        [
+            'openedBankAccountSuccessful',
+            <OpenedBankAccountSuccessful
+                context={CreateAddedSiteWorkerContext}
+            />,
+        ],
+    ])
+
     return (
-        <>
+        <CreateAddedSiteWorkerContext.Provider
+            value={{
+                addedSiteWorkerStep,
+                setAddedSiteWorkerStep,
+                handleClose,
+                selectedBank,
+                setSelectedBank,
+            }}
+        >
             <ToastContainer />
 
             <dialog className='dialog' ref={validatedDialogRef}>
@@ -185,7 +263,7 @@ const EditEstateStaff = () => {
                                 />
                                 <p className='text-[1.6rem]'>
                                     Are you sure you want to deactivate this
-                                    Estate Staff
+                                    Site Worker
                                 </p>
 
                                 <div className='flex w-full justify-center gap-8'>
@@ -212,8 +290,8 @@ const EditEstateStaff = () => {
                                     alt=''
                                 />
                                 <p className='text-[1.6rem]'>
-                                    Are you sure you want to delete this Estate
-                                    Staff
+                                    Are you sure you want to delete this Site
+                                    Worker?
                                 </p>
 
                                 <div className='flex w-full justify-center gap-8'>
@@ -237,8 +315,29 @@ const EditEstateStaff = () => {
                     </div>
                 </section>
             </dialog>
+            <dialog className='dialog' ref={bankRef}>
+                <section className='grid place-content-center w-full h-[100vh]'>
+                    <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] min-h-[30rem] gap-8 p-10'>
+                        {bankDialogState === 'generateId' ? (
+                            <div className='bg-white rounded-2xl grid place-content-center justify-items-center  gap-8 text-[1.6rem]'>
+                                <img src='/img/new_Id.svg' alt='' />
+                                <button
+                                    className='btn text-white bg-color-blue-1 py-4 px-16 rounded-lg w-[15rem]'
+                                    onClick={() => handleClose()}
+                                >
+                                    Print
+                                </button>
+                            </div>
+                        ) : (
+                            <div className='bg-white rounded-2xl grid place-content-center justify-items-center h-[30rem] gap-8 text-[1.6rem]'>
+                                {addedSiteWorkerSteps.get(addedSiteWorkerStep)}
+                            </div>
+                        )}
+                    </div>
+                </section>
+            </dialog>
             <main>
-                <section className='grid p-8 bg-white items-baseline rounded-lg'>
+                <section className='grid p-8 bg-white items-baseline rounded-lg gap-16'>
                     <div className='flex justify-between items-center'>
                         <div className='flex gap-8 items-center'>
                             <label
@@ -337,165 +436,357 @@ const EditEstateStaff = () => {
                             </button>
                         </div>
                     </div>
-
-                    <form
-                        onSubmit={handleSubmit}
-                        className='grid max-w-[84rem] gap-16 mt-12 '
-                        style={{
-                            gridTemplateColumns:
-                                ' repeat(auto-fit, minmax(35rem, 1fr))',
-                        }}
-                    >
-                        <div className='grid gap-4 relative '>
-                            <label
-                                htmlFor='firstName'
-                                className='text-[1.4rem] font-medium'
-                            >
-                                First Name *
-                            </label>
-                            <input
-                                type='text'
-                                required
-                                id='firstName'
-                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                            />
-                        </div>
-                        <div className='grid gap-4 relative '>
-                            <label
-                                htmlFor='lastName'
-                                className='text-[1.4rem] font-medium'
-                            >
-                                Last Name *
-                            </label>
-                            <input
-                                type='text'
-                                required
-                                id='lastName'
-                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                            />
-                        </div>
-                        <div className='grid gap-4 relative '>
-                            <label
-                                htmlFor='lastName'
-                                className='text-[1.4rem] font-medium'
-                            >
-                                Middle Name *
-                            </label>
-                            <input
-                                type='text'
-                                required
-                                id='lastName'
-                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                            />
-                        </div>
-                        <div className='grid gap-4 relative '>
-                            <label
-                                htmlFor='lastName'
-                                className='text-[1.4rem] font-medium'
-                            >
-                                Date of Birth
-                            </label>
-                            <input
-                                type='text'
-                                required
-                                id='lastName'
-                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                            />
-                        </div>
-
-                        <div className='grid gap-4'>
-                            <label
-                                htmlFor='phoneNumber'
-                                className='text-[1.4rem] font-medium'
-                            >
-                                Phone Number *
-                            </label>
-
-                            <div className='flex text-[1.6rem] gap-4   h-[5rem]'>
-                                <select className='w-[30%] rounded-lg border border-color-grey py-4.8 px-4 outline-none cursor-pointer text-color-dark relative h-full'>
-                                    <option value='234'>+234</option>
-                                </select>
-                                <input
-                                    required
-                                    type='number'
-                                    inputMode='numeric'
-                                    id='phoneNumber'
-                                    placeholder='Phone Number'
-                                    className='w-full rounded-lg border border-color-grey py-4.8 px-8 outline-none text-color-dark'
+                    <section className=' relative mb-[5rem]'>
+                        <p className='text-[2rem] font-Satoshi-Medium mb-10'>
+                            Work Location Details
+                        </p>
+                        <div className='w-full flex gap-16'>
+                            <div>
+                                <img
+                                    src={'/img/img3.png'}
+                                    alt=''
+                                    className=' object-cover rounded-lg'
                                 />
                             </div>
+
+                            <div className='flex '>
+                                <div className='grid gap-8'>
+                                    <div>
+                                        <p className='text-[1.4rem] text-[#043FA7]'>
+                                            Property Code
+                                        </p>
+                                        <p className='font-[1.6rem] whitespace-nowrap'>
+                                            ThomasEstate/SO-2345CDGK1
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <p className='text-[#043FA7]'>
+                                            Property Type
+                                        </p>
+                                        <p>Duplex</p>
+                                    </div>
+                                    <div>
+                                        <p className='text-[#043FA7]'>
+                                            Property Address
+                                        </p>
+                                        <p className='max-w-[30rem]'>
+                                            10, Address Street, Address Avenue,
+                                            Lagos, Nigeria.
+                                        </p>{' '}
+                                    </div>
+                                </div>
+                                <div className='grid gap-8 auto-rows-max'>
+                                    <div>
+                                        <p className='text-[1.4rem] text-[#043FA7]'>
+                                            Property Category
+                                        </p>
+                                        <p className='font-[1.6rem] whitespace-nowrap'>
+                                            Business
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <p className='text-[#043FA7]'>
+                                            Property Name
+                                        </p>
+                                        <p>Wale House</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <Select
-                            label='Gender'
-                            state={['Male', 'Female']}
-                            selectedState={selectedGender}
-                            setSelectedState={setSelectedGender}
-                        />
-                        <div className='grid gap-4 relative'>
-                            <label
-                                htmlFor='email'
-                                className='text-[1.4rem] font-medium'
-                            >
-                                Email Address *
-                            </label>
-                            <input
-                                type='email'
-                                required
-                                id='email'
-                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                    </section>
+
+                    <section>
+                        <p className='text-[2rem] font-Satoshi-Medium'>
+                            Site Worker Information
+                        </p>
+                        <form
+                            onSubmit={handleSubmit}
+                            className='grid max-w-[84rem] gap-16 mt-12 '
+                            style={{
+                                gridTemplateColumns:
+                                    ' repeat(auto-fit, minmax(35rem, 1fr))',
+                            }}
+                        >
+                            <div className='grid gap-4 relative '>
+                                <label
+                                    htmlFor='firstName'
+                                    className='text-[1.4rem] font-medium'
+                                >
+                                    First Name *
+                                </label>
+                                <input
+                                    type='text'
+                                    required
+                                    id='firstName'
+                                    className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                                />
+                            </div>
+                            <div className='grid gap-4 relative '>
+                                <label
+                                    htmlFor='lastName'
+                                    className='text-[1.4rem] font-medium'
+                                >
+                                    Last Name *
+                                </label>
+                                <input
+                                    type='text'
+                                    required
+                                    id='lastName'
+                                    className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                                />
+                            </div>
+                            <div className='grid gap-4 relative '>
+                                <label
+                                    htmlFor='lastName'
+                                    className='text-[1.4rem] font-medium'
+                                >
+                                    Middle Name *
+                                </label>
+                                <input
+                                    type='text'
+                                    required
+                                    id='lastName'
+                                    className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                                />
+                            </div>
+                            <div className='grid gap-4 relative '>
+                                <label
+                                    htmlFor='lastName'
+                                    className='text-[1.4rem] font-medium'
+                                >
+                                    Date of Birth
+                                </label>
+                                <input
+                                    type='text'
+                                    required
+                                    id='lastName'
+                                    className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                                />
+                            </div>
+
+                            <div className='grid gap-4'>
+                                <label
+                                    htmlFor='phoneNumber'
+                                    className='text-[1.4rem] font-medium'
+                                >
+                                    Phone Number *
+                                </label>
+
+                                <div className='flex text-[1.6rem] gap-4   h-[5rem]'>
+                                    <select className='w-[30%] rounded-lg border border-color-grey py-4.8 px-4 outline-none cursor-pointer text-color-dark relative h-full'>
+                                        <option value='234'>+234</option>
+                                    </select>
+                                    <input
+                                        required
+                                        type='number'
+                                        inputMode='numeric'
+                                        id='phoneNumber'
+                                        placeholder='Phone Number'
+                                        className='w-full rounded-lg border border-color-grey py-4.8 px-8 outline-none text-color-dark'
+                                    />
+                                </div>
+                            </div>
+                            <Select
+                                label='Gender'
+                                state={['Male', 'Female']}
+                                selectedState={selectedGender}
+                                setSelectedState={setSelectedGender}
                             />
-                        </div>
+                            <div className='grid gap-4 relative'>
+                                <label
+                                    htmlFor='email'
+                                    className='text-[1.4rem] font-medium'
+                                >
+                                    Email Address *
+                                </label>
+                                <input
+                                    type='email'
+                                    required
+                                    id='email'
+                                    className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                                />
+                            </div>
 
-                        <div className='grid gap-4 relative'>
-                            <label
-                                htmlFor='address1'
-                                className='text-[1.4rem] font-medium'
-                            >
-                                Address
-                            </label>
-                            <input
-                                type='text'
-                                required
-                                id='address1'
-                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                            <div className='grid gap-4 relative'>
+                                <label
+                                    htmlFor='address1'
+                                    className='text-[1.4rem] font-medium'
+                                >
+                                    Home Address
+                                </label>
+                                <input
+                                    type='text'
+                                    required
+                                    id='address1'
+                                    className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                                />
+                            </div>
+
+                            <Select
+                                label='State'
+                                state={['Lagos', 'Imo', 'Abia', 'FCT']}
+                                placeholder='Select State'
+                                selectedState={selectedState}
+                                setSelectedState={setSelectedState}
                             />
-                        </div>
-
-                        <Select
-                            label='State'
-                            state={['Lagos', 'Imo', 'Abia', 'FCT']}
-                            placeholder='Select State'
-                            selectedState={selectedState}
-                            setSelectedState={setSelectedState}
-                        />
-                        <MultipleSelect
-                            label='Work Day'
-                            selectFrom={['Mon', 'Tue', 'Wed', 'Thur', 'Fri']}
-                            placeholder='Select Work days'
-                            selected={workDays}
-                            setSelected={setWorkDays}
-                        />
-
-                        <div className='col-span-full'>
-                            <label
-                                htmlFor='address'
-                                className='flex mb-2 gap-4 items-center cursor-pointer'
-                            >
-                                Estate Staff Message
-                            </label>
-
-                            <textarea
-                                name='address'
-                                id='address'
-                                placeholder='This message will be displayed to the estate Staff when the site worker checks in / out'
-                                rows={4}
-                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                            <MultipleSelect
+                                label='Work Day'
+                                selectFrom={[
+                                    'Mon',
+                                    'Tue',
+                                    'Wed',
+                                    'Thur',
+                                    'Fri',
+                                ]}
+                                placeholder='Select Work days'
+                                selected={workDays}
+                                setSelected={setWorkDays}
                             />
-                            <p className='text-gray-400 text-[1.4rem]'>
-                                Maximum of 30 characters
+                            <div className='grid gap-4 relative'>
+                                <label
+                                    htmlFor='address1'
+                                    className='text-[1.4rem] font-medium'
+                                >
+                                    Clock-In Time
+                                </label>
+                                <input
+                                    type='time'
+                                    required
+                                    id='address1'
+                                    className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                                />
+                                <p className='text-[#666869] text-[1.4rem]'>
+                                    The System will only enforce clock-in time
+                                </p>
+                            </div>
+                            <div className='grid gap-4 relative self-start'>
+                                <label
+                                    htmlFor='address1'
+                                    className='text-[1.4rem] font-medium'
+                                >
+                                    Clock-Out Time
+                                </label>
+                                <input
+                                    type='time'
+                                    required
+                                    id='address1'
+                                    className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                                />
+                            </div>
+                            <div className='grid gap-4 relative'>
+                                <label
+                                    htmlFor='address1'
+                                    className='text-[1.4rem] font-medium'
+                                >
+                                    Work Period (Start Date)*
+                                </label>
+                                <input
+                                    type='date'
+                                    required
+                                    id='address1'
+                                    className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                                />
+                            </div>
+                            <div className='grid gap-4 relative'>
+                                <label
+                                    htmlFor='address1'
+                                    className='text-[1.4rem] font-medium'
+                                >
+                                    Work Period (End Date)*
+                                </label>
+                                <input
+                                    type='date'
+                                    required
+                                    id='address1'
+                                    className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                                />
+                            </div>
+
+                            <div className='col-span-full'>
+                                <label
+                                    htmlFor='address'
+                                    className='flex mb-2 gap-4 items-center cursor-pointer'
+                                >
+                                    Site Worker Message
+                                </label>
+
+                                <textarea
+                                    name='address'
+                                    id='address'
+                                    placeholder='This message will be displayed to the security guard when the site worker checks in / out'
+                                    rows={4}
+                                    className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                                />
+                                <p className='text-gray-400 text-[1.4rem]'>
+                                    Maximum of 30 characters
+                                </p>
+                            </div>
+                        </form>
+                    </section>
+
+                    <section className='grid bg-white w-4/5 border-t border-t-gray-100 mt-[5rem] pt-5'>
+                        <h2
+                            className='text-[2rem] mb-10'
+                            style={{
+                                fontFamily: 'Satoshi-Medium',
+                            }}
+                        >
+                            Account Information
+                        </h2>
+
+                        {isAccountCreated ? (
+                            <div className='columns-2 justify-between items-center gap-10'>
+                                <div className='grid gap-4 relative '>
+                                    <label
+                                        htmlFor='bankName'
+                                        className='text-[1.4rem] font-medium'
+                                    >
+                                        Bank Name
+                                    </label>
+                                    <input
+                                        type='text'
+                                        required
+                                        id='bankName'
+                                        placeholder={`First City Monument Bank`}
+                                        className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                                    />
+                                </div>
+
+                                <div className='grid gap-4 relative '>
+                                    <label
+                                        htmlFor='firstName'
+                                        className='text-[1.4rem] font-medium'
+                                    >
+                                        Account Number
+                                    </label>
+                                    <div className='relative flex items-center pr-20 w-full rounded-lg border border-color-grey'>
+                                        <input
+                                            type='number'
+                                            required
+                                            id='firstName'
+                                            placeholder={`2084827323`}
+                                            className=' text-[1.6rem] outline-transparent py-4 px-4 w-full'
+                                        />
+
+                                        <TbCopy className='text-[#0556E5] absolute right-8 text-[2rem]' />
+                                    </div>
+                                </div>
+                            </div>
+                        ) : (
+                            <p className='flex items-cente gap-2'>
+                                <span>No account Information created.</span>
+                                <button
+                                    className=' text-color-blue'
+                                    style={{
+                                        fontFamily: 'Satoshi-Medium',
+                                    }}
+                                    onClick={() => openBankDialog('openBank')}
+                                >
+                                    Open a bank account
+                                </button>
                             </p>
-                        </div>
-                    </form>
+                        )}
+                    </section>
                     <button
                         className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg col-span-full mt-[5rem]'
                         style={{ justifySelf: 'start' }}
@@ -511,8 +802,8 @@ const EditEstateStaff = () => {
                     </button>
                 </section>
             </main>
-        </>
+        </CreateAddedSiteWorkerContext.Provider>
     )
 }
 
-export default EditEstateStaff
+export default ViewSiteWorker
