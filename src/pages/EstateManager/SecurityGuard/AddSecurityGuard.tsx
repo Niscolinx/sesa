@@ -334,7 +334,7 @@ const [propertyCode, setPropertyCode] = useState<string | null>(null)
             </dialog>
             <main>
                 <section className='grid p-8 bg-white items-baseline rounded-lg'>
-                  <p>Personal Information</p>
+                  <p className='text-[2rem] font-Satoshi-Medium mb-10'>Personal Information</p>
                     <form
                         onSubmit={handleSubmit}
                         className='grid max-w-[84rem] gap-16 mt-12 '
