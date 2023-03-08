@@ -1,4 +1,5 @@
 import React, { Fragment, useRef, useState } from 'react'
+import { IoMdClose } from 'react-icons/io'
 
 function ViewHouseHold() {
     type labelKeys =
@@ -77,7 +78,11 @@ function ViewHouseHold() {
                 </section>
             </dialog>
             <dialog className='dialog' ref={dialogRef}>
-                <section className=' w-full h-[90vh] bg-white rounded-2xl p-16 overflow-hidden'>
+                <section className='  h-[90vh] bg-white rounded-2xl p-16 overflow-hidden relative w-[80%] mx-auto'>
+                    <IoMdClose
+                        className='absolute right-4 top-4 text-[2rem] cursor-pointer'
+                        onClick={() => handleClose()}
+                    />
                     <p className='font-Satoshi-Medium text-[2rem] mb-10'>
                         HouseHold Details
                     </p>
@@ -104,7 +109,11 @@ function ViewHouseHold() {
                                         />
                                         <label
                                             htmlFor={item}
-                                            className={`capitalize cursor-pointer ${item === pathToSwitch ? 'text-color-primary' : ''}`}
+                                            className={`capitalize cursor-pointer ${
+                                                item === pathToSwitch
+                                                    ? 'text-color-blue-1'
+                                                    : ''
+                                            }`}
                                         >
                                             {item}
                                         </label>
