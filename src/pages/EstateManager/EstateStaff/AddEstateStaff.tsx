@@ -8,9 +8,16 @@ import {
     AddedEstateStaffSuccessfully,
     OpenedBankAccountSuccessful,
 } from './DialogSteps'
-import { Select } from '../../../components/SuperAdmin/UI/Select'
+import { MultipleSelect, Select } from '../../../components/SuperAdmin/UI/Select'
 import { getPhotoUrl } from '../../../utils/getPhotoUrl'
-import { BVN_Number, DriversLicence, International_PassPort, NIN_Number, PhoneNumber, Voters_Card } from '../../SecurityCompany/dashboard/company/AddSecurity/Inputs'
+import {
+    BVN_Number,
+    DriversLicence,
+    International_PassPort,
+    NIN_Number,
+    PhoneNumber,
+    Voters_Card,
+} from '../../SecurityCompany/dashboard/company/AddSecurity/Inputs'
 
 type DialogType = 'validate' | 'add-estateStaff' | 'reassign'
 
@@ -41,20 +48,13 @@ export const CreateAddedEstateStaffContext =
     createContext<AddedEstateStaffContext>(null as any)
 
 const AddEstateStaff = () => {
-    const [selectedEstate1, setSelectedEstate1] = useState<string | null>(null)
-    const [selectedEstate2, setSelectedEstate2] = useState<string | null>(null)
-    const [selectedEstate3, setSelectedEstate3] = useState<string | null>(null)
-    const [selectedEstate4, setSelectedEstate4] = useState<string | null>(null)
+    const [workDay, setWorkDay] = useState<string[]>([])
     const [isValidated, setIsValidated] = useState(false)
     const [iskyg, setIskyg] = useState(false)
 
     const toggleIskyg = () => setIskyg(!iskyg)
-    const [selectedState, setSelectedState] = useState<string | null>(
-        null as any
-    )
-    const [selectedGender, setSelectedGender] = useState<string | null>(
-        null as any
-    )
+    const [selectedState, setSelectedState] = useState<string | null>(null)
+    const [selectedGender, setSelectedGender] = useState<string | null>(null)
     const [dialogState, setDialogState] = useState<DialogType>('validate')
     const [validationType, setValidationType] = useState<
         ValidateInputTypes | string | null
@@ -476,6 +476,16 @@ const AddEstateStaff = () => {
                             selectedState={selectedState}
                             setSelectedState={setSelectedState}
                         />
+                        <MultipleSelect
+                            label='Work Day'
+                            selectFrom={['Mon', 'Tue', 'Wed', 'Thur', 'Fri']}
+                            placeholder='Select State'
+                            selectedState={selectedState}
+                            setSelectedState={setSelectedState}
+                        />
+                        <MultipleSelect selectFrom={['sdfs','sfsdf']} selected={[]} setSelected={function (value: React.SetStateAction<string[]>): void {
+                            throw new Error('Function not implemented.')
+                        } } label={''}/>
 
                         <div className='col-span-full rounded-lg border border-width-[.2rem] border-dashed border-color-grey-1 p-8 text-[1.6rem] relative w-full'>
                             <label
@@ -521,7 +531,6 @@ const AddEstateStaff = () => {
                     </form>
                 </section>
                 <section className='grid p-8 bg-white'>
-                    
                     <div className='grid gap-8 max-w-[40rem] mt-[5rem] '>
                         <div className='flex items-center justify-between'>
                             <p className='text-[2rem] font-bold flex items-center gap-2'>
