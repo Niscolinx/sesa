@@ -50,7 +50,6 @@ export const CreateAddedSecurityGuardContext =
     createContext<AddedSecurityGuardContext>(null as any)
 
 const AddSecurityGuard = () => {
-    const [workDays, setWorkDays] = useState<string[]>([])
     const [isValidated, setIsValidated] = useState(false)
     const [iskysw, setIskysw] = useState(false)
 
