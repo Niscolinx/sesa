@@ -32,23 +32,14 @@ function AddRFID() {
 
         console.log('submitted')
 
-        const details = {
-            ...inputField,
-            photoUrl,
-            vehicleType,
-        }
 
-        RFID_Details.push(details)
+      //  RFID_Details.push(details)
         setRFID('')
 
       
         
     }
 
-
-    useEffect(() => {
-        console.log({inputField})
-    }, [inputField])
 
     const handlePhotoPreview = async (
         _: React.MouseEvent<HTMLInputElement>
@@ -71,16 +62,6 @@ function AddRFID() {
         }
     }
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const { name, value } = e.target
-
-        setInputField((prev) => {
-            return {
-                ...prev,
-                [name]: value,
-            }
-        })
-    }
 
     return (
         <>
@@ -164,11 +145,7 @@ function AddRFID() {
                         Add an RFID to this property{' '}
                     </p>
                     <form onSubmit={handleSubmit}>
-                        <>
-                        {
-                            console.log({inputField}, 'inside')
-                        }
-                        </>
+                       
                         <div
                             className='grid mt-[5rem] gap-16'
                             style={{
@@ -190,7 +167,7 @@ function AddRFID() {
                                     id='RFID'
                                     name='RFID'
                                     value={RFID}
-                                    onChange={(e) => setRFID(+e.target.value)}
+                                    onChange={(e) => setRFID(e.target.value as number)}
                                     className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                                 />
                             </div>
