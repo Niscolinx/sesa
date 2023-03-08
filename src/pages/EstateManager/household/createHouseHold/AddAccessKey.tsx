@@ -60,16 +60,23 @@ function AddAccessKey() {
         handleClose()
     }
 
+    const details = {
+        phoneNumber,
+        holderName,
+        accessCardNumber,
+    }
+    const isDisabled = Object.values(details).map((item) => {
+        if (item === '' || item === 0) return true
+        return false
+    })
+
     return (
         <>
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
                         <img src='/icons/admins/modalWarning.svg' alt='' />
-                        <p>
-                            Are you sure you want to delete this
-                            Access Card?
-                        </p>
+                        <p>Are you sure you want to delete this Access Card?</p>
 
                         <div className='flex w-full justify-center gap-8'>
                             <button
@@ -233,11 +240,8 @@ function AddAccessKey() {
                     )}
 
                     {accessCardNumber_Details.map((item, idx) => {
-                        const {
-                            phoneNumber,
-                            holderName,
-                            accessCardNumber,
-                        } = item
+                        const { phoneNumber, holderName, accessCardNumber } =
+                            item
                         return (
                             <div
                                 className='grid relative border-b pb-4'
