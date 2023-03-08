@@ -27,13 +27,16 @@ const ESTATE_STAFF: EstateStaff[] = Array.from({
     kys: Math.random() > 0.3 ? 'Validated' : 'Not Validated',
 }))
 
+export type Actions = 'View Details' | 'Edit Details' | 'Delete'
+
 const EstateStaff = () => {
     const navigate = useNavigate()
 
     const [isEstateStaff, setIsEstateStaff] = useState(true)
 
-    const [fetchedEstateStaffData, setFetchedEstateStaffData] =
-        useState<EstateStaff[]>([])
+    const [fetchedEstateStaffData, setFetchedEstateStaffData] = useState<
+        EstateStaff[]
+    >([])
 
     const addEstateStaff = () => {
         setIsEstateStaff(true)
@@ -44,6 +47,52 @@ const EstateStaff = () => {
         }, 1000)
     }, [])
 
+    const actions: Actions[] = ['View Details', 'Edit Details', 'Delete']
+    const [selectedAction, setSelectedAction] = useState<{
+        [key: string]: Actions
+    }>(null as any)
+    const [toggleDropDown, setToggleDropDown] = useState<{
+        isDropDownOpen: boolean
+        index: number | null
+    }>({
+        isDropDownOpen: false,
+        index: null,
+    })
+
+    const dropDownHandler = (
+        e: React.ChangeEvent<HTMLInputElement>,
+        index: number
+    ) => {
+        setToggleDropDown((prev) => {
+            return {
+                isDropDownOpen: e.target.checked,
+                index,
+            }
+        })
+    }
+
+
+
+    const selectAction = (
+        e: React.MouseEvent,
+        item: Actions,
+        index: number
+    ) => {
+        setSelectedAction((prev) => {
+            return {
+                ...prev,
+                [index]: item,
+            }
+        })
+
+        if (item === 'View Details') {
+            navigate(`/estateManager/residents/view/:${index}`)
+        }
+
+        if (item === 'Edit Details') {
+            navigate(`/estateManager/residents/edit/:${index}`)
+        }
+    }
     interface Paginate {
         index: number
         currentPage: number
@@ -231,6 +280,11 @@ const EstateStaff = () => {
                                                     id,
                                                     phoneNumber,
                                                 }) => {
+                                                    const {
+                                                        isDropDownOpen,
+                                                        index,
+                                                    } = toggleDropDown
+
                                                     return (
                                                         <div className='grid justify-between border-b grid-cols-7 gap-8 py-4'>
                                                             <p className='flex items-center gap-4'>
@@ -245,9 +299,7 @@ const EstateStaff = () => {
                                                             </p>
                                                             <p>{staffName}</p>
                                                             <p>{phoneNumber}</p>
-                                                            <p>
-                                                                {workDays}
-                                                            </p>
+                                                            <p>{workDays}</p>
                                                             <p>
                                                                 {status ===
                                                                 'Active' ? (
@@ -273,85 +325,86 @@ const EstateStaff = () => {
                                                                 )}
                                                             </p>
                                                             <div className='relative'>
-                                                            <label
-                                                                className='font-semibold capitalize cursor-pointer flex items-center gap-2 relative z-10'
-                                                                htmlFor={id.toString()}
-                                                                onClick={() =>
-                                                                    setToggleDropDown(
-                                                                        (
-                                                                            prev
-                                                                        ) => {
-                                                                            return {
-                                                                                isDropDownOpen:
-                                                                                    !prev.isDropDownOpen,
-                                                                                index: id,
-                                                                            }
-                                                                        }
-                                                                    )
-                                                                }
-                                                            >
-                                                                <span className='text-color-primary'>
-                                                                    <img
-                                                                        src='/icons/admins/threeDots.svg'
-                                                                        alt=''
-                                                                    />
-                                                                </span>
-                                                            </label>
-                                                            <input
-                                                                type='radio'
-                                                                name='dropdown'
-                                                                className='hidden'
-                                                                id={id.toString()}
-                                                                onChange={(e) =>
-                                                                    dropDownHandler(
-                                                                        e,
-                                                                        id
-                                                                    )
-                                                                }
-                                                            />
-
-                                                            {isDropDownOpen &&
-                                                                index ===
-                                                                    id && (
-                                                                    <div className='absolute top-0 translate-x-[5rem] border border-color-primary-light w-[10rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
-                                                                        {actions.map(
+                                                                <label
+                                                                    className='font-semibold capitalize cursor-pointer flex items-center gap-2 relative z-10'
+                                                                    htmlFor={id.toString()}
+                                                                    onClick={() =>
+                                                                        setToggleDropDown(
                                                                             (
-                                                                                item,
-                                                                                index
-                                                                            ) => (
-                                                                                <p
-                                                                                    className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
-                                                                                    key={
-                                                                                        index +
-                                                                                        id
-                                                                                    }
-                                                                                    onClick={(
-                                                                                        e
-                                                                                    ) =>
-                                                                                        selectAction(
-                                                                                            e,
-                                                                                            item,
+                                                                                prev
+                                                                            ) => {
+                                                                                return {
+                                                                                    isDropDownOpen:
+                                                                                        !prev.isDropDownOpen,
+                                                                                    index: id,
+                                                                                }
+                                                                            }
+                                                                        )
+                                                                    }
+                                                                >
+                                                                    <span className='text-color-primary'>
+                                                                        <img
+                                                                            src='/icons/admins/threeDots.svg'
+                                                                            alt=''
+                                                                        />
+                                                                    </span>
+                                                                </label>
+                                                                <input
+                                                                    type='radio'
+                                                                    name='dropdown'
+                                                                    className='hidden'
+                                                                    id={id.toString()}
+                                                                    onChange={(
+                                                                        e
+                                                                    ) =>
+                                                                        dropDownHandler(
+                                                                            e,
+                                                                            id
+                                                                        )
+                                                                    }
+                                                                />
+
+                                                                {isDropDownOpen &&
+                                                                    index ===
+                                                                        id && (
+                                                                        <div className='absolute top-0 translate-x-[5rem] border border-color-primary-light w-[10rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
+                                                                            {actions.map(
+                                                                                (
+                                                                                    item,
+                                                                                    index
+                                                                                ) => (
+                                                                                    <p
+                                                                                        className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
+                                                                                        key={
+                                                                                            index +
                                                                                             id
-                                                                                        )
-                                                                                    }
-                                                                                >
-                                                                                    {item ===
-                                                                                    'Delete' ? (
-                                                                                        <span className='text-red-600'>
-                                                                                            {
-                                                                                                item
-                                                                                            }
-                                                                                        </span>
-                                                                                    ) : (
-                                                                                        item
-                                                                                    )}
-                                                                                </p>
-                                                                            )
-                                                                        )}
-                                                                    </div>
-                                                                )}
-                                                        </div>
-                                                            </button>
+                                                                                        }
+                                                                                        onClick={(
+                                                                                            e
+                                                                                        ) =>
+                                                                                            selectAction(
+                                                                                                e,
+                                                                                                item,
+                                                                                                id
+                                                                                            )
+                                                                                        }
+                                                                                    >
+                                                                                        {item ===
+                                                                                        'Delete' ? (
+                                                                                            <span className='text-red-600'>
+                                                                                                {
+                                                                                                    item
+                                                                                                }
+                                                                                            </span>
+                                                                                        ) : (
+                                                                                            item
+                                                                                        )}
+                                                                                    </p>
+                                                                                )
+                                                                            )}
+                                                                        </div>
+                                                                    )}
+                                                            </div>
                                                         </div>
                                                     )
                                                 }
