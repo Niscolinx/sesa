@@ -1,6 +1,6 @@
 import React, { Fragment, useContext, useRef, useState } from 'react'
 import { BsQuestionCircle } from 'react-icons/bs'
-import { GrEdit } from 'react-icons/gr'
+import { GrAdd } from 'react-icons/gr'
 import {
     MappedSelect,
     Select,
@@ -377,9 +377,9 @@ function EditResident() {
                                 }
                             >
                                 <span>
-                                    <GrEdit />
+                                    <GrAdd />
                                 </span>
-                                <span>Edit Resident User</span>
+                                <span>Add Resident User</span>
                             </button>
                         </div>
                     </section>
