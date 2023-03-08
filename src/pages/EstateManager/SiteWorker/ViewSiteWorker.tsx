@@ -11,32 +11,32 @@ import { getPhotoUrl } from '../../../utils/getPhotoUrl'
 import { TbCopy } from 'react-icons/tb'
 import {
     AddBankAccount,
-    AddedEstateStaffSuccessfully,
+    AddedSiteWorkerSuccessfully,
     OpenedBankAccountSuccessful,
 } from './DialogSteps'
 
 type Actions = 'Deactivate' | 'Delete'
 
-export type AddedEstateStaffSteps =
-    | 'addedEstateStaffSuccessful'
+export type AddedSiteWorkerSteps =
+    | 'addedSiteWorkerSuccessful'
     | 'addBankAccount'
     | 'openedBankAccountSuccessful'
 
-interface AddedEstateStaffContext {
-    addedEstateStaffStep: AddedEstateStaffSteps
-    setAddedEstateStaffStep: React.Dispatch<
-        React.SetStateAction<AddedEstateStaffSteps>
+interface AddedSiteWorkerContext {
+    addedSiteWorkerStep: AddedSiteWorkerSteps
+    setAddedSiteWorkerStep: React.Dispatch<
+        React.SetStateAction<AddedSiteWorkerSteps>
     >
     selectedBank: string | null
     setSelectedBank: React.Dispatch<React.SetStateAction<string | null>>
     handleClose: () => void
 }
 
-export const CreateAddedEstateStaffContext =
-    createContext<AddedEstateStaffContext>(null as any)
+export const CreateAddedSiteWorkerContext =
+    createContext<AddedSiteWorkerContext>(null as any)
 
     type BankDialog = 'generateId' | 'openBank'
-const ViewEstateStaff = () => {
+const ViewSiteWorker = () => {
     const [workDays, setWorkDays] = useState<string[]>([])
     const [isValidated, setIsValidated] = useState(true)
     const [isAccountCreated, setIsAccountCreated] = useState(false)
@@ -45,8 +45,8 @@ const ViewEstateStaff = () => {
     const [bankDialogState, setBankDialogState] = useState<BankDialog>('openBank')
 
     const [selectedBank, setSelectedBank] = useState<null | string>(null)
-    const [addedEstateStaffStep, setAddedEstateStaffStep] =
-        useState<AddedEstateStaffSteps>('addedEstateStaffSuccessful')
+    const [addedSiteWorkerStep, setAddedSiteWorkerStep] =
+        useState<AddedSiteWorkerSteps>('addedSiteWorkerSuccessful')
 
     const [photoUrl, setPhotoUrl] = useState('')
 
@@ -135,30 +135,30 @@ const ViewEstateStaff = () => {
         }
     }
 
-    const addedEstateStaffSteps = new Map([
+    const addedSiteWorkerSteps = new Map([
         [
-            'addedEstateStaffSuccessful',
-            <AddedEstateStaffSuccessfully
-                context={CreateAddedEstateStaffContext}
+            'addedSiteWorkerSuccessful',
+            <AddedSiteWorkerSuccessfully
+                context={CreateAddedSiteWorkerContext}
             />,
         ],
         [
             'addBankAccount',
-            <AddBankAccount context={CreateAddedEstateStaffContext} />,
+            <AddBankAccount context={CreateAddedSiteWorkerContext} />,
         ],
         [
             'openedBankAccountSuccessful',
             <OpenedBankAccountSuccessful
-                context={CreateAddedEstateStaffContext}
+                context={CreateAddedSiteWorkerContext}
             />,
         ],
     ])
 
     return (
-        <CreateAddedEstateStaffContext.Provider
+        <CreateAddedSiteWorkerContext.Provider
             value={{
-                addedEstateStaffStep,
-                setAddedEstateStaffStep,
+                addedSiteWorkerStep,
+                setAddedSiteWorkerStep,
                 handleClose,
                 selectedBank,
                 setSelectedBank,
@@ -334,8 +334,8 @@ const ViewEstateStaff = () => {
                             </div>
                         ) : (
                             <div className='bg-white rounded-2xl grid place-content-center justify-items-center h-[30rem] gap-8 text-[1.6rem]'>
-                                {addedEstateStaffSteps.get(
-                                    addedEstateStaffStep
+                                {addedSiteWorkerSteps.get(
+                                    addedSiteWorkerStep
                                 )}
                             </div>
                         )}
@@ -673,8 +673,8 @@ const ViewEstateStaff = () => {
                     </button>
                 </section>
             </main>
-        </CreateAddedEstateStaffContext.Provider>
+        </CreateAddedSiteWorkerContext.Provider>
     )
 }
 
-export default ViewEstateStaff
+export default ViewSiteWorker

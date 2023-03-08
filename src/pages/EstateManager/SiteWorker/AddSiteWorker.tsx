@@ -335,7 +335,7 @@ const [propertyCode, setPropertyCode] = useState<string | null>(null)
             <main>
                 <section className='grid p-8 bg-white items-baseline rounded-lg'>
                     <div>
-                        <div className='w-[30rem]'>
+                        <div className='w-[40rem]'>
 
                         <Select
                             state={[
