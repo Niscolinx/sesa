@@ -1,5 +1,6 @@
 import React, { createContext, Fragment, useRef, useState } from 'react'
 import { IoMdClose } from 'react-icons/io'
+import AccessCardList from './AccessCardList'
 import LandlandDetails from './LandlandDetails'
 import PropertyDetails from './PropertyDetails'
 import ResidentList from './ResidentList'
@@ -50,6 +51,7 @@ function ViewHouseHold() {
         ['Resident List', <ResidentList/>],
         ['Landlord Details', <LandlandDetails/>],
         ['RFID List', <RFIDList/>],
+        ['Access Card List', <AccessCardList/>],
     ])
     return (
         <ViewHouseHoldContext.Provider
