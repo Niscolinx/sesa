@@ -59,7 +59,7 @@ const estateManagerRoutes = (
         <Route path='security-guard/edit/:id' element={<EditSecurityGuard />} />
         <Route path='security-guard/view/:id' element={<ViewSecurityGuard />} />
         <Route path='artisan' element={<Artisan />} />
-        <Route path='artisan/view/id' element={<ViewArtisan />} />
+        <Route path='artisan/view/:id' element={<ViewArtisan />} />
     </Route>
 )
 
