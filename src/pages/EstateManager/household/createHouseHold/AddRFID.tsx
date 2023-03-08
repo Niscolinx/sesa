@@ -12,7 +12,7 @@ import { HouseholdContext } from './CreateHousehold'
 
 function AddRFID() {
     interface InputField {
-        RFID: number | null
+        RFID: number | undefined
         vehicleRegNumber: number | null
         vehicleMake: string
         vehicleType: string | null
@@ -23,7 +23,7 @@ function AddRFID() {
 
     const { vehicleType, setVehicleType } = useContext(HouseholdContext)
     const [photoUrl, setPhotoUrl] = useState('')
-    const [RFID, setRFID] = useState<number | null>(null)
+    const [RFID, setRFID] = useState<number | undefined>(undefined)
     const [vehicleRegNumber, setVehicleRegNumber] = useState<number | null>(
         null
     )
@@ -44,7 +44,7 @@ function AddRFID() {
 
         console.log({details})
         //  RFID_Details.push(details)
-        setRFID(null)
+        setRFID(undefined)
         setVehicleMake('')
         setVehicleRegNumber(null)
         setVehicleType(null)
