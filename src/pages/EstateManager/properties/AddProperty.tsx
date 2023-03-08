@@ -46,7 +46,14 @@ const AddProperty = () => {
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
-                        <img src='/icons/admins/modalSuccess.svg' alt='' />
+                        <img
+                            src='/icons/admins/modalSuccess.svg'
+                            alt=''
+                            className='animate__animated animate__pulse'
+                            style={{
+                                animationIterationCount: 'infinite',
+                            }}
+                        />
                         <p>You have successfully added an Property</p>
 
                         <div className='flex w-full justify-center gap-8'>
@@ -188,7 +195,9 @@ const AddProperty = () => {
                                 rows={4}
                                 className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                             />
-                            <p className='text-gray-400 text-[1.4rem]'>Maximum of 80 characters</p>
+                            <p className='text-gray-400 text-[1.4rem]'>
+                                Maximum of 80 characters
+                            </p>
                         </div>
                         <div className=' rounded-lg border border-width-[.2rem] border-dashed border-color-grey-1 p-8 text-[1.6rem] relative w-full h-[13rem] content-center grid'>
                             <label

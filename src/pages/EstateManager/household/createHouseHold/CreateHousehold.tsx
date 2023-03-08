@@ -93,6 +93,10 @@ function CreateHousehold() {
         [3, <AddRFID />],
         [4, <AddAccessKey />],
     ])
+
+    const handleSubmit = () => {
+        console.log('submitted')
+    }
     return (
         <>
             <HouseholdContext.Provider
@@ -114,7 +118,7 @@ function CreateHousehold() {
                     vehicleType,
                     setVehicleType,
                     disabled,
-                    setDisabled
+                    setDisabled,
                 }}
             >
                 <div className='bg-white p-16 rounded-lg min-h-[90vh] relative'>
@@ -165,19 +169,29 @@ function CreateHousehold() {
                             <TfiArrowCircleLeft className='w-[3rem] h-[3rem] text-color-blue' />
                             <span>Previous</span>
                         </button>
-                        <button
-                            className='flex gap items-center cursor-pointer gap-4 disabled:opacity-50 disabled:cursor-not-allowed'
-                            disabled={pathToSwitch === 4}
-                            onClick={() =>
-                                setPathToSwitch((prev) => {
-                                    return prev === 4 ? prev : prev + 1
-                                })
-                            }
-                        >
-                            {' '}
-                            <TfiArrowCircleRight className='w-[3rem] h-[3rem] text-color-blue' />
-                            <span className=''>Next</span>
-                        </button>
+                        {pathToSwitch === 4 ? (
+                            <button
+                                className='flex gap items-center cursor-pointer gap-4 disabled:opacity-50 disabled:cursor-not-allowed'
+                                disabled={disabled}
+                                onClick={() => handleSubmit()}
+                            >
+                                {' '}
+                                <span className=''>Create Household</span>
+                            </button>
+                        ) : (
+                            <button
+                                className='flex gap items-center cursor-pointer gap-4 disabled:opacity-50 disabled:cursor-not-allowed'
+                                onClick={() =>
+                                    setPathToSwitch((prev) => {
+                                        return prev === 4 ? prev : prev + 1
+                                    })
+                                }
+                            >
+                                {' '}
+                                <TfiArrowCircleRight className='w-[3rem] h-[3rem] text-color-blue' />
+                                <span className=''>Next</span>
+                            </button>
+                        )}
                     </div>
                 </div>
             </HouseholdContext.Provider>
