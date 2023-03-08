@@ -7,28 +7,24 @@ import { HouseholdContext } from './CreateHousehold'
 function AddAccessKey() {
     interface InputField {
         accessCardNumber: number
-        holderName: number
-        vehicleMake: string
-        vehicleType: string | null
-        photoUrl: string
+        holderName: string
+        phoneNumber: number
     }
 
     const [accessCardNumber_Details, setaccessCardNumber_Details] = useState<InputField[]>([])
 
-    const { vehicleType, setVehicleType } = useContext(HouseholdContext)
+    const [ phoneNumber, setPhoneNumber ] = useState(0)
     const [photoUrl, setPhotoUrl] = useState('')
     const [accessCardNumber, setaccessCardNumber] = useState<number>(0)
     const [holderName, setHolderName] = useState('')
-    const [vehicleMake, setVehicleMake] = useState('')
     const [idxToDelete, setIdxToDelete] = useState(0)
 
     const handleSubmit = (e: FormEvent) => {
         e.preventDefault()
 
         const details = {
-            vehicleMake,
+            phoneNumber,
             holderName,
-            vehicleType,
             accessCardNumber,
             photoUrl,
         }
@@ -37,10 +33,8 @@ function AddAccessKey() {
             return [...prev, details]
         })
         setaccessCardNumber(0)
-        setVehicleMake('')
-        setHolderName(0)
-        setVehicleType(null)
-        setPhotoUrl('')
+        setHolderName('')
+        setPhoneNumber(0)
     }
 
     const handlePhotoPreview = async (
@@ -203,90 +197,33 @@ function AddAccessKey() {
                                     required
                                     id='holderName'
                                     name='holderName'
-                                    value={
-                                        holderName
-                                    }
+                                    value={holderName}
                                     onChange={(e) =>
-                                        setHolderName(
-                                            e.target.value
-                                        )
+                                        setHolderName(e.target.value)
                                     }
                                     className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                                 />
                             </div>
                             <div className='grid gap-4 relative '>
                                 <label
-                                    htmlFor='vehicleMake'
+                                    htmlFor='phoneNumber'
                                     className='text-[1.4rem] font-medium'
                                 >
-                                    Vehicle Make *
+                                    Phone Number
                                 </label>
                                 <input
-                                    type='text'
+                                    type='number'
                                     required
-                                    id='vehicleMake'
-                                    name='vehicleMake'
-                                    value={vehicleMake}
+                                    id='phoneNumber'
+                                    name='phoneNumber'
+                                    value={phoneNumber <= 0 ? '' : phoneNumber}
                                     onChange={(e) =>
-                                        setVehicleMake(e.target.value)
+                                        setPhoneNumber(
+                                            e.target.value as unknown as number
+                                        )
                                     }
                                     className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                                 />
-                            </div>
-                            <Select
-                                state={[
-                                    'Motor Bike',
-                                    'Tricycle (keke)',
-                                    'Car',
-                                    'SUV',
-                                    'Bus',
-                                    'Truck',
-                                ]}
-                                label='Vehicle Type'
-                                isSearchable
-                                selectedState={vehicleType}
-                                setSelectedState={setVehicleType}
-                            />
-                            <div className='col-span-full rounded-lg border border-width-[.2rem] border-dashed border-color-grey-1 p-8 text-[1.6rem] relative w-full'>
-                                <label
-                                    htmlFor='photoUpload'
-                                    className='flex justify-center gap-4 items-center cursor-pointer'
-                                >
-                                    <img
-                                        src='/icons/admins/photo_library.svg'
-                                        alt=''
-                                    />
-                                    <p
-                                        className='text-color-dark-1'
-                                        style={{
-                                            fontFamily: 'Satoshi-Light',
-                                        }}
-                                    >
-                                        Drag estate manager picture here or{' '}
-                                        <span className='text-color-blue font-bold'>
-                                            click
-                                        </span>{' '}
-                                        to upload
-                                    </p>
-                                </label>
-                                <input
-                                    type='file'
-                                    name='photoUpload'
-                                    id='photoUpload'
-                                    accept='image/*'
-                                    className='hidden'
-                                    onClick={handlePhotoPreview}
-                                />
-
-                                {photoUrl && (
-                                    <div className='flex justify-center justify-self-center'>
-                                        <img
-                                            src={photoUrl}
-                                            alt='photoPreview'
-                                            className='object-cover w-[11rem] h-[11rem] rounded-full'
-                                        />
-                                    </div>
-                                )}
                             </div>
                         </div>
                         <button className='btn text-color-blue-1 border border-color-blue-1 items-center gap-4 py-4 px-16 rounded-lg w-[15rem] mt-[5rem]'>
@@ -304,10 +241,9 @@ function AddAccessKey() {
 
                     {accessCardNumber_Details.map((item, idx) => {
                         const {
-                            photoUrl,
-                            vehicleMake,
+                            phoneNumber,
                             holderName,
-                            vehicleType,
+                            
                             accessCardNumber,
                         } = item
                         return (
@@ -344,13 +280,13 @@ function AddAccessKey() {
                                             <p className='font-Satoshi-Light'>
                                                 Vehicle Type :
                                             </p>
-                                            <p>{vehicleType}</p>
+                                            <p>{phoneNumber}</p>
                                         </div>
                                         <div className='grid grid-cols-2 items-center justify-start '>
                                             <p className='font-Satoshi-Light'>
                                                 Vehicle Make :
                                             </p>
-                                            <p>{vehicleMake}</p>
+                                            <p>{phoneNumber}</p>
                                         </div>
                                     </div>
                                 </div>
