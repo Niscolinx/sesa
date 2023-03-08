@@ -24,9 +24,8 @@ function AddRFID() {
         vehicleRegNumber: null,
     }
 
-    const [inputField, setInputField] =
-        useState<Omit<InputField, 'vehicleType' | 'photoUrl'>>(defaultFormState)
     const [photoUrl, setPhotoUrl] = useState('')
+    const [RFID, setRFID] = useState('')
 
     const handleSubmit = (e: FormEvent) => {
         e.preventDefault()
@@ -40,8 +39,9 @@ function AddRFID() {
         }
 
         RFID_Details.push(details)
+        setRFID('')
 
-        setInputField(defaultFormState)
+      
         
     }
 
@@ -175,7 +175,7 @@ function AddRFID() {
                                 gridTemplateColumns:
                                     'repeat(auto-fit, minmax(40rem, 1fr))',
                             }}
-                            onChange={handleChange}
+                           // onChange={handleChange}
                         >
                             <div className='grid gap-4 relative '>
                                 <label
@@ -189,7 +189,8 @@ function AddRFID() {
                                     required
                                     id='RFID'
                                     name='RFID'
-                                    value={inputField['RFID'] as number}
+                                    value={RFID}
+                                    onChange={(e) => setRFID(+e.target.value)}
                                     className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                                 />
                             </div>
