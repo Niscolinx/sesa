@@ -26,7 +26,7 @@ const ARTISAN_LIST:IArtisanList[] = Array.from({length: 20}, (_, i) => {
         businessName: 'Robert Fox',
         phoneNumber: '(+234) 8143246719',
         category: 'plumber',
-        rating: Math.floor(Math.random() * 5 + 3)
+        rating: Math.floor(Math.random() * 4 + 1)
 
     }
 })
