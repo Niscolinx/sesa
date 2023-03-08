@@ -9,7 +9,7 @@ type Actions = 'Deactivate' | 'Delete'
 
 const ViewArtisan = () => {
     const [selectedGender, setSelectedGender] = useState<string | null>(null)
-    const [dialogType, setDialogType] = useState<Actions>('Deactivate')
+    // const [dialogType, setDialogType] = useState<Actions>('Deactivate')
 
     const [photoUrl, setPhotoUrl] = useState('')
 
@@ -26,11 +26,11 @@ const ViewArtisan = () => {
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
-    const handleClose = () => {
-        if (dialogRef.current) {
-            dialogRef.current.close()
-        }
-    }
+    // const handleClose = () => {
+    //     if (dialogRef.current) {
+    //         dialogRef.current.close()
+    //     }
+    // }
 
     // const handleOpen = (dialogType: Actions) => {
     //     if (dialogType === 'Deactivate') {
