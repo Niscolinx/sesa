@@ -147,9 +147,7 @@ const ViewArtisan = () => {
                                 alt='photoPreview'
                                 className='object-cover w-[11rem] h-[11rem] rounded-full object-top'
                             />
-                            <span className='text-color-blue-1 text-[1.4rem]'>
-                                Edit
-                            </span>
+                          
                         </label>
                         <input
                             type='file'
