@@ -203,13 +203,20 @@ function EditHousehold() {
                             <TfiArrowCircleLeft className='w-[3rem] h-[3rem] text-color-blue' />
                             <span>Previous</span>
                         </button>
-                        {pathToSwitch === 4 ? (
+                        {pathToSwitch === 3 ? (
                             <button
-                                className=' cursor-pointer bg-color-blue-1 rounded-2xl py-4 px-6 text-white gap-4 disabled:opacity-50 disabled:cursor-not-allowed'
+                                className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg col-span-full'
                                 disabled={disabled}
                                 onClick={() => handleSubmit()}
                             >
-                                Edit Household
+                                <span>
+                                    <img
+                                        src='/icons/admins/saveDisk.svg'
+                                        alt=''
+                                        className='w-[1.7rem] h-[1.7rem]'
+                                    />
+                                </span>{' '}
+                                Save Changes
                             </button>
                         ) : (
                             <button
