@@ -88,9 +88,12 @@ function Payments() {
                         <span>Installments(5)</span>
                     </p>
 
-                    <div className='flex items-center w-full justify-between'>
+                    <div className='grid grid-cols-6 items-center w-full justify-between'>
+                        <div className='w-full flex items-center' >
+
                         <img src='/img/check_circle.svg' alt='' />
-                        <hr className='w-[1rem] h-full' />
+                        <span className='w-full h-[0.15rem] bg-color-blue-1' > </span>
+                        </div>
                         <img src='/img/check_circle.svg' alt='' />
                         <img src='/img/check_empty.svg' alt='' />
                         <img src='/img/check_empty.svg' alt='' />
