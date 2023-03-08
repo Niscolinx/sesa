@@ -51,9 +51,9 @@ export const CreateAddedSecurityGuardContext =
 
 const AddSecurityGuard = () => {
     const [isValidated, setIsValidated] = useState(false)
-    const [iskysw, setIskysw] = useState(false)
+    const [iskys, setIskys] = useState(false)
 
-    const toggleIskysw = () => setIskysw(!iskysw)
+    const toggleIskys = () => setIskys(!iskys)
     const [selectedState, setSelectedState] = useState<string | null>(null)
     const [selectedGender, setSelectedGender] = useState<string | null>(null)
     const [dialogState, setDialogState] = useState<DialogType>('validate')
@@ -277,7 +277,7 @@ const AddSecurityGuard = () => {
                                         fontFamily: 'Satoshi-Medium',
                                     }}
                                 >
-                                    Know Your Guard (kysw)
+                                    Know Your Guard (kys)
                                 </h3>
 
                                 <Select
@@ -301,7 +301,7 @@ const AddSecurityGuard = () => {
                                         fontFamily: 'Satoshi-Light',
                                     }}
                                 >
-                                    What is kysw <BsQuestionCircle />
+                                    What is kys <BsQuestionCircle />
                                 </p>
                                 {renderValidationType.get(
                                     validationType as ValidateInputTypes
@@ -505,16 +505,16 @@ const AddSecurityGuard = () => {
                     <div className='grid gap-8 max-w-[40rem] mt-[5rem] '>
                         <div className='flex items-center justify-between'>
                             <p className='text-[2rem] font-bold flex items-center gap-2'>
-                                kysw{' '}
+                                kys{' '}
                                 <span className='text-[#043FA7]'>
                                     <BsQuestionCircle />
                                 </span>
                             </p>
                             <div
-                                onClick={toggleIskysw}
+                                onClick={toggleIskys}
                                 className='cursor-pointer'
                             >
-                                {iskysw ? (
+                                {iskys ? (
                                     <img
                                         src='/icons/admins/switchOn.svg'
                                         alt=''
@@ -531,7 +531,7 @@ const AddSecurityGuard = () => {
                         {isValidated ? (
                             <div className='flex gap-8 text-[1.6rem]'>
                                 <p className='text-[#098DFF] cursor-pointer flex items-center font-medium'>
-                                    kysw Validated{' '}
+                                    kys Validated{' '}
                                     <IoMdCheckmarkCircleOutline />
                                 </p>
                                 <button
@@ -546,7 +546,7 @@ const AddSecurityGuard = () => {
                             </div>
                         ) : (
                             <>
-                                {iskysw && (
+                                {iskys && (
                                     <div className='flex justify-between text-[1.6rem]'>
                                         <p
                                             className='text-[#098DFF] cursor-pointer'
