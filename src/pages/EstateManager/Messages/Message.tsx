@@ -2,7 +2,6 @@ import { useAtom } from 'jotai'
 import { useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
 import { useNavigate } from 'react-router'
-import { userData } from '../Payments/Payments'
 import RenderMessages from './RenderMessages'
 
 function Message() {
@@ -18,8 +17,7 @@ function Message() {
 
     return (
         <div>
-            From Jotai lastName {user.LastName}
-            From Jotai firstName {user.firstName}
+           
             <div className='rounded-lg mt-[3rem] h-[80vh]'>
                 {isMessage ? (
                     <section>

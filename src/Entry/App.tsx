@@ -15,12 +15,12 @@ import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import 'animate.css'
 
-
 import Login from '../pages/Login'
 import superAdminRoutes from './routes/superAdminRoutes'
 import securityCompanyRoutes from './routes/securityCompanyRoutes'
 import { Route } from 'use-react-router-breadcrumbs'
 import estateManagerRoutes from './routes/estateManagerRoutes'
+import { Provider as Jotai } from 'jotai'
 
 const router = createBrowserRouter(
     createRoutesFromElements([
@@ -35,9 +35,11 @@ const router = createBrowserRouter(
 const App = () => {
     return (
         <div className='text-[1.6rem] max-w-[180rem] mx-auto'>
-            <SkeletonTheme baseColor='#202020' highlightColor='#444'>
-                <RouterProvider router={router} />
-            </SkeletonTheme>
+            <Jotai>
+                <SkeletonTheme baseColor='#202020' highlightColor='#444'>
+                    <RouterProvider router={router} />
+                </SkeletonTheme>
+            </Jotai>
         </div>
     )
 }

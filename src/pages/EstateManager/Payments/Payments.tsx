@@ -1,17 +1,12 @@
 import { atom, useAtom } from 'jotai'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
 import { useNavigate } from 'react-router'
 
-export const userData = atom({
-    firstName: 'Collins',
-    LastName: 'Munachi',
-})
 
 function Payment() {
     const navigate = useNavigate()
 
-    const [user, setUser] = useAtom(userData)
 
     const [isPayment, setIsPayment] = useState(false)
 
@@ -21,22 +16,8 @@ function Payment() {
     }
 
     return (
-        <div>
-            The user lastName is {user.LastName}
-            the user firstName is {user.firstName}
-            <input
-                type='text'
-                placeholder='change last Name'
-                className='border py-4 px-6 '
-                onChange={(e) =>
-                    setUser((prev) => {
-                        return {
-                            ...prev,
-                            LastName: e.target.value,
-                        }
-                    })
-                }
-            />
+        <div className='grid'>
+         
             <div className='rounded-lg mt-[3rem] h-[80vh]'>
                 {isPayment ? (
                     <section>
