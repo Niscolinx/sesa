@@ -7,11 +7,11 @@ import { useNavigate } from 'react-router-dom'
 
 interface CompanyOverview {
     id: number
-    guardCode: number
-    guardName: string
-    phoneNumber: string
-    assignedEstate: string
-    status: 'Active' | 'Deactivated'
+    residentCode: number
+    residentName: string
+    propertyCategory: string
+    propertyName: string
+    propertyType: 'Active' | 'Deactivated'
     kys: 'Validated' | 'Not Validated'
 }
 
@@ -19,11 +19,11 @@ const COMPANY_OVERVIEW_DATA: CompanyOverview[] = Array.from({
     length: 20,
 }).map((_, i) => ({
     id: i,
-    guardName: 'John Doe',
-    phoneNumber: '+2347024954270',
-    guardCode: Math.floor(Math.random() * 3000 + 1000),
-    assignedEstate: 'Estate 1',
-    status: Math.random() > 0.5 ? 'Active' : 'Deactivated',
+    residentName: 'John Doe',
+    propertyCategory: '+2347024954270',
+    residentCode: Math.floor(Math.random() * 3000 + 1000),
+    propertyName: 'Estate 1',
+    propertyType: Math.random() > 0.5 ? 'Active' : 'Deactivated',
     kys: Math.random() > 0.5 ? 'Validated' : 'Not Validated',
 }))
 
@@ -141,7 +141,7 @@ const RecipientList: FC<IRecipientList> = ({ closeRecipientListDialog }) => {
     }
 
     const saveChangesHandler = () => {
-        console.log('add security guard')
+        console.log('add security resident')
 
         closeRecipientListDialog()
     }
@@ -198,12 +198,12 @@ const RecipientList: FC<IRecipientList> = ({ closeRecipientListDialog }) => {
                                     type='checkbox'
                                     className='cursor-pointer'
                                 />
-                                <p>Guard Name</p>
+                                <p>Resident Name</p>
                             </p>
-                            <p>Guard Code</p>
+                            <p>Resident Code</p>
                             <p>Phone Number</p>
                             <p>Assigned Estate</p>
-                            <p>Status</p>
+                            <p>PropertyType</p>
                             <p>KYG</p>
                         </div>
 
@@ -212,13 +212,13 @@ const RecipientList: FC<IRecipientList> = ({ closeRecipientListDialog }) => {
                                 React.Children.toArray(
                                     slicedPages[paginate.index].map(
                                         ({
-                                            guardCode,
-                                            guardName,
-                                            assignedEstate,
+                                            residentCode,
+                                            residentName,
+                                            propertyName,
                                             kys,
-                                            status,
+                                            propertyType,
                                             id,
-                                            phoneNumber,
+                                            propertyCategory,
                                         }) => {
                                             return (
                                                 <div className='grid justify-between border-b grid-cols-6 gap-8 py-4'>
@@ -228,19 +228,19 @@ const RecipientList: FC<IRecipientList> = ({ closeRecipientListDialog }) => {
                                                             className='cursor-pointer'
                                                         />
 
-                                                        <span>{guardName}</span>
+                                                        <span>{residentName}</span>
                                                     </p>
-                                                    <p>{guardCode}</p>
-                                                    <p>{phoneNumber}</p>
-                                                    <p>{assignedEstate}</p>
+                                                    <p>{residentCode}</p>
+                                                    <p>{propertyCategory}</p>
+                                                    <p>{propertyName}</p>
                                                     <p>
-                                                        {status === 'Active' ? (
+                                                        {propertyType === 'Active' ? (
                                                             <span className='text-[#1A8F56]'>
-                                                                {status}
+                                                                {propertyType}
                                                             </span>
                                                         ) : (
                                                             <span className='text-red-600'>
-                                                                {status}
+                                                                {propertyType}
                                                             </span>
                                                         )}
                                                     </p>
