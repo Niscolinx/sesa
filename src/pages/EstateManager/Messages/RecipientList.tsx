@@ -27,7 +27,7 @@ const RECIPIENT: Recipient[] = Array.from({
     propertyType: Math.random() > 0.5 ? '2-Bedroom Self Con.' : 'Duplex',
     tenancyType:
         Math.random() > 0.5 ? 'Landlord (Developer)' : 'Tenant (Resident)',
-    isAlpha: Math.random() > 0.3 ? true : false
+    isAlpha: Math.random() > 0.3 ? true : false,
 }))
 
 interface IRecipientList {
@@ -37,8 +37,9 @@ interface IRecipientList {
 const RecipientList: FC<IRecipientList> = ({ closeRecipientListDialog }) => {
     const navigate = useNavigate()
 
-    const [fetchedRecipientData, setFetchedRecipientData] =
-        useState<Recipient[]>([])
+    const [fetchedRecipientData, setFetchedRecipientData] = useState<
+        Recipient[]
+    >([])
 
     useEffect(() => {
         setTimeout(() => {
@@ -143,8 +144,6 @@ const RecipientList: FC<IRecipientList> = ({ closeRecipientListDialog }) => {
     }
 
     const saveChangesHandler = () => {
-        console.log('add security resident')
-
         closeRecipientListDialog()
     }
 
