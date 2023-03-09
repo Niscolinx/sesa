@@ -20,7 +20,7 @@ export interface Payments {
     createDate: string
     totalResidents: number
     paidResidents: number
-    amountPaid: string
+    amountToPay: string
     progressPercent: number
     expectedAmount: string
 }
@@ -45,7 +45,7 @@ export const PAYMENTS_LIST: Payments[] = Array.from({ length: 10 }).map(
         endDate: '03 Mar, 2023',
         status: Math.random() > 0.5 ? 'active' : 'inactive',
         createDate: '01 Jan, 2023',
-        amountPaid: '2,000',
+        amountToPay: '2,000',
         totalResidents: Math.floor(Math.random() * 200 + 150),
         progressPercent: Math.floor(Math.random() * 45 + 30),
         expectedAmount: '5,000',
@@ -229,7 +229,7 @@ function RenderedPayments() {
                                     startDate,
                                     endDate,
                                     status,
-                                    amountPaid,
+                                    amountToPay,
                                     createDate,
                                     expectedAmount,
                                 } = paymentsBody
@@ -345,6 +345,7 @@ function RenderedPayments() {
 
                                             <div className='grid grid-cols-60-auto gap-4 items-center -pt-8'>
                                                 <div className='progressBar overflow-hidden'>
+                                                    <p>{amountToPay}</p>
                                                     <progress
                                                         className='progressBar__item'
                                                         max={100}
@@ -352,7 +353,7 @@ function RenderedPayments() {
                                                     />
                                                         
                                                     
-                                                    <p className={`absolute left-0 text-color-tertiary text-white flex justify-end`} style={{
+                                                    <p className={`absolute left-0 text-color-tertiary text-white flex justify-end font-Satoshi-Medium pr-10`} style={{
                                                         width: `${progressPercent}%`
                                                     }}>
                                                         <span>
