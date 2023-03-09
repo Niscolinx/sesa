@@ -352,7 +352,9 @@ function RenderedPayments() {
                                                     />
                                                         
                                                     
-                                                    <p className={`absolute left-0 text-color-tertiary text-white flex justify-end w-[${}]`}>
+                                                    <p className={`absolute left-0 text-color-tertiary text-white flex justify-end`} style={{
+                                                        width: `${progressPercent}%`
+                                                    }}>
                                                         <span>
                                                             {progressPercent}%
                                                         </span>
