@@ -258,15 +258,15 @@ function RenderedPayments() {
                                                 <div className='grid grid-cols-2 gap-4 '>
                                                     <div className='grid grid-cols-2 items-center gap-4 justify-start w-[25rem] whitespace-nowrap'>
                                                         <p className='text-gray-700 font-Satoshi-Light  '>
-                                                            Product Name:
+                                                            Payment Name:
                                                         </p>
-                                                        <p>Car</p>
+                                                        <p>{paymentName}</p>
                                                     </div>
                                                     <div className='grid grid-cols-2 items-center gap-4 whitespace-nowrap w-[25rem]'>
                                                         <p className='text-gray-700 font-Satoshi-Light '>
                                                             End Date:
                                                         </p>
-                                                        <p>22 Feb 2023</p>
+                                                        <p>{endDate}</p>
                                                     </div>
                                                 </div>
                                                 <div className='grid grid-cols-2 gap-4 '>
