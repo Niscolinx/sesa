@@ -238,7 +238,7 @@ function RenderedPayments() {
                                     expectedAmount
                                 } = paymentsBody
                                 return (
-                                    < className='grid relative p-8 bg-white rounded-lg gap-2'>
+                                    <div className='grid relative p-8 bg-white rounded-lg gap-2'>
                                           
                                             <section className='w-[70rem] grid gap-4'>
                                                 <div className='grid grid-cols-2 gap-4 '>
