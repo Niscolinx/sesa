@@ -240,7 +240,7 @@ const RecipientList: FC<IRecipientList> = ({ closeRecipientListDialog }) => {
                                                         </span>
                                                         {isAlpha ? (
                                                             <img
-                                                                src='/img/a;lpha.svg'
+                                                                src='/img/alpha.svg'
                                                                 alt=''
                                                             />
                                                         ) : null}

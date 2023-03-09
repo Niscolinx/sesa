@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
-import { Select } from '../../../components/SuperAdmin/UI/Select'
+import { MultipleSelect, Select } from '../../../components/SuperAdmin/UI/Select'
 import RecipientList from './RecipientList'
 
 
@@ -121,6 +121,10 @@ const ComposeMessage = () => {
                         selectedState={selectedChannelType}
                         setSelectedState={setSelectedChannelType}
                     />
+
+                    <MultipleSelect selectFrom={[]} selected={[]} setSelected={function (value: React.SetStateAction<string[]>): void {
+                        throw new Error('Function not implemented.')
+                    } } label={''}/>
 
                     <div className='grid gap-4 relative'>
                         <label
