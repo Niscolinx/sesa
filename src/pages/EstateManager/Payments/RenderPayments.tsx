@@ -332,10 +332,12 @@ function RenderedPayments() {
                                                         className='progressBar__item'
                                                         max={100}
                                                         value={progressPercent}
-                                                    ></progress>
-                                                    <p className='absolute left-4 text-color-tertiary '>
-                                                        <span>0%</span>{' '}
-                                                        <span>Completed</span>
+                                                    >
+                                                        
+                                                    </progress>
+                                                    <p className='absolute right-4 text-color-tertiary '>
+                                                        <span>{progressPercent}%</span>
+                                                        
                                                     </p>
                                                 </div>
 
