@@ -207,7 +207,7 @@ function RenderedPayments() {
                         <span>
                             <IoMdAdd />
                         </span>{' '}
-                        <p>Create Payments</p>
+                        <p>Create Payment</p>
                     </button>
                 </div>
 
@@ -336,7 +336,7 @@ function RenderedPayments() {
                                             </div>
                                         </section>
 
-                                        <section className='mt-[5rem] grid gap-16'>
+                                        <section className='mt-[5rem] grid '>
                                             <p className='flex items-center gap-2'>
                                                 <span className='font-Satoshi-Medium'>
                                                     Payment Status:{' '}
