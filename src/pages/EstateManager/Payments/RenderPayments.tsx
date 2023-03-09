@@ -343,9 +343,9 @@ function RenderedPayments() {
                                                 </span>{' '}
                                             </p>
 
-                                            <div className='grid grid-cols-60-auto gap-4 items-center -pt-8'>
-                                                <div className='progressBar overflow-hidden'>
+                                            <div className='grid gap-4 items-center '>
                                                     <p>{amountToPay}</p>
+                                                <div className='progressBar overflow-hidden '>
                                                     <progress
                                                         className='progressBar__item'
                                                         max={100}
