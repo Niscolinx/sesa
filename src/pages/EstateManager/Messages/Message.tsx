@@ -6,7 +6,6 @@ import RenderMessages from './RenderMessages'
 
 function Message() {
     const navigate = useNavigate()
-    const [user, setUser] = useAtom(userData)
 
     const [isMessage, setIsMessage] = useState(false)
 
