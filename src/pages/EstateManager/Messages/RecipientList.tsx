@@ -199,13 +199,13 @@ const RecipientList: FC<IRecipientList> = ({ closeRecipientListDialog }) => {
                                     type='checkbox'
                                     className='cursor-pointer'
                                 />
-                                <p>Resident Name</p>
+                                <p>Resident Code</p>
                             </p>
-                            <p>Resident Code</p>
-                            <p>Phone Number</p>
-                            <p>Assigned Estate</p>
-                            <p>PropertyType</p>
-                            <p>KYG</p>
+                            <p>Resident Name</p>
+                            <p>Property Category</p>
+                            <p>Property Name</p>
+                            <p>Property Type</p>
+                            <p>Tenancy Type</p>
                         </div>
 
                         <div className='grid gap-8 mt-8 p-8'>
@@ -213,12 +213,12 @@ const RecipientList: FC<IRecipientList> = ({ closeRecipientListDialog }) => {
                                 React.Children.toArray(
                                     slicedPages[paginate.index].map(
                                         ({
+                                            id,
                                             residentCode,
                                             residentName,
                                             propertyName,
                                             tenancyType,
                                             propertyType,
-                                            id,
                                             propertyCategory,
                                         }) => {
                                             return (
