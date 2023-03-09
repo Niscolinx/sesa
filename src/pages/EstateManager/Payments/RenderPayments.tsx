@@ -9,7 +9,19 @@ import { Link, useNavigate } from 'react-router-dom'
 export interface Payments {
     id: string,
     paymentCode: string,
-    
+    paymentType: 'fixed' | 'flexible',
+    paymentPlan: string,
+    paymentAmount: string,
+    startDate: string,
+    endDate: string,
+    trackPayment: string,
+    status: 'active' | 'inactive',
+    createDate: string,
+    totalResidents: number,
+    paidResidents: number,
+    amountPaid: string,
+    progressBar: number,
+    expectedAmount: string
 }
 
 const recipients = ['Thomas Nwaje', 'Solomon Nwaje']
@@ -18,7 +30,7 @@ export const PAYMENTS_LIST: Payments[] = Array.from({ length: 10 }).map(
     (_, i) => ({
         id: `i + 1`,
         paymentCode: `XXSD${(Math.random() * 0.1 + 0.9).toFixed(7).split('.')[1]}`,
-
+        
     })
 )
 
