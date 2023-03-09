@@ -110,21 +110,24 @@ const ComposeMessage = () => {
                     }}
                 >
                     <Select
-                        state={[
-                            'Channel 1',
-                            'Channel 2',
-                            'Channel 3',
-                            'Channel 4',
-                            'Channel 5',
-                        ]}
+                        state={}
                         label='Channel Type'
                         selectedState={selectedChannelType}
                         setSelectedState={setSelectedChannelType}
                     />
 
-                    <MultipleSelect selectFrom={[]} selected={[]} setSelected={function (value: React.SetStateAction<string[]>): void {
-                        throw new Error('Function not implemented.')
-                    } } label={''}/>
+                    <MultipleSelect
+                        selectFrom={[
+                            'In-App', 'SMS'
+                        ]}
+                        selected={[]}
+                        setSelected={function (
+                            value: React.SetStateAction<string[]>
+                        ): void {
+                            throw new Error('Function not implemented.')
+                        }}
+                        label={''}
+                    />
 
                     <div className='grid gap-4 relative'>
                         <label
