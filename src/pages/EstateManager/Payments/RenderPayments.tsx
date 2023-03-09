@@ -374,7 +374,7 @@ function RenderedPayments() {
                                                     <p>₦{expectedAmount}</p>
 
                                                     <Link to={`/estateManager/payments/view/:${id}`} state={
-                                                        paymentsBody
+                                                        paymentBody
                                                     }>
                                                         <p className='text-[#076AFF] capitalize'>
                                                             More details

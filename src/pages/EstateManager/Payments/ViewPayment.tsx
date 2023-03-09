@@ -9,7 +9,7 @@ const ViewPayment = () => {
 
     console.log({ location })
 
-    const paymentData = location.state?.paymentData || {}
+    const paymentData = location.state || {}
 
     const {
         id,
