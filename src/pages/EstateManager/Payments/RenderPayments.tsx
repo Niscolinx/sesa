@@ -344,7 +344,7 @@ function RenderedPayments() {
                                             </p>
 
                                             <div className='grid grid-cols-60-auto gap-4 items-center -pt-8'>
-                                                <div className='progressBar'>
+                                                <div className='progressBar overflow-hidden'>
                                                     <progress
                                                         className='progressBar__item'
                                                         max={100}
@@ -352,7 +352,7 @@ function RenderedPayments() {
                                                     />
                                                         
                                                     
-                                                    <p className={`absolute right-4 text-color-tertiary bg-red-600 `}>
+                                                    <p className={`absolute left-0 text-color-tertiary bg-red-600 w-[80%] flex justify-end`}>
                                                         <span>
                                                             {progressPercent}%
                                                         </span>
