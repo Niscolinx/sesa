@@ -164,8 +164,8 @@ function RenderedPayments() {
         setPaymentsList([...filtered])
     }
 
-    const composePaymentsHandler = () => {
-        navigate('/estateManager/payments/compose')
+    const createPaymentHandler = () => {
+        navigate('/estateManager/payments/create')
     }
 
     return (
@@ -202,7 +202,7 @@ function RenderedPayments() {
 
                     <button
                         className='btn ml-auto bg-color-blue-1 text-white flex gap-2 items-center self-center rounded-lg py-4 px-8 capitalize'
-                        onClick={composePaymentsHandler}
+                        onClick={createPaymentHandler}
                     >
                         <span>
                             <IoMdAdd />
