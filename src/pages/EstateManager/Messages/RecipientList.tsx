@@ -236,30 +236,8 @@ const RecipientList: FC<IRecipientList> = ({ closeRecipientListDialog }) => {
                                                     <p>{residentCode}</p>
                                                     <p>{propertyCategory}</p>
                                                     <p>{propertyName}</p>
-                                                    <p>
-                                                        {propertyType ===
-                                                        'Active' ? (
-                                                            <span className='text-[#1A8F56]'>
-                                                                {propertyType}
-                                                            </span>
-                                                        ) : (
-                                                            <span className='text-red-600'>
-                                                                {propertyType}
-                                                            </span>
-                                                        )}
-                                                    </p>
-                                                    <p>
-                                                        {tenancyType ===
-                                                        'Validated' ? (
-                                                            <span className='text-[#1A8F56]'>
-                                                                {tenancyType}
-                                                            </span>
-                                                        ) : (
-                                                            <span className='text-red-600'>
-                                                                {tenancyType}
-                                                            </span>
-                                                        )}
-                                                    </p>
+                                                    <p>{propertyType}</p>
+                                                    <p>{tenancyType}</p>
                                                 </div>
                                             )
                                         }
