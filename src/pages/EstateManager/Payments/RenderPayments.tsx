@@ -7,29 +7,18 @@ import { IoMdAdd } from 'react-icons/io'
 import { Link, useNavigate } from 'react-router-dom'
 
 export interface Payments {
-    id: number
-    date: string
-    transmissionDate: string
-    recipients: string[]
-    transmissionChannel: string
-    subject: string
-    description: string
-    status: 'Sent' | 'Pending'
+    id: string,
+    paymentCode: string,
+    
 }
 
 const recipients = ['Thomas Nwaje', 'Solomon Nwaje']
 
 export const PAYMENTS_LIST: Payments[] = Array.from({ length: 10 }).map(
     (_, i) => ({
-        id: i + 1,
-        date: '19-May-2023',
-        transmissionDate: '19-May-2023',
-        recipients,
-        transmissionChannel: `Channel ${i + 1}`,
-        subject: `Monday Workings`,
-        description:
-            'The report for the month of May is ready for review  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit est aperiam aspernatur nulla, quidem libero dolore impedit nihil, esse provident non autem quo. Veniam facilis alias distinctio quod eos deserunt Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga adipisci, distinctio suscipit quos dolorem veniam illum assumenda exercitationem saepe voluptatum odit eligendi deserunt omnis vero, reiciendis, tempore quae alias accusantium.',
-        status: Math.random() > 0.5 ? 'Sent' : 'Pending',
+        id: `i + 1`,
+        paymentCode: `XXSD${(Math.random() * 0.1 + 0.9).toFixed(7).split('.')[1]}`,
+
     })
 )
 
