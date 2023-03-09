@@ -344,18 +344,22 @@ function RenderedPayments() {
                                             </p>
 
                                             <div className='grid gap-4 items-center '>
-                                                    <p>{amountToPay}</p>
+                                                <p className='justify-self-end'>
+                                                    ₦{amountToPay}
+                                                </p>
                                                 <div className='progressBar overflow-hidden '>
                                                     <progress
                                                         className='progressBar__item'
                                                         max={100}
                                                         value={progressPercent}
                                                     />
-                                                        
-                                                    
-                                                    <p className={`absolute left-0 text-color-tertiary text-white flex justify-end font-Satoshi-Medium pr-10`} style={{
-                                                        width: `${progressPercent}%`
-                                                    }}>
+
+                                                    <p
+                                                        className={`absolute left-0 text-color-tertiary text-white flex justify-end font-Satoshi-Medium pr-10`}
+                                                        style={{
+                                                            width: `${progressPercent}%`,
+                                                        }}
+                                                    >
                                                         <span>
                                                             {progressPercent}%
                                                         </span>
