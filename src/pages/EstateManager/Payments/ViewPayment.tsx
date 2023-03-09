@@ -9,16 +9,30 @@ const ViewPayment = () => {
 
     console.log({ location })
 
+    const paymentData = location.state?.paymentData || {}
+
     const {
         id,
-        date,
-        subject,
-        description,
+        paymentAmount,
+        paymentCode,
+        paymentName,
+        paymentPlan,
+        paymentType,
+        totalResidents,
+        trackPayment,
+        paidResidents,
+        progressPercent,
+        startDate,
+        endDate,
         status,
-        transmissionChannel,
-        transmissionDate,
-        recipients,
-    } = location.state as Message
+        amountToPay,
+        createDate,
+        expectedAmount,
+    } =  paymentData
+
+
+    console.log({paymentData})
+   
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
@@ -82,9 +96,8 @@ const ViewPayment = () => {
                                 className='border border-color-blue-1 text-color-blue-1 px-16 py-4 flex items-center  rounded-lg gap-4 '
                                 onClick={() => handleOpen()}
                             >
-                                <img src='/img/delete.svg' alt='' />
                                 <span className=' text-[1.4rem] font-semibold'>
-                                    Delete Message
+                                    Edit Payment
                                 </span>
                             </button>
                             <button

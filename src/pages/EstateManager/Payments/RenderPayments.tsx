@@ -232,7 +232,7 @@ function RenderedPayments() {
                                     amountToPay,
                                     createDate,
                                     expectedAmount,
-                                } = paymentsBody
+                                } = paymentBody
                                 return (
                                     <div className='grid relative p-16 bg-white rounded-lg gap-2'>
                                         <section className='grid gap-4 capitalize'>
