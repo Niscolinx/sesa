@@ -339,7 +339,7 @@ function RenderedPayments() {
                                                     </p>
                                                 </div>
 
-                                                <div className='flex items-center justify-between'>
+                                                <div className='flex items-center justify-between font-Satoshi-Light'>
                                                     <p>
                                                         {paidResidents} of{' '}
                                                         {totalResidents}{' '}
