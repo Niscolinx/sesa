@@ -31,7 +31,7 @@ import ViewArtisan from '../../pages/EstateManager/Artisan/ViewArtisan'
 import Message from '../../pages/EstateManager/Messages/Message'
 import ComposeMessage from '../../pages/EstateManager/Messages/ComposeMessage'
 import ViewMessage from '../../pages/EstateManager/Messages/ViewMessage'
-import Payment from '../../pages/EstateManager/Payment/Payment'
+import Payments from '../../pages/EstateManager/Payments/Payments'
 
 const estateManagerRoutes = (
     <Route path='/estateManager' element={<Dashboard />}>
@@ -67,7 +67,7 @@ const estateManagerRoutes = (
         <Route path='message' element={<Message />} />
         <Route path='message/compose' element={<ComposeMessage />} />
         <Route path='message/view/:id' element={<ViewMessage />} />
-        <Route path='payment' element={<Payment />} />
+        <Route path='payments' element={<Payments />} />
     </Route>
 )
 
