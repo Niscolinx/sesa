@@ -258,7 +258,7 @@ function AddRFID() {
                                             fontFamily: 'Satoshi-Light',
                                         }}
                                     >
-                                        Drag estate manager picture here or{' '}
+                                        Drag picture here or{' '}
                                         <span className='text-color-blue font-bold'>
                                             click
                                         </span>{' '}

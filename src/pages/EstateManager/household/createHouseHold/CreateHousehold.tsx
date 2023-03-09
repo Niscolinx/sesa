@@ -209,6 +209,7 @@ function CreateHousehold() {
                                 })
                             }
                         >
+                            {/* Only make resident compulsory */}
                             <TfiArrowCircleLeft className='w-[3rem] h-[3rem] text-color-blue' />
                             <span>Previous</span>
                         </button>
@@ -218,7 +219,8 @@ function CreateHousehold() {
                                 disabled={disabled}
                                 onClick={() => handleSubmit()}
                             >
-                              Add Household
+                                
+                              Create Household
                             </button>
                         ) : (
                             <button

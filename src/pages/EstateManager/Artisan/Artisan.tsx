@@ -316,7 +316,7 @@ function Artisan() {
                                         className='pl-16 w-[25rem] rounded-lg border border-color-blue-light appearance-none outline-none p-4'
                                     />
                                 </div>
-                                <button
+                                {/* <button
                                     className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg ml-auto'
                                     onClick={addArtisan}
                                 >
@@ -324,7 +324,7 @@ function Artisan() {
                                         <IoMdAdd />
                                     </span>{' '}
                                     Add Artisan
-                                </button>
+                                </button> */}
                             </div>
 
                             <div className='grid bg-white'>
