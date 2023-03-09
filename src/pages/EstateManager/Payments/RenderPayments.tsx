@@ -35,7 +35,7 @@ export const PAYMENTS_LIST: Payments[] = Array.from({ length: 10 }).map(
         }`,
         paymentName: 'Estate Dues 2023',
         paymentType: Math.random() > 0.5 ? 'fixed' : 'flexible',
-        paymentAmount: 'NGN 50,000.00',
+        paymentAmount: Math.floor(Math.random() * 50000 + 10000).toLocaleString(),
         paidResidents: Math.floor(Math.random() * 45 + 10),
         paymentPlan: 'full',
         trackPayment: 'Yes',
@@ -211,10 +211,7 @@ function RenderedPayments() {
 
                 <div
                     className='grid gap-8 mt-8'
-                    style={{
-                        gridTemplateColumns:
-                            'repeat(auto-fit, minmax(40rem, 1fr))',
-                    }}
+                   
                 >
                     {slicedPages && slicedPages.length > 0 ? (
                         React.Children.toArray(
@@ -239,7 +236,7 @@ function RenderedPayments() {
                                 } = paymentsBody
                                 return (
                                     <div className='grid relative p-8 bg-white rounded-lg gap-2'>
-                                        <section className='w-[70rem] grid gap-4'>
+                                        <section className=' grid gap-4 capitalize'>
                                             <div className='grid grid-cols-2 gap-4 '>
                                                 <div className='grid grid-cols-2 items-center gap-4 justify-start w-[25rem] whitespace-nowrap'>
                                                     <p className='text-gray-700 font-Satoshi-Light  '>
@@ -305,16 +302,16 @@ function RenderedPayments() {
                                             <div className='grid grid-cols-2 gap-4 '>
                                                 <div className='grid grid-cols-2 items-center gap-4 justify-start w-[25rem] whitespace-nowrap'>
                                                     <p className='text-gray-700 font-Satoshi-Light  '>
-                                                        Amount (Total):
+                                                        Payment Amount:
                                                     </p>
-                                                    <p>₦239,092</p>
+                                                    <p>₦{paymentAmount}</p>
                                                 </div>
                                                 <div className='grid grid-cols-2 items-center gap-4 whitespace-nowrap w-[25rem]'>
                                                     <p className='text-gray-700 font-Satoshi-Light '>
-                                                        Status
+                                                        Create Date:
                                                     </p>
-                                                    <p className='text-green-600'>
-                                                        Active
+                                                    <p>
+                                                        {createDate}
                                                     </p>
                                                 </div>
                                             </div>
@@ -325,56 +322,9 @@ function RenderedPayments() {
                                                 <span className='font-Satoshi-Medium'>
                                                     Payment Status:{' '}
                                                 </span>{' '}
-                                                <span>Installments(5)</span>
                                             </p>
 
-                                            <div className='grid grid-cols-6 items-center w-full justify-between mt-10'>
-                                                <div className='w-full flex items-center'>
-                                                    <img
-                                                        src='/img/check_circle.svg'
-                                                        alt=''
-                                                    />
-                                                    <span className='w-full h-[0.15rem] bg-color-blue-1'>
-                                                        {' '}
-                                                        &nbsp;{' '}
-                                                    </span>
-                                                </div>
-                                                <div className='w-full flex items-center'>
-                                                    <img
-                                                        src='/img/check_circle.svg'
-                                                        alt=''
-                                                    />
-                                                    <span className='w-full h-[0.15rem] bg-color-blue-1'>
-                                                        {' '}
-                                                        &nbsp;{' '}
-                                                    </span>
-                                                </div>
-                                                <div className='w-full flex items-center'>
-                                                    <img
-                                                        src='/img/check_empty.svg'
-                                                        alt=''
-                                                    />
-                                                    <span className='w-full h-[0.15rem] bg-color-blue-1'>
-                                                        {' '}
-                                                        &nbsp;{' '}
-                                                    </span>
-                                                </div>
-                                                <div className='w-full flex items-center'>
-                                                    <img
-                                                        src='/img/check_empty.svg'
-                                                        alt=''
-                                                    />
-                                                    <span className='w-full h-[0.15rem] bg-color-blue-1'>
-                                                        {' '}
-                                                        &nbsp;{' '}
-                                                    </span>
-                                                </div>
-
-                                                <img
-                                                    src='/img/check_empty.svg'
-                                                    alt=''
-                                                />
-                                            </div>
+                                           
                                         </section>
 
                                         <Link
