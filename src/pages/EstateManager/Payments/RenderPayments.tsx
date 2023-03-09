@@ -238,10 +238,10 @@ function RenderedPayments() {
                                         <section className='grid gap-4 capitalize'>
                                             <div className='flex justify-between gap-4 '>
                                                 <div className='grid grid-cols-2 items-center gap-4 justify-start w-[25rem] whitespace-nowrap'>
-                                                    <p className='text-gray-700 font-Satoshi-Light  '>
+                                                    <p className='text-gray-700 font-Satoshi-Light'>
                                                         Payment Code:
                                                     </p>
-                                                    <p>{paymentCode}</p>
+                                                    <p className='font-Satoshi-Medium'>{paymentCode}</p>
                                                 </div>
                                                 <div className='grid grid-cols-2 items-center gap-4 whitespace-nowrap w-[25rem]'>
                                                     <p className='text-gray-700 font-Satoshi-Light '>
