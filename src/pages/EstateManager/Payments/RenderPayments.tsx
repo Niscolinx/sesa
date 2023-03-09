@@ -318,7 +318,7 @@ function RenderedPayments() {
                                             </div>
                                         </section>
 
-                                        <section className='mt-[5rem]'>
+                                        <section className='mt-[5rem] grid gap-16'>
                                             <p className='flex items-center gap-2'>
                                                 <span className='font-Satoshi-Medium'>
                                                     Payment Status:{' '}
@@ -354,16 +354,7 @@ function RenderedPayments() {
                                             </div>
                                         </section>
 
-                                        <Link
-                                            to={`/estateManager/payments/view/${id}`}
-                                            state={paymentsBody}
-                                            className='text-color-blue'
-                                            style={{
-                                                fontFamily: 'Satoshi-Medium',
-                                            }}
-                                        >
-                                            View More Details
-                                        </Link>
+                                        
                                     </div>
                                 )
                             })
