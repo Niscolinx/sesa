@@ -318,7 +318,7 @@ function RenderedPayments() {
                                             </div>
                                         </section>
 
-                                        <section className='mt-[5rem] w-[70rem]'>
+                                        <section className='mt-[5rem]'>
                                             <p className='flex items-center gap-2'>
                                                 <span className='font-Satoshi-Medium'>
                                                     Payment Status:{' '}
