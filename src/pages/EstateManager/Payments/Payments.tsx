@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
 import { useNavigate } from 'react-router'
 
-const userData = atom({
+export const userData = atom({
     firstName: 'Collins',
     LastName: 'Munachi',
 })
@@ -26,6 +26,7 @@ function Payment() {
             the user firstName is {user.firstName}
             <input
                 type='text'
+                placeholder='change last Name'
                 className='border py-4 px-6 '
                 onChange={(e) =>
                     setUser((prev) => {
