@@ -67,7 +67,7 @@ const estateManagerRoutes = (
         <Route path='message' element={<Message />} />
         <Route path='message/compose' element={<ComposeMessage />} />
         <Route path='message/view/:id' element={<ViewMessage />} />
-        <Route path='payment' element={<Payments />} />
+        <Route path='payment' element={<Payment />} />
     </Route>
 )
 
