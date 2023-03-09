@@ -35,18 +35,20 @@ export const PAYMENTS_LIST: Payments[] = Array.from({ length: 10 }).map(
         }`,
         paymentName: 'Estate Dues 2023',
         paymentType: Math.random() > 0.5 ? 'fixed' : 'flexible',
-        paymentAmount: Math.floor(Math.random() * 50000 + 10000).toLocaleString(),
+        paymentAmount: Math.floor(
+            Math.random() * 50000 + 10000
+        ).toLocaleString(),
         paidResidents: Math.floor(Math.random() * 45 + 10),
         paymentPlan: 'full',
         trackPayment: 'Yes',
         startDate: '02 Jan, 2023',
         endDate: '03 Mar, 2023',
-        status: Math.random() > 0.5 ? 'active': 'inactive',
+        status: Math.random() > 0.5 ? 'active' : 'inactive',
         createDate: '01 Jan, 2023',
         amountPaid: '2,000',
         totalResidents: Math.floor(Math.random() * 200 + 150),
         progressPercent: Math.floor(Math.random() * 45 + 30),
-        expectedAmount: '5,000'
+        expectedAmount: '5,000',
     })
 )
 
@@ -209,10 +211,7 @@ function RenderedPayments() {
                     </button>
                 </div>
 
-                <div
-                    className='grid gap-8 mt-8'
-                   
-                >
+                <div className='grid gap-8 mt-8'>
                     {slicedPages && slicedPages.length > 0 ? (
                         React.Children.toArray(
                             slicedPages[paginate.index].map((paymentsBody) => {
@@ -232,7 +231,7 @@ function RenderedPayments() {
                                     status,
                                     amountPaid,
                                     createDate,
-                                    expectedAmount
+                                    expectedAmount,
                                 } = paymentsBody
                                 return (
                                     <div className='grid relative p-16 bg-white rounded-lg gap-2'>
@@ -332,19 +331,20 @@ function RenderedPayments() {
                                                         className='progressBar__item'
                                                         max={100}
                                                         value={progressPercent}
-                                                    >
-                                                        
-                                                    </progress>
+                                                    ></progress>
                                                     <p className='absolute right-4 text-color-tertiary '>
-                                                        <span>{progressPercent}%</span>
-                                                        
+                                                        <span>
+                                                            {progressPercent}%
+                                                        </span>
                                                     </p>
                                                 </div>
 
                                                 <div className='flex items-center justify-between'>
-                                                            <p>
-                                                                {paidResidents} of {totalResidents}
-                                                            </p>
+                                                    <p>
+                                                        {paidResidents} of{' '}
+                                                        {totalResidents}{' '}
+                                                        resident paid
+                                                    </p>
                                                 </div>
                                             </div>
                                         </section>
