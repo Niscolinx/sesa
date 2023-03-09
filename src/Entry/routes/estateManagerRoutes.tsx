@@ -30,6 +30,7 @@ import Artisan from '../../pages/EstateManager/Artisan/Artisan'
 import ViewArtisan from '../../pages/EstateManager/Artisan/ViewArtisan'
 import Message from '../../pages/EstateManager/Messages/Message'
 import ComposeMessage from '../../pages/EstateManager/Messages/ComposeMessage'
+import ViewMessage from '../../pages/EstateManager/Messages/ViewMessage'
 
 const estateManagerRoutes = (
     <Route path='/estateManager' element={<Dashboard />}>
@@ -64,6 +65,7 @@ const estateManagerRoutes = (
         <Route path='artisan/view/:id' element={<ViewArtisan />} />
         <Route path='message' element={<Message />} />
         <Route path='message/compose' element={<ComposeMessage />} />
+        <Route path='message/view/:id' element={<ViewMessage />} />
     </Route>
 )
 
