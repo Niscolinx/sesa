@@ -352,7 +352,7 @@ function RenderedPayments() {
                                                     />
                                                         
                                                     
-                                                    <p className={`absolute left-0 text-color-tertiary bg-red-600 w-[80%] flex justify-end`}>
+                                                    <p className={`absolute left-0 text-color-tertiary text-white flex justify-end w-[${}]`}>
                                                         <span>
                                                             {progressPercent}%
                                                         </span>
