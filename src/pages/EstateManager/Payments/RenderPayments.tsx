@@ -235,9 +235,9 @@ function RenderedPayments() {
                                     expectedAmount
                                 } = paymentsBody
                                 return (
-                                    <div className='grid relative p-8 bg-white rounded-lg gap-2'>
-                                        <section className=' grid gap-4 capitalize'>
-                                            <div className='grid grid-cols-2 gap-4 '>
+                                    <div className='grid relative p-16 bg-white rounded-lg gap-2'>
+                                        <section className='grid gap-4 capitalize'>
+                                            <div className='flex justify-between gap-4 '>
                                                 <div className='grid grid-cols-2 items-center gap-4 justify-start w-[25rem] whitespace-nowrap'>
                                                     <p className='text-gray-700 font-Satoshi-Light  '>
                                                         Payment Code:
@@ -251,7 +251,7 @@ function RenderedPayments() {
                                                     <p>{startDate}</p>
                                                 </div>
                                             </div>
-                                            <div className='grid grid-cols-2 gap-4 '>
+                                            <div className='flex justify-between gap-4 '>
                                                 <div className='grid grid-cols-2 items-center gap-4 justify-start w-[25rem] whitespace-nowrap'>
                                                     <p className='text-gray-700 font-Satoshi-Light  '>
                                                         Payment Name:
@@ -265,7 +265,7 @@ function RenderedPayments() {
                                                     <p>{endDate}</p>
                                                 </div>
                                             </div>
-                                            <div className='grid grid-cols-2 gap-4 '>
+                                            <div className='flex justify-between gap-4 '>
                                                 <div className='grid grid-cols-2 items-center gap-4 justify-start w-[25rem] whitespace-nowrap'>
                                                     <p className='text-gray-700 font-Satoshi-Light  '>
                                                         Payment Type
@@ -279,7 +279,7 @@ function RenderedPayments() {
                                                     <p>{trackPayment}</p>
                                                 </div>
                                             </div>
-                                            <div className='grid grid-cols-2 gap-4 '>
+                                            <div className='flex justify-between gap-4 '>
                                                 <div className='grid grid-cols-2 items-center gap-4 justify-start w-[25rem] whitespace-nowrap'>
                                                     <p className='text-gray-700 font-Satoshi-Light  '>
                                                         Payment Plan:
@@ -291,15 +291,19 @@ function RenderedPayments() {
                                                         Status
                                                     </p>
                                                     <p>
-                                                     {status === 'active' ? (
-                                                        <span className='text-green-600'>{status}</span>
-                                                     ) : (
-                                                        <span className='text-red-600'>{status}</span>
-                                                     )}
+                                                        {status === 'active' ? (
+                                                            <span className='text-green-600'>
+                                                                {status}
+                                                            </span>
+                                                        ) : (
+                                                            <span className='text-red-600'>
+                                                                {status}
+                                                            </span>
+                                                        )}
                                                     </p>
                                                 </div>
                                             </div>
-                                            <div className='grid grid-cols-2 gap-4 '>
+                                            <div className='flex justify-between gap-4 '>
                                                 <div className='grid grid-cols-2 items-center gap-4 justify-start w-[25rem] whitespace-nowrap'>
                                                     <p className='text-gray-700 font-Satoshi-Light  '>
                                                         Payment Amount:
@@ -310,9 +314,7 @@ function RenderedPayments() {
                                                     <p className='text-gray-700 font-Satoshi-Light '>
                                                         Create Date:
                                                     </p>
-                                                    <p>
-                                                        {createDate}
-                                                    </p>
+                                                    <p>{createDate}</p>
                                                 </div>
                                             </div>
                                         </section>
@@ -324,7 +326,25 @@ function RenderedPayments() {
                                                 </span>{' '}
                                             </p>
 
-                                           
+                                            <div className='grid grid-cols-60-auto gap-4 items-center -pt-8'>
+                                                <div className='progressBar'>
+                                                    <progress
+                                                        className='progressBar__item'
+                                                        max={100}
+                                                        value={progressPercent}
+                                                    ></progress>
+                                                    <p className='absolute left-4 text-color-tertiary '>
+                                                        <span>0%</span>{' '}
+                                                        <span>Completed</span>
+                                                    </p>
+                                                </div>
+
+                                                <p
+                                                    className='text-[1.4rem] font-semibold uppercase text-color-white bg-color-primary rounded-3xl h-[4.5rem] px-8 flex items-center justify-center'
+                                                >
+                                                    Get Started
+                                                </p>
+                                            </div>
                                         </section>
 
                                         <Link
