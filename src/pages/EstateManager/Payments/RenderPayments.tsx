@@ -7,20 +7,21 @@ import { IoMdAdd } from 'react-icons/io'
 import { Link, useNavigate } from 'react-router-dom'
 
 export interface Payments {
-    id: string,
-    paymentCode: string,
-    paymentType: 'fixed' | 'flexible',
-    paymentPlan: string,
-    paymentAmount: string,
-    startDate: string,
-    endDate: string,
-    trackPayment: string,
-    status: 'active' | 'inactive',
-    createDate: string,
-    totalResidents: number,
-    paidResidents: number,
-    amountPaid: string,
-    progressBar: number,
+    id: string
+    paymentCode: string
+    paymentName: string
+    paymentType: 'fixed' | 'flexible'
+    paymentPlan: string
+    paymentAmount: string
+    startDate: string
+    endDate: string
+    trackPayment: string
+    status: 'active' | 'inactive'
+    createDate: string
+    totalResidents: number
+    paidResidents: number
+    amountPaid: string
+    progressPercent: number
     expectedAmount: string
 }
 
@@ -29,8 +30,23 @@ const recipients = ['Thomas Nwaje', 'Solomon Nwaje']
 export const PAYMENTS_LIST: Payments[] = Array.from({ length: 10 }).map(
     (_, i) => ({
         id: `i + 1`,
-        paymentCode: `XXSD${(Math.random() * 0.1 + 0.9).toFixed(7).split('.')[1]}`,
-        
+        paymentCode: `XXSD${
+            (Math.random() * 0.1 + 0.9).toFixed(7).split('.')[1]
+        }`,
+        paymentName: 'Estate Dues 2023',
+        paymentType: Math.random() > 0.5 ? 'fixed' : 'flexible',
+        paymentAmount: 'NGN 50,000.00',
+        paidResidents: Math.floor(Math.random() * 45 + 10),
+        paymentPlan: 'full',
+        trackPayment: 'Yes',
+        startDate: '02 Jan, 2023',
+        endDate: '03 Mar, 2023',
+        status: Math.random() > 0.5 ? 'active': 'inactive',
+        createDate: '01 Jan, 2023',
+        amountPaid: '2000',
+        totalResidents: Math.floor(Math.random() * 200 + 150),
+        progressPercent: Math.floor(Math.random() * 45 + 30)
+     
     })
 )
 
@@ -215,143 +231,141 @@ function RenderedPayments() {
                                 } = paymentsBody
                                 return (
                                     <div className='grid relative p-8 bg-white rounded-lg gap-2'>
-                                            <div className=' grid mt-5 '>
-                                                <p className='font-Satoshi-Medium text-[2rem] mb-4'>
-                                                    Product Information
+                                        <div className=' grid mt-5 '>
+                                            <p className='font-Satoshi-Medium text-[2rem] mb-4'>
+                                                Product Information
+                                            </p>
+                                            <section className='w-[70rem] grid gap-4'>
+                                                <div className='grid grid-cols-2 gap-4 '>
+                                                    <div className='grid grid-cols-2 items-center gap-4 justify-start w-[25rem] whitespace-nowrap'>
+                                                        <p className='text-gray-700 font-Satoshi-Light  '>
+                                                            Product Code:
+                                                        </p>
+                                                        <p>R87231</p>
+                                                    </div>
+                                                    <div className='grid grid-cols-2 items-center gap-4 whitespace-nowrap w-[25rem]'>
+                                                        <p className='text-gray-700 font-Satoshi-Light '>
+                                                            Start Date:
+                                                        </p>
+                                                        <p>22 Feb 2023</p>
+                                                    </div>
+                                                </div>
+                                                <div className='grid grid-cols-2 gap-4 '>
+                                                    <div className='grid grid-cols-2 items-center gap-4 justify-start w-[25rem] whitespace-nowrap'>
+                                                        <p className='text-gray-700 font-Satoshi-Light  '>
+                                                            Product Name:
+                                                        </p>
+                                                        <p>Car</p>
+                                                    </div>
+                                                    <div className='grid grid-cols-2 items-center gap-4 whitespace-nowrap w-[25rem]'>
+                                                        <p className='text-gray-700 font-Satoshi-Light '>
+                                                            End Date:
+                                                        </p>
+                                                        <p>22 Feb 2023</p>
+                                                    </div>
+                                                </div>
+                                                <div className='grid grid-cols-2 gap-4 '>
+                                                    <div className='grid grid-cols-2 items-center gap-4 justify-start w-[25rem] whitespace-nowrap'>
+                                                        <p className='text-gray-700 font-Satoshi-Light  '>
+                                                            Amount Type:
+                                                        </p>
+                                                        <p>Installment</p>
+                                                    </div>
+                                                    <div className='grid grid-cols-2 items-center gap-4 whitespace-nowrap w-[25rem]'>
+                                                        <p className='text-gray-700 font-Satoshi-Light '>
+                                                            Track Payment:
+                                                        </p>
+                                                        <p>In progress</p>
+                                                    </div>
+                                                </div>
+                                                <div className='grid grid-cols-2 gap-4 '>
+                                                    <div className='grid grid-cols-2 items-center gap-4 justify-start w-[25rem] whitespace-nowrap'>
+                                                        <p className='text-gray-700 font-Satoshi-Light  '>
+                                                            Payment Plan:
+                                                        </p>
+                                                        <p>Installment</p>
+                                                    </div>
+                                                    <div className='grid grid-cols-2 items-center gap-4 whitespace-nowrap w-[25rem]'>
+                                                        <p className='text-gray-700 font-Satoshi-Light '>
+                                                            Assigned Group
+                                                        </p>
+                                                        <p>Assigned</p>
+                                                    </div>
+                                                </div>
+                                                <div className='grid grid-cols-2 gap-4 '>
+                                                    <div className='grid grid-cols-2 items-center gap-4 justify-start w-[25rem] whitespace-nowrap'>
+                                                        <p className='text-gray-700 font-Satoshi-Light  '>
+                                                            Amount (Total):
+                                                        </p>
+                                                        <p>239,092</p>
+                                                    </div>
+                                                    <div className='grid grid-cols-2 items-center gap-4 whitespace-nowrap w-[25rem]'>
+                                                        <p className='text-gray-700 font-Satoshi-Light '>
+                                                            Status
+                                                        </p>
+                                                        <p className='text-green-600'>
+                                                            Active
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </section>
+
+                                            <section className='mt-[5rem] w-[70rem]'>
+                                                <p className='flex items-center gap-2'>
+                                                    <span className='font-Satoshi-Medium'>
+                                                        Payment Status:{' '}
+                                                    </span>{' '}
+                                                    <span>Installments(5)</span>
                                                 </p>
-                                                <section className='w-[70rem] grid gap-4'>
-                                                    <div className='grid grid-cols-2 gap-4 '>
-                                                        <div className='grid grid-cols-2 items-center gap-4 justify-start w-[25rem] whitespace-nowrap'>
-                                                            <p className='text-gray-700 font-Satoshi-Light  '>
-                                                                Product Code:
-                                                            </p>
-                                                            <p>R87231</p>
-                                                        </div>
-                                                        <div className='grid grid-cols-2 items-center gap-4 whitespace-nowrap w-[25rem]'>
-                                                            <p className='text-gray-700 font-Satoshi-Light '>
-                                                                Start Date:
-                                                            </p>
-                                                            <p>22 Feb 2023</p>
-                                                        </div>
-                                                    </div>
-                                                    <div className='grid grid-cols-2 gap-4 '>
-                                                        <div className='grid grid-cols-2 items-center gap-4 justify-start w-[25rem] whitespace-nowrap'>
-                                                            <p className='text-gray-700 font-Satoshi-Light  '>
-                                                                Product Name:
-                                                            </p>
-                                                            <p>Car</p>
-                                                        </div>
-                                                        <div className='grid grid-cols-2 items-center gap-4 whitespace-nowrap w-[25rem]'>
-                                                            <p className='text-gray-700 font-Satoshi-Light '>
-                                                                End Date:
-                                                            </p>
-                                                            <p>22 Feb 2023</p>
-                                                        </div>
-                                                    </div>
-                                                    <div className='grid grid-cols-2 gap-4 '>
-                                                        <div className='grid grid-cols-2 items-center gap-4 justify-start w-[25rem] whitespace-nowrap'>
-                                                            <p className='text-gray-700 font-Satoshi-Light  '>
-                                                                Amount Type:
-                                                            </p>
-                                                            <p>Installment</p>
-                                                        </div>
-                                                        <div className='grid grid-cols-2 items-center gap-4 whitespace-nowrap w-[25rem]'>
-                                                            <p className='text-gray-700 font-Satoshi-Light '>
-                                                                Track Payment:
-                                                            </p>
-                                                            <p>In progress</p>
-                                                        </div>
-                                                    </div>
-                                                    <div className='grid grid-cols-2 gap-4 '>
-                                                        <div className='grid grid-cols-2 items-center gap-4 justify-start w-[25rem] whitespace-nowrap'>
-                                                            <p className='text-gray-700 font-Satoshi-Light  '>
-                                                                Payment Plan:
-                                                            </p>
-                                                            <p>Installment</p>
-                                                        </div>
-                                                        <div className='grid grid-cols-2 items-center gap-4 whitespace-nowrap w-[25rem]'>
-                                                            <p className='text-gray-700 font-Satoshi-Light '>
-                                                                Assigned Group
-                                                            </p>
-                                                            <p>Assigned</p>
-                                                        </div>
-                                                    </div>
-                                                    <div className='grid grid-cols-2 gap-4 '>
-                                                        <div className='grid grid-cols-2 items-center gap-4 justify-start w-[25rem] whitespace-nowrap'>
-                                                            <p className='text-gray-700 font-Satoshi-Light  '>
-                                                                Amount (Total):
-                                                            </p>
-                                                            <p>239,092</p>
-                                                        </div>
-                                                        <div className='grid grid-cols-2 items-center gap-4 whitespace-nowrap w-[25rem]'>
-                                                            <p className='text-gray-700 font-Satoshi-Light '>
-                                                                Status
-                                                            </p>
-                                                            <p className='text-green-600'>
-                                                                Active
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                </section>
 
-                                                <section className='mt-[5rem] w-[70rem]'>
-                                                    <p className='flex items-center gap-2'>
-                                                        <span className='font-Satoshi-Medium'>
-                                                            Payment Status:{' '}
-                                                        </span>{' '}
-                                                        <span>
-                                                            Installments(5)
+                                                <div className='grid grid-cols-6 items-center w-full justify-between mt-10'>
+                                                    <div className='w-full flex items-center'>
+                                                        <img
+                                                            src='/img/check_circle.svg'
+                                                            alt=''
+                                                        />
+                                                        <span className='w-full h-[0.15rem] bg-color-blue-1'>
+                                                            {' '}
+                                                            &nbsp;{' '}
                                                         </span>
-                                                    </p>
-
-                                                    <div className='grid grid-cols-6 items-center w-full justify-between mt-10'>
-                                                        <div className='w-full flex items-center'>
-                                                            <img
-                                                                src='/img/check_circle.svg'
-                                                                alt=''
-                                                            />
-                                                            <span className='w-full h-[0.15rem] bg-color-blue-1'>
-                                                                {' '}
-                                                                &nbsp;{' '}
-                                                            </span>
-                                                        </div>
-                                                        <div className='w-full flex items-center'>
-                                                            <img
-                                                                src='/img/check_circle.svg'
-                                                                alt=''
-                                                            />
-                                                            <span className='w-full h-[0.15rem] bg-color-blue-1'>
-                                                                {' '}
-                                                                &nbsp;{' '}
-                                                            </span>
-                                                        </div>
-                                                        <div className='w-full flex items-center'>
-                                                            <img
-                                                                src='/img/check_empty.svg'
-                                                                alt=''
-                                                            />
-                                                            <span className='w-full h-[0.15rem] bg-color-blue-1'>
-                                                                {' '}
-                                                                &nbsp;{' '}
-                                                            </span>
-                                                        </div>
-                                                        <div className='w-full flex items-center'>
-                                                            <img
-                                                                src='/img/check_empty.svg'
-                                                                alt=''
-                                                            />
-                                                            <span className='w-full h-[0.15rem] bg-color-blue-1'>
-                                                                {' '}
-                                                                &nbsp;{' '}
-                                                            </span>
-                                                        </div>
-
+                                                    </div>
+                                                    <div className='w-full flex items-center'>
+                                                        <img
+                                                            src='/img/check_circle.svg'
+                                                            alt=''
+                                                        />
+                                                        <span className='w-full h-[0.15rem] bg-color-blue-1'>
+                                                            {' '}
+                                                            &nbsp;{' '}
+                                                        </span>
+                                                    </div>
+                                                    <div className='w-full flex items-center'>
                                                         <img
                                                             src='/img/check_empty.svg'
                                                             alt=''
                                                         />
+                                                        <span className='w-full h-[0.15rem] bg-color-blue-1'>
+                                                            {' '}
+                                                            &nbsp;{' '}
+                                                        </span>
                                                     </div>
-                                                </section>
+                                                    <div className='w-full flex items-center'>
+                                                        <img
+                                                            src='/img/check_empty.svg'
+                                                            alt=''
+                                                        />
+                                                        <span className='w-full h-[0.15rem] bg-color-blue-1'>
+                                                            {' '}
+                                                            &nbsp;{' '}
+                                                        </span>
+                                                    </div>
+
+                                                    <img
+                                                        src='/img/check_empty.svg'
+                                                        alt=''
+                                                    />
+                                                </div>
+                                            </section>
                                         </div>
 
                                         <Link
