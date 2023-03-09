@@ -11,20 +11,22 @@ interface CompanyOverview {
     residentName: string
     propertyCategory: string
     propertyName: string
+    alpha: boolean;
     propertyType: 'Active' | 'Deactivated'
-    kys: 'Validated' | 'Not Validated'
+    tenancyType: 'Validated' | 'Not Validated'
 }
 
 const COMPANY_OVERVIEW_DATA: CompanyOverview[] = Array.from({
     length: 20,
 }).map((_, i) => ({
     id: i,
-    residentName: 'John Doe',
-    propertyCategory: '+2347024954270',
+    residentName: 'John Emmanuel',
+    propertyCategory: Math.random() > 0.5 ? 'Business' : 'Residential',
     residentCode: Math.floor(Math.random() * 3000 + 1000),
-    propertyName: 'Estate 1',
-    propertyType: Math.random() > 0.5 ? 'Active' : 'Deactivated',
-    kys: Math.random() > 0.5 ? 'Validated' : 'Not Validated',
+    propertyName: Math.random() > 0.5 ? 'Auto Finance' : 'Chrisland Schools',
+    propertyType: Math.random() > 0.5 ? '2-Bedroom Self Con.' : 'Duplex',
+    tenancyType:
+        Math.random() > 0.5 ? 'Landlord (Developer)' : 'Tenant (Resident)',
 }))
 
 interface IRecipientList {
@@ -215,7 +217,7 @@ const RecipientList: FC<IRecipientList> = ({ closeRecipientListDialog }) => {
                                             residentCode,
                                             residentName,
                                             propertyName,
-                                            kys,
+                                            tenancyType,
                                             propertyType,
                                             id,
                                             propertyCategory,
@@ -245,13 +247,13 @@ const RecipientList: FC<IRecipientList> = ({ closeRecipientListDialog }) => {
                                                         )}
                                                     </p>
                                                     <p>
-                                                        {kys === 'Validated' ? (
+                                                        {tenancyType === 'Validated' ? (
                                                             <span className='text-[#1A8F56]'>
-                                                                {kys}
+                                                                {tenancyType}
                                                             </span>
                                                         ) : (
                                                             <span className='text-red-600'>
-                                                                {kys}
+                                                                {tenancyType}
                                                             </span>
                                                         )}
                                                     </p>
