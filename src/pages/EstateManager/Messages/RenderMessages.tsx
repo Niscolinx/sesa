@@ -146,7 +146,7 @@ function RenderedMessages() {
     }
 
     const composeMessageHandler = () => {
-        navigate('/securityCompany/messages/compose')
+        navigate('/estateManager/messages/compose')
     }
 
     return (

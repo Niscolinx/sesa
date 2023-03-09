@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
-import { Select } from '../../../../components/SuperAdmin/UI/Select'
+import { Select } from '../../../components/SuperAdmin/UI/Select'
 import RecipientList from './RecipientList'
 
 
