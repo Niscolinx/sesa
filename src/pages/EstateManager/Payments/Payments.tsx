@@ -12,7 +12,6 @@ function Payment() {
 
     const addPaymentHandler = () => {
         setIsPayment(true)
-        //navigate('/superAdmin/artisan/add')
     }
 
     return (
