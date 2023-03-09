@@ -117,7 +117,7 @@ const ComposeMessage = () => {
                             'Channel 4',
                             'Channel 5',
                         ]}
-                        label='Transmission Channel'
+                        label='Channel Type'
                         selectedState={transmissionChannel}
                         setSelectedState={setTransmissionChannel}
                     />
