@@ -345,6 +345,11 @@ function RenderedPayments() {
                                                         {totalResidents}{' '}
                                                         resident paid
                                                     </p>
+                                                    <p>₦{expectedAmount}</p>
+
+                                                    <Link to=''>
+                                                        <p className='text-[#076AFF] capitalize'>More details</p>
+                                                    </Link>
                                                 </div>
                                             </div>
                                         </section>
