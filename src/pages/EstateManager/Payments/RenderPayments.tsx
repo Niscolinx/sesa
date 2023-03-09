@@ -25,7 +25,6 @@ export interface Payments {
     expectedAmount: string
 }
 
-const recipients = ['Thomas Nwaje', 'Solomon Nwaje']
 
 export const PAYMENTS_LIST: Payments[] = Array.from({ length: 10 }).map(
     (_, i) => ({
@@ -214,7 +213,7 @@ function RenderedPayments() {
                 <div className='grid gap-8 mt-8'>
                     {slicedPages && slicedPages.length > 0 ? (
                         React.Children.toArray(
-                            slicedPages[paginate.index].map((paymentsBody) => {
+                            slicedPages[paginate.index].map((paymentBody) => {
                                 const {
                                     id,
                                     paymentAmount,
