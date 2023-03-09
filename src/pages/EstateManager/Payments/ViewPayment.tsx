@@ -83,7 +83,11 @@ const ViewPayment = () => {
                                 className=' bg-red-600 px-16 py-4 flex items-center  rounded-lg gap-4 text-white'
                                 onClick={() => handleOpen()}
                             >
-                                <img src='/icons/admins/delete.svg' alt='' />
+                                <img src='/icons/admins/delete.svg' alt='' style={{
+                                    fill: 'white',
+                                    color: 'white',
+                                    background: 'white'
+                                }} />
                                 <span className=' text-[1.4rem] font-semibold'>
                                     Delete Message
                                 </span>
