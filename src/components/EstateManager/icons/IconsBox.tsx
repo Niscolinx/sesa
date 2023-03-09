@@ -79,12 +79,7 @@ function IconsBox() {
                   <span>Artisan</span>
               </Link>
           </li>
-          <li className='iconsBox__list'>
-              <Link to='/estateManager/wallet' className='fillIcon'>
-                  <WalletSvg />
-                  <span>Wallet</span>
-              </Link>
-          </li>
+         
           <li className='iconsBox__list'>
               <Link to='/estateManager/message'>
                   <MessageSvg />

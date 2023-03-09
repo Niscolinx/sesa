@@ -29,6 +29,7 @@ import ViewSecurityGuard from '../../pages/EstateManager/SecurityGuard/ViewSecur
 import Artisan from '../../pages/EstateManager/Artisan/Artisan'
 import ViewArtisan from '../../pages/EstateManager/Artisan/ViewArtisan'
 import Message from '../../pages/EstateManager/Messages/Message'
+import ComposeMessage from '../../pages/EstateManager/Messages/ComposeMessage'
 
 const estateManagerRoutes = (
     <Route path='/estateManager' element={<Dashboard />}>
@@ -62,6 +63,7 @@ const estateManagerRoutes = (
         <Route path='artisan' element={<Artisan />} />
         <Route path='artisan/view/:id' element={<ViewArtisan />} />
         <Route path='message' element={<Message />} />
+        <Route path='message/compose' element={<ComposeMessage />} />
     </Route>
 )
 
