@@ -6,8 +6,8 @@ import RecipientList from './RecipientList'
 
 const ComposeMessage = () => {
     const [selectedChannelType, setSelectedChannelType] = useState<
-        string | null
-    >(null)
+        string[]
+    >([])
     const [transmissionChannel, setTransmissionChannel] = useState<
         string | null
     >(null)
@@ -110,23 +110,16 @@ const ComposeMessage = () => {
                     }}
                 >
                     <Select
-                        state={}
-                        label='Channel Type'
-                        selectedState={selectedChannelType}
-                        setSelectedState={setSelectedChannelType}
-                    />
-
-                    <MultipleSelect
-                        selectFrom={[
-                            'In-App', 'SMS'
+                        state={[
+                            'Channel 1',
+                            'Channel 2',
+                            'Channel 3',
+                            'Channel 4',
+                            'Channel 5',
                         ]}
-                        selected={[]}
-                        setSelected={function (
-                            value: React.SetStateAction<string[]>
-                        ): void {
-                            throw new Error('Function not implemented.')
-                        }}
-                        label={''}
+                        label='Transmission Channel'
+                        selectedState={transmissionChannel}
+                        setSelectedState={setTransmissionChannel}
                     />
 
                     <div className='grid gap-4 relative'>
@@ -166,17 +159,11 @@ const ComposeMessage = () => {
                         </div>
                     </div>
                     <div>
-                        <Select
-                            state={[
-                                'Channel 1',
-                                'Channel 2',
-                                'Channel 3',
-                                'Channel 4',
-                                'Channel 5',
-                            ]}
+                        <MultipleSelect
+                            selectFrom={['In-App', 'SMS']}
+                            selected={selectedChannelType}
+                            setSelected={setSelectedChannelType}
                             label='Transmission Channel'
-                            selectedState={transmissionChannel}
-                            setSelectedState={setTransmissionChannel}
                         />
                         <p
                             style={{
