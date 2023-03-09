@@ -57,26 +57,26 @@ h5 {
 
   &__item {
     width: 100%;
-    background-color: $color-purple-light-1;
+    background-color: #F5F5F6;
     height: 4.5rem;
 
     border-radius: 0.5rem;
 
     &::-webkit-progress-bar {
-      background-color: $color-purple-light-1;
+      background-color: #F5F5F6;
       border-radius: 0.5rem;
     }
 
     &::-moz-progress-bar {
-      background-color: $color-primary-light;
+      background-color: #098DFF;
     }
     &::-moz-progress-value {
-      background-color: $color-purple-light-1;
+      background-color: #F5F5F6;
       border-radius: 0.5rem;
     }
 
     &::-webkit-progress-value {
-      background-color: $color-primary-light;
+      background-color: #098DFF;
     }
   }
 }
