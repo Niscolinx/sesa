@@ -6,7 +6,6 @@ import RenderedPayments from './RenderPayments'
 
 
 function Payment() {
-    const navigate = useNavigate()
 
 
     const [isPayment, setIsPayment] = useState(false)
