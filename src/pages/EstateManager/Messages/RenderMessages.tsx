@@ -42,7 +42,7 @@ function RenderedMessages() {
     useEffect(() => {
         setTimeout(() => {
             setMessageList(MESSAGE_LIST)
-        }, 1000)
+        }, 100)
     }, [])
 
     interface Paginate {
