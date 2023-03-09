@@ -238,11 +238,8 @@ function RenderedPayments() {
                                     expectedAmount
                                 } = paymentsBody
                                 return (
-                                    <div className='grid relative p-8 bg-white rounded-lg gap-2'>
-                                        <div className=' grid mt-5 '>
-                                            <p className='font-Satoshi-Medium text-[2rem] mb-4'>
-                                                Product Information
-                                            </p>
+                                    < className='grid relative p-8 bg-white rounded-lg gap-2'>
+                                          
                                             <section className='w-[70rem] grid gap-4'>
                                                 <div className='grid grid-cols-2 gap-4 '>
                                                     <div className='grid grid-cols-2 items-center gap-4 justify-start w-[25rem] whitespace-nowrap'>
@@ -374,7 +371,7 @@ function RenderedPayments() {
                                                     />
                                                 </div>
                                             </section>
-                                        </div>
+                                    
 
                                         <Link
                                             to={`/estateManager/payments/view/${id}`}
