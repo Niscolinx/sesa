@@ -43,10 +43,10 @@ export const PAYMENTS_LIST: Payments[] = Array.from({ length: 10 }).map(
         endDate: '03 Mar, 2023',
         status: Math.random() > 0.5 ? 'active': 'inactive',
         createDate: '01 Jan, 2023',
-        amountPaid: '2000',
+        amountPaid: '2,000',
         totalResidents: Math.floor(Math.random() * 200 + 150),
-        progressPercent: Math.floor(Math.random() * 45 + 30)
-     
+        progressPercent: Math.floor(Math.random() * 45 + 30),
+        expectedAmount: '5,000'
     })
 )
 
@@ -157,7 +157,7 @@ function RenderedPayments() {
         setSearch(value)
 
         const filtered = PAYMENTS_LIST.filter((item) =>
-            item.subject.toLowerCase().includes(value.toLowerCase())
+            item.paymentName.toLowerCase().includes(value.toLowerCase())
         )
         setPaymentsList([...filtered])
     }
@@ -221,13 +221,21 @@ function RenderedPayments() {
                             slicedPages[paginate.index].map((paymentsBody) => {
                                 const {
                                     id,
-                                    date,
-                                    subject,
-                                    description,
+                                    paymentAmount,
+                                    paymentCode,
+                                    paymentName,
+                                    paymentPlan,
+                                    paymentType,
+                                    totalResidents,
+                                    trackPayment,
+                                    paidResidents,
+                                    progressPercent,
+                                    startDate,
+                                    endDate,
                                     status,
-                                    transmissionChannel,
-                                    transmissionDate,
-                                    recipients,
+                                    amountPaid,
+                                    createDate,
+                                    expectedAmount
                                 } = paymentsBody
                                 return (
                                     <div className='grid relative p-8 bg-white rounded-lg gap-2'>
