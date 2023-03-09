@@ -53,7 +53,7 @@ const ViewPayment = () => {
                         <>
                             <img src='/icons/admins/modalWarning.svg' alt='' />
                             <p className='text-[1.6rem]'>
-                                Are you sure you want to delete this Message
+                                Are you sure you want to delete this Payment Plan
                             </p>
 
                             <div className='flex w-full justify-center gap-8'>
@@ -80,11 +80,11 @@ const ViewPayment = () => {
                     <div className='flex justify-end'>
                         <div className='flex gap-8'>
                             <button
-                                className='border border-red-600 px-16 py-4 flex items-center  rounded-lg gap-4'
+                                className=' bg-red-600 px-16 py-4 flex items-center  rounded-lg gap-4 text-white'
                                 onClick={() => handleOpen()}
                             >
                                 <img src='/icons/admins/delete.svg' alt='' />
-                                <span className='text-red-600 text-[1.4rem] font-semibold'>
+                                <span className=' text-[1.4rem] font-semibold'>
                                     Delete Message
                                 </span>
                             </button>
