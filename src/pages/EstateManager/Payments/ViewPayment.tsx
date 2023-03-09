@@ -75,19 +75,23 @@ const ViewPayment = () => {
                 </section>
             </dialog>
             <main>
-                <h2 className='heading'>Messages</h2>
-                <section className=' py-10 mt-20'>
+                <section className=''>
                     <div className='flex justify-end'>
                         <div className='flex gap-8'>
+                            <button
+                                className='border border-color-blue-1 text-color-blue-1 px-16 py-4 flex items-center  rounded-lg gap-4 '
+                                onClick={() => handleOpen()}
+                            >
+                                <img src='/img/delete.svg' alt='' />
+                                <span className=' text-[1.4rem] font-semibold'>
+                                    Delete Message
+                                </span>
+                            </button>
                             <button
                                 className=' bg-red-600 px-16 py-4 flex items-center  rounded-lg gap-4 text-white'
                                 onClick={() => handleOpen()}
                             >
-                                <img src='/icons/admins/delete.svg' alt='' style={{
-                                    fill: 'white',
-                                    color: 'white',
-                                    background: 'white'
-                                }} />
+                                <img src='/img/delete.svg' alt='' />
                                 <span className=' text-[1.4rem] font-semibold'>
                                     Delete Message
                                 </span>
