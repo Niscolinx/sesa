@@ -220,6 +220,7 @@ const RecipientList: FC<IRecipientList> = ({ closeRecipientListDialog }) => {
                                             tenancyType,
                                             propertyType,
                                             propertyCategory,
+                                            isAlpha,
                                         }) => {
                                             return (
                                                 <div className='grid justify-between border-b grid-cols-6 gap-8 py-4'>
@@ -230,12 +231,23 @@ const RecipientList: FC<IRecipientList> = ({ closeRecipientListDialog }) => {
                                                         />
 
                                                         <span>
-                                                            {residentName}
+                                                            {residentCode}
                                                         </span>
                                                     </p>
-                                                    <p>{residentCode}</p>
+                                                    <p className='flex items-center gap-2'>
+                                                        <span>
+                                                            {residentName}
+                                                        </span>
+                                                        {isAlpha ? (
+                                                            <img
+                                                                src='/img/a;lpha.svg'
+                                                                alt=''
+                                                            />
+                                                        ) : null}
+                                                    </p>
                                                     <p>{propertyCategory}</p>
                                                     <p>{propertyName}</p>
+
                                                     <p>{propertyType}</p>
                                                     <p>{tenancyType}</p>
                                                 </div>
@@ -303,7 +315,6 @@ const RecipientList: FC<IRecipientList> = ({ closeRecipientListDialog }) => {
                                 )
                             })}
 
-                           
                             <HiOutlineChevronRight
                                 onClick={handleNext}
                                 className='cursor-pointer'
