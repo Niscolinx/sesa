@@ -294,8 +294,12 @@ function RenderedPayments() {
                                                         Status
                                                     </p>
                                                     <p>
-                                                        Active
-                                                    </p>{' '}
+                                                     {status === 'active' ? (
+                                                        <span className='text-green-600'>{status}</span>
+                                                     ) : (
+                                                        <span className='text-red-600'>{status}</span>
+                                                     )}
+                                                    </p>
                                                 </div>
                                             </div>
                                             <div className='grid grid-cols-2 gap-4 '>
