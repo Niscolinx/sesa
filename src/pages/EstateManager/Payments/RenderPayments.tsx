@@ -341,11 +341,11 @@ function RenderedPayments() {
                                                     </p>
                                                 </div>
 
-                                                <p
-                                                    className='text-[1.4rem] font-semibold uppercase text-color-white bg-color-primary rounded-3xl h-[4.5rem] px-8 flex items-center justify-center'
-                                                >
-                                                    Get Started
-                                                </p>
+                                                <div className='flex items-center justify-between'>
+                                                            <p>
+                                                                {paidResidents} of {totalResidents}
+                                                            </p>
+                                                </div>
                                             </div>
                                         </section>
 
