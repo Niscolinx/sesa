@@ -5,28 +5,29 @@ import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { IoMdAdd } from 'react-icons/io'
 import { useNavigate } from 'react-router-dom'
 
-interface CompanyOverview {
-    id: number
-    residentCode: number
+interface Recipient {
+    id: string
+    residentCode: string
     residentName: string
     propertyCategory: string
     propertyName: string
-    alpha: boolean;
-    propertyType: 'Active' | 'Deactivated'
-    tenancyType: 'Validated' | 'Not Validated'
+    isAlpha: boolean
+    propertyType: string
+    tenancyType: string
 }
 
-const COMPANY_OVERVIEW_DATA: CompanyOverview[] = Array.from({
+const RECIPIENT: Recipient[] = Array.from({
     length: 20,
 }).map((_, i) => ({
-    id: i,
+    id: `i + ${i}`,
     residentName: 'John Emmanuel',
     propertyCategory: Math.random() > 0.5 ? 'Business' : 'Residential',
-    residentCode: Math.floor(Math.random() * 3000 + 1000),
+    residentCode: `H${Math.floor(Math.random() * 3000 + 1000)}`,
     propertyName: Math.random() > 0.5 ? 'Auto Finance' : 'Chrisland Schools',
     propertyType: Math.random() > 0.5 ? '2-Bedroom Self Con.' : 'Duplex',
     tenancyType:
         Math.random() > 0.5 ? 'Landlord (Developer)' : 'Tenant (Resident)',
+    isAlpha: Math.random() > 0.3 ? true : false
 }))
 
 interface IRecipientList {
@@ -36,12 +37,12 @@ interface IRecipientList {
 const RecipientList: FC<IRecipientList> = ({ closeRecipientListDialog }) => {
     const navigate = useNavigate()
 
-    const [fetchedCompanyOverviewData, setFetchedCompanyOverviewData] =
-        useState<CompanyOverview[]>([])
+    const [fetchedRecipientData, setFetchedRecipientData] =
+        useState<Recipient[]>([])
 
     useEffect(() => {
         setTimeout(() => {
-            setFetchedCompanyOverviewData(COMPANY_OVERVIEW_DATA)
+            setFetchedRecipientData(RECIPIENT)
         }, 1000)
     }, [])
 
@@ -50,7 +51,7 @@ const RecipientList: FC<IRecipientList> = ({ closeRecipientListDialog }) => {
         currentPage: number
         itemsPerPage: number
         totalPage: number
-        slicedPages: CompanyOverview[][] | null
+        slicedPages: Recipient[][] | null
     }
 
     const itemsPerPageArr = [2, 4, 6, 8]
@@ -60,16 +61,16 @@ const RecipientList: FC<IRecipientList> = ({ closeRecipientListDialog }) => {
         index: 0,
         currentPage: 1,
         itemsPerPage: perPage,
-        totalPage: Math.ceil(fetchedCompanyOverviewData.length / perPage),
+        totalPage: Math.ceil(fetchedRecipientData.length / perPage),
         slicedPages: null,
     })
 
     const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
         const item = parseInt(e.target.value)
 
-        const slicedPages: CompanyOverview[][] = []
-        for (let i = 0; i < fetchedCompanyOverviewData.length; i += item) {
-            slicedPages.push(fetchedCompanyOverviewData.slice(i, i + item))
+        const slicedPages: Recipient[][] = []
+        for (let i = 0; i < fetchedRecipientData.length; i += item) {
+            slicedPages.push(fetchedRecipientData.slice(i, i + item))
         }
 
         setPaginate((prev) => {
@@ -79,20 +80,20 @@ const RecipientList: FC<IRecipientList> = ({ closeRecipientListDialog }) => {
                 index: 0,
                 currentPage: 1,
                 slicedPages,
-                totalPage: Math.ceil(fetchedCompanyOverviewData.length / item),
+                totalPage: Math.ceil(fetchedRecipientData.length / item),
             }
         })
     }
 
     useEffect(() => {
-        const slicedPages: CompanyOverview[][] = []
+        const slicedPages: Recipient[][] = []
         for (
             let i = 0;
-            i < fetchedCompanyOverviewData.length;
+            i < fetchedRecipientData.length;
             i += paginate.itemsPerPage
         ) {
             slicedPages.push(
-                fetchedCompanyOverviewData.slice(i, i + paginate.itemsPerPage)
+                fetchedRecipientData.slice(i, i + paginate.itemsPerPage)
             )
         }
 
@@ -101,11 +102,11 @@ const RecipientList: FC<IRecipientList> = ({ closeRecipientListDialog }) => {
                 ...prev,
                 slicedPages,
                 totalPage: Math.ceil(
-                    fetchedCompanyOverviewData.length / paginate.itemsPerPage
+                    fetchedRecipientData.length / paginate.itemsPerPage
                 ),
             }
         })
-    }, [fetchedCompanyOverviewData])
+    }, [fetchedRecipientData])
 
     const handleNext = () => {
         console.log(paginate.currentPage, paginate.totalPage)
@@ -230,13 +231,16 @@ const RecipientList: FC<IRecipientList> = ({ closeRecipientListDialog }) => {
                                                             className='cursor-pointer'
                                                         />
 
-                                                        <span>{residentName}</span>
+                                                        <span>
+                                                            {residentName}
+                                                        </span>
                                                     </p>
                                                     <p>{residentCode}</p>
                                                     <p>{propertyCategory}</p>
                                                     <p>{propertyName}</p>
                                                     <p>
-                                                        {propertyType === 'Active' ? (
+                                                        {propertyType ===
+                                                        'Active' ? (
                                                             <span className='text-[#1A8F56]'>
                                                                 {propertyType}
                                                             </span>
@@ -247,7 +251,8 @@ const RecipientList: FC<IRecipientList> = ({ closeRecipientListDialog }) => {
                                                         )}
                                                     </p>
                                                     <p>
-                                                        {tenancyType === 'Validated' ? (
+                                                        {tenancyType ===
+                                                        'Validated' ? (
                                                             <span className='text-[#1A8F56]'>
                                                                 {tenancyType}
                                                             </span>
