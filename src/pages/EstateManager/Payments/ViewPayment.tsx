@@ -67,7 +67,8 @@ const ViewPayment = () => {
                         <>
                             <img src='/icons/admins/modalWarning.svg' alt='' />
                             <p className='text-[1.6rem]'>
-                                Are you sure you want to delete this Payment Plan
+                                Are you sure you want to delete this Payment
+                                Plan
                             </p>
 
                             <div className='flex w-full justify-center gap-8'>
@@ -90,7 +91,8 @@ const ViewPayment = () => {
             </dialog>
             <main>
                 <section className=''>
-                    <div className='flex justify-end'>
+                    <div className='flex justify-between'>
+                        <p className='text-[2rem] font-Satoshi-Medium'>{paymentName}</p>
                         <div className='flex gap-8'>
                             <button
                                 className='border border-color-blue-1 text-color-blue-1 px-16 py-4 flex items-center  rounded-lg gap-4 '
@@ -111,11 +113,145 @@ const ViewPayment = () => {
                             </button>
                         </div>
                     </div>
-                    <div
-                        className=' gap-16 mt-12 grid p-8 bg-white rounded-lg '
-                  
-                    >
-                        
+                    <div className='grid relative p-16 bg-white rounded-lg gap-2'>
+                        <section className='grid gap-4 capitalize'>
+                            <div className='flex justify-between gap-4 '>
+                                <div className='grid grid-cols-2 items-center gap-4 justify-start w-[25rem] whitespace-nowrap'>
+                                    <p className='text-gray-700 font-Satoshi-Light'>
+                                        Payment Code:
+                                    </p>
+                                    <p className='font-Satoshi-Medium'>
+                                        {paymentCode}
+                                    </p>
+                                </div>
+                                <div className='grid grid-cols-2 items-center gap-4 whitespace-nowrap w-[25rem]'>
+                                    <p className='text-gray-700 font-Satoshi-Light '>
+                                        Start Date:
+                                    </p>
+                                    <p className='font-Satoshi-Medium'>
+                                        {startDate}
+                                    </p>
+                                </div>
+                            </div>
+                            <div className='flex justify-between gap-4 '>
+                                <div className='grid grid-cols-2 items-center gap-4 justify-start w-[25rem] whitespace-nowrap'>
+                                    <p className='text-gray-700 font-Satoshi-Light  '>
+                                        Payment Name:
+                                    </p>
+                                    <p className='font-Satoshi-Medium'>
+                                        {paymentName}
+                                    </p>
+                                </div>
+                                <div className='grid grid-cols-2 items-center gap-4 whitespace-nowrap w-[25rem]'>
+                                    <p className='text-gray-700 font-Satoshi-Light '>
+                                        End Date:
+                                    </p>
+                                    <p className='font-Satoshi-Medium'>
+                                        {endDate}
+                                    </p>
+                                </div>
+                            </div>
+                            <div className='flex justify-between gap-4 '>
+                                <div className='grid grid-cols-2 items-center gap-4 justify-start w-[25rem] whitespace-nowrap'>
+                                    <p className='text-gray-700 font-Satoshi-Light  '>
+                                        Payment Type
+                                    </p>
+                                    <p className='font-Satoshi-Medium'>
+                                        {paymentType}
+                                    </p>
+                                </div>
+                                <div className='grid grid-cols-2 items-center gap-4 whitespace-nowrap w-[25rem]'>
+                                    <p className='text-gray-700 font-Satoshi-Light '>
+                                        Track Payment:
+                                    </p>
+                                    <p className='font-Satoshi-Medium'>
+                                        {trackPayment}
+                                    </p>
+                                </div>
+                            </div>
+                            <div className='flex justify-between gap-4 '>
+                                <div className='grid grid-cols-2 items-center gap-4 justify-start w-[25rem] whitespace-nowrap'>
+                                    <p className='text-gray-700 font-Satoshi-Light  '>
+                                        Payment Plan:
+                                    </p>
+                                    <p className='font-Satoshi-Medium'>
+                                        {paymentPlan}
+                                    </p>
+                                </div>
+                                <div className='grid grid-cols-2 items-center gap-4 whitespace-nowrap w-[25rem]'>
+                                    <p className='text-gray-700 font-Satoshi-Light '>
+                                        Status
+                                    </p>
+                                    <p className='font-Satoshi-Medium'>
+                                        {status === 'active' ? (
+                                            <span className='text-green-600'>
+                                                {status}
+                                            </span>
+                                        ) : (
+                                            <span className='text-red-600'>
+                                                {status}
+                                            </span>
+                                        )}
+                                    </p>
+                                </div>
+                            </div>
+                            <div className='flex justify-between gap-4 '>
+                                <div className='grid grid-cols-2 items-center gap-4 justify-start w-[25rem] whitespace-nowrap'>
+                                    <p className='text-gray-700 font-Satoshi-Light  '>
+                                        Payment Amount:
+                                    </p>
+                                    <p className='font-Satoshi-Medium'>
+                                        ₦{paymentAmount}
+                                    </p>
+                                </div>
+                                <div className='grid grid-cols-2 items-center gap-4 whitespace-nowrap w-[25rem]'>
+                                    <p className='text-gray-700 font-Satoshi-Light '>
+                                        Create Date:
+                                    </p>
+                                    <p className='font-Satoshi-Medium'>
+                                        {createDate}
+                                    </p>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section className='mt-[5rem] grid '>
+                            <p className='flex items-center gap-2'>
+                                <span className='font-Satoshi-Medium'>
+                                    Payment Status:{' '}
+                                </span>{' '}
+                            </p>
+
+                            <div className='grid gap-4 items-center '>
+                                <p className='justify-self-end'>
+                                    ₦{amountToPay}
+                                </p>
+                                <div className='progressBar overflow-hidden '>
+                                    <progress
+                                        className='progressBar__item'
+                                        max={100}
+                                        value={progressPercent}
+                                    />
+
+                                    <p
+                                        className={`absolute left-0 text-color-tertiary text-white flex justify-end font-Satoshi-Medium pr-10`}
+                                        style={{
+                                            width: `${progressPercent}%`,
+                                        }}
+                                    >
+                                        <span>{progressPercent}%</span>
+                                    </p>
+                                </div>
+
+                                <div className='flex items-center justify-between font-Satoshi-Light'>
+                                    <p>
+                                        {paidResidents} of {totalResidents}{' '}
+                                        resident paid
+                                    </p>
+                                    <p>₦{expectedAmount}</p>
+                                </div>
+                            </div>
+                        </section>
                     </div>
                 </section>
             </main>
