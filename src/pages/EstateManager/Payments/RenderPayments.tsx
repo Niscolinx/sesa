@@ -207,7 +207,7 @@ function RenderedPayments() {
                         <span>
                             <IoMdAdd />
                         </span>{' '}
-                        <p>compose Payments</p>
+                        <p>Create Payments</p>
                     </button>
                 </div>
 
@@ -241,13 +241,17 @@ function RenderedPayments() {
                                                     <p className='text-gray-700 font-Satoshi-Light'>
                                                         Payment Code:
                                                     </p>
-                                                    <p className='font-Satoshi-Medium'>{paymentCode}</p>
+                                                    <p className='font-Satoshi-Medium'>
+                                                        {paymentCode}
+                                                    </p>
                                                 </div>
                                                 <div className='grid grid-cols-2 items-center gap-4 whitespace-nowrap w-[25rem]'>
                                                     <p className='text-gray-700 font-Satoshi-Light '>
                                                         Start Date:
                                                     </p>
-                                                    <p>{startDate}</p>
+                                                    <p className='font-Satoshi-Medium'>
+                                                        {startDate}
+                                                    </p>
                                                 </div>
                                             </div>
                                             <div className='flex justify-between gap-4 '>
@@ -255,13 +259,17 @@ function RenderedPayments() {
                                                     <p className='text-gray-700 font-Satoshi-Light  '>
                                                         Payment Name:
                                                     </p>
-                                                    <p>{paymentName}</p>
+                                                    <p className='font-Satoshi-Medium'>
+                                                        {paymentName}
+                                                    </p>
                                                 </div>
                                                 <div className='grid grid-cols-2 items-center gap-4 whitespace-nowrap w-[25rem]'>
                                                     <p className='text-gray-700 font-Satoshi-Light '>
                                                         End Date:
                                                     </p>
-                                                    <p>{endDate}</p>
+                                                    <p className='font-Satoshi-Medium'>
+                                                        {endDate}
+                                                    </p>
                                                 </div>
                                             </div>
                                             <div className='flex justify-between gap-4 '>
@@ -269,13 +277,17 @@ function RenderedPayments() {
                                                     <p className='text-gray-700 font-Satoshi-Light  '>
                                                         Payment Type
                                                     </p>
-                                                    <p>{paymentType}</p>
+                                                    <p className='font-Satoshi-Medium'>
+                                                        {paymentType}
+                                                    </p>
                                                 </div>
                                                 <div className='grid grid-cols-2 items-center gap-4 whitespace-nowrap w-[25rem]'>
                                                     <p className='text-gray-700 font-Satoshi-Light '>
                                                         Track Payment:
                                                     </p>
-                                                    <p>{trackPayment}</p>
+                                                    <p className='font-Satoshi-Medium'>
+                                                        {trackPayment}
+                                                    </p>
                                                 </div>
                                             </div>
                                             <div className='flex justify-between gap-4 '>
@@ -283,13 +295,15 @@ function RenderedPayments() {
                                                     <p className='text-gray-700 font-Satoshi-Light  '>
                                                         Payment Plan:
                                                     </p>
-                                                    <p>{paymentPlan}</p>
+                                                    <p className='font-Satoshi-Medium'>
+                                                        {paymentPlan}
+                                                    </p>
                                                 </div>
                                                 <div className='grid grid-cols-2 items-center gap-4 whitespace-nowrap w-[25rem]'>
                                                     <p className='text-gray-700 font-Satoshi-Light '>
                                                         Status
                                                     </p>
-                                                    <p>
+                                                    <p className='font-Satoshi-Medium'>
                                                         {status === 'active' ? (
                                                             <span className='text-green-600'>
                                                                 {status}
@@ -307,13 +321,17 @@ function RenderedPayments() {
                                                     <p className='text-gray-700 font-Satoshi-Light  '>
                                                         Payment Amount:
                                                     </p>
-                                                    <p>₦{paymentAmount}</p>
+                                                    <p className='font-Satoshi-Medium'>
+                                                        ₦{paymentAmount}
+                                                    </p>
                                                 </div>
                                                 <div className='grid grid-cols-2 items-center gap-4 whitespace-nowrap w-[25rem]'>
                                                     <p className='text-gray-700 font-Satoshi-Light '>
                                                         Create Date:
                                                     </p>
-                                                    <p>{createDate}</p>
+                                                    <p className='font-Satoshi-Medium'>
+                                                        {createDate}
+                                                    </p>
                                                 </div>
                                             </div>
                                         </section>
@@ -348,13 +366,13 @@ function RenderedPayments() {
                                                     <p>₦{expectedAmount}</p>
 
                                                     <Link to=''>
-                                                        <p className='text-[#076AFF] capitalize'>More details</p>
+                                                        <p className='text-[#076AFF] capitalize'>
+                                                            More details
+                                                        </p>
                                                     </Link>
                                                 </div>
                                             </div>
                                         </section>
-
-                                        
                                     </div>
                                 )
                             })
