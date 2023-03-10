@@ -301,12 +301,15 @@ const ViewPayment = () => {
                         </p>
 
                         <div className='relative flex gap-4'>
-                            <button
-                                className='btn text-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
-                                onClick={() => openPaymentDialog()}
-                            >
-                                View Households
-                            </button>
+                            {paymentType === 'fixed' && (
+                                <button
+                                    className='btn text-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
+                                    onClick={() => openPaymentDialog()}
+                                >
+                                    View Households
+                                </button>
+                            )}
+
                             <div className='relative flex items-center w-[12rem]'>
                                 <p
                                     className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer'
