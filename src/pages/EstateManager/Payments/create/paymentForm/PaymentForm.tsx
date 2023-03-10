@@ -11,7 +11,7 @@ interface PaymentForm {
 }
 
 interface InstallmentField {
-    amount: number
+    amount: string
     startDate: string
     endDate: string
 }
@@ -28,7 +28,7 @@ function PaymentForm({ props }: PaymentForm) {
         InstallmentField[]
     >([
         {
-            amount: 0,
+            amount: '',
             startDate: '',
             endDate: '',
         },
@@ -179,7 +179,7 @@ function PaymentForm({ props }: PaymentForm) {
     const addAnotherInstallmentHandler = () => {
         setInstallmentField((prev) => [
             ...prev,
-            { amount: 0, startDate: '', endDate: '' },
+            { amount: '', startDate: '', endDate: '' },
         ])
     }
 
@@ -332,7 +332,7 @@ function PaymentForm({ props }: PaymentForm) {
 
                         {installmentField.map((item, idx) => (
                             <div className='flex items-center gap-4'>
-                                {item.amount > 0 && (
+                                {item.amount && (
                                     <>
                                         <span className='text-color-blue-1 font-medium'>
                                             Installment {idx + 1}
