@@ -2,6 +2,11 @@ import React, { useState } from 'react'
 import { Select } from '../../../../../../components/SuperAdmin/UI/Select'
 import { PaymentPlan, PaymentType } from '../../CreatePayment'
 
+
+interface FlexiblePaymentType {
+
+}
+
 function FlexiblePaymentType() {
      const [paymentPlan, setPaymentPlan] = useState<
          string | null | PaymentPlan
@@ -61,18 +66,22 @@ function FlexiblePaymentType() {
 
           <Select
               label='Payment Type'
-              state={['full', 'installment'] satisfies PaymentType[]}
+              state={['fixed', 'flexible'] satisfies PaymentType[]}
               selectedState={paymentType}
               setSelectedState={setPaymentType}
           />
           <Select
               label='Payment Plan'
-              state={['fixed', 'flexible'] satisfies PaymentPlan[]}
+              state={['full', 'installment'] satisfies PaymentPlan[]}
               selectedState={paymentPlan}
               setSelectedState={setPaymentPlan}
           />
 
-          <button className='btn text-white bg-color-blue-1 py-4 px-16 rounded-lg w-[15rem] col-span-full mt-10'>
+          <button
+              className='btn text-white bg-color-blue-1 py-4 px-16 rounded-lg w-[15rem] col-span-full mt-10 disabled:opacity-50 disabled:cursor-not-allowed'
+              onClick={() => handleNext()}
+              disabled={!paymentType}
+          >
               Next
           </button>
       </form>
