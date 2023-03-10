@@ -42,6 +42,10 @@ const ViewMessage = () => {
         })
     }
 
+    if(!messageData){
+        return null
+    }
+
     return (
         <>
             <ToastContainer />

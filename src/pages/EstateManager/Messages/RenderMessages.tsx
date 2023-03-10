@@ -315,7 +315,7 @@ function RenderedMessages() {
                                         </div>
 
                                         <Link
-                                            to={`/estateManager/message/view/${id}`}
+                                            to={`/estateManager/message/view/:${id}`}
                                             state={messageBody}
                                             className='text-color-blue'
                                             style={{
