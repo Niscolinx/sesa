@@ -24,7 +24,7 @@ function FlexiblePaymentType({ props }: FlexiblePaymentType) {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
     }
-    
+
     return (
         <form
             onSubmit={handleSubmit}
@@ -38,7 +38,7 @@ function FlexiblePaymentType({ props }: FlexiblePaymentType) {
                     htmlFor='firstName'
                     className='text-[1.4rem] font-medium'
                 >
-                    Dues Name
+                    Payment Name
                 </label>
                 <input
                     type='text'
