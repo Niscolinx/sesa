@@ -48,10 +48,10 @@ function FlexiblePaymentType({ props }: FlexiblePaymentType) {
             </div>
 
             <Select
-                label='Track Payment'
-                state={['Yes', 'No']}
-                selectedState={trackPayment}
-                setSelectedState={setTrackPayment}
+                label='Payment Type'
+                state={['fixed', 'flexible'] satisfies PaymentType[]}
+                selectedState={paymentType}
+                setSelectedState={setPaymentType}
             />
 
             <div>
@@ -69,11 +69,12 @@ function FlexiblePaymentType({ props }: FlexiblePaymentType) {
             </div>
 
             <Select
-                label='Payment Type'
-                state={['fixed', 'flexible'] satisfies PaymentType[]}
-                selectedState={paymentType}
-                setSelectedState={setPaymentType}
+                label='Track Payment'
+                state={['Yes', 'No']}
+                selectedState={trackPayment}
+                setSelectedState={setTrackPayment}
             />
+
             <Select
                 label='Payment Plan'
                 state={['full', 'installment'] satisfies PaymentPlan[]}
