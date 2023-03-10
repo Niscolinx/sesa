@@ -3,8 +3,8 @@ import { ToastContainer } from 'react-toastify'
 import { Select } from '../../../../components/SuperAdmin/UI/Select'
 import HouseholdFilter from './filter/Household'
 
-export type PaymentPlan = 'fixed' | 'flexible'
-export type PaymentType = 'full' | 'installment'
+export type PaymentType = 'fixed' | 'flexible'
+export type PaymentPlan = 'full' | 'installment'
 type Step = 'initial' | 'list'
 
 const CreatePayment = () => {
@@ -23,7 +23,7 @@ const CreatePayment = () => {
         e.preventDefault()
     }
 
-    const renderPaymentType = new Map([['full', <HouseholdFilter/>]]) satisfies Map<
+    const renderPaymentType = new Map([['fixed', <HouseholdFilter/>]]) satisfies Map<
         PaymentType,
         JSX.Element
     >
@@ -92,13 +92,13 @@ const CreatePayment = () => {
 
                     <Select
                         label='Payment Type'
-                        state={['full', 'installment'] satisfies PaymentType[]}
+                        state={['fixed', 'flexible'] satisfies PaymentType[]}
                         selectedState={paymentType}
                         setSelectedState={setPaymentType}
                     />
                     <Select
                         label='Payment Plan'
-                        state={['fixed', 'flexible'] satisfies PaymentPlan[]}
+                        state={['full', 'installment'] satisfies PaymentPlan[]}
                         selectedState={paymentPlan}
                         setSelectedState={setPaymentPlan}
                     />
