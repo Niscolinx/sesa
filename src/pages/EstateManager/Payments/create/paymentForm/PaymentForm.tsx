@@ -362,7 +362,7 @@ function PaymentForm({ props }: PaymentForm) {
                                 <span>
                                     <img src='/icons/Naira.svg' alt='' />
                                 </span>{' '}
-                                <span>{amount}</span>
+                                <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, officia aperiam nesciunt est eaque iste vel illo optio. Voluptatum, corporis consectetur? Odit inventore corporis voluptates officia, adipisci non quibusdam unde.</span>
                             </p>
                         </div>
                     </div>
