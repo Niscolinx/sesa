@@ -301,7 +301,7 @@ const handleSelectedTrend = (item: Trend) => {
                             )}
                         </div>
                     </div>
-                    <div className='w-full justify-self-center'>
+                    <div className=' flex justify-center'>
 
                     <WalletBarChart width={800}/>
                     </div>
