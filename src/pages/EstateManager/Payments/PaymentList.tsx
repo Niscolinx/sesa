@@ -2,7 +2,7 @@ import React, { ChangeEvent, FC, useEffect, useState } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
 import { GrDown } from 'react-icons/gr'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
-import { IoMdAdd } from 'react-icons/io'
+import { IoMdAdd, IoMdSave } from 'react-icons/io'
 import { useNavigate } from 'react-router-dom'
 
 interface Payment {
@@ -166,7 +166,7 @@ const PaymentList: FC<IPaymentList> = ({ closePaymentDialog }) => {
                                 onClick={downloadDocHandler}
                             >
                                 <span>
-                                    <IoMdAdd />
+                                    <IoMdSave />
                                 </span>{' '}
                                 Download
                             </button>
