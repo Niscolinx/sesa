@@ -4,9 +4,12 @@ import { Select } from '../../../../components/SuperAdmin/UI/Select'
 import { getPhotoUrl } from '../../../../utils/getPhotoUrl'
 
 export type PaymentType = 'fixed' | 'flexible'
+export type PaymentPlan = 'full' | 'installment'
 
 const CreatePayment = () => {
-    const [selectedGender, setSelectedGender] = useState<string | null>(null)
+    const [paymentPlan, setPaymentPlan] = useState<string | null>(null)
+    const [trackPayment, setTrackPayment] = useState('')
+    const [amount, setAmount] = useState(0)
 
     const [paymentType, setPaymentType] = useState<PaymentType>('fixed')
 
@@ -53,8 +56,8 @@ const CreatePayment = () => {
                     <Select
                         label='Gender'
                         state={['Yes', 'No']}
-                        selectedState={selectedGender}
-                        setSelectedState={setSelectedGender}
+                        selectedState={paymentPlan}
+                        setSelectedState={setPaymentPlan}
                     />
                     <div>
                         <label
@@ -75,8 +78,8 @@ const CreatePayment = () => {
                     <Select
                         label='Gender'
                         state={['Male', 'Female']}
-                        selectedState={selectedGender}
-                        setSelectedState={setSelectedGender}
+                        selectedState={paymentPlan}
+                        setSelectedState={setPaymentPlan}
                     />
 
                     <button className='btn text-white bg-color-blue-1 py-4 px-16 rounded-lg w-[15rem]'>
