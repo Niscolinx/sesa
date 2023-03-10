@@ -33,6 +33,7 @@ import ComposeMessage from '../../pages/EstateManager/Messages/ComposeMessage'
 import ViewMessage from '../../pages/EstateManager/Messages/ViewMessage'
 import Payments from '../../pages/EstateManager/Payments/Payments'
 import ViewPayment from '../../pages/EstateManager/Payments/ViewPayment'
+import AddPayment from '../../pages/EstateManager/Payments/AddPayment'
 
 const estateManagerRoutes = (
     <Route path='/estateManager' element={<Dashboard />}>
@@ -70,6 +71,7 @@ const estateManagerRoutes = (
         <Route path='message/view/:id' element={<ViewMessage />} />
         <Route path='payments' element={<Payments />} />
         <Route path='payments/view/:id' element={<ViewPayment />} />
+        <Route path='payments/add' element={<AddPayment />} />
     </Route>
 )
 
