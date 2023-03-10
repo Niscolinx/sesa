@@ -345,7 +345,7 @@ const ViewPayment = () => {
                             >
                                 View Households
                             </button>
-                            <div className='relative flex items-center w-[14rem]'>
+                            <div className=' flex items-center w-[14rem]'>
                                 <p
                                     className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer'
                                     onClick={installmentToggler}
@@ -360,7 +360,7 @@ const ViewPayment = () => {
                             </div>
 
                             {toggleInstallment && (
-                                <div className='absolute top-[8rem]  left-0 border border-color-primary-light  bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
+                                <div className='absolute top-[5rem]  right-0 border border-color-primary-light  bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
                                     {installments.map((item, index) => (
                                         <p
                                             className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
