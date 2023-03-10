@@ -29,7 +29,7 @@ function PaymentForm({ props }: PaymentForm) {
            
 
             <div>
-                <label htmlFor='amount' className='text-[1.4rem] font-medium mb-10'>
+                <label htmlFor='amount' className='text-[1.4rem] font-medium pb-10'>
                     Amount
                 </label>
                 <input
