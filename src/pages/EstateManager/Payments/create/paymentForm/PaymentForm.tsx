@@ -188,7 +188,9 @@ function PaymentForm({ props }: PaymentForm) {
     }
 
     const installmentChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        
+        const {name, value} = e.target
+
+
     }
     return (
         <div>
@@ -246,6 +248,7 @@ function PaymentForm({ props }: PaymentForm) {
                                     <input
                                         type='date'
                                         required
+                                        name='startDate'
                                         id='startDate'
                                         className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                                     />
@@ -260,7 +263,8 @@ function PaymentForm({ props }: PaymentForm) {
                                     <input
                                         type='date'
                                         required
-                                        id='startDate'
+                                        name='endDate'
+                                        id='endDate'
                                         className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                                     />
                                 </div>
