@@ -197,9 +197,12 @@ function PaymentForm({ props }: PaymentForm) {
         console.log({ name, value, idx })
 
         setInstallmentField((prev) => {
-            return [
-                [idx]: {}
-            ]
+            return prev.filter((item, i) => {
+                return {
+                    ...item,
+                    
+                }
+            })
         })
     }
     return (
