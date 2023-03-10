@@ -2,6 +2,7 @@ import React, { ChangeEvent, FC, useEffect, useState } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { IoMdSave } from 'react-icons/io'
+import { Select } from '../../../../../components/SuperAdmin/UI/Select'
 
 interface Payment {
     id: string
@@ -41,6 +42,7 @@ const PAYMENT: Payment[] = Array.from({
 
 const HouseholdFilter: FC = () => {
     const [fetchedPaymentData, setFetchedPaymentData] = useState<Payment[]>([])
+    const []
 
     useEffect(() => {
         setTimeout(() => {
@@ -154,7 +156,9 @@ const HouseholdFilter: FC = () => {
                 <div className='grid text-[1.6rem]'>
                     <div className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
                         <p className='font-Satoshi-Medium text-[2rem]'>
-                            Household Payment List (500)
+                            <Select state={[]} selectedState={null} setSelectedState={function (value: React.SetStateAction<string | null>): void {
+                                throw new Error('Function not implemented.')
+                            } }/>
                         </p>
                         <div className='ml-auto'>
                             <button
