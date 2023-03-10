@@ -139,9 +139,7 @@ const ResidentFilter: FC<IResidentFilter> = ({ closeResidentFilterDialog }) => {
         })
     }
 
-    const saveChangesHandler = () => {
-        closeResidentFilterDialog()
-    }
+   
 
     return (
         <main className='mt-10 grid gap-9'>
