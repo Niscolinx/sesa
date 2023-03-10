@@ -24,14 +24,6 @@ const CreatePayment = () => {
         e.preventDefault()
     }
 
-    const renderPaymentType = new Map([
-        ['fixed', <HouseholdFilter />],
-    ]) satisfies Map<PaymentType, JSX.Element>
-
-    const displayStep = new Map([
-        ['initial', <HouseholdFilter />],
-    ]) satisfies Map<Step, JSX.Element>
-
     const handleNext = () => {
         if (paymentType) {
             if ((paymentType as PaymentType) === 'flexible') {
@@ -40,19 +32,29 @@ const CreatePayment = () => {
         }
     }
 
+    const renderPaymentType = new Map([
+        ['fixed', <HouseholdFilter />],
+    ]) satisfies Map<PaymentType, JSX.Element>
+
+    const displayStep = new Map([
+        [
+            'initial',
+            <FlexiblePaymentType
+                props={{
+                    handleNext,
+                    paymentType,
+                    setPaymentType,
+                }}
+            />,
+        ],
+        [('list', (<HouseholdFilter />))],
+    ]) satisfies Map<Step, JSX.Element>
+
     return (
         <>
             <ToastContainer />
 
-            <div className='grid p-8 bg-white h-[80vh] items-baseline overflow-y-scroll rounded-lg'>
-                <FlexiblePaymentType
-                    props={{
-                        handleNext,
-                        paymentType,
-                        setPaymentType,
-                    }}
-                />
-            </div>
+            <div className='grid p-8 bg-white h-[80vh] items-baseline overflow-y-scroll rounded-lg'></div>
         </>
     )
 }
