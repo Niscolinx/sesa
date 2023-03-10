@@ -154,14 +154,13 @@ const HouseholdFilter: FC = () => {
         <main className='mt-10 grid gap-9'>
             <section className='bg-color-white rounded-lg border overflow-scroll max-h-[80vh]'>
                 <div className='grid text-[1.6rem]'>
-                    <div className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
+                    <div className='w-[20rem]'>
                             <Select
                                 state={['Households', 'residents']}
                                 selectedState={filter}
                                 setSelectedState={setFilter}
                                 placeholder='Households'
                             />
-                   
                         
                     </div>
 
