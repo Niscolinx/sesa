@@ -71,7 +71,7 @@ const Filter: FC = () => {
                 </section>
             </dialog>
             <main className='grid gap-9'>
-                <div className=' p-8'>
+                <div className='p-8'>
                     <p className='font-Satoshi-Medium text-[2rem]'>
                         {' '}
                         Filter Selection{' '}
