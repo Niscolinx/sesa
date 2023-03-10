@@ -57,7 +57,7 @@ function PaymentForm({ props }: PaymentForm) {
                         required
                         id='amount'
                         value={amount <= 0 ? '' : amount}
-                        onChange={(e) => setAmount(Number(e.target.value))}
+                        onChange={(e) => setAmount(Number(e.target.value).toLocaleString())}
                         name='amount'
                         className='w-full border-none outline-none py-4 px-4 pl-5'
                     />
