@@ -354,7 +354,7 @@ function PaymentForm({ props }: PaymentForm) {
                             </div>
                         ))}
 
-                        <div className='flex items-center gap-4 my-5'>
+                        <div className='flex items-center gap-4 my-5 border text-green-600'>
                             <span>Balance Amount:</span>{' '}
                             <p className='flex items-center font-semibold'>
                                 <span>
