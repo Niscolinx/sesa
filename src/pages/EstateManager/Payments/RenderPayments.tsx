@@ -10,7 +10,7 @@ export interface Payments {
     id: string
     paymentCode: string
     paymentName: string
-    paymentType: 'fixed' | 'flexible'
+    paymentType: 'fixed' | 'Installment'
     paymentPlan: string
     paymentAmount: string
     startDate: string
@@ -33,7 +33,7 @@ export const PAYMENTS_LIST: Payments[] = Array.from({ length: 10 }).map(
             (Math.random() * 0.1 + 0.9).toFixed(7).split('.')[1]
         }`,
         paymentName: 'Estate Dues 2023',
-        paymentType: Math.random() > 0.5 ? 'fixed' : 'flexible',
+        paymentType: Math.random() > 0.5 ? 'fixed' : 'Installment',
         paymentAmount: Math.floor(
             Math.random() * 50000 + 10000
         ).toLocaleString(),
