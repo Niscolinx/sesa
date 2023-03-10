@@ -210,7 +210,9 @@ function PaymentForm({ props }: PaymentForm) {
                     <p className='text-[1.4rem] font-light text-gray-400 mt-4'>
                         Max. of 12 installments
                     </p>
-                    <button className='border border-color-blue btn text-color-blue flex items-center gap-4 mt-[5rem] rounded-lg'>
+                    <button className='border border-color-blue btn text-color-blue flex items-center gap-4 mt-[5rem] rounded-lg' onClick={
+                        () => addAnotherInstallmentHandler
+                    }>
                         <img src='/img/add_circle.svg' alt='' />
                         <div className='text-left'>
                             <p>Add Another Installment</p>
