@@ -10,6 +10,8 @@ interface PaymentForm {
     }
 }
 
+type RenderForm = 'flexible' | 'fixed'
+
 function PaymentForm({ props }: PaymentForm) {
     const { handleNext, paymentType, setPaymentType } = props
 
@@ -23,7 +25,10 @@ function PaymentForm({ props }: PaymentForm) {
         e.preventDefault()
     }
 
-    const renderForm = new Map([[], []]) satisfies Map<>
+    const renderForm = new Map([
+        ['flexible', <></>],
+        ['fixed', <></>],
+    ]) satisfies Map<RenderForm, JSX.Element>
 
     return (
         <form
