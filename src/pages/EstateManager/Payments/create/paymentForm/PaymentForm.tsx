@@ -180,7 +180,10 @@ function PaymentForm({ props }: PaymentForm) {
     ]) satisfies Map<PaymentType, JSX.Element>
 
     const addAnotherInstallmentHandler = () => {
-        
+        setInstallmentField((prev) => [
+            ...prev,
+            { amount: 0, startDate: '', endDate: '' },
+        ])
     }
 
     const installmentChangeHandler = (
