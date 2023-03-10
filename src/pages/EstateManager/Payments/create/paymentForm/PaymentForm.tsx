@@ -157,7 +157,7 @@ function PaymentForm({ props }: PaymentForm) {
                             >
                                 Installment Amount
                             </label>
-                            <div className='relative rounded-lg border border-color-grey outline-none py-4 px-4'>
+                            <div className='relative rounded-lg border border-color-grey outline-none'>
                                 <input
                                     type='text'
                                     required
