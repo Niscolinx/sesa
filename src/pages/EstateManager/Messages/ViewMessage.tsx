@@ -4,9 +4,7 @@ import { toast, ToastContainer } from 'react-toastify'
 import { Message } from './RenderMessages'
 
 const ViewMessage = () => {
-    let location = useLocation()
-
-   
+    const location = useLocation()
 
     const {
         id,
