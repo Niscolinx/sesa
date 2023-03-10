@@ -230,8 +230,15 @@ function PaymentForm({ props }: PaymentForm) {
 
     useEffect(() => {
         const reducedAmount = installmentField.reduce((prev, curr) => {
-            const amount = parseInt(curr.amount.replace(',', '')) + prev
+            const amount:number = parseInt(curr.amount.replace(',', '')) + prev
+
+            console.log(
+                { amount, prev },
+                parseInt(curr.amount.replace(',', '')),
+                curr.amount
+            )
             return amount
+
         }, 0)
 
         const balance = parseInt(amount.replace(',', '')) - reducedAmount
