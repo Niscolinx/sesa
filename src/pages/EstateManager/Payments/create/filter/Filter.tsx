@@ -50,7 +50,10 @@ const Filter: FC = () => {
                                 }}
                             />
                             <p className='text-[1.6rem]'>
-                                You have successfully added a Resident
+                                {
+                                    console.log({filter}, typeof filter)
+                                }
+                                You have successfully added a { filter && filter?.substring(0)}
                             </p>
                             <div className='flex w-full justify -center gap-8'>
                                 <button
