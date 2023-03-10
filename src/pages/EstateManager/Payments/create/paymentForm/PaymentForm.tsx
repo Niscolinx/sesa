@@ -191,12 +191,33 @@ function PaymentForm({ props }: PaymentForm) {
 
         setInstallmentField((prev) => {
             const updatedFields = [...prev]
-            updatedFields[idx] = {
-                ...updatedFields[idx],
-                [name]: value,
+
+            if (name !== 'amount') {
+                updatedFields[idx] = {
+                    ...updatedFields[idx],
+                    [name]: value,
+                }
+
+                return updatedFields
+            }
+            
+            if (value === '') {
+                setAmount('')
+                return
+            }
+            const parsedValue = parseFloat(value.replace(/,/g, ''))
+
+            if (!isNaN(parsedValue) && isFinite(parsedValue)) {
+                const transformedValue = parsedValue.toLocaleString()
+                setAmount(transformedValue)
             }
 
-            return updatedFields
+             updatedFields[idx] = {
+                 ...updatedFields[idx],
+                 [name]: value,
+             }
+
+             return updatedFields
         })
     }
     return (
@@ -233,8 +254,6 @@ function PaymentForm({ props }: PaymentForm) {
                                         >
                                             Installment Amount
                                         </label>
-
-                                        
 
                                         <div className='relative rounded-lg border border-color-grey outline-none flex items-center pl-4'>
                                             <input
