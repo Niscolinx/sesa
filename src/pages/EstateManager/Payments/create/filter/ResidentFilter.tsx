@@ -2,6 +2,8 @@ import React, { ChangeEvent, FC, useEffect, useState } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 
+
+
 interface Resident {
     id: string
     residentCode: string
