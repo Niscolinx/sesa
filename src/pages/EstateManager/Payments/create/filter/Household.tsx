@@ -156,9 +156,11 @@ const HouseholdFilter: FC = () => {
                 <div className='grid text-[1.6rem]'>
                     <div className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
                         <p className='font-Satoshi-Medium text-[2rem]'>
-                            <Select state={[]} selectedState={null} setSelectedState={function (value: React.SetStateAction<string | null>): void {
-                                throw new Error('Function not implemented.')
-                            } }/>
+                            <Select
+                                state={['Households', 'residents']}
+                                selectedState={filter}
+                                setSelectedState={setFilter}
+                            />
                         </p>
                         <div className='ml-auto'>
                             <button
