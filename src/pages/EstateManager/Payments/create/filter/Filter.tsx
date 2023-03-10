@@ -3,41 +3,7 @@ import { CgSpinnerTwo } from 'react-icons/cg'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { Select } from '../../../../../components/SuperAdmin/UI/Select'
 
-interface Payment {
-    id: string
-    propertyCode: string
-    address: string
-    propertyCategory: string
-    propertyName: string
-    paid: boolean
-    propertyType: string
-    tenancyType: string
-    date: string
-}
 
-const PropertyNames = [
-    'Dangote',
-    'Ed Schools',
-    'Cement Depo',
-    'Mo Complex',
-    'Maz Homes',
-]
-
-const PAYMENT: Payment[] = Array.from({
-    length: 20,
-}).map((_, i) => ({
-    id: `i + ${i}`,
-    propertyName:
-        PropertyNames[Math.floor(Math.random() * PropertyNames.length)],
-    propertyCategory: Math.random() > 0.5 ? 'Business' : 'Residential',
-    propertyCode: `H${Math.floor(Math.random() * 3000 + 1000)}`,
-    address: 'Blk.2, Flt. 3, Zone A',
-    propertyType: Math.random() > 0.5 ? '2-Bedroom Self Con.' : 'Duplex',
-    tenancyType:
-        Math.random() > 0.5 ? 'Landlord (Developer)' : 'Tenant (Resident)',
-    paid: Math.random() > 0.3 ? true : false,
-    date: '12 May, 2023',
-}))
 
 const HouseholdFilter: FC = () => {
     const [filter, setFilter] = useState<string | null>(null)
