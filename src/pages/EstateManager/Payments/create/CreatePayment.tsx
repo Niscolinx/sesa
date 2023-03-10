@@ -39,10 +39,16 @@ const CreatePayment = () => {
                 {displayStep.get(step)}
 
                 <div className='absolute right-0 bottom-0 m-16 flex items-center gap-16'>
-                    <button className='text-color-blue disabled:opacity-50 disabled:cursor-not-allowed'>
+                    <button
+                        className='text-color-blue disabled:opacity-50 disabled:cursor-not-allowed'
+                        disabled={step === 'initial'}
+                    >
                         <TfiArrowCircleLeft className='w-[4rem] h-[4rem]' />
                     </button>
-                    <button className=' text-color-blue disabled:opacity-50 disabled:cursor-not-allowed'>
+                    <button
+                        className=' text-color-blue disabled:opacity-50 disabled:cursor-not-allowed'
+                        disabled={step === 'list'}
+                    >
                         <TfiArrowCircleRight className='w-[4rem] h-[4rem]' />
                     </button>
                 </div>
