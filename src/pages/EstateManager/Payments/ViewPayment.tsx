@@ -32,12 +32,18 @@ const ViewPayment = () => {
     type Trend = 'This Week' | 'This Month' | 'This Year'
 
     const trend: Array<Trend> = ['This Week', 'This Month', 'This Year']
-    const installments = ['Installment 1', 'Installment 2', 'Installment 3', 'Installment 4', 'Installment 5']
+    const installments = [
+        'Installment 1',
+        'Installment 2',
+        'Installment 3',
+        'Installment 4',
+        'Installment 5',
+    ]
 
     const [toggleMenu, setToggleMenu] = useState(false)
     const [selectedTrend, setSelectedTrend] = useState<Trend>('This Week')
     const [toggleInstallment, setToggleInstallment] = useState(false)
-    const [installmentPlan, setInstallmentPlan] = useState('Installment 1')
+    const [installmentPlan, setInstallmentPlan] = useState('')
 
     const menuToggler = () => setToggleMenu(!toggleMenu)
     const installmentToggler = () => setToggleInstallment(!toggleInstallment)
@@ -338,19 +344,19 @@ const ViewPayment = () => {
                 <section className='grid bg-white p-8 rounded-2xl '>
                     <div className='flex items-center gap-2 justify-between mb-10'>
                         <p className='font-Satoshi-Medium'>Installment Info</p>{' '}
-                        <div className=' flex gap-4'>
+                        <div className='relative flex gap-4'>
                             <button
                                 className='btn text-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
                                 onClick={() => openPaymentDialog()}
                             >
                                 View Households
                             </button>
-                            <div className='relative flex items-center w-[14rem]'>
+                            <div className='flex items-center w-[14rem]'>
                                 <p
                                     className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer'
                                     onClick={installmentToggler}
                                 >
-                                    {installmentPlan}
+                                    {installmentPlan || <span className='text-gray-500'>Installments</span>}
                                 </p>
                                 {toggleMenu ? (
                                     <GrUp className='absolute right-4' />
@@ -360,7 +366,7 @@ const ViewPayment = () => {
                             </div>
 
                             {toggleInstallment && (
-                                <div className='absolute top-[5rem]  right-0 border border-color-primary-light  bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize '>
+                                <div className='absolute top-[5rem]  right-0 border border-color-primary-light  bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize w-[14rem]'>
                                     {installments.map((item, index) => (
                                         <p
                                             className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
