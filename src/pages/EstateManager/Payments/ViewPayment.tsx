@@ -301,7 +301,10 @@ const handleSelectedTrend = (item: Trend) => {
                             )}
                         </div>
                     </div>
-                    <WalletBarChart />
+                    <div>
+
+                    <WalletBarChart width={800}/>
+                    </div>
                 </section>
             </main>
         </>
