@@ -98,8 +98,11 @@ const Filter: FC = () => {
 
                 {renderFilters.get(filter as FilterKeys)}
 
-                <button className='bg-color-blue-1 text-white py-4 px-8 rounded-lg mr-auto'>
-                  Create Payment
+                <button
+                    className='bg-color-blue-1 text-white py-4 px-8 rounded-lg mr-auto'
+                    onClick={() => handleOpen()}
+                >
+                    Create Payment
                 </button>
             </main>
         </>
