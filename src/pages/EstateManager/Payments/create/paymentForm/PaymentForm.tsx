@@ -1,4 +1,5 @@
 import React, { Dispatch, SetStateAction, useState } from 'react'
+import { BsQuestionCircle } from 'react-icons/bs'
 import { Select } from '../../../../../components/SuperAdmin/UI/Select'
 import { PaymentPlan, PaymentType } from '../CreatePayment'
 
@@ -13,7 +14,8 @@ interface PaymentForm {
 
 function PaymentForm({ props }: PaymentForm) {
     const { handleNext, paymentType, setPaymentType } = props
-
+    
+    const [isTrackPayment, setIsTrackPayment] = useState(false)
     const [paymentPlan, setPaymentPlan] = useState<string | null | PaymentPlan>(
         null
     )
@@ -109,6 +111,22 @@ function PaymentForm({ props }: PaymentForm) {
                 selectedState={paymentPlan}
                 setSelectedState={setPaymentPlan}
             />
+
+            <div className='flex items-center justify-between'>
+                <p className='text-[2rem] font-bold flex items-center gap-2'>
+                    KYG{' '}
+                    <span className='text-[#043FA7]'>
+                        <BsQuestionCircle />
+                    </span>
+                </p>
+                <div onClick={() => setIsTrackPayment(!isTrackPayment)} className='cursor-pointer'>
+                    {isTrackPayment ? (
+                        <img src='/icons/admins/switchOn.svg' alt='' />
+                    ) : (
+                        <img src='/icons/admins/switchOff.svg' alt='' />
+                    )}
+                </div>
+            </div>
         </>
     )
 
