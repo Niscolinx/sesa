@@ -1,4 +1,10 @@
-import React, { ChangeEvent, Dispatch, Fragment, SetStateAction, useState } from 'react'
+import React, {
+    ChangeEvent,
+    Dispatch,
+    Fragment,
+    SetStateAction,
+    useState,
+} from 'react'
 import { BsQuestionCircle } from 'react-icons/bs'
 import { Select } from '../../../../../components/SuperAdmin/UI/Select'
 import { PaymentPlan, PaymentType } from '../CreatePayment'
@@ -43,115 +49,134 @@ function PaymentForm({ props }: PaymentForm) {
         e.preventDefault()
     }
 
-    const flexible = (
-        <>
-            <div className='grid gap-4'>
-                <label htmlFor='amount' className='text-[1.4rem] font-medium'>
-                    Amount
-                </label>
-                <input
-                    type='number'
-                    required
-                    id='amount'
-                    value={amount <= 0 ? '' : amount}
-                    onChange={(e) => setAmount(Number(e.target.value))}
-                    className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                />
-            </div>
-
-            <Select
-                label='Track Payment'
-                state={['Yes', 'No']}
-                selectedState={trackPayment}
-                setSelectedState={setTrackPayment}
-            />
-
-            <Select
-                label='Payment Plan'
-                state={['full', 'installment'] satisfies PaymentPlan[]}
-                selectedState={paymentPlan}
-                setSelectedState={setPaymentPlan}
-            />
-        </>
-    )
-
-    const fixed = (
-        <>
-            <div className='grid gap-4'>
-                <label htmlFor='amount' className='text-[1.4rem] font-medium'>
-                    Start Date
-                </label>
-                <input
-                    type='date'
-                    required
-                    id='startDate'
-                    className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                />
-            </div>
-            <div className='grid gap-4'>
-                <label htmlFor='amount' className='text-[1.4rem] font-medium'>
-                    End Date
-                </label>
-                <input
-                    type='date'
-                    required
-                    id='startDate'
-                    className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                />
-            </div>
-
-            <div className='grid gap-4'>
-                <label htmlFor='amount' className='text-[1.4rem] font-medium'>
-                    Amount
-                </label>
-                <input
-                    type='number'
-                    required
-                    id='amount'
-                    value={amount <= 0 ? '' : amount}
-                    onChange={(e) => setAmount(Number(e.target.value))}
-                    className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                />
-            </div>
-
-            <Select
-                label='Payment Plan'
-                state={['full', 'installment'] satisfies PaymentPlan[]}
-                selectedState={paymentPlan}
-                setSelectedState={setPaymentPlan}
-            />
-
-            <div className='grid gap-4'>
-                <label htmlFor='deadline' className='text-[1.4rem] font-medium'>
-                    Deadline
-                </label>
-                <input
-                    type='date'
-                    required
-                    className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                />
-            </div>
-
-            <div className='grid justify-items-start gap-4 self-end'>
-                <p className=' font-medium flex items-center gap-2 text-[#043FA7]'>
-                    Track Payment{' '}
-                    <span className='text-[#043FA7]'>
-                        <BsQuestionCircle />
-                    </span>
-                </p>
-                <div
-                    onClick={() => setIsTrackPayment(!isTrackPayment)}
-                    className='cursor-pointer'
-                >
-                    {isTrackPayment ? (
-                        <img src='/icons/admins/switchOn.svg' alt='' />
-                    ) : (
-                        <img src='/icons/admins/switchOff.svg' alt='' />
-                    )}
+    const flexible = () => {
+        return (
+            <>
+                <div className='grid gap-4'>
+                    <label
+                        htmlFor='amount'
+                        className='text-[1.4rem] font-medium'
+                    >
+                        Amount
+                    </label>
+                    <input
+                        type='number'
+                        required
+                        id='amount'
+                        value={amount <= 0 ? '' : amount}
+                        onChange={(e) => setAmount(Number(e.target.value))}
+                        className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                    />
                 </div>
-            </div>
-        </>
-    )
+
+                <Select
+                    label='Track Payment'
+                    state={['Yes', 'No']}
+                    selectedState={trackPayment}
+                    setSelectedState={setTrackPayment}
+                />
+
+                <Select
+                    label='Payment Plan'
+                    state={['full', 'installment'] satisfies PaymentPlan[]}
+                    selectedState={paymentPlan}
+                    setSelectedState={setPaymentPlan}
+                />
+            </>
+        )
+    }
+
+    const fixed = () => {
+        return (
+            <>
+                <div className='grid gap-4'>
+                    <label
+                        htmlFor='amount'
+                        className='text-[1.4rem] font-medium'
+                    >
+                        Start Date
+                    </label>
+                    <input
+                        type='date'
+                        required
+                        id='startDate'
+                        className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                    />
+                </div>
+                <div className='grid gap-4'>
+                    <label
+                        htmlFor='amount'
+                        className='text-[1.4rem] font-medium'
+                    >
+                        End Date
+                    </label>
+                    <input
+                        type='date'
+                        required
+                        id='startDate'
+                        className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                    />
+                </div>
+
+                <div className='grid gap-4'>
+                    <label
+                        htmlFor='amount'
+                        className='text-[1.4rem] font-medium'
+                    >
+                        Amount
+                    </label>
+                    <input
+                        type='number'
+                        required
+                        id='amount'
+                        value={amount <= 0 ? '' : amount}
+                        onChange={(e) => setAmount(Number(e.target.value))}
+                        className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                    />
+                </div>
+
+                <Select
+                    label='Payment Plan'
+                    state={['full', 'installment'] satisfies PaymentPlan[]}
+                    selectedState={paymentPlan}
+                    setSelectedState={setPaymentPlan}
+                />
+
+                <div className='grid gap-4'>
+                    <label
+                        htmlFor='deadline'
+                        className='text-[1.4rem] font-medium'
+                    >
+                        Deadline
+                    </label>
+                    <input
+                        type='date'
+                        required
+                        className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                    />
+                </div>
+
+                <div className='grid justify-items-start gap-4 self-end'>
+                    <p className=' font-medium flex items-center gap-2 text-[#043FA7]'>
+                        Track Payment{' '}
+                        <span className='text-[#043FA7]'>
+                            <BsQuestionCircle />
+                        </span>
+                    </p>
+                    <div
+                        onClick={() => setIsTrackPayment(!isTrackPayment)}
+                        className='cursor-pointer'
+                    >
+                        {isTrackPayment ? (
+                            <img src='/icons/admins/switchOn.svg' alt='' />
+                        ) : (
+                            <img src='/icons/admins/switchOff.svg' alt='' />
+                        )}
+                    </div>
+                </div>
+            </>
+        )
+    }
 
     const renderForm = new Map([
         ['flexible', flexible],
@@ -163,7 +188,7 @@ function PaymentForm({ props }: PaymentForm) {
     }
 
     const amountHandler = (e: ChangeEvent<HTMLInputElement>) => {
-
+        setAmount
     }
     return (
         <div>
@@ -197,7 +222,9 @@ function PaymentForm({ props }: PaymentForm) {
                                             type='number'
                                             required
                                             id='amount'
-                                            value={item.amount <= 0 ? '' : amount}
+                                            value={
+                                                item.amount <= 0 ? '' : amount
+                                            }
                                             onChange={amountHandler}
                                             className='w-full border-none outline-none py-4 px-4 pl-5'
                                         />
@@ -256,37 +283,41 @@ function PaymentForm({ props }: PaymentForm) {
                     </button>
                 </div>
             ) : (
-                <form
-                    onSubmit={handleSubmit}
-                    className='grid max-w-[84rem] gap-16 items-start content-start capitalize'
-                    style={{
-                        gridTemplateColumns:
-                            ' repeat(auto-fit, minmax(35rem, 1fr))',
-                    }}
-                >
-                    <div className='grid gap-4 relative '>
-                        <label
-                            htmlFor='firstName'
-                            className='text-[1.4rem] font-medium'
-                        >
-                            Payment Name
-                        </label>
-                        <input
-                            type='text'
-                            required
-                            id='firstName'
-                            placeholder='placeholder'
-                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                <>
+                    <form
+                        onSubmit={handleSubmit}
+                        className='grid max-w-[84rem] gap-16 items-start content-start capitalize'
+                        style={{
+                            gridTemplateColumns:
+                                ' repeat(auto-fit, minmax(35rem, 1fr))',
+                        }}
+                    >
+                        <div className='grid gap-4 relative '>
+                            <label
+                                htmlFor='firstName'
+                                className='text-[1.4rem] font-medium'
+                            >
+                                Payment Name
+                            </label>
+                            <input
+                                type='text'
+                                required
+                                id='firstName'
+                                placeholder='placeholder'
+                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                            />
+                        </div>
+                        <Select
+                            label='Payment Type'
+                            state={
+                                ['fixed', 'flexible'] satisfies PaymentType[]
+                            }
+                            selectedState={paymentType}
+                            setSelectedState={setPaymentType}
                         />
-                    </div>
-                    <Select
-                        label='Payment Type'
-                        state={['fixed', 'flexible'] satisfies PaymentType[]}
-                        selectedState={paymentType}
-                        setSelectedState={setPaymentType}
-                    />
-                    {renderForm.get(paymentType as PaymentType)}
-                </form>
+                        {renderForm.get(paymentType as PaymentType)}
+                    </form>
+                </>
             )}
         </div>
     )
