@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Filter from './filter/Filter'
 import HouseholdFilter from './filter/HouseholdFilter'
 import FlexiblePaymentType from './paymentType/flexible/FlexiblePaymentType'
 
@@ -32,7 +33,7 @@ const CreatePayment = () => {
                 }}
             />,
         ],
-        ['list', <HouseholdFilter />],
+        ['list', <Filter />],
     ]) satisfies Map<Step, JSX.Element>
 
     return (
