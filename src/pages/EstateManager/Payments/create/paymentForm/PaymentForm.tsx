@@ -210,10 +210,13 @@ function PaymentForm({ props }: PaymentForm) {
                                 ' repeat(auto-fit, minmax(30rem, 1fr))',
                             rowGap: '4rem',
                         }}
-                        onChange={installmentChangeHandler}
                     >
                         {installmentField.map((item, i) => (
-                            <Fragment key={i}>
+                            <div
+                                key={i}
+                                className='contents'
+                                onChange={() => installmentChangeHandler(i)}
+                            >
                                 <div className='grid gap-4 relative '>
                                     <label
                                         htmlFor='amount'
@@ -269,7 +272,7 @@ function PaymentForm({ props }: PaymentForm) {
                                         className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                                     />
                                 </div>
-                            </Fragment>
+                            </div>
                         ))}
                     </div>
                     <p className='text-[1.4rem] font-light text-gray-400 mt-4'>
