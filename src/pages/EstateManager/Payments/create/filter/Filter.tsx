@@ -40,24 +40,8 @@ const PAYMENT: Payment[] = Array.from({
 }))
 
 const HouseholdFilter: FC = () => {
-    const [fetchedPaymentData, setFetchedPaymentData] = useState<Payment[]>([])
     const [filter, setFilter] = useState<string | null>(null)
 
-    useEffect(() => {
-        setTimeout(() => {
-            setFetchedPaymentData(PAYMENT)
-        }, 1000)
-    }, [])
-
-    interface Paginate {
-        index: number
-        currentPage: number
-        itemsPerPage: number
-        totalPage: number
-        slicedPages: Payment[][] | null
-    }
-
- 
 
     return (
         <main className='grid gap-9'>
