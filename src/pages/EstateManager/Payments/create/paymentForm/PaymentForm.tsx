@@ -77,6 +77,17 @@ function PaymentForm({ props }: PaymentForm) {
                     className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                 />
             </div>
+            <div className='grid gap-4'>
+                <label htmlFor='amount' className='text-[1.4rem] font-medium'>
+                    End Date
+                </label>
+                <input
+                    type='date'
+                    required
+                    id='startDate'
+                    className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                />
+            </div>
 
             <Select
                 label='Track Payment'
