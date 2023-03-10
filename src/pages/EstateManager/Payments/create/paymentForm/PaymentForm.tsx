@@ -146,7 +146,7 @@ function PaymentForm({ props }: PaymentForm) {
             </p>
             {paymentType === 'fixed' && paymentPlan === 'installment' ? (
                 <>
-                <p>Installment 1</p>
+                <p className='text-color-blue'>Installment 1</p>
                 </>
             ) : (
                 <form
