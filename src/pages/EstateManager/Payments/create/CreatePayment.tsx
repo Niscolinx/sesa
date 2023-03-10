@@ -3,31 +3,23 @@ import { ToastContainer } from 'react-toastify'
 import { Select } from '../../../../components/SuperAdmin/UI/Select'
 import { getPhotoUrl } from '../../../../utils/getPhotoUrl'
 
-
 export type PaymentType = 'fixed' | 'flexible'
 
 const CreatePayment = () => {
     const [selectedGender, setSelectedGender] = useState<string | null>(null)
-    const [isValidated, setIsValidated] = useState(false)
 
     const [paymentType, setPaymentType] = useState<PaymentType>('fixed')
 
-    const [photoUrl, setPhotoUrl] = useState('')
-
-    const handlePhotoPreview = async (
-        _: React.MouseEvent<HTMLInputElement>
-    ) => {
-        const getUrl = await getPhotoUrl(`#photoUpload`)
-        setPhotoUrl(getUrl)
-    }
+   
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
     }
 
-    const renderPaymentType = new Map([
-       ['fixed', <></>]
-    ]) satisfies Map<PaymentType, JSX.Element>
+    const renderPaymentType = new Map([['fixed', <></>]]) satisfies Map<
+        PaymentType,
+        JSX.Element
+    >
 
     return (
         <>
@@ -58,7 +50,7 @@ const CreatePayment = () => {
                         />
                     </div>
 
-                     <Select
+                    <Select
                         label='Gender'
                         state={['Yes', 'No']}
                         selectedState={selectedGender}
@@ -79,8 +71,7 @@ const CreatePayment = () => {
                             className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                         />
                     </div>
-                    
-                   
+
                     <Select
                         label='Gender'
                         state={['Male', 'Female']}
