@@ -28,7 +28,12 @@ function PaymentForm({ props }: PaymentForm) {
         InstallmentField[]
     >([
         {
-            amount: 0,
+            amount: 10,
+            startDate: '',
+            endDate: '',
+        },
+        {
+            amount: 20,
             startDate: '',
             endDate: '',
         },
