@@ -14,11 +14,6 @@ const CreatePayment = () => {
         'flexible'
     )
 
-    const handleNext = () => {
-        if (paymentType && (paymentType as PaymentType) === 'flexible') {
-            setStep('list')
-        }
-    }
 
     const displayStep = new Map([
         [
@@ -42,12 +37,18 @@ const CreatePayment = () => {
                     <button
                         className='text-color-blue disabled:opacity-50 disabled:cursor-not-allowed'
                         disabled={step === 'initial'}
+                        onClick={
+                            () => setStep('list')
+                        }
                     >
                         <TfiArrowCircleLeft className='w-[4rem] h-[4rem]' />
                     </button>
                     <button
                         className=' text-color-blue disabled:opacity-50 disabled:cursor-not-allowed'
                         disabled={step === 'list'}
+                        onClick={
+                            () => setStep('initial')
+                        }
                     >
                         <TfiArrowCircleRight className='w-[4rem] h-[4rem]' />
                     </button>
