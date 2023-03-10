@@ -47,6 +47,11 @@ const ViewPayment = () => {
         setToggleMenu(false)
     }
 
+    const handleSelectedInstallment = (item: string) => {
+        setInstallmentPlan(item)
+        setToggleInstallment(false)
+    }
+
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
     const handleClose = () => {
