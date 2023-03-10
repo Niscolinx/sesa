@@ -71,29 +71,27 @@ const Filter: FC = () => {
                 </section>
             </dialog>
             <main className='grid gap-9'>
-                <div className='p-8'>
-                    <p className='font-Satoshi-Medium text-[2rem]'>
-                        {' '}
-                        Filter Selection{' '}
-                    </p>
-                    <div className='flex items-center justify-between'>
-                        <div className='w-[40rem]'>
-                            <Select
-                                state={filterKeys}
-                                selectedState={filter}
-                                setSelectedState={setFilter}
-                                placeholder='Households'
-                            />
-                        </div>
-                        {filter === 'Residents' && (
-                            <p className='flex items-center gap-2'>
-                                <span>
-                                    NB: All alphas are denoted with the icon{' '}
-                                </span>
-                                <img src='/img/alpha.svg' alt='' />
-                            </p>
-                        )}
+                <p className='font-Satoshi-Medium text-[2rem]'>
+                    {' '}
+                    Filter Selection{' '}
+                </p>
+                <div className='flex items-center justify-between'>
+                    <div className='w-[40rem]'>
+                        <Select
+                            state={filterKeys}
+                            selectedState={filter}
+                            setSelectedState={setFilter}
+                            placeholder='Households'
+                        />
                     </div>
+                    {filter === 'Residents' && (
+                        <p className='flex items-center gap-2'>
+                            <span>
+                                NB: All alphas are denoted with the icon{' '}
+                            </span>
+                            <img src='/img/alpha.svg' alt='' />
+                        </p>
+                    )}
                 </div>
 
                 {renderFilters.get(filter as FilterKeys)}
