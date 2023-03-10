@@ -174,8 +174,7 @@ const HouseholdFilter: FC = () => {
                             <p>Property Category</p>
                             <p>Property Name</p>
                             <p>Property Type</p>
-                            <p>Residential Class</p>
-                            <p className='text-center'>Date</p>
+                            <p></p>
                         </div>
 
                         <div className='grid gap-8 mt-8 p-8'>
@@ -187,7 +186,6 @@ const HouseholdFilter: FC = () => {
                                             propertyCode,
                                             propertyName,
                                             address,
-                                            date,
                                             tenancyType,
                                             propertyType,
                                             propertyCategory,
@@ -200,15 +198,7 @@ const HouseholdFilter: FC = () => {
                                                     <p>{propertyName}</p>
                                                     <p>{propertyType}</p>
                                                     <p>{tenancyType}</p>
-                                                    <p className='flex items-center gap-2 justify-end'>
-                                                        {paid ? (
-                                                            <img
-                                                                src='/img/paid.svg'
-                                                                alt=''
-                                                            />
-                                                        ) : null}
-                                                        <span>{date}</span>
-                                                    </p>
+                                                    
                                                 </div>
                                             )
                                         }
