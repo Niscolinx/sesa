@@ -305,6 +305,12 @@ function PaymentForm({ props }: PaymentForm) {
                             </p>
                         </div>
                     </button>
+
+                    <div>
+                        <p>
+                            <span>Total Amount:</span>
+                        </p>
+                    </div>
                 </div>
             ) : (
                 <>
