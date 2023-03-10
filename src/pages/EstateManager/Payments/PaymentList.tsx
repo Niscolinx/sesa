@@ -14,6 +14,7 @@ interface Payment {
     paid: boolean
     propertyType: string
     residentialClass: string
+    date: string
 }
 
 const PropertyNames = [
@@ -37,6 +38,7 @@ const PAYMENT: Payment[] = Array.from({
     residentialClass:
         Math.random() > 0.5 ? 'Landlord Developer' : 'Tenant Property',
     paid: Math.random() > 0.3 ? true : false,
+    date: '12 May, 2023',
 }))
 
 interface IPaymentList {
@@ -194,13 +196,13 @@ const PaymentList: FC<IPaymentList> = ({ closePaymentDialog }) => {
 
                     <div className='grid'>
                         <div
-                            className='grid justify-between text-color-dark-1 bg-gray-100 p-8 grid-cols-6 gap-6'
+                            className='grid justify-between text-color-dark-1 bg-gray-100 p-8 grid-cols-7 gap-6 items-center capitalize'
                             style={{
                                 fontSize: '1.6rem',
                             }}
                         >
                             <p>Property Code</p>
-
+                            <p>Address</p>
                             <p>Property Name</p>
                             <p>Property Category</p>
                             <p>Property Name</p>
@@ -223,7 +225,7 @@ const PaymentList: FC<IPaymentList> = ({ closePaymentDialog }) => {
                                             paid,
                                         }) => {
                                             return (
-                                                <div className='grid justify-between border-b grid-cols-6 gap-8 py-4'>
+                                                <div className='grid justify-between border-b grid-cols-7 gap-8 py-4'>
                                                     <p>{propertyCode}</p>
                                                     <p className='flex items-center gap-2'>
                                                         <span>
