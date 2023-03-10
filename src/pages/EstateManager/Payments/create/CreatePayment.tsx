@@ -2,15 +2,15 @@ import React, { FormEvent, useRef, useState } from 'react'
 import { IoMdAdd, IoMdClose } from 'react-icons/io'
 import { BsQuestionCircle } from 'react-icons/bs'
 import { ToastContainer } from 'react-toastify'
-import { Select } from '../../../components/SuperAdmin/UI/Select'
-import { getPhotoUrl } from '../../../utils/getPhotoUrl'
+import { Select } from '../../../../components/SuperAdmin/UI/Select'
+import { getPhotoUrl } from '../../../../utils/getPhotoUrl'
 import {
     PhoneNumber,
     BVN_Number,
     NIN_Number,
     DriversLicence,
     International_PassPort,
-} from '../../SecurityCompany/dashboard/company/AddSecurity/Inputs'
+} from '../../../SecurityCompany/dashboard/company/AddSecurity/Inputs'
 
 export type PaymentType = 'fixed' | 'flexible'
 
@@ -34,11 +34,7 @@ const CreatePayment = () => {
     }
 
     const renderPaymentType = new Map([
-        ['Phone Number', <PhoneNumber />],
-        ['BVN Number', <BVN_Number />],
-        ['NIN Number', <NIN_Number />],
-        ['Drivers License', <DriversLicence />],
-        ['International Passport', <International_PassPort />],
+       ['fixed', <></>]
     ]) satisfies Map<PaymentType, JSX.Element>
 
     return (

@@ -33,13 +33,16 @@ import ComposeMessage from '../../pages/EstateManager/Messages/ComposeMessage'
 import ViewMessage from '../../pages/EstateManager/Messages/ViewMessage'
 import Payments from '../../pages/EstateManager/Payments/Payments'
 import ViewPayment from '../../pages/EstateManager/Payments/ViewPayment'
-import CreatePayment from '../../pages/EstateManager/Payments/CreatePayment'
+import CreatePayment from '../../pages/EstateManager/Payments/create/CreatePayment'
 
 const estateManagerRoutes = (
     <Route path='/estateManager' element={<Dashboard />}>
         <Route index element={<Overview />} />
         <Route path='wallet' element={<Wallet />} />
-        <Route path='wallet/transaction-details/:id' element={<WalletDetails />} />
+        <Route
+            path='wallet/transaction-details/:id'
+            element={<WalletDetails />}
+        />
         <Route path='residents' element={<Residents />} />
         <Route path='residents/add' element={<AddResident />} />
         <Route path='residents/edit/:id' element={<EditResident />} />
@@ -48,8 +51,14 @@ const estateManagerRoutes = (
         <Route path='property/add' element={<AddProperty />} />
         <Route path='property/view/:id' element={<ViewProperty />} />
         <Route path='household' element={<HouseHold />} />
-        <Route path='household/create-household' element={<CreateHousehold />} />
-        <Route path='household/edit-household/:id' element={<EditHousehold />} />
+        <Route
+            path='household/create-household'
+            element={<CreateHousehold />}
+        />
+        <Route
+            path='household/edit-household/:id'
+            element={<EditHousehold />}
+        />
         <Route path='household/view-details/:id' element={<ViewHouseHold />} />
         <Route path='household/view-details/:id' element={<ViewHouseHold />} />
         <Route path='estate-staff' element={<EstateStaff />} />
