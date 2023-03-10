@@ -195,10 +195,7 @@ const PaymentList: FC<IPaymentList> = ({ closePaymentDialog }) => {
                     </caption>
 
                     <div className='grid'>
-                        <div
-                            className='grid justify-between text-color-dark-1 bg-gray-100 p-8 grid-cols-7 gap-6 items-center capitalize'
-                      
-                        >
+                        <div className='grid justify-between text-color-dark-1 bg-gray-100 p-8 grid-cols-7 gap-6 items-center capitalize'>
                             <p>Property Code</p>
                             <p>Address</p>
                             <p>Property Category</p>
@@ -217,7 +214,7 @@ const PaymentList: FC<IPaymentList> = ({ closePaymentDialog }) => {
                                             propertyCode,
                                             propertyName,
                                             address,
-                                            date,                                      
+                                            date,
                                             residentialClass,
                                             propertyType,
                                             propertyCategory,
@@ -227,6 +224,8 @@ const PaymentList: FC<IPaymentList> = ({ closePaymentDialog }) => {
                                                 <div className='grid justify-between border-b grid-cols-7 gap-8 py-4 whitespace-nowrap text-ellipsis'>
                                                     <p>{propertyCode}</p>
                                                     <p>{address}</p>
+                                                    <p>{propertyCategory}</p>
+                                                    <p>{propertyName}</p>
                                                     <p className='flex items-center gap-2'>
                                                         <span>
                                                             {propertyName}
@@ -238,8 +237,6 @@ const PaymentList: FC<IPaymentList> = ({ closePaymentDialog }) => {
                                                             />
                                                         ) : null}
                                                     </p>
-                                                    <p>{propertyCategory}</p>
-                                                    <p>{propertyName}</p>
 
                                                     <p>{propertyType}</p>
                                                     <p>{residentialClass}</p>
