@@ -32,7 +32,15 @@ const CreatePayment = () => {
         ['initial', <HouseholdFilter />],
     ]) satisfies Map<Step, JSX.Element>
 
-    const handleNext = () => {}
+
+    const handleNext = () => {
+
+        if( paymentType instanceof PaymentType ){
+
+           
+
+        }
+    }
 
     return (
         <>
