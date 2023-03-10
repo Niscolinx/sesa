@@ -78,7 +78,13 @@ const CreatePayment = () => {
 
                     <Select
                         label='Payment Type'
-                        state={['full', 'installment'] as PaymentType[]}
+                        state={['full', 'installment'] satisfies PaymentType[]}
+                        selectedState={paymentType}
+                        setSelectedState={setPaymentType}
+                    />
+                    <Select
+                        label='Payment Plan'
+                        state={['fixed', 'flexible'] satisfies PaymentPlan[]}
                         selectedState={paymentType}
                         setSelectedState={setPaymentType}
                     />
