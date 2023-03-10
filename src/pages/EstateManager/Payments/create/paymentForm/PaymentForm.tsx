@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction, useState } from 'react'
+import React, { Dispatch, Fragment, SetStateAction, useState } from 'react'
 import { BsQuestionCircle } from 'react-icons/bs'
 import { Select } from '../../../../../components/SuperAdmin/UI/Select'
 import { PaymentPlan, PaymentType } from '../CreatePayment'
@@ -162,7 +162,7 @@ function PaymentForm({ props }: PaymentForm) {
                         }}
                     >
                         {Array.from({ length: installmentCount }, (_, i) => (
-                            <div key={i}>
+                            <Fragment key={i}>
                                 <div className='grid gap-4 relative '>
                                     <label
                                         htmlFor='firstName'
@@ -212,7 +212,7 @@ function PaymentForm({ props }: PaymentForm) {
                                         className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                                     />
                                 </div>
-                            </div>
+                            </Fragment>
                         ))}
                     </div>
                     <p className='text-[1.4rem] font-light text-gray-400 mt-4'>
