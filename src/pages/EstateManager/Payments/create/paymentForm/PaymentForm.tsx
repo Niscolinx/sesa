@@ -149,7 +149,13 @@ function PaymentForm({ props }: PaymentForm) {
                     <p className='text-color-blue font-semibold'>
                         Installment 1
                     </p>
-                    <div>
+                    <div
+                        className='grid gap-8'
+                        style={{
+                            gridTemplateColumns:
+                                ' repeat(auto-fit, minmax(35rem, 1fr))',
+                        }}
+                    >
                         <div className='grid gap-4 relative '>
                             <label
                                 htmlFor='firstName'
@@ -176,7 +182,7 @@ function PaymentForm({ props }: PaymentForm) {
                                 htmlFor='amount'
                                 className='text-[1.4rem] font-medium'
                             >
-                                End Date
+                                Start Date
                             </label>
                             <input
                                 type='date'
