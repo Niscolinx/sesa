@@ -1,4 +1,10 @@
-import React, { ChangeEvent, Dispatch, SetStateAction, useState } from 'react'
+import React, {
+    ChangeEvent,
+    Dispatch,
+    SetStateAction,
+    useCallback,
+    useState,
+} from 'react'
 import { BsQuestionCircle } from 'react-icons/bs'
 import { Select } from '../../../../../components/SuperAdmin/UI/Select'
 import { PaymentPlan, PaymentType } from '../CreatePayment'
@@ -221,15 +227,16 @@ function PaymentForm({ props }: PaymentForm) {
         }
     }
 
-    const balanceAmountHandler = () => {
-
+    const balanceAmountHandler = useCallback(() => {
         const reducedAmount = installmentField.reduce((prev, curr) => {
             return prev + Number(curr.amount)
         }, 0)
 
         const balance = Number(amount) - reducedAmount
         return balance
-    }
+    }, [])
+
+    setBalanceAmount(balanceAmountHandler())
     return (
         <div>
             <p className='font-Satoshi-Medium text-[2rem] mb-10'>
