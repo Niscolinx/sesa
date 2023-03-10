@@ -144,7 +144,7 @@ function PaymentForm({ props }: PaymentForm) {
             <p className='font-semibold text-[2rem]'>Add Payment ( Step 1 of 2)</p>
             <form
                 onSubmit={handleSubmit}
-                className='grid max-w-[84rem] gap-16 items-start content-start'
+                className='grid max-w-[84rem] gap-16 items-start content-start items-baseline'
                 style={{
                     gridTemplateColumns:
                         ' repeat(auto-fit, minmax(35rem, 1fr))',
