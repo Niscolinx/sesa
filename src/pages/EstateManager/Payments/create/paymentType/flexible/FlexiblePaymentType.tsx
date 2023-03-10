@@ -4,10 +4,12 @@ import { PaymentPlan, PaymentType } from '../../CreatePayment'
 
 
 interface FlexiblePaymentType {
-
+    handleNext: () => void
 }
 
-function FlexiblePaymentType() {
+function FlexiblePaymentType({
+    handleNext
+}: FlexiblePaymentType) {
      const [paymentPlan, setPaymentPlan] = useState<
          string | null | PaymentPlan
      >(null)
