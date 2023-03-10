@@ -312,12 +312,18 @@ function PaymentForm({ props }: PaymentForm) {
 
                         {installmentField.map((item, idx) => (
                             <div className='flex items-center gap-4'>
-                                <span className='text-color-blue-1 font-medium'>Installment {idx + 1}</span>
+                                <span className='text-color-blue-1 font-medium'>
+                                    Installment {idx + 1}
+                                </span>
                                 <p className='flex items-center font-semibold'>
                                     <span>
                                         <img src='/icons/Naira.svg' alt='' />
                                     </span>{' '}
-                                    <span>{item.amount.toLocaleString()}</span>
+                                    {item.amount > 0 && (
+                                        <span>
+                                            {item.amount.toLocaleString()}
+                                        </span>
+                                    )}
                                 </p>
                             </div>
                         ))}
