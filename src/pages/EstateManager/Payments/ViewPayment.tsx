@@ -327,6 +327,41 @@ const ViewPayment = () => {
                         <WalletBarChart width={1000} />
                     </div>
                 </section>
+                <section className='mt-[5rem] grid bg-white p-8 rounded-2xl '>
+                    <p className='flex items-center gap-2'>
+                        <span className='font-Satoshi-Medium'>
+                            Payment Status:{' '}
+                        </span>{' '}
+                    </p>
+
+                    <div className='grid gap-4 items-center '>
+                        <p className='justify-self-end'>₦{amountToPay}</p>
+                        <div className='progressBar overflow-hidden '>
+                            <progress
+                                className='progressBar__item'
+                                max={100}
+                                value={progressPercent}
+                            />
+
+                            <p
+                                className={`absolute left-0 text-color-tertiary text-white flex justify-end font-Satoshi-Medium pr-10`}
+                                style={{
+                                    width: `${progressPercent}%`,
+                                }}
+                            >
+                                <span>{progressPercent}%</span>
+                            </p>
+                        </div>
+
+                        <div className='flex items-center justify-between font-Satoshi-Light'>
+                            <p>
+                                {paidResidents} of {totalResidents} resident
+                                paid
+                            </p>
+                            <p>₦{expectedAmount}</p>
+                        </div>
+                    </div>
+                </section>
             </main>
         </>
     )
