@@ -13,7 +13,7 @@ const CreatePayment = () => {
     const [amount, setAmount] = useState(0)
 
     const [paymentType, setPaymentType] = useState<PaymentType | string | null>(
-        'full'
+        null
     )
 
     const handleSubmit = (e: React.FormEvent) => {
