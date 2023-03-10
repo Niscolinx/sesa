@@ -54,7 +54,9 @@ const CreatePayment = () => {
         <>
             <ToastContainer />
 
-            <div className='grid p-8 bg-white h-[80vh] items-baseline overflow-y-scroll rounded-lg'></div>
+            <div className='grid p-8 bg-white h-[80vh] items-baseline overflow-y-scroll rounded-lg'>
+                {displayStep.get(step)}
+            </div>
         </>
     )
 }
