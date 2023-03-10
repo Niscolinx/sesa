@@ -189,9 +189,9 @@ function PaymentForm({ props }: PaymentForm) {
     }
 
     const installmentChangeHandler = (e: FormEvent<HTMLDivElement>, idx: number) => {
-        const {name, value} = e.target
+        const {name, value} = e.target 
 
-        console.log({name, value})
+        console.log({name, value, idx})
 
     }
     return (
