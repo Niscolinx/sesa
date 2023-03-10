@@ -8,26 +8,28 @@ import { useNavigate } from 'react-router-dom'
 interface Payment {
     id: string
     propertyCode: string
-    propertyName: string
+    address: string
     propertyCategory: string
     propertyName: string
-    isAlpha: boolean
+    paid: boolean
     propertyType: string
-    tenancyType: string
+    residentialClass: string
 }
+
+const PropertyNames = ['Dangote', 'Ed Schools', 'Cement Depo', 'Mo Complex', 'Maz Homes']
 
 const PAYMENT: Payment[] = Array.from({
     length: 20,
 }).map((_, i) => ({
     id: `i + ${i}`,
     propertyName: 'John Emmanuel',
-    propertyCategory: Math.random() > 0.5 ? 'Business' : 'Property',
+    propertyCategory: Math.random() > 0.5 ? 'Business' : 'Residential',
     propertyCode: `H${Math.floor(Math.random() * 3000 + 1000)}`,
-    propertyName: Math.random() > 0.5 ? 'Auto Finance' : 'Chrisland Schools',
+    address: 'Blk.2, Flt. 3, Zone A',
     propertyType: Math.random() > 0.5 ? '2-Bedroom Self Con.' : 'Duplex',
-    tenancyType:
+    residentialClass:
         Math.random() > 0.5 ? 'Landlord (Developer)' : 'Tenant (Property)',
-    isAlpha: Math.random() > 0.3 ? true : false,
+    paid: Math.random() > 0.3 ? true : false,
 }))
 
 interface IPaymentList {
@@ -213,10 +215,10 @@ const PaymentList: FC<IPaymentList> = ({ closePaymentDialog }) => {
                                             propertyCode,
                                             propertyName,
                                             propertyName,
-                                            tenancyType,
+                                            residentialClass,
                                             propertyType,
                                             propertyCategory,
-                                            isAlpha,
+                                            paid,
                                         }) => {
                                             return (
                                                 <div className='grid justify-between border-b grid-cols-6 gap-8 py-4'>
@@ -234,7 +236,7 @@ const PaymentList: FC<IPaymentList> = ({ closePaymentDialog }) => {
                                                         <span>
                                                             {propertyName}
                                                         </span>
-                                                        {isAlpha ? (
+                                                        {paid ? (
                                                             <img
                                                                 src='/img/alpha.svg'
                                                                 alt=''
@@ -245,7 +247,7 @@ const PaymentList: FC<IPaymentList> = ({ closePaymentDialog }) => {
                                                     <p>{propertyName}</p>
 
                                                     <p>{propertyType}</p>
-                                                    <p>{tenancyType}</p>
+                                                    <p>{residentialClass}</p>
                                                 </div>
                                             )
                                         }
