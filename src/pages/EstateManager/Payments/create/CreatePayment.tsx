@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import Filter from './filter/Filter'
-import HouseholdFilter from './filter/HouseholdFilter'
 import FlexiblePaymentType from './paymentForm/PaymentForm'
 
 export type PaymentType = 'fixed' | 'flexible'
