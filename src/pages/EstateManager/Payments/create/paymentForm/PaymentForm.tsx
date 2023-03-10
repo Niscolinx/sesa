@@ -226,13 +226,7 @@ function PaymentForm({ props }: PaymentForm) {
             })
         }
 
-        const reducedAmount = installmentField.reduce((prev, curr) => {
-            return prev + Number(curr.amount)
-        }, 0)
-
-        const balance = Number(amount) - reducedAmount
-
-        setBalanceAmount(balance)
+        
     }
 
     return (
