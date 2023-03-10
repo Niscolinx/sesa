@@ -39,11 +39,13 @@ const CreatePayment = () => {
             <ToastContainer />
 
             <div className='grid p-8 bg-white h-[80vh] items-baseline overflow-y-scroll rounded-lg'>
-                <FlexiblePaymentType props={
-                    handleNext,
-                    paymentType,
-                    setPaymentType
-                } />
+                <FlexiblePaymentType
+                    props={{
+                        handleNext,
+                        paymentType,
+                        setPaymentType,
+                    }}
+                />
             </div>
         </>
     )
