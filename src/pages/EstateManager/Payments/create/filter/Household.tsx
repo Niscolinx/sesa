@@ -155,13 +155,13 @@ const HouseholdFilter: FC = () => {
             <section className='bg-color-white rounded-lg border overflow-scroll max-h-[80vh]'>
                 <div className='grid text-[1.6rem]'>
                     <div className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
-                        <p className='font-Satoshi-Medium text-[2rem]'>
                             <Select
                                 state={['Households', 'residents']}
                                 selectedState={filter}
                                 setSelectedState={setFilter}
+                                placeholder='Households'
                             />
-                        </p>
+                   
                         
                     </div>
 
