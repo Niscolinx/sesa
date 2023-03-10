@@ -189,36 +189,34 @@ function PaymentForm({ props }: PaymentForm) {
     ) => {
         const { name, value } = e.target
 
-        setInstallmentField((prev) => {
-            const updatedFields = [...prev]
+        if (name !== 'amount') {
+            setInstallmentField((prev) => {
+                const updatedFields = [...prev]
 
-            if (name !== 'amount') {
                 updatedFields[idx] = {
                     ...updatedFields[idx],
                     [name]: value,
                 }
 
                 return updatedFields
-            }
-            
-            if (value === '') {
-                setAmount('')
-                return
-            }
-            const parsedValue = parseFloat(value.replace(/,/g, ''))
+            })
+        }
 
-            if (!isNaN(parsedValue) && isFinite(parsedValue)) {
-                const transformedValue = parsedValue.toLocaleString()
-                setAmount(transformedValue)
-            }
+        const parsedValue = parseFloat(value.replace(/,/g, ''))
 
-             updatedFields[idx] = {
-                 ...updatedFields[idx],
-                 [name]: value,
-             }
+        if (!isNaN(parsedValue) && isFinite(parsedValue)) {
+            const transformedValue = parsedValue.toLocaleString()
+            setInstallmentField((prev) => {
+                const updatedFields = [...prev]
 
-             return updatedFields
-        })
+                updatedFields[idx] = {
+                    ...updatedFields[idx],
+                    [name]: transformedValue === '' ? '' : value,
+                }
+
+                return updatedFields
+            })
+        }
     }
     return (
         <div>
