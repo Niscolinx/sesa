@@ -140,6 +140,9 @@ function PaymentForm({ props }: PaymentForm) {
         ['fixed', fixed],
     ]) satisfies Map<PaymentType, JSX.Element>
 
+    const addAnotherInstallmentHandler = () => {
+        
+    }
     return (
         <div>
             <p className='font-semibold text-[2rem] mb-10'>
@@ -157,62 +160,15 @@ function PaymentForm({ props }: PaymentForm) {
                                 ' repeat(auto-fit, minmax(30rem, 1fr))',
                         }}
                     >
-                        <div className='grid gap-4 relative '>
-                            <label
-                                htmlFor='firstName'
-                                className='text-[1.4rem] font-medium'
-                            >
-                                Installment Amount
-                            </label>
-                            <div className='relative rounded-lg border border-color-grey outline-none flex items-center pl-4'>
-                                <input
-                                    type='text'
-                                    required
-                                    id='firstName'
-                                    className='w-full border-none outline-none py-4 px-4 pl-5'
-                                />
-                                <img
-                                    src='/icons/Naira.svg'
-                                    alt=''
-                                    className='absolute'
-                                />
-                            </div>
-                        </div>
-                        <div className='grid gap-4'>
-                            <label
-                                htmlFor='amount'
-                                className='text-[1.4rem] font-medium'
-                            >
-                                Start Date
-                            </label>
-                            <input
-                                type='date'
-                                required
-                                id='startDate'
-                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                            />
-                        </div>
-                        <div className='grid gap-4'>
-                            <label
-                                htmlFor='amount'
-                                className='text-[1.4rem] font-medium'
-                            >
-                                End Date
-                            </label>
-                            <input
-                                type='date'
-                                required
-                                id='startDate'
-                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                            />
-                        </div>
+                        
                     </div>
                     <p className='text-[1.4rem] font-light text-gray-400 mt-4'>
                         Max. of 12 installments
                     </p>
-                    <button className='border border-color-blue btn text-color-blue flex items-center gap-4 mt-[5rem] rounded-lg' onClick={
-                        () => addAnotherInstallmentHandler
-                    }>
+                    <button
+                        className='border border-color-blue btn text-color-blue flex items-center gap-4 mt-[5rem] rounded-lg'
+                        onClick={() => addAnotherInstallmentHandler}
+                    >
                         <img src='/img/add_circle.svg' alt='' />
                         <div className='text-left'>
                             <p>Add Another Installment</p>
