@@ -38,12 +38,12 @@ const CreatePayment = () => {
             <div className='grid p-8 bg-white items-baseline rounded-lg min-h-[80vh] relative'>
                 {displayStep.get(step)}
 
-                <div className='absolute right-0 bottom-0 m-8'>
-                    <button>
-                        <TfiArrowCircleLeft className='w-[3rem] h-[3rem] text-color-blue' />
+                <div className='absolute right-0 bottom-0 m-8 flex items-center gap-16'>
+                    <button className=' text-color-blue'>
+                        <TfiArrowCircleLeft className='w-[4rem] h-[4rem]' />
                     </button>
                     <button>
-                        <TfiArrowCircleRight className='w-[3rem] h-[3rem] text-color-blue' />
+                        <TfiArrowCircleRight className='w-[4rem] h-[4rem] text-color-blue' />
                     </button>
                 </div>
             </div>
