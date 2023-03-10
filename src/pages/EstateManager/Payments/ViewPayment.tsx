@@ -336,7 +336,7 @@ const ViewPayment = () => {
                     </div>
                 </section>
                 <section className='grid bg-white p-8 rounded-2xl '>
-                    <div className='flex items-center gap-2 justify-between'>
+                    <div className='flex items-center gap-2 justify-between mb-10'>
                         <p className='font-Satoshi-Medium'>Installment Info</p>{' '}
                         <div className='relative flex gap-4'>
                             <button
@@ -345,7 +345,7 @@ const ViewPayment = () => {
                             >
                                 View Households
                             </button>
-                            <div className='relative flex items-center w-[12rem]'>
+                            <div className='relative flex items-center w-[14rem]'>
                                 <p
                                     className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer'
                                     onClick={installmentToggler}
