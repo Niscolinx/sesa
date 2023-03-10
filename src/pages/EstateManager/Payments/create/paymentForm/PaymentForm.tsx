@@ -358,7 +358,7 @@ function PaymentForm({ props }: PaymentForm) {
                             <span>Balance Amount:</span>{' '}
                             <p className='flex items-center font-semibold'>
                                 <span>
-                                    <img src='/icons/Naira.svg' alt='' />
+                                    <img src='/icons/naira_green.svg' alt='' />
                                 </span>{' '}
                                 <span>{amount}</span>
                             </p>
