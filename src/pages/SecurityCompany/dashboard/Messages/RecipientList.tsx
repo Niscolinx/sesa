@@ -33,7 +33,6 @@ interface IRecipientList {
 }
 
 const RecipientList: FC<IRecipientList> = ({ closeRecipientListDialog }) => {
-    const navigate = useNavigate()
 
     const [fetchedCompanyOverviewData, setFetchedCompanyOverviewData] =
         useState<CompanyOverview[]>([])
