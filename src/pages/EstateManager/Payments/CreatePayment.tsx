@@ -12,18 +12,16 @@ import {
     International_PassPort,
 } from '../../SecurityCompany/dashboard/company/AddSecurity/Inputs'
 
-type DialogType = 'validate' | 'add-resident' | 'view-kyr'
 
-export type ValidateInputTypes = 'fixed' | 'flexible'
+export type PaymentType = 'fixed' | 'flexible'
 
 const CreatePayment = () => {
     const [selectedGender, setSelectedGender] = useState<string | null>(null)
     const [isValidated, setIsValidated] = useState(false)
 
-    const [dialogState, setDialogState] = useState<DialogType>('validate')
     const [paymentType, setPaymentType] = useState<
-        ValidateInputTypes | string | null
-    >('Phone Number')
+        PaymentType
+    >('fixed')
 
     const [photoUrl, setPhotoUrl] = useState('')
 
@@ -94,7 +92,7 @@ const CreatePayment = () => {
         ['NIN Number', <NIN_Number />],
         ['Drivers License', <DriversLicence />],
         ['International Passport', <International_PassPort />],
-    ]) satisfies Map<ValidateInputTypes, JSX.Element>
+    ]) satisfies Map<PaymentType, JSX.Element>
 
     const handleValidate = () => {
         setIsValidated(true)
