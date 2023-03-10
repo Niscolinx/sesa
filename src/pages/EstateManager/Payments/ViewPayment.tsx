@@ -5,10 +5,7 @@ import WalletBarChart from '../../../components/SuperAdmin/charts/WalletBarChart
 import { Message } from '../Messages/RenderMessages'
 
 const ViewPayment = () => {
-    let location = useLocation()
-    location.state
-
-    console.log({ location })
+    const location = useLocation()
 
     const paymentData = location.state || {}
 
@@ -31,8 +28,20 @@ const ViewPayment = () => {
         expectedAmount,
     } =  paymentData
 
+type Trend = 'This Week' | 'This Month' | 'This Year'
 
-    console.log({paymentData})
+const trend: Array<Trend> = ['This Week', 'This Month', 'This Year']
+
+const [toggleMenu, setToggleMenu] = useState(false)
+const [selectedTrend, setSelectedTrend] = useState<Trend>('This Week')
+const [isWithdrawal, setIsWithdrawal] = useState(true)
+
+const menuToggler = () => setToggleMenu(!toggleMenu)
+
+const handleSelectedTrend = (item: Trend) => {
+    setSelectedTrend(item)
+    setToggleMenu(false)
+}
    
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
