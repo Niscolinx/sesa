@@ -203,8 +203,8 @@ const ViewProperty = () => {
                     </div>
                     <Select
                         label='Property Category'
-                        state={['Business', 'Propertyial']}
-                        placeholder='Propertyial'
+                        state={['Business', 'Property']}
+                        placeholder='Property'
                         selectedState={selectedPropertyType}
                         setSelectedState={setSelectedPropertyType}
                     />

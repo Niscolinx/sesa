@@ -37,8 +37,6 @@ const AddProperty = () => {
         handleOpen()
     }
 
-   
-
     return (
         <>
             <ToastContainer />
@@ -57,7 +55,10 @@ const AddProperty = () => {
                         <p>You have successfully added an Property</p>
 
                         <div className='flex w-full justify-center gap-8'>
-                            <button className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]' onClick={() => handleClose()}>
+                            <button
+                                className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
+                                onClick={() => handleClose()}
+                            >
                                 View details
                             </button>
                             <button
@@ -124,8 +125,8 @@ const AddProperty = () => {
                     </div>
                     <Select
                         label='Property Category'
-                        state={['Business', 'Propertyial']}
-                        placeholder='Propertyial'
+                        state={['Business', 'Property']}
+                        placeholder='Property'
                         selectedState={selectedPropertyType}
                         setSelectedState={setSelectedPropertyType}
                     />
@@ -157,7 +158,7 @@ const AddProperty = () => {
                                 sub: 'A housing unit built on teo floors',
                             },
                         ]}
-                        placeholder='Propertyial'
+                        placeholder='Property'
                         isSearchable
                         double
                         selectedState={selectedPropertyType}

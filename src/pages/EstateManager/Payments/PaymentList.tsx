@@ -7,8 +7,8 @@ import { useNavigate } from 'react-router-dom'
 
 interface Payment {
     id: string
-    residentCode: string
-    residentName: string
+    propertyCode: string
+    propertyName: string
     propertyCategory: string
     propertyName: string
     isAlpha: boolean
@@ -20,13 +20,13 @@ const PAYMENT: Payment[] = Array.from({
     length: 20,
 }).map((_, i) => ({
     id: `i + ${i}`,
-    residentName: 'John Emmanuel',
-    propertyCategory: Math.random() > 0.5 ? 'Business' : 'Residential',
-    residentCode: `H${Math.floor(Math.random() * 3000 + 1000)}`,
+    propertyName: 'John Emmanuel',
+    propertyCategory: Math.random() > 0.5 ? 'Business' : 'Property',
+    propertyCode: `H${Math.floor(Math.random() * 3000 + 1000)}`,
     propertyName: Math.random() > 0.5 ? 'Auto Finance' : 'Chrisland Schools',
     propertyType: Math.random() > 0.5 ? '2-Bedroom Self Con.' : 'Duplex',
     tenancyType:
-        Math.random() > 0.5 ? 'Landlord (Developer)' : 'Tenant (Resident)',
+        Math.random() > 0.5 ? 'Landlord (Developer)' : 'Tenant (Property)',
     isAlpha: Math.random() > 0.3 ? true : false,
 }))
 
@@ -35,7 +35,6 @@ interface IPaymentList {
 }
 
 const PaymentList: FC<IPaymentList> = ({ closePaymentDialog }) => {
-
     const [fetchedPaymentData, setFetchedPaymentData] = useState<Payment[]>([])
 
     useEffect(() => {
@@ -196,9 +195,9 @@ const PaymentList: FC<IPaymentList> = ({ closePaymentDialog }) => {
                                     type='checkbox'
                                     className='cursor-pointer'
                                 />
-                                <p>Resident Code</p>
+                                <p>Property Code</p>
                             </p>
-                            <p>Resident Name</p>
+                            <p>Property Name</p>
                             <p>Property Category</p>
                             <p>Property Name</p>
                             <p>Property Type</p>
@@ -211,8 +210,8 @@ const PaymentList: FC<IPaymentList> = ({ closePaymentDialog }) => {
                                     slicedPages[paginate.index].map(
                                         ({
                                             id,
-                                            residentCode,
-                                            residentName,
+                                            propertyCode,
+                                            propertyName,
                                             propertyName,
                                             tenancyType,
                                             propertyType,
@@ -228,12 +227,12 @@ const PaymentList: FC<IPaymentList> = ({ closePaymentDialog }) => {
                                                         />
 
                                                         <span>
-                                                            {residentCode}
+                                                            {propertyCode}
                                                         </span>
                                                     </p>
                                                     <p className='flex items-center gap-2'>
                                                         <span>
-                                                            {residentName}
+                                                            {propertyName}
                                                         </span>
                                                         {isAlpha ? (
                                                             <img

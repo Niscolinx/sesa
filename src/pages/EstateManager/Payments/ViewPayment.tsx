@@ -27,23 +27,22 @@ const ViewPayment = () => {
         amountToPay,
         createDate,
         expectedAmount,
-    } =  paymentData
+    } = paymentData
 
-type Trend = 'This Week' | 'This Month' | 'This Year'
+    type Trend = 'This Week' | 'This Month' | 'This Year'
 
-const trend: Array<Trend> = ['This Week', 'This Month', 'This Year']
+    const trend: Array<Trend> = ['This Week', 'This Month', 'This Year']
 
-const [toggleMenu, setToggleMenu] = useState(false)
-const [selectedTrend, setSelectedTrend] = useState<Trend>('This Week')
-const [isWithdrawal, setIsWithdrawal] = useState(true)
+    const [toggleMenu, setToggleMenu] = useState(false)
+    const [selectedTrend, setSelectedTrend] = useState<Trend>('This Week')
+    const [isWithdrawal, setIsWithdrawal] = useState(true)
 
-const menuToggler = () => setToggleMenu(!toggleMenu)
+    const menuToggler = () => setToggleMenu(!toggleMenu)
 
-const handleSelectedTrend = (item: Trend) => {
-    setSelectedTrend(item)
-    setToggleMenu(false)
-}
-   
+    const handleSelectedTrend = (item: Trend) => {
+        setSelectedTrend(item)
+        setToggleMenu(false)
+    }
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
@@ -81,7 +80,6 @@ const handleSelectedTrend = (item: Trend) => {
             paymentListDialogRef.current.showModal()
         }
     }
-    
 
     return (
         <>
@@ -117,9 +115,7 @@ const handleSelectedTrend = (item: Trend) => {
             </dialog>
             <dialog className='dialog' ref={paymentListDialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
-                    <PaymentList
-                        closePaymentDialog={closePaymentDialog}
-                    />
+                    <PaymentList closePaymentDialog={closePaymentDialog} />
                 </section>
             </dialog>
             <main className='my-[5rem] grid gap-8'>
@@ -289,14 +285,14 @@ const handleSelectedTrend = (item: Trend) => {
                             Payment Trend
                         </p>
 
-                        <div className='relative grid gap-4'>
+                        <div className='relative flex gap-4'>
+                            <button
+                                className='btn text-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
+                                onClick={() => openPaymentDialog()}
+                            >
+                                Add Recipients Info
+                            </button>
                             <div className='relative flex items-center w-[12rem]'>
-                                <button
-                                    className='btn text-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
-                                    onClick={() => openPaymentDialog()}
-                                >
-                                    Add Recipients Info
-                                </button>
                                 <p
                                     className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer'
                                     onClick={menuToggler}
