@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { ToastContainer } from 'react-toastify'
 import { Select } from '../../../../components/SuperAdmin/UI/Select'
+import HouseholdFilter from './filter/Household'
 
 export type PaymentPlan = 'fixed' | 'flexible'
 export type PaymentType = 'full' | 'installment'
@@ -20,7 +21,7 @@ const CreatePayment = () => {
         e.preventDefault()
     }
 
-    const renderPaymentType = new Map([['full', <></>]]) satisfies Map<
+    const renderPaymentType = new Map([['full', <HouseholdFilter/>]]) satisfies Map<
         PaymentType,
         JSX.Element
     >
