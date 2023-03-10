@@ -38,7 +38,7 @@ const CreatePayment = () => {
                         className='text-color-blue disabled:opacity-50 disabled:cursor-not-allowed'
                         disabled={step === 'initial'}
                         onClick={
-                            () => setStep('list')
+                            () => setStep('initial')
                         }
                     >
                         <TfiArrowCircleLeft className='w-[4rem] h-[4rem]' />
@@ -47,7 +47,7 @@ const CreatePayment = () => {
                         className=' text-color-blue disabled:opacity-50 disabled:cursor-not-allowed'
                         disabled={step === 'list'}
                         onClick={
-                            () => setStep('initial')
+                            () => setStep('list')
                         }
                     >
                         <TfiArrowCircleRight className='w-[4rem] h-[4rem]' />
