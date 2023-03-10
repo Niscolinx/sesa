@@ -102,7 +102,7 @@ const handleSelectedTrend = (item: Trend) => {
                     </div>
                 </section>
             </dialog>
-            <main className='my-[5rem]'>
+            <main className='my-[5rem] grid gap-8'>
                 <section className='flex justify-between'>
                     <p className='text-[2rem] font-Satoshi-Medium'>
                         {paymentName}
@@ -303,7 +303,7 @@ const handleSelectedTrend = (item: Trend) => {
                     </div>
                     <div className=' flex justify-center'>
 
-                    <WalletBarChart width={800}/>
+                    <WalletBarChart width={1000}/>
                     </div>
                 </section>
             </main>
