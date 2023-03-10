@@ -1,6 +1,7 @@
 import { FC, useState } from 'react'
 import { Select } from '../../../../../components/SuperAdmin/UI/Select'
 import HouseholdFilter from './HouseholdFilter'
+import ResidentFilter from './ResidentFilter'
 
 const Filter: FC = () => {
     type FilterKeys = 'Households' | 'Residents'
@@ -13,7 +14,7 @@ const Filter: FC = () => {
 
     const renderFilters = new Map([
         ['Households', <HouseholdFilter />],
-        ['Residents', <></>],
+        ['Residents', <ResidentFilter/>],
     ]) satisfies Map<FilterKeys, JSX.Element>
 
     return (

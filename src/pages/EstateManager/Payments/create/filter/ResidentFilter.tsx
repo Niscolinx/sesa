@@ -27,11 +27,9 @@ const RESIDENT: Resident[] = Array.from({
     isAlpha: Math.random() > 0.3 ? true : false,
 }))
 
-interface IResidentFilter {
-    closeResidentFilterDialog: () => void
-}
 
-const ResidentFilter: FC<IResidentFilter> = ({ closeResidentFilterDialog }) => {
+
+const ResidentFilter: FC = () => {
     const [fetchedResidentData, setFetchedResidentData] = useState<Resident[]>(
         []
     )
