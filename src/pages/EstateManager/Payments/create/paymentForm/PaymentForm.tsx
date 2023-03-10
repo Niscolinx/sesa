@@ -244,7 +244,8 @@ function PaymentForm({ props }: PaymentForm) {
              : 0
 
      const balance = parseInt(amount.replace(',', '')) - reducedAmount
-     setBalanceAmount(balance <= 0 ? 0 : balance)
+
+     setBalanceAmount(balance <= 0 ? -1 : balance)
     }, [installmentField, amount])
 
     return (
@@ -382,7 +383,7 @@ function PaymentForm({ props }: PaymentForm) {
                             </div>
                         ))}
 
-                        <div className='flex items-center gap-4 my-5 font-Satoshi-Medium bg-red-600 '>
+                        <div className='flex items-center gap-4 my-5 font-Satoshi-Medium '>
                             <span className='text-green-600'>
                                 Balance Amount:
                             </span>{' '}
