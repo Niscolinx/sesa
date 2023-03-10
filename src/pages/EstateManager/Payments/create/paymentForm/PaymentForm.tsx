@@ -232,7 +232,7 @@ function PaymentForm({ props }: PaymentForm) {
 
     useEffect(() => {
         const reducedAmount = installmentField.reduce((prev, curr) => {
-           const amount = parseInt(curr.amount.replace(',', ''))
+           const amount = parseInt(curr.amount.replace(',', '')) + prev
            console.log({amount, prev, curr})
            return amount
         }, 0)
