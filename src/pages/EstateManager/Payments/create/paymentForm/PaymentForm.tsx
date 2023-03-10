@@ -5,7 +5,6 @@ import { PaymentPlan, PaymentType } from '../CreatePayment'
 
 interface PaymentForm {
     props: {
-        handleNext: () => void
         paymentType: PaymentType | string | null
         setPaymentType: Dispatch<SetStateAction<PaymentType | string | null>>
     }
@@ -55,13 +54,7 @@ function PaymentForm({ props }: PaymentForm) {
                 setSelectedState={setPaymentPlan}
             />
 
-            <button
-                className='btn text-white bg-color-blue-1 py-4 px-16 rounded-lg w-[15rem] col-span-full mt-10 disabled:opacity-50 disabled:cursor-not-allowed'
-                onClick={() => handleNext()}
-                disabled={!paymentType}
-            >
-                Next
-            </button>
+          
         </>
     )
 
