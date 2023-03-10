@@ -39,17 +39,17 @@ function PaymentForm({ props }: PaymentForm) {
     }
 
     const amountHandler = (e: ChangeEvent<HTMLInputElement>) => {
-
         const value = e.target.value
-        
-        
+
+        if (value === '') {
+            setAmount('')
+            return
+        }
         const parsedValue = parseFloat(value.replace(/,/g, ''))
 
-        if(!isNaN(parsedValue) && isFinite(parsedValue)){
-
+        if (!isNaN(parsedValue) && isFinite(parsedValue)) {
             const transformedValue = parsedValue.toLocaleString()
             setAmount(transformedValue)
-            
         }
     }
 
@@ -122,7 +122,7 @@ function PaymentForm({ props }: PaymentForm) {
                     type='number'
                     required
                     id='amount'
-                    value={ amount}
+                    value={amount}
                     onChange={amountHandler}
                     className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                 />
