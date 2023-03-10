@@ -149,7 +149,6 @@ const ResidentFilter: FC<IResidentFilter> = ({ closeResidentFilterDialog }) => {
     return (
         <main className='mt-10 grid gap-9'>
             <section className='bg-color-white rounded-lg border overflow-scroll max-h-[80vh]'>
-                <div className='grid text-[1.6rem]'>
                   
 
                     <div className='grid'>
