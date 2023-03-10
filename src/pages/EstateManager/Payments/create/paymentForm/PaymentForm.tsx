@@ -144,7 +144,7 @@ function PaymentForm({ props }: PaymentForm) {
             <p>Add Payment ( Step 1 of 2)</p>
             <form
                 onSubmit={handleSubmit}
-                className='grid max-w-[84rem] gap-16 mt-12 items-start content-start'
+                className='grid max-w-[84rem] gap-16 items-start content-start'
                 style={{
                     gridTemplateColumns:
                         ' repeat(auto-fit, minmax(35rem, 1fr))',
