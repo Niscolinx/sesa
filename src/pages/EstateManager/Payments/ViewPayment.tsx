@@ -266,7 +266,7 @@ const handleSelectedTrend = (item: Trend) => {
                 <section className='border-l border-l-color-grey bg-white rounded-lg p-8 grid gap-10'>
                     <div className='flex justify-between'>
                         <p className='text-[1.6rem] font-bold p-8'>
-                            Wallet Trend
+                            Payment Trend
                         </p>
 
                         <div className='relative grid gap-4'>

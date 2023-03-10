@@ -71,11 +71,17 @@ export const EstateBarChart = ({
         </BarChart>
     )
 }
-export default function WalletBarChart() {
+
+interface WalletBarChart {
+    width?: number,
+    height?: number
+}
+
+export default function WalletBarChart({width = 600, height = 300}: WalletBarChart) {
     return (
         <BarChart
-            width={600}
-            height={300}
+            width={width}
+            height={height}
             data={data}
             margin={{
                 top: 5,
