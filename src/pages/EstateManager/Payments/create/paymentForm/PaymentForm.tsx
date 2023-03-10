@@ -157,14 +157,15 @@ function PaymentForm({ props }: PaymentForm) {
                             >
                                 Installment Amount
                             </label>
-                            <div className='relative rounded-lg border border-color-grey outline-none'>
+                            <div className='relative rounded-lg border border-color-grey outline-none flex items-center pl-4'>
                                 <input
                                     type='text'
                                     required
                                     id='firstName'
                                     placeholder='placeholder'
-                                    className='w-full border-none outline-none py-4 px-4'
+                                    className='w-full border-none outline-none py-4 px-4 pl-5'
                                 />
+                                <img src="/icons/Naira.svg" alt="" className='absolute' />
                             </div>
                         </div>
                     </div>
