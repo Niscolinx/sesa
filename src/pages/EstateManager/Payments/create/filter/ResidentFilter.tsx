@@ -1,51 +1,49 @@
 import React, { ChangeEvent, FC, useEffect, useState } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
+import { GrDown } from 'react-icons/gr'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
-import { Select } from '../../../../../components/SuperAdmin/UI/Select'
+import { IoMdAdd } from 'react-icons/io'
+import { useNavigate } from 'react-router-dom'
 
-interface Payment {
+interface Recipient {
     id: string
-    propertyCode: string
-    address: string
+    residentCode: string
+    residentName: string
     propertyCategory: string
     propertyName: string
-    paid: boolean
+    isAlpha: boolean
     propertyType: string
     tenancyType: string
-    date: string
 }
 
-const PropertyNames = [
-    'Dangote',
-    'Ed Schools',
-    'Cement Depo',
-    'Mo Complex',
-    'Maz Homes',
-]
-
-const PAYMENT: Payment[] = Array.from({
+const RECIPIENT: Recipient[] = Array.from({
     length: 20,
 }).map((_, i) => ({
     id: `i + ${i}`,
-    propertyName:
-        PropertyNames[Math.floor(Math.random() * PropertyNames.length)],
+    residentName: 'John Emmanuel',
     propertyCategory: Math.random() > 0.5 ? 'Business' : 'Residential',
-    propertyCode: `H${Math.floor(Math.random() * 3000 + 1000)}`,
-    address: 'Blk.2, Flt. 3, Zone A',
+    residentCode: `H${Math.floor(Math.random() * 3000 + 1000)}`,
+    propertyName: Math.random() > 0.5 ? 'Auto Finance' : 'Chrisland Schools',
     propertyType: Math.random() > 0.5 ? '2-Bedroom Self Con.' : 'Duplex',
     tenancyType:
         Math.random() > 0.5 ? 'Landlord (Developer)' : 'Tenant (Resident)',
-    paid: Math.random() > 0.3 ? true : false,
-    date: '12 May, 2023',
+    isAlpha: Math.random() > 0.3 ? true : false,
 }))
 
-const ResidentFilter: FC = () => {
-    const [fetchedPaymentData, setFetchedPaymentData] = useState<Payment[]>([])
-    const [filter, setFilter] = useState<string | null>(null)
+interface IResidentFilter {
+    closeResidentFilterDialog: () => void
+}
+
+const ResidentFilter: FC<IResidentFilter> = ({ closeResidentFilterDialog }) => {
+    const navigate = useNavigate()
+
+    const [fetchedRecipientData, setFetchedRecipientData] = useState<
+        Recipient[]
+    >([])
 
     useEffect(() => {
         setTimeout(() => {
-            setFetchedPaymentData(PAYMENT)
+            setFetchedRecipientData(RECIPIENT)
         }, 1000)
     }, [])
 
@@ -54,7 +52,7 @@ const ResidentFilter: FC = () => {
         currentPage: number
         itemsPerPage: number
         totalPage: number
-        slicedPages: Payment[][] | null
+        slicedPages: Recipient[][] | null
     }
 
     const itemsPerPageArr = [2, 4, 6, 8]
@@ -64,16 +62,16 @@ const ResidentFilter: FC = () => {
         index: 0,
         currentPage: 1,
         itemsPerPage: perPage,
-        totalPage: Math.ceil(fetchedPaymentData.length / perPage),
+        totalPage: Math.ceil(fetchedRecipientData.length / perPage),
         slicedPages: null,
     })
 
     const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
         const item = parseInt(e.target.value)
 
-        const slicedPages: Payment[][] = []
-        for (let i = 0; i < fetchedPaymentData.length; i += item) {
-            slicedPages.push(fetchedPaymentData.slice(i, i + item))
+        const slicedPages: Recipient[][] = []
+        for (let i = 0; i < fetchedRecipientData.length; i += item) {
+            slicedPages.push(fetchedRecipientData.slice(i, i + item))
         }
 
         setPaginate((prev) => {
@@ -83,20 +81,20 @@ const ResidentFilter: FC = () => {
                 index: 0,
                 currentPage: 1,
                 slicedPages,
-                totalPage: Math.ceil(fetchedPaymentData.length / item),
+                totalPage: Math.ceil(fetchedRecipientData.length / item),
             }
         })
     }
 
     useEffect(() => {
-        const slicedPages: Payment[][] = []
+        const slicedPages: Recipient[][] = []
         for (
             let i = 0;
-            i < fetchedPaymentData.length;
+            i < fetchedRecipientData.length;
             i += paginate.itemsPerPage
         ) {
             slicedPages.push(
-                fetchedPaymentData.slice(i, i + paginate.itemsPerPage)
+                fetchedRecipientData.slice(i, i + paginate.itemsPerPage)
             )
         }
 
@@ -105,11 +103,11 @@ const ResidentFilter: FC = () => {
                 ...prev,
                 slicedPages,
                 totalPage: Math.ceil(
-                    fetchedPaymentData.length / paginate.itemsPerPage
+                    fetchedRecipientData.length / paginate.itemsPerPage
                 ),
             }
         })
-    }, [fetchedPaymentData])
+    }, [fetchedRecipientData])
 
     const handleNext = () => {
         if (paginate.currentPage === paginate.totalPage) return
@@ -145,30 +143,65 @@ const ResidentFilter: FC = () => {
         })
     }
 
-    const downloadDocHandler = () => {
-        //closePaymentDialog()
+    const saveChangesHandler = () => {
+        closeResidentFilterDialog()
     }
 
     return (
-        <main className='grid gap-9'>
-            <div className='w-[40rem] p-8'>
-                <p className='font-Satoshi-Medium text-[2rem]'>
-                    {' '}
-                    Filter Selection{' '}
-                </p>
-                <Select
-                    state={['Households', 'Residents']}
-                    selectedState={filter}
-                    setSelectedState={setFilter}
-                    placeholder='Households'
-                />
-            </div>
-            <section className='bg-color-white rounded-lg overflow-scroll max-h-[80vh]'>
+        <main className='mt-10 grid gap-9'>
+            <section className='bg-color-white rounded-lg border overflow-scroll max-h-[80vh]'>
                 <div className='grid text-[1.6rem]'>
+                    <caption className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
+                        <div className='relative flex items-center'>
+                            <img
+                                src='/icons/admins/search.svg'
+                                alt=''
+                                className='absolute left-4 text-[4rem]'
+                            />
+                            <input
+                                type='text'
+                                placeholder='Search Parameters'
+                                className='pl-16 w-[20rem] rounded-lg border border-color-blue-light appearance-none outline-none p-4'
+                            />
+                        </div>
+                        <div className='relative flex items-center'>
+                            <select className=' cursor-pointer w-[20rem] rounded-lg border border-color-blue-light appearance-none outline-none p-4 bg-white'>
+                                <option hidden value=''>
+                                    Sort By
+                                </option>
+                                <option value='date'>date</option>
+                                <option value='alpha'>Alpha</option>
+                            </select>
+                            <GrDown className='absolute right-4 text-[1.3rem]' />
+                        </div>
+                        <div className='ml-auto'>
+                            <button
+                                className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
+                                onClick={saveChangesHandler}
+                            >
+                                <span>
+                                    <IoMdAdd />
+                                </span>{' '}
+                                Save Changes
+                            </button>
+                        </div>
+                    </caption>
+
                     <div className='grid'>
-                        <div className='grid justify-between text-color-dark-1 bg-gray-100 p-8 grid-cols-6 gap-6 items-center capitalize'>
-                            <p>Property Code</p>
-                            <p>Address</p>
+                        <div
+                            className='grid justify-between text-color-dark-1 bg-gray-100 p-8 grid-cols-6 gap-6'
+                            style={{
+                                fontSize: '1.6rem',
+                            }}
+                        >
+                            <p className='flex items-center gap-2'>
+                                <input
+                                    type='checkbox'
+                                    className='cursor-pointer'
+                                />
+                                <p>Resident Code</p>
+                            </p>
+                            <p>Resident Name</p>
                             <p>Property Category</p>
                             <p>Property Name</p>
                             <p>Property Type</p>
@@ -181,19 +214,40 @@ const ResidentFilter: FC = () => {
                                     slicedPages[paginate.index].map(
                                         ({
                                             id,
-                                            propertyCode,
+                                            residentCode,
+                                            residentName,
                                             propertyName,
-                                            address,
                                             tenancyType,
                                             propertyType,
                                             propertyCategory,
+                                            isAlpha,
                                         }) => {
                                             return (
-                                                <div className='grid justify-between border-b grid-cols-6 gap-8 py-4 whitespace-nowrap text-ellipsis'>
-                                                    <p>{propertyCode}</p>
-                                                    <p>{address}</p>
+                                                <div className='grid justify-between border-b grid-cols-6 gap-8 py-4'>
+                                                    <p className='flex items-center gap-4'>
+                                                        <input
+                                                            type='checkbox'
+                                                            className='cursor-pointer'
+                                                        />
+
+                                                        <span>
+                                                            {residentCode}
+                                                        </span>
+                                                    </p>
+                                                    <p className='flex items-center gap-2'>
+                                                        <span>
+                                                            {residentName}
+                                                        </span>
+                                                        {isAlpha ? (
+                                                            <img
+                                                                src='/img/alpha.svg'
+                                                                alt=''
+                                                            />
+                                                        ) : null}
+                                                    </p>
                                                     <p>{propertyCategory}</p>
                                                     <p>{propertyName}</p>
+
                                                     <p>{propertyType}</p>
                                                     <p>{tenancyType}</p>
                                                 </div>
