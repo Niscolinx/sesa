@@ -202,6 +202,8 @@ function PaymentForm({ props }: PaymentForm) {
                 [name]: value,
             }
 
+            console.log({updatedFields})
+
             return updatedFields
         })
     }
