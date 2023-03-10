@@ -3,9 +3,10 @@ import { Select } from '../../../../../components/SuperAdmin/UI/Select'
 import HouseholdFilter from './HouseholdFilter'
 
 const Filter: FC = () => {
-    const [filter, setFilter] = useState<string | null>(null)
-
     type FilterKeys = 'Households' | 'Residents'
+    
+    const [filter, setFilter] = useState<FilterKeys | string | null>('Households')
+
     const filterKeys = ['Households', 'Residents'] satisfies FilterKeys[]
 
     const renderFilters = new Map([
