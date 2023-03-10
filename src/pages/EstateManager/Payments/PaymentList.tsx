@@ -16,19 +16,26 @@ interface Payment {
     residentialClass: string
 }
 
-const PropertyNames = ['Dangote', 'Ed Schools', 'Cement Depo', 'Mo Complex', 'Maz Homes']
+const PropertyNames = [
+    'Dangote',
+    'Ed Schools',
+    'Cement Depo',
+    'Mo Complex',
+    'Maz Homes',
+]
 
 const PAYMENT: Payment[] = Array.from({
     length: 20,
 }).map((_, i) => ({
     id: `i + ${i}`,
-    propertyName: 'John Emmanuel',
+    propertyName:
+        PropertyNames[Math.floor(Math.random() * PropertyNames.length)],
     propertyCategory: Math.random() > 0.5 ? 'Business' : 'Residential',
     propertyCode: `H${Math.floor(Math.random() * 3000 + 1000)}`,
     address: 'Blk.2, Flt. 3, Zone A',
     propertyType: Math.random() > 0.5 ? '2-Bedroom Self Con.' : 'Duplex',
     residentialClass:
-        Math.random() > 0.5 ? 'Landlord (Developer)' : 'Tenant (Property)',
+        Math.random() > 0.5 ? 'Landlord Developer' : 'Tenant Property',
     paid: Math.random() > 0.3 ? true : false,
 }))
 
@@ -192,13 +199,8 @@ const PaymentList: FC<IPaymentList> = ({ closePaymentDialog }) => {
                                 fontSize: '1.6rem',
                             }}
                         >
-                            <p className='flex items-center gap-2'>
-                                <input
-                                    type='checkbox'
-                                    className='cursor-pointer'
-                                />
-                                <p>Property Code</p>
-                            </p>
+                            <p>Property Code</p>
+
                             <p>Property Name</p>
                             <p>Property Category</p>
                             <p>Property Name</p>
@@ -214,7 +216,7 @@ const PaymentList: FC<IPaymentList> = ({ closePaymentDialog }) => {
                                             id,
                                             propertyCode,
                                             propertyName,
-                                            propertyName,
+                                            address,
                                             residentialClass,
                                             propertyType,
                                             propertyCategory,
