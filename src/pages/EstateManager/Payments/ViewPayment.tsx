@@ -290,7 +290,7 @@ const ViewPayment = () => {
                                 className='btn text-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
                                 onClick={() => openPaymentDialog()}
                             >
-                                Add Recipients Info
+                                View Households
                             </button>
                             <div className='relative flex items-center w-[12rem]'>
                                 <p
