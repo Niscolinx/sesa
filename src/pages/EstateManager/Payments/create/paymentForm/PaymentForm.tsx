@@ -353,6 +353,16 @@ function PaymentForm({ props }: PaymentForm) {
                                 )}
                             </div>
                         ))}
+
+                        <div className='flex items-center gap-4 my-5'>
+                            <span>Balance Amount:</span>{' '}
+                            <p className='flex items-center font-semibold'>
+                                <span>
+                                    <img src='/icons/Naira.svg' alt='' />
+                                </span>{' '}
+                                <span>{amount}</span>
+                            </p>
+                        </div>
                     </div>
                 </div>
             ) : (
