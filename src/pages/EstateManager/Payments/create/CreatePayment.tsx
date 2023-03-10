@@ -11,7 +11,7 @@ const CreatePayment = () => {
     const [step, setStep] = useState<Step>('initial')
 
     const [paymentType, setPaymentType] = useState<PaymentType | string | null>(
-        null
+        'flexible'
     )
 
     const handleNext = () => {
