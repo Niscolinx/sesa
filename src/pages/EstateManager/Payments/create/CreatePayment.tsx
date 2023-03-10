@@ -5,11 +5,13 @@ import HouseholdFilter from './filter/Household'
 
 export type PaymentPlan = 'fixed' | 'flexible'
 export type PaymentType = 'full' | 'installment'
+type Steps = 'initial' | ''
 
 const CreatePayment = () => {
     const [paymentPlan, setPaymentPlan] = useState<string | null | PaymentPlan>(
         null
     )
+    const [step, setStep] = useState('initial')
     const [trackPayment, setTrackPayment] = useState<string | null>(null)
     const [amount, setAmount] = useState(0)
 
