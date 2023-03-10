@@ -3,6 +3,7 @@ import { Select } from '../../../../../../components/SuperAdmin/UI/Select'
 import { PaymentPlan, PaymentType } from '../../CreatePayment'
 
 
+
 interface FlexiblePaymentType {
     props: {
         handleNext: () => void
