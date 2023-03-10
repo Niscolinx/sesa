@@ -206,7 +206,7 @@ function PaymentForm({ props }: PaymentForm) {
                             />
                         </div>
                     </div>
-                    <p className='text-[1.4rem] font-light text-gray-400 mt-5'>
+                    <p className='text-[1.4rem] font-light text-gray-400 mt-4'>
                         Max. of 12 installments
                     </p>
                 </>
