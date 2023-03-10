@@ -146,7 +146,26 @@ function PaymentForm({ props }: PaymentForm) {
             </p>
             {paymentType === 'fixed' && paymentPlan === 'installment' ? (
                 <>
-                <p className='text-color-blue font-semibold'>Installment 1</p>
+                    <p className='text-color-blue font-semibold'>
+                        Installment 1
+                    </p>
+                    <div>
+                        <div className='grid gap-4 relative '>
+                            <label
+                                htmlFor='firstName'
+                                className='text-[1.4rem] font-medium'
+                            >
+                                Installment Amount
+                            </label>
+                            <input
+                                type='text'
+                                required
+                                id='firstName'
+                                placeholder='placeholder'
+                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                            />
+                        </div>
+                    </div>
                 </>
             ) : (
                 <form
