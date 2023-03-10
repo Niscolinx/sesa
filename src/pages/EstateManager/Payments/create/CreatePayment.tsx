@@ -47,7 +47,7 @@ const CreatePayment = () => {
                 }}
             />,
         ],
-        [('list', (<HouseholdFilter />))],
+        ['list', <HouseholdFilter />],
     ]) satisfies Map<Step, JSX.Element>
 
     return (
