@@ -46,8 +46,8 @@ const Filter: FC = () => {
 
             {renderFilters.get(filter as FilterKeys)}
 
-            <button className='btn ml-auto bg-color-blue-1 text-white py-4 px-8 capitalize'>
-                <p>Create Payment</p>
+            <button className='btn rounded-lg bg-color-blue-1 text-white w-[15rem] '>
+              Create Payment
             </button>
         </main>
     )
