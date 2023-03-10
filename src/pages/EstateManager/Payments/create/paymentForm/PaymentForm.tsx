@@ -185,7 +185,7 @@ function PaymentForm({ props }: PaymentForm) {
     ]) satisfies Map<PaymentType, JSX.Element>
 
     const addAnotherInstallmentHandler = () => {
-        // setInstallmentCount((prev) => prev + 1)
+        setInstallmentCount((prev) => prev + 1)
     }
 
     const installmentChangeHandler = (
@@ -201,8 +201,6 @@ function PaymentForm({ props }: PaymentForm) {
                 ...updatedFields[idx],
                 [name]: value,
             }
-
-            console.log({updatedFields})
 
             return updatedFields
         })
