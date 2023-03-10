@@ -1,17 +1,18 @@
 import React, { useState } from 'react'
 import { ToastContainer } from 'react-toastify'
 import { Select } from '../../../../components/SuperAdmin/UI/Select'
-import { getPhotoUrl } from '../../../../utils/getPhotoUrl'
 
 export type PaymentType = 'fixed' | 'flexible'
 export type PaymentPlan = 'full' | 'installment'
 
 const CreatePayment = () => {
     const [paymentPlan, setPaymentPlan] = useState<string | null>(null)
-    const [trackPayment, setTrackPayment] = useState('')
+    const [trackPayment, setTrackPayment] = useState<string | null>(null)
     const [amount, setAmount] = useState(0)
 
     const [paymentType, setPaymentType] = useState<PaymentType>('fixed')
+
+   
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
@@ -52,22 +53,24 @@ const CreatePayment = () => {
                     </div>
 
                     <Select
-                        label='Gender'
+                        label='Track Payment'
                         state={['Yes', 'No']}
-                        selectedState={paymentPlan}
-                        setSelectedState={setPaymentPlan}
+                        selectedState={trackPayment}
+                        setSelectedState={setTrackPayment}
                     />
+
                     <div>
                         <label
                             htmlFor='firstName'
                             className='text-[1.4rem] font-medium'
                         >
-                            Dues Name
+                            Amount
                         </label>
                         <input
                             type='text'
                             required
                             id='firstName'
+                            pattern='[0-9]*'
                             placeholder='placeholder'
                             className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                         />
