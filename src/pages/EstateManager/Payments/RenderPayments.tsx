@@ -38,7 +38,7 @@ export const PAYMENTS_LIST: Payments[] = Array.from({ length: 10 }).map(
             Math.random() * 50000 + 10000
         ).toLocaleString(),
         paidResidents: Math.floor(Math.random() * 45 + 10),
-        paymentPlan: 'full',
+        paymentPlan: Math.random() > 0.5 ? 'fixed' : 'flexible',
         trackPayment: 'Yes',
         startDate: '02 Jan, 2023',
         endDate: '03 Mar, 2023',

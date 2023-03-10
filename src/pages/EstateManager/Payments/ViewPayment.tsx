@@ -301,7 +301,7 @@ const ViewPayment = () => {
                         </p>
 
                         <div className='relative flex gap-4'>
-                            {paymentType === 'fixed' && (
+                            {paymentType === 'full' && (
                                 <button
                                     className='btn text-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
                                     onClick={() => openPaymentDialog()}
