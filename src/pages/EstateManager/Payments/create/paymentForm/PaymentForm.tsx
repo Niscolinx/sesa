@@ -221,14 +221,14 @@ function PaymentForm({ props }: PaymentForm) {
     }
     return (
         <div>
-            <p className='font-semibold text-[2rem] mb-10'>
+            <p className='font-Satoshi-Medium text-[2rem] mb-10'>
                 Add Payment ( Step 1 of 2)
             </p>
             {paymentType === 'fixed' && paymentPlan === 'installment' ? (
                 <div>
                     {installmentField.map((item, idx) => (
                         <div className='mt-16'>
-                            <p className='text-color-blue font-semibold my-5'>
+                            <p className='text-color-blue font-Satoshi-Medium my-5'>
                                 Installment {idx + 1}
                             </p>
                             <div
@@ -354,9 +354,9 @@ function PaymentForm({ props }: PaymentForm) {
                             </div>
                         ))}
 
-                        <div className='flex items-center gap-4 my-5 border text-green-600'>
+                        <div className='flex items-center gap-4 my-5 border text-green-600 font-Satoshi-Medium'>
                             <span>Balance Amount:</span>{' '}
-                            <p className='flex items-center font-semibold'>
+                            <p className='flex items-center'>
                                 <span>
                                     <img src='/icons/Naira.svg' alt='' />
                                 </span>{' '}
