@@ -28,7 +28,6 @@ const RESIDENT: Resident[] = Array.from({
 }))
 
 
-
 const ResidentFilter: FC = () => {
     const [fetchedResidentData, setFetchedResidentData] = useState<Resident[]>(
         []
