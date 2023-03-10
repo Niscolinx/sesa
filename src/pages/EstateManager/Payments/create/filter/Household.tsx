@@ -12,7 +12,7 @@ interface Payment {
     propertyName: string
     paid: boolean
     propertyType: string
-    residentialClass: string
+    tenancyType: string
     date: string
 }
 
@@ -34,8 +34,8 @@ const PAYMENT: Payment[] = Array.from({
     propertyCode: `H${Math.floor(Math.random() * 3000 + 1000)}`,
     address: 'Blk.2, Flt. 3, Zone A',
     propertyType: Math.random() > 0.5 ? '2-Bedroom Self Con.' : 'Duplex',
-    residentialClass:
-        Math.random() > 0.5 ? 'Landlord Developer' : 'Tenant Property',
+    tenancyType:
+        Math.random() > 0.5 ? 'Landlord (Developer)' : 'Tenant (Resident)',
     paid: Math.random() > 0.3 ? true : false,
     date: '12 May, 2023',
 }))
@@ -188,10 +188,9 @@ const HouseholdFilter: FC = () => {
                                             propertyName,
                                             address,
                                             date,
-                                            residentialClass,
+                                            tenancyType,
                                             propertyType,
                                             propertyCategory,
-                                            paid,
                                         }) => {
                                             return (
                                                 <div className='grid justify-between border-b grid-cols-7 gap-8 py-4 whitespace-nowrap text-ellipsis'>
@@ -200,7 +199,7 @@ const HouseholdFilter: FC = () => {
                                                     <p>{propertyCategory}</p>
                                                     <p>{propertyName}</p>
                                                     <p>{propertyType}</p>
-                                                    <p>{residentialClass}</p>
+                                                    <p>{tenancyType}</p>
                                                     <p className='flex items-center gap-2 justify-end'>
                                                         {paid ? (
                                                             <img
