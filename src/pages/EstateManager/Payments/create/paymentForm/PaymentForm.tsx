@@ -11,8 +11,8 @@ interface PaymentForm {
 }
 
 interface InstallmentField {
-    amount: number,
-    startDate: string,
+    amount: number
+    startDate: string
     endDate: string
 }
 function PaymentForm({ props }: PaymentForm) {
@@ -24,7 +24,15 @@ function PaymentForm({ props }: PaymentForm) {
     )
     const [trackPayment, setTrackPayment] = useState<string | null>(null)
     const [amount, setAmount] = useState(0)
-    const [installmentField, setInstallmentField] = useState<InstallmentField[]>([])
+    const [installmentField, setInstallmentField] = useState<
+        InstallmentField[]
+    >([
+        {
+            amount: 0,
+            startDate: '',
+            endDate: ''
+        }
+    ])
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
@@ -146,7 +154,7 @@ function PaymentForm({ props }: PaymentForm) {
     ]) satisfies Map<PaymentType, JSX.Element>
 
     const addAnotherInstallmentHandler = () => {
-        setInstallmentCount(prev => prev + 1)
+        setInstallmentCount((prev) => prev + 1)
     }
     return (
         <div>
@@ -163,7 +171,7 @@ function PaymentForm({ props }: PaymentForm) {
                         style={{
                             gridTemplateColumns:
                                 ' repeat(auto-fit, minmax(30rem, 1fr))',
-                                rowGap: '4rem'
+                            rowGap: '4rem',
                         }}
                     >
                         {Array.from({ length: installmentCount }, (_, i) => (
