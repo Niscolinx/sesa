@@ -210,7 +210,7 @@ function PaymentForm({ props }: PaymentForm) {
                     <p className='text-[1.4rem] font-light text-gray-400 mt-4'>
                         Max. of 12 installments
                     </p>
-                    <button className='border border-color-blue btn text-color-blue flex items-center gap-4'>
+                    <button className='border border-color-blue btn text-color-blue flex items-center gap-4 mt-[5rem]'>
                         <img src='/img/add_circle.svg' alt='' />
                         <div>
                             <p>Add Another Installment</p>
