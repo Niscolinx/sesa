@@ -320,8 +320,8 @@ function PaymentForm({ props }: PaymentForm) {
                         </div>
                     </button>
 
-                    <div className='mt-[5rem] my-10'>
-                        <div className='flex items-center gap-4'>
+                    <div className='mt-[5rem]'>
+                        <div className='flex items-center gap-4 my-5'>
                             <span>Total Amount:</span>{' '}
                             <p className='flex items-center font-semibold'>
                                 <span>
@@ -336,7 +336,7 @@ function PaymentForm({ props }: PaymentForm) {
                                 {item.amount && (
                                     <>
                                         <span className='text-color-blue-1 font-medium'>
-                                            Installment {idx + 1}
+                                            Installment {idx + 1}:
                                         </span>
                                         <p className='flex items-center font-semibold'>
                                             <span>
