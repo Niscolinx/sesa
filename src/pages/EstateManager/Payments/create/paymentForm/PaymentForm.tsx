@@ -1,9 +1,4 @@
-import React, {
-    ChangeEvent,
-    Dispatch,
-    SetStateAction,
-    useState,
-} from 'react'
+import React, { ChangeEvent, Dispatch, SetStateAction, useState } from 'react'
 import { BsQuestionCircle } from 'react-icons/bs'
 import { Select } from '../../../../../components/SuperAdmin/UI/Select'
 import { PaymentPlan, PaymentType } from '../CreatePayment'
@@ -28,7 +23,7 @@ function PaymentForm({ props }: PaymentForm) {
         null
     )
     const [trackPayment, setTrackPayment] = useState<string | null>(null)
-    const [amount, setAmount] = useState(0)
+    const [amount, setAmount] = useState('')
     const [installmentField, setInstallmentField] = useState<
         InstallmentField[]
     >([
@@ -54,8 +49,8 @@ function PaymentForm({ props }: PaymentForm) {
                         type='text'
                         required
                         id='amount'
-                        value={amount <= 0 ? '' : amount}
-                        onChange={(e) => setAmount(Number(e.target.value).toLocaleString())}
+                        value={amount}
+                        onChange={changedAmountHander}
                         name='amount'
                         className='w-full border-none outline-none py-4 px-4 pl-5'
                     />
