@@ -3,6 +3,7 @@ import { GrUp, GrDown } from 'react-icons/gr'
 import { useLocation } from 'react-router-dom'
 import { toast, ToastContainer } from 'react-toastify'
 import WalletBarChart from '../../../components/SuperAdmin/charts/WalletBarChart'
+import PaymentList from './PaymentList'
 
 const ViewPayment = () => {
     const location = useLocation()
@@ -69,13 +70,13 @@ const handleSelectedTrend = (item: Trend) => {
 
     const paymentListDialogRef = useRef<HTMLDialogElement | null>(null)
 
-    const closeRecipientListDialog = () => {
+    const closePaymentDialog = () => {
         if (paymentListDialogRef.current) {
             paymentListDialogRef.current.close()
         }
     }
 
-    const openRecipientListDialog = () => {
+    const openPaymentDialog = () => {
         if (paymentListDialogRef.current) {
             paymentListDialogRef.current.showModal()
         }
@@ -112,6 +113,13 @@ const handleSelectedTrend = (item: Trend) => {
                             </div>
                         </>
                     </div>
+                </section>
+            </dialog>
+            <dialog className='dialog' ref={paymentListDialogRef}>
+                <section className='grid place-content-center w-full h-[100vh]'>
+                    <PaymentList
+                        closePaymentDialog={closePaymentDialog}
+                    />
                 </section>
             </dialog>
             <main className='my-[5rem] grid gap-8'>
@@ -286,7 +294,7 @@ const handleSelectedTrend = (item: Trend) => {
                                 <button
                                     className='btn border border-color-blue-1 text-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
                                     style={{ justifySelf: 'start' }}
-                                    onClick={() => openRecipientListDialog()}
+                                    onClick={() => openPaymentDialog()}
                                 >
                                     Add Recipients
                                 </button>

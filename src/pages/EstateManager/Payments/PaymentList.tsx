@@ -31,10 +31,10 @@ const PAYMENT: Payment[] = Array.from({
 }))
 
 interface IPaymentList {
-    closePaymentListDialog: () => void
+    closePaymentDialog: () => void
 }
 
-const PaymentList: FC<IPaymentList> = ({ closePaymentListDialog }) => {
+const PaymentList: FC<IPaymentList> = ({ closePaymentDialog }) => {
     const navigate = useNavigate()
 
     const [fetchedPaymentData, setFetchedPaymentData] = useState<
@@ -144,7 +144,7 @@ const PaymentList: FC<IPaymentList> = ({ closePaymentListDialog }) => {
     }
 
     const saveChangesHandler = () => {
-        closePaymentListDialog()
+        closePaymentDialog()
     }
 
     return (
