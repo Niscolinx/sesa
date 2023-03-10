@@ -64,9 +64,34 @@ function PaymentForm({ props }: PaymentForm) {
         </>
     )
 
+    const fixed = (
+        <>
+            <div className='grid gap-4'>
+                <label htmlFor='amount' className='text-[1.4rem] font-medium'>
+                    Amount
+                </label>
+                <input
+                    type='number'
+                    required
+                    id='amount'
+                    value={amount <= 0 ? '' : amount}
+                    onChange={(e) => setAmount(Number(e.target.value))}
+                    className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                />
+            </div>
+
+            <Select
+                label='Track Payment'
+                state={['Yes', 'No']}
+                selectedState={trackPayment}
+                setSelectedState={setTrackPayment}
+            />
+        </>
+    )
+
     const renderForm = new Map([
         ['flexible', flexible],
-        ['fixed', <></>],
+        ['fixed', fixed],
     ]) satisfies Map<PaymentType, JSX.Element>
 
     return (
