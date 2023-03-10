@@ -3,6 +3,7 @@ import React, {
     Dispatch,
     SetStateAction,
     useCallback,
+    useEffect,
     useState,
 } from 'react'
 import { BsQuestionCircle } from 'react-icons/bs'
@@ -224,10 +225,20 @@ function PaymentForm({ props }: PaymentForm) {
 
                 return updatedFields
             })
+
         }
 
-        
     }
+
+    useEffect(() => {
+        const reducedAmount = installmentField
+
+        console.log({ reducedAmount })
+
+        //const balance = Number(amount) - reducedAmount
+
+        // setBalanceAmount(balance)
+    }, [installmentField])
 
     return (
         <div>
