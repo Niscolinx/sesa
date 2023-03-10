@@ -98,10 +98,8 @@ const Filter: FC = () => {
 
                 {renderFilters.get(filter as FilterKeys)}
 
-                <button className=' flex gap-2 items-center justify-start self-center  capitalize'>
-                    <p className=' bg-color-blue-1 text-white py-4 px-8 rounded-lg '>
-                        Create Payment
-                    </p>
+                <button className='bg-color-blue-1 text-white py-4 px-8 rounded-lg mr-auto'>
+                    <p className=' '>Create Payment</p>
                 </button>
             </main>
         </>
