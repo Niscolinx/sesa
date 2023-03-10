@@ -232,11 +232,7 @@ function PaymentForm({ props }: PaymentForm) {
         const reducedAmount = installmentField.reduce((prev, curr) => {
             const amount: number = parseFloat(curr.amount.replace(',', '')) + prev
 
-            console.log(
-                { amount, prev },
-                parseFloat(curr.amount.replace(',', '')),
-                curr.amount
-            )
+        
 
             if (isNaN(amount)) {
                 return prev
@@ -248,7 +244,6 @@ function PaymentForm({ props }: PaymentForm) {
 
        
         const balance = parseInt(amount.replace(',', '')) - reducedAmount
-        console.log({reducedAmount}, parseInt(amount.replace(',', '')), balance)
 
         setBalanceAmount(balance <= 0 ? 0 : balance)
     }, [installmentField, amount])
