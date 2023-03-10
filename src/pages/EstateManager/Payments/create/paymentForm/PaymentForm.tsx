@@ -163,7 +163,7 @@ function PaymentForm({ props }: PaymentForm) {
                     >
                         {Array.from({ length: installmentCount }, (_, i) => (
                             <>
-                                <div className='grid gap-4 relative  '>
+                                <div className='grid gap-4 relative '>
                                     <label
                                         htmlFor='firstName'
                                         className='text-[1.4rem] font-medium'
