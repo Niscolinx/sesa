@@ -145,7 +145,9 @@ function PaymentForm({ props }: PaymentForm) {
                 Add Payment ( Step 1 of 2)
             </p>
             {paymentType === 'fixed' && paymentPlan === 'installment' ? (
-                <></>
+                <>
+                <p>Installment 1</p>
+                </>
             ) : (
                 <form
                     onSubmit={handleSubmit}
