@@ -4,8 +4,10 @@ import HouseholdFilter from './HouseholdFilter'
 
 const Filter: FC = () => {
     type FilterKeys = 'Households' | 'Residents'
-    
-    const [filter, setFilter] = useState<FilterKeys | string | null>('Households')
+
+    const [filter, setFilter] = useState<FilterKeys | string | null>(
+        'Households'
+    )
 
     const filterKeys = ['Households', 'Residents'] satisfies FilterKeys[]
 
@@ -29,7 +31,7 @@ const Filter: FC = () => {
                 />
             </div>
 
-            {renderFilters.get(filter)}
+            {renderFilters.get(filter as FilterKeys)}
         </main>
     )
 }
