@@ -27,12 +27,7 @@ function PaymentForm({ props }: PaymentForm) {
 
     const flexible = (
         <>
-            <Select
-                label='Payment Type'
-                state={['fixed', 'flexible'] satisfies PaymentType[]}
-                selectedState={paymentType}
-                setSelectedState={setPaymentType}
-            />
+           
 
             <div>
                 <label htmlFor='amount' className='text-[1.4rem] font-medium'>
@@ -100,6 +95,12 @@ function PaymentForm({ props }: PaymentForm) {
                     className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                 />
             </div>
+            <Select
+                label='Payment Type'
+                state={['fixed', 'flexible'] satisfies PaymentType[]}
+                selectedState={paymentType}
+                setSelectedState={setPaymentType}
+            />
         </form>
     )
 }
