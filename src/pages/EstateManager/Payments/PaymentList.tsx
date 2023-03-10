@@ -224,15 +224,12 @@ const PaymentList: FC<IPaymentList> = ({ closePaymentDialog }) => {
                                         }) => {
                                             return (
                                                 <div className='grid justify-between border-b grid-cols-6 gap-8 py-4'>
-                                                    <p className='flex items-center gap-4'>
-                                                        <input
-                                                            type='checkbox'
-                                                            className='cursor-pointer'
-                                                        />
+                                                    <p>
+                                                       
 
-                                                        <span>
+                                                        <>
                                                             {propertyCode}
-                                                        </span>
+                                                        </>
                                                     </p>
                                                     <p className='flex items-center gap-2'>
                                                         <span>
