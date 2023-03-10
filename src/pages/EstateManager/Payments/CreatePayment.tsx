@@ -12,16 +12,13 @@ import {
     International_PassPort,
 } from '../../SecurityCompany/dashboard/company/AddSecurity/Inputs'
 
-
 export type PaymentType = 'fixed' | 'flexible'
 
 const CreatePayment = () => {
     const [selectedGender, setSelectedGender] = useState<string | null>(null)
     const [isValidated, setIsValidated] = useState(false)
 
-    const [paymentType, setPaymentType] = useState<
-        PaymentType
-    >('fixed')
+    const [paymentType, setPaymentType] = useState<PaymentType>('fixed')
 
     const [photoUrl, setPhotoUrl] = useState('')
 
@@ -36,9 +33,6 @@ const CreatePayment = () => {
         e.preventDefault()
     }
 
-
- 
-
     const renderPaymentType = new Map([
         ['Phone Number', <PhoneNumber />],
         ['BVN Number', <BVN_Number />],
@@ -47,15 +41,11 @@ const CreatePayment = () => {
         ['International Passport', <International_PassPort />],
     ]) satisfies Map<PaymentType, JSX.Element>
 
-  
-
     return (
         <>
             <ToastContainer />
 
-           
             <div className='grid p-8 bg-white h-[80vh] items-baseline overflow-y-scroll rounded-lg'>
-              
                 <form
                     onSubmit={handleSubmit}
                     className='grid max-w-[84rem] gap-16 mt-12'
@@ -204,11 +194,7 @@ const CreatePayment = () => {
                         )}
                     </div>
 
-                    <button
-                        className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
-                        style={{ justifySelf: 'start' }}
-                    >
-                        
+                    <button className='btn text-white bg-color-blue-1 py-4 px-16 rounded-lg w-[15rem]'>
                         Next
                     </button>
                 </form>
