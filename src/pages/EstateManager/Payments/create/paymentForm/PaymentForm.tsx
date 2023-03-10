@@ -19,6 +19,7 @@ function PaymentForm({ props }: PaymentForm) {
     )
     const [trackPayment, setTrackPayment] = useState<string | null>(null)
     const [amount, setAmount] = useState(0)
+    const [installmentCount, setInstallmentCount] = useState(1)
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
@@ -209,6 +210,12 @@ function PaymentForm({ props }: PaymentForm) {
                     <p className='text-[1.4rem] font-light text-gray-400 mt-4'>
                         Max. of 12 installments
                     </p>
+                    <button className='border border-color-blue btn'>
+                        <img src="/img/add_circle.svg" alt="" />
+                        <div>
+                        <p>Add Another Installment</p>
+                        </div>
+                    </button>
                 </>
             ) : (
                 <form
