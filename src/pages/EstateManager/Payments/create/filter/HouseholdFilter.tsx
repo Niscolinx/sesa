@@ -143,114 +143,108 @@ const HouseholdFilter: FC = () => {
         })
     }
 
-
     return (
-        <main className='grid gap-9'>
-           
-            <section className='bg-color-white rounded-lg overflow-scroll max-h-[80vh]'>
-                    <div className='grid'>
-                        <div className='grid justify-between text-color-dark-1 bg-gray-100 p-8 grid-cols-6 gap-6 items-center capitalize'>
-                            <p>Property Code</p>
-                            <p>Address</p>
-                            <p>Property Category</p>
-                            <p>Property Name</p>
-                            <p>Property Type</p>
-                            <p>Tenancy Type</p>
-                        </div>
+        <main className='bg-color-white rounded-lg overflow-scroll max-h-[80vh]'>
+            <div className='grid'>
+                <div className='grid justify-between text-color-dark-1 bg-gray-100 p-8 grid-cols-6 gap-6 items-center capitalize'>
+                    <p>Property Code</p>
+                    <p>Address</p>
+                    <p>Property Category</p>
+                    <p>Property Name</p>
+                    <p>Property Type</p>
+                    <p>Tenancy Type</p>
+                </div>
 
-                        <div className='grid gap-8 mt-8 p-8'>
-                            {slicedPages && slicedPages.length > 0 ? (
-                                React.Children.toArray(
-                                    slicedPages[paginate.index].map(
-                                        ({
-                                            id,
-                                            propertyCode,
-                                            propertyName,
-                                            address,
-                                            tenancyType,
-                                            propertyType,
-                                            propertyCategory,
-                                        }) => {
-                                            return (
-                                                <div className='grid justify-between border-b grid-cols-6 gap-8 py-4 whitespace-nowrap text-ellipsis'>
-                                                    <p>{propertyCode}</p>
-                                                    <p>{address}</p>
-                                                    <p>{propertyCategory}</p>
-                                                    <p>{propertyName}</p>
-                                                    <p>{propertyType}</p>
-                                                    <p>{tenancyType}</p>
-                                                </div>
-                                            )
-                                        }
-                                    )
-                                )
-                            ) : (
-                                <div>
-                                    <div className='relative'>
-                                        <div className='absolute w-full grid place-content-center'>
-                                            <CgSpinnerTwo className='animate-spin text-[#0660FE] text-4xl' />
+                <div className='grid gap-8 mt-8 p-8'>
+                    {slicedPages && slicedPages.length > 0 ? (
+                        React.Children.toArray(
+                            slicedPages[paginate.index].map(
+                                ({
+                                    id,
+                                    propertyCode,
+                                    propertyName,
+                                    address,
+                                    tenancyType,
+                                    propertyType,
+                                    propertyCategory,
+                                }) => {
+                                    return (
+                                        <div className='grid justify-between border-b grid-cols-6 gap-8 py-4 whitespace-nowrap text-ellipsis'>
+                                            <p>{propertyCode}</p>
+                                            <p>{address}</p>
+                                            <p>{propertyCategory}</p>
+                                            <p>{propertyName}</p>
+                                            <p>{propertyType}</p>
+                                            <p>{tenancyType}</p>
                                         </div>
-                                    </div>
+                                    )
+                                }
+                            )
+                        )
+                    ) : (
+                        <div>
+                            <div className='relative'>
+                                <div className='absolute w-full grid place-content-center'>
+                                    <CgSpinnerTwo className='animate-spin text-[#0660FE] text-4xl' />
                                 </div>
-                            )}
+                            </div>
                         </div>
-                    </div>
-                    <footer className='flex items-center p-4 mt-4 bg-color-white rounded-lg'>
-                        <div className='flex gap-8 items-center'>
-                            <p>View</p>
-                            <select
-                                name=''
-                                id=''
-                                className='flex items-center border px-4 rounded-lg outline-none cursor-pointer'
-                                onChange={handleItemsPerPage}
+                    )}
+                </div>
+            </div>
+            <footer className='flex items-center p-4 mt-4 bg-color-white rounded-lg'>
+                <div className='flex gap-8 items-center'>
+                    <p>View</p>
+                    <select
+                        name=''
+                        id=''
+                        className='flex items-center border px-4 rounded-lg outline-none cursor-pointer'
+                        onChange={handleItemsPerPage}
+                    >
+                        {itemsPerPageArr.map((item, index) => (
+                            <option
+                                value={item}
+                                key={index}
+                                selected={item === itemsPerPage}
+                                className='capitalize cursor-pointer bg-white'
                             >
-                                {itemsPerPageArr.map((item, index) => (
-                                    <option
-                                        value={item}
-                                        key={index}
-                                        selected={item === itemsPerPage}
-                                        className='capitalize cursor-pointer bg-white'
+                                {item}
+                            </option>
+                        ))}
+                    </select>
+                    <p className='text'>List per page</p>
+                </div>
+                <ul className='flex items-center gap-5 ml-10'>
+                    <HiOutlineChevronLeft
+                        onClick={handlePrev}
+                        className='cursor-pointer'
+                    />
+
+                    {slicedPages?.map((item, index) => {
+                        return (
+                            <li key={index}>
+                                {index + 1 === currentPage ? (
+                                    <span className='bg-color-primary text-white grid place-content-center w-[3rem] h-[3rem] cursor-pointer'>
+                                        {index + 1}
+                                    </span>
+                                ) : (
+                                    <span
+                                        className='text-color-primary bg-white grid place-content-center border w-[3rem] h-[3rem] cursor-pointer'
+                                        onClick={(e) => jumpToPage(e, index)}
                                     >
-                                        {item}
-                                    </option>
-                                ))}
-                            </select>
-                            <p className='text'>List per page</p>
-                        </div>
-                        <ul className='flex items-center gap-5 ml-10'>
-                            <HiOutlineChevronLeft
-                                onClick={handlePrev}
-                                className='cursor-pointer'
-                            />
+                                        {index + 1}
+                                    </span>
+                                )}
+                            </li>
+                        )
+                    })}
 
-                            {slicedPages?.map((item, index) => {
-                                return (
-                                    <li key={index}>
-                                        {index + 1 === currentPage ? (
-                                            <span className='bg-color-primary text-white grid place-content-center w-[3rem] h-[3rem] cursor-pointer'>
-                                                {index + 1}
-                                            </span>
-                                        ) : (
-                                            <span
-                                                className='text-color-primary bg-white grid place-content-center border w-[3rem] h-[3rem] cursor-pointer'
-                                                onClick={(e) =>
-                                                    jumpToPage(e, index)
-                                                }
-                                            >
-                                                {index + 1}
-                                            </span>
-                                        )}
-                                    </li>
-                                )
-                            })}
-
-                            <HiOutlineChevronRight
-                                onClick={handleNext}
-                                className='cursor-pointer'
-                            />
-                        </ul>
-                    </footer>
-            </section>
+                    <HiOutlineChevronRight
+                        onClick={handleNext}
+                        className='cursor-pointer'
+                    />
+                </ul>
+            </footer>
         </main>
     )
 }
