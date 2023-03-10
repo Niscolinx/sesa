@@ -122,7 +122,7 @@ function PaymentForm({ props }: PaymentForm) {
                 />
             </div>
 
-            <div className='grid justify-items-start gap-4'>
+            <div className='grid justify-items-start gap-4 content-center  self-end'>
                 <p className=' font-medium flex items-center gap-2 text-[#043FA7]'>
                     Track Payment{' '}
                     <span className='text-[#043FA7]'>
