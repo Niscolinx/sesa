@@ -299,7 +299,7 @@ function PaymentForm({ props }: PaymentForm) {
                         </div>
                     </button>
 
-                    <div>
+                    <div className='mt-[5rem]'>
                         <p>
                             <span>Total Amount:</span> <span>{amount}</span>
                         </p>
