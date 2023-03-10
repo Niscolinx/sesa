@@ -174,7 +174,7 @@ const HouseholdFilter: FC = () => {
                             <p>Property Category</p>
                             <p>Property Name</p>
                             <p>Property Type</p>
-                            <p></p>
+                            <p>Tenancy Type</p>
                         </div>
 
                         <div className='grid gap-8 mt-8 p-8'>
