@@ -8,13 +8,13 @@ const Filter: FC = () => {
 
     const [filter, setFilter] = useState<FilterKeys | string | null>(
         'Households'
-    ) 
+    )
 
     const filterKeys = ['Households', 'Residents'] satisfies FilterKeys[]
 
     const renderFilters = new Map([
         ['Households', <HouseholdFilter />],
-        ['Residents', <ResidentFilter/>],
+        ['Residents', <ResidentFilter />],
     ]) satisfies Map<FilterKeys, JSX.Element>
 
     return (
@@ -30,6 +30,10 @@ const Filter: FC = () => {
                     setSelectedState={setFilter}
                     placeholder='Households'
                 />
+                <p className='flex items-center gap-2'>
+                    <span>NB: All alphas are denoted with the icon </span>
+                    <img src='/img/alpha.svg' alt='' />
+                </p>
             </div>
 
             {renderFilters.get(filter as FilterKeys)}
