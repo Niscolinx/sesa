@@ -155,7 +155,7 @@ const HouseholdFilter: FC = () => {
             <section className='bg-color-white rounded-lg border overflow-scroll max-h-[80vh]'>
                 <div className='grid text-[1.6rem]'>
                     <div className='w-[20rem]'>
-                        <p className='font-Satoshi-Medium text-[2rem]'> </p>
+                        <p className='font-Satoshi-Medium text-[2rem]'> Filter Selection </p>
                             <Select
                                 state={['Households', 'residents']}
                                 selectedState={filter}
