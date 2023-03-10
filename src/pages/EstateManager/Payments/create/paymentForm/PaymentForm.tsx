@@ -237,6 +237,13 @@ function PaymentForm({ props }: PaymentForm) {
                 parseInt(curr.amount.replace(',', '')),
                 curr.amount
             )
+           
+            if(isNaN(amount)){
+                return prev
+            }
+
+            console.log('hlsfdfdsfsdf')
+            
             return amount
 
         }, 0)
