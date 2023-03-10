@@ -32,12 +32,12 @@ const ViewPayment = () => {
     type Trend = 'This Week' | 'This Month' | 'This Year'
 
     const trend: Array<Trend> = ['This Week', 'This Month', 'This Year']
+    const installments = ['Installment 1', 'Installment 2', 'Installment 3', 'Installment 4', 'Installment 5']
 
     const [toggleMenu, setToggleMenu] = useState(false)
     const [selectedTrend, setSelectedTrend] = useState<Trend>('This Week')
     const [toggleInstallment, setToggleInstallment] = useState(false)
     const [installmentPlan, setInstallmentPlan] = useState('Installment 1')
-    const [isWithdrawal, setIsWithdrawal] = useState(true)
 
     const menuToggler = () => setToggleMenu(!toggleMenu)
     const installmentToggler = () => setToggleInstallment(!toggleInstallment)
@@ -348,9 +348,9 @@ const ViewPayment = () => {
                             <div className='relative flex items-center w-[12rem]'>
                                 <p
                                     className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer'
-                                    onClick={menuToggler}
+                                    onClick={installmentToggler}
                                 >
-                                    {selectedTrend}
+                                    {installmentPlan}
                                 </p>
                                 {toggleMenu ? (
                                     <GrUp className='absolute right-4' />
@@ -359,14 +359,14 @@ const ViewPayment = () => {
                                 )}
                             </div>
 
-                            {toggleMenu && (
+                            {toggleInstallment && (
                                 <div className='absolute top-[8rem]  left-0 border border-color-primary-light  bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
-                                    {trend.map((item, index) => (
+                                    {installments.map((item, index) => (
                                         <p
                                             className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
                                             key={index}
                                             onClick={() =>
-                                                handleSelectedTrend(item)
+                                                handleSelectedInstallment(item)
                                             }
                                         >
                                             {item}
