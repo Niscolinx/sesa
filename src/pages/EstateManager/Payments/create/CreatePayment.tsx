@@ -65,13 +65,14 @@ const CreatePayment = () => {
                             className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                         />
                     </div>
-                    
+
                      <Select
                         label='Gender'
                         state={['Male', 'Female']}
                         selectedState={selectedGender}
                         setSelectedState={setSelectedGender}
                     />
+                    <div>
                         <label
                             htmlFor='firstName'
                             className='text-[1.4rem] font-medium'
