@@ -202,7 +202,9 @@ function PaymentForm({ props }: PaymentForm) {
             })
         }
 
-        const parsedValue = parseFloat(value.replace(/,/g, ''))
+    
+
+        const parsedValue = Number(value.replace(/,/g, ''))
 
         if (!isNaN(parsedValue) && isFinite(parsedValue)) {
             const transformedValue = parsedValue.toLocaleString()
@@ -213,7 +215,7 @@ function PaymentForm({ props }: PaymentForm) {
 
                 updatedFields[idx] = {
                     ...updatedFields[idx],
-                    [name]: transformedValue === '' ? '' : value,
+                    [name]:  transformedValue === '0' ? '' : transformedValue,
                 }
 
                 return updatedFields
