@@ -209,9 +209,6 @@ function PaymentForm({ props }: PaymentForm) {
             </p>
             {paymentType === 'fixed' && paymentPlan === 'installment' ? (
                 <div>
-                    <p className='text-color-blue font-semibold'>
-                        Installment 1
-                    </p>
                     <div
                         className='grid gap-8 mt-16'
                         style={{
@@ -221,71 +218,77 @@ function PaymentForm({ props }: PaymentForm) {
                         }}
                     >
                         {installmentField.map((item, idx) => (
-                            <div
-                                key={idx}
-                                className='contents'
-                                onChange={(e: ChangeEvent<HTMLInputElement>) =>
-                                    installmentChangeHandler(e, idx)
-                                }
-                            >
-                                <div className='grid gap-4 relative '>
-                                    <label
-                                        htmlFor='amount'
-                                        className='text-[1.4rem] font-medium'
-                                    >
-                                        Installment Amount
-                                    </label>
-                                    <div className='relative rounded-lg border border-color-grey outline-none flex items-center pl-4'>
+                            <>
+                                <p className='text-color-blue font-semibold'>
+                                    Installment 1
+                                </p>
+
+                                <div
+                                    key={idx}
+                                    className='contents'
+                                    onChange={(
+                                        e: ChangeEvent<HTMLInputElement>
+                                    ) => installmentChangeHandler(e, idx)}
+                                >
+                                    <div className='grid gap-4 relative '>
+                                        <label
+                                            htmlFor='amount'
+                                            className='text-[1.4rem] font-medium'
+                                        >
+                                            Installment Amount
+                                        </label>
+                                        <div className='relative rounded-lg border border-color-grey outline-none flex items-center pl-4'>
+                                            <input
+                                                type='number'
+                                                required
+                                                id='amount'
+                                                value={
+                                                    item.amount <= 0
+                                                        ? ''
+                                                        : item.amount
+                                                }
+                                                name='amount'
+                                                className='w-full border-none outline-none py-4 px-4 pl-5'
+                                            />
+                                            <img
+                                                src='/icons/Naira.svg'
+                                                alt=''
+                                                className='absolute'
+                                            />
+                                        </div>
+                                    </div>
+                                    <div className='grid gap-4'>
+                                        <label
+                                            htmlFor='startDate'
+                                            className='text-[1.4rem] font-medium'
+                                        >
+                                            Start Date
+                                        </label>
                                         <input
-                                            type='number'
+                                            type='date'
                                             required
-                                            id='amount'
-                                            value={
-                                                item.amount <= 0
-                                                    ? ''
-                                                    : item.amount
-                                            }
-                                            name='amount'
-                                            className='w-full border-none outline-none py-4 px-4 pl-5'
+                                            name='startDate'
+                                            id='startDate'
+                                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                                         />
-                                        <img
-                                            src='/icons/Naira.svg'
-                                            alt=''
-                                            className='absolute'
+                                    </div>
+                                    <div className='grid gap-4'>
+                                        <label
+                                            htmlFor='endDate'
+                                            className='text-[1.4rem] font-medium'
+                                        >
+                                            End Date
+                                        </label>
+                                        <input
+                                            type='date'
+                                            required
+                                            name='endDate'
+                                            id='endDate'
+                                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                                         />
                                     </div>
                                 </div>
-                                <div className='grid gap-4'>
-                                    <label
-                                        htmlFor='startDate'
-                                        className='text-[1.4rem] font-medium'
-                                    >
-                                        Start Date
-                                    </label>
-                                    <input
-                                        type='date'
-                                        required
-                                        name='startDate'
-                                        id='startDate'
-                                        className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                                    />
-                                </div>
-                                <div className='grid gap-4'>
-                                    <label
-                                        htmlFor='endDate'
-                                        className='text-[1.4rem] font-medium'
-                                    >
-                                        End Date
-                                    </label>
-                                    <input
-                                        type='date'
-                                        required
-                                        name='endDate'
-                                        id='endDate'
-                                        className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                                    />
-                                </div>
-                            </div>
+                            </>
                         ))}
                     </div>
                     <p className='text-[1.4rem] font-light text-gray-400 mt-4'>
