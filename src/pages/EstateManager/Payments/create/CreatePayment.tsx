@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import Filter from './filter/Filter'
 import HouseholdFilter from './filter/HouseholdFilter'
-import FlexiblePaymentType from './paymentType/flexible/FlexiblePaymentType'
+import FlexiblePaymentType from './paymentType/PaymentType'
 
 export type PaymentType = 'fixed' | 'flexible'
 export type PaymentPlan = 'full' | 'installment'
@@ -20,8 +20,6 @@ const CreatePayment = () => {
         }
     }
 
-  
-
     const displayStep = new Map([
         [
             'initial',
@@ -38,7 +36,6 @@ const CreatePayment = () => {
 
     return (
         <>
-
             <div className='grid p-8 bg-white items-baseline  rounded-lg'>
                 {displayStep.get(step)}
             </div>

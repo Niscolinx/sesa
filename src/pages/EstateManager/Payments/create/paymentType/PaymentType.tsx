@@ -1,10 +1,8 @@
 import React, { Dispatch, SetStateAction, useState } from 'react'
-import { Select } from '../../../../../../components/SuperAdmin/UI/Select'
-import { PaymentPlan, PaymentType } from '../../CreatePayment'
+import { Select } from '../../../../../components/SuperAdmin/UI/Select'
+import { PaymentPlan, PaymentType } from '../CreatePayment'
 
-
-
-interface FlexiblePaymentType {
+interface PaymentForm {
     props: {
         handleNext: () => void
         paymentType: PaymentType | string | null
@@ -12,7 +10,7 @@ interface FlexiblePaymentType {
     }
 }
 
-function FlexiblePaymentType({ props }: FlexiblePaymentType) {
+function PaymentForm({ props }: PaymentForm) {
     const { handleNext, paymentType, setPaymentType } = props
 
     const [paymentPlan, setPaymentPlan] = useState<string | null | PaymentPlan>(
@@ -95,4 +93,4 @@ function FlexiblePaymentType({ props }: FlexiblePaymentType) {
     )
 }
 
-export default FlexiblePaymentType
+export default PaymentForm
