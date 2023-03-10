@@ -10,6 +10,11 @@ interface PaymentForm {
     }
 }
 
+interface InstallmentField {
+    amount: number,
+    startDate: string,
+    endDate: string
+}
 function PaymentForm({ props }: PaymentForm) {
     const { paymentType, setPaymentType } = props
 
@@ -19,7 +24,7 @@ function PaymentForm({ props }: PaymentForm) {
     )
     const [trackPayment, setTrackPayment] = useState<string | null>(null)
     const [amount, setAmount] = useState(0)
-    const [installmentCount, setInstallmentCount] = useState(1)
+    const [installmentField, setInstallmentField] = useState<InstallmentField[]>([])
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
