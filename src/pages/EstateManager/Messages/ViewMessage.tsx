@@ -5,7 +5,9 @@ import { Message } from './RenderMessages'
 
 const ViewMessage = () => {
     const location = useLocation()
-
+    
+    const messageData = location.state || {}
+    
     const {
         id,
         date,
@@ -15,7 +17,7 @@ const ViewMessage = () => {
         transmissionChannel,
         transmissionDate,
         recipients,
-    } = location.state as Message
+    } = messageData as Message
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
