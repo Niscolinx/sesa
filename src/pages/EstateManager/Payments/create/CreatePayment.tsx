@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { TfiArrowCircleLeft, TfiArrowCircleRight } from 'react-icons/tfi'
 import Filter from './filter/Filter'
-import FlexiblePaymentType from './paymentForm/PaymentForm'
+import PaymentForm from './paymentForm/PaymentForm'
 
 export type PaymentType = 'fixed' | 'flexible'
 export type PaymentPlan = 'full' | 'installment'
@@ -18,7 +18,7 @@ const CreatePayment = () => {
     const displayStep = new Map([
         [
             'initial',
-            <FlexiblePaymentType
+            <PaymentForm
                 props={{
                     paymentType,
                     setPaymentType,
@@ -31,6 +31,7 @@ const CreatePayment = () => {
     return (
         <>
             <div className='grid p-8 bg-white items-baseline rounded-lg min-h-[90vh] relative'>
+              
                 {displayStep.get(step)}
 
                 <div className='absolute right-0 bottom-0 m-16 flex items-center gap-16'>
