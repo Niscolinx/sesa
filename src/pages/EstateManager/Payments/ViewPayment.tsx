@@ -89,10 +89,11 @@ const ViewPayment = () => {
                     </div>
                 </section>
             </dialog>
-            <main>
-                <section className=''>
+            <main className='my-[5rem]'>
                     <div className='flex justify-between'>
-                        <p className='text-[2rem] font-Satoshi-Medium'>{paymentName}</p>
+                        <p className='text-[2rem] font-Satoshi-Medium'>
+                            {paymentName}
+                        </p>
                         <div className='flex gap-8'>
                             <button
                                 className='border border-color-blue-1 text-color-blue-1 px-16 py-4 flex items-center  rounded-lg gap-4 '
@@ -113,7 +114,7 @@ const ViewPayment = () => {
                             </button>
                         </div>
                     </div>
-                    <div className='grid relative p-16 bg-white rounded-lg gap-2'>
+                    <div className='grid relative p-16 bg-white rounded-lg gap-2 '>
                         <section className='grid gap-4 capitalize'>
                             <div className='flex justify-between gap-4 '>
                                 <div className='grid grid-cols-2 items-center gap-4 justify-start w-[25rem] whitespace-nowrap'>
@@ -253,7 +254,6 @@ const ViewPayment = () => {
                             </div>
                         </section>
                     </div>
-                </section>
             </main>
         </>
     )
