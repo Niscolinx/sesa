@@ -11,10 +11,9 @@ interface PaymentForm {
     }
 }
 
-
 function PaymentForm({ props }: PaymentForm) {
     const { handleNext, paymentType, setPaymentType } = props
-    
+
     const [isTrackPayment, setIsTrackPayment] = useState(false)
     const [paymentPlan, setPaymentPlan] = useState<string | null | PaymentPlan>(
         null
@@ -112,14 +111,29 @@ function PaymentForm({ props }: PaymentForm) {
                 setSelectedState={setPaymentPlan}
             />
 
-            <div className='flex items-center justify-between'>
-                <p className='text-[2rem] font-bold flex items-center gap-2'>
+            <div className='grid gap-4'>
+                <label htmlFor='amount' className='text-[1.4rem] font-medium'>
+                    Deadline
+                </label>
+                <input
+                    type='date'
+                    required
+                
+                    className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                />
+            </div>
+
+            <div className='grid justify-items-start gap-4'>
+                <p className=' font-medium flex items-center gap-2 text-[#043FA7]'>
                     Track Payment{' '}
                     <span className='text-[#043FA7]'>
                         <BsQuestionCircle />
                     </span>
                 </p>
-                <div onClick={() => setIsTrackPayment(!isTrackPayment)} className='cursor-pointer'>
+                <div
+                    onClick={() => setIsTrackPayment(!isTrackPayment)}
+                    className='cursor-pointer'
+                >
                     {isTrackPayment ? (
                         <img src='/icons/admins/switchOn.svg' alt='' />
                     ) : (
