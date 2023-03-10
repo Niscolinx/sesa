@@ -260,7 +260,7 @@ function AddAccessCard() {
                                     <div className='grid gap-4 min-w-[70rem]'>
                                         <div className='grid grid-cols-2 items-center justify-start '>
                                             <p className='font-Satoshi-Light'>
-                                                accessCard Serial Number :
+                                                Access Card Serial Number :
                                             </p>
                                             <p>{accessCardNumber}</p>
                                         </div>
