@@ -42,10 +42,15 @@ function PaymentForm({ props }: PaymentForm) {
 
         const value = e.target.value
         
-        const transformedValue = Number(value).toLocaleString()
+        
+        const parsedValue = parseFloat(value.replace(/,/g, ''))
 
-        setAmount(transformedValue)
+        if(!isNaN(parsedValue) && isFinite(parsedValue)){
 
+            const transformedValue = parsedValue.toLocaleString()
+            setAmount(transformedValue)
+            
+        }
     }
 
     const flexible = (
