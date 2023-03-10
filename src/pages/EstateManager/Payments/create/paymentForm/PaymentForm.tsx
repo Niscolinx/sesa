@@ -161,7 +161,7 @@ function PaymentForm({ props }: PaymentForm) {
                                 rowGap: '4rem'
                         }}
                     >
-                        {installmentCount.map((_, i) => (
+                        {Array.from({ length: installmentCount }, (_, i) => (
                             <>
                                 <div className='grid gap-4 relative  '>
                                     <label
@@ -220,7 +220,7 @@ function PaymentForm({ props }: PaymentForm) {
                     </p>
                     <button
                         className='border border-color-blue btn text-color-blue flex items-center gap-4 mt-[5rem] rounded-lg'
-                        onClick={() => addAnotherInstallmentHandler}
+                        onClick={addAnotherInstallmentHandler}
                     >
                         <img src='/img/add_circle.svg' alt='' />
                         <div className='text-left'>
