@@ -13,13 +13,11 @@ interface FlexiblePaymentType {
 function FlexiblePaymentType({ props }: FlexiblePaymentType) {
     const { handleNext, paymentType, setPaymentType } = props
 
-    
     const [paymentPlan, setPaymentPlan] = useState<string | null | PaymentPlan>(
         null
     )
     const [trackPayment, setTrackPayment] = useState<string | null>(null)
     const [amount, setAmount] = useState(0)
-
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
