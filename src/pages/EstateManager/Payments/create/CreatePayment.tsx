@@ -13,8 +13,6 @@ const CreatePayment = () => {
 
     const [paymentType, setPaymentType] = useState<PaymentType>('fixed')
 
-   
-
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
     }
