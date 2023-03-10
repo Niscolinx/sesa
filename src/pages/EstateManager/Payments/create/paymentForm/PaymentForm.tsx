@@ -236,7 +236,7 @@ function PaymentForm({ props }: PaymentForm) {
 
     
 
-    setBalanceAmount(0)
+    
     return (
         <div>
             <p className='font-Satoshi-Medium text-[2rem] mb-10'>
