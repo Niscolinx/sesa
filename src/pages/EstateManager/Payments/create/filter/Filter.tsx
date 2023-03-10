@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FC, useEffect, useState } from 'react'
+import React, { FC, useState } from 'react'
 import { Select } from '../../../../../components/SuperAdmin/UI/Select'
 
 
