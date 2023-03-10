@@ -175,7 +175,7 @@ function PaymentForm({ props }: PaymentForm) {
                         }}
                     >
                         {installmentField.map((item, i) => (
-                            <form key={i} className='contents'>
+                            <Fragment key={i}>
                                 <div className='grid gap-4 relative '>
                                     <label
                                         htmlFor='firstName'
@@ -225,7 +225,7 @@ function PaymentForm({ props }: PaymentForm) {
                                         className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                                     />
                                 </div>
-                            </form>
+                            </Fragment>
                         ))}
                     </div>
                     <p className='text-[1.4rem] font-light text-gray-400 mt-4'>
