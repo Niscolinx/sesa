@@ -225,18 +225,18 @@ function PaymentForm({ props }: PaymentForm) {
                 return updatedFields
             })
         }
+
+     const reducedAmount = installmentField.reduce((prev, curr) => {
+         return prev + Number(curr.amount)
+     }, 0)
+
+     const balance = Number(amount) - reducedAmount
+     return balance
     }
 
-    const balanceAmountHandler = useCallback(() => {
-        const reducedAmount = installmentField.reduce((prev, curr) => {
-            return prev + Number(curr.amount)
-        }, 0)
+    
 
-        const balance = Number(amount) - reducedAmount
-        return balance
-    }, [])
-
-    setBalanceAmount(balanceAmountHandler)
+    setBalanceAmount(0)
     return (
         <div>
             <p className='font-Satoshi-Medium text-[2rem] mb-10'>
