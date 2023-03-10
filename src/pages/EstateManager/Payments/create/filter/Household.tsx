@@ -42,7 +42,7 @@ const PAYMENT: Payment[] = Array.from({
 
 const HouseholdFilter: FC = () => {
     const [fetchedPaymentData, setFetchedPaymentData] = useState<Payment[]>([])
-    const []
+    const [filter, setFilter] = useState<string | null>(null)
 
     useEffect(() => {
         setTimeout(() => {
