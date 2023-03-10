@@ -154,7 +154,7 @@ function PaymentForm({ props }: PaymentForm) {
                         Installment 1
                     </p>
                     <div
-                        className='grid gap-8 mt-16'
+                        className='grid gap-8 mt-16 mb-10'
                         style={{
                             gridTemplateColumns:
                                 ' repeat(auto-fit, minmax(30rem, 1fr))',
@@ -162,7 +162,7 @@ function PaymentForm({ props }: PaymentForm) {
                     >
                         {Array.from({ length: installmentCount }, (_, i) => (
                             <>
-                                <div className='grid gap-4 relative '>
+                                <div className='grid gap-4 relative  '>
                                     <label
                                         htmlFor='firstName'
                                         className='text-[1.4rem] font-medium'
