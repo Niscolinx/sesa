@@ -317,7 +317,7 @@ function PaymentForm({ props }: PaymentForm) {
                                     <span>
                                         <img src='/icons/Naira.svg' alt='' />
                                     </span>{' '}
-                                    <span>{item.amount}</span>
+                                    <span>{item.amount.toLocaleString()}</span>
                                 </p>
                             </div>
                         ))}
