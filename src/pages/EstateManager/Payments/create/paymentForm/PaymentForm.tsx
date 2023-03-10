@@ -200,7 +200,8 @@ function PaymentForm({ props }: PaymentForm) {
             return prev.filter((item, i) => {
                 return {
                     ...item,
-                    
+                    amount: 9,
+                    startDate: ''
                 }
             })
         })
