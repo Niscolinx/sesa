@@ -233,6 +233,7 @@ function PaymentForm({ props }: PaymentForm) {
     useEffect(() => {
         const reducedAmount = installmentField.forEach((item) => {
            const amount = parseInt(item.amount.replace(',', ''))
+           console.log({amount})
            return amount
         })
 
