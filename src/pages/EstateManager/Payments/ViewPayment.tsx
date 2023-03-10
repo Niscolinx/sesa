@@ -327,7 +327,7 @@ const ViewPayment = () => {
                         <WalletBarChart width={1000} />
                     </div>
                 </section>
-                <section className='mt-[5rem] grid bg-white p-8 rounded-2xl '>
+                <section className='grid bg-white p-8 rounded-2xl '>
                     <p className='flex items-center gap-2'>
                         <span className='font-Satoshi-Medium'>
                             Payment Status:{' '}
