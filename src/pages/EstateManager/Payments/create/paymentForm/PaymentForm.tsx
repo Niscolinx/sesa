@@ -231,11 +231,11 @@ function PaymentForm({ props }: PaymentForm) {
     }
 
     useEffect(() => {
-        const reducedAmount = installmentField.forEach((item) => {
-           const amount = parseInt(item.amount.replace(',', ''))
-           console.log({amount})
+        const reducedAmount = installmentField.reduce((prev, curr) => {
+           const amount = parseInt(curr.amount.replace(',', ''))
+           console.log({amount, prev, current.amount})
            return amount
-        })
+        }, 0)
 
         
 
