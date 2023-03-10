@@ -187,7 +187,7 @@ function PaymentForm({ props }: PaymentForm) {
         // setInstallmentCount((prev) => prev + 1)
     }
 
-    const installmentChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
+    const installmentChangeHandler = (e: ChangeEvent<HTMLInputElement>, idx: number) => {
         const {name, value} = e.target
 
         console.log({name, value})
@@ -211,11 +211,11 @@ function PaymentForm({ props }: PaymentForm) {
                             rowGap: '4rem',
                         }}
                     >
-                        {installmentField.map((item, i) => (
+                        {installmentField.map((item, idx) => (
                             <div
-                                key={i}
+                                key={idx}
                                 className='contents'
-                                onChange={() => installmentChangeHandler(i)}
+                                onChange={(e) => installmentChangeHandler(e, idx)}
                             >
                                 <div className='grid gap-4 relative '>
                                     <label
