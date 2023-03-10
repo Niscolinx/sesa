@@ -35,15 +35,10 @@ function PaymentForm({ props }: PaymentForm) {
         InstallmentField[]
     >([
         {
-            amount: 10,
+            amount: 0,
             startDate: '',
             endDate: '',
-        },
-        {
-            amount: 20,
-            startDate: '',
-            endDate: '',
-        },
+        }
     ])
 
     const handleSubmit = (e: React.FormEvent) => {
