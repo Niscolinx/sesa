@@ -237,9 +237,9 @@ function PaymentForm({ props }: PaymentForm) {
 
         
 
-        //const balance = Number(amount) - reducedAmount
+        const balance = Number(amount) - reducedAmount
 
-        // setBalanceAmount(balance)
+        setBalanceAmount(balance)
     }, [installmentField])
 
     return (
