@@ -19,9 +19,7 @@ function FlexiblePaymentType({ props }: FlexiblePaymentType) {
     const [trackPayment, setTrackPayment] = useState<string | null>(null)
     const [amount, setAmount] = useState(0)
 
-    const [paymentType, setPaymentType] = useState<PaymentType | string | null>(
-        null
-    )
+
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()

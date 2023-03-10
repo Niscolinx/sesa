@@ -25,8 +25,11 @@ const CreatePayment = () => {
     }
 
     const handleNext = () => {
+        console.log("clicked", paymentType)
         if (paymentType) {
+            console.log('sd')
             if ((paymentType as PaymentType) === 'flexible') {
+                console.log("clicked")
                 setStep('list')
             }
         }
