@@ -17,7 +17,6 @@ function FlexiblePaymentType({ props }: FlexiblePaymentType) {
     const [paymentPlan, setPaymentPlan] = useState<string | null | PaymentPlan>(
         null
     )
-    const [step, setStep] = useState('initial')
     const [trackPayment, setTrackPayment] = useState<string | null>(null)
     const [amount, setAmount] = useState(0)
 
