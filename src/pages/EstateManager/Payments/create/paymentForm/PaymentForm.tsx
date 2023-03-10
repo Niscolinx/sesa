@@ -1,4 +1,4 @@
-import React, { Dispatch, Fragment, SetStateAction, useState } from 'react'
+import React, { ChangeEvent, Dispatch, Fragment, SetStateAction, useState } from 'react'
 import { BsQuestionCircle } from 'react-icons/bs'
 import { Select } from '../../../../../components/SuperAdmin/UI/Select'
 import { PaymentPlan, PaymentType } from '../CreatePayment'
@@ -161,6 +161,10 @@ function PaymentForm({ props }: PaymentForm) {
     const addAnotherInstallmentHandler = () => {
         // setInstallmentCount((prev) => prev + 1)
     }
+
+    const amountHandler = (e: ChangeEvent<HTMLInputElement>) => {
+
+    }
     return (
         <div>
             <p className='font-semibold text-[2rem] mb-10'>
@@ -193,7 +197,8 @@ function PaymentForm({ props }: PaymentForm) {
                                             type='number'
                                             required
                                             id='amount'
-                                            value={item.amount}
+                                            value={item.amount <= 0 ? '' : amount}
+                                            onChange={amountHandler}
                                             className='w-full border-none outline-none py-4 px-4 pl-5'
                                         />
                                         <img
