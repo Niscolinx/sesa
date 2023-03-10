@@ -146,7 +146,7 @@ function PaymentForm({ props }: PaymentForm) {
                 Add Payment ( Step 1 of 2)
             </p>
             {paymentType === 'fixed' && paymentPlan === 'installment' ? (
-                <>
+                <div>
                     <p className='text-color-blue font-semibold'>
                         Installment 1
                     </p>
@@ -210,13 +210,16 @@ function PaymentForm({ props }: PaymentForm) {
                     <p className='text-[1.4rem] font-light text-gray-400 mt-4'>
                         Max. of 12 installments
                     </p>
-                    <button className='border border-color-blue btn'>
-                        <img src="/img/add_circle.svg" alt="" />
+                    <button className='border border-color-blue btn text-color-blue flex items-center gap-4'>
+                        <img src='/img/add_circle.svg' alt='' />
                         <div>
-                        <p>Add Another Installment</p>
+                            <p>Add Another Installment</p>
+                            <p className='text-[1.4rem] font-light mt-4'>
+                                Max. of 12 installments
+                            </p>
                         </div>
                     </button>
-                </>
+                </div>
             ) : (
                 <form
                     onSubmit={handleSubmit}
