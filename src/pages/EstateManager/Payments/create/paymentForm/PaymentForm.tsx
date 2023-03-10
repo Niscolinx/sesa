@@ -25,8 +25,55 @@ function PaymentForm({ props }: PaymentForm) {
         e.preventDefault()
     }
 
+    const flexible = (
+        <>
+            <Select
+                label='Payment Type'
+                state={['fixed', 'flexible'] satisfies PaymentType[]}
+                selectedState={paymentType}
+                setSelectedState={setPaymentType}
+            />
+
+            <div>
+                <label htmlFor='amount' className='text-[1.4rem] font-medium'>
+                    Amount
+                </label>
+                <input
+                    type='number'
+                    required
+                    id='amount'
+                    value={amount <= 0 ? '' : amount}
+                    onChange={(e) => setAmount(Number(e.target.value))}
+                    className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                />
+            </div>
+
+            <Select
+                label='Track Payment'
+                state={['Yes', 'No']}
+                selectedState={trackPayment}
+                setSelectedState={setTrackPayment}
+            />
+
+            <Select
+                label='Payment Plan'
+                state={['full', 'installment'] satisfies PaymentPlan[]}
+                selectedState={paymentPlan}
+                setSelectedState={setPaymentPlan}
+            />
+
+            <button
+                className='btn text-white bg-color-blue-1 py-4 px-16 rounded-lg w-[15rem] col-span-full mt-10 disabled:opacity-50 disabled:cursor-not-allowed'
+                onClick={() => handleNext()}
+                disabled={!paymentType}
+            >
+                Next
+            </button>
+        </>
+    )
+
     const renderForm = new Map([
-        ['flexible', <></>],
+        ['flexible', flexible],
         ['fixed', <></>],
     ]) satisfies Map<RenderForm, JSX.Element>
 
