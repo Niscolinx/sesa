@@ -145,7 +145,7 @@ const HouseholdFilter: FC = () => {
     }
 
     const downloadDocHandler = () => {
-        closePaymentDialog()
+        //closePaymentDialog()
     }
 
     return (
