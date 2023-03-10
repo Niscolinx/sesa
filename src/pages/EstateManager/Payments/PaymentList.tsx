@@ -35,11 +35,8 @@ interface IPaymentList {
 }
 
 const PaymentList: FC<IPaymentList> = ({ closePaymentDialog }) => {
-    const navigate = useNavigate()
 
-    const [fetchedPaymentData, setFetchedPaymentData] = useState<
-        Payment[]
-    >([])
+    const [fetchedPaymentData, setFetchedPaymentData] = useState<Payment[]>([])
 
     useEffect(() => {
         setTimeout(() => {
