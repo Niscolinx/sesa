@@ -194,11 +194,15 @@ function PaymentForm({ props }: PaymentForm) {
     ) => {
         const { name, value } = e.target
 
-        console.log({ name, value, idx })
 
         setInstallmentField((prev) => {
-            const updatedFields = [...prev];
-           updatedFields[idx] 
+            const updatedFields = [...prev]
+            updatedFields[idx] = {
+                ...updatedFields[idx],
+                [name]: value,
+            }
+
+            return updatedFields
         })
     }
     return (
