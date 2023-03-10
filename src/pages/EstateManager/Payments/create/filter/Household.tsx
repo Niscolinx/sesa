@@ -168,7 +168,7 @@ const HouseholdFilter: FC = () => {
                     </div>
 
                     <div className='grid'>
-                        <div className='grid justify-between text-color-dark-1 bg-gray-100 p-8 grid-cols-7 gap-6 items-center capitalize'>
+                        <div className='grid justify-between text-color-dark-1 bg-gray-100 p-8 grid-cols-6 gap-6 items-center capitalize'>
                             <p>Property Code</p>
                             <p>Address</p>
                             <p>Property Category</p>
@@ -191,7 +191,7 @@ const HouseholdFilter: FC = () => {
                                             propertyCategory,
                                         }) => {
                                             return (
-                                                <div className='grid justify-between border-b grid-cols-7 gap-8 py-4 whitespace-nowrap text-ellipsis'>
+                                                <div className='grid justify-between border-b grid-cols-6 gap-8 py-4 whitespace-nowrap text-ellipsis'>
                                                     <p>{propertyCode}</p>
                                                     <p>{address}</p>
                                                     <p>{propertyCategory}</p>
