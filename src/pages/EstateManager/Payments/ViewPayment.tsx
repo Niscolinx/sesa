@@ -35,9 +35,12 @@ const ViewPayment = () => {
 
     const [toggleMenu, setToggleMenu] = useState(false)
     const [selectedTrend, setSelectedTrend] = useState<Trend>('This Week')
+    const [toggleInstallment, setToggleInstallment] = useState(false)
+    const [installmentPlan, setInstallmentPlan] = useState('Installment 1')
     const [isWithdrawal, setIsWithdrawal] = useState(true)
 
     const menuToggler = () => setToggleMenu(!toggleMenu)
+    const installmentToggler = () => setToggleInstallment(!toggleInstallment)
 
     const handleSelectedTrend = (item: Trend) => {
         setSelectedTrend(item)
@@ -329,14 +332,47 @@ const ViewPayment = () => {
                 </section>
                 <section className='grid bg-white p-8 rounded-2xl '>
                     <div className='flex items-center gap-2 justify-between'>
-                        <p className='font-Satoshi-Medium'>
-                            Installment Info
-                        </p>{' '}
-                       
+                        <p className='font-Satoshi-Medium'>Installment Info</p>{' '}
+                        <div className='relative flex gap-4'>
+                            <button
+                                className='btn text-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
+                                onClick={() => openPaymentDialog()}
+                            >
+                                View Households
+                            </button>
+                            <div className='relative flex items-center w-[12rem]'>
+                                <p
+                                    className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer'
+                                    onClick={menuToggler}
+                                >
+                                    {selectedTrend}
+                                </p>
+                                {toggleMenu ? (
+                                    <GrUp className='absolute right-4' />
+                                ) : (
+                                    <GrDown className='absolute right-4' />
+                                )}
+                            </div>
+
+                            {toggleMenu && (
+                                <div className='absolute top-[8rem]  left-0 border border-color-primary-light  bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
+                                    {trend.map((item, index) => (
+                                        <p
+                                            className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
+                                            key={index}
+                                            onClick={() =>
+                                                handleSelectedTrend(item)
+                                            }
+                                        >
+                                            {item}
+                                        </p>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
                     </div>
 
                     <div className='grid gap-4 items-center '>
-                      
                         <div className='progressBar overflow-hidden '>
                             <progress
                                 className='progressBar__item'
