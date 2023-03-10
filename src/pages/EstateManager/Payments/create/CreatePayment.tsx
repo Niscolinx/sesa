@@ -34,9 +34,8 @@ const CreatePayment = () => {
 
     const handleNext = () => {
         if (paymentType) {
-
-                if(paymentType === '')
-        
+            if ((paymentType as PaymentType) === 'flexible') {
+            }
         }
     }
 
