@@ -338,7 +338,7 @@ function PaymentForm({ props }: PaymentForm) {
                                         <span className='text-color-blue-1 font-medium w-[10rem]'>
                                             Installment {idx + 1}:
                                         </span>
-                                        <p className='flex items-center font-semibold text-color-blue-1'>
+                                        <p className='flex items-center font-semibold '>
                                             <span>
                                                 <img
                                                     src='/icons/Naira.svg'
