@@ -44,6 +44,8 @@ function PaymentForm({ props }: PaymentForm) {
         
         const transformedValue = Number(value).toLocaleString()
 
+        setAmount(transformedValue)
+
     }
 
     const flexible = (
