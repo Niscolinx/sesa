@@ -140,11 +140,11 @@ function PaymentForm({ props }: PaymentForm) {
     ]) satisfies Map<PaymentType, JSX.Element>
 
     return (
-        <>
-            <p className='font-semibold text-[2rem]'>Add Payment ( Step 1 of 2)</p>
+        <div>
+            <p className='font-semibold text-[2rem] mb-10'>Add Payment ( Step 1 of 2)</p>
             <form
                 onSubmit={handleSubmit}
-                className='grid max-w-[84rem] gap-16 items-start content-start items-baseline'
+                className='grid max-w-[84rem] gap-16 items-start content-start capitalize'
                 style={{
                     gridTemplateColumns:
                         ' repeat(auto-fit, minmax(35rem, 1fr))',
@@ -173,7 +173,7 @@ function PaymentForm({ props }: PaymentForm) {
                 />
                 {renderForm.get(paymentType as PaymentType)}
             </form>
-        </>
+        </div>
     )
 }
 
