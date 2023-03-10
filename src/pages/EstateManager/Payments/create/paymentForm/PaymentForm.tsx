@@ -24,6 +24,7 @@ function PaymentForm({ props }: PaymentForm) {
     )
     const [trackPayment, setTrackPayment] = useState<string | null>(null)
     const [amount, setAmount] = useState('')
+    const [reducedAmount, setReducedAmount] = useState(Number(amount))
     const [installmentField, setInstallmentField] = useState<
         InstallmentField[]
     >([
@@ -220,13 +221,14 @@ function PaymentForm({ props }: PaymentForm) {
         }
     }
 
-    const balanceAmount = () => {
+    const balanceAmountHandler = () => {
 
         const reducedAmount = installmentField.reduce((prev, curr) => {
             return prev + Number(curr.amount)
         }, 0)
 
-        return Number(amount) - reducedAmount
+        const balance = Number(amount) - reducedAmount
+        return balance
     }
     return (
         <div>
@@ -371,7 +373,7 @@ function PaymentForm({ props }: PaymentForm) {
                                 <span>
                                     <img src='/icons/Naira.svg' alt='' />
                                 </span>{' '}
-                                <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, officia aperiam nesciunt est eaque iste vel illo optio. Voluptatum, corporis consectetur? Odit inventore corporis voluptates officia, adipisci non quibusdam unde.</span>
+                                <span>{balanceAmount()}</span>
                             </p>
                         </div>
                     </div>
