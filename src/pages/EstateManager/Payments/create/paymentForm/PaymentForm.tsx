@@ -144,7 +144,7 @@ function PaymentForm({ props }: PaymentForm) {
             <p className='font-semibold text-[2rem] mb-10'>
                 Add Payment ( Step 1 of 2)
             </p>
-            {paymentPlan === 'installment' ? (
+            {paymentType === 'fixed' && paymentPlan === 'installment' ? (
                 <></>
             ) : (
                 <form
