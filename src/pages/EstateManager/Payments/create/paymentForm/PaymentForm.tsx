@@ -231,13 +231,14 @@ function PaymentForm({ props }: PaymentForm) {
     }
 
     useEffect(() => {
-        const reducedAmount = installmentField.every((item) => {
-            return parseInt(item.amount.replace(',', ''))
+        const reducedAmount = installmentField.forEach((item) => {
+           const amount = parseInt(item.amount.replace(',', ''))
+           return amount
         })
 
         
 
-        const balance = Number(amount) - reducedAmount
+        const balance = parseInt(amount) - reducedAmount
 
         setBalanceAmount(balance)
     }, [installmentField])
