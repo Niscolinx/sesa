@@ -3,7 +3,6 @@ import { GrUp, GrDown } from 'react-icons/gr'
 import { useLocation } from 'react-router-dom'
 import { toast, ToastContainer } from 'react-toastify'
 import WalletBarChart from '../../../components/SuperAdmin/charts/WalletBarChart'
-import { Message } from '../Messages/RenderMessages'
 
 const ViewPayment = () => {
     const location = useLocation()
@@ -59,10 +58,10 @@ const handleSelectedTrend = (item: Trend) => {
         }
     }
 
-    const handleDeleteMessage = () => {
+    const handleDeletePayment = () => {
         handleClose()
 
-        toast('Message deleted successfully', {
+        toast('Payment deleted successfully', {
             type: 'success',
             className: 'bg-green-100 text-green-600 text-[1.4rem]',
         })
@@ -93,7 +92,7 @@ const handleSelectedTrend = (item: Trend) => {
                                 </button>
                                 <button
                                     className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
-                                    onClick={handleDeleteMessage}
+                                    onClick={handleDeletePayment}
                                 >
                                     Delete
                                 </button>
@@ -122,7 +121,7 @@ const handleSelectedTrend = (item: Trend) => {
                         >
                             <img src='/img/delete.svg' alt='' />
                             <span className=' text-[1.4rem] font-semibold'>
-                                Delete Message
+                                Delete payment
                             </span>
                         </button>
                     </div>
