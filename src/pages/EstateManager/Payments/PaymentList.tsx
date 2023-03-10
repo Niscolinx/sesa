@@ -224,8 +224,9 @@ const PaymentList: FC<IPaymentList> = ({ closePaymentDialog }) => {
                                             paid,
                                         }) => {
                                             return (
-                                                <div className='grid justify-between border-b grid-cols-7 gap-8 py-4'>
+                                                <div className='grid justify-between border-b grid-cols-7 gap-8 py-4 whitespace-nowrap text-ellipsis'>
                                                     <p>{propertyCode}</p>
+                                                    <p>{address}</p>
                                                     <p className='flex items-center gap-2'>
                                                         <span>
                                                             {propertyName}
