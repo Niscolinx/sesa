@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { ToastContainer } from 'react-toastify'
-import { Select } from '../../../../components/SuperAdmin/UI/Select'
 import HouseholdFilter from './filter/HouseholdFilter'
 import FlexiblePaymentType from './paymentType/flexible/FlexiblePaymentType'
 
@@ -9,20 +8,14 @@ export type PaymentPlan = 'full' | 'installment'
 type Step = 'initial' | 'list'
 
 const CreatePayment = () => {
-    const [paymentPlan, setPaymentPlan] = useState<string | null | PaymentPlan>(
-        null
-    )
+    
     const [step, setStep] = useState<Step>('initial')
-    const [trackPayment, setTrackPayment] = useState<string | null>(null)
-    const [amount, setAmount] = useState(0)
+   
 
     const [paymentType, setPaymentType] = useState<PaymentType | string | null>(
         null
     )
 
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault()
-    }
 
     const handleNext = () => {
         console.log('clicked', paymentType)
