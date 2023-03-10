@@ -45,138 +45,119 @@ function PaymentForm({ props }: PaymentForm) {
         e.preventDefault()
     }
 
-    const Flexible = () => {
-        return (
-            <>
-                <div className='grid gap-4'>
-                    <label
-                        htmlFor='amount'
-                        className='text-[1.4rem] font-medium'
-                    >
-                        Amount
-                    </label>
-                    <input
-                        type='number'
-                        required
-                        id='amount'
-                        value={amount <= 0 ? '' : amount}
-                        onChange={(e) => setAmount(Number(e.target.value))}
-                        className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                    />
-                </div>
-
-                <Select
-                    label='Track Payment'
-                    state={['Yes', 'No']}
-                    selectedState={trackPayment}
-                    setSelectedState={setTrackPayment}
+    const flexible = (
+        <>
+            <div className='grid gap-4'>
+                <label htmlFor='amount' className='text-[1.4rem] font-medium'>
+                    Amount
+                </label>
+                <input
+                    type='number'
+                    required
+                    id='amount'
+                    value={amount <= 0 ? '' : amount}
+                    onChange={(e) => setAmount(Number(e.target.value))}
+                    className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                 />
+            </div>
 
-                <Select
-                    label='Payment Plan'
-                    state={['full', 'installment'] satisfies PaymentPlan[]}
-                    selectedState={paymentPlan}
-                    setSelectedState={setPaymentPlan}
+            <Select
+                label='Track Payment'
+                state={['Yes', 'No']}
+                selectedState={trackPayment}
+                setSelectedState={setTrackPayment}
+            />
+
+            <Select
+                label='Payment Plan'
+                state={['full', 'installment'] satisfies PaymentPlan[]}
+                selectedState={paymentPlan}
+                setSelectedState={setPaymentPlan}
+            />
+        </>
+    )
+
+    const fixed = (
+        <>
+            <div className='grid gap-4'>
+                <label htmlFor='amount' className='text-[1.4rem] font-medium'>
+                    Start Date
+                </label>
+                <input
+                    type='date'
+                    required
+                    id='startDate'
+                    className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                 />
-            </>
-        )
-    }
-
-    const Fixed = () => {
-        return (
-            <>
-                <div className='grid gap-4'>
-                    <label
-                        htmlFor='amount'
-                        className='text-[1.4rem] font-medium'
-                    >
-                        Start Date
-                    </label>
-                    <input
-                        type='date'
-                        required
-                        id='startDate'
-                        className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                    />
-                </div>
-                <div className='grid gap-4'>
-                    <label
-                        htmlFor='amount'
-                        className='text-[1.4rem] font-medium'
-                    >
-                        End Date
-                    </label>
-                    <input
-                        type='date'
-                        required
-                        id='startDate'
-                        className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                    />
-                </div>
-
-                <div className='grid gap-4'>
-                    <label
-                        htmlFor='amount'
-                        className='text-[1.4rem] font-medium'
-                    >
-                        Amount
-                    </label>
-                    <input
-                        type='number'
-                        required
-                        id='amount'
-                        value={amount <= 0 ? '' : amount}
-                        onChange={(e) => setAmount(Number(e.target.value))}
-                        className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                    />
-                </div>
-
-                <Select
-                    label='Payment Plan'
-                    state={['full', 'installment'] satisfies PaymentPlan[]}
-                    selectedState={paymentPlan}
-                    setSelectedState={setPaymentPlan}
+            </div>
+            <div className='grid gap-4'>
+                <label htmlFor='amount' className='text-[1.4rem] font-medium'>
+                    End Date
+                </label>
+                <input
+                    type='date'
+                    required
+                    id='startDate'
+                    className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                 />
+            </div>
 
-                <div className='grid gap-4'>
-                    <label
-                        htmlFor='deadline'
-                        className='text-[1.4rem] font-medium'
-                    >
-                        Deadline
-                    </label>
-                    <input
-                        type='date'
-                        required
-                        className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                    />
-                </div>
+            <div className='grid gap-4'>
+                <label htmlFor='amount' className='text-[1.4rem] font-medium'>
+                    Amount
+                </label>
+                <input
+                    type='number'
+                    required
+                    id='amount'
+                    value={amount <= 0 ? '' : amount}
+                    onChange={(e) => setAmount(Number(e.target.value))}
+                    className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                />
+            </div>
 
-                <div className='grid justify-items-start gap-4 self-end'>
-                    <p className=' font-medium flex items-center gap-2 text-[#043FA7]'>
-                        Track Payment{' '}
-                        <span className='text-[#043FA7]'>
-                            <BsQuestionCircle />
-                        </span>
-                    </p>
-                    <div
-                        onClick={() => setIsTrackPayment(!isTrackPayment)}
-                        className='cursor-pointer'
-                    >
-                        {isTrackPayment ? (
-                            <img src='/icons/admins/switchOn.svg' alt='' />
-                        ) : (
-                            <img src='/icons/admins/switchOff.svg' alt='' />
-                        )}
-                    </div>
+            <Select
+                label='Payment Plan'
+                state={['full', 'installment'] satisfies PaymentPlan[]}
+                selectedState={paymentPlan}
+                setSelectedState={setPaymentPlan}
+            />
+
+            <div className='grid gap-4'>
+                <label htmlFor='deadline' className='text-[1.4rem] font-medium'>
+                    Deadline
+                </label>
+                <input
+                    type='date'
+                    required
+                    className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                />
+            </div>
+
+            <div className='grid justify-items-start gap-4 self-end'>
+                <p className=' font-medium flex items-center gap-2 text-[#043FA7]'>
+                    Track Payment{' '}
+                    <span className='text-[#043FA7]'>
+                        <BsQuestionCircle />
+                    </span>
+                </p>
+                <div
+                    onClick={() => setIsTrackPayment(!isTrackPayment)}
+                    className='cursor-pointer'
+                >
+                    {isTrackPayment ? (
+                        <img src='/icons/admins/switchOn.svg' alt='' />
+                    ) : (
+                        <img src='/icons/admins/switchOff.svg' alt='' />
+                    )}
                 </div>
-            </>
-        )
-    }
+            </div>
+        </>
+    )
 
     const renderForm = new Map([
-        ['flexible', <Flexible />],
-        ['fixed', <Fixed />],
+        ['flexible', flexible],
+        ['fixed', fixed],
     ]) satisfies Map<PaymentType, JSX.Element>
 
     const addAnotherInstallmentHandler = () => {
@@ -308,7 +289,7 @@ function PaymentForm({ props }: PaymentForm) {
 
                     <div>
                         <p>
-                            <span>Total Amount:</span>
+                            <span>Total Amount:</span> <span>{amount}</span>
                         </p>
                     </div>
                 </div>
