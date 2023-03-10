@@ -1,6 +1,4 @@
 import React, { ChangeEvent, FC, useEffect, useState } from 'react'
-import { CgSpinnerTwo } from 'react-icons/cg'
-import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { Select } from '../../../../../components/SuperAdmin/UI/Select'
 
 
