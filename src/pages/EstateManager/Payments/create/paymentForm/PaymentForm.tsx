@@ -75,7 +75,7 @@ function PaymentForm({ props }: PaymentForm) {
     return (
         <form
             onSubmit={handleSubmit}
-            className='grid max-w-[84rem] gap-16 mt-12'
+            className='grid max-w-[84rem] gap-16 mt-12 min-h-[70vh]'
             style={{
                 gridTemplateColumns: ' repeat(auto-fit, minmax(35rem, 1fr))',
             }}
