@@ -1,7 +1,6 @@
 import React, { ChangeEvent, FC, useEffect, useState } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
-import { IoMdSave } from 'react-icons/io'
 import { Select } from '../../../../../components/SuperAdmin/UI/Select'
 
 interface Payment {
@@ -151,22 +150,21 @@ const HouseholdFilter: FC = () => {
     }
 
     return (
-        <main className='mt-10 grid gap-9'>
+        <main className='grid gap-9'>
+            <div className='w-[40rem] p-8'>
+                <p className='font-Satoshi-Medium text-[2rem]'>
+                    {' '}
+                    Filter Selection{' '}
+                </p>
+                <Select
+                    state={['Households', 'Residents']}
+                    selectedState={filter}
+                    setSelectedState={setFilter}
+                    placeholder='Households'
+                />
+            </div>
             <section className='bg-color-white rounded-lg overflow-scroll max-h-[80vh]'>
                 <div className='grid text-[1.6rem]'>
-                    <div className='w-[40rem] p-8'>
-                        <p className='font-Satoshi-Medium text-[2rem]'>
-                            {' '}
-                            Filter Selection{' '}
-                        </p>
-                        <Select
-                            state={['Households', 'Residents']}
-                            selectedState={filter}
-                            setSelectedState={setFilter}
-                            placeholder='Households'
-                        />
-                    </div>
-
                     <div className='grid'>
                         <div className='grid justify-between text-color-dark-1 bg-gray-100 p-8 grid-cols-6 gap-6 items-center capitalize'>
                             <p>Property Code</p>
@@ -198,7 +196,6 @@ const HouseholdFilter: FC = () => {
                                                     <p>{propertyName}</p>
                                                     <p>{propertyType}</p>
                                                     <p>{tenancyType}</p>
-                                                    
                                                 </div>
                                             )
                                         }
