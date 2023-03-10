@@ -229,23 +229,22 @@ function PaymentForm({ props }: PaymentForm) {
     }
 
     useEffect(() => {
-        const reducedAmount = installmentField.reduce((prev, curr) => {
-            const amount: number = parseFloat(curr.amount.replace(',', '')) + prev
+     const reducedAmount =
+         installmentField.length > 0
+             ? installmentField.reduce((prev, curr) => {
+                   const amount: number =
+                       parseFloat(curr.amount.replace(',', '')) + prev
 
-        
+                   if (isNaN(amount)) {
+                       return prev
+                   } else {
+                       return amount
+                   }
+               }, 0)
+             : 0
 
-            if (isNaN(amount)) {
-                return prev
-            } else {
-                return amount
-            }
-          
-        }, 0)
-
-       
-        const balance = parseInt(amount.replace(',', '')) - reducedAmount
-
-        setBalanceAmount(balance <= 0 ? 0 : balance)
+     const balance = parseInt(amount.replace(',', '')) - reducedAmount
+     setBalanceAmount(balance <= 0 ? 0 : balance)
     }, [installmentField, amount])
 
     return (
