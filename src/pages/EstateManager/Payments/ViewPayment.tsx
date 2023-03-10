@@ -328,14 +328,15 @@ const ViewPayment = () => {
                     </div>
                 </section>
                 <section className='grid bg-white p-8 rounded-2xl '>
-                    <p className='flex items-center gap-2'>
-                        <span className='font-Satoshi-Medium'>
-                            Payment Status:{' '}
-                        </span>{' '}
-                    </p>
+                    <div className='flex items-center gap-2 justify-between'>
+                        <p className='font-Satoshi-Medium'>
+                            Installment Info
+                        </p>{' '}
+                       
+                    </div>
 
                     <div className='grid gap-4 items-center '>
-                        <p className='justify-self-end'>₦{amountToPay}</p>
+                      
                         <div className='progressBar overflow-hidden '>
                             <progress
                                 className='progressBar__item'
