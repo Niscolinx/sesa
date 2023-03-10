@@ -301,7 +301,7 @@ function PaymentForm({ props }: PaymentForm) {
 
                     <div className='mt-[5rem]'>
                         <p>
-                            <span>Total Amount:</span> <span>{amount}</span>
+                           <span><img src="/img/Naira.svg" alt="" /></span> <span>Total Amount:</span> <span>{amount}</span>
                         </p>
                     </div>
                 </div>
