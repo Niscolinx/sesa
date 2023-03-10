@@ -49,7 +49,7 @@ function PaymentForm({ props }: PaymentForm) {
         e.preventDefault()
     }
 
-    const flexible = () => {
+    const Flexible = () => {
         return (
             <>
                 <div className='grid gap-4'>
@@ -86,7 +86,7 @@ function PaymentForm({ props }: PaymentForm) {
         )
     }
 
-    const fixed = () => {
+    const Fixed = () => {
         return (
             <>
                 <div className='grid gap-4'>
@@ -179,8 +179,8 @@ function PaymentForm({ props }: PaymentForm) {
     }
 
     const renderForm = new Map([
-        ['flexible', flexible],
-        ['fixed', fixed],
+        ['flexible', <Flexible />],
+        ['fixed', <Fixed />],
     ]) satisfies Map<PaymentType, JSX.Element>
 
     const addAnotherInstallmentHandler = () => {
@@ -188,7 +188,7 @@ function PaymentForm({ props }: PaymentForm) {
     }
 
     const amountHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        setAmount
+        
     }
     return (
         <div>
