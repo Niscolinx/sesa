@@ -20,7 +20,7 @@ const Filter: FC = () => {
                     Filter Selection{' '}
                 </p>
                 <Select
-                    state={}
+                    state={filterKeys}
                     selectedState={filter}
                     setSelectedState={setFilter}
                     placeholder='Households'
