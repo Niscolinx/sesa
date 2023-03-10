@@ -50,10 +50,9 @@ const Filter: FC = () => {
                                 }}
                             />
                             <p className='text-[1.6rem]'>
-                                {
-                                    console.log({filter}, typeof filter)
-                                }
-                                You have successfully added a { filter && filter?.substring(0)}
+                                You have successfully added a{' '}
+                                {filter &&
+                                    filter.substring(0, filter.length - 1)}
                             </p>
                             <div className='flex w-full justify -center gap-8'>
                                 <button
