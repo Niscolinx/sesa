@@ -99,7 +99,7 @@ const CreatePayment = () => {
                         setSelectedState={setPaymentPlan}
                     />
 
-                    <button className='btn text-white bg-color-blue-1 py-4 px-16 rounded-lg w-[15rem] col-span-full mt-10'>
+                    <button className='btn text-white bg-color-blue-1 py-4 px-16 rounded-lg w-[15rem] col-span-full mt-10' onClick={() => handleNext()}>
                         Next
                     </button>
                 </form>
