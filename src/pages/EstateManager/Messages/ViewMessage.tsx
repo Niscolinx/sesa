@@ -5,9 +5,8 @@ import { Message } from './RenderMessages'
 
 const ViewMessage = () => {
     let location = useLocation()
-    location.state
 
-    console.log({ location })
+   
 
     const {
         id,
