@@ -36,55 +36,8 @@ const CreatePayment = () => {
         e.preventDefault()
     }
 
-    const dialogRef = useRef<HTMLDialogElement | null>(null)
-    const validateDialogRef = useRef<HTMLDialogElement | null>(null)
 
-    const handleClose = () => {
-        if (dialogRef.current) {
-            dialogRef.current.close()
-        }
-    }
-
-    const closeValidateDialog = () => {
-        if (validateDialogRef.current) {
-            validateDialogRef.current.close()
-        }
-    }
-
-    const openValidateDialog = () => {
-        if (validateDialogRef.current) {
-            validateDialogRef.current.showModal()
-        }
-    }
-    const handleOpen = (modalState: DialogType) => {
-        if (modalState === 'validate') {
-            setDialogState('validate')
-        }
-        if (modalState === 'add-resident') {
-            setDialogState('add-resident')
-        }
-        if (modalState === 'view-kyr') {
-            setDialogState('view-kyr')
-        }
-
-        dialogRef.current?.showModal()
-    }
-
-    const addResidentHandler = () => {
-        // navigate('/superAdmin/residentCategory/add')
-        handleOpen('add-resident')
-    }
-
-    const confirmAddResident = () => {
-        handleClose()
-    }
-
-    const handleDialogSubmit = (e: FormEvent) => {
-        e.preventDefault()
-        handleClose()
-
-        openValidateDialog()
-    }
+ 
 
     const renderPaymentType = new Map([
         ['Phone Number', <PhoneNumber />],
