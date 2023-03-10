@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { TfiArrowCircleLeft, TfiArrowCircleRight } from 'react-icons/tfi'
 import Filter from './filter/Filter'
 import FlexiblePaymentType from './paymentForm/PaymentForm'
 
@@ -37,6 +38,15 @@ const CreatePayment = () => {
         <>
             <div className='grid p-8 bg-white items-baseline rounded-lg min-h-[80vh]'>
                 {displayStep.get(step)}
+
+                <div>
+                    <button>
+                        <TfiArrowCircleLeft className='w-[3rem] h-[3rem] text-color-blue' />
+                    </button>
+                    <button>
+                        <TfiArrowCircleRight className='w-[3rem] h-[3rem] text-color-blue' />
+                    </button>
+                </div>
             </div>
         </>
     )
