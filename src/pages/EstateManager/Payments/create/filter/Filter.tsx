@@ -7,8 +7,8 @@ const Filter: FC = () => {
     type FilterKeys = 'Households' | 'Residents'
 
     const [filter, setFilter] = useState<FilterKeys | string | null>(
-      null
-    )
+        'Households'
+    ) 
 
     const filterKeys = ['Households', 'Residents'] satisfies FilterKeys[]
 
