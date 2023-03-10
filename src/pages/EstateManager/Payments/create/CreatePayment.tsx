@@ -2,23 +2,23 @@ import React, { useState } from 'react'
 import { ToastContainer } from 'react-toastify'
 import { Select } from '../../../../components/SuperAdmin/UI/Select'
 
-export type PaymentType = 'fixed' | 'flexible'
-export type PaymentPlan = 'full' | 'installment'
+export type PaymentPlan = 'fixed' | 'flexible'
+export type PaymentType = 'full' | 'installment'
 
 const CreatePayment = () => {
-    const [paymentPlan, setPaymentPlan] = useState<string | null>(null)
+    const [paymentPlan, setPaymentPlan] = useState<string | null | PaymentPlan>(null)
     const [trackPayment, setTrackPayment] = useState<string | null>(null)
     const [amount, setAmount] = useState(0)
 
-    const [paymentType, setPaymentType] = useState<PaymentType>('fixed')
-
-   
+    const [paymentType, setPaymentType] = useState<PaymentType | string | null>(
+        'full'
+    )
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
     }
 
-    const renderPaymentType = new Map([['fixed', <></>]]) satisfies Map<
+    const renderPaymentType = new Map([['full', <></>]]) satisfies Map<
         PaymentType,
         JSX.Element
     >
@@ -72,16 +72,15 @@ const CreatePayment = () => {
                             id='amount'
                             value={amount <= 0 ? '' : amount}
                             onChange={(e) => setAmount(Number(e.target.value))}
-                            placeholder='placeholder'
                             className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                         />
                     </div>
 
                     <Select
-                        label='Gender'
-                        state={['Male', 'Female']}
-                        selectedState={paymentPlan}
-                        setSelectedState={setPaymentPlan}
+                        label='Payment Type'
+                        state={['full', 'installment'] as PaymentType[]}
+                        selectedState={paymentType}
+                        setSelectedState={setPaymentType}
                     />
 
                     <button className='btn text-white bg-color-blue-1 py-4 px-16 rounded-lg w-[15rem]'>

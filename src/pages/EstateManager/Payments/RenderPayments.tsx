@@ -10,8 +10,8 @@ export interface Payments {
     id: string
     paymentCode: string
     paymentName: string
-    paymentType: 'full' | 'Installment'
-    paymentPlan: 'fixed' | 'flexible'
+    paymentPlan: 'full' | 'Installment'
+    paymentType: 'fixed' | 'flexible'
     paymentAmount: string
     startDate: string
     endDate: string
@@ -33,12 +33,12 @@ export const PAYMENTS_LIST: Payments[] = Array.from({ length: 10 }).map(
             (Math.random() * 0.1 + 0.9).toFixed(7).split('.')[1]
         }`,
         paymentName: 'Estate Dues 2023',
-        paymentType: Math.random() > 0.5 ? 'full' : 'Installment',
+        paymentPlan: Math.random() > 0.5 ? 'full' : 'Installment',
         paymentAmount: Math.floor(
             Math.random() * 50000 + 10000
         ).toLocaleString(),
         paidResidents: Math.floor(Math.random() * 45 + 10),
-        paymentPlan: Math.random() > 0.5 ? 'fixed' : 'flexible',
+        paymentType: Math.random() > 0.5 ? 'fixed' : 'flexible',
         trackPayment: 'Yes',
         startDate: '02 Jan, 2023',
         endDate: '03 Mar, 2023',

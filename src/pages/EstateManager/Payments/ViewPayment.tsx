@@ -301,7 +301,7 @@ const ViewPayment = () => {
                         </p>
 
                         <div className='relative flex gap-4'>
-                            {paymentType === 'full' && (
+                            {paymentPlan === 'full' && (
                                 <button
                                     className='btn text-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
                                     onClick={() => openPaymentDialog()}
@@ -345,7 +345,7 @@ const ViewPayment = () => {
                         <WalletBarChart width={1000} />
                     </div>
                 </section>
-                {paymentType === 'Installment' && (
+                {paymentPlan === 'Installment' && (
                     <section className='grid bg-white p-8 rounded-2xl '>
                         <div className='flex items-center gap-2 justify-between mb-10'>
                             <p className='font-Satoshi-Medium'>
