@@ -338,14 +338,14 @@ const ViewPayment = () => {
                 <section className='grid bg-white p-8 rounded-2xl '>
                     <div className='flex items-center gap-2 justify-between mb-10'>
                         <p className='font-Satoshi-Medium'>Installment Info</p>{' '}
-                        <div className='relative flex gap-4'>
+                        <div className=' flex gap-4'>
                             <button
                                 className='btn text-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
                                 onClick={() => openPaymentDialog()}
                             >
                                 View Households
                             </button>
-                            <div className=' flex items-center w-[14rem]'>
+                            <div className='relative flex items-center w-[14rem]'>
                                 <p
                                     className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer'
                                     onClick={installmentToggler}
@@ -360,7 +360,7 @@ const ViewPayment = () => {
                             </div>
 
                             {toggleInstallment && (
-                                <div className='absolute top-[5rem]  right-0 border border-color-primary-light  bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
+                                <div className='absolute top-[5rem]  right-0 border border-color-primary-light  bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize '>
                                     {installments.map((item, index) => (
                                         <p
                                             className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
