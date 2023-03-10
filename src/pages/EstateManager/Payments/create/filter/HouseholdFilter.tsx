@@ -40,11 +40,11 @@ const PAYMENT: Payment[] = Array.from({
 }))
 
 const HouseholdFilter: FC = () => {
-    const [fetchedPaymentData, setFetchedPaymentData] = useState<Payment[]>([])
+    const [fetchedHouseholds, setFetchedHouseholds] = useState<Payment[]>([])
 
     useEffect(() => {
         setTimeout(() => {
-            setFetchedPaymentData(PAYMENT)
+            setFetchedHouseholds(PAYMENT)
         }, 100)
     }, [])
 
@@ -63,7 +63,7 @@ const HouseholdFilter: FC = () => {
         index: 0,
         currentPage: 1,
         itemsPerPage: perPage,
-        totalPage: Math.ceil(fetchedPaymentData.length / perPage),
+        totalPage: Math.ceil(fetchedHouseholds.length / perPage),
         slicedPages: null,
     })
 
@@ -71,8 +71,8 @@ const HouseholdFilter: FC = () => {
         const item = parseInt(e.target.value)
 
         const slicedPages: Payment[][] = []
-        for (let i = 0; i < fetchedPaymentData.length; i += item) {
-            slicedPages.push(fetchedPaymentData.slice(i, i + item))
+        for (let i = 0; i < fetchedHouseholds.length; i += item) {
+            slicedPages.push(fetchedHouseholds.slice(i, i + item))
         }
 
         setPaginate((prev) => {
@@ -82,7 +82,7 @@ const HouseholdFilter: FC = () => {
                 index: 0,
                 currentPage: 1,
                 slicedPages,
-                totalPage: Math.ceil(fetchedPaymentData.length / item),
+                totalPage: Math.ceil(fetchedHouseholds.length / item),
             }
         })
     }
@@ -91,11 +91,11 @@ const HouseholdFilter: FC = () => {
         const slicedPages: Payment[][] = []
         for (
             let i = 0;
-            i < fetchedPaymentData.length;
+            i < fetchedHouseholds.length;
             i += paginate.itemsPerPage
         ) {
             slicedPages.push(
-                fetchedPaymentData.slice(i, i + paginate.itemsPerPage)
+                fetchedHouseholds.slice(i, i + paginate.itemsPerPage)
             )
         }
 
@@ -104,11 +104,11 @@ const HouseholdFilter: FC = () => {
                 ...prev,
                 slicedPages,
                 totalPage: Math.ceil(
-                    fetchedPaymentData.length / paginate.itemsPerPage
+                    fetchedHouseholds.length / paginate.itemsPerPage
                 ),
             }
         })
-    }, [fetchedPaymentData])
+    }, [fetchedHouseholds])
 
     const handleNext = () => {
         if (paginate.currentPage === paginate.totalPage) return
