@@ -210,7 +210,7 @@ function PaymentForm({ props }: PaymentForm) {
             {paymentType === 'fixed' && paymentPlan === 'installment' ? (
                 <div>
                     {installmentField.map((item, idx) => (
-                        <div className='my-5'>
+                        <div className='mt-16'>
                             <p className='text-color-blue font-semibold my-5'>
                                 Installment {idx + 1}
                             </p>
