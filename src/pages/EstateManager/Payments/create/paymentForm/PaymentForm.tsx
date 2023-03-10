@@ -309,6 +309,13 @@ function PaymentForm({ props }: PaymentForm) {
                                 <span>{amount}</span>
                             </p>
                         </div>
+
+                        {
+                            installmentField.map((item, idx) => (
+                                <div key={idx}>
+                                </div>
+                            ))
+                        }
                     </div>
                 </div>
             ) : (
