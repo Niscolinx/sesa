@@ -26,8 +26,6 @@ function PaymentForm({ props }: PaymentForm) {
 
     const flexible = (
         <>
-           
-
             <div className='grid gap-4'>
                 <label htmlFor='amount' className='text-[1.4rem] font-medium'>
                     Amount
