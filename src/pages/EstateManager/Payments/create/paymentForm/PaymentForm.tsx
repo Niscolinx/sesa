@@ -114,7 +114,7 @@ function PaymentForm({ props }: PaymentForm) {
 
             <div className='flex items-center justify-between'>
                 <p className='text-[2rem] font-bold flex items-center gap-2'>
-                    KYG{' '}
+                    Track Payment{' '}
                     <span className='text-[#043FA7]'>
                         <BsQuestionCircle />
                     </span>
