@@ -144,9 +144,6 @@ const HouseholdFilter: FC = () => {
         })
     }
 
-    const downloadDocHandler = () => {
-        //closePaymentDialog()
-    }
 
     return (
         <main className='grid gap-9'>
