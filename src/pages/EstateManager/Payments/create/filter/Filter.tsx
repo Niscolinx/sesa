@@ -26,76 +26,49 @@ const Filter: FC = () => {
         }
     }
 
-    const closeValidateDialog = () => {
-        if (validateDialogRef.current) {
-            validateDialogRef.current.close()
-        }
-    }
-
-    const openValidateDialog = () => {
-        if (validateDialogRef.current) {
-            validateDialogRef.current.showModal()
-        }
-    }
-    const handleOpen = (modalState: DialogType) => {
-        if (modalState === 'validate') {
-            setDialogState('validate')
-        }
-        if (modalState === 'add-resident') {
-            setDialogState('add-resident')
-        }
-        if (modalState === 'view-kyr') {
-            setDialogState('view-kyr')
-        }
-
+    const handleOpen = () => {
         dialogRef.current?.showModal()
     }
 
-    const addResidentHandler = () => {
-        // navigate('/superAdmin/residentCategory/add')
-        handleOpen('add-resident')
-    }
-
-
     return (
         <>
-        <dialog className='dialog' ref={dialogRef}>
+            <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid items-baseline w-[64rem] min-h-[30rem] p-10 gap-8 text-[1.6rem] relative'>
                         <IoMdClose
                             className='absolute right-4 top-4 text-[2rem] cursor-pointer'
                             onClick={() => handleClose()}
                         />
-            <div className='bg-white rounded-2xl grid place-content-center justify-items-center h-[30rem] gap-8 text-[1.6rem]'>
-                {' '}
-                <img
-                    src='/icons/admins/modalSuccess.svg'
-                    alt=''
-                    className='animate__animated animate__pulse '
-                    style={{
-                        animationIterationCount: 'infinite',
-                    }}
-                />
-                <p className='text-[1.6rem]'>
-                    You have successfully added a Resident
-                </p>
-                <div className='flex w-full justify -center gap-8'>
-                    <button
-                        className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
-                        onClick={() => handleClose()}
-                    >
-                        View details
-                    </button>
-                    <button
-                        className=' bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
-                        onClick={() => handleClose()}
-                    >
-                        Ok
-                    </button>
-                </div>
-            </div>
-            </div>
-            </section>
+                        <div className='bg-white rounded-2xl grid place-content-center justify-items-center h-[30rem] gap-8 text-[1.6rem]'>
+                            {' '}
+                            <img
+                                src='/icons/admins/modalSuccess.svg'
+                                alt=''
+                                className='animate__animated animate__pulse '
+                                style={{
+                                    animationIterationCount: 'infinite',
+                                }}
+                            />
+                            <p className='text-[1.6rem]'>
+                                You have successfully added a Resident
+                            </p>
+                            <div className='flex w-full justify -center gap-8'>
+                                <button
+                                    className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
+                                    onClick={() => handleClose()}
+                                >
+                                    View details
+                                </button>
+                                <button
+                                    className=' bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
+                                    onClick={() => handleClose()}
+                                >
+                                    Ok
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </dialog>
             <main className='grid gap-9'>
                 <div className=' p-8'>
