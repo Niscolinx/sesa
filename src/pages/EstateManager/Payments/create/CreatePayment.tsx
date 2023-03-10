@@ -70,8 +70,8 @@ const CreatePayment = () => {
                             type='number'
                             required
                             id='amount'
-                            pattern='[0-9]*'
                             value={amount}
+                            onChange={(e) => setAmount(Number(e.target.value))}
                             placeholder='placeholder'
                             className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                         />
