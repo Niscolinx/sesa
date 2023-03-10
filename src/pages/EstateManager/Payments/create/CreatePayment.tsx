@@ -35,7 +35,7 @@ const CreatePayment = () => {
 
     return (
         <>
-            <div className='grid p-8 bg-white items-baseline rounded-lg min-h-[70vh]'>
+            <div className='grid p-8 bg-white items-baseline rounded-lg min-h-[80vh]'>
                 {displayStep.get(step)}
             </div>
         </>
