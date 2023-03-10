@@ -255,7 +255,6 @@ const HouseholdFilter: FC = () => {
                             />
                         </ul>
                     </footer>
-                </div>{' '}
             </section>
         </main>
     )
