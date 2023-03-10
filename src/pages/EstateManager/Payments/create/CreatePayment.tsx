@@ -12,7 +12,7 @@ const CreatePayment = () => {
     const [paymentPlan, setPaymentPlan] = useState<string | null | PaymentPlan>(
         null
     )
-    const [step, setStep] = useState('initial')
+    const [step, setStep] = useState<Step>('initial')
     const [trackPayment, setTrackPayment] = useState<string | null>(null)
     const [amount, setAmount] = useState(0)
 
@@ -35,6 +35,7 @@ const CreatePayment = () => {
     const handleNext = () => {
         if (paymentType) {
             if ((paymentType as PaymentType) === 'flexible') {
+                setStep('list')
             }
         }
     }
