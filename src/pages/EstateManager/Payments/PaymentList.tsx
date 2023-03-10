@@ -197,15 +197,13 @@ const PaymentList: FC<IPaymentList> = ({ closePaymentDialog }) => {
                     <div className='grid'>
                         <div
                             className='grid justify-between text-color-dark-1 bg-gray-100 p-8 grid-cols-7 gap-6 items-center capitalize'
-                            style={{
-                                fontSize: '1.6rem',
-                            }}
+                      
                         >
                             <p>Property Code</p>
                             <p>Address</p>
-                            <p>Property Name</p>
                             <p>Property Category</p>
                             <p>Property Name</p>
+                            <p>Residential Address</p>
                             <p>Property Type</p>
                             <p>Tenancy Type</p>
                         </div>
