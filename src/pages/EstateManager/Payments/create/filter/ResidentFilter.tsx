@@ -35,7 +35,6 @@ interface IResidentFilter {
 }
 
 const ResidentFilter: FC<IResidentFilter> = ({ closeResidentFilterDialog }) => {
-    const navigate = useNavigate()
 
     const [fetchedRecipientData, setFetchedRecipientData] = useState<
         Recipient[]
