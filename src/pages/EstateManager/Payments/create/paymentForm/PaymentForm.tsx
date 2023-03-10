@@ -19,7 +19,7 @@ function PaymentForm({ props }: PaymentForm) {
     )
     const [trackPayment, setTrackPayment] = useState<string | null>(null)
     const [amount, setAmount] = useState(0)
-    const [installmentCount, setInstallmentCount] = useState(2)
+    const [installmentCount, setInstallmentCount] = useState(1)
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
