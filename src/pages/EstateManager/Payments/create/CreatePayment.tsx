@@ -61,16 +61,17 @@ const CreatePayment = () => {
 
                     <div>
                         <label
-                            htmlFor='firstName'
+                            htmlFor='amount'
                             className='text-[1.4rem] font-medium'
                         >
                             Amount
                         </label>
                         <input
-                            type='text'
+                            type='number'
                             required
-                            id='firstName'
+                            id='amount'
                             pattern='[0-9]*'
+                            value={amount}
                             placeholder='placeholder'
                             className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                         />
