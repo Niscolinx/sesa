@@ -45,7 +45,7 @@ const HouseholdFilter: FC = () => {
     useEffect(() => {
         setTimeout(() => {
             setFetchedPaymentData(PAYMENT)
-        }, 1000)
+        }, 100)
     }, [])
 
     interface Paginate {
