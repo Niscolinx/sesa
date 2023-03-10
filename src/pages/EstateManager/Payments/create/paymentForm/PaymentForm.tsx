@@ -199,7 +199,7 @@ function PaymentForm({ props }: PaymentForm) {
                                 </div>
                                 <div className='grid gap-4'>
                                     <label
-                                        htmlFor='amount'
+                                        htmlFor='startDate'
                                         className='text-[1.4rem] font-medium'
                                     >
                                         Start Date
@@ -213,7 +213,7 @@ function PaymentForm({ props }: PaymentForm) {
                                 </div>
                                 <div className='grid gap-4'>
                                     <label
-                                        htmlFor='amount'
+                                        htmlFor='endDate'
                                         className='text-[1.4rem] font-medium'
                                     >
                                         End Date
