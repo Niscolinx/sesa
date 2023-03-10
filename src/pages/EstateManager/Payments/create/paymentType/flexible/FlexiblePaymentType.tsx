@@ -11,7 +11,9 @@ interface FlexiblePaymentType {
 }
 
 function FlexiblePaymentType({ props }: FlexiblePaymentType) {
-    const { handleNext } = props
+    const { handleNext, paymentType, setPaymentType } = props
+
+    
     const [paymentPlan, setPaymentPlan] = useState<string | null | PaymentPlan>(
         null
     )
