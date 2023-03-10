@@ -3,7 +3,7 @@ import { Select } from '../../../../../components/SuperAdmin/UI/Select'
 
 
 
-const HouseholdFilter: FC = () => {
+const Filter: FC = () => {
     const [filter, setFilter] = useState<string | null>(null)
 
 
@@ -26,4 +26,4 @@ const HouseholdFilter: FC = () => {
     )
 }
 
-export default HouseholdFilter
+export default Filter
