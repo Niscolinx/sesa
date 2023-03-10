@@ -203,9 +203,9 @@ const PaymentList: FC<IPaymentList> = ({ closePaymentDialog }) => {
                             <p>Address</p>
                             <p>Property Category</p>
                             <p>Property Name</p>
-                            <p>Residential Address</p>
                             <p>Property Type</p>
-                            <p>Tenancy Type</p>
+                            <p>Residential Class</p>
+                            <p>Date</p>
                         </div>
 
                         <div className='grid gap-8 mt-8 p-8'>
@@ -217,6 +217,7 @@ const PaymentList: FC<IPaymentList> = ({ closePaymentDialog }) => {
                                             propertyCode,
                                             propertyName,
                                             address,
+                                            date,                                      
                                             residentialClass,
                                             propertyType,
                                             propertyCategory,
