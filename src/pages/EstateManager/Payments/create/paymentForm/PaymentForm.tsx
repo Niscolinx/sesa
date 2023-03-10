@@ -1,8 +1,6 @@
 import React, {
     ChangeEvent,
     Dispatch,
-    FormEvent,
-    Fragment,
     SetStateAction,
     useState,
 } from 'react'
@@ -53,7 +51,7 @@ function PaymentForm({ props }: PaymentForm) {
                 </label>
                 <div className='relative rounded-lg border border-color-grey outline-none flex items-center pl-4'>
                     <input
-                        type='number'
+                        type='text'
                         required
                         id='amount'
                         value={amount <= 0 ? '' : amount}
