@@ -153,7 +153,6 @@ const HouseholdFilter: FC = () => {
         <main className='grid gap-9'>
            
             <section className='bg-color-white rounded-lg overflow-scroll max-h-[80vh]'>
-                <div className='grid text-[1.6rem]'>
                     <div className='grid'>
                         <div className='grid justify-between text-color-dark-1 bg-gray-100 p-8 grid-cols-6 gap-6 items-center capitalize'>
                             <p>Property Code</p>

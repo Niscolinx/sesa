@@ -150,41 +150,7 @@ const ResidentFilter: FC<IResidentFilter> = ({ closeResidentFilterDialog }) => {
         <main className='mt-10 grid gap-9'>
             <section className='bg-color-white rounded-lg border overflow-scroll max-h-[80vh]'>
                 <div className='grid text-[1.6rem]'>
-                    <caption className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
-                        <div className='relative flex items-center'>
-                            <img
-                                src='/icons/admins/search.svg'
-                                alt=''
-                                className='absolute left-4 text-[4rem]'
-                            />
-                            <input
-                                type='text'
-                                placeholder='Search Parameters'
-                                className='pl-16 w-[20rem] rounded-lg border border-color-blue-light appearance-none outline-none p-4'
-                            />
-                        </div>
-                        <div className='relative flex items-center'>
-                            <select className=' cursor-pointer w-[20rem] rounded-lg border border-color-blue-light appearance-none outline-none p-4 bg-white'>
-                                <option hidden value=''>
-                                    Sort By
-                                </option>
-                                <option value='date'>date</option>
-                                <option value='alpha'>Alpha</option>
-                            </select>
-                            <GrDown className='absolute right-4 text-[1.3rem]' />
-                        </div>
-                        <div className='ml-auto'>
-                            <button
-                                className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
-                                onClick={saveChangesHandler}
-                            >
-                                <span>
-                                    <IoMdAdd />
-                                </span>{' '}
-                                Save Changes
-                            </button>
-                        </div>
-                    </caption>
+                  
 
                     <div className='grid'>
                         <div
