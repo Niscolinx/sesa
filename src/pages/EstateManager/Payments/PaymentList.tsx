@@ -159,7 +159,7 @@ const PaymentList: FC<IPaymentList> = ({ closePaymentDialog }) => {
             <section className='bg-color-white rounded-lg border overflow-scroll max-h-[80vh]'>
                 <div className='grid text-[1.6rem]'>
                     <div className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
-                       <p className='font-Satoshi-Medium text-[2rem]'>Household Payment List(500)</p>
+                       <p className='font-Satoshi-Medium text-[2rem]'>Household Payment List (500)</p>
                         <div className='ml-auto'>
                             <button
                                 className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
