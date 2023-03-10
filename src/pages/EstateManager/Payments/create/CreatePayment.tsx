@@ -20,9 +20,7 @@ const CreatePayment = () => {
         }
     }
 
-    const renderPaymentType = new Map([
-        ['fixed', <HouseholdFilter />],
-    ]) satisfies Map<PaymentType, JSX.Element>
+  
 
     const displayStep = new Map([
         [
