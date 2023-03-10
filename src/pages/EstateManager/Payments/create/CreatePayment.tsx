@@ -4,13 +4,7 @@ import { BsQuestionCircle } from 'react-icons/bs'
 import { ToastContainer } from 'react-toastify'
 import { Select } from '../../../../components/SuperAdmin/UI/Select'
 import { getPhotoUrl } from '../../../../utils/getPhotoUrl'
-import {
-    PhoneNumber,
-    BVN_Number,
-    NIN_Number,
-    DriversLicence,
-    International_PassPort,
-} from '../../../SecurityCompany/dashboard/company/AddSecurity/Inputs'
+
 
 export type PaymentType = 'fixed' | 'flexible'
 
@@ -68,7 +62,7 @@ const CreatePayment = () => {
 
                      <Select
                         label='Gender'
-                        state={['Male', 'Female']}
+                        state={['Yes', 'No']}
                         selectedState={selectedGender}
                         setSelectedState={setSelectedGender}
                     />
