@@ -40,7 +40,7 @@ function PaymentForm({ props }: PaymentForm) {
 
     const amountHandler = (e: ChangeEvent<HTMLInputElement>) => {
 
-        
+
     }
 
     const flexible = (
@@ -112,8 +112,8 @@ function PaymentForm({ props }: PaymentForm) {
                     type='number'
                     required
                     id='amount'
-                    value={amount <= 0 ? '' : amount}
-                    onChange={(e) => setAmount(Number(e.target.value))}
+                    value={ amount}
+                    onChange={amountHandler}
                     className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                 />
             </div>
