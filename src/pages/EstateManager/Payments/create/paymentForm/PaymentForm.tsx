@@ -178,16 +178,17 @@ function PaymentForm({ props }: PaymentForm) {
                             <Fragment key={i}>
                                 <div className='grid gap-4 relative '>
                                     <label
-                                        htmlFor='firstName'
+                                        htmlFor='amount'
                                         className='text-[1.4rem] font-medium'
                                     >
                                         Installment Amount
                                     </label>
                                     <div className='relative rounded-lg border border-color-grey outline-none flex items-center pl-4'>
                                         <input
-                                            type='text'
+                                            type='number'
                                             required
-                                            id='firstName'
+                                            id='amount'
+                                            value={item.amount}
                                             className='w-full border-none outline-none py-4 px-4 pl-5'
                                         />
                                         <img
