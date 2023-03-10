@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { ToastContainer } from 'react-toastify'
 import HouseholdFilter from './filter/HouseholdFilter'
 import FlexiblePaymentType from './paymentType/flexible/FlexiblePaymentType'
 
@@ -38,7 +37,6 @@ const CreatePayment = () => {
 
     return (
         <>
-            <ToastContainer />
 
             <div className='grid p-8 bg-white h-[80vh] items-baseline overflow-y-scroll rounded-lg'>
                 {displayStep.get(step)}
