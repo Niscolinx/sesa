@@ -141,7 +141,7 @@ function PaymentForm({ props }: PaymentForm) {
     ]) satisfies Map<PaymentType, JSX.Element>
 
     const addAnotherInstallmentHandler = () => {
-        
+        setInstallmentCount(prev => prev + 1)
     }
     return (
         <div>
@@ -154,10 +154,11 @@ function PaymentForm({ props }: PaymentForm) {
                         Installment 1
                     </p>
                     <div
-                        className='grid gap-8 mt-16 mb-10'
+                        className='grid gap-8 mt-16'
                         style={{
                             gridTemplateColumns:
                                 ' repeat(auto-fit, minmax(30rem, 1fr))',
+                                rowGap: '4rem'
                         }}
                     >
                         {Array.from({ length: installmentCount }, (_, i) => (
