@@ -103,7 +103,7 @@ const CreatePayment = () => {
                         setSelectedState={setPaymentPlan}
                     />
 
-                    <button className='btn text-white bg-color-blue-1 py-4 px-16 rounded-lg w-[15rem] col-span-full mt-10 disabled:opacity-50 disabled:cursor-not-allowed' onClick={() => handleNext()} disbled={!paymentType}>
+                    <button className='btn text-white bg-color-blue-1 py-4 px-16 rounded-lg w-[15rem] col-span-full mt-10 disabled:opacity-50 disabled:cursor-not-allowed' onClick={() => handleNext()} disabled={!paymentType}>
                         
                         Next
                     </button>
