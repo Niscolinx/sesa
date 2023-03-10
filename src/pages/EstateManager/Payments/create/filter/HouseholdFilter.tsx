@@ -3,7 +3,7 @@ import { CgSpinnerTwo } from 'react-icons/cg'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { Select } from '../../../../../components/SuperAdmin/UI/Select'
 
-interface Payment {
+interface Household {
     id: string
     propertyCode: string
     address: string
@@ -23,7 +23,7 @@ const PropertyNames = [
     'Maz Homes',
 ]
 
-const PAYMENT: Payment[] = Array.from({
+const HOUSEHOLD: Household[] = Array.from({
     length: 20,
 }).map((_, i) => ({
     id: `i + ${i}`,
@@ -40,11 +40,11 @@ const PAYMENT: Payment[] = Array.from({
 }))
 
 const HouseholdFilter: FC = () => {
-    const [fetchedHouseholds, setFetchedHouseholds] = useState<Payment[]>([])
+    const [fetchedHouseholds, setFetchedHouseholds] = useState<Household[]>([])
 
     useEffect(() => {
         setTimeout(() => {
-            setFetchedHouseholds(PAYMENT)
+            setFetchedHouseholds(HOUSEHOLD)
         }, 100)
     }, [])
 
@@ -53,7 +53,7 @@ const HouseholdFilter: FC = () => {
         currentPage: number
         itemsPerPage: number
         totalPage: number
-        slicedPages: Payment[][] | null
+        slicedPages: Household[][] | null
     }
 
     const itemsPerPageArr = [2, 4, 6, 8]
@@ -70,7 +70,7 @@ const HouseholdFilter: FC = () => {
     const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
         const item = parseInt(e.target.value)
 
-        const slicedPages: Payment[][] = []
+        const slicedPages: Household[][] = []
         for (let i = 0; i < fetchedHouseholds.length; i += item) {
             slicedPages.push(fetchedHouseholds.slice(i, i + item))
         }
@@ -88,7 +88,7 @@ const HouseholdFilter: FC = () => {
     }
 
     useEffect(() => {
-        const slicedPages: Payment[][] = []
+        const slicedPages: Household[][] = []
         for (
             let i = 0;
             i < fetchedHouseholds.length;
