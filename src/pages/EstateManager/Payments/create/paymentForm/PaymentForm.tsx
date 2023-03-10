@@ -30,8 +30,8 @@ function PaymentForm({ props }: PaymentForm) {
         {
             amount: 0,
             startDate: '',
-            endDate: ''
-        }
+            endDate: '',
+        },
     ])
 
     const handleSubmit = (e: React.FormEvent) => {
@@ -154,7 +154,7 @@ function PaymentForm({ props }: PaymentForm) {
     ]) satisfies Map<PaymentType, JSX.Element>
 
     const addAnotherInstallmentHandler = () => {
-        setInstallmentCount((prev) => prev + 1)
+        // setInstallmentCount((prev) => prev + 1)
     }
     return (
         <div>
@@ -174,7 +174,7 @@ function PaymentForm({ props }: PaymentForm) {
                             rowGap: '4rem',
                         }}
                     >
-                        {Array.from({ length: installmentCount }, (_, i) => (
+                        {installmentField.map((item, i) => (
                             <Fragment key={i}>
                                 <div className='grid gap-4 relative '>
                                     <label
