@@ -187,7 +187,7 @@ function PaymentForm({ props }: PaymentForm) {
         // setInstallmentCount((prev) => prev + 1)
     }
 
-    const amountHandler = (e: ChangeEvent<HTMLInputElement>) => {
+    const installmentChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
         
     }
     return (
@@ -207,6 +207,7 @@ function PaymentForm({ props }: PaymentForm) {
                                 ' repeat(auto-fit, minmax(30rem, 1fr))',
                             rowGap: '4rem',
                         }}
+                        onChange={installmentChangeHandler}
                     >
                         {installmentField.map((item, i) => (
                             <Fragment key={i}>
@@ -225,7 +226,7 @@ function PaymentForm({ props }: PaymentForm) {
                                             value={
                                                 item.amount <= 0 ? '' : amount
                                             }
-                                            onChange={amountHandler}
+                                            name='amount'
                                             className='w-full border-none outline-none py-4 px-4 pl-5'
                                         />
                                         <img
