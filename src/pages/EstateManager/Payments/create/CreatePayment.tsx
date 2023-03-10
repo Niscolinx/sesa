@@ -25,7 +25,6 @@ const CreatePayment = () => {
             'initial',
             <FlexiblePaymentType
                 props={{
-                    handleNext,
                     paymentType,
                     setPaymentType,
                 }}

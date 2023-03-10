@@ -12,7 +12,7 @@ interface PaymentForm {
 }
 
 function PaymentForm({ props }: PaymentForm) {
-    const { handleNext, paymentType, setPaymentType } = props
+    const { paymentType, setPaymentType } = props
 
     const [isTrackPayment, setIsTrackPayment] = useState(false)
     const [paymentPlan, setPaymentPlan] = useState<string | null | PaymentPlan>(
