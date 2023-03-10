@@ -46,7 +46,7 @@ const Filter: FC = () => {
 
             {renderFilters.get(filter as FilterKeys)}
 
-            <button className='btn rounded-lg bg-color-blue-1 text-white w-[15rem] '>
+            <button className='btn rounded-lg bg-color-blue-1 text-white '>
               Create Payment
             </button>
         </main>
