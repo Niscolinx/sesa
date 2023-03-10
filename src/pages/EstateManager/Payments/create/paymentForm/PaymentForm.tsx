@@ -38,7 +38,7 @@ function PaymentForm({ props }: PaymentForm) {
             amount: 0,
             startDate: '',
             endDate: '',
-        }
+        },
     ])
 
     const handleSubmit = (e: React.FormEvent) => {
@@ -180,9 +180,7 @@ function PaymentForm({ props }: PaymentForm) {
     ]) satisfies Map<PaymentType, JSX.Element>
 
     const addAnotherInstallmentHandler = () => {
-        setInstallmentField((prev) => [...prev, prev.push({
-            
-        })])
+        
     }
 
     const installmentChangeHandler = (
@@ -190,7 +188,6 @@ function PaymentForm({ props }: PaymentForm) {
         idx: number
     ) => {
         const { name, value } = e.target
-
 
         setInstallmentField((prev) => {
             const updatedFields = [...prev]
@@ -241,7 +238,9 @@ function PaymentForm({ props }: PaymentForm) {
                                             required
                                             id='amount'
                                             value={
-                                                item.amount <= 0 ? '' : item.amount
+                                                item.amount <= 0
+                                                    ? ''
+                                                    : item.amount
                                             }
                                             name='amount'
                                             className='w-full border-none outline-none py-4 px-4 pl-5'
