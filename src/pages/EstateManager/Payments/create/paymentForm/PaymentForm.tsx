@@ -161,7 +161,7 @@ function PaymentForm({ props }: PaymentForm) {
                                 rowGap: '4rem'
                         }}
                     >
-                        {Array.from({ length: installmentCount }, (_, i) => (
+                        {installmentCount.map((_, i) => (
                             <>
                                 <div className='grid gap-4 relative  '>
                                     <label
