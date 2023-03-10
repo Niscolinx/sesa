@@ -3,7 +3,7 @@ import { CgSpinnerTwo } from 'react-icons/cg'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 
 
-interface Recipient {
+interface Resident {
     id: string
     residentCode: string
     residentName: string
@@ -14,7 +14,7 @@ interface Recipient {
     tenancyType: string
 }
 
-const RECIPIENT: Recipient[] = Array.from({
+const RESIDENT: Resident[] = Array.from({
     length: 20,
 }).map((_, i) => ({
     id: `i + ${i}`,
@@ -33,13 +33,13 @@ interface IResidentFilter {
 }
 
 const ResidentFilter: FC<IResidentFilter> = ({ closeResidentFilterDialog }) => {
-    const [fetchedRecipientData, setFetchedRecipientData] = useState<
-        Recipient[]
+    const [fetchedResidentData, setFetchedResidentData] = useState<
+        Resident[]
     >([])
 
     useEffect(() => {
         setTimeout(() => {
-            setFetchedRecipientData(RECIPIENT)
+            setFetchedResidentData(RESIDENT)
         }, 1000)
     }, [])
 
@@ -48,7 +48,7 @@ const ResidentFilter: FC<IResidentFilter> = ({ closeResidentFilterDialog }) => {
         currentPage: number
         itemsPerPage: number
         totalPage: number
-        slicedPages: Recipient[][] | null
+        slicedPages: Resident[][] | null
     }
 
     const itemsPerPageArr = [2, 4, 6, 8]
@@ -58,16 +58,16 @@ const ResidentFilter: FC<IResidentFilter> = ({ closeResidentFilterDialog }) => {
         index: 0,
         currentPage: 1,
         itemsPerPage: perPage,
-        totalPage: Math.ceil(fetchedRecipientData.length / perPage),
+        totalPage: Math.ceil(fetchedResidentData.length / perPage),
         slicedPages: null,
     })
 
     const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
         const item = parseInt(e.target.value)
 
-        const slicedPages: Recipient[][] = []
-        for (let i = 0; i < fetchedRecipientData.length; i += item) {
-            slicedPages.push(fetchedRecipientData.slice(i, i + item))
+        const slicedPages: Resident[][] = []
+        for (let i = 0; i < fetchedResidentData.length; i += item) {
+            slicedPages.push(fetchedResidentData.slice(i, i + item))
         }
 
         setPaginate((prev) => {
@@ -77,20 +77,20 @@ const ResidentFilter: FC<IResidentFilter> = ({ closeResidentFilterDialog }) => {
                 index: 0,
                 currentPage: 1,
                 slicedPages,
-                totalPage: Math.ceil(fetchedRecipientData.length / item),
+                totalPage: Math.ceil(fetchedResidentData.length / item),
             }
         })
     }
 
     useEffect(() => {
-        const slicedPages: Recipient[][] = []
+        const slicedPages: Resident[][] = []
         for (
             let i = 0;
-            i < fetchedRecipientData.length;
+            i < fetchedResidentData.length;
             i += paginate.itemsPerPage
         ) {
             slicedPages.push(
-                fetchedRecipientData.slice(i, i + paginate.itemsPerPage)
+                fetchedResidentData.slice(i, i + paginate.itemsPerPage)
             )
         }
 
@@ -99,11 +99,11 @@ const ResidentFilter: FC<IResidentFilter> = ({ closeResidentFilterDialog }) => {
                 ...prev,
                 slicedPages,
                 totalPage: Math.ceil(
-                    fetchedRecipientData.length / paginate.itemsPerPage
+                    fetchedResidentData.length / paginate.itemsPerPage
                 ),
             }
         })
-    }, [fetchedRecipientData])
+    }, [fetchedResidentData])
 
     const handleNext = () => {
         if (paginate.currentPage === paginate.totalPage) return
