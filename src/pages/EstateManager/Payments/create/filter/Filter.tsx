@@ -1,4 +1,5 @@
-import { FC, useState } from 'react'
+import { FC, useRef, useState } from 'react'
+import { IoMdClose } from 'react-icons/io'
 import { Select } from '../../../../../components/SuperAdmin/UI/Select'
 import HouseholdFilter from './HouseholdFilter'
 import ResidentFilter from './ResidentFilter'
@@ -16,6 +17,45 @@ const Filter: FC = () => {
         ['Households', <HouseholdFilter />],
         ['Residents', <ResidentFilter />],
     ]) satisfies Map<FilterKeys, JSX.Element>
+
+    const dialogRef = useRef<HTMLDialogElement | null>(null)
+
+    const handleClose = () => {
+        if (dialogRef.current) {
+            dialogRef.current.close()
+        }
+    }
+
+    const closeValidateDialog = () => {
+        if (validateDialogRef.current) {
+            validateDialogRef.current.close()
+        }
+    }
+
+    const openValidateDialog = () => {
+        if (validateDialogRef.current) {
+            validateDialogRef.current.showModal()
+        }
+    }
+    const handleOpen = (modalState: DialogType) => {
+        if (modalState === 'validate') {
+            setDialogState('validate')
+        }
+        if (modalState === 'add-resident') {
+            setDialogState('add-resident')
+        }
+        if (modalState === 'view-kyr') {
+            setDialogState('view-kyr')
+        }
+
+        dialogRef.current?.showModal()
+    }
+
+    const addResidentHandler = () => {
+        // navigate('/superAdmin/residentCategory/add')
+        handleOpen('add-resident')
+    }
+
 
     return (
         <>
