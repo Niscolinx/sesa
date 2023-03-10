@@ -197,10 +197,8 @@ function PaymentForm({ props }: PaymentForm) {
         console.log({ name, value, idx })
 
         setInstallmentField((prev) => {
-            console.log({prev})
-            return [
-                ...prev
-            ]
+            const updatedFields = [...prev];
+           updatedFields[idx] 
         })
     }
     return (
