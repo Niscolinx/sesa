@@ -21,7 +21,7 @@ export type ValidateInputTypes =
     | 'Drivers License'
     | 'International Passport'
 
-const AddPayment = () => {
+const CreatePayment = () => {
     const [selectedGender, setSelectedGender] = useState<string | null>(null)
     const [isValidated, setIsValidated] = useState(false)
 
@@ -504,4 +504,4 @@ const AddPayment = () => {
     )
 }
 
-export default AddPayment
+export default CreatePayment
