@@ -6,7 +6,9 @@ export type PaymentPlan = 'fixed' | 'flexible'
 export type PaymentType = 'full' | 'installment'
 
 const CreatePayment = () => {
-    const [paymentPlan, setPaymentPlan] = useState<string | null | PaymentPlan>(null)
+    const [paymentPlan, setPaymentPlan] = useState<string | null | PaymentPlan>(
+        null
+    )
     const [trackPayment, setTrackPayment] = useState<string | null>(null)
     const [amount, setAmount] = useState(0)
 
@@ -85,8 +87,8 @@ const CreatePayment = () => {
                     <Select
                         label='Payment Plan'
                         state={['fixed', 'flexible'] satisfies PaymentPlan[]}
-                        selectedState={paymentType}
-                        setSelectedState={setPaymentType}
+                        selectedState={paymentPlan}
+                        setSelectedState={setPaymentPlan}
                     />
 
                     <button className='btn text-white bg-color-blue-1 py-4 px-16 rounded-lg w-[15rem]'>
