@@ -1,6 +1,7 @@
 import React, {
     ChangeEvent,
     Dispatch,
+    FormEvent,
     Fragment,
     SetStateAction,
     useState,
@@ -187,7 +188,7 @@ function PaymentForm({ props }: PaymentForm) {
         // setInstallmentCount((prev) => prev + 1)
     }
 
-    const installmentChangeHandler = (e: ChangeEvent<HTMLInputElement>, idx: number) => {
+    const installmentChangeHandler = (e: FormEvent<HTMLDivElement>, idx: number) => {
         const {name, value} = e.target
 
         console.log({name, value})
