@@ -292,11 +292,10 @@ const handleSelectedTrend = (item: Trend) => {
                         <div className='relative grid gap-4'>
                             <div className='relative flex items-center w-[12rem]'>
                                 <button
-                                    className='btn border border-color-blue-1 text-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
-                                    style={{ justifySelf: 'start' }}
+                                    className='btn text-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
                                     onClick={() => openPaymentDialog()}
                                 >
-                                    Add Recipients
+                                    Add Recipients Info
                                 </button>
                                 <p
                                     className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer'
