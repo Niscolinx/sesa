@@ -141,38 +141,44 @@ function PaymentForm({ props }: PaymentForm) {
 
     return (
         <div>
-            <p className='font-semibold text-[2rem] mb-10'>Add Payment ( Step 1 of 2)</p>
-            <form
-                onSubmit={handleSubmit}
-                className='grid max-w-[84rem] gap-16 items-start content-start capitalize'
-                style={{
-                    gridTemplateColumns:
-                        ' repeat(auto-fit, minmax(35rem, 1fr))',
-                }}
-            >
-                <div className='grid gap-4 relative '>
-                    <label
-                        htmlFor='firstName'
-                        className='text-[1.4rem] font-medium'
-                    >
-                        Payment Name
-                    </label>
-                    <input
-                        type='text'
-                        required
-                        id='firstName'
-                        placeholder='placeholder'
-                        className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+            <p className='font-semibold text-[2rem] mb-10'>
+                Add Payment ( Step 1 of 2)
+            </p>
+            {paymentPlan === 'installment' ? (
+                <></>
+            ) : (
+                <form
+                    onSubmit={handleSubmit}
+                    className='grid max-w-[84rem] gap-16 items-start content-start capitalize'
+                    style={{
+                        gridTemplateColumns:
+                            ' repeat(auto-fit, minmax(35rem, 1fr))',
+                    }}
+                >
+                    <div className='grid gap-4 relative '>
+                        <label
+                            htmlFor='firstName'
+                            className='text-[1.4rem] font-medium'
+                        >
+                            Payment Name
+                        </label>
+                        <input
+                            type='text'
+                            required
+                            id='firstName'
+                            placeholder='placeholder'
+                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                        />
+                    </div>
+                    <Select
+                        label='Payment Type'
+                        state={['fixed', 'flexible'] satisfies PaymentType[]}
+                        selectedState={paymentType}
+                        setSelectedState={setPaymentType}
                     />
-                </div>
-                <Select
-                    label='Payment Type'
-                    state={['fixed', 'flexible'] satisfies PaymentType[]}
-                    selectedState={paymentType}
-                    setSelectedState={setPaymentType}
-                />
-                {renderForm.get(paymentType as PaymentType)}
-            </form>
+                    {renderForm.get(paymentType as PaymentType)}
+                </form>
+            )}
         </div>
     )
 }
