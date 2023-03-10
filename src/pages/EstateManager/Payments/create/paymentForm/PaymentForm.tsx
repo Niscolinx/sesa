@@ -150,10 +150,10 @@ function PaymentForm({ props }: PaymentForm) {
                         Installment 1
                     </p>
                     <div
-                        className='grid gap-8'
+                        className='grid gap-8 mt-16'
                         style={{
                             gridTemplateColumns:
-                                ' repeat(auto-fit, minmax(35rem, 1fr))',
+                                ' repeat(auto-fit, minmax(30rem, 1fr))',
                         }}
                     >
                         <div className='grid gap-4 relative '>
