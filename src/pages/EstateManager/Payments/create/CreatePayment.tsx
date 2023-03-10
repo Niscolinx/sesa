@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { ToastContainer } from 'react-toastify'
 import { Select } from '../../../../components/SuperAdmin/UI/Select'
-import HouseholdFilter from './filter/Household'
+import HouseholdFilter from './filter/HouseholdFilter'
 import FlexiblePaymentType from './paymentType/flexible/FlexiblePaymentType'
 
 export type PaymentType = 'fixed' | 'flexible'
@@ -25,11 +25,11 @@ const CreatePayment = () => {
     }
 
     const handleNext = () => {
-        console.log("clicked", paymentType)
+        console.log('clicked', paymentType)
         if (paymentType) {
             console.log('sd')
             if ((paymentType as PaymentType) === 'flexible') {
-                console.log("clicked")
+                console.log('clicked')
                 setStep('list')
             }
         }
@@ -59,7 +59,6 @@ const CreatePayment = () => {
 
             <div className='grid p-8 bg-white h-[80vh] items-baseline overflow-y-scroll rounded-lg'>
                 {displayStep.get(step)}
-               
             </div>
         </>
     )

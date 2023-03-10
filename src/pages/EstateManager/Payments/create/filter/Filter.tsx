@@ -1,5 +1,6 @@
 import { FC, useState } from 'react'
 import { Select } from '../../../../../components/SuperAdmin/UI/Select'
+import HouseholdFilter from './HouseholdFilter'
 
 const Filter: FC = () => {
     const [filter, setFilter] = useState<string | null>(null)
@@ -8,7 +9,7 @@ const Filter: FC = () => {
     const filterKeys = ['Households', 'Residents'] satisfies FilterKeys[]
 
     const renderFilters = new Map([
-        ['Households', <></>],
+        ['Households', <HouseholdFilter />],
         ['Residents', <></>],
     ]) satisfies Map<FilterKeys, JSX.Element>
 
@@ -26,6 +27,8 @@ const Filter: FC = () => {
                     placeholder='Households'
                 />
             </div>
+
+            {renderFilters.get(filter)}
         </main>
     )
 }
