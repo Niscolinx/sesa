@@ -209,20 +209,19 @@ function PaymentForm({ props }: PaymentForm) {
             </p>
             {paymentType === 'fixed' && paymentPlan === 'installment' ? (
                 <div>
-                    <div
-                        className='grid gap-8 mt-16'
-                        style={{
-                            gridTemplateColumns:
-                                ' repeat(auto-fit, minmax(30rem, 1fr))',
-                            rowGap: '4rem',
-                        }}
-                    >
-                        {installmentField.map((item, idx) => (
-                            <>
-                                <p className='text-color-blue font-semibold'>
-                                    Installment 1
-                                </p>
-
+                    {installmentField.map((item, idx) => (
+                        <div className='my-5'>
+                            <p className='text-color-blue font-semibold my-5'>
+                                Installment {idx + 1}
+                            </p>
+                            <div
+                                className='grid gap-8'
+                                style={{
+                                    gridTemplateColumns:
+                                        ' repeat(auto-fit, minmax(30rem, 1fr))',
+                                    rowGap: '4rem',
+                                }}
+                            >
                                 <div
                                     key={idx}
                                     className='contents'
@@ -288,9 +287,9 @@ function PaymentForm({ props }: PaymentForm) {
                                         />
                                     </div>
                                 </div>
-                            </>
-                        ))}
-                    </div>
+                            </div>
+                        </div>
+                    ))}
                     <p className='text-[1.4rem] font-light text-gray-400 mt-4'>
                         Max. of 12 installments
                     </p>
