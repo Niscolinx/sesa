@@ -320,7 +320,7 @@ function PaymentForm({ props }: PaymentForm) {
                         </div>
                     </button>
 
-                    <div className='mt-[5rem]'>
+                    <div className='mt-[5rem] my-10'>
                         <div className='flex items-center gap-4'>
                             <span>Total Amount:</span>{' '}
                             <p className='flex items-center font-semibold'>
