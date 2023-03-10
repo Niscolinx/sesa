@@ -21,10 +21,10 @@ function FlexiblePaymentType({ props }: FlexiblePaymentType) {
     const [amount, setAmount] = useState(0)
 
 
-
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
     }
+    
     return (
         <form
             onSubmit={handleSubmit}
