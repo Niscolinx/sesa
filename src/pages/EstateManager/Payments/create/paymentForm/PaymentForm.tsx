@@ -332,7 +332,7 @@ function PaymentForm({ props }: PaymentForm) {
                         </div>
 
                         {installmentField.map((item, idx) => (
-                            <div className='flex items-center gap-4'>
+                            <div className='flex items-center gap-4 bg-red-600 w-[20rem]'>
                                 {item.amount && (
                                     <>
                                         <span className='text-color-blue-1 font-medium'>
