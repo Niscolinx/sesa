@@ -312,7 +312,7 @@ function PaymentForm({ props }: PaymentForm) {
 
                         {installmentField.map((item, idx) => (
                             <div className='flex items-center gap-4'>
-                                <span>Total Amount:</span>
+                                <span className='text-color-blue-1 font-medium'>Installment {idx}</span>
                                 <p className='flex items-center font-semibold'>
                                     <span>
                                         <img src='/icons/Naira.svg' alt='' />
