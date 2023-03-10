@@ -226,20 +226,17 @@ const PaymentList: FC<IPaymentList> = ({ closePaymentDialog }) => {
                                                     <p>{address}</p>
                                                     <p>{propertyCategory}</p>
                                                     <p>{propertyName}</p>
+                                                    <p>{propertyType}</p>
+                                                    <p>{residentialClass}</p>
                                                     <p className='flex items-center gap-2'>
-                                                        <span>
-                                                            {propertyName}
-                                                        </span>
                                                         {paid ? (
                                                             <img
-                                                                src='/img/alpha.svg'
+                                                                src='/img/paid.svg'
                                                                 alt=''
                                                             />
                                                         ) : null}
+                                                        <span>{date}</span>
                                                     </p>
-
-                                                    <p>{propertyType}</p>
-                                                    <p>{residentialClass}</p>
                                                 </div>
                                             )
                                         }
