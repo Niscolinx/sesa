@@ -40,7 +40,7 @@ const ResidentFilter: FC<IResidentFilter> = ({ closeResidentFilterDialog }) => {
     useEffect(() => {
         setTimeout(() => {
             setFetchedResidentData(RESIDENT)
-        }, 1000)
+        }, 100)
     }, [])
 
     interface Paginate {
