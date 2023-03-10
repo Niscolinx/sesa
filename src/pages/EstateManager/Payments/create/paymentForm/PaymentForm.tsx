@@ -38,6 +38,11 @@ function PaymentForm({ props }: PaymentForm) {
         e.preventDefault()
     }
 
+    const amountHandler = (e: ChangeEvent<HTMLInputElement>) => {
+
+        
+    }
+
     const flexible = (
         <>
             <div className='grid gap-4'>
@@ -50,7 +55,7 @@ function PaymentForm({ props }: PaymentForm) {
                         required
                         id='amount'
                         value={amount}
-                        onChange={changedAmountHander}
+                        onChange={amountHandler}
                         name='amount'
                         className='w-full border-none outline-none py-4 px-4 pl-5'
                     />
