@@ -206,6 +206,8 @@ function PaymentForm({ props }: PaymentForm) {
 
         if (!isNaN(parsedValue) && isFinite(parsedValue)) {
             const transformedValue = parsedValue.toLocaleString()
+
+             console.log({transformedValue})
             setInstallmentField((prev) => {
                 const updatedFields = [...prev]
 
