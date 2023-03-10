@@ -236,9 +236,9 @@ function PaymentForm({ props }: PaymentForm) {
            return amount
         }, 0)
 
-        
+        console.log({amount}, parseFloat(amount))
 
-        const balance = parseInt(amount) - reducedAmount
+        const balance = parseInt(amount.replace(',', '')) - reducedAmount
 
         setBalanceAmount(balance)
     }, [installmentField])
