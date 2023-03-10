@@ -239,7 +239,7 @@ function PaymentForm({ props }: PaymentForm) {
                                             required
                                             id='amount'
                                             value={
-                                                item.amount
+                                                item.amount <= 0 ? '' : item.amount
                                             }
                                             name='amount'
                                             className='w-full border-none outline-none py-4 px-4 pl-5'
