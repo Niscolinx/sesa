@@ -4,6 +4,7 @@ import { useLocation } from 'react-router-dom'
 import { toast, ToastContainer } from 'react-toastify'
 import WalletBarChart from '../../../components/SuperAdmin/charts/WalletBarChart'
 import PaymentList from './PaymentList'
+import { Payments } from './RenderPayments'
 
 const ViewPayment = () => {
     const location = useLocation()
@@ -27,7 +28,7 @@ const ViewPayment = () => {
         amountToPay,
         createDate,
         expectedAmount,
-    } = paymentData
+    } = paymentData as Payments
 
     type Trend = 'This Week' | 'This Month' | 'This Year'
 
@@ -341,75 +342,85 @@ const ViewPayment = () => {
                         <WalletBarChart width={1000} />
                     </div>
                 </section>
-                <section className='grid bg-white p-8 rounded-2xl '>
-                    <div className='flex items-center gap-2 justify-between mb-10'>
-                        <p className='font-Satoshi-Medium'>Installment Info</p>{' '}
-                        <div className='relative flex gap-4'>
-                            <button
-                                className='btn text-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
-                                onClick={() => openPaymentDialog()}
-                            >
-                                View Households
-                            </button>
-                            <div className='flex items-center w-[14rem]'>
-                                <p
-                                    className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer'
-                                    onClick={installmentToggler}
+                {paymentType === 'Installment' && (
+                    <section className='grid bg-white p-8 rounded-2xl '>
+                        <div className='flex items-center gap-2 justify-between mb-10'>
+                            <p className='font-Satoshi-Medium'>
+                                Installment Info
+                            </p>{' '}
+                            <div className='relative flex gap-4'>
+                                <button
+                                    className='btn text-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
+                                    onClick={() => openPaymentDialog()}
                                 >
-                                    {installmentPlan || <span className='text-gray-500'>Installments</span>}
-                                </p>
-                                {toggleMenu ? (
-                                    <GrUp className='absolute right-4' />
-                                ) : (
-                                    <GrDown className='absolute right-4' />
+                                    View Households
+                                </button>
+                                <div className='flex items-center w-[14rem]'>
+                                    <p
+                                        className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer'
+                                        onClick={installmentToggler}
+                                    >
+                                        {installmentPlan || (
+                                            <span className='text-gray-500'>
+                                                Installments
+                                            </span>
+                                        )}
+                                    </p>
+                                    {toggleMenu ? (
+                                        <GrUp className='absolute right-4' />
+                                    ) : (
+                                        <GrDown className='absolute right-4' />
+                                    )}
+                                </div>
+
+                                {toggleInstallment && (
+                                    <div className='absolute top-[5rem]  right-0 border border-color-primary-light  bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize w-[14rem]'>
+                                        {installments.map((item, index) => (
+                                            <p
+                                                className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
+                                                key={index}
+                                                onClick={() =>
+                                                    handleSelectedInstallment(
+                                                        item
+                                                    )
+                                                }
+                                            >
+                                                {item}
+                                            </p>
+                                        ))}
+                                    </div>
                                 )}
                             </div>
-
-                            {toggleInstallment && (
-                                <div className='absolute top-[5rem]  right-0 border border-color-primary-light  bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize w-[14rem]'>
-                                    {installments.map((item, index) => (
-                                        <p
-                                            className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
-                                            key={index}
-                                            onClick={() =>
-                                                handleSelectedInstallment(item)
-                                            }
-                                        >
-                                            {item}
-                                        </p>
-                                    ))}
-                                </div>
-                            )}
-                        </div>
-                    </div>
-
-                    <div className='grid gap-4 items-center '>
-                        <div className='progressBar overflow-hidden '>
-                            <progress
-                                className='progressBar__item'
-                                max={100}
-                                value={progressPercent}
-                            />
-
-                            <p
-                                className={`absolute left-0 text-color-tertiary text-white flex justify-end font-Satoshi-Medium pr-10`}
-                                style={{
-                                    width: `${progressPercent}%`,
-                                }}
-                            >
-                                <span>{progressPercent}%</span>
-                            </p>
                         </div>
 
-                        <div className='flex items-center justify-between font-Satoshi-Light'>
-                            <p>
-                                {paidResidents} of {totalResidents} resident
-                                paid
-                            </p>
-                            <p>₦{expectedAmount}</p>
+                        <div className='grid gap-4 items-center '>
+                            <div className='progressBar overflow-hidden '>
+                                <progress
+                                    className='progressBar__item'
+                                    max={100}
+                                    value={progressPercent}
+                                />
+
+                                <p
+                                    className={`absolute left-0 text-color-tertiary text-white flex justify-end font-Satoshi-Medium pr-10`}
+                                    style={{
+                                        width: `${progressPercent}%`,
+                                    }}
+                                >
+                                    <span>{progressPercent}%</span>
+                                </p>
+                            </div>
+
+                            <div className='flex items-center justify-between font-Satoshi-Light'>
+                                <p>
+                                    {paidResidents} of {totalResidents} resident
+                                    paid
+                                </p>
+                                <p>₦{expectedAmount}</p>
+                            </div>
                         </div>
-                    </div>
-                </section>
+                    </section>
+                )}
             </main>
         </>
     )
