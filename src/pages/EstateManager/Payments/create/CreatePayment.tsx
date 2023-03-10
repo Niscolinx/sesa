@@ -1,4 +1,4 @@
-import  { useState } from 'react'
+import { useState } from 'react'
 import { ToastContainer } from 'react-toastify'
 import HouseholdFilter from './filter/HouseholdFilter'
 import FlexiblePaymentType from './paymentType/flexible/FlexiblePaymentType'
@@ -8,23 +8,15 @@ export type PaymentPlan = 'full' | 'installment'
 type Step = 'initial' | 'list'
 
 const CreatePayment = () => {
-    
     const [step, setStep] = useState<Step>('initial')
-   
 
     const [paymentType, setPaymentType] = useState<PaymentType | string | null>(
         null
     )
 
-
     const handleNext = () => {
-        console.log('clicked', paymentType)
-        if (paymentType) {
-            console.log('sd')
-            if ((paymentType as PaymentType) === 'flexible') {
-                console.log('clicked')
-                setStep('list')
-            }
+        if (paymentType && (paymentType as PaymentType) === 'flexible') {
+            setStep('list')
         }
     }
 
