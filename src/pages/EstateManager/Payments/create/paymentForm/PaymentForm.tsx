@@ -10,7 +10,6 @@ interface PaymentForm {
     }
 }
 
-type RenderForm = 'flexible' | 'fixed'
 
 function PaymentForm({ props }: PaymentForm) {
     const { handleNext, paymentType, setPaymentType } = props
@@ -70,12 +69,12 @@ function PaymentForm({ props }: PaymentForm) {
     const renderForm = new Map([
         ['flexible', flexible],
         ['fixed', <></>],
-    ]) satisfies Map<RenderForm, JSX.Element>
+    ]) satisfies Map<PaymentType, JSX.Element>
 
     return (
         <form
             onSubmit={handleSubmit}
-            className='grid max-w-[84rem] gap-16 mt-12 min-h-[70vh]'
+            className='grid max-w-[84rem] gap-16 mt-12 min-h-[70vh] items-baseline'
             style={{
                 gridTemplateColumns: ' repeat(auto-fit, minmax(35rem, 1fr))',
             }}
@@ -101,6 +100,7 @@ function PaymentForm({ props }: PaymentForm) {
                 selectedState={paymentType}
                 setSelectedState={setPaymentType}
             />
+            {renderForm.get(paymentType as PaymentType)}
         </form>
     )
 }
