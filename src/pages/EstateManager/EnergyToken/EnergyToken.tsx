@@ -28,7 +28,7 @@ function EnergyToken() {
                             <div className='overviewChart__box'>
                                 <EstateChart
                                     color1='#098DFF'
-                                    color2='#23C375'
+                                    color2='#C5C1C3'
                                     data={property_data}
                                 />
 
