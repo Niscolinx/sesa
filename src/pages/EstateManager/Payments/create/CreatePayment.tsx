@@ -13,9 +13,7 @@ const CreatePayment = () => {
     // const [paymentType, setPaymentType] = useState<PaymentType | string | null>(
     //     'flexible'
     // )
-    const [paymentType, setPaymentType] = useState<PaymentType | string | null>(
-        null
-    )
+   
 
 
     const displayStep = new Map([

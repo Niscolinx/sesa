@@ -26,7 +26,7 @@ function PaymentForm({ props }: PaymentForm) {
 
     const [isTrackPayment, setIsTrackPayment] = useState(false)
     const [paymentPlan, setPaymentPlan] = useState<string | null | PaymentPlan>(
-        'installment'
+        null
     )
     const [trackPayment, setTrackPayment] = useState<string | null>(null)
     const [amount, setAmount] = useState('')
