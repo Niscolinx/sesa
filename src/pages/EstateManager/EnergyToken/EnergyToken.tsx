@@ -32,7 +32,7 @@ function EnergyToken() {
                                 />
 
                                 <div className='overviewChart__label'>
-                                    <p className='text-[4rem] font-Satoshi-Medium relative text-[#FF0000]'>
+                                    <p className='text-[3rem] font-Satoshi-Medium relative text-[#FF0000]'>
                                         85%
                                     </p>
                                     <p className='text-[1.2rem] max-w-[9.8rem]'>
