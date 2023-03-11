@@ -228,31 +228,31 @@ function PaymentForm({ props }: PaymentForm) {
     }
 
     useEffect(() => {
-        // const reducedAmount =
-        //     installmentField.length > 0
-        //         ? installmentField.reduce((prev, curr) => {
-        //               const amount: number =
-        //                   parseFloat(curr.amount.replace(',', '')) + prev
+        const reducedAmount =
+            installmentField.length > 0
+                ? installmentField.reduce((prev, curr) => {
+                      const amount: number =
+                          parseFloat(curr.amount.replace(',', '')) + prev
 
-        //               if (isNaN(amount)) {
-        //                   return prev
-        //               } else {
-        //                   return amount
-        //               }
-        //           }, 0)
-        //         : 0
+                      if (isNaN(amount)) {
+                          return prev
+                      } else {
+                          return amount
+                      }
+                  }, 0)
+                : 0
 
-        // const balance = parseInt(amount.replace(',', '')) - reducedAmount
+        const balance = parseInt(amount.replace(',', '')) - reducedAmount
 
-        let installments = 0
-        const reducedAmount = installmentField.forEach((item) => {
-            console.log(item.amount, parseInt(item.amount.replace('', '')), item.amount.split(',').flatMap())
-            return installments += parseInt(item.amount.replace(',', ''))
-        })
+        // let installments = 0
+        // const reducedAmount = installmentField.forEach((item) => {
+        //     console.log(item.amount, parseInt(item.amount.replace('', '')), item.amount.split(',').join(''))
+        //     return installments += parseInt(item.amount.replace(',', ''))
+        // })
 
-        const balance = parseInt(amount.replace(',', '')) - installments
+        // const balance = parseInt(amount.replace(',', '')) - installments
 
-        setBalanceAmount( balance)
+        // setBalanceAmount( balance)
     }, [installmentField, amount])
 
     return (
