@@ -10,58 +10,14 @@ import {
 } from './DialogSteps'
 import { Select } from '../../../components/SuperAdmin/UI/Select'
 import { getPhotoUrl } from '../../../utils/getPhotoUrl'
-import {
-    BVN_Number,
-    DriversLicence,
-    International_PassPort,
-    NIN_Number,
-    PhoneNumber,
-    Voters_Card,
-} from '../../SecurityCompany/dashboard/company/AddSecurity/Inputs'
 
-type DialogType = 'validate' | 'add-securityGuard' | 'reassign'
-
-export type AddedSecurityGuardSteps =
-    | 'addedSecurityGuardSuccessful'
-    | 'addBankAccount'
-    | 'openedBankAccountSuccessful'
-
-export type ValidateInputTypes =
-    | 'Phone Number'
-    | 'BVN Number'
-    | 'NIN Number'
-    | 'Drivers License'
-    | 'International Passport'
-    | 'Voters Card'
-
-export interface AddedSecurityGuardContext {
-    addedSecurityGuardStep: AddedSecurityGuardSteps
-    setAddedSecurityGuardStep: React.Dispatch<
-        React.SetStateAction<AddedSecurityGuardSteps>
-    >
-    selectedBank: string | null
-    setSelectedBank: React.Dispatch<React.SetStateAction<string | null>>
-    handleClose: () => void
-}
-
-export const CreateAddedSecurityGuardContext =
-    createContext<AddedSecurityGuardContext>(null as any)
 
 const AddEnergyToken = () => {
-    const [isValidated, setIsValidated] = useState(false)
-    const [iskys, setIskys] = useState(false)
+  
 
-    const toggleIskys = () => setIskys(!iskys)
     const [selectedState, setSelectedState] = useState<string | null>(null)
     const [selectedGender, setSelectedGender] = useState<string | null>(null)
-    const [dialogState, setDialogState] = useState<DialogType>('validate')
-    const [validationType, setValidationType] = useState<
-        ValidateInputTypes | string | null
-    >('Phone Number')
-
-    const [selectedBank, setSelectedBank] = useState<null | string>(null)
-    const [addedSecurityGuardStep, setAddedSecurityGuardStep] =
-        useState<AddedSecurityGuardSteps>('addedSecurityGuardSuccessful')
+ 
 
     const [photoUrl, setPhotoUrl] = useState('')
 
