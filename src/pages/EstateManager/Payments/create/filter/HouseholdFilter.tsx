@@ -147,7 +147,10 @@ const HouseholdFilter: FC = () => {
         <main className='bg-color-white rounded-lg overflow-scroll max-h-[80vh]'>
             <div className='grid'>
                 <div className='grid justify-between text-color-dark-1 bg-gray-100 p-8 grid-cols-6 gap-6 items-center capitalize'>
-                    <p>Property Code</p>
+                    <p className='flex items-center gap-4'>
+                        <input type='checkbox' />
+                        <span>Property Code</span>
+                    </p>
                     <p>Address</p>
                     <p>Property Category</p>
                     <p>Property Name</p>
@@ -170,7 +173,10 @@ const HouseholdFilter: FC = () => {
                                 }) => {
                                     return (
                                         <div className='grid justify-between border-b grid-cols-6 gap-8 py-4 whitespace-nowrap text-ellipsis'>
-                                            <p>{propertyCode}</p>
+                                            <p className='flex items-center gap-4'>
+                                                <input type='checkbox' />
+                                                <span>{propertyCode}</span>
+                                            </p>
                                             <p>{address}</p>
                                             <p>{propertyCategory}</p>
                                             <p>{propertyName}</p>
