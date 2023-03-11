@@ -42,9 +42,11 @@ function EnergyToken() {
                                 </div>
                             </div>
                             <div className='grid gap-4'>
-                                   <p>
+                                   <p className='flex items-center'>
                                     <img src="/icons/Naira.svg" alt="" />
+                                    <span>5,000</span>
                                    </p>
+                                   <p>Denomination</p>
                                 
                             </div>
                         </div>
