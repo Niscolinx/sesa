@@ -362,9 +362,9 @@ function PaymentForm({ props }: PaymentForm) {
                     </button>
 
                     <div className='mt-[5rem]'>
-                        <div className='flex items-center gap-4 my-5'>
+                        <div className='flex items-center gap-4 my-5 font-Satoshi-Medium'>
                             <span>Total Amount:</span>{' '}
-                            <p className='flex items-center font-semibold'>
+                            <p className='flex items-center'>
                                 <span>
                                     <img src='/icons/Naira.svg' alt='' />
                                 </span>{' '}
