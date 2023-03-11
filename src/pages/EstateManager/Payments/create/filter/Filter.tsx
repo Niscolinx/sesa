@@ -50,8 +50,10 @@ const Filter: FC = () => {
                                 }}
                             />
                             <p className='text-[1.6rem]'>
-                                You have successfully added a{' '}
-                                {filter?.substring(0, filter.length - 1)}
+                                {/* You have successfully added a{' '}
+                                {filter?.substring(0, filter.length - 1)} */}
+
+                                Payment Created Successfully
                             </p>
                             <div className='flex w-full justify -center gap-8'>
                                 <button
