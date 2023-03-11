@@ -50,7 +50,7 @@ const AddEnergyToken = () => {
                                 htmlFor='firstName'
                                 className='text-[1.4rem] font-medium'
                             >
-                                First Name *
+                                Token Seriel Number
                             </label>
                             <input
                                 type='text'
