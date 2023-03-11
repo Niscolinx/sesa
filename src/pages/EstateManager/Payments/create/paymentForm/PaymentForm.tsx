@@ -232,7 +232,9 @@ function PaymentForm({ props }: PaymentForm) {
             installmentField.length > 0
                 ? installmentField.reduce((prev, curr) => {
                       const amount: number =
-                          parseFloat(curr.amount.split(',').join('')) + prev
+                          parseInt(curr.amount.split(',').join('')) + prev
+
+                          console.log({amount}, typeof amount)
 
                       if (isNaN(amount)) {
                           return prev
