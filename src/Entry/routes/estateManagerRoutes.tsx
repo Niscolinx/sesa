@@ -35,6 +35,7 @@ import Payments from '../../pages/EstateManager/Payments/Payments'
 import ViewPayment from '../../pages/EstateManager/Payments/ViewPayment'
 import CreatePayment from '../../pages/EstateManager/Payments/create/CreatePayment'
 import EnergyToken from '../../pages/EstateManager/EnergyToken/EnergyToken'
+import AddEnergyToken from '../../pages/EstateManager/EnergyToken/AddEnegyToken'
 
 const estateManagerRoutes = (
     <Route path='/estateManager' element={<Dashboard />}>
@@ -83,6 +84,7 @@ const estateManagerRoutes = (
         <Route path='payments/view/:id' element={<ViewPayment />} />
         <Route path='payments/create' element={<CreatePayment />} />
         <Route path='energy-token' element={<EnergyToken />} />
+        <Route path='energy-token/add' element={<AddEnergyToken />} />
     </Route>
 )
 
