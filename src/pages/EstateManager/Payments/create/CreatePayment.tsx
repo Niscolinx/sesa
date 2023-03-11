@@ -10,8 +10,11 @@ type Step = 'initial' | 'list'
 const CreatePayment = () => {
     const [step, setStep] = useState<Step>('initial')
 
+    // const [paymentType, setPaymentType] = useState<PaymentType | string | null>(
+    //     'flexible'
+    // )
     const [paymentType, setPaymentType] = useState<PaymentType | string | null>(
-        'flexible'
+        'fixed'
     )
 
 
