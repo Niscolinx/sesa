@@ -393,7 +393,7 @@ function PaymentForm({ props }: PaymentForm) {
                             </div>
                         ))}
 
-                        <div className='flex items-center gap-4 my-5 font-Satoshi-Medium mt-[5rem]'>
+                        <div className='flex items-center gap-4 my-5 font-Satoshi-Medium mt-[5rem] text-[2rem]'>
                             {balanceAmount < 0 ? (
                                 <span className='border shadow border-red-400 py-6 px-6 rounded-2xl animate__animated animate__shakeX'>
                                     Installment is greater than total Amount to
@@ -412,7 +412,7 @@ function PaymentForm({ props }: PaymentForm) {
                                                 alt=''
                                             />
                                         </span>{' '}
-                                        <span>{balanceAmount}</span>
+                                        <span>{balanceAmount.toLocaleString()}</span>
                                     </p>
                                 </>
                             )}
