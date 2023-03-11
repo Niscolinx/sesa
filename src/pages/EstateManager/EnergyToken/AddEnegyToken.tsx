@@ -28,7 +28,6 @@ const AddEnergyToken = () => {
 
     return (
         <>
-
             <main>
                 <section className='grid p-8 bg-white items-baseline rounded-lg'>
                     <button className=' mb-5 ml-auto border border-color-blue'>
@@ -64,7 +63,7 @@ const AddEnergyToken = () => {
                                 htmlFor='lastName'
                                 className='text-[1.4rem] font-medium'
                             >
-                                Last Name *
+                                Token Code
                             </label>
                             <input
                                 type='text'
@@ -73,19 +72,29 @@ const AddEnergyToken = () => {
                                 className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                             />
                         </div>
-                        <div className='grid gap-4 relative '>
+                        <div className='grid gap-4'>
                             <label
-                                htmlFor='lastName'
+                                htmlFor='amount'
                                 className='text-[1.4rem] font-medium'
                             >
-                                Middle Name *
+                                Denomination
                             </label>
-                            <input
-                                type='text'
-                                required
-                                id='lastName'
-                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                            />
+                            <div className='relative rounded-lg border border-color-grey outline-none flex items-center pl-4'>
+                                <input
+                                    type='text'
+                                    required
+                                    id='amount'
+                                    value={amount}
+                                    onChange={amountHandler}
+                                    name='amount'
+                                    className='w-full border-none outline-none py-4 px-4 pl-5'
+                                />
+                                <img
+                                    src='/icons/Naira.svg'
+                                    alt=''
+                                    className='absolute'
+                                />
+                            </div>
                         </div>
                         <div className='grid gap-4 relative '>
                             <label
@@ -211,7 +220,6 @@ const AddEnergyToken = () => {
                         </div>
                     </form>
                 </section>
-               
             </main>
         </>
     )
