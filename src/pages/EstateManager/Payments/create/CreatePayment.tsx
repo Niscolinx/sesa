@@ -14,7 +14,7 @@ const CreatePayment = () => {
     //     'flexible'
     // )
     const [paymentType, setPaymentType] = useState<PaymentType | string | null>(
-        'fixed'
+        null
     )
 
 
