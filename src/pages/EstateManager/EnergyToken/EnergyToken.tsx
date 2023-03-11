@@ -22,7 +22,7 @@ function EnergyToken() {
             <div className='rounded-lg mt-[3rem] h-[80vh] bg-white'>
                 {isEnergyToken ? (
                     <section>
-                        <div className='grid gap-8 p-8 justify-items-center'>
+                        <div className='grid p-8 justify-items-center'>
                             <div className='overviewChart__box'>
                                 <Chart
                                     color1='#098DFF'
@@ -40,7 +40,7 @@ function EnergyToken() {
                                     </p>
                                 </div>
                             </div>
-                            <div className='grid gap-4'>
+                            <div className='text-center'>
                                    <p className='flex items-center'>
                                     <img src="/icons/Naira.svg" alt="" />
                                     <span>5,000</span>
