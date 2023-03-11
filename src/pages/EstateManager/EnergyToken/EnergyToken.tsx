@@ -40,10 +40,10 @@ function EnergyToken() {
                                     </p>
                                 </div>
                             </div>
-                            <div className='text-center'>
-                                   <p className='flex items-center'>
+                            <div className='text-center bg-red-600'>
+                                   <p className='flex items-center text-center'>
                                     <img src="/icons/Naira.svg" alt="" />
-                                    <span>5,000</span>
+                                    <span className='text-center'>5,000</span>
                                    </p>
                                    <p>Denomination</p>
                                 
