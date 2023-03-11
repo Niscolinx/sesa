@@ -250,7 +250,9 @@ function PaymentForm({ props }: PaymentForm) {
             return installments += parseInt(item.amount.replace(',', ''))
         })
 
-        setBalanceAmount(balance <= 0 ? -1 : balance)
+        const balance = parseInt(amount.replace(',', '')) - installments
+
+        setBalanceAmount( balance)
     }, [installmentField, amount])
 
     return (
