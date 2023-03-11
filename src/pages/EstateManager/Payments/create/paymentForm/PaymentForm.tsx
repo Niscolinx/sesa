@@ -382,15 +382,25 @@ function PaymentForm({ props }: PaymentForm) {
                         ))}
 
                         <div className='flex items-center gap-4 my-5 font-Satoshi-Medium '>
-                            <span className='text-green-600'>
-                                Balance Amount:
-                            </span>{' '}
-                            <p className='flex items-center'>
-                                <span>
-                                    <img src='/icons/Naira.svg' alt='' />
-                                </span>{' '}
-                                <span>{balanceAmount === -1 ? '' : balanceAmount}</span>
-                            </p>
+                            {balanceAmount === -1 ? (
+                                <></>
+                            ) : (
+                                <>
+                                    {' '}
+                                    <span className='text-green-600'>
+                                        Balance Amount:
+                                    </span>{' '}
+                                    <p className='flex items-center'>
+                                        <span>
+                                            <img
+                                                src='/icons/Naira.svg'
+                                                alt=''
+                                            />
+                                        </span>{' '}
+                                        <span>{balanceAmount}</span>
+                                    </p>
+                                </>
+                            )}
                         </div>
                     </div>
                 </div>
