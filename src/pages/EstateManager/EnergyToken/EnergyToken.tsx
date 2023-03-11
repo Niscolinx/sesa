@@ -10,11 +10,11 @@ function EnergyToken() {
 
     const addEnergyTokenHandler = () => {
         setIsEnergyToken(true)
-        //navigate('/superAdmin/artisan/add')
     }
 
     const property_data = [
         { name: 'energyGain', value: 100 },
+        { name: 'energyLoss', value: 20 },
     ]
 
     return (
