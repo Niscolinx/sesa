@@ -383,7 +383,7 @@ function PaymentForm({ props }: PaymentForm) {
 
                         <div className='flex items-center gap-4 my-5 font-Satoshi-Medium '>
                             {balanceAmount === -1 ? (
-                               <span>Installment is greater than total Amount to pay</span>
+                               <span className='border border-red-600 py-6 px-6'>Installment is greater than total Amount to pay</span>
                             ) : (
                                 <>
                                     {' '}
