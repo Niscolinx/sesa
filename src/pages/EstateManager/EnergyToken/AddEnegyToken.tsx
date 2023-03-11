@@ -11,6 +11,7 @@ const AddEnergyToken = () => {
 
     const [selectedState, setSelectedState] = useState<string | null>(null)
     const [selectedGender, setSelectedGender] = useState<string | null>(null)
+    const [denomination, setDenomination] = useState('')
  
 
     const [photoUrl, setPhotoUrl] = useState('')
@@ -25,6 +26,21 @@ const AddEnergyToken = () => {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
     }
+
+      const denominationHandler = (e: ChangeEvent<HTMLInputElement>) => {
+          const value = e.target.value
+
+          if (value === '') {
+              setAmount('')
+              return
+          }
+          const parsedValue = parseFloat(value.replace(/,/g, ''))
+
+          if (!isNaN(parsedValue) && isFinite(parsedValue)) {
+              const transformedValue = parsedValue.toLocaleString()
+              setAmount(transformedValue)
+          }
+      }
 
     return (
         <>
@@ -83,9 +99,9 @@ const AddEnergyToken = () => {
                                 <input
                                     type='text'
                                     required
-                                    id='amount'
-                                    value={amount}
-                                    onChange={amountHandler}
+                                    id='denomination'
+                                    value={denomination}
+                                    onChange={denominationHandler}
                                     name='amount'
                                     className='w-full border-none outline-none py-4 px-4 pl-5'
                                 />
