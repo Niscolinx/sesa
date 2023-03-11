@@ -21,10 +21,10 @@ function EnergyToken() {
 
     return (
         <div>
-            <div className='rounded-lg mt-[3rem] h-[80vh]'>
+            <div className='rounded-lg mt-[3rem] h-[80vh] bg-white'>
                 {isEnergyToken ? (
                     <section>
-                        <div className='flex items-center gap-8 bg-white rounded-lg p-8'>
+                        <div className='grid gap-8 p-8'>
                             <div className='overviewChart__box'>
                                 <EstateChart
                                     color1='#098DFF'
@@ -33,33 +33,19 @@ function EnergyToken() {
                                 />
 
                                 <div className='overviewChart__label'>
-                                    <p className='text-[3rem] font-bold relative'>
-                                        50,000
+                                    <p className='text-[4rem] font-Satoshi-Medium relative text-[#FF0000]'>
+                                        85%
                                     </p>
                                     <p className='text-[1.2rem] max-w-[9.8rem]'>
-                                        Total Properties
+                                        count: XXXXX
                                     </p>
                                 </div>
                             </div>
                             <div className='grid gap-4'>
-                                <section className='flex items-center justify-between gap-4'>
-                                    <div className='flex items-center gap-2'>
-                                        <span className='bg-[#098DFF] rounded-full w-[1rem] h-[1rem] flex'>
-                                            {' '}
-                                        </span>{' '}
-                                        <p>Residential</p>
-                                    </div>
-                                    <p>20,000</p>
-                                </section>
-                                <section className='flex items-center justify-between gap-4'>
-                                    <div className='flex items-center gap-2'>
-                                        <span className='bg-[#23C375] rounded-full w-[1rem] h-[1rem] flex'>
-                                            {' '}
-                                        </span>{' '}
-                                        <p>Business</p>
-                                    </div>
-                                    <p>30,000</p>
-                                </section>
+                                   <p>
+                                    <img src="/icons/Naira.svg" alt="" />
+                                   </p>
+                                
                             </div>
                         </div>
                     </section>
