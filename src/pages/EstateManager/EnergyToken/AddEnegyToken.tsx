@@ -47,7 +47,7 @@ export interface AddedSecurityGuardContext {
 export const CreateAddedSecurityGuardContext =
     createContext<AddedSecurityGuardContext>(null as any)
 
-const AddSecurityGuard = () => {
+const AddEnergyToken = () => {
     const [isValidated, setIsValidated] = useState(false)
     const [iskys, setIskys] = useState(false)
 
@@ -76,94 +76,11 @@ const AddSecurityGuard = () => {
         e.preventDefault()
     }
 
-    const dialogRef = useRef<HTMLDialogElement | null>(null)
-    const validateDialogRef = useRef<HTMLDialogElement | null>(null)
-
-    const handleClose = () => {
-        if (dialogRef.current) {
-            dialogRef.current.close()
-        }
-    }
-
-    const closeValidateDialog = () => {
-        if (validateDialogRef.current) {
-            validateDialogRef.current.close()
-        }
-    }
-
-    const openValidateDialog = () => {
-        if (validateDialogRef.current) {
-            validateDialogRef.current.showModal()
-        }
-    }
-    const handleOpen = (modalState: DialogType) => {
-        if (modalState === 'validate') {
-            setDialogState('validate')
-        }
-        if (modalState === 'add-securityGuard') {
-            setDialogState('add-securityGuard')
-        }
-        if (modalState === 'reassign') {
-            setDialogState('reassign')
-        }
-
-        if (dialogRef.current) {
-            dialogRef.current.showModal()
-        }
-    }
-
-    const addSecurityGuardHandler = () => {
-        handleOpen('add-securityGuard')
-    }
-
-    const handleDialogSubmit = (e: FormEvent) => {
-        e.preventDefault()
-        handleClose()
-
-        openValidateDialog()
-    }
-
-    const renderValidationType = new Map([
-        ['Phone Number', <PhoneNumber />],
-        ['BVN Number', <BVN_Number />],
-        ['NIN Number', <NIN_Number />],
-        ['Drivers License', <DriversLicence />],
-        ['International Passport', <International_PassPort />],
-        ['Voters Card', <Voters_Card />],
-    ]) satisfies Map<ValidateInputTypes, JSX.Element>
-
-    const handleValidate = () => {
-        setIsValidated(true)
-    }
-
-    const addedSecurityGuardSteps = new Map([
-        [
-            'addedSecurityGuardSuccessful',
-            <AddedSecurityGuardSuccessfully
-                contextData={CreateAddedSecurityGuardContext}
-            />,
-        ],
-        [
-            'addBankAccount',
-            <AddBankAccount contextData={CreateAddedSecurityGuardContext} />,
-        ],
-        [
-            'openedBankAccountSuccessful',
-            <OpenedBankAccountSuccessful
-                contextData={CreateAddedSecurityGuardContext}
-            />,
-        ],
-    ])
+  
 
     return (
         <
-            value={{
-                addedSecurityGuardStep,
-                setAddedSecurityGuardStep,
-                handleClose,
-                selectedBank,
-                setSelectedBank,
-            }}
+          
         >
             <ToastContainer />
 
@@ -577,4 +494,4 @@ const AddSecurityGuard = () => {
     )
 }
 
-export default AddSecurityGuard
+export default AddEnergyToken
