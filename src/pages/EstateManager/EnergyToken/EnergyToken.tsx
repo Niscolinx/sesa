@@ -24,7 +24,7 @@ function EnergyToken() {
             <div className='rounded-lg mt-[3rem] h-[80vh] bg-white'>
                 {isEnergyToken ? (
                     <section>
-                        <div className='grid gap-8 p-8'>
+                        <div className='grid gap-8 p-8 justify-center justify-items-center'>
                             <div className='overviewChart__box'>
                                 <EstateChart
                                     color1='#098DFF'
