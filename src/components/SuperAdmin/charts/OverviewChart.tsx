@@ -13,6 +13,7 @@ export const estateChart_data = [
 export const EstateChart = ({
     color1 = '#08d231',
     color2 = '#f7e541',
+    outerRadius = 80,
     data = estateChart_data
 }: IEstateChart) => {
     
@@ -26,8 +27,9 @@ export const EstateChart = ({
                 innerRadius={68}
                 outerRadius={80}
                 fill='#8884d8'
-                paddingAngle={5}
+                paddingAngle={0}
                 dataKey='value'
+                
             >
                 {data.map((entry, index) => (
                     <Cell
