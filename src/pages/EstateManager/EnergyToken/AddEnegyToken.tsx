@@ -82,9 +82,12 @@ const AddEnergyToken = () => {
 
             <main>
                 <section className='grid p-8 bg-white items-baseline rounded-lg'>
-                    <button className='text-[2rem] font-Satoshi-Medium mb-5 ml-auto border border-color-blue'>
+                    <button className=' mb-5 ml-auto border border-color-blue'>
                         Bulk Upload
                     </button>
+                    <p className='text-[2rem] font-Satoshi-Medium'>
+                        Token Details
+                    </p>
                     <form
                         onSubmit={handleSubmit}
                         className='grid max-w-[84rem] gap-16 mt-12 '
