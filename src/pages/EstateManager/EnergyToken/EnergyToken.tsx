@@ -2,7 +2,7 @@ import { useAtom } from 'jotai'
 import { useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
 import { useNavigate } from 'react-router'
-import { EstateChart } from '../../../components/SuperAdmin/charts/OverviewChart'
+import { EstateChart as Chart} from '../../../components/SuperAdmin/charts/OverviewChart'
 
 function EnergyToken() {
     const navigate = useNavigate()
@@ -25,9 +25,10 @@ function EnergyToken() {
                     <section>
                         <div className='grid gap-8 p-8 justify-items-center'>
                             <div className='overviewChart__box'>
-                                <EstateChart
+                                <Chart
                                     color1='#098DFF'
                                     color2='#C5C1C3'
+                                    outerRadius={90}
                                     data={property_data}
                                 />
 
