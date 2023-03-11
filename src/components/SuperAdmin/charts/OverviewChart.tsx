@@ -29,8 +29,8 @@ export const EstateChart = ({
                 fill='#8884d8'
                 paddingAngle={0}
                 dataKey='value'
-                startAngle={-90}
-                endAngle={270}
+                startAngle={-270}
+                endAngle={90}
             >
                 {data.map((entry, index) => (
                     <Cell
