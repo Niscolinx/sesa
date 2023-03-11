@@ -244,6 +244,8 @@ function PaymentForm({ props }: PaymentForm) {
 
         const balance = parseInt(amount.split(',').join('')) - reducedAmount
 
+        console.log({ balance })
+
         // let installments = 0
         // const reducedAmount = installmentField.forEach((item) => {
         //     console.log(item.amount, parseInt(item.amount.replace('', '')), item.amount.split(',').join(''))
@@ -252,7 +254,7 @@ function PaymentForm({ props }: PaymentForm) {
 
         // const balance = parseInt(amount.replace(',', '')) - installments
 
-         setBalanceAmount( balance)
+        setBalanceAmount(balance)
     }, [installmentField, amount])
 
     return (
@@ -390,7 +392,10 @@ function PaymentForm({ props }: PaymentForm) {
 
                         <div className='flex items-center gap-4 my-5 font-Satoshi-Medium '>
                             {balanceAmount === -1 ? (
-                               <span className='border border-red-600 py-6 px-6'>Installment is greater than total Amount to pay</span>
+                                <span className='border border-red-600 py-6 px-6'>
+                                    Installment is greater than total Amount to
+                                    pay
+                                </span>
                             ) : (
                                 <>
                                     {' '}
