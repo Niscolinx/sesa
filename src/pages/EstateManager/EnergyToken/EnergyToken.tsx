@@ -31,8 +31,8 @@ function EnergyToken() {
                         <div className='grid p-8 justify-items-center' style={{
                             gridTemplateColumns: 'repeat(auto-fit, minmax(25rem, 1fr))'
                         }}>
-                            {Array.from({ length: 10 }, (_, i) => (
-                                <div>
+                            {Array.from({ length: 7 }, (_, i) => (
+                                <div key={i}>
                                     <div className='overviewChart__box'>
                                         <Chart
                                             color1='#098DFF'
