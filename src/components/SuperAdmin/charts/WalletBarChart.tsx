@@ -40,7 +40,7 @@ const estateData = Array.from({ length: 10 }).map((_, i) => ({
 export interface IEstateChart {
     color1?: string
     color2?: string
-    outerRadius?: string
+    outerRadius?: number
     data?: {
         name: string
         value: number
