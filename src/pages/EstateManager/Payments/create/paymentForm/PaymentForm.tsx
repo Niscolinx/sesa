@@ -246,7 +246,7 @@ function PaymentForm({ props }: PaymentForm) {
 
         let installments = 0
         const reducedAmount = installmentField.forEach((item) => {
-            console.log(item.amount, parseInt(item.amount.replace('', '')))
+            console.log(item.amount, parseInt(item.amount.replace('', '')), item.amount.split(',').flatMap())
             return installments += parseInt(item.amount.replace(',', ''))
         })
 
