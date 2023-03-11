@@ -20,6 +20,14 @@ function EnergyToken() {
     return (
         <div>
             <div className='rounded-lg mt-[3rem] h-[80vh] bg-white'>
+                <button
+                    className='btn ml-auto bg-color-blue-1 text-white flex gap-2 items-center self-center rounded-lg py-4 px-8 capitalize'
+                >
+                    <span>
+                        <IoMdAdd />
+                    </span>{' '}
+                    <p>Create Token</p>
+                </button>
                 {isEnergyToken ? (
                     <section>
                         <div className='grid p-8 justify-items-center'>
@@ -41,12 +49,11 @@ function EnergyToken() {
                                 </div>
                             </div>
                             <div className=' grid justify-items-center'>
-                                   <p className='flex items-center'>
-                                    <img src="/icons/Naira.svg" alt="" />
+                                <p className='flex items-center'>
+                                    <img src='/icons/Naira.svg' alt='' />
                                     <span>5,000</span>
-                                   </p>
-                                   <p>Denomination</p>
-                                
+                                </p>
+                                <p>Denomination</p>
                             </div>
                         </div>
                     </section>
