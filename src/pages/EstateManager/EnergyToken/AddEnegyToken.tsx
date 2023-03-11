@@ -1,13 +1,7 @@
 import React, { createContext, FormEvent, useRef, useState } from 'react'
 import { IoMdAdd, IoMdCheckmarkCircleOutline, IoMdClose } from 'react-icons/io'
 import { BsQuestionCircle } from 'react-icons/bs'
-import { toast, ToastContainer } from 'react-toastify'
 
-import {
-    AddBankAccount,
-    AddedSecurityGuardSuccessfully,
-    OpenedBankAccountSuccessful,
-} from './DialogSteps'
 import { Select } from '../../../components/SuperAdmin/UI/Select'
 import { getPhotoUrl } from '../../../utils/getPhotoUrl'
 
