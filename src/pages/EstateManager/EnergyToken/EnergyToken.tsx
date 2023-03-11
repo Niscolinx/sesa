@@ -19,7 +19,7 @@ function EnergyToken() {
 
     return (
         <div>
-            <div className='rounded-lg mt-[3rem] h-[80vh] bg-white p-8'>
+            <div className='rounded-lg mt-[3rem] min-h-[80vh] bg-white p-8'>
                 {isEnergyToken ? (
                     <section>
                         <button className='btn ml-auto bg-color-blue-1 text-white flex gap-2 items-center self-center rounded-lg py-4 px-8 capitalize'>
@@ -28,35 +28,40 @@ function EnergyToken() {
                             </span>{' '}
                             <p>Create Token</p>
                         </button>
-                        <div className='grid p-8 justify-items-center'>
-                            {Array.from({length: 10}, (_, i) => (
-                                <>
-                                </>
-                            ))}
-                            <div className='overviewChart__box'>
-                                <Chart
-                                    color1='#098DFF'
-                                    color2='#C5C1C3'
-                                    outerRadius={90}
-                                    data={property_data}
-                                />
+                        <div className='grid p-8 justify-items-center' style={{
+                            gridTemplateColumns: 'repeat(auto-fit, minmax(20rem, 1fr))'
+                        }}>
+                            {Array.from({ length: 10 }, (_, i) => (
+                                <div>
+                                    <div className='overviewChart__box'>
+                                        <Chart
+                                            color1='#098DFF'
+                                            color2='#C5C1C3'
+                                            outerRadius={90}
+                                            data={property_data}
+                                        />
 
-                                <div className='overviewChart__label'>
-                                    <p className='text-[3rem] font-Satoshi-Medium relative text-[#FF0000]'>
-                                        85%
-                                    </p>
-                                    <p className='text-[1.2rem] max-w-[9.8rem]'>
-                                        count: XXXXX
-                                    </p>
+                                        <div className='overviewChart__label'>
+                                            <p className='text-[3rem] font-Satoshi-Medium relative text-[#FF0000]'>
+                                                85%
+                                            </p>
+                                            <p className='text-[1.2rem] max-w-[9.8rem]'>
+                                                count: XXXXX
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div className=' grid justify-items-center'>
+                                        <p className='flex items-center'>
+                                            <img
+                                                src='/icons/Naira.svg'
+                                                alt=''
+                                            />
+                                            <span>5,000</span>
+                                        </p>
+                                        <p>Denomination</p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div className=' grid justify-items-center'>
-                                <p className='flex items-center'>
-                                    <img src='/icons/Naira.svg' alt='' />
-                                    <span>5,000</span>
-                                </p>
-                                <p>Denomination</p>
-                            </div>
+                            ))}
                         </div>
                     </section>
                 ) : (
