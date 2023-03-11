@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
 import { useNavigate } from 'react-router'
-import { EstateChart as Chart} from '../../../components/SuperAdmin/charts/OverviewChart'
+import { EstateChart as Chart } from '../../../components/SuperAdmin/charts/OverviewChart'
 
 function EnergyToken() {
     const navigate = useNavigate()
@@ -19,18 +19,20 @@ function EnergyToken() {
 
     return (
         <div>
-            <div className='rounded-lg mt-[3rem] h-[80vh] bg-white'>
-                <button
-                    className='btn ml-auto bg-color-blue-1 text-white flex gap-2 items-center self-center rounded-lg py-4 px-8 capitalize'
-                >
-                    <span>
-                        <IoMdAdd />
-                    </span>{' '}
-                    <p>Create Token</p>
-                </button>
+            <div className='rounded-lg mt-[3rem] h-[80vh] bg-white p-8'>
                 {isEnergyToken ? (
                     <section>
+                        <button className='btn ml-auto bg-color-blue-1 text-white flex gap-2 items-center self-center rounded-lg py-4 px-8 capitalize'>
+                            <span>
+                                <IoMdAdd />
+                            </span>{' '}
+                            <p>Create Token</p>
+                        </button>
                         <div className='grid p-8 justify-items-center'>
+                            {Array.from({length: 10}, (_, i) => (
+                                <>
+                                </>
+                            ))}
                             <div className='overviewChart__box'>
                                 <Chart
                                     color1='#098DFF'
