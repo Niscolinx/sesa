@@ -234,16 +234,17 @@ function PaymentForm({ props }: PaymentForm) {
                       const amount: number =
                           parseInt(curr.amount.split(',').join('')) + prev
 
-                          console.log({amount}, typeof amount)
-
-                      if (isNaN(amount)) {
-                          return prev
-                      } else {
-                          return amount
-                      }
-                  }, 0)
-                : 0
-
+                          
+                          if (isNaN(amount)) {
+                              return prev
+                            } else {
+                                console.log('ramisafsdf')
+                                return amount
+                            }
+                        }, 0)
+                        : 0
+                        
+                        console.log({amount}, typeof reducedAmount)
         const balance = parseInt(amount.split(',').join('')) - reducedAmount
 
         console.log({ balance })
