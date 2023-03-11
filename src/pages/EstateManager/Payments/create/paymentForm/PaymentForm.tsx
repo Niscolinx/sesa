@@ -393,9 +393,9 @@ function PaymentForm({ props }: PaymentForm) {
                             </div>
                         ))}
 
-                        <div className='flex items-center gap-4 my-5 font-Satoshi-Medium '>
+                        <div className='flex items-center gap-4 my-5 font-Satoshi-Medium mt-[5rem]'>
                             {balanceAmount < 0 ? (
-                                <span className='border border-red-400 py-6 px-6 rounded-2xl'>
+                                <span className='border shadow border-red-400 py-6 px-6 rounded-2xl animate__animated animate__shakeX'>
                                     Installment is greater than total Amount to
                                     pay
                                 </span>
