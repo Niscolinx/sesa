@@ -2,15 +2,14 @@ import { useAtom } from 'jotai'
 import { useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
 import { useNavigate } from 'react-router'
-import RenderMessages from './RenderMessages'
 
-function Message() {
+function EnergyToken() {
     const navigate = useNavigate()
 
-    const [isMessage, setIsMessage] = useState(false)
+    const [isEnergyToken, setIsEnergyToken] = useState(false)
 
-    const addMessageHandler = () => {
-        setIsMessage(true)
+    const addEnergyTokenHandler = () => {
+        setIsEnergyToken(true)
         //navigate('/superAdmin/artisan/add')
     }
 
@@ -18,24 +17,24 @@ function Message() {
         <div>
            
             <div className='rounded-lg mt-[3rem] h-[80vh]'>
-                {isMessage ? (
+                {isEnergyToken ? (
                     <section>
-                       <RenderMessages/>
+                     
                     </section>
                 ) : (
                     <section className='grid  place-content-center w-full h-full justify-items-center gap-4 bg-white rounded-lg'>
                         <img src='/icons/admins/errorSvg.svg' alt='' />
                         <p className='text'>
-                            Ooops you have not added any Message yet
+                            Ooops you have not added any Energy Token yet
                         </p>
                         <button
                             className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
-                            onClick={addMessageHandler}
+                            onClick={addEnergyTokenHandler}
                         >
                             <span>
                                 <IoMdAdd />
                             </span>{' '}
-                            Add Message
+                            Add EnergyToken
                         </button>
                     </section>
                 )}
@@ -44,4 +43,4 @@ function Message() {
     )
 }
 
-export default Message
+export default EnergyToken
