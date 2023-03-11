@@ -29,7 +29,7 @@ function EnergyToken() {
                             <p>Create Token</p>
                         </button>
                         <div className='grid p-8 justify-items-center' style={{
-                            gridTemplateColumns: 'repeat(auto-fit, minmax(20rem, 1fr))'
+                            gridTemplateColumns: 'repeat(auto-fit, minmax(25rem, 1fr))'
                         }}>
                             {Array.from({ length: 10 }, (_, i) => (
                                 <div>
