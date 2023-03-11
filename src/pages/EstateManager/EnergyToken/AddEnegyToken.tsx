@@ -28,7 +28,6 @@ const AddEnergyToken = () => {
 
     return (
         <>
-            <ToastContainer />
 
             <main>
                 <section className='grid p-8 bg-white items-baseline rounded-lg'>
@@ -212,79 +211,7 @@ const AddEnergyToken = () => {
                         </div>
                     </form>
                 </section>
-                <section className='grid p-8 bg-white'>
-                    <div className='grid gap-8 max-w-[40rem] mt-[5rem] '>
-                        <div className='flex items-center justify-between'>
-                            <p className='text-[2rem] font-bold flex items-center gap-2'>
-                                kys{' '}
-                                <span className='text-[#043FA7]'>
-                                    <BsQuestionCircle />
-                                </span>
-                            </p>
-                            <div
-                                onClick={toggleIskys}
-                                className='cursor-pointer'
-                            >
-                                {iskys ? (
-                                    <img
-                                        src='/icons/admins/switchOn.svg'
-                                        alt=''
-                                    />
-                                ) : (
-                                    <img
-                                        src='/icons/admins/switchOff.svg'
-                                        alt=''
-                                    />
-                                )}
-                            </div>
-                        </div>
-
-                        {isValidated ? (
-                            <div className='flex gap-8 text-[1.6rem]'>
-                                <p className='text-[#098DFF] cursor-pointer flex items-center font-medium'>
-                                    kys Validated <IoMdCheckmarkCircleOutline />
-                                </p>
-                                <button
-                                    className='text-green-600 flex items-center gap-2'
-                                    style={{
-                                        fontFamily: 'Satoshi-Medium',
-                                    }}
-                                    onClick={() => openValidateDialog()}
-                                >
-                                    View Results <BsQuestionCircle />
-                                </button>
-                            </div>
-                        ) : (
-                            <>
-                                {iskys && (
-                                    <div className='flex justify-between text-[1.6rem]'>
-                                        <p
-                                            className='text-[#098DFF] cursor-pointer'
-                                            onClick={() =>
-                                                handleOpen('validate')
-                                            }
-                                            style={{
-                                                fontFamily: 'Satoshi-Medium',
-                                            }}
-                                        >
-                                            Click here to validate this person
-                                        </p>
-                                    </div>
-                                )}
-                            </>
-                        )}
-                    </div>
-                    <button
-                        className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg mt-32'
-                        style={{ justifySelf: 'start' }}
-                        onClick={addSecurityGuardHandler}
-                    >
-                        <span>
-                            <IoMdAdd />
-                        </span>{' '}
-                        Add Site Worker
-                    </button>
-                </section>
+               
             </main>
         </>
     )
