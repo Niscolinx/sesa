@@ -2,7 +2,6 @@ import React, {
     ChangeEvent,
     Dispatch,
     SetStateAction,
-    useCallback,
     useEffect,
     useState,
 } from 'react'
@@ -27,7 +26,7 @@ function PaymentForm({ props }: PaymentForm) {
 
     const [isTrackPayment, setIsTrackPayment] = useState(false)
     const [paymentPlan, setPaymentPlan] = useState<string | null | PaymentPlan>(
-        null
+        'fixed'
     )
     const [trackPayment, setTrackPayment] = useState<string | null>(null)
     const [amount, setAmount] = useState('')
@@ -247,6 +246,7 @@ function PaymentForm({ props }: PaymentForm) {
 
         let installments = 0
         const reducedAmount = installmentField.forEach((item) => {
+            console.log(item.amount, parseInt(item.amount.replace('', '')))
             return installments += parseInt(item.amount.replace(',', ''))
         })
 
