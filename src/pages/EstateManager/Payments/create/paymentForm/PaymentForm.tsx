@@ -389,7 +389,7 @@ function PaymentForm({ props }: PaymentForm) {
                                 <span>
                                     <img src='/icons/Naira.svg' alt='' />
                                 </span>{' '}
-                                <span>{balanceAmount}</span>
+                                <span>{balanceAmount === -1 ? '' : balanceAmount}</span>
                             </p>
                         </div>
                     </div>
