@@ -1,6 +1,5 @@
 import React, { createContext, FormEvent, useRef, useState } from 'react'
 import { IoMdAdd, IoMdCheckmarkCircleOutline, IoMdClose } from 'react-icons/io'
-import { BsQuestionCircle } from 'react-icons/bs'
 
 import { Select } from '../../../components/SuperAdmin/UI/Select'
 import { getPhotoUrl } from '../../../utils/getPhotoUrl'
