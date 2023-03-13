@@ -65,7 +65,7 @@ function EnergyToken() {
                         </div>
                     </section>
                 ) : (
-                    <section className='grid place-content-center w-full h-full justify-items-center gap-4 bg-white rounded-lg'>
+                    <section className='grid place-content-center w-full h-[80vh] justify-items-center gap-4 bg-white rounded-lg'>
                         <img src='/icons/admins/errorSvg.svg' alt='' />
                         <p className='text'>
                             Ooops you have not added any Energy Token yet
