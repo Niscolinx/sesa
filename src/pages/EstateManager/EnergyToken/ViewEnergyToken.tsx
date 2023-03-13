@@ -8,6 +8,9 @@ const ViewEnergyToken = () => {
         <>
             <div className='grid p-8 bg-white  rounded-lg gap-[10rem]'>
                 <div>
+                    <p className='text-[2rem] font-Satoshi-Medium'>
+                        Token Details
+                    </p>
                     <div
                         className='grid max-w-[84rem] gap-16 mt-12 '
                         style={{
@@ -48,14 +51,13 @@ const ViewEnergyToken = () => {
                                 htmlFor='amount'
                                 className='text-[1.4rem] font-medium'
                             >
-                                Denomination
+                                Amount
                             </label>
                             <div className='relative rounded-lg border border-color-grey outline-none flex items-center pl-4'>
                                 <input
                                     type='text'
                                     required
                                     id='denomination'
-                                
                                     name='amount'
                                     className='w-full border-none outline-none py-4 px-4 pl-5'
                                 />
@@ -66,7 +68,6 @@ const ViewEnergyToken = () => {
                                 />
                             </div>
                         </div>
-                       
 
                         <div className='grid gap-4'>
                             <label
@@ -80,7 +81,6 @@ const ViewEnergyToken = () => {
                                     type='text'
                                     required
                                     id='convenienceFee'
-                                
                                     name='convenienceFee'
                                     className='w-full border-none outline-none py-4 px-4 pl-5'
                                 />
@@ -96,25 +96,29 @@ const ViewEnergyToken = () => {
                                 htmlFor='instruction'
                                 className='text-[1.4rem] font-medium'
                             >
-                                Instuction/Message *
+                                Transaction Date
                             </label>
                             <input
                                 type='instruction'
                                 required
                                 id='instruction'
-                                
                                 className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                             />
                         </div>
-
-                       
-
-                        <button className='btn  bg-color-blue-1 text-white flex gap-2 items-center  rounded-lg py-4 px-8 capitalize col-span-full mt-[5rem] justify-start w-max'>
-                            <span>
-                                <IoMdAdd />
-                            </span>{' '}
-                            <p>Create Token</p>
-                        </button>
+                    </div>
+                    <div className='grid gap-4 relative'>
+                        <label
+                            htmlFor='instruction'
+                            className='text-[1.4rem] font-medium'
+                        >
+                            Transaction Time
+                        </label>
+                        <input
+                            type='instruction'
+                            required
+                            id='instruction'
+                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                        />
                     </div>
                 </div>
             </div>
