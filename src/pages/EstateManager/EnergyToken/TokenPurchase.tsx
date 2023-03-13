@@ -195,7 +195,7 @@ function TokenPurchase() {
 
                 <div className='grid'>
                     <div
-                        className='grid justify-between text-color-dark-1 bg-gray-100 p-8 grid-cols-6 gap-6'
+                        className='grid justify-between text-color-dark-1 bg-gray-100 p-8 grid-cols-8 gap-6'
                         style={{
                             fontSize: '1.6rem',
                         }}
@@ -225,9 +225,10 @@ function TokenPurchase() {
                                         paymentChannel,
                                         convenienceFee,
                                         residentCode,
+                                        timeStamp
                                     }) => {
                                         return (
-                                            <div className='grid justify-between border-b grid-cols-6 gap-8 py-4 capitalize'>
+                                            <div className='grid justify-between border-b grid-cols-8 gap-8 py-4 capitalize'>
                                                 <p className='flex items-center gap-4'>
                                                     <input
                                                         type='checkbox'
@@ -252,7 +253,7 @@ function TokenPurchase() {
                                                     />
                                                     {convenienceFee}
                                                 </p>
-
+                                            <p>{timeStamp}</p>
                                                 <p>{paymentChannel}</p>
                                                 <Link to='' className='text-color-blue'>
                                                     View Details
