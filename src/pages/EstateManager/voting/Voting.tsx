@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom'
 
 
 
-export interface Message {
+export interface Voting {
     id: number
     date: string
     transmissionDate: string
@@ -23,7 +23,7 @@ export interface Message {
 
 const recipients = ['Thomas Nwaje', 'Solomon Nwaje']
 
-export const MESSAGE_LIST: Message[] = Array.from({ length: 10 }).map(
+export const VOTING_DATA: Voting[] = Array.from({ length: 10 }).map(
     (_, i) => ({
         id: i + 1,
         date: '19-May-2023',
@@ -37,21 +37,21 @@ export const MESSAGE_LIST: Message[] = Array.from({ length: 10 }).map(
     })
 )
 
-function Message() {
-    const [isMessage, setIsMessage] = useState(false)
+function Voting() {
+    const [isVoting, setIsVoting] = useState(false)
 
-    const addMessageHandler = () => {
-        setIsMessage(true)
+    const addVotingHandler = () => {
+        setIsVoting(true)
     }
 
        const navigate = useNavigate()
 
-       const [messageList, setMessageList] = useState<Message[]>([])
+       const [messageList, setVotingList] = useState<Voting[]>([])
        const [search, setSearch] = useState<string>('')
 
        useEffect(() => {
            setTimeout(() => {
-               setMessageList(MESSAGE_LIST)
+               setVotingList(VOTING_DATA)
            }, 100)
        }, [])
 
@@ -60,7 +60,7 @@ function Message() {
            currentPage: number
            itemsPerPage: number
            totalPage: number
-           slicedPages: Message[][] | null
+           slicedPages: Voting[][] | null
        }
 
        const itemsPerPageArr = [2, 4, 6, 8]
@@ -77,7 +77,7 @@ function Message() {
        const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
            const item = parseInt(e.target.value)
 
-           const slicedPages: Message[][] = []
+           const slicedPages: Voting[][] = []
            for (let i = 0; i < messageList.length; i += item) {
                slicedPages.push(messageList.slice(i, i + item))
            }
@@ -95,7 +95,7 @@ function Message() {
        }
 
        useEffect(() => {
-           const slicedPages: Message[][] = []
+           const slicedPages: Voting[][] = []
            for (let i = 0; i < messageList.length; i += paginate.itemsPerPage) {
                slicedPages.push(messageList.slice(i, i + paginate.itemsPerPage))
            }
@@ -149,13 +149,13 @@ function Message() {
            const { value } = e.target
            setSearch(value)
 
-           const filtered = MESSAGE_LIST.filter((item) =>
+           const filtered = VOTING_DATA.filter((item) =>
                item.subject.toLowerCase().includes(value.toLowerCase())
            )
-           setMessageList([...filtered])
+           setVotingList([...filtered])
        }
 
-       const composeMessageHandler = () => {
+       const composeVotingHandler = () => {
            navigate('/estateManager/message/compose')
        }
 
@@ -163,12 +163,12 @@ function Message() {
     return (
         <div>
             <div className='rounded-lg mt-[3rem] h-[80vh]'>
-                {isMessage ? (
+                {isVoting ? (
                     <div className='grid gap-10 rounded-lg border min-w-[112rem]'>
                         <div className='grid text-[1.6rem] border rounded-lg'>
                             <div className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
                                 <p className=' font-bold'>
-                                    Messages <span>(200)</span>
+                                    Votings <span>(200)</span>
                                 </p>
                                 <div className='relative flex items-center'>
                                     <img
@@ -197,12 +197,12 @@ function Message() {
 
                                 <button
                                     className='btn ml-auto bg-color-blue-1 text-white flex gap-2 items-center self-center rounded-lg py-4 px-8 capitalize'
-                                    onClick={composeMessageHandler}
+                                    onClick={composeVotingHandler}
                                 >
                                     <span>
                                         <IoMdAdd />
                                     </span>{' '}
-                                    <p>compose Message</p>
+                                    <p>compose Voting</p>
                                 </button>
                             </div>
 
@@ -437,16 +437,16 @@ function Message() {
                     <section className='grid place-content-center w-full h-full justify-items-center gap-4 bg-white rounded-lg'>
                         <img src='/icons/admins/errorSvg.svg' alt='' />
                         <p className='text'>
-                            Ooops you have not added any Message yet
+                            Ooops you have not added any Voting yet
                         </p>
                         <button
                             className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
-                            onClick={addMessageHandler}
+                            onClick={addVotingHandler}
                         >
                             <span>
                                 <IoMdAdd />
                             </span>{' '}
-                            Add Message
+                            Add Voting
                         </button>
                     </section>
                 )}
@@ -455,4 +455,4 @@ function Message() {
     )
 }
 
-export default Message
+export default Voting
