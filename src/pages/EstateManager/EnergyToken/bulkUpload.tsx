@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import { Select } from '../../../components/SuperAdmin/UI/Select'
 import { getPhotoUrl } from '../../../utils/getPhotoUrl'
 
-const AddEnergyToken = () => {
+const BulkUpload = () => {
     const [selectedState, setSelectedState] = useState<string | null>(null)
     const [selectedGender, setSelectedGender] = useState<string | null>(null)
     const [denomination, setDenomination] = useState('')
@@ -246,4 +246,4 @@ const AddEnergyToken = () => {
     )
 }
 
-export default AddEnergyToken
+export default BulkUpload
