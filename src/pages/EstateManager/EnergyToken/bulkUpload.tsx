@@ -112,9 +112,7 @@ const BulkUpload = () => {
                                             ' repeat(auto-fit, minmax(35rem, 1fr))',
                                     }}
                                 >
-                                    <MultipleSelect selectFrom={[]} selected={[]} setSelected={function (value: React.SetStateAction<string[]>): void {
-                                        throw new Error('Function not implemented.')
-                                    } } label={''} />
+                                    <MultipleSelect selectFrom={tokenSerialNumbers} selected={selectedSerialNumbers} setSelected={setSelectedSerialNumbers} label={'Token Serial Number'} />
                                     <div className='grid gap-4 relative '>
                                         <label
                                             htmlFor='firstName'
