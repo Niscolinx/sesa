@@ -30,17 +30,9 @@ function EnergyToken() {
 
     return (
         <div>
-            <div className='rounded-lg mt-[3rem] min-h-[80vh] bg-white p-8'>
+            <div className='rounded-lg min-h-[80vh] bg-white'>
                 {isEnergyToken ? (
                     <section>
-                        <Link to='/estateManager/energy-token/add'>
-                            <button className='btn ml-auto bg-color-blue-1 text-white flex gap-2 items-center self-center rounded-lg py-4 px-8 capitalize'>
-                                <span>
-                                    <IoMdAdd />
-                                </span>{' '}
-                                <p>Add Token</p>
-                            </button>
-                        </Link>
                         <section>
                             <div className='estateDetail__radioBox'>
                                 <input
@@ -67,7 +59,9 @@ function EnergyToken() {
                                     name='token'
                                     id='tokenPurchase'
                                     className='hidden'
-                                    onChange={() => setCurrentPath('tokenPurchase')}
+                                    onChange={() =>
+                                        setCurrentPath('tokenPurchase')
+                                    }
                                 />
                                 <label
                                     htmlFor='tokenPurchase'
@@ -77,11 +71,19 @@ function EnergyToken() {
                                             : 'capitalize'
                                     }`}
                                 >
-                                   Token Purchase
+                                    Token Purchase
                                 </label>
                             </div>
                             <div>{paths.get(currentPath)}</div>
                         </section>
+                        <Link to='/estateManager/energy-token/add'>
+                            <button className='btn ml-auto bg-color-blue-1 text-white flex gap-2 items-center self-center rounded-lg py-4 px-8 capitalize'>
+                                <span>
+                                    <IoMdAdd />
+                                </span>{' '}
+                                <p>Add Token</p>
+                            </button>
+                        </Link>
                         <div
                             className='grid p-8 justify-items-center'
                             style={{
