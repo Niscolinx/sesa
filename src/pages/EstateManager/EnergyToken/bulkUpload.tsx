@@ -67,10 +67,10 @@ const BulkUpload = () => {
     }
 
     const tokenSerialNumbers = Array.from(
-        { length: 10 },
+        { length: 117 },
         (_, i) => `variable ${i + 1}`
     )
-    const tokenCodes = Array.from({ length: 10 }, (_, i) => `Code ${i + 1}`)
+    const tokenCodes = Array.from({ length: 200 }, (_, i) => `Code ${i + 1}`)
 
     return (
         <>
