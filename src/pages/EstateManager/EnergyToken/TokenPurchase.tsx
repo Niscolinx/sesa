@@ -11,6 +11,7 @@ function TokenPurchase() {
             }}
         >
             <div className='border-l border-l-color-grey bg-white rounded-lg p-8 grid gap-10'>
+                <p>Amount</p>
                 <WalletBarChart />
             </div>
 
