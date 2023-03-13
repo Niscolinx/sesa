@@ -38,6 +38,7 @@ import EnergyToken from '../../pages/EstateManager/EnergyToken/EnergyToken'
 import AddEnergyToken from '../../pages/EstateManager/EnergyToken/AddEnergyToken'
 import BulkUpload from '../../pages/EstateManager/EnergyToken/bulkUpload'
 import Voting from '../../pages/EstateManager/voting/Voting'
+import ViewEnergyToken from '../../pages/EstateManager/EnergyToken/ViewEnergyToken'
 
 const estateManagerRoutes = (
     <Route path='/estateManager' element={<Dashboard />}>
@@ -87,7 +88,7 @@ const estateManagerRoutes = (
         <Route path='payments/create' element={<CreatePayment />} />
         <Route path='energy-token' element={<EnergyToken />} />
         <Route path='energy-token/add' element={<AddEnergyToken />} />
-        <Route path='energy-token/view/:id' element={<AddEnergyToken />} />
+        <Route path='energy-token/view/:id' element={<ViewEnergyToken />} />
         <Route path='energy-token/bulk-upload' element={<BulkUpload />} />
         <Route path='voting' element={<Voting />} />
     </Route>
