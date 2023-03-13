@@ -176,11 +176,11 @@ const AddEnergyToken = () => {
                        
 
                         <Select
-                            label='State'
+                            label='Notification Threshold'
                             state={['Lagos', 'Imo', 'Abia', 'FCT']}
                             placeholder='Select State'
-                            selectedState={selectedState}
-                            setSelectedState={setSelectedState}
+                            selectedState={notificationThreshold}
+                            setSelectedState={setNotificationThreshold}
                         />
 
                         <div className='col-span-full rounded-lg border border-width-[.2rem] border-dashed border-color-grey-1 p-8 text-[1.6rem] relative w-full'>
