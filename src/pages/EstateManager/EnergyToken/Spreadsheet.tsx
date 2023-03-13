@@ -141,7 +141,7 @@ const EnergyTokenSpreadsheet = ({
     }
 
     return (
-        <main className=' grid gap-9 relative '>
+        <main className='relative h-[100vh]'>
             <section className='grid'>
                 <div className='text-white bg-[#098DFF] relative'>
                     <IoMdClose
