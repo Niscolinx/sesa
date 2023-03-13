@@ -446,14 +446,12 @@ export const SelectedItems: FC<
                 >
                     {selectFrom.slice(0, 3).map((item, i) => {
                         return (
-                          
-                                <p
-                                    className=' whitespace-nowrap rounded-lg relative flex items-center h-[3.8rem] z-[2] pr-2 w-[7rem] text-ellipsis overflow-hidden'
-                                    key={i}
-                                >
-                                    {i < 2 ? `${item},` : item}
-                                </p>
-                              
+                            <p
+                                className=' whitespace-nowrap rounded-lg relative flex items-center h-[3.8rem] z-[2] pr-2 '
+                                key={i}
+                            >
+                                {i < 2 ? <span>{item},</span> : item}
+                            </p>
                         )
                     })}
                     <span className='bg-color-blue-1 text-white flex items-center gap-4 rounded-2xl w-max py-2 px-4 mx-auto text-center whitespace-nowrap'>
