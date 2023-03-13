@@ -445,7 +445,6 @@ export const SelectedItems: FC<
                     }}
                 >
                     {selectFrom.slice(0, 3).map((item, i) => {
-                        console.log({ item }, selectFrom.length)
                         return (
                           
                                 <p
