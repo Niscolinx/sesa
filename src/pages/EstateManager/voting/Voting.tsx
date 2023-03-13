@@ -150,7 +150,7 @@ function Voting() {
             <div className='rounded-lg mt-[3rem] h-[80vh]'>
                 {isVoting ? (
                     <div className='grid gap-10 rounded-lg min-w-[112rem]'>
-                        <p className='font-Satoshi-Medium text-[2rem]'>Voting Election</p>
+                        <p className='font-Satoshi-Medium text-[2.5rem]'>Voting & Election</p>
                         <div className='grid text-[1.6rem] rounded-lg'>
                             <div className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
                                 <p className=' font-bold'>
