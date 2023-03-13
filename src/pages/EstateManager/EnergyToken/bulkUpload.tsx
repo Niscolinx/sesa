@@ -6,7 +6,6 @@ import { Select } from '../../../components/SuperAdmin/UI/Select'
 import { getPhotoUrl } from '../../../utils/getPhotoUrl'
 
 const BulkUpload = () => {
-   
     const [isUploaded, setIsUploaded] = useState(false)
     const [denomination, setDenomination] = useState('')
     const [customerNofication, setCustomerNotification] = useState<
@@ -233,10 +232,9 @@ const BulkUpload = () => {
                                 />
                             </div>
                         )} */}
-                            <button className=' mb-5 ml-auto border border-color-blue text-color-blue-1 font-Satoshi-Medium py-4 px-6 rounded-2xl'>
-                                Download Excel Template
-                            </button>
-                       
+                        <button className=' mt-5 border border-color-blue text-color-blue-1 font-Satoshi-Medium py-4 px-6 rounded-2xl'>
+                            Download Excel Template
+                        </button>
                     </div>
                 )}
             </main>
