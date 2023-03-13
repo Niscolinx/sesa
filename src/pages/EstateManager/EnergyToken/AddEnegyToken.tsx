@@ -42,6 +42,20 @@ const AddEnergyToken = () => {
               setDenomination(transformedValue)
           }
       }
+      const convenienceFeeHandler = (e: ChangeEvent<HTMLInputElement>) => {
+          const value = e.target.value
+
+          if (value === '') {
+              setConvenienceFee('')
+              return
+          }
+          const parsedValue = parseFloat(value.replace(/,/g, ''))
+
+          if (!isNaN(parsedValue) && isFinite(parsedValue)) {
+              const transformedValue = parsedValue.toLocaleString()
+              setConvenienceFee(transformedValue)
+          }
+      }
 
     return (
         <>
@@ -120,13 +134,30 @@ const AddEnergyToken = () => {
                             setSelectedState={setCustomerNotification}
                         />
 
-                       
-                        <Select
-                            label='Gender'
-                            state={['Male', 'Female']}
-                            selectedState={selectedGender}
-                            setSelectedState={setSelectedGender}
-                        />
+                        <div className='grid gap-4'>
+                            <label
+                                htmlFor='amount'
+                                className='text-[1.4rem] font-medium'
+                            >
+                                Convenience Fee
+                            </label>
+                            <div className='relative rounded-lg border border-color-grey outline-none flex items-center pl-4'>
+                                <input
+                                    type='text'
+                                    required
+                                    id='denomination'
+                                    value={convenienceFee}
+                                    onChange={denominationHandler}
+                                    name='amount'
+                                    className='w-full border-none outline-none py-4 px-4 pl-5'
+                                />
+                                <img
+                                    src='/icons/Naira.svg'
+                                    alt=''
+                                    className='absolute'
+                                />
+                            </div>
+                        </div>
                         <div className='grid gap-4 relative'>
                             <label
                                 htmlFor='email'
