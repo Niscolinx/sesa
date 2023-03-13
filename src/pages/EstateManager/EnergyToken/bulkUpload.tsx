@@ -1,5 +1,5 @@
 import React, { ChangeEvent, useRef, useState } from 'react'
-import { IoMdAdd } from 'react-icons/io'
+import { IoMdAdd, IoMdClose } from 'react-icons/io'
 
 import {
     MultipleSelect,
@@ -85,8 +85,9 @@ const BulkUpload = () => {
     return (
         <>
             <dialog className='dialog' ref={dialogRef}>
+                
                 <section className='grid place-content-center w-full h-[100vh]'>
-                    <EnergyTokenSpreadsheet />
+                    <EnergyTokenSpreadsheet closeDialog={closeDialog} />
                 </section>
             </dialog>
             <main>

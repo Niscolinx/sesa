@@ -2,7 +2,7 @@ import React, { ChangeEvent, FC, useEffect, useState } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
 import { GrDown } from 'react-icons/gr'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
-import { IoMdAdd } from 'react-icons/io'
+import { IoMdAdd, IoMdClose } from 'react-icons/io'
 
 interface Spreadsheet {
     id: string
@@ -29,7 +29,7 @@ const SPREADSHEET: Spreadsheet[] = Array.from({
     isAlpha: Math.random() > 0.3 ? true : false,
 }))
 
-const EnergyTokenSpreadsheet = () => {
+const EnergyTokenSpreadsheet = ({closeDialog}: {closeDialog: () => void}) => {
     const [fetchedSpreadsheetData, setFetchedSpreadsheetData] = useState<
         Spreadsheet[]
     >([])
@@ -141,6 +141,10 @@ const EnergyTokenSpreadsheet = () => {
     return (
         <main className='mt-10 grid gap-9'>
             <section className='bg-color-white rounded-lg border overflow-scroll max-h-[80vh]'>
+                <IoMdClose
+                    className='absolute right-4 top-4 text-[2rem] cursor-pointer'
+                    onClick={() => closeDialog()}
+                />
                 <div className='grid text-[1.6rem]'>
                     <div className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
                         <div className='relative flex items-center'>
@@ -166,19 +170,13 @@ const EnergyTokenSpreadsheet = () => {
                             <GrDown className='absolute right-4 text-[1.3rem]' />
                         </div>
                         <div className='ml-auto flex items-center gap-16'>
-                            <button
-                                className='border text-color-blue-1 border-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
-                             
-                            >
+                            <button className='border text-color-blue-1 border-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'>
                                 Print
-                                <img src="/img/print.svg" alt="" />
+                                <img src='/icons/print.svg' alt='' />
                             </button>
-                            <button
-                                className='border text-color-blue-1 border-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
-                             
-                            >
+                            <button className='border text-color-blue-1 border-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'>
                                 Download
-                                <img src="file_download.svg" alt="" />
+                                <img src='/icons/file_download.svg' alt='' />
                             </button>
                         </div>
                     </div>
