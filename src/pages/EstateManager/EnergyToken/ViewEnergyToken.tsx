@@ -102,24 +102,12 @@ const ViewEnergyToken = () => {
                                 type='instruction'
                                 required
                                 id='instruction'
-                                value={instruction}
-                                onChange={(e) => setInstruction(e.target.value)}
+                                
                                 className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                             />
                         </div>
 
-                        <div>
-                            <Select
-                                label='Notification Threshold'
-                                state={['10%', '20%', '30%', '40%', '50%']}
-                                selectedState={notificationThreshold}
-                                setSelectedState={setNotificationThreshold}
-                            />
-                            <p className='text-color-blue-1 font-Satoshi-Light text-[1.2rem]'>
-                                This is the threshold the system automatically
-                                sends a notification
-                            </p>
-                        </div>
+                       
 
                         <button className='btn  bg-color-blue-1 text-white flex gap-2 items-center  rounded-lg py-4 px-8 capitalize col-span-full mt-[5rem] justify-start w-max'>
                             <span>
