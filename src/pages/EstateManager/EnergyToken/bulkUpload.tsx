@@ -1,6 +1,5 @@
 import React, { ChangeEvent, useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
-import { Link } from 'react-router-dom'
 
 import { MultipleSelect, Select } from '../../../components/SuperAdmin/UI/Select'
 import { getPhotoUrl } from '../../../utils/getPhotoUrl'
@@ -8,6 +7,8 @@ import { getPhotoUrl } from '../../../utils/getPhotoUrl'
 const BulkUpload = () => {
     const [isUploaded, setIsUploaded] = useState(false)
     const [denomination, setDenomination] = useState('')
+    const [selectedSerialNumbers, setSelectedSerialNumbers] = useState<string[]>([])
+
     const [customerNofication, setCustomerNotification] = useState<
         string | null
     >(null)
