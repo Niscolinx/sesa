@@ -167,14 +167,14 @@ const EnergyTokenSpreadsheet = () => {
                         </div>
                         <div className='ml-auto flex items-center gap-16'>
                             <button
-                                className='btn text-white border text-color-blue-1 border-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
+                                className='border text-color-blue-1 border-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
                              
                             >
                                 Print
-                                <img src="print.svg" alt="" />
+                                <img src="/img/print.svg" alt="" />
                             </button>
                             <button
-                                className='btn text-white border text-color-blue-1 border-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
+                                className='border text-color-blue-1 border-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
                              
                             >
                                 Download
