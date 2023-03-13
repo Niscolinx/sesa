@@ -14,21 +14,20 @@ export interface Voting {
     id: number
     date: string
     transmissionDate: string
-    recipients: string[]
+    electionTitle: string[]
     transmissionChannel: string
     subject: string
     description: string
     status: 'Sent' | 'Pending'
 }
 
-const recipients = ['Thomas Nwaje', 'Solomon Nwaje']
 
 export const VOTING_DATA: Voting[] = Array.from({ length: 10 }).map(
     (_, i) => ({
         id: i + 1,
         date: '19-May-2023',
         transmissionDate: '19-May-2023',
-        recipients,
+        electionTitle =,
         transmissionChannel: `Channel ${i + 1}`,
         subject: `Monday Workings`,
         description:
@@ -225,7 +224,7 @@ function Voting() {
                                                     status,
                                                     transmissionChannel,
                                                     transmissionDate,
-                                                    recipients,
+                                                    electionTitle,
                                                 } = messageBody
                                                 return (
                                                     <div className='grid relative p-8 bg-white rounded-lg gap-2'>
@@ -285,7 +284,7 @@ function Voting() {
                                                                 }}
                                                                 className='flex gap-2'
                                                             >
-                                                                {recipients.map(
+                                                                {electionTitle.map(
                                                                     (
                                                                         recipient,
                                                                         i
@@ -301,7 +300,7 @@ function Voting() {
                                                                                     recipient
                                                                                 }
                                                                                 {i !==
-                                                                                    recipients.length -
+                                                                                    electionTitle.length -
                                                                                         1 &&
                                                                                     ','}
                                                                             </p>
