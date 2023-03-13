@@ -65,11 +65,6 @@ const BulkUpload = () => {
             <main>
                 {isUploaded ? (
                     <section className='grid p-8 bg-white items-baseline rounded-lg'>
-                        <Link to='/estateManager/energy-token/bulk-upload'>
-                            <button className=' mb-5 ml-auto border border-color-blue text-color-blue-1 font-Satoshi-Medium py-4 px-6 rounded-2xl w-[20rem]'>
-                                Bulk Upload
-                            </button>
-                        </Link>
                         <p className='text-[2rem] font-Satoshi-Medium'>
                             Token Details
                         </p>
@@ -229,7 +224,7 @@ const BulkUpload = () => {
                             onClick={handlePhotoPreview}
                         />
 
-                        {photoUrl && (
+                        {/* {photoUrl && (
                             <div className='flex justify-center justify-self-center'>
                                 <img
                                     src={photoUrl}
@@ -237,7 +232,11 @@ const BulkUpload = () => {
                                     className='object-cover w-[11rem] h-[11rem] rounded-full'
                                 />
                             </div>
-                        )}
+                        )} */}
+                            <button className=' mb-5 ml-auto border border-color-blue text-color-blue-1 font-Satoshi-Medium py-4 px-6 rounded-2xl w-[20rem]'>
+                                Bulk Upload
+                            </button>
+                       
                     </div>
                 )}
             </main>
