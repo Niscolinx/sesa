@@ -233,8 +233,8 @@ const BulkUpload = () => {
                                 />
                             </div>
                         )} */}
-                            <button className=' mb-5 ml-auto border border-color-blue text-color-blue-1 font-Satoshi-Medium py-4 px-6 rounded-2xl w-[20rem]'>
-                                Bulk Upload
+                            <button className=' mb-5 ml-auto border border-color-blue text-color-blue-1 font-Satoshi-Medium py-4 px-6 rounded-2xl'>
+                                Download Excel Template
                             </button>
                        
                     </div>
