@@ -440,44 +440,7 @@ export const selectedItems: FC<IMultipleSelect> = ({
     const [selectedFrom, setSelectedFrom] = useState(selectFrom)
 
 
-    const handleSelectedState = (
-        e: ChangeEvent<HTMLInputElement>,
-        item: string
-    ) => {
-        const checked = e.target.checked
 
-        if (checked) {
-            setSelected((prev) => [...prev, item])
-        } else {
-            setSelected((prev) => prev.filter((i) => i !== item))
-        }
-    }
-
-    
-    const memoizedList = useMemo(() => {
-        return selectedFrom.map((item, index) => (
-            <div
-                className='flex items-center pl-4 cursor-pointer hover:bg-color-grey'
-                key={index}
-            >
-                <input
-                    type='checkbox'
-                    className='cursor-pointer'
-                    name={item + index}
-                    id={item + index}
-                    value={item}
-                    checked={selected.includes(item)}
-                    onChange={(e) => handleSelectedState(e, item)}
-                />
-                <label
-                    htmlFor={item + index}
-                    className='text-[1.4rem] p-4 cursor-pointer w-full'
-                >
-                    {item}
-                </label>
-            </div>
-        ))
-    }, [selectedFrom, selected])
 
     
 
