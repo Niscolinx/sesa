@@ -6,11 +6,10 @@ import { IoMdAdd, IoMdClose } from 'react-icons/io'
 
 interface Spreadsheet {
     id: string
-    residentCode: string
-    residentName: string
-    propertyCategory: string
-    propertyName: string
-    isAlpha: boolean
+    tokenSerialNo: string
+    tokenCode: string
+    denomination: string
+    customNotification: string
     propertyType: string
     tenancyType: string
 }
@@ -19,14 +18,13 @@ const SPREADSHEET: Spreadsheet[] = Array.from({
     length: 20,
 }).map((_, i) => ({
     id: `i + ${i}`,
-    residentName: 'John Emmanuel',
-    propertyCategory: Math.random() > 0.5 ? 'Business' : 'Residential',
-    residentCode: `H${Math.floor(Math.random() * 3000 + 1000)}`,
-    propertyName: Math.random() > 0.5 ? 'Auto Finance' : 'Chrisland Schools',
+    tokenCode: 'John Emmanuel',
+    denomination: Math.random() > 0.5 ? 'Business' : 'Residential',
+    tokenSerialNo: `H${Math.floor(Math.random() * 3000 + 1000)}`,
+    customNotification: Math.random() > 0.5 ? 'Auto Finance' : 'Chrisland Schools',
     propertyType: Math.random() > 0.5 ? '2-Bedroom Self Con.' : 'Duplex',
     tenancyType:
         Math.random() > 0.5 ? 'Landlord (Developer)' : 'Tenant (Resident)',
-    isAlpha: Math.random() > 0.3 ? true : false,
 }))
 
 const EnergyTokenSpreadsheet = ({
@@ -225,12 +223,12 @@ const EnergyTokenSpreadsheet = ({
                                     slicedPages[paginate.index].map(
                                         ({
                                             id,
-                                            residentCode,
-                                            residentName,
-                                            propertyName,
+                                            tokenSerialNo,
+                                            tokenCode,
+                                            customNotification,
                                             tenancyType,
                                             propertyType,
-                                            propertyCategory,
+                                            denomination,
                                             isAlpha,
                                         }) => {
                                             return (
@@ -242,12 +240,12 @@ const EnergyTokenSpreadsheet = ({
                                                         />
 
                                                         <span>
-                                                            {residentCode}
+                                                            {tokenSerialNo}
                                                         </span>
                                                     </p>
                                                     <p className='flex items-center gap-2'>
                                                         <span>
-                                                            {residentName}
+                                                            {tokenCode}
                                                         </span>
                                                         {isAlpha ? (
                                                             <img
@@ -256,8 +254,8 @@ const EnergyTokenSpreadsheet = ({
                                                             />
                                                         ) : null}
                                                     </p>
-                                                    <p>{propertyCategory}</p>
-                                                    <p>{propertyName}</p>
+                                                    <p>{denomination}</p>
+                                                    <p>{customNotification}</p>
 
                                                     <p>{propertyType}</p>
                                                     <p>{tenancyType}</p>
