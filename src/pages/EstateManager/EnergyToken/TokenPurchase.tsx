@@ -244,8 +244,14 @@ function TokenPurchase() {
                                                     />
                                                     {amount}
                                                 </p>
+                                                <p className='flex items-center'>
+                                                    <img
+                                                        src='/icons/Naira.svg'
+                                                        alt=''
+                                                    />
+                                                    {convenienceFee}
+                                                </p>
 
-                                                <p>{convenienceFee}</p>
                                                 <p>{paymentChannel}</p>
                                             </div>
                                         )
