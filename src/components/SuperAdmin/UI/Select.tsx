@@ -448,7 +448,7 @@ export const SelectedItems: FC<
                         return (
                           
                                 <p
-                                    className=' whitespace-nowrap rounded-lg relative flex items-center h-[3.8rem] z-[2] pr-2'
+                                    className=' whitespace-nowrap rounded-lg relative flex items-center h-[3.8rem] z-[2] pr-2 max-w-[7rem] text-ellipsis'
                                     key={i}
                                 >
                                     {i < 2 ? `${item},` : item}
