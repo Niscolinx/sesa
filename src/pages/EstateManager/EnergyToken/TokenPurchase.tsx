@@ -11,7 +11,7 @@ function TokenPurchase() {
             }}
         >
             <div className='border-l border-l-color-grey bg-white rounded-lg p-8 grid gap-10'>
-                <p className='font-Satoshi-Medium text-[2rem]'>Amount</p>
+                <p className='font-Satoshi-Medium text-[2rem] mb-10'>Amount</p>
                 <WalletBarChart />
             </div>
 
