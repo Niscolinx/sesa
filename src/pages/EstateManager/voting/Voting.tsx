@@ -189,7 +189,7 @@ function Voting() {
                                     <span>
                                         <IoMdAdd />
                                     </span>{' '}
-                                    <p>compose Voting</p>
+                                    <p>New Voting Poll</p>
                                 </button>
                             </div>
 
