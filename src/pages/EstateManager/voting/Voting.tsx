@@ -7,29 +7,21 @@ import { IoMdAdd } from 'react-icons/io'
 import { useNavigate } from 'react-router'
 import { Link } from 'react-router-dom'
 
-
-
-
 export interface Voting {
     id: number
     startDate: string
     endDate: string
     electionTitle: string
     NoOfEligibleVoters: string
-   
 }
 
-
-export const VOTING_DATA: Voting[] = Array.from({ length: 10 }).map(
-    (_, i) => ({
-        id: i + 1,
-        startDate: '19-May-2023',
-        endDate: '19-May-2023',
-        electionTitle: 'Iba General Elections',
-        NoOfEligibleVoters: `12,423`,
-     
-    })
-)
+export const VOTING_DATA: Voting[] = Array.from({ length: 10 }).map((_, i) => ({
+    id: i + 1,
+    startDate: '19-May-2023',
+    endDate: '19-May-2023',
+    electionTitle: 'Iba General Elections',
+    NoOfEligibleVoters: `12,423`,
+}))
 
 function Voting() {
     const [isVoting, setIsVoting] = useState(false)
@@ -38,121 +30,120 @@ function Voting() {
         setIsVoting(true)
     }
 
-       const navigate = useNavigate()
+    const navigate = useNavigate()
 
-       const [messageList, setVotingList] = useState<Voting[]>([])
-       const [search, setSearch] = useState<string>('')
+    const [messageList, setVotingList] = useState<Voting[]>([])
+    const [search, setSearch] = useState<string>('')
 
-       useEffect(() => {
-           setTimeout(() => {
-               setVotingList(VOTING_DATA)
-           }, 100)
-       }, [])
+    useEffect(() => {
+        setTimeout(() => {
+            setVotingList(VOTING_DATA)
+        }, 100)
+    }, [])
 
-       interface Paginate {
-           index: number
-           currentPage: number
-           itemsPerPage: number
-           totalPage: number
-           slicedPages: Voting[][] | null
-       }
+    interface Paginate {
+        index: number
+        currentPage: number
+        itemsPerPage: number
+        totalPage: number
+        slicedPages: Voting[][] | null
+    }
 
-       const itemsPerPageArr = [2, 4, 6, 8]
-       const perPage = 4
+    const itemsPerPageArr = [2, 4, 6, 8]
+    const perPage = 4
 
-       const [paginate, setPaginate] = useState<Paginate>({
-           index: 0,
-           currentPage: 1,
-           itemsPerPage: perPage,
-           totalPage: Math.ceil(messageList.length / perPage),
-           slicedPages: null,
-       })
+    const [paginate, setPaginate] = useState<Paginate>({
+        index: 0,
+        currentPage: 1,
+        itemsPerPage: perPage,
+        totalPage: Math.ceil(messageList.length / perPage),
+        slicedPages: null,
+    })
 
-       const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
-           const item = parseInt(e.target.value)
+    const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
+        const item = parseInt(e.target.value)
 
-           const slicedPages: Voting[][] = []
-           for (let i = 0; i < messageList.length; i += item) {
-               slicedPages.push(messageList.slice(i, i + item))
-           }
+        const slicedPages: Voting[][] = []
+        for (let i = 0; i < messageList.length; i += item) {
+            slicedPages.push(messageList.slice(i, i + item))
+        }
 
-           setPaginate((prev) => {
-               return {
-                   ...prev,
-                   itemsPerPage: item,
-                   index: 0,
-                   currentPage: 1,
-                   slicedPages,
-                   totalPage: Math.ceil(messageList.length / item),
-               }
-           })
-       }
+        setPaginate((prev) => {
+            return {
+                ...prev,
+                itemsPerPage: item,
+                index: 0,
+                currentPage: 1,
+                slicedPages,
+                totalPage: Math.ceil(messageList.length / item),
+            }
+        })
+    }
 
-       useEffect(() => {
-           const slicedPages: Voting[][] = []
-           for (let i = 0; i < messageList.length; i += paginate.itemsPerPage) {
-               slicedPages.push(messageList.slice(i, i + paginate.itemsPerPage))
-           }
+    useEffect(() => {
+        const slicedPages: Voting[][] = []
+        for (let i = 0; i < messageList.length; i += paginate.itemsPerPage) {
+            slicedPages.push(messageList.slice(i, i + paginate.itemsPerPage))
+        }
 
-           setPaginate((prev) => {
-               return {
-                   ...prev,
-                   slicedPages,
-                   totalPage: Math.ceil(
-                       messageList.length / paginate.itemsPerPage
-                   ),
-               }
-           })
-       }, [messageList])
+        setPaginate((prev) => {
+            return {
+                ...prev,
+                slicedPages,
+                totalPage: Math.ceil(
+                    messageList.length / paginate.itemsPerPage
+                ),
+            }
+        })
+    }, [messageList])
 
-       const handleNext = () => {
-           if (paginate.currentPage === paginate.totalPage) return
-           setPaginate((prev) => {
-               return {
-                   ...prev,
-                   index: prev.index + 1,
-                   currentPage: prev.currentPage + 1,
-               }
-           })
-       }
+    const handleNext = () => {
+        if (paginate.currentPage === paginate.totalPage) return
+        setPaginate((prev) => {
+            return {
+                ...prev,
+                index: prev.index + 1,
+                currentPage: prev.currentPage + 1,
+            }
+        })
+    }
 
-       const handlePrev = () => {
-           if (paginate.currentPage === 1) return
-           setPaginate((prev) => {
-               return {
-                   ...prev,
-                   index: prev.index - 1,
-                   currentPage: prev.currentPage - 1,
-               }
-           })
-       }
+    const handlePrev = () => {
+        if (paginate.currentPage === 1) return
+        setPaginate((prev) => {
+            return {
+                ...prev,
+                index: prev.index - 1,
+                currentPage: prev.currentPage - 1,
+            }
+        })
+    }
 
-       const { currentPage, slicedPages, itemsPerPage } = paginate
+    const { currentPage, slicedPages, itemsPerPage } = paginate
 
-       const jumpToPage = (e: React.MouseEvent, index: number) => {
-           setPaginate((prev) => {
-               return {
-                   ...prev,
-                   index,
-                   currentPage: index + 1,
-               }
-           })
-       }
+    const jumpToPage = (e: React.MouseEvent, index: number) => {
+        setPaginate((prev) => {
+            return {
+                ...prev,
+                index,
+                currentPage: index + 1,
+            }
+        })
+    }
 
-       const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
-           const { value } = e.target
-           setSearch(value)
+    const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
+        const { value } = e.target
+        setSearch(value)
 
-           const filtered = VOTING_DATA.filter((item) =>
-               item.subject.toLowerCase().includes(value.toLowerCase())
-           )
-           setVotingList([...filtered])
-       }
+        const filtered = VOTING_DATA.filter((item) =>
+            item.electionTitle.toLowerCase().includes(value.toLowerCase())
+        )
+        setVotingList([...filtered])
+    }
 
-       const composeVotingHandler = () => {
-           navigate('/estateManager/message/compose')
-       }
-
+    const composeVotingHandler = () => {
+        navigate('/estateManager/message/compose')
+    }
 
     return (
         <div>
@@ -183,7 +174,9 @@ function Voting() {
                                         <option hidden value=''>
                                             Sort By
                                         </option>
-                                        <option value='startDate'>startDate</option>
+                                        <option value='startDate'>
+                                            startDate
+                                        </option>
                                         <option value='alpha'>Alpha</option>
                                     </select>
                                     <GrDown className='absolute right-4 text-[1.3rem]' />
@@ -214,9 +207,7 @@ function Voting() {
                                                 const {
                                                     id,
                                                     startDate,
-                                                    subject,
-                                                    description,
-                                                    status,
+
                                                     NoOfEligibleVoters,
                                                     endDate,
                                                     electionTitle,
@@ -265,49 +256,10 @@ function Voting() {
                                                                         'Satoshi-Medium',
                                                                 }}
                                                             >
-                                                                {
-                                                                    endDate
-                                                                }
+                                                                {endDate}
                                                             </p>
                                                         </div>
-                                                        <div className='flex items-center gap-2 max-w-[40rem] overflow-hidden text-ellipsis whitespace-nowrap'>
-                                                            <p>Recipients:</p>
-                                                            <div
-                                                                style={{
-                                                                    fontFamily:
-                                                                        'Satoshi-Medium',
-                                                                }}
-                                                                className='flex gap-2'
-                                                            >
-                                                                {electionTitle.map(
-                                                                    (
-                                                                        recipient,
-                                                                        i
-                                                                    ) => (
-                                                                        <div
-                                                                            className='flex gap-2 items-center  text-ellipsis whitespace-nowrap'
-                                                                            key={
-                                                                                i
-                                                                            }
-                                                                        >
-                                                                            <p className=''>
-                                                                                {
-                                                                                    recipient
-                                                                                }
-                                                                                {i !==
-                                                                                    electionTitle.length -
-                                                                                        1 &&
-                                                                                    ','}
-                                                                            </p>
-                                                                        </div>
-                                                                    )
-                                                                )}
-                                                                <span className='text-color-blue '>
-                                                                    {' '}
-                                                                    + 20 others
-                                                                </span>
-                                                            </div>
-                                                        </div>
+                                                       
                                                         <div className='flex items-center gap-2'>
                                                             <p>
                                                                 Transmission
@@ -324,22 +276,8 @@ function Voting() {
                                                                 }
                                                             </p>
                                                         </div>
-                                                        <div className='flex items-center gap-2'>
-                                                            <p>Subject:</p>
-                                                            <p
-                                                                style={{
-                                                                    fontFamily:
-                                                                        'Satoshi-Medium',
-                                                                }}
-                                                            >
-                                                                {subject}
-                                                            </p>
-                                                        </div>
-                                                        <div className='flex items-center gap-2 my-5'>
-                                                            <p className='overflow-hidden text-ellipsis whitespace-nowrap max-w-[40rem] '>
-                                                                {description}
-                                                            </p>
-                                                        </div>
+                                                        
+                                                        
 
                                                         <Link
                                                             to={`/estateManager/message/view/:${id}`}
