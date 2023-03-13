@@ -151,7 +151,7 @@ const EnergyTokenSpreadsheet = ({
             <section className=' rounded-lg overflow-scroll max-h-[90vh] absolute m-10 w-[90vw] justify-self-center'>
                 <div className='text-white bg-[#098DFF] relative p-8 capitalize h-full'>
                     <IoMdClose
-                        className='absolute right-4 top-4 text-[2rem] cursor-pointer m-5'
+                        className='absolute right-0 top-0 text-[2.5rem] cursor-pointer m-5'
                         onClick={() => closeDialog()}
                     />
                     <p className='font-Satoshi-Medium text-[2rem]'>
