@@ -154,7 +154,7 @@ const BulkUpload = () => {
                                 </div>
                             </section>
                             <div
-                                className='grid gap-16 items-baseline'
+                                className='grid gap-16 items-baseline border-t py-4 mt-10'
                                 style={{
                                     gridTemplateColumns:
                                         ' repeat(auto-fit, minmax(35rem, 1fr))',
@@ -227,7 +227,7 @@ const BulkUpload = () => {
                                     </p>
                                 </div>
                             </div>
-                            <button className='btn bg-color-blue-1 text-white flex gap-2 items-center self-center rounded-lg py-4 px-8 capitalize'>
+                            <button className='btn bg-color-blue-1 text-white flex gap-2 items-center self-center rounded-lg py-4 px-8 capitalize w-max'>
                                 <span>
                                     <IoMdAdd />
                                 </span>{' '}
