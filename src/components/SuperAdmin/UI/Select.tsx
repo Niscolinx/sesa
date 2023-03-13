@@ -451,7 +451,7 @@ export const SelectedItems: FC<
                                 className=' whitespace-nowrap rounded-lg relative flex items-center h-[3.8rem] z-[2] pr-2'
                                 key={i}
                             >
-                                {item}
+                                {i < 2 ? `${item},` : item}
                             </span>
                         )
                     })}
