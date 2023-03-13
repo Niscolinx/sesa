@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { ChangeEvent, useState } from 'react'
 
 import { Select } from '../../../components/SuperAdmin/UI/Select'
 import { getPhotoUrl } from '../../../utils/getPhotoUrl'
@@ -29,14 +29,14 @@ const AddEnergyToken = () => {
           const value = e.target.value
 
           if (value === '') {
-              setAmount('')
+              setDenomination('')
               return
           }
           const parsedValue = parseFloat(value.replace(/,/g, ''))
 
           if (!isNaN(parsedValue) && isFinite(parsedValue)) {
               const transformedValue = parsedValue.toLocaleString()
-              setAmount(transformedValue)
+              setDenomination(transformedValue)
           }
       }
 
