@@ -22,11 +22,11 @@ const SPREADSHEET: Spreadsheet[] = Array.from({
     id: `i + ${i}`,
     Date: `02-Feb-2023`,
     tokenCode: `0992323822`,
-    residentCode:  `H${Math.floor(Math.random() * 30000 + 10000)}`,
+    residentCode: `H${Math.floor(Math.random() * 30000 + 10000)}`,
     amount: '6,000',
     convenienceFee: Math.random() > 0.5 ? '2,000' : '5,000',
     paymentChannel: 'Wallet',
-    timeStamp: '03:19PM'
+    timeStamp: '03:19PM',
 }))
 
 function TokenPurchase() {
@@ -190,7 +190,6 @@ function TokenPurchase() {
                         </select>
                         <GrDown className='absolute right-4 text-[1.3rem]' />
                     </div>
-                    
                 </div>
 
                 <div className='grid'>
@@ -202,10 +201,10 @@ function TokenPurchase() {
                     >
                         <p className='flex items-center gap-2'>
                             <input type='checkbox' className='cursor-pointer' />
-                            <p>Token Serial No.</p>
+                            <p>Date</p>
                         </p>
                         <p>Token Code</p>
-                        <p>Denomination(N)</p>
+                        <p>Resident Code</p>
                         <p>Customer Notification</p>
                         <p>Convenience Fee</p>
                         <p>Message</p>
