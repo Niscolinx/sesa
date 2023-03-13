@@ -430,10 +430,9 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
         </div>
     )
 }
-export const SelectedItems: FC<Pick<IMultipleSelect, 'selectFrom' | 'label'>> = ({
-    selectFrom,
-    label,
-}) => {
+export const SelectedItems: FC<
+    Pick<IMultipleSelect, 'selectFrom' | 'label'>
+> = ({ selectFrom, label }) => {
     return (
         <div className='relative grid gap-4'>
             <p className='text-[1.4rem] font-semibold'>{label}</p>
@@ -445,15 +444,17 @@ export const SelectedItems: FC<Pick<IMultipleSelect, 'selectFrom' | 'label'>> = 
                             'repeat(auto-fit, minmax(12rem, 1fr))',
                     }}
                 >
-                    {
-                        selectFrom.slice(0, 3).map((item, i) => (
+                    {selectFrom.slice(0, 3).map((item, i) => {
+                        console.log({item})
+                        return (
                             <span
-                                className='text-white whitespace-nowrap rounded-lg px-4 relative flex items-center h-[3.8rem] z-[2] pr-12'
+                                className=' whitespace-nowrap rounded-lg px-4 relative flex items-center h-[3.8rem] z-[2] pr-12'
                                 key={i}
                             >
                                 {item}
                             </span>
-                        ))}
+                        )
+                    })}
                 </p>
             </div>
         </div>
