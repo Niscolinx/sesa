@@ -5,13 +5,11 @@ import { useNavigate } from 'react-router'
 import RenderMessages from './RenderMessages'
 
 function Message() {
-    const navigate = useNavigate()
 
     const [isMessage, setIsMessage] = useState(false)
 
     const addMessageHandler = () => {
         setIsMessage(true)
-        //navigate('/superAdmin/artisan/add')
     }
 
     return (
