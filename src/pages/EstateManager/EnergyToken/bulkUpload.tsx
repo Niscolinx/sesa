@@ -25,17 +25,17 @@ const BulkUpload = () => {
         string | null
     >(null)
 
-     const recipient_List_DialogRef = useRef<HTMLDialogElement | null>(null)
+     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
-     const closeRecipientListDialog = () => {
-         if (recipient_List_DialogRef.current) {
-             recipient_List_DialogRef.current.close()
+     const closeDialog = () => {
+         if (dialogRef.current) {
+             dialogRef.current.close()
          }
      }
 
      const openRecipientListDialog = () => {
-         if (recipient_List_DialogRef.current) {
-             recipient_List_DialogRef.current.showModal()
+         if (dialogRef.current) {
+             dialogRef.current.showModal()
          }
      }
 
@@ -86,10 +86,10 @@ const BulkUpload = () => {
 
     return (
         <>
-            <dialog className='dialog' ref={recipient_List_DialogRef}>
+            <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <EnergyTokenSpreadsheet
-                        closeRecipientListDialog={closeRecipientListDialog}
+                        closeDialog={closeDialog}
                     />
                 </section>
             </dialog>
