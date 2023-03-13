@@ -59,6 +59,7 @@ const ViewEnergyToken = () => {
                                     required
                                     id='denomination'
                                     name='amount'
+                                    defaultValue={6000}
                                     className='w-full border-none outline-none py-4 px-4 pl-5'
                                 />
                                 <img
@@ -82,6 +83,7 @@ const ViewEnergyToken = () => {
                                     required
                                     id='convenienceFee'
                                     name='convenienceFee'
+                                    defaultValue={5000}
                                     className='w-full border-none outline-none py-4 px-4 pl-5'
                                 />
                                 <img
@@ -105,20 +107,20 @@ const ViewEnergyToken = () => {
                                 className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                             />
                         </div>
-                    </div>
-                    <div className='grid gap-4 relative'>
-                        <label
-                            htmlFor='instruction'
-                            className='text-[1.4rem] font-medium'
-                        >
-                            Transaction Time
-                        </label>
-                        <input
-                            type='instruction'
-                            required
-                            id='instruction'
-                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                        />
+                        <div className='grid gap-4 relative'>
+                            <label
+                                htmlFor='instruction'
+                                className='text-[1.4rem] font-medium'
+                            >
+                                Transaction Time
+                            </label>
+                            <input
+                                type='instruction'
+                                required
+                                id='instruction'
+                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                            />
+                        </div>
                     </div>
                 </div>
             </div>
