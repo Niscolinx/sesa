@@ -29,11 +29,7 @@ const SPREADSHEET: Spreadsheet[] = Array.from({
     isAlpha: Math.random() > 0.3 ? true : false,
 }))
 
-interface IEnergyTokenSpreadsheet {
-    closeEnergyTokenSpreadsheetDialog: () => void
-}
-
-const EnergyTokenSpreadsheet: FC<IEnergyTokenSpreadsheet> = ({ closeEnergyTokenSpreadsheetDialog }) => {
+const EnergyTokenSpreadsheet = () => {
     const [fetchedSpreadsheetData, setFetchedSpreadsheetData] = useState<
         Spreadsheet[]
     >([])

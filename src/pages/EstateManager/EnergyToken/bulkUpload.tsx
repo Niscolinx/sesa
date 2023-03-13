@@ -25,25 +25,23 @@ const BulkUpload = () => {
         string | null
     >(null)
 
-     const dialogRef = useRef<HTMLDialogElement | null>(null)
+    const dialogRef = useRef<HTMLDialogElement | null>(null)
 
-     const closeDialog = () => {
-         if (dialogRef.current) {
-             dialogRef.current.close()
-         }
-     }
+    const closeDialog = () => {
+        if (dialogRef.current) {
+            dialogRef.current.close()
+        }
+    }
 
-     const openRecipientListDialog = () => {
-         if (dialogRef.current) {
-             dialogRef.current.showModal()
-         }
-     }
+    const openRecipientListDialog = () => {
+        if (dialogRef.current) {
+            dialogRef.current.showModal()
+        }
+    }
 
     const handlePhotoPreview = async (
         _: React.MouseEvent<HTMLInputElement>
-    ) => {
-        
-    }
+    ) => {}
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
@@ -88,9 +86,7 @@ const BulkUpload = () => {
         <>
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
-                    <EnergyTokenSpreadsheet
-                        closeDialog={closeDialog}
-                    />
+                    <EnergyTokenSpreadsheet />
                 </section>
             </dialog>
             <main>
