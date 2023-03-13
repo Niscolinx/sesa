@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
 import { useNavigate } from 'react-router'
+import { Link } from 'react-router-dom'
 import { EstateChart as Chart } from '../../../components/SuperAdmin/charts/OverviewChart'
 
 function EnergyToken() {
@@ -22,12 +23,14 @@ function EnergyToken() {
             <div className='rounded-lg mt-[3rem] min-h-[80vh] bg-white p-8'>
                 {isEnergyToken ? (
                     <section>
-                        <div className='btn ml-auto bg-color-blue-1 text-white flex gap-2 items-center self-center rounded-lg py-4 px-8 capitalize'>
+                        <Link to='/estateManager/energy-token/add'>
+                        <button className='btn ml-auto bg-color-blue-1 text-white flex gap-2 items-center self-center rounded-lg py-4 px-8 capitalize'>
                             <span>
                                 <IoMdAdd />
                             </span>{' '}
                             <p>Add Token</p>
-                        </div>
+                        </button>
+                            </Link>
                         <div className='grid p-8 justify-items-center' style={{
                             gridTemplateColumns: 'repeat(auto-fit, minmax(25rem, 1fr))'
                         }}>
