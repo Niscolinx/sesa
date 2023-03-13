@@ -195,10 +195,8 @@ function TokenPurchase() {
 
                 <div className='grid'>
                     <div
-                        className='grid justify-between text-color-dark-1 bg-gray-100 p-8 grid-cols-8 gap-6'
-                        style={{
-                            fontSize: '1.6rem',
-                        }}
+                        className='grid justify-between text-color-dark-1 bg-gray-100 p-8 grid-cols-8 gap-6 items-center'
+                      
                     >
                         <p className='flex items-center gap-2'>
                             <input type='checkbox' className='cursor-pointer' />
@@ -228,7 +226,7 @@ function TokenPurchase() {
                                         timeStamp
                                     }) => {
                                         return (
-                                            <div className='grid justify-between border-b grid-cols-8 gap-8 py-4 capitalize'>
+                                            <div className='grid justify-between border-b grid-cols-8 gap-8 py-4 capitalize items-center whitespace-nowrap'>
                                                 <p className='flex items-center gap-4'>
                                                     <input
                                                         type='checkbox'
