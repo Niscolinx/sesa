@@ -7,6 +7,7 @@ import {
     SelectedItems,
 } from '../../../components/SuperAdmin/UI/Select'
 import { getPhotoUrl } from '../../../utils/getPhotoUrl'
+import EnergyTokenSpreadsheet from './Spreadsheet'
 
 const BulkUpload = () => {
     const [isUploaded, setIsUploaded] = useState(false)
@@ -74,6 +75,13 @@ const BulkUpload = () => {
 
     return (
         <>
+            <dialog className='dialog' ref={recipient_List_DialogRef}>
+                <section className='grid place-content-center w-full h-[100vh]'>
+                    <EnergyTokenSpreadsheet
+                        closeRecipientListDialog={closeRecipientListDialog}
+                    />
+                </section>
+            </dialog>
             <main>
                 {isUploaded ? (
                     <section className='grid p-8 bg-white items-baseline rounded-lg'>
@@ -200,7 +208,10 @@ const BulkUpload = () => {
                                     </p>
                                 </div>
                             </div>
-                            <button className='btn bg-color-blue-1 text-white flex gap-2 items-center self-center rounded-lg py-4 px-8 capitalize w-max'>
+                            <button
+                                className='btn bg-color-blue-1 text-white flex gap-2 items-center self-center rounded-lg py-4 px-8 capitalize w-max'
+                                onClick={() => openRecipientListDialog()}
+                            >
                                 <span>
                                     <IoMdAdd />
                                 </span>{' '}
