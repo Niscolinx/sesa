@@ -438,7 +438,7 @@ export const SelectedItems: FC<
             <p className='text-[1.4rem] font-semibold'>{label}</p>
             <div className='relative items-center max-w-[50rem] flex'>
                 <p
-                    className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer h-[5rem] overflow-hidden overflow-x-scroll flex gap-4 items-center pr-16'
+                    className='border border-color-grey p-4 outline-none rounded-lg w-full h-[5rem] overflow-hidden overflow-x-scroll flex items-center pr-16'
                     style={{
                         gridTemplateColumns:
                             'repeat(auto-fit, minmax(12rem, 1fr))',
@@ -448,7 +448,7 @@ export const SelectedItems: FC<
                         console.log({item})
                         return (
                             <span
-                                className=' whitespace-nowrap rounded-lg px-4 relative flex items-center h-[3.8rem] z-[2] pr-12'
+                                className=' whitespace-nowrap rounded-lg relative flex items-center h-[3.8rem] z-[2] pr-12'
                                 key={i}
                             >
                                 {item}
