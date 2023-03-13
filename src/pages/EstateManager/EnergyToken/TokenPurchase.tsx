@@ -1,10 +1,11 @@
 import React from 'react'
+import OverviewChart from '../../../components/SuperAdmin/charts/OverviewChart'
 import WalletBarChart from '../../../components/SuperAdmin/charts/WalletBarChart'
 
 function TokenPurchase() {
     return (
         <section
-            className=' text-[1.4rem] grid gap-8'
+            className=' text-[1.4rem] grid gap-8 bg-white '
             style={{
                 gridTemplateColumns: '60% auto',
             }}
@@ -13,7 +14,21 @@ function TokenPurchase() {
                 <WalletBarChart />
             </div>
 
-            <div className='bg-white p-8 rounded-lg grid justify-center items-baseline'></div>
+            <div className='overviewChart grid justify-center'>
+                <div className='overviewChart__box'>
+                    <OverviewChart />
+
+                    <div className='overviewChart__label'>
+                        <p className='overviewChart__label--percentage'>
+                            45
+                            <span>%</span>
+                        </p>
+                        <p className='overviewChart__label--title'>
+                            Estate Wallet
+                        </p>
+                    </div>
+                </div>
+            </div>
         </section>
     )
 }
