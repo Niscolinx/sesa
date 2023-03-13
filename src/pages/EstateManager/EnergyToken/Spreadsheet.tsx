@@ -136,9 +136,7 @@ const EnergyTokenSpreadsheet = () => {
         })
     }
 
-    const saveChangesHandler = () => {
-        closeEnergyTokenSpreadsheetDialog()
-    }
+    
 
     return (
         <main className='mt-10 grid gap-9'>
