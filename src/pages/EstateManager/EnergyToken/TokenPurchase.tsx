@@ -134,9 +134,9 @@ function TokenPurchase() {
         })
     }
     return (
-        <div>
+        <div className='grid gap-8 '>
             <section
-                className=' text-[1.4rem] grid gap-8 bg-white '
+                className=' text-[1.4rem] grid gap-8 bg-white items-center'
                 style={{
                     gridTemplateColumns: '60% auto',
                 }}
@@ -148,7 +148,7 @@ function TokenPurchase() {
                     <WalletBarChart />
                 </div>
 
-                <div className='overviewChart grid justify-center'>
+                <div className='overviewChart grid justify-cente border-l'>
                     <div className='overviewChart__box'>
                         <OverviewChart />
 
@@ -188,16 +188,7 @@ function TokenPurchase() {
                         </select>
                         <GrDown className='absolute right-4 text-[1.3rem]' />
                     </div>
-                    <div className='ml-auto flex items-center gap-16'>
-                        <button className='border text-color-blue-1 border-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'>
-                            Print
-                            <img src='/icons/print.svg' alt='' />
-                        </button>
-                        <button className='border text-color-blue-1 border-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'>
-                            Download
-                            <img src='/icons/file_download.svg' alt='' />
-                        </button>
-                    </div>
+                    
                 </div>
 
                 <div className='grid'>

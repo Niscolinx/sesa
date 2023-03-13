@@ -19,7 +19,7 @@ function EnergyToken() {
 
     return (
         <div>
-            <div className='rounded-lg min-h-[80vh] bg-white p-8'>
+            <div className='rounded-lg min-h-[80vh] p-8'>
                 {isEnergyToken ? (
                     <section>
                         <div
