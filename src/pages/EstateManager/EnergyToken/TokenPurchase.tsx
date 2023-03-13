@@ -164,7 +164,7 @@ function TokenPurchase() {
                     </div>
                 </div>
             </section>
-            <section className='grid text-[1.6rem] bg-white pt-10 rounded-2xl'>
+            <section className='grid text-[1.6rem] bg-white pt-10 rounded-2xl border'>
                 <div className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
                     <div className='relative flex items-center'>
                         <img
