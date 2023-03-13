@@ -150,7 +150,7 @@ const RecipientList: FC<IRecipientList> = ({ closeRecipientListDialog }) => {
         <main className='mt-10 grid gap-9'>
             <section className='bg-color-white rounded-lg border overflow-scroll max-h-[80vh]'>
                 <div className='grid text-[1.6rem]'>
-                    <caption className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
+                    <div className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
                         <div className='relative flex items-center'>
                             <img
                                 src='/icons/admins/search.svg'
@@ -184,7 +184,7 @@ const RecipientList: FC<IRecipientList> = ({ closeRecipientListDialog }) => {
                                 Save Changes
                             </button>
                         </div>
-                    </caption>
+                    </div>
 
                     <div className='grid'>
                         <div
