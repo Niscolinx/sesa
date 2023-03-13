@@ -171,9 +171,14 @@ const EnergyTokenSpreadsheet = () => {
                              
                             >
                                 Print
-                                <span>
-                                    <IoMdAdd />
-                                </span>{' '}
+                                <img src="print.svg" alt="" />
+                            </button>
+                            <button
+                                className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
+                             
+                            >
+                                Download
+                                <img src="file_download.svg" alt="" />
                             </button>
                         </div>
                     </div>
