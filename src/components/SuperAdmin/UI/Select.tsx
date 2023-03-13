@@ -445,8 +445,8 @@ export const selectedItems: FC<Pick<IMultipleSelect, 'selectFrom' | 'label'>> = 
                             'repeat(auto-fit, minmax(12rem, 1fr))',
                     }}
                 >
-                    {selected &&
-                        selected.map((item, i) => (
+                    {
+                        selectFrom.map((item, i) => (
                             <span
                                 className='text-white whitespace-nowrap rounded-lg px-4 relative flex items-center h-[3.8rem] z-[2] pr-12'
                                 key={i}
