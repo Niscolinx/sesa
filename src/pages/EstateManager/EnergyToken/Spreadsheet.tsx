@@ -209,11 +209,11 @@ const EnergyTokenSpreadsheet = ({
                                 />
                                 <p>Token Serial No.</p>
                             </p>
-                            <p>Token Name</p>
-                            <p>Property Category</p>
-                            <p>Property Name</p>
-                            <p>Property Type</p>
-                            <p>Tenancy Type</p>
+                            <p>Token Code</p>
+                            <p>Denomination(N)</p>
+                            <p>Customer Notification</p>
+                            <p>Convenience Fee</p>
+                            <p>Message</p>
                         </div>
 
                         <div className='grid gap-8 mt-8 p-8'>
