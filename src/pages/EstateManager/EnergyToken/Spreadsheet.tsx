@@ -141,8 +141,10 @@ const EnergyTokenSpreadsheet = ({
     }
 
     return (
-        <main className='relative h-[100vh] '>
-            <section className='grid '>
+        <main className='relative h-[100vh] bg-white '>
+            {/* <section className='grid ' style={{
+                gridTemplateRows: '30% 1fr'
+            }}>
                 <div className='text-white bg-[#098DFF] relative rounded-2xl'>
                     <IoMdClose
                         className='absolute right-4 top-4 text-[2rem] cursor-pointer'
@@ -153,9 +155,9 @@ const EnergyTokenSpreadsheet = ({
                     </p>
                     <p className='text-[1.2rem]'>Energy token speed 01</p>
                 </div>
-                <div></div>
+                <div className='h-full bg-white'></div>
             </section>
-            <section className='bg-white rounded-lg border overflow-scroll max-h-[80vh] w-full '>
+            <section className='bg-white rounded-lg border overflow-scroll max-h-[80vh] w-full absolute'>
                 <div className='grid text-[1.6rem]'>
                     <div className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
                         <div className='relative flex items-center'>
@@ -327,7 +329,7 @@ const EnergyTokenSpreadsheet = ({
                         </ul>
                     </footer>
                 </div>{' '}
-            </section>
+            </section> */}
         </main>
     )
 }
