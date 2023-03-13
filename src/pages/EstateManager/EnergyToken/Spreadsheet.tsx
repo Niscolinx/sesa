@@ -139,7 +139,7 @@ const EnergyTokenSpreadsheet = ({closeDialog}: {closeDialog: () => void}) => {
     
 
     return (
-        <main className='mt-10 grid gap-9'>
+        <main className=' grid gap-9'>
             <section className='bg-white rounded-lg border overflow-scroll max-h-[80vh] w-full relative'>
                 <IoMdClose
                     className='absolute right-4 top-4 text-[2rem] cursor-pointer'
