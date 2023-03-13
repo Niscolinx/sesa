@@ -227,11 +227,11 @@ const BulkUpload = () => {
                                     </p>
                                 </div>
                             </div>
-                            <button className='btn ml-auto bg-color-blue-1 text-white flex gap-2 items-center self-center rounded-lg py-4 px-8 capitalize'>
+                            <button className='btn bg-color-blue-1 text-white flex gap-2 items-center self-center rounded-lg py-4 px-8 capitalize'>
                                 <span>
                                     <IoMdAdd />
                                 </span>{' '}
-                                <p>Create Token</p>
+                                <p>Create Tokens</p>
                             </button>
                         </form>
                     </section>
