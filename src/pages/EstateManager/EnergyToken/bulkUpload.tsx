@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from 'react'
+import React, { ChangeEvent, useRef, useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
 
 import {
@@ -25,13 +25,24 @@ const BulkUpload = () => {
         string | null
     >(null)
 
-    const [photoUrl, setPhotoUrl] = useState('')
+     const recipient_List_DialogRef = useRef<HTMLDialogElement | null>(null)
+
+     const closeRecipientListDialog = () => {
+         if (recipient_List_DialogRef.current) {
+             recipient_List_DialogRef.current.close()
+         }
+     }
+
+     const openRecipientListDialog = () => {
+         if (recipient_List_DialogRef.current) {
+             recipient_List_DialogRef.current.showModal()
+         }
+     }
 
     const handlePhotoPreview = async (
         _: React.MouseEvent<HTMLInputElement>
     ) => {
-        const getUrl = await getPhotoUrl(`#photoUpload`)
-        setPhotoUrl(getUrl)
+        
     }
 
     const handleSubmit = (e: React.FormEvent) => {
