@@ -87,6 +87,7 @@ const estateManagerRoutes = (
         <Route path='payments/create' element={<CreatePayment />} />
         <Route path='energy-token' element={<EnergyToken />} />
         <Route path='energy-token/add' element={<AddEnergyToken />} />
+        <Route path='energy-token/view/:id' element={<AddEnergyToken />} />
         <Route path='energy-token/bulk-upload' element={<BulkUpload />} />
         <Route path='voting' element={<Voting />} />
     </Route>
