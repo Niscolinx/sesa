@@ -87,6 +87,7 @@ const BulkUpload = () => {
             <dialog className='dialog' ref={dialogRef}>
                 
                 <section className='grid place-content-center w-full h-[100vh]'>
+                    
                     <EnergyTokenSpreadsheet closeDialog={closeDialog} />
                 </section>
             </dialog>
