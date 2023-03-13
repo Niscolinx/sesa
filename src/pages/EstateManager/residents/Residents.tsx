@@ -100,7 +100,6 @@ function Residents() {
                                     Resident Profile
                                 </label>
                             </div>
-
                             <div>{paths.get(currentPath)}</div>
                         </section>
                     </div>
