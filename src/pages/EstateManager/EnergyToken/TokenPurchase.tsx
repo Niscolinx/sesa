@@ -251,7 +251,7 @@ function TokenPurchase() {
                                                 <p>{timeStamp}</p>
                                                 <p>{paymentChannel}</p>
                                                 <Link
-                                                    to={`/estateManager/energy-token/view:${id}`}
+                                                    to={`/estateManager/energy-token/view/:${id}`}
                                                     className='text-color-blue'
                                                 >
                                                     View Details
