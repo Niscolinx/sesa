@@ -269,7 +269,7 @@ function Voting() {
                                                         <Link
                                                             to={`/estateManager/message/view/:${id}`}
                                                             state={messageBody}
-                                                            className='text-color-blue'
+                                                            className='text-[#098DFF] mt-[2rem]'
                                                             style={{
                                                                 fontFamily:
                                                                     'Satoshi-Medium',
