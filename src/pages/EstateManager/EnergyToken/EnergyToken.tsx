@@ -7,7 +7,9 @@ import { EstateChart as Chart } from '../../../components/SuperAdmin/charts/Over
 function EnergyToken() {
     const navigate = useNavigate()
 
+    type Path = 'unique' | 'profile'
     const [isEnergyToken, setIsEnergyToken] = useState(false)
+    const [currentPath, setCurrentPath] = useState<Path>('unique')
 
     const addEnergyTokenHandler = () => {
         setIsEnergyToken(true)
@@ -17,6 +19,15 @@ function EnergyToken() {
         { name: 'energyGain', value: 100 },
         { name: 'energyLoss', value: 20 },
     ]
+
+
+
+    
+
+     const paths = new Map<Path, JSX.Element>([
+         ['unique', <UniqueResident />],
+         ['profile', <ResidentProfile />],
+     ])
 
     return (
         <div>
@@ -31,6 +42,47 @@ function EnergyToken() {
                                 <p>Add Token</p>
                             </button>
                         </Link>
+                        <section>
+                            <div className='estateDetail__radioBox'>
+                                <input
+                                    type='radio'
+                                    name='resident'
+                                    id='unique'
+                                    className='hidden'
+                                    onChange={() => setCurrentPath('unique')}
+                                    defaultChecked
+                                />
+                                <label
+                                    htmlFor='unique'
+                                    className={` ${
+                                        currentPath === 'unique'
+                                            ? 'font-Satoshi-Medium'
+                                            : 'capitalize'
+                                    }`}
+                                >
+                                    Unique Resident
+                                </label>
+
+                                <input
+                                    type='radio'
+                                    name='resident'
+                                    id='profile'
+                                    className='hidden'
+                                    onChange={() => setCurrentPath('profile')}
+                                />
+                                <label
+                                    htmlFor='profile'
+                                    className={` ${
+                                        currentPath === 'profile'
+                                            ? 'font-Satoshi-Medium'
+                                            : 'capitalize'
+                                    }`}
+                                >
+                                    Resident Profile
+                                </label>
+                            </div>
+                            <div>{paths.get(currentPath)}</div>
+                        </section>
                         <div
                             className='grid p-8 justify-items-center'
                             style={{
