@@ -430,6 +430,126 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
         </div>
     )
 }
+export const selectedItems: FC<IMultipleSelect> = ({
+    selectFrom,
+    selected,
+    setSelected,
+    label,
+    placeholder,
+}) => {
+    const [selectedFrom, setSelectedFrom] = useState(selectFrom)
+
+
+    const handleSelectedState = (
+        e: ChangeEvent<HTMLInputElement>,
+        item: string
+    ) => {
+        const checked = e.target.checked
+
+        if (checked) {
+            setSelected((prev) => [...prev, item])
+        } else {
+            setSelected((prev) => prev.filter((i) => i !== item))
+        }
+    }
+
+    
+    const memoizedList = useMemo(() => {
+        return selectedFrom.map((item, index) => (
+            <div
+                className='flex items-center pl-4 cursor-pointer hover:bg-color-grey'
+                key={index}
+            >
+                <input
+                    type='checkbox'
+                    className='cursor-pointer'
+                    name={item + index}
+                    id={item + index}
+                    value={item}
+                    checked={selected.includes(item)}
+                    onChange={(e) => handleSelectedState(e, item)}
+                />
+                <label
+                    htmlFor={item + index}
+                    className='text-[1.4rem] p-4 cursor-pointer w-full'
+                >
+                    {item}
+                </label>
+            </div>
+        ))
+    }, [selectedFrom, selected])
+
+    
+
+    return (
+        <div className='relative grid gap-4'>
+            <p className='text-[1.4rem] font-semibold'>{label}</p>
+            <div className='relative items-center max-w-[40rem] flex'>
+                <p
+                    className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer h-[5rem] overflow-hidden overflow-x-scroll flex gap-4 items-center pr-16'
+                    style={{
+                        gridTemplateColumns:
+                            'repeat(auto-fit, minmax(12rem, 1fr))',
+                    }}
+                >
+                    {selected && selected.length > 0 ? (
+                        selected.map((item, i) => (
+                            <span
+                                className='text-white whitespace-nowrap bg-color-blue-1 rounded-lg px-4 relative flex items-center h-[3.8rem] z-[2] pr-12'
+                                key={i}
+                            >
+                                {item}
+                                <IoMdClose
+                                    className='absolute right-2 text-[1.4rem] cursor-pointer'
+                                    onClick={() => removeSelectedItem(item)}
+                                />
+                            </span>
+                        ))
+                    ) : (
+                        <span className='text-gray-500'>
+                            {placeholder || ''}
+                        </span>
+                    )}
+                </p>
+                {toggleStateMenu ? (
+                    <div
+                        className='absolute w-full h-full z-[1] left-0 flex items-center justify-end pr-3 cursor-pointer'
+                        onClick={stateMenuToggler}
+                    >
+                        <GrUp />
+                    </div>
+                ) : (
+                    <div
+                        className='absolute w-full h-full z-[1] left-0 flex items-center justify-end pr-3 cursor-pointer'
+                        onClick={stateMenuToggler}
+                    >
+                        <GrDown />
+                    </div>
+                )}
+            </div>
+
+            {toggleStateMenu && (
+                <div className='absolute top-[8rem]  left-0 border border-color-primary-light min-w-[12rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
+                    <div className='relative flex items-center text-[1.4rem]'>
+                        <img
+                            src='/icons/admins/search.svg'
+                            alt=''
+                            className='absolute left-4'
+                        />
+                        <input
+                            type='text'
+                            placeholder='Search Parameters'
+                            value={search}
+                            onChange={handleSearch}
+                            className='pl-16 w-[25rem] rounded-lg border border-color-blue-light py-4 px-8 outline-none appearance-none'
+                        />
+                    </div>
+                    {memoizedList}
+                </div>
+            )}
+        </div>
+    )
+}
 
 export const MappedSelect: FC<MappedSelect> = ({
     state,
