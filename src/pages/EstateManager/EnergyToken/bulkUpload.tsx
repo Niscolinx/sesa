@@ -196,7 +196,7 @@ const BulkUpload = () => {
                     </section>
                 ) : (
                     <section className='grid justify-items-center h-[80vh] content-center'>
-                        <div className='rounded-lg border border-width-[1rem] border-dashed border-color-grey-1 p-8 text-[1.6rem] relative w-full '>
+                        <div className='rounded-lg border border-dashed border-gray-400 p-8 relative w-full '>
                             <label
                                 htmlFor='photoUpload'
                                 className='flex justify-center gap-4 items-center cursor-pointer'
