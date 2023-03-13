@@ -44,7 +44,7 @@ const AddEnergyToken = () => {
         <>
             <main>
                 <section className='grid p-8 bg-white items-baseline rounded-lg'>
-                    <button className=' mb-5 ml-auto border border-color-blue text-color-blue-1 font-Satoshi-Medium'>
+                    <button className=' mb-5 ml-auto border border-color-blue text-color-blue-1 font-Satoshi-Medium py-4 px-6 rounded-2xl w-[20rem]'>
                         Bulk Upload
                     </button>
                     <p className='text-[2rem] font-Satoshi-Medium'>
