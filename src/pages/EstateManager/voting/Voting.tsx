@@ -149,8 +149,8 @@ function Voting() {
         <div>
             <div className='rounded-lg mt-[3rem] h-[80vh]'>
                 {isVoting ? (
-                    <div className='grid gap-10 rounded-lg border min-w-[112rem]'>
-                        <div className='grid text-[1.6rem] border rounded-lg'>
+                    <div className='grid gap-10 rounded-lg min-w-[112rem]'>
+                        <div className='grid text-[1.6rem] rounded-lg'>
                             <div className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
                                 <p className=' font-bold'>
                                     Votings <span>(200)</span>
@@ -356,7 +356,7 @@ function Voting() {
                     <section className='grid place-content-center w-full h-full justify-items-center gap-4 bg-white rounded-lg'>
                         <img src='/icons/admins/errorSvg.svg' alt='' />
                         <p className='text'>
-                            Ooops you have not added any Voting yet
+                            Ooops you do not have any Voting Polls created yet{' '}
                         </p>
                         <button
                             className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
@@ -365,7 +365,7 @@ function Voting() {
                             <span>
                                 <IoMdAdd />
                             </span>{' '}
-                            Add Voting
+                            Create Poll
                         </button>
                     </section>
                 )}
