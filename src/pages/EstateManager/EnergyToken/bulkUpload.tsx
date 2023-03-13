@@ -195,49 +195,53 @@ const BulkUpload = () => {
                         </form>
                     </section>
                 ) : (
-                    <div className='col-span-full rounded-lg border border-width-[.2rem] border-dashed border-color-grey-1 p-8 text-[1.6rem] relative w-full'>
-                        <label
-                            htmlFor='photoUpload'
-                            className='flex justify-center gap-4 items-center cursor-pointer'
-                        >
-                            <img src='/icons/admins/photo_library.svg' alt='' />
-                            <p
-                                className='text-color-dark-1'
-                                style={{
-                                    fontFamily: 'Satoshi-Light',
-                                }}
+                    <section>
+                        <div className='col-span-full rounded-lg border border-width-[.2rem] border-dashed border-color-grey-1 p-8 text-[1.6rem] relative w-full grid justify-items-center'>
+                            <label
+                                htmlFor='photoUpload'
+                                className='flex justify-center gap-4 items-center cursor-pointer'
                             >
-                                {/* Drag picture here{' '}
-                                <span className='text-color-blue font-bold'>
-                                    click
-                                </span>{' '}
-                                to upload */}
-
-                                Click to Upload document
-                            </p>
-                        </label>
-                        <input
-                            type='file'
-                            name='photoUpload'
-                            id='photoUpload'
-                            accept='image/*'
-                            className='hidden'
-                            onClick={handlePhotoPreview}
-                        />
-
-                        {/* {photoUrl && (
-                            <div className='flex justify-center justify-self-center'>
                                 <img
-                                    src={photoUrl}
-                                    alt='photoPreview'
-                                    className='object-cover w-[11rem] h-[11rem] rounded-full'
+                                    src='/icons/admins/photo_library.svg'
+                                    alt=''
                                 />
+                                <p
+                                    className='text-color-dark-1'
+                                    style={{
+                                        fontFamily: 'Satoshi-Light',
+                                    }}
+                                >
+                                    {/* Drag picture here{' '}
+                                <span className='text-color-blue font-bold'>
+                                click
+                                </span>{' '}
+                            to upload */}
+                                    Click to Upload document
+                                </p>
+                            </label>
+                            <input
+                                type='file'
+                                name='photoUpload'
+                                id='photoUpload'
+                                accept='image/*'
+                                className='hidden'
+                                onClick={handlePhotoPreview}
+                            />
+
+                            {/* {photoUrl && (
+                            <div className='flex justify-center justify-self-center'>
+                            <img
+                            src={photoUrl}
+                            alt='photoPreview'
+                            className='object-cover w-[11rem] h-[11rem] rounded-full'
+                            />
                             </div>
                         )} */}
+                        </div>
                         <button className=' mt-5 border border-color-blue text-color-blue-1 font-Satoshi-Medium py-4 px-6 rounded-2xl flex justify-center'>
                             Download Excel Template
                         </button>
-                    </div>
+                    </section>
                 )}
             </main>
         </>
