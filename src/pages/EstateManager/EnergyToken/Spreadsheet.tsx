@@ -165,16 +165,16 @@ const EnergyTokenSpreadsheet = () => {
                             </select>
                             <GrDown className='absolute right-4 text-[1.3rem]' />
                         </div>
-                        <div className='ml-auto'>
+                        <div className='ml-auto flex items-center gap-16'>
                             <button
-                                className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
+                                className='btn text-white border text-color-blue-1 border-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
                              
                             >
                                 Print
                                 <img src="print.svg" alt="" />
                             </button>
                             <button
-                                className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
+                                className='btn text-white border text-color-blue-1 border-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
                              
                             >
                                 Download
