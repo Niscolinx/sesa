@@ -12,10 +12,7 @@ function EnergyToken() {
         setIsEnergyToken(true)
     }
 
-    const property_data = [
-        { name: 'energyGain', value: 100 },
-        { name: 'energyLoss', value: 20 },
-    ]
+   
 
 
 
