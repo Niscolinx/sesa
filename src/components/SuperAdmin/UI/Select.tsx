@@ -436,7 +436,7 @@ export const SelectedItems: FC<
     return (
         <div className='relative grid gap-4'>
             <p className='text-[1.4rem] font-semibold'>{label}</p>
-            <div className='relative items-center max-w-[50rem] flex'>
+            <div className='relative items-center max-w-[40rem] flex'>
                 <div
                     className='border border-color-grey p-4 outline-none rounded-lg w-full h-[5rem] flex items-center'
                     style={{
@@ -456,7 +456,7 @@ export const SelectedItems: FC<
                               
                         )
                     })}
-                    <span className='bg-color-blue-1 text-white flex items-center gap-4 rounded-2xl w-[10rem] py-2 px-4 mx-auto text-center'>
+                    <span className='bg-color-blue-1 text-white flex items-center gap-4 rounded-2xl w-max py-2 px-4 mx-auto text-center'>
                         + {selectFrom.length - 3} more
                     </span>
                 </div>
