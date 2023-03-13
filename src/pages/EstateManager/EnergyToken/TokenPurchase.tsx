@@ -2,6 +2,111 @@ import OverviewChart from '../../../components/SuperAdmin/charts/OverviewChart'
 import WalletBarChart from '../../../components/SuperAdmin/charts/WalletBarChart'
 
 function TokenPurchase() {
+     const [fetchedSpreadsheetData, setFetchedSpreadsheetData] = useState<
+         Spreadsheet[]
+     >([])
+
+     useEffect(() => {
+         setTimeout(() => {
+             setFetchedSpreadsheetData(SPREADSHEET)
+         }, 1000)
+     }, [])
+
+     interface Paginate {
+         index: number
+         currentPage: number
+         itemsPerPage: number
+         totalPage: number
+         slicedPages: Spreadsheet[][] | null
+     }
+
+     const itemsPerPageArr = [2, 4, 6, 8]
+     const perPage = 4
+
+     const [paginate, setPaginate] = useState<Paginate>({
+         index: 0,
+         currentPage: 1,
+         itemsPerPage: perPage,
+         totalPage: Math.ceil(fetchedSpreadsheetData.length / perPage),
+         slicedPages: null,
+     })
+
+     const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
+         const item = parseInt(e.target.value)
+
+         const slicedPages: Spreadsheet[][] = []
+         for (let i = 0; i < fetchedSpreadsheetData.length; i += item) {
+             slicedPages.push(fetchedSpreadsheetData.slice(i, i + item))
+         }
+
+         setPaginate((prev) => {
+             return {
+                 ...prev,
+                 itemsPerPage: item,
+                 index: 0,
+                 currentPage: 1,
+                 slicedPages,
+                 totalPage: Math.ceil(fetchedSpreadsheetData.length / item),
+             }
+         })
+     }
+
+     useEffect(() => {
+         const slicedPages: Spreadsheet[][] = []
+         for (
+             let i = 0;
+             i < fetchedSpreadsheetData.length;
+             i += paginate.itemsPerPage
+         ) {
+             slicedPages.push(
+                 fetchedSpreadsheetData.slice(i, i + paginate.itemsPerPage)
+             )
+         }
+
+         setPaginate((prev) => {
+             return {
+                 ...prev,
+                 slicedPages,
+                 totalPage: Math.ceil(
+                     fetchedSpreadsheetData.length / paginate.itemsPerPage
+                 ),
+             }
+         })
+     }, [fetchedSpreadsheetData])
+
+     const handleNext = () => {
+         if (paginate.currentPage === paginate.totalPage) return
+         setPaginate((prev) => {
+             return {
+                 ...prev,
+                 index: prev.index + 1,
+                 currentPage: prev.currentPage + 1,
+             }
+         })
+     }
+
+     const handlePrev = () => {
+         if (paginate.currentPage === 1) return
+         setPaginate((prev) => {
+             return {
+                 ...prev,
+                 index: prev.index - 1,
+                 currentPage: prev.currentPage - 1,
+             }
+         })
+     }
+
+     const { currentPage, slicedPages, itemsPerPage } = paginate
+
+     const jumpToPage = (e: React.MouseEvent, index: number) => {
+         setPaginate((prev) => {
+             return {
+                 ...prev,
+                 index,
+                 currentPage: index + 1,
+             }
+         })
+     }
     return (
         <div>
             <section

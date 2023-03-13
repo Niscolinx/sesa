@@ -2,7 +2,7 @@ import React, { ChangeEvent, FC, useEffect, useState } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
 import { GrDown } from 'react-icons/gr'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
-import { IoMdAdd, IoMdClose } from 'react-icons/io'
+import { IoMdClose } from 'react-icons/io'
 
 interface Spreadsheet {
     id: string
