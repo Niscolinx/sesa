@@ -24,116 +24,13 @@ const ViewArtisan = () => {
         e.preventDefault()
     }
 
-    // const dialogRef = useRef<HTMLDialogElement | null>(null)
-
-    // const handleClose = () => {
-    //     if (dialogRef.current) {
-    //         dialogRef.current.close()
-    //     }
-    // }
-
-    // const handleOpen = (dialogType: Actions) => {
-    //     if (dialogType === 'Deactivate') {
-    //         setDialogType('Deactivate')
-    //     }
-    //     if (dialogType === 'Delete') {
-    //         setDialogType('Delete')
-    //     }
-
-    //     if (dialogRef.current) {
-    //         dialogRef.current.showModal()
-    //     }
-    // }
-
-    // const handleSelectedAction = (item: Actions) => {
-    //     if (item === 'Deactivate') {
-    //         handleOpen('Deactivate')
-    //     }
-
-    //     if (item === 'Delete') {
-    //         handleOpen('Delete')
-    //     }
-    // }
-
-    // const handleDeleteArtisan = () => {
-    //     handleClose()
-
-    //     toast('Artisan deleted successfully', {
-    //         type: 'success',
-    //         className: 'bg-green-100 text-green-600 text-[1.4rem]',
-    //     })
-    // }
-    // const handleDeactivateArtisan = () => {
-    //     handleClose()
-
-    //     toast('Artisan deactivated successfully', {
-    //         type: 'success',
-    //         className: 'bg-green-100 text-green-600 text-[1.4rem]',
-    //     })
-    // }
+   
 
     return (
         <>
             <ToastContainer />
 
-            {/* <dialog className='dialog' ref={dialogRef}>
-                <section className='grid place-content-center w-full h-[100vh]'>
-                    <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
-                        {dialogType === 'Deactivate' ? (
-                            <>
-                                <img
-                                    src='/icons/admins/modalDeactivate.svg'
-                                    alt=''
-                                />
-                                <p className='text-[1.6rem]'>
-                                    Are you sure you want to deactivate this
-                                    Artisan
-                                </p>
-
-                                <div className='flex w-full justify-center gap-8'>
-                                    <button
-                                        className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
-                                        onClick={() => handleClose()}
-                                    >
-                                        Cancel
-                                    </button>
-                                    <button
-                                        className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
-                                        onClick={handleDeactivateArtisan}
-                                    >
-                                        Deactivate
-                                    </button>
-                                </div>
-                            </>
-                        ) : (
-                            <>
-                                <img
-                                    src='/icons/admins/modalWarning.svg'
-                                    alt=''
-                                />
-                                <p className='text-[1.6rem]'>
-                                    Are you sure you want to delete this Artisan
-                                </p>
-
-                                <div className='flex w-full justify-center gap-8'>
-                                    <button
-                                        className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
-                                        onClick={() => handleClose()}
-                                    >
-                                        Cancel
-                                    </button>
-                                    <button
-                                        className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
-                                        onClick={handleDeleteArtisan}
-                                    >
-                                        Delete
-                                    </button>
-                                </div>
-                            </>
-                        )}
-                    </div>
-                </section>
-            </dialog> */}
+      
 
             <div className='grid p-8 bg-white  rounded-lg gap-[10rem]'>
                 <div>
