@@ -7,24 +7,25 @@ import WalletBarChart from '../../../components/SuperAdmin/charts/WalletBarChart
 
 interface Spreadsheet {
     id: string
-    tokenSerialNo: string
+    Date: string
     tokenCode: string
-    denomination: string
-    customNotification: string
+    residentCode: string
+    amount: string
     convenienceFee: string
-    message: string
+    paymentChannel: string
+    timeStamp: string
 }
 
 const SPREADSHEET: Spreadsheet[] = Array.from({
     length: 20,
 }).map((_, i) => ({
     id: `i + ${i}`,
-    tokenSerialNo: `H${Math.floor(Math.random() * 3000 + 1000)}`,
-    tokenCode: '*********',
-    denomination: Math.random() > 0.5 ? '5,000' : '10,000',
-    customNotification: 'upcoming',
+    Date: `02-Feb-2023`,
+    tokenCode: `H${Math.floor(Math.random() * 30000 + 10000)}`,
+    residentCode: Math.random() > 0.5 ? '5,000' : '10,000',
+    amount: 'upcoming',
     convenienceFee: Math.random() > 0.5 ? '200' : '500',
-    message: 'Message Alert',
+    paymentChannel: 'Message Alert',
 }))
 
 function TokenPurchase() {
@@ -215,12 +216,12 @@ function TokenPurchase() {
                                 slicedPages[paginate.index].map(
                                     ({
                                         id,
-                                        tokenSerialNo,
+                                        Date,
                                         tokenCode,
-                                        customNotification,
-                                        message,
+                                        amount,
+                                        paymentChannel,
                                         convenienceFee,
-                                        denomination,
+                                        residentCode,
                                     }) => {
                                         return (
                                             <div className='grid justify-between border-b grid-cols-6 gap-8 py-4 capitalize'>
@@ -230,14 +231,14 @@ function TokenPurchase() {
                                                         className='cursor-pointer'
                                                     />
 
-                                                    <span>{tokenSerialNo}</span>
+                                                    <span>{Date}</span>
                                                 </p>
                                                 <p>{tokenCode}</p>
-                                                <p>{denomination}</p>
-                                                <p>{customNotification}</p>
+                                                <p>{residentCode}</p>
+                                                <p>{amount}</p>
 
                                                 <p>{convenienceFee}</p>
-                                                <p>{message}</p>
+                                                <p>{paymentChannel}</p>
                                             </div>
                                         )
                                     }
