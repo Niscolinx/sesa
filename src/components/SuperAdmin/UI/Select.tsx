@@ -495,14 +495,11 @@ export const selectedItems: FC<IMultipleSelect> = ({
                     {selected && selected.length > 0 ? (
                         selected.map((item, i) => (
                             <span
-                                className='text-white whitespace-nowrap bg-color-blue-1 rounded-lg px-4 relative flex items-center h-[3.8rem] z-[2] pr-12'
+                                className='text-white whitespace-nowrap rounded-lg px-4 relative flex items-center h-[3.8rem] z-[2] pr-12'
                                 key={i}
                             >
                                 {item}
-                                <IoMdClose
-                                    className='absolute right-2 text-[1.4rem] cursor-pointer'
-                                    onClick={() => removeSelectedItem(item)}
-                                />
+                               
                             </span>
                         ))
                     ) : (
@@ -511,42 +508,10 @@ export const selectedItems: FC<IMultipleSelect> = ({
                         </span>
                     )}
                 </p>
-                {toggleStateMenu ? (
-                    <div
-                        className='absolute w-full h-full z-[1] left-0 flex items-center justify-end pr-3 cursor-pointer'
-                        onClick={stateMenuToggler}
-                    >
-                        <GrUp />
-                    </div>
-                ) : (
-                    <div
-                        className='absolute w-full h-full z-[1] left-0 flex items-center justify-end pr-3 cursor-pointer'
-                        onClick={stateMenuToggler}
-                    >
-                        <GrDown />
-                    </div>
-                )}
+             
             </div>
 
-            {toggleStateMenu && (
-                <div className='absolute top-[8rem]  left-0 border border-color-primary-light min-w-[12rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
-                    <div className='relative flex items-center text-[1.4rem]'>
-                        <img
-                            src='/icons/admins/search.svg'
-                            alt=''
-                            className='absolute left-4'
-                        />
-                        <input
-                            type='text'
-                            placeholder='Search Parameters'
-                            value={search}
-                            onChange={handleSearch}
-                            className='pl-16 w-[25rem] rounded-lg border border-color-blue-light py-4 px-8 outline-none appearance-none'
-                        />
-                    </div>
-                    {memoizedList}
-                </div>
-            )}
+            
         </div>
     )
 }
