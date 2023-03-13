@@ -183,7 +183,7 @@ const AddEnergyToken = () => {
                             </p>
                         </div>
 
-                        <button className='btn  bg-color-blue-1 text-white flex gap-2 items-center  rounded-lg py-4 px-8 capitalize col-span-full mt-[5rem] justify-start'>
+                        <button className='btn  bg-color-blue-1 text-white flex gap-2 items-center  rounded-lg py-4 px-8 capitalize col-span-full mt-[5rem] justify-start w-max'>
                             <span>
                                 <IoMdAdd />
                             </span>{' '}
