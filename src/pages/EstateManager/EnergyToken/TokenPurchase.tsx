@@ -21,10 +21,10 @@ const SPREADSHEET: Spreadsheet[] = Array.from({
 }).map((_, i) => ({
     id: `i + ${i}`,
     Date: `02-Feb-2023`,
-    tokenCode: `H${Math.floor(Math.random() * 30000 + 10000)}`,
-    residentCode: Math.random() > 0.5 ? '5,000' : '10,000',
-    amount: 'upcoming',
-    convenienceFee: Math.random() > 0.5 ? '200' : '500',
+    tokenCode: `0992323822`,
+    residentCode:  `H${Math.floor(Math.random() * 30000 + 10000)}`,
+    amount: '6,000',
+    convenienceFee: Math.random() > 0.5 ? '2,000' : '5,000',
     paymentChannel: 'Message Alert',
 }))
 
