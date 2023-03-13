@@ -151,7 +151,7 @@ const EnergyTokenSpreadsheet = ({
                 <div className=' bg-[#098DFF] relative p-8 capitalize h-full'></div>
                 <div className='h-full bg-blue-100'></div>
             </section>
-            <section className=' rounded-lg  overflow-scroll max-h-[80vh] w-full absolute'>
+            <section className=' rounded-lg  overflow-scroll max-h-[80vh] w-full absolute top-[10rem] m-10'>
                 <div className='text-white bg-[#098DFF] relative p-8 capitalize h-full'>
                     <IoMdClose
                         className='absolute right-4 top-4 text-[2rem] cursor-pointer m-5'
@@ -162,7 +162,7 @@ const EnergyTokenSpreadsheet = ({
                     </p>
                     <p className='text-[1.2rem]'>Energy token speed 01</p>
                 </div>
-                <div className='grid text-[1.6rem] bg-white'>
+                <div className='grid text-[1.6rem] bg-white pt-10 rounded-2xl'>
                     <div className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
                         <div className='relative flex items-center'>
                             <img
