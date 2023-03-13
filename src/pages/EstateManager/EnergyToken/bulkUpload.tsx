@@ -8,6 +8,7 @@ import { getPhotoUrl } from '../../../utils/getPhotoUrl'
 const BulkUpload = () => {
     const [selectedState, setSelectedState] = useState<string | null>(null)
     const [selectedGender, setSelectedGender] = useState<string | null>(null)
+    cpos
     const [denomination, setDenomination] = useState('')
     const [customerNofication, setCustomerNotification] = useState<
         string | null
@@ -191,47 +192,6 @@ const BulkUpload = () => {
                             </p>
                         </div>
 
-                        <div className='col-span-full rounded-lg border border-width-[.2rem] border-dashed border-color-grey-1 p-8 text-[1.6rem] relative w-full'>
-                            <label
-                                htmlFor='photoUpload'
-                                className='flex justify-center gap-4 items-center cursor-pointer'
-                            >
-                                <img
-                                    src='/icons/admins/photo_library.svg'
-                                    alt=''
-                                />
-                                <p
-                                    className='text-color-dark-1'
-                                    style={{
-                                        fontFamily: 'Satoshi-Light',
-                                    }}
-                                >
-                                    Drag picture here{' '}
-                                    <span className='text-color-blue font-bold'>
-                                        click
-                                    </span>{' '}
-                                    to upload
-                                </p>
-                            </label>
-                            <input
-                                type='file'
-                                name='photoUpload'
-                                id='photoUpload'
-                                accept='image/*'
-                                className='hidden'
-                                onClick={handlePhotoPreview}
-                            />
-
-                            {photoUrl && (
-                                <div className='flex justify-center justify-self-center'>
-                                    <img
-                                        src={photoUrl}
-                                        alt='photoPreview'
-                                        className='object-cover w-[11rem] h-[11rem] rounded-full'
-                                    />
-                                </div>
-                            )}
-                        </div>
 
                         <button className='btn ml-auto bg-color-blue-1 text-white flex gap-2 items-center self-center rounded-lg py-4 px-8 capitalize'>
                             <span>
