@@ -29,7 +29,11 @@ const SPREADSHEET: Spreadsheet[] = Array.from({
     isAlpha: Math.random() > 0.3 ? true : false,
 }))
 
-const EnergyTokenSpreadsheet = ({closeDialog}: {closeDialog: () => void}) => {
+const EnergyTokenSpreadsheet = ({
+    closeDialog,
+}: {
+    closeDialog: () => void
+}) => {
     const [fetchedSpreadsheetData, setFetchedSpreadsheetData] = useState<
         Spreadsheet[]
     >([])
@@ -136,12 +140,13 @@ const EnergyTokenSpreadsheet = ({closeDialog}: {closeDialog: () => void}) => {
         })
     }
 
-    
-
     return (
         <main className=' grid gap-9 relative '>
-            <section className=''>
-
+            <section className='grid'>
+                <div>
+                    <p className='font-Satoshi-Medium text-[2rem]'>Energy Token Speed 01</p>
+                </div>
+                <div></div>
             </section>
             <section className='bg-white rounded-lg border overflow-scroll max-h-[80vh] w-full '>
                 <IoMdClose
