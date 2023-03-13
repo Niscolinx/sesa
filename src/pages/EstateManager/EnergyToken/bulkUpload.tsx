@@ -6,9 +6,8 @@ import { Select } from '../../../components/SuperAdmin/UI/Select'
 import { getPhotoUrl } from '../../../utils/getPhotoUrl'
 
 const BulkUpload = () => {
-    const [selectedState, setSelectedState] = useState<string | null>(null)
-    const [selectedGender, setSelectedGender] = useState<string | null>(null)
-    cpos
+   
+    const [isUploaded, setIsUploaded] = useState(false)
     const [denomination, setDenomination] = useState('')
     const [customerNofication, setCustomerNotification] = useState<
         string | null
