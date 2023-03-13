@@ -437,7 +437,7 @@ export const SelectedItems: FC<
         <div className='relative grid gap-4'>
             <p className='text-[1.4rem] font-semibold'>{label}</p>
             <div className='relative items-center max-w-[50rem] flex'>
-                <p
+                <div
                     className='border border-color-grey p-4 outline-none rounded-lg w-full h-[5rem] flex items-center'
                     style={{
                         gridTemplateColumns:
@@ -447,15 +447,15 @@ export const SelectedItems: FC<
                     {selectFrom.slice(0, 3).map((item, i) => {
                         console.log({item})
                         return (
-                            <span
+                            <p
                                 className=' whitespace-nowrap rounded-lg relative flex items-center h-[3.8rem] z-[2] pr-2'
                                 key={i}
                             >
-                                {i < 2 ? `${item},` : item}
-                            </span>
+                                {i < 2 ? `${item},` : item}  <span className='bg-color-blue-1 text-white flex items-center gap-4'>+</span>
+                            </p>
                         )
                     })}
-                </p>
+                </div>
             </div>
         </div>
     )
