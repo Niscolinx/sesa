@@ -170,10 +170,10 @@ const EnergyTokenSpreadsheet = () => {
                                 className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
                              
                             >
+                                Print
                                 <span>
                                     <IoMdAdd />
                                 </span>{' '}
-                                Save Changes
                             </button>
                         </div>
                     </div>
