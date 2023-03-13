@@ -12,27 +12,22 @@ import { Link } from 'react-router-dom'
 
 export interface Voting {
     id: number
-    date: string
-    transmissionDate: string
-    electionTitle: string[]
-    transmissionChannel: string
-    subject: string
-    description: string
-    status: 'Sent' | 'Pending'
+    startDate: string
+    endDate: string
+    electionTitle: string
+    NoOfEligibleVoters: string
+   
 }
 
 
 export const VOTING_DATA: Voting[] = Array.from({ length: 10 }).map(
     (_, i) => ({
         id: i + 1,
-        date: '19-May-2023',
-        transmissionDate: '19-May-2023',
-        electionTitle =,
-        transmissionChannel: `Channel ${i + 1}`,
-        subject: `Monday Workings`,
-        description:
-            'The report for the month of May is ready for review  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit est aperiam aspernatur nulla, quidem libero dolore impedit nihil, esse provident non autem quo. Veniam facilis alias distinctio quod eos deserunt Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga adipisci, distinctio suscipit quos dolorem veniam illum assumenda exercitationem saepe voluptatum odit eligendi deserunt omnis vero, reiciendis, tempore quae alias accusantium.',
-        status: Math.random() > 0.5 ? 'Sent' : 'Pending',
+        startDate: '19-May-2023',
+        endDate: '19-May-2023',
+        electionTitle: 'Iba General Elections',
+        NoOfEligibleVoters: `12,423`,
+     
     })
 )
 
@@ -188,7 +183,7 @@ function Voting() {
                                         <option hidden value=''>
                                             Sort By
                                         </option>
-                                        <option value='date'>date</option>
+                                        <option value='startDate'>startDate</option>
                                         <option value='alpha'>Alpha</option>
                                     </select>
                                     <GrDown className='absolute right-4 text-[1.3rem]' />
@@ -218,12 +213,12 @@ function Voting() {
                                             (messageBody) => {
                                                 const {
                                                     id,
-                                                    date,
+                                                    startDate,
                                                     subject,
                                                     description,
                                                     status,
-                                                    transmissionChannel,
-                                                    transmissionDate,
+                                                    NoOfEligibleVoters,
+                                                    endDate,
                                                     electionTitle,
                                                 } = messageBody
                                                 return (
@@ -256,7 +251,7 @@ function Voting() {
                                                                         'Satoshi-Medium',
                                                                 }}
                                                             >
-                                                                {date}
+                                                                {startDate}
                                                             </p>
                                                         </div>
                                                         <div className='flex items-center gap-2'>
@@ -271,7 +266,7 @@ function Voting() {
                                                                 }}
                                                             >
                                                                 {
-                                                                    transmissionDate
+                                                                    endDate
                                                                 }
                                                             </p>
                                                         </div>
@@ -325,7 +320,7 @@ function Voting() {
                                                                 }}
                                                             >
                                                                 {
-                                                                    transmissionChannel
+                                                                    NoOfEligibleVoters
                                                                 }
                                                             </p>
                                                         </div>
