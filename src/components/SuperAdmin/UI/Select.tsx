@@ -437,12 +437,7 @@ export const selectedItems: FC<IMultipleSelect> = ({
     label,
     placeholder,
 }) => {
-    const [selectedFrom, setSelectedFrom] = useState(selectFrom)
 
-
-
-
-    
 
     return (
         <div className='relative grid gap-4'>
