@@ -99,6 +99,12 @@ function IconsBox() {
               </Link>
           </li>
           <li className='iconsBox__list'>
+              <Link to='/estateManager/voting'>
+                  <ReportsSvg />
+                  <span>Voting & Election</span>
+              </Link>
+          </li>
+          <li className='iconsBox__list'>
               <Link to='/estateManager/reports'>
                   <ReportsSvg />
                   <span>Reports</span>
