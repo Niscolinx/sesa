@@ -59,7 +59,7 @@ function EnergyToken() {
                                             : 'capitalize'
                                     }`}
                                 >
-                                    Unique Resident
+                                    Token List
                                 </label>
 
                                 <input
@@ -77,7 +77,7 @@ function EnergyToken() {
                                             : 'capitalize'
                                     }`}
                                 >
-                                    Resident Profile
+                                   Token Purchase
                                 </label>
                             </div>
                             <div>{paths.get(currentPath)}</div>
