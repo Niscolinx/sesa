@@ -430,12 +430,9 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
         </div>
     )
 }
-export const selectedItems: FC<IMultipleSelect> = ({
+export const selectedItems: FC<Pick<IMultipleSelect, 'selectFrom' | 'label'>> = ({
     selectFrom,
-    selected,
-    setSelected,
     label,
-    placeholder,
 }) => {
     return (
         <div className='relative grid gap-4'>
