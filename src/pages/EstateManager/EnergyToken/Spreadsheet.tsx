@@ -207,9 +207,9 @@ const EnergyTokenSpreadsheet = ({
                                     type='checkbox'
                                     className='cursor-pointer'
                                 />
-                                <p>Resident Code</p>
+                                <p>Token Serial No.</p>
                             </p>
-                            <p>Resident Name</p>
+                            <p>Token Name</p>
                             <p>Property Category</p>
                             <p>Property Name</p>
                             <p>Property Type</p>
