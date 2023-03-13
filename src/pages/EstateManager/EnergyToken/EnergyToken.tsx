@@ -19,7 +19,7 @@ function EnergyToken() {
 
     return (
         <div>
-            <div className='rounded-lg mt-[3rem] min-h-[80vh] bg-white p-8'>
+            <div className='rounded-lg mt-[3rem] h-[80vh] bg-white p-8'>
                 {isEnergyToken ? (
                     <section>
                         <button className='btn ml-auto bg-color-blue-1 text-white flex gap-2 items-center self-center rounded-lg py-4 px-8 capitalize'>
