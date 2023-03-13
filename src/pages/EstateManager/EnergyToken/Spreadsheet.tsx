@@ -141,11 +141,11 @@ const EnergyTokenSpreadsheet = ({
     }
 
     return (
-        <main className='relative h-[100vh] bg-white '>
+        <main className='relative h-[100vh] grid rounded-2xl '>
             <section className='grid ' style={{
                 gridTemplateRows: '.7fr 1fr'
             }}>
-                <div className='text-white bg-[#098DFF] relative rounded-2xl h-full'>
+                <div className='text-white bg-[#098DFF] relative  h-full'>
                     <IoMdClose
                         className='absolute right-4 top-4 text-[2rem] cursor-pointer'
                         onClick={() => closeDialog()}
