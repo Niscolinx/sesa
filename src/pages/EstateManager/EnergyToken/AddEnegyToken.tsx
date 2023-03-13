@@ -53,10 +53,11 @@ const AddEnergyToken = () => {
         <>
             <main>
                 <section className='grid p-8 bg-white items-baseline rounded-lg'>
-                    <Link to='/estateManager/energy-token/bulk-upload'>
-                        <button className=' mb-5 ml-auto border border-color-blue text-color-blue-1 font-Satoshi-Medium py-4 px-6 rounded-2xl w-[20rem]'>
-                            Bulk Upload
-                        </button>
+                    <Link
+                        to='/estateManager/energy-token/bulk-upload'
+                        className=' mb-5 ml-auto border border-color-blue text-color-blue-1 font-Satoshi-Medium py-4 px-6 rounded-2xl w-[20rem] text-center'
+                    >
+                        Bulk Upload
                     </Link>
                     <p className='text-[2rem] font-Satoshi-Medium'>
                         Token Details
