@@ -145,9 +145,9 @@ const EnergyTokenSpreadsheet = ({
             <section className='grid ' style={{
                 gridTemplateRows: '.7fr 1fr'
             }}>
-                <div className='text-white bg-[#098DFF] relative p-8  h-full'>
+                <div className='text-white bg-[#098DFF] relative p-8 capitalize h-full'>
                     <IoMdClose
-                        className='absolute right-4 top-4 text-[2rem] cursor-pointer'
+                        className='absolute right-4 top-4 text-[2rem] cursor-pointer m-10'
                         onClick={() => closeDialog()}
                     />
                     <p className='font-Satoshi-Medium text-[2rem]'>
