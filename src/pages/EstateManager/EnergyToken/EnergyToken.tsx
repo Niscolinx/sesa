@@ -30,11 +30,14 @@ function EnergyToken() {
 
     return (
         <div>
-            <div className='rounded-lg min-h-[80vh] bg-white'>
+            <div className='rounded-lg min-h-[80vh] bg-white p-8'>
                 {isEnergyToken ? (
                     <section>
                         <section>
-                            <div className='estateDetail__radioBox'>
+                            <div className='estateDetail__radioBox' style={{
+                                marginTop: 0,
+                                marginBottom: '2rem'
+                            }}>
                                 <input
                                     type='radio'
                                     name='token'
