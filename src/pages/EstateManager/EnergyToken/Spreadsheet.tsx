@@ -145,6 +145,7 @@ const EnergyTokenSpreadsheet = ({
             <section className='grid'>
                 <div>
                     <p className='font-Satoshi-Medium text-[2rem]'>Energy Token Speed 01</p>
+                    <p>Energy token speed 01</p>
                 </div>
                 <div></div>
             </section>
