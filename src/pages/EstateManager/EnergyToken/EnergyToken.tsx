@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
 import TokenList from './TokenList'
+import TokenPurchase from './TokenPurchase'
 
 function EnergyToken() {
     type Path = 'tokenList' | 'tokenPurchase'
@@ -13,7 +14,7 @@ function EnergyToken() {
 
     const paths = new Map<Path, JSX.Element>([
         ['tokenList', <TokenList/>],
-        ['tokenPurchase', <></>],
+        ['tokenPurchase', <TokenPurchase/>],
     ])
 
     return (

@@ -20,11 +20,11 @@ function TokenPurchase() {
 
                     <div className='overviewChart__label'>
                         <p className='overviewChart__label--percentage'>
-                            45
+                            62
                             <span>%</span>
                         </p>
                         <p className='overviewChart__label--title'>
-                            Estate Wallet
+                            Total Denomination Count
                         </p>
                     </div>
                 </div>
