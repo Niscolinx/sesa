@@ -127,65 +127,74 @@ const BulkUpload = () => {
                                     />
                                 </div>
                             </div>
-                            <Select
-                                label='Customer Notification'
-                                state={['SMS', 'In-App']}
-                                selectedState={customerNofication}
-                                setSelectedState={setCustomerNotification}
-                            />
-
-                            <div className='grid gap-4'>
-                                <label
-                                    htmlFor='convenienceFee'
-                                    className='text-[1.4rem] font-medium'
-                                >
-                                    Convenience Fee
-                                </label>
-                                <div className='relative rounded-lg border border-color-grey outline-none flex items-center pl-4'>
-                                    <input
-                                        type='text'
-                                        required
-                                        id='convenienceFee'
-                                        value={convenienceFee}
-                                        onChange={convenienceFeeHandler}
-                                        name='convenienceFee'
-                                        className='w-full border-none outline-none py-4 px-4 pl-5'
-                                    />
-                                    <img
-                                        src='/icons/Naira.svg'
-                                        alt=''
-                                        className='absolute'
-                                    />
-                                </div>
-                            </div>
-                            <div className='grid gap-4 relative'>
-                                <label
-                                    htmlFor='instruction'
-                                    className='text-[1.4rem] font-medium'
-                                >
-                                    Instuction/Message *
-                                </label>
-                                <input
-                                    type='instruction'
-                                    required
-                                    id='instruction'
-                                    className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                                />
-                            </div>
-
                             <div>
                                 <Select
-                                    label='Notification Threshold'
-                                    state={['10%', '20%', '30%', '40%', '50%']}
-                                    selectedState={notificationThreshold}
-                                    setSelectedState={setNotificationThreshold}
+                                    label='Customer Notification'
+                                    state={['SMS', 'In-App']}
+                                    selectedState={customerNofication}
+                                    setSelectedState={setCustomerNotification}
                                 />
-                                <p className='text-color-blue-1 font-Satoshi-Light text-[1.2rem]'>
-                                    This is the threshold the system
-                                    automatically sends a notification
-                                </p>
-                            </div>
 
+                                <div className='grid gap-4'>
+                                    <label
+                                        htmlFor='convenienceFee'
+                                        className='text-[1.4rem] font-medium'
+                                    >
+                                        Convenience Fee
+                                    </label>
+                                    <div className='relative rounded-lg border border-color-grey outline-none flex items-center pl-4'>
+                                        <input
+                                            type='text'
+                                            required
+                                            id='convenienceFee'
+                                            value={convenienceFee}
+                                            onChange={convenienceFeeHandler}
+                                            name='convenienceFee'
+                                            className='w-full border-none outline-none py-4 px-4 pl-5'
+                                        />
+                                        <img
+                                            src='/icons/Naira.svg'
+                                            alt=''
+                                            className='absolute'
+                                        />
+                                    </div>
+                                </div>
+                                <div className='grid gap-4 relative'>
+                                    <label
+                                        htmlFor='instruction'
+                                        className='text-[1.4rem] font-medium'
+                                    >
+                                        Instuction/Message *
+                                    </label>
+                                    <input
+                                        type='instruction'
+                                        required
+                                        id='instruction'
+                                        className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                                    />
+                                </div>
+
+                                <div>
+                                    <Select
+                                        label='Notification Threshold'
+                                        state={[
+                                            '10%',
+                                            '20%',
+                                            '30%',
+                                            '40%',
+                                            '50%',
+                                        ]}
+                                        selectedState={notificationThreshold}
+                                        setSelectedState={
+                                            setNotificationThreshold
+                                        }
+                                    />
+                                    <p className='text-color-blue-1 font-Satoshi-Light text-[1.2rem]'>
+                                        This is the threshold the system
+                                        automatically sends a notification
+                                    </p>
+                                </div>
+                            </div>
                             <button className='btn ml-auto bg-color-blue-1 text-white flex gap-2 items-center self-center rounded-lg py-4 px-8 capitalize'>
                                 <span>
                                     <IoMdAdd />
@@ -223,12 +232,15 @@ const BulkUpload = () => {
                                 type='file'
                                 name='photoUpload'
                                 id='photoUpload'
-                                accept='image/*'
+                                accept='.csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel'
                                 className='hidden'
                                 onClick={handlePhotoPreview}
                             />
                         </div>
-                        <button className=' mt-5 border border-color-blue text-color-blue-1 font-Satoshi-Medium py-4 px-6 rounded-2xl flex justify-center'>
+                        <button
+                            className=' mt-5 border border-color-blue text-color-blue-1 font-Satoshi-Medium py-4 px-6 rounded-2xl flex justify-center'
+                            onClick={() => setIsUploaded(true)}
+                        >
                             Download Excel Template
                         </button>
                     </section>
