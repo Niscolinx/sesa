@@ -3,21 +3,13 @@ import { Select } from '../../../components/SuperAdmin/UI/Select'
 import StarRating from '../../../components/SuperAdmin/UI/StarRating'
 import { getPhotoUrl } from '../../../utils/getPhotoUrl'
 
-
 const ViewEnergyToken = () => {
-    
-
     return (
         <>
-
             <div className='grid p-8 bg-white  rounded-lg gap-[10rem]'>
                 <div>
-                    <div className='flex justify-between items-center'>
-                      
-
-                        
                     <div
-                        className='grid max-w-[84rem] gap-16 mt-12'
+                        className='grid max-w-[84rem] gap-16 mt-12 '
                         style={{
                             gridTemplateColumns:
                                 ' repeat(auto-fit, minmax(35rem, 1fr))',
@@ -25,310 +17,118 @@ const ViewEnergyToken = () => {
                     >
                         <div className='grid gap-4 relative '>
                             <label
-                                htmlFor='fullName'
+                                htmlFor='firstName'
                                 className='text-[1.4rem] font-medium'
                             >
-                                Full Name *
+                                Token Seriel Number
                             </label>
                             <input
                                 type='text'
                                 required
-                                id='fullName'
+                                id='firstName'
                                 className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                             />
                         </div>
                         <div className='grid gap-4 relative '>
                             <label
-                                htmlFor='artisanCode'
+                                htmlFor='lastName'
                                 className='text-[1.4rem] font-medium'
                             >
-                                Business Name
+                                Token Code
                             </label>
                             <input
                                 type='text'
                                 required
-                                id='artisanCode'
+                                id='lastName'
                                 className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                             />
                         </div>
-                        <div className='grid gap-4 relative '>
-                            <label
-                                htmlFor='DateOfBirth'
-                                className='text-[1.4rem] font-medium'
-                            >
-                                Artisan Category
-                            </label>
-                            <input
-                                type='text'
-                                required
-                                id='DateOfBirth'
-                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                            />
-                        </div>
-                        <div className='grid gap-4 relative '>
-                            <label
-                                htmlFor='email'
-                                className='text-[1.4rem] font-medium'
-                            >
-                                Email Address
-                            </label>
-                            <input
-                                type='email'
-                                required
-                                id='email'
-                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                            />
-                        </div>
-
                         <div className='grid gap-4'>
                             <label
-                                htmlFor='phoneNumber'
+                                htmlFor='amount'
                                 className='text-[1.4rem] font-medium'
                             >
-                                Phone Number *
+                                Denomination
                             </label>
-
-                            <div className='flex text-[1.6rem] gap-4   h-[5rem]'>
-                                <select className='w-[30%] rounded-lg border border-color-grey py-4.8 px-4 outline-none cursor-pointer text-color-dark relative h-full'>
-                                    <option value='234'>+234</option>
-                                </select>
+                            <div className='relative rounded-lg border border-color-grey outline-none flex items-center pl-4'>
                                 <input
+                                    type='text'
                                     required
-                                    type='number'
-                                    inputMode='numeric'
-                                    id='phoneNumber'
-                                    placeholder='Phone Number'
-                                    className='w-full rounded-lg border border-color-grey py-4.8 px-8 outline-none text-color-dark'
+                                    id='denomination'
+                                
+                                    name='amount'
+                                    className='w-full border-none outline-none py-4 px-4 pl-5'
+                                />
+                                <img
+                                    src='/icons/Naira.svg'
+                                    alt=''
+                                    className='absolute'
                                 />
                             </div>
                         </div>
-                     
+                       
 
-                        <div className='grid gap-4 relative'>
+                        <div className='grid gap-4'>
                             <label
-                                htmlFor='homeAddress'
+                                htmlFor='convenienceFee'
                                 className='text-[1.4rem] font-medium'
                             >
-                                Home Address
+                                Convenience Fee
+                            </label>
+                            <div className='relative rounded-lg border border-color-grey outline-none flex items-center pl-4'>
+                                <input
+                                    type='text'
+                                    required
+                                    id='convenienceFee'
+                                
+                                    name='convenienceFee'
+                                    className='w-full border-none outline-none py-4 px-4 pl-5'
+                                />
+                                <img
+                                    src='/icons/Naira.svg'
+                                    alt=''
+                                    className='absolute'
+                                />
+                            </div>
+                        </div>
+                        <div className='grid gap-4 relative'>
+                            <label
+                                htmlFor='instruction'
+                                className='text-[1.4rem] font-medium'
+                            >
+                                Instuction/Message *
                             </label>
                             <input
-                                type='text'
+                                type='instruction'
                                 required
-                                id='homeAddress'
+                                id='instruction'
+                                value={instruction}
+                                onChange={(e) => setInstruction(e.target.value)}
                                 className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                             />
                         </div>
-                        <div className='grid gap-4 relative'>
-                            <label
-                                htmlFor='businessName'
-                                className='text-[1.4rem] font-medium'
-                            >
-                                Business Name
-                            </label>
-                            <input
-                                type='text'
-                                required
-                                id='businessName'
-                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                            />
-                        </div>
 
-                        <div className='grid gap-4 relative'>
-                            <label
-                                htmlFor='status'
-                                className='text-[1.4rem] font-medium'
-                            >
-                                Status
-                            </label>
-                            <input
-                                type='text'
-                                placeholder='Optional'
-                                id='status'
-                                value={'Active'}
-                                className='w-full rounded-lg border-none text-[1.6rem] outline-none text-green-500'
-                            />
-                        </div>
                         <div>
-                            <p className='text-[1.4rem] font-medium'>Rating</p>
-                            <StarRating starsNum={3} />
-                        </div>
-                    </div>
-                </div>
-                <section>
-                    <h2
-                        className='text-[2rem] py-10'
-                        style={{
-                            fontFamily: 'Satoshi-Medium',
-                        }}
-                    >
-                        Testimonials
-                    </h2>
-                    <div
-                        className='grid grid-cols-2 rounded-lg border p-10 border-color-grey'
-                        style={{
-                            boxShadow:
-                                '0px 12.6316px 31.5789px rgba(102, 104, 105, 0.15)',
-                        }}
-                    >
-                        <div className='grid gap-8 '>
-                            <div
-                                className='flex gap-4 justify-between items-center border rounded-lg h-[9rem] max-w-[38rem] px-10'
-                                style={{
-                                    boxShadow:
-                                        '0px 12.6316px 31.5789px rgba(102, 104, 105, 0.15)',
-                                }}
-                            >
-                                <div className='flex gap-4 items-center'>
-                                    <img
-                                        src='/img/avatar1.png'
-                                        alt=''
-                                        className='w-[5rem] h-[5rem] object-cover rounded-full'
-                                    />
-
-                                    <div>
-                                        <p
-                                            className='text-[1.4rem]'
-                                            style={{
-                                                fontFamily: 'Satoshi-Medium',
-                                            }}
-                                        >
-                                            Jessica Okafor
-                                        </p>
-                                        <StarRating starsNum={4} />
-                                    </div>
-                                </div>
-
-                                <div className='text-[1.4rem]'>
-                                    <p
-                                        style={{
-                                            fontFamily: 'Satoshi-Light',
-                                        }}
-                                    >
-                                        7 Aug 2022
-                                    </p>
-                                    <p
-                                        style={{
-                                            fontFamily: 'Satoshi-Light',
-                                        }}
-                                    >
-                                        Peace Estate
-                                    </p>
-                                </div>
-                            </div>
-                            <div
-                                className='flex gap-4 justify-between items-center border rounded-lg h-[9rem] max-w-[38rem] px-10'
-                                style={{
-                                    boxShadow:
-                                        '0px 12.6316px 31.5789px rgba(102, 104, 105, 0.15)',
-                                }}
-                            >
-                                <div className='flex gap-4 items-center'>
-                                    <img
-                                        src='/img/avatar2.png'
-                                        alt=''
-                                        className='w-[5rem] h-[5rem] object-cover rounded-full'
-                                    />
-
-                                    <div>
-                                        <p
-                                            className='text-[1.4rem]'
-                                            style={{
-                                                fontFamily: 'Satoshi-Medium',
-                                            }}
-                                        >
-                                            Jessica Okafor
-                                        </p>
-                                        <StarRating starsNum={4} />
-                                    </div>
-                                </div>
-
-                                <div className='text-[1.4rem]'>
-                                    <p
-                                        style={{
-                                            fontFamily: 'Satoshi-Light',
-                                        }}
-                                    >
-                                        7 Aug 2022
-                                    </p>
-                                    <p
-                                        style={{
-                                            fontFamily: 'Satoshi-Light',
-                                        }}
-                                    >
-                                        Peace Estate
-                                    </p>
-                                </div>
-                            </div>
-                            <div
-                                className='flex gap-4 justify-between items-center border rounded-lg h-[9rem] max-w-[38rem] px-10'
-                                style={{
-                                    boxShadow:
-                                        '0px 12.6316px 31.5789px rgba(102, 104, 105, 0.15)',
-                                }}
-                            >
-                                <div className='flex gap-4 items-center'>
-                                    <img
-                                        src='/img/avatar3.png'
-                                        alt=''
-                                        className='w-[5rem] h-[5rem] object-cover rounded-full'
-                                    />
-
-                                    <div>
-                                        <p
-                                            className='text-[1.4rem]'
-                                            style={{
-                                                fontFamily: 'Satoshi-Medium',
-                                            }}
-                                        >
-                                            Jessica Okafor
-                                        </p>
-                                        <StarRating starsNum={4} />
-                                    </div>
-                                </div>
-
-                                <div className='text-[1.4rem]'>
-                                    <p
-                                        style={{
-                                            fontFamily: 'Satoshi-Light',
-                                        }}
-                                    >
-                                        7 Aug 2022
-                                    </p>
-                                    <p
-                                        style={{
-                                            fontFamily: 'Satoshi-Light',
-                                        }}
-                                    >
-                                        Peace Estate
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div className='grid gap-8'>
-                            <h3
-                                className='text-[2rem]'
-                                style={{
-                                    fontFamily: 'Satoshi-Medium',
-                                }}
-                            >
-                                Wonderful Service
-                            </h3>
-                            <p className='text-[1.8rem]'>
-                                Lorem ipsum dolor sit amet consectetur
-                                adipisicing elit. Nulla optio labore autem
-                                provident, dolore dolorum dicta vel tempore
-                                voluptatibus deserunt recusandae porro deleniti
-                                dolores illum, temporibus eveniet earum.
-                                Ducimus, repellendus? Lorem ipsum dolor sit amet
-                                consectetur adipisicing elit. Quos adipisci
-                                voluptatem molestias, obcaecati molestiae
-                                veritatis libero eveniet porro accusamus,
-                                reiciendis facilis. Illum et doloremque fuga quo
-                                aut laudantium consequatur nemo.
+                            <Select
+                                label='Notification Threshold'
+                                state={['10%', '20%', '30%', '40%', '50%']}
+                                selectedState={notificationThreshold}
+                                setSelectedState={setNotificationThreshold}
+                            />
+                            <p className='text-color-blue-1 font-Satoshi-Light text-[1.2rem]'>
+                                This is the threshold the system automatically
+                                sends a notification
                             </p>
                         </div>
+
+                        <button className='btn  bg-color-blue-1 text-white flex gap-2 items-center  rounded-lg py-4 px-8 capitalize col-span-full mt-[5rem] justify-start w-max'>
+                            <span>
+                                <IoMdAdd />
+                            </span>{' '}
+                            <p>Create Token</p>
+                        </button>
                     </div>
-                </section>
+                </div>
             </div>
         </>
     )
