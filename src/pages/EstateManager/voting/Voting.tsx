@@ -1,6 +1,41 @@
-import { useState } from 'react'
+import React from 'react'
+import { ChangeEvent, useEffect, useState } from 'react'
+import { CgSpinnerTwo } from 'react-icons/cg'
+import { GrDown } from 'react-icons/gr'
+import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { IoMdAdd } from 'react-icons/io'
 import { useNavigate } from 'react-router'
+import { Link } from 'react-router-dom'
+
+
+
+
+export interface Message {
+    id: number
+    date: string
+    transmissionDate: string
+    recipients: string[]
+    transmissionChannel: string
+    subject: string
+    description: string
+    status: 'Sent' | 'Pending'
+}
+
+const recipients = ['Thomas Nwaje', 'Solomon Nwaje']
+
+export const MESSAGE_LIST: Message[] = Array.from({ length: 10 }).map(
+    (_, i) => ({
+        id: i + 1,
+        date: '19-May-2023',
+        transmissionDate: '19-May-2023',
+        recipients,
+        transmissionChannel: `Channel ${i + 1}`,
+        subject: `Monday Workings`,
+        description:
+            'The report for the month of May is ready for review  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit est aperiam aspernatur nulla, quidem libero dolore impedit nihil, esse provident non autem quo. Veniam facilis alias distinctio quod eos deserunt Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga adipisci, distinctio suscipit quos dolorem veniam illum assumenda exercitationem saepe voluptatum odit eligendi deserunt omnis vero, reiciendis, tempore quae alias accusantium.',
+        status: Math.random() > 0.5 ? 'Sent' : 'Pending',
+    })
+)
 
 function Message() {
     const [isMessage, setIsMessage] = useState(false)
