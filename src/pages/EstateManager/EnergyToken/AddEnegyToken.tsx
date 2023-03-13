@@ -6,8 +6,6 @@ import { Select } from '../../../components/SuperAdmin/UI/Select'
 import { getPhotoUrl } from '../../../utils/getPhotoUrl'
 
 const AddEnergyToken = () => {
-    const [selectedState, setSelectedState] = useState<string | null>(null)
-    const [selectedGender, setSelectedGender] = useState<string | null>(null)
     const [denomination, setDenomination] = useState('')
     const [customerNofication, setCustomerNotification] = useState<
         string | null
@@ -174,6 +172,8 @@ const AddEnergyToken = () => {
                                 type='instruction'
                                 required
                                 id='instruction'
+                                value={instruction}
+                                onChange={(e) => setInstruction(e.target.value)}
                                 className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                             />
                         </div>
