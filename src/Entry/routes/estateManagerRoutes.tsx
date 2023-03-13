@@ -35,7 +35,7 @@ import Payments from '../../pages/EstateManager/Payments/Payments'
 import ViewPayment from '../../pages/EstateManager/Payments/ViewPayment'
 import CreatePayment from '../../pages/EstateManager/Payments/create/CreatePayment'
 import EnergyToken from '../../pages/EstateManager/EnergyToken/EnergyToken'
-import AddEnergyToken from '../../pages/EstateManager/EnergyToken/AddEnegyToken'
+import AddEnergyToken from '../../pages/EstateManager/EnergyToken/AddEnergyToken'
 import BulkUpload from '../../pages/EstateManager/EnergyToken/bulkUpload'
 import Voting from '../../pages/EstateManager/voting/Voting'
 
