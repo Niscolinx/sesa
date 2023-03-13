@@ -195,8 +195,8 @@ const BulkUpload = () => {
                         </form>
                     </section>
                 ) : (
-                    <section>
-                        <div className='col-span-full rounded-lg border border-width-[.2rem] border-dashed border-color-grey-1 p-8 text-[1.6rem] relative w-full grid justify-items-center'>
+                    <section className='grid justify-items-center h-[80vh] content-center'>
+                        <div className='rounded-lg border border-width-[1rem] border-dashed border-color-grey-1 p-8 text-[1.6rem] relative w-full '>
                             <label
                                 htmlFor='photoUpload'
                                 className='flex justify-center gap-4 items-center cursor-pointer'
@@ -227,16 +227,6 @@ const BulkUpload = () => {
                                 className='hidden'
                                 onClick={handlePhotoPreview}
                             />
-
-                            {/* {photoUrl && (
-                            <div className='flex justify-center justify-self-center'>
-                            <img
-                            src={photoUrl}
-                            alt='photoPreview'
-                            className='object-cover w-[11rem] h-[11rem] rounded-full'
-                            />
-                            </div>
-                        )} */}
                         </div>
                         <button className=' mt-5 border border-color-blue text-color-blue-1 font-Satoshi-Medium py-4 px-6 rounded-2xl flex justify-center'>
                             Download Excel Template
