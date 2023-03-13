@@ -145,10 +145,10 @@ const AddEnergyToken = () => {
                                 <input
                                     type='text'
                                     required
-                                    id='denomination'
+                                    id='convenienceFee'
                                     value={convenienceFee}
                                     onChange={convenienceFeeHandler}
-                                    name='denomination'
+                                    name='convenienceFee'
                                     className='w-full border-none outline-none py-4 px-4 pl-5'
                                 />
                                 <img
@@ -160,33 +160,20 @@ const AddEnergyToken = () => {
                         </div>
                         <div className='grid gap-4 relative'>
                             <label
-                                htmlFor='email'
+                                htmlFor='instruction'
                                 className='text-[1.4rem] font-medium'
                             >
-                                Email Address *
+                                Instuction/Message *
                             </label>
                             <input
-                                type='email'
+                                type='instruction'
                                 required
-                                id='email'
+                                id='instruction'
                                 className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                             />
                         </div>
 
-                        <div className='grid gap-4 relative'>
-                            <label
-                                htmlFor='address1'
-                                className='text-[1.4rem] font-medium'
-                            >
-                                Home Address
-                            </label>
-                            <input
-                                type='text'
-                                required
-                                id='address1'
-                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                            />
-                        </div>
+                       
 
                         <Select
                             label='State'
