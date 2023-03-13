@@ -3,17 +3,18 @@ import React, { ChangeEvent, useState } from 'react'
 import { Select } from '../../../components/SuperAdmin/UI/Select'
 import { getPhotoUrl } from '../../../utils/getPhotoUrl'
 
-
 const AddEnergyToken = () => {
-  
-
     const [selectedState, setSelectedState] = useState<string | null>(null)
     const [selectedGender, setSelectedGender] = useState<string | null>(null)
     const [denomination, setDenomination] = useState('')
-    const [customerNofication, setCustomerNotification] = useState<string | null>(null)
+    const [customerNofication, setCustomerNotification] = useState<
+        string | null
+    >(null)
     const [convenienceFee, setConvenienceFee] = useState('')
     const [instruction, setInstruction] = useState('')
-    const [notificationThreshold, setNotificationThreshold] = useState<string | null>(null)
+    const [notificationThreshold, setNotificationThreshold] = useState<
+        string | null
+    >(null)
 
     const [photoUrl, setPhotoUrl] = useState('')
 
@@ -28,34 +29,34 @@ const AddEnergyToken = () => {
         e.preventDefault()
     }
 
-      const denominationHandler = (e: ChangeEvent<HTMLInputElement>) => {
-          const value = e.target.value
+    const denominationHandler = (e: ChangeEvent<HTMLInputElement>) => {
+        const value = e.target.value
 
-          if (value === '') {
-              setDenomination('')
-              return
-          }
-          const parsedValue = parseFloat(value.replace(/,/g, ''))
+        if (value === '') {
+            setDenomination('')
+            return
+        }
+        const parsedValue = parseFloat(value.replace(/,/g, ''))
 
-          if (!isNaN(parsedValue) && isFinite(parsedValue)) {
-              const transformedValue = parsedValue.toLocaleString()
-              setDenomination(transformedValue)
-          }
-      }
-      const convenienceFeeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-          const value = e.target.value
+        if (!isNaN(parsedValue) && isFinite(parsedValue)) {
+            const transformedValue = parsedValue.toLocaleString()
+            setDenomination(transformedValue)
+        }
+    }
+    const convenienceFeeHandler = (e: ChangeEvent<HTMLInputElement>) => {
+        const value = e.target.value
 
-          if (value === '') {
-              setConvenienceFee('')
-              return
-          }
-          const parsedValue = parseFloat(value.replace(/,/g, ''))
+        if (value === '') {
+            setConvenienceFee('')
+            return
+        }
+        const parsedValue = parseFloat(value.replace(/,/g, ''))
 
-          if (!isNaN(parsedValue) && isFinite(parsedValue)) {
-              const transformedValue = parsedValue.toLocaleString()
-              setConvenienceFee(transformedValue)
-          }
-      }
+        if (!isNaN(parsedValue) && isFinite(parsedValue)) {
+            const transformedValue = parsedValue.toLocaleString()
+            setConvenienceFee(transformedValue)
+        }
+    }
 
     return (
         <>
@@ -173,15 +174,19 @@ const AddEnergyToken = () => {
                             />
                         </div>
 
-                       
-
-                        <Select
-                            label='Notification Threshold'
-                            state={['Lagos', 'Imo', 'Abia', 'FCT']}
-                            placeholder='Select State'
-                            selectedState={notificationThreshold}
-                            setSelectedState={setNotificationThreshold}
-                        />
+                        <div>
+                            <Select
+                                label='Notification Threshold'
+                                state={['Lagos', 'Imo', 'Abia', 'FCT']}
+                                placeholder='Select State'
+                                selectedState={notificationThreshold}
+                                setSelectedState={setNotificationThreshold}
+                            />
+                            <p className='text-color-blue-1 font-Satoshi-Light text-[1.2rem]'>
+                                This is the threshold the system automatically
+                                sends a notification
+                            </p>
+                        </div>
 
                         <div className='col-span-full rounded-lg border border-width-[.2rem] border-dashed border-color-grey-1 p-8 text-[1.6rem] relative w-full'>
                             <label
