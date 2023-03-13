@@ -143,17 +143,19 @@ const EnergyTokenSpreadsheet = ({
     return (
         <main className=' grid gap-9 relative '>
             <section className='grid'>
-                <div>
-                    <p className='font-Satoshi-Medium text-[2rem]'>Energy Token Speed 01</p>
-                    <p>Energy token speed 01</p>
+                <div className='text-white bg-color-blue relative'>
+                    <IoMdClose
+                        className='absolute right-4 top-4 text-[2rem] cursor-pointer'
+                        onClick={() => closeDialog()}
+                    />
+                    <p className='font-Satoshi-Medium text-[2rem]'>
+                        Energy Token Speed 01
+                    </p>
+                    <p className='text-[1.2rem]'>Energy token speed 01</p>
                 </div>
                 <div></div>
             </section>
             <section className='bg-white rounded-lg border overflow-scroll max-h-[80vh] w-full '>
-                <IoMdClose
-                    className='absolute right-4 top-4 text-[2rem] cursor-pointer'
-                    onClick={() => closeDialog()}
-                />
                 <div className='grid text-[1.6rem]'>
                     <div className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
                         <div className='relative flex items-center'>
