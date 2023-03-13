@@ -72,7 +72,7 @@ const BulkUpload = () => {
                             className='grid max-w-[84rem] gap-16 mt-12 '
                         >
                             <section>
-                                <p className='text-[2rem] border-b'>
+                                <p className='text-[2rem] border-b pb-2 mb-10'>
                                     Denomination (N10,000)
                                 </p>
                                 <div
