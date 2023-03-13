@@ -10,7 +10,7 @@ const AddEnergyToken = () => {
     const [selectedState, setSelectedState] = useState<string | null>(null)
     const [selectedGender, setSelectedGender] = useState<string | null>(null)
     const [denomination, setDenomination] = useState('')
-    const [customerNofication, setCustomerNotification] = useState('')
+    const [customerNofication, setCustomerNotification] = useState<string | null>(null)
     const [convenienceFee, setConvenienceFee] = useState('')
     const [instruction, setInstruction] = useState('')
     const [notificationThreshold, setNotificationThreshold] = useState<string | null>(null)
@@ -114,10 +114,10 @@ const AddEnergyToken = () => {
                             </div>
                         </div>
                         <Select
-                            label='Gender'
-                            state={['Male', 'Female']}
-                            selectedState={selectedGender}
-                            setSelectedState={setSelectedGender}
+                            label='Customer Notification'
+                            state={['SMS', 'In-App']}
+                            selectedState={customerNofication}
+                            setSelectedState={setCustomerNotification}
                         />
 
                        
