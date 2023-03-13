@@ -21,10 +21,9 @@ const SPREADSHEET: Spreadsheet[] = Array.from({
     tokenSerialNo: `H${Math.floor(Math.random() * 3000 + 1000)}`,
     tokenCode: '*********',
     denomination: Math.random() > 0.5 ? '5,000' : '10,000',
-    customNotification: Math.random() > 0.5 ? 'Auto Finance' : 'Chrisland Schools',
-    convenienceFee: Math.random() > 0.5 ? '2-Bedroom Self Con.' : 'Duplex',
-    message:
-        Math.random() > 0.5 ? 'Landlord (Developer)' : 'Tenant (Resident)',
+    customNotification: 'upcoming',
+    convenienceFee: Math.random() > 0.5 ? '200' : '500',
+    message: 'Message Alert',
 }))
 
 const EnergyTokenSpreadsheet = ({
@@ -244,9 +243,7 @@ const EnergyTokenSpreadsheet = ({
                                                         </span>
                                                     </p>
                                                     <p className='flex items-center gap-2'>
-                                                        <span>
-                                                            {tokenCode}
-                                                        </span>
+                                                        <span>{tokenCode}</span>
                                                         {isAlpha ? (
                                                             <img
                                                                 src='/img/alpha.svg'
