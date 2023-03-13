@@ -5,11 +5,10 @@ import { Link } from 'react-router-dom'
 import { EstateChart as Chart } from '../../../components/SuperAdmin/charts/OverviewChart'
 
 function EnergyToken() {
-    const navigate = useNavigate()
 
-    type Path = 'unique' | 'profile'
+    type Path = 'tokenList' | 'tokenPurchase'
     const [isEnergyToken, setIsEnergyToken] = useState(false)
-    const [currentPath, setCurrentPath] = useState<Path>('unique')
+    const [currentPath, setCurrentPath] = useState<Path>('tokenList')
 
     const addEnergyTokenHandler = () => {
         setIsEnergyToken(true)
@@ -25,8 +24,8 @@ function EnergyToken() {
     
 
      const paths = new Map<Path, JSX.Element>([
-         ['unique', <UniqueResident />],
-         ['profile', <ResidentProfile />],
+         ['tokenList', <></> ],
+         ['tokenPurchase', <></> ],
      ])
 
     return (
@@ -46,16 +45,16 @@ function EnergyToken() {
                             <div className='estateDetail__radioBox'>
                                 <input
                                     type='radio'
-                                    name='resident'
-                                    id='unique'
+                                    name='token'
+                                    id='tokenList'
                                     className='hidden'
-                                    onChange={() => setCurrentPath('unique')}
+                                    onChange={() => setCurrentPath('tokenList')}
                                     defaultChecked
                                 />
                                 <label
-                                    htmlFor='unique'
+                                    htmlFor='tokenList'
                                     className={` ${
-                                        currentPath === 'unique'
+                                        currentPath === 'tokenList'
                                             ? 'font-Satoshi-Medium'
                                             : 'capitalize'
                                     }`}
@@ -65,15 +64,15 @@ function EnergyToken() {
 
                                 <input
                                     type='radio'
-                                    name='resident'
-                                    id='profile'
+                                    name='token'
+                                    id='tokenPurchase'
                                     className='hidden'
-                                    onChange={() => setCurrentPath('profile')}
+                                    onChange={() => setCurrentPath('tokenPurchase')}
                                 />
                                 <label
-                                    htmlFor='profile'
+                                    htmlFor='tokenPurchase'
                                     className={` ${
-                                        currentPath === 'profile'
+                                        currentPath === 'tokenPurchase'
                                             ? 'font-Satoshi-Medium'
                                             : 'capitalize'
                                     }`}
