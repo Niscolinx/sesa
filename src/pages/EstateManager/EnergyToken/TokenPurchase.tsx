@@ -237,7 +237,13 @@ function TokenPurchase() {
                                                 </p>
                                                 <p>{tokenCode}</p>
                                                 <p>{residentCode}</p>
-                                                <p>{amount}</p>
+                                                <p className='flex items-center'>
+                                                    <img
+                                                        src='/icons/Naira.svg'
+                                                        alt=''
+                                                    />
+                                                    {amount}
+                                                </p>
 
                                                 <p>{convenienceFee}</p>
                                                 <p>{paymentChannel}</p>
