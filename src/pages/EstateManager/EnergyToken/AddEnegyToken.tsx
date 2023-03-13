@@ -10,7 +10,10 @@ const AddEnergyToken = () => {
     const [selectedState, setSelectedState] = useState<string | null>(null)
     const [selectedGender, setSelectedGender] = useState<string | null>(null)
     const [denomination, setDenomination] = useState('')
- 
+    const [customerNofication, setCustomerNotification] = useState('')
+    const [convenienceFee, setConvenienceFee] = useState('')
+    const [instruction, setInstruction] = useState('')
+    const [notificationThreshold, setNotificationThreshold] = useState<string | null>(null)
 
     const [photoUrl, setPhotoUrl] = useState('')
 
