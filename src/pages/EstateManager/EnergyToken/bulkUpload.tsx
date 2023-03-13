@@ -4,6 +4,7 @@ import { IoMdAdd } from 'react-icons/io'
 import {
     MultipleSelect,
     Select,
+    SelectedItems,
 } from '../../../components/SuperAdmin/UI/Select'
 import { getPhotoUrl } from '../../../utils/getPhotoUrl'
 
@@ -94,12 +95,9 @@ const BulkUpload = () => {
                                             ' repeat(auto-fit, minmax(35rem, 1fr))',
                                     }}
                                 >
-                                    <MultipleSelect
+                                    <SelectedItems
                                         selectFrom={tokenSerialNumbers}
-                                        selected={selectedSerialNumbers}
-                                        setSelected={setSelectedSerialNumbers}
                                         label={'Token Serial Number'}
-                                        collapse
                                     />
                                     <div className='grid gap-4 relative '>
                                         <label

@@ -430,14 +430,14 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
         </div>
     )
 }
-export const selectedItems: FC<Pick<IMultipleSelect, 'selectFrom' | 'label'>> = ({
+export const SelectedItems: FC<Pick<IMultipleSelect, 'selectFrom' | 'label'>> = ({
     selectFrom,
     label,
 }) => {
     return (
         <div className='relative grid gap-4'>
             <p className='text-[1.4rem] font-semibold'>{label}</p>
-            <div className='relative items-center max-w-[40rem] flex'>
+            <div className='relative items-center max-w-[50rem] flex'>
                 <p
                     className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer h-[5rem] overflow-hidden overflow-x-scroll flex gap-4 items-center pr-16'
                     style={{
@@ -446,7 +446,7 @@ export const selectedItems: FC<Pick<IMultipleSelect, 'selectFrom' | 'label'>> = 
                     }}
                 >
                     {
-                        selectFrom.map((item, i) => (
+                        selectFrom.slice(0, 3).map((item, i) => (
                             <span
                                 className='text-white whitespace-nowrap rounded-lg px-4 relative flex items-center h-[3.8rem] z-[2] pr-12'
                                 key={i}
