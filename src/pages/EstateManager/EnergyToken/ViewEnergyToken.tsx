@@ -1,7 +1,4 @@
-import React, { useState } from 'react'
-import { Select } from '../../../components/SuperAdmin/UI/Select'
-import StarRating from '../../../components/SuperAdmin/UI/StarRating'
-import { getPhotoUrl } from '../../../utils/getPhotoUrl'
+
 
 const ViewEnergyToken = () => {
     return (
