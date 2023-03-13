@@ -457,7 +457,7 @@ export const SelectedItems: FC<
                               
                         )
                     })}
-                    <span className='bg-color-blue-1 text-white flex items-center gap-4 rounded-2xl w-[10rem] px-4 mx-auto text-center'>
+                    <span className='bg-color-blue-1 text-white flex items-center gap-4 rounded-2xl w-[10rem] py-2 px-4 mx-auto text-center'>
                         + {selectFrom.length - 3} more
                     </span>
                 </div>
