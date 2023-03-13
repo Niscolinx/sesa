@@ -1,4 +1,6 @@
 import React, { ChangeEvent, useState } from 'react'
+import { IoMdAdd } from 'react-icons/io'
+import { Link } from 'react-router-dom'
 
 import { Select } from '../../../components/SuperAdmin/UI/Select'
 import { getPhotoUrl } from '../../../utils/getPhotoUrl'
@@ -62,9 +64,11 @@ const AddEnergyToken = () => {
         <>
             <main>
                 <section className='grid p-8 bg-white items-baseline rounded-lg'>
+                    <Link to='/estateManager/energy-token/bulk-upload'>
                     <button className=' mb-5 ml-auto border border-color-blue text-color-blue-1 font-Satoshi-Medium py-4 px-6 rounded-2xl w-[20rem]'>
                         Bulk Upload
                     </button>
+                    </Link>
                     <p className='text-[2rem] font-Satoshi-Medium'>
                         Token Details
                     </p>
@@ -228,6 +232,14 @@ const AddEnergyToken = () => {
                                 </div>
                             )}
                         </div>
+
+                            <button className='btn ml-auto bg-color-blue-1 text-white flex gap-2 items-center self-center rounded-lg py-4 px-8 capitalize'>
+                                <span>
+                                    <IoMdAdd />
+                                </span>{' '}
+                                <p>Create Token</p>
+                            </button>
+                      
                     </form>
                 </section>
             </main>

@@ -24,16 +24,20 @@ function EnergyToken() {
                 {isEnergyToken ? (
                     <section>
                         <Link to='/estateManager/energy-token/add'>
-                        <button className='btn ml-auto bg-color-blue-1 text-white flex gap-2 items-center self-center rounded-lg py-4 px-8 capitalize'>
-                            <span>
-                                <IoMdAdd />
-                            </span>{' '}
-                            <p>Add Token</p>
-                        </button>
-                            </Link>
-                        <div className='grid p-8 justify-items-center' style={{
-                            gridTemplateColumns: 'repeat(auto-fit, minmax(25rem, 1fr))'
-                        }}>
+                            <button className='btn ml-auto bg-color-blue-1 text-white flex gap-2 items-center self-center rounded-lg py-4 px-8 capitalize'>
+                                <span>
+                                    <IoMdAdd />
+                                </span>{' '}
+                                <p>Add Token</p>
+                            </button>
+                        </Link>
+                        <div
+                            className='grid p-8 justify-items-center'
+                            style={{
+                                gridTemplateColumns:
+                                    'repeat(auto-fit, minmax(25rem, 1fr))',
+                            }}
+                        >
                             {Array.from({ length: 7 }, (_, i) => (
                                 <div key={i}>
                                     <div className='overviewChart__box'>
