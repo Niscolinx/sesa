@@ -228,10 +228,10 @@ const EnergyTokenSpreadsheet = ({
                                             message,
                                             convenienceFee,
                                             denomination,
-                                            isAlpha,
+                                      
                                         }) => {
                                             return (
-                                                <div className='grid justify-between border-b grid-cols-6 gap-8 py-4'>
+                                                <div className='grid justify-between border-b grid-cols-6 gap-8 py-4 capitalize'>
                                                     <p className='flex items-center gap-4'>
                                                         <input
                                                             type='checkbox'
@@ -242,15 +242,7 @@ const EnergyTokenSpreadsheet = ({
                                                             {tokenSerialNo}
                                                         </span>
                                                     </p>
-                                                    <p className='flex items-center gap-2'>
-                                                        <span>{tokenCode}</span>
-                                                        {isAlpha ? (
-                                                            <img
-                                                                src='/img/alpha.svg'
-                                                                alt=''
-                                                            />
-                                                        ) : null}
-                                                    </p>
+                                                   <p>{tokenCode}</p>
                                                     <p>{denomination}</p>
                                                     <p>{customNotification}</p>
 
