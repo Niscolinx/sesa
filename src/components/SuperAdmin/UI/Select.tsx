@@ -53,6 +53,7 @@ interface IMultipleSelect {
     setSelected: React.Dispatch<React.SetStateAction<string[]>>
     label: string
     placeholder?: string
+    collapse?: boolean
 }
 
 export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
@@ -297,6 +298,7 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
     setSelected,
     label,
     placeholder,
+    collapse
 }) => {
     const [toggleStateMenu, setToggleStateMenu] = useState(false)
     const [search, setSearch] = useState('')

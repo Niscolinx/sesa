@@ -1,13 +1,18 @@
 import React, { ChangeEvent, useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
 
-import { MultipleSelect, Select } from '../../../components/SuperAdmin/UI/Select'
+import {
+    MultipleSelect,
+    Select,
+} from '../../../components/SuperAdmin/UI/Select'
 import { getPhotoUrl } from '../../../utils/getPhotoUrl'
 
 const BulkUpload = () => {
     const [isUploaded, setIsUploaded] = useState(false)
     const [denomination, setDenomination] = useState('')
-    const [selectedSerialNumbers, setSelectedSerialNumbers] = useState<string[]>([])
+    const [selectedSerialNumbers, setSelectedSerialNumbers] = useState<
+        string[]
+    >([])
 
     const [customerNofication, setCustomerNotification] = useState<
         string | null
@@ -60,16 +65,11 @@ const BulkUpload = () => {
         }
     }
 
-  
-
-    const tokenSerialNumbers = Array.from({length: 10}, (_, i) => (
-        `variable ${i + 1}`
-    ))
-    const tokenCodes = Array.from({length: 10}, (_, i) => (
-        `Code ${i + 1}`
-    ))
-
-
+    const tokenSerialNumbers = Array.from(
+        { length: 10 },
+        (_, i) => `variable ${i + 1}`
+    )
+    const tokenCodes = Array.from({ length: 10 }, (_, i) => `Code ${i + 1}`)
 
     return (
         <>
@@ -94,7 +94,13 @@ const BulkUpload = () => {
                                             ' repeat(auto-fit, minmax(35rem, 1fr))',
                                     }}
                                 >
-                                    <MultipleSelect selectFrom={tokenSerialNumbers} selected={selectedSerialNumbers} setSelected={setSelectedSerialNumbers} label={'Token Serial Number'} />
+                                    <MultipleSelect
+                                        selectFrom={tokenSerialNumbers}
+                                        selected={selectedSerialNumbers}
+                                        setSelected={setSelectedSerialNumbers}
+                                        label={'Token Serial Number'}
+                                        collapse
+                                    />
                                     <div className='grid gap-4 relative '>
                                         <label
                                             htmlFor='firstName'
