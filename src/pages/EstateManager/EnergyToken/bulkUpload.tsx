@@ -70,10 +70,6 @@ const BulkUpload = () => {
                         <form
                             onSubmit={handleSubmit}
                             className='grid max-w-[84rem] gap-16 mt-12 '
-                            style={{
-                                gridTemplateColumns:
-                                    ' repeat(auto-fit, minmax(35rem, 1fr))',
-                            }}
                         >
                             <div className='grid gap-4 relative '>
                                 <label
@@ -127,7 +123,12 @@ const BulkUpload = () => {
                                     />
                                 </div>
                             </div>
-                            <div>
+                            <div
+                                style={{
+                                    gridTemplateColumns:
+                                        ' repeat(auto-fit, minmax(35rem, 1fr))',
+                                }}
+                            >
                                 <Select
                                     label='Customer Notification'
                                     state={['SMS', 'In-App']}
