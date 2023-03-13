@@ -136,7 +136,7 @@ const AddEnergyToken = () => {
 
                         <div className='grid gap-4'>
                             <label
-                                htmlFor='amount'
+                                htmlFor='convenienceFee'
                                 className='text-[1.4rem] font-medium'
                             >
                                 Convenience Fee
@@ -147,8 +147,8 @@ const AddEnergyToken = () => {
                                     required
                                     id='denomination'
                                     value={convenienceFee}
-                                    onChange={denominationHandler}
-                                    name='amount'
+                                    onChange={convenienceFeeHandler}
+                                    name='denomination'
                                     className='w-full border-none outline-none py-4 px-4 pl-5'
                                 />
                                 <img
