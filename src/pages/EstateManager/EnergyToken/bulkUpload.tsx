@@ -2,7 +2,7 @@ import React, { ChangeEvent, useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
 import { Link } from 'react-router-dom'
 
-import { Select } from '../../../components/SuperAdmin/UI/Select'
+import { MultipleSelect, Select } from '../../../components/SuperAdmin/UI/Select'
 import { getPhotoUrl } from '../../../utils/getPhotoUrl'
 
 const BulkUpload = () => {
@@ -59,6 +59,35 @@ const BulkUpload = () => {
         }
     }
 
+    const tokenSerialNumbers = [
+        'variable 1',
+        'variable 1',
+        'variable 1',
+        'variable 1',
+        'variable 1',
+        'variable 1',
+        'variable 1',
+        'variable 1',
+        'variable 1',
+        'variable 1',
+        'variable 1',
+        'variable 1',
+        'variable 1',
+    ]
+
+    const tokenCodes = [
+        'code 1',
+        'code 1',
+        'code 1',
+        'code 1',
+        'code 1',
+        'code 1',
+        'code 1',
+        'code 1',
+        'code 1',
+        'code 1',
+    ]
+
     return (
         <>
             <main>
@@ -82,6 +111,9 @@ const BulkUpload = () => {
                                             ' repeat(auto-fit, minmax(35rem, 1fr))',
                                     }}
                                 >
+                                    <MultipleSelect selectFrom={[]} selected={[]} setSelected={function (value: React.SetStateAction<string[]>): void {
+                                        throw new Error('Function not implemented.')
+                                    } } label={''} />
                                     <div className='grid gap-4 relative '>
                                         <label
                                             htmlFor='firstName'
