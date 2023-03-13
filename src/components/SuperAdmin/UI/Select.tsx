@@ -437,8 +437,6 @@ export const selectedItems: FC<IMultipleSelect> = ({
     label,
     placeholder,
 }) => {
-
-
     return (
         <div className='relative grid gap-4'>
             <p className='text-[1.4rem] font-semibold'>{label}</p>
@@ -450,26 +448,17 @@ export const selectedItems: FC<IMultipleSelect> = ({
                             'repeat(auto-fit, minmax(12rem, 1fr))',
                     }}
                 >
-                    {selected && selected.length > 0 ? (
+                    {selected &&
                         selected.map((item, i) => (
                             <span
                                 className='text-white whitespace-nowrap rounded-lg px-4 relative flex items-center h-[3.8rem] z-[2] pr-12'
                                 key={i}
                             >
                                 {item}
-                               
                             </span>
-                        ))
-                    ) : (
-                        <span className='text-gray-500'>
-                            {placeholder || ''}
-                        </span>
-                    )}
+                        ))}
                 </p>
-             
             </div>
-
-            
         </div>
     )
 }
@@ -518,18 +507,19 @@ export const MappedSelect: FC<MappedSelect> = ({
         }
     }
 
-    const clearValue = (e: React.MouseEvent<SVGElement, MouseEvent>, idx: string) => {
+    const clearValue = (
+        e: React.MouseEvent<SVGElement, MouseEvent>,
+        idx: string
+    ) => {
         e.stopPropagation()
-        
-       setSelectedState((prev) => {
-           return {
-               ...prev,
-               [idx]: '',
-           }
-       })
-    }
 
-  
+        setSelectedState((prev) => {
+            return {
+                ...prev,
+                [idx]: '',
+            }
+        })
+    }
 
     return (
         <div className='relative grid gap-4'>
@@ -545,7 +535,6 @@ export const MappedSelect: FC<MappedSelect> = ({
                                 className={`text-white whitespace-nowrap ${color}  rounded-lg px-4 relative flex items-center z-[2] pr-12 py-2 w-max`}
                             >
                                 <>
-                              
                                     {selectedState[idx]}
                                     <IoMdClose
                                         className='absolute right-2 text-[1.4rem] cursor-pointer'
