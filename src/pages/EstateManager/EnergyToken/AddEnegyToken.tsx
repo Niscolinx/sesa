@@ -16,15 +16,6 @@ const AddEnergyToken = () => {
         string | null
     >(null)
 
-    const [photoUrl, setPhotoUrl] = useState('')
-
-    const handlePhotoPreview = async (
-        _: React.MouseEvent<HTMLInputElement>
-    ) => {
-        const getUrl = await getPhotoUrl(`#photoUpload`)
-        setPhotoUrl(getUrl)
-    }
-
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
     }
