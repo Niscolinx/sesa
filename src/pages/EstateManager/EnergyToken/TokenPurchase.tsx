@@ -25,7 +25,8 @@ const SPREADSHEET: Spreadsheet[] = Array.from({
     residentCode:  `H${Math.floor(Math.random() * 30000 + 10000)}`,
     amount: '6,000',
     convenienceFee: Math.random() > 0.5 ? '2,000' : '5,000',
-    paymentChannel: 'Message Alert',
+    paymentChannel: 'Wallet',
+    timeStamp: '03:19PM'
 }))
 
 function TokenPurchase() {
