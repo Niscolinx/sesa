@@ -10,20 +10,20 @@ interface Spreadsheet {
     tokenCode: string
     denomination: string
     customNotification: string
-    propertyType: string
-    tenancyType: string
+    convenienceFee: string
+    message: string
 }
 
 const SPREADSHEET: Spreadsheet[] = Array.from({
     length: 20,
 }).map((_, i) => ({
     id: `i + ${i}`,
-    tokenCode: 'John Emmanuel',
-    denomination: Math.random() > 0.5 ? 'Business' : 'Residential',
     tokenSerialNo: `H${Math.floor(Math.random() * 3000 + 1000)}`,
+    tokenCode: '*********',
+    denomination: Math.random() > 0.5 ? '5,000' : '10,000',
     customNotification: Math.random() > 0.5 ? 'Auto Finance' : 'Chrisland Schools',
-    propertyType: Math.random() > 0.5 ? '2-Bedroom Self Con.' : 'Duplex',
-    tenancyType:
+    convenienceFee: Math.random() > 0.5 ? '2-Bedroom Self Con.' : 'Duplex',
+    message:
         Math.random() > 0.5 ? 'Landlord (Developer)' : 'Tenant (Resident)',
 }))
 
@@ -226,8 +226,8 @@ const EnergyTokenSpreadsheet = ({
                                             tokenSerialNo,
                                             tokenCode,
                                             customNotification,
-                                            tenancyType,
-                                            propertyType,
+                                            message,
+                                            convenienceFee,
                                             denomination,
                                             isAlpha,
                                         }) => {
@@ -257,8 +257,8 @@ const EnergyTokenSpreadsheet = ({
                                                     <p>{denomination}</p>
                                                     <p>{customNotification}</p>
 
-                                                    <p>{propertyType}</p>
-                                                    <p>{tenancyType}</p>
+                                                    <p>{convenienceFee}</p>
+                                                    <p>{message}</p>
                                                 </div>
                                             )
                                         }
