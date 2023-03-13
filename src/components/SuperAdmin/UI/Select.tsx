@@ -448,7 +448,7 @@ export const SelectedItems: FC<
                         console.log({item})
                         return (
                             <span
-                                className=' whitespace-nowrap rounded-lg  items-center h-[3.8rem] z-[2] pr-12'
+                                className=' whitespace-nowrap rounded-lg relative flex items-center h-[3.8rem] z-[2] pr-2'
                                 key={i}
                             >
                                 {item}
