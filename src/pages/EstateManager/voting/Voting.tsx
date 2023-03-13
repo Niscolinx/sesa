@@ -207,35 +207,27 @@ function Voting() {
                                                 const {
                                                     id,
                                                     startDate,
-
                                                     NoOfEligibleVoters,
                                                     endDate,
                                                     electionTitle,
                                                 } = messageBody
                                                 return (
-                                                    <div className='grid relative p-8 bg-white rounded-lg gap-2'>
-                                                        <div className='flex items-center gap-2 absolute right-0 top-0 p-8'>
-                                                            <p>Status:</p>
+                                                    <div className='grid relative p-8 bg-white rounded-lg gap-2 capitalize'>
+                                                        <div className='flex items-center gap-2'>
+                                                            <p>
+                                                                Election Title:
+                                                            </p>
                                                             <p
                                                                 style={{
                                                                     fontFamily:
                                                                         'Satoshi-Medium',
                                                                 }}
                                                             >
-                                                                {status ===
-                                                                'Sent' ? (
-                                                                    <span className='text-green-600'>
-                                                                        {status}
-                                                                    </span>
-                                                                ) : (
-                                                                    <span className='text-orange-500'>
-                                                                        {status}
-                                                                    </span>
-                                                                )}
+                                                                {electionTitle}
                                                             </p>
                                                         </div>
                                                         <div className='flex items-center gap-2'>
-                                                            <p>Date:</p>
+                                                            <p>start Date:</p>
                                                             <p
                                                                 style={{
                                                                     fontFamily:
@@ -246,10 +238,7 @@ function Voting() {
                                                             </p>
                                                         </div>
                                                         <div className='flex items-center gap-2'>
-                                                            <p>
-                                                                Transmission
-                                                                Date:
-                                                            </p>
+                                                            <p>end Date:</p>
                                                             <p
                                                                 style={{
                                                                     fontFamily:
@@ -259,11 +248,11 @@ function Voting() {
                                                                 {endDate}
                                                             </p>
                                                         </div>
-                                                       
+
                                                         <div className='flex items-center gap-2'>
                                                             <p>
-                                                                Transmission
-                                                                Channel:
+                                                                No of Eligible
+                                                                Voters:
                                                             </p>
                                                             <p
                                                                 style={{
@@ -276,8 +265,6 @@ function Voting() {
                                                                 }
                                                             </p>
                                                         </div>
-                                                        
-                                                        
 
                                                         <Link
                                                             to={`/estateManager/message/view/:${id}`}
