@@ -85,10 +85,7 @@ const BulkUpload = () => {
     return (
         <>
             <dialog className='dialog' ref={dialogRef}>
-                
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta consequatur provident, eveniet debitis sed dignissimos perferendis quis est aut, cum natus? Minima tenetur iure ratione excepturi porro voluptatum dicta non?
-                    <EnergyTokenSpreadsheet closeDialog={closeDialog} />
-            
+                <EnergyTokenSpreadsheet closeDialog={closeDialog} />
             </dialog>
             <main>
                 {isUploaded ? (
