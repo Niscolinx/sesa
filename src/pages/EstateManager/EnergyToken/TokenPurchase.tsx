@@ -205,9 +205,11 @@ function TokenPurchase() {
                         </p>
                         <p>Token Code</p>
                         <p>Resident Code</p>
-                        <p>Customer Notification</p>
+                        <p>Amount</p>
                         <p>Convenience Fee</p>
-                        <p>Message</p>
+                        <p>Payment Channel</p>
+                        <p>Time Stamp</p>
+                        <p>Actions</p>
                     </div>
 
                     <div className='grid gap-8 mt-8 p-8'>
