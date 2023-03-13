@@ -2,6 +2,7 @@ import React, { useState, useEffect, ChangeEvent } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
 import { GrDown } from 'react-icons/gr'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
+import { Link } from 'react-router-dom'
 import OverviewChart from '../../../components/SuperAdmin/charts/OverviewChart'
 import WalletBarChart from '../../../components/SuperAdmin/charts/WalletBarChart'
 
@@ -253,6 +254,9 @@ function TokenPurchase() {
                                                 </p>
 
                                                 <p>{paymentChannel}</p>
+                                                <Link to='' className='text-color-blue'>
+                                                    View Details
+                                                </Link>
                                             </div>
                                         )
                                     }
