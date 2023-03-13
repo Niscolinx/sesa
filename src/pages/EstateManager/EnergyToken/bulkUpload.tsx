@@ -103,8 +103,6 @@ const BulkUpload = () => {
                                         selectFrom={tokenCodes}
                                         label={'Token Code'}
                                     />
-                                   
-                                   
                                 </div>
                             </section>
                             <section>
@@ -118,34 +116,14 @@ const BulkUpload = () => {
                                             ' repeat(auto-fit, minmax(35rem, 1fr))',
                                     }}
                                 >
-                                    <div className='grid gap-4 relative '>
-                                        <label
-                                            htmlFor='firstName'
-                                            className='text-[1.4rem] font-medium'
-                                        >
-                                            Token Seriel Number
-                                        </label>
-                                        <input
-                                            type='text'
-                                            required
-                                            id='firstName'
-                                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                                        />
-                                    </div>
-                                    <div className='grid gap-4 relative '>
-                                        <label
-                                            htmlFor='lastName'
-                                            className='text-[1.4rem] font-medium'
-                                        >
-                                            Token Code
-                                        </label>
-                                        <input
-                                            type='text'
-                                            required
-                                            id='lastName'
-                                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                                        />
-                                    </div>
+                                    <SelectedItems
+                                        selectFrom={tokenSerialNumbers}
+                                        label={'Token Serial Number'}
+                                    />
+                                    <SelectedItems
+                                        selectFrom={tokenCodes}
+                                        label={'Token Code'}
+                                    />
                                 </div>
                             </section>
                             <div
