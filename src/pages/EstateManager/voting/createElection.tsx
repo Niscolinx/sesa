@@ -30,9 +30,19 @@ export const useCreateElectionContext = () => {
 
     return context
 }
+export interface CandidateField {
+    candidate: string | null
+    category: string | null
+    name: string
+    gender: string
+    manifesto: string
+    photoUrl: string
+}
+
 const CreateElection = () => {
     const [step, setStep] = useState(5)
     const [electionCategory, setElectionCategory] = useState<Category>([''])
+    const [candidate_details, setCandidate_details] = useState<CandidateField[]>([])
 
     const displayStep = new Map([
         [1, <First />],

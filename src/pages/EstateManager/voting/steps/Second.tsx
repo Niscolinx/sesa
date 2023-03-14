@@ -5,7 +5,7 @@ import { getPhotoUrl } from '../../../../utils/getPhotoUrl'
 import { useCreateElectionContext } from '../createElection'
 
 function Second() {
-    const { electionCategory } = useCreateElectionContext()
+    const { electionCategory,  } = useCreateElectionContext()
     const [candidate, setCandidate] = useState<string | null>(null)
     const [category, setCategory] = useState<string | null>(null)
     const [name, setName] = useState('Aliba Desmond')
@@ -13,16 +13,7 @@ function Second() {
     const [manifesto, setManifesto] = useState('')
     const [currentIdx, setCurrentIdx] = useState<number>(0)
 
-    interface InputField {
-        candidate: string | null
-        category: string | null
-        name: string
-        gender: string
-        manifesto: string
-        photoUrl: string
-    }
-    const [candidate_details, setCandidate_details] = useState<InputField[]>([])
-
+  
     const [photoUrl, setPhotoUrl] = useState('')
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 

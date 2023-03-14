@@ -1,6 +1,8 @@
 import { GroupThreeImages } from '../../../../components/UI/GroupThreeImages'
+import { useCreateElectionContext } from '../createElection'
 
 const Last = () => {
+    const {electionCategory} = useCreateElectionContext()
     const imgArr = [
         '/img/avatar1.png',
         '/img/avatar2.png',
