@@ -42,7 +42,7 @@ function Second() {
                             type='text'
                             required
                             id='name'
-                           defaultValue={"Aliba Desmond"}
+                            defaultValue={candidate ? 'Aliba Desmond' : ''}
                             className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                         />
                     </div>
@@ -57,7 +57,7 @@ function Second() {
                             type='text'
                             required
                             id='gender'
-                            defaultValue={'Male'}
+                            defaultValue={candidate ? 'Male' : ''}
                             className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                         />
                     </div>
