@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 
 interface GroupThreeImages {
     images: string[]
@@ -8,19 +8,35 @@ export function GroupThreeImages({ images }: GroupThreeImages) {
     return (
         <div className='relative w-[12rem] flex items-center justify-between'>
             {images.map((item, i) => {
-                console.log({ item })
                 return (
-                    <img
-                        key={i + item}
-                        src={item}
-                        alt=''
-                        className={`w-[3rem] h-[3rem] object-cover rounded-full border border-color-white absolute z-${
-                            i + 1 + 10
-                        }`}
-                        style={{
-                            left: `${i * 20}%`,
-                        }}
-                    />
+                    <Fragment key={i}>
+                        {images.length <= 3 ? (
+                            <img
+                                src={item}
+                                alt=''
+                                className={`w-[3rem] h-[3rem] object-cover rounded-full border border-color-white absolute z-${
+                                    i + 1 + 10
+                                }`}
+                                style={{
+                                    left: `${i * 20}%`,
+                                }}
+                            />
+                        ) : (
+                            <span
+                               
+                              
+                                className={`w-[3rem] h-[3rem] object-cover rounded-full border border-color-white absolute z-${
+                                    i + 1 + 10
+                                }`}
+                                style={{
+                                    left: `${i * 20}%`,
+                                }}
+                            >
+                                {' '}
+                                + {images.length - 3}
+                            </span>
+                        )}
+                    </Fragment>
                 )
             })}
             {/* <img
