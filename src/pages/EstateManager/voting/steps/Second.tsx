@@ -5,7 +5,7 @@ import { getPhotoUrl } from '../../../../utils/getPhotoUrl'
 import { useCreateElectionContext } from '../createElection'
 
 function Second() {
-    const { electionCategory } = useCreateElectionContext()
+    const { electionCategory, setElectionCategory } = useCreateElectionContext()
     const [candidate, setCandidate] = useState<string | null>(null)
     const [category, setCategory] = useState<string | null>(null)
     const [name, setName] = useState('Aliba Desmond')
@@ -66,11 +66,12 @@ function Second() {
         setCandidate_details((prev) => {
             return [...prev, details]
         })
-        setCandidate('')
+        setCandidate(null)
         setName('')
         setGender('')
         setManifesto('')
         setPhotoUrl('')
+        setCategory(null)
     }
 
     const deleteCandidateHandler = (idx: number) => {
@@ -84,7 +85,7 @@ function Second() {
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8 text-[1.6rem]'>
-                        <div className='text-white bg-[#098DFF] relative p-8 capitalize h-full'>
+                        <div className='text-white relative p-8 capitalize h-full'>
                             <IoMdClose
                                 className='absolute right-0 top-0 text-[2.5rem] cursor-pointer m-5'
                                 onClick={() => closeDialog()}
@@ -100,7 +101,7 @@ function Second() {
                                     <textarea
                                         rows={5}
                                         className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4 '
-                                        value={candidate_details[currentIdx].manifesto}
+                                        value={candidate_details[currentIdx]?.manifesto}
                                         onChange={(e) => {
                                             setCandidate_details((prev) => {
                                                 if(prev.length < 1){
