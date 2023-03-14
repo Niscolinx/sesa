@@ -2,8 +2,7 @@ import { SetStateAction, useState } from 'react'
 import { MultipleSelect } from '../../../../components/SuperAdmin/UI/Select'
 
 function Third() {
-
-   const [voteDisplay, setVoteDisplay] = useState<string[]>([])
+    const [voteDisplay, setVoteDisplay] = useState<string[]>([])
 
     return (
         <div>
@@ -80,13 +79,9 @@ function Third() {
                             'Percentage of vote count',
                             'Total number of votes',
                         ]}
-                        selected={[]}
-                        setSelected={function (
-                            value: SetStateAction<string[]>
-                        ): void {
-                            throw new Error('Function not implemented.')
-                        }}
-                        label={''}
+                        selected={voteDisplay}
+                        setSelected={setVoteDisplay}
+                        label={'Votes Display'}
                     />
                 </div>
             </form>
