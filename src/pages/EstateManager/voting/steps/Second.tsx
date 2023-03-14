@@ -6,8 +6,6 @@ function Second() {
     const { electionCategory, setElectionCategory } = useCreateElectionContext()
     const [candidate, setCandidate] = useState<string | null>(null)
 
-
-
     return (
         <div>
             <div className='grid  gap-16 items-start content-start capitalize'>
@@ -30,8 +28,7 @@ function Second() {
                 <div
                     className='grid gap-16 '
                     style={{
-                        gridTemplateColumns:
-                            'repeat(auto-fit, 35rem)',
+                        gridTemplateColumns: 'repeat(auto-fit, 35rem)',
                     }}
                 >
                     <div className='grid gap-4 select-none pointer-events-none opacity-50 '>
@@ -73,7 +70,6 @@ function Second() {
                             'ALIBA DESMOND (RES CODE: 2345CDGK5)',
                         ]}
                         label='Election Candidates (Select Resident Code)'
-                        isSearchable
                         selectedState={candidate}
                         setSelectedState={setCandidate}
                     />
