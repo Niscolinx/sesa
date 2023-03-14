@@ -1,25 +1,9 @@
-import { ChangeEvent, SetStateAction } from 'react'
+import { SetStateAction, useState } from 'react'
 import { MultipleSelect } from '../../../../components/SuperAdmin/UI/Select'
-import { useCreateElectionContext } from '../createElection'
 
 function Third() {
-    const { electionCategory, setElectionCategory } = useCreateElectionContext()
 
-    const add_another_category = () => {
-        setElectionCategory((prev) => [...prev, ''])
-    }
-
-    const handle_category_change = (
-        e: ChangeEvent<HTMLInputElement>,
-        idx: number
-    ) => {
-        setElectionCategory((prev) => {
-            const updatedArr = [...prev]
-            updatedArr[idx] = e.target.value
-
-            return updatedArr
-        })
-    }
+   const [voteDisplay, setVoteDisplay] = useState<string[]>([])
 
     return (
         <div>
