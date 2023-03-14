@@ -1,29 +1,10 @@
 import { useState } from 'react'
 import { TfiArrowCircleLeft, TfiArrowCircleRight } from 'react-icons/tfi'
 
-
-
-type Step = 'first' | 'second' | 'third'
-
 const CreateElection = () => {
-    const [step, setStep] = useState<Step>('first')
+    const [step, setStep] = useState(1)
 
-    const [paymentType, setPaymentType] = useState<PaymentType | string | null>(
-        'flexible'
-    )
-
-    const displayStep = new Map([
-        [
-            'initial',
-            <PaymentForm
-                props={{
-                    paymentType,
-                    setPaymentType,
-                }}
-            />,
-        ],
-        ['list', <Filter />],
-    ]) satisfies Map<Step, JSX.Element>
+    const displayStep = new Map([[1, <></>]]) satisfies Map<number, JSX.Element>
 
     return (
         <>
@@ -33,15 +14,15 @@ const CreateElection = () => {
                 <div className='absolute right-0 bottom-0 m-16 flex items-center gap-16'>
                     <button
                         className='text-color-blue disabled:opacity-50 disabled:cursor-not-allowed'
-                        disabled={step === 'initial'}
-                        onClick={() => setStep('initial')}
+                        disabled={step === 1}
+                        onClick={() => setStep((prev) => prev + 1)}
                     >
                         <TfiArrowCircleLeft className='w-[4rem] h-[4rem]' />
                     </button>
                     <button
                         className=' text-color-blue disabled:opacity-50 disabled:cursor-not-allowed'
-                        disabled={step === 'list'}
-                        onClick={() => setStep('list')}
+                        disabled={step === 3}
+                        onClick={() => setStep((prev) => prev - 1)}
                     >
                         <TfiArrowCircleRight className='w-[4rem] h-[4rem]' />
                     </button>
