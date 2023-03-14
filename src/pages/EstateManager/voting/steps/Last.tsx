@@ -1,8 +1,10 @@
+import { useState } from 'react'
 import { GroupThreeImages } from '../../../../components/UI/GroupThreeImages'
 import { useCreateElectionContext } from '../createElection'
 
 const Last = () => {
     const {electionCategory, candidate_details} = useCreateElectionContext()
+    const [candidateImgs, setCandidateImgs] = useState<string[]>([])
     const imgArr = [
         '/img/avatar1.png',
         '/img/avatar2.png',
