@@ -42,9 +42,9 @@ function Second() {
         setPhotoUrl('')
     }
 
-    onst deleteRFIDHandler = () => {
+    onst deleteRFIDHandler = (idx:number) => {
         setRFID_Details((prev) => {
-            return prev.filter((_, index) =>  index !== idxToDelete)
+            return prev.filter((_, index) =>  index !== idx)
         })
 
     }
