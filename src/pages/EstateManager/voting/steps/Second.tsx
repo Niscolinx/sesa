@@ -117,6 +117,7 @@ function Second() {
                                                 updated[currentIdx].manifesto =
                                                     e.target.value
 
+                                                    console.log({updated})
                                                 return updated
                                             })
                                         }}
@@ -251,7 +252,7 @@ function Second() {
                 {candidate_details.map((item, idx) => {
                     const { photoUrl, name, gender } = item
                     return (
-                        <div>
+                        <div className='mb-5'>
                             <p className='font-Satoshi-Medium capitalize text-[2rem]'>
                                 candidate {idx + 1} Details
                             </p>
@@ -292,7 +293,7 @@ function Second() {
                                             <p>{category}</p>
                                         </div>
                                         <button
-                                            className='text-[#098DFF]'
+                                            className='text-[#098DFF] text-left cursor-pointer'
                                             onClick={() => openDialog(idx)}
                                         >
                                             View Details
