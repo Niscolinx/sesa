@@ -12,7 +12,7 @@ import Third from './steps/Third'
 
 type Category = string[]
 
- interface CandidateField {
+ export interface CandidateField {
     candidate: string | null
     category: string | null
     name: string

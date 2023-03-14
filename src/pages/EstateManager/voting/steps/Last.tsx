@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { GroupThreeImages } from '../../../../components/UI/GroupThreeImages'
-import { useCreateElectionContext } from '../createElection'
+import { CandidateField, useCreateElectionContext } from '../createElection'
 
 const Last = () => {
     const {electionCategory, candidate_details} = useCreateElectionContext()
@@ -14,7 +14,7 @@ const Last = () => {
 
     useEffect(() => {
 
-        const extractImgs = candidate_details.reduce((acc: string[], cur: string) => (
+        const extractImgs = candidate_details.reduce((acc: [], cur: CandidateField ) => (
             acc.concat(cur.photoUrl)
         ), [])
 
