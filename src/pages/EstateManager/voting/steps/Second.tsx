@@ -8,8 +8,8 @@ function Second() {
     const { electionCategory } = useCreateElectionContext()
     const [candidate, setCandidate] = useState<string | null>(null)
     const [category, setCategory] = useState<string | null>(null)
-    const [name, setName] = useState('')
-    const [gender, setGender] = useState('')
+    const [name, setName] = useState('Aliba Desmond')
+    const [gender, setGender] = useState('Male')
     const [manifesto, setManifesto] = useState('')
 
     interface InputField {
@@ -99,7 +99,7 @@ function Second() {
                             type='text'
                             required
                             id='name'
-                            defaultValue={candidate ? 'Aliba Desmond' : ''}
+                            defaultValue={candidate ? name : ''}
                             className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                         />
                     </div>
@@ -114,7 +114,7 @@ function Second() {
                             type='text'
                             required
                             id='gender'
-                            defaultValue={candidate ? 'Male' : ''}
+                            defaultValue={candidate ? gender : ''}
                             className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                         />
                     </div>
