@@ -1,11 +1,9 @@
 import { SetStateAction } from 'jotai'
 import { createContext, Dispatch, useContext, useState } from 'react'
-import { FiArrowRight } from 'react-icons/fi'
 import {
     HiOutlineArrowNarrowLeft,
     HiOutlineArrowNarrowRight,
 } from 'react-icons/hi'
-import { TfiArrowCircleLeft, TfiArrowCircleRight } from 'react-icons/tfi'
 import First from './steps/First'
 import Second from './steps/Second'
 import Third from './steps/Third'
