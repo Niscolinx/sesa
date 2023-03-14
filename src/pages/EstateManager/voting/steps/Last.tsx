@@ -19,19 +19,19 @@ const Last = () => {
                         <div className='flex gap-16'>
                             <div className='relative bg-red-600 w-[20rem] flex items-center justify-between'>
                                 <img
-                                    src='/img/avatar11.png'
+                                    src='/img/avatar1.png'
                                     alt=''
                                     className='w-[3rem] h-[3rem] object-cover rounded-full absolute left-0 z-10'
                                 />
                                 <img
-                                    src='/img/avatar11.png'
+                                    src='/img/avatar2.png'
                                     alt=''
                                     className='w-[3rem] h-[3rem] object-cover rounded-full absolute left-[10%] z-20'
                                 />
                                 <img
-                                    src='/img/avatar11.png'
+                                    src='/img/avatar3.png'
                                     alt=''
-                                    className='w-[3rem] h-[3rem] object-cover rounded-full absolute left-0 z-30'
+                                    className='w-[3rem] h-[3rem] object-cover rounded-full absolute left-[20%] z-30'
                                 />
                             </div>
                             <button className='text-color-blue'>
