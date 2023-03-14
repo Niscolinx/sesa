@@ -52,7 +52,9 @@ const Last = () => {
         Object.values(candidateData).length > 0 &&
             Object.entries(candidateData).filter(
                 ([foundKey]) => foundKey === key
-            )
+            ).map(([_, value]) => {
+                return 
+            })
 
         if (dialogRef.current) {
             dialogRef.current.showModal()
