@@ -11,7 +11,9 @@ const Last: FC = () => {
     return (
         <main className='bg-color-white rounded-lg'>
            
-          
+          <section>
+            <p className='text-[2rem] font-Satoshi-Medium'>Election Title</p>
+          </section>
         </main>
     )
 }
