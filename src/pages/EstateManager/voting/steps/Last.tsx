@@ -1,15 +1,24 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { GroupThreeImages } from '../../../../components/UI/GroupThreeImages'
 import { useCreateElectionContext } from '../createElection'
 
 const Last = () => {
     const {electionCategory, candidate_details} = useCreateElectionContext()
     const [candidateImgs, setCandidateImgs] = useState<string[]>([])
+
     const imgArr = [
         '/img/avatar1.png',
         '/img/avatar2.png',
         '/img/avatar3.png',
     ]
+
+    useEffect(() => {
+
+        const extractImgs = candidate_details.reduce((acc: string[], cur: string) => (
+            acc.concat(cur.photoUrl)
+        ), [])
+
+    }, [candidate_details])
 
     return (
         <main className='bg-color-white rounded-lg grid gap-16'>
