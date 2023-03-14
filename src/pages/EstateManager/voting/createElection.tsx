@@ -11,10 +11,20 @@ import Second from './steps/Second'
 import Third from './steps/Third'
 
 type Category = string[]
+export interface CandidateField {
+    candidate: string | null
+    category: string | null
+    name: string
+    gender: string
+    manifesto: string
+    photoUrl: string
+}
 
 interface CreateElectionContext {
     electionCategory: Category
     setElectionCategory: Dispatch<SetStateAction<Category>>
+    candidate_details: CandidateField
+    setCandidate_details: Dispatch<SetStateAction<CandidateField>>
 }
 
 const CreateElectionContext = createContext<CreateElectionContext | null>(null)
@@ -30,14 +40,7 @@ export const useCreateElectionContext = () => {
 
     return context
 }
-export interface CandidateField {
-    candidate: string | null
-    category: string | null
-    name: string
-    gender: string
-    manifesto: string
-    photoUrl: string
-}
+
 
 const CreateElection = () => {
     const [step, setStep] = useState(5)
