@@ -35,6 +35,8 @@ function Second() {
     const openDialog = (idx: number) => {
         const detailIdx = candidate_details.findIndex((_, i) => i === idx)
 
+        console.log({detailIdx})
+
         if (detailIdx) {
             setCurrentIdx(detailIdx)
         }
