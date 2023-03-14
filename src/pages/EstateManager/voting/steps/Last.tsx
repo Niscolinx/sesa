@@ -73,6 +73,13 @@ const Last = () => {
                                     President Category Candidates
                                 </p>
                                
+                               {
+                                Object.values(candidateData).length > 0 && Object.entries(candidateData).map(([key, value]) => {
+                                    return {
+                                        
+                                    }
+                                })
+                               }
                             </section>
                         </div>
                     </div>
