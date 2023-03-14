@@ -212,7 +212,7 @@ function Second() {
 
             <section className='mt-[5rem]'>
                 {candidate_details.map((item, idx) => {
-                    const { photoUrl, name, gender, manifesto, candidate } =
+                    const { photoUrl, name, gender} =
                         item
                     return (
                         <div>
@@ -255,7 +255,10 @@ function Second() {
                                             </p>
                                             <p>{category}</p>
                                         </div>
-                                        <button className='text-[#098DFF]' onClick={openDialog}>
+                                        <button
+                                            className='text-[#098DFF]'
+                                            onClick={() => openDialog(idx)}
+                                        >
                                             View Details
                                         </button>
                                     </div>
