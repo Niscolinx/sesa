@@ -54,8 +54,8 @@ function Second() {
         setPhotoUrl('')
     }
 
-    onst deletecandidateHandler = (idx:number) => {
-        setcandidate_Details((prev) => {
+    const deleteCandidateHandler = (idx:number) => {
+        setCandidate_details((prev) => {
             return prev.filter((_, index) =>  index !== idx)
         })
 
