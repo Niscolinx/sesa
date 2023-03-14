@@ -1,7 +1,12 @@
 import { GroupThreeImages } from '../../../../components/UI/GroupThreeImages'
 
 const Last = () => {
-    const imgArr = ['/img/avatar1.png', '/img/avatar2.png', '/img/avatar3.png']
+    const imgArr = [
+        '/img/avatar1.png',
+        '/img/avatar2.png',
+        '/img/avatar3.png',
+        '/img/avatar11.png',
+    ]
 
     return (
         <main className='bg-color-white rounded-lg grid gap-16'>

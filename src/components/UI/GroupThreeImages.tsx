@@ -6,7 +6,7 @@ interface GroupThreeImages {
 
 export function GroupThreeImages({ images }: GroupThreeImages) {
     return (
-        <div className='relative w-[10rem] flex items-center justify-between'>
+        <div className='relative w-[15rem] flex items-center justify-between'>
             {images.map((item, i) => {
                 console.log({item})
                 return (
