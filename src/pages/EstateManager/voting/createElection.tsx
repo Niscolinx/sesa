@@ -4,18 +4,20 @@ import { TfiArrowCircleLeft, TfiArrowCircleRight } from 'react-icons/tfi'
 import First from './steps/First'
 
 type Category = { value: string }[]
+
 interface CreateElectionContext {
     electionCategory: Category
     setElectionCategory: Dispatch<SetStateAction<Category>>
 }
 
-export const createElectionContext = createContext<null>(null)
+export const CreateElectionContext =
+    createContext<CreateElectionContext | null>(null)
 
 const CreateElection = () => {
     const [step, setStep] = useState(1)
-    const [electionCategory, setElectionCategory] = useState<
-        { value: string }[]
-    >([{ value: '' }])
+    const [electionCategory, setElectionCategory] = useState<Category>([
+        { value: '' },
+    ])
 
     const displayStep = new Map([[1, <First />]]) satisfies Map<
         number,
@@ -23,7 +25,12 @@ const CreateElection = () => {
     >
 
     return (
-        <>
+        <CreateElectionContext.Provider
+            value={{
+                electionCategory,
+                setElectionCategory,
+            }}
+        >
             <div className=' p-8 bg-white rounded-lg min-h-[90vh] relative'>
                 <p className='font-Satoshi-Medium text-[2rem] mb-10'>
                     Create New Poll ( Step {step} of 2)
@@ -47,7 +54,7 @@ const CreateElection = () => {
                     </button>
                 </div>
             </div>
-        </>
+        </CreateElectionContext.Provider>
     )
 }
 
