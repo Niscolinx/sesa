@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import { IoMdClose } from 'react-icons/io'
 import { GroupThreeImages } from '../../../../components/UI/GroupThreeImages'
 import { CandidateField, useCreateElectionContext } from '../createElection'
 
@@ -13,7 +14,7 @@ const Last = () => {
     useEffect(() => {
         const tempCandidateData: CandidateDetails = {}
         const tempCandidateImg: { [key: string]: string[] } = {}
-        
+
         candidate_details.forEach((detail) => {
             const category = detail.category as string
 
@@ -37,6 +38,24 @@ const Last = () => {
         setCandidateImgs((prev) => ({ ...prev, ...tempCandidateImg }))
     }, [candidate_details, electionCategory])
 
+     const dialogRef = useRef<HTMLDialogElement | null>(null)
+
+     const closeDialog = () => {
+         if (dialogRef.current) {
+             dialogRef.current.close()
+         }
+     }
+
+     const openDialog = (idx: number) => {
+         const detailIdx = candidate_details.findIndex((_, i) => i === idx)
+
+         //setCurrentIdx(detailIdx)
+
+         if (dialogRef.current) {
+             dialogRef.current.showModal()
+         }
+     }
+
     console.log({ candidateData, candidateImgs }, typeof candidateData)
 
     return (
@@ -51,42 +70,9 @@ const Last = () => {
                             />
                             <section className='grid gap-8'>
                                 <p className='font-Satoshi-Bold pb-4 border-b'>
-                                    Manifesto
+                                    President Category Candidates
                                 </p>
-                                <div className='col-span-full'>
-                                    <label className=' font-Satoshi-Medium'>
-                                        Details
-                                    </label>
-                                    <>
-                                        {console.log({
-                                            candidate_details,
-                                            currentIdx,
-                                        })}
-                                    </>
-                                    <textarea
-                                        rows={5}
-                                        className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4 '
-                                        value={
-                                            candidate_details[currentIdx]
-                                                ?.manifesto
-                                        }
-                                        onChange={(e) => {
-                                            setCandidate_details((prev) => {
-                                                console.log({ prev })
-                                                if (prev.length < 1) {
-                                                    return (prev = [])
-                                                }
-
-                                                const updated = [...prev]
-                                                updated[currentIdx].manifesto =
-                                                    e.target.value
-
-                                                console.log({ updated })
-                                                return updated
-                                            })
-                                        }}
-                                    />
-                                </div>
+                               
                             </section>
                         </div>
                     </div>
