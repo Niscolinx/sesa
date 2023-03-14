@@ -10,12 +10,15 @@ const Last = () => {
 
 
     useEffect(() => {
-        const extractedImgs = candidate_details.reduce(
-            (acc: string[], cur) => acc.concat(cur.photoUrl),
-            []
-        )
+        const extractedImgs = electionCategory.every((item) => {
+            
+            const extractedImgs = candidate_details.reduce(
+                (acc: string[], cur) => acc.concat(cur.photoUrl),
+                []
+            )
+        })
 
-        setCandidateImgs(extractedImgs)
+        //setCandidateImgs(extractedImgs)
     }, [candidate_details])
 
     return (
