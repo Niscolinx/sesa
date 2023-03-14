@@ -3,8 +3,9 @@ import { Select } from '../../../../components/SuperAdmin/UI/Select'
 import { useCreateElectionContext } from '../createElection'
 
 function Second() {
-    const { electionCategory, setElectionCategory } = useCreateElectionContext()
+    const { electionCategory } = useCreateElectionContext()
     const [candidate, setCandidate] = useState<string | null>(null)
+    const [category, setCategory] = useState<string | null>(null)
 
     return (
         <div>
@@ -62,16 +63,10 @@ function Second() {
                         />
                     </div>
                     <Select
-                        state={[
-                            'ALIBA DESMOND (RES CODE: 2345CDGK1)',
-                            'ALIBA DESMOND (RES CODE: 2345CDGK2)',
-                            'ALIBA DESMOND (RES CODE: 2345CDGK3)',
-                            'ALIBA DESMOND (RES CODE: 2345CDGK4)',
-                            'ALIBA DESMOND (RES CODE: 2345CDGK5)',
-                        ]}
-                        label='Election Candidates (Select Resident Code)'
-                        selectedState={candidate}
-                        setSelectedState={setCandidate}
+                        state={electionCategory}
+                        label='Election Category'
+                        selectedState={category}
+                        setSelectedState={setCategory}
                     />
                 </div>
             </div>
