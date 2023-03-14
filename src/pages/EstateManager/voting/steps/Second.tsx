@@ -18,13 +18,32 @@ function Second() {
         setPhotoUrl(getUrl)
     }
 
-    const handleSubmit = (e: React.FormEvent) => {
+  
+
+    const handleSubmit = (e: FormEvent) => {
         e.preventDefault()
+
+        const details = {
+            vehicleMake,
+            vehicleRegNumber,
+            vehicleType,
+            RFID,
+            photoUrl,
+        }
+
+        setRFID_Details((prev) => {
+            return [...prev, details]
+        })
+        setRFID(0)
+        setVehicleMake('')
+        setVehicleRegNumber(0)
+        setVehicleType(null)
+        setPhotoUrl('')
     }
 
     return (
         <div>
-            <div className='grid  gap-16 items-start content-start capitalize'>
+            <form className='grid gap-16 items-start content-start capitalize'>
                 <div className='grid gap-4 relative w-[35rem]'>
                     <Select
                         state={[
@@ -128,16 +147,73 @@ function Second() {
                             </div>
                         )}
                     </div>
-                    <button
-                        className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
-                    >
+                    <button className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'>
                         <span>
                             <IoMdAdd />
                         </span>{' '}
                         Add Artisan
                     </button>
                 </div>
-            </div>
+            </form>
+
+            <section>
+                {RFID_Details.length > 0 && (
+                    <p className='font-Satoshi-Medium'>RFID Details</p>
+                )}
+
+                {RFID_Details.map((item, idx) => {
+                    const {
+                        photoUrl,
+                        vehicleMake,
+                        vehicleRegNumber,
+                        vehicleType,
+                        RFID,
+                    } = item
+                    return (
+                        <div className='grid relative border-b pb-4' key={idx}>
+                            <img
+                                src='/img/closeIcon.svg'
+                                alt=''
+                                className='self-end justify-self-end cursor-pointer'
+                                onClick={() => deleteDialog(idx)}
+                            />
+                            <div className='flex gap-16 items-center pb-8'>
+                                <img
+                                    src={photoUrl}
+                                    alt='photoPreview'
+                                    className='object-cover w-[11rem] h-[11rem] rounded-full'
+                                />
+                                <div className='grid gap-4 min-w-[70rem]'>
+                                    <div className='grid grid-cols-2 items-center justify-start '>
+                                        <p className='font-Satoshi-Light'>
+                                            RFID Serial Number :
+                                        </p>
+                                        <p>{RFID}</p>
+                                    </div>
+                                    <div className='grid grid-cols-2 items-center justify-start '>
+                                        <p className='font-Satoshi-Light'>
+                                            Vehicle Registration Number :
+                                        </p>
+                                        <p>{vehicleRegNumber}</p>
+                                    </div>
+                                    <div className='grid grid-cols-2 items-center justify-start '>
+                                        <p className='font-Satoshi-Light'>
+                                            Vehicle Type :
+                                        </p>
+                                        <p>{vehicleType}</p>
+                                    </div>
+                                    <div className='grid grid-cols-2 items-center justify-start '>
+                                        <p className='font-Satoshi-Light'>
+                                            Vehicle Make :
+                                        </p>
+                                        <p>{vehicleMake}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    )
+                })}
+            </section>
         </div>
     )
 }
