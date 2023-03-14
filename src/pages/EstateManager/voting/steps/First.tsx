@@ -40,7 +40,7 @@ function First() {
                         htmlFor='firstName'
                         className='text-[1.4rem] font-medium'
                     >
-                        Election Title
+                        Election Category
                     </label>
                     <input
                         type='text'
