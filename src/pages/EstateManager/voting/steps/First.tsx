@@ -1,17 +1,26 @@
-import  { ChangeEvent, useState } from 'react'
+import { ChangeEvent, useState } from 'react'
 
 function First() {
-    const [electionCategory, setElectionCategory] = useState<{ value: '' }[]>([
-        { value: '' },
-    ])
+    const [electionCategory, setElectionCategory] = useState<
+        { value: string }[]
+    >([{ value: '' }])
 
     const add_another_category = () => {
         setElectionCategory((prev) => [...prev, { value: '' }])
     }
 
-    const handle_category_change = (e:ChangeEvent<HTMLInputElement>, idx: number) => {
+    const handle_category_change = (
+        e: ChangeEvent<HTMLInputElement>,
+        idx: number
+    ) => {
+        setElectionCategory((prev) => {
+            const updatedArr = [...prev]
+            updatedArr[idx] = {
+                value: e.target.value,
+            }
 
-        setElectionCategory((prev) => [...prev, ])
+            return updatedArr
+        })
     }
 
     return (
