@@ -6,6 +6,7 @@ import {
 } from 'react-icons/hi'
 import First from './steps/First'
 import Fourth from './steps/Fourth'
+import Last from './steps/Last'
 import Second from './steps/Second'
 import Third from './steps/Third'
 
@@ -38,6 +39,7 @@ const CreateElection = () => {
         [2, <Second />],
         [3, <Third />],
         [4, <Fourth />],
+        [5, <Last />],
     ]) satisfies Map<number, JSX.Element>
 
     return (
