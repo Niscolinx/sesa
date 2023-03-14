@@ -1,11 +1,7 @@
-import React, { ChangeEvent, FC, useEffect, useState } from 'react'
-import { CgSpinnerTwo } from 'react-icons/cg'
-import { GrDown } from 'react-icons/gr'
-import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 
 
 
-const Last: FC = () => {
+const Last = () => {
    
 
     return (
