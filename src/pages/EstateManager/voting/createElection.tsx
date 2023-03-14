@@ -1,10 +1,14 @@
 import { useState } from 'react'
 import { TfiArrowCircleLeft, TfiArrowCircleRight } from 'react-icons/tfi'
+import First from './steps/First'
 
 const CreateElection = () => {
     const [step, setStep] = useState(1)
 
-    const displayStep = new Map([[1, <></>]]) satisfies Map<number, JSX.Element>
+    const displayStep = new Map([[1, <First />]]) satisfies Map<
+        number,
+        JSX.Element
+    >
 
     return (
         <>
