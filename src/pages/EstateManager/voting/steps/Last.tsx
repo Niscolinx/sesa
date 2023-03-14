@@ -11,6 +11,8 @@ const Last = () => {
         [key: string]: string[]
     }>({})
 
+    [currentCategory, setCurrentCategory] = useState<CandidateField | null>(null)
+
     useEffect(() => {
         const tempCandidateData: CandidateDetails = {}
         const tempCandidateImg: { [key: string]: string[] } = {}
