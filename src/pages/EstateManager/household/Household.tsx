@@ -292,7 +292,7 @@ function HouseHold() {
                     <main className='mt-10 grid gap-9'>
                         <section className='bg-color-white rounded-lg border min-w-[112rem] overflow-scroll'>
                             <div className='grid text-[1.6rem]'>
-                                <caption className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
+                                <div className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
                                     <p className=' font-bold'>
                                         Household List <span>(50)</span>
                                     </p>
@@ -338,7 +338,7 @@ function HouseHold() {
                                             </button>
                                         )}
                                     </div>
-                                </caption>
+                                </div>
 
                                 <div className='grid'>
                                     <div

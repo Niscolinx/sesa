@@ -1,5 +1,6 @@
 import React, { ChangeEvent, FC, useEffect, useState } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
+import { GrDown } from 'react-icons/gr'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 
 interface Resident {
@@ -136,6 +137,33 @@ const Fourth: FC = () => {
 
     return (
         <main className='bg-color-white rounded-lg overflow-scroll max-h-[80vh]'>
+            <caption className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
+                <p className=' font-bold'>
+                    Household List <span>(50)</span>
+                </p>
+                <div className='relative flex items-center'>
+                    <img
+                        src='/icons/admins/search.svg'
+                        alt=''
+                        className='absolute left-4 text-[4rem]'
+                    />
+                    <input
+                        type='text'
+                        placeholder='Search Parameters'
+                        className='pl-16 w-[18rem] rounded-lg border border-color-blue-light appearance-none outline-none p-4'
+                    />
+                </div>
+                <div className='relative flex items-center'>
+                    <select className=' cursor-pointer w-[18rem] rounded-lg border border-color-blue-light appearance-none outline-none p-4 bg-white'>
+                        <option hidden value=''>
+                            Sort By
+                        </option>
+                        <option value='date'>date</option>
+                        <option value='alpha'>Alpha</option>
+                    </select>
+                    <GrDown className='absolute right-4 text-[1.3rem]' />
+                </div>
+            </caption>
             <div className='grid'>
                 <div
                     className='grid justify-between text-color-dark-1 bg-gray-100 p-8 grid-cols-6 gap-6'
