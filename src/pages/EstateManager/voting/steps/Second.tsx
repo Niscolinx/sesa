@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { IoMdAdd } from 'react-icons/io'
 import { Select } from '../../../../components/SuperAdmin/UI/Select'
 import { getPhotoUrl } from '../../../../utils/getPhotoUrl'
 import { useCreateElectionContext } from '../createElection'
@@ -127,6 +128,14 @@ function Second() {
                             </div>
                         )}
                     </div>
+                    <button
+                        className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
+                    >
+                        <span>
+                            <IoMdAdd />
+                        </span>{' '}
+                        Add Artisan
+                    </button>
                 </div>
             </div>
         </div>
