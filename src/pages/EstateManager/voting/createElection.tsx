@@ -49,15 +49,17 @@ const CreateElection = () => {
                 {displayStep.get(step)}
 
                 <div className='m-[5rem] flex items-center gap-16 justify-between'>
-                   
-                    <button
-                        className='btn flex items-center border gap-4 border-color-blue-1 text-color-blue-1 font-Satoshi-Medium justify-center rounded-2xl w-[15rem] disabled:opacity-50 disabled:cursor-not-allowed'
-                        disabled={step === 1}
-                        onClick={() => setStep((prev) => prev - 1)}
-                    >
-                        <span>Prev</span>
-                        <HiOutlineArrowNarrowLeft />
-                    </button>
+                    {step > 1 && (
+                        <button
+                            className='btn flex items-center border gap-4 border-color-blue-1 text-color-blue-1 font-Satoshi-Medium justify-center rounded-2xl w-[15rem] disabled:opacity-50 disabled:cursor-not-allowed'
+                            disabled={step === 1}
+                            onClick={() => setStep((prev) => prev - 1)}
+                        >
+                            <span>Prev</span>
+                            <HiOutlineArrowNarrowLeft />
+                        </button>
+                    )}
+
                     <button
                         className='btn flex items-center border gap-4 border-color-blue-1 text-color-blue-1 font-Satoshi-Medium justify-center rounded-2xl w-[15rem] disabled:opacity-50 disabled:cursor-not-allowed'
                         disabled={step === 3 || !electionCategory[0]}
