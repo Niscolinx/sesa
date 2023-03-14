@@ -31,7 +31,7 @@ export const useCreateElectionContext = () => {
     return context
 }
 const CreateElection = () => {
-    const [step, setStep] = useState(1)
+    const [step, setStep] = useState(5)
     const [electionCategory, setElectionCategory] = useState<Category>([''])
 
     const displayStep = new Map([
