@@ -5,6 +5,7 @@ import { HiOutlineArrowNarrowLeft, HiOutlineArrowNarrowRight } from 'react-icons
 import { TfiArrowCircleLeft, TfiArrowCircleRight } from 'react-icons/tfi'
 import First from './steps/First'
 import Second from './steps/Second'
+import Third from './steps/Third'
 
 type Category = string[]
 
@@ -33,6 +34,7 @@ const CreateElection = () => {
     const displayStep = new Map([
         [1, <First />],
         [2, <Second />],
+        [3, <Third />],
     ]) satisfies Map<number, JSX.Element>
 
     return (
