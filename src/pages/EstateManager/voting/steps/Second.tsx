@@ -20,7 +20,6 @@ function Second() {
                             'ALIBA DESMOND (RES CODE: 2345CDGK5)',
                         ]}
                         label='Election Candidates (Select Resident Code)'
-                        isSearchable
                         selectedState={candidate}
                         setSelectedState={setCandidate}
                     />
