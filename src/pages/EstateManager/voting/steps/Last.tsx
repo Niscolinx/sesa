@@ -20,7 +20,7 @@ const Last = () => {
                     <p>President</p>
                     <div className="flex gap-16">
                     <div className="relative">
-                        <img src="/img/avatar11.png" alt="" />
+                        <img src="/img/avatar11.png" alt="" className="w-[3rem] h-[3rem] object-cover rounded-full" />
                     </div>
                     <button className='text-color-blue'>View Candidates</button>
                     </div>
