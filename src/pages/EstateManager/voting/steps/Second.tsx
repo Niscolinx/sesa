@@ -13,8 +13,8 @@ function Second() {
     const [manifesto, setManifesto] = useState('')
 
     interface InputField {
-        candidate: string
-        category: string
+        candidate: string | null
+        category: string | null
         name: string
         gender: string
         manifesto: string
@@ -42,7 +42,7 @@ function Second() {
             category,
             candidate,
             photoUrl,
-        }
+        } satisfies InputField
 
         setCandidate_details((prev) => {
             return [...prev, details]
@@ -180,11 +180,11 @@ function Second() {
             </form>
 
             <section>
-                {candidate_Details.length > 0 && (
+                {candidate_details.length > 0 && (
                     <p className='font-Satoshi-Medium'>candidate Details</p>
                 )}
 
-                {candidate_Details.map((item, idx) => {
+                {candidate_details.map((item, idx) => {
                     const {
                         photoUrl,
                         name,
@@ -198,7 +198,7 @@ function Second() {
                                 src='/img/closeIcon.svg'
                                 alt=''
                                 className='self-end justify-self-end cursor-pointer'
-                                onClick={() => deleteDialog(idx)}
+                                onClick={() => deleteCandidateHandler(idx)}
                             />
                             <div className='flex gap-16 items-center pb-8'>
                                 <img
