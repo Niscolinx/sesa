@@ -9,7 +9,7 @@ function Second() {
     const [candidate, setCandidate] = useState<string | null>(null)
     const [category, setCategory] = useState<string | null>(null)
 
-    const [RFID_Details, setRFID_Details] = useState<InputField[]>([])
+    const [candidate_Details, setcandidate_Details] = useState<InputField[]>([])
 
     const [photoUrl, setPhotoUrl] = useState('')
 
@@ -28,22 +28,22 @@ function Second() {
             vehicleMake,
             vehicleRegNumber,
             vehicleType,
-            RFID,
+            candidate,
             photoUrl,
         }
 
-        setRFID_Details((prev) => {
+        setcandidate_Details((prev) => {
             return [...prev, details]
         })
-        setRFID(0)
+        setcandidate(0)
         setVehicleMake('')
         setVehicleRegNumber(0)
         setVehicleType(null)
         setPhotoUrl('')
     }
 
-    onst deleteRFIDHandler = (idx:number) => {
-        setRFID_Details((prev) => {
+    onst deletecandidateHandler = (idx:number) => {
+        setcandidate_Details((prev) => {
             return prev.filter((_, index) =>  index !== idx)
         })
 
@@ -168,17 +168,17 @@ function Second() {
             </form>
 
             <section>
-                {RFID_Details.length > 0 && (
-                    <p className='font-Satoshi-Medium'>RFID Details</p>
+                {candidate_Details.length > 0 && (
+                    <p className='font-Satoshi-Medium'>candidate Details</p>
                 )}
 
-                {RFID_Details.map((item, idx) => {
+                {candidate_Details.map((item, idx) => {
                     const {
                         photoUrl,
                         vehicleMake,
                         vehicleRegNumber,
                         vehicleType,
-                        RFID,
+                        candidate,
                     } = item
                     return (
                         <div className='grid relative border-b pb-4' key={idx}>
@@ -197,9 +197,9 @@ function Second() {
                                 <div className='grid gap-4 min-w-[70rem]'>
                                     <div className='grid grid-cols-2 items-center justify-start '>
                                         <p className='font-Satoshi-Light'>
-                                            RFID Serial Number :
+                                            candidate Serial Number :
                                         </p>
-                                        <p>{RFID}</p>
+                                        <p>{candidate}</p>
                                     </div>
                                     <div className='grid grid-cols-2 items-center justify-start '>
                                         <p className='font-Satoshi-Light'>
