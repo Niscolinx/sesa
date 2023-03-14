@@ -2,9 +2,9 @@ import React from 'react'
 
 
 interface GroupThreeImages {
-    
+    images: string[]
 }
-function GroupThreeImages() {
+function GroupThreeImages({images}: GroupThreeImages) {
   return (
       <div className='flex gap-16 '>
           <div className='relative w-[10rem] flex items-center justify-between'>
