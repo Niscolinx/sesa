@@ -46,7 +46,7 @@ function First() {
                                 required
                                 id='category'
                                 placeholder='placeholder'
-                                value={electionCategory[idx]}
+                                value={electionCategory[idx].value}
                                 className=' rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4 w-[40rem]'
                             />
                             {idx + 1 === electionCategory.length && (
