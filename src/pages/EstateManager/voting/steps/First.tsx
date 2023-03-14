@@ -16,7 +16,7 @@ function First() {
     return (
         <div>
             <form
-                className='grid max-w-[84rem] gap-16 items-start content-start capitalize'
+                className='grid max-w-[40rem] gap-16 items-start content-start capitalize'
                
             >
                 <div className='grid gap-4 relative '>
