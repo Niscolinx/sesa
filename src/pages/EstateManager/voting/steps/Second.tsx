@@ -67,6 +67,15 @@ function Second() {
                         selectedState={category}
                         setSelectedState={setCategory}
                     />
+
+                    <div className='col-span-full'>
+                        <label className=' font-medium'>Manifesto</label>
+                        <textarea
+                            rows={5}
+                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4 '
+                        />
+                        
+                    </div>
                 </div>
             </div>
         </div>
