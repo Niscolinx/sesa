@@ -82,8 +82,8 @@ function Second() {
         <div>
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
-                    <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8 text-[1.6rem]'>
-                        <div className='text-white relative p-8 capitalize h-full'>
+                    <div className=' rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8 text-[1.6rem]'>
+                        <div className=' relative p-8 capitalize h-full'>
                             <IoMdClose
                                 className='absolute right-0 top-0 text-[2.5rem] cursor-pointer m-5'
                                 onClick={() => closeDialog()}
