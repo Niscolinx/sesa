@@ -5,6 +5,7 @@ import {
     HiOutlineArrowNarrowRight,
 } from 'react-icons/hi'
 import First from './steps/First'
+import Fourth from './steps/Fourth'
 import Second from './steps/Second'
 import Third from './steps/Third'
 
@@ -36,6 +37,8 @@ const CreateElection = () => {
         [1, <First />],
         [2, <Second />],
         [3, <Third />],
+        [4, <Fourth />],
+
     ]) satisfies Map<number, JSX.Element>
 
     return (
