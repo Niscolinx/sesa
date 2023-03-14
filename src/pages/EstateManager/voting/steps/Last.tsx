@@ -10,15 +10,16 @@ const Last = () => {
 
 
     useEffect(() => {
-        const extractedImgs = electionCategory.every((item) => {
+        //  electionCategory.forEach((item) => {
             
-            const extractedImgs = candidate_details.reduce(
-                (acc: string[], cur) => acc.concat(cur.photoUrl),
-                []
-            )
-        })
+        //     const imgs = candidate_details
+        //         .reduce((acc: string[], cur) => acc.concat(cur.photoUrl), [])
+        //         .filter((candidateData) => candidateData.category === item)
 
-        //setCandidateImgs(extractedImgs)
+        //     setCandidateImgs(extractedImgs)
+        //     return imgs
+        // })
+
     }, [candidate_details])
 
     return (
