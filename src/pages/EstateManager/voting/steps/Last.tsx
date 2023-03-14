@@ -33,7 +33,7 @@ const Last = () => {
                 {electionCategory &&
                     electionCategory.map((election, i) => {
                         return (
-                            <div className='grid gap-8 w-[60rem]'>
+                            <div className='grid gap-8 w-[60rem]' key={i}>
                                 <div className='grid grid-cols-2 mt-[5rem] pb-5 border-b w-full'>
                                     <p>{election}</p>
                                     <div className='flex items-center gap-16'>
