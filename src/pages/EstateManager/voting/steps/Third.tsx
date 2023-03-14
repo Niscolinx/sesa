@@ -22,24 +22,29 @@ function Third() {
 
     return (
         <div>
-            <form className='grid max-w-[50rem] gap-16 items-start content-start capitalize'>
-                <div className='grid gap-4 relative w-[40rem]'>
-                    <label
-                        htmlFor='thirdName'
-                        className='text-[1.4rem] font-medium'
-                    >
-                        Election Title
-                    </label>
-                    <input
-                        type='text'
-                        required
-                        id='thirdName'
-                        placeholder='placeholder'
-                        className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                    />
+            <form className='grid gap-16 items-start content-start capitalize'>
+                <div
+                    className='grid gap-16 '
+                    style={{
+                        gridTemplateColumns: 'repeat(auto-fit, 35rem)',
+                    }}
+                >
+                    <div className='grid gap-4 relative'>
+                        <label
+                            htmlFor='thirdName'
+                            className='text-[1.4rem] font-medium'
+                        >
+                            Election Title
+                        </label>
+                        <input
+                            type='text'
+                            required
+                            id='thirdName'
+                            placeholder='placeholder'
+                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                        />
+                    </div>
                 </div>
-
-               
             </form>
         </div>
     )
