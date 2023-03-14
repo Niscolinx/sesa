@@ -35,11 +35,7 @@ function Second() {
     const openDialog = (idx: number) => {
         const detailIdx = candidate_details.findIndex((_, i) => i === idx)
 
-        console.log({detailIdx})
-
-        if (detailIdx) {
-            setCurrentIdx(detailIdx)
-        }
+        setCurrentIdx(detailIdx)
 
         if (dialogRef.current) {
             dialogRef.current.showModal()
@@ -98,7 +94,12 @@ function Second() {
                                     <label className=' font-medium'>
                                         Details
                                     </label>
-                                    <>{console.log({candidate_details, currentIdx})}</>
+                                    <>
+                                        {console.log({
+                                            candidate_details,
+                                            currentIdx,
+                                        })}
+                                    </>
                                     <textarea
                                         rows={5}
                                         className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4 '
@@ -108,7 +109,7 @@ function Second() {
                                         }
                                         onChange={(e) => {
                                             setCandidate_details((prev) => {
-                                                console.log({prev})
+                                                console.log({ prev })
                                                 if (prev.length < 1) {
                                                     return (prev = [])
                                                 }
@@ -117,7 +118,7 @@ function Second() {
                                                 updated[currentIdx].manifesto =
                                                     e.target.value
 
-                                                    console.log({updated})
+                                                console.log({ updated })
                                                 return updated
                                             })
                                         }}
