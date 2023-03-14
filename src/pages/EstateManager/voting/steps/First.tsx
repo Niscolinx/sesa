@@ -32,8 +32,8 @@ function First() {
                     />
                 </div>
 
-                {electionCategory.map((item, i) => (
-                    <div className='grid gap-4 relative' key={i}>
+                {electionCategory.map((item, idx) => (
+                    <div className='grid gap-4 relative' key={idx}>
                         <label
                             htmlFor='category'
                             className='text-[1.4rem] font-medium'
@@ -46,9 +46,10 @@ function First() {
                                 required
                                 id='category'
                                 placeholder='placeholder'
+                                value={electionCategory[idx]}
                                 className=' rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4 w-[40rem]'
                             />
-                            {i + 1 === electionCategory.length && (
+                            {idx + 1 === electionCategory.length && (
                                 <button>
                                     <img src='/icons/add_Icon.svg' alt='' />
                                 </button>
