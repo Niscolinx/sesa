@@ -3,10 +3,9 @@ import { GroupThreeImages } from '../../../../components/UI/GroupThreeImages'
 import { CandidateField, useCreateElectionContext } from '../createElection'
 
 const Last = () => {
+    type ExtractedImg =  {[key: string]: string[]}
     const { electionCategory, candidate_details } = useCreateElectionContext()
-    const [candidateImgs, setCandidateImgs] = useState<{
-        [key: string]: string[]
-    }[]>([])
+    const [candidateImgs, setCandidateImgs] = useState<ExtractedImg[]>([])
 
 
     useEffect(() => {
@@ -20,6 +19,14 @@ const Last = () => {
         //     return imgs
         // })
 
+        const extractedImgs: any = []
+        electionCategory.forEach((item, i) => {
+           
+                extractedImgs.push({
+                    item: candidate_details.find((detail) => detail.category === item)
+                })
+           
+        })
     }, [candidate_details])
 
     return (
@@ -42,9 +49,9 @@ const Last = () => {
                                 <div className='grid grid-cols-2 mt-[5rem] pb-5 border-b w-full'>
                                     <p>{election}</p>
                                     <div className='flex items-center gap-16'>
-                                        <GroupThreeImages
+                                        {/* <GroupThreeImages
                                             images={candidateImgs}
-                                        />
+                                        /> */}
 
                                         <button className='text-color-blue'>
                                             View Candidates
