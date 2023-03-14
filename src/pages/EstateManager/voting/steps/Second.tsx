@@ -103,6 +103,11 @@ function Second() {
                                         value={candidate_details[currentIdx].manifesto}
                                         onChange={(e) => {
                                             setCandidate_details((prev) => {
+                                                if(prev.length < 1){
+                                                    return prev = []
+                                                }
+
+                                                console.log({prev})
                                                 const updated = [...prev]
                                                 updated[currentIdx].manifesto = e.target.value
 
