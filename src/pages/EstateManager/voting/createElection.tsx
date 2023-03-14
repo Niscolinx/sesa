@@ -43,7 +43,7 @@ const CreateElection = () => {
             }}
         >
             <div className=' p-8 bg-white rounded-lg min-h-[90vh] relative'>
-                <p className='font-Satoshi-Medium text-[2rem] mb-10'>
+                <p className='font-Satoshi-Medium text-[2rem] mb-[5rem]'>
                     Create New Poll ( Step {step} of 2)
                 </p>
                 {displayStep.get(step)}
