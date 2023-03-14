@@ -3,19 +3,13 @@ import { Select } from '../../../../components/SuperAdmin/UI/Select'
 import { PaymentType } from '../../Payments/create/CreatePayment'
 
 function First() {
-    const [electionCategory, setElectionCategory] = useState<[{ value: '' }]>([
+    const [electionCategory, setElectionCategory] = useState<{ value: '' }[]>([
         { value: '' },
     ])
 
-    // const addAnotherInstallmentHandler = () => {
-    //     setInstallmentField((prev) => [
-    //         ...prev,
-    //         { amount: '', startDate: '', endDate: '' },
-    //     ])
-    // }
 
     const add_another_category = () => {
-        
+        setElectionCategory((prev) => [...prev, { value: '' }])
     }
     return (
         <div>
@@ -54,7 +48,7 @@ function First() {
                                 className=' rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4 w-[40rem]'
                             />
                             {idx + 1 === electionCategory.length && (
-                                <button onClick={add_another_category}>
+                                <button onClick={() => add_another_category()}>
                                     <img src='/icons/add_Icon.svg' alt='' />
                                 </button>
                             )}
