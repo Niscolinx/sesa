@@ -44,7 +44,7 @@ export const useCreateElectionContext = () => {
 
 
 const CreateElection = () => {
-    const [step, setStep] = useState(5)
+    const [step, setStep] = useState(1)
     const [electionCategory, setElectionCategory] = useState<Category>([''])
     const [candidate_details, setCandidate_details] = useState<CandidateField[]>([])
 
