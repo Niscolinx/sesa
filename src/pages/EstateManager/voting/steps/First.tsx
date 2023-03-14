@@ -1,4 +1,4 @@
-import { ChangeEvent, useContext, useState } from 'react'
+import { ChangeEvent } from 'react'
 import { useCreateElectionContext } from '../createElection'
 
 function First() {
