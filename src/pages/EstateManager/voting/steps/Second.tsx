@@ -1,4 +1,4 @@
-import { FormEvent, useState } from 'react'
+import { FormEvent, useRef, useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
 import { Select } from '../../../../components/SuperAdmin/UI/Select'
 import { getPhotoUrl } from '../../../../utils/getPhotoUrl'
@@ -23,6 +23,19 @@ function Second() {
     const [candidate_details, setCandidate_details] = useState<InputField[]>([])
 
     const [photoUrl, setPhotoUrl] = useState('')
+    const dialogRef = useRef<HTMLDialogElement | null>(null)
+
+    const handleClose = () => {
+        if (dialogRef.current) {
+            dialogRef.current.close()
+        }
+    }
+
+    const handleOpen = () => {
+        if (dialogRef.current) {
+            dialogRef.current.showModal()
+        }
+    }
 
     const handlePhotoPreview = async (
         _: React.MouseEvent<HTMLInputElement>
@@ -61,6 +74,42 @@ function Second() {
 
     return (
         <div>
+            <dialog className='dialog' ref={dialogRef}>
+                <section className='grid place-content-center w-full h-[100vh]'>
+                    <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8 text-[1.6rem]'>
+                        {isWarning ? (
+                            <img src='/icons/admins/modalWarning.svg' alt='' />
+                        ) : (
+                            <img src='/icons/admins/modalSuccess.svg' alt='' />
+                        )}
+                        <p
+                            style={{
+                                fontFamily: 'Satoshi-Medium',
+                            }}
+                            className='text-[2rem]'
+                        >
+                            Confirm Send Message
+                        </p>
+                        <p>Are you sure you want to send this message?</p>
+
+                        <div className='flex w-full justify-center gap-8'>
+                            <button
+                                className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
+                                onClick={() => handleClose()}
+                            >
+                                Cancel
+                            </button>
+
+                            <button
+                                className='btn text-white bg-[#0556E5] border rounded-lg w-[15rem]'
+                                onClick={() => handleClose()}
+                            >
+                                Yes
+                            </button>
+                        </div>
+                    </div>
+                </section>
+            </dialog>
             <form
                 className='grid gap-16 items-start content-start capitalize border-b pb-10'
                 onSubmit={handleSubmit}
