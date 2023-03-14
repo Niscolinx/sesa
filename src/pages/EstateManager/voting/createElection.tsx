@@ -2,6 +2,7 @@ import { SetStateAction } from 'jotai'
 import { createContext, Dispatch, useContext, useState } from 'react'
 import { TfiArrowCircleLeft, TfiArrowCircleRight } from 'react-icons/tfi'
 import First from './steps/First'
+import Second from './steps/Second'
 
 type Category = { value: string }[]
 
@@ -10,8 +11,7 @@ interface CreateElectionContext {
     setElectionCategory: Dispatch<SetStateAction<Category>>
 }
 
- const CreateElectionContext =
-    createContext<CreateElectionContext | null>(null)
+const CreateElectionContext = createContext<CreateElectionContext | null>(null)
 
 export const useCreateElectionContext = () => {
     const context = useContext(CreateElectionContext)
@@ -30,10 +30,10 @@ const CreateElection = () => {
         { value: '' },
     ])
 
-    const displayStep = new Map([[1, <First />]]) satisfies Map<
-        number,
-        JSX.Element
-    >
+    const displayStep = new Map([
+        [1, <First />],
+        [2, <Second />],
+    ]) satisfies Map<number, JSX.Element>
 
     return (
         <CreateElectionContext.Provider
