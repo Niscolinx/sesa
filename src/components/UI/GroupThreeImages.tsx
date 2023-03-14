@@ -14,9 +14,9 @@ export function GroupThreeImages({ images }: GroupThreeImages) {
                         key={i + item}
                         src={item}
                         alt=''
-                        className={`w-[3rem] h-[3rem] object-cover rounded-full border border-color-white absolute left-${
+                        className={`w-[3rem] h-[3rem] object-cover rounded-full border border-color-white absolute left-[${
                             i * 20
-                        } z-${i + 1 + 10}`}
+                        }%] z-${i + 1 + 10}`}
                     />
                 )
             })}
