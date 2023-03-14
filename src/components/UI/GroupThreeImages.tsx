@@ -11,6 +11,13 @@ function GroupThreeImages({ images = imgArr}: GroupThreeImages) {
     return (
         <div className='flex gap-16 '>
             <div className='relative w-[10rem] flex items-center justify-between'>
+                {images.map((item, i) => (
+                    <img
+                        src='/img/avatar1.png'
+                        alt=''
+                        className='w-[3rem] h-[3rem] object-cover rounded-full border border-color-white absolute left-0 z-10'
+                    />
+                ))}
                 <img
                     src='/img/avatar1.png'
                     alt=''
