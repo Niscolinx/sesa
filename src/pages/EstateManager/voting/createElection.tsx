@@ -50,7 +50,7 @@ const CreateElection = () => {
         >
             <div className=' p-8 bg-white rounded-lg min-h-[90vh] relative'>
                 <p className='font-Satoshi-Medium text-[2rem] mb-[5rem]'>
-                    Create New Poll ( Step {step} of {displayStep.size})
+                    {step <= 3 ? 'Create New Poll': step === 4 ? 'Filter Selection' : ''} ( Step {step} of {displayStep.size})
                 </p>
                 {displayStep.get(step)}
 
