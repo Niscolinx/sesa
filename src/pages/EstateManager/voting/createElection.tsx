@@ -38,7 +38,6 @@ const CreateElection = () => {
         [2, <Second />],
         [3, <Third />],
         [4, <Fourth />],
-
     ]) satisfies Map<number, JSX.Element>
 
     return (
@@ -50,7 +49,12 @@ const CreateElection = () => {
         >
             <div className=' p-8 bg-white rounded-lg min-h-[90vh] relative'>
                 <p className='font-Satoshi-Medium text-[2rem] mb-[5rem]'>
-                    {step <= 3 ? 'Create New Poll': step === 4 ? 'Filter Selection' : ''} ( Step {step} of {displayStep.size})
+                    {step <= 3
+                        ? 'Create New Poll'
+                        : step === 4
+                        ? 'Filter Selection'
+                        : 'Poll Summary'}{' '}
+                    ( Step {step} of {displayStep.size})
                 </p>
                 {displayStep.get(step)}
 
@@ -68,7 +72,9 @@ const CreateElection = () => {
 
                     <button
                         className='btn flex items-center border gap-4 border-color-blue-1 justify-self-end text-color-blue-1 font-Satoshi-Medium justify-center rounded-2xl w-[15rem] ml-auto disabled:opacity-50 disabled:cursor-not-allowed'
-                        disabled={step === displayStep.size || !electionCategory[0]}
+                        disabled={
+                            step === displayStep.size || !electionCategory[0]
+                        }
                         onClick={() => setStep((prev) => prev + 1)}
                     >
                         <span>Next</span>
