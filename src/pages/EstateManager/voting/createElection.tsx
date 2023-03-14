@@ -1,9 +1,21 @@
-import { useState } from 'react'
+import { SetStateAction } from 'jotai'
+import { createContext, Dispatch, useState } from 'react'
 import { TfiArrowCircleLeft, TfiArrowCircleRight } from 'react-icons/tfi'
 import First from './steps/First'
 
+type Category = { value: string }[]
+interface CreateElectionContext {
+    electionCategory: Category
+    setElectionCategory: Dispatch<SetStateAction<Category>>
+}
+
+export const createElectionContext = createContext<null>(null)
+
 const CreateElection = () => {
     const [step, setStep] = useState(1)
+    const [electionCategory, setElectionCategory] = useState<
+        { value: string }[]
+    >([{ value: '' }])
 
     const displayStep = new Map([[1, <First />]]) satisfies Map<
         number,

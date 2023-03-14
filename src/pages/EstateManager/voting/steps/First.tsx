@@ -1,9 +1,7 @@
 import { ChangeEvent, useState } from 'react'
 
 function First() {
-    const [electionCategory, setElectionCategory] = useState<
-        { value: string }[]
-    >([{ value: '' }])
+   
 
     const add_another_category = () => {
         setElectionCategory((prev) => [...prev, { value: '' }])
