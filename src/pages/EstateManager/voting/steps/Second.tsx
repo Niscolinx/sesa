@@ -105,6 +105,7 @@ function Second() {
                                         }
                                         onChange={(e) => {
                                             setCandidate_details((prev) => {
+                                                console.log({prev})
                                                 if (prev.length < 1) {
                                                     return (prev = [])
                                                 }
