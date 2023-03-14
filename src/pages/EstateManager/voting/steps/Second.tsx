@@ -284,7 +284,7 @@ function Second() {
                                             <p className='font-Satoshi-Light'>
                                                 Election Category :
                                             </p>
-                                            <p>{category}</p>
+                                            <p>{electionCategory}</p>
                                         </div>
                                         <button
                                             className='text-[#098DFF] text-left cursor-pointer'
