@@ -156,7 +156,6 @@ function Second() {
                         >
                             Name
                         </label>
-                        <>{console.log({ candidate })}</>
                         <input
                             type='text'
                             required
