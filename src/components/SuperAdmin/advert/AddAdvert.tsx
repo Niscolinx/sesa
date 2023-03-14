@@ -99,7 +99,7 @@ const AddAdvert = () => {
                     <div className='grid gap-4 relative '>
                         <label
                             htmlFor='advertName'
-                            className='text-[1.4rem] font-medium'
+                            className='text-[1.4rem] font-Satoshi-Medium'
                         >
                             Advert Name *
                         </label>
@@ -150,7 +150,7 @@ const AddAdvert = () => {
                     <div className='grid gap-4 relative'>
                         <label
                             htmlFor='url'
-                            className='text-[1.4rem] font-medium'
+                            className='text-[1.4rem] font-Satoshi-Medium'
                         >
                             URL
                         </label>

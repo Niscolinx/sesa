@@ -28,13 +28,17 @@ const OverviewCard: FC<OverviewCard> = ({
             <div className='flex gap-10 items-center'>
                 <img src={iconUrl} alt='' className='w-[5rem]' />
                 <div>
-                    <p className='font-medium'>{title}</p>
-                    <p className={`text-[2.6rem] font-medium ${textColor}`}>
+                    <p className='font-Satoshi-Medium'>{title}</p>
+                    <p
+                        className={`text-[2.6rem] font-Satoshi-Medium ${textColor}`}
+                    >
                         {number.toLocaleString()}
                     </p>
                 </div>
             </div>
-            <div className={`${textColor} border-t flex items-center justify-around pt-4`}>
+            <div
+                className={`${textColor} border-t flex items-center justify-around pt-4`}
+            >
                 <p>{bottomLeft}</p>
                 <p>{bottomRight}</p>
             </div>

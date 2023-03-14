@@ -1,11 +1,7 @@
 import React, { useRef, useState } from 'react'
 
 const SecurityCompanyDetail = () => {
-
- 
     const [isWarning, setIsWarning] = useState(true)
-
-    
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
@@ -121,7 +117,7 @@ const SecurityCompanyDetail = () => {
                     <div className='grid gap-4 relative '>
                         <label
                             htmlFor='securityCompany'
-                            className='text-[1.4rem] font-medium'
+                            className='text-[1.4rem] font-Satoshi-Medium'
                         >
                             Security Company *
                         </label>
@@ -137,7 +133,7 @@ const SecurityCompanyDetail = () => {
                     <div className='grid gap-4 relative'>
                         <label
                             htmlFor='email'
-                            className='text-[1.4rem] font-medium'
+                            className='text-[1.4rem] font-Satoshi-Medium'
                         >
                             Email Address
                         </label>
@@ -154,7 +150,7 @@ const SecurityCompanyDetail = () => {
                     <div className='grid gap-4 relative'>
                         <label
                             htmlFor='address'
-                            className='text-[1.4rem] font-medium'
+                            className='text-[1.4rem] font-Satoshi-Medium'
                         >
                             Address
                         </label>
@@ -170,7 +166,7 @@ const SecurityCompanyDetail = () => {
                     <div className='grid gap-4 relative'>
                         <label
                             htmlFor='noOfGuards'
-                            className='text-[1.4rem] font-medium'
+                            className='text-[1.4rem] font-Satoshi-Medium'
                         >
                             No of Security Guards
                         </label>
@@ -186,7 +182,7 @@ const SecurityCompanyDetail = () => {
                     <div className='grid gap-4 relative'>
                         <label
                             htmlFor='walletBalance'
-                            className='text-[1.4rem] font-medium'
+                            className='text-[1.4rem] font-Satoshi-Medium'
                         >
                             Wallet Balance
                         </label>
@@ -202,7 +198,7 @@ const SecurityCompanyDetail = () => {
                     <div className='grid gap-4 relative'>
                         <label
                             htmlFor='joinedDate'
-                            className='text-[1.4rem] font-medium'
+                            className='text-[1.4rem] font-Satoshi-Medium'
                         >
                             Joined Date
                         </label>
@@ -218,9 +214,9 @@ const SecurityCompanyDetail = () => {
                     <div className='grid gap-4 relative'>
                         <label
                             htmlFor='NoOfAssignedGuards'
-                            className='text-[1.4rem] font-medium'
+                            className='text-[1.4rem] font-Satoshi-Medium'
                         >
-                           No of Assigned Security Guards
+                            No of Assigned Security Guards
                         </label>
                         <input
                             type='text'
@@ -234,7 +230,7 @@ const SecurityCompanyDetail = () => {
                     <div className='grid gap-4 relative'>
                         <label
                             htmlFor='noOfBankAccountsOpened'
-                            className='text-[1.4rem] font-medium'
+                            className='text-[1.4rem] font-Satoshi-Medium'
                         >
                             No of Bank Accounts Opened
                         </label>
@@ -250,7 +246,7 @@ const SecurityCompanyDetail = () => {
                     <div className='grid gap-4 relative'>
                         <label
                             htmlFor='status'
-                            className='text-[1.4rem] font-medium'
+                            className='text-[1.4rem] font-Satoshi-Medium'
                         >
                             Status
                         </label>
@@ -270,7 +266,11 @@ const SecurityCompanyDetail = () => {
                         onClick={() => handleOpen('success')}
                     >
                         <span>
-                            <img src="/icons/admins/saveDisk.svg" alt="" className='w-[1.7rem] h-[1.7rem]'/>
+                            <img
+                                src='/icons/admins/saveDisk.svg'
+                                alt=''
+                                className='w-[1.7rem] h-[1.7rem]'
+                            />
                         </span>{' '}
                         Save Changes
                     </button>

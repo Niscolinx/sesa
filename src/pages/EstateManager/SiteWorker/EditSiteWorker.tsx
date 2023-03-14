@@ -510,7 +510,7 @@ const EditSiteWorker = () => {
                             <div className='grid gap-4 relative '>
                                 <label
                                     htmlFor='firstName'
-                                    className='text-[1.4rem] font-medium'
+                                    className='text-[1.4rem] font-Satoshi-Medium'
                                 >
                                     First Name *
                                 </label>
@@ -524,7 +524,7 @@ const EditSiteWorker = () => {
                             <div className='grid gap-4 relative '>
                                 <label
                                     htmlFor='lastName'
-                                    className='text-[1.4rem] font-medium'
+                                    className='text-[1.4rem] font-Satoshi-Medium'
                                 >
                                     Last Name *
                                 </label>
@@ -538,7 +538,7 @@ const EditSiteWorker = () => {
                             <div className='grid gap-4 relative '>
                                 <label
                                     htmlFor='lastName'
-                                    className='text-[1.4rem] font-medium'
+                                    className='text-[1.4rem] font-Satoshi-Medium'
                                 >
                                     Middle Name *
                                 </label>
@@ -552,7 +552,7 @@ const EditSiteWorker = () => {
                             <div className='grid gap-4 relative '>
                                 <label
                                     htmlFor='lastName'
-                                    className='text-[1.4rem] font-medium'
+                                    className='text-[1.4rem] font-Satoshi-Medium'
                                 >
                                     Date of Birth
                                 </label>
@@ -567,7 +567,7 @@ const EditSiteWorker = () => {
                             <div className='grid gap-4'>
                                 <label
                                     htmlFor='phoneNumber'
-                                    className='text-[1.4rem] font-medium'
+                                    className='text-[1.4rem] font-Satoshi-Medium'
                                 >
                                     Phone Number *
                                 </label>
@@ -595,7 +595,7 @@ const EditSiteWorker = () => {
                             <div className='grid gap-4 relative'>
                                 <label
                                     htmlFor='email'
-                                    className='text-[1.4rem] font-medium'
+                                    className='text-[1.4rem] font-Satoshi-Medium'
                                 >
                                     Email Address *
                                 </label>
@@ -610,7 +610,7 @@ const EditSiteWorker = () => {
                             <div className='grid gap-4 relative'>
                                 <label
                                     htmlFor='address1'
-                                    className='text-[1.4rem] font-medium'
+                                    className='text-[1.4rem] font-Satoshi-Medium'
                                 >
                                     Home Address
                                 </label>
@@ -645,7 +645,7 @@ const EditSiteWorker = () => {
                             <div className='grid gap-4 relative'>
                                 <label
                                     htmlFor='address1'
-                                    className='text-[1.4rem] font-medium'
+                                    className='text-[1.4rem] font-Satoshi-Medium'
                                 >
                                     Clock-In Time
                                 </label>
@@ -662,7 +662,7 @@ const EditSiteWorker = () => {
                             <div className='grid gap-4 relative self-start'>
                                 <label
                                     htmlFor='address1'
-                                    className='text-[1.4rem] font-medium'
+                                    className='text-[1.4rem] font-Satoshi-Medium'
                                 >
                                     Clock-Out Time
                                 </label>
@@ -676,7 +676,7 @@ const EditSiteWorker = () => {
                             <div className='grid gap-4 relative'>
                                 <label
                                     htmlFor='address1'
-                                    className='text-[1.4rem] font-medium'
+                                    className='text-[1.4rem] font-Satoshi-Medium'
                                 >
                                     Work Period (Start Date)*
                                 </label>
@@ -690,7 +690,7 @@ const EditSiteWorker = () => {
                             <div className='grid gap-4 relative'>
                                 <label
                                     htmlFor='address1'
-                                    className='text-[1.4rem] font-medium'
+                                    className='text-[1.4rem] font-Satoshi-Medium'
                                 >
                                     Work Period (End Date)*
                                 </label>
@@ -724,7 +724,6 @@ const EditSiteWorker = () => {
                         </form>
                     </section>
 
-                  
                     <button
                         className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg col-span-full mt-[5rem]'
                         style={{ justifySelf: 'start' }}

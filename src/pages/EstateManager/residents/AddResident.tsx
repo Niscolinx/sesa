@@ -66,13 +66,13 @@ const AddResident = () => {
     const handleOpen = (modalState: DialogType) => {
         if (modalState === 'validate') {
             setDialogState('validate')
-        } if (modalState === 'add-resident') {
+        }
+        if (modalState === 'add-resident') {
             setDialogState('add-resident')
         }
-        if(modalState === 'view-kyr'){
+        if (modalState === 'view-kyr') {
             setDialogState('view-kyr')
         }
-
 
         dialogRef.current?.showModal()
     }
@@ -261,7 +261,7 @@ const AddResident = () => {
                                     alt=''
                                     className='animate__animated animate__pulse '
                                     style={{
-                                        animationIterationCount: 'infinite'
+                                        animationIterationCount: 'infinite',
                                     }}
                                 />
                                 <p className='text-[1.6rem]'>
@@ -351,7 +351,7 @@ const AddResident = () => {
                     <div className='grid gap-4 relative '>
                         <label
                             htmlFor='firstName'
-                            className='text-[1.4rem] font-medium'
+                            className='text-[1.4rem] font-Satoshi-Medium'
                         >
                             First Name *
                         </label>
@@ -365,7 +365,7 @@ const AddResident = () => {
                     <div className='grid gap-4 relative '>
                         <label
                             htmlFor='lastName'
-                            className='text-[1.4rem] font-medium'
+                            className='text-[1.4rem] font-Satoshi-Medium'
                         >
                             Middle Name *
                         </label>
@@ -379,7 +379,7 @@ const AddResident = () => {
                     <div className='grid gap-4 relative '>
                         <label
                             htmlFor='lastName'
-                            className='text-[1.4rem] font-medium'
+                            className='text-[1.4rem] font-Satoshi-Medium'
                         >
                             Last Name *
                         </label>
@@ -394,7 +394,7 @@ const AddResident = () => {
                     <div className='grid gap-4 relative '>
                         <label
                             htmlFor='lastName'
-                            className='text-[1.4rem] font-medium'
+                            className='text-[1.4rem] font-Satoshi-Medium'
                         >
                             Date of Birth
                         </label>
@@ -408,7 +408,7 @@ const AddResident = () => {
                     <div className='grid gap-4 relative'>
                         <label
                             htmlFor='email'
-                            className='text-[1.4rem] font-medium'
+                            className='text-[1.4rem] font-Satoshi-Medium'
                         >
                             Email Address *
                         </label>
@@ -423,7 +423,7 @@ const AddResident = () => {
                     <div className='grid gap-4'>
                         <label
                             htmlFor='phoneNumber'
-                            className='text-[1.4rem] font-medium'
+                            className='text-[1.4rem] font-Satoshi-Medium'
                         >
                             Phone Number *
                         </label>

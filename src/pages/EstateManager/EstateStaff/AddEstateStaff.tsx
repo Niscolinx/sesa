@@ -22,7 +22,7 @@ import {
     Voters_Card,
 } from '../../SecurityCompany/dashboard/company/AddSecurity/Inputs'
 
-type DialogType = 'validate' | 'add-estateStaff' 
+type DialogType = 'validate' | 'add-estateStaff'
 
 export type AddedEstateStaffSteps =
     | 'addedEstateStaffSuccessful'
@@ -107,7 +107,7 @@ const AddEstateStaff = () => {
         if (modalState === 'add-estateStaff') {
             setDialogState('add-estateStaff')
         }
-       
+
         if (dialogRef.current) {
             dialogRef.current.showModal()
         }
@@ -123,8 +123,6 @@ const AddEstateStaff = () => {
 
         openValidateDialog()
     }
-
-    
 
     const renderValidationType = new Map([
         ['Phone Number', <PhoneNumber />],
@@ -336,7 +334,7 @@ const AddEstateStaff = () => {
                         <div className='grid gap-4 relative '>
                             <label
                                 htmlFor='firstName'
-                                className='text-[1.4rem] font-medium'
+                                className='text-[1.4rem] font-Satoshi-Medium'
                             >
                                 First Name *
                             </label>
@@ -350,7 +348,7 @@ const AddEstateStaff = () => {
                         <div className='grid gap-4 relative '>
                             <label
                                 htmlFor='lastName'
-                                className='text-[1.4rem] font-medium'
+                                className='text-[1.4rem] font-Satoshi-Medium'
                             >
                                 Last Name *
                             </label>
@@ -364,7 +362,7 @@ const AddEstateStaff = () => {
                         <div className='grid gap-4 relative '>
                             <label
                                 htmlFor='lastName'
-                                className='text-[1.4rem] font-medium'
+                                className='text-[1.4rem] font-Satoshi-Medium'
                             >
                                 Middle Name *
                             </label>
@@ -378,7 +376,7 @@ const AddEstateStaff = () => {
                         <div className='grid gap-4 relative '>
                             <label
                                 htmlFor='lastName'
-                                className='text-[1.4rem] font-medium'
+                                className='text-[1.4rem] font-Satoshi-Medium'
                             >
                                 Date of Birth
                             </label>
@@ -393,7 +391,7 @@ const AddEstateStaff = () => {
                         <div className='grid gap-4'>
                             <label
                                 htmlFor='phoneNumber'
-                                className='text-[1.4rem] font-medium'
+                                className='text-[1.4rem] font-Satoshi-Medium'
                             >
                                 Phone Number *
                             </label>
@@ -421,7 +419,7 @@ const AddEstateStaff = () => {
                         <div className='grid gap-4 relative'>
                             <label
                                 htmlFor='email'
-                                className='text-[1.4rem] font-medium'
+                                className='text-[1.4rem] font-Satoshi-Medium'
                             >
                                 Email Address *
                             </label>
@@ -436,7 +434,7 @@ const AddEstateStaff = () => {
                         <div className='grid gap-4 relative'>
                             <label
                                 htmlFor='address1'
-                                className='text-[1.4rem] font-medium'
+                                className='text-[1.4rem] font-Satoshi-Medium'
                             >
                                 Address
                             </label>
@@ -555,7 +553,7 @@ const AddEstateStaff = () => {
 
                         {isValidated ? (
                             <div className='flex gap-8 text-[1.6rem]'>
-                                <p className='text-[#098DFF] cursor-pointer flex items-center font-medium'>
+                                <p className='text-[#098DFF] cursor-pointer flex items-center font-Satoshi-Medium'>
                                     KYG Validated <IoMdCheckmarkCircleOutline />
                                 </p>
                                 <button

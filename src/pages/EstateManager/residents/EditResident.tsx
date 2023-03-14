@@ -347,7 +347,7 @@ const EditResident = () => {
                     <div className='grid gap-4 relative '>
                         <label
                             htmlFor='firstName'
-                            className='text-[1.4rem] font-medium'
+                            className='text-[1.4rem] font-Satoshi-Medium'
                         >
                             First Name *
                         </label>
@@ -361,7 +361,7 @@ const EditResident = () => {
                     <div className='grid gap-4 relative '>
                         <label
                             htmlFor='lastName'
-                            className='text-[1.4rem] font-medium'
+                            className='text-[1.4rem] font-Satoshi-Medium'
                         >
                             Middle Name *
                         </label>
@@ -375,7 +375,7 @@ const EditResident = () => {
                     <div className='grid gap-4 relative '>
                         <label
                             htmlFor='lastName'
-                            className='text-[1.4rem] font-medium'
+                            className='text-[1.4rem] font-Satoshi-Medium'
                         >
                             Last Name *
                         </label>
@@ -390,7 +390,7 @@ const EditResident = () => {
                     <div className='grid gap-4 relative '>
                         <label
                             htmlFor='lastName'
-                            className='text-[1.4rem] font-medium'
+                            className='text-[1.4rem] font-Satoshi-Medium'
                         >
                             Date of Birth
                         </label>
@@ -404,7 +404,7 @@ const EditResident = () => {
                     <div className='grid gap-4 relative'>
                         <label
                             htmlFor='email'
-                            className='text-[1.4rem] font-medium'
+                            className='text-[1.4rem] font-Satoshi-Medium'
                         >
                             Email Address *
                         </label>
@@ -419,7 +419,7 @@ const EditResident = () => {
                     <div className='grid gap-4'>
                         <label
                             htmlFor='phoneNumber'
-                            className='text-[1.4rem] font-medium'
+                            className='text-[1.4rem] font-Satoshi-Medium'
                         >
                             Phone Number *
                         </label>

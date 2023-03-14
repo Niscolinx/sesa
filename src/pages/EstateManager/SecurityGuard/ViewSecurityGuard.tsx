@@ -35,14 +35,15 @@ interface AddedSecurityGuardContext {
 export const CreateAddedSecurityGuardContext =
     createContext<AddedSecurityGuardContext>(null as any)
 
-    type BankDialog = 'generateId' | 'openBank'
+type BankDialog = 'generateId' | 'openBank'
 
 const ViewSecurityGuard = () => {
     const [isValidated, setIsValidated] = useState(true)
     const [isAccountCreated, setIsAccountCreated] = useState(false)
     const [selectedState, setSelectedState] = useState<string | null>(null)
     const [selectedGender, setSelectedGender] = useState<string | null>(null)
-    const [bankDialogState, setBankDialogState] = useState<BankDialog>('openBank')
+    const [bankDialogState, setBankDialogState] =
+        useState<BankDialog>('openBank')
 
     const [selectedBank, setSelectedBank] = useState<null | string>(null)
     const [addedSecurityGuardStep, setAddedSecurityGuardStep] =
@@ -113,8 +114,6 @@ const ViewSecurityGuard = () => {
         })
     }
 
-   
-
     const handleClose = () => {
         if (bankRef.current) {
             bankRef.current.close()
@@ -122,14 +121,13 @@ const ViewSecurityGuard = () => {
     }
 
     const openBankDialog = (bankDialog: BankDialog) => {
-        if(bankDialog === 'openBank'){
+        if (bankDialog === 'openBank') {
             setBankDialogState('openBank')
         }
-        if(bankDialog === 'generateId'){
+        if (bankDialog === 'generateId') {
             setBankDialogState('generateId')
         }
-   
-       
+
         if (bankRef.current) {
             bankRef.current.showModal()
         }
@@ -332,7 +330,9 @@ const ViewSecurityGuard = () => {
                             </div>
                         ) : (
                             <div className='bg-white rounded-2xl grid place-content-center justify-items-center h-[30rem] gap-8 text-[1.6rem]'>
-                                {addedSecurityGuardSteps.get(addedSecurityGuardStep)}
+                                {addedSecurityGuardSteps.get(
+                                    addedSecurityGuardStep
+                                )}
                             </div>
                         )}
                     </div>
@@ -438,7 +438,6 @@ const ViewSecurityGuard = () => {
                             </button>
                         </div>
                     </div>
-                    
 
                     <section>
                         <p className='text-[2rem] font-Satoshi-Medium'>
@@ -455,7 +454,7 @@ const ViewSecurityGuard = () => {
                             <div className='grid gap-4 relative '>
                                 <label
                                     htmlFor='firstName'
-                                    className='text-[1.4rem] font-medium'
+                                    className='text-[1.4rem] font-Satoshi-Medium'
                                 >
                                     First Name *
                                 </label>
@@ -469,7 +468,7 @@ const ViewSecurityGuard = () => {
                             <div className='grid gap-4 relative '>
                                 <label
                                     htmlFor='lastName'
-                                    className='text-[1.4rem] font-medium'
+                                    className='text-[1.4rem] font-Satoshi-Medium'
                                 >
                                     Last Name *
                                 </label>
@@ -483,7 +482,7 @@ const ViewSecurityGuard = () => {
                             <div className='grid gap-4 relative '>
                                 <label
                                     htmlFor='lastName'
-                                    className='text-[1.4rem] font-medium'
+                                    className='text-[1.4rem] font-Satoshi-Medium'
                                 >
                                     Middle Name *
                                 </label>
@@ -497,7 +496,7 @@ const ViewSecurityGuard = () => {
                             <div className='grid gap-4 relative '>
                                 <label
                                     htmlFor='lastName'
-                                    className='text-[1.4rem] font-medium'
+                                    className='text-[1.4rem] font-Satoshi-Medium'
                                 >
                                     Date of Birth
                                 </label>
@@ -512,7 +511,7 @@ const ViewSecurityGuard = () => {
                             <div className='grid gap-4'>
                                 <label
                                     htmlFor='phoneNumber'
-                                    className='text-[1.4rem] font-medium'
+                                    className='text-[1.4rem] font-Satoshi-Medium'
                                 >
                                     Phone Number *
                                 </label>
@@ -540,7 +539,7 @@ const ViewSecurityGuard = () => {
                             <div className='grid gap-4 relative'>
                                 <label
                                     htmlFor='email'
-                                    className='text-[1.4rem] font-medium'
+                                    className='text-[1.4rem] font-Satoshi-Medium'
                                 >
                                     Email Address *
                                 </label>
@@ -555,7 +554,7 @@ const ViewSecurityGuard = () => {
                             <div className='grid gap-4 relative'>
                                 <label
                                     htmlFor='address1'
-                                    className='text-[1.4rem] font-medium'
+                                    className='text-[1.4rem] font-Satoshi-Medium'
                                 >
                                     Home Address
                                 </label>
@@ -574,7 +573,6 @@ const ViewSecurityGuard = () => {
                                 selectedState={selectedState}
                                 setSelectedState={setSelectedState}
                             />
-                          
                         </form>
                     </section>
 
@@ -593,7 +591,7 @@ const ViewSecurityGuard = () => {
                                 <div className='grid gap-4 relative '>
                                     <label
                                         htmlFor='bankName'
-                                        className='text-[1.4rem] font-medium'
+                                        className='text-[1.4rem] font-Satoshi-Medium'
                                     >
                                         Bank Name
                                     </label>
@@ -609,7 +607,7 @@ const ViewSecurityGuard = () => {
                                 <div className='grid gap-4 relative '>
                                     <label
                                         htmlFor='firstName'
-                                        className='text-[1.4rem] font-medium'
+                                        className='text-[1.4rem] font-Satoshi-Medium'
                                     >
                                         Account Number
                                     </label>

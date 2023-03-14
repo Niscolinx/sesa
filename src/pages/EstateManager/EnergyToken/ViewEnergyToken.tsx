@@ -1,5 +1,3 @@
-
-
 const ViewEnergyToken = () => {
     return (
         <>
@@ -18,7 +16,7 @@ const ViewEnergyToken = () => {
                         <div className='grid gap-4 relative '>
                             <label
                                 htmlFor='firstName'
-                                className='text-[1.4rem] font-medium'
+                                className='text-[1.4rem] font-Satoshi-Medium'
                             >
                                 Token Seriel Number
                             </label>
@@ -32,7 +30,7 @@ const ViewEnergyToken = () => {
                         <div className='grid gap-4 relative '>
                             <label
                                 htmlFor='lastName'
-                                className='text-[1.4rem] font-medium'
+                                className='text-[1.4rem] font-Satoshi-Medium'
                             >
                                 Token Code
                             </label>
@@ -46,7 +44,7 @@ const ViewEnergyToken = () => {
                         <div className='grid gap-4'>
                             <label
                                 htmlFor='amount'
-                                className='text-[1.4rem] font-medium'
+                                className='text-[1.4rem] font-Satoshi-Medium'
                             >
                                 Amount
                             </label>
@@ -70,7 +68,7 @@ const ViewEnergyToken = () => {
                         <div className='grid gap-4'>
                             <label
                                 htmlFor='convenienceFee'
-                                className='text-[1.4rem] font-medium'
+                                className='text-[1.4rem] font-Satoshi-Medium'
                             >
                                 Convenience Fee
                             </label>
@@ -93,7 +91,7 @@ const ViewEnergyToken = () => {
                         <div className='grid gap-4 relative'>
                             <label
                                 htmlFor='instruction'
-                                className='text-[1.4rem] font-medium'
+                                className='text-[1.4rem] font-Satoshi-Medium'
                             >
                                 Transaction Date
                             </label>
@@ -107,7 +105,7 @@ const ViewEnergyToken = () => {
                         <div className='grid gap-4 relative'>
                             <label
                                 htmlFor='instruction'
-                                className='text-[1.4rem] font-medium'
+                                className='text-[1.4rem] font-Satoshi-Medium'
                             >
                                 Transaction Time
                             </label>

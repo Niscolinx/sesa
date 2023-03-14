@@ -23,7 +23,6 @@ interface AttendanceReport {
     checkInCount: number
     checkOutCount: number
     panicAlert: number
-
 }
 
 const ATTENDANCE_REPORT_DATA: AttendanceReport[] = [
@@ -531,7 +530,7 @@ function EstateReport() {
             <div className='mt-8 grid gap-8'>
                 <section className='bg-white rounded-lg p-8 grid h-[28rem] text-[1.4rem]'>
                     <div className='flex w-full justify-between'>
-                        <p className='font-medium text-[2rem]'>
+                        <p className='font-Satoshi-Medium text-[2rem]'>
                             Security Report
                         </p>
                         <p className='text-[#666869]'>

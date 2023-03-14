@@ -7,25 +7,15 @@ import { MultipleSelect } from '../../UI/Select'
 type DialogType = 'validate' | 'add-Artisan'
 
 const AddArtisanGroup = () => {
-
     const [isAddArtisanGroup, setIsAddArtisanGroup] = useState(true)
     const [selectedArtisans, setSelectedArtisans] = useState<string[]>([])
     const [selectedEstates, setSelectedEstates] = useState<string[]>([])
-   
-
-
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
-    }  
-
-    
-  
-
-    const addArtisanGroupHandler = () => {
     }
 
-   
+    const addArtisanGroupHandler = () => {}
 
     return (
         <>
@@ -49,7 +39,7 @@ const AddArtisanGroup = () => {
                     <div className='grid gap-4 relative '>
                         <label
                             htmlFor='name'
-                            className='text-[1.4rem] font-medium'
+                            className='text-[1.4rem] font-Satoshi-Medium'
                         >
                             Name
                         </label>
@@ -69,7 +59,15 @@ const AddArtisanGroup = () => {
                         setSelected={setSelectedArtisans}
                     />
                     <MultipleSelect
-                        selectFrom={['Estate 1', 'Estate 2', 'Estate 3', 'Estate 4', 'Estate 5', 'Estate 6', 'Estate 7']}
+                        selectFrom={[
+                            'Estate 1',
+                            'Estate 2',
+                            'Estate 3',
+                            'Estate 4',
+                            'Estate 5',
+                            'Estate 6',
+                            'Estate 7',
+                        ]}
                         label='Estates'
                         placeholder='Select Estate'
                         selected={selectedEstates}

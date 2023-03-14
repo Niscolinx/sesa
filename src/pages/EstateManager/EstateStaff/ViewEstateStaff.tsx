@@ -35,14 +35,15 @@ interface AddedEstateStaffContext {
 export const CreateAddedEstateStaffContext =
     createContext<AddedEstateStaffContext>(null as any)
 
-    type BankDialog = 'generateId' | 'openBank'
+type BankDialog = 'generateId' | 'openBank'
 const ViewEstateStaff = () => {
     const [workDays, setWorkDays] = useState<string[]>([])
     const [isValidated, setIsValidated] = useState(true)
     const [isAccountCreated, setIsAccountCreated] = useState(false)
     const [selectedState, setSelectedState] = useState<string | null>(null)
     const [selectedGender, setSelectedGender] = useState<string | null>(null)
-    const [bankDialogState, setBankDialogState] = useState<BankDialog>('openBank')
+    const [bankDialogState, setBankDialogState] =
+        useState<BankDialog>('openBank')
 
     const [selectedBank, setSelectedBank] = useState<null | string>(null)
     const [addedEstateStaffStep, setAddedEstateStaffStep] =
@@ -113,8 +114,6 @@ const ViewEstateStaff = () => {
         })
     }
 
-   
-
     const handleClose = () => {
         if (bankRef.current) {
             bankRef.current.close()
@@ -122,14 +121,13 @@ const ViewEstateStaff = () => {
     }
 
     const openBankDialog = (bankDialog: BankDialog) => {
-        if(bankDialog === 'openBank'){
+        if (bankDialog === 'openBank') {
             setBankDialogState('openBank')
         }
-        if(bankDialog === 'generateId'){
+        if (bankDialog === 'generateId') {
             setBankDialogState('generateId')
         }
-   
-       
+
         if (bankRef.current) {
             bankRef.current.showModal()
         }
@@ -325,11 +323,9 @@ const ViewEstateStaff = () => {
                                 <img src='/img/new_Id.svg' alt='' />
                                 <button
                                     className='btn text-white bg-color-blue-1 py-4 px-16 rounded-lg w-[15rem]'
-                                    onClick={
-                                        () => handleClose()
-                                    }>
+                                    onClick={() => handleClose()}
+                                >
                                     Print
-                                   
                                 </button>
                             </div>
                         ) : (
@@ -454,7 +450,7 @@ const ViewEstateStaff = () => {
                         <div className='grid gap-4 relative '>
                             <label
                                 htmlFor='firstName'
-                                className='text-[1.4rem] font-medium'
+                                className='text-[1.4rem] font-Satoshi-Medium'
                             >
                                 First Name *
                             </label>
@@ -468,7 +464,7 @@ const ViewEstateStaff = () => {
                         <div className='grid gap-4 relative '>
                             <label
                                 htmlFor='lastName'
-                                className='text-[1.4rem] font-medium'
+                                className='text-[1.4rem] font-Satoshi-Medium'
                             >
                                 Last Name *
                             </label>
@@ -482,7 +478,7 @@ const ViewEstateStaff = () => {
                         <div className='grid gap-4 relative '>
                             <label
                                 htmlFor='lastName'
-                                className='text-[1.4rem] font-medium'
+                                className='text-[1.4rem] font-Satoshi-Medium'
                             >
                                 Middle Name *
                             </label>
@@ -496,7 +492,7 @@ const ViewEstateStaff = () => {
                         <div className='grid gap-4 relative '>
                             <label
                                 htmlFor='lastName'
-                                className='text-[1.4rem] font-medium'
+                                className='text-[1.4rem] font-Satoshi-Medium'
                             >
                                 Date of Birth
                             </label>
@@ -511,7 +507,7 @@ const ViewEstateStaff = () => {
                         <div className='grid gap-4'>
                             <label
                                 htmlFor='phoneNumber'
-                                className='text-[1.4rem] font-medium'
+                                className='text-[1.4rem] font-Satoshi-Medium'
                             >
                                 Phone Number *
                             </label>
@@ -539,7 +535,7 @@ const ViewEstateStaff = () => {
                         <div className='grid gap-4 relative'>
                             <label
                                 htmlFor='email'
-                                className='text-[1.4rem] font-medium'
+                                className='text-[1.4rem] font-Satoshi-Medium'
                             >
                                 Email Address *
                             </label>
@@ -554,7 +550,7 @@ const ViewEstateStaff = () => {
                         <div className='grid gap-4 relative'>
                             <label
                                 htmlFor='address1'
-                                className='text-[1.4rem] font-medium'
+                                className='text-[1.4rem] font-Satoshi-Medium'
                             >
                                 Address
                             </label>
@@ -616,7 +612,7 @@ const ViewEstateStaff = () => {
                                 <div className='grid gap-4 relative '>
                                     <label
                                         htmlFor='bankName'
-                                        className='text-[1.4rem] font-medium'
+                                        className='text-[1.4rem] font-Satoshi-Medium'
                                     >
                                         Bank Name
                                     </label>
@@ -632,7 +628,7 @@ const ViewEstateStaff = () => {
                                 <div className='grid gap-4 relative '>
                                     <label
                                         htmlFor='firstName'
-                                        className='text-[1.4rem] font-medium'
+                                        className='text-[1.4rem] font-Satoshi-Medium'
                                     >
                                         Account Number
                                     </label>

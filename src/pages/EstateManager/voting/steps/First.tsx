@@ -14,8 +14,7 @@ function First() {
     ) => {
         setElectionCategory((prev) => {
             const updatedArr = [...prev]
-            updatedArr[idx] =  e.target.value
-            
+            updatedArr[idx] = e.target.value
 
             return updatedArr
         })
@@ -27,7 +26,7 @@ function First() {
                 <div className='grid gap-4 relative w-[40rem]'>
                     <label
                         htmlFor='firstName'
-                        className='text-[1.4rem] font-medium'
+                        className='text-[1.4rem] font-Satoshi-Medium'
                     >
                         Election Title
                     </label>
@@ -44,7 +43,7 @@ function First() {
                     <div className='grid gap-4 relative' key={idx}>
                         <label
                             htmlFor='category'
-                            className='text-[1.4rem] font-medium'
+                            className='text-[1.4rem] font-Satoshi-Medium'
                         >
                             Election Category
                         </label>

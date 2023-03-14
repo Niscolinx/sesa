@@ -1,11 +1,9 @@
 import React, { FormEvent, useRef, useState } from 'react'
-import {  IoMdClose } from 'react-icons/io'
+import { IoMdClose } from 'react-icons/io'
 import { MultipleSelect } from '../UI/Select'
 
 const AddSOS = () => {
     const [selectedEstates, setSelectedEstates] = useState<string[]>([])
-
-
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
@@ -74,7 +72,7 @@ const AddSOS = () => {
                     <div className='grid gap-4 relative '>
                         <label
                             htmlFor='SOSName'
-                            className='text-[1.4rem] font-medium'
+                            className='text-[1.4rem] font-Satoshi-Medium'
                         >
                             Name
                         </label>
@@ -161,7 +159,9 @@ const AddSOS = () => {
                     </div>
 
                     <div className='col-span-full'>
-                        <p className='text-[2rem] font-Satoshi-Medium py-8'>Add Estates</p>
+                        <p className='text-[2rem] font-Satoshi-Medium py-8'>
+                            Add Estates
+                        </p>
                         <MultipleSelect
                             label='Estates'
                             placeholder='Select Estates'
@@ -176,7 +176,6 @@ const AddSOS = () => {
                         onClick={() => handleOpen()}
                     >
                         Add SOS
-                       
                     </button>
                 </form>
             </div>

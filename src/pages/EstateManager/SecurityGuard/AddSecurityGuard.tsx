@@ -8,9 +8,7 @@ import {
     AddedSecurityGuardSuccessfully,
     OpenedBankAccountSuccessful,
 } from './DialogSteps'
-import {
-    Select,
-} from '../../../components/SuperAdmin/UI/Select'
+import { Select } from '../../../components/SuperAdmin/UI/Select'
 import { getPhotoUrl } from '../../../utils/getPhotoUrl'
 import {
     BVN_Number,
@@ -124,8 +122,6 @@ const AddSecurityGuard = () => {
 
         openValidateDialog()
     }
-
-  
 
     const renderValidationType = new Map([
         ['Phone Number', <PhoneNumber />],
@@ -316,7 +312,9 @@ const AddSecurityGuard = () => {
                             </form>
                         ) : (
                             <div className='bg-white rounded-2xl grid place-content-center justify-items-center h-[30rem] gap-8 text-[1.6rem]'>
-                                {addedSecurityGuardSteps.get(addedSecurityGuardStep)}
+                                {addedSecurityGuardSteps.get(
+                                    addedSecurityGuardStep
+                                )}
                             </div>
                         )}
                     </div>
@@ -324,7 +322,9 @@ const AddSecurityGuard = () => {
             </dialog>
             <main>
                 <section className='grid p-8 bg-white items-baseline rounded-lg'>
-                  <p className='text-[2rem] font-Satoshi-Medium mb-5'>Personal Information</p>
+                    <p className='text-[2rem] font-Satoshi-Medium mb-5'>
+                        Personal Information
+                    </p>
                     <form
                         onSubmit={handleSubmit}
                         className='grid max-w-[84rem] gap-16 mt-12 '
@@ -336,7 +336,7 @@ const AddSecurityGuard = () => {
                         <div className='grid gap-4 relative '>
                             <label
                                 htmlFor='firstName'
-                                className='text-[1.4rem] font-medium'
+                                className='text-[1.4rem] font-Satoshi-Medium'
                             >
                                 First Name *
                             </label>
@@ -350,7 +350,7 @@ const AddSecurityGuard = () => {
                         <div className='grid gap-4 relative '>
                             <label
                                 htmlFor='lastName'
-                                className='text-[1.4rem] font-medium'
+                                className='text-[1.4rem] font-Satoshi-Medium'
                             >
                                 Last Name *
                             </label>
@@ -364,7 +364,7 @@ const AddSecurityGuard = () => {
                         <div className='grid gap-4 relative '>
                             <label
                                 htmlFor='lastName'
-                                className='text-[1.4rem] font-medium'
+                                className='text-[1.4rem] font-Satoshi-Medium'
                             >
                                 Middle Name *
                             </label>
@@ -378,7 +378,7 @@ const AddSecurityGuard = () => {
                         <div className='grid gap-4 relative '>
                             <label
                                 htmlFor='lastName'
-                                className='text-[1.4rem] font-medium'
+                                className='text-[1.4rem] font-Satoshi-Medium'
                             >
                                 Date of Birth
                             </label>
@@ -393,7 +393,7 @@ const AddSecurityGuard = () => {
                         <div className='grid gap-4'>
                             <label
                                 htmlFor='phoneNumber'
-                                className='text-[1.4rem] font-medium'
+                                className='text-[1.4rem] font-Satoshi-Medium'
                             >
                                 Phone Number *
                             </label>
@@ -421,7 +421,7 @@ const AddSecurityGuard = () => {
                         <div className='grid gap-4 relative'>
                             <label
                                 htmlFor='email'
-                                className='text-[1.4rem] font-medium'
+                                className='text-[1.4rem] font-Satoshi-Medium'
                             >
                                 Email Address *
                             </label>
@@ -436,7 +436,7 @@ const AddSecurityGuard = () => {
                         <div className='grid gap-4 relative'>
                             <label
                                 htmlFor='address1'
-                                className='text-[1.4rem] font-medium'
+                                className='text-[1.4rem] font-Satoshi-Medium'
                             >
                                 Home Address
                             </label>
@@ -455,8 +455,6 @@ const AddSecurityGuard = () => {
                             selectedState={selectedState}
                             setSelectedState={setSelectedState}
                         />
-                       
-                        
 
                         <div className='col-span-full rounded-lg border border-width-[.2rem] border-dashed border-color-grey-1 p-8 text-[1.6rem] relative w-full'>
                             <label
@@ -530,9 +528,8 @@ const AddSecurityGuard = () => {
 
                         {isValidated ? (
                             <div className='flex gap-8 text-[1.6rem]'>
-                                <p className='text-[#098DFF] cursor-pointer flex items-center font-medium'>
-                                    kys Validated{' '}
-                                    <IoMdCheckmarkCircleOutline />
+                                <p className='text-[#098DFF] cursor-pointer flex items-center font-Satoshi-Medium'>
+                                    kys Validated <IoMdCheckmarkCircleOutline />
                                 </p>
                                 <button
                                     className='text-green-600 flex items-center gap-2'

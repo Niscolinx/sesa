@@ -63,7 +63,10 @@ function PaymentForm({ props }: PaymentForm) {
     const flexible = (
         <>
             <div className='grid gap-4'>
-                <label htmlFor='amount' className='text-[1.4rem] font-medium'>
+                <label
+                    htmlFor='amount'
+                    className='text-[1.4rem] font-Satoshi-Medium'
+                >
                     Amount
                 </label>
                 <div className='relative rounded-lg border border-color-grey outline-none flex items-center pl-4'>
@@ -99,7 +102,10 @@ function PaymentForm({ props }: PaymentForm) {
     const fixed = (
         <>
             <div className='grid gap-4'>
-                <label htmlFor='amount' className='text-[1.4rem] font-medium'>
+                <label
+                    htmlFor='amount'
+                    className='text-[1.4rem] font-Satoshi-Medium'
+                >
                     Start Date
                 </label>
                 <input
@@ -110,7 +116,10 @@ function PaymentForm({ props }: PaymentForm) {
                 />
             </div>
             <div className='grid gap-4'>
-                <label htmlFor='amount' className='text-[1.4rem] font-medium'>
+                <label
+                    htmlFor='amount'
+                    className='text-[1.4rem] font-Satoshi-Medium'
+                >
                     End Date
                 </label>
                 <input
@@ -122,7 +131,10 @@ function PaymentForm({ props }: PaymentForm) {
             </div>
 
             <div className='grid gap-4'>
-                <label htmlFor='amount' className='text-[1.4rem] font-medium'>
+                <label
+                    htmlFor='amount'
+                    className='text-[1.4rem] font-Satoshi-Medium'
+                >
                     Amount
                 </label>
                 <div className='relative rounded-lg border border-color-grey outline-none flex items-center pl-4'>
@@ -147,7 +159,10 @@ function PaymentForm({ props }: PaymentForm) {
             />
 
             <div className='grid gap-4'>
-                <label htmlFor='deadline' className='text-[1.4rem] font-medium'>
+                <label
+                    htmlFor='deadline'
+                    className='text-[1.4rem] font-Satoshi-Medium'
+                >
                     Deadline
                 </label>
                 <input
@@ -158,7 +173,7 @@ function PaymentForm({ props }: PaymentForm) {
             </div>
 
             <div className='grid justify-items-start gap-4 self-end'>
-                <p className=' font-medium flex items-center gap-2 text-[#043FA7]'>
+                <p className=' font-Satoshi-Medium flex items-center gap-2 text-[#043FA7]'>
                     Track Payment{' '}
                     <span className='text-[#043FA7]'>
                         <BsQuestionCircle />
@@ -234,17 +249,16 @@ function PaymentForm({ props }: PaymentForm) {
                       const amount: number =
                           parseInt(curr.amount.split(',').join('')) + prev
 
-                          
-                          if (isNaN(amount)) {
-                              return prev
-                            } else {
-                                console.log('ramisafsdf')
-                                return amount
-                            }
-                        }, 0)
-                        : 0
-                        
-                        console.log({amount}, typeof reducedAmount)
+                      if (isNaN(amount)) {
+                          return prev
+                      } else {
+                          console.log('ramisafsdf')
+                          return amount
+                      }
+                  }, 0)
+                : 0
+
+        console.log({ amount }, typeof reducedAmount)
         const balance = parseInt(amount.split(',').join('')) - reducedAmount
 
         console.log({ balance })
@@ -290,7 +304,7 @@ function PaymentForm({ props }: PaymentForm) {
                                     <div className='grid gap-4 relative '>
                                         <label
                                             htmlFor='amount'
-                                            className='text-[1.4rem] font-medium'
+                                            className='text-[1.4rem] font-Satoshi-Medium'
                                         >
                                             Installment Amount
                                         </label>
@@ -314,7 +328,7 @@ function PaymentForm({ props }: PaymentForm) {
                                     <div className='grid gap-4'>
                                         <label
                                             htmlFor='startDate'
-                                            className='text-[1.4rem] font-medium'
+                                            className='text-[1.4rem] font-Satoshi-Medium'
                                         >
                                             Start Date
                                         </label>
@@ -329,7 +343,7 @@ function PaymentForm({ props }: PaymentForm) {
                                     <div className='grid gap-4'>
                                         <label
                                             htmlFor='endDate'
-                                            className='text-[1.4rem] font-medium'
+                                            className='text-[1.4rem] font-Satoshi-Medium'
                                         >
                                             End Date
                                         </label>
@@ -376,7 +390,7 @@ function PaymentForm({ props }: PaymentForm) {
                             <div className='flex items-center gap-4'>
                                 {item.amount && (
                                     <>
-                                        <span className='text-color-blue-1 font-medium w-[10rem]'>
+                                        <span className='text-color-blue-1 font-Satoshi-Medium w-[10rem]'>
                                             Installment {idx + 1}:
                                         </span>
                                         <p className='flex items-center font-semibold '>
@@ -412,7 +426,9 @@ function PaymentForm({ props }: PaymentForm) {
                                                 alt=''
                                             />
                                         </span>{' '}
-                                        <span>{balanceAmount.toLocaleString()}</span>
+                                        <span>
+                                            {balanceAmount.toLocaleString()}
+                                        </span>
                                     </p>
                                 </>
                             )}
@@ -432,7 +448,7 @@ function PaymentForm({ props }: PaymentForm) {
                         <div className='grid gap-4 relative '>
                             <label
                                 htmlFor='firstName'
-                                className='text-[1.4rem] font-medium'
+                                className='text-[1.4rem] font-Satoshi-Medium'
                             >
                                 Payment Name
                             </label>

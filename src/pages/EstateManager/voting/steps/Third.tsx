@@ -1,4 +1,5 @@
 import { ChangeEvent } from 'react'
+import { MultipleSelect } from '../../../../components/SuperAdmin/UI/Select'
 import { useCreateElectionContext } from '../createElection'
 
 function Third() {
@@ -32,7 +33,52 @@ function Third() {
                     <div className='grid gap-4 relative'>
                         <label
                             htmlFor='thirdName'
-                            className='text-[1.4rem] font-medium'
+                            className='text-[1.4rem] font-Satoshi-Medium'
+                        >
+                            Voting End Date
+                        </label>
+                        <input
+                            type='date'
+                            required
+                            id='thirdName'
+                            placeholder='placeholder'
+                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                        />
+                    </div>
+                    <div className='grid gap-4 relative'>
+                        <label
+                            htmlFor='thirdName'
+                            className='text-[1.4rem] font-Satoshi-Medium'
+                        >
+                            Voting Start Time
+                        </label>
+                        <input
+                            type='time'
+                            required
+                            id='thirdName'
+                            placeholder='placeholder'
+                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                        />
+                    </div>
+                    <div className='grid gap-4 relative'>
+                        <label
+                            htmlFor='thirdName'
+                            className='text-[1.4rem] font-Satoshi-Medium'
+                        >
+                            Voting Start End
+                        </label>
+                        <input
+                            type='time'
+                            required
+                            id='thirdName'
+                            placeholder='placeholder'
+                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                        />
+                    </div>
+                    <div className='grid gap-4 relative'>
+                        <label
+                            htmlFor='thirdName'
+                            className='text-[1.4rem] font-Satoshi-Medium'
                         >
                             Voting Start Date
                         </label>
@@ -44,6 +90,7 @@ function Third() {
                             className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                         />
                     </div>
+                    <MultipleSelect/>
                 </div>
             </form>
         </div>

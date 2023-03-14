@@ -57,8 +57,6 @@ const AddSecurityCompany = () => {
         handleClose()
     }
 
-    
-
     return (
         <>
             <dialog className='dialog' ref={dialogRef}>
@@ -139,7 +137,7 @@ const AddSecurityCompany = () => {
                     <div className='grid gap-4 relative '>
                         <label
                             htmlFor='securityCompany'
-                            className='text-[1.4rem] font-medium'
+                            className='text-[1.4rem] font-Satoshi-Medium'
                         >
                             Security Company *
                         </label>
@@ -153,7 +151,7 @@ const AddSecurityCompany = () => {
                     <div className='grid gap-4 relative'>
                         <label
                             htmlFor='email'
-                            className='text-[1.4rem] font-medium'
+                            className='text-[1.4rem] font-Satoshi-Medium'
                         >
                             Email Address *
                         </label>
@@ -168,7 +166,7 @@ const AddSecurityCompany = () => {
                     <div className='grid gap-4'>
                         <label
                             htmlFor='phoneNumber'
-                            className='text-[1.4rem] font-medium'
+                            className='text-[1.4rem] font-Satoshi-Medium'
                         >
                             Phone Number *
                         </label>
@@ -190,7 +188,7 @@ const AddSecurityCompany = () => {
                     <div className='grid gap-4 relative'>
                         <label
                             htmlFor='address'
-                            className='text-[1.4rem] font-medium'
+                            className='text-[1.4rem] font-Satoshi-Medium'
                         >
                             Address *
                         </label>

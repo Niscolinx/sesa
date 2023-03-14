@@ -156,7 +156,7 @@ const BulkUpload = () => {
                                 <div className='grid gap-4'>
                                     <label
                                         htmlFor='convenienceFee'
-                                        className='text-[1.4rem] font-medium'
+                                        className='text-[1.4rem] font-Satoshi-Medium'
                                     >
                                         Convenience Fee
                                     </label>
@@ -180,7 +180,7 @@ const BulkUpload = () => {
                                 <div className='grid gap-4 relative'>
                                     <label
                                         htmlFor='instruction'
-                                        className='text-[1.4rem] font-medium'
+                                        className='text-[1.4rem] font-Satoshi-Medium'
                                     >
                                         Instuction/Message *
                                     </label>

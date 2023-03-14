@@ -4,7 +4,6 @@ import { Select } from '../../../components/SuperAdmin/UI/Select'
 import StarRating from '../../../components/SuperAdmin/UI/StarRating'
 import { getPhotoUrl } from '../../../utils/getPhotoUrl'
 
-
 type Actions = 'Deactivate' | 'Delete'
 
 const ViewArtisan = () => {
@@ -24,13 +23,9 @@ const ViewArtisan = () => {
         e.preventDefault()
     }
 
-   
-
     return (
         <>
             <ToastContainer />
-
-      
 
             <div className='grid p-8 bg-white  rounded-lg gap-[10rem]'>
                 <div>
@@ -44,7 +39,6 @@ const ViewArtisan = () => {
                                 alt='photoPreview'
                                 className='object-cover w-[11rem] h-[11rem] rounded-full object-top'
                             />
-                          
                         </label>
                         <input
                             type='file'
@@ -88,7 +82,7 @@ const ViewArtisan = () => {
                         <div className='grid gap-4 relative '>
                             <label
                                 htmlFor='fullName'
-                                className='text-[1.4rem] font-medium'
+                                className='text-[1.4rem] font-Satoshi-Medium'
                             >
                                 Full Name *
                             </label>
@@ -102,7 +96,7 @@ const ViewArtisan = () => {
                         <div className='grid gap-4 relative '>
                             <label
                                 htmlFor='artisanCode'
-                                className='text-[1.4rem] font-medium'
+                                className='text-[1.4rem] font-Satoshi-Medium'
                             >
                                 Business Name
                             </label>
@@ -116,7 +110,7 @@ const ViewArtisan = () => {
                         <div className='grid gap-4 relative '>
                             <label
                                 htmlFor='DateOfBirth'
-                                className='text-[1.4rem] font-medium'
+                                className='text-[1.4rem] font-Satoshi-Medium'
                             >
                                 Artisan Category
                             </label>
@@ -130,7 +124,7 @@ const ViewArtisan = () => {
                         <div className='grid gap-4 relative '>
                             <label
                                 htmlFor='email'
-                                className='text-[1.4rem] font-medium'
+                                className='text-[1.4rem] font-Satoshi-Medium'
                             >
                                 Email Address
                             </label>
@@ -145,7 +139,7 @@ const ViewArtisan = () => {
                         <div className='grid gap-4'>
                             <label
                                 htmlFor='phoneNumber'
-                                className='text-[1.4rem] font-medium'
+                                className='text-[1.4rem] font-Satoshi-Medium'
                             >
                                 Phone Number *
                             </label>
@@ -175,7 +169,7 @@ const ViewArtisan = () => {
                         <div className='grid gap-4 relative'>
                             <label
                                 htmlFor='homeAddress'
-                                className='text-[1.4rem] font-medium'
+                                className='text-[1.4rem] font-Satoshi-Medium'
                             >
                                 Home Address
                             </label>
@@ -189,7 +183,7 @@ const ViewArtisan = () => {
                         <div className='grid gap-4 relative'>
                             <label
                                 htmlFor='businessName'
-                                className='text-[1.4rem] font-medium'
+                                className='text-[1.4rem] font-Satoshi-Medium'
                             >
                                 Business Name
                             </label>
@@ -204,7 +198,7 @@ const ViewArtisan = () => {
                         <div className='grid gap-4 relative'>
                             <label
                                 htmlFor='status'
-                                className='text-[1.4rem] font-medium'
+                                className='text-[1.4rem] font-Satoshi-Medium'
                             >
                                 Status
                             </label>
@@ -217,9 +211,7 @@ const ViewArtisan = () => {
                             />
                         </div>
                         <div>
-                            <p
-                                className='text-[1.4rem] font-medium'
-                            >
+                            <p className='text-[1.4rem] font-Satoshi-Medium'>
                                 Rating
                             </p>
                             <StarRating starsNum={3} />

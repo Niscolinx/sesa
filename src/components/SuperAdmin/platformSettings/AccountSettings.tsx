@@ -62,7 +62,9 @@ const AccountSettings = () => {
                     }}
                 >
                     <div>
-                        <label className='font-medium'>Current Password</label>
+                        <label className='font-Satoshi-Medium'>
+                            Current Password
+                        </label>
                         <div className='relative flex items-center'>
                             <input
                                 type={eyeIcon ? 'text' : 'password'}
@@ -81,7 +83,9 @@ const AccountSettings = () => {
                         </div>
                     </div>
                     <div>
-                        <label className='font-medium'>New Password</label>
+                        <label className='font-Satoshi-Medium'>
+                            New Password
+                        </label>
                         <div className='relative flex items-center'>
                             <input
                                 type={eyeIcon ? 'text' : 'password'}
@@ -100,7 +104,7 @@ const AccountSettings = () => {
                         </div>
                     </div>
                     <div>
-                        <label className='font-medium'>
+                        <label className='font-Satoshi-Medium'>
                             Re-Enter New Password
                         </label>
                         <div className='relative flex items-center'>

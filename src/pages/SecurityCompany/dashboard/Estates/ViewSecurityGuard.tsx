@@ -381,7 +381,7 @@ const ViewSecurityGuard = () => {
                             </button>
                         </div>
                     </div>
-                  
+
                     <form
                         onSubmit={handleSubmit}
                         className='grid max-w-[84rem] gap-16 mt-12'
@@ -393,7 +393,7 @@ const ViewSecurityGuard = () => {
                         <div className='grid gap-4 relative '>
                             <label
                                 htmlFor='fullName'
-                                className='text-[1.4rem] font-medium'
+                                className='text-[1.4rem] font-Satoshi-Medium'
                             >
                                 Full Name *
                             </label>
@@ -407,7 +407,7 @@ const ViewSecurityGuard = () => {
                         <div className='grid gap-4 relative '>
                             <label
                                 htmlFor='SecurityGuardCode'
-                                className='text-[1.4rem] font-medium'
+                                className='text-[1.4rem] font-Satoshi-Medium'
                             >
                                 Security Guard Code
                             </label>
@@ -421,7 +421,7 @@ const ViewSecurityGuard = () => {
                         <div className='grid gap-4 relative '>
                             <label
                                 htmlFor='DateOfBirth'
-                                className='text-[1.4rem] font-medium'
+                                className='text-[1.4rem] font-Satoshi-Medium'
                             >
                                 Date of Birth
                             </label>
@@ -435,7 +435,7 @@ const ViewSecurityGuard = () => {
                         <div className='grid gap-4 relative '>
                             <label
                                 htmlFor='email'
-                                className='text-[1.4rem] font-medium'
+                                className='text-[1.4rem] font-Satoshi-Medium'
                             >
                                 Email Address
                             </label>
@@ -450,7 +450,7 @@ const ViewSecurityGuard = () => {
                         <div className='grid gap-4'>
                             <label
                                 htmlFor='phoneNumber'
-                                className='text-[1.4rem] font-medium'
+                                className='text-[1.4rem] font-Satoshi-Medium'
                             >
                                 Phone Number *
                             </label>
@@ -480,7 +480,7 @@ const ViewSecurityGuard = () => {
                         <div className='grid gap-4 relative'>
                             <label
                                 htmlFor='homeAddress'
-                                className='text-[1.4rem] font-medium'
+                                className='text-[1.4rem] font-Satoshi-Medium'
                             >
                                 Home Address
                             </label>
@@ -494,7 +494,7 @@ const ViewSecurityGuard = () => {
                         <div className='grid gap-4 relative'>
                             <label
                                 htmlFor='idType'
-                                className='text-[1.4rem] font-medium'
+                                className='text-[1.4rem] font-Satoshi-Medium'
                             >
                                 ID Type
                             </label>
@@ -509,7 +509,7 @@ const ViewSecurityGuard = () => {
                         <div className='grid gap-4 relative'>
                             <label
                                 htmlFor='idNumber'
-                                className='text-[1.4rem] font-medium'
+                                className='text-[1.4rem] font-Satoshi-Medium'
                             >
                                 ID Number
                             </label>
@@ -523,7 +523,7 @@ const ViewSecurityGuard = () => {
                         <div className='grid gap-4 relative'>
                             <label
                                 htmlFor='kya'
-                                className='text-[1.4rem] font-medium'
+                                className='text-[1.4rem] font-Satoshi-Medium'
                             >
                                 KYA
                             </label>
@@ -538,7 +538,7 @@ const ViewSecurityGuard = () => {
                         <div className='grid gap-4 relative'>
                             <label
                                 htmlFor='dateOfOnboarding'
-                                className='text-[1.4rem] font-medium'
+                                className='text-[1.4rem] font-Satoshi-Medium'
                             >
                                 Date of Onboarding
                             </label>
@@ -563,7 +563,7 @@ const ViewSecurityGuard = () => {
                     <div className='grid gap-4'>
                         <div className=' items-center grid grid-cols-3'>
                             <div>
-                                <p className='text-[1.4rem] font-medium'>
+                                <p className='text-[1.4rem] font-Satoshi-Medium'>
                                     Primary Assigned Estate
                                 </p>
                                 <p className='text-[1.4rem] font-light'>
@@ -597,7 +597,7 @@ const ViewSecurityGuard = () => {
                         </div>
                         <div className=' items-center grid grid-cols-3'>
                             <div>
-                                <p className='text-[1.4rem] font-medium'>
+                                <p className='text-[1.4rem] font-Satoshi-Medium'>
                                     Secondary Assigned Estate
                                 </p>
                                 <p className='text-[1.4rem] font-light'>
@@ -631,7 +631,7 @@ const ViewSecurityGuard = () => {
                         </div>
                         <div className=' items-center grid grid-cols-3'>
                             <div>
-                                <p className='text-[1.4rem] font-medium'>
+                                <p className='text-[1.4rem] font-Satoshi-Medium'>
                                     Primary Assigned Estate
                                 </p>
                                 <p className='text-[1.4rem] font-light'>
@@ -665,7 +665,7 @@ const ViewSecurityGuard = () => {
                         </div>
                         <div className=' items-center grid grid-cols-3'>
                             <div>
-                                <p className='text-[1.4rem] font-medium'>
+                                <p className='text-[1.4rem] font-Satoshi-Medium'>
                                     Primary Assigned Estate
                                 </p>
                                 <p className='text-[1.4rem] font-light'>

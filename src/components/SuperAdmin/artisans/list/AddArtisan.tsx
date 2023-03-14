@@ -200,7 +200,7 @@ const AddArtisan = () => {
                                 <div className='grid gap-4'>
                                     <label
                                         htmlFor='phoneNumber'
-                                        className='text-[1.4rem] font-medium'
+                                        className='text-[1.4rem] font-Satoshi-Medium'
                                     >
                                         Phone Number
                                     </label>
@@ -294,7 +294,7 @@ const AddArtisan = () => {
                     <div className='grid gap-4 relative '>
                         <label
                             htmlFor='firstName'
-                            className='text-[1.4rem] font-medium'
+                            className='text-[1.4rem] font-Satoshi-Medium'
                         >
                             First Name *
                         </label>
@@ -308,7 +308,7 @@ const AddArtisan = () => {
                     <div className='grid gap-4 relative '>
                         <label
                             htmlFor='lastName'
-                            className='text-[1.4rem] font-medium'
+                            className='text-[1.4rem] font-Satoshi-Medium'
                         >
                             Last Name *
                         </label>
@@ -328,7 +328,7 @@ const AddArtisan = () => {
                     <div className='grid gap-4'>
                         <label
                             htmlFor='phoneNumber'
-                            className='text-[1.4rem] font-medium'
+                            className='text-[1.4rem] font-Satoshi-Medium'
                         >
                             Phone Number *
                         </label>
@@ -350,7 +350,7 @@ const AddArtisan = () => {
                     <div className='grid gap-4 relative'>
                         <label
                             htmlFor='email'
-                            className='text-[1.4rem] font-medium'
+                            className='text-[1.4rem] font-Satoshi-Medium'
                         >
                             Email Address *
                         </label>
@@ -365,7 +365,7 @@ const AddArtisan = () => {
                     <div className='grid gap-4 relative'>
                         <label
                             htmlFor='address1'
-                            className='text-[1.4rem] font-medium'
+                            className='text-[1.4rem] font-Satoshi-Medium'
                         >
                             Address Line 1*
                         </label>
@@ -379,7 +379,7 @@ const AddArtisan = () => {
                     <div className='grid gap-4 relative'>
                         <label
                             htmlFor='address2'
-                            className='text-[1.4rem] font-medium'
+                            className='text-[1.4rem] font-Satoshi-Medium'
                         >
                             Address Line 2*
                         </label>
@@ -412,7 +412,7 @@ const AddArtisan = () => {
                     <div className='grid gap-4 relative'>
                         <label
                             htmlFor='businessName'
-                            className='text-[1.4rem] font-medium'
+                            className='text-[1.4rem] font-Satoshi-Medium'
                         >
                             Business Name
                         </label>

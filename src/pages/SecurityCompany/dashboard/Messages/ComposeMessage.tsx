@@ -3,7 +3,6 @@ import { IoMdAdd } from 'react-icons/io'
 import { Select } from '../../../../components/SuperAdmin/UI/Select'
 import RecipientList from './RecipientList'
 
-
 const ComposeMessage = () => {
     const [selectedChannelType, setSelectedChannelType] = useState<
         string | null
@@ -125,7 +124,7 @@ const ComposeMessage = () => {
                     <div className='grid gap-4 relative'>
                         <label
                             htmlFor='email'
-                            className='text-[1.4rem] font-medium'
+                            className='text-[1.4rem] font-Satoshi-Medium'
                         >
                             Message Subject
                         </label>
@@ -138,7 +137,7 @@ const ComposeMessage = () => {
                     </div>
 
                     <div className='grid gap-4'>
-                        <p className='text-[1.4rem] font-medium'>
+                        <p className='text-[1.4rem] font-Satoshi-Medium'>
                             Schedule Message
                         </p>
                         <div className='flex items-center gap-8'>
@@ -181,7 +180,9 @@ const ComposeMessage = () => {
                         </p>
                     </div>
                     <div className='grid gap-4 relative'>
-                        <p className='text-[1.4rem] font-medium'>Receipts</p>
+                        <p className='text-[1.4rem] font-Satoshi-Medium'>
+                            Receipts
+                        </p>
                         <button
                             className='btn border border-color-blue-1 text-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
                             style={{ justifySelf: 'start' }}
@@ -191,7 +192,7 @@ const ComposeMessage = () => {
                         </button>
                     </div>
                     <div className='col-span-full'>
-                        <label className=' font-medium'>Message</label>
+                        <label className=' font-Satoshi-Medium'>Message</label>
                         <textarea
                             rows={5}
                             className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4 '

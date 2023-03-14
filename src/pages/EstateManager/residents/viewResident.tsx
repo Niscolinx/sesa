@@ -17,7 +17,6 @@ export type ValidateInputTypes =
     | 'Voters Card'
 
 const ViewResident = () => {
-   
     const [selectedGender, setSelectedGender] = useState<string | null>(null)
     const [isValidated, setIsValidated] = useState(false)
 
@@ -37,8 +36,6 @@ const ViewResident = () => {
     const validatedDialogRef = useRef<HTMLDialogElement | null>(null)
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
-   
-   
     const closeValidatedDialog = () => {
         if (validatedDialogRef.current) {
             validatedDialogRef.current.close()
@@ -51,8 +48,6 @@ const ViewResident = () => {
     }
 
     const openDeleteOrDeactivateDialog = (dialogType: Actions) => {
-       
-
         if (dialogRef.current) {
             dialogRef.current.showModal()
         }
@@ -64,9 +59,6 @@ const ViewResident = () => {
         }
     }
 
-   
-
-   
     const handleDeactivateResident = () => {
         handleCloseDeleteOrDeactivateDialog()
 
@@ -177,7 +169,8 @@ const ViewResident = () => {
                                 alt=''
                             />
                             <p className='text-[1.6rem]'>
-                                Are you sure you want to deactivate this resident?
+                                Are you sure you want to deactivate this
+                                resident?
                             </p>
 
                             <div className='flex w-full justify-center gap-8'>
@@ -301,7 +294,7 @@ const ViewResident = () => {
                         <div className='grid gap-4 relative '>
                             <label
                                 htmlFor='firstName'
-                                className='text-[1.4rem] font-medium'
+                                className='text-[1.4rem] font-Satoshi-Medium'
                             >
                                 First Name *
                             </label>
@@ -315,7 +308,7 @@ const ViewResident = () => {
                         <div className='grid gap-4 relative '>
                             <label
                                 htmlFor='lastName'
-                                className='text-[1.4rem] font-medium'
+                                className='text-[1.4rem] font-Satoshi-Medium'
                             >
                                 Middle Name *
                             </label>
@@ -329,7 +322,7 @@ const ViewResident = () => {
                         <div className='grid gap-4 relative '>
                             <label
                                 htmlFor='lastName'
-                                className='text-[1.4rem] font-medium'
+                                className='text-[1.4rem] font-Satoshi-Medium'
                             >
                                 Last Name *
                             </label>
@@ -344,7 +337,7 @@ const ViewResident = () => {
                         <div className='grid gap-4 relative '>
                             <label
                                 htmlFor='lastName'
-                                className='text-[1.4rem] font-medium'
+                                className='text-[1.4rem] font-Satoshi-Medium'
                             >
                                 Date of Birth
                             </label>
@@ -359,7 +352,7 @@ const ViewResident = () => {
                         <div className='grid gap-4'>
                             <label
                                 htmlFor='phoneNumber'
-                                className='text-[1.4rem] font-medium'
+                                className='text-[1.4rem] font-Satoshi-Medium'
                             >
                                 Phone Number *
                             </label>
@@ -381,7 +374,7 @@ const ViewResident = () => {
                         <div className='grid gap-4 relative'>
                             <label
                                 htmlFor='email'
-                                className='text-[1.4rem] font-medium'
+                                className='text-[1.4rem] font-Satoshi-Medium'
                             >
                                 Email Address *
                             </label>

@@ -158,7 +158,7 @@ function EditAccessKey() {
                             <div className='grid gap-4 relative '>
                                 <label
                                     htmlFor='accessCardNumber'
-                                    className='text-[1.4rem] font-medium'
+                                    className='text-[1.4rem] font-Satoshi-Medium'
                                 >
                                     Access Card Serial Number{' '}
                                 </label>
@@ -183,7 +183,7 @@ function EditAccessKey() {
                             <div className='grid gap-4 relative '>
                                 <label
                                     htmlFor='holderName'
-                                    className='text-[1.4rem] font-medium'
+                                    className='text-[1.4rem] font-Satoshi-Medium'
                                 >
                                     Holder’s Name{' '}
                                 </label>
@@ -202,7 +202,7 @@ function EditAccessKey() {
                             <div className='grid gap-4 relative '>
                                 <label
                                     htmlFor='phoneNumber'
-                                    className='text-[1.4rem] font-medium'
+                                    className='text-[1.4rem] font-Satoshi-Medium'
                                 >
                                     Phone Number
                                 </label>

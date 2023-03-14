@@ -47,9 +47,7 @@ const EditEditSecurityGuard = () => {
 
     const [selectedBank, setSelectedBank] = useState<null | string>(null)
     const [editSecurityGuardStep, setEditSecurityGuardStep] =
-        useState<EditSecurityGuardSteps>(
-            'editSecurityGuardSuccessful'
-        )
+        useState<EditSecurityGuardSteps>('editSecurityGuardSuccessful')
 
     const [photoUrl, setPhotoUrl] = useState('')
 
@@ -292,7 +290,8 @@ const EditEditSecurityGuard = () => {
                                     alt=''
                                 />
                                 <p className='text-[1.6rem]'>
-                                    Are you sure you want to delete this Security Guard?
+                                    Are you sure you want to delete this
+                                    Security Guard?
                                 </p>
 
                                 <div className='flex w-full justify-center gap-8'>
@@ -439,7 +438,6 @@ const EditEditSecurityGuard = () => {
                             </button>
                         </div>
                     </div>
-                  
 
                     <section>
                         <p className='text-[2rem] font-Satoshi-Medium'>
@@ -456,7 +454,7 @@ const EditEditSecurityGuard = () => {
                             <div className='grid gap-4 relative '>
                                 <label
                                     htmlFor='firstName'
-                                    className='text-[1.4rem] font-medium'
+                                    className='text-[1.4rem] font-Satoshi-Medium'
                                 >
                                     First Name *
                                 </label>
@@ -470,7 +468,7 @@ const EditEditSecurityGuard = () => {
                             <div className='grid gap-4 relative '>
                                 <label
                                     htmlFor='lastName'
-                                    className='text-[1.4rem] font-medium'
+                                    className='text-[1.4rem] font-Satoshi-Medium'
                                 >
                                     Last Name *
                                 </label>
@@ -484,7 +482,7 @@ const EditEditSecurityGuard = () => {
                             <div className='grid gap-4 relative '>
                                 <label
                                     htmlFor='lastName'
-                                    className='text-[1.4rem] font-medium'
+                                    className='text-[1.4rem] font-Satoshi-Medium'
                                 >
                                     Middle Name *
                                 </label>
@@ -498,7 +496,7 @@ const EditEditSecurityGuard = () => {
                             <div className='grid gap-4 relative '>
                                 <label
                                     htmlFor='lastName'
-                                    className='text-[1.4rem] font-medium'
+                                    className='text-[1.4rem] font-Satoshi-Medium'
                                 >
                                     Date of Birth
                                 </label>
@@ -513,7 +511,7 @@ const EditEditSecurityGuard = () => {
                             <div className='grid gap-4'>
                                 <label
                                     htmlFor='phoneNumber'
-                                    className='text-[1.4rem] font-medium'
+                                    className='text-[1.4rem] font-Satoshi-Medium'
                                 >
                                     Phone Number *
                                 </label>
@@ -541,7 +539,7 @@ const EditEditSecurityGuard = () => {
                             <div className='grid gap-4 relative'>
                                 <label
                                     htmlFor='email'
-                                    className='text-[1.4rem] font-medium'
+                                    className='text-[1.4rem] font-Satoshi-Medium'
                                 >
                                     Email Address *
                                 </label>
@@ -556,7 +554,7 @@ const EditEditSecurityGuard = () => {
                             <div className='grid gap-4 relative'>
                                 <label
                                     htmlFor='address1'
-                                    className='text-[1.4rem] font-medium'
+                                    className='text-[1.4rem] font-Satoshi-Medium'
                                 >
                                     Home Address
                                 </label>
@@ -575,7 +573,6 @@ const EditEditSecurityGuard = () => {
                                 selectedState={selectedState}
                                 setSelectedState={setSelectedState}
                             />
-                            
                         </form>
                     </section>
 

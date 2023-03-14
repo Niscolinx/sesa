@@ -166,7 +166,7 @@ function AddRFID() {
                             <div className='grid gap-4 relative '>
                                 <label
                                     htmlFor='RFID'
-                                    className='text-[1.4rem] font-medium'
+                                    className='text-[1.4rem] font-Satoshi-Medium'
                                 >
                                     RFID Seriel Number *
                                 </label>
@@ -187,7 +187,7 @@ function AddRFID() {
                             <div className='grid gap-4 relative '>
                                 <label
                                     htmlFor='vehicleRegNumber'
-                                    className='text-[1.4rem] font-medium'
+                                    className='text-[1.4rem] font-Satoshi-Medium'
                                 >
                                     Vehicle Registration Number*
                                 </label>
@@ -212,7 +212,7 @@ function AddRFID() {
                             <div className='grid gap-4 relative '>
                                 <label
                                     htmlFor='vehicleMake'
-                                    className='text-[1.4rem] font-medium'
+                                    className='text-[1.4rem] font-Satoshi-Medium'
                                 >
                                     Vehicle Make *
                                 </label>

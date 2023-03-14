@@ -161,7 +161,7 @@ const ViewProperty = () => {
                     <div className='grid gap-4 relative '>
                         <label
                             htmlFor='Estate'
-                            className='text-[1.4rem] font-medium'
+                            className='text-[1.4rem] font-Satoshi-Medium'
                         >
                             Estate
                         </label>
@@ -175,7 +175,7 @@ const ViewProperty = () => {
                     <div className='grid gap-4 relative '>
                         <label
                             htmlFor='lastName'
-                            className='text-[1.4rem] font-medium'
+                            className='text-[1.4rem] font-Satoshi-Medium'
                         >
                             Property (Block No. & Flat No.) *
                         </label>
@@ -190,7 +190,7 @@ const ViewProperty = () => {
                     <div className='grid gap-4 relative '>
                         <label
                             htmlFor='lastName'
-                            className='text-[1.4rem] font-medium'
+                            className='text-[1.4rem] font-Satoshi-Medium'
                         >
                             Area/Street *
                         </label>
@@ -246,7 +246,7 @@ const ViewProperty = () => {
                     <div className='grid gap-4 relative'>
                         <label
                             htmlFor='name'
-                            className='text-[1.4rem] font-medium'
+                            className='text-[1.4rem] font-Satoshi-Medium'
                         >
                             Name
                         </label>

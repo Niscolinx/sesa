@@ -1,11 +1,4 @@
-import  {
-    FormEvent,
-    useContext,
-    useEffect,
-    useRef,
-    useState,
-} from 'react'
-
+import { FormEvent, useContext, useEffect, useRef, useState } from 'react'
 
 import { HouseholdContext } from './CreateHousehold'
 
@@ -67,8 +60,7 @@ function AddAccessCard() {
     }
 
     useEffect(() => {
-       
-        const isDisabled = accessCardNumber_Details.length <= 0 
+        const isDisabled = accessCardNumber_Details.length <= 0
 
         setDisabled(isDisabled)
     }, [accessCardNumber_Details])
@@ -166,7 +158,7 @@ function AddAccessCard() {
                             <div className='grid gap-4 relative '>
                                 <label
                                     htmlFor='accessCardNumber'
-                                    className='text-[1.4rem] font-medium'
+                                    className='text-[1.4rem] font-Satoshi-Medium'
                                 >
                                     Access Card Serial Number{' '}
                                 </label>
@@ -191,7 +183,7 @@ function AddAccessCard() {
                             <div className='grid gap-4 relative '>
                                 <label
                                     htmlFor='holderName'
-                                    className='text-[1.4rem] font-medium'
+                                    className='text-[1.4rem] font-Satoshi-Medium'
                                 >
                                     Holder’s Name{' '}
                                 </label>
@@ -210,7 +202,7 @@ function AddAccessCard() {
                             <div className='grid gap-4 relative '>
                                 <label
                                     htmlFor='phoneNumber'
-                                    className='text-[1.4rem] font-medium'
+                                    className='text-[1.4rem] font-Satoshi-Medium'
                                 >
                                     Phone Number
                                 </label>

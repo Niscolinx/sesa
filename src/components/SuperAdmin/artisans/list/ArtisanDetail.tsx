@@ -1,8 +1,4 @@
-import React, {
-   
-    useRef,
-    useState,
-} from 'react'
+import React, { useRef, useState } from 'react'
 import { toast, ToastContainer } from 'react-toastify'
 import { getPhotoUrl } from '../../../../utils/getPhotoUrl'
 import { Select } from '../../UI/Select'
@@ -11,7 +7,6 @@ import StarRating from '../../UI/StarRating'
 type Actions = 'Deactivate' | 'Delete'
 
 const ArtisanDetail = () => {
- 
     const [selectedGender, setSelectedGender] = useState<string | null>(null)
     const [dialogType, setDialogType] = useState<Actions>('Deactivate')
 
@@ -79,7 +74,6 @@ const ArtisanDetail = () => {
     return (
         <>
             <ToastContainer />
-
 
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
@@ -198,7 +192,7 @@ const ArtisanDetail = () => {
                         <div className='grid gap-4 relative '>
                             <label
                                 htmlFor='fullName'
-                                className='text-[1.4rem] font-medium'
+                                className='text-[1.4rem] font-Satoshi-Medium'
                             >
                                 Full Name *
                             </label>
@@ -212,7 +206,7 @@ const ArtisanDetail = () => {
                         <div className='grid gap-4 relative '>
                             <label
                                 htmlFor='artisanCode'
-                                className='text-[1.4rem] font-medium'
+                                className='text-[1.4rem] font-Satoshi-Medium'
                             >
                                 Artisan Code
                             </label>
@@ -226,7 +220,7 @@ const ArtisanDetail = () => {
                         <div className='grid gap-4 relative '>
                             <label
                                 htmlFor='DateOfBirth'
-                                className='text-[1.4rem] font-medium'
+                                className='text-[1.4rem] font-Satoshi-Medium'
                             >
                                 Date of Birth
                             </label>
@@ -240,7 +234,7 @@ const ArtisanDetail = () => {
                         <div className='grid gap-4 relative '>
                             <label
                                 htmlFor='email'
-                                className='text-[1.4rem] font-medium'
+                                className='text-[1.4rem] font-Satoshi-Medium'
                             >
                                 Email Address
                             </label>
@@ -255,7 +249,7 @@ const ArtisanDetail = () => {
                         <div className='grid gap-4'>
                             <label
                                 htmlFor='phoneNumber'
-                                className='text-[1.4rem] font-medium'
+                                className='text-[1.4rem] font-Satoshi-Medium'
                             >
                                 Phone Number *
                             </label>
@@ -285,7 +279,7 @@ const ArtisanDetail = () => {
                         <div className='grid gap-4 relative'>
                             <label
                                 htmlFor='homeAddress'
-                                className='text-[1.4rem] font-medium'
+                                className='text-[1.4rem] font-Satoshi-Medium'
                             >
                                 Home Address
                             </label>
@@ -299,7 +293,7 @@ const ArtisanDetail = () => {
                         <div className='grid gap-4 relative'>
                             <label
                                 htmlFor='businessName'
-                                className='text-[1.4rem] font-medium'
+                                className='text-[1.4rem] font-Satoshi-Medium'
                             >
                                 Business Name
                             </label>
@@ -313,7 +307,7 @@ const ArtisanDetail = () => {
                         <div className='grid gap-4 relative'>
                             <label
                                 htmlFor='artisanGroup'
-                                className='text-[1.4rem] font-medium'
+                                className='text-[1.4rem] font-Satoshi-Medium'
                             >
                                 Artisan Group
                             </label>
@@ -328,7 +322,7 @@ const ArtisanDetail = () => {
                         <div className='grid gap-4 relative'>
                             <label
                                 htmlFor='overallRating'
-                                className='text-[1.4rem] font-medium'
+                                className='text-[1.4rem] font-Satoshi-Medium'
                             >
                                 Overall Rating
                             </label>
@@ -342,7 +336,7 @@ const ArtisanDetail = () => {
                         <div className='grid gap-4 relative'>
                             <label
                                 htmlFor='idNumber'
-                                className='text-[1.4rem] font-medium'
+                                className='text-[1.4rem] font-Satoshi-Medium'
                             >
                                 ID Number
                             </label>
@@ -356,7 +350,7 @@ const ArtisanDetail = () => {
                         <div className='grid gap-4 relative'>
                             <label
                                 htmlFor='dateOfOnboarding'
-                                className='text-[1.4rem] font-medium'
+                                className='text-[1.4rem] font-Satoshi-Medium'
                             >
                                 Date of Onboarding
                             </label>
@@ -370,7 +364,7 @@ const ArtisanDetail = () => {
                         <div className='grid gap-4 relative'>
                             <label
                                 htmlFor='status'
-                                className='text-[1.4rem] font-medium'
+                                className='text-[1.4rem] font-Satoshi-Medium'
                             >
                                 Status
                             </label>
@@ -385,7 +379,7 @@ const ArtisanDetail = () => {
                         <div className='grid gap-4 relative'>
                             <label
                                 htmlFor='kya'
-                                className='text-[1.4rem] font-medium'
+                                className='text-[1.4rem] font-Satoshi-Medium'
                             >
                                 KYA
                             </label>
@@ -598,7 +592,6 @@ const ArtisanDetail = () => {
                         Know Your Artisan (KYA)
                     </h3>
                     <div className='bg-white rounded-2xl grid items-baseline  p-10 text-[1.6rem] relative gap-20'>
-
                         <div className='relative h-[14rem] bg-blue-600 w-full mt-10 rounded-lg'>
                             <img
                                 src='/img/me.jpeg'
@@ -669,7 +662,6 @@ const ArtisanDetail = () => {
                                 </div>
                             </div>
                         </div>
-                    
                     </div>
                 </section>
             </div>

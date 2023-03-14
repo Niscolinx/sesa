@@ -91,7 +91,7 @@ function Second() {
                                     Manifesto
                                 </p>
                                 <div className='col-span-full'>
-                                    <label className=' font-medium'>
+                                    <label className=' font-Satoshi-Medium'>
                                         Details
                                     </label>
                                     <>
@@ -157,7 +157,7 @@ function Second() {
                     <div className='grid gap-4 select-none pointer-events-none opacity-50 '>
                         <label
                             htmlFor='name'
-                            className='text-[1.4rem] font-medium'
+                            className='text-[1.4rem] font-Satoshi-Medium'
                         >
                             Name
                         </label>
@@ -173,7 +173,7 @@ function Second() {
                     <div className='grid gap-4 select-none pointer-events-none opacity-50'>
                         <label
                             htmlFor='gender'
-                            className='text-[1.4rem] font-medium'
+                            className='text-[1.4rem] font-Satoshi-Medium'
                         >
                             Gender
                         </label>
@@ -194,7 +194,9 @@ function Second() {
                     />
 
                     <div className='col-span-full'>
-                        <label className=' font-medium'>Manifesto</label>
+                        <label className=' font-Satoshi-Medium'>
+                            Manifesto
+                        </label>
                         <textarea
                             rows={5}
                             className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4 '

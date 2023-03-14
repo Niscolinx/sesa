@@ -1,13 +1,16 @@
-import { useState } from "react"
-import { Select } from "../../../../../components/SuperAdmin/UI/Select"
+import { useState } from 'react'
+import { Select } from '../../../../../components/SuperAdmin/UI/Select'
 
 export const PhoneNumber = () => {
     return (
         <div className='grid gap-4'>
-            <label htmlFor='phoneNumber' className='text-[1.4rem] font-medium'>
+            <label
+                htmlFor='phoneNumber'
+                className='text-[1.4rem] font-Satoshi-Medium'
+            >
                 Phone Number
             </label>
-           
+
             <div className='flex text-[1.6rem] gap-4 h-[5rem]'>
                 <select className='w-[30%] rounded-lg border border-color-grey py-4.8 px-4 outline-none cursor-pointer text-color-dark relative h-full'>
                     <option value='234'>+234</option>
@@ -27,12 +30,14 @@ export const PhoneNumber = () => {
 export const BVN_Number = () => {
     return (
         <div className='grid gap-4'>
-            <label htmlFor='phoneNumber' className='text-[1.4rem] font-medium'>
+            <label
+                htmlFor='phoneNumber'
+                className='text-[1.4rem] font-Satoshi-Medium'
+            >
                 BVN (Number)
             </label>
 
             <div className='flex text-[1.6rem] gap-4 h-[5rem]'>
-                
                 <input
                     required
                     type='number'
@@ -48,12 +53,14 @@ export const BVN_Number = () => {
 export const NIN_Number = () => {
     return (
         <div className='grid gap-4'>
-            <label htmlFor='phoneNumber' className='text-[1.4rem] font-medium'>
+            <label
+                htmlFor='phoneNumber'
+                className='text-[1.4rem] font-Satoshi-Medium'
+            >
                 NIN (Number)
             </label>
 
             <div className='flex text-[1.6rem] gap-4 h-[5rem]'>
-                
                 <input
                     required
                     type='number'
@@ -73,13 +80,12 @@ export const DriversLicence = () => {
             <div>
                 <label
                     htmlFor='phoneNumber'
-                    className='text-[1.4rem] font-medium'
+                    className='text-[1.4rem] font-Satoshi-Medium'
                 >
                     License (Number)
                 </label>
 
                 <div className='flex text-[1.6rem] gap-4 h-[5rem]'>
-                   
                     <input
                         required
                         type='number'
@@ -92,13 +98,12 @@ export const DriversLicence = () => {
             <div>
                 <label
                     htmlFor='phoneNumber'
-                    className='text-[1.4rem] font-medium'
+                    className='text-[1.4rem] font-Satoshi-Medium'
                 >
                     Date of Birth
                 </label>
 
                 <div className='flex text-[1.6rem] gap-4 h-[5rem]'>
-                   
                     <input
                         required
                         type='date'
@@ -117,13 +122,12 @@ export const International_PassPort = () => {
             <div>
                 <label
                     htmlFor='phoneNumber'
-                    className='text-[1.4rem] font-medium'
+                    className='text-[1.4rem] font-Satoshi-Medium'
                 >
                     Int'l Passport (Number)
                 </label>
 
                 <div className='flex text-[1.6rem] gap-4 h-[5rem]'>
-                    
                     <input
                         required
                         type='number'
@@ -136,13 +140,12 @@ export const International_PassPort = () => {
             <div>
                 <label
                     htmlFor='phoneNumber'
-                    className='text-[1.4rem] font-medium'
+                    className='text-[1.4rem] font-Satoshi-Medium'
                 >
                     Last Name
                 </label>
 
                 <div className='flex text-[1.6rem] gap-4 h-[5rem]'>
-                   
                     <input
                         required
                         type='text'
@@ -163,7 +166,7 @@ export const Voters_Card = () => {
             <div>
                 <label
                     htmlFor='phoneNumber'
-                    className='text-[1.4rem] font-medium'
+                    className='text-[1.4rem] font-Satoshi-Medium'
                 >
                     Voter's Card Number
                 </label>
@@ -181,7 +184,7 @@ export const Voters_Card = () => {
             <div>
                 <label
                     htmlFor='phoneNumber'
-                    className='text-[1.4rem] font-medium'
+                    className='text-[1.4rem] font-Satoshi-Medium'
                 >
                     Last Name
                 </label>
@@ -206,5 +209,3 @@ export const Voters_Card = () => {
         </div>
     )
 }
-
-

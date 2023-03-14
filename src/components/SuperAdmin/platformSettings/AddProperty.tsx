@@ -44,7 +44,7 @@ const PropertyType = () => {
 
     return (
         <>
-        <ToastContainer/>
+            <ToastContainer />
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
@@ -94,7 +94,7 @@ const PropertyType = () => {
                     <div className='grid gap-4 relative '>
                         <label
                             htmlFor='propertyType'
-                            className='text-[1.4rem] font-medium'
+                            className='text-[1.4rem] font-Satoshi-Medium'
                         >
                             Property Type
                         </label>
@@ -108,7 +108,7 @@ const PropertyType = () => {
                     <div className='grid gap-4 relative '>
                         <label
                             htmlFor='description'
-                            className='text-[1.4rem] font-medium'
+                            className='text-[1.4rem] font-Satoshi-Medium'
                         >
                             Description
                         </label>

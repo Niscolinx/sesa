@@ -604,12 +604,9 @@ const AttendanceReport = () => {
 }
 
 function EstateReport() {
-   
-
     type Report = 'activityReport' | 'attendanceReport'
 
     const [currentPage, setCurrentPage] = useState<Report>('activityReport')
-
 
     const getDate = () => {
         const newDate = new Date()
@@ -654,7 +651,7 @@ function EstateReport() {
                 {currentPage === 'attendanceReport' && (
                     <section className='bg-white rounded-lg p-8 grid h-[28rem] text-[1.4rem]'>
                         <div className='flex w-full justify-between'>
-                            <p className='font-medium text-[2rem]'>
+                            <p className='font-Satoshi-Medium text-[2rem]'>
                                 Security Report
                             </p>
                             <p className='text-[#666869]'>

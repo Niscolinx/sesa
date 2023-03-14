@@ -54,7 +54,7 @@ const AddSiteWorker = () => {
     const [workDays, setWorkDays] = useState<string[]>([])
     const [isValidated, setIsValidated] = useState(false)
     const [iskysw, setIskysw] = useState(false)
-const [propertyCode, setPropertyCode] = useState<string | null>(null)
+    const [propertyCode, setPropertyCode] = useState<string | null>(null)
 
     const toggleIskysw = () => setIskysw(!iskysw)
     const [selectedState, setSelectedState] = useState<string | null>(null)
@@ -336,21 +336,20 @@ const [propertyCode, setPropertyCode] = useState<string | null>(null)
                 <section className='grid p-8 bg-white items-baseline rounded-lg'>
                     <div>
                         <div className='w-[40rem]'>
-
-                        <Select
-                            state={[
-                                'ThomasEstate/SO-2345CDGK1',
-                                'ThomasEstate/SO-2345CDGK2',
-                                'ThomasEstate/SO-2345CDGK3',
-                                'ThomasEstate/SO-2345CDGK4',
-                                'ThomasEstate/SO-2345CDGK5',
-                            ]}
-                            label='Property Code*'
-                            isSearchable
-                            selectedState={propertyCode}
-                            setSelectedState={setPropertyCode}
+                            <Select
+                                state={[
+                                    'ThomasEstate/SO-2345CDGK1',
+                                    'ThomasEstate/SO-2345CDGK2',
+                                    'ThomasEstate/SO-2345CDGK3',
+                                    'ThomasEstate/SO-2345CDGK4',
+                                    'ThomasEstate/SO-2345CDGK5',
+                                ]}
+                                label='Property Code*'
+                                isSearchable
+                                selectedState={propertyCode}
+                                setSelectedState={setPropertyCode}
                             />
-                            </div>
+                        </div>
 
                         {propertyCode && (
                             <section className='w-full flex gap-16 relative mt-[5rem]'>
@@ -419,7 +418,7 @@ const [propertyCode, setPropertyCode] = useState<string | null>(null)
                         <div className='grid gap-4 relative '>
                             <label
                                 htmlFor='firstName'
-                                className='text-[1.4rem] font-medium'
+                                className='text-[1.4rem] font-Satoshi-Medium'
                             >
                                 First Name *
                             </label>
@@ -433,7 +432,7 @@ const [propertyCode, setPropertyCode] = useState<string | null>(null)
                         <div className='grid gap-4 relative '>
                             <label
                                 htmlFor='lastName'
-                                className='text-[1.4rem] font-medium'
+                                className='text-[1.4rem] font-Satoshi-Medium'
                             >
                                 Last Name *
                             </label>
@@ -447,7 +446,7 @@ const [propertyCode, setPropertyCode] = useState<string | null>(null)
                         <div className='grid gap-4 relative '>
                             <label
                                 htmlFor='lastName'
-                                className='text-[1.4rem] font-medium'
+                                className='text-[1.4rem] font-Satoshi-Medium'
                             >
                                 Middle Name *
                             </label>
@@ -461,7 +460,7 @@ const [propertyCode, setPropertyCode] = useState<string | null>(null)
                         <div className='grid gap-4 relative '>
                             <label
                                 htmlFor='lastName'
-                                className='text-[1.4rem] font-medium'
+                                className='text-[1.4rem] font-Satoshi-Medium'
                             >
                                 Date of Birth
                             </label>
@@ -476,7 +475,7 @@ const [propertyCode, setPropertyCode] = useState<string | null>(null)
                         <div className='grid gap-4'>
                             <label
                                 htmlFor='phoneNumber'
-                                className='text-[1.4rem] font-medium'
+                                className='text-[1.4rem] font-Satoshi-Medium'
                             >
                                 Phone Number *
                             </label>
@@ -504,7 +503,7 @@ const [propertyCode, setPropertyCode] = useState<string | null>(null)
                         <div className='grid gap-4 relative'>
                             <label
                                 htmlFor='email'
-                                className='text-[1.4rem] font-medium'
+                                className='text-[1.4rem] font-Satoshi-Medium'
                             >
                                 Email Address *
                             </label>
@@ -519,7 +518,7 @@ const [propertyCode, setPropertyCode] = useState<string | null>(null)
                         <div className='grid gap-4 relative'>
                             <label
                                 htmlFor='address1'
-                                className='text-[1.4rem] font-medium'
+                                className='text-[1.4rem] font-Satoshi-Medium'
                             >
                                 Home Address
                             </label>
@@ -548,7 +547,7 @@ const [propertyCode, setPropertyCode] = useState<string | null>(null)
                         <div className='grid gap-4 relative'>
                             <label
                                 htmlFor='address1'
-                                className='text-[1.4rem] font-medium'
+                                className='text-[1.4rem] font-Satoshi-Medium'
                             >
                                 Clock-In Time
                             </label>
@@ -565,7 +564,7 @@ const [propertyCode, setPropertyCode] = useState<string | null>(null)
                         <div className='grid gap-4 relative self-start'>
                             <label
                                 htmlFor='address1'
-                                className='text-[1.4rem] font-medium'
+                                className='text-[1.4rem] font-Satoshi-Medium'
                             >
                                 Clock-Out Time
                             </label>
@@ -579,7 +578,7 @@ const [propertyCode, setPropertyCode] = useState<string | null>(null)
                         <div className='grid gap-4 relative'>
                             <label
                                 htmlFor='address1'
-                                className='text-[1.4rem] font-medium'
+                                className='text-[1.4rem] font-Satoshi-Medium'
                             >
                                 Work Period (Start Date)*
                             </label>
@@ -593,7 +592,7 @@ const [propertyCode, setPropertyCode] = useState<string | null>(null)
                         <div className='grid gap-4 relative'>
                             <label
                                 htmlFor='address1'
-                                className='text-[1.4rem] font-medium'
+                                className='text-[1.4rem] font-Satoshi-Medium'
                             >
                                 Work Period (End Date)*
                             </label>
@@ -697,7 +696,7 @@ const [propertyCode, setPropertyCode] = useState<string | null>(null)
 
                         {isValidated ? (
                             <div className='flex gap-8 text-[1.6rem]'>
-                                <p className='text-[#098DFF] cursor-pointer flex items-center font-medium'>
+                                <p className='text-[#098DFF] cursor-pointer flex items-center font-Satoshi-Medium'>
                                     kysw Validated{' '}
                                     <IoMdCheckmarkCircleOutline />
                                 </p>
