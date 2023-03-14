@@ -141,9 +141,7 @@ function Voting() {
         setVotingList([...filtered])
     }
 
-    const composeVotingHandler = () => {
-        navigate('/estateManager/message/compose')
-    }
+   
 
     return (
         <div>
@@ -183,15 +181,17 @@ function Voting() {
                                     <GrDown className='absolute right-4 text-[1.3rem]' />
                                 </div>
 
+                                <Link to=''>
+
                                 <button
                                     className='btn ml-auto bg-color-blue-1 text-white flex gap-2 items-center self-center rounded-lg py-4 px-8 capitalize'
-                                    onClick={composeVotingHandler}
-                                >
+                                    >
                                     <span>
                                         <IoMdAdd />
                                     </span>{' '}
                                     <p>New Voting Poll</p>
                                 </button>
+                                    </Link>
                             </div>
 
                             <div
