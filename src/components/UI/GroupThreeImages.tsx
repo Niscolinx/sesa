@@ -15,7 +15,7 @@ function GroupThreeImages({ images = imgArr}: GroupThreeImages) {
                     <img
                         src='/img/avatar1.png'
                         alt=''
-                        className='w-[3rem] h-[3rem] object-cover rounded-full border border-color-white absolute left-0 z-10'
+                        className={`w-[3rem] h-[3rem] object-cover rounded-full border border-color-white absolute left-0 z-${(i + 1) + 10}`}
                     />
                 ))}
                 <img
