@@ -28,13 +28,13 @@ function Second() {
                 </div>
 
                 <div
-                    className='grid gap-8 opacity-50'
+                    className='grid gap-16 '
                     style={{
                         gridTemplateColumns:
-                            'repeat(auto-fit, minmax(35rem, 1fr))',
+                            'repeat(auto-fit, 35rem)',
                     }}
                 >
-                    <div className='grid gap-4 select-none pointer-events-none'>
+                    <div className='grid gap-4 select-none pointer-events-none opacity-50 '>
                         <label
                             htmlFor='firstName'
                             className='text-[1.4rem] font-medium'
@@ -49,7 +49,7 @@ function Second() {
                             className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                         />
                     </div>
-                    <div className='grid gap-4 select-none pointer-events-none'>
+                    <div className='grid gap-4 select-none pointer-events-none opacity-50'>
                         <label
                             htmlFor='firstName'
                             className='text-[1.4rem] font-medium'
