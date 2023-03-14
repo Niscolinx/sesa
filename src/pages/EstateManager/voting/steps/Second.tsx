@@ -34,7 +34,10 @@ function Second() {
 
     const openDialog = (idx: number) => {
         const find_detail = candidate_details.find((_, i) => i === idx)
-        setCurrentData(find_detail)
+
+        if (find_detail) {
+            setCurrentData(find_detail)
+        }
 
         if (dialogRef.current) {
             dialogRef.current.showModal()
@@ -86,16 +89,18 @@ function Second() {
                                 className='absolute right-0 top-0 text-[2.5rem] cursor-pointer m-5'
                                 onClick={() => closeDialog()}
                             />
-                            <section>
-                                <p className='font-Satoshi-Bold pb-4 border-b'>Manifesto</p>
+                            <section className='grid gap-8'>
+                                <p className='font-Satoshi-Bold pb-4 border-b'>
+                                    Manifesto
+                                </p>
                                 <div className='col-span-full'>
                                     <label className=' font-medium'>
-                                        Manifesto
+                                        Details
                                     </label>
                                     <textarea
                                         rows={5}
                                         className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4 '
-                                        value={manifesto}
+                                        value={currentData?.manifesto}
                                         onChange={(e) =>
                                             setManifesto(e.target.value)
                                         }
