@@ -49,7 +49,10 @@ const Last = () => {
     }
 
     const openDialog = (key: string) => {
-        
+        Object.values(candidateData).length > 0 &&
+            Object.entries(candidateData).filter(([foundKey]) => {
+                return foundKey === key
+            })
 
         if (dialogRef.current) {
             dialogRef.current.showModal()
@@ -73,25 +76,6 @@ const Last = () => {
                                     <p className='font-Satoshi-Bold pb-4 border-b'>
                                         President Category Candidates
                                     </p>
-
-                                    {Object.values(candidateData).length > 0 &&
-                                        Object.entries(candidateData)
-                                            .filter(([key, va]) => {
-                                                console.log({ key, va })
-                                                return key === currentCategory
-                                            })
-                                            .map(([key, value], i) => {
-                                                console.log({key, value})
-                                                return (
-                                                    <div key={i}>
-                                                        {/* <img
-                                                        src={value}
-                                                        alt=''
-                                                        className={`w-[3rem] h-[3rem] object-cover rounded-full border border-color-white absolute `}
-                                                    /> */}
-                                                    </div>
-                                                )
-                                            })}
                                 </>
                             </section>
                         </div>
