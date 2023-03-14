@@ -6,11 +6,13 @@ const Last = () => {
     type CandidateDetails = { [key: string]: CandidateField[] }
     const { electionCategory, candidate_details } = useCreateElectionContext()
     const [candidateData, setCandidateData] = useState<CandidateDetails>({})
-    const [candidateImgs, setCandidateImgs] = useState<CandidateDetails>({})
+    const [candidateImgs, setCandidateImgs] = useState<{
+        [key: string]: string[]
+    }>({})
 
     useEffect(() => {
         const tempCandidateData: CandidateDetails = {}
-        const tempCandidateImg: { [key: string]: any[] } = {}
+        const tempCandidateImg: { [key: string]: string[] } = {}
         candidate_details.forEach((detail) => {
             const category = detail.category as string
 
@@ -49,18 +51,18 @@ const Last = () => {
                 <p className='text-[2rem] font-Satoshi-Medium'>
                     Election Categories
                 </p>
-                {candidateData.length > 0 &&
-                    candidateData.map((election, i) => {
-                        console.log({ election }, { candidateImgs })
+                {Object.values(candidateImgs).length > 0 &&
+                    Object.entries(candidateImgs).map(([key, value], i) => {
+                        console.log({ key }, { candidateImgs })
 
                         return (
                             <div className='grid gap-8 w-[60rem]' key={i}>
                                 <div className='grid grid-cols-2 mt-[5rem] pb-5 border-b w-full'>
-                                    {/* <p>{election.category}</p> */}
+                                    <p>{key}</p>
                                     <div className='flex items-center gap-16'>
-                                        {/* <GroupThreeImages
-                                            images={candidateImgs[election as keyof typeof candidateImgs]}
-                                        /> */}
+                                        <GroupThreeImages
+                                            images={value}
+                                        />
 
                                         <button className='text-color-blue'>
                                             View Candidates
