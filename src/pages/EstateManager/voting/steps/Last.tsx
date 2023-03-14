@@ -14,10 +14,11 @@ const Last = () => {
 
     useEffect(() => {
 
-        const extractImgs = candidate_details.reduce((acc: [], cur: CandidateField ) => (
+        const extractedImgs = candidate_details.reduce((acc: string[], cur ) => (
             acc.concat(cur.photoUrl)
         ), [])
 
+        setCandidateImgs(extractedImgs)
     }, [candidate_details])
 
     return (
