@@ -136,8 +136,8 @@ const Fourth: FC = () => {
     }
 
     return (
-        <main className='bg-color-white rounded-lg overflow-scroll max-h-[80vh]'>
-            <p>
+        <main className='bg-color-white rounded-lg'>
+            <p className='flex items-center gap-2'>
                 <span>NB: All alphas are denoted with the icon </span>
                 <img src='/img/alpha.svg' alt='' />
             </p>
