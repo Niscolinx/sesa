@@ -22,8 +22,9 @@ const Last = () => {
         
         electionCategory.forEach((item, i) => {
             
-             candidate_details.forEach((item) => {
-                return {
+             candidate_details.forEach((detail) => {
+               
+                if(detail.category === item){
                     
                 }
             })
