@@ -11,7 +11,8 @@ const Last = () => {
         [key: string]: string[]
     }>({})
 
-    [currentCategory, setCurrentCategory] = useState<CandidateField | null>(null)
+    const [currentCategory, setCurrentCategory] =
+        useState<CandidateField | null>(null)
 
     useEffect(() => {
         const tempCandidateData: CandidateDetails = {}
@@ -40,23 +41,21 @@ const Last = () => {
         setCandidateImgs((prev) => ({ ...prev, ...tempCandidateImg }))
     }, [candidate_details, electionCategory])
 
-     const dialogRef = useRef<HTMLDialogElement | null>(null)
+    const dialogRef = useRef<HTMLDialogElement | null>(null)
 
-     const closeDialog = () => {
-         if (dialogRef.current) {
-             dialogRef.current.close()
-         }
-     }
+    const closeDialog = () => {
+        if (dialogRef.current) {
+            dialogRef.current.close()
+        }
+    }
 
-     const openDialog = (key: string) => {
-        
+    const openDialog = (key: string) => {
+        setCurrentCategory(key)
 
-         //setCurrentIdx(detailIdx)
-
-         if (dialogRef.current) {
-             dialogRef.current.showModal()
-         }
-     }
+        if (dialogRef.current) {
+            dialogRef.current.showModal()
+        }
+    }
 
     console.log({ candidateData, candidateImgs }, typeof candidateData)
 
@@ -71,17 +70,18 @@ const Last = () => {
                                 onClick={() => closeDialog()}
                             />
                             <section className='grid gap-8'>
-                                <p className='font-Satoshi-Bold pb-4 border-b'>
-                                    President Category Candidates
-                                </p>
-                               
-                               {
-                                Object.values(candidateData).length > 0 && Object.entries(candidateData).map(([key, value]) => {
-                                    return {
+                                <>
+                                    <p className='font-Satoshi-Bold pb-4 border-b'>
+                                        President Category Candidates
+                                    </p>
 
-                                    }
-                                })
-                               }
+                                    {Object.values(candidateData).length > 0 &&
+                                        Object.entries(candidateData).map(
+                                            ([key, value]) => {
+                                                return {}
+                                            }
+                                        )}
+                                </>
                             </section>
                         </div>
                     </div>
@@ -107,9 +107,10 @@ const Last = () => {
                                     <div className='flex items-center gap-16'>
                                         <GroupThreeImages images={value} />
 
-                                        <button className='text-color-blue' onClick={
-                                            () => openDialog(key)
-                                        }>
+                                        <button
+                                            className='text-color-blue'
+                                            onClick={() => openDialog(key)}
+                                        >
                                             View Candidates
                                         </button>
                                     </div>
