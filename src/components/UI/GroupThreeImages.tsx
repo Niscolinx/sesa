@@ -32,7 +32,7 @@ export function GroupThreeImages({ images }: GroupThreeImages) {
                         left: `60%`,
                     }}
                 >
-                    {' '}
+                    
                     + {images.length - 3}
                 </span>
             )}
