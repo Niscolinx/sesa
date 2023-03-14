@@ -1,4 +1,8 @@
+import { GroupThreeImages } from "../../../../components/UI/GroupThreeImages"
+
 const Last = () => {
+    const imgArr = ['/img/avatar1.png', '/img/avatar2.png', '/img/avatar3.png']
+
     return (
         <main className='bg-color-white rounded-lg grid gap-16'>
             <section className='capitalize'>
@@ -16,7 +20,10 @@ const Last = () => {
                 <div className='grid gap-8 max-w-[60rem]'>
                     <div className='grid grid-cols-2 mt-[5rem] pb-5 border-b'>
                         <p>President</p>
-                       
+                        <GroupThreeImages images={imgArr}/>
+                        <button className='text-color-blue'>
+                            View Candidates
+                        </button>
                     </div>
                 </div>
             </section>

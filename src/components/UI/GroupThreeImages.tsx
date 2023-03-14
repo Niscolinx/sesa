@@ -4,9 +4,8 @@ interface GroupThreeImages {
     images: string[]
 }
 
-const imgArr = ['/img/avatar1.png', '/img/avatar2.png', '/img/avatar3.png']
 
-function GroupThreeImages({ images = imgArr }: GroupThreeImages) {
+export function GroupThreeImages({ images }: GroupThreeImages) {
     return (
         <div className='relative w-[10rem] flex items-center justify-between'>
             {images.map((item, i) => (
