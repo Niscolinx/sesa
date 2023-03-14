@@ -104,7 +104,9 @@ function Second() {
                                         onChange={(e) => {
                                             setCandidate_details((prev) => {
                                                 const updated = [...prev]
-                                                updated[]
+                                                updated[currentIdx].manifesto = e.target.value
+
+                                                return updated
                                             })
                                         }}
                                     />
