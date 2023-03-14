@@ -255,7 +255,7 @@ function Second() {
                                             </p>
                                             <p>{category}</p>
                                         </div>
-                                        <button className='text-[#098DFF]'>
+                                        <button className='text-[#098DFF]' onClick={openDialog}>
                                             View Details
                                         </button>
                                     </div>
