@@ -33,6 +33,8 @@ function Second() {
     }
 
     const openDialog = (idx: number) => {
+        const find_detail = candidate_details.find((_, i) => (i === idx))
+
         if (dialogRef.current) {
             dialogRef.current.showModal()
         }
