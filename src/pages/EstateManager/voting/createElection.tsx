@@ -9,6 +9,9 @@ const CreateElection = () => {
     return (
         <>
             <div className='grid p-8 bg-white items-baseline rounded-lg min-h-[90vh] relative'>
+                <p className='font-Satoshi-Medium text-[2rem] mb-10'>
+                    Create New Poll ( Step {step} of 2)
+                </p>
                 {displayStep.get(step)}
 
                 <div className='absolute right-0 bottom-0 m-16 flex items-center gap-16'>

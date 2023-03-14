@@ -21,9 +21,7 @@ function First() {
     }
     return (
         <div>
-            <p className='font-Satoshi-Medium text-[2rem] mb-10'>
-                Add Payment ( Step 1 of 2)
-            </p>
+            
 
             <form
                 className='grid max-w-[84rem] gap-16 items-start content-start capitalize'
