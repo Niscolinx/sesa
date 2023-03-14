@@ -12,7 +12,7 @@ const CreateElection = () => {
 
     return (
         <>
-            <div className='grid p-8 bg-white items-baseline rounded-lg min-h-[90vh] relative'>
+            <div className=' p-8 bg-white rounded-lg min-h-[90vh] relative'>
                 <p className='font-Satoshi-Medium text-[2rem] mb-10'>
                     Create New Poll ( Step {step} of 2)
                 </p>
