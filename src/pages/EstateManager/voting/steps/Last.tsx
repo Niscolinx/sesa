@@ -1,6 +1,6 @@
 const Last = () => {
     return (
-        <main className='bg-color-white rounded-lg grid gap-8'>
+        <main className='bg-color-white rounded-lg grid gap-16'>
             <section className='capitalize'>
                 <p className='text-[2rem] font-Satoshi-Medium'>
                     Election Title
@@ -17,11 +17,21 @@ const Last = () => {
                     <div className='grid grid-cols-2'>
                         <p>President</p>
                         <div className='flex gap-16'>
-                            <div className='relative'>
+                            <div className='relative bg-red-600 w-[20rem]'>
                                 <img
                                     src='/img/avatar11.png'
                                     alt=''
-                                    className='w-[3rem] h-[3rem] object-cover rounded-full'
+                                    className='w-[3rem] h-[3rem] object-cover rounded-full absolute'
+                                />
+                                <img
+                                    src='/img/avatar11.png'
+                                    alt=''
+                                    className='w-[3rem] h-[3rem] object-cover rounded-full absolute'
+                                />
+                                <img
+                                    src='/img/avatar11.png'
+                                    alt=''
+                                    className='w-[3rem] h-[3rem] object-cover rounded-full absolute'
                                 />
                             </div>
                             <button className='text-color-blue'>
