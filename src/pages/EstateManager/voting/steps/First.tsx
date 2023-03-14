@@ -2,7 +2,9 @@ import { ChangeEvent, useContext, useState } from 'react'
 import { CreateElectionContext } from '../createElection'
 
 function First() {
-   const {electionCategory, setElectionCategory} = useContext(CreateElectionContext)
+   const context = useContext(CreateElectionContext)
+
+ 
 
     const add_another_category = () => {
         setElectionCategory((prev) => [...prev, { value: '' }])

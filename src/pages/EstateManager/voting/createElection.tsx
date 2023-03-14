@@ -1,5 +1,5 @@
 import { SetStateAction } from 'jotai'
-import { createContext, Dispatch, useState } from 'react'
+import { createContext, Dispatch, useContext, useState } from 'react'
 import { TfiArrowCircleLeft, TfiArrowCircleRight } from 'react-icons/tfi'
 import First from './steps/First'
 
@@ -10,9 +10,20 @@ interface CreateElectionContext {
     setElectionCategory: Dispatch<SetStateAction<Category>>
 }
 
-export const CreateElectionContext =
+ const CreateElectionContext =
     createContext<CreateElectionContext | null>(null)
 
+export const useCreateElectionContext = () => {
+    const context = useContext(CreateElectionContext)
+
+    if (!context) {
+        throw new Error(
+            'useCreateElectionContext must be used within a CreateElectionProvider'
+        )
+    }
+
+    return context
+}
 const CreateElection = () => {
     const [step, setStep] = useState(1)
     const [electionCategory, setElectionCategory] = useState<Category>([
