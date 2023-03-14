@@ -14,7 +14,7 @@ const Last = () => {
                 </p>
 
                 <div className='grid gap-8 max-w-[60rem]'>
-                    <div className='grid grid-cols-2 mt-[5rem]'>
+                    <div className='grid grid-cols-2 mt-[5rem] pb-5 border-b'>
                         <p>President</p>
                         <div className='flex gap-16 '>
                             <div className='relative w-[10rem] flex items-center justify-between'>
