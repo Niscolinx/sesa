@@ -11,7 +11,7 @@ function Second() {
     const [name, setName] = useState('Aliba Desmond')
     const [gender, setGender] = useState('Male')
     const [manifesto, setManifesto] = useState('')
-    const [currentData, setCurrentData] = useState<InputField | null>(null)
+    const [currentIdx, setCurrentIdx] = useState<number | null>(null)
 
     interface InputField {
         candidate: string | null
@@ -33,10 +33,10 @@ function Second() {
     }
 
     const openDialog = (idx: number) => {
-        const find_detail = candidate_details.find((_, i) => i === idx)
+        const detailIdx = candidate_details.findIndex((_, i) => i === idx)
 
-        if (find_detail) {
-            setCurrentData(find_detail)
+        if (detailIdx) {
+            setCurrentIdx(detailIdx)
         }
 
         if (dialogRef.current) {
@@ -100,10 +100,11 @@ function Second() {
                                     <textarea
                                         rows={5}
                                         className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4 '
-                                        value={currentData?.manifesto}
+                                        value={candidate_details[currentIdx! as string].manifesto}
                                         onChange={(e) => {
                                             setCandidate_details((prev) => {
-                                                return [...prev, details]
+                                                const updated = [...prev]
+                                                updated[]
                                             })
                                         }}
                                     />
