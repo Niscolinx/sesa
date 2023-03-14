@@ -1,4 +1,4 @@
-import { ChangeEvent } from 'react'
+import { ChangeEvent, SetStateAction } from 'react'
 import { MultipleSelect } from '../../../../components/SuperAdmin/UI/Select'
 import { useCreateElectionContext } from '../createElection'
 
@@ -90,7 +90,20 @@ function Third() {
                             className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                         />
                     </div>
-                    <MultipleSelect/>
+                    <MultipleSelect
+                        selectFrom={[
+                            'Vote count only',
+                            'Percentage of vote count',
+                            'Total number of votes',
+                        ]}
+                        selected={[]}
+                        setSelected={function (
+                            value: SetStateAction<string[]>
+                        ): void {
+                            throw new Error('Function not implemented.')
+                        }}
+                        label={''}
+                    />
                 </div>
             </form>
         </div>
