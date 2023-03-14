@@ -27,9 +27,14 @@ const Last = () => {
                 return (
                     <div className='grid gap-8 w-[60rem]'>
                         <div className='grid grid-cols-2 mt-[5rem] pb-5 border-b w-full'>
-                            <p>President</p>
+                            <p>{election}</p>
                             <div className='flex items-center gap-16'>
-                                <GroupThreeImages images={imgArr} />
+                                {
+                                    candidate_details.map((detail, i) => (
+                                        <GroupThreeImages images={detail.photoUrl} />
+
+                                    ))
+                                }
                                 <button className='text-color-blue'>
                                     View Candidates
                                 </button>
