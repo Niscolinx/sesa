@@ -15,11 +15,13 @@ const Last = () => {
           <section>
             <p className='text-[2rem] font-Satoshi-Medium'>Election Categories</p>
 
-            <div className='grid gap-8'>
-                <div>
+            <div className='grid gap-8 max-w-[60rem]'>
+                <div className="grid grid-cols-2">
                     <p>President</p>
-                    <div>
-                    <div></div>
+                    <div className="flex gap-16">
+                    <div className="relative">
+                        <img src="/img/avatar11.png" alt="" />
+                    </div>
                     <button className='text-color-blue'>View Candidates</button>
                     </div>
                 </div>
