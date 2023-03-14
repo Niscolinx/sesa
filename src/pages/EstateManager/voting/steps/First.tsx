@@ -1,6 +1,4 @@
-import React, { useState } from 'react'
-import { Select } from '../../../../components/SuperAdmin/UI/Select'
-import { PaymentType } from '../../Payments/create/CreatePayment'
+import  { ChangeEvent, useState } from 'react'
 
 function First() {
     const [electionCategory, setElectionCategory] = useState<{ value: '' }[]>([
@@ -11,9 +9,11 @@ function First() {
         setElectionCategory((prev) => [...prev, { value: '' }])
     }
 
-    const handle_category_change = (idx: number) => {
-        
+    const handle_category_change = (e:ChangeEvent<HTMLInputElement>, idx: number) => {
+
+        setElectionCategory((prev) => [...prev, ])
     }
+
     return (
         <div>
             <form className='grid max-w-[50rem] gap-16 items-start content-start capitalize'>
@@ -48,7 +48,7 @@ function First() {
                                 id='category'
                                 placeholder='placeholder'
                                 value={item.value}
-                                onChange={() => handle_category_change(idx)}
+                                onChange={(e) => handle_category_change(e, idx)}
                                 className=' rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4 w-[40rem]'
                             />
                             {idx + 1 === electionCategory.length && (
