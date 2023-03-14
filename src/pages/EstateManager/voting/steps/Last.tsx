@@ -8,33 +8,36 @@ const Last = () => {
     const [candidateData, setCandidateData] = useState<CandidateDetails[]>([])
 
     useEffect(() => {
-        //  electionCategory.forEach((item) => {
+        const tempCandidateData: { [key: string]: CandidateField[] } = {}
+        candidate_details.forEach((detail) => {
+            const category = detail.category as string
 
-        //     const imgs = candidate_details
-        //         .reduce((acc: string[], cur) => acc.concat(cur.photoUrl), [])
-        //         .filter((candidateData) => candidateData.category === item)
-
-        //     setCandidateImgs(extractedImgs)
-        //     return imgs
-        // })
-
-        const candidates: any = []
-
-        electionCategory.forEach((item, i) => {
-            return candidate_details.forEach((detail) => {
-                if (detail.category === item) {
-                    setCandidateData((prev) => {
-                        return {
-                            ...prev,
-                            [item]: [...item, detail],
-                        }
-                    })
-                }
-            })
+            if (electionCategory.includes(category)) {
+                tempCandidateData[category]
+                    ? (tempCandidateData[category] = [
+                          ...tempCandidateData[category],
+                          detail,
+                      ])
+                    : (tempCandidateData[category] = [detail])
+            }
         })
+        setCandidateData((prev) => ({ ...prev, ...tempCandidateData }))
+    }, [candidate_details, electionCategory])
 
-        console.log(candidateData)
-    }, [candidate_details])
+    console.log({ candidateData })
+
+    // electionCategory.forEach((item, i) => {
+    //     return candidate_details.forEach((detail) => {
+    //         if (detail.category === item) {
+    //             setCandidateData((prev) => {
+    //                 return {
+    //                     ...prev,
+    //                     [item]: [...item, detail],
+    //                 }
+    //             })
+    //         }
+    //     })
+    // })
 
     return (
         <main className='bg-color-white rounded-lg grid gap-16'>
