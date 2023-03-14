@@ -3,13 +3,13 @@ import { GroupThreeImages } from '../../../../components/UI/GroupThreeImages'
 import { CandidateField, useCreateElectionContext } from '../createElection'
 
 const Last = () => {
-    type CandidateDetails = { [key: string]: string[] }
+    type CandidateDetails = { [key: string]: CandidateField[] }
     const { electionCategory, candidate_details } = useCreateElectionContext()
-    const [candidateData, setCandidateData] = useState<CandidateDetails[]>([])
-    const [candidateImgs, setCandidateImgs] = useState<string[]>([])
+    const [candidateData, setCandidateData] = useState<CandidateDetails>({})
+    const [candidateImgs, setCandidateImgs] = useState<CandidateDetails>({})
 
     useEffect(() => {
-        const tempCandidateData: { [key: string]: CandidateField[] } = {}
+        const tempCandidateData: CandidateDetails = {}
         const tempCandidateImg: { [key: string]: string[] } = {}
         candidate_details.forEach((detail) => {
             const category = detail.category as string
@@ -34,8 +34,7 @@ const Last = () => {
         setCandidateImgs((prev) => ({ ...prev, ...tempCandidateImg }))
     }, [candidate_details, electionCategory])
 
-    console.log({ candidateData, candidateImgs })
-
+    console.log({ candidateData, candidateImgs }, typeof candidateData)
 
     return (
         <main className='bg-color-white rounded-lg grid gap-16'>
@@ -50,15 +49,17 @@ const Last = () => {
                 <p className='text-[2rem] font-Satoshi-Medium'>
                     Election Categories
                 </p>
-                {electionCategory &&
-                    electionCategory.map((election, i) => {
+                {candidateData.length > 0 &&
+                    candidateData.map((election, i) => {
+                        console.log({ election }, { candidateImgs })
+
                         return (
                             <div className='grid gap-8 w-[60rem]' key={i}>
                                 <div className='grid grid-cols-2 mt-[5rem] pb-5 border-b w-full'>
-                                    <p>{election}</p>
+                                    {/* <p>{election.category}</p> */}
                                     <div className='flex items-center gap-16'>
                                         {/* <GroupThreeImages
-                                            images={candidateImgs}
+                                            images={candidateImgs[election as keyof typeof candidateImgs]}
                                         /> */}
 
                                         <button className='text-color-blue'>
