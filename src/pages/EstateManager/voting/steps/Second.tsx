@@ -13,9 +13,14 @@ function Second() {
     const [manifesto, setManifesto] = useState('')
 
     interface InputField {
-
+        candidate: string
+        category: string
+        name: string
+        gender: string
+        manifesto: string
+        photoUrl: string
     }
-    const [candidate_Details, setcandidate_Details] = useState<InputField[]>([])
+    const [candidate_details, setCandidate_details] = useState<InputField[]>([])
 
     const [photoUrl, setPhotoUrl] = useState('')
 
@@ -34,17 +39,18 @@ function Second() {
             name,
             gender,
             manifesto,
+            category,
             candidate,
             photoUrl,
         }
 
-        setcandidate_Details((prev) => {
+        setCandidate_details((prev) => {
             return [...prev, details]
         })
-        setcandidate(0)
+        setCandidate('')
         setName('')
-        setGender(0)
-        setManifesto(null)
+        setGender('')
+        setManifesto('')
         setPhotoUrl('')
     }
 
