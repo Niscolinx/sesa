@@ -75,11 +75,20 @@ const Last = () => {
                                     </p>
 
                                     {Object.values(candidateData).length > 0 &&
-                                        Object.entries(candidateData).filter(
-                                            ([key, value]) => {
-                                                return {}
-                                            }
-                                        )}
+                                        Object.entries(candidateData)
+                                            .filter(
+                                                ([key]) =>
+                                                    key === currentCategory
+                                            )
+                                            .map((value, i) => (
+                                                <div key={i}>
+                                                    <img
+                                                        src={``}
+                                                        alt=''
+                                                        className={`w-[3rem] h-[3rem] object-cover rounded-full border border-color-white absolute `}
+                                                    />
+                                                </div>
+                                            ))}
                                 </>
                             </section>
                         </div>
