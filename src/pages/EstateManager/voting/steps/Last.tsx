@@ -21,7 +21,7 @@ const Last = () => {
         const candidates: any = []
 
         electionCategory.forEach((item, i) => {
-            candidate_details.forEach((detail) => {
+            return candidate_details.forEach((detail) => {
                 if (detail.category === item) {
                     setCandidateData((prev) => {
                         return {
@@ -33,7 +33,7 @@ const Last = () => {
             })
         })
 
-        console.log(candidates)
+        console.log(candidateData)
     }, [candidate_details])
 
     return (
