@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from 'react'
+import { useState } from 'react'
 import { Select } from '../../../../components/SuperAdmin/UI/Select'
 import { getPhotoUrl } from '../../../../utils/getPhotoUrl'
 import { useCreateElectionContext } from '../createElection'
