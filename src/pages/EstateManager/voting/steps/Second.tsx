@@ -67,8 +67,6 @@ function Second() {
             return [...prev, details]
         })
         setCandidate(null)
-        setName('')
-        setGender('')
         setManifesto('')
         setPhotoUrl('')
         setCategory(null)
