@@ -17,21 +17,21 @@ const Last = () => {
                     <div className='grid grid-cols-2'>
                         <p>President</p>
                         <div className='flex gap-16'>
-                            <div className='relative bg-red-600 w-[20rem]'>
+                            <div className='relative bg-red-600 w-[20rem] flex items-center justify-between'>
                                 <img
                                     src='/img/avatar11.png'
                                     alt=''
-                                    className='w-[3rem] h-[3rem] object-cover rounded-full absolute'
+                                    className='w-[3rem] h-[3rem] object-cover rounded-full absolute left-0 z-10'
                                 />
                                 <img
                                     src='/img/avatar11.png'
                                     alt=''
-                                    className='w-[3rem] h-[3rem] object-cover rounded-full absolute'
+                                    className='w-[3rem] h-[3rem] object-cover rounded-full absolute left-[10%] z-20'
                                 />
                                 <img
                                     src='/img/avatar11.png'
                                     alt=''
-                                    className='w-[3rem] h-[3rem] object-cover rounded-full absolute'
+                                    className='w-[3rem] h-[3rem] object-cover rounded-full absolute left-0 z-30'
                                 />
                             </div>
                             <button className='text-color-blue'>
