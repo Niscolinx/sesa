@@ -76,21 +76,22 @@ const Last = () => {
 
                                     {Object.values(candidateData).length > 0 &&
                                         Object.entries(candidateData)
-                                            .filter(
-                                                ([key, va]) => {
-                                                    console.log({key, va})
-                                                    return key === currentCategory
-                                                }
-                                            )
-                                            .map(([_, value], i) => (
-                                                <div key={i}>
-                                                    {/* <img
+                                            .filter(([key, va]) => {
+                                                console.log({ key, va })
+                                                return key === currentCategory
+                                            })
+                                            .map(([_, value], i) => {
+                                                console.log(_, value)
+                                                return (
+                                                    <div key={i}>
+                                                        {/* <img
                                                         src={value}
                                                         alt=''
                                                         className={`w-[3rem] h-[3rem] object-cover rounded-full border border-color-white absolute `}
                                                     /> */}
-                                                </div>
-                                            ))}
+                                                    </div>
+                                                )
+                                            })}
                                 </>
                             </section>
                         </div>
