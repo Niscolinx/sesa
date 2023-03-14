@@ -46,7 +46,7 @@ const CreateElection = () => {
                 </p>
                 {displayStep.get(step)}
 
-                <div className='absolute right-0 bottom-0 m-16 flex items-center gap-16'>
+                <div className=' m-16 flex items-center gap-16'>
                     <button
                         className='text-color-blue disabled:opacity-50 disabled:cursor-not-allowed'
                         disabled={step === 1}
