@@ -172,11 +172,11 @@ function Second() {
                             </div>
                         )}
                     </div>
-                    <button className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'>
+                    <button className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg justify-center w-max'>
                         <span>
                             <IoMdAdd />
                         </span>{' '}
-                        Add Artisan
+                        Add Candidate
                     </button>
                 </div>
             </form>
