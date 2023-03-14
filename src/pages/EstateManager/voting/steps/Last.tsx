@@ -10,7 +10,7 @@ const Last = () => {
 
     useEffect(() => {
         const tempCandidateData: CandidateDetails = {}
-        const tempCandidateImg: { [key: string]: string[] } = {}
+        const tempCandidateImg: { [key: string]: any[] } = {}
         candidate_details.forEach((detail) => {
             const category = detail.category as string
 
