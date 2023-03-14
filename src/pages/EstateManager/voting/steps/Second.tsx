@@ -33,7 +33,7 @@ function Second() {
                 >
                     <div className='grid gap-4 select-none pointer-events-none opacity-50 '>
                         <label
-                            htmlFor='firstName'
+                            htmlFor='name'
                             className='text-[1.4rem] font-medium'
                         >
                             Name
@@ -41,14 +41,14 @@ function Second() {
                         <input
                             type='text'
                             required
-                            id='firstName'
-                            placeholder='placeholder'
+                            id='name'
+                           defaultValue={"Aliba Desmond"}
                             className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                         />
                     </div>
                     <div className='grid gap-4 select-none pointer-events-none opacity-50'>
                         <label
-                            htmlFor='firstName'
+                            htmlFor='gender'
                             className='text-[1.4rem] font-medium'
                         >
                             Gender
@@ -56,8 +56,8 @@ function Second() {
                         <input
                             type='text'
                             required
-                            id='firstName'
-                            placeholder='placeholder'
+                            id='gender'
+                            defaultValue={'Male'}
                             className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                         />
                     </div>
