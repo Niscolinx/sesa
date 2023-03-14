@@ -8,6 +8,9 @@ function Second() {
     const { electionCategory } = useCreateElectionContext()
     const [candidate, setCandidate] = useState<string | null>(null)
     const [category, setCategory] = useState<string | null>(null)
+    const [name, setName] = useState('')
+    const [gender, setGender] = useState('')
+    const [manifesto, setManifesto] = useState('')
 
     interface InputField {
 
