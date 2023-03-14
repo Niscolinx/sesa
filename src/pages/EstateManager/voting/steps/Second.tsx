@@ -98,6 +98,7 @@ function Second() {
                                     <label className=' font-medium'>
                                         Details
                                     </label>
+                                    <>{console.log({candidate_details, currentIdx})}</>
                                     <textarea
                                         rows={5}
                                         className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4 '
