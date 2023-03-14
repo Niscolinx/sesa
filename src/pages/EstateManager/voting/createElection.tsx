@@ -11,7 +11,8 @@ import Second from './steps/Second'
 import Third from './steps/Third'
 
 type Category = string[]
-export interface CandidateField {
+
+ interface CandidateField {
     candidate: string | null
     category: string | null
     name: string
@@ -23,8 +24,8 @@ export interface CandidateField {
 interface CreateElectionContext {
     electionCategory: Category
     setElectionCategory: Dispatch<SetStateAction<Category>>
-    candidate_details: CandidateField
-    setCandidate_details: Dispatch<SetStateAction<CandidateField>>
+    candidate_details: CandidateField[]
+    setCandidate_details: Dispatch<SetStateAction<CandidateField[]>>
 }
 
 const CreateElectionContext = createContext<CreateElectionContext | null>(null)
@@ -60,6 +61,8 @@ const CreateElection = () => {
             value={{
                 electionCategory,
                 setElectionCategory,
+                candidate_details,
+                setCandidate_details
             }}
         >
             <div className=' p-8 bg-white rounded-lg min-h-[90vh] relative'>
