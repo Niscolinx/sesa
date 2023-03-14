@@ -11,7 +11,7 @@ const Last = () => {
         [key: string]: string[]
     }>({})
 
-    const [currentCategory, setCurrentCategory] = useState('')
+    const [currentCategory, setCurrentCategory] = useState<CandidateField[]>([])
 
     useEffect(() => {
         const tempCandidateData: CandidateDetails = {}
@@ -49,7 +49,7 @@ const Last = () => {
     }
 
     const openDialog = (key: string) => {
-        setCurrentCategory(key)
+        
 
         if (dialogRef.current) {
             dialogRef.current.showModal()
@@ -80,8 +80,8 @@ const Last = () => {
                                                 console.log({ key, va })
                                                 return key === currentCategory
                                             })
-                                            .map(([_, value], i) => {
-                                                console.log(_, value)
+                                            .map(([key, value], i) => {
+                                                console.log({key, value})
                                                 return (
                                                     <div key={i}>
                                                         {/* <img
