@@ -56,7 +56,7 @@ const CreateElection = () => {
                     </button>
                     <button
                         className=' text-color-blue disabled:opacity-50 disabled:cursor-not-allowed'
-                        disabled={step === 3}
+                        disabled={step === 3 || !electionCategory[0]}
                         onClick={() => setStep((prev) => prev + 1)}
                     >
                         <TfiArrowCircleRight className='w-[4rem] h-[4rem]' />
