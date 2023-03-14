@@ -3,14 +3,13 @@ import { GroupThreeImages } from '../../../../components/UI/GroupThreeImages'
 import { CandidateField, useCreateElectionContext } from '../createElection'
 
 const Last = () => {
-    type ExtractedImg =  {[key: string]: string[]}
+    type ExtractedImg = { [key: string]: string[] }
     const { electionCategory, candidate_details } = useCreateElectionContext()
     const [candidateImgs, setCandidateImgs] = useState<ExtractedImg[]>([])
 
-
     useEffect(() => {
         //  electionCategory.forEach((item) => {
-            
+
         //     const imgs = candidate_details
         //         .reduce((acc: string[], cur) => acc.concat(cur.photoUrl), [])
         //         .filter((candidateData) => candidateData.category === item)
@@ -19,14 +18,18 @@ const Last = () => {
         //     return imgs
         // })
 
-        const extractedImgs: any = []
+        const candidates: any = []
+        
         electionCategory.forEach((item, i) => {
-           
-                extractedImgs.push({
-                    item: candidate_details.find((detail) => detail.category === item)
-                })
-           
+            
+             candidate_details.forEach((item) => {
+                return {
+                    
+                }
+            })
         })
+
+        console.log(candidates)
     }, [candidate_details])
 
     return (
