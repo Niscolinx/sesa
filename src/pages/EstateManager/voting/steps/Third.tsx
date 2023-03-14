@@ -34,10 +34,10 @@ function Third() {
                             htmlFor='thirdName'
                             className='text-[1.4rem] font-medium'
                         >
-                            Election Title
+                            Voting Start Date
                         </label>
                         <input
-                            type='text'
+                            type='date'
                             required
                             id='thirdName'
                             placeholder='placeholder'
