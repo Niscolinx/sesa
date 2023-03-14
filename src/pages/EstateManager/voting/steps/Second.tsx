@@ -11,6 +11,7 @@ function Second() {
     const [name, setName] = useState('Aliba Desmond')
     const [gender, setGender] = useState('Male')
     const [manifesto, setManifesto] = useState('')
+    const [currentData, setCurrentData] = useState<InputField | null>(null)
 
     interface InputField {
         candidate: string | null
@@ -31,7 +32,7 @@ function Second() {
         }
     }
 
-    const openDialog = () => {
+    const openDialog = (idx: number) => {
         if (dialogRef.current) {
             dialogRef.current.showModal()
         }
