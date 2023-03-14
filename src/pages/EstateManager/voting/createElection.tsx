@@ -1,5 +1,6 @@
 import { SetStateAction } from 'jotai'
 import { createContext, Dispatch, useContext, useState } from 'react'
+import { FiArrowRight } from 'react-icons/fi'
 import { TfiArrowCircleLeft, TfiArrowCircleRight } from 'react-icons/tfi'
 import First from './steps/First'
 import Second from './steps/Second'
@@ -46,7 +47,7 @@ const CreateElection = () => {
                 </p>
                 {displayStep.get(step)}
 
-                <div className=' m-16 flex items-center gap-16'>
+                <div className='m-[5rem] flex items-center gap-16 ml-auto bg-red-600 justify-end'>
                     <button
                         className='text-color-blue disabled:opacity-50 disabled:cursor-not-allowed'
                         disabled={step === 1}
@@ -59,7 +60,7 @@ const CreateElection = () => {
                         disabled={step === 3 || !electionCategory[0]}
                         onClick={() => setStep((prev) => prev + 1)}
                     >
-                        <TfiArrowCircleRight className='w-[4rem] h-[4rem]' />
+                        <FiArrowRight  />
                     </button>
                 </div>
             </div>
