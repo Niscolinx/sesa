@@ -6,9 +6,11 @@ const Last = () => {
     type CandidateDetails = { [key: string]: string[] }
     const { electionCategory, candidate_details } = useCreateElectionContext()
     const [candidateData, setCandidateData] = useState<CandidateDetails[]>([])
+    const [candidateImgs, setCandidateImgs] = useState<string[]>([])
 
     useEffect(() => {
         const tempCandidateData: { [key: string]: CandidateField[] } = {}
+        const tempCandidateImg: { [key: string]: string[] } = {}
         candidate_details.forEach((detail) => {
             const category = detail.category as string
 
@@ -19,25 +21,21 @@ const Last = () => {
                           detail,
                       ])
                     : (tempCandidateData[category] = [detail])
+
+                tempCandidateImg[category]
+                    ? (tempCandidateImg[category] = [
+                          ...tempCandidateImg[category],
+                          detail.photoUrl,
+                      ])
+                    : (tempCandidateImg[category] = [detail.photoUrl])
             }
         })
         setCandidateData((prev) => ({ ...prev, ...tempCandidateData }))
+        setCandidateImgs((prev) => ({ ...prev, ...tempCandidateImg }))
     }, [candidate_details, electionCategory])
 
-    console.log({ candidateData })
+    console.log({ candidateData, candidateImgs })
 
-    // electionCategory.forEach((item, i) => {
-    //     return candidate_details.forEach((detail) => {
-    //         if (detail.category === item) {
-    //             setCandidateData((prev) => {
-    //                 return {
-    //                     ...prev,
-    //                     [item]: [...item, detail],
-    //                 }
-    //             })
-    //         }
-    //     })
-    // })
 
     return (
         <main className='bg-color-white rounded-lg grid gap-16'>
