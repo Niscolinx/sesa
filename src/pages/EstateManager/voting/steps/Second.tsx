@@ -244,7 +244,7 @@ function Second() {
 
             <section className='mt-[5rem]'>
                 {candidate_details.map((item, idx) => {
-                    const { photoUrl, name, gender } = item
+                    const { photoUrl, name, gender, category } = item
                     return (
                         <div className='mb-5'>
                             <p className='font-Satoshi-Medium capitalize text-[2rem]'>
@@ -284,7 +284,7 @@ function Second() {
                                             <p className='font-Satoshi-Light'>
                                                 Election Category :
                                             </p>
-                                            <p>{electionCategory}</p>
+                                            <p>{category}</p>
                                         </div>
                                         <button
                                             className='text-[#098DFF] text-left cursor-pointer'
