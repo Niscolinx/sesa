@@ -137,7 +137,11 @@ const Fourth: FC = () => {
 
     return (
         <main className='bg-color-white rounded-lg overflow-scroll max-h-[80vh]'>
-            <caption className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
+            <p>
+                <span>NB: All alphas are denoted with the icon </span>
+                <img src='/img/alpha.svg' alt='' />
+            </p>
+            <div className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
                 <p className=' font-bold'>
                     Voters List <span>(50)</span>
                 </p>
@@ -158,12 +162,12 @@ const Fourth: FC = () => {
                         <option hidden value=''>
                             Sort By
                         </option>
-                        <option value='date'>date</option>
-                        <option value='alpha'>Alpha</option>
+                        <option value='date'>property</option>
+                        <option value='alpha'>Name</option>
                     </select>
                     <GrDown className='absolute right-4 text-[1.3rem]' />
                 </div>
-            </caption>
+            </div>
             <div className='grid'>
                 <div
                     className='grid justify-between text-color-dark-1 bg-gray-100 p-8 grid-cols-6 gap-6'
