@@ -12,7 +12,7 @@ function Third() {
                 <div
                     className='grid gap-16 '
                     style={{
-                        gridTemplateColumns: 'repeat(auto-fit, minmax(40rem, 1fr))',
+                        gridTemplateColumns: 'repeat(auto-fit, 40rem)',
                     }}
                 >
                     <div className='grid gap-4 relative'>
