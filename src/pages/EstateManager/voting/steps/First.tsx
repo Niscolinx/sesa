@@ -47,13 +47,7 @@ function First() {
                         className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                     />
                 </div>
-                <Select
-                    label='Payment Type'
-                    state={['fixed', 'flexible'] satisfies PaymentType[]}
-                    selectedState={paymentType}
-                    setSelectedState={setPaymentType}
-                />
-                {renderForm.get(paymentType as PaymentType)}
+               
             </form>
         </div>
     )
