@@ -31,7 +31,6 @@ function Second() {
         setPhotoUrl(getUrl)
     }
 
-
     const handleSubmit = (e: FormEvent) => {
         e.preventDefault()
 
@@ -54,17 +53,16 @@ function Second() {
         setPhotoUrl('')
     }
 
-    const deleteCandidateHandler = (idx:number) => {
+    const deleteCandidateHandler = (idx: number) => {
         setCandidate_details((prev) => {
-            return prev.filter((_, index) =>  index !== idx)
+            return prev.filter((_, index) => index !== idx)
         })
-
     }
 
     return (
         <div>
             <form
-                className='grid gap-16 items-start content-start capitalize'
+                className='grid gap-16 items-start content-start capitalize border-b pb-10'
                 onSubmit={handleSubmit}
             >
                 <div className='grid gap-4 relative w-[35rem]'>
@@ -181,57 +179,57 @@ function Second() {
                 </div>
             </form>
 
-            <section>
-                {candidate_details.length > 0 && (
-                    <p className='font-Satoshi-Medium'>candidate Details</p>
-                )}
-
+            <section className='mt-[5rem]'>
                 {candidate_details.map((item, idx) => {
-                    const {
-                        photoUrl,
-                        name,
-                        gender,
-                        manifesto,
-                        candidate,
-                    } = item
+                    const { photoUrl, name, gender, manifesto, candidate } =
+                        item
                     return (
-                        <div className='grid relative border-b pb-4' key={idx}>
-                            <img
-                                src='/img/closeIcon.svg'
-                                alt=''
-                                className='self-end justify-self-end cursor-pointer'
-                                onClick={() => deleteCandidateHandler(idx)}
-                            />
-                            <div className='flex gap-16 items-center pb-8'>
+                        <div>
+                            <p className='font-Satoshi-Medium capitalize'>
+                                candidate {idx} Details
+                            </p>
+
+                            <div
+                                className='grid relative border-b pb-4'
+                                key={idx}
+                            >
                                 <img
-                                    src={photoUrl}
-                                    alt='photoPreview'
-                                    className='object-cover w-[11rem] h-[11rem] rounded-full'
+                                    src='/img/closeIcon.svg'
+                                    alt=''
+                                    className='self-end justify-self-end cursor-pointer'
+                                    onClick={() => deleteCandidateHandler(idx)}
                                 />
-                                <div className='grid gap-4 min-w-[70rem]'>
-                                    <div className='grid grid-cols-2 items-center justify-start '>
-                                        <p className='font-Satoshi-Light'>
-                                            candidate Serial Number :
-                                        </p>
-                                        <p>{candidate}</p>
-                                    </div>
-                                    <div className='grid grid-cols-2 items-center justify-start '>
-                                        <p className='font-Satoshi-Light'>
-                                            Vehicle Registration Number :
-                                        </p>
-                                        <p>{gender}</p>
-                                    </div>
-                                    <div className='grid grid-cols-2 items-center justify-start '>
-                                        <p className='font-Satoshi-Light'>
-                                            Vehicle Type :
-                                        </p>
-                                        <p>{manifesto}</p>
-                                    </div>
-                                    <div className='grid grid-cols-2 items-center justify-start '>
-                                        <p className='font-Satoshi-Light'>
-                                            Vehicle Make :
-                                        </p>
-                                        <p>{name}</p>
+                                <div className='flex gap-16 items-center pb-8'>
+                                    <img
+                                        src={photoUrl}
+                                        alt='photoPreview'
+                                        className='object-cover w-[11rem] h-[11rem] rounded-full'
+                                    />
+                                    <div className='grid gap-4 min-w-[70rem]'>
+                                        <div className='grid grid-cols-2 items-center justify-start '>
+                                            <p className='font-Satoshi-Light'>
+                                                candidate Serial Number :
+                                            </p>
+                                            <p>{candidate}</p>
+                                        </div>
+                                        <div className='grid grid-cols-2 items-center justify-start '>
+                                            <p className='font-Satoshi-Light'>
+                                                Vehicle Registration Number :
+                                            </p>
+                                            <p>{gender}</p>
+                                        </div>
+                                        <div className='grid grid-cols-2 items-center justify-start '>
+                                            <p className='font-Satoshi-Light'>
+                                                Vehicle Type :
+                                            </p>
+                                            <p>{manifesto}</p>
+                                        </div>
+                                        <div className='grid grid-cols-2 items-center justify-start '>
+                                            <p className='font-Satoshi-Light'>
+                                                Vehicle Make :
+                                            </p>
+                                            <p>{name}</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
