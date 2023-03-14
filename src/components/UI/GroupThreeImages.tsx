@@ -11,7 +11,7 @@ function GroupThreeImages({ images = imgArr }: GroupThreeImages) {
         <div className='relative w-[10rem] flex items-center justify-between'>
             {images.map((item, i) => (
                 <img
-                    key={i}
+                    key={i+item}
                     src={item}
                     alt=''
                     className={`w-[3rem] h-[3rem] object-cover rounded-full border border-color-white absolute left-${
