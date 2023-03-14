@@ -147,7 +147,9 @@ function Voting() {
             <div className='rounded-lg mt-[3rem] h-[80vh]'>
                 {isVoting ? (
                     <div className='grid gap-10 rounded-lg min-w-[112rem]'>
-                        <p className='font-Satoshi-Medium text-[2.5rem]'>Voting & Election</p>
+                        <p className='font-Satoshi-Medium text-[2.5rem]'>
+                            Voting & Election
+                        </p>
                         <div className='grid text-[1.6rem] rounded-lg'>
                             <div className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
                                 <p className=' font-bold'>
@@ -180,17 +182,17 @@ function Voting() {
                                     <GrDown className='absolute right-4 text-[1.3rem]' />
                                 </div>
 
-                                <Link to='/estateManager/voting-and-election/create-new-poll'>
-
-                                <button
-                                    className='btn ml-auto bg-color-blue-1 text-white flex gap-2 items-center self-center rounded-lg py-4 px-8 capitalize'
-                                    >
-                                    <span>
-                                        <IoMdAdd />
-                                    </span>{' '}
-                                    <p>New Voting Poll</p>
-                                </button>
-                                    </Link>
+                                <Link
+                                    to='/estateManager/voting-and-election/create-new-poll'
+                                    className='ml-auto'
+                                >
+                                    <button className='btn  bg-color-blue-1 text-white flex gap-2 items-center self-center rounded-lg py-4 px-8 capitalize'>
+                                        <span>
+                                            <IoMdAdd />
+                                        </span>{' '}
+                                        <p>New Voting Poll</p>
+                                    </button>
+                                </Link>
                             </div>
 
                             <div
