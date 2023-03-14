@@ -8,10 +8,9 @@ export function GroupThreeImages({ images }: GroupThreeImages) {
     return (
         <div className='relative w-[12rem] flex items-center justify-between'>
             {images.map((item, i) => {
-                
                 return (
                     <Fragment key={i}>
-                        {i + 1 <= 3 ? (
+                        {i + 1 <= 3 && (
                             <img
                                 src={item}
                                 alt=''
@@ -22,38 +21,21 @@ export function GroupThreeImages({ images }: GroupThreeImages) {
                                     left: `${i * 20}%`,
                                 }}
                             />
-                        ) : (
-                            <span
-                                className={`w-[3rem] h-[3rem] object-cover rounded-full border border-color-white absolute bg-[#0556E5] text-white z-${
-                                    i + 1 + 10
-                                }`}
-                                style={{
-                                    left: `${i * 20}%`,
-                                }}
-                            >
-                                {' '}
-                                + {images.length - 3}
-                            </span>
                         )}
                     </Fragment>
                 )
             })}
-            {/* <img
-                    src='/img/avatar1.png'
-                    alt=''
-                    className='w-[3rem] h-[3rem] object-cover rounded-full border border-color-white absolute left-0 z-10'
-                />
-                <img
-                    src='/img/avatar2.png'
-                    alt=''
-                    className='w-[3rem] h-[3rem] object-cover rounded-full border border-color-white absolute left-[20%] z-20'
-                />
-                <img
-                    src='/img/avatar3.png'
-                    alt=''
-                    className='w-[3rem] h-[3rem] object-cover rounded-full border border-color-white absolute left-[40%] z-30'
-                />
-            </div> */}
+            {images.length > 3 && (
+                <span
+                    className={`w-[3rem] h-[3rem] object-cover rounded-full border border-color-white absolute bg-[#0556E5] text-white z-${14}`}
+                    style={{
+                        left: `60%`,
+                    }}
+                >
+                    {' '}
+                    + {images.length - 3}
+                </span>
+            )}
         </div>
     )
 }
