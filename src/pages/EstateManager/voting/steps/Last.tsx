@@ -53,7 +53,6 @@ const Last = () => {
                 </p>
                 {Object.values(candidateImgs).length > 0 &&
                     Object.entries(candidateImgs).map(([key, value], i) => {
-                        console.log({ key }, { candidateImgs })
 
                         return (
                             <div className='grid gap-8 w-[60rem]' key={i}>
