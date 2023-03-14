@@ -86,12 +86,10 @@ function Third() {
                             label={'Votes Display'}
                         />
                    
-                    <div className='grid justify-items-start gap-4 self-end'>
+                    <div className='flex items-center gap-4 self-end'>
                         <p className=' font-Satoshi-Medium flex items-center gap-2 text-[#043FA7]'>
                             Allow Physical Voting{' '}
-                            <span className='text-[#043FA7]'>
-                                <BsQuestionCircle />
-                            </span>
+                          
                         </p>
                         <div
                             onClick={() =>
