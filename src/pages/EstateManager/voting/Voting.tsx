@@ -30,9 +30,8 @@ function Voting() {
         setIsVoting(true)
     }
 
-    const navigate = useNavigate()
 
-    const [messageList, setVotingList] = useState<Voting[]>([])
+    const [votingList, setVotingList] = useState<Voting[]>([])
     const [search, setSearch] = useState<string>('')
 
     useEffect(() => {
@@ -56,7 +55,7 @@ function Voting() {
         index: 0,
         currentPage: 1,
         itemsPerPage: perPage,
-        totalPage: Math.ceil(messageList.length / perPage),
+        totalPage: Math.ceil(votingList.length / perPage),
         slicedPages: null,
     })
 
@@ -64,8 +63,8 @@ function Voting() {
         const item = parseInt(e.target.value)
 
         const slicedPages: Voting[][] = []
-        for (let i = 0; i < messageList.length; i += item) {
-            slicedPages.push(messageList.slice(i, i + item))
+        for (let i = 0; i < votingList.length; i += item) {
+            slicedPages.push(votingList.slice(i, i + item))
         }
 
         setPaginate((prev) => {
@@ -75,15 +74,15 @@ function Voting() {
                 index: 0,
                 currentPage: 1,
                 slicedPages,
-                totalPage: Math.ceil(messageList.length / item),
+                totalPage: Math.ceil(votingList.length / item),
             }
         })
     }
 
     useEffect(() => {
         const slicedPages: Voting[][] = []
-        for (let i = 0; i < messageList.length; i += paginate.itemsPerPage) {
-            slicedPages.push(messageList.slice(i, i + paginate.itemsPerPage))
+        for (let i = 0; i < votingList.length; i += paginate.itemsPerPage) {
+            slicedPages.push(votingList.slice(i, i + paginate.itemsPerPage))
         }
 
         setPaginate((prev) => {
@@ -91,11 +90,11 @@ function Voting() {
                 ...prev,
                 slicedPages,
                 totalPage: Math.ceil(
-                    messageList.length / paginate.itemsPerPage
+                    votingList.length / paginate.itemsPerPage
                 ),
             }
         })
-    }, [messageList])
+    }, [votingList])
 
     const handleNext = () => {
         if (paginate.currentPage === paginate.totalPage) return
