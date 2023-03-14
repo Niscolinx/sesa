@@ -77,16 +77,18 @@ const Last = () => {
                                     {Object.values(candidateData).length > 0 &&
                                         Object.entries(candidateData)
                                             .filter(
-                                                ([key]) =>
-                                                    key === currentCategory
+                                                ([key, va]) => {
+                                                    console.log({key, va})
+                                                    return key === currentCategory
+                                                }
                                             )
-                                            .map((value, i) => (
+                                            .map(([_, value], i) => (
                                                 <div key={i}>
-                                                    <img
-                                                        src={``}
+                                                    {/* <img
+                                                        src={value}
                                                         alt=''
                                                         className={`w-[3rem] h-[3rem] object-cover rounded-full border border-color-white absolute `}
-                                                    />
+                                                    /> */}
                                                 </div>
                                             ))}
                                 </>
