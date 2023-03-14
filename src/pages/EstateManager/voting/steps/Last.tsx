@@ -5,13 +5,6 @@ const Last = () => {
         '/img/avatar1.png',
         '/img/avatar2.png',
         '/img/avatar3.png',
-        '/img/avatar11.png',
-        '/img/avatar11.png',
-        '/img/avatar11.png',
-        '/img/avatar11.png',
-        '/img/avatar11.png',
-        '/img/avatar11.png',
-        '/img/avatar11.png',
     ]
 
     return (
