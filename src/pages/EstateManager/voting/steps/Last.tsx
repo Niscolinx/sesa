@@ -46,8 +46,8 @@ const Last = () => {
          }
      }
 
-     const openDialog = (idx: number) => {
-         const detailIdx = candidate_details.findIndex((_, i) => i === idx)
+     const openDialog = (key: string) => {
+        
 
          //setCurrentIdx(detailIdx)
 
@@ -76,7 +76,7 @@ const Last = () => {
                                {
                                 Object.values(candidateData).length > 0 && Object.entries(candidateData).map(([key, value]) => {
                                     return {
-                                        
+
                                     }
                                 })
                                }
@@ -105,7 +105,9 @@ const Last = () => {
                                     <div className='flex items-center gap-16'>
                                         <GroupThreeImages images={value} />
 
-                                        <button className='text-color-blue'>
+                                        <button className='text-color-blue' onClick={
+                                            () => openDialog(key)
+                                        }>
                                             View Candidates
                                         </button>
                                     </div>
