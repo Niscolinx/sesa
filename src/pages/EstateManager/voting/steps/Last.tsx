@@ -18,6 +18,15 @@ const Last: FC = () => {
 
           <section>
             <p className='text-[2rem] font-Satoshi-Medium'>Election Categories</p>
+
+            <div className='grid gap-8'>
+                <div>
+                    <p>President</p>
+                    <div>
+                        
+                    </div>
+                </div>
+            </div>
           </section>
         </main>
     )
