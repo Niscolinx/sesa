@@ -1,5 +1,5 @@
 import { FormEvent, useRef, useState } from 'react'
-import { IoMdAdd } from 'react-icons/io'
+import { IoMdAdd, IoMdClose } from 'react-icons/io'
 import { Select } from '../../../../components/SuperAdmin/UI/Select'
 import { getPhotoUrl } from '../../../../utils/getPhotoUrl'
 import { useCreateElectionContext } from '../createElection'
@@ -25,13 +25,13 @@ function Second() {
     const [photoUrl, setPhotoUrl] = useState('')
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
-    const handleClose = () => {
+    const closeDialog = () => {
         if (dialogRef.current) {
             dialogRef.current.close()
         }
     }
 
-    const handleOpen = () => {
+    const openDialog = () => {
         if (dialogRef.current) {
             dialogRef.current.showModal()
         }
@@ -77,35 +77,17 @@ function Second() {
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8 text-[1.6rem]'>
-                        {isWarning ? (
-                            <img src='/icons/admins/modalWarning.svg' alt='' />
-                        ) : (
-                            <img src='/icons/admins/modalSuccess.svg' alt='' />
-                        )}
-                        <p
-                            style={{
-                                fontFamily: 'Satoshi-Medium',
-                            }}
-                            className='text-[2rem]'
-                        >
-                            Confirm Send Message
-                        </p>
-                        <p>Are you sure you want to send this message?</p>
-
-                        <div className='flex w-full justify-center gap-8'>
-                            <button
-                                className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
-                                onClick={() => handleClose()}
-                            >
-                                Cancel
-                            </button>
-
-                            <button
-                                className='btn text-white bg-[#0556E5] border rounded-lg w-[15rem]'
-                                onClick={() => handleClose()}
-                            >
-                                Yes
-                            </button>
+                        <div className='text-white bg-[#098DFF] relative p-8 capitalize h-full'>
+                            <IoMdClose
+                                className='absolute right-0 top-0 text-[2.5rem] cursor-pointer m-5'
+                                onClick={() => closeDialog()}
+                            />
+                            <p className='font-Satoshi-Medium text-[2rem]'>
+                                Energy Token Speed 01
+                            </p>
+                            <p className='text-[1.2rem]'>
+                                Energy token speed 01
+                            </p>
                         </div>
                     </div>
                 </section>
@@ -257,28 +239,25 @@ function Second() {
                                     <div className='grid gap-4 min-w-[70rem]'>
                                         <div className='grid grid-cols-2 items-center justify-start '>
                                             <p className='font-Satoshi-Light'>
-                                                candidate Serial Number :
+                                                Name:
                                             </p>
-                                            <p>{candidate}</p>
+                                            <p>{name}</p>
                                         </div>
                                         <div className='grid grid-cols-2 items-center justify-start '>
                                             <p className='font-Satoshi-Light'>
-                                                Vehicle Registration Number :
+                                                Gender :
                                             </p>
                                             <p>{gender}</p>
                                         </div>
                                         <div className='grid grid-cols-2 items-center justify-start '>
                                             <p className='font-Satoshi-Light'>
-                                                Vehicle Type :
+                                                Election Category :
                                             </p>
-                                            <p>{manifesto}</p>
+                                            <p>{category}</p>
                                         </div>
-                                        <div className='grid grid-cols-2 items-center justify-start '>
-                                            <p className='font-Satoshi-Light'>
-                                                Vehicle Make :
-                                            </p>
-                                            <p>{name}</p>
-                                        </div>
+                                        <button className='text-[#098DFF]'>
+                                            View Details
+                                        </button>
                                     </div>
                                 </div>
                             </div>
