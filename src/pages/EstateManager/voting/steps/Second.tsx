@@ -101,16 +101,20 @@ function Second() {
                                     <textarea
                                         rows={5}
                                         className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4 '
-                                        value={candidate_details[currentIdx]?.manifesto}
+                                        value={
+                                            candidate_details[currentIdx]
+                                                ?.manifesto
+                                        }
                                         onChange={(e) => {
                                             setCandidate_details((prev) => {
-                                                if(prev.length < 1){
-                                                    return prev = []
+                                                if (prev.length < 1) {
+                                                    return (prev = [])
                                                 }
 
-                                                console.log({prev})
+                                                console.log({ prev })
                                                 const updated = [...prev]
-                                                updated[currentIdx].manifesto = e.target.value
+                                                updated[currentIdx].manifesto =
+                                                    e.target.value
 
                                                 return updated
                                             })
@@ -154,6 +158,7 @@ function Second() {
                         >
                             Name
                         </label>
+                        <>{console.log({ candidate })}</>
                         <input
                             type='text'
                             required
