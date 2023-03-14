@@ -185,8 +185,8 @@ function Second() {
                         item
                     return (
                         <div>
-                            <p className='font-Satoshi-Medium capitalize'>
-                                candidate {idx} Details
+                            <p className='font-Satoshi-Medium capitalize text-[2rem]'>
+                                candidate {idx + 1} Details
                             </p>
 
                             <div
