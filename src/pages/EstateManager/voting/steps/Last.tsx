@@ -23,7 +23,8 @@ const Last: FC = () => {
                 <div>
                     <p>President</p>
                     <div>
-                        
+                    <div></div>
+                    <button className='text-color-blue'>View Candidates</button>
                     </div>
                 </div>
             </div>
