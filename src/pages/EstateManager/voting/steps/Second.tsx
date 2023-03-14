@@ -133,7 +133,7 @@ function Second() {
                 className='grid gap-16 items-start content-start capitalize border-b pb-10'
                 onSubmit={handleSubmit}
             >
-                <div className='grid gap-4 relative w-[35rem]'>
+                <div className='grid gap-4 relative w-[40rem]'>
                     <Select
                         state={[
                             'ALIBA DESMOND (RES CODE: 2345CDGK1)',
@@ -151,7 +151,7 @@ function Second() {
                 <div
                     className='grid gap-16 '
                     style={{
-                        gridTemplateColumns: 'repeat(auto-fit, 35rem)',
+                        gridTemplateColumns: 'repeat(auto-fit, minmax(40rem, 1fr))',
                     }}
                 >
                     <div className='grid gap-4 select-none pointer-events-none opacity-50 '>

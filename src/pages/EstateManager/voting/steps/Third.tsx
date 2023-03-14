@@ -1,8 +1,10 @@
 import { SetStateAction, useState } from 'react'
+import { BsQuestionCircle } from 'react-icons/bs'
 import { MultipleSelect } from '../../../../components/SuperAdmin/UI/Select'
 
 function Third() {
     const [voteDisplay, setVoteDisplay] = useState<string[]>([])
+    const [allowPhysicalVoting, setAllowPhysicalVoting] = useState(false)
 
     return (
         <div>
@@ -10,7 +12,7 @@ function Third() {
                 <div
                     className='grid gap-16 '
                     style={{
-                        gridTemplateColumns: 'repeat(auto-fit, 35rem)',
+                        gridTemplateColumns: 'repeat(auto-fit, minmax(40rem, 1fr))',
                     }}
                 >
                     <div className='grid gap-4 relative'>
@@ -73,16 +75,37 @@ function Third() {
                             className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                         />
                     </div>
-                    <MultipleSelect
-                        selectFrom={[
-                            'Vote count only',
-                            'Percentage of vote count',
-                            'Total number of votes',
-                        ]}
-                        selected={voteDisplay}
-                        setSelected={setVoteDisplay}
-                        label={'Votes Display'}
-                    />
+                        <MultipleSelect
+                            selectFrom={[
+                                'Vote count only',
+                                'Percentage of vote count',
+                                'Total number of votes',
+                            ]}
+                            selected={voteDisplay}
+                            setSelected={setVoteDisplay}
+                            label={'Votes Display'}
+                        />
+                   
+                    <div className='grid justify-items-start gap-4 self-end'>
+                        <p className=' font-Satoshi-Medium flex items-center gap-2 text-[#043FA7]'>
+                            Allow Physical Voting{' '}
+                            <span className='text-[#043FA7]'>
+                                <BsQuestionCircle />
+                            </span>
+                        </p>
+                        <div
+                            onClick={() =>
+                                setAllowPhysicalVoting(!allowPhysicalVoting)
+                            }
+                            className='cursor-pointer'
+                        >
+                            {allowPhysicalVoting ? (
+                                <img src='/icons/admins/switchOn.svg' alt='' />
+                            ) : (
+                                <img src='/icons/admins/switchOff.svg' alt='' />
+                            )}
+                        </div>
+                    </div>
                 </div>
             </form>
         </div>
