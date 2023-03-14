@@ -109,7 +109,6 @@ function Second() {
                                                     return (prev = [])
                                                 }
 
-                                                console.log({ prev })
                                                 const updated = [...prev]
                                                 updated[currentIdx].manifesto =
                                                     e.target.value
