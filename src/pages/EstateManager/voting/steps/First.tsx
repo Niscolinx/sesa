@@ -13,6 +13,10 @@ function First() {
     //         { amount: '', startDate: '', endDate: '' },
     //     ])
     // }
+
+    const add_another_category = () => {
+        
+    }
     return (
         <div>
             <form className='grid max-w-[50rem] gap-16 items-start content-start capitalize'>
@@ -50,7 +54,7 @@ function First() {
                                 className=' rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4 w-[40rem]'
                             />
                             {idx + 1 === electionCategory.length && (
-                                <button>
+                                <button onClick={add_another_category}>
                                     <img src='/icons/add_Icon.svg' alt='' />
                                 </button>
                             )}
