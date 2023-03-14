@@ -5,7 +5,7 @@ import { getPhotoUrl } from '../../../../utils/getPhotoUrl'
 import { useCreateElectionContext } from '../createElection'
 
 function Second() {
-    const { electionCategory, setElectionCategory } = useCreateElectionContext()
+    const { electionCategory } = useCreateElectionContext()
     const [candidate, setCandidate] = useState<string | null>(null)
     const [category, setCategory] = useState<string | null>(null)
     const [name, setName] = useState('Aliba Desmond')
