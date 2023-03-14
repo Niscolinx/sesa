@@ -11,8 +11,7 @@ const Last = () => {
         [key: string]: string[]
     }>({})
 
-    const [currentCategory, setCurrentCategory] =
-        useState('')
+    const [currentCategory, setCurrentCategory] = useState('')
 
     useEffect(() => {
         const tempCandidateData: CandidateDetails = {}
@@ -76,7 +75,7 @@ const Last = () => {
                                     </p>
 
                                     {Object.values(candidateData).length > 0 &&
-                                        Object.entries(candidateData).map(
+                                        Object.entries(candidateData).filter(
                                             ([key, value]) => {
                                                 return {}
                                             }
