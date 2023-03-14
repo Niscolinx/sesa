@@ -12,7 +12,7 @@ const Last = () => {
     }>({})
 
     const [currentCategory, setCurrentCategory] =
-        useState<CandidateField | null>(null)
+        useState('')
 
     useEffect(() => {
         const tempCandidateData: CandidateDetails = {}
