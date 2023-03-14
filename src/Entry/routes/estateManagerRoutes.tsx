@@ -39,6 +39,7 @@ import AddEnergyToken from '../../pages/EstateManager/EnergyToken/AddEnergyToken
 import BulkUpload from '../../pages/EstateManager/EnergyToken/bulkUpload'
 import Voting from '../../pages/EstateManager/voting/Voting'
 import ViewEnergyToken from '../../pages/EstateManager/EnergyToken/ViewEnergyToken'
+import CreateElection from '../../pages/EstateManager/voting/createElection'
 
 const estateManagerRoutes = (
     <Route path='/estateManager' element={<Dashboard />}>
@@ -91,7 +92,7 @@ const estateManagerRoutes = (
         <Route path='energy-token/view/:id' element={<ViewEnergyToken />} />
         <Route path='energy-token/bulk-upload' element={<BulkUpload />} />
         <Route path='voting-and-election' element={<Voting />} />
-        <Route path='voting' element={<Voting />} />
+        <Route path='voting-and-election/create-new-poll' element={<CreateElection />} />
     </Route>
 )
 
