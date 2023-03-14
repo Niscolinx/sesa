@@ -180,7 +180,7 @@ function Voting() {
                                     <GrDown className='absolute right-4 text-[1.3rem]' />
                                 </div>
 
-                                <Link to=''>
+                                <Link to='/estateManager/voting-and-election/create-new-poll'>
 
                                 <button
                                     className='btn ml-auto bg-color-blue-1 text-white flex gap-2 items-center self-center rounded-lg py-4 px-8 capitalize'
