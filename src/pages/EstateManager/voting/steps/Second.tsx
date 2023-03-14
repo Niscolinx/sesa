@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { FormEvent, useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
 import { Select } from '../../../../components/SuperAdmin/UI/Select'
 import { getPhotoUrl } from '../../../../utils/getPhotoUrl'
@@ -9,6 +9,9 @@ function Second() {
     const [candidate, setCandidate] = useState<string | null>(null)
     const [category, setCategory] = useState<string | null>(null)
 
+    interface InputField {
+
+    }
     const [candidate_Details, setcandidate_Details] = useState<InputField[]>([])
 
     const [photoUrl, setPhotoUrl] = useState('')
@@ -25,9 +28,9 @@ function Second() {
         e.preventDefault()
 
         const details = {
-            vehicleMake,
-            vehicleRegNumber,
-            vehicleType,
+            name,
+            gender,
+            manifesto,
             candidate,
             photoUrl,
         }
@@ -36,9 +39,9 @@ function Second() {
             return [...prev, details]
         })
         setcandidate(0)
-        setVehicleMake('')
-        setVehicleRegNumber(0)
-        setVehicleType(null)
+        setName('')
+        setGender(0)
+        setManifesto(null)
         setPhotoUrl('')
     }
 
@@ -175,9 +178,9 @@ function Second() {
                 {candidate_Details.map((item, idx) => {
                     const {
                         photoUrl,
-                        vehicleMake,
-                        vehicleRegNumber,
-                        vehicleType,
+                        name,
+                        gender,
+                        manifesto,
                         candidate,
                     } = item
                     return (
@@ -205,19 +208,19 @@ function Second() {
                                         <p className='font-Satoshi-Light'>
                                             Vehicle Registration Number :
                                         </p>
-                                        <p>{vehicleRegNumber}</p>
+                                        <p>{gender}</p>
                                     </div>
                                     <div className='grid grid-cols-2 items-center justify-start '>
                                         <p className='font-Satoshi-Light'>
                                             Vehicle Type :
                                         </p>
-                                        <p>{vehicleType}</p>
+                                        <p>{manifesto}</p>
                                     </div>
                                     <div className='grid grid-cols-2 items-center justify-start '>
                                         <p className='font-Satoshi-Light'>
                                             Vehicle Make :
                                         </p>
-                                        <p>{vehicleMake}</p>
+                                        <p>{name}</p>
                                     </div>
                                 </div>
                             </div>
