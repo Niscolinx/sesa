@@ -151,11 +151,10 @@ function Second() {
                 <div
                     className='grid gap-16 '
                     style={{
-                        gridTemplateColumns:
-                            'repeat(auto-fit, minmax(40rem, 1fr))',
+                        gridTemplateColumns: 'repeat(auto-fit, 40rem)',
                     }}
                 >
-                    <div className='grid gap-4 select-none pointer-events-none opacity-50 w-[40rem]'>
+                    <div className='grid gap-4 select-none pointer-events-none opacity-50 '>
                         <label
                             htmlFor='name'
                             className='text-[1.4rem] font-Satoshi-Medium'
@@ -168,7 +167,7 @@ function Second() {
                             id='name'
                             disabled
                             defaultValue={candidate ? name : ''}
-                            className='w-full rounded-lg border border-color-grey outline-none py-4 px-4'
+                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                         />
                     </div>
                     <div className='grid gap-4 select-none pointer-events-none opacity-50'>
