@@ -4,9 +4,10 @@ import { CandidateField, useCreateElectionContext } from '../createElection'
 
 const Last = () => {
     const { electionCategory, candidate_details } = useCreateElectionContext()
-    const [candidateImgs, setCandidateImgs] = useState<string[]>([])
+    const [candidateImgs, setCandidateImgs] = useState<{
+        [key: string]: string[]
+    }[]>([])
 
-    const imgArr = ['/img/avatar1.png', '/img/avatar2.png', '/img/avatar3.png']
 
     useEffect(() => {
         const extractedImgs = candidate_details.reduce(
