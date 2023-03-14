@@ -4,7 +4,7 @@ import { TfiArrowCircleLeft, TfiArrowCircleRight } from 'react-icons/tfi'
 import First from './steps/First'
 import Second from './steps/Second'
 
-type Category = { value: string }[]
+type Category = string[]
 
 interface CreateElectionContext {
     electionCategory: Category
@@ -26,9 +26,7 @@ export const useCreateElectionContext = () => {
 }
 const CreateElection = () => {
     const [step, setStep] = useState(1)
-    const [electionCategory, setElectionCategory] = useState<Category>([
-        { value: '' },
-    ])
+    const [electionCategory, setElectionCategory] = useState<Category>([''])
 
     const displayStep = new Map([
         [1, <First />],

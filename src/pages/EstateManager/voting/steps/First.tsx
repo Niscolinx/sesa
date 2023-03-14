@@ -5,7 +5,7 @@ function First() {
     const { electionCategory, setElectionCategory } = useCreateElectionContext()
 
     const add_another_category = () => {
-        setElectionCategory((prev) => [...prev, { value: '' }])
+        setElectionCategory((prev) => [...prev, ''])
     }
 
     const handle_category_change = (
@@ -14,9 +14,8 @@ function First() {
     ) => {
         setElectionCategory((prev) => {
             const updatedArr = [...prev]
-            updatedArr[idx] = {
-                value: e.target.value,
-            }
+            updatedArr[idx] =  e.target.value
+            
 
             return updatedArr
         })
@@ -55,7 +54,7 @@ function First() {
                                 required
                                 id='category'
                                 placeholder='placeholder'
-                                value={item.value}
+                                value={item}
                                 onChange={(e) => handle_category_change(e, idx)}
                                 className=' rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4 w-[40rem]'
                             />

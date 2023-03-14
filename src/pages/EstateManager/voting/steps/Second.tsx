@@ -6,23 +6,7 @@ function Second() {
     const { electionCategory, setElectionCategory } = useCreateElectionContext()
     const [candidate, setCandidate] = useState<string | null>(null)
 
-    const add_another_category = () => {
-        setElectionCategory((prev) => [...prev, { value: '' }])
-    }
 
-    const handle_category_change = (
-        e: ChangeEvent<HTMLInputElement>,
-        idx: number
-    ) => {
-        setElectionCategory((prev) => {
-            const updatedArr = [...prev]
-            updatedArr[idx] = {
-                value: e.target.value,
-            }
-
-            return updatedArr
-        })
-    }
 
     return (
         <div>
@@ -44,7 +28,7 @@ function Second() {
                 </div>
 
                 <div
-                    className='grid gap-4 opacity-50'
+                    className='grid gap-8 opacity-50'
                     style={{
                         gridTemplateColumns:
                             'repeat(auto-fit, minmax(35rem, 1fr))',
