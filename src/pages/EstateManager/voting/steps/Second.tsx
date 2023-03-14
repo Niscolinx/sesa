@@ -9,6 +9,8 @@ function Second() {
     const [candidate, setCandidate] = useState<string | null>(null)
     const [category, setCategory] = useState<string | null>(null)
 
+    const [RFID_Details, setRFID_Details] = useState<InputField[]>([])
+
     const [photoUrl, setPhotoUrl] = useState('')
 
     const handlePhotoPreview = async (
@@ -18,7 +20,6 @@ function Second() {
         setPhotoUrl(getUrl)
     }
 
-  
 
     const handleSubmit = (e: FormEvent) => {
         e.preventDefault()
@@ -41,9 +42,19 @@ function Second() {
         setPhotoUrl('')
     }
 
+    onst deleteRFIDHandler = () => {
+        setRFID_Details((prev) => {
+            return prev.filter((_, index) =>  index !== idxToDelete)
+        })
+
+    }
+
     return (
         <div>
-            <form className='grid gap-16 items-start content-start capitalize'>
+            <form
+                className='grid gap-16 items-start content-start capitalize'
+                onSubmit={handleSubmit}
+            >
                 <div className='grid gap-4 relative w-[35rem]'>
                     <Select
                         state={[
