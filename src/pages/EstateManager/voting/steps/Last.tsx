@@ -50,9 +50,9 @@ const Last = () => {
 
     const openDialog = (key: string) => {
         Object.values(candidateData).length > 0 &&
-            Object.entries(candidateData).filter(([foundKey]) => {
-                return foundKey === key
-            })
+            Object.entries(candidateData).filter(
+                ([foundKey]) => foundKey === key
+            )
 
         if (dialogRef.current) {
             dialogRef.current.showModal()
