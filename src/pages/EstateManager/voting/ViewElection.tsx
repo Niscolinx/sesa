@@ -97,7 +97,7 @@ const ViewElection = () => {
                 </section>
             </dialog>
 
-            <main className='my-[5rem] grid gap-16 bg-white p-8 rounded-lg'>
+            <main className='my-[5rem] grid gap-16 bg-white p-16 rounded-lg'>
                 <section className='flex justify-between'>
                     <p className='font-Satoshi-Medium'>Poll Summary</p>
                     <button
@@ -167,7 +167,7 @@ const ViewElection = () => {
                         Vote Physically
                     </button>
                 </section>
-                <section className='grid gap-8'>
+                <section className='grid gap-16'>
                     {ELECTION_CATEGORY_DATA.map((item, i) => (
                         <div className='flex items-center gap-8' key={i}>
                             <img
@@ -204,7 +204,25 @@ const ViewElection = () => {
                         </div>
                     ))}
                 </section>
-                <section className='grid gap-8'></section>{' '}
+                <section className='grid gap-8'>
+                    <div className='overviewChart__box'>
+                        <Chart
+                            color1='#098DFF'
+                            color2='#C5C1C3'
+                            outerRadius={90}
+                            data={property_data}
+                        />
+
+                        <div className='overviewChart__label'>
+                            <p className='text-[3rem] font-Satoshi-Medium relative text-[#FF0000]'>
+                                85%
+                            </p>
+                            <p className='text-[1.2rem] max-w-[9.8rem]'>
+                                count: XXXXX
+                            </p>
+                        </div>
+                    </div>
+                </section>{' '}
             </main>
         </>
     )

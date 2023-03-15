@@ -1,6 +1,4 @@
-import React from 'react'
 import { IoMdAdd } from 'react-icons/io'
-import { useNavigate } from 'react-router'
 import { Link } from 'react-router-dom'
 import { EstateChart as Chart } from '../../../components/SuperAdmin/charts/OverviewChart'
 
