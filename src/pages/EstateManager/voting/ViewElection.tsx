@@ -7,6 +7,13 @@ const ViewElection = () => {
 
     const electionData = location.state || {}
 
+    interface ElectionInfo {
+        title: string
+        NoOfEligibleVoters: number
+        votingStartDate: string
+        votingEndDate: string
+    }
+
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
     const handleClose = () => {
