@@ -9,24 +9,7 @@ const ViewElection = () => {
 
     const paymentData = location.state || {}
 
-    const {
-        id,
-        paymentAmount,
-        paymentCode,
-        paymentName,
-        paymentPlan,
-        paymentType,
-        totalResidents,
-        trackPayment,
-        paidResidents,
-        progressPercent,
-        startDate,
-        endDate,
-        status,
-        amountToPay,
-        createDate,
-        expectedAmount,
-    } = paymentData as Payments
+   
 
     type Trend = 'This Week' | 'This Month' | 'This Year'
 
@@ -41,21 +24,8 @@ const ViewElection = () => {
 
     const [toggleMenu, setToggleMenu] = useState(false)
     const [selectedTrend, setSelectedTrend] = useState<Trend>('This Week')
-    const [toggleInstallment, setToggleInstallment] = useState(false)
-    const [installmentPlan, setInstallmentPlan] = useState('')
 
-    const menuToggler = () => setToggleMenu(!toggleMenu)
-    const installmentToggler = () => setToggleInstallment(!toggleInstallment)
-
-    const handleSelectedTrend = (item: Trend) => {
-        setSelectedTrend(item)
-        setToggleMenu(false)
-    }
-
-    const handleSelectedInstallment = (item: string) => {
-        setInstallmentPlan(item)
-        setToggleInstallment(false)
-    }
+   
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
@@ -129,9 +99,7 @@ const ViewElection = () => {
            
             <main className='my-[5rem] grid gap-8'>
                 <section className='flex justify-between'>
-                    <p className='text-[2rem] font-Satoshi-Medium'>
-                        {paymentName}
-                    </p>
+                    
                     <div className='flex gap-8'>
                         <button
                             className='border border-color-blue-1 text-color-blue-1 px-16 py-4 flex items-center  rounded-lg gap-4 '
