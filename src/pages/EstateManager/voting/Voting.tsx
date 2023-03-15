@@ -13,16 +13,16 @@ export interface ElectionInfo {
     startDate: string
     endDate: string
     electionTitle: string
-    NoOfEligibleVoters: string
+    no_of_eligible_voters: number
     category: string
 }
 
 export const VOTING_DATA: ElectionInfo[] = Array.from({ length: 10 }).map((_, i) => ({
     id: i + 1,
-    startDate: '19-May-2023',
-    endDate: '19-May-2023',
+    no_of_eligible_voters: Math.floor(Math.random() * 14000 + 2000),
+    startDate: new Date('23/3/2023'),
+    endDate: new Date('12/7/2023'),
     electionTitle: 'Iba General Elections',
-    NoOfEligibleVoters: `12,423`,
     category:
         electionCategory[Math.floor(Math.random() * electionCategory.length)],
 }))

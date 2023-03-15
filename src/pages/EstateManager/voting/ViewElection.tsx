@@ -8,6 +8,10 @@ const ViewElection = () => {
 
     const electionData = location.state || {}
 
+    const {
+
+    } = electionData satisfies ElectionInfo
+
     interface ElectionCategory {
         id: string
         img: string
