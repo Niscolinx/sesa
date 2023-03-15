@@ -19,14 +19,16 @@ function Third() {
         formState: { errors },
     } = useForm<FormData>()
 
-
     console.log(watch())
     const onSubmit = handleSubmit((data) => {
-        console.log({data})
+        console.log({ data })
     })
     return (
         <div>
-            <form className='grid gap-16 items-start content-start capitalize' onSubmit={onSubmit}>
+            <form
+                className='grid gap-16 items-start content-start capitalize'
+                onSubmit={onSubmit}
+            >
                 <div
                     className='grid gap-16 '
                     style={{
@@ -34,9 +36,7 @@ function Third() {
                     }}
                 >
                     <div className='grid gap-4 relative'>
-                        <label
-                            className='text-[1.4rem] font-Satoshi-Medium'
-                        >
+                        <label className='text-[1.4rem] font-Satoshi-Medium'>
                             Voting Start Date
                         </label>
                         <input
@@ -46,45 +46,32 @@ function Third() {
                         />
                     </div>
                     <div className='grid gap-4 relative'>
-                        <label
-                            className='text-[1.4rem] font-Satoshi-Medium'
-                        >
+                        <label className='text-[1.4rem] font-Satoshi-Medium'>
                             Voting End Date
                         </label>
                         <input
                             type='date'
-                            required
-                            
+                            {...register('votingEndDate')}
                             className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                         />
                     </div>
                     <div className='grid gap-4 relative'>
-                        <label
-                           
-                            className='text-[1.4rem] font-Satoshi-Medium'
-                        >
+                        <label className='text-[1.4rem] font-Satoshi-Medium'>
                             Voting Start Time
                         </label>
                         <input
                             type='time'
-                            required
-                            id='thirdName'
-                            
+                            {...register('votingStartTime')}
                             className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                         />
                     </div>
                     <div className='grid gap-4 relative'>
-                        <label
-                           
-                            className='text-[1.4rem] font-Satoshi-Medium'
-                        >
+                        <label className='text-[1.4rem] font-Satoshi-Medium'>
                             Voting End Time
                         </label>
                         <input
                             type='time'
-                            required
-                            id='thirdName'
-                            
+                            {...register('votingEndTime')}
                             className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                         />
                     </div>
