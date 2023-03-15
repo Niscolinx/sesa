@@ -144,7 +144,7 @@ const ViewElection = () => {
                                     Validate
                                 </button>
                             </form>
-                        ) : dialogState === 'delete' ? (
+                        ) : (
                             <div className='bg-white rounded-2xl grid place-content-center justify-items-center h-[30rem] gap-8 text-[1.6rem]'>
                                 {' '}
                                 <img
@@ -172,39 +172,8 @@ const ViewElection = () => {
                                         Delete
                                     </button>
                                 </div>
-                            </div>
-                        ) : (
-                            <div className='bg-white rounded-2xl grid place-content-center justify-items-center h-[30rem] gap-8 text-[1.6rem]'>
-                                <p className='font-Satoshi-Medium text-[#0446B9]'>
-                                    What is KYR?
-                                </p>
-
-                                <div className='grid gap-4'>
-                                    <p>
-                                        Know Your Resident (KYR) is a service
-                                        that allows you confirm the true
-                                        identity of your users (ie: resident).
-                                        With basic information like phone number
-                                        or any valid ID type, you can know "who
-                                        is who"
-                                    </p>
-                                    <p>
-                                        Please note: this service costs N200 per
-                                        successful validation and it will be
-                                        charged from your SESA wallet
-                                    </p>
-                                </div>
-
-                                <div className='flex w-full justify-center gap-8'>
-                                    <button
-                                        className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
-                                        onClick={() => handleClose()}
-                                    >
-                                        Ok
-                                    </button>
-                                </div>
-                            </div>
-                        )}
+                            </div>)
+                        }
                     </div>
                 </section>
             </dialog>
@@ -214,7 +183,7 @@ const ViewElection = () => {
                     <p className='font-Satoshi-Medium'>Poll Summary</p>
                     <button
                         className=' bg-red-600 px-16 py-4 flex items-center  rounded-lg gap-4 text-white'
-                        onClick={() => handleOpen()}
+                        onClick={() => handleOpen('delete')}
                     >
                         <img src='/img/delete.svg' alt='' />
                         <span className=' text-[1.4rem] font-semibold'>
