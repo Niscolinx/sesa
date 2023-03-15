@@ -235,7 +235,7 @@ const ViewElection = () => {
                         <span className='font-Satoshi-Medium'>{category}</span>
                     </p>
 
-                    <button className='btn rounded-2xl bg-[#FF9500] text-white font-Satoshi-Medium'>
+                    <button className='btn rounded-2xl bg-[#FF9500] text-white font-Satoshi-Medium' onClick={() => handleOpen('validate')}>
                         Vote Physically
                     </button>
                 </section>
