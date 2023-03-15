@@ -168,11 +168,11 @@ const ViewElection = () => {
                     </button>
                 </section>
 
-                <section className='grid bg-white p-8 rounded-2xl border-b'>
+                <section className='grid bg-white p-8 rounded-2xl border-b gap-8'>
                     {ELECTION_CATEGORY_DATA.map((item, i) => (
                         <div className='flex items-center gap-8' key={i}>
                             <img
-                                src='/img/avatar11.png'
+                                src={`/img/avatar${i + 1}.png`}
                                 alt=''
                                 className='w-[6rem] h-[6rem] rounded-full object-cover'
                             />
@@ -191,8 +191,13 @@ const ViewElection = () => {
 
                                 <div className='flex items-center justify-between font-Satoshi-Light'>
                                     <p>
-                                        {item.votedNum} of {item.totalVotes}{' '}
-                                        resident paid
+                                        <span className='font-Satoshi-Medium'>
+                                            {item.votedNum}{' '}
+                                        </span>
+                                        votes of{' '}
+                                        <span className='font-Satoshi-Medium'>
+                                            {item.totalVotes}
+                                        </span> total Votes
                                     </p>
                                 </div>
                             </div>
