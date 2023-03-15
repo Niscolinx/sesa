@@ -213,8 +213,8 @@ const ViewElection = () => {
                 <section className='grid gap-8'>
                     <div className='overviewChart__box'>
                         <Chart
-                            color1='#098DFF'
-                            color2='#C5C1C3'
+                            color1='#3DEABA'
+                            color2='#F0D02B'
                             outerRadius={90}
                             data={property_data}
                         />
