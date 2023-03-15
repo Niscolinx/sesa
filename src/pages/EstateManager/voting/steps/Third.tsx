@@ -12,22 +12,21 @@ type FormData = {
 function Third() {
     const [voteDisplay, setVoteDisplay] = useState<string[]>([])
     const [allowPhysicalVoting, setAllowPhysicalVoting] = useState(false)
-    // const {
-    //     register,
-    //     setValue,
-    //     handleSubmit,
-    //     watch,
-    //     formState: { errors },
-    // } = useForm<FormData>()
+    const {
+        register,
+        handleSubmit,
+        watch,
+        formState: { errors },
+    } = useForm<FormData>()
 
 
-    //console.log(watch())
-    // const onSubmit = handleSubmit((data) => {
-    //     console.log({data})
-    // })
+    console.log(watch())
+    const onSubmit = handleSubmit((data) => {
+        console.log({data})
+    })
     return (
         <div>
-            <form className='grid gap-16 items-start content-start capitalize' >
+            <form className='grid gap-16 items-start content-start capitalize' onSubmit={onSubmit}>
                 <div
                     className='grid gap-16 '
                     style={{
@@ -36,20 +35,18 @@ function Third() {
                 >
                     <div className='grid gap-4 relative'>
                         <label
-                            htmlFor='thirdName'
                             className='text-[1.4rem] font-Satoshi-Medium'
                         >
                             Voting Start Date
                         </label>
                         <input
                             type='date'
-                            // {...register('votingStartDate')}
+                            {...register('votingStartDate')}
                             className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                         />
                     </div>
                     <div className='grid gap-4 relative'>
                         <label
-                            htmlFor='thirdName'
                             className='text-[1.4rem] font-Satoshi-Medium'
                         >
                             Voting End Date
@@ -57,14 +54,13 @@ function Third() {
                         <input
                             type='date'
                             required
-                            id='thirdName'
-                            placeholder='placeholder'
+                            
                             className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                         />
                     </div>
                     <div className='grid gap-4 relative'>
                         <label
-                            htmlFor='thirdName'
+                           
                             className='text-[1.4rem] font-Satoshi-Medium'
                         >
                             Voting Start Time
@@ -73,13 +69,13 @@ function Third() {
                             type='time'
                             required
                             id='thirdName'
-                            placeholder='placeholder'
+                            
                             className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                         />
                     </div>
                     <div className='grid gap-4 relative'>
                         <label
-                            htmlFor='thirdName'
+                           
                             className='text-[1.4rem] font-Satoshi-Medium'
                         >
                             Voting End Time
@@ -88,7 +84,7 @@ function Third() {
                             type='time'
                             required
                             id='thirdName'
-                            placeholder='placeholder'
+                            
                             className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                         />
                     </div>
