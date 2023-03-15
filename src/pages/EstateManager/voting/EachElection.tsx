@@ -57,13 +57,13 @@ const EachElection: FC<EachElection> = ({ props }) => {
         content.map((candidate, i) => {
          
             console.log(
-                'useEffect',
-                { candidate, id, selectedCandidate },
-                candidate.name,
-                typeof id,
-                selectedCandidate[id]?.name,
-                candidate.name === selectedCandidate[id]?.name
+               'useEffect',
+
+               candidate.name,
+               selectedCandidate[id]?.name
             )
+
+
         })
     }, [selectedCandidate])
 
