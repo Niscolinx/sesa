@@ -80,7 +80,16 @@ const Last = () => {
 
                                     {currentCategory.map((item) => {
                                         console.log({item})
-                                        return <div></div>
+                                        return (
+                                            <div>
+                                                <img
+                                                    src={item.photoUrl}
+                                                    alt=''
+                                                    className={`w-[3.6rem] h-[3.6rem] object-cover rounded-full `}
+                                                   
+                                                />
+                                            </div>
+                                        )
                                     })}
                                 </>
                             </section>
