@@ -77,8 +77,8 @@ const ViewElection = () => {
                         <>
                             <img src='/icons/admins/modalWarning.svg' alt='' />
                             <p className='text-[1.6rem]'>
-                                Are you sure you want to delete this Election
-                                Plan
+                                Are you sure you want to delete this voting program
+                                
                             </p>
 
                             <div className='flex w-full justify-center gap-8'>
