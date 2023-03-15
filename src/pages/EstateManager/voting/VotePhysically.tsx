@@ -5,11 +5,6 @@ import {
     HiOutlineArrowNarrowRight,
 } from 'react-icons/hi'
 import { IoMdAdd } from 'react-icons/io'
-import First from './steps/First'
-import Fourth from './steps/Fourth'
-import Last from './steps/Last'
-import Second from './steps/Second'
-import Third from './steps/Third'
 
 const categories = ['presidential', 'senatorial', 'gubernatorial']
 
@@ -40,30 +35,23 @@ const ELECTIONS: Election[] = Array.from({ length: 10 }, (_, i) => ({
 
 const VotePhysically = () => {
     const [step, setStep] = useState(1)
-    const [selectedCandidate, setSelectedCandidate] =
-        useState<Record<'name' | 'img', string>>()
-
-    const displayStep = new Map([
-        [1, <First />],
-        [2, <Second />],
-        [3, <Third />],
-        [4, <Fourth />],
-        [5, <Last />],
-    ]) satisfies Map<number, JSX.Element>
+    const [selectedCandidate, setSelectedCandidate] = useState<
+        Record<'name' | 'imgUrl', string> | undefined
+    >()
 
     interface EachElection {
-        election: Election
-        selectedCandidate: Record<'name' | 'imgUrl', string>
-        setSelectedCandidate: Dispatch<
-            SetStateAction<Record<'name' | 'imgUrl', string>>
-        >
+        props: {
+            election: Election
+            selectedCandidate: Record<'name' | 'imgUrl', string> | undefined
+            setSelectedCandidate: Dispatch<
+                SetStateAction<Record<'name' | 'imgUrl', string> | undefined>
+            >
+        }
     }
 
-    const Election: FC<EachElection> = ({
-        election,
-        selectedCandidate,
-        setSelectedCandidate,
-    }) => {
+    const EachElection: FC<EachElection> = ({ props }) => {
+        const { election, selectedCandidate, setSelectedCandidate } = props
+
         const { category, content } = election
         return (
             <div className='grid gap-4'>
@@ -75,7 +63,7 @@ const VotePhysically = () => {
                                 type='radio'
                                 name='election'
                                 id={item.name + i}
-                                checked={item.name === selectedCandidate.name}
+                                checked={item.name === selectedCandidate?.name}
                                 className='hidden'
                                 onChange={() => setSelectedCandidate(item)}
                             />
@@ -97,7 +85,14 @@ const VotePhysically = () => {
         )
     }
 
-    const displays = new Map(ELECTIONS.map((election, i) => [i + 1, 'sdf']))
+    const displayStep = new Map(
+        ELECTIONS.map((election, i) => [
+            i + 1,
+            <EachElection
+                props={{ election, selectedCandidate, setSelectedCandidate }}
+            />,
+        ])
+    ) satisfies Map<number, JSX.Element>
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
