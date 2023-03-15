@@ -42,7 +42,9 @@ const EachElection: FC<EachElection> = ({ props }) => {
     }
 
     useEffect(() => {
-        console.log({selectedCandidate})
+        console.log({selectedCandidate, id}, selectedCandidate[id])
+
+        console.log('name', selectedCandidate[id]?.name)
     }, [selectedCandidate])
 
     return (
