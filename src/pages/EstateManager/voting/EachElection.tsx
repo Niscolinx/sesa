@@ -32,17 +32,16 @@ const EachElection: FC<EachElection> = ({ props }) => {
     const { id, category, content } = election
 
     const handleChange = (candidate: CandidateDetail) => {
-        console.log({candidate})
-        setSelectedCandidate(prev => {
-            console.log({prev})
-            const updated = {...prev}
+        console.log({ candidate })
+        setSelectedCandidate((prev) => {
+            console.log({ prev })
+            const updated = { ...prev }
 
-            console.log({updated})
+            console.log({ updated })
             updated[id] = candidate.name
 
             return updated
         })
-
     }
     return (
         <>
@@ -124,16 +123,20 @@ const EachElection: FC<EachElection> = ({ props }) => {
                                 type='radio'
                                 name='election'
                                 id={candidate.name + i}
-                                // checked={candidate.name === selectedCandidate?.name}
+                                checked={
+                                    candidate.name ===
+                                    selectedCandidate[id]?.name
+                                }
                                 className='hidden'
-                                onChange={() =>handleChange(candidate)}
+                                onChange={() => handleChange(candidate)}
                             />
                             <label
                                 htmlFor={candidate.name + i}
-                                // className={`capitalize flex items-center gap-8 cursor-pointer p-8 transition ease-linear duration-75  ${
-                                //     candidate.name === selectedCandidate?.name &&
-                                //     'border-2 rounded-2xl border-color-blue-1 shadow'
-                                // }`}
+                                className={`capitalize flex items-center gap-8 cursor-pointer p-8 transition ease-linear duration-75  ${
+                                    candidate.name ===
+                                        selectedCandidate[id]?.name &&
+                                    'border-2 rounded-2xl border-color-blue-1 shadow'
+                                }`}
                             >
                                 <img
                                     src={candidate.imgUrl}
