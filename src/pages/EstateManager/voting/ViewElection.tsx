@@ -3,13 +3,10 @@ import { GrUp, GrDown } from 'react-icons/gr'
 import { useLocation } from 'react-router-dom'
 import { toast, ToastContainer } from 'react-toastify'
 
-
 const ViewElection = () => {
     const location = useLocation()
 
     const paymentData = location.state || {}
-
-   
 
     type Trend = 'This Week' | 'This Month' | 'This Year'
 
@@ -24,8 +21,6 @@ const ViewElection = () => {
 
     const [toggleMenu, setToggleMenu] = useState(false)
     const [selectedTrend, setSelectedTrend] = useState<Trend>('This Week')
-
-   
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
@@ -96,171 +91,70 @@ const ViewElection = () => {
                     </div>
                 </section>
             </dialog>
-           
+
             <main className='my-[5rem] grid gap-8'>
                 <section className='flex justify-between'>
-                    
-                       
-                        <button
-                            className=' bg-red-600 px-16 py-4 flex items-center  rounded-lg gap-4 text-white'
-                            onClick={() => handleOpen()}
-                        >
-                            <img src='/img/delete.svg' alt='' />
-                            <span className=' text-[1.4rem] font-semibold'>
-                                Delete payment
-                            </span>
-                        </button>
+                    <button
+                        className=' bg-red-600 px-16 py-4 flex items-center  rounded-lg gap-4 text-white'
+                        onClick={() => handleOpen()}
+                    >
+                        <img src='/img/delete.svg' alt='' />
+                        <span className=' text-[1.4rem] font-semibold'>
+                            Delete payment
+                        </span>
+                    </button>
                 </section>
                 <section className='grid relative p-16 bg-white rounded-lg gap-2 '>
                     <section className='grid gap-4 capitalize'>
-                            <div className='grid grid-cols-2 items-center gap-4 justify-start w-[25rem] whitespace-nowrap'>
-                                <p className='text-gray-700 font-Satoshi-Light'>
-                                    Payment Code:
-                                </p>
-                                <p className='font-Satoshi-Medium'>
-                                    jjjj
-                                </p>
-                            </div>
-                            
-                      
-                            
-                       
-                        
-                        
-                    </section>
-
-                    <section className='mt-[5rem] grid '>
-                        <p className='flex items-center gap-2'>
-                            <span className='font-Satoshi-Medium'>
-                                Payment Status:{' '}
-                            </span>{' '}
-                        </p>
-
-                        <div className='grid gap-4 items-center '>
-                            <p className='justify-self-end'>₦{amountToPay}</p>
-                            <div className='progressBar overflow-hidden '>
-                                <progress
-                                    className='progressBar__item'
-                                    max={100}
-                                    value={progressPercent}
-                                />
-
-                                <p
-                                    className={`absolute left-0 text-color-tertiary text-white flex justify-end font-Satoshi-Medium pr-10`}
-                                    style={{
-                                        width: `${progressPercent}%`,
-                                    }}
-                                >
-                                    <span>{progressPercent}%</span>
-                                </p>
-                            </div>
-
-                            <div className='flex items-center justify-between font-Satoshi-Light'>
-                                <p>
-                                    {paidResidents} of {totalResidents} resident
-                                    paid
-                                </p>
-                                <p>₦{expectedAmount}</p>
-                            </div>
+                        <div className='grid grid-cols-2 items-center gap-4 justify-start w-[25rem] whitespace-nowrap'>
+                            <p className='text-gray-700 font-Satoshi-Light'>
+                                Payment Code:
+                            </p>
+                            <p className='font-Satoshi-Medium'>jjjj</p>
                         </div>
                     </section>
                 </section>
-                <section className='border-l border-l-color-grey bg-white rounded-lg p-8 grid gap-10'>
-                    <div className='flex justify-between'>
-                        <p className='text-[1.6rem] font-bold p-8'>
-                            Payment Trend
-                        </p>
 
+                <section className='grid bg-white p-8 rounded-2xl '>
+                    <div className='flex items-center gap-2 justify-between mb-10'>
+                        <p className='font-Satoshi-Medium'>Installment Info</p>{' '}
                         <div className='relative flex gap-4'>
-                            {paymentPlan === 'full' && (
-                                <button
-                                    className='btn text-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
-                                    onClick={() => openPaymentDialog()}
-                                >
-                                    View Households
-                                </button>
-                            )}
-
-                            <div className='relative flex items-center w-[12rem]'>
-                                <p
-                                    className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer'
-                                    onClick={menuToggler}
-                                >
-                                    {selectedTrend}
-                                </p>
-                                {toggleMenu ? (
-                                    <GrUp className='absolute right-4' />
-                                ) : (
-                                    <GrDown className='absolute right-4' />
-                                )}
-                            </div>
-
-                            {toggleMenu && (
-                                <div className='absolute top-[8rem]  left-0 border border-color-primary-light  bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
-                                    {trend.map((item, index) => (
-                                        <p
-                                            className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
-                                            key={index}
-                                            onClick={() =>
-                                                handleSelectedTrend(item)
-                                            }
-                                        >
-                                            {item}
-                                        </p>
-                                    ))}
-                                </div>
-                            )}
+                            <button
+                                className='btn text-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
+                                onClick={() => openPaymentDialog()}
+                            >
+                                View Households
+                            </button>
                         </div>
                     </div>
-                   
+
+                    {/* <div className='grid gap-4 items-center '>
+                        <div className='progressBar overflow-hidden '>
+                            <progress
+                                className='progressBar__item'
+                                max={100}
+                                value={progressPercent}
+                            />
+
+                            <p
+                                className={`absolute left-0 text-color-tertiary text-white flex justify-end font-Satoshi-Medium pr-10`}
+                                style={{
+                                    width: `${progressPercent}%`,
+                                }}
+                            >
+                                <span>{progressPercent}%</span>
+                            </p>
+                        </div>
+
+                        <div className='flex items-center justify-between font-Satoshi-Light'>
+                            <p>
+                                {paidResidents} of {totalResidents} resident
+                                paid
+                            </p>
+                            <p>₦{expectedAmount}</p>
+                        </div>
+                    </div> */}
                 </section>
-               
-                    <section className='grid bg-white p-8 rounded-2xl '>
-                        <div className='flex items-center gap-2 justify-between mb-10'>
-                            <p className='font-Satoshi-Medium'>
-                                Installment Info
-                            </p>{' '}
-                            <div className='relative flex gap-4'>
-                                <button
-                                    className='btn text-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
-                                    onClick={() => openPaymentDialog()}
-                                >
-                                    View Households
-                                </button>
-                               
-
-                                
-                            </div>
-                        </div>
-
-                        <div className='grid gap-4 items-center '>
-                            <div className='progressBar overflow-hidden '>
-                                <progress
-                                    className='progressBar__item'
-                                    max={100}
-                                    value={progressPercent}
-                                />
-
-                                <p
-                                    className={`absolute left-0 text-color-tertiary text-white flex justify-end font-Satoshi-Medium pr-10`}
-                                    style={{
-                                        width: `${progressPercent}%`,
-                                    }}
-                                >
-                                    <span>{progressPercent}%</span>
-                                </p>
-                            </div>
-
-                            <div className='flex items-center justify-between font-Satoshi-Light'>
-                                <p>
-                                    {paidResidents} of {totalResidents} resident
-                                    paid
-                                </p>
-                                <p>₦{expectedAmount}</p>
-                            </div>
-                        </div>
-                    </section>
-             
             </main>
         </>
     )
