@@ -50,16 +50,28 @@ const VotePhysically = () => {
     ]) satisfies Map<number, JSX.Element>
 
     const Election = (election: Election) => {
-        const {category, content} = election
-        return <div className='grid gap-4'>
-            <p className='text-color-blue'>{category}</p>
-
-            {content.map((item, i) => (
-                <div key={i}>
-                    <img src={item.imgUrl} alt="" className='w-[5rem] h-[5rem] rounded-full object-cover' />
+        const { category, content } = election
+        return (
+            <div className='grid gap-4'>
+                <p className='text-color-blue'>{category}</p>
+                <div className='grid gap-4'>
+                    {content.map((item, i) => (
+                       <div
+                         key={i}
+                         className="flex items-center gap-8 focus:border  hover:border-color-blue border-transparent focus:border-black"
+                       >
+                         <img
+                           src={item.imgUrl}
+                           alt=""
+                           className="w-[5rem] h-[5rem] rounded-full object-cover"
+                         />
+                         <p>{item.name}</p>
+                       </div>
+                       
+                    ))}
                 </div>
-            ))}
-        </div>
+            </div>
+        )
     }
 
     const displays = new Map(ELECTIONS.map((election, i) => [i + 1, 'sdf']))
