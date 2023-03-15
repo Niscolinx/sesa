@@ -95,7 +95,7 @@ const ViewElection = () => {
                 </section>
             </dialog>
 
-            <main className='my-[5rem] grid gap-8 bg-white p-8 rounded-lg'>
+            <main className='my-[5rem] grid gap-16 bg-white p-8 rounded-lg'>
                 <section className='flex justify-between'>
                     <p className='font-Satoshi-Medium'>Poll Summary</p>
                     <button
@@ -155,10 +155,10 @@ const ViewElection = () => {
                         </div>
                     </section>
                 </section>
-                <section>
-                    <p>
+                <section className='py-14 border-t'>
+                    <p className='flex items-center gap-4'>
                         <span>Election Category</span> <AiOutlineDoubleRight />{' '}
-                        <span>{category}</span>
+                        <span className='font-Satoshi-Medium'>{category}</span>
                     </p>
                 </section>
 
