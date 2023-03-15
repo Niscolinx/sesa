@@ -180,7 +180,10 @@ const Last = () => {
                         Voting Channel
                     </p>
                     <div>
-                        
+                        <div>
+                        <input type="checkbox" name="" id="onlineVoting" />
+                                <label htmlFor="onlineVoting">Online Voting</label>
+                        </div>
                     </div>
                 </div>
             
