@@ -165,10 +165,14 @@ const ViewElection = () => {
     
                 </section>
 
-                <section className='grid bg-white p-8 rounded-2xl border-t'>
+                <section className='grid bg-white p-8 rounded-2xl border-b'>
+                    <div className='flex items-center gap-8'>
+
+                                <img src="/img/avatar11.png" alt="" className='w-[6rem] h-[6rem] rounded-full object-cover'  />
+                    </div>
                     {/* <div className='flex items-center gap-2 justify-between mb-10'>
                         <p className='font-Satoshi-Medium'>Installment Info</p>{' '}
-                        <div className='relative flex gap-4'>
+                        <div className='relative flex gap-4'></div>
                             <button
                                 className='btn text-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
                                 onClick={() => openElectionDialog()}
