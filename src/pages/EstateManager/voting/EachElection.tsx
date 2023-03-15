@@ -4,9 +4,9 @@ import { CandidateDetail, Election } from './VotePhysically'
 interface EachElection {
     props: {
         election: Election
-        selectedCandidate:  {[id: string]: CandidateDetail | undefined}
+        selectedCandidate: { [id: string]: CandidateDetail | undefined }
         setSelectedCandidate: Dispatch<
-            SetStateAction< {[id: string]: CandidateDetail | undefined}>
+            SetStateAction<{ [id: string]: CandidateDetail | undefined }>
         >
     }
 }
@@ -29,7 +29,9 @@ const EachElection: FC<EachElection> = ({ props }) => {
     }
     const { election, selectedCandidate, setSelectedCandidate } = props
 
-    const {id, category, content } = election
+    const { id, category, content } = election
+
+    const handleChange = () => {}
     return (
         <>
             <dialog className='dialog' ref={dialogRef}>
@@ -44,7 +46,7 @@ const EachElection: FC<EachElection> = ({ props }) => {
                                 <p className='max-w-[40rem] text-center font-Satoshi-Light'>
                                     You are voting{' '}
                                     <span className='font-Satoshi-Medium capitalize'>
-                                        {selectedCandidate?.name}
+                                        {selectedCandidate[id]?.name}
                                     </span>{' '}
                                     as{' '}
                                     <span className='font-Satoshi-Medium capitalize'>
@@ -110,16 +112,16 @@ const EachElection: FC<EachElection> = ({ props }) => {
                                 type='radio'
                                 name='election'
                                 id={item.name + i}
-                                checked={item.name === selectedCandidate?.name}
+                                // checked={item.name === selectedCandidate?.name}
                                 className='hidden'
-                                onChange={() => setSelectedCandidate(item)}
+                                onChange={handleChange}
                             />
                             <label
                                 htmlFor={item.name + i}
-                                className={`capitalize flex items-center gap-8 cursor-pointer p-8 transition ease-linear duration-75  ${
-                                    item.name === selectedCandidate?.name &&
-                                    'border-2 rounded-2xl border-color-blue-1 shadow'
-                                }`}
+                                // className={`capitalize flex items-center gap-8 cursor-pointer p-8 transition ease-linear duration-75  ${
+                                //     item.name === selectedCandidate?.name &&
+                                //     'border-2 rounded-2xl border-color-blue-1 shadow'
+                                // }`}
                             >
                                 <img
                                     src={item.imgUrl}
