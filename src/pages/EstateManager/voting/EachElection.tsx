@@ -1,12 +1,12 @@
 import { Dispatch, FC, SetStateAction, useRef, useState } from 'react'
-import { Election } from './VotePhysically'
+import { CandidateDetail, Election } from './VotePhysically'
 
 interface EachElection {
     props: {
         election: Election
-        selectedCandidate: CandidateDetails | undefined
+        selectedCandidate:  {[id: string]: CandidateDetail | undefined}
         setSelectedCandidate: Dispatch<
-            SetStateAction<CandidateDetails | undefined>
+            SetStateAction< {[id: string]: CandidateDetail | undefined}>
         >
     }
 }

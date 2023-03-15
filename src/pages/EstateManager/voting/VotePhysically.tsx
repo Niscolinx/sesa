@@ -9,7 +9,7 @@ import EachElection from './EachElection'
 
 const categories = ['presidential', 'senatorial', 'gubernatorial']
 
-type CandidateDetail = Record<'name' | 'imgUrl', string>
+export type CandidateDetail = Record<'name' | 'imgUrl', string>
 export interface Election {
     id: string
     category: string
@@ -39,7 +39,7 @@ const VotePhysically = () => {
     const [step, setStep] = useState(1)
     const [selectedCandidate, setSelectedCandidate] = useState<{
         [id: string]: CandidateDetail | undefined
-    }>()
+    }>(null as any)
 
     const displayStep = new Map(
         ELECTIONS.map((election, i) => [
