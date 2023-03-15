@@ -142,41 +142,42 @@ const Last = () => {
 
             <section className='grid gap-8 w-[60rem]'>
                 <p className='font-Satoshi-Medium text-[2rem]'>Voting Period</p>
-                <div className='flex items-baseline gap-8'>
-                    <img alt='' src='/icons/calender_month.svg' />
-                    <div>
-                        {' '}
-                        <p className='font-Satoshi-Light'>Start Date</p>
-                        <p>
-                            {votingStartDate &&
-                                new Date(votingStartDate).toLocaleDateString(
-                                    undefined,
-                                    {
+                <div className='grid grid-cols-2 gap-8'>
+                    <div className='flex items-baseline gap-8'>
+                        <img alt='' src='/icons/calender_month.svg' />
+                        <div>
+                            {' '}
+                            <p className='font-Satoshi-Light'>Start Date</p>
+                            <p>
+                                {votingStartDate &&
+                                    new Date(
+                                        votingStartDate
+                                    ).toLocaleDateString(undefined, {
                                         day: '2-digit',
                                         month: 'short',
                                         year: 'numeric',
-                                    }
-                                )}
-                        </p>
+                                    })}
+                            </p>
+                        </div>
                     </div>
-                </div>
-                <div className='flex items-baseline gap-8'>
-                    {' '}
-                    <img alt='' src='/icons/calender_month.svg' />
-                    <div>
+                    <div className='flex items-baseline gap-8'>
                         {' '}
-                        <p className='font-Satoshi-Light'>End Date</p>
-                        <p>
-                            {votingEndDate &&
-                                new Date(votingEndDate).toLocaleString(
-                                    undefined,
-                                    {
-                                        day: '2-digit',
-                                        month: 'short',
-                                        year: 'numeric',
-                                    }
-                                )}
-                        </p>
+                        <img alt='' src='/icons/calender_month.svg' />
+                        <div>
+                            {' '}
+                            <p className='font-Satoshi-Light'>End Date</p>
+                            <p>
+                                {votingEndDate &&
+                                    new Date(votingEndDate).toLocaleString(
+                                        undefined,
+                                        {
+                                            day: '2-digit',
+                                            month: 'short',
+                                            year: 'numeric',
+                                        }
+                                    )}
+                            </p>
+                        </div>
                     </div>
                 </div>
             </section>
