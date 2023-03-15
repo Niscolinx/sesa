@@ -12,13 +12,20 @@ import Third from './steps/Third'
 
 type Category = string[]
 
- export interface CandidateField {
+export interface CandidateField {
     candidate: string | null
     category: string | null
     name: string
     gender: string
     manifesto: string
     photoUrl: string
+}
+
+export type ElectionDates = {
+    votingStartDate: Date
+    votingEndDate: Date
+    votingStartTime: Date
+    votingEndTime: Date
 }
 
 interface CreateElectionContext {
@@ -42,11 +49,13 @@ export const useCreateElectionContext = () => {
     return context
 }
 
-
 const CreateElection = () => {
     const [step, setStep] = useState(1)
     const [electionCategory, setElectionCategory] = useState<Category>([''])
-    const [candidate_details, setCandidate_details] = useState<CandidateField[]>([])
+    const [candidate_details, setCandidate_details] = useState<
+        CandidateField[]
+    >([])
+    const [electionDates, setElectionDates] = useState<ElectionDates>()
 
     const displayStep = new Map([
         [1, <First />],
@@ -62,7 +71,7 @@ const CreateElection = () => {
                 electionCategory,
                 setElectionCategory,
                 candidate_details,
-                setCandidate_details
+                setCandidate_details,
             }}
         >
             <div className=' p-8 bg-white rounded-lg min-h-[90vh] relative'>

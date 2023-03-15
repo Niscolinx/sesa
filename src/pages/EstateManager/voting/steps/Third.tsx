@@ -2,12 +2,7 @@ import { useState } from 'react'
 import { MultipleSelect } from '../../../../components/SuperAdmin/UI/Select'
 import { useForm } from 'react-hook-form'
 
-type FormData = {
-    votingStartDate: Date
-    votingEndDate: Date
-    votingStartTime: Date
-    votingEndTime: Date
-}
+
 
 function Third() {
     const [voteDisplay, setVoteDisplay] = useState<string[]>([])
