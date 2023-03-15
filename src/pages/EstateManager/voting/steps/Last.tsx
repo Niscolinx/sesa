@@ -72,7 +72,7 @@ const Last = () => {
                                 className='absolute right-0 top-0 text-[2.5rem] cursor-pointer m-5'
                                 onClick={() => closeDialog()}
                             />
-                            <section className='grid gap-8'>
+                            <section className='grid gap-8 p-8'>
                                 <>
                                     <p className='font-Satoshi-Bold pb-4 border-b'>
                                         President Category Candidates
@@ -82,7 +82,7 @@ const Last = () => {
                                         console.log({ item })
                                         const {photoUrl, name} = item
                                         return (
-                                            <div>
+                                            <div className='flex items-center gap-8'>
                                                 <img
                                                     src={photoUrl}
                                                     alt=''
