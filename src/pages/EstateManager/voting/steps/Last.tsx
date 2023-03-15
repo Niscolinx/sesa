@@ -79,15 +79,16 @@ const Last = () => {
                                     </p>
 
                                     {currentCategory.map((item) => {
-                                        console.log({item})
+                                        console.log({ item })
+                                        const {photoUrl, name} = item
                                         return (
                                             <div>
                                                 <img
-                                                    src={item.photoUrl}
+                                                    src={photoUrl}
                                                     alt=''
                                                     className={`w-[3.6rem] h-[3.6rem] object-cover rounded-full `}
-                                                   
                                                 />
+                                                <p>{name}</p>
                                             </div>
                                         )
                                     })}
