@@ -155,13 +155,13 @@ const ViewElection = () => {
                         </div>
                     </section>
                 </section>
-                <section className='py-14 border-t flex justify-between'>
+                <section className='py-14 border-t border-b flex justify-between'>
                     <p className='flex items-center gap-4'>
                         <span>Election Category</span> <AiOutlineDoubleRight />{' '}
                         <span className='font-Satoshi-Medium'>{category}</span>
                     </p>
 
-                    <button className='btn bg-[#FF9500] text-white font-Satoshi-Medium'>Vote Physically</button>
+                    <button className='btn rounded-2xl bg-[#FF9500] text-white font-Satoshi-Medium'>Vote Physically</button>
                 </section>
 
                 <section className='grid bg-white p-8 rounded-2xl '>
