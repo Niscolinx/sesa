@@ -210,7 +210,7 @@ const ViewElection = () => {
                         </div>
                     ))}
                 </section>
-                <section className='grid gap-8'>
+                <section className='flex items-center gap-16'>
                     <div className='overviewChart__box'>
                         <Chart
                             color1='#3DEABA'
@@ -220,14 +220,15 @@ const ViewElection = () => {
                         />
 
                         <div className='overviewChart__label'>
-                            <p className='text-[3rem] font-Satoshi-Medium relative text-[#FF0000]'>
-                                85%
-                            </p>
                             <p className='text-[1.2rem] max-w-[9.8rem]'>
-                                count: XXXXX
+                                Total Votes
+                            </p>
+                            <p className='text-[3rem] font-Satoshi-Medium relative text-[#FF0000]'>
+                                {no_of_eligible_voters}
                             </p>
                         </div>
                     </div>
+                    <div></div>
                 </section>{' '}
             </main>
         </>
