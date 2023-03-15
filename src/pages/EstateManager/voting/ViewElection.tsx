@@ -8,19 +8,6 @@ const ViewElection = () => {
 
     const paymentData = location.state || {}
 
-    type Trend = 'This Week' | 'This Month' | 'This Year'
-
-    const trend: Array<Trend> = ['This Week', 'This Month', 'This Year']
-    const installments = [
-        'Installment 1',
-        'Installment 2',
-        'Installment 3',
-        'Installment 4',
-        'Installment 5',
-    ]
-
-    const [toggleMenu, setToggleMenu] = useState(false)
-    const [selectedTrend, setSelectedTrend] = useState<Trend>('This Week')
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
