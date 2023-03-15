@@ -88,7 +88,7 @@ const EachElection: FC<EachElection> = ({ props }) => {
 
                                 <div className='flex w-full justify-center gap-8'>
                                     <button
-                                        className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
+                                        className='btn border-[#0556E5] text-[#0556E5] border rounded-lg'
                                         onClick={() => handleClose()}
                                     >
                                         Proceed to Dashboard
