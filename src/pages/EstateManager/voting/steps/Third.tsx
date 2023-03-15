@@ -53,7 +53,7 @@ function Third() {
                             Voting End Date
                         </label>
                         <input
-                            type='time'
+                            type='date'
                             required
                             id='thirdName'
                             placeholder='placeholder'
@@ -80,10 +80,10 @@ function Third() {
                             htmlFor='thirdName'
                             className='text-[1.4rem] font-Satoshi-Medium'
                         >
-                            Voting Start Date
+                            Voting End Time
                         </label>
                         <input
-                            type='date'
+                            type='time'
                             required
                             id='thirdName'
                             placeholder='placeholder'
