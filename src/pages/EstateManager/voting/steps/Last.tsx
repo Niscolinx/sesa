@@ -181,7 +181,31 @@ const Last = () => {
                     <p className='font-Satoshi-Medium text-[2rem]'>
                         Voting Channel
                     </p>
-                    <div>
+                    <div className='mt-10 grid gap-4'>
+                        <div className='flex items-center gap-4'>
+                        <input type="checkbox" name="" id="onlineVoting" />
+                                <label htmlFor="onlineVoting" className=''>Online Voting</label>
+                        </div>
+                        <div className='flex items-center gap-4'>
+                        <input type="checkbox" name="" id="physicalVoting" />
+                                <label htmlFor="physicalVoting" className=''>Physical Voting</label>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <p className='font-Satoshi-Medium text-[2rem]'>
+                        Total number of votes
+                    </p>
+                    <div className='mt-10 flex gap-4 items-center'>
+                        <p>1700</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <p className='font-Satoshi-Medium text-[2rem]'>
+                        Voting Channel
+                    </p>
+                    <div className='mt-10 grid gap-4'>
                         <div className='flex items-center gap-4'>
                         <input type="checkbox" name="" id="onlineVoting" />
                                 <label htmlFor="onlineVoting" className=''>Online Voting</label>
