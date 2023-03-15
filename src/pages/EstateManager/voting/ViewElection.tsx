@@ -176,28 +176,28 @@ const ViewElection = () => {
                             />
                             <div className='grid gap-4 items-center '>
                                 <div>
-                                    <p>{c}</p>
+                                    <p>{item.name}</p>
                                 </div>
                                 <div className='progressBar overflow-hidden '>
                                     <progress
                                         className='progressBar__item'
                                         max={100}
-                                        value={progressPercent}
+                                        value={item.progressPercent}
                                     />
 
                                     <p
                                         className={`absolute left-0 text-color-tertiary text-white flex justify-end font-Satoshi-Medium pr-10`}
                                         style={{
-                                            width: `${progressPercent}%`,
+                                            width: `${item.progressPercent}%`,
                                         }}
                                     >
-                                        <span>{progressPercent}%</span>
+                                        <span>{item.progressPercent}%</span>
                                     </p>
                                 </div>
 
                                 <div className='flex items-center justify-between font-Satoshi-Light'>
                                     <p>
-                                        {paidResidents} of {totalResidents}{' '}
+                                        {item.votedNum} of {item.totalVotes}{' '}
                                         resident paid
                                     </p>
                                     <p>₦{expectedAmount}</p>
