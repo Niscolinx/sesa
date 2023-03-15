@@ -26,6 +26,8 @@ export type ElectionDates = {
     votingEndDate?: Date | undefined
     votingStartTime?: Date | undefined
     votingEndTime?: Date | undefined
+    votesDisplay?: string[] | undefined
+    isPhysicalVoting?: boolean | undefined
 }
 
 interface CreateElectionContext {
