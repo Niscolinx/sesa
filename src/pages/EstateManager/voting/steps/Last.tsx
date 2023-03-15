@@ -140,7 +140,12 @@ const Last = () => {
                     <div>
                         <img alt='' src='/icons/calender_month.svg'/>
                             <div>
-                                <p></p>
+                                <p className='font-Satoshi-Light'>Start Date</p>
+                                <p>{electionDates.votingStartDate?.toLocaleDateString(undefined, {
+                                    day: '2-digit',
+                                    month: 'short',
+                                    year: 'long'
+                                })}</p>
                             </div>
                     </div>
                 </div>
