@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { MultipleSelect } from '../../../../components/SuperAdmin/UI/Select'
 import { useForm } from 'react-hook-form'
+import { ElectionDates } from '../createElection'
 
 
 
@@ -11,7 +12,7 @@ function Third() {
         register,
         handleSubmit,
         watch,
-    } = useForm<FormData>()
+    } = useForm<ElectionDates>()
 
     console.log(watch(values => console.log(values)))
     const onSubmit = handleSubmit((data) => {

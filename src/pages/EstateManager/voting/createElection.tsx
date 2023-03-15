@@ -74,6 +74,8 @@ const CreateElection = () => {
                 setElectionCategory,
                 candidate_details,
                 setCandidate_details,
+                electionDates,
+                setElectionDates
             }}
         >
             <div className=' p-8 bg-white rounded-lg min-h-[90vh] relative'>
