@@ -92,7 +92,7 @@ const ViewElection = () => {
     }
 
     const handleValidate = () => {
-        handleClose()
+        setIsValidated(true)
     }
 
     const renderValidationType = new Map([
@@ -113,27 +113,70 @@ const ViewElection = () => {
                         />
 
                         {dialogState === 'validate' ? (
-                            <form
-                                className='grid gap-12'
-                                onSubmit={handleDialogSubmit}
-                            >
-                                <Select
-                                    state={['Phone Number', 'Resident Code']}
-                                    label='Validation Option'
-                                    validate
-                                    selectedState={validationType as any}
-                                    setSelectedState={setValidationType as any}
-                                />
+                            <>
+                                {isValidated ? (
+                                    <div
+                                        className='grid gap-12'
+                                    >
+                                        <Select
+                                            state={[
+                                                'Phone Number',
+                                                'Resident Code',
+                                            ]}
+                                            label='Validation Option'
+                                            validate
+                                            selectedState={
+                                                validationType as any
+                                            }
+                                            setSelectedState={
+                                                setValidationType as any
+                                            }
+                                        />
 
-                                {renderValidationType.get(validationType)}
+                                        {renderValidationType.get(
+                                            validationType
+                                        )}
 
-                                <button
-                                    className='btn bg-[#0556E5] text-white rounded-lg py-4 place-self-start w-[15rem]'
-                                    onClick={handleValidate}
-                                >
-                                    Validate
-                                </button>
-                            </form>
+                                        <button
+                                            className='btn bg-[#0556E5] text-white rounded-lg py-4 place-self-start w-[15rem]'
+                                            onClick={handleValidate}
+                                        >
+                                            Validate
+                                        </button>
+                                    </div>
+                                ) : (
+                                    <form
+                                        className='grid gap-12'
+                                        onSubmit={handleDialogSubmit}
+                                    >
+                                        <Select
+                                            state={[
+                                                'Phone Number',
+                                                'Resident Code',
+                                            ]}
+                                            label='Validation Option'
+                                            validate
+                                            selectedState={
+                                                validationType as any
+                                            }
+                                            setSelectedState={
+                                                setValidationType as any
+                                            }
+                                        />
+
+                                        {renderValidationType.get(
+                                            validationType
+                                        )}
+
+                                        <button
+                                            className='btn bg-[#0556E5] text-white rounded-lg py-4 place-self-start w-[15rem]'
+                                            onClick={handleValidate}
+                                        >
+                                            Validate
+                                        </button>
+                                    </form>
+                                )}
+                            </>
                         ) : (
                             <div className='bg-white rounded-2xl grid place-content-center justify-items-center h-[30rem] gap-8 text-[1.6rem]'>
                                 {' '}
@@ -235,7 +278,10 @@ const ViewElection = () => {
                         <span className='font-Satoshi-Medium'>{category}</span>
                     </p>
 
-                    <button className='btn rounded-2xl bg-[#FF9500] text-white font-Satoshi-Medium' onClick={() => handleOpen('validate')}>
+                    <button
+                        className='btn rounded-2xl bg-[#FF9500] text-white font-Satoshi-Medium'
+                        onClick={() => handleOpen('validate')}
+                    >
                         Vote Physically
                     </button>
                 </section>
