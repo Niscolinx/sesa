@@ -90,7 +90,7 @@ const EachElection: FC<EachElection> = ({ props }) => {
                 </div>
                 <button
                     className='bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
-                    onClick={() => handleClose()}
+                    onClick={() => handleOpen()}
                 >
                     Vote
                 </button>
