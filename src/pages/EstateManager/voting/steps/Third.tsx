@@ -1,5 +1,5 @@
-import { SetStateAction, useState } from 'react'
-import { BsQuestionCircle } from 'react-icons/bs'
+import { useState } from 'react'
+
 import { MultipleSelect } from '../../../../components/SuperAdmin/UI/Select'
 
 function Third() {
@@ -50,7 +50,7 @@ function Third() {
                             htmlFor='thirdName'
                             className='text-[1.4rem] font-Satoshi-Medium'
                         >
-                            Voting Start End
+                            Voting Start Time
                         </label>
                         <input
                             type='time'

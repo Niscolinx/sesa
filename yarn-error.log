@@ -1,5 +1,5 @@
 Arguments: 
-  /Users/Niscolinx/.nvm/versions/node/v16.13.0/bin/node /opt/homebrew/Cellar/yarn/1.22.19/libexec/bin/yarn.js add @mui
+  /Users/Niscolinx/.nvm/versions/node/v16.13.0/bin/node /opt/homebrew/Cellar/yarn/1.22.19/libexec/bin/yarn.js add react-hook-form
 
 PATH: 
   /Users/Niscolinx/.nvm/versions/node/v16.13.0/bin:/Users/Niscolinx/.local/share/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
@@ -14,17 +14,7 @@ Platform:
   darwin arm64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/@mui: Request "https://registry.yarnpkg.com/@mui" returned a 405
-      at Request.params.callback [as _callback] (/opt/homebrew/Cellar/yarn/1.22.19/libexec/lib/cli.js:66154:18)
-      at Request.self.callback (/opt/homebrew/Cellar/yarn/1.22.19/libexec/lib/cli.js:140890:22)
-      at Request.emit (node:events:390:28)
-      at Request.<anonymous> (/opt/homebrew/Cellar/yarn/1.22.19/libexec/lib/cli.js:141862:10)
-      at Request.emit (node:events:390:28)
-      at IncomingMessage.<anonymous> (/opt/homebrew/Cellar/yarn/1.22.19/libexec/lib/cli.js:141784:12)
-      at Object.onceWrapper (node:events:509:28)
-      at IncomingMessage.emit (node:events:402:35)
-      at endReadableNT (node:internal/streams/readable:1343:12)
-      at processTicksAndRejections (node:internal/process/task_queues:83:21)
+  Error: ENOENT: no such file or directory, copyfile '/Users/Niscolinx/Library/Caches/Yarn/v6/npm-glob-parent-6.0.2-6d237d99083950c79290f24c7642a3de9a28f9e3-integrity/node_modules/glob-parent/README.md' -> '/Users/Niscolinx/projects/clients/Sesa/node_modules/tailwindcss/node_modules/glob-parent/README.md'
 
 npm manifest: 
   {
@@ -40,19 +30,25 @@ npm manifest:
           "test": "vitest"
       },
       "dependencies": {
-          "@mui/x-data-grid": "^5.17.18",
           "@reduxjs/toolkit": "^1.9.1",
+          "@types/react-copy-to-clipboard": "^5.0.4",
+          "animate.css": "^4.1.1",
+          "jotai": "^2.0.3",
           "react": "^18.2.0",
+          "react-copy-to-clipboard": "^5.1.0",
           "react-dom": "^18.2.0",
           "react-icons": "^4.7.1",
+          "react-loading-skeleton": "^3.1.0",
           "react-otp-input": "^2.4.0",
           "react-redux": "^8.0.5",
           "react-router": "^6.6.1",
           "react-router-dom": "^6.6.1",
+          "react-toastify": "^9.1.1",
           "recharts": "^2.2.0",
           "redux-persist": "^6.0.0",
           "sass": "^1.56.2",
           "swiper": "^8.4.5",
+          "use-react-router-breadcrumbs": "^4.0.1",
           "vite-plugin-windicss": "^1.8.8",
           "windicss": "^3.5.6"
       },
@@ -287,7 +283,7 @@ Lockfile:
       "@babel/plugin-syntax-jsx" "^7.18.6"
       "@babel/types" "^7.20.7"
   
-  "@babel/runtime@^7.1.2", "@babel/runtime@^7.12.1", "@babel/runtime@^7.18.9", "@babel/runtime@^7.20.7", "@babel/runtime@^7.9.2":
+  "@babel/runtime@^7.1.2", "@babel/runtime@^7.12.1", "@babel/runtime@^7.9.2":
     version "7.20.7"
     resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.20.7.tgz#fcb41a5a70550e04a7b708037c7c32f7f356d8fd"
     integrity sha512-UF0tvkUtxwAgZ5W/KrkHf0Rn0fdnLDU9ScxBrEVNUprE/MzirjK4MJUX1/BVDv00Sv8cljtukVK1aky++X1SjQ==
@@ -488,28 +484,6 @@ Lockfile:
       "@jridgewell/resolve-uri" "3.1.0"
       "@jridgewell/sourcemap-codec" "1.4.14"
   
-  "@mui/utils@^5.10.3":
-    version "5.11.2"
-    resolved "https://registry.yarnpkg.com/@mui/utils/-/utils-5.11.2.tgz#29764311acb99425159b159b1cb382153ad9be1f"
-    integrity sha512-AyizuHHlGdAtH5hOOXBW3kriuIwUIKUIgg0P7LzMvzf6jPhoQbENYqY6zJqfoZ7fAWMNNYT8mgN5EftNGzwE2w==
-    dependencies:
-      "@babel/runtime" "^7.20.7"
-      "@types/prop-types" "^15.7.5"
-      "@types/react-is" "^16.7.1 || ^17.0.0"
-      prop-types "^15.8.1"
-      react-is "^18.2.0"
-  
-  "@mui/x-data-grid@^5.17.18":
-    version "5.17.18"
-    resolved "https://registry.yarnpkg.com/@mui/x-data-grid/-/x-data-grid-5.17.18.tgz#1d49aa098aa93fd027720f4db270d1971d2f1d5b"
-    integrity sha512-0hWExrABXA03HQZoY/EaN6jiFMXdQWs7Y+3xtngiRzGQQl6kmLz1IjdKpNuwuc2g3xphnCpz9WSqTxVhJqdmAw==
-    dependencies:
-      "@babel/runtime" "^7.18.9"
-      "@mui/utils" "^5.10.3"
-      clsx "^1.2.1"
-      prop-types "^15.8.1"
-      reselect "^4.1.6"
-  
   "@nodelib/fs.scandir@2.1.5":
     version "2.1.5"
     resolved "https://registry.yarnpkg.com/@nodelib/fs.scandir/-/fs.scandir-2.1.5.tgz#7619c2eb21b25483f6d167548b4cfd5a7488c3d5"
@@ -622,10 +596,17 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/@types/node/-/node-18.11.18.tgz#8dfb97f0da23c2293e554c5a50d61ef134d7697f"
     integrity sha512-DHQpWGjyQKSHj3ebjFI/wRKcqQcdR+MoFBygntYOZytCqNfkd2ZC4ARDJ2DQqhjH5p85Nnd3jhUJIXrszFX/JA==
   
-  "@types/prop-types@*", "@types/prop-types@^15.7.5":
+  "@types/prop-types@*":
     version "15.7.5"
     resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.7.5.tgz#5f19d2b85a98e9558036f6a3cacc8819420f05cf"
     integrity sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==
+  
+  "@types/react-copy-to-clipboard@^5.0.4":
+    version "5.0.4"
+    resolved "https://registry.yarnpkg.com/@types/react-copy-to-clipboard/-/react-copy-to-clipboard-5.0.4.tgz#558f2c38a97f53693e537815f6024f1e41e36a7e"
+    integrity sha512-otTJsJpofYAeaIeOwV5xBUGpo6exXG2HX7X4nseToCB2VgPEBxGBHCm/FecZ676doNR7HCSTVtmohxfG2b3/yQ==
+    dependencies:
+      "@types/react" "*"
   
   "@types/react-dom@^18.0.8":
     version "18.0.10"
@@ -634,17 +615,10 @@ Lockfile:
     dependencies:
       "@types/react" "*"
   
-  "@types/react-is@^16.7.1 || ^17.0.0":
-    version "17.0.3"
-    resolved "https://registry.yarnpkg.com/@types/react-is/-/react-is-17.0.3.tgz#2d855ba575f2fc8d17ef9861f084acc4b90a137a"
-    integrity sha512-aBTIWg1emtu95bLTLx0cpkxwGW3ueZv71nE2YFBpL8k/z5czEW8yYpOo8Dp+UUAFAtKwNaOsh/ioSeQnWlZcfw==
-    dependencies:
-      "@types/react" "*"
-  
   "@types/react@*", "@types/react@^18.0.24":
-    version "18.0.26"
-    resolved "https://registry.yarnpkg.com/@types/react/-/react-18.0.26.tgz#8ad59fc01fef8eaf5c74f4ea392621749f0b7917"
-    integrity sha512-hCR3PJQsAIXyxhTNSiDFY//LhnMZWpNNr5etoCqx/iUfGc5gXWtQR2Phl908jVR6uPXacojQWTg4qRpkxTuGug==
+    version "18.0.27"
+    resolved "https://registry.yarnpkg.com/@types/react/-/react-18.0.27.tgz#d9425abe187a00f8a5ec182b010d4fd9da703b71"
+    integrity sha512-3vtRKHgVxu3Jp9t718R9BuzoD4NcQ8YJ5XRzsSKxNDiDonD2MXIT1TmSkenxuCycZJoQT5d2vE8LwWJxBC1gmA==
     dependencies:
       "@types/prop-types" "*"
       "@types/scheduler" "*"
@@ -723,6 +697,11 @@ Lockfile:
     version "8.8.1"
     resolved "https://registry.yarnpkg.com/acorn/-/acorn-8.8.1.tgz#0a3f9cbecc4ec3bea6f0a80b66ae8dd2da250b73"
     integrity sha512-7zFpHzhnqYKrkYdUjF1HI1bzd0VygEGX8lFk4k5zVMqHEoES+P+7TKI+EvLO9WVMJ8eekdO0aDEK044xTXwPPA==
+  
+  animate.css@^4.1.1:
+    version "4.1.1"
+    resolved "https://registry.yarnpkg.com/animate.css/-/animate.css-4.1.1.tgz#614ec5a81131d7e4dc362a58143f7406abd68075"
+    integrity sha512-+mRmCTv6SbCmtYJCN4faJMNFVNN5EuCTTprDTAo7YzIGji2KADmakjVA3+8mVDkZ2Bf09vayB35lSQIex2+QaQ==
   
   ansi-styles@^3.2.1:
     version "3.2.1"
@@ -840,7 +819,7 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.3.2.tgz#351d813bf0137fcc6a76a16b88208d2560a0d924"
     integrity sha512-CSbhY4cFEJRe6/GQzIk5qXZ4Jeg5pcsP7b5peFSDpffpe1cqjASH/n9UTjBwOp6XpMSTwQ8Za2K5V02ueA7Tmw==
   
-  clsx@^1.2.1:
+  clsx@^1.1.1:
     version "1.2.1"
     resolved "https://registry.yarnpkg.com/clsx/-/clsx-1.2.1.tgz#0ddc4a20a549b59c93a4116bb26f5294ca17dc12"
     integrity sha512-EcR6r5a8bj6pu3ycsa/E/cKVGuTgZJZdsyUYHOksG/UHIiKfjxzRxYJpyVBwYaQeOvghal9fcc4PidlgzugAQg==
@@ -867,6 +846,13 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/convert-source-map/-/convert-source-map-1.9.0.tgz#7faae62353fb4213366d0ca98358d22e8368b05f"
     integrity sha512-ASFBup0Mz1uyiIjANan1jzLQami9z1PoYSZCiiYW2FczPbenXc45FZdBZLzOT+r6+iciuEModtmCti+hjaAk0A==
   
+  copy-to-clipboard@^3.3.1:
+    version "3.3.3"
+    resolved "https://registry.yarnpkg.com/copy-to-clipboard/-/copy-to-clipboard-3.3.3.tgz#55ac43a1db8ae639a4bd99511c148cdd1b83a1b0"
+    integrity sha512-2KV8NhB5JqC3ky0r9PMCAZKbUHSwtEo4CwCs0KXgruG43gX5PMqDEBbVU4OUzw2MuAWUfsuFmWvEKG5QRfSnJA==
+    dependencies:
+      toggle-selection "^1.0.6"
+  
   css-unit-converter@^1.1.1:
     version "1.1.2"
     resolved "https://registry.yarnpkg.com/css-unit-converter/-/css-unit-converter-1.1.2.tgz#4c77f5a1954e6dbff60695ecb214e3270436ab21"
@@ -883,9 +869,9 @@ Lockfile:
     integrity sha512-DJR/VvkAvSZW9bTouZue2sSxDwdTN92uHjqeKVm+0dAqdfNykRzQ95tay8aXMBAAPpUiq4Qcug2L7neoRh2Egw==
   
   "d3-array@2 - 3", "d3-array@2.10.0 - 3", d3-array@^3.1.6:
-    version "3.2.1"
-    resolved "https://registry.yarnpkg.com/d3-array/-/d3-array-3.2.1.tgz#39331ea706f5709417d31bbb6ec152e0328b39b3"
-    integrity sha512-gUY/qeHq/yNqqoCKNq4vtpFLdoCdvyNpWoC/KNjhGbhDuQpAM9sIQQKkXSNpXa9h5KySs/gzm7R88WkUutgwWQ==
+    version "3.2.2"
+    resolved "https://registry.yarnpkg.com/d3-array/-/d3-array-3.2.2.tgz#f8ac4705c5b06914a7e0025bbf8d5f1513f6a86e"
+    integrity sha512-yEEyEAbDrF8C6Ob2myOBLjwBLck1Z89jMGFee0oPsn95GqjerpaOA4ch+vc2l0FNFFwMD5N7OCSEN5eAlsUbgQ==
     dependencies:
       internmap "1 - 2"
   
@@ -1555,6 +1541,14 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/quick-lru/-/quick-lru-5.1.1.tgz#366493e6b3e42a3a6885e2e99d18f80fb7a8c932"
     integrity sha512-WuyALRjWPDGtt/wzJiadO5AXY+8hZ80hVpe6MyivgraREW751X3SbhRvG3eLKOYN+8VEvqLcf3wdnt44Z4S4SA==
   
+  react-copy-to-clipboard@^5.1.0:
+    version "5.1.0"
+    resolved "https://registry.yarnpkg.com/react-copy-to-clipboard/-/react-copy-to-clipboard-5.1.0.tgz#09aae5ec4c62750ccb2e6421a58725eabc41255c"
+    integrity sha512-k61RsNgAayIJNoy9yDsYzDe/yAZAzEbEgcz3DZMhF686LEyukcE1hzurxe85JandPUG+yTfGVFzuEw3xt8WP/A==
+    dependencies:
+      copy-to-clipboard "^3.3.1"
+      prop-types "^15.8.1"
+  
   react-dom@^18.2.0:
     version "18.2.0"
     resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-18.2.0.tgz#22aaf38708db2674ed9ada224ca4aa708d821e3d"
@@ -1573,7 +1567,7 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
     integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
   
-  react-is@^18.0.0, react-is@^18.2.0:
+  react-is@^18.0.0:
     version "18.2.0"
     resolved "https://registry.yarnpkg.com/react-is/-/react-is-18.2.0.tgz#199431eeaaa2e09f86427efbb4f1473edb47609b"
     integrity sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==
@@ -1582,6 +1576,11 @@ Lockfile:
     version "3.0.4"
     resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
     integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
+  
+  react-loading-skeleton@^3.1.0:
+    version "3.1.0"
+    resolved "https://registry.yarnpkg.com/react-loading-skeleton/-/react-loading-skeleton-3.1.0.tgz#ce22942f1af77bfd60854417075792367f54f41e"
+    integrity sha512-j1U1CWWs68nBPOg7tkQqnlFcAMFF6oEK6MgqAo15f8A5p7mjH6xyKn2gHbkcimpwfO0VQXqxAswnSYVr8lWzjw==
   
   react-otp-input@^2.4.0:
     version "2.4.0"
@@ -1634,6 +1633,13 @@ Lockfile:
     dependencies:
       fast-equals "^2.0.0"
       react-transition-group "2.9.0"
+  
+  react-toastify@^9.1.1:
+    version "9.1.1"
+    resolved "https://registry.yarnpkg.com/react-toastify/-/react-toastify-9.1.1.tgz#9280caea4a13dc1739c350d90660a630807bf10b"
+    integrity sha512-pkFCla1z3ve045qvjEmn2xOJOy4ZciwRXm1oMPULVkELi5aJdHCN/FHnuqXq8IwGDLB7PPk2/J6uP9D8ejuiRw==
+    dependencies:
+      clsx "^1.1.1"
   
   react-transition-group@2.9.0:
     version "2.9.0"
@@ -1718,7 +1724,7 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.13.11.tgz#f6dca3e7ceec20590d07ada785636a90cdca17f9"
     integrity sha512-kY1AZVr2Ra+t+piVaJ4gxaFaReZVH40AKNo7UCX6W+dEwBo/2oZJzqfuN1qLq1oL45o56cPaTXELwrTh8Fpggg==
   
-  reselect@^4.1.6, reselect@^4.1.7:
+  reselect@^4.1.7:
     version "4.1.7"
     resolved "https://registry.yarnpkg.com/reselect/-/reselect-4.1.7.tgz#56480d9ff3d3188970ee2b76527bd94a95567a42"
     integrity sha512-Zu1xbUt3/OPwsXL46hvOOoQrap2azE7ZQbokq61BQfiXvhewsKDwhMeZjTX9sX0nvw1t/U5Audyn1I9P/m9z0A==
@@ -1819,9 +1825,9 @@ Lockfile:
     integrity sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==
   
   swiper@^8.4.5:
-    version "8.4.5"
-    resolved "https://registry.yarnpkg.com/swiper/-/swiper-8.4.5.tgz#149ca81f67393d3f33abddd0f968fc37e99980b5"
-    integrity sha512-zveyEFBBv4q1sVkbJHnuH4xCtarKieavJ4SxP0QEHvdpPLJRuD7j/Xg38IVVLbp7Db6qrPsLUePvxohYx39Agw==
+    version "8.4.6"
+    resolved "https://registry.yarnpkg.com/swiper/-/swiper-8.4.6.tgz#5b52c83cb4aa9ce6f1640e44d3f93ff4ea6f7682"
+    integrity sha512-HACW035vBz2T6Kfut23EAzXhcDpgR8doX+wjq0ZUvJgS5SQApGrV885DAPLBFnmPUISsAhNSVxPKDxqroFvXvQ==
     dependencies:
       dom7 "^4.0.4"
       ssr-window "^4.0.2"
@@ -1882,6 +1888,11 @@ Lockfile:
     dependencies:
       is-number "^7.0.0"
   
+  toggle-selection@^1.0.6:
+    version "1.0.6"
+    resolved "https://registry.yarnpkg.com/toggle-selection/-/toggle-selection-1.0.6.tgz#6e45b1263f2017fa0acc7d89d78b15b8bf77da32"
+    integrity sha512-BiZS+C1OS8g/q2RRbJmy59xpyghNBqrr6k5L/uKBGRsTfxmu3ffiRnd8mlGPUVayg8pvfi5urfnu8TU7DVOkLQ==
+  
   type-detect@^4.0.0, type-detect@^4.0.5:
     version "4.0.8"
     resolved "https://registry.yarnpkg.com/type-detect/-/type-detect-4.0.8.tgz#7646fb5f18871cfbb7749e69bd39a6388eb7450c"
@@ -1899,6 +1910,11 @@ Lockfile:
     dependencies:
       escalade "^3.1.1"
       picocolors "^1.0.0"
+  
+  use-react-router-breadcrumbs@^4.0.1:
+    version "4.0.1"
+    resolved "https://registry.yarnpkg.com/use-react-router-breadcrumbs/-/use-react-router-breadcrumbs-4.0.1.tgz#278fa4abb5b262cb340d5c72452f27fe4ba37ca7"
+    integrity sha512-Zbcy0KvWt1JePFcUHJAnTr7Z+AeO9WxmPs6A5Q/xqOVoi8edPKzpqHF87WB2opXwie/QjCxrEyTB7kFg7fgXvQ==
   
   use-sync-external-store@^1.0.0:
     version "1.2.0"
