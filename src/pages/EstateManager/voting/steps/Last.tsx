@@ -11,7 +11,7 @@ const Last = () => {
         [key: string]: string[]
     }>({})
 
-    const [currentCategory, setCurrentCategory] = useState<any[]>([])
+    const [currentCategory, setCurrentCategory] = useState<CandidateField[]>([])
 
     useEffect(() => {
         const tempCandidateData: CandidateDetails = {}
@@ -52,7 +52,7 @@ const Last = () => {
             Object.entries(candidateData)
                 .filter(([foundKey]) => foundKey === key)
                 .map(([_, value]) => {
-                    setCurrentCategory(() => [...value])
+                    setCurrentCategory([...value])
                 })
 
         if (dialogRef.current) {
