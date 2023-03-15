@@ -46,27 +46,21 @@ const Last = () => {
         if (dialogRef.current) {
             dialogRef.current.close()
         }
-        }
-        const keep = []
+    }
     const openDialog = (key: string) => {
         Object.values(candidateData).length > 0 &&
-            Object.entries(candidateData).filter(
-                ([foundKey]) => foundKey === key
-            ).map(([_, value]) => {
-                    console.log(value, typeof value)
-                    keep.push(value)
+            Object.entries(candidateData)
+                .filter(([foundKey]) => foundKey === key)
+                .map(([_, value]) => {
                     setCurrentCategory((prev) => [...prev, value])
-                  
-            })
+                })
 
         if (dialogRef.current) {
             dialogRef.current.showModal()
         }
-        
     }
 
-
-
+    console.log({ currentCategory })
 
     return (
         <main className='bg-color-white rounded-lg grid gap-16'>
@@ -85,9 +79,7 @@ const Last = () => {
                                     </p>
 
                                     {currentCategory.map((item) => (
-                                        <div>
-
-                                        </div>
+                                        <div></div>
                                     ))}
                                 </>
                             </section>
