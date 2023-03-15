@@ -10,8 +10,23 @@ const ViewElection = () => {
     interface ElectionInfo {
         title: string
         NoOfEligibleVoters: number
-        votingStartDate: string
-        votingEndDate: string
+        votingStartDate: Date
+        votingEndDate: Date
+    }
+
+    interface ElectionCategory {
+        img: string
+        name: string
+        progressPercent: number
+        totalVotes: number
+        votedNum: number
+    }
+
+    const ELECTION_INFO: ElectionInfo = {
+        title: 'Abayomi Rodima',
+        NoOfEligibleVoters: 2000,
+        votingStartDate: new Date('23/3/2023'),
+        votingEndDate: new Date('12/7/2023')
     }
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
