@@ -1,18 +1,12 @@
 import { useRef } from 'react'
 import { useLocation } from 'react-router-dom'
 import { toast, ToastContainer } from 'react-toastify'
+import { ElectionInfo } from './Voting'
 
 const ViewElection = () => {
     const location = useLocation()
 
     const electionData = location.state || {}
-
-    interface ElectionInfo {
-        title: string
-        NoOfEligibleVoters: number
-        votingStartDate: Date
-        votingEndDate: Date
-    }
 
     interface ElectionCategory {
         id: string
