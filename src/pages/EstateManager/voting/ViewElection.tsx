@@ -7,7 +7,6 @@ import { EstateChart as Chart } from '../../../components/SuperAdmin/charts/Over
 import { Select } from '../../../components/SuperAdmin/UI/Select'
 import { BsQuestionCircle } from 'react-icons/bs'
 import { IoMdClose } from 'react-icons/io'
-import { ValidateInputTypes } from '../residents/AddResident'
 import { PhoneNumber, ResidentCode } from '../../SecurityCompany/dashboard/company/AddSecurity/Inputs'
 
 const ViewElection = () => {
@@ -50,9 +49,10 @@ const ViewElection = () => {
     )
 
     type DialogType = 'validate' | 'delete'
+    type ValidationType = 'Phone Number' | 'Resident Code'
 
     const [validationType, setValidationType] = useState<
-        ValidateInputTypes | string | null
+        ValidateType | string | null
     >('Phone Number')
     const [dialogState, setDialogState] = useState<DialogType>('delete')
 
