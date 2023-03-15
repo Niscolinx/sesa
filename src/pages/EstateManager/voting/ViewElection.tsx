@@ -136,8 +136,8 @@ const ViewElection = () => {
                                     ]}
                                     label='Validation Option'
                                     validate
-                                    selectedState={validationType}
-                                    setSelectedState={setValidationType}
+                                    selectedState={validationType as any}
+                                    setSelectedState={setValidationType as any}
                                 />
 
                                 {renderValidationType.get(validationType)}
