@@ -115,16 +115,18 @@ const ViewElection = () => {
                         {dialogState === 'validate' ? (
                             <>
                                 {isValidated ? (
-                                    <div
-                                        className='grid gap-12'
-                                    >
-                                        
+                                    <div className='grid gap-12'>
+                                        <img
+                                            src='/img/avatar11.png'
+                                            alt=''
+                                            className='w-[15rem] h-[15rem] rounded-full object-cover'
+                                        />
 
                                         <button
                                             className='btn bg-[#0556E5] text-white rounded-lg py-4 place-self-start w-[15rem]'
                                             onClick={() => handleClose()}
                                         >
-                                            Validate
+                                            Proceed
                                         </button>
                                     </div>
                                 ) : (
