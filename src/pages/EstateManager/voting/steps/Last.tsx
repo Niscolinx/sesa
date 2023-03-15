@@ -11,7 +11,7 @@ const Last = () => {
         [key: string]: string[]
     }>({})
 
-    const [currentCategory, setCurrentCategory] = useState<CandidateField[]>([])
+    const [currentCategory, setCurrentCategory] = useState<any[]>([])
 
     useEffect(() => {
         const tempCandidateData: CandidateDetails = {}
@@ -46,21 +46,25 @@ const Last = () => {
         if (dialogRef.current) {
             dialogRef.current.close()
         }
-    }
-
+        }
+        const keep = []
     const openDialog = (key: string) => {
         Object.values(candidateData).length > 0 &&
-            Object.keys(candidateData).filter(
-                (foundKey) => foundKey === key
-            ).map((value) => {
+            Object.entries(candidateData).filter(
+                ([foundKey]) => foundKey === key
+            ).map(([_, value]) => {
                     console.log(value, typeof value)
-                // setCurrentCategory((prev) => [...prev, value])
+                    keep.push(value)
+                    setCurrentCategory((prev) => [...prev, value])
+                  
             })
 
         if (dialogRef.current) {
             dialogRef.current.showModal()
         }
+        
     }
+
 
     console.log({ candidateData, candidateImgs }, typeof candidateData)
 
