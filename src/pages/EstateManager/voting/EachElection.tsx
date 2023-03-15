@@ -129,7 +129,7 @@ const EachElection: FC<EachElection> = ({ props }) => {
                 </p>
                 <div className='grid gap-4 transition ease-linear duration-75'>
                     {content.map((candidate, i) => {
-                        console.log({candidate, id, selectedCandidate}, candidate.name, candidate.name === selectedCandidate[id]?.name)
+                        console.log({candidate, id, selectedCandidate}, candidate.name, selectedCandidate[id]?.name, candidate.name === selectedCandidate[id]?.name)
                         return (
                             <div key={i}>
                                 <input
