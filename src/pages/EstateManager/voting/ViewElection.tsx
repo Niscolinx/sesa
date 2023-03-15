@@ -169,6 +169,9 @@ const ViewElection = () => {
                     <div className='flex items-center gap-8'>
 
                                 <img src="/img/avatar11.png" alt="" className='w-[6rem] h-[6rem] rounded-full object-cover'  />
+                                <div>
+
+                                </div>
                     </div>
                     {/* <div className='flex items-center gap-2 justify-between mb-10'>
                         <p className='font-Satoshi-Medium'>Installment Info</p>{' '}
@@ -182,32 +185,7 @@ const ViewElection = () => {
                         </div>
                     </div> */}
 
-                    {/* <div className='grid gap-4 items-center '>
-                        <div className='progressBar overflow-hidden '>
-                            <progress
-                                className='progressBar__item'
-                                max={100}
-                                value={progressPercent}
-                            />
-
-                            <p
-                                className={`absolute left-0 text-color-tertiary text-white flex justify-end font-Satoshi-Medium pr-10`}
-                                style={{
-                                    width: `${progressPercent}%`,
-                                }}
-                            >
-                                <span>{progressPercent}%</span>
-                            </p>
-                        </div>
-
-                        <div className='flex items-center justify-between font-Satoshi-Light'>
-                            <p>
-                                {paidResidents} of {totalResidents} resident
-                                paid
-                            </p>
-                            <p>₦{expectedAmount}</p>
-                        </div>
-                    </div> */}
+                   
                 </section>
             </main>
         </>
