@@ -40,6 +40,7 @@ interface CreateElectionContext {
     setVotesDisplay: Dispatch<SetStateAction<string[]>>
     allowPhysicalVoting: boolean
     setAllowPhysicalVoting: Dispatch<SetStateAction<boolean>>
+    setStep: Dispatch<SetStateAction<number>>
 }
 
 const CreateElectionContext = createContext<CreateElectionContext | null>(null)
@@ -90,6 +91,7 @@ const CreateElection = () => {
                 setVotesDisplay,
                 allowPhysicalVoting,
                 setAllowPhysicalVoting,
+                setStep
             }}
         >
             <div className=' p-8 bg-white rounded-lg min-h-[90vh] relative'>

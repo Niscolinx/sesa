@@ -9,6 +9,7 @@ const Last = () => {
         electionCategory,
         candidate_details,
         votesDisplay,
+        setStep,
         allowPhysicalVoting,
         electionDates,
     } = useCreateElectionContext()
