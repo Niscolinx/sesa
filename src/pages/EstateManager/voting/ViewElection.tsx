@@ -214,7 +214,7 @@ const ViewElection = () => {
                         <Chart
                             color1='#3DEABA'
                             color2='#F0D02B'
-                            outerRadius={90}
+                            outerRadius={100}
                             data={property_data}
                         />
 
@@ -246,6 +246,7 @@ const ViewElection = () => {
                             </div>
                             <p>50,000</p>
                         </div>
+                        <button className='text-color-blue mt-10'>View Details</button>
                     </div>
                 </section>{' '}
             </main>
