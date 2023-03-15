@@ -109,11 +109,11 @@ const ViewElection = () => {
                         </span>
                     </button>
                 </section>
-                <section className='grid relative p-16 bg-white rounded-lg gap-2 '>
+                <section className='grid gap-2 '>
                     <p className='text-[2rem] font-Satoshi-Medium mb-5'>
                         Election Information
                     </p>
-                    <section className='grid gap-4 capitalize'>
+                    <section className='grid gap-4 capitalize max-w-[40rem]'>
                         <div className='grid grid-cols-2 items-center gap-4 justify-start whitespace-nowrap'>
                             <p className='text-gray-700 font-Satoshi-Light'>
                                 Title:
@@ -155,6 +155,11 @@ const ViewElection = () => {
                             </p>
                         </div>
                     </section>
+                </section>
+                <section>
+                    <p>
+                        Election Information
+                    </p>
                 </section>
 
                 <section className='grid bg-white p-8 rounded-2xl '>
