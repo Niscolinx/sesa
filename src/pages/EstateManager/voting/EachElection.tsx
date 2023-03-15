@@ -35,15 +35,8 @@ const EachElection: FC<EachElection> = ({ props }) => {
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
-                        <img
-                            src='/icons/admins/modalSuccess.svg'
-                            alt=''
-                            className='animate__animated animate__pulse'
-                            style={{
-                                animationIterationCount: 'infinite',
-                            }}
-                        />
-                        <p className='font-Satoshi-Bold text-[1.8rem] uppercase'>
+
+                        {dialogState === 'toConfirm' ? (<></>): (<>  <p className='font-Satoshi-Bold text-[1.8rem] uppercase'>
                             CONFIRM YOUR VOTE
                         </p>
 
@@ -73,7 +66,9 @@ const EachElection: FC<EachElection> = ({ props }) => {
                             >
                                 Proceed
                             </button>
-                        </div>
+                        </div></>)}
+                        
+                      
                     </div>
                 </section>
             </dialog>
