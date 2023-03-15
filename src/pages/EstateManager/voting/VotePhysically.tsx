@@ -69,7 +69,7 @@ const VotePhysically = () => {
                             />
                             <label
                                 htmlFor={item.name + i}
-                                className={`capitalize flex items-center gap-8`}
+                                className={`capitalize flex items-center gap-8 cursor-pointer`}
                             >
                                 <img
                                     src={item.imgUrl}
