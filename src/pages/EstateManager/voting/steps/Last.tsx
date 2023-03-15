@@ -66,7 +66,7 @@ const Last = () => {
     }
 
 
-    console.log({ candidateData, candidateImgs }, typeof candidateData)
+
 
     return (
         <main className='bg-color-white rounded-lg grid gap-16'>
