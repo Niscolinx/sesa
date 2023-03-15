@@ -6,7 +6,6 @@ import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { IoMdAdd } from 'react-icons/io'
 import { Link } from 'react-router-dom'
 
-
 const electionCategory = ['President', 'Senate', 'House of Reps']
 
 export interface Voting {
@@ -24,7 +23,8 @@ export const VOTING_DATA: Voting[] = Array.from({ length: 10 }).map((_, i) => ({
     endDate: '19-May-2023',
     electionTitle: 'Iba General Elections',
     NoOfEligibleVoters: `12,423`,
-    category: electionCategory[Math.floor(Math.random() * electionCategory.length)]
+    category:
+        electionCategory[Math.floor(Math.random() * electionCategory.length)],
 }))
 
 function Voting() {
@@ -33,7 +33,6 @@ function Voting() {
     const addVotingHandler = () => {
         setIsVoting(true)
     }
-
 
     const [votingList, setVotingList] = useState<Voting[]>([])
     const [search, setSearch] = useState<string>('')
@@ -93,9 +92,7 @@ function Voting() {
             return {
                 ...prev,
                 slicedPages,
-                totalPage: Math.ceil(
-                    votingList.length / paginate.itemsPerPage
-                ),
+                totalPage: Math.ceil(votingList.length / paginate.itemsPerPage),
             }
         })
     }, [votingList])
@@ -143,8 +140,6 @@ function Voting() {
         )
         setVotingList([...filtered])
     }
-
-   
 
     return (
         <div>
@@ -273,7 +268,7 @@ function Voting() {
                                                         </div>
 
                                                         <Link
-                                                            to={`/estateManager/election/view/:${id}`}
+                                                            to={`/estateManager/voting-and-election/view/:${id}`}
                                                             state={electionInfo}
                                                             className='text-[#098DFF] mt-[2rem]'
                                                             style={{
