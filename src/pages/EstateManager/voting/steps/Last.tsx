@@ -67,9 +67,9 @@ const Last = () => {
         }
     }
 
-    console.log({electionDates})
+    console.log({ electionDates })
 
-    const {votingStartDate,votingEndDate} = electionDates
+    const { votingStartDate, votingEndDate } = electionDates
 
     return (
         <main className='bg-color-white rounded-lg grid gap-16'>
@@ -148,14 +148,15 @@ const Last = () => {
                         {' '}
                         <p className='font-Satoshi-Light'>Start Date</p>
                         <p>
-                            {new Date(electionDates.votingStartDate).toLocaleDateString(
-                                undefined,
-                                {
-                                    day: '2-digit',
-                                    month: 'short',
-                                    year: 'numeric',
-                                }
-                            )}
+                            {votingStartDate &&
+                                new Date(votingStartDate).toLocaleDateString(
+                                    undefined,
+                                    {
+                                        day: '2-digit',
+                                        month: 'short',
+                                        year: 'numeric',
+                                    }
+                                )}
                         </p>
                     </div>
                 </div>
@@ -166,14 +167,15 @@ const Last = () => {
                         {' '}
                         <p className='font-Satoshi-Light'>End Date</p>
                         <p>
-                            {/* {electionDates.votingEndDate?.toLocaleString(
-                                undefined,
-                                {
-                                    day: '2-digit',
-                                    month: 'short',
-                                    year: 'numeric',
-                                }
-                            )} */}
+                            {votingEndDate &&
+                                new Date(votingEndDate).toLocaleString(
+                                    undefined,
+                                    {
+                                        day: '2-digit',
+                                        month: 'short',
+                                        year: 'numeric',
+                                    }
+                                )}
                         </p>
                     </div>
                 </div>
@@ -199,7 +201,6 @@ const Last = () => {
                         <div className='flex items-center gap-4'>
                             <input
                                 type='checkbox'
-                             
                                 checked={allowPhysicalVoting}
                                 id='physicalVoting'
                             />
@@ -214,7 +215,13 @@ const Last = () => {
                         Total number of votes
                     </p>
                     <div className='mt-5 flex gap-4 items-center'>
-                        <p>1700</p> <button className='text-color-blue' onClick={() => setStep(4)}>See All Voters</button>
+                        <p>1700</p>{' '}
+                        <button
+                            className='text-color-blue'
+                            onClick={() => setStep(4)}
+                        >
+                            See All Voters
+                        </button>
                     </div>
                 </div>
 
@@ -223,13 +230,11 @@ const Last = () => {
                         Voting Display
                     </p>
                     <div className='mt-5 grid gap-2'>
-                        {
-                            votesDisplay.map((vote) => (
-                               <p key={vote} className='capitalize'>
+                        {votesDisplay.map((vote) => (
+                            <p key={vote} className='capitalize'>
                                 {vote}
-                               </p>
-                            ))
-                        }
+                            </p>
+                        ))}
                     </div>
                 </div>
             </section>
