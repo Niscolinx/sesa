@@ -11,6 +11,16 @@ import Last from './steps/Last'
 import Second from './steps/Second'
 import Third from './steps/Third'
 
+const categories = ['presidential', 'senatorial', 'gubernatorial']
+
+const ELECTIONS = Array.from({ length: 10 }, (_, i) => ({
+    category: categories[Math.floor(Math.random() * categories.length)],
+    content: {
+        name: 'Musa Chinedu',
+        img: '/img/avatar11.png',
+    },
+}))
+
 const VotePhysically = () => {
     const [step, setStep] = useState(1)
 
