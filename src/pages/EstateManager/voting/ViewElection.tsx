@@ -178,9 +178,9 @@ const ViewElection = () => {
                                 <div>
                                     <p>{item.name}</p>
                                 </div>
-                                <div className='progressBar overflow-hidden '>
+                                <div className='progressBarBlue overflow-hidden' >
                                     <progress
-                                        className='progressBar__item'
+                                        className='progressBarBlue__item'
                                         max={100}
                                         value={item.progressPercent}
                                     />
@@ -200,7 +200,6 @@ const ViewElection = () => {
                                         {item.votedNum} of {item.totalVotes}{' '}
                                         resident paid
                                     </p>
-                                    <p>₦{expectedAmount}</p>
                                 </div>
                             </div>
                         </div>
