@@ -16,10 +16,12 @@ function Third() {
         register,
         setValue,
         handleSubmit,
+        watch,
         formState: { errors },
     } = useForm<FormData>()
 
 
+    console.log(watch())
     const onSubmit = handleSubmit((data) => {
         console.log({data})
     })
