@@ -143,8 +143,8 @@ const Last = () => {
             <section className='grid gap-8 w-[60rem]'>
                 <p className='font-Satoshi-Medium text-[2rem]'>Voting Period</p>
                 <div className='grid grid-cols-2 gap-8'>
-                    <div className='flex items-baseline gap-8'>
-                        <img alt='' src='/icons/calender_month.svg' />
+                    <div className='flex items-center gap-8'>
+                        <img alt='' src='/icons/calendar_month.svg' />
                         <div>
                             {' '}
                             <p className='font-Satoshi-Light'>Start Date</p>
@@ -160,9 +160,9 @@ const Last = () => {
                             </p>
                         </div>
                     </div>
-                    <div className='flex items-baseline gap-8'>
+                    <div className='flex items-center gap-8'>
                         {' '}
-                        <img alt='' src='/icons/calender_month.svg' />
+                        <img alt='' src='/icons/calendar_month.svg' />
                         <div>
                             {' '}
                             <p className='font-Satoshi-Light'>End Date</p>
