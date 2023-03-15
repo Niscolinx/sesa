@@ -137,14 +137,12 @@ const Last = () => {
 
             <section>
                 <div className='grid gap-8 w-[60rem]'>
-                    <div>
-                        <img alt='' src='/icons/calender_month.svg'/>
-                            <div>
-                                <p className='font-Satoshi-Light'>Start Date</p>
+<div className='flex items-baseline gap-8'>                        <img alt='' src='/icons/calender_month.svg'/>
+                            <div></div>                               <p className='font-Satoshi-Light'>Start Date</p>
                                 <p>{electionDates.votingStartDate?.toLocaleDateString(undefined, {
                                     day: '2-digit',
                                     month: 'short',
-                                    year: 'long'
+                                    year: 'numeric'
                                 })}</p>
                             </div>
                     </div>
