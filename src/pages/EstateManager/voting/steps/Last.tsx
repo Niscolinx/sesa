@@ -5,7 +5,7 @@ import { CandidateField, useCreateElectionContext } from '../createElection'
 
 const Last = () => {
     type CandidateDetails = { [key: string]: CandidateField[] }
-    const { electionCategory, candidate_details } = useCreateElectionContext()
+    const { electionCategory, candidate_details, votesDisplay, allowPhysicalVoting, electionDates } = useCreateElectionContext()
     const [candidateData, setCandidateData] = useState<CandidateDetails>({})
     const [candidateImgs, setCandidateImgs] = useState<{
         [key: string]: string[]
