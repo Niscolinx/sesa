@@ -42,31 +42,12 @@ const EachElection: FC<EachElection> = ({ props }) => {
         setSelectedCandidate((prev) => {
             const updated = { ...prev }
             const name: string = candidate.name
-            if(id){
 
-                updated[id] = name as any
-            }
+            updated[id] = name as any
 
             return updated
         })
     }
-
-    useEffect(() => {
-        console.log(selectedCandidate[id])
-
-       
-        content.map((candidate, i) => {
-         
-            console.log(
-               'useEffect',
-
-               candidate.name,
-               selectedCandidate[id]?.name
-            )
-
-
-        })
-    }, [selectedCandidate])
 
     return (
         <>
@@ -143,7 +124,6 @@ const EachElection: FC<EachElection> = ({ props }) => {
                 </p>
                 <div className='grid gap-4 transition ease-linear duration-75'>
                     {content.map((candidate, i) => {
-                        
                         return (
                             <div key={i}>
                                 <input
