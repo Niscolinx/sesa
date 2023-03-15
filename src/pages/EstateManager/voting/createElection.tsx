@@ -75,9 +75,7 @@ const CreateElection = () => {
         [5, <Last />],
     ]) satisfies Map<number, JSX.Element>
 
-    useEffect(() => {
-        console.log({electionDates})
-    }, [electionDates])
+  
     return (
         <CreateElectionContext.Provider
             value={{
