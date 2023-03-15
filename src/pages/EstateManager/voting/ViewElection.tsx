@@ -91,11 +91,13 @@ const ViewElection = () => {
                     </button>
                 </section>
                 <section className='grid relative p-16 bg-white rounded-lg gap-2 '>
-                    <p>Election Information</p>
+                    <p className='text-[2rem] font-Satoshi-Medium'>
+                        Election Information
+                    </p>
                     <section className='grid gap-4 capitalize'>
                         <div className='grid grid-cols-2 items-center gap-4 justify-start w-[25rem] whitespace-nowrap'>
                             <p className='text-gray-700 font-Satoshi-Light'>
-                                Election Code:
+                                Title:
                             </p>
                             <p className='font-Satoshi-Medium'>jjjj</p>
                         </div>
