@@ -37,6 +37,7 @@ const EachElection: FC<EachElection> = ({ props }) => {
                                 animationIterationCount: 'infinite',
                             }}
                         />
+                        <p className='font-Satoshi-Bold text-[1.8rem] uppercase'>CONFIRM YOUR VOTE</p>
                         <p>You have successfully created an Election</p>
 
                         <div className='flex w-full justify-center gap-8'>
