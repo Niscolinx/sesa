@@ -41,7 +41,7 @@ const EachElection: FC<EachElection> = ({ props }) => {
                                 <p className='font-Satoshi-Bold text-[1.8rem] uppercase'>
                                     CONFIRM YOUR VOTE
                                 </p>
-                                <p className='max-w-[40rem] text-center'>
+                                <p className='max-w-[40rem] text-center font-Satoshi-Light'>
                                     You are voting{' '}
                                     <span className='font-Satoshi-Medium capitalize'>
                                         {selectedCandidate?.name}
@@ -80,7 +80,7 @@ const EachElection: FC<EachElection> = ({ props }) => {
                                     }}
                                 />
 
-                                <p>
+                                <p className='max-w-[40rem] text-center'>
                                     You have successfully voted. Thank you for
                                     participating in the Peace estate general
                                     election
