@@ -67,6 +67,10 @@ const Last = () => {
         }
     }
 
+    console.log({electionDates})
+
+    const {votingStartDate,votingEndDate} = electionDates
+
     return (
         <main className='bg-color-white rounded-lg grid gap-16'>
             <dialog className='dialog' ref={dialogRef}>
@@ -144,7 +148,7 @@ const Last = () => {
                         {' '}
                         <p className='font-Satoshi-Light'>Start Date</p>
                         <p>
-                            {electionDates.votingStartDate?.toLocaleDateString(
+                            {new Date(electionDates.votingStartDate).toLocaleDateString(
                                 undefined,
                                 {
                                     day: '2-digit',
@@ -162,14 +166,14 @@ const Last = () => {
                         {' '}
                         <p className='font-Satoshi-Light'>End Date</p>
                         <p>
-                            {electionDates.votingEndDate?.toLocaleDateString(
+                            {/* {electionDates.votingEndDate?.toLocaleString(
                                 undefined,
                                 {
                                     day: '2-digit',
                                     month: 'short',
                                     year: 'numeric',
                                 }
-                            )}
+                            )} */}
                         </p>
                     </div>
                 </div>
@@ -185,7 +189,7 @@ const Last = () => {
                     <p className='font-Satoshi-Medium text-[2rem]'>
                         Voting Channel
                     </p>
-                    <div className='mt-10 grid gap-4'>
+                    <div className='mt-5 grid gap-2'>
                         <div className='flex items-center gap-4'>
                             <input type='checkbox' name='' id='onlineVoting' />
                             <label htmlFor='onlineVoting' className=''>
@@ -209,7 +213,7 @@ const Last = () => {
                     <p className='font-Satoshi-Medium text-[2rem]'>
                         Total number of votes
                     </p>
-                    <div className='mt-10 flex gap-4 items-center'>
+                    <div className='mt-5 flex gap-4 items-center'>
                         <p>1700</p> <button className='text-color-blue' onClick={() => setStep(4)}>See All Voters</button>
                     </div>
                 </div>
@@ -218,7 +222,7 @@ const Last = () => {
                     <p className='font-Satoshi-Medium text-[2rem]'>
                         Voting Display
                     </p>
-                    <div className='mt-10 grid gap-4'>
+                    <div className='mt-5 grid gap-2'>
                         {
                             votesDisplay.map((vote) => (
                                <p key={vote} className='capitalize'>
