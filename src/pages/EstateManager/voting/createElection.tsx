@@ -1,5 +1,5 @@
 import { SetStateAction } from 'jotai'
-import { createContext, Dispatch, useContext, useState } from 'react'
+import { createContext, Dispatch, useContext, useEffect, useState } from 'react'
 import {
     HiOutlineArrowNarrowLeft,
     HiOutlineArrowNarrowRight,
@@ -22,10 +22,10 @@ export interface CandidateField {
 }
 
 export type ElectionDates = {
-    votingStartDate: Date
-    votingEndDate: Date
-    votingStartTime: Date
-    votingEndTime: Date
+    votingStartDate?: Date | undefined 
+    votingEndDate?: Date | undefined
+    votingStartTime?: Date | undefined
+    votingEndTime?: Date | undefined
 }
 
 interface CreateElectionContext {
@@ -33,8 +33,8 @@ interface CreateElectionContext {
     setElectionCategory: Dispatch<SetStateAction<Category>>
     candidate_details: CandidateField[]
     setCandidate_details: Dispatch<SetStateAction<CandidateField[]>>
-    electionDates: ElectionDates | null
-    setElectionDates: Dispatch<SetStateAction<ElectionDates | null>>
+    electionDates: ElectionDates
+    setElectionDates: Dispatch<SetStateAction<ElectionDates>>
 }
 
 const CreateElectionContext = createContext<CreateElectionContext | null>(null)
@@ -57,7 +57,7 @@ const CreateElection = () => {
     const [candidate_details, setCandidate_details] = useState<
         CandidateField[]
     >([])
-    const [electionDates, setElectionDates] = useState<ElectionDates | null>(null)
+    const [electionDates, setElectionDates] = useState<ElectionDates>({})
 
     const displayStep = new Map([
         [1, <First />],
@@ -67,6 +67,9 @@ const CreateElection = () => {
         [5, <Last />],
     ]) satisfies Map<number, JSX.Element>
 
+    useEffect(() => {
+        console.log({electionDates})
+    }, [electionDates])
     return (
         <CreateElectionContext.Provider
             value={{
