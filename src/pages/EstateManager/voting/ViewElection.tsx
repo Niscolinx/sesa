@@ -36,7 +36,9 @@ const ViewElection = () => {
             id: `${i + 1}`,
             img: '/img/avatar11.png',
             name: 'Abayomi Rodima',
-            progressPercent: Math.floor(Math.fround)
+            progressPercent: Math.floor(Math.random() * 70 + 40),
+            totalVotes: 2000,
+            votedNum: Math.floor(Math.random() * 1400 + 400)
         })
     )
 
