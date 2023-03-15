@@ -1,5 +1,4 @@
-import { SetStateAction } from 'jotai'
-import { createContext, Dispatch, useContext, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import {
     HiOutlineArrowNarrowLeft,
     HiOutlineArrowNarrowRight,
@@ -40,6 +39,8 @@ const ELECTIONS: Election[] = Array.from({ length: 10 }, (_, i) => ({
 
 const VotePhysically = () => {
     const [step, setStep] = useState(1)
+    const [selectedCandidate, setSelectedCandidate] =
+        useState<Record<'name' | 'img', string>>()
 
     const displayStep = new Map([
         [1, <First />],
@@ -49,35 +50,37 @@ const VotePhysically = () => {
         [5, <Last />],
     ]) satisfies Map<number, JSX.Element>
 
-    const Election = (election: Election) => {
+    interface EachElection {
+        election: Election
+    }
+
+    const Election: FC<EachElection> = ({ election }) => {
         const { category, content } = election
         return (
             <div className='grid gap-4'>
                 <p className='text-color-blue'>{category}</p>
                 <div className='grid gap-4'>
-
-                    
                     {content.map((item, i) => (
-                        <div key={item}>
-                                <input
-                                    type='radio'
-                                    name='history'
-                                    id={item}
-                                    checked={item === pathToSwitch}
-                                    className='hidden'
-                                    onChange={() => setPathToSwitch(item)}
+                        <div key={i}>
+                            <input
+                                type='radio'
+                                name='election'
+                                id={item}
+                                checked={item === pathToSwitch}
+                                className='hidden'
+                                onChange={() => setPathToSwitch(item)}
+                            />
+                            <label
+                                htmlFor={item}
+                                className={`capitalize flex items-center gap-8`}
+                            >
+                                <img
+                                    src={item.imgUrl}
+                                    alt=''
+                                    className='w-[5rem] h-[5rem] rounded-full object-cover'
                                 />
-                                <label htmlFor={item} className={`capitalize flex items-center gap-8`}>
-                                     <img
-                           src={item.imgUrl}
-                           alt=""
-                           className="w-[5rem] h-[5rem] rounded-full object-cover"
-                         />
-                         <p>{item.name}</p>
-                                </label>
-                            </div>
-                       
-                       
+                            </label>
+                        </div>
                     ))}
                 </div>
             </div>
