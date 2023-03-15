@@ -42,8 +42,10 @@ const EachElection: FC<EachElection> = ({ props }) => {
         setSelectedCandidate((prev) => {
             const updated = { ...prev }
             const name: string = candidate.name
+            if(id){
 
-            updated[id] = name as any
+                updated[id] = name as any
+            }
 
             return updated
         })
