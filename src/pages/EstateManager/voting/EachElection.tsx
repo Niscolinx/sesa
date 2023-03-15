@@ -121,7 +121,7 @@ const EachElection: FC<EachElection> = ({ props }) => {
                     {category}
                 </p>
                 <div className='grid gap-4 transition ease-linear duration-75'>
-                    {content.map((candidate, i) => (
+                    {content.map((candidate, i) => {return(
                         <div key={i}>
                             <input
                                 type='radio'
@@ -150,7 +150,7 @@ const EachElection: FC<EachElection> = ({ props }) => {
                                 <p>{candidate.name}</p>
                             </label>
                         </div>
-                    ))}
+                    )})}
                 </div>
                 <button
                     className='bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
