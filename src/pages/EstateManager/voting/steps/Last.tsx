@@ -221,9 +221,9 @@ const Last = () => {
                     <div className='mt-10 grid gap-4'>
                         {
                             votesDisplay.map((vote) => (
-                                <Fragment key={vote}>
-                                    <p></p>
-                                </Fragment>
+                               <p key={vote} className='capitalize'>
+                                {vote}
+                               </p>
                             ))
                         }
                     </div>
