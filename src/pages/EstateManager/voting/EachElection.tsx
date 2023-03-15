@@ -32,17 +32,16 @@ const EachElection: FC<EachElection> = ({ props }) => {
     const { id, category, content } = election
 
     const handleChange = (candidate: CandidateDetail) => {
-        console.log({ candidate })
+        console.log({ candidate, id })
         setSelectedCandidate((prev) => {
-            console.log({ prev })
             const updated = { ...prev }
-
-            console.log({ updated })
-            updated[id] = candidate.name
+            const name: string = candidate.name
+            updated[id] = name as any
 
             return updated
         })
     }
+
     return (
         <>
             <dialog className='dialog' ref={dialogRef}>

@@ -39,7 +39,7 @@ const VotePhysically = () => {
     const [step, setStep] = useState(1)
     const [selectedCandidate, setSelectedCandidate] = useState<{
         [id: string]: CandidateDetail | undefined
-    }>(null as any)
+    }>({})
 
     const displayStep = new Map(
         ELECTIONS.map((election, i) => [
