@@ -136,7 +136,7 @@ const Last = () => {
             </section>
 
             <section className='grid gap-8 w-[60rem]'>
-                <p>Voting Period</p>
+                <p className='font-Satoshi-Medium text-[2rem]'>Voting Period</p>
                     <div className='flex items-baseline gap-8'>
                      
                         <img alt='' src='/icons/calender_month.svg' />
@@ -176,7 +176,9 @@ const Last = () => {
                
             </section>
 
-            <section></section>
+            <section>
+                
+            </section>
         </main> 
     )
 }
