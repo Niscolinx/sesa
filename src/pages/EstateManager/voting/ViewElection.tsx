@@ -5,7 +5,6 @@ import { toast, ToastContainer } from 'react-toastify'
 import { ElectionInfo } from './Voting'
 import { EstateChart as Chart } from '../../../components/SuperAdmin/charts/OverviewChart'
 import { Select } from '../../../components/SuperAdmin/UI/Select'
-import { BsQuestionCircle } from 'react-icons/bs'
 import { IoMdClose } from 'react-icons/io'
 import {
     PhoneNumber,
@@ -57,6 +56,7 @@ const ViewElection = () => {
     const [validationType, setValidationType] =
         useState<ValidationType>('Phone Number')
     const [dialogState, setDialogState] = useState<DialogType>('delete')
+    const [isValidated, setIsValidated] = useState(false)
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
