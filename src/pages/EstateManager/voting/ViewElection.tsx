@@ -158,7 +158,7 @@ const ViewElection = () => {
                                     </button>
                                     <button
                                         className=' bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
-                                        onClick={() => handleClose()}
+                                        onClick={() => handleDeleteElection()}
                                     >
                                         Delete
                                     </button>
