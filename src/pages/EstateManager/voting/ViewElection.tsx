@@ -222,8 +222,8 @@ const ViewElection = () => {
                             <p className='text-[1.2rem] max-w-[9.8rem]'>
                                 Total Votes
                             </p>
-                            <p className='text-[3rem] font-Satoshi-Medium relative text-[#FF0000]'>
-                                {no_of_eligible_voters}
+                            <p className='text-[3rem] font-Satoshi-Medium relative'>
+                                {no_of_eligible_voters.toLocaleString()}
                             </p>
                         </div>
                     </div>
