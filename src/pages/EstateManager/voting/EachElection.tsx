@@ -11,9 +11,9 @@ import { CandidateDetail, Election } from './VotePhysically'
 interface EachElection {
     props: {
         election: Election
-        selectedCandidate: { [id: string]: CandidateDetail | undefined }
+        selectedCandidate: { [id: string]: CandidateDetail }
         setSelectedCandidate: Dispatch<
-            SetStateAction<{ [id: string]: CandidateDetail | undefined }>
+            SetStateAction<{ [id: string]: CandidateDetail }>
         >
     }
 }
@@ -124,6 +124,7 @@ const EachElection: FC<EachElection> = ({ props }) => {
                 </p>
                 <div className='grid gap-4 transition ease-linear duration-75'>
                     {content.map((candidate, i) => {
+
                         return (
                             <div key={i}>
                                 <input
@@ -132,7 +133,7 @@ const EachElection: FC<EachElection> = ({ props }) => {
                                     id={candidate.name + i}
                                     checked={
                                         candidate.name ===
-                                        selectedCandidate[id]?.name
+                                        selectedCandidate[id] 
                                     }
                                     className='hidden'
                                     onChange={() => handleChange(candidate)}
@@ -141,7 +142,7 @@ const EachElection: FC<EachElection> = ({ props }) => {
                                     htmlFor={candidate.name + i}
                                     className={`capitalize flex items-center gap-8 cursor-pointer p-8 transition ease-linear duration-75  ${
                                         candidate.name ===
-                                            selectedCandidate[id]?.name &&
+                                            selectedCandidate[id] &&
                                         'border-2 rounded-2xl border-color-blue-1 shadow'
                                     }`}
                                 >
