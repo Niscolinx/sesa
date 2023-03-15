@@ -54,8 +54,8 @@ const VotePhysically = () => {
 
         const { category, content } = election
         return (
-            <div className='grid gap-4'>
-                <p className='text-color-blue'>{category}</p>
+            <div className='grid gap-8'>
+                <p className='text-color-blue capitalize text-[2rem]'>{category}</p>
                 <div className='grid gap-4'>
                     {content.map((item, i) => (
                         <div key={i}>
@@ -71,7 +71,7 @@ const VotePhysically = () => {
                                 htmlFor={item.name + i}
                                 className={`capitalize flex items-center gap-8 cursor-pointer p-8 ${
                                     item.name === selectedCandidate?.name
-                                && 'border border-w border-color-blue-1'}`}
+                                && 'border-2 rounded-2xl border-color-blue-1'}`}
                             >
                                 <img
                                     src={item.imgUrl}
