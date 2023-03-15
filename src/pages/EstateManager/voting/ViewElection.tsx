@@ -26,12 +26,7 @@ const ViewElection = () => {
         votedNum: number
     }
 
-    const ELECTION_INFO: ElectionInfo = {
-        title: 'Peace Estate General Election',
-        NoOfEligibleVoters: 2000,
-        votingStartDate: new Date('23/3/2023'),
-        votingEndDate: new Date('12/7/2023'),
-    }
+   
 
     const ELECTION_CATEGORY_DATA: ElectionCategory[] = Array.from(
         { length: 3 },
@@ -40,7 +35,7 @@ const ViewElection = () => {
             img: '/img/avatar11.png',
             name: 'Abayomi Rodima',
             progressPercent: Math.floor(Math.random() * 70 + 40),
-            totalVotes: 2000,
+            totalVotes: no_of_eligible_voters,
             votedNum: Math.floor(Math.random() * 1400 + 400),
         })
     )
