@@ -1,4 +1,11 @@
-import { Dispatch, FC, SetStateAction, useEffect, useRef, useState } from 'react'
+import {
+    Dispatch,
+    FC,
+    SetStateAction,
+    useEffect,
+    useRef,
+    useState,
+} from 'react'
 import { CandidateDetail, Election } from './VotePhysically'
 
 interface EachElection {
@@ -42,7 +49,7 @@ const EachElection: FC<EachElection> = ({ props }) => {
     }
 
     useEffect(() => {
-        console.log({selectedCandidate, id}, selectedCandidate[id])
+        console.log({ selectedCandidate, id }, selectedCandidate[id])
 
         console.log('name', selectedCandidate[id]?.name)
     }, [selectedCandidate])
@@ -121,36 +128,39 @@ const EachElection: FC<EachElection> = ({ props }) => {
                     {category}
                 </p>
                 <div className='grid gap-4 transition ease-linear duration-75'>
-                    {content.map((candidate, i) => {return(
-                        <div key={i}>
-                            <input
-                                type='radio'
-                                name='election'
-                                id={candidate.name + i}
-                                checked={
-                                    candidate.name ===
-                                    selectedCandidate[id]?.name
-                                }
-                                className='hidden'
-                                onChange={() => handleChange(candidate)}
-                            />
-                            <label
-                                htmlFor={candidate.name + i}
-                                className={`capitalize flex items-center gap-8 cursor-pointer p-8 transition ease-linear duration-75  ${
-                                    candidate.name ===
-                                        selectedCandidate[id]?.name &&
-                                    'border-2 rounded-2xl border-color-blue-1 shadow'
-                                }`}
-                            >
-                                <img
-                                    src={candidate.imgUrl}
-                                    alt=''
-                                    className='w-[5rem] h-[5rem] rounded-full object-cover'
+                    {content.map((candidate, i) => {
+                        console.log({candidate, id, selectedCandidate}, candidate.name, candidate.name === selectedCandidate[id]?.name)
+                        return (
+                            <div key={i}>
+                                <input
+                                    type='radio'
+                                    name='election'
+                                    id={candidate.name + i}
+                                    checked={
+                                        candidate.name ===
+                                        selectedCandidate[id]?.name
+                                    }
+                                    className='hidden'
+                                    onChange={() => handleChange(candidate)}
                                 />
-                                <p>{candidate.name}</p>
-                            </label>
-                        </div>
-                    )})}
+                                <label
+                                    htmlFor={candidate.name + i}
+                                    className={`capitalize flex items-center gap-8 cursor-pointer p-8 transition ease-linear duration-75  ${
+                                        candidate.name ===
+                                            selectedCandidate[id]?.name &&
+                                        'border-2 rounded-2xl border-color-blue-1 shadow'
+                                    }`}
+                                >
+                                    <img
+                                        src={candidate.imgUrl}
+                                        alt=''
+                                        className='w-[5rem] h-[5rem] rounded-full object-cover'
+                                    />
+                                    <p>{candidate.name}</p>
+                                </label>
+                            </div>
+                        )
+                    })}
                 </div>
                 <button
                     className='bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
