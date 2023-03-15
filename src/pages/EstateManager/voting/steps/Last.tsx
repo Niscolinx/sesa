@@ -5,7 +5,13 @@ import { CandidateField, useCreateElectionContext } from '../createElection'
 
 const Last = () => {
     type CandidateDetails = { [key: string]: CandidateField[] }
-    const { electionCategory, candidate_details, votesDisplay, allowPhysicalVoting, electionDates } = useCreateElectionContext()
+    const {
+        electionCategory,
+        candidate_details,
+        votesDisplay,
+        allowPhysicalVoting,
+        electionDates,
+    } = useCreateElectionContext()
     const [candidateData, setCandidateData] = useState<CandidateDetails>({})
     const [candidateImgs, setCandidateImgs] = useState<{
         [key: string]: string[]
@@ -60,7 +66,6 @@ const Last = () => {
         }
     }
 
-
     return (
         <main className='bg-color-white rounded-lg grid gap-16'>
             <dialog className='dialog' ref={dialogRef}>
@@ -79,7 +84,7 @@ const Last = () => {
 
                                     {currentCategory.map((item) => {
                                         console.log({ item })
-                                        const {photoUrl, name} = item
+                                        const { photoUrl, name } = item
                                         return (
                                             <div className='flex items-center gap-8'>
                                                 <img
@@ -131,8 +136,14 @@ const Last = () => {
             </section>
 
             <section>
-                                            <div className='grid gap-8 w-[60rem]'>
-</div>
+                <div className='grid gap-8 w-[60rem]'>
+                    <div>
+                        <img alt='' src='/icons/calender_month.svg'/>
+                            <div>
+                                <p></p>
+                            </div>
+                    </div>
+                </div>
             </section>
         </main>
     )
