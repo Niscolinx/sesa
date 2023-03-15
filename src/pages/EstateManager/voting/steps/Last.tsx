@@ -202,7 +202,7 @@ const Last = () => {
                         <div className='flex items-center gap-4'>
                             <input
                                 type='checkbox'
-                                checked={allowPhysicalVoting}
+                                defaultChecked={allowPhysicalVoting}
                                 id='physicalVoting'
                             />
                             <label htmlFor='physicalVoting' className=''>
