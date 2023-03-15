@@ -15,11 +15,11 @@ const categories = ['presidential', 'senatorial', 'gubernatorial']
 
 interface Elections {
     id: string
-    category: string,
+    category: string
     content: Record<'name' | 'img', string>
 }
 
-const ELECTIONS:Elections[] = Array.from({ length: 10 }, (_, i) => ({
+const ELECTIONS: Elections[] = Array.from({ length: 10 }, (_, i) => ({
     id: `${i + 1}`,
     category: categories[Math.floor(Math.random() * categories.length)],
     content: {
@@ -38,6 +38,8 @@ const VotePhysically = () => {
         [4, <Fourth />],
         [5, <Last />],
     ]) satisfies Map<number, JSX.Element>
+
+    const displays = new Map(ELECTIONS.map((item, i) => [i + 1, 'sdf']))
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
