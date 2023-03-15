@@ -59,7 +59,11 @@ const VotePhysically = () => {
         >
     }
 
-    const Election: FC<EachElection> = ({ election, selectedCandidate, setSelectedCandidate }) => {
+    const Election: FC<EachElection> = ({
+        election,
+        selectedCandidate,
+        setSelectedCandidate,
+    }) => {
         const { category, content } = election
         return (
             <div className='grid gap-4'>
@@ -70,13 +74,13 @@ const VotePhysically = () => {
                             <input
                                 type='radio'
                                 name='election'
-                                id={item}
-                                checked={item === selectedCandidate}
+                                id={item.name + i}
+                                checked={item.name === selectedCandidate.name}
                                 className='hidden'
                                 onChange={() => setSelectedCandidate(item)}
                             />
                             <label
-                                htmlFor={item}
+                                htmlFor={item.name + i}
                                 className={`capitalize flex items-center gap-8`}
                             >
                                 <img
