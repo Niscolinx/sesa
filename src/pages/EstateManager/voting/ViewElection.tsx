@@ -127,13 +127,7 @@ const ViewElection = () => {
                                 </h3>
 
                                 <Select
-                                    state={[
-                                        'Phone Number',
-                                        'BVN Number',
-                                        'NIN Number',
-                                        'Drivers License',
-                                        'International Passport',
-                                    ]}
+                                    state={['Phone Number', 'Resident Code']}
                                     label='Validation Option'
                                     validate
                                     selectedState={validationType as any}
