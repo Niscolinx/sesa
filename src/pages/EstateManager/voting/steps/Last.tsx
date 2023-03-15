@@ -137,49 +137,55 @@ const Last = () => {
 
             <section className='grid gap-8 w-[60rem]'>
                 <p className='font-Satoshi-Medium text-[2rem]'>Voting Period</p>
-                    <div className='flex items-baseline gap-8'>
-                     
-                        <img alt='' src='/icons/calender_month.svg' />
-                        <div>
-                            {' '}
-                            <p className='font-Satoshi-Light'>Start Date</p>
-                            <p>
-                                {electionDates.votingStartDate?.toLocaleDateString(
-                                    undefined,
-                                    {
-                                        day: '2-digit',
-                                        month: 'short',
-                                        year: 'numeric',
-                                    }
-                                )}
-                            </p>
-                        </div>
-                    </div>
-                    <div className='flex items-baseline gap-8'>
+                <div className='flex items-baseline gap-8'>
+                    <img alt='' src='/icons/calender_month.svg' />
+                    <div>
                         {' '}
-                        <img alt='' src='/icons/calender_month.svg' />
-                        <div>
-                            {' '}
-                            <p className='font-Satoshi-Light'>End Date</p>
-                            <p>
-                                {electionDates.votingEndDate?.toLocaleDateString(
-                                    undefined,
-                                    {
-                                        day: '2-digit',
-                                        month: 'short',
-                                        year: 'numeric',
-                                    }
-                                )}
-                            </p>
-                        </div>
+                        <p className='font-Satoshi-Light'>Start Date</p>
+                        <p>
+                            {electionDates.votingStartDate?.toLocaleDateString(
+                                undefined,
+                                {
+                                    day: '2-digit',
+                                    month: 'short',
+                                    year: 'numeric',
+                                }
+                            )}
+                        </p>
                     </div>
-               
+                </div>
+                <div className='flex items-baseline gap-8'>
+                    {' '}
+                    <img alt='' src='/icons/calender_month.svg' />
+                    <div>
+                        {' '}
+                        <p className='font-Satoshi-Light'>End Date</p>
+                        <p>
+                            {electionDates.votingEndDate?.toLocaleDateString(
+                                undefined,
+                                {
+                                    day: '2-digit',
+                                    month: 'short',
+                                    year: 'numeric',
+                                }
+                            )}
+                        </p>
+                    </div>
+                </div>
             </section>
 
             <section>
-                
+                <div>
+                    <p className='font-Satoshi-Medium text-[2rem]'>
+                        Voting Channel
+                    </p>
+                    <div>
+                        
+                    </div>
+                </div>
+            
             </section>
-        </main> 
+        </main>
     )
 }
 
