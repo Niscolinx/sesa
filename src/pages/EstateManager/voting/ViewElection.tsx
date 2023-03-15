@@ -5,7 +5,6 @@ import { toast, ToastContainer } from 'react-toastify'
 import { ElectionInfo } from './Voting'
 import { EstateChart as Chart } from '../../../components/SuperAdmin/charts/OverviewChart'
 
-
 const ViewElection = () => {
     const location = useLocation()
     const property_data = [
@@ -230,9 +229,10 @@ const ViewElection = () => {
                     </div>
                     <div className='grid gap-4'>
                         <div>
-                            <span className='w-[1rem] h-[1rem] rounded-full'></span>
+                            <span className='w-[1rem] h-[1rem] rounded-full text-[#3DEABA]'>
+                                &nbsp;
+                            </span>
                         </div>
-
                     </div>
                 </section>{' '}
             </main>
