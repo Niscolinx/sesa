@@ -16,16 +16,26 @@ const categories = ['presidential', 'senatorial', 'gubernatorial']
 interface Election {
     id: string
     category: string
-    content: Record<'name' | 'img', string>
+    content: Record<'name' | 'img', string>[]
 }
 
 const ELECTIONS: Election[] = Array.from({ length: 10 }, (_, i) => ({
     id: `${i + 1}`,
     category: categories[Math.floor(Math.random() * categories.length)],
-    content: {
-        name: 'Musa Chinedu',
-        img: '/img/avatar11.png',
-    },
+    content: [
+        {
+            name: 'Musa Chinedu',
+            img: '/img/avatar11.png',
+        },
+        {
+            name: 'Larry Chinedu',
+            img: '/img/avatar2.png',
+        },
+        {
+            name: 'Yap Chinedu',
+            img: '/img/avatar3.png',
+        },
+    ],
 }))
 
 const VotePhysically = () => {
@@ -40,14 +50,10 @@ const VotePhysically = () => {
     ]) satisfies Map<number, JSX.Element>
 
     const Election = (election: Election) => {
-        return <div>
-            
-        </div>
+        return <div className='grid gap-4'></div>
     }
 
     const displays = new Map(ELECTIONS.map((election, i) => [i + 1, 'sdf']))
-
-
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
