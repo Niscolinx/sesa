@@ -23,11 +23,19 @@ const ViewElection = () => {
     }
 
     const ELECTION_INFO: ElectionInfo = {
-        title: 'Abayomi Rodima',
+        title: 'Peace Estate General Election',
         NoOfEligibleVoters: 2000,
         votingStartDate: new Date('23/3/2023'),
         votingEndDate: new Date('12/7/2023')
     }
+
+    const ELECTION_CATEGORY_DATA: ElectionCategory[] = Array.from(
+        { length: 3 },
+        (_, i) => ({
+            img: '/img/avatar11.png',
+            name: 'Abayomi Rodima',
+        })
+    )
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
