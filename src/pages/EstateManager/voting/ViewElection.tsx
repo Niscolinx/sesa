@@ -8,6 +8,7 @@ import { Select } from '../../../components/SuperAdmin/UI/Select'
 import { BsQuestionCircle } from 'react-icons/bs'
 import { IoMdClose } from 'react-icons/io'
 import { ValidateInputTypes } from '../residents/AddResident'
+import { PhoneNumber } from '../../SecurityCompany/dashboard/company/AddSecurity/Inputs'
 
 const ViewElection = () => {
     const location = useLocation()
@@ -82,6 +83,20 @@ const ViewElection = () => {
             className: 'bg-green-100 text-green-600 text-[1.4rem]',
         })
     }
+
+    const handleDialogSubmit = (e: React.FormEvent) => {
+        e.preventDefault()
+        handleClose()
+
+    }
+
+    const renderValidationType = new Map([
+        ['Phone Number', <PhoneNumber />],
+        ['BVN Number', <BVN_Number />],
+        ['NIN Number', <NIN_Number />],
+        ['Drivers License', <DriversLicence />],
+        ['International Passport', <International_PassPort />],
+    ]) satisfies Map<ValidateInputTypes, JSX.Element>
 
     return (
         <>
