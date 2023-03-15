@@ -52,7 +52,7 @@ const Last = () => {
             Object.entries(candidateData)
                 .filter(([foundKey]) => foundKey === key)
                 .map(([_, value]) => {
-                    setCurrentCategory((prev) => [...prev, value])
+                    setCurrentCategory(() => [...value])
                 })
 
         if (dialogRef.current) {
