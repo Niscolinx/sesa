@@ -79,6 +79,7 @@ const Last = () => {
                                     </p>
 
                                     {currentCategory.map((item) => {
+                                        console.log({item})
                                         return <div></div>
                                     })}
                                 </>
