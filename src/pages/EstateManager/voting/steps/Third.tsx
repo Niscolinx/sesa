@@ -16,12 +16,9 @@ function Third() {
         register,
         handleSubmit,
         watch,
-        getFieldState,
-        formState: { errors,  },
     } = useForm<FormData>()
 
-    console.log(watch())
-    console.log(getFieldState())
+    console.log(watch(values => console.log(values)))
     const onSubmit = handleSubmit((data) => {
         console.log({ data })
     })
