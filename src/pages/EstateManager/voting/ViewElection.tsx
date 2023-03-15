@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react'
 import { AiOutlineDoubleRight } from 'react-icons/ai'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { toast, ToastContainer } from 'react-toastify'
 import { ElectionInfo } from './Voting'
 import { EstateChart as Chart } from '../../../components/SuperAdmin/charts/OverviewChart'
@@ -12,6 +12,7 @@ import {
 } from '../../SecurityCompany/dashboard/company/AddSecurity/Inputs'
 
 const ViewElection = () => {
+    const navigate = useNavigate()
     const location = useLocation()
     const property_data = [
         { name: 'online', value: 40 },
