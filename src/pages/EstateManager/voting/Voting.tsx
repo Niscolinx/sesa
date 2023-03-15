@@ -21,7 +21,7 @@ export const VOTING_DATA: ElectionInfo[] = Array.from({ length: 10 }).map(
     (_, i) => ({
         id: i + 1,
         no_of_eligible_voters: Math.floor(Math.random() * 14000 + 2000),
-        startDate: new Date('23/3/2023'),
+        startDate: new Date('3/8/2023'),
         endDate: new Date('12/7/2023'),
         electionTitle: 'Iba General Elections',
         category:
@@ -239,7 +239,7 @@ function Voting() {
                                                                         'Satoshi-Medium',
                                                                 }}
                                                             >
-                                                                {startDate.toLocaleDateString(
+                                                                {startDate.toLocaleString(
                                                                     undefined,
                                                                     {
                                                                         day: '2-digit',
@@ -257,7 +257,7 @@ function Voting() {
                                                                         'Satoshi-Medium',
                                                                 }}
                                                             >
-                                                                {endDate.toLocaleDateString(
+                                                                {endDate.toLocaleString(
                                                                     undefined,
                                                                     {
                                                                         day: '2-digit',
