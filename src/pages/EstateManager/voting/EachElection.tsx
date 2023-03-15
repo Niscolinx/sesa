@@ -29,7 +29,7 @@ const EachElection: FC<EachElection> = ({ props }) => {
     }
     const { election, selectedCandidate, setSelectedCandidate } = props
 
-    const { category, content } = election
+    const {id, category, content } = election
     return (
         <>
             <dialog className='dialog' ref={dialogRef}>

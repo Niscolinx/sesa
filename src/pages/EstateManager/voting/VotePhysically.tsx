@@ -9,10 +9,11 @@ import EachElection from './EachElection'
 
 const categories = ['presidential', 'senatorial', 'gubernatorial']
 
+type CandidateDetail = Record<'name' | 'imgUrl', string>
 export interface Election {
     id: string
     category: string
-    content: Record<'name' | 'imgUrl', string>[]
+    content: CandidateDetail[]
 }
 
 const ELECTIONS: Election[] = Array.from({ length: 10 }, (_, i) => ({
@@ -37,7 +38,7 @@ const ELECTIONS: Election[] = Array.from({ length: 10 }, (_, i) => ({
 const VotePhysically = () => {
     const [step, setStep] = useState(1)
     const [selectedCandidate, setSelectedCandidate] = useState<
-        Record<'name' | 'imgUrl', string> | undefined
+        CandidateDetail | undefined
     >()
 
     const displayStep = new Map(
