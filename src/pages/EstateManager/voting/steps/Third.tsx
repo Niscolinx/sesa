@@ -1,10 +1,25 @@
 import { useState } from 'react'
-
 import { MultipleSelect } from '../../../../components/SuperAdmin/UI/Select'
+import {useForm} from 'react-hook-form'
+
+type FormData = {
+    votingStartDate: Date
+    votingEndDate: Date
+    votingEndDate: Date
+    votingEndDate: Date
+
+}
 
 function Third() {
     const [voteDisplay, setVoteDisplay] = useState<string[]>([])
     const [allowPhysicalVoting, setAllowPhysicalVoting] = useState(false)
+      const {
+          register,
+          setValue,
+          handleSubmit,
+          formState: { errors },
+      } = useForm<FormData>()
+
 
     return (
         <div>
@@ -20,7 +35,7 @@ function Third() {
                             htmlFor='thirdName'
                             className='text-[1.4rem] font-Satoshi-Medium'
                         >
-                            Voting End Date
+                            Voting Start Date
                         </label>
                         <input
                             type='date'
@@ -35,7 +50,7 @@ function Third() {
                             htmlFor='thirdName'
                             className='text-[1.4rem] font-Satoshi-Medium'
                         >
-                            Voting Start Time
+                            Voting End Date
                         </label>
                         <input
                             type='time'
