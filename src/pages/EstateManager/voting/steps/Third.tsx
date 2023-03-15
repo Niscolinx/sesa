@@ -41,9 +41,7 @@ function Third() {
                         </label>
                         <input
                             type='date'
-                            required
-                            id='thirdName'
-                            placeholder='placeholder'
+                            {...register('votingStartDate')}
                             className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                         />
                     </div>
