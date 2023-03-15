@@ -117,15 +117,6 @@ const ViewElection = () => {
                                 className='grid gap-12'
                                 onSubmit={handleDialogSubmit}
                             >
-                                <h3
-                                    className='text-[2rem] font-bold border-b '
-                                    style={{
-                                        fontFamily: 'Satoshi-Medium',
-                                    }}
-                                >
-                                    Know Your Guard (KYG)
-                                </h3>
-
                                 <Select
                                     state={['Phone Number', 'Resident Code']}
                                     label='Validation Option'
