@@ -161,31 +161,50 @@ const ViewElection = () => {
                         <span className='font-Satoshi-Medium'>{category}</span>
                     </p>
 
-                    <button className='btn rounded-2xl bg-[#FF9500] text-white font-Satoshi-Medium'>Vote Physically</button>
-    
+                    <button className='btn rounded-2xl bg-[#FF9500] text-white font-Satoshi-Medium'>
+                        Vote Physically
+                    </button>
                 </section>
 
                 <section className='grid bg-white p-8 rounded-2xl border-b'>
-                    <div className='flex items-center gap-8'>
-
-                                <img src="/img/avatar11.png" alt="" className='w-[6rem] h-[6rem] rounded-full object-cover'  />
+                    {ELECTION_CATEGORY_DATA.map((item, i) => (
+                        <div className='flex items-center gap-8' key={i}>
+                            <img
+                                src='/img/avatar11.png'
+                                alt=''
+                                className='w-[6rem] h-[6rem] rounded-full object-cover'
+                            />
+                            <div className='grid gap-4 items-center '>
                                 <div>
-
+                                    <p>{c}</p>
                                 </div>
-                    </div>
-                    {/* <div className='flex items-center gap-2 justify-between mb-10'>
-                        <p className='font-Satoshi-Medium'>Installment Info</p>{' '}
-                        <div className='relative flex gap-4'></div>
-                            <button
-                                className='btn text-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
-                                onClick={() => openElectionDialog()}
-                            >
-                                View Households
-                            </button>
-                        </div>
-                    </div> */}
+                                <div className='progressBar overflow-hidden '>
+                                    <progress
+                                        className='progressBar__item'
+                                        max={100}
+                                        value={progressPercent}
+                                    />
 
-                   
+                                    <p
+                                        className={`absolute left-0 text-color-tertiary text-white flex justify-end font-Satoshi-Medium pr-10`}
+                                        style={{
+                                            width: `${progressPercent}%`,
+                                        }}
+                                    >
+                                        <span>{progressPercent}%</span>
+                                    </p>
+                                </div>
+
+                                <div className='flex items-center justify-between font-Satoshi-Light'>
+                                    <p>
+                                        {paidResidents} of {totalResidents}{' '}
+                                        resident paid
+                                    </p>
+                                    <p>₦{expectedAmount}</p>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
                 </section>
             </main>
         </>
