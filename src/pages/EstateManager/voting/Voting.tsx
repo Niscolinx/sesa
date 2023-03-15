@@ -10,22 +10,26 @@ const electionCategory = ['President', 'Senate', 'House of Reps']
 
 export interface ElectionInfo {
     id: number
-    startDate: string
-    endDate: string
+    startDate: Date
+    endDate: Date
     electionTitle: string
     no_of_eligible_voters: number
     category: string
 }
 
-export const VOTING_DATA: ElectionInfo[] = Array.from({ length: 10 }).map((_, i) => ({
-    id: i + 1,
-    no_of_eligible_voters: Math.floor(Math.random() * 14000 + 2000),
-    startDate: new Date('23/3/2023'),
-    endDate: new Date('12/7/2023'),
-    electionTitle: 'Iba General Elections',
-    category:
-        electionCategory[Math.floor(Math.random() * electionCategory.length)],
-}))
+export const VOTING_DATA: ElectionInfo[] = Array.from({ length: 10 }).map(
+    (_, i) => ({
+        id: i + 1,
+        no_of_eligible_voters: Math.floor(Math.random() * 14000 + 2000),
+        startDate: new Date('23/3/2023'),
+        endDate: new Date('12/7/2023'),
+        electionTitle: 'Iba General Elections',
+        category:
+            electionCategory[
+                Math.floor(Math.random() * electionCategory.length)
+            ],
+    })
+)
 
 function Voting() {
     const [isVoting, setIsVoting] = useState(false)
@@ -208,7 +212,7 @@ function Voting() {
                                                 const {
                                                     id,
                                                     startDate,
-                                                    NoOfEligibleVoters,
+                                                    no_of_eligible_voters,
                                                     endDate,
                                                     electionTitle,
                                                 } = electionInfo
@@ -235,7 +239,14 @@ function Voting() {
                                                                         'Satoshi-Medium',
                                                                 }}
                                                             >
-                                                                {startDate}
+                                                                {startDate.toLocaleDateString(
+                                                                    undefined,
+                                                                    {
+                                                                        day: '2-digit',
+                                                                        month: 'short',
+                                                                        year: 'numeric',
+                                                                    }
+                                                                )}
                                                             </p>
                                                         </div>
                                                         <div className='flex items-center gap-2'>
@@ -246,7 +257,14 @@ function Voting() {
                                                                         'Satoshi-Medium',
                                                                 }}
                                                             >
-                                                                {endDate}
+                                                                {endDate.toLocaleDateString(
+                                                                    undefined,
+                                                                    {
+                                                                        day: '2-digit',
+                                                                        month: 'short',
+                                                                        year: 'numeric',
+                                                                    }
+                                                                )}
                                                             </p>
                                                         </div>
 
@@ -262,7 +280,7 @@ function Voting() {
                                                                 }}
                                                             >
                                                                 {
-                                                                    NoOfEligibleVoters
+                                                                    no_of_eligible_voters
                                                                 }
                                                             </p>
                                                         </div>
