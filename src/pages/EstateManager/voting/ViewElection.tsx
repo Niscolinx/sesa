@@ -33,7 +33,7 @@ const ViewElection = () => {
             id: `${i + 1}`,
             img: '/img/avatar11.png',
             name: 'Abayomi Rodima',
-            progressPercent: Math.floor((Math.random() * 60) + 20),
+            progressPercent: Math.floor(Math.random() * 60 + 20),
             totalVotes: no_of_eligible_voters,
             votedNum: Math.floor(Math.random() * 1400 + 400),
         })
@@ -170,18 +170,16 @@ const ViewElection = () => {
 
                 <section className='grid bg-white p-8 rounded-2xl border-b'>
                     {ELECTION_CATEGORY_DATA.map((item, i) => (
-                        <div
-                            className='flex items-center gap-8'
-                            key={i}
-                        >
+                        <div className='flex items-center gap-8' key={i}>
                             <img
                                 src='/img/avatar11.png'
                                 alt=''
                                 className='w-[6rem] h-[6rem] rounded-full object-cover'
                             />
                             <div className='grid gap-4 items-center  w-full'>
-                                <div>
+                                <div className='flex justify-between'>
                                     <p>{item.name}</p>
+                                    <p>{item.progressPercent}%</p>
                                 </div>
                                 <div className='progressBarBlue overflow-hidden'>
                                     <progress
@@ -189,15 +187,6 @@ const ViewElection = () => {
                                         max={100}
                                         value={item.progressPercent}
                                     />
-
-                                    <p
-                                        className={`absolute left-0 text-color-tertiary text-white flex justify-end font-Satoshi-Medium pr-10`}
-                                        style={{
-                                            width: `${item.progressPercent}%`,
-                                        }}
-                                    >
-                                        <span>{item.progressPercent}%</span>
-                                    </p>
                                 </div>
 
                                 <div className='flex items-center justify-between font-Satoshi-Light'>
