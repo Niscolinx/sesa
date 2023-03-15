@@ -1,4 +1,5 @@
-import { FC, useRef, useState } from 'react'
+import { SetStateAction } from 'jotai'
+import { Dispatch, FC, useRef, useState } from 'react'
 import {
     HiOutlineArrowNarrowLeft,
     HiOutlineArrowNarrowRight,
@@ -52,9 +53,13 @@ const VotePhysically = () => {
 
     interface EachElection {
         election: Election
+        selectedCandidate: Record<'name' | 'imgUrl', string>
+        setSelectedCandidate: Dispatch<
+            SetStateAction<Record<'name' | 'imgUrl', string>>
+        >
     }
 
-    const Election: FC<EachElection> = ({ election }) => {
+    const Election: FC<EachElection> = ({ election, selectedCandidate, setSelectedCandidate }) => {
         const { category, content } = election
         return (
             <div className='grid gap-4'>
@@ -66,9 +71,9 @@ const VotePhysically = () => {
                                 type='radio'
                                 name='election'
                                 id={item}
-                                checked={item === pathToSwitch}
+                                checked={item === selectedCandidate}
                                 className='hidden'
-                                onChange={() => setPathToSwitch(item)}
+                                onChange={() => setSelectedCandidate(item)}
                             />
                             <label
                                 htmlFor={item}
