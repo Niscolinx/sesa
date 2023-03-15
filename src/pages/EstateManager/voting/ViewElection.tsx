@@ -1,5 +1,4 @@
-import { useRef, useState } from 'react'
-import { GrUp, GrDown } from 'react-icons/gr'
+import { useRef } from 'react'
 import { useLocation } from 'react-router-dom'
 import { toast, ToastContainer } from 'react-toastify'
 
@@ -7,7 +6,6 @@ const ViewElection = () => {
     const location = useLocation()
 
     const paymentData = location.state || {}
-
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
