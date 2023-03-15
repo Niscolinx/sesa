@@ -143,7 +143,11 @@ const ViewElection = () => {
                                         </div>
                                         <button
                                             className='btn bg-[#0556E5] text-white rounded-lg py-4  w-[20rem]'
-                                            onClick={() => handleClose()}
+                                            onClick={() =>
+                                                navigate(
+                                                    '/estateManager/voting-and-election/view/vote-physically'
+                                                )
+                                            }
                                         >
                                             Proceed
                                         </button>
