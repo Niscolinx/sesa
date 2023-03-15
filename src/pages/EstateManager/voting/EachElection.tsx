@@ -31,8 +31,8 @@ const EachElection: FC<EachElection> = ({ props }) => {
 
     const { id, category, content } = election
 
-    const handleChange = (item: CandidateDetail) => {
-        
+    const handleChange = (candidate: CandidateDetail) => {
+
 
     }
     return (
@@ -109,29 +109,29 @@ const EachElection: FC<EachElection> = ({ props }) => {
                     {category}
                 </p>
                 <div className='grid gap-4 transition ease-linear duration-75'>
-                    {content.map((item, i) => (
+                    {content.map((candidate, i) => (
                         <div key={i}>
                             <input
                                 type='radio'
                                 name='election'
-                                id={item.name + i}
-                                // checked={item.name === selectedCandidate?.name}
+                                id={candidate.name + i}
+                                // checked={candidate.name === selectedCandidate?.name}
                                 className='hidden'
-                                onChange={() =>handleChange(item)}
+                                onChange={() =>handleChange(candidate)}
                             />
                             <label
-                                htmlFor={item.name + i}
+                                htmlFor={candidate.name + i}
                                 // className={`capitalize flex items-center gap-8 cursor-pointer p-8 transition ease-linear duration-75  ${
-                                //     item.name === selectedCandidate?.name &&
+                                //     candidate.name === selectedCandidate?.name &&
                                 //     'border-2 rounded-2xl border-color-blue-1 shadow'
                                 // }`}
                             >
                                 <img
-                                    src={item.imgUrl}
+                                    src={candidate.imgUrl}
                                     alt=''
                                     className='w-[5rem] h-[5rem] rounded-full object-cover'
                                 />
-                                <p>{item.name}</p>
+                                <p>{candidate.name}</p>
                             </label>
                         </div>
                     ))}
