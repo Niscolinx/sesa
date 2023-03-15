@@ -1,4 +1,4 @@
-import { Dispatch, FC, SetStateAction, useRef, useState } from 'react'
+import { Dispatch, FC, SetStateAction, useEffect, useRef, useState } from 'react'
 import { CandidateDetail, Election } from './VotePhysically'
 
 interface EachElection {
@@ -32,7 +32,6 @@ const EachElection: FC<EachElection> = ({ props }) => {
     const { id, category, content } = election
 
     const handleChange = (candidate: CandidateDetail) => {
-        console.log({ candidate, id })
         setSelectedCandidate((prev) => {
             const updated = { ...prev }
             const name: string = candidate.name
@@ -41,6 +40,10 @@ const EachElection: FC<EachElection> = ({ props }) => {
             return updated
         })
     }
+
+    useEffect(() => {
+        console.log({selectedCandidate})
+    }, [selectedCandidate])
 
     return (
         <>
