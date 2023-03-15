@@ -26,8 +26,7 @@ export type ElectionDates = {
     votingEndDate?: Date | undefined
     votingStartTime?: Date | undefined
     votingEndTime?: Date | undefined
-    votesDisplay?: string[] | undefined
-    isPhysicalVoting?: boolean | undefined
+   
 }
 
 interface CreateElectionContext {
@@ -60,6 +59,8 @@ const CreateElection = () => {
         CandidateField[]
     >([])
     const [electionDates, setElectionDates] = useState<ElectionDates>({})
+      const [voteDisplay, setVoteDisplay] = useState<string[]>([])
+      const [allowPhysicalVoting, setAllowPhysicalVoting] = useState(false)
 
     const displayStep = new Map([
         [1, <First />],

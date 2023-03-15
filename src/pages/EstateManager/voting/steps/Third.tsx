@@ -7,8 +7,7 @@ import { ElectionDates, useCreateElectionContext } from '../createElection'
 
 function Third() {
     const { setElectionDates} = useCreateElectionContext()
-    const [voteDisplay, setVoteDisplay] = useState<string[]>([])
-    const [allowPhysicalVoting, setAllowPhysicalVoting] = useState(false)
+  
     const {
         register,
         handleSubmit,
