@@ -13,7 +13,14 @@ import Third from './steps/Third'
 
 const categories = ['presidential', 'senatorial', 'gubernatorial']
 
-const ELECTIONS = Array.from({ length: 10 }, (_, i) => ({
+interface Elections {
+    id: string
+    category: string,
+    content: Record<'name' | 'img', string>
+}
+
+const ELECTIONS:Elections[] = Array.from({ length: 10 }, (_, i) => ({
+    id: `${i + 1}`,
     category: categories[Math.floor(Math.random() * categories.length)],
     content: {
         name: 'Musa Chinedu',
