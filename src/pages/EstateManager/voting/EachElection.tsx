@@ -1,4 +1,4 @@
-import { Dispatch, FC, SetStateAction, useRef } from 'react'
+import { Dispatch, FC, SetStateAction, useRef, useState } from 'react'
 import { Election } from './VotePhysically'
 
 interface EachElection {
@@ -13,6 +13,8 @@ interface EachElection {
 
 const EachElection: FC<EachElection> = ({ props }) => {
     const dialogRef = useRef<HTMLDialogElement | null>(null)
+    type DialogState = 'toConfirm' | 'confirmedVote'
+    const [dialogState, setDialogState] = useState<DialogState>('toConfirm')
 
     const handleClose = () => {
         dialogRef.current?.close()
@@ -20,6 +22,10 @@ const EachElection: FC<EachElection> = ({ props }) => {
 
     const handleOpen = () => {
         dialogRef.current?.showModal()
+    }
+
+    const handleVoteConfirmation = () => {
+        setDialogState('confirmedVote')
     }
     const { election, selectedCandidate, setSelectedCandidate } = props
 
@@ -63,7 +69,7 @@ const EachElection: FC<EachElection> = ({ props }) => {
                             </button>
                             <button
                                 className='bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
-                                onClick={() => handleClose()}
+                                onClick={handleVoteConfirmation}
                             >
                                 Proceed
                             </button>
