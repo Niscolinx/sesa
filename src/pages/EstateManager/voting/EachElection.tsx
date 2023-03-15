@@ -1,5 +1,5 @@
-import { Dispatch, FC, SetStateAction, useRef } from "react"
-import { Election } from "./VotePhysically"
+import { Dispatch, FC, SetStateAction, useRef } from 'react'
+import { Election } from './VotePhysically'
 
 interface EachElection {
     props: {
@@ -88,6 +88,12 @@ const EachElection: FC<EachElection> = ({ props }) => {
                         </div>
                     ))}
                 </div>
+                <button
+                    className='bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
+                    onClick={() => handleClose()}
+                >
+                    Vote
+                </button>
             </div>
         </>
     )
