@@ -78,9 +78,9 @@ const Last = () => {
                                         President Category Candidates
                                     </p>
 
-                                    {currentCategory.map((item) => (
-                                        <div></div>
-                                    ))}
+                                    {currentCategory.map((item) => {
+                                        return <div></div>
+                                    })}
                                 </>
                             </section>
                         </div>
