@@ -1,9 +1,13 @@
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import { AiOutlineDoubleRight } from 'react-icons/ai'
 import { useLocation } from 'react-router-dom'
 import { toast, ToastContainer } from 'react-toastify'
 import { ElectionInfo } from './Voting'
 import { EstateChart as Chart } from '../../../components/SuperAdmin/charts/OverviewChart'
+import { Select } from '../../../components/SuperAdmin/UI/Select'
+import { BsQuestionCircle } from 'react-icons/bs'
+import { IoMdClose } from 'react-icons/io'
+import { ValidateInputTypes } from '../residents/AddResident'
 
 const ViewElection = () => {
     const location = useLocation()
@@ -44,7 +48,12 @@ const ViewElection = () => {
         })
     )
 
-    console.log(ELECTION_CATEGORY_DATA)
+    type DialogType = 'validate' | 'delete'
+    
+    const [validationType, setValidationType] = useState<
+        ValidateInputTypes | string | null
+    >('Phone Number')
+    const [dialogState, setDialogState] = useState('delete')
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
@@ -54,10 +63,16 @@ const ViewElection = () => {
         }
     }
 
-    const handleOpen = () => {
-        if (dialogRef.current) {
-            dialogRef.current.showModal()
+    const handleOpen = (modalState: DialogType) => {
+        if (modalState === 'validate') {
+            setDialogState('validate')
         }
+        if (modalState === 'delete') {
+            setDialogState('add-resident')
+        }
+        
+
+        dialogRef.current?.showModal()
     }
 
     const handleDeleteElection = () => {
@@ -73,31 +88,125 @@ const ViewElection = () => {
         <>
             <ToastContainer />
 
+           
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
-                    <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
-                        <>
-                            <img src='/icons/admins/modalWarning.svg' alt='' />
-                            <p className='text-[1.6rem]'>
-                                Are you sure you want to delete this voting
-                                program
-                            </p>
+                    <div className='bg-white rounded-2xl grid items-baseline w-[64rem] min-h-[30rem] p-10 gap-8 text-[1.6rem] relative'>
+                        <IoMdClose
+                            className='absolute right-4 top-4 text-[2rem] cursor-pointer'
+                            onClick={() => handleClose()}
+                        />
 
-                            <div className='flex w-full justify-center gap-8'>
-                                <button
-                                    className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
-                                    onClick={() => handleClose()}
+                        {dialogState === 'validate' ? (
+                            <form
+                                className='grid gap-12'
+                                onSubmit={handleDialogSubmit}
+                            >
+                                <h3
+                                    className='text-[2rem] font-bold border-b '
+                                    style={{
+                                        fontFamily: 'Satoshi-Medium',
+                                    }}
                                 >
-                                    Cancel
-                                </button>
-                                <button
-                                    className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
-                                    onClick={handleDeleteElection}
+                                    Know Your Guard (KYG)
+                                </h3>
+
+                                <Select
+                                    state={[
+                                        'Phone Number',
+                                        'BVN Number',
+                                        'NIN Number',
+                                        'Drivers License',
+                                        'International Passport',
+                                    ]}
+                                    label='Validation Option'
+                                    validate
+                                    kyr
+                                    selectedState={validationType}
+                                    setSelectedState={setValidationType}
+                                />
+
+                                <p
+                                    className='text-[#043FA7] flex items-center gap-2 border-b pb-10 w-full'
+                                    style={{
+                                        fontFamily: 'Satoshi-Light',
+                                    }}
+                                    onClick={() => handleOpen('view-kyr')}
                                 >
-                                    Delete
+                                    What is KYG <BsQuestionCircle />
+                                </p>
+                                {renderValidationType.get(
+                                    validationType as ValidateInputTypes
+                                )}
+
+                                <button
+                                    className='btn bg-[#0556E5] text-white rounded-lg py-4 place-self-start w-[15rem]'
+                                    onClick={handleValidate}
+                                >
+                                    Validate
                                 </button>
+                            </form>
+                        ) : dialogState === 'add-resident' ? (
+                            <div className='bg-white rounded-2xl grid place-content-center justify-items-center h-[30rem] gap-8 text-[1.6rem]'>
+                                {' '}
+                                <img
+                                    src='/icons/admins/modalSuccess.svg'
+                                    alt=''
+                                    className='animate__animated animate__pulse '
+                                    style={{
+                                        animationIterationCount: 'infinite',
+                                    }}
+                                />
+                                <p className='text-[1.6rem]'>
+                                    You have successfully added a Resident
+                                </p>
+                                <div className='flex w-full justify -center gap-8'>
+                                    <button
+                                        className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
+                                        onClick={() => handleClose()}
+                                    >
+                                        View details
+                                    </button>
+                                    <button
+                                        className=' bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
+                                        onClick={() => handleClose()}
+                                    >
+                                        Ok
+                                    </button>
+                                </div>
                             </div>
-                        </>
+                        ) : (
+                            <div className='bg-white rounded-2xl grid place-content-center justify-items-center h-[30rem] gap-8 text-[1.6rem]'>
+                                <p className='font-Satoshi-Medium text-[#0446B9]'>
+                                    What is KYR?
+                                </p>
+
+                                <div className='grid gap-4'>
+                                    <p>
+                                        Know Your Resident (KYR) is a service
+                                        that allows you confirm the true
+                                        identity of your users (ie: resident).
+                                        With basic information like phone number
+                                        or any valid ID type, you can know "who
+                                        is who"
+                                    </p>
+                                    <p>
+                                        Please note: this service costs N200 per
+                                        successful validation and it will be
+                                        charged from your SESA wallet
+                                    </p>
+                                </div>
+
+                                <div className='flex w-full justify-center gap-8'>
+                                    <button
+                                        className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
+                                        onClick={() => handleClose()}
+                                    >
+                                        Ok
+                                    </button>
+                                </div>
+                            </div>
+                        )}
                     </div>
                 </section>
             </dialog>
@@ -246,7 +355,9 @@ const ViewElection = () => {
                             </div>
                             <p>50,000</p>
                         </div>
-                        <button className='text-color-blue mt-10'>View Details</button>
+                        <button className='text-color-blue mt-10 text-start'>
+                            View Details
+                        </button>
                     </div>
                 </section>{' '}
             </main>
