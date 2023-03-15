@@ -174,21 +174,32 @@ const Last = () => {
                 </div>
             </section>
 
-            <section className='grid gap-8 w-max-[70rem]' style={{
-                gridTemplateColumns: 'repeat(auto-fit, minmax(25rem, 1fr))'
-            }}>
+            <section
+                className='grid gap-8 w-max-[70rem]'
+                style={{
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(25rem, 1fr))',
+                }}
+            >
                 <div>
                     <p className='font-Satoshi-Medium text-[2rem]'>
                         Voting Channel
                     </p>
                     <div className='mt-10 grid gap-4'>
                         <div className='flex items-center gap-4'>
-                        <input type="checkbox" name="" id="onlineVoting" />
-                                <label htmlFor="onlineVoting" className=''>Online Voting</label>
+                            <input type='checkbox' name='' id='onlineVoting' />
+                            <label htmlFor='onlineVoting' className=''>
+                                Online Voting
+                            </label>
                         </div>
                         <div className='flex items-center gap-4'>
-                        <input type="checkbox" name="" id="physicalVoting" />
-                                <label htmlFor="physicalVoting" className=''>Physical Voting</label>
+                            <input
+                                type='checkbox'
+                                name=''
+                                id='physicalVoting'
+                            />
+                            <label htmlFor='physicalVoting' className=''>
+                                Physical Voting
+                            </label>
                         </div>
                     </div>
                 </div>
@@ -197,26 +208,33 @@ const Last = () => {
                         Total number of votes
                     </p>
                     <div className='mt-10 flex gap-4 items-center'>
-                        <p>1700</p>
-                        </div>
+                        <p>1700</p> <button className='text-color-blue' >See All Voters</button>
                     </div>
                 </div>
+
                 <div>
                     <p className='font-Satoshi-Medium text-[2rem]'>
                         Voting Channel
                     </p>
                     <div className='mt-10 grid gap-4'>
                         <div className='flex items-center gap-4'>
-                        <input type="checkbox" name="" id="onlineVoting" />
-                                <label htmlFor="onlineVoting" className=''>Online Voting</label>
+                            <input type='checkbox' name='' id='onlineVoting' />
+                            <label htmlFor='onlineVoting' className=''>
+                                Online Voting
+                            </label>
                         </div>
                         <div className='flex items-center gap-4'>
-                        <input type="checkbox" name="" id="physicalVoting" />
-                                <label htmlFor="physicalVoting" className=''>Physical Voting</label>
+                            <input
+                                type='checkbox'
+                                name=''
+                                id='physicalVoting'
+                            />
+                            <label htmlFor='physicalVoting' className=''>
+                                Physical Voting
+                            </label>
                         </div>
                     </div>
                 </div>
-            
             </section>
         </main>
     )
