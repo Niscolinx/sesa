@@ -50,9 +50,9 @@ const Last = () => {
 
     const openDialog = (key: string) => {
         Object.values(candidateData).length > 0 &&
-            Object.entries(candidateData).filter(
-                ([foundKey]) => foundKey === key
-            ).map(([_, value]) => {
+            Object.keys(candidateData).filter(
+                (foundKey) => foundKey === key
+            ).map((value) => {
                     console.log(value, typeof value)
                 // setCurrentCategory((prev) => [...prev, value])
             })
