@@ -50,7 +50,16 @@ const VotePhysically = () => {
     ]) satisfies Map<number, JSX.Element>
 
     const Election = (election: Election) => {
-        return <div className='grid gap-4'></div>
+        const {category, content} = election
+        return <div className='grid gap-4'>
+            <p className='text-color-blue'>{category}</p>
+
+            {content.map((item, i) => (
+                <div key={i}>
+
+                </div>
+            ))}
+        </div>
     }
 
     const displays = new Map(ELECTIONS.map((election, i) => [i + 1, 'sdf']))
