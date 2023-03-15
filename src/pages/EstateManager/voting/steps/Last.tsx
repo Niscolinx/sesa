@@ -210,31 +210,22 @@ const Last = () => {
                         Total number of votes
                     </p>
                     <div className='mt-10 flex gap-4 items-center'>
-                        <p>1700</p> <button className='text-color-blue' >See All Voters</button>
+                        <p>1700</p> <button className='text-color-blue' onClick={() => setStep(4)}>See All Voters</button>
                     </div>
                 </div>
 
                 <div>
                     <p className='font-Satoshi-Medium text-[2rem]'>
-                        Voting Channel
+                        Voting Display
                     </p>
                     <div className='mt-10 grid gap-4'>
-                        <div className='flex items-center gap-4'>
-                            <input type='checkbox' name='' id='onlineVoting' />
-                            <label htmlFor='onlineVoting' className=''>
-                                Online Voting
-                            </label>
-                        </div>
-                        <div className='flex items-center gap-4'>
-                            <input
-                                type='checkbox'
-                                name=''
-                                id='physicalVoting'
-                            />
-                            <label htmlFor='physicalVoting' className=''>
-                                Physical Voting
-                            </label>
-                        </div>
+                        {
+                            votesDisplay.map((vote) => (
+                                <Fragment key={vote}>
+                                    <p></p>
+                                </Fragment>
+                            ))
+                        }
                     </div>
                 </div>
             </section>
