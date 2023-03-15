@@ -1,4 +1,5 @@
 import { useRef } from 'react'
+import { AiOutlineDoubleRight } from 'react-icons/ai'
 import { useLocation } from 'react-router-dom'
 import { toast, ToastContainer } from 'react-toastify'
 import { ElectionInfo } from './Voting'
@@ -25,8 +26,6 @@ const ViewElection = () => {
         totalVotes: number
         votedNum: number
     }
-
-   
 
     const ELECTION_CATEGORY_DATA: ElectionCategory[] = Array.from(
         { length: 3 },
@@ -158,7 +157,8 @@ const ViewElection = () => {
                 </section>
                 <section>
                     <p>
-                        Election Information
+                        <span>Election Category</span> <AiOutlineDoubleRight />{' '}
+                        <span>{category}</span>
                     </p>
                 </section>
 
