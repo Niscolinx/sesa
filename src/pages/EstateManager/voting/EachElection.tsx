@@ -37,21 +37,35 @@ const EachElection: FC<EachElection> = ({ props }) => {
                                 animationIterationCount: 'infinite',
                             }}
                         />
-                        <p className='font-Satoshi-Bold text-[1.8rem] uppercase'>CONFIRM YOUR VOTE</p>
-                        <p>You have successfully created an Election</p>
+                        <p className='font-Satoshi-Bold text-[1.8rem] uppercase'>
+                            CONFIRM YOUR VOTE
+                        </p>
 
+                        <p>
+                            You are voting{' '}
+                            <span className='font-Satoshi-Medium'>
+                                {selectedCandidate?.name}
+                            </span>{' '}
+                            as{' '}
+                            <span className='font-Satoshi-Medium'>
+                                {category}
+                            </span>
+                            <span className='font-Satoshi-Medium'>
+                                of the Federal Republic of Nigeria.
+                            </span>
+                        </p>
                         <div className='flex w-full justify-center gap-8'>
                             <button
                                 className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
                                 onClick={() => handleClose()}
                             >
-                                View details
+                                Cancel
                             </button>
                             <button
                                 className='bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
                                 onClick={() => handleClose()}
                             >
-                                Ok
+                                Proceed
                             </button>
                         </div>
                     </div>
