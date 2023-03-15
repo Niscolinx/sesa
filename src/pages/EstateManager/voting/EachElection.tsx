@@ -11,10 +11,8 @@ import { CandidateDetail, Election } from './VotePhysically'
 interface EachElection {
     props: {
         election: Election
-        selectedCandidate: { [id: string]: CandidateDetail }
-        setSelectedCandidate: Dispatch<
-            SetStateAction<{ [id: string]: CandidateDetail }>
-        >
+        selectedCandidate: { [id: string]: string }
+        setSelectedCandidate: Dispatch<SetStateAction<{ [id: string]: string }>>
     }
 }
 
@@ -63,7 +61,7 @@ const EachElection: FC<EachElection> = ({ props }) => {
                                 <p className='max-w-[40rem] text-center font-Satoshi-Light'>
                                     You are voting{' '}
                                     <span className='font-Satoshi-Medium capitalize'>
-                                        {selectedCandidate[id]?.name}
+                                        {selectedCandidate[id]}
                                     </span>{' '}
                                     as{' '}
                                     <span className='font-Satoshi-Medium capitalize'>
@@ -124,7 +122,6 @@ const EachElection: FC<EachElection> = ({ props }) => {
                 </p>
                 <div className='grid gap-4 transition ease-linear duration-75'>
                     {content.map((candidate, i) => {
-
                         return (
                             <div key={i}>
                                 <input
@@ -132,8 +129,7 @@ const EachElection: FC<EachElection> = ({ props }) => {
                                     name='election'
                                     id={candidate.name + i}
                                     checked={
-                                        candidate.name ===
-                                        selectedCandidate[id] 
+                                        candidate.name === selectedCandidate[id]
                                     }
                                     className='hidden'
                                     onChange={() => handleChange(candidate)}
