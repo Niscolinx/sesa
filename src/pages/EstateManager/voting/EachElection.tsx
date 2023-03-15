@@ -154,7 +154,7 @@ const EachElection: FC<EachElection> = ({ props }) => {
                     })}
                 </div>
                 <button
-                    className='bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
+                    className='bg-[#0556E5] py-4 px-12 text-white text-[1.6rem] rounded-lg w-[20rem] mt-10'
                     onClick={() => handleOpen()}
                 >
                     Vote
