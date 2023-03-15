@@ -49,11 +49,11 @@ const ViewElection = () => {
     )
 
     type DialogType = 'validate' | 'delete'
-    
+
     const [validationType, setValidationType] = useState<
         ValidateInputTypes | string | null
     >('Phone Number')
-    const [dialogState, setDialogState] = useState('delete')
+    const [dialogState, setDialogState] = useState<DialogType>('delete')
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
@@ -68,9 +68,8 @@ const ViewElection = () => {
             setDialogState('validate')
         }
         if (modalState === 'delete') {
-            setDialogState('add-resident')
+            setDialogState('delete')
         }
-        
 
         dialogRef.current?.showModal()
     }
@@ -88,7 +87,6 @@ const ViewElection = () => {
         <>
             <ToastContainer />
 
-           
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid items-baseline w-[64rem] min-h-[30rem] p-10 gap-8 text-[1.6rem] relative'>
@@ -146,11 +144,11 @@ const ViewElection = () => {
                                     Validate
                                 </button>
                             </form>
-                        ) : dialogState === 'add-resident' ? (
+                        ) : dialogState === 'delete' ? (
                             <div className='bg-white rounded-2xl grid place-content-center justify-items-center h-[30rem] gap-8 text-[1.6rem]'>
                                 {' '}
                                 <img
-                                    src='/icons/admins/modalSuccess.svg'
+                                    src='/icons/admins/modalDeactivate.svg'
                                     alt=''
                                     className='animate__animated animate__pulse '
                                     style={{
@@ -158,7 +156,7 @@ const ViewElection = () => {
                                     }}
                                 />
                                 <p className='text-[1.6rem]'>
-                                    You have successfully added a Resident
+                                    Are you sure you want to delete this voting program?
                                 </p>
                                 <div className='flex w-full justify -center gap-8'>
                                     <button
@@ -168,10 +166,10 @@ const ViewElection = () => {
                                         View details
                                     </button>
                                     <button
-                                        className=' bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
+                                        className=' bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
                                         onClick={() => handleClose()}
                                     >
-                                        Ok
+                                        Delete
                                     </button>
                                 </div>
                             </div>
