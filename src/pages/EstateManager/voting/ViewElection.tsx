@@ -33,7 +33,7 @@ const ViewElection = () => {
             id: `${i + 1}`,
             img: '/img/avatar11.png',
             name: 'Abayomi Rodima',
-            progressPercent: Math.floor((Math.random() * 70) + 10),
+            progressPercent: Math.floor((Math.random() * 60) + 20),
             totalVotes: no_of_eligible_voters,
             votedNum: Math.floor(Math.random() * 1400 + 400),
         })
@@ -170,17 +170,20 @@ const ViewElection = () => {
 
                 <section className='grid bg-white p-8 rounded-2xl border-b'>
                     {ELECTION_CATEGORY_DATA.map((item, i) => (
-                        <div className='flex items-center gap-8 outline w-full' key={i}>
+                        <div
+                            className='flex items-center gap-8'
+                            key={i}
+                        >
                             <img
                                 src='/img/avatar11.png'
                                 alt=''
                                 className='w-[6rem] h-[6rem] rounded-full object-cover'
                             />
-                            <div className='grid gap-4 items-center '>
+                            <div className='grid gap-4 items-center  w-full'>
                                 <div>
                                     <p>{item.name}</p>
                                 </div>
-                                <div className='progressBarBlue overflow-hidden' >
+                                <div className='progressBarBlue overflow-hidden'>
                                     <progress
                                         className='progressBarBlue__item'
                                         max={100}
