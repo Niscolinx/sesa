@@ -180,9 +180,13 @@ const Last = () => {
                         Voting Channel
                     </p>
                     <div>
-                        <div>
+                        <div className='flex items-center gap-4'>
                         <input type="checkbox" name="" id="onlineVoting" />
-                                <label htmlFor="onlineVoting">Online Voting</label>
+                                <label htmlFor="onlineVoting" className=''>Online Voting</label>
+                        </div>
+                        <div className='flex items-center gap-4'>
+                        <input type="checkbox" name="" id="physicalVoting" />
+                                <label htmlFor="physicalVoting" className=''>Physical Voting</label>
                         </div>
                     </div>
                 </div>
