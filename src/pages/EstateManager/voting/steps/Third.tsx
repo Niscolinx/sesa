@@ -16,10 +16,12 @@ function Third() {
         register,
         handleSubmit,
         watch,
-        formState: { errors },
+        getFieldState,
+        formState: { errors,  },
     } = useForm<FormData>()
 
     console.log(watch())
+    console.log(getFieldState())
     const onSubmit = handleSubmit((data) => {
         console.log({ data })
     })
@@ -106,6 +108,7 @@ function Third() {
                         </div>
                     </div>
                 </div>
+                <button>click</button>
             </form>
         </div>
     )
