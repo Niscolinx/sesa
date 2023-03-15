@@ -103,7 +103,6 @@ function Third() {
                         </div>
                     </div>
                 </div>
-                <button>click</button>
             </form>
         </div>
     )
