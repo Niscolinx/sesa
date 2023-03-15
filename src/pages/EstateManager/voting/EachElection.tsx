@@ -32,7 +32,7 @@ const EachElection: FC<EachElection> = ({ props }) => {
     const { id, category, content } = election
 
     const handleChange = (candidate: CandidateDetail) => {
-
+        console.log({candidate})
         setSelectedCandidate(prev => {
             console.log({prev})
             const updated = {...prev}
