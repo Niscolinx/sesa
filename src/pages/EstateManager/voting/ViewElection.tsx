@@ -8,7 +8,7 @@ import { Select } from '../../../components/SuperAdmin/UI/Select'
 import { BsQuestionCircle } from 'react-icons/bs'
 import { IoMdClose } from 'react-icons/io'
 import { ValidateInputTypes } from '../residents/AddResident'
-import { PhoneNumber } from '../../SecurityCompany/dashboard/company/AddSecurity/Inputs'
+import { PhoneNumber, ResidentCode } from '../../SecurityCompany/dashboard/company/AddSecurity/Inputs'
 
 const ViewElection = () => {
     const location = useLocation()
@@ -92,11 +92,9 @@ const ViewElection = () => {
 
     const renderValidationType = new Map([
         ['Phone Number', <PhoneNumber />],
-        ['BVN Number', <BVN_Number />],
-        ['NIN Number', <NIN_Number />],
-        ['Drivers License', <DriversLicence />],
-        ['International Passport', <International_PassPort />],
-    ]) satisfies Map<ValidateInputTypes, JSX.Element>
+        ['Resident Code', <ResidentCode />],
+      
+    ]) satisfies Map<'Phone Number' | 'Resident Code', JSX.Element>
 
     return (
         <>
@@ -149,7 +147,7 @@ const ViewElection = () => {
                                     What is KYG <BsQuestionCircle />
                                 </p>
                                 {renderValidationType.get(
-                                    validationType as ValidateInputTypes
+                                    validationType
                                 )}
 
                                 <button
