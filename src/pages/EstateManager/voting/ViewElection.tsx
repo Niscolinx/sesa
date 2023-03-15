@@ -3,9 +3,15 @@ import { AiOutlineDoubleRight } from 'react-icons/ai'
 import { useLocation } from 'react-router-dom'
 import { toast, ToastContainer } from 'react-toastify'
 import { ElectionInfo } from './Voting'
+import { EstateChart as Chart } from '../../../components/SuperAdmin/charts/OverviewChart'
+
 
 const ViewElection = () => {
     const location = useLocation()
+    const property_data = [
+        { name: 'online', value: 40 },
+        { name: 'physical', value: 60 },
+    ]
 
     const electionData = location.state || {}
 
