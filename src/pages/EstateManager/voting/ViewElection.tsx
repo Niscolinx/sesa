@@ -118,25 +118,12 @@ const ViewElection = () => {
                                     Payment Code:
                                 </p>
                                 <p className='font-Satoshi-Medium'>
-                                    {paymentCode}
+                                    jjjj
                                 </p>
                             </div>
                             
                       
-                            <div className='grid grid-cols-2 items-center gap-4 justify-start w-[25rem] whitespace-nowrap'>
-                                <p className='text-gray-700 font-Satoshi-Light  '>
-                                    Payment Name:
-                                </p>
-                                <p className='font-Satoshi-Medium'>
-                                    {paymentName}
-                                </p>
-                            </div>
-                            <div className='grid grid-cols-2 items-center gap-4 whitespace-nowrap w-[25rem]'>
-                                <p className='text-gray-700 font-Satoshi-Light '>
-                                    End Date:
-                                </p>
-                                <p className='font-Satoshi-Medium'>{endDate}</p>
-                            </div>
+                            
                        
                         
                         
