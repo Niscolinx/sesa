@@ -167,8 +167,7 @@ const ViewElection = () => {
                         Vote Physically
                     </button>
                 </section>
-
-                <section className='grid bg-white p-8 rounded-2xl border-b gap-8'>
+                <section className='grid gap-8'>
                     {ELECTION_CATEGORY_DATA.map((item, i) => (
                         <div className='flex items-center gap-8' key={i}>
                             <img
@@ -197,13 +196,15 @@ const ViewElection = () => {
                                         votes of{' '}
                                         <span className='font-Satoshi-Medium'>
                                             {item.totalVotes}
-                                        </span> total Votes
+                                        </span>{' '}
+                                        total Votes
                                     </p>
                                 </div>
                             </div>
                         </div>
                     ))}
                 </section>
+                <section className='grid gap-8'></section>{' '}
             </main>
         </>
     )
