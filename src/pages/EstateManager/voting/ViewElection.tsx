@@ -65,19 +65,7 @@ const ViewElection = () => {
         })
     }
 
-    const electionListDialogRef = useRef<HTMLDialogElement | null>(null)
-
-    const closeElectionDialog = () => {
-        if (electionListDialogRef.current) {
-            electionListDialogRef.current.close()
-        }
-    }
-
-    const openElectionDialog = () => {
-        if (electionListDialogRef.current) {
-            electionListDialogRef.current.showModal()
-        }
-    }
+  
 
     return (
         <>
@@ -140,7 +128,7 @@ const ViewElection = () => {
                 </section>
 
                 <section className='grid bg-white p-8 rounded-2xl '>
-                    <div className='flex items-center gap-2 justify-between mb-10'>
+                    {/* <div className='flex items-center gap-2 justify-between mb-10'>
                         <p className='font-Satoshi-Medium'>Installment Info</p>{' '}
                         <div className='relative flex gap-4'>
                             <button
@@ -150,7 +138,7 @@ const ViewElection = () => {
                                 View Households
                             </button>
                         </div>
-                    </div>
+                    </div> */}
 
                     {/* <div className='grid gap-4 items-center '>
                         <div className='progressBar overflow-hidden '>
