@@ -115,7 +115,7 @@ const ViewElection = () => {
                         {dialogState === 'validate' ? (
                             <>
                                 {isValidated ? (
-                                    <div className='grid gap-12'>
+                                    <div className='grid gap-12 justify-center justify-items-center'>
                                         <img
                                             src='/img/avatar11.png'
                                             alt=''
@@ -141,7 +141,7 @@ const ViewElection = () => {
                                             </p>
                                         </div>
                                         <button
-                                            className='btn bg-[#0556E5] text-white rounded-lg py-4 place-self-start w-[15rem]'
+                                            className='btn bg-[#0556E5] text-white rounded-lg py-4  w-[20rem]'
                                             onClick={() => handleClose()}
                                         >
                                             Proceed
