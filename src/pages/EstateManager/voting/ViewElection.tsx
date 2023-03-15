@@ -110,15 +110,49 @@ const ViewElection = () => {
                     </button>
                 </section>
                 <section className='grid relative p-16 bg-white rounded-lg gap-2 '>
-                    <p className='text-[2rem] font-Satoshi-Medium'>
+                    <p className='text-[2rem] font-Satoshi-Medium mb-5'>
                         Election Information
                     </p>
                     <section className='grid gap-4 capitalize'>
-                        <div className='grid grid-cols-2 items-center gap-4 justify-start w-[25rem] whitespace-nowrap'>
+                        <div className='grid grid-cols-2 items-center gap-4 justify-start whitespace-nowrap'>
                             <p className='text-gray-700 font-Satoshi-Light'>
                                 Title:
                             </p>
-                            <p className='font-Satoshi-Medium'>jjjj</p>
+                            <p className='font-Satoshi-Medium'>
+                                {electionTitle}
+                            </p>
+                        </div>
+                        <div className='grid grid-cols-2 items-center gap-4 justify-start whitespace-nowrap'>
+                            <p className='text-gray-700 font-Satoshi-Light'>
+                                No. of Eligible Voters:
+                            </p>
+                            <p className='font-Satoshi-Medium'>
+                                {no_of_eligible_voters}
+                            </p>
+                        </div>
+                        <div className='grid grid-cols-2 items-center gap-4 justify-start whitespace-nowrap'>
+                            <p className='text-gray-700 font-Satoshi-Light'>
+                                Voting Start Date:
+                            </p>
+                            <p className='font-Satoshi-Medium'>
+                                {startDate.toLocaleDateString(undefined, {
+                                    day: '2-digit',
+                                    month: 'short',
+                                    year: 'numeric',
+                                })}
+                            </p>
+                        </div>
+                        <div className='grid grid-cols-2 items-center gap-4 justify-start whitespace-nowrap'>
+                            <p className='text-gray-700 font-Satoshi-Light'>
+                                Voting End Date:
+                            </p>
+                            <p className='font-Satoshi-Medium'>
+                                {endDate.toLocaleDateString(undefined, {
+                                    day: '2-digit',
+                                    month: 'short',
+                                    year: 'numeric',
+                                })}
+                            </p>
                         </div>
                     </section>
                 </section>
