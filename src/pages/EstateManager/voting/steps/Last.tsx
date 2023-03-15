@@ -174,7 +174,9 @@ const Last = () => {
                 </div>
             </section>
 
-            <section>
+            <section className='grid gap-8 w-max-[70rem]' style={{
+                gridTemplateColumns: 'repeat(auto-fit, minmax(25rem, 1fr))'
+            }}>
                 <div>
                     <p className='font-Satoshi-Medium text-[2rem]'>
                         Voting Channel
