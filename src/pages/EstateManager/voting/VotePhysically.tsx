@@ -38,7 +38,7 @@ const ELECTIONS: Election[] = Array.from({ length: 10 }, (_, i) => ({
 const VotePhysically = () => {
     const [step, setStep] = useState(1)
     const [selectedCandidate, setSelectedCandidate] = useState<{
-        [key: string]: CandidateDetail | undefined
+        [id: string]: CandidateDetail | undefined
     }>()
 
     const displayStep = new Map(

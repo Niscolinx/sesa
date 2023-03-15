@@ -4,9 +4,9 @@ import { Election } from './VotePhysically'
 interface EachElection {
     props: {
         election: Election
-        selectedCandidate: Record<'name' | 'imgUrl', string> | undefined
+        selectedCandidate: CandidateDetails | undefined
         setSelectedCandidate: Dispatch<
-            SetStateAction<Record<'name' | 'imgUrl', string> | undefined>
+            SetStateAction<CandidateDetails | undefined>
         >
     }
 }
