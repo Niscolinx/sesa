@@ -122,6 +122,12 @@ const ViewElection = () => {
                                             className='w-[15rem] h-[15rem] rounded-full object-cover'
                                         />
 
+                                    <div>
+                                        <p>
+                                            <span className='font-Satoshi-Light'>Name:</span>
+                                            <span className='font-Satoshi-Medium'>Alibaba Desmond</span>
+                                        </p>
+                                    </div>
                                         <button
                                             className='btn bg-[#0556E5] text-white rounded-lg py-4 place-self-start w-[15rem]'
                                             onClick={() => handleClose()}
