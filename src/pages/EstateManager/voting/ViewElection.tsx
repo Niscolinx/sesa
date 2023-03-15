@@ -9,8 +9,13 @@ const ViewElection = () => {
     const electionData = location.state || {}
 
     const {
-
-    } = electionData satisfies ElectionInfo
+        id,
+        category,
+        electionTitle,
+        startDate,
+        endDate,
+        no_of_eligible_voters,
+    } = electionData as ElectionInfo
 
     interface ElectionCategory {
         id: string
@@ -25,7 +30,7 @@ const ViewElection = () => {
         title: 'Peace Estate General Election',
         NoOfEligibleVoters: 2000,
         votingStartDate: new Date('23/3/2023'),
-        votingEndDate: new Date('12/7/2023')
+        votingEndDate: new Date('12/7/2023'),
     }
 
     const ELECTION_CATEGORY_DATA: ElectionCategory[] = Array.from(
@@ -36,7 +41,7 @@ const ViewElection = () => {
             name: 'Abayomi Rodima',
             progressPercent: Math.floor(Math.random() * 70 + 40),
             totalVotes: 2000,
-            votedNum: Math.floor(Math.random() * 1400 + 400)
+            votedNum: Math.floor(Math.random() * 1400 + 400),
         })
     )
 
@@ -63,8 +68,6 @@ const ViewElection = () => {
         })
     }
 
-  
-
     return (
         <>
             <ToastContainer />
@@ -75,8 +78,8 @@ const ViewElection = () => {
                         <>
                             <img src='/icons/admins/modalWarning.svg' alt='' />
                             <p className='text-[1.6rem]'>
-                                Are you sure you want to delete this voting program
-                                
+                                Are you sure you want to delete this voting
+                                program
                             </p>
 
                             <div className='flex w-full justify-center gap-8'>
