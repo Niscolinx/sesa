@@ -53,7 +53,8 @@ const Last = () => {
             Object.entries(candidateData).filter(
                 ([foundKey]) => foundKey === key
             ).map(([_, value]) => {
-                return 
+                    console.log(value, typeof value)
+                // setCurrentCategory((prev) => [...prev, value])
             })
 
         if (dialogRef.current) {
@@ -78,6 +79,12 @@ const Last = () => {
                                     <p className='font-Satoshi-Bold pb-4 border-b'>
                                         President Category Candidates
                                     </p>
+
+                                    {currentCategory.map((item) => (
+                                        <div>
+
+                                        </div>
+                                    ))}
                                 </>
                             </section>
                         </div>
