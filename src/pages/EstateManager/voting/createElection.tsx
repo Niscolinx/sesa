@@ -55,7 +55,7 @@ const CreateElection = () => {
     const [candidate_details, setCandidate_details] = useState<
         CandidateField[]
     >([])
-    const [electionDates, setElectionDates] = useState<ElectionDates>()
+    const [electionDates, setElectionDates] = useState<ElectionDates | null>(null)
 
     const displayStep = new Map([
         [1, <First />],
