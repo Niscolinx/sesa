@@ -7,6 +7,7 @@ import { IoMdAdd } from 'react-icons/io'
 import { Link } from 'react-router-dom'
 
 
+const electionCategory = ['President', 'Senate', 'House of Reps']
 
 export interface Voting {
     id: number
@@ -23,6 +24,7 @@ export const VOTING_DATA: Voting[] = Array.from({ length: 10 }).map((_, i) => ({
     endDate: '19-May-2023',
     electionTitle: 'Iba General Elections',
     NoOfEligibleVoters: `12,423`,
+    category: electionCategory[Math.floor(Math.random() * electionCategory.length)]
 }))
 
 function Voting() {
@@ -271,7 +273,7 @@ function Voting() {
                                                         </div>
 
                                                         <Link
-                                                            to={`/estateManager/message/view/:${id}`}
+                                                            to={`/estateManager/election/view/:${id}`}
                                                             state={messageBody}
                                                             className='text-[#098DFF] mt-[2rem]'
                                                             style={{
