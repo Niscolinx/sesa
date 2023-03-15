@@ -88,6 +88,7 @@ const VotePhysically = () => {
                                     alt=''
                                     className='w-[5rem] h-[5rem] rounded-full object-cover'
                                 />
+                                <p>{item.name}</p>
                             </label>
                         </div>
                     ))}
