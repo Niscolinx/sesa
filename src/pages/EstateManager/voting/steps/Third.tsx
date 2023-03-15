@@ -6,7 +6,7 @@ import { ElectionDates, useCreateElectionContext } from '../createElection'
 
 
 function Third() {
-    const { setElectionDates} = useCreateElectionContext()
+    const { setElectionDates, setAllowPhysicalVoting, setVotesDisplay, votesDisplay, allowPhysicalVoting} = useCreateElectionContext()
   
     const {
         register,

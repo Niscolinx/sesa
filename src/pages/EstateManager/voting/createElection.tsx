@@ -36,6 +36,10 @@ interface CreateElectionContext {
     setCandidate_details: Dispatch<SetStateAction<CandidateField[]>>
     electionDates: ElectionDates
     setElectionDates: Dispatch<SetStateAction<ElectionDates>>
+    votesDisplay: string[]
+    setVotesDisplay: Dispatch<SetStateAction<string[]>>
+    allowPhysicalVoting: boolean
+    setAllowPhysicalVoting: Dispatch<SetStateAction<boolean>>
 }
 
 const CreateElectionContext = createContext<CreateElectionContext | null>(null)
@@ -59,7 +63,7 @@ const CreateElection = () => {
         CandidateField[]
     >([])
     const [electionDates, setElectionDates] = useState<ElectionDates>({})
-      const [voteDisplay, setVoteDisplay] = useState<string[]>([])
+      const [votesDisplay, setVotesDisplay] = useState<string[]>([])
       const [allowPhysicalVoting, setAllowPhysicalVoting] = useState(false)
 
     const displayStep = new Map([
@@ -81,7 +85,11 @@ const CreateElection = () => {
                 candidate_details,
                 setCandidate_details,
                 electionDates,
-                setElectionDates
+                setElectionDates,
+                votesDisplay,
+                setVotesDisplay,
+                allowPhysicalVoting,
+                setAllowPhysicalVoting,
             }}
         >
             <div className=' p-8 bg-white rounded-lg min-h-[90vh] relative'>
