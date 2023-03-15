@@ -16,7 +16,7 @@ const categories = ['presidential', 'senatorial', 'gubernatorial']
 interface Election {
     id: string
     category: string
-    content: Record<'name' | 'img', string>[]
+    content: Record<'name' | 'imgUrl', string>[]
 }
 
 const ELECTIONS: Election[] = Array.from({ length: 10 }, (_, i) => ({
@@ -25,15 +25,15 @@ const ELECTIONS: Election[] = Array.from({ length: 10 }, (_, i) => ({
     content: [
         {
             name: 'Musa Chinedu',
-            img: '/img/avatar11.png',
+            imgUrl: '/img/avatar11.png',
         },
         {
             name: 'Larry Chinedu',
-            img: '/img/avatar2.png',
+            imgUrl: '/img/avatar2.png',
         },
         {
             name: 'Yap Chinedu',
-            img: '/img/avatar3.png',
+            imgUrl: '/img/avatar3.png',
         },
     ],
 }))
@@ -56,7 +56,7 @@ const VotePhysically = () => {
 
             {content.map((item, i) => (
                 <div key={i}>
-
+                    <img src={item.imgUrl} alt="" className='w-[5rem] h-[5rem] rounded-full object-cover' />
                 </div>
             ))}
         </div>
