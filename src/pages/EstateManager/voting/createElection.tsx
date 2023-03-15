@@ -33,6 +33,8 @@ interface CreateElectionContext {
     setElectionCategory: Dispatch<SetStateAction<Category>>
     candidate_details: CandidateField[]
     setCandidate_details: Dispatch<SetStateAction<CandidateField[]>>
+    electionDates: ElectionDates | null
+    setElectionDates: Dispatch<SetStateAction<ElectionDates | null>>
 }
 
 const CreateElectionContext = createContext<CreateElectionContext | null>(null)
