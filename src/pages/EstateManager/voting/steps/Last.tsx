@@ -131,7 +131,8 @@ const Last = () => {
             </section>
 
             <section>
-                
+                                            <div className='grid gap-8 w-[60rem]'>
+</div>
             </section>
         </main>
     )
