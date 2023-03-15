@@ -33,11 +33,13 @@ const ViewElection = () => {
             id: `${i + 1}`,
             img: '/img/avatar11.png',
             name: 'Abayomi Rodima',
-            progressPercent: Math.floor(Math.random() * 70 + 40),
+            progressPercent: Math.floor((Math.random() * 70) + 10),
             totalVotes: no_of_eligible_voters,
             votedNum: Math.floor(Math.random() * 1400 + 400),
         })
     )
+
+    console.log(ELECTION_CATEGORY_DATA)
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
@@ -168,7 +170,7 @@ const ViewElection = () => {
 
                 <section className='grid bg-white p-8 rounded-2xl border-b'>
                     {ELECTION_CATEGORY_DATA.map((item, i) => (
-                        <div className='flex items-center gap-8' key={i}>
+                        <div className='flex items-center gap-8 outline w-full' key={i}>
                             <img
                                 src='/img/avatar11.png'
                                 alt=''
