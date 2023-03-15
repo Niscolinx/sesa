@@ -5,7 +5,7 @@ import { toast, ToastContainer } from 'react-toastify'
 const ViewElection = () => {
     const location = useLocation()
 
-    const paymentData = location.state || {}
+    const electionData = location.state || {}
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
@@ -21,26 +21,26 @@ const ViewElection = () => {
         }
     }
 
-    const handleDeletePayment = () => {
+    const handleDeleteElection = () => {
         handleClose()
 
-        toast('Payment deleted successfully', {
+        toast('Election deleted successfully', {
             type: 'success',
             className: 'bg-green-100 text-green-600 text-[1.4rem]',
         })
     }
 
-    const paymentListDialogRef = useRef<HTMLDialogElement | null>(null)
+    const electionListDialogRef = useRef<HTMLDialogElement | null>(null)
 
-    const closePaymentDialog = () => {
-        if (paymentListDialogRef.current) {
-            paymentListDialogRef.current.close()
+    const closeElectionDialog = () => {
+        if (electionListDialogRef.current) {
+            electionListDialogRef.current.close()
         }
     }
 
-    const openPaymentDialog = () => {
-        if (paymentListDialogRef.current) {
-            paymentListDialogRef.current.showModal()
+    const openElectionDialog = () => {
+        if (electionListDialogRef.current) {
+            electionListDialogRef.current.showModal()
         }
     }
 
@@ -54,7 +54,7 @@ const ViewElection = () => {
                         <>
                             <img src='/icons/admins/modalWarning.svg' alt='' />
                             <p className='text-[1.6rem]'>
-                                Are you sure you want to delete this Payment
+                                Are you sure you want to delete this Election
                                 Plan
                             </p>
 
@@ -67,7 +67,7 @@ const ViewElection = () => {
                                 </button>
                                 <button
                                     className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
-                                    onClick={handleDeletePayment}
+                                    onClick={handleDeleteElection}
                                 >
                                     Delete
                                 </button>
@@ -77,7 +77,7 @@ const ViewElection = () => {
                 </section>
             </dialog>
 
-            <main className='my-[5rem] grid gap-8'>
+            <main className='my-[5rem] grid gap-8 bg-white p-8 rounded-lg'>
                 <section className='flex justify-between'>
                     <button
                         className=' bg-red-600 px-16 py-4 flex items-center  rounded-lg gap-4 text-white'
@@ -85,7 +85,7 @@ const ViewElection = () => {
                     >
                         <img src='/img/delete.svg' alt='' />
                         <span className=' text-[1.4rem] font-semibold'>
-                            Delete payment
+                            Delete election
                         </span>
                     </button>
                 </section>
@@ -93,7 +93,7 @@ const ViewElection = () => {
                     <section className='grid gap-4 capitalize'>
                         <div className='grid grid-cols-2 items-center gap-4 justify-start w-[25rem] whitespace-nowrap'>
                             <p className='text-gray-700 font-Satoshi-Light'>
-                                Payment Code:
+                                Election Code:
                             </p>
                             <p className='font-Satoshi-Medium'>jjjj</p>
                         </div>
@@ -106,7 +106,7 @@ const ViewElection = () => {
                         <div className='relative flex gap-4'>
                             <button
                                 className='btn text-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
-                                onClick={() => openPaymentDialog()}
+                                onClick={() => openElectionDialog()}
                             >
                                 View Households
                             </button>
