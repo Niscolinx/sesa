@@ -100,15 +100,7 @@ const ViewElection = () => {
             <main className='my-[5rem] grid gap-8'>
                 <section className='flex justify-between'>
                     
-                    <div className='flex gap-8'>
-                        <button
-                            className='border border-color-blue-1 text-color-blue-1 px-16 py-4 flex items-center  rounded-lg gap-4 '
-                            onClick={() => handleOpen()}
-                        >
-                            <span className=' text-[1.4rem] font-semibold'>
-                                Edit Payment
-                            </span>
-                        </button>
+                       
                         <button
                             className=' bg-red-600 px-16 py-4 flex items-center  rounded-lg gap-4 text-white'
                             onClick={() => handleOpen()}
@@ -118,7 +110,6 @@ const ViewElection = () => {
                                 Delete payment
                             </span>
                         </button>
-                    </div>
                 </section>
                 <section className='grid relative p-16 bg-white rounded-lg gap-2 '>
                     <section className='grid gap-4 capitalize'>
