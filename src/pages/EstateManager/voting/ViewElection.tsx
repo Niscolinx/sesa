@@ -228,10 +228,23 @@ const ViewElection = () => {
                         </div>
                     </div>
                     <div className='grid gap-4'>
-                        <div>
-                            <span className='w-[1rem] h-[1rem] rounded-full text-[#3DEABA]'>
-                                &nbsp;
-                            </span>
+                        <div className='grid grid-cols-2 items-center gap-4 w-[15rem]'>
+                            <div>
+                                <span className='w-[1rem] h-[1rem] rounded-full text-[#3DEABA]'>
+                                    &nbsp;
+                                </span>
+                                <p>Online</p>
+                            </div>
+                            <p>20,000</p>
+                        </div>
+                        <div className='grid grid-cols-2 items-center gap-4 w-[15rem]'>
+                            <div>
+                                <span className='w-[1rem] h-[1rem] rounded-full text-[#3DEABA]'>
+                                    &nbsp;
+                                </span>
+                                <p>Physical</p>
+                            </div>
+                            <p>20,000</p>
                         </div>
                     </div>
                 </section>{' '}
