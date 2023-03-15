@@ -13,13 +13,13 @@ import Third from './steps/Third'
 
 const categories = ['presidential', 'senatorial', 'gubernatorial']
 
-interface Elections {
+interface Election {
     id: string
     category: string
     content: Record<'name' | 'img', string>
 }
 
-const ELECTIONS: Elections[] = Array.from({ length: 10 }, (_, i) => ({
+const ELECTIONS: Election[] = Array.from({ length: 10 }, (_, i) => ({
     id: `${i + 1}`,
     category: categories[Math.floor(Math.random() * categories.length)],
     content: {
@@ -39,7 +39,15 @@ const VotePhysically = () => {
         [5, <Last />],
     ]) satisfies Map<number, JSX.Element>
 
-    const displays = new Map(ELECTIONS.map((item, i) => [i + 1, 'sdf']))
+    const Election = (election: Election) => {
+        return <div>
+            
+        </div>
+    }
+
+    const displays = new Map(ELECTIONS.map((election, i) => [i + 1, 'sdf']))
+
+
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
