@@ -209,14 +209,14 @@ function Voting() {
                                 {slicedPages && slicedPages.length > 0 ? (
                                     React.Children.toArray(
                                         slicedPages[paginate.index].map(
-                                            (messageBody) => {
+                                            (electionInfo) => {
                                                 const {
                                                     id,
                                                     startDate,
                                                     NoOfEligibleVoters,
                                                     endDate,
                                                     electionTitle,
-                                                } = messageBody
+                                                } = electionInfo
                                                 return (
                                                     <div className='grid relative p-8 bg-white rounded-lg gap-2 capitalize'>
                                                         <div className='flex items-center gap-2'>
@@ -274,7 +274,7 @@ function Voting() {
 
                                                         <Link
                                                             to={`/estateManager/election/view/:${id}`}
-                                                            state={messageBody}
+                                                            state={electionInfo}
                                                             className='text-[#098DFF] mt-[2rem]'
                                                             style={{
                                                                 fontFamily:
