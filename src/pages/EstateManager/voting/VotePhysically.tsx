@@ -1,11 +1,5 @@
 import { SetStateAction } from 'jotai'
-import {
-    createContext,
-    Dispatch,
-    useContext,
-    useRef,
-    useState,
-} from 'react'
+import { createContext, Dispatch, useContext, useRef, useState } from 'react'
 import {
     HiOutlineArrowNarrowLeft,
     HiOutlineArrowNarrowRight,
@@ -17,12 +11,8 @@ import Last from './steps/Last'
 import Second from './steps/Second'
 import Third from './steps/Third'
 
-
-
-
 const VotePhysically = () => {
     const [step, setStep] = useState(1)
-   
 
     const displayStep = new Map([
         [1, <First />],
@@ -109,10 +99,7 @@ const VotePhysically = () => {
                     ) : (
                         <button
                             className='btn flex items-center border gap-4 border-color-blue-1 justify-self-end text-color-blue-1 font-Satoshi-Medium justify-center rounded-2xl w-[15rem] ml-auto disabled:opacity-50 disabled:cursor-not-allowed'
-                            disabled={
-                                step === displayStep.size ||
-                                !electionCategory[0]
-                            }
+                            disabled={step === displayStep.size}
                             onClick={() => setStep((prev) => prev + 1)}
                         >
                             <span>Next</span>
@@ -121,7 +108,7 @@ const VotePhysically = () => {
                     )}
                 </div>
             </div>
-        </CreateElectionContext.Provider>
+        </>
     )
 }
 
