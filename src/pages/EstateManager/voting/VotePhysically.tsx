@@ -69,7 +69,9 @@ const VotePhysically = () => {
                             />
                             <label
                                 htmlFor={item.name + i}
-                                className={`capitalize flex items-center gap-8 cursor-pointer`}
+                                className={`capitalize flex items-center gap-8 cursor-pointer p-8 ${
+                                    item.name === selectedCandidate?.name
+                                && 'border border-w border-color-blue-1'}`}
                             >
                                 <img
                                     src={item.imgUrl}
