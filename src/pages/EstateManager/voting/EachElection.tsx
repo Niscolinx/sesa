@@ -31,7 +31,10 @@ const EachElection: FC<EachElection> = ({ props }) => {
 
     const { id, category, content } = election
 
-    const handleChange = () => {}
+    const handleChange = (item: CandidateDetail) => {
+        
+
+    }
     return (
         <>
             <dialog className='dialog' ref={dialogRef}>
@@ -114,7 +117,7 @@ const EachElection: FC<EachElection> = ({ props }) => {
                                 id={item.name + i}
                                 // checked={item.name === selectedCandidate?.name}
                                 className='hidden'
-                                onChange={handleChange}
+                                onChange={() =>handleChange(item)}
                             />
                             <label
                                 htmlFor={item.name + i}
