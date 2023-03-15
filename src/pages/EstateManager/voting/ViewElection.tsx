@@ -2,9 +2,7 @@ import { useRef, useState } from 'react'
 import { GrUp, GrDown } from 'react-icons/gr'
 import { useLocation } from 'react-router-dom'
 import { toast, ToastContainer } from 'react-toastify'
-import WalletBarChart from '../../../components/SuperAdmin/charts/WalletBarChart'
-import PaymentList from './PaymentList'
-import { Payments } from './RenderPayments'
+
 
 const ViewElection = () => {
     const location = useLocation()
@@ -128,11 +126,7 @@ const ViewElection = () => {
                     </div>
                 </section>
             </dialog>
-            <dialog className='dialog' ref={paymentListDialogRef}>
-                <section className='grid place-content-center w-full h-[100vh]'>
-                    <PaymentList closePaymentDialog={closePaymentDialog} />
-                </section>
-            </dialog>
+           
             <main className='my-[5rem] grid gap-8'>
                 <section className='flex justify-between'>
                     <p className='text-[2rem] font-Satoshi-Medium'>
