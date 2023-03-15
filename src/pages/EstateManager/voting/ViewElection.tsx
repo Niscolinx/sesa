@@ -118,28 +118,11 @@ const ViewElection = () => {
                                     <div
                                         className='grid gap-12'
                                     >
-                                        <Select
-                                            state={[
-                                                'Phone Number',
-                                                'Resident Code',
-                                            ]}
-                                            label='Validation Option'
-                                            validate
-                                            selectedState={
-                                                validationType as any
-                                            }
-                                            setSelectedState={
-                                                setValidationType as any
-                                            }
-                                        />
-
-                                        {renderValidationType.get(
-                                            validationType
-                                        )}
+                                        
 
                                         <button
                                             className='btn bg-[#0556E5] text-white rounded-lg py-4 place-self-start w-[15rem]'
-                                            onClick={handleValidate}
+                                            onClick={() => handleClose()}
                                         >
                                             Validate
                                         </button>
