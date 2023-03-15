@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom'
 
 const electionCategory = ['President', 'Senate', 'House of Reps']
 
-export interface Voting {
+export interface ElectionInfo {
     id: number
     startDate: string
     endDate: string
@@ -17,7 +17,7 @@ export interface Voting {
     category: string
 }
 
-export const VOTING_DATA: Voting[] = Array.from({ length: 10 }).map((_, i) => ({
+export const VOTING_DATA: ElectionInfo[] = Array.from({ length: 10 }).map((_, i) => ({
     id: i + 1,
     startDate: '19-May-2023',
     endDate: '19-May-2023',
@@ -34,7 +34,7 @@ function Voting() {
         setIsVoting(true)
     }
 
-    const [votingList, setVotingList] = useState<Voting[]>([])
+    const [votingList, setVotingList] = useState<ElectionInfo[]>([])
     const [search, setSearch] = useState<string>('')
 
     useEffect(() => {
@@ -48,7 +48,7 @@ function Voting() {
         currentPage: number
         itemsPerPage: number
         totalPage: number
-        slicedPages: Voting[][] | null
+        slicedPages: ElectionInfo[][] | null
     }
 
     const itemsPerPageArr = [2, 4, 6, 8]
@@ -65,7 +65,7 @@ function Voting() {
     const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
         const item = parseInt(e.target.value)
 
-        const slicedPages: Voting[][] = []
+        const slicedPages: ElectionInfo[][] = []
         for (let i = 0; i < votingList.length; i += item) {
             slicedPages.push(votingList.slice(i, i + item))
         }
@@ -83,7 +83,7 @@ function Voting() {
     }
 
     useEffect(() => {
-        const slicedPages: Voting[][] = []
+        const slicedPages: ElectionInfo[][] = []
         for (let i = 0; i < votingList.length; i += paginate.itemsPerPage) {
             slicedPages.push(votingList.slice(i, i + paginate.itemsPerPage))
         }
