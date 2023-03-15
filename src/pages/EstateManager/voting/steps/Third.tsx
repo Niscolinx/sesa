@@ -80,8 +80,8 @@ function Third() {
                             'Percentage of vote count',
                             'Total number of votes',
                         ]}
-                        selected={voteDisplay}
-                        setSelected={setVoteDisplay}
+                        selected={votesDisplay}
+                        setSelected={setVotesDisplay}
                         label={'Votes Display'}
                     />
 
