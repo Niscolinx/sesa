@@ -60,7 +60,6 @@ const Last = () => {
         }
     }
 
-    console.log({ currentCategory })
 
     return (
         <main className='bg-color-white rounded-lg grid gap-16'>
