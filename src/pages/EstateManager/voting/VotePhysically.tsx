@@ -55,18 +55,28 @@ const VotePhysically = () => {
             <div className='grid gap-4'>
                 <p className='text-color-blue'>{category}</p>
                 <div className='grid gap-4'>
+
+                    
                     {content.map((item, i) => (
-                       <div
-                         key={i}
-                         className="flex items-center gap-8 focus:border  hover:border-color-blue border-transparent focus:border-black"
-                       >
-                         <img
+                        <div key={item}>
+                                <input
+                                    type='radio'
+                                    name='history'
+                                    id={item}
+                                    checked={item === pathToSwitch}
+                                    className='hidden'
+                                    onChange={() => setPathToSwitch(item)}
+                                />
+                                <label htmlFor={item} className={`capitalize flex items-center gap-8`}>
+                                     <img
                            src={item.imgUrl}
                            alt=""
                            className="w-[5rem] h-[5rem] rounded-full object-cover"
                          />
                          <p>{item.name}</p>
-                       </div>
+                                </label>
+                            </div>
+                       
                        
                     ))}
                 </div>
