@@ -3,7 +3,6 @@ import {
     createContext,
     Dispatch,
     useContext,
-    useEffect,
     useRef,
     useState,
 } from 'react'
@@ -18,61 +17,12 @@ import Last from './steps/Last'
 import Second from './steps/Second'
 import Third from './steps/Third'
 
-type Category = string[]
 
-export interface CandidateField {
-    candidate: string | null
-    category: string | null
-    name: string
-    gender: string
-    manifesto: string
-    photoUrl: string
-}
 
-export type ElectionDates = {
-    votingStartDate?: Date | undefined
-    votingEndDate?: Date | undefined
-    votingStartTime?: Date | undefined
-    votingEndTime?: Date | undefined
-}
-
-interface CreateElectionContext {
-    electionCategory: Category
-    setElectionCategory: Dispatch<SetStateAction<Category>>
-    candidate_details: CandidateField[]
-    setCandidate_details: Dispatch<SetStateAction<CandidateField[]>>
-    electionDates: ElectionDates
-    setElectionDates: Dispatch<SetStateAction<ElectionDates>>
-    votesDisplay: string[]
-    setVotesDisplay: Dispatch<SetStateAction<string[]>>
-    allowPhysicalVoting: boolean
-    setAllowPhysicalVoting: Dispatch<SetStateAction<boolean>>
-    setStep: Dispatch<SetStateAction<number>>
-}
-
-const CreateElectionContext = createContext<CreateElectionContext | null>(null)
-
-export const useCreateElectionContext = () => {
-    const context = useContext(CreateElectionContext)
-
-    if (!context) {
-        throw new Error(
-            'useCreateElectionContext must be used within a CreateElectionProvider'
-        )
-    }
-
-    return context
-}
 
 const VotePhysically = () => {
     const [step, setStep] = useState(1)
-    const [electionCategory, setElectionCategory] = useState<Category>([''])
-    const [candidate_details, setCandidate_details] = useState<
-        CandidateField[]
-    >([])
-    const [electionDates, setElectionDates] = useState<ElectionDates>({})
-    const [votesDisplay, setVotesDisplay] = useState<string[]>([])
-    const [allowPhysicalVoting, setAllowPhysicalVoting] = useState(false)
+   
 
     const displayStep = new Map([
         [1, <First />],
@@ -93,21 +43,7 @@ const VotePhysically = () => {
     }
 
     return (
-        <CreateElectionContext.Provider
-            value={{
-                electionCategory,
-                setElectionCategory,
-                candidate_details,
-                setCandidate_details,
-                electionDates,
-                setElectionDates,
-                votesDisplay,
-                setVotesDisplay,
-                allowPhysicalVoting,
-                setAllowPhysicalVoting,
-                setStep,
-            }}
-        >
+        <>
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
