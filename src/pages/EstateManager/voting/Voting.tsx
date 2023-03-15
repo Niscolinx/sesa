@@ -4,8 +4,9 @@ import { CgSpinnerTwo } from 'react-icons/cg'
 import { GrDown } from 'react-icons/gr'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { IoMdAdd } from 'react-icons/io'
-import { useNavigate } from 'react-router'
 import { Link } from 'react-router-dom'
+
+
 
 export interface Voting {
     id: number
@@ -13,6 +14,7 @@ export interface Voting {
     endDate: string
     electionTitle: string
     NoOfEligibleVoters: string
+    category: string
 }
 
 export const VOTING_DATA: Voting[] = Array.from({ length: 10 }).map((_, i) => ({
