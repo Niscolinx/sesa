@@ -15,6 +15,7 @@ const ViewElection = () => {
     }
 
     interface ElectionCategory {
+        id: string
         img: string
         name: string
         progressPercent: number
@@ -32,8 +33,10 @@ const ViewElection = () => {
     const ELECTION_CATEGORY_DATA: ElectionCategory[] = Array.from(
         { length: 3 },
         (_, i) => ({
+            id: `${i + 1}`,
             img: '/img/avatar11.png',
             name: 'Abayomi Rodima',
+            progressPercent: Math.floor(Math.fround)
         })
     )
 
