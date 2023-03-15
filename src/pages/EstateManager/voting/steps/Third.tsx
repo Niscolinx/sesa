@@ -1,29 +1,31 @@
 import { useState } from 'react'
 import { MultipleSelect } from '../../../../components/SuperAdmin/UI/Select'
-import {useForm} from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 
 type FormData = {
     votingStartDate: Date
     votingEndDate: Date
-    votingEndDate: Date
-    votingEndDate: Date
-
+    votingStartTime: Date
+    votingEndTime: Date
 }
 
 function Third() {
     const [voteDisplay, setVoteDisplay] = useState<string[]>([])
     const [allowPhysicalVoting, setAllowPhysicalVoting] = useState(false)
-      const {
-          register,
-          setValue,
-          handleSubmit,
-          formState: { errors },
-      } = useForm<FormData>()
+    const {
+        register,
+        setValue,
+        handleSubmit,
+        formState: { errors },
+    } = useForm<FormData>()
 
 
+    const onSubmit = handleSubmit((data) => {
+        console.log({data})
+    })
     return (
         <div>
-            <form className='grid gap-16 items-start content-start capitalize'>
+            <form className='grid gap-16 items-start content-start capitalize' onSubmit={onSubmit}>
                 <div
                     className='grid gap-16 '
                     style={{
@@ -90,21 +92,20 @@ function Third() {
                             className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                         />
                     </div>
-                        <MultipleSelect
-                            selectFrom={[
-                                'Vote count only',
-                                'Percentage of vote count',
-                                'Total number of votes',
-                            ]}
-                            selected={voteDisplay}
-                            setSelected={setVoteDisplay}
-                            label={'Votes Display'}
-                        />
-                   
+                    <MultipleSelect
+                        selectFrom={[
+                            'Vote count only',
+                            'Percentage of vote count',
+                            'Total number of votes',
+                        ]}
+                        selected={voteDisplay}
+                        setSelected={setVoteDisplay}
+                        label={'Votes Display'}
+                    />
+
                     <div className='flex items-center gap-4 self-end'>
                         <p className=' font-Satoshi-Medium flex items-center gap-2'>
                             Allow Physical Voting{' '}
-                          
                         </p>
                         <div
                             onClick={() =>
