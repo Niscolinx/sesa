@@ -79,17 +79,19 @@ const ViewElection = () => {
 
             <main className='my-[5rem] grid gap-8 bg-white p-8 rounded-lg'>
                 <section className='flex justify-between'>
+                    <p className='font-Satoshi-Medium'>Poll Summary</p>
                     <button
                         className=' bg-red-600 px-16 py-4 flex items-center  rounded-lg gap-4 text-white'
                         onClick={() => handleOpen()}
                     >
                         <img src='/img/delete.svg' alt='' />
                         <span className=' text-[1.4rem] font-semibold'>
-                            Delete election
+                            Delete
                         </span>
                     </button>
                 </section>
                 <section className='grid relative p-16 bg-white rounded-lg gap-2 '>
+                    <p>Election Information</p>
                     <section className='grid gap-4 capitalize'>
                         <div className='grid grid-cols-2 items-center gap-4 justify-start w-[25rem] whitespace-nowrap'>
                             <p className='text-gray-700 font-Satoshi-Light'>
