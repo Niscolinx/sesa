@@ -33,6 +33,15 @@ const EachElection: FC<EachElection> = ({ props }) => {
 
     const handleChange = (candidate: CandidateDetail) => {
 
+        setSelectedCandidate(prev => {
+            console.log({prev})
+            const updated = {...prev}
+
+            console.log({updated})
+            updated[id] = candidate.name
+
+            return updated
+        })
 
     }
     return (
