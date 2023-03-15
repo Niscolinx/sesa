@@ -5,10 +5,11 @@ import {
     HiOutlineArrowNarrowRight,
 } from 'react-icons/hi'
 import { IoMdAdd } from 'react-icons/io'
+import EachElection from './EachElection'
 
 const categories = ['presidential', 'senatorial', 'gubernatorial']
 
-interface Election {
+export interface Election {
     id: string
     category: string
     content: Record<'name' | 'imgUrl', string>[]
@@ -38,54 +39,6 @@ const VotePhysically = () => {
     const [selectedCandidate, setSelectedCandidate] = useState<
         Record<'name' | 'imgUrl', string> | undefined
     >()
-
-    interface EachElection {
-        props: {
-            election: Election
-            selectedCandidate: Record<'name' | 'imgUrl', string> | undefined
-            setSelectedCandidate: Dispatch<
-                SetStateAction<Record<'name' | 'imgUrl', string> | undefined>
-            >
-        }
-    }
-
-    const EachElection: FC<EachElection> = ({ props }) => {
-        const { election, selectedCandidate, setSelectedCandidate } = props
-
-        const { category, content } = election
-        return (
-            <div className='grid gap-8'>
-                <p className='text-color-blue capitalize text-[2rem] font-Satoshi-Medium'>{category}</p>
-                <div className='grid gap-4'>
-                    {content.map((item, i) => (
-                        <div key={i}>
-                            <input
-                                type='radio'
-                                name='election'
-                                id={item.name + i}
-                                checked={item.name === selectedCandidate?.name}
-                                className='hidden'
-                                onChange={() => setSelectedCandidate(item)}
-                            />
-                            <label
-                                htmlFor={item.name + i}
-                                className={`capitalize flex items-center gap-8 cursor-pointer p-8 transition-all ease-linear ${
-                                    item.name === selectedCandidate?.name
-                                && 'border-2 rounded-2xl border-color-blue-1 shadow'}`}
-                            >
-                                <img
-                                    src={item.imgUrl}
-                                    alt=''
-                                    className='w-[5rem] h-[5rem] rounded-full object-cover'
-                                />
-                                <p>{item.name}</p>
-                            </label>
-                        </div>
-                    ))}
-                </div>
-            </div>
-        )
-    }
 
     const displayStep = new Map(
         ELECTIONS.map((election, i) => [
