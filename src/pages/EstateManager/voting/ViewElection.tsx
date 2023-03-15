@@ -7,7 +7,10 @@ import { EstateChart as Chart } from '../../../components/SuperAdmin/charts/Over
 import { Select } from '../../../components/SuperAdmin/UI/Select'
 import { BsQuestionCircle } from 'react-icons/bs'
 import { IoMdClose } from 'react-icons/io'
-import { PhoneNumber, ResidentCode } from '../../SecurityCompany/dashboard/company/AddSecurity/Inputs'
+import {
+    PhoneNumber,
+    ResidentCode,
+} from '../../SecurityCompany/dashboard/company/AddSecurity/Inputs'
 
 const ViewElection = () => {
     const location = useLocation()
@@ -51,9 +54,8 @@ const ViewElection = () => {
     type DialogType = 'validate' | 'delete'
     type ValidationType = 'Phone Number' | 'Resident Code'
 
-    const [validationType, setValidationType] = useState<
-        ValidateType | string | null
-    >('Phone Number')
+    const [validationType, setValidationType] =
+        useState<ValidationType>('Phone Number')
     const [dialogState, setDialogState] = useState<DialogType>('delete')
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
@@ -87,14 +89,16 @@ const ViewElection = () => {
     const handleDialogSubmit = (e: React.FormEvent) => {
         e.preventDefault()
         handleClose()
+    }
 
+    const handleValidate = () => {
+        handleClose()
     }
 
     const renderValidationType = new Map([
         ['Phone Number', <PhoneNumber />],
         ['Resident Code', <ResidentCode />],
-      
-    ]) satisfies Map<'Phone Number' | 'Resident Code', JSX.Element>
+    ]) satisfies Map<ValidationType, JSX.Element>
 
     return (
         <>
@@ -132,23 +136,11 @@ const ViewElection = () => {
                                     ]}
                                     label='Validation Option'
                                     validate
-                                    kyr
                                     selectedState={validationType}
                                     setSelectedState={setValidationType}
                                 />
 
-                                <p
-                                    className='text-[#043FA7] flex items-center gap-2 border-b pb-10 w-full'
-                                    style={{
-                                        fontFamily: 'Satoshi-Light',
-                                    }}
-                                    onClick={() => handleOpen('view-kyr')}
-                                >
-                                    What is KYG <BsQuestionCircle />
-                                </p>
-                                {renderValidationType.get(
-                                    validationType
-                                )}
+                                {renderValidationType.get(validationType)}
 
                                 <button
                                     className='btn bg-[#0556E5] text-white rounded-lg py-4 place-self-start w-[15rem]'
@@ -169,7 +161,8 @@ const ViewElection = () => {
                                     }}
                                 />
                                 <p className='text-[1.6rem]'>
-                                    Are you sure you want to delete this voting program?
+                                    Are you sure you want to delete this voting
+                                    program?
                                 </p>
                                 <div className='flex w-full justify -center gap-8'>
                                     <button
@@ -185,8 +178,8 @@ const ViewElection = () => {
                                         Delete
                                     </button>
                                 </div>
-                            </div>)
-                        }
+                            </div>
+                        )}
                     </div>
                 </section>
             </dialog>
