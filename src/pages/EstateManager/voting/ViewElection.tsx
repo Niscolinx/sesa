@@ -228,23 +228,23 @@ const ViewElection = () => {
                         </div>
                     </div>
                     <div className='grid gap-4'>
-                        <div className='grid grid-cols-2 items-center gap-4 w-[15rem]'>
-                            <div>
-                                <span className='w-[1rem] h-[1rem] rounded-full text-[#3DEABA]'>
+                        <div className='flex justify-between items-center gap-4 w-[20rem]'>
+                            <div className='flex items-center gap-2'>
+                                <span className='w-[1rem] h-[1rem] rounded-full bg-[#3DEABA]'>
                                     &nbsp;
                                 </span>
                                 <p>Online</p>
                             </div>
                             <p>20,000</p>
                         </div>
-                        <div className='grid grid-cols-2 items-center gap-4 w-[15rem]'>
-                            <div>
-                                <span className='w-[1rem] h-[1rem] rounded-full text-[#3DEABA]'>
+                        <div className='flex justify-between items-center gap-4 w-[20rem]'>
+                            <div className='flex items-center gap-2'>
+                                <span className='w-[1rem] h-[1rem] rounded-full bg-[#F0D02B]'>
                                     &nbsp;
                                 </span>
                                 <p>Physical</p>
                             </div>
-                            <p>20,000</p>
+                            <p>50,000</p>
                         </div>
                     </div>
                 </section>{' '}
