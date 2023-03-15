@@ -66,7 +66,7 @@ const Last = () => {
         <main className='bg-color-white rounded-lg grid gap-16'>
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
-                    <div className=' rounded-2xl justify-items-center w-[64rem] h-[30rem] bg-white'>
+                    <div className=' rounded-2xl justify-items-center w-[64rem] h-[30rem] bg-white overflow-scroll'>
                         <div className=' relative p-8 capitalize h-full'>
                             <IoMdClose
                                 className='absolute right-0 top-0 text-[2.5rem] cursor-pointer m-5'
@@ -74,7 +74,7 @@ const Last = () => {
                             />
                             <section className='grid gap-8 p-8'>
                                 <>
-                                    <p className='font-Satoshi-Bold pb-4 border-b'>
+                                    <p className='font-Satoshi-Bold text-[1.8rem] pb-4 border-b'>
                                         President Category Candidates
                                     </p>
 
@@ -86,7 +86,7 @@ const Last = () => {
                                                 <img
                                                     src={photoUrl}
                                                     alt=''
-                                                    className={`w-[3.6rem] h-[3.6rem] object-cover rounded-full `}
+                                                    className={`w-[5rem] h-[5rem] object-cover rounded-full `}
                                                 />
                                                 <p>{name}</p>
                                             </div>
