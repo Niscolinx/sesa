@@ -41,6 +41,7 @@ import Voting from '../../pages/EstateManager/voting/Voting'
 import ViewEnergyToken from '../../pages/EstateManager/EnergyToken/ViewEnergyToken'
 import CreateElection from '../../pages/EstateManager/voting/createElection'
 import ViewElection from '../../pages/EstateManager/voting/ViewElection'
+import VotePhysically from '../../pages/EstateManager/voting/VotePhysically'
 
 const estateManagerRoutes = (
     <Route path='/estateManager' element={<Dashboard />}>
@@ -95,6 +96,7 @@ const estateManagerRoutes = (
         <Route path='voting-and-election' element={<Voting />} />
         <Route path='voting-and-election/create-new-poll' element={<CreateElection />} />
         <Route path='voting-and-election/view/:id' element={<ViewElection />} />
+        <Route path='voting-and-election/view/vote-physically' element={<VotePhysically />} />
     </Route>
 )
 
