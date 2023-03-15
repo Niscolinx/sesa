@@ -55,7 +55,7 @@ const VotePhysically = () => {
         const { category, content } = election
         return (
             <div className='grid gap-8'>
-                <p className='text-color-blue capitalize text-[2rem]'>{category}</p>
+                <p className='text-color-blue capitalize text-[2rem] font-Satoshi-Medium'>{category}</p>
                 <div className='grid gap-4'>
                     {content.map((item, i) => (
                         <div key={i}>
