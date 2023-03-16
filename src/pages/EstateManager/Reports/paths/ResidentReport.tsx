@@ -31,7 +31,7 @@ export const RESIDENT_REPORT: ResidentReport[] = Array.from({
 }))
 
 type SortBy = 'Today' | 'This week' | 'This Month'
-function ResidentAccess() {
+function ResidentReport() {
     const navigate = useNavigate()
 
     const [residentReport, setResidentReport] = useState<ResidentReport[]>([])
@@ -513,4 +513,4 @@ function ResidentAccess() {
     )
 }
 
-export default ResidentAccess
+export default ResidentReport

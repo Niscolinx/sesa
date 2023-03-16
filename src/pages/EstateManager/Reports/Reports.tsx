@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
-import ResidentAccess from './paths/ResidentAccess'
+import ResidentAccess from './paths/ResidentReport'
 
 function Reports() {
     type Path =
