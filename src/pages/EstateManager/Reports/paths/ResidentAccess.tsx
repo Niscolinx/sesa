@@ -76,9 +76,9 @@ function ResidentAccess() {
         })
     }
 
-    const selectAction = (e: React.MouseEvent, item: 'View Details') => {
+    const selectAction = (item: 'View Details', id: number) => {
         if (item === 'View Details') {
-            navigate('/superAdmin/additional-resident/:Id')
+            navigate(`/estateManager/report/view/:${id}`)
         }
     }
 
@@ -171,10 +171,6 @@ function ResidentAccess() {
                 currentPage: index + 1,
             }
         })
-    }
-
-    const detailsHandler = (id: number) => {
-        navigate(`/estateManager/residentAccess/transaction-details/:${id}`)
     }
 
     return (
@@ -420,12 +416,10 @@ function ResidentAccess() {
                                                                                         index +
                                                                                         i
                                                                                     }
-                                                                                    onClick={(
-                                                                                        e
-                                                                                    ) =>
+                                                                                    onClick={() =>
                                                                                         selectAction(
-                                                                                            e,
-                                                                                            item
+                                                                                            item,
+                                                                                            id
                                                                                         )
                                                                                     }
                                                                                 >
