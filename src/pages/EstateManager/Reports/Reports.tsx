@@ -1,20 +1,24 @@
 import { useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
 
-
 function Reports() {
-    type Path = 'tokenList' | 'tokenPurchase'
+    type Path =
+        | 'resident_access'
+        | 'voters_access'
+        | 'group_access'
+        | 'estate_staff'
+        | 'site_worker'
+        | 'events'
+        | 'security_guard_activity'
+        | 'work_rate'
     const [isReport, setIsReport] = useState(false)
-    const [currentPath, setCurrentPath] = useState<Path>('tokenList')
+    const [currentPath, setCurrentPath] = useState<Path>('resident_access')
 
     const addReportsHandler = () => {
         setIsReport(true)
     }
 
-    const paths = new Map<Path, JSX.Element>([
-        ['tokenList', <TokenList />],
-        ['tokenPurchase', <TokenPurchase />],
-    ])
+    const paths = new Map<Path, JSX.Element>([['resident_access', <></>]])
 
     return (
         <div>
@@ -71,7 +75,7 @@ function Reports() {
                     <section className='grid place-content-center w-full h-[80vh] justify-items-center gap-4 bg-white rounded-lg'>
                         <img src='/icons/admins/errorSvg.svg' alt='' />
                         <p className='text'>
-                            Ooops you have not added any Energy Token yet
+                            Ooops you have not added any Reports yet
                         </p>
                         <button
                             className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
