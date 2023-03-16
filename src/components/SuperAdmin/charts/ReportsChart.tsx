@@ -31,54 +31,17 @@ const data = [
     },
 ]
 
-const estateData = Array.from({ length: 10 }).map((_, i) => ({
-    name: i >= 8 ? `${i - 7}pm` : `${i + 5}am`,
-    pv: Math.floor(Math.random() * 200 + 10),
-    uv: Math.floor(Math.random() * 200 + 10),
-}))
 
-export interface IEstateChart {
-    color1?: string
-    color2?: string
-    outerRadius?: number
-    data?: {
-        name: string
-        value: number
-    }[]
-}
 
-export const EstateBarChart = ({ color1, color2 }: IEstateChart) => {
-    return (
-        <BarChart
-            width={750}
-            height={300}
-            data={estateData}
-            // margin={{
-            //     top: 5,
-            //     right: 30,
-            //     left: 20,
-            //     bottom: 5,
-            // }}
-        >
-            <XAxis dataKey='name' />
-            <YAxis tickCount={5} />
-            <Tooltip />
-
-            <Bar dataKey='pv' fill={color1} barSize={20} />
-            <Bar dataKey='pv' fill={color2} barSize={20} />
-        </BarChart>
-    )
-}
-
-interface WalletBarChart {
+interface ReportChart {
     width?: number
     height?: number
 }
 
-export default function WalletBarChart({
+export default function ReportChart({
     width = 600,
     height = 300,
-}: WalletBarChart) {
+}: ReportChart) {
     return (
         <BarChart
             width={width}

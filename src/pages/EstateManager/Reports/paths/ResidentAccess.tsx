@@ -11,6 +11,7 @@ import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { IoMdClose } from 'react-icons/io'
 
 import { useNavigate } from 'react-router-dom'
+import ReportChart from '../../../../components/SuperAdmin/charts/ReportsChart'
 
 export interface TransactionHistory {
     id: number
@@ -200,7 +201,7 @@ function ResidentAccess() {
                                     
                                 </div>
                             </div>
-                            {/* <ResidentAccessBarChart /> */}
+                            <ReportChart/>
                         </div>
                     </section>
                     <section className='bg-color-white rounded-lg border min-w-[112rem]'>
