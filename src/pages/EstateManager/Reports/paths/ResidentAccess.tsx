@@ -200,7 +200,7 @@ function ResidentAccess() {
                     <div className='relative grid gap-4'>
                         <div className='flex items-center gap-8'>
                             <p>Sort By</p>
-                            <div className='relative flex items-center border border-color-grey bg-white rounded-lg gap-2 py-2 px- cursor-pointer'>
+                            <div className='relative flex items-center border border-color-grey bg-white rounded-lg gap-2 py-2 px-4 cursor-pointer'>
                                 <p className='' onClick={menuToggler}>
                                     {sortType}
                                 </p>
@@ -213,7 +213,7 @@ function ResidentAccess() {
                         </div>
 
                         {toggleMenu && (
-                            <div className='absolute top-[8rem]  left-0 border border-color-primary-light  bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
+                            <div className='absolute top-[4rem]  right-0 border border-color-primary-light  bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
                                 {sortBy.map((item, index) => (
                                     <p
                                         className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
