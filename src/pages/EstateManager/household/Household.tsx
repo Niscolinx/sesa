@@ -343,9 +343,7 @@ function HouseHold() {
                                 <div className='grid'>
                                     <div
                                         className='grid items-center justify-between text-color-dark-1 bg-gray-100 p-8 grid-cols-9 gap-8'
-                                        style={{
-                                            fontSize: '1.6rem',
-                                        }}
+                                       
                                     >
                                         <p className='flex items-center gap-4'>
                                             <input
