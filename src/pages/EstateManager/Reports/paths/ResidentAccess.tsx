@@ -50,7 +50,8 @@ function ResidentAccess() {
         }, 1000)
     }, [])
 
-    const [actions, _] = useState<['View Details']>(['View Details'])
+    const actions = ['View Details'] as const
+
     const [toggleDropDown, setToggleDropDown] = useState<{
         isDropDownOpen: boolean
         index: number | null
