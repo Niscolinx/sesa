@@ -50,10 +50,7 @@ function ResidentAccess() {
         }, 1000)
     }, [])
 
-    const [actions, _] = useState<['View Details', 'Deactivate']>([
-        'View Details',
-        'Deactivate',
-    ])
+    const [actions, _] = useState<['View Details']>(['View Details'])
     const [toggleDropDown, setToggleDropDown] = useState<{
         isDropDownOpen: boolean
         index: number | null
@@ -74,10 +71,7 @@ function ResidentAccess() {
         })
     }
 
-    const selectAction = (
-        e: React.MouseEvent,
-        item: 'View Details' | 'Deactivate'
-    ) => {
+    const selectAction = (e: React.MouseEvent, item: 'View Details') => {
         if (item === 'View Details') {
             navigate('/superAdmin/additional-resident/:Id')
         }
@@ -430,16 +424,9 @@ function ResidentAccess() {
                                                                                             )
                                                                                         }
                                                                                     >
-                                                                                        {item ===
-                                                                                        'Deactivate' ? (
-                                                                                            <span className='text-red-600'>
-                                                                                                {
-                                                                                                    item
-                                                                                                }
-                                                                                            </span>
-                                                                                        ) : (
+                                                                                        {
                                                                                             item
-                                                                                        )}
+                                                                                        }
                                                                                     </p>
                                                                                 )
                                                                             )}
