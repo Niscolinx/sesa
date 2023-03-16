@@ -309,7 +309,7 @@ function VisitorReport() {
                             </div>
                         </div>
                         <div className='grid bg-white'>
-                            <div className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-8 gap-8 text-[1.4rem] items-center'>
+                            <div className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-9 gap-8 text-[1.4rem] items-center'>
                                 <p className='flex items-center gap-4'>
                                     <input
                                         type='checkbox'
@@ -352,7 +352,7 @@ function VisitorReport() {
                                                 } = toggleDropDown
 
                                                 return (
-                                                    <div className='grid justify-between border-b grid-cols-8 items-center gap-8 py-4'>
+                                                    <div className='grid justify-between border-b grid-cols-9 items-center gap-8 py-4'>
                                                         <p className='flex items-center gap-4'>
                                                             <input
                                                                 type='checkbox'
