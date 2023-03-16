@@ -54,6 +54,7 @@ export default function ReportChart({
             width={width}
             height={height}
             data={data}
+            barGap={0}
             margin={{
                 top: 5,
                 right: 30,
@@ -63,7 +64,7 @@ export default function ReportChart({
         >
             <XAxis dataKey='name' />
             <YAxis
-                tickCount={7}
+                tickCount={5}
                 
             />
             <Tooltip />
