@@ -194,14 +194,14 @@ function ResidentAccess() {
                         <div className='border-l border-l-color-grey bg-white rounded-lg p-8 grid gap-10'>
                             <div className='flex justify-between'>
                                 <p className='text-[1.6rem] font-bold p-8'>
-                                     Trend
+                                    Trend
                                 </p>
 
                                 <div className='flex items-center gap-4'>
-                                    
+                                    <span className='bg-[#EA0B90] w-[1rem] h-[1rem] rounded-full'></span>
                                 </div>
                             </div>
-                            <ReportChart/>
+                            <ReportChart />
                         </div>
                     </section>
                     <section className='bg-color-white rounded-lg border min-w-[112rem]'>

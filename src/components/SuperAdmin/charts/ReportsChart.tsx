@@ -47,7 +47,7 @@ interface ReportChart {
 
 export default function ReportChart({
     width = 600,
-    height = 300,
+    height = 200,
 }: ReportChart) {
     return (
         <BarChart
