@@ -7,14 +7,12 @@ import ReportChart from '../../../../components/SuperAdmin/charts/ReportsChart'
 
 export interface ReportDetail {
     id: number
-    eventCode: string
-    startDate: string
-    endDate: string
-    eventName: string
-    totalCheckIn: number
-    propCode: string
-    expectedGuest: number
+    guardName: string
     date: string
+    guardCode: string
+    checkInCount: number
+    checkOutCount: number
+    panicAlert: number
 }
 
 export const SECURITY_GUARD: ReportDetail[] = Array.from({
@@ -22,13 +20,11 @@ export const SECURITY_GUARD: ReportDetail[] = Array.from({
 }).map((_, i) => ({
     id: i,
     date: '12-May-2023',
-    eventCode: 'EV-908423',
-    startDate: '02-Feb-2023',
-    endDate: '02-May-2023',
-    propCode: '982JADLA',
-    expectedGuest: 30,
-    totalCheckIn: 40,
-    eventName: 'Child Dedication',
+    guardName: 'Chinedu Mmadu',
+    guardCode: 'A88238',
+    checkInCount: 3,
+    checkOutCount: 6,
+    panicAlert: 0,
 }))
 
 type SortBy = 'Today' | 'This week' | 'This Month'
@@ -36,7 +32,9 @@ type SortBy = 'Today' | 'This week' | 'This Month'
 function SecurityGuardActivity() {
     const navigate = useNavigate()
 
-    const [securityGuardActivity, setSecurityGuardActivity] = useState<ReportDetail[]>([])
+    const [securityGuardActivity, setSecurityGuardActivity] = useState<
+        ReportDetail[]
+    >([])
 
     useEffect(() => {
         setTimeout(() => {
@@ -125,8 +123,14 @@ function SecurityGuardActivity() {
 
     useEffect(() => {
         const slicedPages: ReportDetail[][] = []
-        for (let i = 0; i < securityGuardActivity.length; i += paginate.itemsPerPage) {
-            slicedPages.push(securityGuardActivity.slice(i, i + paginate.itemsPerPage))
+        for (
+            let i = 0;
+            i < securityGuardActivity.length;
+            i += paginate.itemsPerPage
+        ) {
+            slicedPages.push(
+                securityGuardActivity.slice(i, i + paginate.itemsPerPage)
+            )
         }
 
         setPaginate((prev) => {
@@ -177,8 +181,6 @@ function SecurityGuardActivity() {
     return (
         <>
             <div className='mt-8 grid gap-8'>
-                
-              
                 <section className='bg-color-white rounded-lg border min-w-[112rem]'>
                     <div className='grid border rounded-lg'>
                         <div className='grid p-10'>
@@ -254,12 +256,12 @@ function SecurityGuardActivity() {
                                                 {
                                                     id,
                                                     date,
-                                                    eventCode,
+                                                    guardName,
                                                     eventName,
-                                                    expectedGuest,
+                                                    panicAlert,
                                                     totalCheckIn,
-                                                    startDate,
-                                                    endDate,
+                                                    guardCode,
+                                                    checkInCount,
                                                     propCode,
                                                 },
                                                 i
@@ -279,13 +281,13 @@ function SecurityGuardActivity() {
 
                                                             <span> {date}</span>
                                                         </p>
-                                                        <p>{eventCode}</p>
+                                                        <p>{guardName}</p>
                                                         <p>{eventName}</p>
                                                         <p>{propCode}</p>
-                                                        <p>{expectedGuest}</p>
+                                                        <p>{panicAlert}</p>
                                                         <p>{totalCheckIn}</p>
-                                                        <p>{startDate}</p>
-                                                        <p>{endDate}</p>
+                                                        <p>{guardCode}</p>
+                                                        <p>{checkInCount}</p>
 
                                                         <div className='relative'>
                                                             <label
