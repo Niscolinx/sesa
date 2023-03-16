@@ -357,13 +357,12 @@ function WorkRate() {
 
                                     <span> Date</span>
                                 </p>
-                                <p>Event Code</p>
-                                <p>Event Name</p>
-                                <p>Prop Code</p>
-                                <p>Expected Guest</p>
-                                <p>Total Check-In</p>
-                                <p>Start Date</p>
-                                <p>End Date</p>
+                                <p>Mode of Contact</p>
+                                <p>Access Code</p>
+                                <p>Name</p>
+                                <p>Phone Number</p>
+                                <p>Access Type</p>
+                                <p>Time</p>
                                 <p>Action</p>
                             </div>
 
@@ -380,8 +379,8 @@ function WorkRate() {
                                                     time,
                                                     phoneNumber,
                                                     mode_of_contact,
-                                                    endDate,
                                                     accessType,
+
                                                 },
                                                 i
                                             ) => {
@@ -400,13 +399,13 @@ function WorkRate() {
 
                                                             <span> {date}</span>
                                                         </p>
+                                                        <p>{mode_of_contact}</p>
                                                         <p>{accessCode}</p>
                                                         <p>{name}</p>
+                                                        <p>{phoneNumber}</p>
                                                         <p>{accessType}</p>
                                                         <p>{time}</p>
-                                                        <p>{phoneNumber}</p>
                                                         <p>{mode_of_contact}</p>
-                                                        <p>{endDate}</p>
 
                                                         <div className='relative'>
                                                             <label
