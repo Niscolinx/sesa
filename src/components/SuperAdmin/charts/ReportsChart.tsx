@@ -3,31 +3,31 @@ import { BarChart, Bar, XAxis, YAxis, Tooltip } from 'recharts'
 const data = [
     {
         name: 'Mon',
-        pv: 25,
+        v: 25,
     },
     {
         name: 'Tue',
-        pv: 20,
+        v: 20,
     },
     {
         name: 'Wed',
-        pv: 5,
+        v: 5,
     },
     {
         name: 'Thur',
-        pv: 10,
+        v: 10,
     },
     {
         name: 'Fri',
-        pv: 12,
+        v: 12,
     },
     {
         name: 'Sat',
-        pv: 21,
+        v: 21,
     },
     {
         name: 'Sun',
-        pv: 9,
+        v: 9,
     },
 ]
 
@@ -61,8 +61,8 @@ export default function ReportChart({
             />
             <Tooltip />
 
-            <Bar dataKey='pv' fill='#08D231' barSize={40} />
-            <Bar dataKey='pv' fill='#EA0B90' barSize={40} />
+            <Bar dataKey='v' fill='#08D231' barSize={20} />
+            <Bar dataKey='v' fill='#EA0B90' barSize={20} />
         </BarChart>
     )
 }
