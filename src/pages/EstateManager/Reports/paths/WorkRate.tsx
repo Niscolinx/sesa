@@ -231,7 +231,7 @@ function WorkRate() {
                                         <span className='bg-[#f7e541] rounded-full w-[1rem] h-[1rem] flex'>
                                             {' '}
                                         </span>{' '}
-                                        <p>SESA</p>
+                                        <p>System</p>
                                     </div>
                                     <p>30,000</p>
                                 </section>
