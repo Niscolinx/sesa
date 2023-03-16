@@ -302,16 +302,24 @@ function ResidentAccess() {
                                     {slicedPages && slicedPages.length > 0 ? (
                                         React.Children.toArray(
                                             slicedPages[paginate.index].map(
-                                                ({
-                                                    id,
-                                                    date,
-                                                    transactionType,
-                                                    transactionCategory,
-                                                    transactionId,
-                                                    amount,
-                                                    time,
-                                                    balance,
-                                                }) => {
+                                                (
+                                                    {
+                                                        id,
+                                                        date,
+                                                        transactionType,
+                                                        transactionCategory,
+                                                        transactionId,
+                                                        amount,
+                                                        time,
+                                                        balance,
+                                                    },
+                                                    i
+                                                ) => {
+                                                    const {
+                                                        isDropDownOpen,
+                                                        index,
+                                                    } = toggleDropDown
+
                                                     return (
                                                         <div className='grid justify-between border-b grid-cols-9 items-center gap-8 py-4'>
                                                             <p className='flex items-center gap-4'>
