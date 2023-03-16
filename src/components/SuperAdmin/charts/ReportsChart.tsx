@@ -39,7 +39,7 @@ interface ReportChart {
 }
 
 export default function ReportChart({
-    width = 600,
+    width = 300,
     height = 300,
 }: ReportChart) {
     return (

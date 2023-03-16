@@ -35,7 +35,7 @@ function Reports() {
 
     return (
         <div>
-            <div className='rounded-lg min-h-[80vh] p-8'>
+            <div className='rounded-lg min-h-[80vh]'>
                 {isReport ? (
                     <section>
                         <div
