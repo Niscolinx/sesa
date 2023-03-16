@@ -5,80 +5,17 @@ import { IoMdClose } from 'react-icons/io'
 function ReportDetail() {
     
     return (
-        <
-           
-        >
-           
-            <dialog className='dialog' ref={dialogRef}>
-                <section className='  h-[90vh] bg-white rounded-2xl p-16 overflow-x-hidden relative w-[80%] mx-auto'>
-                    <IoMdClose
-                        className='absolute right-0 top-0 text-[2rem] cursor-pointer m-8'
-                        onClick={() => closeDialog()}
-                    />
-                    <p className='font-Satoshi-Medium text-[2rem] mb-10'>
-                        HouseHold Details
-                    </p>
-                    <div
-                        className='flex justify-between gap-8 py-8 bg-[#EDEDFC]'
-                        style={{
-                            boxShadow: `0 0 0 100vmax #EDEDFC`,
-                            clipPath: `inset(0 -100vmax)`,
-                        }}
-                    >
-                        <>
-                            {path.map((item) => {
-                                return (
-                                    <Fragment key={item}>
-                                        <input
-                                            type='radio'
-                                            name='household'
-                                            id={item}
-                                            checked={item === pathToSwitch}
-                                            className='hidden'
-                                            onChange={() =>
-                                                setPathToSwitch(item)
-                                            }
-                                        />
-                                        <label
-                                            htmlFor={item}
-                                            className={`capitalize cursor-pointer ${
-                                                item === pathToSwitch
-                                                    ? 'text-color-blue-1'
-                                                    : ''
-                                            }`}
-                                        >
-                                            {item}
-                                        </label>
-                                    </Fragment>
-                                )
-                            })}
-                        </>
-                    </div>
-                    <section className='bg-color-white rounded-lg mt-[5rem] mb-[10rem] '>
-                        {handlePathSwitch.get(pathToSwitch)}
-                    </section>
-                </section>
-            </dialog>
+        <>
             <div className='bg-white p-16 rounded-lg min-h-[90vh] relative'>
-                <div className='flex justify-between items-center'>
-                    <div className='flex gap-8 items-center'>
-                        <img
-                            src={'/img/avatar11.png'}
-                            alt='photoPreview'
-                            className='object-cover w-[11rem] h-[11rem] rounded-full object-top'
-                        />
-                    </div>
-
-                    <div className='flex gap-8'>
-                        <button
-                            className='border border-red-600 px-16 py-4 flex items-center  rounded-lg gap-4'
-                            onClick={openDeactivateDialog}
-                        >
-                            <span className='text-red-600 text-[1.4rem] font-Satoshi-Medium'>
-                                Deactivate
-                            </span>
-                        </button>
-                    </div>
+                <div className='ml-auto flex items-center gap-16'>
+                    <button className='border text-color-blue-1 border-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'>
+                        Print
+                        <img src='/icons/print.svg' alt='' />
+                    </button>
+                    <button className='border text-color-blue-1 border-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'>
+                        Download
+                        <img src='/icons/file_download.svg' alt='' />
+                    </button>
                 </div>
                 <div className='mt-20'>
                     <div className='border grid mt-5 border-black'>
@@ -183,12 +120,7 @@ function ReportDetail() {
                         </div>
                     </div>
                 </div>
-                <button
-                    className='border-none outline-none text-color-blue-1 mt-16'
-                    onClick={handleOpen}
-                >
-                    Show more details
-                </button>
+               
             </div>
         </>
     )
