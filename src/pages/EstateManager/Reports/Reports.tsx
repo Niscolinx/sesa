@@ -12,7 +12,16 @@ function Reports() {
         | 'security_guard_activity'
         | 'work_rate'
 
-    const paths: Path[] = ['resident_access', 'voters_access', 'group_access', 'estate_staff', 'site_worker', 'events', 'security_guard_activity', 'work_rate']
+    const paths: Path[] = [
+        'resident_access',
+        'voters_access',
+        'group_access',
+        'estate_staff',
+        'site_worker',
+        'events',
+        'security_guard_activity',
+        'work_rate',
+    ]
 
     const [isReport, setIsReport] = useState(false)
     const [currentPath, setCurrentPath] = useState<Path>('resident_access')
@@ -35,9 +44,28 @@ function Reports() {
                                 marginBottom: '2rem',
                             }}
                         >
-                            {
-
-                            }
+                            {paths.map((path, i) => (
+                                <>
+                                    <input
+                                        type='radio'
+                                        name='report'
+                                        id={path + i}
+                                        className='hidden'
+                                        onChange={() => setCurrentPath(path)}
+                                        defaultChecked
+                                    />
+                                    <label
+                                        htmlFor={path + i}
+                                        className={` ${
+                                            currentPath === path
+                                                ? 'font-Satoshi-Medium'
+                                                : 'capitalize'
+                                        }`}
+                                    >
+                                        Token List
+                                    </label>
+                                </>
+                            ))}
                             <input
                                 type='radio'
                                 name='token'
