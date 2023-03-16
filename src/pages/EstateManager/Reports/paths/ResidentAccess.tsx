@@ -167,7 +167,9 @@ function ResidentAccess() {
                         }}
                     >
                         <div className=' grid justify-center items-baseline border-r'>
-                            <p className='font-Satoshi-Medium'> Count</p>
+                            <p className='text-[1.8rem] font-Satoshi-Medium'>
+                                Count
+                            </p>
                             <div className='flex items-center gap-16'>
                                 <div className='grid gap-4 justify-start'>
                                     <p>Check - In</p>
@@ -193,7 +195,7 @@ function ResidentAccess() {
                         </div>
                         <div className=' grid gap-16'>
                             <div className='flex justify-between items-baseline'>
-                                <p className='text-[1.6rem] font-bold'>
+                                <p className='text-[1.8rem] font-Satoshi-Medium'>
                                     Trend
                                 </p>
 

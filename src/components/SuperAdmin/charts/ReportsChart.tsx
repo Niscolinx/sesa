@@ -50,21 +50,12 @@ export default function ReportChart({
     height = 200,
 }: ReportChart) {
     return (
-        <BarChart
-            width={width}
-            height={height}
-            data={data}
-            barGap={0}
-           
-        >
+        <BarChart width={width} height={height} data={data} barGap={0}>
             <XAxis dataKey='name' />
-            <YAxis
-                tickCount={5}
-                
-            />
+            <YAxis tickCount={5} />
             <Tooltip />
 
-            <Bar dataKey='v' fill='#08D231' barSize={20} />
+            <Bar dataKey='v' fill='#1D9F5F' barSize={20} />
             <Bar dataKey='u' fill='#EA0B90' barSize={20} />
         </BarChart>
     )
