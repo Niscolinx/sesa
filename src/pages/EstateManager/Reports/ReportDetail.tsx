@@ -7,7 +7,8 @@ function ReportDetail() {
     return (
         <>
             <div className='bg-white p-16 rounded-lg min-h-[90vh] relative'>
-                <div className='ml-auto flex items-center gap-16'>
+                <div className='h-[10rem] w-full bg-[#E59191]'></div>
+                <div className=' flex items-center gap-16 justify-end my-20'>
                     <button className='border text-color-blue-1 border-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'>
                         Print
                         <img src='/icons/print.svg' alt='' />
@@ -17,7 +18,7 @@ function ReportDetail() {
                         <img src='/icons/file_download.svg' alt='' />
                     </button>
                 </div>
-                <div className='mt-20'>
+                <div>
                     <div className='border grid mt-5 border-black'>
                         <div className='grid grid-cols-2 border-b border-b-black gap-4'>
                             <p
@@ -120,7 +121,6 @@ function ReportDetail() {
                         </div>
                     </div>
                 </div>
-               
             </div>
         </>
     )
