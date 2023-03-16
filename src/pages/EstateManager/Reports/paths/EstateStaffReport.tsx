@@ -181,7 +181,7 @@ function EstateStaffCode() {
         <>
             <div className='mt-8 grid gap-8'>
                 <div className='flex justify-between'>
-                    <p className='text-[2rem]'>Site Worker Report</p>
+                    <p className='text-[2rem]'>Estate Staff Report</p>
                     <div className='relative grid gap-4'>
                         <div className='flex items-center gap-8'>
                             <p>Sort By</p>
@@ -267,7 +267,7 @@ function EstateStaffCode() {
                     <div className='grid border rounded-lg'>
                         <div className='grid p-10'>
                             <p className=' font-bold'>
-                                Site Worker Report List <span>(200)</span>
+                                Estate Staff Report List <span>(200)</span>
                             </p>
                             <div className='flex w-full justify-start items-end gap-12 bg-white rounded-lg'>
                                 <div className='relative flex items-center'>

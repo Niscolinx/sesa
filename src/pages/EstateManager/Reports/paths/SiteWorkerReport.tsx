@@ -7,7 +7,7 @@ import ReportChart from '../../../../components/SuperAdmin/charts/ReportsChart'
 
 export interface ReportDetail {
     id: number
-    staffCode: string
+    siteWorkerCode: string
     mode_of_entry: string
     name: string
     checkIn: string
@@ -19,7 +19,7 @@ export const SITEWORKER_REPORT: ReportDetail[] = Array.from({
     length: 10,
 }).map((_, i) => ({
     id: i,
-    staffCode: 'R908423',
+    siteWorkerCode: 'R908423',
     mode_of_entry: 'Car',
     name: 'Kunle Aba',
     checkIn: '12:00pm',
@@ -320,8 +320,8 @@ function SiteWorkerReport() {
 
                                     <span> Date</span>
                                 </p>
-                                <p>Staff Code</p>
-                                <p>Staff Name</p>
+                                <p>SiteWorker Code</p>
+                                <p>SiteWorker Name</p>
                                 <p>Mode of Entry</p>
                                 <p>Check-In</p>
                                 <p>Check-Out</p>
@@ -340,7 +340,7 @@ function SiteWorkerReport() {
                                                     mode_of_entry,
                                                     name,
                                                     checkIn,
-                                                    staffCode,
+                                                    siteWorkerCode,
                                                 },
                                                 i
                                             ) => {
@@ -359,7 +359,7 @@ function SiteWorkerReport() {
 
                                                             <span> {date}</span>
                                                         </p>
-                                                        <p>{staffCode}</p>
+                                                        <p>{siteWorkerCode}</p>
                                                         <p>{name}</p>
                                                         <p>{mode_of_entry}</p>
                                                         <p>{checkIn}</p>
