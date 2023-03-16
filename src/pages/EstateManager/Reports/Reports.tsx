@@ -66,42 +66,7 @@ function Reports() {
                                     </label>
                                 </>
                             ))}
-                            <input
-                                type='radio'
-                                name='token'
-                                id='tokenList'
-                                className='hidden'
-                                onChange={() => setCurrentPath('tokenList')}
-                                defaultChecked
-                            />
-                            <label
-                                htmlFor='tokenList'
-                                className={` ${
-                                    currentPath === 'tokenList'
-                                        ? 'font-Satoshi-Medium'
-                                        : 'capitalize'
-                                }`}
-                            >
-                                Token List
-                            </label>
-
-                            <input
-                                type='radio'
-                                name='token'
-                                id='tokenPurchase'
-                                className='hidden'
-                                onChange={() => setCurrentPath('tokenPurchase')}
-                            />
-                            <label
-                                htmlFor='tokenPurchase'
-                                className={` ${
-                                    currentPath === 'tokenPurchase'
-                                        ? 'font-Satoshi-Medium'
-                                        : 'capitalize'
-                                }`}
-                            >
-                                Token Purchase
-                            </label>
+                           
                         </div>
                         <div>{renderPath.get(currentPath)}</div>
                     </section>
