@@ -68,7 +68,7 @@ function Reports() {
                                 </>
                             ))}
                         </div>
-                        <div>{renderPath.get(currentPath)}</div>
+                        <div className='mt-[5rem]'>{renderPath.get(currentPath)}</div>
                     </section>
                 ) : (
                     <section className='grid place-content-center w-full h-[80vh] justify-items-center gap-4 bg-white rounded-lg'>
