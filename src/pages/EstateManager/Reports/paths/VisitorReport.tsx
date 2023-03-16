@@ -5,8 +5,6 @@ import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { useNavigate } from 'react-router-dom'
 import ReportChart from '../../../../components/SuperAdmin/charts/ReportsChart'
 
-
-
 export interface ReportDetail {
     id: number
     accessCode: string
@@ -18,7 +16,6 @@ export interface ReportDetail {
     checkOut: string
     date: string
 }
-
 
 export const VISITOR_REPORT: ReportDetail[] = Array.from({
     length: 10,
@@ -323,9 +320,11 @@ function VisitorReport() {
                                 </p>
                                 <p>Access Code</p>
                                 <p>Visitor Name</p>
+                                <p>Visitor No</p>
                                 <p>Phone Number</p>
-                                <p>Access Type</p>
-                                <p>CheckIn</p>
+                                <p>Mode of Entry</p>
+                                <p>Check-In</p>
+                                <p>Check-Out</p>
                                 <p>Action</p>
                             </div>
 
