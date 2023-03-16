@@ -11,7 +11,7 @@ export interface ResidentReport {
     accessType: string
     accessCode: string
     mode_of_conduct: string
-    phone_number: number
+    phone_number: string
     name: string
     time: string
     date: string
@@ -24,7 +24,7 @@ export const RESIDENT_REPORT: ResidentReport[] = Array.from({
     accessType: 'check-in',
     accessCode: 'R908423',
     mode_of_conduct: 'Resident Code',
-    phone_number: 09084234382,
+    phone_number: '09084234382',
     name: 'Kunle Aba',
     time: '12:00pm',
     date: '12-May-2023'
