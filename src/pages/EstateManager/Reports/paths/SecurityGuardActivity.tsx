@@ -238,7 +238,7 @@ function SecurityGuardActivity() {
                                         className='cursor-pointer'
                                     />
 
-                                   <span>Guard Name</span>
+                                    <span>Guard Name</span>
                                 </p>
                                 <p>Date</p>
                                 <p>Guard Code</p>
@@ -257,12 +257,11 @@ function SecurityGuardActivity() {
                                                     id,
                                                     date,
                                                     guardName,
-                                                    eventName,
                                                     panicAlert,
-                                                    totalCheckIn,
                                                     guardCode,
                                                     checkInCount,
-                                                    propCode,
+                                                    checkOutCount,
+                                                    imgUrl,
                                                 },
                                                 i
                                             ) => {
@@ -273,14 +272,23 @@ function SecurityGuardActivity() {
 
                                                 return (
                                                     <div className='grid justify-between border-b grid-cols-9 items-center gap-8 py-4'>
-                                                        <p className='flex items-center gap-4'>
+                                                        <div className='flex items-center gap-4'>
                                                             <input
                                                                 type='checkbox'
                                                                 className='cursor-pointer'
                                                             />
 
-                                                            <span> {date}</span>
-                                                        </p>
+                                                            <div className='flex items-center gap-4'>
+                                                                <img
+                                                                    src={imgUrl}
+                                                                    alt=''
+                                                                    className='w-[3.5rem] h-[3.5rem] rounded-full object-cover'
+                                                                />
+                                                                <p className='font-Satoshi-Medium'>
+                                                                    {guardName}
+                                                                </p>
+                                                            </div>
+                                                        </div>
                                                         <p>{guardName}</p>
                                                         <p>{eventName}</p>
                                                         <p>{propCode}</p>
