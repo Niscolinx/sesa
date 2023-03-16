@@ -8,6 +8,7 @@ import ReportChart from '../../../../components/SuperAdmin/charts/ReportsChart'
 export interface ReportDetail {
     id: number
     guardName: string
+    imgUrl: string
     date: string
     guardCode: string
     checkInCount: number
@@ -21,6 +22,7 @@ export const SECURITY_GUARD: ReportDetail[] = Array.from({
     id: i,
     date: '12-May-2023',
     guardName: 'Chinedu Mmadu',
+    imgUrl: '/img/avatar11.png',
     guardCode: 'A88238',
     checkInCount: 3,
     checkOutCount: 6,
@@ -236,9 +238,9 @@ function SecurityGuardActivity() {
                                         className='cursor-pointer'
                                     />
 
-                                    <span> Date</span>
+                                   <span>Guard Name</span>
                                 </p>
-                                <p>Event Code</p>
+                                <p>Date</p>
                                 <p>Event Name</p>
                                 <p>Prop Code</p>
                                 <p>Expected Guest</p>
