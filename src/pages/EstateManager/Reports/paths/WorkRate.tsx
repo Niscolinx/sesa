@@ -11,13 +11,12 @@ import { EstateBarChart } from '../../../../components/SuperAdmin/charts/WalletB
 
 export interface ReportDetail {
     id: number
-    eventCode: string
-    startDate: string
-    endDate: string
-    eventName: string
-    totalCheckIn: number
-    propCode: string
-    expectedGuest: number
+    accessCode: string
+    mode_of_contact: string
+    name: string
+    phoneNumber: number
+    accessType: string
+    time: string
     date: string
 }
 
@@ -26,13 +25,12 @@ export const EVENTS_REPORT: ReportDetail[] = Array.from({
 }).map((_, i) => ({
     id: i,
     date: '12-May-2023',
-    eventCode: 'EV-908423',
-    startDate: '02-Feb-2023',
-    endDate: '02-May-2023',
-    propCode: '982JADLA',
-    expectedGuest: 30,
-    totalCheckIn: 40,
-    eventName: 'Child Dedication',
+    accessCode: 'EV-908423',
+    mode_of_contact: 'Resident Code',
+    accessType: 'check-In',
+    time: '3:18PM',
+    phoneNumber: 08138428423,
+    name: 'Lalas Oyanka',
 }))
 
 type SortBy = 'Today' | 'This week' | 'This Month'
@@ -377,13 +375,13 @@ function WorkRate() {
                                                 {
                                                     id,
                                                     date,
-                                                    eventCode,
-                                                    eventName,
-                                                    expectedGuest,
-                                                    totalCheckIn,
-                                                    startDate,
+                                                    accessCode,
+                                                    name,
+                                                    time,
+                                                    phoneNumber,
+                                                    mode_of_contact,
                                                     endDate,
-                                                    propCode,
+                                                    accessType,
                                                 },
                                                 i
                                             ) => {
@@ -402,12 +400,12 @@ function WorkRate() {
 
                                                             <span> {date}</span>
                                                         </p>
-                                                        <p>{eventCode}</p>
-                                                        <p>{eventName}</p>
-                                                        <p>{propCode}</p>
-                                                        <p>{expectedGuest}</p>
-                                                        <p>{totalCheckIn}</p>
-                                                        <p>{startDate}</p>
+                                                        <p>{accessCode}</p>
+                                                        <p>{name}</p>
+                                                        <p>{accessType}</p>
+                                                        <p>{time}</p>
+                                                        <p>{phoneNumber}</p>
+                                                        <p>{mode_of_contact}</p>
                                                         <p>{endDate}</p>
 
                                                         <div className='relative'>
