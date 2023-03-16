@@ -4,6 +4,7 @@ import EstateStaffReport from './paths/EstateStaffReport'
 import EventsReport from './paths/EventsReport'
 import GroupReport from './paths/GroupReport'
 import ResidentAccess from './paths/ResidentReport'
+import SecurityGuardActivity from './paths/SecurityGuardActivity'
 import SiteWorkerReport from './paths/SiteWorkerReport'
 import VisitorReport from './paths/VisitorReport'
 
@@ -45,6 +46,8 @@ function Reports() {
         ['estate_staff', <EstateStaffReport />],
         ['site_worker', <SiteWorkerReport />],
         ['events', <EventsReport />],
+        ['security_guard_activity', <SecurityGuardActivity />],
+
     ])
 
     return (
