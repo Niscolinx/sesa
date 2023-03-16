@@ -64,6 +64,7 @@ export default function ReportChart({
             <Tooltip />
 
             <Bar dataKey='pv' fill='#08D231' barSize={40} />
+            <Bar dataKey='pv' fill='#EA0B90' barSize={40} />
         </BarChart>
     )
 }
