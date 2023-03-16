@@ -63,7 +63,6 @@ function ResidentAccess() {
         setToggleMenu(false)
     }
 
-
     const actions = ['View Details'] as const
 
     const [toggleDropDown, setToggleDropDown] = useState<{
@@ -199,29 +198,24 @@ function ResidentAccess() {
                 <div className='flex justify-between'>
                     <p className='text-[2rem]'>Resident Access Report</p>
                     <div className='relative grid gap-4'>
-                        <div className='relative flex items-center w-[12rem]'>
-                            <p
-                                className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer'
-                                onClick={menuToggler}
-                            >
-                                {selectedTrend}
+                        <div className='relative flex items-center border border-color-grey p-4 rounded-lg w-full cursor-pointer'>
+                            <p className='' onClick={menuToggler}>
+                                Sort By: {sortType}
                             </p>
                             {toggleMenu ? (
-                                <GrUp className='absolute right-4' />
+                                <GrUp className=' right-4' />
                             ) : (
-                                <GrDown className='absolute right-4' />
+                                <GrDown className=' right-4' />
                             )}
                         </div>
 
                         {toggleMenu && (
                             <div className='absolute top-[8rem]  left-0 border border-color-primary-light  bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
-                                {trend.map((item, index) => (
+                                {sortBy.map((item, index) => (
                                     <p
                                         className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
                                         key={index}
-                                        onClick={() =>
-                                            handleSelectedTrend(item)
-                                        }
+                                        onClick={() => handleSortType(item)}
                                     >
                                         {item}
                                     </p>
