@@ -198,10 +198,18 @@ function ResidentAccess() {
                                 </p>
 
                                 <div className='flex items-center gap-4'>
-                                    <span className='bg-[#EA0B90] w-[1rem] h-[1rem] rounded-full'>
-                                        &nbsp;
-                                    </span>
-                                    <span>Check-out</span>
+                                    <div className='flex items-center gap-4'>
+                                        <span className='bg-[#1D9F5F] w-[1rem] h-[1rem] rounded-full'>
+                                            &nbsp;
+                                        </span>
+                                        <span>Check-out</span>
+                                    </div>
+                                    <div className='flex items-center gap-4'>
+                                        <span className='bg-[#EA0B90] w-[1rem] h-[1rem] rounded-full'>
+                                            &nbsp;
+                                        </span>
+                                        <span>Check-out</span>
+                                    </div>
                                 </div>
                             </div>
                             <ReportChart />
