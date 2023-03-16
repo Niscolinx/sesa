@@ -161,12 +161,12 @@ function ResidentAccess() {
                         Resident Access Report
                     </p>
                     <section
-                        className=' text-[1.4rem] grid gap-8 bg-white p-8 rounded-lg'
+                        className=' text-[1.4rem] grid gap-8 bg-white py-8 px-16 rounded-lg'
                         style={{
                             gridTemplateColumns: 'auto 60%',
                         }}
                     >
-                        <div className=' grid justify-center items-baseline border-r'>
+                        <div className=' grid items-baseline border-r'>
                             <p className='text-[1.8rem] font-Satoshi-Medium'>
                                 Count
                             </p>
