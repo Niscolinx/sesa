@@ -11,6 +11,7 @@ import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { IoMdClose } from 'react-icons/io'
 
 import { useNavigate } from 'react-router-dom'
+import WalletBarChart from '../../../../components/SuperAdmin/charts/WalletBarChart'
 
 
 export interface TransactionHistory {
@@ -157,7 +158,6 @@ function Wallet() {
 
     const [toggleMenu, setToggleMenu] = useState(false)
     const [selectedTrend, setSelectedTrend] = useState<Trend>('This Week')
-    const [isWithdrawal, setIsWithdrawal] = useState(true)
 
     const menuToggler = () => setToggleMenu(!toggleMenu)
 
@@ -166,30 +166,8 @@ function Wallet() {
         setToggleMenu(false)
     }
 
-    const dialogRef = useRef<HTMLDialogElement | null>(null)
+  
 
-    const handleClose = () => {
-        if (dialogRef.current) {
-            dialogRef.current.close()
-        }
-    }
-
-    const handleOpen = (modalState: 'withdraw' | 'request') => {
-        if (modalState === 'withdraw') {
-            setIsWithdrawal(true)
-        } else {
-            setIsWithdrawal(false)
-        }
-
-        if (dialogRef.current) {
-            dialogRef.current.showModal()
-        }
-    }
-
-    const handleFundWallet = (e: FormEvent) => {
-        e.preventDefault()
-        handleClose()
-    }
 
     return (
         <>
@@ -247,28 +225,7 @@ function Wallet() {
                         </div>
 
                         <div className='bg-white p-8 rounded-lg grid justify-center items-baseline'>
-                            <div className='grid items-end'>
-                                <OverviewWallet
-                                    amount={200_333_500.89}
-                                    title='Estate Wallet'
-                                    isWalletScreen
-                                />
-                            </div>
-                            <div className='flex justify-center gap-4'>
-                                <button
-                                    className='btn text-white bg-[#0556E5] border rounded-lg w-[15rem]'
-                                    onClick={() => handleOpen('request')}
-                                >
-                                    Fund Wallet
-                                </button>
-
-                                <button
-                                    className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
-                                    onClick={() => handleOpen('withdraw')}
-                                >
-                                    Withdraw
-                                </button>
-                            </div>
+                           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi vel provident suscipit minima sit, blanditiis, iure accusantium quidem qui est ea cupiditate doloribus dolores temporibus omnis atque. Omnis, architecto aliquam.
                         </div>
                     </section>
                     <section className='bg-color-white rounded-lg border min-w-[112rem]'>
