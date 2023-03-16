@@ -225,7 +225,10 @@ function ResidentAccess() {
                         </div>
 
                         <div className='bg-white p-8 rounded-lg grid justify-center items-baseline'>
-                            
+                            <p className='font-Satoshi-Medium'> Count</p>
+                            <div>
+                                
+                            </div>
                         </div>
                     </section>
                     <section className='bg-color-white rounded-lg border min-w-[112rem]'>
