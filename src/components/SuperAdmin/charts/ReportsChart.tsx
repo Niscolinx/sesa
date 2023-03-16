@@ -3,31 +3,31 @@ import { BarChart, Bar, XAxis, YAxis, Tooltip } from 'recharts'
 const data = [
     {
         name: 'Mon',
-        pv: 25_000,
+        pv: 25,
     },
     {
         name: 'Tue',
-        pv: 30_000,
+        pv: 20,
     },
     {
         name: 'Wed',
-        pv: 18_000,
+        pv: 5,
     },
     {
         name: 'Thur',
-        pv: 15_000,
+        pv: 10,
     },
     {
         name: 'Fri',
-        pv: 22_000,
+        pv: 12,
     },
     {
         name: 'Sat',
-        pv: 21_000,
+        pv: 21,
     },
     {
         name: 'Sun',
-        pv: 22_000,
+        pv: 9,
     },
 ]
 
@@ -39,7 +39,7 @@ interface ReportChart {
 }
 
 export default function ReportChart({
-    width = 300,
+    width = 600,
     height = 300,
 }: ReportChart) {
     return (
@@ -57,9 +57,7 @@ export default function ReportChart({
             <XAxis dataKey='name' />
             <YAxis
                 tickCount={7}
-                tickFormatter={(tick) => {
-                    return '₦' + tick
-                }}
+                
             />
             <Tooltip />
 
