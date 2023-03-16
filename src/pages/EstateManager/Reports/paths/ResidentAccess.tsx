@@ -50,17 +50,16 @@ function ResidentAccess() {
             setTransactionHistory(TRANSACTION_HISTORY)
         }, 1000)
     }, [])
-    
-    const sortBy: Array<SortBy> = ['Today', 'This Month', 'This Year']
+
+    const sortBy: Array<SortBy> = ['Today', 'This week', 'This Month']
 
     const [toggleMenu, setToggleMenu] = useState(false)
-    const [selectedTrend, setSelectedTrend] = useState<Trend>('This Week')
-    const [isWithdrawal, setIsWithdrawal] = useState(true)
+    const [sortType, setSortType] = useState<SortBy>('Today')
 
     const menuToggler = () => setToggleMenu(!toggleMenu)
 
-    const handleSelectedTrend = (item: Trend) => {
-        setSelectedTrend(item)
+    const handleSortType = (item: SortBy) => {
+        setSortType(item)
         setToggleMenu(false)
     }
 
