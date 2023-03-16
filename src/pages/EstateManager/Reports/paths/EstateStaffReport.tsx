@@ -36,7 +36,9 @@ type SortBy = 'Today' | 'This week' | 'This Month'
 function EstateStaffReport() {
     const navigate = useNavigate()
 
-    const [estateStaffReport, setEstateStaffReport] = useState<ReportDetail[]>([])
+    const [estateStaffReport, setEstateStaffReport] = useState<ReportDetail[]>(
+        []
+    )
 
     useEffect(() => {
         setTimeout(() => {
@@ -125,8 +127,14 @@ function EstateStaffReport() {
 
     useEffect(() => {
         const slicedPages: ReportDetail[][] = []
-        for (let i = 0; i < estateStaffReport.length; i += paginate.itemsPerPage) {
-            slicedPages.push(estateStaffReport.slice(i, i + paginate.itemsPerPage))
+        for (
+            let i = 0;
+            i < estateStaffReport.length;
+            i += paginate.itemsPerPage
+        ) {
+            slicedPages.push(
+                estateStaffReport.slice(i, i + paginate.itemsPerPage)
+            )
         }
 
         setPaginate((prev) => {
