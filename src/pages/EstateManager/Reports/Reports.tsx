@@ -6,6 +6,8 @@ import ResidentAccess from './paths/ResidentReport'
 import SiteWorkerReport from './paths/SiteWorkerReport'
 import VisitorReport from './paths/VisitorReport'
 
+
+
 function Reports() {
     type Path =
         | 'resident_access'
