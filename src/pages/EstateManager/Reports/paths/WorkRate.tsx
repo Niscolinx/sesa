@@ -37,14 +37,14 @@ export const EVENTS_REPORT: ReportDetail[] = Array.from({
 
 type SortBy = 'Today' | 'This week' | 'This Month'
 
-function EventsReport() {
+function WorkRate() {
     const navigate = useNavigate()
 
-    const [eventsReport, setEventsReport] = useState<ReportDetail[]>([])
+    const [workRate, setWorkRate] = useState<ReportDetail[]>([])
 
     useEffect(() => {
         setTimeout(() => {
-            setEventsReport(EVENTS_REPORT)
+            setWorkRate(EVENTS_REPORT)
         }, 500)
     }, [])
 
@@ -103,7 +103,7 @@ function EventsReport() {
         index: 0,
         currentPage: 1,
         itemsPerPage: perPage,
-        totalPage: Math.ceil(eventsReport.length / perPage),
+        totalPage: Math.ceil(workRate.length / perPage),
         slicedPages: null,
     })
 
@@ -111,8 +111,8 @@ function EventsReport() {
         const item = parseInt(e.target.value)
 
         const slicedPages: ReportDetail[][] = []
-        for (let i = 0; i < eventsReport.length; i += item) {
-            slicedPages.push(eventsReport.slice(i, i + item))
+        for (let i = 0; i < workRate.length; i += item) {
+            slicedPages.push(workRate.slice(i, i + item))
         }
 
         setPaginate((prev) => {
@@ -122,15 +122,15 @@ function EventsReport() {
                 index: 0,
                 currentPage: 1,
                 slicedPages,
-                totalPage: Math.ceil(eventsReport.length / item),
+                totalPage: Math.ceil(workRate.length / item),
             }
         })
     }
 
     useEffect(() => {
         const slicedPages: ReportDetail[][] = []
-        for (let i = 0; i < eventsReport.length; i += paginate.itemsPerPage) {
-            slicedPages.push(eventsReport.slice(i, i + paginate.itemsPerPage))
+        for (let i = 0; i < workRate.length; i += paginate.itemsPerPage) {
+            slicedPages.push(workRate.slice(i, i + paginate.itemsPerPage))
         }
 
         setPaginate((prev) => {
@@ -138,11 +138,11 @@ function EventsReport() {
                 ...prev,
                 slicedPages,
                 totalPage: Math.ceil(
-                    eventsReport.length / paginate.itemsPerPage
+                    workRate.length / paginate.itemsPerPage
                 ),
             }
         })
-    }, [eventsReport])
+    }, [workRate])
 
     const handleNext = () => {
         if (paginate.currentPage === paginate.totalPage) return
@@ -559,4 +559,4 @@ function EventsReport() {
     )
 }
 
-export default EventsReport
+export default WorkRate

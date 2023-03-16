@@ -7,6 +7,7 @@ import ResidentAccess from './paths/ResidentReport'
 import SecurityGuardActivity from './paths/SecurityGuardActivity'
 import SiteWorkerReport from './paths/SiteWorkerReport'
 import VisitorReport from './paths/VisitorReport'
+import WorkRate from './paths/WorkRate'
 
 
 
@@ -47,7 +48,7 @@ function Reports() {
         ['site_worker', <SiteWorkerReport />],
         ['events', <EventsReport />],
         ['security_guard_activity', <SecurityGuardActivity />],
-
+        ['work_rate', <WorkRate />],
     ])
 
     return (
