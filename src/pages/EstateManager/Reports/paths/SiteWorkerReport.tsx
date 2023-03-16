@@ -32,9 +32,7 @@ type SortBy = 'Today' | 'This week' | 'This Month'
 function SiteWorkerReport() {
     const navigate = useNavigate()
 
-    const [siteWorkerReport, setSiteWorkerReport] = useState<ReportDetail[]>(
-        []
-    )
+    const [siteWorkerReport, setSiteWorkerReport] = useState<ReportDetail[]>([])
 
     useEffect(() => {
         setTimeout(() => {
@@ -313,7 +311,7 @@ function SiteWorkerReport() {
                             </div>
                         </div>
                         <div className='grid bg-white'>
-                            <div className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-9 gap-8 text-[1.4rem] items-center'>
+                            <div className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-7 gap-8 text-[1.4rem] items-center'>
                                 <p className='flex items-center gap-4'>
                                     <input
                                         type='checkbox'
@@ -322,10 +320,8 @@ function SiteWorkerReport() {
 
                                     <span> Date</span>
                                 </p>
-                                <p>Access Code</p>
-                                <p>estateStaff Name</p>
-                                <p>estateStaff No</p>
-                                <p>Phone Number</p>
+                                <p>Staff Code</p>
+                                <p>Staff Name</p>
                                 <p>Mode of Entry</p>
                                 <p>Check-In</p>
                                 <p>Check-Out</p>
@@ -342,11 +338,9 @@ function SiteWorkerReport() {
                                                     date,
                                                     checkOut,
                                                     mode_of_entry,
-                                                    phone_number,
                                                     name,
                                                     checkIn,
                                                     staffCode,
-                                                    estateStaff_no,
                                                 },
                                                 i
                                             ) => {
@@ -356,7 +350,7 @@ function SiteWorkerReport() {
                                                 } = toggleDropDown
 
                                                 return (
-                                                    <div className='grid justify-between border-b grid-cols-9 items-center gap-8 py-4'>
+                                                    <div className='grid justify-between border-b grid-cols-7 items-center gap-8 py-4'>
                                                         <p className='flex items-center gap-4'>
                                                             <input
                                                                 type='checkbox'
@@ -367,8 +361,6 @@ function SiteWorkerReport() {
                                                         </p>
                                                         <p>{staffCode}</p>
                                                         <p>{name}</p>
-                                                        <p>{estateStaff_no}</p>
-                                                        <p>{phone_number}</p>
                                                         <p>{mode_of_entry}</p>
                                                         <p>{checkIn}</p>
                                                         <p>{checkOut}</p>
