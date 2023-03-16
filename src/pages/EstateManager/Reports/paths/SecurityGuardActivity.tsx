@@ -243,10 +243,8 @@ function SecurityGuardActivity() {
                                 <p>Date</p>
                                 <p>Guard Code</p>
                                 <p>Check - in Count</p>
-                                <p>Expected Guest</p>
-                                <p>Total Check-In</p>
-                                <p>Start Date</p>
-                                <p>End Date</p>
+                                <p>Check - out Count</p>
+                                <p>Panic Alert</p>
                                 <p>Action</p>
                             </div>
 
