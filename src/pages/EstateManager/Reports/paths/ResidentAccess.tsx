@@ -327,7 +327,10 @@ function ResidentAccess() {
                                                                     {balance.toLocaleString()}
                                                                 </span>
                                                             </p>
-                                
+                                                        </div>
+                                                    )
+                                                }
+                                            )
                                         )
                                     ) : (
                                         <div>
