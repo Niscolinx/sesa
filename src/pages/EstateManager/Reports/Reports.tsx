@@ -56,17 +56,16 @@ function Reports() {
                                     />
                                     <label
                                         htmlFor={path + i}
-                                        className={` ${
+                                        className={`capitalize ${
                                             currentPath === path
                                                 ? 'font-Satoshi-Medium'
-                                                : 'capitalize'
+                                                : ''
                                         }`}
                                     >
-                                        Token List
+                                        {path.split('_').join(' ')}
                                     </label>
                                 </>
                             ))}
-                           
                         </div>
                         <div>{renderPath.get(currentPath)}</div>
                     </section>
