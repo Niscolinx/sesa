@@ -27,16 +27,14 @@ export const RESIDENT_REPORT: ResidentReport[] = Array.from({
     phone_number: '09084234382',
     name: 'Kunle Aba',
     time: '12:00pm',
-    date: '12-May-2023'
+    date: '12-May-2023',
 }))
 
 type SortBy = 'Today' | 'This week' | 'This Month'
 function ResidentAccess() {
     const navigate = useNavigate()
 
-    const [residentReport, setResidentReport] = useState<
-        ResidentReport[]
-    >([])
+    const [residentReport, setResidentReport] = useState<ResidentReport[]>([])
 
     useEffect(() => {
         setTimeout(() => {
@@ -125,14 +123,8 @@ function ResidentAccess() {
 
     useEffect(() => {
         const slicedPages: ResidentReport[][] = []
-        for (
-            let i = 0;
-            i < residentReport.length;
-            i += paginate.itemsPerPage
-        ) {
-            slicedPages.push(
-                residentReport.slice(i, i + paginate.itemsPerPage)
-            )
+        for (let i = 0; i < residentReport.length; i += paginate.itemsPerPage) {
+            slicedPages.push(residentReport.slice(i, i + paginate.itemsPerPage))
         }
 
         setPaginate((prev) => {
@@ -272,45 +264,52 @@ function ResidentAccess() {
                     </div>
                 </section>
                 <section className='bg-color-white rounded-lg border min-w-[112rem]'>
-                    <div className='grid text-[1.6rem] border rounded-lg'>
-                        <div className='flex w-full justify-start items-end gap-12 p-10 bg-white rounded-lg'>
+                    <div className='grid border rounded-lg'>
+                        <div className='grid p-10'>
                             <p className=' font-bold'>
                                 Resident Report List <span>(200)</span>
                             </p>
-                            <div className='relative flex items-center'>
-                                <img
-                                    src='/icons/admins/search.svg'
-                                    alt=''
-                                    className='absolute left-4 text-[4rem]'
-                                />
-                                <input
-                                    type='text'
-                                    placeholder='Search Parameters'
-                                    className='pl-16 w-[25rem] rounded-lg border border-color-blue-light appearance-none outline-none p-4'
-                                />
-                            </div>
-                            <div className='relative flex items-center'>
-                                <select className=' cursor-pointer w-[25rem] rounded-lg border border-color-blue-light appearance-none outline-none p-4'>
-                                    <option hidden value=''>
-                                        Sort By
-                                    </option>
-                                    <option value='date'>date</option>
-                                    <option value='alpha'>Alpha</option>
-                                </select>
-                                <GrDown className='absolute right-4 text-[1.3rem]' />
-                            </div>
-                            <div className='relative grid items-center'>
-                                <label htmlFor="">
-                                    From
-                                </label>
-                                <input
-                                    type='date'
-                                    placeholder='Search Parameters'
-                                    className=' w-[25rem] rounded-lg border border-color-blue-light cursor-pointer outline-none p-4'
-                                />
+                            <div className='flex w-full justify-start items-end gap-12 bg-white rounded-lg'>
+                                <div className='relative flex items-center'>
+                                    <img
+                                        src='/icons/admins/search.svg'
+                                        alt=''
+                                        className='absolute left-4 text-[4rem]'
+                                    />
+                                    <input
+                                        type='text'
+                                        placeholder='Search Parameters'
+                                        className='pl-16 w-[20rem] rounded-lg border border-color-blue-light appearance-none outline-none p-4'
+                                    />
+                                </div>
+                                <div className='relative flex items-center'>
+                                    <select className=' cursor-pointer w-[20rem] rounded-lg border border-color-blue-light appearance-none outline-none p-4'>
+                                        <option hidden value=''>
+                                            Sort By
+                                        </option>
+                                        <option value='date'>date</option>
+                                        <option value='alpha'>Alpha</option>
+                                    </select>
+                                    <GrDown className='absolute right-4 text-[1.3rem]' />
+                                </div>
+                                <div className='relative grid items-center'>
+                                    <label htmlFor=''>From</label>
+                                    <input
+                                        type='date'
+                                        placeholder='Search Parameters'
+                                        className=' w-[20rem] rounded-lg border border-color-blue-light cursor-pointer outline-none p-4'
+                                    />
+                                </div>
+                                <div className='relative grid items-center'>
+                                    <label htmlFor=''>To</label>
+                                    <input
+                                        type='date'
+                                        placeholder='Search Parameters'
+                                        className=' w-[20rem] rounded-lg border border-color-blue-light cursor-pointer outline-none p-4'
+                                    />
+                                </div>
                             </div>
                         </div>
-
                         <div className='grid bg-white'>
                             <div className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-9 gap-8 text-[1.4rem] items-center'>
                                 <p className='flex items-center gap-4'>
@@ -377,7 +376,7 @@ function ResidentAccess() {
                                                             </span>
                                                         </p>
                                                         <p>{time}</p>
-                                                       
+
                                                         <div className='relative'>
                                                             <label
                                                                 className='font-semibold capitalize cursor-pointer flex items-center gap-2 relative z-10'
