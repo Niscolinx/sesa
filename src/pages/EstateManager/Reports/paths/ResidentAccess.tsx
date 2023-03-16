@@ -334,7 +334,8 @@ function ResidentAccess() {
                                                     phone_number,
                                                     name,
                                                     time,
-                                                    balance,
+                                                    accessCode,
+                                            
                                                 },
                                                 i
                                             ) => {
