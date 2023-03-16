@@ -320,14 +320,13 @@ function ResidentAccess() {
 
                                     <span> Date</span>
                                 </p>
-                                <p>Transaction Type</p>
-                                <p>Transaction Category</p>
-                                <p>Transaction ID</p>
-                                <p>Narration</p>
+                                <p>Mode of Conduct</p>
+                                <p>Access Code</p>
                                 <p>Name</p>
+                                <p>Phone Number</p>
+                                <p>Access Type</p>
                                 <p>Time</p>
-                                <p>Balance</p>
-                                <p>Actions</p>
+                                <p>Action</p>
                             </div>
 
                             <div className='grid gap-8 mt-8 p-8'>
@@ -362,19 +361,12 @@ function ResidentAccess() {
 
                                                             <span> {date}</span>
                                                         </p>
-                                                        <p>{accessType}</p>
                                                         <p>{mode_of_conduct}</p>
+                                                        <p>{accessCode}</p>
+                                                        <p>{accessType}</p>
                                                         <p>{phone_number}</p>
-
-                                                        <p className='flex items-center gap-.5'>
-                                                            <img
-                                                                src='/icons/Naira.svg'
-                                                                alt=''
-                                                            />
-                                                            <span>
-                                                                {name.toLocaleString()}
-                                                            </span>
-                                                        </p>
+                                                        <p>{name}</p>
+                                                        <p>{accessType}</p>
                                                         <p>{time}</p>
 
                                                         <div className='relative'>
