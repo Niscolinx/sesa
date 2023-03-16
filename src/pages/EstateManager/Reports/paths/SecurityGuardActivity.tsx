@@ -231,7 +231,7 @@ function SecurityGuardActivity() {
                             </div>
                         </div>
                         <div className='grid bg-white'>
-                            <div className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-9 gap-8 text-[1.4rem] items-center'>
+                            <div className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-6 gap-8 text-[1.4rem] items-center'>
                                 <p className='flex items-center gap-4'>
                                     <input
                                         type='checkbox'
@@ -245,7 +245,7 @@ function SecurityGuardActivity() {
                                 <p>Check - in Count</p>
                                 <p>Check - out Count</p>
                                 <p>Panic Alert</p>
-                                <p>Action</p>
+                             
                             </div>
 
                             <div className='grid gap-8 mt-8 p-8'>
@@ -265,13 +265,10 @@ function SecurityGuardActivity() {
                                                 },
                                                 i
                                             ) => {
-                                                const {
-                                                    isDropDownOpen,
-                                                    index,
-                                                } = toggleDropDown
+                                               
 
                                                 return (
-                                                    <div className='grid justify-between border-b grid-cols-9 items-center gap-8 py-4'>
+                                                    <div className='grid justify-between border-b grid-cols-6 items-center gap-8 py-4'>
                                                         <div className='flex items-center gap-4'>
                                                             <input
                                                                 type='checkbox'
