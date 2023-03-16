@@ -253,6 +253,19 @@ function EventsReport() {
                                     <span className='w-[1rem] h-[1rem] bg-gray-400 rounded-full'>
                                         &nbsp;
                                     </span>
+                                    <span>House Opening: 500 Check-In</span>
+                                </p>
+                                <p className='flex items-center gap-4'>
+                                    <span className='w-[1rem] h-[1rem] bg-gray-400 rounded-full'>
+                                        &nbsp;
+                                    </span>
+                                    <span>Seminar: 200 Check-In</span>
+                                </p>
+                                <p className='flex items-center gap-4'>
+                                    <span className='w-[1rem] h-[1rem] bg-gray-400 rounded-full'>
+                                        &nbsp;
+                                    </span>
+                                    <span>Graduation Party: 129 Check-In</span>
                                 </p>
                             </div>
                         </div>
