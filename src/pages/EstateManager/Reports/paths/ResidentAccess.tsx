@@ -1,14 +1,7 @@
-import React, {
-    useState,
-    useEffect,
-    ChangeEvent,
-    FormEvent,
-    useRef,
-} from 'react'
+import React, { useState, useEffect, ChangeEvent } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
 import { GrDown, GrUp } from 'react-icons/gr'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
-import { IoMdClose } from 'react-icons/io'
 
 import { useNavigate } from 'react-router-dom'
 import ReportChart from '../../../../components/SuperAdmin/charts/ReportsChart'
