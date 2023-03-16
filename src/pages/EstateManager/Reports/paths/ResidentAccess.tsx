@@ -161,12 +161,12 @@ function ResidentAccess() {
                         Resident Access Report
                     </p>
                     <section
-                        className=' text-[1.4rem] grid gap-8'
+                        className=' text-[1.4rem] grid gap-8 bg-white p-8 rounded-lg'
                         style={{
                             gridTemplateColumns: 'auto 60%',
                         }}
                     >
-                        <div className='bg-white p-8 rounded-lg grid justify-center items-baseline border-r'>
+                        <div className=' grid justify-center items-baseline border-r'>
                             <p className='font-Satoshi-Medium'> Count</p>
                             <div className='flex items-center gap-8'>
                                 <div className='grid gap-4 justify-start'>
@@ -191,20 +191,20 @@ function ResidentAccess() {
                                 </div>
                             </div>
                         </div>
-                        <div className='border-l border-l-color-grey bg-white rounded-lg p-8 grid gap-10'>
-                            <div className='flex justify-between'>
+                        <div className=' grid '>
+                            <div className='flex justify-between items-baseline'>
                                 <p className='text-[1.6rem] font-bold p-8'>
                                     Trend
                                 </p>
 
                                 <div className='flex items-center gap-4'>
-                                    <div className='flex items-center gap-4'>
+                                    <div className='flex items-center gap-2'>
                                         <span className='bg-[#1D9F5F] w-[1rem] h-[1rem] rounded-full'>
                                             &nbsp;
                                         </span>
                                         <span>Check-in</span>
                                     </div>
-                                    <div className='flex items-center gap-4'>
+                                    <div className='flex items-center gap-2'>
                                         <span className='bg-[#EA0B90] w-[1rem] h-[1rem] rounded-full'>
                                             &nbsp;
                                         </span>
