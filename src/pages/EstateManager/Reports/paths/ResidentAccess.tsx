@@ -170,10 +170,11 @@ function ResidentAccess() {
 
     return (
         <>
-          
-
             <div className='estateDetail'>
                 <div className='mt-8 grid gap-8'>
+                    <p className='text-[2rem] font-Satoshi-Medium'>
+                        Resident Access Report
+                    </p>
                     <section
                         className=' text-[1.4rem] grid gap-8'
                         style={{
@@ -224,8 +225,7 @@ function ResidentAccess() {
                         </div>
 
                         <div className='bg-white p-8 rounded-lg grid justify-center items-baseline'>
-                            <p className='text-[2rem] font-Satoshi-Medium'>Resident Access Report</p>
-                           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi vel provident suscipit minima sit, blanditiis, iure accusantium quidem qui est ea cupiditate doloribus dolores temporibus omnis atque. Omnis, architecto aliquam.
+                            
                         </div>
                     </section>
                     <section className='bg-color-white rounded-lg border min-w-[112rem]'>
