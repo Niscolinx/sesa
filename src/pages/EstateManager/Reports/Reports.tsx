@@ -52,7 +52,7 @@ function Reports() {
                                         id={path + i}
                                         className='hidden'
                                         onChange={() => setCurrentPath(path)}
-                                        defaultChecked
+                                        checked={currentPath === path}
                                     />
                                     <label
                                         htmlFor={path + i}
