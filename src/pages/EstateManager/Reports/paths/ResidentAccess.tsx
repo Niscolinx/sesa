@@ -273,7 +273,7 @@ function ResidentAccess() {
                 </section>
                 <section className='bg-color-white rounded-lg border min-w-[112rem]'>
                     <div className='grid text-[1.6rem] border rounded-lg'>
-                        <div className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
+                        <div className='flex w-full justify-start items-end gap-12 p-10 bg-white rounded-lg'>
                             <p className=' font-bold'>
                                 Resident Report List <span>(200)</span>
                             </p>
@@ -299,11 +299,14 @@ function ResidentAccess() {
                                 </select>
                                 <GrDown className='absolute right-4 text-[1.3rem]' />
                             </div>
-                            <div className='relative flex items-center'>
+                            <div className='relative grid items-center'>
+                                <label htmlFor="">
+                                    From
+                                </label>
                                 <input
                                     type='date'
                                     placeholder='Search Parameters'
-                                    className='pl-16 w-[25rem] rounded-lg border border-color-blue-light appearance-none outline-none p-4'
+                                    className=' w-[25rem] rounded-lg border border-color-blue-light cursor-pointer outline-none p-4'
                                 />
                             </div>
                         </div>
