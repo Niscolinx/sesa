@@ -12,11 +12,9 @@ export interface ResidentReport {
     accessCode: string
     mode_of_conduct: string
     phone_number: number
-    name: number
-    
+    name: string
     time: string
     date: string
-    balance: number
 }
 
 export const RESIDENT_REPORT: ResidentReport[] = Array.from({
@@ -25,12 +23,11 @@ export const RESIDENT_REPORT: ResidentReport[] = Array.from({
     id: i,
     accessType: 'check-in',
     accessCode: 'R908423',
-    mode_of_conduct: 'Fund ResidentAccess',
+    mode_of_conduct: 'Resident Code',
     phone_number: 09084234382,
     name: 'Kunle Aba',
     time: '12:00pm',
-    date: '12-May-2023',
-    balance: 100000,
+    date: '12-May-2023'
 }))
 
 type SortBy = 'Today' | 'This week' | 'This Month'
