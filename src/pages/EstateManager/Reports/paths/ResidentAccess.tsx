@@ -237,7 +237,7 @@ function ResidentAccess() {
                         <p className='text-[1.8rem] font-Satoshi-Medium'>
                             Count
                         </p>
-                        <div className='flex items-center gap-16'>
+                        <div className='grid grid-cols-2 items-center gap-16 columns-2'>
                             <div className='grid gap-4 justify-start'>
                                 <p>Check - In</p>
                                 <div className='flex items-center gap-4'>
