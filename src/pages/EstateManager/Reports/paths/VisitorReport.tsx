@@ -5,25 +5,28 @@ import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { useNavigate } from 'react-router-dom'
 import ReportChart from '../../../../components/SuperAdmin/charts/ReportsChart'
 
-export interface VisitorReport {
+
+
+export interface ReportDetail {
     id: number
-    accessType: string
     accessCode: string
     mode_of_entry: string
     phone_number: string
+    visitorNo: string
     name: string
     checkIn: string
     checkOut: string
     date: string
 }
 
-export const RESIDENT_REPORT: VisitorReport[] = Array.from({
+
+export const VISITOR_REPORT: ReportDetail[] = Array.from({
     length: 10,
 }).map((_, i) => ({
     id: i,
-    accessType: 'check-in',
     accessCode: 'R908423',
-    mode_of_entry: 'Resident Code',
+    mode_of_entry: 'Check-in',
+    visitorNo: '82823',
     phone_number: '09084234382',
     name: 'Kunle Aba',
     checkIn: '12:00pm',
@@ -36,11 +39,11 @@ type SortBy = 'Today' | 'This week' | 'This Month'
 function VisitorReport() {
     const navigate = useNavigate()
 
-    const [visitorReport, setVisitorReport] = useState<VisitorReport[]>([])
+    const [visitorReport, setVisitorReport] = useState<ReportDetail[]>([])
 
     useEffect(() => {
-        setCheckInout(() => {
-            setVisitorReport(RESIDENT_REPORT)
+        setTimeout(() => {
+            setVisitorReport(VISITOR_REPORT)
         }, 1000)
     }, [])
 
@@ -89,7 +92,7 @@ function VisitorReport() {
         currentPage: number
         itemsPerPage: number
         totalPage: number
-        slicedPages: VisitorReport[][] | null
+        slicedPages: ReportDetail[][] | null
     }
 
     const itemsPerPageArr = [2, 4, 6, 8]
@@ -106,7 +109,7 @@ function VisitorReport() {
     const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
         const item = parseInt(e.target.value)
 
-        const slicedPages: VisitorReport[][] = []
+        const slicedPages: ReportDetail[][] = []
         for (let i = 0; i < visitorReport.length; i += item) {
             slicedPages.push(visitorReport.slice(i, i + item))
         }
@@ -124,7 +127,7 @@ function VisitorReport() {
     }
 
     useEffect(() => {
-        const slicedPages: VisitorReport[][] = []
+        const slicedPages: ReportDetail[][] = []
         for (let i = 0; i < visitorReport.length; i += paginate.itemsPerPage) {
             slicedPages.push(visitorReport.slice(i, i + paginate.itemsPerPage))
         }
@@ -179,7 +182,7 @@ function VisitorReport() {
         <>
             <div className='mt-8 grid gap-8'>
                 <div className='flex justify-between'>
-                    <p className='text-[2rem]'>Resident Access Report</p>
+                    <p className='text-[2rem]'>Visitor Access Report</p>
                     <div className='relative grid gap-4'>
                         <div className='flex items-center gap-8'>
                             <p>Sort By</p>
@@ -265,7 +268,7 @@ function VisitorReport() {
                     <div className='grid border rounded-lg'>
                         <div className='grid p-10'>
                             <p className=' font-bold'>
-                                Resident Report List <span>(200)</span>
+                                Visitor Report List <span>(200)</span>
                             </p>
                             <div className='flex w-full justify-start items-end gap-12 bg-white rounded-lg'>
                                 <div className='relative flex items-center'>
@@ -318,9 +321,8 @@ function VisitorReport() {
 
                                     <span> Date</span>
                                 </p>
-                                <p>Mode of Conduct</p>
                                 <p>Access Code</p>
-                                <p>Name</p>
+                                <p>Visitor Name</p>
                                 <p>Phone Number</p>
                                 <p>Access Type</p>
                                 <p>CheckIn</p>
