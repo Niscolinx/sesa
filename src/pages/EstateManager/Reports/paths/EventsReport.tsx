@@ -125,14 +125,8 @@ function EventsReport() {
 
     useEffect(() => {
         const slicedPages: ReportDetail[][] = []
-        for (
-            let i = 0;
-            i < eventsReport.length;
-            i += paginate.itemsPerPage
-        ) {
-            slicedPages.push(
-                eventsReport.slice(i, i + paginate.itemsPerPage)
-            )
+        for (let i = 0; i < eventsReport.length; i += paginate.itemsPerPage) {
+            slicedPages.push(eventsReport.slice(i, i + paginate.itemsPerPage))
         }
 
         setPaginate((prev) => {
@@ -254,6 +248,13 @@ function EventsReport() {
                             <p className='text-[1.8rem] font-Satoshi-Medium'>
                                 Top 3 Event Check-In
                             </p>{' '}
+                            <div>
+                                <p className='flex items-center gap-4'>
+                                    <span className='w-[1rem] h-[1rem] bg-gray-400 rounded-full'>
+                                        &nbsp;
+                                    </span>
+                                </p>
+                            </div>
                         </div>
                     </div>
                     <div className=' grid gap-16'>
