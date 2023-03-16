@@ -327,20 +327,7 @@ function ResidentAccess() {
                                                                     {balance.toLocaleString()}
                                                                 </span>
                                                             </p>
-                                                            <button
-                                                                className='text-color-primary text-left'
-                                                                onClick={() =>
-                                                                    detailsHandler(
-                                                                        id
-                                                                    )
-                                                                }
-                                                            >
-                                                                View Details
-                                                            </button>
-                                                        </div>
-                                                    )
-                                                }
-                                            )
+                                
                                         )
                                     ) : (
                                         <div>
