@@ -201,11 +201,11 @@ function WorkRate() {
                                     </div>
                                 </div>
                             </section>
-                            <EstateBarChart color1='#08D231' color2='#f7e541' />
+                            <EstateBarChart color1='#08D231' color2='#f7e541'/>
                         </div>
                         <div className='bg-white p-8 rounded-lg'>
                             <section className='overviewChart__box'>
-                                <EstateChart />
+                                <EstateChart outerRadius={100} />
 
                                 <div className='overviewChart__label'>
                                     <p className='text-[3rem] font-bold relative'>
@@ -266,6 +266,7 @@ function WorkRate() {
                                 <EstateChart
                                     color1='#3d08d2'
                                     color2='#F74183'
+                                    outerRadius={100}
                                 />
 
                                 <div className='overviewChart__label'>
@@ -292,7 +293,7 @@ function WorkRate() {
                                         <span className='bg-[#F74183] rounded-full w-[1rem] h-[1rem] flex'>
                                             {' '}
                                         </span>{' '}
-                                        <p>SESA</p>
+                                        <p>System</p>
                                     </div>
                                     <p>30,000</p>
                                 </section>
@@ -348,7 +349,7 @@ function WorkRate() {
                             </div>
                         </div>
                         <div className='grid bg-white'>
-                            <div className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-9 gap-8 text-[1.4rem] items-center'>
+                            <div className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-8 gap-8 text-[1.4rem] items-center'>
                                 <p className='flex items-center gap-4'>
                                     <input
                                         type='checkbox'
@@ -390,7 +391,7 @@ function WorkRate() {
                                                 } = toggleDropDown
 
                                                 return (
-                                                    <div className='grid justify-between border-b grid-cols-9 items-center gap-8 py-4'>
+                                                    <div className='grid justify-between border-b grid-cols-8 items-center gap-8 py-4'>
                                                         <p className='flex items-center gap-4'>
                                                             <input
                                                                 type='checkbox'
@@ -405,7 +406,6 @@ function WorkRate() {
                                                         <p>{phoneNumber}</p>
                                                         <p>{accessType}</p>
                                                         <p>{time}</p>
-                                                        <p>{mode_of_contact}</p>
 
                                                         <div className='relative'>
                                                             <label
