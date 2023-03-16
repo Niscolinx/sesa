@@ -8,9 +8,9 @@ import ReportChart from '../../../../components/SuperAdmin/charts/ReportsChart'
 
 export interface TransactionHistory {
     id: number
-    transactionType: string
-    transactionCategory: string
-    transactionId: number
+    accessType: string
+    mode_of_conduct: string
+    phone_number: number
     amount: number
     time: string
     date: string
@@ -21,9 +21,9 @@ export const TRANSACTION_HISTORY: TransactionHistory[] = Array.from({
     length: 10,
 }).map((_, i) => ({
     id: i,
-    transactionType: 'Credit',
-    transactionCategory: 'Fund ResidentAccess',
-    transactionId: 783239232,
+    accessType: 'Credit',
+    mode_of_conduct: 'Fund ResidentAccess',
+    phone_number: 783239232,
     amount: 10000,
     time: '12:00pm',
     date: '12-May-2023',
@@ -329,9 +329,9 @@ function ResidentAccess() {
                                                 {
                                                     id,
                                                     date,
-                                                    transactionType,
-                                                    transactionCategory,
-                                                    transactionId,
+                                                    accessType,
+                                                    mode_of_conduct,
+                                                    phone_number,
                                                     amount,
                                                     time,
                                                     balance,
@@ -353,13 +353,13 @@ function ResidentAccess() {
 
                                                             <span> {date}</span>
                                                         </p>
-                                                        <p>{transactionType}</p>
+                                                        <p>{accessType}</p>
                                                         <p>
                                                             {
-                                                                transactionCategory
+                                                                mode_of_conduct
                                                             }
                                                         </p>
-                                                        <p>{transactionId}</p>
+                                                        <p>{phone_number}</p>
 
                                                         <p className='flex items-center gap-.5'>
                                                             <img
