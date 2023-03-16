@@ -37,6 +37,7 @@ export const TRANSACTION_HISTORY: TransactionHistory[] = Array.from({
     balance: 100000,
 }))
 
+type SortBy = 'Today' | 'This week' | 'This Month'
 function ResidentAccess() {
     const navigate = useNavigate()
 
@@ -49,6 +50,20 @@ function ResidentAccess() {
             setTransactionHistory(TRANSACTION_HISTORY)
         }, 1000)
     }, [])
+    
+    const sortBy: Array<SortBy> = ['Today', 'This Month', 'This Year']
+
+    const [toggleMenu, setToggleMenu] = useState(false)
+    const [selectedTrend, setSelectedTrend] = useState<Trend>('This Week')
+    const [isWithdrawal, setIsWithdrawal] = useState(true)
+
+    const menuToggler = () => setToggleMenu(!toggleMenu)
+
+    const handleSelectedTrend = (item: Trend) => {
+        setSelectedTrend(item)
+        setToggleMenu(false)
+    }
+
 
     const actions = ['View Details'] as const
 
