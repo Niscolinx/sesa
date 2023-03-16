@@ -275,7 +275,7 @@ function ResidentAccess() {
                     <div className='grid text-[1.6rem] border rounded-lg'>
                         <div className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
                             <p className=' font-bold'>
-                                Transaction History <span>(200)</span>
+                                Resident Report List <span>(200)</span>
                             </p>
                             <div className='relative flex items-center'>
                                 <img
