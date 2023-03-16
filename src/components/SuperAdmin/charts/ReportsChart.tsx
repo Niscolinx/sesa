@@ -55,12 +55,7 @@ export default function ReportChart({
             height={height}
             data={data}
             barGap={0}
-            margin={{
-                top: 5,
-                right: 30,
-                left: 20,
-                bottom: 5,
-            }}
+           
         >
             <XAxis dataKey='name' />
             <YAxis
