@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
+import EstateStaffReport from './paths/EstateStaffReport'
 import GroupReport from './paths/GroupReport'
 import ResidentAccess from './paths/ResidentReport'
 import VisitorReport from './paths/VisitorReport'
@@ -38,6 +39,7 @@ function Reports() {
         ['resident_access', <ResidentAccess />],
         ['voters_access', <VisitorReport />],
         ['group_access', <GroupReport />],
+        ['estate_staff', <EstateStaffReport />],
     ])
 
     return (
