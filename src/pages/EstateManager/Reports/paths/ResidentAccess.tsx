@@ -152,18 +152,6 @@ function ResidentAccess() {
         navigate(`/estateManager/residentAccess/transaction-details/:${id}`)
     }
 
-    const trend: Array<Trend> = ['This Week', 'This Month', 'This Year']
-
-    const [toggleMenu, setToggleMenu] = useState(false)
-    const [selectedTrend, setSelectedTrend] = useState<Trend>('This Week')
-
-    const menuToggler = () => setToggleMenu(!toggleMenu)
-
-    const handleSelectedTrend = (item: Trend) => {
-        setSelectedTrend(item)
-        setToggleMenu(false)
-    }
-
     return (
         <>
             <div className='estateDetail'>
