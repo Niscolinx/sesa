@@ -141,7 +141,6 @@ function EventsReport() {
     }, [eventsReport])
 
     const handleNext = () => {
-        console.log(paginate.currentPage, paginate.totalPage)
         if (paginate.currentPage === paginate.totalPage) return
         setPaginate((prev) => {
             return {
@@ -221,7 +220,7 @@ function EventsReport() {
                             <p className='text-[1.8rem] font-Satoshi-Medium'>
                                 Total Event: 15
                             </p>
-                            <div className='grid items-center'>
+                            <div className='grid items-center gap-4'>
                                 <div className='grid gap-4 justify-start'>
                                     <p>Check - In</p>
                                     <div className='flex items-center gap-4'>
