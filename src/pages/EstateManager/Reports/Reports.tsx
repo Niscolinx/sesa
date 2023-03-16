@@ -4,6 +4,7 @@ import GroupReport from './paths/GroupReport'
 import ResidentAccess from './paths/ResidentReport'
 import VisitorReport from './paths/VisitorReport'
 
+
 function Reports() {
     type Path =
         | 'resident_access'

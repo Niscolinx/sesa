@@ -10,7 +10,7 @@ export interface ReportDetail {
     accessCode: string
     mode_of_entry: string
     phone_number: string
-    visitorNo: string
+    GroupNo: string
     name: string
     checkIn: string
     checkOut: string
@@ -23,7 +23,7 @@ export const GROUP_REPORT: ReportDetail[] = Array.from({
     id: i,
     accessCode: 'R908423',
     mode_of_entry: 'Check-in',
-    visitorNo: '82823',
+    GroupNo: '82823',
     phone_number: '09084234382',
     name: 'Kunle Aba',
     checkIn: '12:00pm',
@@ -179,7 +179,7 @@ function GroupReport() {
         <>
             <div className='mt-8 grid gap-8'>
                 <div className='flex justify-between'>
-                    <p className='text-[2rem]'>Visitor Access Report</p>
+                    <p className='text-[2rem]'>Group Access Report</p>
                     <div className='relative grid gap-4'>
                         <div className='flex items-center gap-8'>
                             <p>Sort By</p>
@@ -265,7 +265,7 @@ function GroupReport() {
                     <div className='grid border rounded-lg'>
                         <div className='grid p-10'>
                             <p className=' font-bold'>
-                                Visitor Report List <span>(200)</span>
+                                Group Report List <span>(200)</span>
                             </p>
                             <div className='flex w-full justify-start items-end gap-12 bg-white rounded-lg'>
                                 <div className='relative flex items-center'>
@@ -319,8 +319,8 @@ function GroupReport() {
                                     <span> Date</span>
                                 </p>
                                 <p>Access Code</p>
-                                <p>Visitor Name</p>
-                                <p>Visitor No</p>
+                                <p>Group Name</p>
+                                <p>Group No</p>
                                 <p>Phone Number</p>
                                 <p>Mode of Entry</p>
                                 <p>Check-In</p>
@@ -342,7 +342,7 @@ function GroupReport() {
                                                     name,
                                                     checkIn,
                                                     accessCode,
-                                                    visitorNo,
+                                                    GroupNo,
                                                 },
                                                 i
                                             ) => {
@@ -363,7 +363,7 @@ function GroupReport() {
                                                         </p>
                                                         <p>{accessCode}</p>
                                                         <p>{name}</p>
-                                                        <p>{visitorNo}</p>
+                                                        <p>{GroupNo}</p>
                                                         <p>{phone_number}</p>
                                                         <p>{mode_of_entry}</p>
                                                         <p>{checkIn}</p>
