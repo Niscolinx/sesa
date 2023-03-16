@@ -7,10 +7,8 @@ import ReportChart from '../../../../components/SuperAdmin/charts/ReportsChart'
 
 export interface ReportDetail {
     id: number
-    accessCode: string
+    staffCode: string
     mode_of_entry: string
-    phone_number: string
-    estateStaff_no: string
     name: string
     checkIn: string
     checkOut: string
@@ -21,10 +19,8 @@ export const ESTATESTAFF_REPORT: ReportDetail[] = Array.from({
     length: 10,
 }).map((_, i) => ({
     id: i,
-    accessCode: 'R908423',
-    mode_of_entry: 'Check-in',
-    estateStaff_no: '82823',
-    phone_number: '09084234382',
+    staffCode: 'R908423',
+    mode_of_entry: 'Car',
     name: 'Kunle Aba',
     checkIn: '12:00pm',
     checkOut: '03:00pm',
@@ -33,16 +29,14 @@ export const ESTATESTAFF_REPORT: ReportDetail[] = Array.from({
 
 type SortBy = 'Today' | 'This week' | 'This Month'
 
-function EstateStaffReport() {
+function EstateStaffCode() {
     const navigate = useNavigate()
 
-    const [estateStaffReport, setEstateStaffReport] = useState<ReportDetail[]>(
-        []
-    )
+    const [estateStaffCode, setEstateStaffCode] = useState<ReportDetail[]>([])
 
     useEffect(() => {
         setTimeout(() => {
-            setEstateStaffReport(ESTATESTAFF_REPORT)
+            setEstateStaffCode(ESTATESTAFF_REPORT)
         }, 500)
     }, [])
 
@@ -101,7 +95,7 @@ function EstateStaffReport() {
         index: 0,
         currentPage: 1,
         itemsPerPage: perPage,
-        totalPage: Math.ceil(estateStaffReport.length / perPage),
+        totalPage: Math.ceil(estateStaffCode.length / perPage),
         slicedPages: null,
     })
 
@@ -109,8 +103,8 @@ function EstateStaffReport() {
         const item = parseInt(e.target.value)
 
         const slicedPages: ReportDetail[][] = []
-        for (let i = 0; i < estateStaffReport.length; i += item) {
-            slicedPages.push(estateStaffReport.slice(i, i + item))
+        for (let i = 0; i < estateStaffCode.length; i += item) {
+            slicedPages.push(estateStaffCode.slice(i, i + item))
         }
 
         setPaginate((prev) => {
@@ -120,7 +114,7 @@ function EstateStaffReport() {
                 index: 0,
                 currentPage: 1,
                 slicedPages,
-                totalPage: Math.ceil(estateStaffReport.length / item),
+                totalPage: Math.ceil(estateStaffCode.length / item),
             }
         })
     }
@@ -129,11 +123,11 @@ function EstateStaffReport() {
         const slicedPages: ReportDetail[][] = []
         for (
             let i = 0;
-            i < estateStaffReport.length;
+            i < estateStaffCode.length;
             i += paginate.itemsPerPage
         ) {
             slicedPages.push(
-                estateStaffReport.slice(i, i + paginate.itemsPerPage)
+                estateStaffCode.slice(i, i + paginate.itemsPerPage)
             )
         }
 
@@ -142,11 +136,11 @@ function EstateStaffReport() {
                 ...prev,
                 slicedPages,
                 totalPage: Math.ceil(
-                    estateStaffReport.length / paginate.itemsPerPage
+                    estateStaffCode.length / paginate.itemsPerPage
                 ),
             }
         })
-    }, [estateStaffReport])
+    }, [estateStaffCode])
 
     const handleNext = () => {
         console.log(paginate.currentPage, paginate.totalPage)
@@ -187,7 +181,7 @@ function EstateStaffReport() {
         <>
             <div className='mt-8 grid gap-8'>
                 <div className='flex justify-between'>
-                    <p className='text-[2rem]'>Estate Staff Report</p>
+                    <p className='text-[2rem]'>Site Worker Report</p>
                     <div className='relative grid gap-4'>
                         <div className='flex items-center gap-8'>
                             <p>Sort By</p>
@@ -273,7 +267,7 @@ function EstateStaffReport() {
                     <div className='grid border rounded-lg'>
                         <div className='grid p-10'>
                             <p className=' font-bold'>
-                                Estate Staff Report List <span>(200)</span>
+                                Site Worker Report List <span>(200)</span>
                             </p>
                             <div className='flex w-full justify-start items-end gap-12 bg-white rounded-lg'>
                                 <div className='relative flex items-center'>
@@ -317,7 +311,7 @@ function EstateStaffReport() {
                             </div>
                         </div>
                         <div className='grid bg-white'>
-                            <div className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-9 gap-8 text-[1.4rem] items-center'>
+                            <div className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-7 gap-8 text-[1.4rem] items-center'>
                                 <p className='flex items-center gap-4'>
                                     <input
                                         type='checkbox'
@@ -326,10 +320,8 @@ function EstateStaffReport() {
 
                                     <span> Date</span>
                                 </p>
-                                <p>Access Code</p>
-                                <p>estateStaff Name</p>
-                                <p>estateStaff No</p>
-                                <p>Phone Number</p>
+                                <p>Staff Code</p>
+                                <p>Staff Name</p>
                                 <p>Mode of Entry</p>
                                 <p>Check-In</p>
                                 <p>Check-Out</p>
@@ -346,11 +338,9 @@ function EstateStaffReport() {
                                                     date,
                                                     checkOut,
                                                     mode_of_entry,
-                                                    phone_number,
                                                     name,
                                                     checkIn,
-                                                    accessCode,
-                                                    estateStaff_no,
+                                                    staffCode,
                                                 },
                                                 i
                                             ) => {
@@ -360,7 +350,7 @@ function EstateStaffReport() {
                                                 } = toggleDropDown
 
                                                 return (
-                                                    <div className='grid justify-between border-b grid-cols-9 items-center gap-8 py-4'>
+                                                    <div className='grid justify-between border-b grid-cols-7 items-center gap-8 py-4'>
                                                         <p className='flex items-center gap-4'>
                                                             <input
                                                                 type='checkbox'
@@ -369,10 +359,8 @@ function EstateStaffReport() {
 
                                                             <span> {date}</span>
                                                         </p>
-                                                        <p>{accessCode}</p>
+                                                        <p>{staffCode}</p>
                                                         <p>{name}</p>
-                                                        <p>{estateStaff_no}</p>
-                                                        <p>{phone_number}</p>
                                                         <p>{mode_of_entry}</p>
                                                         <p>{checkIn}</p>
                                                         <p>{checkOut}</p>
@@ -526,4 +514,4 @@ function EstateStaffReport() {
     )
 }
 
-export default EstateStaffReport
+export default EstateStaffCode
