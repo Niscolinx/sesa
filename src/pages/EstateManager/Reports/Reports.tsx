@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
 import ResidentAccess from './paths/ResidentReport'
+import VisitorReport from './paths/VisitorReport'
 
 function Reports() {
     type Path =
@@ -31,7 +32,10 @@ function Reports() {
         setIsReport(true)
     }
 
-    const renderPath = new Map<Path, JSX.Element>([['resident_access', <ResidentAccess/>]])
+    const renderPath = new Map<Path, JSX.Element>([
+        ['resident_access', <ResidentAccess />],
+        ['voters_access', <VisitorReport />],
+    ])
 
     return (
         <div>
@@ -68,7 +72,9 @@ function Reports() {
                                 </>
                             ))}
                         </div>
-                        <div className='mt-[5rem]'>{renderPath.get(currentPath)}</div>
+                        <div className='mt-[5rem]'>
+                            {renderPath.get(currentPath)}
+                        </div>
                     </section>
                 ) : (
                     <section className='grid place-content-center w-full h-[80vh] justify-items-center gap-4 bg-white rounded-lg'>
