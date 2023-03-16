@@ -14,7 +14,7 @@ export interface ReportDetail {
     accessCode: string
     mode_of_contact: string
     name: string
-    phoneNumber: number
+    phoneNumber: string
     accessType: string
     time: string
     date: string
@@ -29,7 +29,7 @@ export const EVENTS_REPORT: ReportDetail[] = Array.from({
     mode_of_contact: 'Resident Code',
     accessType: 'check-In',
     time: '3:18PM',
-    phoneNumber: 08138428423,
+    phoneNumber: '08138428423',
     name: 'Lalas Oyanka',
 }))
 
