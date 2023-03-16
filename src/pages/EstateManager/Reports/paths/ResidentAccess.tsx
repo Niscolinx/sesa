@@ -200,7 +200,7 @@ function ResidentAccess() {
                     <div className='relative grid gap-4'>
                         <div className='flex items-center gap-8'>
                             <p>Sort By</p>
-                            <div className='relative flex items-center border border-color-grey bg-white rounded-lg w-full cursor-pointer'>
+                            <div className='relative flex items-center border border-color-grey bg-white rounded-lg gap-2 py-2 px- cursor-pointer'>
                                 <p className='' onClick={menuToggler}>
                                     {sortType}
                                 </p>
