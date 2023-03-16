@@ -289,82 +289,12 @@ function SecurityGuardActivity() {
                                                                 </p>
                                                             </div>
                                                         </div>
-                                                        <p>{guardName}</p>
-                                                        <p>{eventName}</p>
-                                                        <p>{propCode}</p>
-                                                        <p>{panicAlert}</p>
-                                                        <p>{totalCheckIn}</p>
+                                                        <p>{date}</p>
                                                         <p>{guardCode}</p>
                                                         <p>{checkInCount}</p>
-
-                                                        <div className='relative'>
-                                                            <label
-                                                                className='font-semibold capitalize cursor-pointer flex items-center gap-2 relative z-10'
-                                                                htmlFor={i.toString()}
-                                                                onClick={() =>
-                                                                    setToggleDropDown(
-                                                                        (
-                                                                            prev
-                                                                        ) => {
-                                                                            return {
-                                                                                isDropDownOpen:
-                                                                                    !prev.isDropDownOpen,
-                                                                                index: i,
-                                                                            }
-                                                                        }
-                                                                    )
-                                                                }
-                                                            >
-                                                                <span className='text-color-primary'>
-                                                                    <img
-                                                                        src='/icons/admins/threeDots.svg'
-                                                                        alt=''
-                                                                    />
-                                                                </span>
-                                                            </label>
-                                                            <input
-                                                                type='radio'
-                                                                name='dropdown'
-                                                                className='hidden'
-                                                                id={i.toString()}
-                                                                onChange={(e) =>
-                                                                    dropDownHandler(
-                                                                        e,
-                                                                        i
-                                                                    )
-                                                                }
-                                                            />
-
-                                                            {isDropDownOpen &&
-                                                                index === i && (
-                                                                    <div className='absolute top-0 translate-x-[4rem] border border-color-primary-light w-[10rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
-                                                                        {actions.map(
-                                                                            (
-                                                                                item,
-                                                                                index
-                                                                            ) => (
-                                                                                <p
-                                                                                    className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
-                                                                                    key={
-                                                                                        index +
-                                                                                        i
-                                                                                    }
-                                                                                    onClick={() =>
-                                                                                        selectAction(
-                                                                                            item,
-                                                                                            id
-                                                                                        )
-                                                                                    }
-                                                                                >
-                                                                                    {
-                                                                                        item
-                                                                                    }
-                                                                                </p>
-                                                                            )
-                                                                        )}
-                                                                    </div>
-                                                                )}
-                                                        </div>
+                                                        <p>{checkOutCount}</p>
+                                                        <p>{panicAlert}</p>
+                                                  
                                                     </div>
                                                 )
                                             }
