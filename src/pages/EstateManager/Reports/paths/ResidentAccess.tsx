@@ -223,11 +223,21 @@ function ResidentAccess() {
                         <div className='bg-white p-8 rounded-lg grid justify-center items-baseline'>
                             <p className='font-Satoshi-Medium'> Count</p>
                             <div className='flex items-center gap-8'>
-                                <div>
+                                <div className='grid gap-4 justify-start'>
                                     <p>Check - In</p>
-                                    <div>
+                                    <div className='flex items-center gap-4'>
                                         <img
                                             src='/icons/report/walk1.svg'
+                                            alt=''
+                                        />
+                                        <p>3000</p>
+                                    </div>
+                                </div>
+                                <div className='grid gap-4 justify-start'>
+                                    <p>Check - Out</p>
+                                    <div className='flex items-center gap-4'>
+                                        <img
+                                            src='/icons/report/walk2.svg'
                                             alt=''
                                         />
                                         <p>3000</p>
