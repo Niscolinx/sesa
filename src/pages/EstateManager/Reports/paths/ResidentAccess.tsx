@@ -6,25 +6,28 @@ import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { useNavigate } from 'react-router-dom'
 import ReportChart from '../../../../components/SuperAdmin/charts/ReportsChart'
 
-export interface TransactionHistory {
+export interface ResidentReport {
     id: number
     accessType: string
+    accessCode: string
     mode_of_conduct: string
     phone_number: number
-    amount: number
+    name: number
+    
     time: string
     date: string
     balance: number
 }
 
-export const TRANSACTION_HISTORY: TransactionHistory[] = Array.from({
+export const RESIDENT_REPORT: ResidentReport[] = Array.from({
     length: 10,
 }).map((_, i) => ({
     id: i,
-    accessType: 'Credit',
+    accessType: 'check-in',
+    accessCode: 'R908423',
     mode_of_conduct: 'Fund ResidentAccess',
-    phone_number: 783239232,
-    amount: 10000,
+    phone_number: 09084234382,
+    name: 'Kunle Aba',
     time: '12:00pm',
     date: '12-May-2023',
     balance: 100000,
@@ -34,13 +37,13 @@ type SortBy = 'Today' | 'This week' | 'This Month'
 function ResidentAccess() {
     const navigate = useNavigate()
 
-    const [transactionHistory, setTransactionHistory] = useState<
-        TransactionHistory[]
+    const [residentReport, setResidentReport] = useState<
+        ResidentReport[]
     >([])
 
     useEffect(() => {
         setTimeout(() => {
-            setTransactionHistory(TRANSACTION_HISTORY)
+            setResidentReport(RESIDENT_REPORT)
         }, 1000)
     }, [])
 
@@ -89,7 +92,7 @@ function ResidentAccess() {
         currentPage: number
         itemsPerPage: number
         totalPage: number
-        slicedPages: TransactionHistory[][] | null
+        slicedPages: ResidentReport[][] | null
     }
 
     const itemsPerPageArr = [2, 4, 6, 8]
@@ -99,16 +102,16 @@ function ResidentAccess() {
         index: 0,
         currentPage: 1,
         itemsPerPage: perPage,
-        totalPage: Math.ceil(transactionHistory.length / perPage),
+        totalPage: Math.ceil(residentReport.length / perPage),
         slicedPages: null,
     })
 
     const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
         const item = parseInt(e.target.value)
 
-        const slicedPages: TransactionHistory[][] = []
-        for (let i = 0; i < transactionHistory.length; i += item) {
-            slicedPages.push(transactionHistory.slice(i, i + item))
+        const slicedPages: ResidentReport[][] = []
+        for (let i = 0; i < residentReport.length; i += item) {
+            slicedPages.push(residentReport.slice(i, i + item))
         }
 
         setPaginate((prev) => {
@@ -118,20 +121,20 @@ function ResidentAccess() {
                 index: 0,
                 currentPage: 1,
                 slicedPages,
-                totalPage: Math.ceil(transactionHistory.length / item),
+                totalPage: Math.ceil(residentReport.length / item),
             }
         })
     }
 
     useEffect(() => {
-        const slicedPages: TransactionHistory[][] = []
+        const slicedPages: ResidentReport[][] = []
         for (
             let i = 0;
-            i < transactionHistory.length;
+            i < residentReport.length;
             i += paginate.itemsPerPage
         ) {
             slicedPages.push(
-                transactionHistory.slice(i, i + paginate.itemsPerPage)
+                residentReport.slice(i, i + paginate.itemsPerPage)
             )
         }
 
@@ -140,11 +143,11 @@ function ResidentAccess() {
                 ...prev,
                 slicedPages,
                 totalPage: Math.ceil(
-                    transactionHistory.length / paginate.itemsPerPage
+                    residentReport.length / paginate.itemsPerPage
                 ),
             }
         })
-    }, [transactionHistory])
+    }, [residentReport])
 
     const handleNext = () => {
         console.log(paginate.currentPage, paginate.totalPage)
@@ -315,7 +318,7 @@ function ResidentAccess() {
                                 <p>Transaction Category</p>
                                 <p>Transaction ID</p>
                                 <p>Narration</p>
-                                <p>Amount</p>
+                                <p>Name</p>
                                 <p>Time</p>
                                 <p>Balance</p>
                                 <p>Actions</p>
@@ -332,7 +335,7 @@ function ResidentAccess() {
                                                     accessType,
                                                     mode_of_conduct,
                                                     phone_number,
-                                                    amount,
+                                                    name,
                                                     time,
                                                     balance,
                                                 },
@@ -367,7 +370,7 @@ function ResidentAccess() {
                                                                 alt=''
                                                             />
                                                             <span>
-                                                                {amount.toLocaleString()}
+                                                                {name.toLocaleString()}
                                                             </span>
                                                         </p>
                                                         <p>{time}</p>
