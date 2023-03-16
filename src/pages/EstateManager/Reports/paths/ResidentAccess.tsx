@@ -299,6 +299,13 @@ function ResidentAccess() {
                                 </select>
                                 <GrDown className='absolute right-4 text-[1.3rem]' />
                             </div>
+                            <div className='relative flex items-center'>
+                                <input
+                                    type='date'
+                                    placeholder='Search Parameters'
+                                    className='pl-16 w-[25rem] rounded-lg border border-color-blue-light appearance-none outline-none p-4'
+                                />
+                            </div>
                         </div>
 
                         <div className='grid bg-white'>
@@ -335,7 +342,6 @@ function ResidentAccess() {
                                                     name,
                                                     time,
                                                     accessCode,
-                                            
                                                 },
                                                 i
                                             ) => {
@@ -355,11 +361,7 @@ function ResidentAccess() {
                                                             <span> {date}</span>
                                                         </p>
                                                         <p>{accessType}</p>
-                                                        <p>
-                                                            {
-                                                                mode_of_conduct
-                                                            }
-                                                        </p>
+                                                        <p>{mode_of_conduct}</p>
                                                         <p>{phone_number}</p>
 
                                                         <p className='flex items-center gap-.5'>
@@ -372,15 +374,7 @@ function ResidentAccess() {
                                                             </span>
                                                         </p>
                                                         <p>{time}</p>
-                                                        <p className='flex items-center gap-.5'>
-                                                            <img
-                                                                src='/icons/Naira.svg'
-                                                                alt=''
-                                                            />
-                                                            <span>
-                                                                {balance.toLocaleString()}
-                                                            </span>
-                                                        </p>
+                                                       
                                                         <div className='relative'>
                                                             <label
                                                                 className='font-semibold capitalize cursor-pointer flex items-center gap-2 relative z-10'
