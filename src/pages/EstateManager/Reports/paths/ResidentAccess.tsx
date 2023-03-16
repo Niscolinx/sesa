@@ -37,8 +37,6 @@ export const TRANSACTION_HISTORY: TransactionHistory[] = Array.from({
     balance: 100000,
 }))
 
-type Trend = 'This Week' | 'This Month' | 'This Year'
-
 function ResidentAccess() {
     const navigate = useNavigate()
 
@@ -51,6 +49,39 @@ function ResidentAccess() {
             setTransactionHistory(TRANSACTION_HISTORY)
         }, 1000)
     }, [])
+
+    const [actions, _] = useState<['View Details', 'Deactivate']>([
+        'View Details',
+        'Deactivate',
+    ])
+    const [toggleDropDown, setToggleDropDown] = useState<{
+        isDropDownOpen: boolean
+        index: number | null
+    }>({
+        isDropDownOpen: false,
+        index: null,
+    })
+
+    const dropDownHandler = (
+        e: React.ChangeEvent<HTMLInputElement>,
+        index: number
+    ) => {
+        setToggleDropDown(() => {
+            return {
+                isDropDownOpen: e.target.checked,
+                index,
+            }
+        })
+    }
+
+    const selectAction = (
+        e: React.MouseEvent,
+        item: 'View Details' | 'Deactivate'
+    ) => {
+        if (item === 'View Details') {
+            navigate('/superAdmin/additional-resident/:Id')
+        }
+    }
 
     interface Paginate {
         index: number
@@ -327,6 +358,86 @@ function ResidentAccess() {
                                                                     {balance.toLocaleString()}
                                                                 </span>
                                                             </p>
+                                                            <div className='relative'>
+                                                                <label
+                                                                    className='font-semibold capitalize cursor-pointer flex items-center gap-2 relative z-10'
+                                                                    htmlFor={i.toString()}
+                                                                    onClick={() =>
+                                                                        setToggleDropDown(
+                                                                            (
+                                                                                prev
+                                                                            ) => {
+                                                                                return {
+                                                                                    isDropDownOpen:
+                                                                                        !prev.isDropDownOpen,
+                                                                                    index: i,
+                                                                                }
+                                                                            }
+                                                                        )
+                                                                    }
+                                                                >
+                                                                    <span className='text-color-primary'>
+                                                                        <img
+                                                                            src='/icons/admins/threeDots.svg'
+                                                                            alt=''
+                                                                        />
+                                                                    </span>
+                                                                </label>
+                                                                <input
+                                                                    type='radio'
+                                                                    name='dropdown'
+                                                                    className='hidden'
+                                                                    id={i.toString()}
+                                                                    onChange={(
+                                                                        e
+                                                                    ) =>
+                                                                        dropDownHandler(
+                                                                            e,
+                                                                            i
+                                                                        )
+                                                                    }
+                                                                />
+
+                                                                {isDropDownOpen &&
+                                                                    index ===
+                                                                        i && (
+                                                                        <div className='absolute top-0 translate-x-[4rem] border border-color-primary-light w-[10rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
+                                                                            {actions.map(
+                                                                                (
+                                                                                    item,
+                                                                                    index
+                                                                                ) => (
+                                                                                    <p
+                                                                                        className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
+                                                                                        key={
+                                                                                            index +
+                                                                                            i
+                                                                                        }
+                                                                                        onClick={(
+                                                                                            e
+                                                                                        ) =>
+                                                                                            selectAction(
+                                                                                                e,
+                                                                                                item
+                                                                                            )
+                                                                                        }
+                                                                                    >
+                                                                                        {item ===
+                                                                                        'Deactivate' ? (
+                                                                                            <span className='text-red-600'>
+                                                                                                {
+                                                                                                    item
+                                                                                                }
+                                                                                            </span>
+                                                                                        ) : (
+                                                                                            item
+                                                                                        )}
+                                                                                    </p>
+                                                                                )
+                                                                            )}
+                                                                        </div>
+                                                                    )}
+                                                            </div>
                                                         </div>
                                                     )
                                                 }
