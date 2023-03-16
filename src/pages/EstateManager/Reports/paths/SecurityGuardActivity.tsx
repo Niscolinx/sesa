@@ -241,8 +241,8 @@ function SecurityGuardActivity() {
                                    <span>Guard Name</span>
                                 </p>
                                 <p>Date</p>
-                                <p>Event Name</p>
-                                <p>Prop Code</p>
+                                <p>Guard Code</p>
+                                <p>Check - in Count</p>
                                 <p>Expected Guest</p>
                                 <p>Total Check-In</p>
                                 <p>Start Date</p>
