@@ -12,7 +12,6 @@ import { IoMdClose } from 'react-icons/io'
 
 import { useNavigate } from 'react-router-dom'
 
-
 export interface TransactionHistory {
     id: number
     transactionType: string
@@ -165,9 +164,6 @@ function ResidentAccess() {
         setToggleMenu(false)
     }
 
-  
-
-
     return (
         <>
             <div className='estateDetail'>
@@ -226,8 +222,17 @@ function ResidentAccess() {
 
                         <div className='bg-white p-8 rounded-lg grid justify-center items-baseline'>
                             <p className='font-Satoshi-Medium'> Count</p>
-                            <div>
-                                
+                            <div className='flex items-center gap-8'>
+                                <div>
+                                    <p>Check - In</p>
+                                    <div>
+                                        <img
+                                            src='/icons/report/walk1.svg'
+                                            alt=''
+                                        />
+                                        <p>3000</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </section>
