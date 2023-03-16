@@ -174,9 +174,34 @@ function ResidentAccess() {
                     <section
                         className=' text-[1.4rem] grid gap-8'
                         style={{
-                            gridTemplateColumns: '60% auto',
+                            gridTemplateColumns: 'auto 60%',
                         }}
                     >
+                        <div className='bg-white p-8 rounded-lg grid justify-center items-baseline border-r'>
+                            <p className='font-Satoshi-Medium'> Count</p>
+                            <div className='flex items-center gap-8'>
+                                <div className='grid gap-4 justify-start'>
+                                    <p>Check - In</p>
+                                    <div className='flex items-center gap-4'>
+                                        <img
+                                            src='/icons/report/walk1.svg'
+                                            alt=''
+                                        />
+                                        <p>3000</p>
+                                    </div>
+                                </div>
+                                <div className='grid gap-4 justify-start'>
+                                    <p>Check - Out</p>
+                                    <div className='flex items-center gap-4'>
+                                        <img
+                                            src='/icons/report/walk2.svg'
+                                            alt=''
+                                        />
+                                        <p>3000</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div className='border-l border-l-color-grey bg-white rounded-lg p-8 grid gap-10'>
                             <div className='flex justify-between'>
                                 <p className='text-[1.6rem] font-bold p-8'>
@@ -218,32 +243,6 @@ function ResidentAccess() {
                                 </div>
                             </div>
                             {/* <ResidentAccessBarChart /> */}
-                        </div>
-
-                        <div className='bg-white p-8 rounded-lg grid justify-center items-baseline'>
-                            <p className='font-Satoshi-Medium'> Count</p>
-                            <div className='flex items-center gap-8'>
-                                <div className='grid gap-4 justify-start'>
-                                    <p>Check - In</p>
-                                    <div className='flex items-center gap-4'>
-                                        <img
-                                            src='/icons/report/walk1.svg'
-                                            alt=''
-                                        />
-                                        <p>3000</p>
-                                    </div>
-                                </div>
-                                <div className='grid gap-4 justify-start'>
-                                    <p>Check - Out</p>
-                                    <div className='flex items-center gap-4'>
-                                        <img
-                                            src='/icons/report/walk2.svg'
-                                            alt=''
-                                        />
-                                        <p>3000</p>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </section>
                     <section className='bg-color-white rounded-lg border min-w-[112rem]'>
