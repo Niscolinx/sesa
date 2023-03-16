@@ -10,7 +10,7 @@ export interface ReportDetail {
     accessCode: string
     mode_of_entry: string
     phone_number: string
-    GroupNo: string
+    estateStaff_no: string
     name: string
     checkIn: string
     checkOut: string
@@ -23,7 +23,7 @@ export const ESTATESTAFF_REPORT: ReportDetail[] = Array.from({
     id: i,
     accessCode: 'R908423',
     mode_of_entry: 'Check-in',
-    GroupNo: '82823',
+    estateStaff_no: '82823',
     phone_number: '09084234382',
     name: 'Kunle Aba',
     checkIn: '12:00pm',
@@ -350,7 +350,7 @@ function EstateStaffReport() {
                                                     name,
                                                     checkIn,
                                                     accessCode,
-                                                    GroupNo,
+                                                    estateStaff_no,
                                                 },
                                                 i
                                             ) => {
@@ -371,7 +371,7 @@ function EstateStaffReport() {
                                                         </p>
                                                         <p>{accessCode}</p>
                                                         <p>{name}</p>
-                                                        <p>{GroupNo}</p>
+                                                        <p>{estateStaff_no}</p>
                                                         <p>{phone_number}</p>
                                                         <p>{mode_of_entry}</p>
                                                         <p>{checkIn}</p>
