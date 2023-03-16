@@ -213,11 +213,11 @@ function EventsReport() {
                 <section
                     className=' text-[1.4rem] grid gap-8 bg-white py-8 px-16 rounded-lg'
                     style={{
-                        gridTemplateColumns: 'auto 60%',
+                        gridTemplateColumns: '1fr 1fr',
                     }}
                 >
                     <div className=' grid items-baseline border-r grid-cols-2'>
-                        <div>
+                        <div className='grid gap-8'>
                             <p className='text-[1.8rem] font-Satoshi-Medium'>
                                 Total Event: 15
                             </p>
@@ -244,11 +244,11 @@ function EventsReport() {
                                 </div>
                             </div>
                         </div>
-                        <div>
+                        <div className='grid gap-8'>
                             <p className='text-[1.8rem] font-Satoshi-Medium'>
                                 Top 3 Event Check-In
                             </p>{' '}
-                            <div>
+                            <div className='grid gap-4'>
                                 <p className='flex items-center gap-4'>
                                     <span className='w-[1rem] h-[1rem] bg-gray-400 rounded-full'>
                                         &nbsp;
