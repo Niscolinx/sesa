@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
+import ResidentAccess from './paths/ResidentAccess'
 
 function Reports() {
     type Path =
@@ -30,7 +31,7 @@ function Reports() {
         setIsReport(true)
     }
 
-    const renderPath = new Map<Path, JSX.Element>([['resident_access', <></>]])
+    const renderPath = new Map<Path, JSX.Element>([['resident_access', <ResidentAccess/>]])
 
     return (
         <div>

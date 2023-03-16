@@ -11,7 +11,6 @@ import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { IoMdClose } from 'react-icons/io'
 
 import { useNavigate } from 'react-router-dom'
-import WalletBarChart from '../../../../components/SuperAdmin/charts/WalletBarChart'
 
 
 export interface TransactionHistory {
@@ -30,7 +29,7 @@ export const TRANSACTION_HISTORY: TransactionHistory[] = Array.from({
 }).map((_, i) => ({
     id: i,
     transactionType: 'Credit',
-    transactionCategory: 'Fund Wallet',
+    transactionCategory: 'Fund ResidentAccess',
     transactionId: 783239232,
     amount: 10000,
     time: '12:00pm',
@@ -40,7 +39,7 @@ export const TRANSACTION_HISTORY: TransactionHistory[] = Array.from({
 
 type Trend = 'This Week' | 'This Month' | 'This Year'
 
-function Wallet() {
+function ResidentAccess() {
     const navigate = useNavigate()
 
     const [transactionHistory, setTransactionHistory] = useState<
@@ -151,7 +150,7 @@ function Wallet() {
     }
 
     const detailsHandler = (id: number) => {
-        navigate(`/estateManager/wallet/transaction-details/:${id}`)
+        navigate(`/estateManager/residentAccess/transaction-details/:${id}`)
     }
 
     const trend: Array<Trend> = ['This Week', 'This Month', 'This Year']
@@ -184,7 +183,7 @@ function Wallet() {
                         <div className='border-l border-l-color-grey bg-white rounded-lg p-8 grid gap-10'>
                             <div className='flex justify-between'>
                                 <p className='text-[1.6rem] font-bold p-8'>
-                                    Wallet Trend
+                                    ResidentAccess Trend
                                 </p>
 
                                 <div className='relative grid gap-4'>
@@ -221,10 +220,11 @@ function Wallet() {
                                     )}
                                 </div>
                             </div>
-                            <WalletBarChart />
+                            {/* <ResidentAccessBarChart /> */}
                         </div>
 
                         <div className='bg-white p-8 rounded-lg grid justify-center items-baseline'>
+                            <p className='text-[2rem] font-Satoshi-Medium'>Resident Access Report</p>
                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi vel provident suscipit minima sit, blanditiis, iure accusantium quidem qui est ea cupiditate doloribus dolores temporibus omnis atque. Omnis, architecto aliquam.
                         </div>
                     </section>
@@ -430,4 +430,4 @@ function Wallet() {
     )
 }
 
-export default Wallet
+export default ResidentAccess
