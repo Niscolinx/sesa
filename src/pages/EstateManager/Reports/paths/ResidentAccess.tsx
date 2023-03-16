@@ -182,7 +182,7 @@ function ResidentAccess() {
     return (
         <>
             <div className='mt-8 grid gap-8'>
-                <div>
+                <div className='flex justify-between'>
                     <p className='text-[2rem]'>Resident Access Report</p>
                     <div className='relative grid gap-4'>
                         <div className='relative flex items-center w-[12rem]'>

@@ -117,7 +117,6 @@ function Wallet() {
     }, [transactionHistory])
 
     const handleNext = () => {
-        console.log(paginate.currentPage, paginate.totalPage)
         if (paginate.currentPage === paginate.totalPage) return
         setPaginate((prev) => {
             return {
