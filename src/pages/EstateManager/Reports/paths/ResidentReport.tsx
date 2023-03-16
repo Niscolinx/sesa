@@ -78,7 +78,7 @@ function ResidentReport() {
 
     const selectAction = (item: 'View Details', id: number) => {
         if (item === 'View Details') {
-            navigate(`/estateManager/report/view/:${id}`)
+            navigate(`/estateManager/reports/view/:${id}`)
         }
     }
 
