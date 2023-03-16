@@ -336,12 +336,13 @@ function VisitorReport() {
                                                 {
                                                     id,
                                                     date,
-                                                    accessType,
+                                                    checkOut,
                                                     mode_of_entry,
                                                     phone_number,
                                                     name,
                                                     checkIn,
                                                     accessCode,
+                                                    visitorNo
                                                 },
                                                 i
                                             ) => {
@@ -360,12 +361,13 @@ function VisitorReport() {
 
                                                             <span> {date}</span>
                                                         </p>
-                                                        <p>{mode_of_entry}</p>
                                                         <p>{accessCode}</p>
                                                         <p>{name}</p>
+                                                        <p>{visitorNo}</p>
                                                         <p>{phone_number}</p>
+                                                        <p>{mode_of_entry}</p>
                                                         <p>{checkIn}</p>
-                                                        <p>{accessType}</p>
+                                                        <p>{checkOut}</p>
 
                                                         <div className='relative'>
                                                             <label
