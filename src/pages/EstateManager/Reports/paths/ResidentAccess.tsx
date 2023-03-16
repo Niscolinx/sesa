@@ -198,15 +198,18 @@ function ResidentAccess() {
                 <div className='flex justify-between'>
                     <p className='text-[2rem]'>Resident Access Report</p>
                     <div className='relative grid gap-4'>
-                        <div className='relative flex items-center border border-color-grey p-4 rounded-lg w-full cursor-pointer'>
-                            <p className='' onClick={menuToggler}>
-                                Sort By: {sortType}
-                            </p>
-                            {toggleMenu ? (
-                                <GrUp className=' right-4' />
-                            ) : (
-                                <GrDown className=' right-4' />
-                            )}
+                        <div className='flex items-center gap-8'>
+                            <p>Sort By</p>
+                            <div className='relative flex items-center border border-color-grey bg-white p-4 rounded-lg w-full cursor-pointer'>
+                                <p className='' onClick={menuToggler}>
+                                    {sortType}
+                                </p>
+                                {toggleMenu ? (
+                                    <GrUp className='w-[1.2rem] h-[1.2rem]' />
+                                ) : (
+                                    <GrDown className='w-[1.2rem] h-[1.2rem]' />
+                                )}
+                            </div>
                         </div>
 
                         {toggleMenu && (
