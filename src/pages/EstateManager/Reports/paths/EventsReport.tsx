@@ -326,9 +326,11 @@ function EventsReport() {
                                 </p>
                                 <p>Event Code</p>
                                 <p>Event Name</p>
-                                <p>Mode of Entry</p>
-                                <p>Check-In</p>
-                                <p>Check-Out</p>
+                                <p>Prop Code</p>
+                                <p>Expected Guest</p>
+                                <p>Total Check-In</p>
+                                <p>Start Date</p>
+                                <p>End Date</p>
                                 <p>Action</p>
                             </div>
 
@@ -340,11 +342,13 @@ function EventsReport() {
                                                 {
                                                     id,
                                                     date,
-                                                    checkOut,
-                                                    startDate,
-                                                    name,
-                                                    totalCheckIn,
                                                     eventCode,
+                                                    eventName,
+                                                    expectedGuest,
+                                                    totalCheckIn,
+                                                    startDate,
+                                                    endDate,
+                                                    propCode
                                                 },
                                                 i
                                             ) => {
@@ -364,10 +368,12 @@ function EventsReport() {
                                                             <span> {date}</span>
                                                         </p>
                                                         <p>{eventCode}</p>
-                                                        <p>{name}</p>
-                                                        <p>{startDate}</p>
+                                                        <p>{eventName}</p>
+                                                        <p>{propCode}</p>
+                                                        <p>{expectedGuest}</p>
                                                         <p>{totalCheckIn}</p>
-                                                        <p>{checkOut}</p>
+                                                        <p>{startDate}</p>
+                                                        <p>{endDate}</p>
 
                                                         <div className='relative'>
                                                             <label
