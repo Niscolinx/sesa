@@ -187,7 +187,7 @@ function EstateStaffReport() {
         <>
             <div className='mt-8 grid gap-8'>
                 <div className='flex justify-between'>
-                    <p className='text-[2rem]'>Group Access Report</p>
+                    <p className='text-[2rem]'>Estate Staff Report</p>
                     <div className='relative grid gap-4'>
                         <div className='flex items-center gap-8'>
                             <p>Sort By</p>
@@ -273,7 +273,7 @@ function EstateStaffReport() {
                     <div className='grid border rounded-lg'>
                         <div className='grid p-10'>
                             <p className=' font-bold'>
-                                Group Report List <span>(200)</span>
+                                Estate Staff Report List <span>(200)</span>
                             </p>
                             <div className='flex w-full justify-start items-end gap-12 bg-white rounded-lg'>
                                 <div className='relative flex items-center'>
@@ -327,8 +327,8 @@ function EstateStaffReport() {
                                     <span> Date</span>
                                 </p>
                                 <p>Access Code</p>
-                                <p>Group Name</p>
-                                <p>Group No</p>
+                                <p>estateStaff Name</p>
+                                <p>estateStaff No</p>
                                 <p>Phone Number</p>
                                 <p>Mode of Entry</p>
                                 <p>Check-In</p>
