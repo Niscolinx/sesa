@@ -352,7 +352,7 @@ function HouseHold() {
                                                 type='checkbox'
                                                 className='cursor-pointer'
                                             />
-                                            <p>House Code</p>
+                                            <p>Property Code</p>
                                         </p>
                                         <p>Property Type</p>
                                         <p>Category/Name</p>
