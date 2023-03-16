@@ -7,10 +7,8 @@ import ReportChart from '../../../../components/SuperAdmin/charts/ReportsChart'
 
 export interface ReportDetail {
     id: number
-    accessCode: string
+    staffCode: string
     mode_of_entry: string
-    phone_number: string
-    estateStaff_no: string
     name: string
     checkIn: string
     checkOut: string
@@ -21,10 +19,8 @@ export const SITEWORKER_REPORT: ReportDetail[] = Array.from({
     length: 10,
 }).map((_, i) => ({
     id: i,
-    accessCode: 'R908423',
-    mode_of_entry: 'Check-in',
-    estateStaff_no: '82823',
-    phone_number: '09084234382',
+    staffCode: 'R908423',
+    mode_of_entry: 'Car',
     name: 'Kunle Aba',
     checkIn: '12:00pm',
     checkOut: '03:00pm',
@@ -187,7 +183,7 @@ function SiteWorkerReport() {
         <>
             <div className='mt-8 grid gap-8'>
                 <div className='flex justify-between'>
-                    <p className='text-[2rem]'>Estate Staff Report</p>
+                    <p className='text-[2rem]'>Site Worker Report</p>
                     <div className='relative grid gap-4'>
                         <div className='flex items-center gap-8'>
                             <p>Sort By</p>
@@ -273,7 +269,7 @@ function SiteWorkerReport() {
                     <div className='grid border rounded-lg'>
                         <div className='grid p-10'>
                             <p className=' font-bold'>
-                                Estate Staff Report List <span>(200)</span>
+                                Site Worker Report List <span>(200)</span>
                             </p>
                             <div className='flex w-full justify-start items-end gap-12 bg-white rounded-lg'>
                                 <div className='relative flex items-center'>
@@ -349,7 +345,7 @@ function SiteWorkerReport() {
                                                     phone_number,
                                                     name,
                                                     checkIn,
-                                                    accessCode,
+                                                    staffCode,
                                                     estateStaff_no,
                                                 },
                                                 i
@@ -369,7 +365,7 @@ function SiteWorkerReport() {
 
                                                             <span> {date}</span>
                                                         </p>
-                                                        <p>{accessCode}</p>
+                                                        <p>{staffCode}</p>
                                                         <p>{name}</p>
                                                         <p>{estateStaff_no}</p>
                                                         <p>{phone_number}</p>
