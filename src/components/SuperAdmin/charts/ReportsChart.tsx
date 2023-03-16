@@ -3,27 +3,33 @@ import { BarChart, Bar, XAxis, YAxis, Tooltip } from 'recharts'
 const data = [
     {
         name: 'Mon',
-        v: 25,
+        v: Math.floor(Math.random() * 15 + 5),
+        u: Math.floor(Math.random() * 15 + 5),
     },
     {
         name: 'Tue',
-        v: 20,
+        v: Math.floor(Math.random() * 15 + 5),
+        u: Math.floor(Math.random() * 15 + 5),
     },
     {
         name: 'Wed',
-        v: 5,
+        v: Math.floor(Math.random() * 15 + 5),
+        u: Math.floor(Math.random() * 15 + 5),
     },
     {
         name: 'Thur',
-        v: 10,
+        v: Math.floor(Math.random() * 15 + 5),
+        u: Math.floor(Math.random() * 15 + 5),
     },
     {
         name: 'Fri',
-        v: 12,
+        v: Math.floor(Math.random() * 15 + 5),
+        u: Math.floor(Math.random() * 15 + 5),
     },
     {
         name: 'Sat',
-        v: 21,
+        v: Math.floor(Math.random() * 15 + 5),
+        u: Math.floor(Math.random() * 15 + 5),
     },
     {
         name: 'Sun',
