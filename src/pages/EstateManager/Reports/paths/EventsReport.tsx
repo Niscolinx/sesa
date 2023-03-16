@@ -222,25 +222,38 @@ function EventsReport() {
                         gridTemplateColumns: 'auto 60%',
                     }}
                 >
-                    <div className=' grid items-baseline border-r'>
-                        <p className='text-[1.8rem] font-Satoshi-Medium'>
-                            Count
-                        </p>
-                        <div className='grid grid-cols-2 items-center'>
-                            <div className='grid gap-4 justify-start'>
-                                <p>Check - In</p>
-                                <div className='flex items-center gap-4'>
-                                    <img src='/icons/report/walk1.svg' alt='' />
-                                    <p>3000</p>
+                    <div className=' grid items-baseline border-r grid-cols-2'>
+                        <div>
+                            <p className='text-[1.8rem] font-Satoshi-Medium'>
+                                Total Event: 15
+                            </p>
+                            <div className='grid items-center'>
+                                <div className='grid gap-4 justify-start'>
+                                    <p>Check - In</p>
+                                    <div className='flex items-center gap-4'>
+                                        <img
+                                            src='/icons/report/walk1.svg'
+                                            alt=''
+                                        />
+                                        <p>3000</p>
+                                    </div>
+                                </div>
+                                <div className='grid gap-4 justify-start'>
+                                    <p>Check - Out</p>
+                                    <div className='flex items-center gap-4'>
+                                        <img
+                                            src='/icons/report/walk2.svg'
+                                            alt=''
+                                        />
+                                        <p>3000</p>
+                                    </div>
                                 </div>
                             </div>
-                            <div className='grid gap-4 justify-start'>
-                                <p>Check - Out</p>
-                                <div className='flex items-center gap-4'>
-                                    <img src='/icons/report/walk2.svg' alt='' />
-                                    <p>3000</p>
-                                </div>
-                            </div>
+                        </div>
+                        <div>
+                            <p className='text-[1.8rem] font-Satoshi-Medium'>
+                                Top 3 Event Check-In
+                            </p>{' '}
                         </div>
                     </div>
                     <div className=' grid gap-16'>
@@ -315,7 +328,7 @@ function EventsReport() {
                             </div>
                         </div>
                         <div className='grid bg-white'>
-                            <div className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-7 gap-8 text-[1.4rem] items-center'>
+                            <div className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-9 gap-8 text-[1.4rem] items-center'>
                                 <p className='flex items-center gap-4'>
                                     <input
                                         type='checkbox'
@@ -348,7 +361,7 @@ function EventsReport() {
                                                     totalCheckIn,
                                                     startDate,
                                                     endDate,
-                                                    propCode
+                                                    propCode,
                                                 },
                                                 i
                                             ) => {
@@ -358,7 +371,7 @@ function EventsReport() {
                                                 } = toggleDropDown
 
                                                 return (
-                                                    <div className='grid justify-between border-b grid-cols-7 items-center gap-8 py-4'>
+                                                    <div className='grid justify-between border-b grid-cols-9 items-center gap-8 py-4'>
                                                         <p className='flex items-center gap-4'>
                                                             <input
                                                                 type='checkbox'
