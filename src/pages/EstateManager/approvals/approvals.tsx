@@ -2,17 +2,17 @@ import { useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
 
 function Approvals() {
-    type Path = 'tokenList' | 'tokenPurchase'
+    type Path = 'event-request' | 'resident-onboarding'| 'site-worker-request' | 'SESA-digital-request'
     const [isApprovals, setIsApprovals] = useState(false)
-    const [currentPath, setCurrentPath] = useState<Path>('tokenList')
+    const [currentPath, setCurrentPath] = useState<Path>('event-request')
 
     const addApprovalsHandler = () => {
         setIsApprovals(true)
     }
 
     const paths = new Map<Path, JSX.Element>([
-        ['tokenList', <></>],
-        ['tokenPurchase', <></>],
+        ['event-request', <></>],
+        ['resident-onboarding', <></>],
     ])
 
     return (
@@ -30,15 +30,15 @@ function Approvals() {
                             <input
                                 type='radio'
                                 name='token'
-                                id='tokenList'
+                                id='event-request'
                                 className='hidden'
-                                onChange={() => setCurrentPath('tokenList')}
+                                onChange={() => setCurrentPath('event-request')}
                                 defaultChecked
                             />
                             <label
-                                htmlFor='tokenList'
+                                htmlFor='event-request'
                                 className={` ${
-                                    currentPath === 'tokenList'
+                                    currentPath === 'event-request'
                                         ? 'font-Satoshi-Medium'
                                         : 'capitalize'
                                 }`}
@@ -49,14 +49,14 @@ function Approvals() {
                             <input
                                 type='radio'
                                 name='token'
-                                id='tokenPurchase'
+                                id='resident-onboarding'
                                 className='hidden'
-                                onChange={() => setCurrentPath('tokenPurchase')}
+                                onChange={() => setCurrentPath('resident-onboarding')}
                             />
                             <label
-                                htmlFor='tokenPurchase'
+                                htmlFor='resident-onboarding'
                                 className={` ${
-                                    currentPath === 'tokenPurchase'
+                                    currentPath === 'resident-onboarding'
                                         ? 'font-Satoshi-Medium'
                                         : 'capitalize'
                                 }`}
