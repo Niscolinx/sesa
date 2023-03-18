@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import { toast, ToastContainer } from 'react-toastify'
 
 const ApprovalDetail = () => {
