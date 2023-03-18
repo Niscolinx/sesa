@@ -58,7 +58,7 @@ function Approvals() {
                                                 : ''
                                         }`}
                                     >
-                                        {eachPath.replace('-', ' ')}
+                                        {eachPath.replaceAll('-', ' ')}
                                     </label>
                                 </Fragment>
                             ))}
