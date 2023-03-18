@@ -8,26 +8,26 @@ import { Link, useNavigate } from 'react-router-dom'
 
 type Status = 'pending' | 'declined' | 'approved'
 export interface Approval {
-    id: number,
+    id: number
     requester: {
         date: string
         title: string
         residentName: string
         propertyCode: string
         status: Status
-        phoneNumber:string
+        phoneNumber: string
         tenancyType: string
         residentCode: string
         propertyCategory: string[]
         propertyType: string
         time: string
-    },
+    }
     event: {
-        eventCode: string,
-        eventName: string,
+        eventCode: string
+        eventName: string
         eventAddress: string
         eventType: string
-        expectedNoOfGuests: number,
+        expectedNoOfGuests: number
         startTime: string
         endTime: string
     }
@@ -47,17 +47,20 @@ export const APPROVAL_LIST: Approval[] = Array.from({
         status: status[Math.floor(Math.random() * status.length)],
         phoneNumber: '0902382323',
         tenancyType: 'tenancyType',
+        propertyType: 'one-bed',
+        residentCode: 'R08923',
         propertyCategory: ['Commercial, residential'],
-        time: '12:30PM'
+        time: '12:30PM',
     },
     event: {
-    code: 'H08232',
-    name: 'peter Obi at 60',
-    address: 'No. 1 Osaji str. Woods Bam.',
-    expectedNoOfGuests: 50,
-    type: 'Birthday',
-    startTime: 
-    }
+        eventCode: 'H08232',
+        eventName: 'peter Obi at 60',
+        eventAddress: 'No. 1 Osaji str. Woods Bam.',
+        expectedNoOfGuests: 50,
+        eventType: 'Birthday',
+        startTime: '09:00AM',
+        endTime: '02:45PM',
+    },
 }))
 
 function EventRequest() {
@@ -222,7 +225,6 @@ function EventRequest() {
                             slicedPages[paginate.index].map(
                                 (approvalBody, i) => {
                                     const {
-                                        id,
                                         date,
                                         propertyCode,
                                         residentName,
