@@ -215,14 +215,14 @@ function EventRequest() {
                                         </div>
 
                                         <div className='flex items-center gap-2'>
-                                            <p>Transmission Date:</p>
+                                            <p>resident Name:</p>
                                             <p
                                                 style={{
                                                     fontFamily:
                                                         'Satoshi-Medium',
                                                 }}
                                             >
-                                                {transmissionDate}
+                                                {residentName}
                                             </p>
                                         </div>
                                        
