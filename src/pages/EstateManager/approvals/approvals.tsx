@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { Fragment, useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
 
 function Approvals() {
@@ -38,27 +38,30 @@ function Approvals() {
                                 marginBottom: '2rem',
                             }}
                         >
-                            {
-                                
-                            }
-                            <input
-                                type='radio'
-                                name='token'
-                                id='event-request'
-                                className='hidden'
-                                onChange={() => setCurrentPath('event-request')}
-                                defaultChecked
-                            />
-                            <label
-                                htmlFor='event-request'
-                                className={` ${
-                                    currentPath === 'event-request'
-                                        ? 'font-Satoshi-Medium'
-                                        : 'capitalize'
-                                }`}
-                            >
-                                Token List
-                            </label>
+                            {path.map((eachPath, i) => (
+                                <Fragment key={eachPath + i}>
+                                    <input
+                                        type='radio'
+                                        name='approval'
+                                        id={eachPath + i}
+                                        className='hidden'
+                                        onChange={() =>
+                                            setCurrentPath(eachPath)
+                                        }
+                                        defaultChecked
+                                    />
+                                    <label
+                                        htmlFor={eachPath + i}
+                                        className={`capitalize ${
+                                            currentPath === eachPath
+                                                ? 'font-Satoshi-Medium'
+                                                : ''
+                                        }`}
+                                    >
+                                        Token List
+                                    </label>
+                                </Fragment>
+                            ))}
 
                             <input
                                 type='radio'
