@@ -1,39 +1,42 @@
 import { useRef, useState } from 'react'
 import { useLocation } from 'react-router'
 import { toast, ToastContainer } from 'react-toastify'
+import { Approval } from './paths/EventRequest'
 
 const ApprovalDetail = () => {
-  type DialogType = 'decline' | 'approve'
+    type DialogType = 'decline' | 'approve'
 
-  const location = useLocation()
+    const location = useLocation()
 
-  const approval = location.state || {}
+    const approval = location.state || {}
 
-  const = { id
-    requester: {
-        date,
-        title,
-        residentName,
-        propertyCode,
-        status,
-        phoneNumber,
-        tenancyType,
-        residentCode,
-        propertyCategory
-        propertyType,
-        time,
-    }
-    event: {
-        eventCode,
-        eventName,
-        eventAddress,
-        eventType,
-        expectedNoOfGuests: number
-        startTime,
-        endTime,
-    }
-} = location
-  const [dialogType, setDialogType] = useState<DialogType>('decline')
+    const {
+        id,
+        requester: {
+            date,
+            title,
+            residentName,
+            propertyCode,
+            status,
+            phoneNumber,
+            tenancyType,
+            residentCode,
+            propertyCategory,
+            propertyType,
+            time,
+        },
+        event: {
+            eventCode,
+            eventName,
+            eventAddress,
+            eventType,
+            expectedNoOfGuests,
+            startTime,
+            endTime,
+        },
+    } = approval as Approval
+
+    const [dialogType, setDialogType] = useState<DialogType>('decline')
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
