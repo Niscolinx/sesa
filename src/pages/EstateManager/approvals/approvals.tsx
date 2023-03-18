@@ -48,7 +48,7 @@ function Approvals() {
                                         onChange={() =>
                                             setCurrentPath(eachPath)
                                         }
-                                        defaultChecked
+                                        checked={eachPath === currentPath}
                                     />
                                     <label
                                         htmlFor={eachPath + i}
