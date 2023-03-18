@@ -194,35 +194,15 @@ function EventRequest() {
                                 const {
                                     id,
                                     date,
-                                    subject,
-                                    description,
+                                    propertyCode,
+                                    residentName,
                                     status,
-                                    transmissionChannel,
-                                    transmissionDate,
-                                    recipients,
+                                    title
+                                
                                 } = approvalBody
                                 return (
                                     <div className='grid relative p-8 bg-white rounded-lg gap-2'>
                                         <div className='flex items-center gap-2 absolute right-0 top-0 p-8'>
-                                            <p>Status:</p>
-                                            <p
-                                                style={{
-                                                    fontFamily:
-                                                        'Satoshi-Medium',
-                                                }}
-                                            >
-                                                {status === 'Sent' ? (
-                                                    <span className='text-green-600'>
-                                                        {status}
-                                                    </span>
-                                                ) : (
-                                                    <span className='text-orange-500'>
-                                                        {status}
-                                                    </span>
-                                                )}
-                                            </p>
-                                        </div>
-                                        <div className='flex items-center gap-2'>
                                             <p>Date:</p>
                                             <p
                                                 style={{
@@ -233,6 +213,7 @@ function EventRequest() {
                                                 {date}
                                             </p>
                                         </div>
+
                                         <div className='flex items-center gap-2'>
                                             <p>Transmission Date:</p>
                                             <p
@@ -287,19 +268,22 @@ function EventRequest() {
                                             </p>
                                         </div>
                                         <div className='flex items-center gap-2'>
-                                            <p>Subject:</p>
+                                            <p>Status:</p>
                                             <p
                                                 style={{
                                                     fontFamily:
                                                         'Satoshi-Medium',
                                                 }}
                                             >
-                                                {subject}
-                                            </p>
-                                        </div>
-                                        <div className='flex items-center gap-2 my-5'>
-                                            <p className='overflow-hidden text-ellipsis whitespace-nowrap max-w-[40rem] '>
-                                                {description}
+                                                {status === 'Sent' ? (
+                                                    <span className='text-green-600'>
+                                                        {status}
+                                                    </span>
+                                                ) : (
+                                                    <span className='text-orange-500'>
+                                                        {status}
+                                                    </span>
+                                                )}
                                             </p>
                                         </div>
 
