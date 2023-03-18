@@ -101,11 +101,11 @@ const ApprovalDetail = () => {
                         ) : (
                             <>
                                 <img
-                                    src='/icons/admins/modalDeactivate.svg'
+                                    src='/icons/admins/modalWarning.svg'
                                     alt=''
                                 />
                                 <p className='text-[1.6rem]'>
-                                    Are you sure you want to Approve?
+                                    Decline Confirmation
                                 </p>
 
                                 <div className='flex w-full justify-center gap-8'>
@@ -133,7 +133,7 @@ const ApprovalDetail = () => {
                         <div className='flex gap-8 justify-between items-center'>
                             <button
                                 className='bg-red-600 px-16 py-4 flex items-center  rounded-lg gap-4'
-                                onClick={() => handleOpen()}
+                                onClick={() => handleOpen('decline')}
                             >
                                 <span className='text-white text-[1.4rem] font-semibold'>
                                     Deline
@@ -141,7 +141,7 @@ const ApprovalDetail = () => {
                             </button>
                             <button
                                 className='bg-color-blue px-16 py-4 flex items-center  rounded-lg gap-4'
-                                onClick={() => handleOpen()}
+                                onClick={() => handleOpen('approve')}
                             >
                                 <span className='text-white text-[1.4rem] font-semibold'>
                                     Approve
