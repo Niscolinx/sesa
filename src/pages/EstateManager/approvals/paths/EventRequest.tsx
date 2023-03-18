@@ -268,7 +268,7 @@ function EventRequest() {
                                         </div>
 
                                         <Link
-                                            to={`/estateManager/approvals/view/${id}`}
+                                            to={`/estateManager/approvals/view/:${id}`}
                                             state={approvalBody}
                                             className='text-color-blue'
                                             style={{
