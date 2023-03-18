@@ -8,7 +8,7 @@ function Approvals() {
         | 'site-worker-request'
         | 'SESA-digital-request'
 
-    const path:Path[] = [
+    const path: Path[] = [
         'event-request',
         'resident-onboarding',
         'site-worker-request',
@@ -58,7 +58,7 @@ function Approvals() {
                                                 : ''
                                         }`}
                                     >
-                                        Token List
+                                        {eachPath.replace('-', ' ')}
                                     </label>
                                 </Fragment>
                             ))}
