@@ -92,26 +92,24 @@ const ApprovalDetail = () => {
                     </div>
                 </section>
             </dialog>
-            <main>
+            <main className='grid bg-white rounded-lg p-8'>
                 <section className=' py-10 mt-20'>
                     <div className='flex justify-end'>
-                        <div className='flex gap-8 justify-between'>
+                        <div className='flex gap-8 justify-between items-center'>
                             <button
                                 className='border border-red-600 px-16 py-4 flex items-center  rounded-lg gap-4'
                                 onClick={() => handleOpen()}
                             >
-                                <img src='/icons/admins/delete.svg' alt='' />
                                 <span className='text-red-600 text-[1.4rem] font-semibold'>
-                                    Delete Message
+                                    Deline
                                 </span>
                             </button>
                             <button
                                 className='border border-red-600 px-16 py-4 flex items-center  rounded-lg gap-4'
                                 onClick={() => handleOpen()}
                             >
-                                <img src='/icons/admins/delete.svg' alt='' />
                                 <span className='text-red-600 text-[1.4rem] font-semibold'>
-                                    Delete Message
+                                    Approve
                                 </span>
                             </button>
                         </div>
