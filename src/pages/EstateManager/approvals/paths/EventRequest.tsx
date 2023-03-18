@@ -225,46 +225,16 @@ function EventRequest() {
                                                 {transmissionDate}
                                             </p>
                                         </div>
-                                        <div className='flex items-center gap-2 max-w-[40rem] overflow-hidden text-ellipsis whitespace-nowrap'>
-                                            <p>Recipients:</p>
-                                            <div
-                                                style={{
-                                                    fontFamily:
-                                                        'Satoshi-Medium',
-                                                }}
-                                                className='flex gap-2'
-                                            >
-                                                {recipients.map(
-                                                    (recipient, i) => (
-                                                        <div
-                                                            className='flex gap-2 items-center  text-ellipsis whitespace-nowrap'
-                                                            key={i}
-                                                        >
-                                                            <p className=''>
-                                                                {recipient}
-                                                                {i !==
-                                                                    recipients.length -
-                                                                        1 &&
-                                                                    ','}
-                                                            </p>
-                                                        </div>
-                                                    )
-                                                )}
-                                                <span className='text-color-blue '>
-                                                    {' '}
-                                                    + 20 others
-                                                </span>
-                                            </div>
-                                        </div>
+                                       
                                         <div className='flex items-center gap-2'>
-                                            <p>Transmission Channel:</p>
+                                            <p>Property Code:</p>
                                             <p
                                                 style={{
                                                     fontFamily:
                                                         'Satoshi-Medium',
                                                 }}
                                             >
-                                                {transmissionChannel}
+                                                {propertyCode}
                                             </p>
                                         </div>
                                         <div className='flex items-center gap-2'>
