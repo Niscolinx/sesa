@@ -275,14 +275,16 @@ function EventRequest() {
                                                         'Satoshi-Medium',
                                                 }}
                                             >
-                                                {status === 'Sent' ? (
+                                                {status === 'approved' ? (
                                                     <span className='text-green-600'>
                                                         {status}
                                                     </span>
-                                                ) : (
-                                                    <span className='text-orange-500'>
+                                                ) : status === 'declined' ? (
+                                                    <span className='text-red-500'>
                                                         {status}
                                                     </span>
+                                                ): (
+                                                    <span className='text-orange-500'>{status}</span>
                                                 )}
                                             </p>
                                         </div>
