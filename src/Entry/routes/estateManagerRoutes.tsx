@@ -45,6 +45,7 @@ import VotePhysically from '../../pages/EstateManager/voting/VotePhysically'
 import Reports from '../../pages/EstateManager/Reports/Reports'
 import ReportDetail from '../../pages/EstateManager/Reports/ReportDetail'
 import Approvals from '../../pages/EstateManager/approvals/Approvals'
+import ApprovalDetail from '../../pages/EstateManager/approvals/ApprovalDetail'
 
 const estateManagerRoutes = (
     <Route path='/estateManager' element={<Dashboard />}>
@@ -103,6 +104,7 @@ const estateManagerRoutes = (
         <Route path='reports' element={<Reports />} />
         <Route path='reports/view/:id' element={<ReportDetail />} />
         <Route path='approvals' element={<Approvals />} />
+        <Route path='approvals/view/:id' element={<ApprovalDetail />} />
     </Route>
 )
 
