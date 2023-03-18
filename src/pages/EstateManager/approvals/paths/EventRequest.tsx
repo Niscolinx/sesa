@@ -8,8 +8,8 @@ import { Link, useNavigate } from 'react-router-dom'
 
 type Status = 'pending' | 'declined' | 'approved'
 export interface Approval {
+    id: number,
     requester: {
-        id: number
         date: string
         title: string
         residentName: string
@@ -20,17 +20,26 @@ export interface Approval {
         residentCode: string
         propertyCategory: string[]
         propertyType: string
+        dateAndType: string
     },
-
+    event: {
+        code: string,
+        name: string,
+        address: string
+        type: string
+        expectedNoOfGuests: number,
+        startTime: string
+        endTime: string
+    }
 }
 
 const status: Status[] = ['approved', 'declined', 'pending']
 
-export const APPROVAL_LIST: Pick<Approval, 'requester'>[] = Array.from({
+export const APPROVAL_LIST: Approval[] = Array.from({
     length: 10,
 }).map((_, i) => ({
+    id: i + 1,
     requester: {
-        id: i + 1,
         date: '19-May-2023',
         title: 'event request',
         residentName: 'Osaji Valentine',
