@@ -6,30 +6,24 @@ import { IoMdAdd } from 'react-icons/io'
 
 import { Link, useNavigate } from 'react-router-dom'
 
+type Status = 'pending' | 'declined' | 'approved'
 export interface Approval {
     id: number
     date: string
-    transmissionDate: string
-    recipients: string[]
-    transmissionChannel: string
-    subject: string
-    description: string
-    status: 'Sent' | 'Pending'
+    title: string
+    residentName: string
+    propertyCode: string
+    status: Status
 }
 
-const recipients = ['Thomas Nwaje', 'Solomon Nwaje']
+const status: Status[] = ['approved', 'declined', 'pending']
 
 export const APPROVAL_LIST: Approval[] = Array.from({ length: 10 }).map(
     (_, i) => ({
         id: i + 1,
         date: '19-May-2023',
-        transmissionDate: '19-May-2023',
-        recipients,
-        transmissionChannel: `Channel ${i + 1}`,
-        subject: `Monday Workings`,
-        description:
-            'The report for the month of May is ready for review  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit est aperiam aspernatur nulla, quidem libero dolore impedit nihil, esse provident non autem quo. Veniam facilis alias distinctio quod eos deserunt Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga adipisci, distinctio suscipit quos dolorem veniam illum assumenda exercitationem saepe voluptatum odit eligendi deserunt omnis vero, reiciendis, tempore quae alias accusantium.',
-        status: Math.random() > 0.5 ? 'Sent' : 'Pending',
+      
+        
     })
 )
 
