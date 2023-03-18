@@ -93,7 +93,7 @@ const ApprovalDetail = () => {
                 </section>
             </dialog>
             <main className='grid bg-white rounded-lg p-8'>
-                <section className=' py-10 mt-20'>
+                <section className=' py-10'>
                     <div className='flex justify-end'>
                         <div className='flex gap-8 justify-between items-center'>
                             <button
