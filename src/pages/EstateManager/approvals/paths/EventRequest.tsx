@@ -22,8 +22,10 @@ export const APPROVAL_LIST: Approval[] = Array.from({ length: 10 }).map(
     (_, i) => ({
         id: i + 1,
         date: '19-May-2023',
-      
-        
+        title: 'event request',
+        residentName: 'Osaji Valentine',
+        propertyCode: '092382',
+        status: status[Math.floor(Math.random() * status.length)]
     })
 )
 
@@ -135,7 +137,7 @@ function EventRequest() {
         setSearch(value)
 
         const filtered = APPROVAL_LIST.filter((item) =>
-            item.subject.toLowerCase().includes(value.toLowerCase())
+            item.title.toLowerCase().includes(value.toLowerCase())
         )
         setApprovalList([...filtered])
     }
@@ -149,7 +151,7 @@ function EventRequest() {
             <div className='grid text-[1.6rem] border rounded-lg'>
                 <div className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
                     <p className=' font-bold'>
-                        Approvals <span>(200)</span>
+                        Event Request <span>(200)</span>
                     </p>
                     <div className='relative flex items-center'>
                         <img
@@ -176,15 +178,7 @@ function EventRequest() {
                         <GrDown className='absolute right-4 text-[1.3rem]' />
                     </div>
 
-                    <button
-                        className='btn ml-auto bg-color-blue-1 text-white flex gap-2 items-center self-center rounded-lg py-4 px-8 capitalize'
-                        onClick={composeApprovalHandler}
-                    >
-                        <span>
-                            <IoMdAdd />
-                        </span>{' '}
-                        <p>compose Approval</p>
-                    </button>
+                    
                 </div>
 
                 <div
