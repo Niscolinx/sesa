@@ -97,18 +97,18 @@ const ApprovalDetail = () => {
                     <div className='flex justify-end'>
                         <div className='flex gap-8 justify-between items-center'>
                             <button
-                                className='border border-red-600 px-16 py-4 flex items-center  rounded-lg gap-4'
+                                className='bg-red-600 px-16 py-4 flex items-center  rounded-lg gap-4'
                                 onClick={() => handleOpen()}
                             >
-                                <span className='text-red-600 text-[1.4rem] font-semibold'>
+                                <span className='text-white text-[1.4rem] font-semibold'>
                                     Deline
                                 </span>
                             </button>
                             <button
-                                className='border border-red-600 px-16 py-4 flex items-center  rounded-lg gap-4'
+                                className='bg-color-blue px-16 py-4 flex items-center  rounded-lg gap-4'
                                 onClick={() => handleOpen()}
                             >
-                                <span className='text-red-600 text-[1.4rem] font-semibold'>
+                                <span className='text-white text-[1.4rem] font-semibold'>
                                     Approve
                                 </span>
                             </button>
