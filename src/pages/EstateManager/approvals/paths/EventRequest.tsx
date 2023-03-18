@@ -14,8 +14,12 @@ export interface Approval {
         title: string
         residentName: string
         propertyCode: string
-        phoneNumber:string
         status: Status
+        phoneNumber:string
+        tenancyType: string
+        residentCode: string
+        propertyCategory: string[]
+        propertyType: string
     },
 
 }
