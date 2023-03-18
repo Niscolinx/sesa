@@ -2,6 +2,9 @@ import { useRef } from 'react'
 import { toast, ToastContainer } from 'react-toastify'
 
 const ApprovalDetail = () => {
+  type DialogType = 'decline' | 'approve'
+  const [dialogType, setDialogType] = useState<DialogType>('decline')
+
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
     const handleClose = () => {
@@ -19,10 +22,10 @@ const ApprovalDetail = () => {
     const handleDeleteMessage = () => {
         handleClose()
 
-        toast('Message deleted successfully', {
-            type: 'success',
-            className: 'bg-green-100 text-green-600 text-[1.4rem]',
-        })
+        // toast('Message deleted successfully', {
+        //     type: 'success',
+        //     className: 'bg-green-100 text-green-600 text-[1.4rem]',
+        // })
     }
 
     return (
