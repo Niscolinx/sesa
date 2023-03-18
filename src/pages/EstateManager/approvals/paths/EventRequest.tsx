@@ -199,9 +199,9 @@ function EventRequest() {
                                 } = approvalBody
                                 return (
                                     <div className='grid relative p-8 bg-white rounded-lg gap-2 capitalize'>
-                                        <div className='flex justify-between items-center gap-4'>
+                                        <div className='flex justify-between items-center gap-4 mb-10'>
                                             <p className='flex items-center gap-4'>
-                                                <span className='bg-green-600 text-white p-6 rounded-2xl'>
+                                                <span className='bg-green-600 text-white p-4 rounded-2xl'>
                                                     {title}
                                                 </span>
                                                 {
@@ -268,7 +268,7 @@ function EventRequest() {
                                         </div>
 
                                         <Link
-                                            to={`/securityCompany/approvals/view/${id}`}
+                                            to={`/estateManager/approvals/view/${id}`}
                                             state={approvalBody}
                                             className='text-color-blue'
                                             style={{
