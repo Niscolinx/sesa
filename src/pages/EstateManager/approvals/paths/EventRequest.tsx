@@ -25,7 +25,7 @@ export const APPROVAL_LIST: Approval[] = Array.from({ length: 10 }).map(
         title: 'event request',
         residentName: 'Osaji Valentine',
         propertyCode: '092382',
-        status: status[Math.floor(Math.random() * status.length)]
+        status: status[Math.floor(Math.random() * status.length)],
     })
 )
 
@@ -177,8 +177,6 @@ function EventRequest() {
                         </select>
                         <GrDown className='absolute right-4 text-[1.3rem]' />
                     </div>
-
-                    
                 </div>
 
                 <div
@@ -197,22 +195,20 @@ function EventRequest() {
                                     propertyCode,
                                     residentName,
                                     status,
-                                    title
-                                
+                                    title,
                                 } = approvalBody
                                 return (
                                     <div className='grid relative p-8 bg-white rounded-lg gap-2'>
-                                        <div className='flex items-center gap-2 absolute right-0 top-0 p-8'>
-                                            <p>Date:</p>
-                                            <p
-                                                style={{
-                                                    fontFamily:
-                                                        'Satoshi-Medium',
-                                                }}
+                                        <div>
+
+                                        <p
+                                            style={{
+                                                fontFamily: 'Satoshi-Medium',
+                                            }}
                                             >
-                                                {date}
-                                            </p>
-                                        </div>
+                                            {date}
+                                        </p>
+                                            </div>
 
                                         <div className='flex items-center gap-2'>
                                             <p>resident Name:</p>
@@ -225,7 +221,7 @@ function EventRequest() {
                                                 {residentName}
                                             </p>
                                         </div>
-                                       
+
                                         <div className='flex items-center gap-2'>
                                             <p>Property Code:</p>
                                             <p
@@ -253,8 +249,10 @@ function EventRequest() {
                                                     <span className='text-red-500'>
                                                         {status}
                                                     </span>
-                                                ): (
-                                                    <span className='text-orange-500'>{status}</span>
+                                                ) : (
+                                                    <span className='text-orange-500'>
+                                                        {status}
+                                                    </span>
                                                 )}
                                             </p>
                                         </div>
