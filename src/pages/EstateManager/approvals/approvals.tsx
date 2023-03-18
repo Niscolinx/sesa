@@ -2,7 +2,18 @@ import { useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
 
 function Approvals() {
-    type Path = 'event-request' | 'resident-onboarding'| 'site-worker-request' | 'SESA-digital-request'
+    type Path =
+        | 'event-request'
+        | 'resident-onboarding'
+        | 'site-worker-request'
+        | 'SESA-digital-request'
+
+    const path:Path[] = [
+        'event-request',
+        'resident-onboarding',
+        'site-worker-request',
+        'SESA-digital-request',
+    ]
     const [isApprovals, setIsApprovals] = useState(false)
     const [currentPath, setCurrentPath] = useState<Path>('event-request')
 
@@ -27,6 +38,9 @@ function Approvals() {
                                 marginBottom: '2rem',
                             }}
                         >
+                            {
+                                
+                            }
                             <input
                                 type='radio'
                                 name='token'
@@ -51,7 +65,9 @@ function Approvals() {
                                 name='token'
                                 id='resident-onboarding'
                                 className='hidden'
-                                onChange={() => setCurrentPath('resident-onboarding')}
+                                onChange={() =>
+                                    setCurrentPath('resident-onboarding')
+                                }
                             />
                             <label
                                 htmlFor='resident-onboarding'
