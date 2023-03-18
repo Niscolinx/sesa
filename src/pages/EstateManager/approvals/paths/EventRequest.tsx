@@ -188,7 +188,7 @@ function EventRequest() {
                 >
                     {slicedPages && slicedPages.length > 0 ? (
                         React.Children.toArray(
-                            slicedPages[paginate.index].map((approvalBody) => {
+                            slicedPages[paginate.index].map((approvalBody, i) => {
                                 const {
                                     id,
                                     date,
@@ -201,9 +201,14 @@ function EventRequest() {
                                     <div className='grid relative p-8 bg-white rounded-lg gap-2 capitalize'>
                                         <div className='flex justify-between items-center gap-4'>
                                             <p>
-                                                <span className='bg-green-600 text-white'>
+                                                <span className='bg-green-600 text-white p-6 rounded-2xl'>
                                                     {title}
                                                 </span>
+                                                {
+                                                    i === 0 && <span className='text-red-500 font-Satoshi-Medium'>
+                                                        New
+                                                    </span>
+                                                }
                                             </p>
                                             <p
                                                 style={{
