@@ -46,7 +46,12 @@ const ApprovalDetail = () => {
         }
     }
 
-    const handleOpen = () => {
+    const handleOpen = (type: DialogType) => {
+        if (type === 'approve') {
+            setDialogType('approve')
+        } else {
+            setDialogType('decline')
+        }
         if (dialogRef.current) {
             dialogRef.current.showModal()
         }
@@ -68,28 +73,57 @@ const ApprovalDetail = () => {
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
-                      {dialogType === 'approve' ? (  <>
-                            <img src='/icons/admins/modalDeactivate.svg' alt='' />
-                            <p className='text-[1.6rem]'>
-                                Are you sure you want to Approve?
-                            </p>
+                        {dialogType === 'approve' ? (
+                            <>
+                                <img
+                                    src='/icons/admins/modalDeactivate.svg'
+                                    alt=''
+                                />
+                                <p className='text-[1.6rem]'>
+                                    Are you sure you want to Approve?
+                                </p>
 
-                            <div className='flex w-full justify-center gap-8'>
-                                <button
-                                    className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
-                                    onClick={() => handleClose()}
-                                >
-                                    Cancel
-                                </button>
-                                <button
-                                    className='bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
-                                    onClick={handleDeleteMessage}
-                                >
-                                    Approve
-                                </button>
-                            </div>
-                        </>): ()}
-                      
+                                <div className='flex w-full justify-center gap-8'>
+                                    <button
+                                        className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
+                                        onClick={() => handleClose()}
+                                    >
+                                        Cancel
+                                    </button>
+                                    <button
+                                        className='bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
+                                        onClick={handleDeleteMessage}
+                                    >
+                                        Approve
+                                    </button>
+                                </div>
+                            </>
+                        ) : (
+                            <>
+                                <img
+                                    src='/icons/admins/modalDeactivate.svg'
+                                    alt=''
+                                />
+                                <p className='text-[1.6rem]'>
+                                    Are you sure you want to Approve?
+                                </p>
+
+                                <div className='flex w-full justify-center gap-8'>
+                                    <button
+                                        className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
+                                        onClick={() => handleClose()}
+                                    >
+                                        Cancel
+                                    </button>
+                                    <button
+                                        className='bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
+                                        onClick={handleDeleteMessage}
+                                    >
+                                        Approve
+                                    </button>
+                                </div>
+                            </>
+                        )}
                     </div>
                 </section>
             </dialog>
