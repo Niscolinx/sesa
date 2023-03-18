@@ -44,7 +44,7 @@ import ViewElection from '../../pages/EstateManager/voting/ViewElection'
 import VotePhysically from '../../pages/EstateManager/voting/VotePhysically'
 import Reports from '../../pages/EstateManager/Reports/Reports'
 import ReportDetail from '../../pages/EstateManager/Reports/ReportDetail'
-import Approvals from '../../pages/EstateManager/approvals/approvals'
+import Approvals from '../../pages/EstateManager/approvals/Approvals'
 
 const estateManagerRoutes = (
     <Route path='/estateManager' element={<Dashboard />}>
