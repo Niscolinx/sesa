@@ -14,8 +14,10 @@ export interface Approval {
         title: string
         residentName: string
         propertyCode: string
+        phoneNumber:string
         status: Status
-    }
+    },
+
 }
 
 const status: Status[] = ['approved', 'declined', 'pending']
