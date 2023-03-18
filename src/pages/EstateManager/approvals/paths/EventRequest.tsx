@@ -225,12 +225,15 @@ function EventRequest() {
                             slicedPages[paginate.index].map(
                                 (approvalBody, i) => {
                                     const {
-                                        date,
-                                        propertyCode,
-                                        residentName,
-                                        status,
-                                        title,
-                                    } = approvalBody.requester
+                                        id,
+                                        requester: {
+                                            date,
+                                            propertyCode,
+                                            residentName,
+                                            status,
+                                            title,
+                                        },
+                                    } = approvalBody
                                     return (
                                         <div className='grid relative p-8 bg-white rounded-lg gap-2 capitalize'>
                                             <div className='flex justify-between items-center gap-4 mb-10'>
