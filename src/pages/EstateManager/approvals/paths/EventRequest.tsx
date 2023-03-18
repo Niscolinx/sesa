@@ -270,7 +270,7 @@ function EventRequest() {
                                         <Link
                                             to={`/estateManager/approvals/view/:${id}`}
                                             state={approvalBody}
-                                            className='text-color-blue'
+                                            className='text-color-blue mt-10'
                                             style={{
                                                 fontFamily: 'Satoshi-Medium',
                                             }}
