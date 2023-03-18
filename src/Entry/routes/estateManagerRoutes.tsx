@@ -101,6 +101,7 @@ const estateManagerRoutes = (
         <Route path='voting-and-election/view/vote-physically' element={<VotePhysically />} />
         <Route path='reports' element={<Reports />} />
         <Route path='reports/view/:id' element={<ReportDetail />} />
+        <Route path='reports/view/:id' element={<ReportDetail />} />
     </Route>
 )
 
