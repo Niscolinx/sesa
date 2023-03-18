@@ -68,7 +68,7 @@ const ApprovalDetail = () => {
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
-                        <>
+                      {dialogType === 'approve' ? (  <>
                             <img src='/icons/admins/modalDeactivate.svg' alt='' />
                             <p className='text-[1.6rem]'>
                                 Are you sure you want to Approve?
@@ -88,7 +88,8 @@ const ApprovalDetail = () => {
                                     Approve
                                 </button>
                             </div>
-                        </>
+                        </>): ()}
+                      
                     </div>
                 </section>
             </dialog>
