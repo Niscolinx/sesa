@@ -198,17 +198,22 @@ function EventRequest() {
                                     title,
                                 } = approvalBody
                                 return (
-                                    <div className='grid relative p-8 bg-white rounded-lg gap-2'>
-                                        <div>
-
-                                        <p
-                                            style={{
-                                                fontFamily: 'Satoshi-Medium',
-                                            }}
+                                    <div className='grid relative p-8 bg-white rounded-lg gap-2 capitalize'>
+                                        <div className='flex justify-between items-center gap-4'>
+                                            <p>
+                                                <span className='bg-green-600 text-white'>
+                                                    {title}
+                                                </span>
+                                            </p>
+                                            <p
+                                                style={{
+                                                    fontFamily:
+                                                        'Satoshi-Medium',
+                                                }}
                                             >
-                                            {date}
-                                        </p>
-                                            </div>
+                                                {date}
+                                            </p>
+                                        </div>
 
                                         <div className='flex items-center gap-2'>
                                             <p>resident Name:</p>
