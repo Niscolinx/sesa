@@ -192,7 +192,9 @@ const ApprovalDetail = () => {
                 </section>
                 <section>
                     <p className='text-[2rem] font-Satosh-Medium'>
-                        Event Request Details
+                        Event Request Details {
+                            approval.status === 'declined' ? (<></>) : approval.status === 'approved' ? (<></>): (<></>)
+                        }
                     </p>
                     <div
                         className=' gap-16 mt-12 grid p-8 bg-white rounded-lg '
