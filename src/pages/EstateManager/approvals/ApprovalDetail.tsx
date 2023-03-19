@@ -68,6 +68,10 @@ const ApprovalDetail = () => {
         // })
     }
 
+    const handleDeclineMessage = () => {
+        handleClose()
+    }
+
     return (
         <>
             <ToastContainer />
