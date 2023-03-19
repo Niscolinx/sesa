@@ -204,12 +204,11 @@ const ApprovalDetail = () => {
                         {approval.status === 'declined' ? (
                             <span className='text-red-600 flex items-center gap-2'>
                                 {' '}
-                                <SlClose />{' '}
-                                {approval.status}
+                                <SlClose /> {approval.status}
                             </span>
                         ) : approval.status === 'approved' ? (
                             <span className='text-green-600 flex items-center gap-2'>
-                                <AiOutlineCheckCircle/>
+                                <AiOutlineCheckCircle />
                                 {approval.status}
                             </span>
                         ) : (
@@ -226,19 +225,22 @@ const ApprovalDetail = () => {
                                 ' repeat(auto-fit, minmax(20rem, 1fr))',
                         }}
                     >
-                        {Object.entries(approval.event).filter(([key]) => key !== 'imgUrl').map(
-                            ([key, value], i) => (
-                                <div
-                                    key={i}
-                                    className='grid gap-2 justify-items-start capitalize'
-                                >
-                                    <p className='text-gray-500'>
-                                        {key.replaceAll('_', ' ')}
-                                    </p>
-                                    <p>{value}</p>
-                                </div>
-                            )
-                        )}
+                        <div></div>
+                        <div>
+                            {Object.entries(approval.event)
+                                .filter(([key]) => key !== 'imgUrl')
+                                .map(([key, value], i) => (
+                                    <div
+                                        key={i}
+                                        className='grid gap-2 justify-items-start capitalize'
+                                    >
+                                        <p className='text-gray-500'>
+                                            {key.replaceAll('_', ' ')}
+                                        </p>
+                                        <p>{value}</p>
+                                    </div>
+                                ))}
+                        </div>
                     </div>
                 </section>
             </main>
