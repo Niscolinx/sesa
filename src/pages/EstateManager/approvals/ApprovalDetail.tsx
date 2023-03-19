@@ -172,7 +172,7 @@ const ApprovalDetail = () => {
                         </div>
                     </div>
                     <div>
-                        <p>Requester's Details</p>
+                        <p className='text-[2rem] font-Satosh-Medium'>Requester's Details</p>
                         <div
                             className=' gap-16 mt-12 grid p-8 bg-white rounded-lg '
                             style={{
