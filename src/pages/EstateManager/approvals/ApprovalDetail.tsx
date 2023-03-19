@@ -37,6 +37,7 @@ const ApprovalDetail = () => {
     } = approval as Approval
 
     const [dialogType, setDialogType] = useState<DialogType>('decline')
+    const [declineMessageContent, setDeclineMessageContent] = useState('')
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
@@ -72,7 +73,7 @@ const ApprovalDetail = () => {
 
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
-                    <div className='bg-white rounded-2xl grid  justify-items-center w-[64rem] gap-8'>
+                    <div className='bg-white rounded-2xl grid  justify-items-center w-[64rem] gap-8 py-10'>
                         {dialogType === 'approve' ? (
                             <>
                                 <img
@@ -108,13 +109,15 @@ const ApprovalDetail = () => {
                                     Decline Confirmation
                                 </p>
 
-                                <form>
+                                <form className='grid'>
                                     <label className=' font-Satoshi-Medium'>
                                         Message
                                     </label>
                                     <textarea
                                         rows={5}
                                         className=' rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4  w-[40rem]'
+                                        value={declineMessageContent}
+                                        onChange={(e) => setDeclineMessageContent(e.target.value)}
                                     />
                                     <p
                                         style={{
@@ -122,16 +125,22 @@ const ApprovalDetail = () => {
                                         }}
                                         className='text-[1.4rem]'
                                     >
-                                        NB: SMS charges apply
+                                        Minimum of 80 characters
                                     </p>
 
-                                    <button
-                                        className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
-                                        style={{ justifySelf: 'start' }}
-                                        onClick={() => handleClose()}
-                                    >
-                                        Send Message
-                                    </button>
+                                    <div className='flex justify-between gap-8 mt-10'>
+                                        <button
+                                            className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-full'
+                                            onClick={() => handleClose()}
+                                        >
+                                            Cancel
+                                        </button>
+                                        <button
+                                            className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-full'
+                                        >
+                                            Decline
+                                        </button>
+                                    </div>
                                 </form>
                             </>
                         )}
