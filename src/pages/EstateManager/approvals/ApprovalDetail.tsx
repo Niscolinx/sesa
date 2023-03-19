@@ -218,15 +218,14 @@ const ApprovalDetail = () => {
                             </span>
                         )}
                     </p>
-                    <div
-                        className=' gap-16 mt-12 grid p-8 bg-white rounded-lg '
-                        style={{
-                            gridTemplateColumns:
-                                ' repeat(auto-fit, minmax(20rem, 1fr))',
-                        }}
-                    >
+                    <div className=' gap-16 mt-12 grid p-8 bg-white rounded-lg '>
                         <div></div>
-                        <div>
+                        <div className='grid gap-16'
+                            style={{
+                                gridTemplateColumns:
+                                    ' repeat(auto-fit, minmax(20rem, 1fr))',
+                            }}
+                        >
                             {Object.entries(approval.event)
                                 .filter(([key]) => key !== 'imgUrl')
                                 .map(([key, value], i) => (
