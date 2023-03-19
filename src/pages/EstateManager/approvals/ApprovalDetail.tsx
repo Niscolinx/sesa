@@ -182,8 +182,8 @@ const ApprovalDetail = () => {
                     >
                         {Object.entries(approval.requester).map(
                             ([key, value], i) => (
-                                <div key={i} className='grid gap-2 justify-items-start'>
-                                    <p className='text-gray-500'>{key}</p>
+                                <div key={i} className='grid gap-2 justify-items-start capitalize'>
+                                    <p className='text-gray-500'>{key.split(/[A-Z,a-z]/).join(' ')}</p>
                                     <p>{value}</p>
                                 </div>
                             )
