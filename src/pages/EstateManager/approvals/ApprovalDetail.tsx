@@ -2,6 +2,7 @@ import { useRef, useState } from 'react'
 import { useLocation } from 'react-router'
 import { toast, ToastContainer } from 'react-toastify'
 import { Approval } from './paths/EventRequest'
+import {SlClose} from 'react-icons/sl'
 
 const ApprovalDetail = () => {
     type DialogType = 'decline' | 'approve'
@@ -182,8 +183,13 @@ const ApprovalDetail = () => {
                     >
                         {Object.entries(approval.requester).map(
                             ([key, value], i) => (
-                                <div key={i} className='grid gap-2 justify-items-start capitalize'>
-                                    <p className='text-gray-500'>{key.replace('_', ' ')}</p>
+                                <div
+                                    key={i}
+                                    className='grid gap-2 justify-items-start capitalize'
+                                >
+                                    <p className='text-gray-500'>
+                                        {key.replace('_', ' ')}
+                                    </p>
                                     <p>{value}</p>
                                 </div>
                             )
@@ -192,9 +198,14 @@ const ApprovalDetail = () => {
                 </section>
                 <section>
                     <p className='text-[2rem] font-Satosh-Medium'>
-                        Event Request Details {
-                            approval.status === 'declined' ? (<></>) : approval.status === 'approved' ? (<></>): (<></>)
-                        }
+                        Event Request Details{' '}
+                        {approval.status === 'declined' ? (
+                            <span className='text-red-600'> <SlClose/> {approval.status}</span>
+                        ) : approval.status === 'approved' ? (
+                            <></>
+                        ) : (
+                            <></>
+                        )}
                     </p>
                     <div
                         className=' gap-16 mt-12 grid p-8 bg-white rounded-lg '
@@ -205,8 +216,13 @@ const ApprovalDetail = () => {
                     >
                         {Object.entries(approval.requester).map(
                             ([key, value], i) => (
-                                <div key={i} className='grid gap-2 justify-items-start capitalize'>
-                                    <p className='text-gray-500'>{key.replace('_', ' ')}</p>
+                                <div
+                                    key={i}
+                                    className='grid gap-2 justify-items-start capitalize'
+                                >
+                                    <p className='text-gray-500'>
+                                        {key.replace('_', ' ')}
+                                    </p>
                                     <p>{value}</p>
                                 </div>
                             )
