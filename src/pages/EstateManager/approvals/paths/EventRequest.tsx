@@ -61,7 +61,7 @@ export const APPROVAL_LIST: Approval[] = Array.from({
         event_type: 'Birthday',
         start_time: '09:00AM',
         end_time: '02:45PM',
-        imgUrl: '/img'
+        imgUrl: '/img/peterObi.png'
     },
 }))
 

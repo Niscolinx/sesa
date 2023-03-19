@@ -190,6 +190,27 @@ const ApprovalDetail = () => {
                         )}
                     </div>
                 </section>
+                <section>
+                    <p className='text-[2rem] font-Satosh-Medium'>
+                        Requester's Details
+                    </p>
+                    <div
+                        className=' gap-16 mt-12 grid p-8 bg-white rounded-lg '
+                        style={{
+                            gridTemplateColumns:
+                                ' repeat(auto-fit, minmax(20rem, 1fr))',
+                        }}
+                    >
+                        {Object.entries(approval.requester).map(
+                            ([key, value], i) => (
+                                <div key={i} className='grid gap-2 justify-items-start capitalize'>
+                                    <p className='text-gray-500'>{key.replace('_', ' ')}</p>
+                                    <p>{value}</p>
+                                </div>
+                            )
+                        )}
+                    </div>
+                </section>
             </main>
         </>
     )
