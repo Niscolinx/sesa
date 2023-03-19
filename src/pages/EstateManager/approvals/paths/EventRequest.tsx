@@ -12,7 +12,6 @@ export interface Approval {
     title: string
     status: Status
     requester: {
-        date: string
         residentName: string
         propertyCode: string
         phoneNumber: string
@@ -20,6 +19,7 @@ export interface Approval {
         residentCode: string
         propertyCategory: string[]
         propertyType: string
+        date: string
         time: string
     }
     event: {
@@ -42,7 +42,6 @@ export const APPROVAL_LIST: Approval[] = Array.from({
     title: 'event request',
     status: status[Math.floor(Math.random() * status.length)],
     requester: {
-        date: '19-May-2023',
         residentName: 'Osaji Valentine',
         propertyCode: '092382',
         phoneNumber: '0902382323',
@@ -50,6 +49,7 @@ export const APPROVAL_LIST: Approval[] = Array.from({
         propertyType: 'one-bed',
         residentCode: 'R08923',
         propertyCategory: ['Commercial, residential'],
+        date: '19-May-2023',
         time: '12:30PM',
     },
     event: {
@@ -294,11 +294,11 @@ function EventRequest() {
                                                         </span>
                                                     ) : status ===
                                                       'declined' ? (
-                                                        <span className='text-red-500'>
+                                                        <span className='text-red-600'>
                                                             {status}
                                                         </span>
                                                     ) : (
-                                                        <span className='text-orange-500'>
+                                                        <span className='text-orange-400'>
                                                             {status}
                                                         </span>
                                                     )}
