@@ -149,9 +149,8 @@ const ApprovalDetail = () => {
                     </div>
                 </section>
             </dialog>
-            <main className='grid bg-white rounded-lg p-8'>
-                <section className=' py-10'>
-                    <div className='flex justify-end'>
+            <main className='grid bg-white rounded-lg p-8 gap-8'>
+                <section className='py-10 flex justify-end'>
                         <div className='flex gap-8 justify-between items-center'>
                             <button
                                 className='bg-red-600 px-16 py-4 flex items-center  rounded-lg gap-4'
@@ -170,9 +169,12 @@ const ApprovalDetail = () => {
                                 </span>
                             </button>
                         </div>
-                    </div>
-                    <div>
-                        <p className='text-[2rem] font-Satosh-Medium'>Requester's Details</p>
+                    <section/>
+           
+                    <section>
+                        <p className='text-[2rem] font-Satosh-Medium'>
+                            Requester's Details
+                        </p>
                         <div
                             className=' gap-16 mt-12 grid p-8 bg-white rounded-lg '
                             style={{
@@ -182,8 +184,7 @@ const ApprovalDetail = () => {
                         >
                             <></>
                         </div>
-                    </div>
-                </section>
+                    </section>
             </main>
         </>
     )
