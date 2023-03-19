@@ -151,26 +151,28 @@ const ApprovalDetail = () => {
                 </section>
             </dialog>
             <main className='grid bg-white rounded-lg p-8 gap-8'>
-                <section className='py-10 flex justify-end'>
-                    <div className='flex gap-8 justify-between items-center'>
-                        <button
-                            className='bg-red-600 px-16 py-4 flex items-center  rounded-lg gap-4'
-                            onClick={() => handleOpen('decline')}
-                        >
-                            <span className='text-white text-[1.4rem] font-semibold'>
-                                Deline
-                            </span>
-                        </button>
-                        <button
-                            className='bg-color-blue px-16 py-4 flex items-center  rounded-lg gap-4'
-                            onClick={() => handleOpen('approve')}
-                        >
-                            <span className='text-white text-[1.4rem] font-semibold'>
-                                Approve
-                            </span>
-                        </button>
-                    </div>
-                </section>
+                {approval.status === 'declined' && (
+                    <section className='py-10 flex justify-end'>
+                        <div className='flex gap-8 justify-between items-center'>
+                            <button
+                                className='bg-red-600 px-16 py-4 flex items-center  rounded-lg gap-4'
+                                onClick={() => handleOpen('decline')}
+                            >
+                                <span className='text-white text-[1.4rem] font-semibold'>
+                                    Deline
+                                </span>
+                            </button>
+                            <button
+                                className='bg-color-blue px-16 py-4 flex items-center  rounded-lg gap-4'
+                                onClick={() => handleOpen('approve')}
+                            >
+                                <span className='text-white text-[1.4rem] font-semibold'>
+                                    Approve
+                                </span>
+                            </button>
+                        </div>
+                    </section>
+                )}
 
                 <section>
                     <p className='text-[2rem] font-Satosh-Medium'>
@@ -220,9 +222,14 @@ const ApprovalDetail = () => {
                     </p>
                     <div className='flex gap-16 mt-12 p-8 bg-white rounded-lg '>
                         <div>
-                            <img src={approval.event.imgUrl} alt="" className='w-[30rem] h-full object-cover' />
+                            <img
+                                src={approval.event.imgUrl}
+                                alt=''
+                                className='w-[30rem] h-full object-cover'
+                            />
                         </div>
-                        <div className='grid gap-16 w-full'
+                        <div
+                            className='grid gap-16 w-full'
                             style={{
                                 gridTemplateColumns:
                                     ' repeat(auto-fit, minmax(15rem, 1fr))',
