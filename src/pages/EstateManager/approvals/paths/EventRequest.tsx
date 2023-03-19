@@ -12,24 +12,24 @@ export interface Approval {
     title: string
     status: Status
     requester: {
-        residentName: string
-        propertyCode: string
-        phoneNumber: string
-        tenancyType: string
-        residentCode: string
-        propertyCategory: string[]
-        propertyType: string
+        resident_name: string
+        property_code: string
+        phone_number: string
+        tenancy_type: string
+        resident_code: string
+        property_category: string[]
+        property_type: string
         date: string
         time: string
     }
     event: {
-        eventCode: string
-        eventName: string
-        eventAddress: string
-        eventType: string
-        expectedNoOfGuests: number
-        startTime: string
-        endTime: string
+        event_code: string
+        event_name: string
+        event_address: string
+        event_type: string
+        expected_no_of_guests: number
+        start_time: string
+        end_time: string
     }
 }
 
@@ -42,24 +42,24 @@ export const APPROVAL_LIST: Approval[] = Array.from({
     title: 'event request',
     status: status[Math.floor(Math.random() * status.length)],
     requester: {
-        residentName: 'Osaji Valentine',
-        propertyCode: '092382',
-        phoneNumber: '0902382323',
-        tenancyType: 'tenancyType',
-        propertyType: 'one-bed',
-        residentCode: 'R08923',
-        propertyCategory: ['Commercial, residential'],
+        resident_name: 'Osaji Valentine',
+        property_code: '092382',
+        phone_number: '0902382323',
+        tenancy_type: 'tenancyType',
+        property_type: 'one-bed',
+        resident_code: 'R08923',
+        property_category: ['Commercial, residential'],
         date: '19-May-2023',
         time: '12:30PM',
     },
     event: {
-        eventCode: 'H08232',
-        eventName: 'peter Obi at 60',
-        eventAddress: 'No. 1 Osaji str. Woods Bam.',
-        expectedNoOfGuests: 50,
-        eventType: 'Birthday',
-        startTime: '09:00AM',
-        endTime: '02:45PM',
+        event_code: 'H08232',
+        event_name: 'peter Obi at 60',
+        event_address: 'No. 1 Osaji str. Woods Bam.',
+        expected_no_of_guests: 50,
+        event_type: 'Birthday',
+        start_time: '09:00AM',
+        end_time: '02:45PM',
     },
 }))
 
@@ -230,8 +230,8 @@ function EventRequest() {
                                         title,
                                         requester: {
                                             date,
-                                            propertyCode,
-                                            residentName,
+                                            property_code,
+                                            resident_name,
                                         },
                                     } = approvalBody
                                     return (
@@ -265,7 +265,7 @@ function EventRequest() {
                                                             'Satoshi-Medium',
                                                     }}
                                                 >
-                                                    {residentName}
+                                                    {resident_name}
                                                 </p>
                                             </div>
 
@@ -277,7 +277,7 @@ function EventRequest() {
                                                             'Satoshi-Medium',
                                                     }}
                                                 >
-                                                    {propertyCode}
+                                                    {property_code}
                                                 </p>
                                             </div>
                                             <div className='flex items-center gap-2'>
