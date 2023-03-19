@@ -8,7 +8,7 @@ const ApprovalDetail = () => {
 
     const location = useLocation()
 
-    const approval:Approval = location.state || {}
+    const approval: Approval = location.state || {}
 
     const {
         id,
@@ -34,7 +34,7 @@ const ApprovalDetail = () => {
             startTime,
             endTime,
         },
-    } = approval 
+    } = approval
 
     const [dialogType, setDialogType] = useState<DialogType>('decline')
     const [declineMessageContent, setDeclineMessageContent] = useState('')
@@ -179,14 +179,14 @@ const ApprovalDetail = () => {
                         className=' gap-16 mt-12 grid p-8 bg-white rounded-lg '
                         style={{
                             gridTemplateColumns:
-                                ' repeat(auto-fit, minmax(35rem, 1fr))',
+                                ' repeat(auto-fit, minmax(20rem, 1fr))',
                         }}
                     >
-                        {
-                            Object.entries(approval.requester).map(([key, value], i) => (
+                        {Object.entries(approval.requester).map(
+                            ([key, value], i) => (
                                 <></>
-                            ))
-                        }
+                            )
+                        )}
                     </div>
                 </section>
             </main>
