@@ -9,12 +9,12 @@ import { Link, useNavigate } from 'react-router-dom'
 type Status = 'pending' | 'declined' | 'approved'
 export interface Approval {
     id: number
+    title: string
+    status: Status
     requester: {
         date: string
-        title: string
         residentName: string
         propertyCode: string
-        status: Status
         phoneNumber: string
         tenancyType: string
         residentCode: string
