@@ -2,7 +2,7 @@ import { useRef, useState } from 'react'
 import { useLocation } from 'react-router'
 import { toast, ToastContainer } from 'react-toastify'
 import { Approval } from './paths/EventRequest'
-import {SlClose} from 'react-icons/sl'
+import { SlClose } from 'react-icons/sl'
 
 const ApprovalDetail = () => {
     type DialogType = 'decline' | 'approve'
@@ -200,9 +200,15 @@ const ApprovalDetail = () => {
                     <p className='text-[2rem] font-Satosh-Medium'>
                         Event Request Details{' '}
                         {approval.status === 'declined' ? (
-                            <span className='text-red-600'> <SlClose/> {approval.status}</span>
+                            <span className='text-red-600'>
+                                {' '}
+                                <SlClose /> {approval.status}
+                            </span>
                         ) : approval.status === 'approved' ? (
-                            <></>
+                           <span>
+                            <GrStatusGood/>
+                            
+                           </span>
                         ) : (
                             <></>
                         )}
