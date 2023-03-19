@@ -10,29 +10,29 @@ const ApprovalDetail = () => {
 
     const approval: Approval = location.state || {}
 
-    const {
-        id,
-        requester: {
-            date,
-            residentName,
-            propertyCode,
-            phoneNumber,
-            tenancyType,
-            residentCode,
-            propertyCategory,
-            propertyType,
-            time,
-        },
-        event: {
-            eventCode,
-            eventName,
-            eventAddress,
-            eventType,
-            expectedNoOfGuests,
-            startTime,
-            endTime,
-        },
-    } = approval
+    // const {
+    //     id,
+    //     requester: {
+    //         date,
+    //         residentName,
+    //         propertyCode,
+    //         phoneNumber,
+    //         tenancyType,
+    //         residentCode,
+    //         propertyCategory,
+    //         propertyType,
+    //         time,
+    //     },
+    //     event: {
+    //         eventCode,
+    //         eventName,
+    //         eventAddress,
+    //         eventType,
+    //         expectedNoOfGuests,
+    //         startTime,
+    //         endTime,
+    //     },
+    // } = approval
 
     const [dialogType, setDialogType] = useState<DialogType>('decline')
     const [declineMessageContent, setDeclineMessageContent] = useState('')
@@ -183,7 +183,7 @@ const ApprovalDetail = () => {
                         {Object.entries(approval.requester).map(
                             ([key, value], i) => (
                                 <div key={i} className='grid gap-2 justify-items-start capitalize'>
-                                    <p className='text-gray-500'>{key.split(/[A-Z,a-z]/).join(' ')}</p>
+                                    <p className='text-gray-500'>{key.replace('_', '  ')}</p>
                                     <p>{value}</p>
                                 </div>
                             )
