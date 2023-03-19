@@ -39,12 +39,12 @@ export const APPROVAL_LIST: Approval[] = Array.from({
     length: 10,
 }).map((_, i) => ({
     id: i + 1,
+    title: 'event request',
+    status: status[Math.floor(Math.random() * status.length)],
     requester: {
         date: '19-May-2023',
-        title: 'event request',
         residentName: 'Osaji Valentine',
         propertyCode: '092382',
-        status: status[Math.floor(Math.random() * status.length)],
         phoneNumber: '0902382323',
         tenancyType: 'tenancyType',
         propertyType: 'one-bed',
@@ -171,7 +171,7 @@ function EventRequest() {
         setSearch(value)
 
         const filtered = APPROVAL_LIST.filter((item) =>
-            item.requester.title.toLowerCase().includes(value.toLowerCase())
+            item.title.toLowerCase().includes(value.toLowerCase())
         )
         setApprovalList([...filtered])
     }
@@ -226,12 +226,12 @@ function EventRequest() {
                                 (approvalBody, i) => {
                                     const {
                                         id,
+                                        status,
+                                        title,
                                         requester: {
                                             date,
                                             propertyCode,
                                             residentName,
-                                            status,
-                                            title,
                                         },
                                     } = approvalBody
                                     return (

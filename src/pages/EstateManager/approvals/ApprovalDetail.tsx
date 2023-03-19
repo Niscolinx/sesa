@@ -14,10 +14,8 @@ const ApprovalDetail = () => {
         id,
         requester: {
             date,
-            title,
             residentName,
             propertyCode,
-            status,
             phoneNumber,
             tenancyType,
             residentCode,
