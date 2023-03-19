@@ -218,9 +218,11 @@ const ApprovalDetail = () => {
                             </span>
                         )}
                     </p>
-                    <div className=' gap-16 mt-12 grid p-8 bg-white rounded-lg '>
-                        <div></div>
-                        <div className='grid gap-16'
+                    <div className='flex gap-16 mt-12 p-8 bg-white rounded-lg '>
+                        <div>
+                            <img src={approval.event.imgUrl} alt="" />
+                        </div>
+                        <div className='grid gap-16 w-full'
                             style={{
                                 gridTemplateColumns:
                                     ' repeat(auto-fit, minmax(20rem, 1fr))',
