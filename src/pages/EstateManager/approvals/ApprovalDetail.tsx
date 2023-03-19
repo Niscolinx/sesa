@@ -201,7 +201,7 @@ const ApprovalDetail = () => {
                     </div>
                 </section>
                 <section className='py-10 border-t'>
-                    <p className='text-[2rem] font-Satosh-Medium flex items-center gap-2'>
+                    <p className='text-[2rem] font-Satosh-Medium flex items-center gap-8'>
                         Event Request Details{' '}
                         {approval.status === 'declined' ? (
                             <span className='text-red-600 flex items-center gap-2'>
@@ -252,7 +252,7 @@ const ApprovalDetail = () => {
                     </div>
                 </section>
                 {
-                    approval.status === 'declined' && (
+                    approval.status === 'declined' && declineMessageContent && (
                         <div>
                             <p>Reason for decline</p>
                             {declineMessageContent}
