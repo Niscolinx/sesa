@@ -114,7 +114,7 @@ const ApprovalDetail = () => {
                                     Decline Confirmation
                                 </p>
 
-                                <form className='grid'>
+                                <div className='grid'>
                                     <label className=' font-Satoshi-Medium'>
                                         Message
                                     </label>
@@ -153,7 +153,7 @@ const ApprovalDetail = () => {
                                             Decline
                                         </button>
                                     </div>
-                                </form>
+                                </div>
                             </>
                         )}
                     </div>
@@ -261,8 +261,8 @@ const ApprovalDetail = () => {
                     </div>
                 </section>
                 {approval.status === 'declined' && declineMessageContent && (
-                    <div>
-                        <p>Reason for decline</p>
+                    <div className='mt-10'>
+                        <p className='font-Satoshi-Medium'>Reason for decline</p>
                         {declineMessageContent}
                     </div>
                 )}
