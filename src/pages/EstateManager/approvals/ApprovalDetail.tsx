@@ -198,8 +198,8 @@ const ApprovalDetail = () => {
                         )}
                     </div>
                 </section>
-                <section>
-                    <p className='text-[2rem] font-Satosh-Medium'>
+                <section className='py-10 border-t'>
+                    <p className='text-[2rem] font-Satosh-Medium flex it'>
                         Event Request Details{' '}
                         {approval.status === 'declined' ? (
                             <span className='text-red-600 flex items-center gap-2'>
