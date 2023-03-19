@@ -4,7 +4,7 @@ import { toast, ToastContainer } from 'react-toastify'
 import { Approval } from './paths/EventRequest'
 import { SlClose } from 'react-icons/sl'
 import { GrStatusGood } from 'react-icons/gr'
-import {MdOutlinePending} from 'react-icons/md'
+import { MdOutlinePending } from 'react-icons/md'
 
 const ApprovalDetail = () => {
     type DialogType = 'decline' | 'approve'
@@ -204,11 +204,12 @@ const ApprovalDetail = () => {
                         {approval.status === 'declined' ? (
                             <span className='text-red-600 flex items-center gap-2'>
                                 {' '}
-                                <SlClose /> {approval.status}
+                                <SlClose />{' '}
+                                {approval.status}
                             </span>
                         ) : approval.status === 'approved' ? (
                             <span className='text-green-600 flex items-center gap-2'>
-                                <GrStatusGood />
+                                <GrStatusGood/>
                                 {approval.status}
                             </span>
                         ) : (
