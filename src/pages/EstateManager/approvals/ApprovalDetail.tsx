@@ -151,40 +151,40 @@ const ApprovalDetail = () => {
             </dialog>
             <main className='grid bg-white rounded-lg p-8 gap-8'>
                 <section className='py-10 flex justify-end'>
-                        <div className='flex gap-8 justify-between items-center'>
-                            <button
-                                className='bg-red-600 px-16 py-4 flex items-center  rounded-lg gap-4'
-                                onClick={() => handleOpen('decline')}
-                            >
-                                <span className='text-white text-[1.4rem] font-semibold'>
-                                    Deline
-                                </span>
-                            </button>
-                            <button
-                                className='bg-color-blue px-16 py-4 flex items-center  rounded-lg gap-4'
-                                onClick={() => handleOpen('approve')}
-                            >
-                                <span className='text-white text-[1.4rem] font-semibold'>
-                                    Approve
-                                </span>
-                            </button>
-                        </div>
-                    <section/>
-           
-                    <section>
-                        <p className='text-[2rem] font-Satosh-Medium'>
-                            Requester's Details
-                        </p>
-                        <div
-                            className=' gap-16 mt-12 grid p-8 bg-white rounded-lg '
-                            style={{
-                                gridTemplateColumns:
-                                    ' repeat(auto-fit, minmax(35rem, 1fr))',
-                            }}
+                    <div className='flex gap-8 justify-between items-center'>
+                        <button
+                            className='bg-red-600 px-16 py-4 flex items-center  rounded-lg gap-4'
+                            onClick={() => handleOpen('decline')}
                         >
-                            <></>
-                        </div>
-                    </section>
+                            <span className='text-white text-[1.4rem] font-semibold'>
+                                Deline
+                            </span>
+                        </button>
+                        <button
+                            className='bg-color-blue px-16 py-4 flex items-center  rounded-lg gap-4'
+                            onClick={() => handleOpen('approve')}
+                        >
+                            <span className='text-white text-[1.4rem] font-semibold'>
+                                Approve
+                            </span>
+                        </button>
+                    </div>
+                </section>
+
+                <section>
+                    <p className='text-[2rem] font-Satosh-Medium'>
+                        Requester's Details
+                    </p>
+                    <div
+                        className=' gap-16 mt-12 grid p-8 bg-white rounded-lg '
+                        style={{
+                            gridTemplateColumns:
+                                ' repeat(auto-fit, minmax(35rem, 1fr))',
+                        }}
+                    >
+                        <></>
+                    </div>
+                </section>
             </main>
         </>
     )
