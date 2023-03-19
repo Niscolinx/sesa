@@ -3,6 +3,7 @@ import { useLocation } from 'react-router'
 import { toast, ToastContainer } from 'react-toastify'
 import { Approval } from './paths/EventRequest'
 import { SlClose } from 'react-icons/sl'
+import { GrStatusGood } from 'react-icons/gr'
 
 const ApprovalDetail = () => {
     type DialogType = 'decline' | 'approve'
@@ -200,17 +201,20 @@ const ApprovalDetail = () => {
                     <p className='text-[2rem] font-Satosh-Medium'>
                         Event Request Details{' '}
                         {approval.status === 'declined' ? (
-                            <span className='text-red-600'>
+                            <span className='text-red-600 flex items-center gap-2'>
                                 {' '}
                                 <SlClose /> {approval.status}
                             </span>
                         ) : approval.status === 'approved' ? (
-                           <span>
-                            <GrStatusGood/>
-                            
-                           </span>
+                            <span className='text-green-600 flex items-center gap-2'>
+                                <GrStatusGood />
+                                {approval.status}
+                            </span>
                         ) : (
-                            <></>
+                            <span className='text-orange-400 flex items-center gap-2'>
+                                <GrStatusGood />
+                                {approval.status}
+                            </span>
                         )}
                     </p>
                     <div
