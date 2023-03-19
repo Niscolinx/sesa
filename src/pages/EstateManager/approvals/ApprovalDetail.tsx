@@ -117,7 +117,11 @@ const ApprovalDetail = () => {
                                         rows={5}
                                         className=' rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4  w-[40rem]'
                                         value={declineMessageContent}
-                                        onChange={(e) => setDeclineMessageContent(e.target.value)}
+                                        onChange={(e) =>
+                                            setDeclineMessageContent(
+                                                e.target.value
+                                            )
+                                        }
                                     />
                                     <p
                                         style={{
@@ -135,9 +139,7 @@ const ApprovalDetail = () => {
                                         >
                                             Cancel
                                         </button>
-                                        <button
-                                            className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-full'
-                                        >
+                                        <button className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-full'>
                                             Decline
                                         </button>
                                     </div>
@@ -169,14 +171,17 @@ const ApprovalDetail = () => {
                             </button>
                         </div>
                     </div>
-                    <div
-                        className=' gap-16 mt-12 grid p-8 bg-white rounded-lg '
-                        style={{
-                            gridTemplateColumns:
-                                ' repeat(auto-fit, minmax(35rem, 1fr))',
-                        }}
-                    >
-                        <></>
+                    <div>
+                        <p>Requester's Details</p>
+                        <div
+                            className=' gap-16 mt-12 grid p-8 bg-white rounded-lg '
+                            style={{
+                                gridTemplateColumns:
+                                    ' repeat(auto-fit, minmax(35rem, 1fr))',
+                            }}
+                        >
+                            <></>
+                        </div>
                     </div>
                 </section>
             </main>
