@@ -251,6 +251,14 @@ const ApprovalDetail = () => {
                         </div>
                     </div>
                 </section>
+                {
+                    approval.status === 'declined' && (
+                        <div>
+                            <p>Reason for decline</p>
+                            {declineMessageContent}
+                        </div>
+                    )
+                }
             </main>
         </>
     )
