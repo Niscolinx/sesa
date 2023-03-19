@@ -8,7 +8,7 @@ const ApprovalDetail = () => {
 
     const location = useLocation()
 
-    const approval = location.state || {}
+    const approval:Approval = location.state || {}
 
     const {
         id,
@@ -34,7 +34,7 @@ const ApprovalDetail = () => {
             startTime,
             endTime,
         },
-    } = approval as Approval
+    } = approval 
 
     const [dialogType, setDialogType] = useState<DialogType>('decline')
     const [declineMessageContent, setDeclineMessageContent] = useState('')
@@ -182,7 +182,11 @@ const ApprovalDetail = () => {
                                 ' repeat(auto-fit, minmax(35rem, 1fr))',
                         }}
                     >
-                        <></>
+                        {
+                            Object.entries(approval.requester).map(([key, value], i) => (
+                                <></>
+                            ))
+                        }
                     </div>
                 </section>
             </main>
