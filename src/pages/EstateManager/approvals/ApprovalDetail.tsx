@@ -13,29 +13,7 @@ const ApprovalDetail = () => {
 
     const approval: Approval = location.state || {}
 
-    // const {
-    //     id,
-    //     requester: {
-    //         date,
-    //         residentName,
-    //         propertyCode,
-    //         phoneNumber,
-    //         tenancyType,
-    //         residentCode,
-    //         propertyCategory,
-    //         propertyType,
-    //         time,
-    //     },
-    //     event: {
-    //         eventCode,
-    //         eventName,
-    //         eventAddress,
-    //         eventType,
-    //         expectedNoOfGuests,
-    //         startTime,
-    //         endTime,
-    //     },
-    // } = approval
+    
 
     const [dialogType, setDialogType] = useState<DialogType>('decline')
     const [declineMessageContent, setDeclineMessageContent] = useState('')
