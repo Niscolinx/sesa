@@ -180,7 +180,7 @@ const ApprovalDetail = () => {
                         className=' gap-16 mt-12 grid p-8 bg-white rounded-lg '
                         style={{
                             gridTemplateColumns:
-                                ' repeat(auto-fit, minmax(20rem, 1fr))',
+                                ' repeat(auto-fit, minmax(15rem, 1fr))',
                         }}
                     >
                         {Object.entries(approval.requester).map(
@@ -220,12 +220,12 @@ const ApprovalDetail = () => {
                     </p>
                     <div className='flex gap-16 mt-12 p-8 bg-white rounded-lg '>
                         <div>
-                            <img src={approval.event.imgUrl} alt="" />
+                            <img src={approval.event.imgUrl} alt="" className='w-[30rem] h-full object-cover' />
                         </div>
                         <div className='grid gap-16 w-full'
                             style={{
                                 gridTemplateColumns:
-                                    ' repeat(auto-fit, minmax(20rem, 1fr))',
+                                    ' repeat(auto-fit, minmax(15rem, 1fr))',
                             }}
                         >
                             {Object.entries(approval.event)
@@ -233,7 +233,7 @@ const ApprovalDetail = () => {
                                 .map(([key, value], i) => (
                                     <div
                                         key={i}
-                                        className='grid gap-2 justify-items-start capitalize'
+                                        className='grid items-start justify-items-start capitalize self-start gap-2'
                                     >
                                         <p className='text-gray-500'>
                                             {key.replaceAll('_', ' ')}
