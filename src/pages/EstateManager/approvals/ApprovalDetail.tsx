@@ -72,7 +72,7 @@ const ApprovalDetail = () => {
 
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
-                    <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
+                    <div className='bg-white rounded-2xl grid  justify-items-center w-[64rem] gap-8'>
                         {dialogType === 'approve' ? (
                             <>
                                 <img
@@ -108,20 +108,31 @@ const ApprovalDetail = () => {
                                     Decline Confirmation
                                 </p>
 
-                                <div className='flex w-full justify-center gap-8'>
+                                <form>
+                                    <label className=' font-Satoshi-Medium'>
+                                        Message
+                                    </label>
+                                    <textarea
+                                        rows={5}
+                                        className=' rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4  w-[40rem]'
+                                    />
+                                    <p
+                                        style={{
+                                            fontFamily: 'Satoshi-Light',
+                                        }}
+                                        className='text-[1.4rem]'
+                                    >
+                                        NB: SMS charges apply
+                                    </p>
+
                                     <button
-                                        className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
+                                        className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
+                                        style={{ justifySelf: 'start' }}
                                         onClick={() => handleClose()}
                                     >
-                                        Cancel
+                                        Send Message
                                     </button>
-                                    <button
-                                        className='bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
-                                        onClick={handleDeleteMessage}
-                                    >
-                                        Approve
-                                    </button>
-                                </div>
+                                </form>
                             </>
                         )}
                     </div>
