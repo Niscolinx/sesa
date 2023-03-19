@@ -144,7 +144,12 @@ const ApprovalDetail = () => {
                                         >
                                             Cancel
                                         </button>
-                                        <button className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-full'>
+                                        <button
+                                            className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-full'
+                                            onClick={() =>
+                                                handleDeclineMessage()
+                                            }
+                                        >
                                             Decline
                                         </button>
                                     </div>
@@ -255,14 +260,12 @@ const ApprovalDetail = () => {
                         </div>
                     </div>
                 </section>
-                {
-                    approval.status === 'declined' && declineMessageContent && (
-                        <div>
-                            <p>Reason for decline</p>
-                            {declineMessageContent}
-                        </div>
-                    )
-                }
+                {approval.status === 'declined' && declineMessageContent && (
+                    <div>
+                        <p>Reason for decline</p>
+                        {declineMessageContent}
+                    </div>
+                )}
             </main>
         </>
     )
