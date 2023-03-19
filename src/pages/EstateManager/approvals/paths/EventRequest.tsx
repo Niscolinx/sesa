@@ -30,6 +30,7 @@ export interface Approval {
         expected_no_of_guests: number
         start_time: string
         end_time: string
+        imgUrl: string
     }
 }
 
@@ -60,6 +61,7 @@ export const APPROVAL_LIST: Approval[] = Array.from({
         event_type: 'Birthday',
         start_time: '09:00AM',
         end_time: '02:45PM',
+        imgUrl: '/img'
     },
 }))
 
