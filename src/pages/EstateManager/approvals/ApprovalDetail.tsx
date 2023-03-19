@@ -192,7 +192,7 @@ const ApprovalDetail = () => {
                 </section>
                 <section>
                     <p className='text-[2rem] font-Satosh-Medium'>
-                        Requester's Details
+                        Event Request Details
                     </p>
                     <div
                         className=' gap-16 mt-12 grid p-8 bg-white rounded-lg '
