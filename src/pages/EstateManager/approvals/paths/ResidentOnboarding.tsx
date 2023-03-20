@@ -40,7 +40,8 @@ export const APPROVAL_LIST: Approval[] = Array.from({
     length: 10,
 }).map((_, i) => ({
     id: i + 1,
-    title: 'resident user request',
+    title:
+        Math.random() > 0.5 ? 'resident user request' : 'tenant onboarding request',
     status: status[Math.floor(Math.random() * status.length)],
     requester: {
         resident_name: 'Osaji Valentine',
@@ -187,7 +188,7 @@ function ResidentOnboarding() {
             <div className='grid text-[1.6rem] border rounded-lg'>
                 <div className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
                     <p className=' font-bold'>
-                        Event Request <span>(200)</span>
+                        Resident User Request <span>(200)</span>
                     </p>
                     <div className='relative flex items-center'>
                         <img
@@ -240,7 +241,7 @@ function ResidentOnboarding() {
                                         <div className='grid relative p-8 bg-white rounded-lg gap-2 capitalize'>
                                             <div className='flex justify-between items-center gap-4 mb-10'>
                                                 <p className='flex items-center gap-4'>
-                                                    <span className='bg-green-600 text-white p-4 rounded-2xl'>
+                                                    <span className='bg-[#914600] text-white p-4 rounded-2xl'>
                                                         {title}
                                                     </span>
                                                     {i === 0 && (
