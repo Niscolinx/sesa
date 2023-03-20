@@ -5,6 +5,7 @@ import { GrDown } from 'react-icons/gr'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { IoMdAdd } from 'react-icons/io'
 import { useNavigate } from 'react-router'
+import { Link } from 'react-router-dom'
 
 export type RuleContent = {
     date: string
@@ -216,9 +217,15 @@ function Rules() {
                                                                 Created{' '}
                                                                 {createAt}
                                                             </p>
-                                                            <button className='text-color-blue'>
+                                                            <Link
+                                                                to='/'
+                                                                className='text-color-blue'
+                                                                state={
+                                                                    rulesBody.content
+                                                                }
+                                                            >
                                                                 View Details
-                                                            </button>
+                                                            </Link>
                                                         </div>
                                                     )
                                                 }
