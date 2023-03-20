@@ -165,11 +165,21 @@ const ApprovalDetail = () => {
                     <>
                         <section>
                             <div>
-
+                                {Object.entries(approval.request!).map(
+                                    ([key, value], i) => (
+                                        <div
+                                            key={i}
+                                            className='grid gap-2 justify-items-start capitalize'
+                                        >
+                                            <p className='text-gray-500'>
+                                                {key.replace('_', ' ')}
+                                            </p>
+                                            <p>{value}</p>
+                                        </div>
+                                    )
+                                )}
                             </div>
-                            <div>
-                                
-                            </div>
+                            <div></div>
                         </section>
                     </>
                 ) : (

@@ -32,6 +32,11 @@ export interface Approval {
         end_time: string
         imgUrl: string
     }
+    request?: {
+        request_ID: '28232984923823DD'
+        request_amount: 5000
+        description: ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Error est, voluptatum optio in tempora perferendis aperiam aut sed ea dicta nostrum a molestiae necessitatibus totam cupiditate omnis sit, fugiat similique?'
+    }
 }
 
 const status: Status[] = ['approved', 'declined', 'pending']
