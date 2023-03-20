@@ -1,6 +1,8 @@
 import { Fragment, useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
 import EventRequest from './paths/EventRequest'
+import ResidentOnboarding from './paths/ResidentOnboarding'
+import SiteWorkerRequest from './paths/SiteWorkerRequest'
 
 function Approvals() {
     type Path =
@@ -24,7 +26,8 @@ function Approvals() {
 
     const paths = new Map<Path, JSX.Element>([
         ['event-request', <EventRequest/>],
-        ['resident-onboarding', <></>],
+        ['resident-onboarding', <ResidentOnboarding/>],
+        ['site-worker-request', <SiteWorkerRequest/>],
     ])
 
     return (
