@@ -173,20 +173,6 @@ const ApprovalDetail = () => {
                                 <div className='grid gap-2 justify-items-start capitalize'>
                                     <p className='text-gray-500'>request ID</p>
                                     <p>{approval.request?.request_ID}</p>
-                                    {/* <p>
-                                        {key.includes('amount') ? (
-                                            <p className='flex items-center gap-1'>
-                                                {' '}
-                                                <img
-                                                    src='/icons/Naira.svg'
-                                                    alt=''
-                                                />
-                                                <span>{value}</span>
-                                            </p>
-                                        ) : (
-                                            value
-                                        )}
-                                    </p> */}
                                 </div>
                                 <div className='grid gap-2 justify-items-start capitalize'>
                                     <p className='text-gray-500'>Amount</p>
@@ -221,6 +207,14 @@ const ApprovalDetail = () => {
                                                     {approval.status}
                                                 </span>
                                             )}
+                                        </span>
+                                    </p>
+                                </div>
+                                <div className='grid gap-2 justify-items-start capitalize'>
+                                    <p className='text-gray-500'>Decription</p>
+                                    <p className='flex items-center gap-1'>
+                                        <span>
+                                            {approval.request?.description}
                                         </span>
                                     </p>
                                 </div>
