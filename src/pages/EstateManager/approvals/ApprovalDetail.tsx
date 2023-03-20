@@ -210,7 +210,7 @@ const ApprovalDetail = () => {
                                         </span>
                                     </p>
                                 </div>
-                                <div className='grid gap-2 justify-items-start capitalize'>
+                                <div className='grid gap-2 justify-items-start capitalize col-span-full'>
                                     <p className='text-gray-500'>Decription</p>
                                     <p className='flex items-center gap-1'>
                                         <span>
