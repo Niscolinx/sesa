@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react'
+import { IoMdAdd } from 'react-icons/io'
 import { toast, ToastContainer } from 'react-toastify'
 
 const AddRule = () => {
@@ -43,6 +44,12 @@ const AddRule = () => {
                         className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                     />
                 </div>
+                <button className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg justify-start'>
+                    <span>
+                        <IoMdAdd />
+                    </span>{' '}
+                    Add Rule
+                </button>
             </form>
         </>
     )
