@@ -18,7 +18,7 @@ function Rules() {
                     <section className='grid  place-content-center w-full h-full justify-items-center gap-4 bg-white rounded-lg'>
                         <img src='/icons/admins/errorSvg.svg' alt='' />
                         <p className='text'>
-                            Ooops you have not added any Rules yet
+                            Ooops you have not added any rules and regulations yet
                         </p>
                         <button
                             className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
@@ -27,7 +27,7 @@ function Rules() {
                             <span>
                                 <IoMdAdd />
                             </span>{' '}
-                            Add Rules
+                            Add Rule
                         </button>
                     </section>
                 )}
