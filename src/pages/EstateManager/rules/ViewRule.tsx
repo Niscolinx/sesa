@@ -182,7 +182,7 @@ function ViewRuleContent() {
                                                 className='grid relative p-16 bg-white rounded-lg gap-2 justify-items-start'
                                                 key={id}
                                             >
-                                                <div className='flex justify-between'>
+                                                <div className='flex justify-between gap-4'>
 
                                                 </div>
                                             </div>
