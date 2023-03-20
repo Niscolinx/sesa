@@ -135,9 +135,7 @@ function Rules() {
         setRulesList([...filtered])
     }
 
-    const createPaymentHandler = () => {
-        navigate('/estateManager/rules/create')
-    }
+   
 
     return (
         <div className='grid'>
