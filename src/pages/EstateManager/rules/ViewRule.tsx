@@ -20,6 +20,7 @@ function ViewRuleContent() {
     const [selectedAction, setSelectedAction] = useState<{
         [key: string]: Actions
     }>(null as any)
+
     const [toggleDropDown, setToggleDropDown] = useState<{
         isDropDownOpen: boolean
         index: number | null
@@ -27,6 +28,57 @@ function ViewRuleContent() {
         isDropDownOpen: false,
         index: null,
     })
+
+     const [dialogType, setDialogType] = useState<Actions>('deactivate')
+
+     const dialogRef = useRef<HTMLDialogElement | null>(null)
+
+     const handleClose = () => {
+         if (dialogRef.current) {
+             dialogRef.current.close()
+         }
+     }
+
+     const handleOpen = (dialogType: Actions) => {
+         if (dialogType === 'Deactivate') {
+             setDialogType('Deactivate')
+         }
+         if (dialogType === 'Delete') {
+             setDialogType('Delete')
+         }
+
+         if (dialogRef.current) {
+             dialogRef.current.showModal()
+         }
+     }
+
+     const handleSelectedAction = (item: Actions) => {
+         if (item === 'Deactivate') {
+             handleOpen('Deactivate')
+         }
+
+         if (item === 'Delete') {
+             handleOpen('Delete')
+         }
+     }
+
+     const handleDeleteAdvert = () => {
+         handleClose()
+
+         toast('Advert deleted successfully', {
+             type: 'error',
+             className: 'bg-red-100 text-red-600 text-[1.4rem]',
+         })
+     }
+     const handleDeactivateAdvert = () => {
+         handleClose()
+
+         toast('Advert deactivated successfully', {
+             type: 'error',
+             className: 'bg-red-100 text-red-600 text-[1.4rem]',
+         })
+     }
+
 
     const dropDownHandler = (
         e: React.ChangeEvent<HTMLInputElement>,
@@ -52,12 +104,12 @@ function ViewRuleContent() {
             }
         })
 
-        if (item === 'View Details') {
-            navigate(`/estateManager/security-guard/view/:${index}`)
+        if (item === 'delete') {
+           setDialogType('delete')
         }
 
-        if (item === 'Edit Details') {
-            navigate(`/estateManager/security-guard/edit/:${index}`)
+        if (item === 'deactivate') {
+            setDialogType('deactivate')
         }
     }
 
@@ -174,56 +226,7 @@ function ViewRuleContent() {
     }
 
 
-       const [dialogType, setDialogType] = useState<Actions>('Deactivate')
-
-       const dialogRef = useRef<HTMLDialogElement | null>(null)
-
-       const handleClose = () => {
-           if (dialogRef.current) {
-               dialogRef.current.close()
-           }
-       }
-
-       const handleOpen = (dialogType: Actions) => {
-           if (dialogType === 'Deactivate') {
-               setDialogType('Deactivate')
-           }
-           if (dialogType === 'Delete') {
-               setDialogType('Delete')
-           }
-
-           if (dialogRef.current) {
-               dialogRef.current.showModal()
-           }
-       }
-
-       const handleSelectedAction = (item: Actions) => {
-           if (item === 'Deactivate') {
-               handleOpen('Deactivate')
-           }
-
-           if (item === 'Delete') {
-               handleOpen('Delete')
-           }
-       }
-
-       const handleDeleteAdvert = () => {
-           handleClose()
-
-           toast('Advert deleted successfully', {
-               type: 'error',
-               className: 'bg-red-100 text-red-600 text-[1.4rem]',
-           })
-       }
-       const handleDeactivateAdvert = () => {
-           handleClose()
-
-           toast('Advert deactivated successfully', {
-               type: 'error',
-               className: 'bg-red-100 text-red-600 text-[1.4rem]',
-           })
-       }
-
+      
     return (
         <>
             <dialog className='dialog' ref={dialogRef}>
