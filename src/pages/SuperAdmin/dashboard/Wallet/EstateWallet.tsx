@@ -126,7 +126,7 @@ const EstateWallet = () => {
         const fetchData = async () => {
             setTimeout(() => {
                 setFetchedWithdrawalHistory(WITHDRAWAL_HISTORY)
-            }, 1000)
+            }, 200)
         }
         fetchData()
     }, [])

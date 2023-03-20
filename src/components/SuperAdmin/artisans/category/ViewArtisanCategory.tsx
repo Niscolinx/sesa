@@ -69,7 +69,7 @@ const ViewArtisanCategory = () => {
         setTimeout(() => {
             setFetchedArtisanCategories(VIEW_ARTISAN_CATEGORY)
             //setIsLoaded(true)
-        }, 1000)
+        }, 200)
     }, [])
 
     const handleDialogSubmit = (e: FormEvent) => {

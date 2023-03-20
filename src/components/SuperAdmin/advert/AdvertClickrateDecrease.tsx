@@ -12,14 +12,14 @@ export interface IAdvertClickrateDecrease {
     noOfViews: number
 }
 
-export const ADVERT_CLICK_RATE_DECREASE: IAdvertClickrateDecrease[] = Array.from({length: 10}).map((_, i) => ({
-    id: i,
-    estateName: 'Sun City',
-    location: 'Lagos',
-    noOfResidents: Math.floor(Math.random() * 100 + 10),
-    noOfViews: Math.floor(Math.random() * 100 + 10),
-}))
-
+export const ADVERT_CLICK_RATE_DECREASE: IAdvertClickrateDecrease[] =
+    Array.from({ length: 10 }).map((_, i) => ({
+        id: i,
+        estateName: 'Sun City',
+        location: 'Lagos',
+        noOfResidents: Math.floor(Math.random() * 100 + 10),
+        noOfViews: Math.floor(Math.random() * 100 + 10),
+    }))
 
 const AdvertClickrateDecrease = () => {
     const navigate = useNavigate()
@@ -30,7 +30,7 @@ const AdvertClickrateDecrease = () => {
     useEffect(() => {
         setTimeout(() => {
             setFetchedAdvertClickrateDecrease(ADVERT_CLICK_RATE_DECREASE)
-        }, 1000)
+        }, 200)
     }, [])
 
     interface Paginate {

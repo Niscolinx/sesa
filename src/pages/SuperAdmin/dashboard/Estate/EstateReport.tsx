@@ -465,7 +465,7 @@ function EstateReport() {
             setTimeout(() => {
                 setFetchedActivityReport(ACTIVITY_REPORT_DATA)
                 setFetchedAttendanceReport(ATTENDANCE_REPORT_DATA)
-            }, 1000)
+            }, 200)
         }
         fetchData()
     }, [])

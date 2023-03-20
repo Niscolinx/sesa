@@ -38,7 +38,7 @@ const EnergyTokenSpreadsheet = ({
     useEffect(() => {
         setTimeout(() => {
             setFetchedSpreadsheetData(SPREADSHEET)
-        }, 1000)
+        }, 200)
     }, [])
 
     interface Paginate {
@@ -228,7 +228,6 @@ const EnergyTokenSpreadsheet = ({
                                             message,
                                             convenienceFee,
                                             denomination,
-                                      
                                         }) => {
                                             return (
                                                 <div className='grid justify-between border-b grid-cols-6 gap-8 py-4 capitalize'>
@@ -242,7 +241,7 @@ const EnergyTokenSpreadsheet = ({
                                                             {tokenSerialNo}
                                                         </span>
                                                     </p>
-                                                   <p>{tokenCode}</p>
+                                                    <p>{tokenCode}</p>
                                                     <p>{denomination}</p>
                                                     <p>{customNotification}</p>
 

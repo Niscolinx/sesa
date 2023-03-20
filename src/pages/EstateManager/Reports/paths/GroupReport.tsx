@@ -41,7 +41,7 @@ function GroupReport() {
     useEffect(() => {
         setTimeout(() => {
             setGroupReport(GROUP_REPORT)
-        }, 1000)
+        }, 200)
     }, [])
 
     const sortBy: Array<SortBy> = ['Today', 'This week', 'This Month']

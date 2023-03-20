@@ -168,7 +168,7 @@ function RenderArtisans() {
                 setFetchedArtisanList(ARTISAN_LIST)
                 setFetchedArtisanCategories(ARTISAN_CATEGORY)
                 setFetchedArtisanGroups(ARTISAN_GROUP)
-            }, 1000)
+            }, 200)
         }
         fetchData()
     }, [])
@@ -183,9 +183,7 @@ function RenderArtisans() {
             <ArtisanList fetchedArtisanList={fetchedArtisanList ?? []} />
         ),
         artisanGroup: (
-            <ArtisanGroup
-                fetchedArtisanGroups={fetchedArtisanGroups ?? []}
-            />
+            <ArtisanGroup fetchedArtisanGroups={fetchedArtisanGroups ?? []} />
         ),
     }
 

@@ -53,7 +53,7 @@ const ActivityReport = () => {
     useEffect(() => {
         setTimeout(() => {
             setFetchedActivityReportData(ACTIVITY_REPORT_DATA)
-        }, 1000)
+        }, 200)
     }, [])
 
     interface Paginate {
@@ -332,7 +332,7 @@ const AttendanceReport = () => {
     useEffect(() => {
         setTimeout(() => {
             setFetchedAttendanceReportData(ATTENDANCE_REPORT_DATA)
-        }, 1000)
+        }, 200)
     }, [])
 
     interface Paginate {

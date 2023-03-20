@@ -50,7 +50,7 @@ function SecurityCompanyOverview() {
     useEffect(() => {
         setTimeout(() => {
             setHouseHoldList(HOUSEHOLD_LIST)
-        }, 1000)
+        }, 200)
     }, [])
 
     interface Paginate {

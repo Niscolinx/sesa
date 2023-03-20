@@ -38,7 +38,7 @@ function TokenPurchase() {
     useEffect(() => {
         setTimeout(() => {
             setFetchedSpreadsheetData(SPREADSHEET)
-        }, 1000)
+        }, 200)
     }, [])
 
     interface Paginate {

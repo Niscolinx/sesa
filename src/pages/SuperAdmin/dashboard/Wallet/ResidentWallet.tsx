@@ -129,7 +129,7 @@ const ResidentWallet = () => {
         const fetchData = async () => {
             setTimeout(() => {
                 setFetchedTransactions(TRANSACTION_HISTORY)
-            }, 1000)
+            }, 200)
         }
         fetchData()
     }, [])
@@ -296,7 +296,7 @@ const ResidentWallet = () => {
         setTimeout(() => {
             setFetchedResidentBalance(RESIDENT_BALANCE)
             setFetchedTransactionHistory(RESIDENT_TRANSACTION_HISTORY)
-        }, 1000)
+        }, 200)
     }, [])
 
     const [pathIndex, setpathIndex] = useState<PathIndex>(

@@ -52,7 +52,7 @@ const SOSTable = () => {
     useEffect(() => {
         setTimeout(() => {
             setFetchedSOSTable(PROPERTY_TYPE)
-        }, 1000)
+        }, 200)
     }, [])
 
     interface Paginate {

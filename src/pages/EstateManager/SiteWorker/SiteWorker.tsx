@@ -48,7 +48,7 @@ const SiteWorker = () => {
     useEffect(() => {
         setTimeout(() => {
             setFetchedSiteWorkerData(SITEWORKER)
-        }, 1000)
+        }, 200)
     }, [])
 
     const actions: Actions[] = ['View Details', 'Edit Details', 'Delete']
@@ -74,8 +74,6 @@ const SiteWorker = () => {
             }
         })
     }
-
-
 
     const selectAction = (
         e: React.MouseEvent,
@@ -195,11 +193,9 @@ const SiteWorker = () => {
     }
 
     const addSiteWorkerHandler = () => {
-
         navigate(`/estateManager/site-worker/add`)
     }
 
-   
     return (
         <>
             {isSiteWorker ? (

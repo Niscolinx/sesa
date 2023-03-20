@@ -33,14 +33,13 @@ interface IRecipientList {
 }
 
 const RecipientList: FC<IRecipientList> = ({ closeRecipientListDialog }) => {
-
     const [fetchedCompanyOverviewData, setFetchedCompanyOverviewData] =
         useState<CompanyOverview[]>([])
 
     useEffect(() => {
         setTimeout(() => {
             setFetchedCompanyOverviewData(COMPANY_OVERVIEW_DATA)
-        }, 1000)
+        }, 200)
     }, [])
 
     interface Paginate {

@@ -41,7 +41,7 @@ function VisitorReport() {
     useEffect(() => {
         setTimeout(() => {
             setVisitorReport(VISITOR_REPORT)
-        }, 1000)
+        }, 200)
     }, [])
 
     const sortBy: Array<SortBy> = ['Today', 'This week', 'This Month']
@@ -342,7 +342,7 @@ function VisitorReport() {
                                                     name,
                                                     checkIn,
                                                     accessCode,
-                                                    visitorNo
+                                                    visitorNo,
                                                 },
                                                 i
                                             ) => {

@@ -52,11 +52,8 @@ function EstateListTable() {
     useEffect(() => {
         setTimeout(() => {
             setFetchedEstateList(ESTATE_LIST_TABLE)
-        }, 1000)
+        }, 200)
     }, [])
-
-
-    
 
     interface Paginate {
         index: number
@@ -160,7 +157,6 @@ function EstateListTable() {
     }
     return (
         <div className='grid text-[1.6rem] bg-white rounded-lg mt-20'>
-            
             <div className='flex w-full items-center gap-12 py-8 bg-white rounded-lg'>
                 <p className=' font-bold'>
                     Estate List <span>(5)</span>
@@ -197,10 +193,7 @@ function EstateListTable() {
                     {slicedPages && slicedPages.length > 0 ? (
                         React.Children.toArray(
                             slicedPages[paginate.index].map(
-                                (
-                                    { name, location },
-                                    i
-                                ) => {
+                                ({ name, location }, i) => {
                                     return (
                                         <div className='grid justify-between border-b grid-cols-4 gap-8 '>
                                             <p className='flex items-center gap-4'>

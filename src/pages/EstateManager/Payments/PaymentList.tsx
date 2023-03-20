@@ -49,7 +49,7 @@ const PaymentList: FC<IPaymentList> = ({ closePaymentDialog }) => {
     useEffect(() => {
         setTimeout(() => {
             setFetchedPaymentData(PAYMENT)
-        }, 1000)
+        }, 200)
     }, [])
 
     interface Paginate {

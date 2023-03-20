@@ -1,10 +1,14 @@
 import { useState, useEffect } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
-import ResidentUserHistory, { IResidentUserHistory } from './ResidentUserHistory'
-'react-icons/hi'
+import ResidentUserHistory, {
+    IResidentUserHistory,
+} from './ResidentUserHistory'
+;('react-icons/hi')
 
-import ResidentUsersList, { RESIDENT_LISTS, IResidentUsersList } from './ResidentUsersList'
-
+import ResidentUsersList, {
+    RESIDENT_LISTS,
+    IResidentUsersList,
+} from './ResidentUsersList'
 
 export const RESIDENT_HISTORY: IResidentUserHistory[] = [
     {
@@ -121,11 +125,10 @@ export const RESIDENT_HISTORY: IResidentUserHistory[] = [
 
 function ResidentUsers() {
     const [fetchedResidentUsers, setFetchedResidentUsers] = useState<
-         IResidentUsersList[] | null
+        IResidentUsersList[] | null
     >(null)
-    const [fetchedResidentUserHistory, setFetchedResidentUserHistory] = useState<
-        IResidentUserHistory[] | null
-    >(null)
+    const [fetchedResidentUserHistory, setFetchedResidentUserHistory] =
+        useState<IResidentUserHistory[] | null>(null)
 
     const [currentPage, setCurrentPage] = useState(1)
 
@@ -134,15 +137,14 @@ function ResidentUsers() {
             setTimeout(() => {
                 setFetchedResidentUsers(RESIDENT_LISTS)
                 setFetchedResidentUserHistory(RESIDENT_HISTORY)
-            }, 1000)
+            }, 200)
         }
         fetchData()
     }, [])
 
-
     const handlePathSwitch = (pageNum: number) => {
         switch (pageNum) {
-        case 1:
+            case 1:
                 return (
                     <ResidentUsersList
                         fetchedResidentUsers={fetchedResidentUsers ?? []}
@@ -151,7 +153,9 @@ function ResidentUsers() {
             case 2:
                 return (
                     <ResidentUserHistory
-                        fetchedResidentUserHistory={fetchedResidentUserHistory ?? []}
+                        fetchedResidentUserHistory={
+                            fetchedResidentUserHistory ?? []
+                        }
                     />
                 )
             default:

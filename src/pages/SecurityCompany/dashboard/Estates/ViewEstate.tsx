@@ -29,14 +29,13 @@ export const SECURITY_GUARDS: Overview[] = Array.from(
 function ViewEstate() {
     const navigate = useNavigate()
 
-
     const [securityGuards, setSecurityGuards] = useState<Overview[]>([])
     const [search, setSearch] = useState<string>('')
 
     useEffect(() => {
         setTimeout(() => {
             setSecurityGuards(SECURITY_GUARDS)
-        }, 1000)
+        }, 200)
     }, [])
 
     interface Paginate {
@@ -148,11 +147,8 @@ function ViewEstate() {
         setSecurityGuards([...filtered])
     }
 
-
-
     return (
         <div>
-            
             <div className='mt-8 grid gap-8'>
                 <section className='w-full flex bg-white p-8 rounded-lg gap-16 relative'>
                     <div>

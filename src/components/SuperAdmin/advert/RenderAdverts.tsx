@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
 import AdvertList, { IAdvertList } from './AdvertList'
-import AvailableEstateAdvert, { IAvailableEstateAdvert } from './AvailableEstateAdvert'
+import AvailableEstateAdvert, {
+    IAvailableEstateAdvert,
+} from './AvailableEstateAdvert'
 
 export const ADVERT_LIST: IAdvertList[] = [
     {
@@ -54,42 +56,42 @@ export const AVAILABLE_ESTATE_ADVERT: IAvailableEstateAdvert[] = [
         estateName: 'Pepsi Estate',
         state: 'Lagos',
         address: 'No 1, Pepsi Street, Pepsi Estate',
-        noOfResidents: 50
+        noOfResidents: 50,
     },
     {
         id: '1',
         estateName: 'Pepsi Estate',
         state: 'Lagos',
         address: 'No 1, Pepsi Street, Pepsi Estate',
-        noOfResidents: 50
+        noOfResidents: 50,
     },
     {
         id: '1',
         estateName: 'Pepsi Estate',
         state: 'Lagos',
         address: 'No 1, Pepsi Street, Pepsi Estate',
-        noOfResidents: 50
+        noOfResidents: 50,
     },
     {
         id: '1',
         estateName: 'Pepsi Estate',
         state: 'Lagos',
         address: 'No 1, Pepsi Street, Pepsi Estate',
-        noOfResidents: 50
+        noOfResidents: 50,
     },
     {
         id: '1',
         estateName: 'Pepsi Estate',
         state: 'Lagos',
         address: 'No 1, Pepsi Street, Pepsi Estate',
-        noOfResidents: 50
+        noOfResidents: 50,
     },
     {
         id: '1',
         estateName: 'Pepsi Estate',
         state: 'Lagos',
         address: 'No 1, Pepsi Street, Pepsi Estate',
-        noOfResidents: 50
+        noOfResidents: 50,
     },
 ]
 
@@ -99,9 +101,8 @@ function RenderAdverts() {
     const [fetchedAdvertList, setFetchedAdvertList] = useState<
         IAdvertList[] | null
     >(null)
-    const [fetchedAvailableEstateAdvert, setFetchedAvailableEstateAdvert] = useState<
-        IAvailableEstateAdvert[] | null
-    >(null)
+    const [fetchedAvailableEstateAdvert, setFetchedAvailableEstateAdvert] =
+        useState<IAvailableEstateAdvert[] | null>(null)
 
     const [pathToSwitch, setPathToSwitch] = useState<PathSwitch>('advertList')
 
@@ -110,7 +111,7 @@ function RenderAdverts() {
             setTimeout(() => {
                 setFetchedAdvertList(ADVERT_LIST)
                 setFetchedAvailableEstateAdvert(AVAILABLE_ESTATE_ADVERT)
-            }, 1000)
+            }, 200)
         }
         fetchData()
     }, [])

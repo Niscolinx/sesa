@@ -6,7 +6,6 @@ import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { useAppDispatch } from '../../../store/app/hooks'
 import { setAdminPath } from '../../../store/features/routeChange'
 
-
 type Admin = {
     id: string
     name: string
@@ -92,7 +91,7 @@ function RenderedAdmins() {
         const fetchData = async () => {
             setTimeout(() => {
                 setFetchedUsers(ADMINDATA)
-            }, 1000)
+            }, 200)
         }
         fetchData()
     }, [])

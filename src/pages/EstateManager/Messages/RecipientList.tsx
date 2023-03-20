@@ -35,7 +35,6 @@ interface IRecipientList {
 }
 
 const RecipientList: FC<IRecipientList> = ({ closeRecipientListDialog }) => {
-
     const [fetchedRecipientData, setFetchedRecipientData] = useState<
         Recipient[]
     >([])
@@ -43,7 +42,7 @@ const RecipientList: FC<IRecipientList> = ({ closeRecipientListDialog }) => {
     useEffect(() => {
         setTimeout(() => {
             setFetchedRecipientData(RECIPIENT)
-        }, 1000)
+        }, 200)
     }, [])
 
     interface Paginate {

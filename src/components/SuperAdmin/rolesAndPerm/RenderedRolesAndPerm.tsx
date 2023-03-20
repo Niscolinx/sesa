@@ -73,7 +73,7 @@ function RenderedRolesAndPerm() {
         const fetchData = async () => {
             setTimeout(() => {
                 setFetchedUsers(ROLES_AND_PERM)
-            }, 1000)
+            }, 200)
         }
         fetchData()
     }, [])
@@ -90,8 +90,6 @@ function RenderedRolesAndPerm() {
             }
         })
     }
-
-
 
     const selectRole = (e: React.MouseEvent, item: string, index: number) => {
         console.log('select role')

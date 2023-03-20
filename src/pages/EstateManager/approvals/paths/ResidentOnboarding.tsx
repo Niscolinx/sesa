@@ -41,7 +41,9 @@ export const APPROVAL_LIST: Approval[] = Array.from({
 }).map((_, i) => ({
     id: i + 1,
     title:
-        Math.random() > 0.5 ? 'resident user request' : 'tenant onboarding request',
+        Math.random() > 0.5
+            ? 'resident user request'
+            : 'tenant onboarding request',
     status: status[Math.floor(Math.random() * status.length)],
     requester: {
         resident_name: 'Osaji Valentine',
@@ -75,7 +77,7 @@ function ResidentOnboarding() {
     useEffect(() => {
         setTimeout(() => {
             setApprovalList(APPROVAL_LIST)
-        }, 1000)
+        }, 200)
     }, [])
 
     interface Paginate {
@@ -225,104 +227,103 @@ function ResidentOnboarding() {
                 >
                     {slicedPages && slicedPages.length > 0 ? (
                         React.Children.toArray(
-                            slicedPages[paginate.index].map(
-                                (approvalBody) => {
-                                    const {
-                                        id,
-                                        status,
-                                        title,
-                                        requester: {
-                                            date,
-                                            property_code,
-                                            resident_name,
-                                        },
-                                    } = approvalBody
-                                    return (
-                                        <div className='grid relative p-8 bg-white rounded-lg gap-2 capitalize' key={id}>
-                                            <div className='flex justify-between items-center gap-4 mb-10'>
-                                                <p className='flex items-center gap-4'>
-                                                    <span className='bg-[#914600] text-white p-4 rounded-2xl'>
-                                                        {title}
+                            slicedPages[paginate.index].map((approvalBody) => {
+                                const {
+                                    id,
+                                    status,
+                                    title,
+                                    requester: {
+                                        date,
+                                        property_code,
+                                        resident_name,
+                                    },
+                                } = approvalBody
+                                return (
+                                    <div
+                                        className='grid relative p-8 bg-white rounded-lg gap-2 capitalize'
+                                        key={id}
+                                    >
+                                        <div className='flex justify-between items-center gap-4 mb-10'>
+                                            <p className='flex items-center gap-4'>
+                                                <span className='bg-[#914600] text-white p-4 rounded-2xl'>
+                                                    {title}
+                                                </span>
+                                                {id === 1 && (
+                                                    <span className='text-red-500 font-Satoshi-Medium'>
+                                                        New
                                                     </span>
-                                                    {id === 1 && (
-                                                        <span className='text-red-500 font-Satoshi-Medium'>
-                                                            New
-                                                        </span>
-                                                    )}
-                                                </p>
-                                                <p
-                                                    style={{
-                                                        fontFamily:
-                                                            'Satoshi-Medium',
-                                                    }}
-                                                >
-                                                    {date}
-                                                </p>
-                                            </div>
-
-                                            <div className='flex items-center gap-2'>
-                                                <p>resident Name:</p>
-                                                <p
-                                                    style={{
-                                                        fontFamily:
-                                                            'Satoshi-Medium',
-                                                    }}
-                                                >
-                                                    {resident_name}
-                                                </p>
-                                            </div>
-
-                                            <div className='flex items-center gap-2'>
-                                                <p>Property Code:</p>
-                                                <p
-                                                    style={{
-                                                        fontFamily:
-                                                            'Satoshi-Medium',
-                                                    }}
-                                                >
-                                                    {property_code}
-                                                </p>
-                                            </div>
-                                            <div className='flex items-center gap-2'>
-                                                <p>Status:</p>
-                                                <p
-                                                    style={{
-                                                        fontFamily:
-                                                            'Satoshi-Medium',
-                                                    }}
-                                                >
-                                                    {status === 'approved' ? (
-                                                        <span className='text-green-600'>
-                                                            {status}
-                                                        </span>
-                                                    ) : status ===
-                                                      'declined' ? (
-                                                        <span className='text-red-600'>
-                                                            {status}
-                                                        </span>
-                                                    ) : (
-                                                        <span className='text-orange-400'>
-                                                            {status}
-                                                        </span>
-                                                    )}
-                                                </p>
-                                            </div>
-
-                                            <Link
-                                                to={`/estateManager/approvals/view/:${id}`}
-                                                state={approvalBody}
-                                                className='text-color-blue mt-10'
+                                                )}
+                                            </p>
+                                            <p
                                                 style={{
                                                     fontFamily:
                                                         'Satoshi-Medium',
                                                 }}
                                             >
-                                                View More Details
-                                            </Link>
+                                                {date}
+                                            </p>
                                         </div>
-                                    )
-                                }
-                            )
+
+                                        <div className='flex items-center gap-2'>
+                                            <p>resident Name:</p>
+                                            <p
+                                                style={{
+                                                    fontFamily:
+                                                        'Satoshi-Medium',
+                                                }}
+                                            >
+                                                {resident_name}
+                                            </p>
+                                        </div>
+
+                                        <div className='flex items-center gap-2'>
+                                            <p>Property Code:</p>
+                                            <p
+                                                style={{
+                                                    fontFamily:
+                                                        'Satoshi-Medium',
+                                                }}
+                                            >
+                                                {property_code}
+                                            </p>
+                                        </div>
+                                        <div className='flex items-center gap-2'>
+                                            <p>Status:</p>
+                                            <p
+                                                style={{
+                                                    fontFamily:
+                                                        'Satoshi-Medium',
+                                                }}
+                                            >
+                                                {status === 'approved' ? (
+                                                    <span className='text-green-600'>
+                                                        {status}
+                                                    </span>
+                                                ) : status === 'declined' ? (
+                                                    <span className='text-red-600'>
+                                                        {status}
+                                                    </span>
+                                                ) : (
+                                                    <span className='text-orange-400'>
+                                                        {status}
+                                                    </span>
+                                                )}
+                                            </p>
+                                        </div>
+
+                                        <Link
+                                            to={`/estateManager/approvals/view/:${id}`}
+                                            state={approvalBody}
+                                            className='text-color-blue mt-10'
+                                            style={{
+                                                fontFamily: 'Satoshi-Medium',
+                                            }}
+                                        >
+                                            View More Details
+                                        </Link>
+                                    </div>
+                                )
+                            })
                         )
                     ) : (
                         <div>
@@ -382,7 +383,6 @@ function ResidentOnboarding() {
                         )
                     })}
 
-                 
                     <HiOutlineChevronRight
                         onClick={handleNext}
                         className='cursor-pointer'

@@ -38,7 +38,7 @@ const PropertyType = () => {
     useEffect(() => {
         setTimeout(() => {
             setFetchedPropertyType(PROPERTY_TYPE)
-        }, 1000)
+        }, 200)
     }, [])
 
     interface Paginate {

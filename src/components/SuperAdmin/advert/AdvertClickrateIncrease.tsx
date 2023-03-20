@@ -66,7 +66,7 @@ const AdvertClickrateIncrease = () => {
     useEffect(() => {
         setTimeout(() => {
             setFetchedAdvertClickrateIncrease(ADVERT_CLICK_RATE_INCREASE)
-        }, 1000)
+        }, 200)
     }, [])
 
     interface Paginate {
@@ -130,8 +130,9 @@ const AdvertClickrateIncrease = () => {
                 ...prev,
                 slicedPages,
                 totalPage: Math.ceil(
-                    fetchedAdvertClickrateIncrease.length / paginate.itemsPerPage
-                )
+                    fetchedAdvertClickrateIncrease.length /
+                        paginate.itemsPerPage
+                ),
             }
         })
     }, [fetchedAdvertClickrateIncrease])
@@ -198,7 +199,7 @@ const AdvertClickrateIncrease = () => {
                         className='btn border-[#0556E5] text-[#0556E5] border rounded-lg gap-3 ml-auto flex items-center'
                         onClick={handleCSVDownload}
                     >
-                        <FiDownload/>
+                        <FiDownload />
                         Download CSV
                     </button>
                 </div>

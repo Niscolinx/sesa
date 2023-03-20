@@ -44,7 +44,7 @@ const EstateStaff = () => {
     useEffect(() => {
         setTimeout(() => {
             setFetchedEstateStaffData(ESTATE_STAFF)
-        }, 1000)
+        }, 200)
     }, [])
 
     const actions: Actions[] = ['View Details', 'Edit Details', 'Delete']
@@ -70,8 +70,6 @@ const EstateStaff = () => {
             }
         })
     }
-
-
 
     const selectAction = (
         e: React.MouseEvent,
@@ -191,11 +189,9 @@ const EstateStaff = () => {
     }
 
     const handleAddSecurityGuard = () => {
-
         navigate(`/estateManager/estate-staff/add`)
     }
 
-   
     return (
         <>
             {isEstateStaff ? (

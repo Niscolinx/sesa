@@ -126,7 +126,7 @@ const SecurityCompanyWallet = () => {
         const fetchData = async () => {
             setTimeout(() => {
                 setFetchedTransactionHistory(TRANSACTION_HISTORY)
-            }, 1000)
+            }, 200)
         }
         fetchData()
     }, [])

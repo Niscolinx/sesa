@@ -70,7 +70,7 @@ const ViewArtisanGroup = () => {
         setTimeout(() => {
             setFetchedArtisanGroups(VIEW_ARTISAN_GROUP)
             //setIsLoaded(true)
-        }, 1000)
+        }, 200)
     }, [])
 
     const handleDialogSubmit = (e: FormEvent) => {

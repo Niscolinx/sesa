@@ -53,7 +53,7 @@ function Wallet() {
     useEffect(() => {
         setTimeout(() => {
             setTransactionHistory(TRANSACTION_HISTORY)
-        }, 1000)
+        }, 200)
     }, [])
 
     interface Paginate {

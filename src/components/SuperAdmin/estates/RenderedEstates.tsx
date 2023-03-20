@@ -10,7 +10,6 @@ import {
 } from 'react-icons/hi'
 import { TbCurrencyNaira } from 'react-icons/tb'
 
-
 import { Link } from 'react-router-dom'
 import { useAppDispatch } from '../../../store/app/hooks'
 import { setEstatePath } from '../../../store/features/routeChange'
@@ -95,7 +94,7 @@ function RenderedEstates() {
         const fetchData = async () => {
             setTimeout(() => {
                 setFetchedUsers(ESTATEDATA)
-            }, 1000)
+            }, 200)
         }
         fetchData()
     }, [])
@@ -155,7 +154,9 @@ function RenderedEstates() {
                                         },
                                     }) => {
                                         return (
-                                            <Link to={`/superAdmin/estates/detail/:${id}`}>
+                                            <Link
+                                                to={`/superAdmin/estates/detail/:${id}`}
+                                            >
                                                 <tr className='w-full'>
                                                     <td>
                                                         <img

@@ -18,21 +18,21 @@ interface EstateManager {
     status: string
 }
 
-const ESTATEMANAGERDATA: EstateManager[] = Array.from({length: 10}).map((_, i) => {
-    return {
-        id: `${i + 1}`,
-        propertyCode: 'H09985',
-        address: 'Blk.2, Flt. 3, Zone A',
-        propertyCategory: 'Residential',
-        propertyName: `Property ${i+1}`,
-        occupants: Math.floor(Math.random() * 122 + 100),
-        RFID: 12331,
-        accessCard: 8212,
-        status: 'Active',
+const ESTATEMANAGERDATA: EstateManager[] = Array.from({ length: 10 }).map(
+    (_, i) => {
+        return {
+            id: `${i + 1}`,
+            propertyCode: 'H09985',
+            address: 'Blk.2, Flt. 3, Zone A',
+            propertyCategory: 'Residential',
+            propertyName: `Property ${i + 1}`,
+            occupants: Math.floor(Math.random() * 122 + 100),
+            RFID: 12331,
+            accessCard: 8212,
+            status: 'Active',
+        }
     }
-})
-
-
+)
 
 function EstateDetail() {
     const [fetchedUsers, setFetchedUsers] = useState<EstateManager[] | null>([])
@@ -41,7 +41,7 @@ function EstateDetail() {
         const fetchData = async () => {
             setTimeout(() => {
                 setFetchedUsers(ESTATEMANAGERDATA)
-            }, 1000)
+            }, 200)
         }
         fetchData()
     }, [])

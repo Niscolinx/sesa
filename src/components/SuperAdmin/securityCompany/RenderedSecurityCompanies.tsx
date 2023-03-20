@@ -103,7 +103,7 @@ function RenderedSecurityCompanies() {
         const fetchData = async () => {
             setTimeout(() => {
                 setFetchedSecurityCompanies(SECURITYCOMPANYDATA)
-            }, 1000)
+            }, 200)
         }
         fetchData()
     }, [])
