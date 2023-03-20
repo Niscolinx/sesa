@@ -270,9 +270,7 @@ function Rules() {
                                         )
                                     })}
 
-                                    {/* <li className='grid place-content-center border w-[3rem] h-[3rem] cursor-pointer'>
-                        {totalPage}
-                    </li> */}
+                             
                                     <HiOutlineChevronRight
                                         onClick={handleNext}
                                         className='cursor-pointer'
