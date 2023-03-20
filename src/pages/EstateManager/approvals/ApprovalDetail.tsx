@@ -164,10 +164,10 @@ const ApprovalDetail = () => {
                     <>
                         <section>
                             <div
-                                className=' gap-16 mt-12 grid p-8 bg-white rounded-lg max-w-[80rem]'
+                                className=' gap-16 mt-12 grid p-8 bg-white rounded-lg'
                                 style={{
                                     gridTemplateColumns:
-                                        ' repeat(auto-fit, minmax(30rem, 1fr))',
+                                        ' repeat(auto-fit, minmax(25rem, 1fr))',
                                 }}
                             >
                                 <div className='grid gap-2 justify-items-start capitalize'>
