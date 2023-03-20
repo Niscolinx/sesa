@@ -1,12 +1,13 @@
 import React, { useRef, useState } from 'react'
 import { toast, ToastContainer } from 'react-toastify'
-import { Select } from '../../../components/SuperAdmin/UI/Select'
-import StarRating from '../../../components/SuperAdmin/UI/StarRating'
-import { getPhotoUrl } from '../../../utils/getPhotoUrl'
 
 const AddRule = () => {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
+
+        toast('Rule added successfully', {
+            type: 'success',
+        })
     }
 
     return (
@@ -42,7 +43,6 @@ const AddRule = () => {
                         className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                     />
                 </div>
-    
             </form>
         </>
     )
