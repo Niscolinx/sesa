@@ -209,7 +209,7 @@ const ApprovalDetail = () => {
                                     </p> */}
                                 </div>
                                 <div className='grid gap-2 justify-items-start capitalize'>
-                                    <p className='text-gray-500'></p>
+                                    <p className='text-gray-500'>Amount</p>
                                     <p>{approval.request?.request_ID}</p>
                                 </div>
                             </div>
