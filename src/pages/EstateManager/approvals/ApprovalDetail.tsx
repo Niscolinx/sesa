@@ -160,7 +160,7 @@ const ApprovalDetail = () => {
                     </section>
                 )}
 
-                {approval.title.includes('digital') ? (
+                {approval.title.toLowerCase().includes('digital') ? (
                     <>
                         <section>
                             <div

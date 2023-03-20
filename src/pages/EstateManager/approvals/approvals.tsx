@@ -69,25 +69,7 @@ function Approvals() {
                                 </Fragment>
                             ))}
 
-                            <input
-                                type='radio'
-                                name='token'
-                                id='resident-onboarding'
-                                className='hidden'
-                                onChange={() =>
-                                    setCurrentPath('resident-onboarding')
-                                }
-                            />
-                            <label
-                                htmlFor='resident-onboarding'
-                                className={` ${
-                                    currentPath === 'resident-onboarding'
-                                        ? 'font-Satoshi-Medium'
-                                        : 'capitalize'
-                                }`}
-                            >
-                                Token Purchase
-                            </label>
+                           
                         </div>
                         <div>{paths.get(currentPath)}</div>
                     </section>
