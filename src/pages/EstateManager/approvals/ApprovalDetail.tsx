@@ -48,6 +48,7 @@ const ApprovalDetail = () => {
         handleClose()
     }
 
+    console.log({approval})
     return (
         <>
             <ToastContainer />
@@ -159,7 +160,7 @@ const ApprovalDetail = () => {
                     </section>
                 )}
 
-                {approval.title === 'digital request' ? (
+                {approval.title.includes('digital') ? (
                     <>
                         <section>
                             <div
@@ -188,10 +189,10 @@ const ApprovalDetail = () => {
                                         </span>
                                     )}
                                 </p>
-                                
+
                                 <div className='grid gap-2 justify-items-start capitalize'>
                                     <p className='text-gray-500'>request ID</p>
-                                    <p>
+                                    {/* <p>
                                         {key.includes('amount') ? (
                                             <p className='flex items-center gap-1'>
                                                 {' '}
@@ -204,7 +205,7 @@ const ApprovalDetail = () => {
                                         ) : (
                                             value
                                         )}
-                                    </p>
+                                    </p> */}
                                 </div>
                             </div>
                             <div></div>
