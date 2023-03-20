@@ -48,7 +48,7 @@ const ApprovalDetail = () => {
         handleClose()
     }
 
-    console.log({approval})
+    console.log({ approval })
     return (
         <>
             <ToastContainer />
@@ -209,9 +209,9 @@ const ApprovalDetail = () => {
                                     </p> */}
                                 </div>
                                 <div className='grid gap-2 justify-items-start capitalize'>
-                                    <p className='text-gray-500'>request ID</p>
+                                    <p className='text-gray-500'></p>
                                     <p>{approval.request?.request_ID}</p>
-                                    </div>
+                                </div>
                             </div>
                             <div></div>
                         </section>
