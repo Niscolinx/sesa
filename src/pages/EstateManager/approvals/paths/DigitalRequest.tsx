@@ -232,7 +232,7 @@ function DigitalRequest() {
                                         <div className='grid relative p-8 bg-white rounded-lg gap-2 capitalize'>
                                             <div className='flex justify-between items-center gap-4 mb-10'>
                                                 <p className='flex items-center gap-4'>
-                                                    <span className='bg-green-600 text-white p-4 rounded-2xl'>
+                                                    <span className='bg-[#098DFF] text-white p-4 rounded-2xl'>
                                                         {title}
                                                     </span>
                                                     {i === 0 && (
