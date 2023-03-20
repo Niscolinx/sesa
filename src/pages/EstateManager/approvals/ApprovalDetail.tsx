@@ -161,86 +161,96 @@ const ApprovalDetail = () => {
                     </section>
                 )}
 
-                <section>
-                    <p className='text-[2rem] font-Satosh-Medium'>
-                        Requester's Details
-                    </p>
-                    <div
-                        className=' gap-16 mt-12 grid p-8 bg-white rounded-lg '
-                        style={{
-                            gridTemplateColumns:
-                                ' repeat(auto-fit, minmax(15rem, 1fr))',
-                        }}
-                    >
-                        {Object.entries(approval.requester).map(
-                            ([key, value], i) => (
-                                <div
-                                    key={i}
-                                    className='grid gap-2 justify-items-start capitalize'
-                                >
-                                    <p className='text-gray-500'>
-                                        {key.replace('_', ' ')}
-                                    </p>
-                                    <p>{value}</p>
+                {approval.title === 'digital request' ? (
+                    <></>
+                ) : (
+                    <>
+                        {' '}
+                        <section>
+                            <p className='text-[2rem] font-Satosh-Medium'>
+                                Requester's Details
+                            </p>
+                            <div
+                                className=' gap-16 mt-12 grid p-8 bg-white rounded-lg '
+                                style={{
+                                    gridTemplateColumns:
+                                        ' repeat(auto-fit, minmax(15rem, 1fr))',
+                                }}
+                            >
+                                {Object.entries(approval.requester).map(
+                                    ([key, value], i) => (
+                                        <div
+                                            key={i}
+                                            className='grid gap-2 justify-items-start capitalize'
+                                        >
+                                            <p className='text-gray-500'>
+                                                {key.replace('_', ' ')}
+                                            </p>
+                                            <p>{value}</p>
+                                        </div>
+                                    )
+                                )}
+                            </div>
+                        </section>
+                        <section className='py-10 border-t'>
+                            <p className='text-[2rem] font-Satosh-Medium flex items-center gap-8'>
+                                Event Request Details{' '}
+                                {approval.status === 'declined' ? (
+                                    <span className='text-red-600 flex items-center gap-2'>
+                                        {' '}
+                                        <SlClose /> {approval.status}
+                                    </span>
+                                ) : approval.status === 'approved' ? (
+                                    <span className='text-green-600 flex items-center gap-2'>
+                                        <AiOutlineCheckCircle />
+                                        {approval.status}
+                                    </span>
+                                ) : (
+                                    <span className='text-orange-400 flex items-center gap-2'>
+                                        <MdOutlinePending />
+                                        {approval.status}
+                                    </span>
+                                )}
+                            </p>
+                            <div className='flex gap-16 mt-12 p-8 bg-white rounded-lg '>
+                                <div>
+                                    <img
+                                        src={approval.event.imgUrl}
+                                        alt=''
+                                        className='w-[30rem] h-full object-cover'
+                                    />
                                 </div>
-                            )
-                        )}
-                    </div>
-                </section>
-                <section className='py-10 border-t'>
-                    <p className='text-[2rem] font-Satosh-Medium flex items-center gap-8'>
-                        Event Request Details{' '}
-                        {approval.status === 'declined' ? (
-                            <span className='text-red-600 flex items-center gap-2'>
-                                {' '}
-                                <SlClose /> {approval.status}
-                            </span>
-                        ) : approval.status === 'approved' ? (
-                            <span className='text-green-600 flex items-center gap-2'>
-                                <AiOutlineCheckCircle />
-                                {approval.status}
-                            </span>
-                        ) : (
-                            <span className='text-orange-400 flex items-center gap-2'>
-                                <MdOutlinePending />
-                                {approval.status}
-                            </span>
-                        )}
-                    </p>
-                    <div className='flex gap-16 mt-12 p-8 bg-white rounded-lg '>
-                        <div>
-                            <img
-                                src={approval.event.imgUrl}
-                                alt=''
-                                className='w-[30rem] h-full object-cover'
-                            />
-                        </div>
-                        <div
-                            className='grid gap-16 w-full'
-                            style={{
-                                gridTemplateColumns:
-                                    ' repeat(auto-fit, minmax(15rem, 1fr))',
-                            }}
-                        >
-                            {Object.entries(approval.event)
-                                .filter(([key]) => key !== 'imgUrl')
-                                .map(([key, value], i) => (
-                                    <div
-                                        key={i}
-                                        className='grid items-start justify-items-start capitalize self-start gap-2'
-                                    >
-                                        <p className='text-gray-500'>
-                                            {key.replaceAll('_', ' ')}
-                                        </p>
-                                        <p>{value}</p>
-                                    </div>
-                                ))}
-                        </div>
-                    </div>
-                </section>
+                                <div
+                                    className='grid gap-16 w-full'
+                                    style={{
+                                        gridTemplateColumns:
+                                            ' repeat(auto-fit, minmax(15rem, 1fr))',
+                                    }}
+                                >
+                                    {Object.entries(approval.event)
+                                        .filter(([key]) => key !== 'imgUrl')
+                                        .map(([key, value], i) => (
+                                            <div
+                                                key={i}
+                                                className='grid items-start justify-items-start capitalize self-start gap-2'
+                                            >
+                                                <p className='text-gray-500'>
+                                                    {key.replaceAll('_', ' ')}
+                                                </p>
+                                                <p>{value}</p>
+                                            </div>
+                                        ))}
+                                </div>
+                            </div>
+                        </section>
+                    </>
+                )}
+
                 {approval.status === 'declined' && declineMessageContent && (
                     <div className='mt-10'>
-                        <p className='font-Satoshi-Medium'>Reason for decline</p>
+                        <p className='font-Satoshi-Medium'>
+                            Reason for decline
+                        </p>
                         {declineMessageContent}
                     </div>
                 )}
