@@ -164,15 +164,7 @@ function ViewRuleContent() {
                                         </select>
                                         <GrDown className='absolute right-4 text-[1.3rem]' />
                                     </div>
-                                    <button
-                                        className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg ml-auto'
-                                        onClick={addRuleContentsHandler}
-                                    >
-                                        <span>
-                                            <IoMdAdd />
-                                        </span>{' '}
-                                        Add RuleContent
-                                    </button>
+                                   
                                 </div>
 
                                 <div className='grid gap-8 mt-8'>
@@ -182,8 +174,7 @@ function ViewRuleContent() {
                                                 (ruleContentsBody) => {
                                                     const {
                                                         id,
-                                                        title,
-                                                        createAt,
+                                                        description
                                                     } = ruleContentsBody
                                                     return (
                                                         <div
