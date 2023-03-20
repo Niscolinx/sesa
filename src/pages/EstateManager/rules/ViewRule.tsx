@@ -24,7 +24,7 @@ function ViewRuleContent() {
 
     const [toggleDropDown, setToggleDropDown] = useState<{
         isDropDownOpen: boolean
-        index: number | null
+        index: string | null
     }>({
         isDropDownOpen: false,
         index: null,
@@ -69,12 +69,13 @@ function ViewRuleContent() {
 
     const dropDownHandler = (
         e: React.ChangeEvent<HTMLInputElement>,
-        index: number
+        //index: number
     ) => {
         setToggleDropDown((prev) => {
             return {
+                ...prev,
                 isDropDownOpen: e.target.checked,
-                index,
+                //index,
             }
         })
     }
@@ -82,7 +83,7 @@ function ViewRuleContent() {
     const selectAction = (
         e: React.MouseEvent,
         item: Actions,
-        index: number
+        index: string
     ) => {
         setSelectedAction((prev) => {
             return {
@@ -354,7 +355,7 @@ function ViewRuleContent() {
                                                                                 return {
                                                                                     isDropDownOpen:
                                                                                         !prev.isDropDownOpen,
-                                                                                    index: +id,
+                                                                                    index: id,
                                                                                 }
                                                                             }
                                                                         )
@@ -374,14 +375,14 @@ function ViewRuleContent() {
                                                                     ) =>
                                                                         dropDownHandler(
                                                                             e,
-                                                                            +id
+                                                                            id
                                                                         )
                                                                     }
                                                                 />
 
                                                                 {isDropDownOpen &&
                                                                     index ===
-                                                                        +id && (
+                                                                        id && (
                                                                         <div className='absolute top-0 translate-x-[5rem] border border-color-primary-light w-[10rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
                                                                             {actions.map(
                                                                                 (
@@ -400,7 +401,7 @@ function ViewRuleContent() {
                                                                                             selectAction(
                                                                                                 e,
                                                                                                 item,
-                                                                                                +id
+                                                                                                id
                                                                                             )
                                                                                         }
                                                                                     >
