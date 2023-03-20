@@ -141,9 +141,9 @@ function Rules() {
         <div className='grid'>
             <div className='rounded-lg mt-[3rem] h-[80vh]'>
                 {isRules ? (
-                    <section className='bg-white rounded-lg'>
-                        <div className='grid gap-10 rounded-lg border min-w-[112rem]'>
-                            <div className='grid text-[1.6rem] border rounded-lg'>
+                    <section className='rounded-lg'>
+                        <div className='grid gap-10 rounded-lg  min-w-[112rem]'>
+                            <div className='grid text-[1.6rem]  rounded-lg'>
                                 <div className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
                                     <p className=' font-bold'>
                                         Rules <span>(200)</span>
@@ -172,6 +172,15 @@ function Rules() {
                                         </select>
                                         <GrDown className='absolute right-4 text-[1.3rem]' />
                                     </div>
+                                    <button
+                                        className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg ml-auto'
+                                        onClick={addRulesHandler}
+                                    >
+                                        <span>
+                                            <IoMdAdd />
+                                        </span>{' '}
+                                        Add Rule
+                                    </button>
                                 </div>
 
                                 <div className='grid gap-8 mt-8'>
@@ -186,9 +195,10 @@ function Rules() {
                                                     } = rulesBody
                                                     return (
                                                         <div className='grid relative p-16 bg-white rounded-lg gap-2'>
-                                                            <p>
-                                                                <span className='w-[1rem] h-[1rem] rounded-full bg-[#EF6AF2]'>
-                                                                    &nbsp;
+                                                            <p className='flex items-center gap-4'>
+                                                                <span className='w-[1rem] h-[1rem] rounded-full bg-[#EF6AF2] object-cover'></span>
+                                                                <span>
+                                                                    {title}
                                                                 </span>
                                                             </p>
                                                         </div>
