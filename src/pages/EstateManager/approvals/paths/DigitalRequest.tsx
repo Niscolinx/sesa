@@ -229,13 +229,13 @@ function DigitalRequest() {
                                         },
                                     } = approvalBody
                                     return (
-                                        <div className='grid relative p-8 bg-white rounded-lg gap-2 capitalize'>
+                                        <div className='grid relative p-8 bg-white rounded-lg gap-2 capitalize' key={i}>
                                             <div className='flex justify-between items-center gap-4 mb-10'>
                                                 <p className='flex items-center gap-4'>
                                                     <span className='bg-[#098DFF] text-white p-4 rounded-2xl'>
                                                         {title}
                                                     </span>
-                                                    {i === 0 && (
+                                                    {id === 1 && (
                                                         <span className='text-red-500 font-Satoshi-Medium'>
                                                             New
                                                         </span>
