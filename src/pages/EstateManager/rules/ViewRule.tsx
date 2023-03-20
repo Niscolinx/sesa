@@ -15,7 +15,7 @@ function ViewRuleContent() {
     const [search, setSearch] = useState<string>('')
 
     type Actions = 'delete' | 'deactivate'
-    const actions:Actions[] = ['delete', 'deactivate']
+    const actions: Actions[] = ['delete', 'deactivate']
 
     const [selectedAction, setSelectedAction] = useState<{
         [key: string]: Actions
@@ -29,43 +29,38 @@ function ViewRuleContent() {
         index: null,
     })
 
-     const [dialogType, setDialogType] = useState<Actions>('deactivate')
+    const [dialogType, setDialogType] = useState<Actions>('deactivate')
 
-     const dialogRef = useRef<HTMLDialogElement | null>(null)
+    const dialogRef = useRef<HTMLDialogElement | null>(null)
 
-     const handleClose = () => {
-         if (dialogRef.current) {
-             dialogRef.current.close()
-         }
-     }
+    const handleClose = () => {
+        if (dialogRef.current) {
+            dialogRef.current.close()
+        }
+    }
 
-     const handleOpen = (dialogType: Actions) => {
-         
+    const handleOpen = () => {
+        if (dialogRef.current) {
+            dialogRef.current.showModal()
+        }
+    }
 
-         if (dialogRef.current) {
-             dialogRef.current.showModal()
-         }
-     }
+    const handleDeleteRule = () => {
+        handleClose()
 
-    
-
-     const handleDeleteRule = () => {
-         handleClose()
-
-        //  toast('Advert deleted successfully', {
+        //  toast('Rule deleted successfully', {
         //      type: 'error',
         //      className: 'bg-red-100 text-red-600 text-[1.4rem]',
         //  })
-     }
-     const handleDeactivateRule = () => {
-         handleClose()
+    }
+    const handleDeactivateRule = () => {
+        handleClose()
 
-        //  toast('Advert deactivated successfully', {
+        //  toast('Rule deactivated successfully', {
         //      type: 'error',
         //      className: 'bg-red-100 text-red-600 text-[1.4rem]',
         //  })
-     }
-
+    }
 
     const dropDownHandler = (
         e: React.ChangeEvent<HTMLInputElement>,
@@ -92,12 +87,14 @@ function ViewRuleContent() {
         })
 
         if (item === 'delete') {
-           setDialogType('delete')
+            setDialogType('delete')
         }
 
         if (item === 'deactivate') {
             setDialogType('deactivate')
         }
+
+        handleOpen()
     }
 
     useEffect(() => {
@@ -212,22 +209,24 @@ function ViewRuleContent() {
         setRuleContentsList([...filtered])
     }
 
-
-      
     return (
         <>
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
-                        {dialogType === 'Deactivate' ? (
+                        {dialogType === 'deactivate' ? (
                             <>
                                 <img
                                     src='/icons/admins/modalDeactivate.svg'
                                     alt=''
+                                    className='animated animated__pulse'
+                                    style={{
+                                        animationIterationCount: 'infinite',
+                                    }}
                                 />
                                 <p className='text-[1.6rem]'>
                                     Are you sure you want to deactivate this
-                                    Advert
+                                    Rule
                                 </p>
 
                                 <div className='flex w-full justify-center gap-8'>
@@ -250,9 +249,13 @@ function ViewRuleContent() {
                                 <img
                                     src='/icons/admins/modalWarning.svg'
                                     alt=''
+                                    className='animated animated__pulse'
+                                    style={{
+                                        animationIterationCount: 'infinite',
+                                    }}
                                 />
                                 <p className='text-[1.6rem]'>
-                                    Are you sure you want to delete this Advert
+                                    Are you sure you want to delete this Rule
                                 </p>
 
                                 <div className='flex w-full justify-center gap-8'>
@@ -315,9 +318,12 @@ function ViewRuleContent() {
                             {slicedPages && slicedPages.length > 0 ? (
                                 React.Children.toArray(
                                     slicedPages[paginate.index].map(
-                                        (ruleContentsBody) => {
+                                        (ruleContentsBody, i) => {
                                             const { id, description, date } =
                                                 ruleContentsBody
+
+                                            const { isDropDownOpen, index } =
+                                                toggleDropDown
                                             return (
                                                 <div
                                                     className='grid relative p-16 bg-white rounded-lg gap-2 justify-items-start'
@@ -341,7 +347,7 @@ function ViewRuleContent() {
                                                                                 return {
                                                                                     isDropDownOpen:
                                                                                         !prev.isDropDownOpen,
-                                                                                    index: id,
+                                                                                    index: +id,
                                                                                 }
                                                                             }
                                                                         )
@@ -364,14 +370,14 @@ function ViewRuleContent() {
                                                                     ) =>
                                                                         dropDownHandler(
                                                                             e,
-                                                                            id
+                                                                            +id
                                                                         )
                                                                     }
                                                                 />
 
                                                                 {isDropDownOpen &&
                                                                     index ===
-                                                                        id && (
+                                                                        +id && (
                                                                         <div className='absolute top-0 translate-x-[5rem] border border-color-primary-light w-[10rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
                                                                             {actions.map(
                                                                                 (
@@ -390,12 +396,12 @@ function ViewRuleContent() {
                                                                                             selectAction(
                                                                                                 e,
                                                                                                 item,
-                                                                                                id
+                                                                                                +id
                                                                                             )
                                                                                         }
                                                                                     >
                                                                                         {item ===
-                                                                                        'Delete' ? (
+                                                                                        'delete' ? (
                                                                                             <span className='text-red-600'>
                                                                                                 {
                                                                                                     item
