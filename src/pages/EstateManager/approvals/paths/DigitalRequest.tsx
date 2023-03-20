@@ -24,7 +24,8 @@ export interface Approval {
     }
     request: {
         request_ID: string
-        request_amount: string
+        request_amount: number
+        description: string
     }
 }
 
@@ -47,15 +48,11 @@ export const APPROVAL_LIST: Approval[] = Array.from({
         date: '19-May-2023',
         time: '12:30PM',
     },
-    event: {
-        event_code: 'H08232',
-        event_name: 'peter Obi at 60',
-        event_address: 'No. 1 Osaji str. Woods Bam.',
-        expected_no_of_guests: 50,
-        event_type: 'Birthday',
-        start_time: '09:00AM',
-        end_time: '02:45PM',
-        imgUrl: '/img/peterObi.png',
+    request: {
+        request_ID: '28232984923823DD',
+        request_amount: 5000,
+        description:
+            ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Error est, voluptatum optio in tempora perferendis aperiam aut sed ea dicta nostrum a molestiae necessitatibus totam cupiditate omnis sit, fugiat similique?',
     },
 }))
 
@@ -206,6 +203,7 @@ function DigitalRequest() {
                             <option value='alpha'>Alpha</option>
                         </select>
                         <GrDown className='absolute right-4 text-[1.3rem]' />
+                       
                     </div>
                 </div>
 
