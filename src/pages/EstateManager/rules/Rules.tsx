@@ -1,5 +1,12 @@
-import { useState } from 'react'
+import React from 'react'
+import { ChangeEvent, useEffect, useState } from 'react'
+import { CgSpinnerTwo } from 'react-icons/cg'
+import { GrDown } from 'react-icons/gr'
+import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { IoMdAdd } from 'react-icons/io'
+import { useNavigate } from 'react-router'
+import { Link } from 'react-router-dom'
+import { Payments, PAYMENTS_LIST } from '../Payments/RenderPayments'
 
 function Rules() {
     const [isRules, setIsRules] = useState(false)

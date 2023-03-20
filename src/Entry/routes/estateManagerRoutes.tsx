@@ -46,6 +46,7 @@ import Reports from '../../pages/EstateManager/Reports/Reports'
 import ReportDetail from '../../pages/EstateManager/Reports/ReportDetail'
 import Approvals from '../../pages/EstateManager/approvals/Approvals'
 import ApprovalDetail from '../../pages/EstateManager/approvals/ApprovalDetail'
+import Rules from '../../pages/EstateManager/rules/Rules'
 
 const estateManagerRoutes = (
     <Route path='/estateManager' element={<Dashboard />}>
@@ -105,6 +106,7 @@ const estateManagerRoutes = (
         <Route path='reports/view/:id' element={<ReportDetail />} />
         <Route path='approvals' element={<Approvals />} />
         <Route path='approvals/view/:id' element={<ApprovalDetail />} />
+        <Route path='estate-rules-and-regulations' element={<Rules />} />
     </Route>
 )
 
