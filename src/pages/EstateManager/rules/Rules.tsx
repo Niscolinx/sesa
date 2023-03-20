@@ -218,7 +218,7 @@ function Rules() {
                                                                 {createAt}
                                                             </p>
                                                             <Link
-                                                                to='/'
+                                                                to={`/estateManager/estate-rules-and-regulations/view/:${id}`}
                                                                 className='text-color-blue'
                                                                 state={
                                                                     rulesBody.content
