@@ -12,13 +12,15 @@ export interface Rule {
     title: string
     createAt: string
     description: string
+    ruleNum: string
 }
 
 export const RULES_LIST: Rule[] = Array.from({ length: 10 }).map((_, i) => ({
     id: `${i} + 1`,
+    ruleNum: `rule${i + 1}`,
     title: 'Ajao Estate Rules and Regulations',
     createAt: '12-Feb 2023',
-    description: 'No cars allowed to park overnight on the road'
+    description: 'No cars allowed to park overnight on the road',
 }))
 
 function Rules() {
@@ -137,8 +139,6 @@ function Rules() {
         setRulesList([...filtered])
     }
 
-   
-
     return (
         <div className='grid'>
             <div className='rounded-lg mt-[3rem] h-[80vh]'>
@@ -196,15 +196,23 @@ function Rules() {
                                                         createAt,
                                                     } = rulesBody
                                                     return (
-                                                        <div className='grid relative p-16 bg-white rounded-lg gap-2 justify-items-start' key={id}>
+                                                        <div
+                                                            className='grid relative p-16 bg-white rounded-lg gap-2 justify-items-start'
+                                                            key={id}
+                                                        >
                                                             <p className='flex items-center gap-4'>
                                                                 <span className='w-[1rem] h-[1rem] rounded-full bg-[#EF6AF2] object-cover'></span>
                                                                 <span>
                                                                     {title}
                                                                 </span>
                                                             </p>
-                                                            <p className='text-gray-500'>Created {createAt}</p>
-                                                            <button className='text-color-blue'>View Details</button>
+                                                            <p className='text-gray-500'>
+                                                                Created{' '}
+                                                                {createAt}
+                                                            </p>
+                                                            <button className='text-color-blue'>
+                                                                View Details
+                                                            </button>
                                                         </div>
                                                     )
                                                 }
@@ -270,7 +278,6 @@ function Rules() {
                                         )
                                     })}
 
-                             
                                     <HiOutlineChevronRight
                                         onClick={handleNext}
                                         className='cursor-pointer'

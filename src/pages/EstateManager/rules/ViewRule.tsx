@@ -5,6 +5,7 @@ import { GrDown } from 'react-icons/gr'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { IoMdAdd } from 'react-icons/io'
 import { useLocation, useNavigate } from 'react-router'
+import { Rule } from './Rules'
 
 
 function ViewRule() {
@@ -20,7 +21,7 @@ function ViewRule() {
 
     const navigate = useNavigate()
 
-    const [rulesList, setRulesList] = useState<Rules[]>([])
+    const [rulesList, setRulesList] = useState<Rule[]>([])
     const [search, setSearch] = useState<string>('')
 
     useEffect(() => {
@@ -34,7 +35,7 @@ function ViewRule() {
         currentPage: number
         itemsPerPage: number
         totalPage: number
-        slicedPages: Rules[][] | null
+        slicedPages: Rule[][] | null
     }
 
     const itemsPerPageArr = [2, 4, 6, 8]
@@ -51,7 +52,7 @@ function ViewRule() {
     const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
         const item = parseInt(e.target.value)
 
-        const slicedPages: Rules[][] = []
+        const slicedPages: Rule[][] = []
         for (let i = 0; i < rulesList.length; i += item) {
             slicedPages.push(rulesList.slice(i, i + item))
         }
@@ -69,7 +70,7 @@ function ViewRule() {
     }
 
     useEffect(() => {
-        const slicedPages: Rules[][] = []
+        const slicedPages: Rule[][] = []
         for (let i = 0; i < rulesList.length; i += paginate.itemsPerPage) {
             slicedPages.push(rulesList.slice(i, i + paginate.itemsPerPage))
         }
