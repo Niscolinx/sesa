@@ -160,7 +160,7 @@ const ApprovalDetail = () => {
                     </section>
                 )}
 
-                {approval.title.toLowerCase().includes('digital') ? (
+                {approval.title?.toLowerCase().includes('digital') ? (
                     <>
                         <section>
                             <div
@@ -170,26 +170,6 @@ const ApprovalDetail = () => {
                                         ' repeat(auto-fit, minmax(30rem, 1fr))',
                                 }}
                             >
-                                <p className='text-[2rem] font-Satosh-Medium flex items-center gap-8'>
-                                    Event Request Details{' '}
-                                    {approval.status === 'declined' ? (
-                                        <span className='text-red-600 flex items-center gap-2'>
-                                            {' '}
-                                            <SlClose /> {approval.status}
-                                        </span>
-                                    ) : approval.status === 'approved' ? (
-                                        <span className='text-green-600 flex items-center gap-2'>
-                                            <AiOutlineCheckCircle />
-                                            {approval.status}
-                                        </span>
-                                    ) : (
-                                        <span className='text-orange-400 flex items-center gap-2'>
-                                            <MdOutlinePending />
-                                            {approval.status}
-                                        </span>
-                                    )}
-                                </p>
-
                                 <div className='grid gap-2 justify-items-start capitalize'>
                                     <p className='text-gray-500'>request ID</p>
                                     <p>{approval.request?.request_ID}</p>
@@ -210,7 +190,39 @@ const ApprovalDetail = () => {
                                 </div>
                                 <div className='grid gap-2 justify-items-start capitalize'>
                                     <p className='text-gray-500'>Amount</p>
-                                    <p>{approval.request?.request_ID}</p>
+                                    <p className='flex items-center gap-1'>
+                                        {' '}
+                                        <img src='/icons/Naira.svg' alt='' />
+                                        <span>
+                                            {approval.request?.request_amount.toLocaleString()}
+                                        </span>
+                                    </p>
+                                </div>
+                                <div className='grid gap-2 justify-items-start capitalize'>
+                                    <p className='text-gray-500'>Status</p>
+                                    <p className='flex items-center gap-1'>
+                                        <span>
+                                            {' '}
+                                            {approval.status === 'declined' ? (
+                                                <span className='text-red-600 flex items-center gap-2'>
+                                                    {' '}
+                                                    <SlClose />{' '}
+                                                    {approval.status}
+                                                </span>
+                                            ) : approval.status ===
+                                              'approved' ? (
+                                                <span className='text-green-600 flex items-center gap-2'>
+                                                    <AiOutlineCheckCircle />
+                                                    {approval.status}
+                                                </span>
+                                            ) : (
+                                                <span className='text-orange-400 flex items-center gap-2'>
+                                                    <MdOutlinePending />
+                                                    {approval.status}
+                                                </span>
+                                            )}
+                                        </span>
+                                    </p>
                                 </div>
                             </div>
                             <div></div>
