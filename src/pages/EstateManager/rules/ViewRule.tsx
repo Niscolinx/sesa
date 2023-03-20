@@ -5,34 +5,29 @@ import { GrDown } from 'react-icons/gr'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { IoMdAdd } from 'react-icons/io'
 import { useLocation, useNavigate } from 'react-router'
-import { Rule } from './Rules'
+import { RuleContent } from './Rules'
 
 
-function ViewRule() {
+function ViewRuleContent() {
      const location = useLocation()
 
-     const rule: Rule = location.state || {}
+     const ruleContent: RuleContent[] = location.state || {}
 
-     const {content}  = rule
      
-    const [isRules, setIsRules] = useState(false)
+    const [isRuleContents, setIsRuleContents] = useState(false)
 
-    const addRulesHandler = () => {
-        setIsRules(true)
+    const addRuleContentsHandler = () => {
+        setIsRuleContents(true)
     }
 
     const navigate = useNavigate()
 
-    const [rulesList, setRulesList] = useState<{
-        date: string,
-        description: string
-        id: string
-    }[]>([])
+    const [ruleContentsList, setRuleContentsList] = useState<RuleContent[]>([])
     const [search, setSearch] = useState<string>('')
 
     useEffect(() => {
         setTimeout(() => {
-            setRulesList(content)
+            setRuleContentsList(ruleContent)
         }, 100)
     }, [])
 
@@ -41,7 +36,7 @@ function ViewRule() {
         currentPage: number
         itemsPerPage: number
         totalPage: number
-        slicedPages: Rule[][] | null
+        slicedPages: RuleContent[][] | null
     }
 
     const itemsPerPageArr = [2, 4, 6, 8]
@@ -51,16 +46,16 @@ function ViewRule() {
         index: 0,
         currentPage: 1,
         itemsPerPage: perPage,
-        totalPage: Math.ceil(rulesList.length / perPage),
+        totalPage: Math.ceil(ruleContentsList.length / perPage),
         slicedPages: null,
     })
 
     const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
         const item = parseInt(e.target.value)
 
-        const slicedPages: Rule[][] = []
-        for (let i = 0; i < rulesList.length; i += item) {
-            slicedPages.push(rulesList.slice(i, i + item))
+        const slicedPages: RuleContent[][] = []
+        for (let i = 0; i < ruleContentsList.length; i += item) {
+            slicedPages.push(ruleContentsList.slice(i, i + item))
         }
 
         setPaginate((prev) => {
@@ -70,25 +65,25 @@ function ViewRule() {
                 index: 0,
                 currentPage: 1,
                 slicedPages,
-                totalPage: Math.ceil(rulesList.length / item),
+                totalPage: Math.ceil(ruleContentsList.length / item),
             }
         })
     }
 
     useEffect(() => {
-        const slicedPages: Rule[][] = []
-        for (let i = 0; i < rulesList.length; i += paginate.itemsPerPage) {
-            slicedPages.push(rulesList.slice(i, i + paginate.itemsPerPage))
+        const slicedPages: RuleContent[][] = []
+        for (let i = 0; i < ruleContentsList.length; i += paginate.itemsPerPage) {
+            slicedPages.push(ruleContentsList.slice(i, i + paginate.itemsPerPage))
         }
 
         setPaginate((prev) => {
             return {
                 ...prev,
                 slicedPages,
-                totalPage: Math.ceil(rulesList.length / paginate.itemsPerPage),
+                totalPage: Math.ceil(ruleContentsList.length / paginate.itemsPerPage),
             }
         })
-    }, [rulesList])
+    }, [ruleContentsList])
 
     const handleNext = () => {
         if (paginate.currentPage === paginate.totalPage) return
@@ -128,22 +123,22 @@ function ViewRule() {
         const { value } = e.target
         setSearch(value)
 
-        const filtered = RULES_LIST.filter((item) =>
+        const filtered = RULECONTENTS_LIST.filter((item) =>
             item.title.toLowerCase().includes(value.toLowerCase())
         )
-        setRulesList([...filtered])
+        setRuleContentsList([...filtered])
     }
 
     return (
         <div className='grid'>
             <div className='rounded-lg mt-[3rem] h-[80vh]'>
-                {isRules ? (
+               
                     <section className='rounded-lg'>
                         <div className='grid gap-10 rounded-lg  min-w-[112rem]'>
                             <div className='grid text-[1.6rem]  rounded-lg'>
                                 <div className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
                                     <p className=' font-bold'>
-                                        Rules <span>(200)</span>
+                                        RuleContents <span>(200)</span>
                                     </p>
                                     <div className='relative flex items-center'>
                                         <img
@@ -171,12 +166,12 @@ function ViewRule() {
                                     </div>
                                     <button
                                         className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg ml-auto'
-                                        onClick={addRulesHandler}
+                                        onClick={addRuleContentsHandler}
                                     >
                                         <span>
                                             <IoMdAdd />
                                         </span>{' '}
-                                        Add Rule
+                                        Add RuleContent
                                     </button>
                                 </div>
 
@@ -184,12 +179,12 @@ function ViewRule() {
                                     {slicedPages && slicedPages.length > 0 ? (
                                         React.Children.toArray(
                                             slicedPages[paginate.index].map(
-                                                (rulesBody) => {
+                                                (ruleContentsBody) => {
                                                     const {
                                                         id,
                                                         title,
                                                         createAt,
-                                                    } = rulesBody
+                                                    } = ruleContentsBody
                                                     return (
                                                         <div
                                                             className='grid relative p-16 bg-white rounded-lg gap-2 justify-items-start'
@@ -281,27 +276,10 @@ function ViewRule() {
                             </footer>
                         </div>
                     </section>
-                ) : (
-                    <section className='grid place-content-center w-full h-full justify-items-center gap-4 bg-white rounded-lg'>
-                        <img src='/icons/admins/errorSvg.svg' alt='' />
-                        <p className='text'>
-                            Ooops you have not added any rules and regulations
-                            yet
-                        </p>
-                        <button
-                            className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
-                            onClick={addRulesHandler}
-                        >
-                            <span>
-                                <IoMdAdd />
-                            </span>{' '}
-                            Add Rule
-                        </button>
-                    </section>
-                )}
+                
             </div>
         </div>
     )
 }
 
-export default ViewRule
+export default ViewRuleContent
