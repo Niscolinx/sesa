@@ -196,13 +196,15 @@ function Rules() {
                                                         createAt,
                                                     } = rulesBody
                                                     return (
-                                                        <div className='grid relative p-16 bg-white rounded-lg gap-2'>
+                                                        <div className='grid relative p-16 bg-white rounded-lg gap-2' key={id}>
                                                             <p className='flex items-center gap-4'>
                                                                 <span className='w-[1rem] h-[1rem] rounded-full bg-[#EF6AF2] object-cover'></span>
                                                                 <span>
                                                                     {title}
                                                                 </span>
                                                             </p>
+                                                            <p>Created {createAt}</p>
+                                                            <button className='text-color-blue'>View Details</button>
                                                         </div>
                                                     )
                                                 }
