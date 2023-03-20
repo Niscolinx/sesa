@@ -383,7 +383,7 @@ function ViewRuleContent() {
                                                                 {isDropDownOpen &&
                                                                     index ===
                                                                         id && (
-                                                                        <div className='absolute top-0 right-[4rem] border border-color-primary-light w-[10rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
+                                                                        <div className='absolute top-0 right-[2rem] border border-color-primary-light w-[10rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
                                                                             {actions.map(
                                                                                 (
                                                                                     item,
