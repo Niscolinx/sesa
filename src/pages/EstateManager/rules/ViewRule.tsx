@@ -316,7 +316,7 @@ function ViewRuleContent() {
                         </div>
 
                         <div className='grid gap-8 mt-8' style={{
-
+                            gridTemplateColumns: `repeat(auto-fit, minmax(30rem, 1fr))`
                         }}>
                             {slicedPages && slicedPages.length > 0 ? (
                                 React.Children.toArray(
@@ -357,7 +357,7 @@ function ViewRuleContent() {
                                                                     }
                                                                 >
                                                                     <span className='text-color-primary'>
-                                                                        <BiDotsVerticalRounded/>
+                                                                        <BiDotsVerticalRounded />
                                                                     </span>
                                                                 </label>
                                                                 <input
