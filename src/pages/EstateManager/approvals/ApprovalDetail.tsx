@@ -174,7 +174,8 @@ const ApprovalDetail = () => {
                                             <p className='text-gray-500'>
                                                 {key.replace('_', ' ')}
                                             </p>
-                                            <p>{value}</p>
+                                            <p>{key.includes('amount') ? (<span>
+                                            </span>): value}</p>
                                         </div>
                                     )
                                 )}
