@@ -138,7 +138,7 @@ function ViewRuleContent() {
     return (
         <div className='grid'>
             <div className='mt-[3rem] h-[80vh] grid gap-10 rounded-lg  min-w-[112rem]'>
-                <p>Estate Rules and Regulations</p>
+                <p className='text-[2rem] font-Satoshi-Medium'>Estate Rules and Regulations</p>
                 <div className='grid text-[1.6rem]  rounded-lg'>
                     <div className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
                         <p className=' font-bold'>
