@@ -187,7 +187,12 @@ function Rules() {
                                                         createAt,
                                                     } = rulesBody
                                                     return (
-                                                        <div className='grid relative p-16 bg-white rounded-lg gap-2'></div>
+                                                        <div className='grid relative p-16 bg-white rounded-lg gap-2'>
+
+                                                            <p>
+                                                                <span>&nbsp;</span>
+                                                            </p>
+                                                        </div>
                                                     )
                                                 }
                                             )
