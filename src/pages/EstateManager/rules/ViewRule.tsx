@@ -24,15 +24,13 @@ function ViewRuleContent() {
 
     const [toggleDropDown, setToggleDropDown] = useState<{
         isDropDownOpen: boolean
-        index: string | null
+        index?: string | null
     }>({
         isDropDownOpen: false,
         index: null,
     })
 
-    useEffect(() => {
-        console.log({toggleDropDown})
-    }, [toggleDropDown])
+   
 
     const [dialogType, setDialogType] = useState<Actions>('deactivate')
 
@@ -101,6 +99,11 @@ function ViewRuleContent() {
         }
 
         handleOpen()
+        setToggleDropDown((prev) => {
+            return {
+                isDropDownOpen: false,
+            }
+        })
     }
 
     useEffect(() => {
