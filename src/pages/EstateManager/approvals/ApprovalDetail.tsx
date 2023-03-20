@@ -169,32 +169,43 @@ const ApprovalDetail = () => {
                                         ' repeat(auto-fit, minmax(30rem, 1fr))',
                                 }}
                             >
-                                {Object.entries(approval.request!).map(
-                                    ([key, value], i) => (
-                                        <div
-                                            key={i}
-                                            className='grid gap-2 justify-items-start capitalize'
-                                        >
-                                            <p className='text-gray-500'>
-                                                {key.replace('_', ' ')}
+                                <p className='text-[2rem] font-Satosh-Medium flex items-center gap-8'>
+                                    Event Request Details{' '}
+                                    {approval.status === 'declined' ? (
+                                        <span className='text-red-600 flex items-center gap-2'>
+                                            {' '}
+                                            <SlClose /> {approval.status}
+                                        </span>
+                                    ) : approval.status === 'approved' ? (
+                                        <span className='text-green-600 flex items-center gap-2'>
+                                            <AiOutlineCheckCircle />
+                                            {approval.status}
+                                        </span>
+                                    ) : (
+                                        <span className='text-orange-400 flex items-center gap-2'>
+                                            <MdOutlinePending />
+                                            {approval.status}
+                                        </span>
+                                    )}
+                                </p>
+                                
+                                <div className='grid gap-2 justify-items-start capitalize'>
+                                    <p className='text-gray-500'>request ID</p>
+                                    <p>
+                                        {key.includes('amount') ? (
+                                            <p className='flex items-center gap-1'>
+                                                {' '}
+                                                <img
+                                                    src='/icons/Naira.svg'
+                                                    alt=''
+                                                />
+                                                <span>{value}</span>
                                             </p>
-                                            <p>
-                                                {key.includes('amount') ? (
-                                                    <p className='flex items-center gap-1'>
-                                                        {' '}
-                                                        <img
-                                                            src='/icons/Naira.svg'
-                                                            alt=''
-                                                        />
-                                                        <span>{value}</span>
-                                                    </p>
-                                                ) : (
-                                                    value
-                                                )}
-                                            </p>
-                                        </div>
-                                    )
-                                )}
+                                        ) : (
+                                            value
+                                        )}
+                                    </p>
+                                </div>
                             </div>
                             <div></div>
                         </section>
