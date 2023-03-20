@@ -138,6 +138,7 @@ function ViewRuleContent() {
     return (
         <div className='grid'>
             <div className='mt-[3rem] h-[80vh] grid gap-10 rounded-lg  min-w-[112rem]'>
+                <p>Estate Rules and Regulations</p>
                 <div className='grid text-[1.6rem]  rounded-lg'>
                     <div className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
                         <p className=' font-bold'>
@@ -180,18 +181,7 @@ function ViewRuleContent() {
                                             <div
                                                 className='grid relative p-16 bg-white rounded-lg gap-2 justify-items-start'
                                                 key={id}
-                                            >
-                                                <p className='flex items-center gap-4'>
-                                                    <span className='w-[1rem] h-[1rem] rounded-full bg-[#EF6AF2] object-cover'></span>
-                                                    <span>{title}</span>
-                                                </p>
-                                                <p className='text-gray-500'>
-                                                    Created {createAt}
-                                                </p>
-                                                <button className='text-color-blue'>
-                                                    View Details
-                                                </button>
-                                            </div>
+                                            ></div>
                                         )
                                     }
                                 )
