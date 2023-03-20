@@ -22,15 +22,9 @@ export interface Approval {
         date: string
         time: string
     }
-    event: {
-        event_code: string
-        event_name: string
-        event_address: string
-        event_type: string
-        expected_no_of_guests: number
-        start_time: string
-        end_time: string
-        imgUrl: string
+    request: {
+        request_ID: string
+        request_amount: string
     }
 }
 
