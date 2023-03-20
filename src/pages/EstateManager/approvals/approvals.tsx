@@ -1,5 +1,6 @@
 import { Fragment, useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
+import DigitalRequest from './paths/DigitalRequest'
 import EventRequest from './paths/EventRequest'
 import ResidentOnboarding from './paths/ResidentOnboarding'
 import SiteWorkerRequest from './paths/SiteWorkerRequest'
@@ -28,6 +29,7 @@ function Approvals() {
         ['event-request', <EventRequest/>],
         ['resident-onboarding', <ResidentOnboarding/>],
         ['site-worker-request', <SiteWorkerRequest/>],
+        ['SESA-digital-request', <DigitalRequest/>],
     ])
 
     return (
