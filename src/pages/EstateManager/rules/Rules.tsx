@@ -144,7 +144,7 @@ function Rules() {
            setSearch(value)
 
            const filtered = RULES_LIST.filter((item) =>
-               item.paymentName.toLowerCase().includes(value.toLowerCase())
+               item.title.toLowerCase().includes(value.toLowerCase())
            )
            setRulesList([...filtered])
        }
@@ -189,15 +189,7 @@ function Rules() {
                                         <GrDown className='absolute right-4 text-[1.3rem]' />
                                     </div>
 
-                                    <button
-                                        className='btn ml-auto bg-color-blue-1 text-white flex gap-2 items-center self-center rounded-lg py-4 px-8 capitalize'
-                                        onClick={createPaymentHandler}
-                                    >
-                                        <span>
-                                            <IoMdAdd />
-                                        </span>{' '}
-                                        <p>Create Payment</p>
-                                    </button>
+                                    
                                 </div>
 
                                 <div className='grid gap-8 mt-8'>
