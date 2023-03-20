@@ -138,7 +138,9 @@ function ViewRuleContent() {
     return (
         <div className='grid'>
             <div className='mt-[3rem] h-[80vh] grid gap-10 rounded-lg  min-w-[112rem]'>
-                <p className='text-[2rem] font-Satoshi-Medium'>Estate Rules and Regulations</p>
+                <p className='text-[2rem] font-Satoshi-Medium'>
+                    Estate Rules and Regulations
+                </p>
                 <div className='grid text-[1.6rem]  rounded-lg'>
                     <div className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
                         <p className=' font-bold'>
@@ -175,16 +177,20 @@ function ViewRuleContent() {
                             React.Children.toArray(
                                 slicedPages[paginate.index].map(
                                     (ruleContentsBody) => {
-                                        const { id, description } =
+                                        const { id, description, date } =
                                             ruleContentsBody
                                         return (
                                             <div
                                                 className='grid relative p-16 bg-white rounded-lg gap-2 justify-items-start'
                                                 key={id}
                                             >
-                                                <div className='flex justify-between gap-4'>
-
+                                                <div className='flex justify-between gap-4 capitalize'>
+                                                    <p className='text-[#ED49E0] bg-[#FCE2FA]'>
+                                                        {id}
+                                                    </p>
+                                                    <p>{date}</p>
                                                 </div>
+                                                <p>{description}</p>
                                             </div>
                                         )
                                     }
