@@ -12,14 +12,6 @@ function ViewRuleContent() {
 
     const ruleContent: RuleContent[] = location.state || {}
 
-    const [isRuleContents, setIsRuleContents] = useState(false)
-
-    const addRuleContentsHandler = () => {
-        setIsRuleContents(true)
-    }
-
-    const navigate = useNavigate()
-
     const [ruleContentsList, setRuleContentsList] = useState<RuleContent[]>([])
     const [search, setSearch] = useState<string>('')
 
