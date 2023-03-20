@@ -6,7 +6,52 @@ import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { IoMdAdd } from 'react-icons/io'
 import { useNavigate } from 'react-router'
 import { Link } from 'react-router-dom'
-import { Payments, PAYMENTS_LIST } from '../Payments/RenderPayments'
+
+
+
+export interface Payments {
+    id: string
+    paymentCode: string
+    paymentName: string
+    paymentPlan: 'full' | 'Installment'
+    paymentType: 'fixed' | 'flexible'
+    paymentAmount: string
+    startDate: string
+    endDate: string
+    trackPayment: string
+    status: 'active' | 'inactive'
+    createDate: string
+    totalResidents: number
+    paidResidents: number
+    amountToPay: string
+    progressPercent: number
+    expectedAmount: string
+}
+
+export const PAYMENTS_LIST: Payments[] = Array.from({ length: 10 }).map(
+    (_, i) => ({
+        id: `i + 1`,
+        paymentCode: `XXSD${
+            (Math.random() * 0.1 + 0.9).toFixed(7).split('.')[1]
+        }`,
+        paymentName: 'Estate Dues 2023',
+        paymentPlan: Math.random() > 0.5 ? 'full' : 'Installment',
+        paymentAmount: Math.floor(
+            Math.random() * 50000 + 10000
+        ).toLocaleString(),
+        paidResidents: Math.floor(Math.random() * 45 + 10),
+        paymentType: Math.random() > 0.5 ? 'fixed' : 'flexible',
+        trackPayment: 'Yes',
+        startDate: '02 Jan, 2023',
+        endDate: '03 Mar, 2023',
+        status: Math.random() > 0.5 ? 'active' : 'inactive',
+        createDate: '01 Jan, 2023',
+        amountToPay: '2,000',
+        totalResidents: Math.floor(Math.random() * 200 + 150),
+        progressPercent: Math.floor(Math.random() * 45 + 30),
+        expectedAmount: '5,000',
+    })
+)
 
 function Rules() {
     const [isRules, setIsRules] = useState(false)
