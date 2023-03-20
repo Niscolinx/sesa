@@ -11,12 +11,14 @@ export interface Rules {
     id: string
     title: string
     createAt: string
+    description: string
 }
 
 export const RULES_LIST: Rules[] = Array.from({ length: 10 }).map((_, i) => ({
     id: `${i} + 1`,
     title: 'Ajao Estate Rules and Regulations',
     createAt: '12-Feb,2023',
+    description: 'No cars allowed to park overnight on the road'
 }))
 
 function Rules() {
