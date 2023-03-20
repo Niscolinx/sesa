@@ -5,22 +5,28 @@ import { GrDown } from 'react-icons/gr'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { IoMdAdd } from 'react-icons/io'
 import { useNavigate } from 'react-router'
-import { Link } from 'react-router-dom'
 
+export type RuleContent = {
+    date: string
+    description: string
+    id: string
+}
 export interface Rule {
     id: string
     title: string
     createAt: string
-    description: string
-    ruleNum: string
+    content: RuleContent[]
 }
 
 export const RULES_LIST: Rule[] = Array.from({ length: 10 }).map((_, i) => ({
     id: `${i} + 1`,
-    ruleNum: `rule${i + 1}`,
     title: 'Ajao Estate Rules and Regulations',
     createAt: '12-Feb 2023',
-    description: 'No cars allowed to park overnight on the road',
+    content: Array.from({ length: 6 }, (_, idx) => ({
+        id: `rule${idx + 1}`,
+        date: '07 April 2023',
+        description: 'No cars allowed to park overnight on the road',
+    })),
 }))
 
 function Rules() {

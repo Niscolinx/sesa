@@ -12,6 +12,8 @@ function ViewRule() {
      const location = useLocation()
 
      const rule: Rule = location.state || {}
+
+     const {content}  = rule
      
     const [isRules, setIsRules] = useState(false)
 
@@ -21,12 +23,16 @@ function ViewRule() {
 
     const navigate = useNavigate()
 
-    const [rulesList, setRulesList] = useState<Rule[]>([])
+    const [rulesList, setRulesList] = useState<{
+        date: string,
+        description: string
+        id: string
+    }[]>([])
     const [search, setSearch] = useState<string>('')
 
     useEffect(() => {
         setTimeout(() => {
-            setRulesList(RULES_LIST)
+            setRulesList(content)
         }, 100)
     }, [])
 
