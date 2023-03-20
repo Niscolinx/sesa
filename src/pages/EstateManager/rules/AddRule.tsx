@@ -30,15 +30,15 @@ const AddRule = () => {
                 </div>
                 <div className='grid gap-4 relative '>
                     <label
-                        htmlFor='DateOfBirth'
+                        htmlFor='rules_and_regulations'
                         className='text-[1.4rem] font-Satoshi-Medium'
                     >
-                        Artisan Category
+                        Estate rules and regulations
                     </label>
-                    <input
-                        type='text'
+                    <textarea
+                        rows={5}
                         required
-                        id='DateOfBirth'
+                        id='rules_and_regulations'
                         className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                     />
                 </div>
