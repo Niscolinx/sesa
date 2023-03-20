@@ -13,8 +13,6 @@ const ApprovalDetail = () => {
 
     const approval: Approval = location.state || {}
 
-    
-
     const [dialogType, setDialogType] = useState<DialogType>('decline')
     const [declineMessageContent, setDeclineMessageContent] = useState('')
 
@@ -164,7 +162,13 @@ const ApprovalDetail = () => {
                 {approval.title === 'digital request' ? (
                     <>
                         <section>
-                            <div>
+                            <div
+                                className=' gap-16 mt-12 grid p-8 bg-white rounded-lg max-w-[80rem]'
+                                style={{
+                                    gridTemplateColumns:
+                                        ' repeat(auto-fit, minmax(30rem, 1fr))',
+                                }}
+                            >
                                 {Object.entries(approval.request!).map(
                                     ([key, value], i) => (
                                         <div
@@ -174,8 +178,20 @@ const ApprovalDetail = () => {
                                             <p className='text-gray-500'>
                                                 {key.replace('_', ' ')}
                                             </p>
-                                            <p>{key.includes('amount') ? (<span>
-                                            </span>): value}</p>
+                                            <p>
+                                                {key.includes('amount') ? (
+                                                    <p className='flex items-center gap-1'>
+                                                        {' '}
+                                                        <img
+                                                            src='/icons/Naira.svg'
+                                                            alt=''
+                                                        />
+                                                        <span>{value}</span>
+                                                    </p>
+                                                ) : (
+                                                    value
+                                                )}
+                                            </p>
                                         </div>
                                     )
                                 )}
