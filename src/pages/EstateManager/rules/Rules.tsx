@@ -7,14 +7,14 @@ import { IoMdAdd } from 'react-icons/io'
 import { useNavigate } from 'react-router'
 import { Link } from 'react-router-dom'
 
-export interface Rules {
+export interface Rule {
     id: string
     title: string
     createAt: string
     description: string
 }
 
-export const RULES_LIST: Rules[] = Array.from({ length: 10 }).map((_, i) => ({
+export const RULES_LIST: Rule[] = Array.from({ length: 10 }).map((_, i) => ({
     id: `${i} + 1`,
     title: 'Ajao Estate Rules and Regulations',
     createAt: '12-Feb 2023',
@@ -30,7 +30,7 @@ function Rules() {
 
     const navigate = useNavigate()
 
-    const [rulesList, setRulesList] = useState<Rules[]>([])
+    const [rulesList, setRulesList] = useState<Rule[]>([])
     const [search, setSearch] = useState<string>('')
 
     useEffect(() => {
@@ -44,7 +44,7 @@ function Rules() {
         currentPage: number
         itemsPerPage: number
         totalPage: number
-        slicedPages: Rules[][] | null
+        slicedPages: Rule[][] | null
     }
 
     const itemsPerPageArr = [2, 4, 6, 8]
@@ -61,7 +61,7 @@ function Rules() {
     const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
         const item = parseInt(e.target.value)
 
-        const slicedPages: Rules[][] = []
+        const slicedPages: Rule[][] = []
         for (let i = 0; i < rulesList.length; i += item) {
             slicedPages.push(rulesList.slice(i, i + item))
         }
@@ -79,7 +79,7 @@ function Rules() {
     }
 
     useEffect(() => {
-        const slicedPages: Rules[][] = []
+        const slicedPages: Rule[][] = []
         for (let i = 0; i < rulesList.length; i += paginate.itemsPerPage) {
             slicedPages.push(rulesList.slice(i, i + paginate.itemsPerPage))
         }
