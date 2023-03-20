@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { ChangeEvent, useEffect, useState } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
 import { GrDown } from 'react-icons/gr'
@@ -40,43 +40,30 @@ function ViewRuleContent() {
      }
 
      const handleOpen = (dialogType: Actions) => {
-         if (dialogType === 'Deactivate') {
-             setDialogType('Deactivate')
-         }
-         if (dialogType === 'Delete') {
-             setDialogType('Delete')
-         }
+         
 
          if (dialogRef.current) {
              dialogRef.current.showModal()
          }
      }
 
-     const handleSelectedAction = (item: Actions) => {
-         if (item === 'Deactivate') {
-             handleOpen('Deactivate')
-         }
+    
 
-         if (item === 'Delete') {
-             handleOpen('Delete')
-         }
-     }
-
-     const handleDeleteAdvert = () => {
+     const handleDeleteRule = () => {
          handleClose()
 
-         toast('Advert deleted successfully', {
-             type: 'error',
-             className: 'bg-red-100 text-red-600 text-[1.4rem]',
-         })
+        //  toast('Advert deleted successfully', {
+        //      type: 'error',
+        //      className: 'bg-red-100 text-red-600 text-[1.4rem]',
+        //  })
      }
-     const handleDeactivateAdvert = () => {
+     const handleDeactivateRule = () => {
          handleClose()
 
-         toast('Advert deactivated successfully', {
-             type: 'error',
-             className: 'bg-red-100 text-red-600 text-[1.4rem]',
-         })
+        //  toast('Advert deactivated successfully', {
+        //      type: 'error',
+        //      className: 'bg-red-100 text-red-600 text-[1.4rem]',
+        //  })
      }
 
 
@@ -252,7 +239,7 @@ function ViewRuleContent() {
                                     </button>
                                     <button
                                         className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
-                                        onClick={handleDeactivateAdvert}
+                                        onClick={handleDeactivateRule}
                                     >
                                         Deactivate
                                     </button>
@@ -277,7 +264,7 @@ function ViewRuleContent() {
                                     </button>
                                     <button
                                         className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
-                                        onClick={handleDeleteAdvert}
+                                        onClick={handleDeleteRule}
                                     >
                                         Delete
                                     </button>
