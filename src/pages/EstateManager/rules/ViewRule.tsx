@@ -375,7 +375,7 @@ function ViewRuleContent() {
                                                                     ) =>
                                                                         dropDownHandler(
                                                                             e,
-                                                                            id
+                                                                            //id
                                                                         )
                                                                     }
                                                                 />
