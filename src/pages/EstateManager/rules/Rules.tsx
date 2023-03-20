@@ -181,15 +181,15 @@ function Rules() {
                                         </select>
                                         <GrDown className='absolute right-4 text-[1.3rem]' />
                                     </div>
-                                    <button
+                                    <Link
+                                        to='/estateManager/estate-rules-and-regulations/add'
                                         className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg ml-auto'
-                                        onClick={addRulesHandler}
                                     >
                                         <span>
                                             <IoMdAdd />
                                         </span>{' '}
                                         Add Rule
-                                    </button>
+                                    </Link>
                                 </div>
 
                                 <div className='grid gap-8 mt-8'>
