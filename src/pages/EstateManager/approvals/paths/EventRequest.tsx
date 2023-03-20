@@ -248,7 +248,7 @@ function EventRequest() {
                                                     <span className='bg-green-600 text-white p-4 rounded-2xl'>
                                                         {title}
                                                     </span>
-                                                    {id === 0 && (
+                                                    {id === 1 && (
                                                         <span className='text-red-500 font-Satoshi-Medium'>
                                                             New
                                                         </span>
