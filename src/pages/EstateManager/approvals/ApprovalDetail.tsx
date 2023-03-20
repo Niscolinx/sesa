@@ -162,7 +162,16 @@ const ApprovalDetail = () => {
                 )}
 
                 {approval.title === 'digital request' ? (
-                    <></>
+                    <>
+                        <section>
+                            <div>
+
+                            </div>
+                            <div>
+                                
+                            </div>
+                        </section>
+                    </>
                 ) : (
                     <>
                         {' '}
