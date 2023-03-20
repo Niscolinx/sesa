@@ -12,13 +12,13 @@ function Rules() {
         <div className='grid'>
             <div className='rounded-lg mt-[3rem] h-[80vh]'>
                 {isRules ? (
-                    <section>
-                    </section>
+                    <section className='bg-white rounded-lg'></section>
                 ) : (
-                    <section className='grid  place-content-center w-full h-full justify-items-center gap-4 bg-white rounded-lg'>
+                    <section className='grid place-content-center w-full h-full justify-items-center gap-4 bg-white rounded-lg'>
                         <img src='/icons/admins/errorSvg.svg' alt='' />
                         <p className='text'>
-                            Ooops you have not added any rules and regulations yet
+                            Ooops you have not added any rules and regulations
+                            yet
                         </p>
                         <button
                             className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
