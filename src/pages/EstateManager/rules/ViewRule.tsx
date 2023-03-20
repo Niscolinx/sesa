@@ -30,6 +30,10 @@ function ViewRuleContent() {
         index: null,
     })
 
+    useEffect(() => {
+        console.log({toggleDropDown})
+    }, [toggleDropDown])
+
     const [dialogType, setDialogType] = useState<Actions>('deactivate')
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
