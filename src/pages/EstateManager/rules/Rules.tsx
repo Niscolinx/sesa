@@ -7,23 +7,17 @@ import { IoMdAdd } from 'react-icons/io'
 import { useNavigate } from 'react-router'
 import { Link } from 'react-router-dom'
 
-
-
 export interface Rules {
     id: string
     title: string
     createAt: string
-
-  
 }
 
-export const RULES_LIST: Rules[] = Array.from({ length: 10 }).map(
-    (_, i) => ({
-        id: `${i} + 1`,
-        title: 'Ajao Estate Rules and Regulations',
-        createAt: '12-Feb,2023'
-    })
-)
+export const RULES_LIST: Rules[] = Array.from({ length: 10 }).map((_, i) => ({
+    id: `${i} + 1`,
+    title: 'Ajao Estate Rules and Regulations',
+    createAt: '12-Feb,2023',
+}))
 
 function Rules() {
     const [isRules, setIsRules] = useState(false)
@@ -32,126 +26,118 @@ function Rules() {
         setIsRules(true)
     }
 
-       const navigate = useNavigate()
+    const navigate = useNavigate()
 
-       const [rulesList, setRulesList] = useState<Rules[]>([])
-       const [search, setSearch] = useState<string>('')
+    const [rulesList, setRulesList] = useState<Rules[]>([])
+    const [search, setSearch] = useState<string>('')
 
-       useEffect(() => {
-           setTimeout(() => {
-               setRulesList(RULES_LIST)
-           }, 100)
-       }, [])
+    useEffect(() => {
+        setTimeout(() => {
+            setRulesList(RULES_LIST)
+        }, 100)
+    }, [])
 
-       interface Paginate {
-           index: number
-           currentPage: number
-           itemsPerPage: number
-           totalPage: number
-           slicedPages: Rules[][] | null
-       }
+    interface Paginate {
+        index: number
+        currentPage: number
+        itemsPerPage: number
+        totalPage: number
+        slicedPages: Rules[][] | null
+    }
 
-       const itemsPerPageArr = [2, 4, 6, 8]
-       const perPage = 4
+    const itemsPerPageArr = [2, 4, 6, 8]
+    const perPage = 4
 
-       const [paginate, setPaginate] = useState<Paginate>({
-           index: 0,
-           currentPage: 1,
-           itemsPerPage: perPage,
-           totalPage: Math.ceil(rulesList.length / perPage),
-           slicedPages: null,
-       })
+    const [paginate, setPaginate] = useState<Paginate>({
+        index: 0,
+        currentPage: 1,
+        itemsPerPage: perPage,
+        totalPage: Math.ceil(rulesList.length / perPage),
+        slicedPages: null,
+    })
 
-       const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
-           const item = parseInt(e.target.value)
+    const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
+        const item = parseInt(e.target.value)
 
-           const slicedPages: Rules[][] = []
-           for (let i = 0; i < rulesList.length; i += item) {
-               slicedPages.push(rulesList.slice(i, i + item))
-           }
+        const slicedPages: Rules[][] = []
+        for (let i = 0; i < rulesList.length; i += item) {
+            slicedPages.push(rulesList.slice(i, i + item))
+        }
 
-           setPaginate((prev) => {
-               return {
-                   ...prev,
-                   itemsPerPage: item,
-                   index: 0,
-                   currentPage: 1,
-                   slicedPages,
-                   totalPage: Math.ceil(rulesList.length / item),
-               }
-           })
-       }
+        setPaginate((prev) => {
+            return {
+                ...prev,
+                itemsPerPage: item,
+                index: 0,
+                currentPage: 1,
+                slicedPages,
+                totalPage: Math.ceil(rulesList.length / item),
+            }
+        })
+    }
 
-       useEffect(() => {
-           const slicedPages: Rules[][] = []
-           for (
-               let i = 0;
-               i < rulesList.length;
-               i += paginate.itemsPerPage
-           ) {
-               slicedPages.push(
-                   rulesList.slice(i, i + paginate.itemsPerPage)
-               )
-           }
+    useEffect(() => {
+        const slicedPages: Rules[][] = []
+        for (let i = 0; i < rulesList.length; i += paginate.itemsPerPage) {
+            slicedPages.push(rulesList.slice(i, i + paginate.itemsPerPage))
+        }
 
-           setPaginate((prev) => {
-               return {
-                   ...prev,
-                   slicedPages,
-                   totalPage: Math.ceil(
-                       rulesList.length / paginate.itemsPerPage
-                   ),
-               }
-           })
-       }, [rulesList])
+        setPaginate((prev) => {
+            return {
+                ...prev,
+                slicedPages,
+                totalPage: Math.ceil(rulesList.length / paginate.itemsPerPage),
+            }
+        })
+    }, [rulesList])
 
-       const handleNext = () => {
-           if (paginate.currentPage === paginate.totalPage) return
-           setPaginate((prev) => {
-               return {
-                   ...prev,
-                   index: prev.index + 1,
-                   currentPage: prev.currentPage + 1,
-               }
-           })
-       }
+    const handleNext = () => {
+        if (paginate.currentPage === paginate.totalPage) return
+        setPaginate((prev) => {
+            return {
+                ...prev,
+                index: prev.index + 1,
+                currentPage: prev.currentPage + 1,
+            }
+        })
+    }
 
-       const handlePrev = () => {
-           if (paginate.currentPage === 1) return
-           setPaginate((prev) => {
-               return {
-                   ...prev,
-                   index: prev.index - 1,
-                   currentPage: prev.currentPage - 1,
-               }
-           })
-       }
+    const handlePrev = () => {
+        if (paginate.currentPage === 1) return
+        setPaginate((prev) => {
+            return {
+                ...prev,
+                index: prev.index - 1,
+                currentPage: prev.currentPage - 1,
+            }
+        })
+    }
 
-       const { currentPage, slicedPages, itemsPerPage } = paginate
+    const { currentPage, slicedPages, itemsPerPage } = paginate
 
-       const jumpToPage = (e: React.MouseEvent, index: number) => {
-           setPaginate((prev) => {
-               return {
-                   ...prev,
-                   index,
-                   currentPage: index + 1,
-               }
-           })
-       }
+    const jumpToPage = (e: React.MouseEvent, index: number) => {
+        setPaginate((prev) => {
+            return {
+                ...prev,
+                index,
+                currentPage: index + 1,
+            }
+        })
+    }
 
-       const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
-           const { value } = e.target
-           setSearch(value)
+    const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
+        const { value } = e.target
+        setSearch(value)
 
-           const filtered = RULES_LIST.filter((item) =>
-               item.title.toLowerCase().includes(value.toLowerCase())
-           )
-           setRulesList([...filtered])
-       }
+        const filtered = RULES_LIST.filter((item) =>
+            item.title.toLowerCase().includes(value.toLowerCase())
+        )
+        setRulesList([...filtered])
+    }
 
-       const createPaymentHandler = () => {
-           navigate('/estateManager/rules/create')
-       }
+    const createPaymentHandler = () => {
+        navigate('/estateManager/rules/create')
+    }
 
     return (
         <div className='grid'>
@@ -188,244 +174,20 @@ function Rules() {
                                         </select>
                                         <GrDown className='absolute right-4 text-[1.3rem]' />
                                     </div>
-
-                                    
                                 </div>
 
                                 <div className='grid gap-8 mt-8'>
                                     {slicedPages && slicedPages.length > 0 ? (
                                         React.Children.toArray(
                                             slicedPages[paginate.index].map(
-                                                (paymentBody) => {
+                                                (rulesBody) => {
                                                     const {
                                                         id,
-                                                        paymentAmount,
-                                                        paymentCode,
-                                                        paymentName,
-                                                        paymentPlan,
-                                                        paymentType,
-                                                        totalResidents,
-                                                        trackPayment,
-                                                        paidResidents,
-                                                        progressPercent,
-                                                        startDate,
-                                                        endDate,
-                                                        status,
-                                                        amountToPay,
-                                                        createDate,
-                                                        expectedAmount,
-                                                    } = paymentBody
+                                                        title,
+                                                        createAt,
+                                                    } = rulesBody
                                                     return (
-                                                        <div className='grid relative p-16 bg-white rounded-lg gap-2'>
-                                                            <section className='grid gap-4 capitalize'>
-                                                                <div className='flex justify-between gap-4 '>
-                                                                    <div className='grid grid-cols-2 items-center gap-4 justify-start w-[25rem] whitespace-nowrap'>
-                                                                        <p className='text-gray-700 font-Satoshi-Light'>
-                                                                            Payment
-                                                                            Code:
-                                                                        </p>
-                                                                        <p className='font-Satoshi-Medium'>
-                                                                            {
-                                                                                paymentCode
-                                                                            }
-                                                                        </p>
-                                                                    </div>
-                                                                    <div className='grid grid-cols-2 items-center gap-4 whitespace-nowrap w-[25rem]'>
-                                                                        <p className='text-gray-700 font-Satoshi-Light '>
-                                                                            Start
-                                                                            Date:
-                                                                        </p>
-                                                                        <p className='font-Satoshi-Medium'>
-                                                                            {
-                                                                                startDate
-                                                                            }
-                                                                        </p>
-                                                                    </div>
-                                                                </div>
-                                                                <div className='flex justify-between gap-4 '>
-                                                                    <div className='grid grid-cols-2 items-center gap-4 justify-start w-[25rem] whitespace-nowrap'>
-                                                                        <p className='text-gray-700 font-Satoshi-Light  '>
-                                                                            Payment
-                                                                            Name:
-                                                                        </p>
-                                                                        <p className='font-Satoshi-Medium'>
-                                                                            {
-                                                                                paymentName
-                                                                            }
-                                                                        </p>
-                                                                    </div>
-                                                                    <div className='grid grid-cols-2 items-center gap-4 whitespace-nowrap w-[25rem]'>
-                                                                        <p className='text-gray-700 font-Satoshi-Light '>
-                                                                            End
-                                                                            Date:
-                                                                        </p>
-                                                                        <p className='font-Satoshi-Medium'>
-                                                                            {
-                                                                                endDate
-                                                                            }
-                                                                        </p>
-                                                                    </div>
-                                                                </div>
-                                                                <div className='flex justify-between gap-4 '>
-                                                                    <div className='grid grid-cols-2 items-center gap-4 justify-start w-[25rem] whitespace-nowrap'>
-                                                                        <p className='text-gray-700 font-Satoshi-Light  '>
-                                                                            Payment
-                                                                            Type
-                                                                        </p>
-                                                                        <p className='font-Satoshi-Medium'>
-                                                                            {
-                                                                                paymentType
-                                                                            }
-                                                                        </p>
-                                                                    </div>
-                                                                    <div className='grid grid-cols-2 items-center gap-4 whitespace-nowrap w-[25rem]'>
-                                                                        <p className='text-gray-700 font-Satoshi-Light '>
-                                                                            Track
-                                                                            Payment:
-                                                                        </p>
-                                                                        <p className='font-Satoshi-Medium'>
-                                                                            {
-                                                                                trackPayment
-                                                                            }
-                                                                        </p>
-                                                                    </div>
-                                                                </div>
-                                                                <div className='flex justify-between gap-4 '>
-                                                                    <div className='grid grid-cols-2 items-center gap-4 justify-start w-[25rem] whitespace-nowrap'>
-                                                                        <p className='text-gray-700 font-Satoshi-Light  '>
-                                                                            Payment
-                                                                            Plan:
-                                                                        </p>
-                                                                        <p className='font-Satoshi-Medium'>
-                                                                            {
-                                                                                paymentPlan
-                                                                            }
-                                                                        </p>
-                                                                    </div>
-                                                                    <div className='grid grid-cols-2 items-center gap-4 whitespace-nowrap w-[25rem]'>
-                                                                        <p className='text-gray-700 font-Satoshi-Light '>
-                                                                            Status
-                                                                        </p>
-                                                                        <p className='font-Satoshi-Medium'>
-                                                                            {status ===
-                                                                            'active' ? (
-                                                                                <span className='text-green-600'>
-                                                                                    {
-                                                                                        status
-                                                                                    }
-                                                                                </span>
-                                                                            ) : (
-                                                                                <span className='text-red-600'>
-                                                                                    {
-                                                                                        status
-                                                                                    }
-                                                                                </span>
-                                                                            )}
-                                                                        </p>
-                                                                    </div>
-                                                                </div>
-                                                                <div className='flex justify-between gap-4 '>
-                                                                    <div className='grid grid-cols-2 items-center gap-4 justify-start w-[25rem] whitespace-nowrap'>
-                                                                        <p className='text-gray-700 font-Satoshi-Light  '>
-                                                                            Payment
-                                                                            Amount:
-                                                                        </p>
-                                                                        <p className='font-Satoshi-Medium'>
-                                                                            ₦
-                                                                            {
-                                                                                paymentAmount
-                                                                            }
-                                                                        </p>
-                                                                    </div>
-                                                                    <div className='grid grid-cols-2 items-center gap-4 whitespace-nowrap w-[25rem]'>
-                                                                        <p className='text-gray-700 font-Satoshi-Light '>
-                                                                            Create
-                                                                            Date:
-                                                                        </p>
-                                                                        <p className='font-Satoshi-Medium'>
-                                                                            {
-                                                                                createDate
-                                                                            }
-                                                                        </p>
-                                                                    </div>
-                                                                </div>
-                                                            </section>
-
-                                                            <section className='mt-[5rem] grid '>
-                                                                <p className='flex items-center gap-2'>
-                                                                    <span className='font-Satoshi-Medium'>
-                                                                        Payment
-                                                                        Status:{' '}
-                                                                    </span>{' '}
-                                                                </p>
-
-                                                                <div className='grid gap-4 items-center '>
-                                                                    <p className='justify-self-end'>
-                                                                        ₦
-                                                                        {
-                                                                            amountToPay
-                                                                        }
-                                                                    </p>
-                                                                    <div className='progressBar overflow-hidden '>
-                                                                        <progress
-                                                                            className='progressBar__item'
-                                                                            max={
-                                                                                100
-                                                                            }
-                                                                            value={
-                                                                                progressPercent
-                                                                            }
-                                                                        />
-
-                                                                        <p
-                                                                            className={`absolute left-0 text-color-tertiary text-white flex justify-end font-Satoshi-Medium pr-10`}
-                                                                            style={{
-                                                                                width: `${progressPercent}%`,
-                                                                            }}
-                                                                        >
-                                                                            <span>
-                                                                                {
-                                                                                    progressPercent
-                                                                                }
-                                                                                %
-                                                                            </span>
-                                                                        </p>
-                                                                    </div>
-
-                                                                    <div className='flex items-center justify-between font-Satoshi-Light'>
-                                                                        <p>
-                                                                            {
-                                                                                paidResidents
-                                                                            }{' '}
-                                                                            of{' '}
-                                                                            {
-                                                                                totalResidents
-                                                                            }{' '}
-                                                                            resident
-                                                                            paid
-                                                                        </p>
-                                                                        <p>
-                                                                            ₦
-                                                                            {
-                                                                                expectedAmount
-                                                                            }
-                                                                        </p>
-
-                                                                        <Link
-                                                                            to={`/estateManager/rules/view/:${id}`}
-                                                                            state={
-                                                                                paymentBody
-                                                                            }
-                                                                        >
-                                                                            <p className='text-[#076AFF] capitalize'>
-                                                                                More
-                                                                                details
-                                                                            </p>
-                                                                        </Link>
-                                                                    </div>
-                                                                </div>
-                                                            </section>
-                                                        </div>
+                                                        <div className='grid relative p-16 bg-white rounded-lg gap-2'></div>
                                                     )
                                                 }
                                             )
