@@ -1,5 +1,6 @@
 import React, { useRef } from 'react'
 import { ChangeEvent, useEffect, useState } from 'react'
+import { BiDotsVerticalRounded } from 'react-icons/bi'
 import { CgSpinnerTwo } from 'react-icons/cg'
 import { GrDown } from 'react-icons/gr'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
@@ -314,11 +315,13 @@ function ViewRuleContent() {
                             </div>
                         </div>
 
-                        <div className='grid gap-8 mt-8'>
+                        <div className='grid gap-8 mt-8' style={{
+
+                        }}>
                             {slicedPages && slicedPages.length > 0 ? (
                                 React.Children.toArray(
                                     slicedPages[paginate.index].map(
-                                        (ruleContentsBody, i) => {
+                                        (ruleContentsBody) => {
                                             const { id, description, date } =
                                                 ruleContentsBody
 
@@ -354,10 +357,7 @@ function ViewRuleContent() {
                                                                     }
                                                                 >
                                                                     <span className='text-color-primary'>
-                                                                        <img
-                                                                            src='/icons/admins/threeDots.svg'
-                                                                            alt=''
-                                                                        />
+                                                                        <BiDotsVerticalRounded/>
                                                                     </span>
                                                                 </label>
                                                                 <input
