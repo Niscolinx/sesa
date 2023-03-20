@@ -1,6 +1,5 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
-import { useNavigate } from 'react-router'
 import RenderedPayments from './RenderPayments'
 
 
