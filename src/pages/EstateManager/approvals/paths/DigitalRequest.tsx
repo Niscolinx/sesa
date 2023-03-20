@@ -40,7 +40,7 @@ export const APPROVAL_LIST: Approval[] = Array.from({
     length: 10,
 }).map((_, i) => ({
     id: i + 1,
-    title: 'event request',
+    title: 'Digital request',
     status: status[Math.floor(Math.random() * status.length)],
     requester: {
         resident_name: 'Osaji Valentine',
