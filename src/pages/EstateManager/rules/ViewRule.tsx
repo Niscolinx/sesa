@@ -180,7 +180,88 @@ function ViewRuleContent() {
                                                     <p className='text-[#ED49E0] bg-[#FCE2FA]'>
                                                         {id}
                                                     </p>
-                                                    <p>{date}</p>
+                                                    <div>
+                                                        <p>{date}</p>
+                                                        <div className='relative'>
+                                                            <label
+                                                                className='font-semibold capitalize cursor-pointer flex items-center gap-2 relative z-10'
+                                                                htmlFor={id.toString()}
+                                                                onClick={() =>
+                                                                    setToggleDropDown(
+                                                                        (
+                                                                            prev
+                                                                        ) => {
+                                                                            return {
+                                                                                isDropDownOpen:
+                                                                                    !prev.isDropDownOpen,
+                                                                                index: id,
+                                                                            }
+                                                                        }
+                                                                    )
+                                                                }
+                                                            >
+                                                                <span className='text-color-primary'>
+                                                                    <img
+                                                                        src='/icons/admins/threeDots.svg'
+                                                                        alt=''
+                                                                    />
+                                                                </span>
+                                                            </label>
+                                                            <input
+                                                                type='radio'
+                                                                name='dropdown'
+                                                                className='hidden'
+                                                                id={id.toString()}
+                                                                onChange={(e) =>
+                                                                    dropDownHandler(
+                                                                        e,
+                                                                        id
+                                                                    )
+                                                                }
+                                                            />
+
+                                                            {isDropDownOpen &&
+                                                                index ===
+                                                                    id && (
+                                                                    <div className='absolute top-0 translate-x-[5rem] border border-color-primary-light w-[10rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
+                                                                        {actions.map(
+                                                                            (
+                                                                                item,
+                                                                                index
+                                                                            ) => (
+                                                                                <p
+                                                                                    className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
+                                                                                    key={
+                                                                                        index +
+                                                                                        id
+                                                                                    }
+                                                                                    onClick={(
+                                                                                        e
+                                                                                    ) =>
+                                                                                        selectAction(
+                                                                                            e,
+                                                                                            item,
+                                                                                            id
+                                                                                        )
+                                                                                    }
+                                                                                >
+                                                                                    {item ===
+                                                                                    'Delete' ? (
+                                                                                        <span className='text-red-600'>
+                                                                                            {
+                                                                                                item
+                                                                                            }
+                                                                                        </span>
+                                                                                    ) : (
+                                                                                        item
+                                                                                    )}
+                                                                                </p>
+                                                                            )
+                                                                        )}
+                                                                    </div>
+                                                                )}
+                                                        </div>
+                                                    </div>
                                                 </div>
                                                 <p>{description}</p>
                                             </div>
