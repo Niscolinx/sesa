@@ -123,8 +123,8 @@ function ViewRuleContent() {
         const { value } = e.target
         setSearch(value)
 
-        const filtered = RULECONTENTS_LIST.filter((item) =>
-            item.title.toLowerCase().includes(value.toLowerCase())
+        const filtered = ruleContent.filter((item) =>
+            item.id.toLowerCase().includes(value.toLowerCase())
         )
         setRuleContentsList([...filtered])
     }
