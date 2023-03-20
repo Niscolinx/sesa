@@ -69,13 +69,13 @@ function ViewRuleContent() {
 
     const dropDownHandler = (
         e: React.ChangeEvent<HTMLInputElement>,
-        //index: number
+        index: string
     ) => {
         setToggleDropDown((prev) => {
             return {
                 ...prev,
                 isDropDownOpen: e.target.checked,
-                //index,
+                index,
             }
         })
     }
@@ -375,7 +375,7 @@ function ViewRuleContent() {
                                                                     ) =>
                                                                         dropDownHandler(
                                                                             e,
-                                                                            //id
+                                                                            id
                                                                         )
                                                                     }
                                                                 />
@@ -383,7 +383,7 @@ function ViewRuleContent() {
                                                                 {isDropDownOpen &&
                                                                     index ===
                                                                         id && (
-                                                                        <div className='absolute top-0 right-[2rem] border border-color-primary-light w-[10rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
+                                                                        <div className='absolute top-0 right-[3rem] border border-color-primary-light w-[10rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
                                                                             {actions.map(
                                                                                 (
                                                                                     item,
