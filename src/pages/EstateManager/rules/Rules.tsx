@@ -9,47 +9,19 @@ import { Link } from 'react-router-dom'
 
 
 
-export interface Payments {
+export interface Rules {
     id: string
-    paymentCode: string
-    paymentName: string
-    paymentPlan: 'full' | 'Installment'
-    paymentType: 'fixed' | 'flexible'
-    paymentAmount: string
-    startDate: string
-    endDate: string
-    trackPayment: string
-    status: 'active' | 'inactive'
-    createDate: string
-    totalResidents: number
-    paidResidents: number
-    amountToPay: string
-    progressPercent: number
-    expectedAmount: string
+    title: string
+    createAt: string
+
+  
 }
 
-export const PAYMENTS_LIST: Payments[] = Array.from({ length: 10 }).map(
+export const RULES_LIST: Rules[] = Array.from({ length: 10 }).map(
     (_, i) => ({
-        id: `i + 1`,
-        paymentCode: `XXSD${
-            (Math.random() * 0.1 + 0.9).toFixed(7).split('.')[1]
-        }`,
-        paymentName: 'Estate Dues 2023',
-        paymentPlan: Math.random() > 0.5 ? 'full' : 'Installment',
-        paymentAmount: Math.floor(
-            Math.random() * 50000 + 10000
-        ).toLocaleString(),
-        paidResidents: Math.floor(Math.random() * 45 + 10),
-        paymentType: Math.random() > 0.5 ? 'fixed' : 'flexible',
-        trackPayment: 'Yes',
-        startDate: '02 Jan, 2023',
-        endDate: '03 Mar, 2023',
-        status: Math.random() > 0.5 ? 'active' : 'inactive',
-        createDate: '01 Jan, 2023',
-        amountToPay: '2,000',
-        totalResidents: Math.floor(Math.random() * 200 + 150),
-        progressPercent: Math.floor(Math.random() * 45 + 30),
-        expectedAmount: '5,000',
+        id: `${i} + 1`,
+        title: 'Ajao Estate Rules and Regulations',
+        createAt: '12-Feb,2023'
     })
 )
 
@@ -62,12 +34,12 @@ function Rules() {
 
        const navigate = useNavigate()
 
-       const [paymentsList, setPaymentsList] = useState<Payments[]>([])
+       const [rulesList, setRulesList] = useState<Rules[]>([])
        const [search, setSearch] = useState<string>('')
 
        useEffect(() => {
            setTimeout(() => {
-               setPaymentsList(PAYMENTS_LIST)
+               setRulesList(RULES_LIST)
            }, 100)
        }, [])
 
@@ -76,7 +48,7 @@ function Rules() {
            currentPage: number
            itemsPerPage: number
            totalPage: number
-           slicedPages: Payments[][] | null
+           slicedPages: Rules[][] | null
        }
 
        const itemsPerPageArr = [2, 4, 6, 8]
@@ -86,16 +58,16 @@ function Rules() {
            index: 0,
            currentPage: 1,
            itemsPerPage: perPage,
-           totalPage: Math.ceil(paymentsList.length / perPage),
+           totalPage: Math.ceil(rulesList.length / perPage),
            slicedPages: null,
        })
 
        const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
            const item = parseInt(e.target.value)
 
-           const slicedPages: Payments[][] = []
-           for (let i = 0; i < paymentsList.length; i += item) {
-               slicedPages.push(paymentsList.slice(i, i + item))
+           const slicedPages: Rules[][] = []
+           for (let i = 0; i < rulesList.length; i += item) {
+               slicedPages.push(rulesList.slice(i, i + item))
            }
 
            setPaginate((prev) => {
@@ -105,20 +77,20 @@ function Rules() {
                    index: 0,
                    currentPage: 1,
                    slicedPages,
-                   totalPage: Math.ceil(paymentsList.length / item),
+                   totalPage: Math.ceil(rulesList.length / item),
                }
            })
        }
 
        useEffect(() => {
-           const slicedPages: Payments[][] = []
+           const slicedPages: Rules[][] = []
            for (
                let i = 0;
-               i < paymentsList.length;
+               i < rulesList.length;
                i += paginate.itemsPerPage
            ) {
                slicedPages.push(
-                   paymentsList.slice(i, i + paginate.itemsPerPage)
+                   rulesList.slice(i, i + paginate.itemsPerPage)
                )
            }
 
@@ -127,11 +99,11 @@ function Rules() {
                    ...prev,
                    slicedPages,
                    totalPage: Math.ceil(
-                       paymentsList.length / paginate.itemsPerPage
+                       rulesList.length / paginate.itemsPerPage
                    ),
                }
            })
-       }, [paymentsList])
+       }, [rulesList])
 
        const handleNext = () => {
            if (paginate.currentPage === paginate.totalPage) return
@@ -171,14 +143,14 @@ function Rules() {
            const { value } = e.target
            setSearch(value)
 
-           const filtered = PAYMENTS_LIST.filter((item) =>
+           const filtered = RULES_LIST.filter((item) =>
                item.paymentName.toLowerCase().includes(value.toLowerCase())
            )
-           setPaymentsList([...filtered])
+           setRulesList([...filtered])
        }
 
        const createPaymentHandler = () => {
-           navigate('/estateManager/payments/create')
+           navigate('/estateManager/rules/create')
        }
 
     return (
@@ -190,7 +162,7 @@ function Rules() {
                             <div className='grid text-[1.6rem] border rounded-lg'>
                                 <div className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
                                     <p className=' font-bold'>
-                                        Payments <span>(200)</span>
+                                        Rules <span>(200)</span>
                                     </p>
                                     <div className='relative flex items-center'>
                                         <img
@@ -448,7 +420,7 @@ function Rules() {
                                                                         </p>
 
                                                                         <Link
-                                                                            to={`/estateManager/payments/view/:${id}`}
+                                                                            to={`/estateManager/rules/view/:${id}`}
                                                                             state={
                                                                                 paymentBody
                                                                             }

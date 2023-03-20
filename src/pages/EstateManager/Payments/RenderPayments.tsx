@@ -28,7 +28,7 @@ export interface Payments {
 
 export const PAYMENTS_LIST: Payments[] = Array.from({ length: 10 }).map(
     (_, i) => ({
-        id: `i + 1`,
+        id: `${i} + 1`,
         paymentCode: `XXSD${
             (Math.random() * 0.1 + 0.9).toFixed(7).split('.')[1]
         }`,
