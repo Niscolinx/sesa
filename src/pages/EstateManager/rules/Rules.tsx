@@ -188,9 +188,10 @@ function Rules() {
                                                     } = rulesBody
                                                     return (
                                                         <div className='grid relative p-16 bg-white rounded-lg gap-2'>
-
                                                             <p>
-                                                                <span className='w-[1rem] h-[1rem]'>&nbsp;</span>
+                                                                <span className='w-[1rem] h-[1rem] rounded-full bg-[#EF6AF2]'>
+                                                                    &nbsp;
+                                                                </span>
                                                             </p>
                                                         </div>
                                                     )
