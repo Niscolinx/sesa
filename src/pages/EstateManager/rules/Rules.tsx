@@ -190,7 +190,7 @@ function Rules() {
                                                         <div className='grid relative p-16 bg-white rounded-lg gap-2'>
 
                                                             <p>
-                                                                <span>&nbsp;</span>
+                                                                <span className='w-[1rem] h-[1rem]'>&nbsp;</span>
                                                             </p>
                                                         </div>
                                                     )
