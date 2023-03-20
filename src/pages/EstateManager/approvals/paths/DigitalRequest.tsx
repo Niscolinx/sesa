@@ -217,7 +217,7 @@ function DigitalRequest() {
                     {slicedPages && slicedPages.length > 0 ? (
                         React.Children.toArray(
                             slicedPages[paginate.index].map(
-                                (approvalBody, i) => {
+                                (approvalBody) => {
                                     const {
                                         id,
                                         status,
@@ -229,7 +229,7 @@ function DigitalRequest() {
                                         },
                                     } = approvalBody
                                     return (
-                                        <div className='grid relative p-8 bg-white rounded-lg gap-2 capitalize' key={i}>
+                                        <div className='grid relative p-8 bg-white rounded-lg gap-2 capitalize' key={id}>
                                             <div className='flex justify-between items-center gap-4 mb-10'>
                                                 <p className='flex items-center gap-4'>
                                                     <span className='bg-[#098DFF] text-white p-4 rounded-2xl'>
