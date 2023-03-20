@@ -280,11 +280,11 @@ function ViewRuleContent() {
             </dialog>
 
             <div className='grid'>
-                <div className='mt-[3rem] h-[80vh] grid gap-10 rounded-lg  min-w-[112rem]'>
+                <div className='mt-[3rem] h-[80vh] rounded-lg  min-w-[112rem]'>
                     <p className='text-[2rem] font-Satoshi-Medium'>
                         Estate Rules and Regulations
                     </p>
-                    <div className='grid text-[1.6rem]  rounded-lg'>
+                    <div className='grid text-[1.6rem]  rounded-lg my-10'>
                         <div className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
                             <p className=' font-bold'>
                                 RuleContents <span>(200)</span>
@@ -329,14 +329,14 @@ function ViewRuleContent() {
                                                 toggleDropDown
                                             return (
                                                 <div
-                                                    className='grid relative p-16 bg-white rounded-lg gap-2 justify-items-start'
+                                                    className='grid relative p-4 items-baseline bg-white rounded-lg gap-8 justify-items-start'
                                                     key={id}
                                                 >
-                                                    <div className='flex justify-between gap-4 capitalize'>
-                                                        <p className='text-[#ED49E0] bg-[#FCE2FA]'>
+                                                    <div className='flex justify-between gap-4 capitalize w-full'>
+                                                        <p className='text-[#ED49E0] bg-[#FCE2FA] p-2 rounded-lg'>
                                                             {id}
                                                         </p>
-                                                        <div>
+                                                        <div className=' flex items-center gap-6'>
                                                             <p>{date}</p>
                                                             <div className='relative'>
                                                                 <label
@@ -356,7 +356,7 @@ function ViewRuleContent() {
                                                                         )
                                                                     }
                                                                 >
-                                                                    <span className='text-color-primary'>
+                                                                    <span className='text-[1.8rem]'>
                                                                         <BiDotsVerticalRounded />
                                                                     </span>
                                                                 </label>
