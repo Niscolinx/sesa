@@ -67,35 +67,29 @@ function PaymentForm({ props }: PaymentForm) {
                     htmlFor='amount'
                     className='text-[1.4rem] font-Satoshi-Medium'
                 >
-                    Amount
+                    Start Date
                 </label>
-                <div className='relative rounded-lg border border-color-grey outline-none flex items-center pl-4'>
-                    <input
-                        type='text'
-                        required
-                        id='amount'
-                        value={amount}
-                        onChange={amountHandler}
-                        name='amount'
-                        className='w-full border-none outline-none py-4 px-4 pl-5'
-                    />
-                    <img src='/icons/Naira.svg' alt='' className='absolute' />
-                </div>
+                <input
+                    type='date'
+                    required
+                    id='startDate'
+                    className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                />
             </div>
-
-            <Select
-                label='Track Payment'
-                state={['Yes', 'No']}
-                selectedState={trackPayment}
-                setSelectedState={setTrackPayment}
-            />
-
-            <Select
-                label='Payment Plan'
-                state={['full', 'installment'] satisfies PaymentPlan[]}
-                selectedState={paymentPlan}
-                setSelectedState={setPaymentPlan}
-            />
+            <div className='grid gap-4'>
+                <label
+                    htmlFor='amount'
+                    className='text-[1.4rem] font-Satoshi-Medium'
+                >
+                    End Date
+                </label>
+                <input
+                    type='date'
+                    required
+                    id='startDate'
+                    className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                />
+            </div>
         </>
     )
 
