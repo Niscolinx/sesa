@@ -151,20 +151,21 @@ function PaymentForm({ props }: PaymentForm) {
                 selectedState={paymentPlan}
                 setSelectedState={setPaymentPlan}
             />
-
-            <div className='grid gap-4'>
-                <label
-                    htmlFor='deadline'
-                    className='text-[1.4rem] font-Satoshi-Medium'
-                >
-                    Deadline
-                </label>
-                <input
-                    type='date'
-                    required
-                    className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                />
-            </div>
+            {paymentPlan === 'full' && (
+                <div className='grid gap-4'>
+                    <label
+                        htmlFor='deadline'
+                        className='text-[1.4rem] font-Satoshi-Medium'
+                    >
+                        Deadline
+                    </label>
+                    <input
+                        type='date'
+                        required
+                        className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                    />
+                </div>
+            )}
 
             <div className='grid justify-items-start gap-4 self-end'>
                 <p className=' font-Satoshi-Medium flex items-center gap-2 text-[#043FA7]'>
