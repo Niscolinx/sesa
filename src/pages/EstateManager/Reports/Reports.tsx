@@ -1,7 +1,6 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
-import { useQuery } from 'react-query'
 import EstateStaffReport from './paths/EstateStaffReport'
 import EventsReport from './paths/EventsReport'
 import GroupReport from './paths/GroupReport'
@@ -56,11 +55,18 @@ function Reports() {
         name: string
     }[]
 
-   const {isLoading, data} =  useQuery('user', () => {
-        axios.get('http://localhost:4000/users')
-    })
+    const [loading, setLoading] = useState(false)
+    const [response_data, set_response_data] = useState<ResponseData>([])
 
-    if (isLoading) {
+    useEffect(() => {
+        setLoading(true)
+        axios.get('http://localhost:4000/users').then(({ data }) => {
+            setLoading(false)
+            set_response_data(data)
+        })
+    }, [])
+
+    if (loading) {
         return (
             <div>
                 <p>Loading...</p>
@@ -109,7 +115,10 @@ function Reports() {
                     </section>
                 ) : (
                     <section className='grid place-content-center w-full h-[80vh] justify-items-center gap-4 bg-white rounded-lg'>
-                        {data?.data.map((data) => (
+
+
+                        
+                        {response_data.map((data) => (
                             <div
                                 key={data.id}
                                 className='grid p-8 border rounded-2xl gap-4 items-center'
@@ -119,6 +128,7 @@ function Reports() {
                                 </p>
                             </div>
                         ))}
+
 
                         <img src='/icons/admins/errorSvg.svg' alt='' />
                         <p className='text'>
