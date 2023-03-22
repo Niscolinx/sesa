@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
 import EstateStaffReport from './paths/EstateStaffReport'
 import EventsReport from './paths/EventsReport'
@@ -51,8 +51,11 @@ function Reports() {
         ['work_rate', <WorkRate />],
     ])
 
+    useEffect(() => {
+        
+    }, [])
 
-    
+
 
     return (
         <div>
