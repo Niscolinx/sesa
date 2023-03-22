@@ -55,13 +55,9 @@ function Reports() {
         name: string
     }[]
 
-    const [loading, setLoading] = useState(false)
-    const [response_data, set_response_data] = useState<ResponseData>([])
 
     useEffect(() => {
-        setLoading(true)
         axios.get('http://localhost:4000/users').then(({ data }) => {
-            setLoading(false)
             set_response_data(data)
         })
     }, [])
@@ -115,9 +111,6 @@ function Reports() {
                     </section>
                 ) : (
                     <section className='grid place-content-center w-full h-[80vh] justify-items-center gap-4 bg-white rounded-lg'>
-
-
-                        
                         {response_data.map((data) => (
                             <div
                                 key={data.id}
@@ -128,7 +121,6 @@ function Reports() {
                                 </p>
                             </div>
                         ))}
-
 
                         <img src='/icons/admins/errorSvg.svg' alt='' />
                         <p className='text'>
