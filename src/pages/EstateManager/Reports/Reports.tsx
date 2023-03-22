@@ -51,6 +51,9 @@ function Reports() {
         ['work_rate', <WorkRate />],
     ])
 
+
+    
+
     return (
         <div>
             <div className='rounded-lg min-h-[80vh]'>
