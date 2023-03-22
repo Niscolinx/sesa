@@ -10,8 +10,6 @@ import SiteWorkerReport from './paths/SiteWorkerReport'
 import VisitorReport from './paths/VisitorReport'
 import WorkRate from './paths/WorkRate'
 
-
-
 function Reports() {
     type Path =
         | 'resident_access'
@@ -52,16 +50,22 @@ function Reports() {
         ['work_rate', <WorkRate />],
     ])
 
+    type ResponseData = {
+        id: string
+        name: string
+    }[]
+
     const [loading, setLoading] = useState(false)
+    const [response_data, set_response_data] = useState<ResponseData>([])
 
     useEffect(() => {
-        axios.get('http://localhost:4000/users').then(() => {
-
+        setLoading(true)
+        axios.get('http://localhost:4000/users').then(({ data }) => {
+            setLoading(false)
         })
     }, [])
 
-
-    if(loading){
+    if (loading) {
         return (
             <div>
                 <p>Loading...</p>
