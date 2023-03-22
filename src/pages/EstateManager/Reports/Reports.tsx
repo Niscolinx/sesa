@@ -76,11 +76,6 @@ function Reports() {
 
     return (
         <div>
-            {response_data.map((data) => (
-                <div key={data.id} className='grid p-8 border rounded-2xl gap-4 items-center'>
-                    <p>{data.name}</p>
-                </div>
-            ))}
             <div className='rounded-lg min-h-[80vh]'>
                 {isReport ? (
                     <section>
@@ -120,6 +115,21 @@ function Reports() {
                     </section>
                 ) : (
                     <section className='grid place-content-center w-full h-[80vh] justify-items-center gap-4 bg-white rounded-lg'>
+
+
+                        
+                        {response_data.map((data) => (
+                            <div
+                                key={data.id}
+                                className='grid p-8 border rounded-2xl gap-4 items-center'
+                            >
+                                <p className='flex items-center p-'>
+                                    {data.name}
+                                </p>
+                            </div>
+                        ))}
+
+
                         <img src='/icons/admins/errorSvg.svg' alt='' />
                         <p className='text'>
                             Ooops you have not added any Reports yet
