@@ -56,11 +56,11 @@ function Reports() {
     }[]
 
 
-    useEffect(() => {
+    
         axios.get('http://localhost:4000/users').then(({ data }) => {
             set_response_data(data)
         })
-    }, [])
+ 
 
     if (loading) {
         return (
