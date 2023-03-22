@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
+import { useQuery } from 'react-query'
 import EstateStaffReport from './paths/EstateStaffReport'
 import EventsReport from './paths/EventsReport'
 import GroupReport from './paths/GroupReport'
@@ -55,12 +56,9 @@ function Reports() {
         name: string
     }[]
 
-
-    
-        axios.get('http://localhost:4000/users').then(({ data }) => {
-            set_response_data(data)
-        })
- 
+    useQuery('user', () => {
+        axios.get('http://localhost:4000/users')
+    })
 
     if (loading) {
         return (
