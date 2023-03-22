@@ -56,11 +56,11 @@ function Reports() {
         name: string
     }[]
 
-    useQuery('user', () => {
+   const {isLoading, data} =  useQuery('user', () => {
         axios.get('http://localhost:4000/users')
     })
 
-    if (loading) {
+    if (isLoading) {
         return (
             <div>
                 <p>Loading...</p>
@@ -109,7 +109,7 @@ function Reports() {
                     </section>
                 ) : (
                     <section className='grid place-content-center w-full h-[80vh] justify-items-center gap-4 bg-white rounded-lg'>
-                        {response_data.map((data) => (
+                        {data?.data.map((data) => (
                             <div
                                 key={data.id}
                                 className='grid p-8 border rounded-2xl gap-4 items-center'
