@@ -1,3 +1,4 @@
+import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
 import EstateStaffReport from './paths/EstateStaffReport'
@@ -51,11 +52,22 @@ function Reports() {
         ['work_rate', <WorkRate />],
     ])
 
+    const [loading, setLoading] = useState(false)
+
     useEffect(() => {
-        
+        axios.get('http://localhost:4000/users').then(() => {
+
+        })
     }, [])
 
 
+    if(loading){
+        return (
+            <div>
+                <p>Loading...</p>
+            </div>
+        )
+    }
 
     return (
         <div>
