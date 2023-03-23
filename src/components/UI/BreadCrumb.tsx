@@ -25,25 +25,13 @@ function BreadCrumb() {
     return (
         <div className='flex gap-4 mb-[2rem]'>
             {breadcrumbs.map(({ match, breadcrumb }, i) => {
-                //  const isParams = Object.keys(match.params)
 
                 const eachParam = Object.keys(match.params)
-
-                // console.log({ eachParam }, 'lower', eachParam.length, params.id)
-
 
                 const showBreadCrumb = i > 1 && eachParam.length < 1
 
                 if (showBreadCrumb) {
-                    const isParams = Object.keys(params)
 
-
-                    const showPath = isParams.length > 0 ? location.pathname : null
-
-                    console.log(isParams.length)
-
-
-                    //To do not anything when the particular id is being clicked
                     
 
                     return (
@@ -52,9 +40,8 @@ function BreadCrumb() {
                             key={match.pathname}
                            
                         >
-                            {/* {isParams.length > 0} */}
                             <NavLink
-                                to={isParams.length > 0 ? '#': match.pathname}
+                                to={isParams.length > 0 && index === i ? '#': match.pathname}
                                 className={
                                     index === i
                                         ? 'text-color-blue-1'
@@ -65,7 +52,6 @@ function BreadCrumb() {
                                     { breadcrumb}
                                 </span> 
                             </NavLink>
-                         {/* <span>{breadcrumb}</span> */}
                             {i !== index && eachParam.length < 1 && (
                                 <span>
                                     <BiChevronRight />
