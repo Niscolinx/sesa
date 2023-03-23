@@ -271,7 +271,7 @@ function Rules() {
                                         className='cursor-pointer'
                                     />
 
-                                    {slicedPages?.map((item, index) => {
+                                    {slicedPages?.map((_, index) => {
                                         return (
                                             <li key={index}>
                                                 {index + 1 === currentPage ? (
