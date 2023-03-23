@@ -197,7 +197,6 @@ function Rules() {
                                         React.Children.toArray(
                                             slicedPages[paginate.index].map(
                                                 (rulesBody) => {
-                                                    console.log('id key', rulesBody.id)
                                                     const {
                                                         id,
                                                         title,
