@@ -40,7 +40,7 @@ function BreadCrumb() {
 
                     const showPath = isParams.length > 0 ? location.pathname : null
 
-                    console.log(params)
+                    console.log(isParams.length)
 
 
                     //To do not anything when the particular id is being clicked
@@ -52,11 +52,9 @@ function BreadCrumb() {
                             key={match.pathname}
                            
                         >
-                            {}
+                            {/* {isParams.length > 0} */}
                             <NavLink
-                               // to={showPath ? showPath : match.pathname}
-                                // to={match.pathname}
-                                to=''
+                                to={isParams.length > 0 ? '#': match.pathname}
                                 className={
                                     index === i
                                         ? 'text-color-blue-1'
