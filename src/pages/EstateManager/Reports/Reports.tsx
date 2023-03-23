@@ -56,17 +56,20 @@ function Reports() {
         name: string
     }
 
-    const { isLoading, data: response_data } = useQuery('user', () => {
-        return axios.get('http://localhost:4000/users')
-    })
+    // const { isLoading, data: response_data } = useQuery('user', () => {
+    //     return axios.get('http://localhost:4000/users')
+    // }, {
+    //     cacheTime: 5000,
+    //     staleTime: 30000
+    // })
 
-    if (isLoading) {
-        return (
-            <div>
-                <p>Loading...</p>
-            </div>
-        )
-    }
+    // if (isLoading) {
+    //     return (
+    //         <div>
+    //             <p>Loading...</p>
+    //         </div>
+    //     )
+    // }
 
     return (
         <div>
@@ -109,7 +112,7 @@ function Reports() {
                     </section>
                 ) : (
                     <section className='grid place-content-center w-full h-[80vh] justify-items-center gap-4 bg-white rounded-lg'>
-                        {response_data?.data.map((data: ResponseData) => (
+                        {/* {response_data?.data.map((data: ResponseData) => (
                             <div
                                 key={data.id}
                                 className='grid p-8 border rounded-2xl gap-4 items-center'
@@ -118,7 +121,7 @@ function Reports() {
                                     {data.name}
                                 </p>
                             </div>
-                        ))}
+                        ))} */}
 
                         <img src='/icons/admins/errorSvg.svg' alt='' />
                         <p className='text'>

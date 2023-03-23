@@ -244,7 +244,7 @@ function SecurityGuardActivity() {
                                 <p>Guard Code</p>
                                 <p>Check - in Count</p>
                                 <p>Check - out Count</p>
-                                <p>Panic Alert</p>
+                                {/* <p>Panic Alert</p> */}
                              
                             </div>
 
@@ -290,7 +290,6 @@ function SecurityGuardActivity() {
                                                         <p>{guardCode}</p>
                                                         <p>{checkInCount}</p>
                                                         <p>{checkOutCount}</p>
-                                                        <p>{panicAlert}</p>
                                                   
                                                     </div>
                                                 )
