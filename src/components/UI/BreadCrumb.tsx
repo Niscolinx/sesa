@@ -40,7 +40,7 @@ function BreadCrumb() {
 
                     const showPath = isParams.length > 0 ? location.pathname : null
 
-                    console.log({showPath})
+                    console.log(params)
 
 
                     //To do not anything when the particular id is being clicked
@@ -50,14 +50,9 @@ function BreadCrumb() {
                         <p
                             className='flex items-center gap-2'
                             key={match.pathname}
-                            onClick={() =>
-                                console.log({
-                                    breadcrumb,
-                                    isParams,
-                                    location,
-                                })
-                            }
+                           
                         >
+                            {}
                             <NavLink
                                // to={showPath ? showPath : match.pathname}
                                 // to={match.pathname}
