@@ -4,7 +4,6 @@ import { BiChevronRight } from 'react-icons/bi'
 import { useLocation, useParams } from 'react-router'
 
 function BreadCrumb() {
-    const navigate = useNavigate()
     const location = useLocation()
     const params = useParams()
     const breadcrumbs = useBreadcrumbs()
