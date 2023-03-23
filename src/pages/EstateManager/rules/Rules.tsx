@@ -20,7 +20,7 @@ export interface Rule {
 }
 
 export const RULES_LIST: Rule[] = Array.from({ length: 10 }).map((_, i) => ({
-    id: `${i} + 1`,
+    id: `${i + 1}`,
     title: 'Ajao Estate Rules and Regulations',
     createAt: '12-Feb 2023',
     content: Array.from({ length: 6 }, (_, idx) => ({
@@ -197,6 +197,7 @@ function Rules() {
                                         React.Children.toArray(
                                             slicedPages[paginate.index].map(
                                                 (rulesBody) => {
+                                                    console.log('id key', rulesBody.id)
                                                     const {
                                                         id,
                                                         title,
