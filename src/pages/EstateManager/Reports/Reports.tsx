@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { useEffect, useState } from 'react'
+import {  useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
 import { useQuery } from 'react-query'
 import EstateStaffReport from './paths/EstateStaffReport'
