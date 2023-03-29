@@ -453,7 +453,16 @@ function Rules() {
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <p>{description}</p>
+                                                            <div>
+                                                                <p>
+                                                                    {
+                                                                        description
+                                                                    }
+                                                                </p>
+                                                                <button className='text-color-blue'>
+                                                                    View More
+                                                                </button>
+                                                            </div>
                                                         </div>
                                                     )
                                                 }
