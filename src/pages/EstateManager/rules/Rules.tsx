@@ -35,7 +35,7 @@ function Rules() {
     const [search, setSearch] = useState<string>('')
 
     const [selectedAction, setSelectedAction] = useState<{
-        [key: string]: Actions
+        [key: string]: Omit<Actions, 'moreRules'>
     }>(null as any)
 
     const [toggleDropDown, setToggleDropDown] = useState<{
@@ -99,7 +99,7 @@ function Rules() {
 
     const selectAction = (
         e: React.MouseEvent,
-        item: Actions,
+        item: Omit<Actions, 'moreRules'>,
         index: string
     ) => {
         setSelectedAction((prev) => {
