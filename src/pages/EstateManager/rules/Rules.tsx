@@ -67,7 +67,9 @@ function Rules() {
         }
     }
 
-    const openMoreRules = (content: string[]) => {}
+    const openMoreRules = (content: string[]) => {
+        
+    }
 
     const handleDeleteRule = () => {
         handleClose()
@@ -467,7 +469,7 @@ function Rules() {
                                                                 <button
                                                                     className='text-color-blue'
                                                                     onClick={() =>
-                                                                        openMoreRules()
+                                                                        openMoreRules(moreRules)
                                                                     }
                                                                 >
                                                                     View More
