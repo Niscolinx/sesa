@@ -28,16 +28,8 @@ export const RULES = Array.from({ length: 10 }).map((_, i) => ({
 
 function Rules() {
     const [isRules, setIsRules] = useState(false)
-
-    const addRulesHandler = () => {
-        setIsRules(true)
-    }
-
     const [rulesList, setRulesList] = useState<Rule[]>([])
     const [search, setSearch] = useState<string>('')
-
-    type Actions = 'delete' | 'deactivate'
-    const actions: Actions[] = ['delete', 'deactivate']
 
     const [selectedAction, setSelectedAction] = useState<{
         [key: string]: Actions
@@ -54,6 +46,14 @@ function Rules() {
     const [dialogType, setDialogType] = useState<Actions>('deactivate')
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
+    const [moreRulesData, setMoreRulesData] = useState<string[]>([])
+
+    const addRulesHandler = () => {
+        setIsRules(true)
+    }
+
+    type Actions = 'delete' | 'deactivate'
+    const actions: Actions[] = ['delete', 'deactivate']
 
     const handleClose = () => {
         if (dialogRef.current) {
