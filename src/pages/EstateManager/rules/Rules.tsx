@@ -26,8 +26,8 @@ export const RULES = Array.from({ length: 10 }).map((_, i) => ({
     ],
 })) satisfies Rule[]
 
-type Actions = 'delete' | 'deactivate'
-const actions: Actions[] = ['delete', 'deactivate']
+type Actions = 'delete' | 'deactivate' | 'moreRules'
+const actions: Omit<Actions, 'moreRules'>[] = ['delete', 'deactivate']
 
 function Rules() {
     const [isRules, setIsRules] = useState(false)
