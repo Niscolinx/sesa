@@ -318,16 +318,22 @@ function Rules() {
                                             </div>
                                         </>
                                     ) : (
+                                        <>
+                                        <IoMdClose
+                            className='absolute right-4 top-4 text-[2rem] cursor-pointer'
+                            onClick={() => handleClose()}
+                        />
                                         <ol className='grid gap-4 justify-items-start'>
                                             {moreRulesData?.map((rule, i) => (
                                                 <li
                                                     key={rule + i}
-                                                    className='list-disc'
+                                                    className='list-decimal'
                                                 >
                                                     {rule}
                                                 </li>
                                             ))}
                                         </ol>
+                                        </>
                                     )}
                                 </div>
                             </section>
