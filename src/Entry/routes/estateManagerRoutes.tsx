@@ -47,7 +47,6 @@ import ReportDetail from '../../pages/EstateManager/Reports/ReportDetail'
 import Approvals from '../../pages/EstateManager/approvals/Approvals'
 import ApprovalDetail from '../../pages/EstateManager/approvals/ApprovalDetail'
 import Rules from '../../pages/EstateManager/rules/Rules'
-import ViewRuleContent from '../../pages/EstateManager/rules/ViewRule'
 import AddRule from '../../pages/EstateManager/rules/AddRule'
 
 const estateManagerRoutes = (
@@ -109,7 +108,6 @@ const estateManagerRoutes = (
         <Route path='approvals' element={<Approvals />} />
         <Route path='approvals/view/:id' element={<ApprovalDetail />} />
         <Route path='estate-rules-and-regulations' element={<Rules />} />
-        <Route path='estate-rules-and-regulations/view/:id' element={<ViewRuleContent />} />
         <Route path='estate-rules-and-regulations/add' element={<AddRule />} />
     </Route>
 )

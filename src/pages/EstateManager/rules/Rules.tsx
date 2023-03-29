@@ -16,7 +16,7 @@ export interface Rule {
     description: string
 }
 
-export const RULES_LIST = Array.from({ length: 10 }).map((_, i) => ({
+export const RULES = Array.from({ length: 10 }).map((_, i) => ({
     title: 'Ajao Estate Rules and Regulations',
     createAt: '12-Feb 2023',
     id: `rule${i + 1}`,
@@ -30,7 +30,6 @@ function Rules() {
     const addRulesHandler = () => {
         setIsRules(true)
     }
-
 
     const [rulesList, setRulesList] = useState<Rule[]>([])
     const [search, setSearch] = useState<string>('')
@@ -126,7 +125,7 @@ function Rules() {
 
     useEffect(() => {
         setTimeout(() => {
-            setRulesList(rule)
+            setRulesList(RULES)
         }, 100)
     }, [])
 
@@ -171,23 +170,15 @@ function Rules() {
 
     useEffect(() => {
         const slicedPages: Rule[][] = []
-        for (
-            let i = 0;
-            i < rulesList.length;
-            i += paginate.itemsPerPage
-        ) {
-            slicedPages.push(
-                rulesList.slice(i, i + paginate.itemsPerPage)
-            )
+        for (let i = 0; i < rulesList.length; i += paginate.itemsPerPage) {
+            slicedPages.push(rulesList.slice(i, i + paginate.itemsPerPage))
         }
 
         setPaginate((prev) => {
             return {
                 ...prev,
                 slicedPages,
-                totalPage: Math.ceil(
-                    rulesList.length / paginate.itemsPerPage
-                ),
+                totalPage: Math.ceil(rulesList.length / paginate.itemsPerPage),
             }
         })
     }, [rulesList])
@@ -230,7 +221,7 @@ function Rules() {
         const { value } = e.target
         setSearch(value)
 
-        const filtered = rule.filter((item) =>
+        const filtered = RULES.filter((item) =>
             item.id.toLowerCase().includes(value.toLowerCase())
         )
         setRulesList([...filtered])
