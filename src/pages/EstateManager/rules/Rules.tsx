@@ -8,16 +8,12 @@ import { IoMdAdd } from 'react-icons/io'
 import { useLocation, useNavigate } from 'react-router'
 import { Link } from 'react-router-dom'
 
-export type RuleContent = {
-    date: string
-    description: string
-    id: string
-}
 export interface Rule {
     id: string
     title: string
     createAt: string
-
+    date: string
+    description: string
 }
 
 export const RULES_LIST = Array.from({ length: 10 }).map((_, i) => ({
@@ -26,7 +22,6 @@ export const RULES_LIST = Array.from({ length: 10 }).map((_, i) => ({
     id: `rule${i + 1}`,
     date: '07 April 2023',
     description: 'No cars allowed to park overnight on the road',
-    
 })) satisfies Rule[]
 
 function Rules() {
@@ -38,9 +33,9 @@ function Rules() {
 
     const location = useLocation()
 
-    const ruleContent: RuleContent[] = location.state || {}
+    const rule: Rule[] = location.state || {}
 
-    const [ruleContentsList, setRuleContentsList] = useState<RuleContent[]>([])
+    const [rulesList, setRulesList] = useState<Rule[]>([])
     const [search, setSearch] = useState<string>('')
 
     type Actions = 'delete' | 'deactivate'
@@ -134,7 +129,7 @@ function Rules() {
 
     useEffect(() => {
         setTimeout(() => {
-            setRuleContentsList(ruleContent)
+            setRulesList(rule)
         }, 100)
     }, [])
 
@@ -143,7 +138,7 @@ function Rules() {
         currentPage: number
         itemsPerPage: number
         totalPage: number
-        slicedPages: RuleContent[][] | null
+        slicedPages: Rule[][] | null
     }
 
     const itemsPerPageArr = [2, 4, 6, 8]
@@ -153,16 +148,16 @@ function Rules() {
         index: 0,
         currentPage: 1,
         itemsPerPage: perPage,
-        totalPage: Math.ceil(ruleContentsList.length / perPage),
+        totalPage: Math.ceil(rulesList.length / perPage),
         slicedPages: null,
     })
 
     const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
         const item = parseInt(e.target.value)
 
-        const slicedPages: RuleContent[][] = []
-        for (let i = 0; i < ruleContentsList.length; i += item) {
-            slicedPages.push(ruleContentsList.slice(i, i + item))
+        const slicedPages: Rule[][] = []
+        for (let i = 0; i < rulesList.length; i += item) {
+            slicedPages.push(rulesList.slice(i, i + item))
         }
 
         setPaginate((prev) => {
@@ -172,20 +167,20 @@ function Rules() {
                 index: 0,
                 currentPage: 1,
                 slicedPages,
-                totalPage: Math.ceil(ruleContentsList.length / item),
+                totalPage: Math.ceil(rulesList.length / item),
             }
         })
     }
 
     useEffect(() => {
-        const slicedPages: RuleContent[][] = []
+        const slicedPages: Rule[][] = []
         for (
             let i = 0;
-            i < ruleContentsList.length;
+            i < rulesList.length;
             i += paginate.itemsPerPage
         ) {
             slicedPages.push(
-                ruleContentsList.slice(i, i + paginate.itemsPerPage)
+                rulesList.slice(i, i + paginate.itemsPerPage)
             )
         }
 
@@ -194,11 +189,11 @@ function Rules() {
                 ...prev,
                 slicedPages,
                 totalPage: Math.ceil(
-                    ruleContentsList.length / paginate.itemsPerPage
+                    rulesList.length / paginate.itemsPerPage
                 ),
             }
         })
-    }, [ruleContentsList])
+    }, [rulesList])
 
     const handleNext = () => {
         if (paginate.currentPage === paginate.totalPage) return
@@ -238,10 +233,10 @@ function Rules() {
         const { value } = e.target
         setSearch(value)
 
-        const filtered = ruleContent.filter((item) =>
+        const filtered = rule.filter((item) =>
             item.id.toLowerCase().includes(value.toLowerCase())
         )
-        setRuleContentsList([...filtered])
+        setRulesList([...filtered])
     }
 
     return (
@@ -375,12 +370,12 @@ function Rules() {
                                         slicedPages.length > 0 ? (
                                             React.Children.toArray(
                                                 slicedPages[paginate.index].map(
-                                                    (ruleContentsBody) => {
+                                                    (rulesBody) => {
                                                         const {
                                                             id,
                                                             description,
                                                             date,
-                                                        } = ruleContentsBody
+                                                        } = rulesBody
 
                                                         const {
                                                             isDropDownOpen,
