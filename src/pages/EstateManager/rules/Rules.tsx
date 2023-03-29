@@ -10,12 +10,20 @@ export interface Rule {
     id: string
     date: string
     description: string
+    moreRules: string[]
 }
 
 export const RULES = Array.from({ length: 10 }).map((_, i) => ({
     id: `rule${i + 1}`,
     date: '07 April 2023',
     description: 'No cars allowed to park overnight on the road',
+    moreRules: [
+        'No pets Allowed',
+        'No pets Allowed',
+        'No pets Allowed',
+        'No pets Allowed',
+        'No pets Allowed',
+    ],
 })) satisfies Rule[]
 
 function Rules() {
