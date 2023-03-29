@@ -245,7 +245,7 @@ function Rules() {
                                 <div
                                     className={`bg-white rounded-2xl ${
                                         dialogType === 'moreRules'
-                                            ? 'min-w-[64rem] py-[5rem]'
+                                            ? 'min-w-[64rem] py-[5rem] px-10'
                                             : 'grid  place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'
                                     } `}
                                 >
@@ -320,7 +320,12 @@ function Rules() {
                                     ) : (
                                         <ol className='grid gap-4 justify-items-start'>
                                             {moreRulesData?.map((rule, i) => (
-                                                <li key={rule + i}>{rule}</li>
+                                                <li
+                                                    key={rule + i}
+                                                    className='list-disc'
+                                                >
+                                                    {rule}
+                                                </li>
                                             ))}
                                         </ol>
                                     )}
