@@ -242,7 +242,13 @@ function Rules() {
                     <>
                         <dialog className='dialog' ref={dialogRef}>
                             <section className='grid place-content-center w-full h-[100vh]'>
-                                <div className={`bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8`}>
+                                <div
+                                    className={`bg-white rounded-2xl ${
+                                        dialogType === 'moreRules'
+                                            ? 'min-w-[64rem] min-h-[30rem]'
+                                            : 'grid  place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'
+                                    } `}
+                                >
                                     {dialogType === 'deactivate' ? (
                                         <>
                                             <img
@@ -278,7 +284,7 @@ function Rules() {
                                                 </button>
                                             </div>
                                         </>
-                                    ) : dialogType === 'delete' ?  (
+                                    ) : dialogType === 'delete' ? (
                                         <>
                                             <img
                                                 src='/icons/admins/modalWarning.svg'
@@ -311,15 +317,11 @@ function Rules() {
                                                 </button>
                                             </div>
                                         </>
-                                    ): (
+                                    ) : (
                                         <ol className='grid gap-4 justify-items-start'>
-                                            {
-                                                moreRulesData?.map((rule, i) => (
-                                                    <li key={rule + i}>
-                                                        {rule}
-                                                    </li>
-                                                ))
-                                            }
+                                            {moreRulesData?.map((rule, i) => (
+                                                <li key={rule + i}>{rule}</li>
+                                            ))}
                                         </ol>
                                     )}
                                 </div>
