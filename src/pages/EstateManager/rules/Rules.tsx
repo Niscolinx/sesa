@@ -245,7 +245,7 @@ function Rules() {
                                 <div
                                     className={`bg-white rounded-2xl ${
                                         dialogType === 'moreRules'
-                                            ? 'min-w-[64rem] min-h-[30rem]'
+                                            ? 'min-w-[64rem] py-[5rem]'
                                             : 'grid  place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'
                                     } `}
                                 >
