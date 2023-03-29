@@ -68,7 +68,9 @@ function Rules() {
     }
 
     const openMoreRules = (content: string[]) => {
+        setDialogType('moreRules')
         setMoreRulesData(content)
+        handleOpen()
     }
 
     const handleDeleteRule = () => {
