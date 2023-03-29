@@ -17,19 +17,17 @@ export interface Rule {
     id: string
     title: string
     createAt: string
-    content: RuleContent[]
+
 }
 
-export const RULES_LIST: Rule[] = Array.from({ length: 10 }).map((_, i) => ({
-    id: `${i + 1}`,
+export const RULES_LIST = Array.from({ length: 10 }).map((_, i) => ({
     title: 'Ajao Estate Rules and Regulations',
     createAt: '12-Feb 2023',
-    content: Array.from({ length: 6 }, (_, idx) => ({
-        id: `rule${idx + 1}`,
-        date: '07 April 2023',
-        description: 'No cars allowed to park overnight on the road',
-    })),
-}))
+    id: `rule${i + 1}`,
+    date: '07 April 2023',
+    description: 'No cars allowed to park overnight on the road',
+    
+})) satisfies Rule[]
 
 function Rules() {
     const [isRules, setIsRules] = useState(false)
