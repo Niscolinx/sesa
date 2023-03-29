@@ -67,6 +67,10 @@ function Rules() {
         }
     }
 
+    const openMoreRules = (content: string[]) => {
+
+    }
+
     const handleDeleteRule = () => {
         handleClose()
 
