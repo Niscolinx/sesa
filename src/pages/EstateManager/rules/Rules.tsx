@@ -242,7 +242,7 @@ function Rules() {
                     <>
                         <dialog className='dialog' ref={dialogRef}>
                             <section className='grid place-content-center w-full h-[100vh]'>
-                                <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
+                                <div className={`bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8`}>
                                     {dialogType === 'deactivate' ? (
                                         <>
                                             <img
