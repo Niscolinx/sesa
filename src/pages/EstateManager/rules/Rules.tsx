@@ -312,15 +312,15 @@ function Rules() {
                                             </div>
                                         </>
                                     ): (
-                                        <div>
+                                        <ol>
                                             {
                                                 moreRulesData?.map((rule, i) => (
-                                                    <ol>
-                                                        
-                                                    </ol>
+                                                    <li key={rule + i}>
+                                                        {rule}
+                                                    </li>
                                                 ))
                                             }
-                                        </div>
+                                        </ol>
                                     )}
                                 </div>
                             </section>
