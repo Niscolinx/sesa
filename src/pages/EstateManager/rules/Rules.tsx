@@ -5,20 +5,14 @@ import { CgSpinnerTwo } from 'react-icons/cg'
 import { GrDown } from 'react-icons/gr'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { IoMdAdd } from 'react-icons/io'
-import { useLocation, useNavigate } from 'react-router'
-import { Link } from 'react-router-dom'
 
 export interface Rule {
     id: string
-    title: string
-    createAt: string
     date: string
     description: string
 }
 
 export const RULES = Array.from({ length: 10 }).map((_, i) => ({
-    title: 'Ajao Estate Rules and Regulations',
-    createAt: '12-Feb 2023',
     id: `rule${i + 1}`,
     date: '07 April 2023',
     description: 'No cars allowed to park overnight on the road',
