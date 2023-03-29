@@ -278,7 +278,7 @@ function Rules() {
                                                 </button>
                                             </div>
                                         </>
-                                    ) : (
+                                    ) : dialogType === 'deactivate' ?  (
                                         <>
                                             <img
                                                 src='/icons/admins/modalWarning.svg'
@@ -311,6 +311,8 @@ function Rules() {
                                                 </button>
                                             </div>
                                         </>
+                                    ): (
+                                        <></>
                                     )}
                                 </div>
                             </section>
