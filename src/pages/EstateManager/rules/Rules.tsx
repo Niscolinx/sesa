@@ -312,7 +312,7 @@ function Rules() {
                                             </div>
                                         </>
                                     ): (
-                                        <ol>
+                                        <ol className='grid gap-4 justify-items-start'>
                                             {
                                                 moreRulesData?.map((rule, i) => (
                                                     <li key={rule + i}>
