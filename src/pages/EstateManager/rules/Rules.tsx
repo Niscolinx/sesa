@@ -26,6 +26,9 @@ export const RULES = Array.from({ length: 10 }).map((_, i) => ({
     ],
 })) satisfies Rule[]
 
+type Actions = 'delete' | 'deactivate'
+const actions: Actions[] = ['delete', 'deactivate']
+
 function Rules() {
     const [isRules, setIsRules] = useState(false)
     const [rulesList, setRulesList] = useState<Rule[]>([])
@@ -51,9 +54,6 @@ function Rules() {
     const addRulesHandler = () => {
         setIsRules(true)
     }
-
-    type Actions = 'delete' | 'deactivate'
-    const actions: Actions[] = ['delete', 'deactivate']
 
     const handleClose = () => {
         if (dialogRef.current) {
