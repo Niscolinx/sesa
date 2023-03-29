@@ -4,7 +4,7 @@ import { BiDotsVerticalRounded } from 'react-icons/bi'
 import { CgSpinnerTwo } from 'react-icons/cg'
 import { GrDown } from 'react-icons/gr'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
-import { IoMdAdd } from 'react-icons/io'
+import { IoMdAdd, IoMdClose } from 'react-icons/io'
 
 export interface Rule {
     id: string
@@ -319,20 +319,22 @@ function Rules() {
                                         </>
                                     ) : (
                                         <>
-                                        <IoMdClose
-                            className='absolute right-4 top-4 text-[2rem] cursor-pointer'
-                            onClick={() => handleClose()}
-                        />
-                                        <ol className='grid gap-4 justify-items-start'>
-                                            {moreRulesData?.map((rule, i) => (
-                                                <li
-                                                    key={rule + i}
-                                                    className='list-decimal'
-                                                >
-                                                    {rule}
-                                                </li>
-                                            ))}
-                                        </ol>
+                                            <IoMdClose
+                                                className='absolute right-4 top-4 text-[2rem] cursor-pointer'
+                                                onClick={() => handleClose()}
+                                            />
+                                            <ol className='grid gap-4 justify-items-start'>
+                                                {moreRulesData?.map(
+                                                    (rule, i) => (
+                                                        <li
+                                                            key={rule + i}
+                                                            className='list-decimal'
+                                                        >
+                                                            {rule}
+                                                        </li>
+                                                    )
+                                                )}
+                                            </ol>
                                         </>
                                     )}
                                 </div>
