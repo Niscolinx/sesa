@@ -31,9 +31,6 @@ function Rules() {
         setIsRules(true)
     }
 
-    const location = useLocation()
-
-    const rule: Rule[] = location.state || {}
 
     const [rulesList, setRulesList] = useState<Rule[]>([])
     const [search, setSearch] = useState<string>('')
