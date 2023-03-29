@@ -68,7 +68,7 @@ function Rules() {
     }
 
     const openMoreRules = (content: string[]) => {
-        
+        setMoreRulesData(content)
     }
 
     const handleDeleteRule = () => {
@@ -360,7 +360,7 @@ function Rules() {
                                                         id,
                                                         description,
                                                         date,
-                                                        moreRules
+                                                        moreRules,
                                                     } = rulesBody
 
                                                     const {
@@ -469,7 +469,9 @@ function Rules() {
                                                                 <button
                                                                     className='text-color-blue'
                                                                     onClick={() =>
-                                                                        openMoreRules(moreRules)
+                                                                        openMoreRules(
+                                                                            moreRules
+                                                                        )
                                                                     }
                                                                 >
                                                                     View More
