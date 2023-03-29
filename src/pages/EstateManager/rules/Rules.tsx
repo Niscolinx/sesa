@@ -278,7 +278,7 @@ function Rules() {
                                                 </button>
                                             </div>
                                         </>
-                                    ) : dialogType === 'deactivate' ?  (
+                                    ) : dialogType === 'delete' ?  (
                                         <>
                                             <img
                                                 src='/icons/admins/modalWarning.svg'
@@ -312,7 +312,15 @@ function Rules() {
                                             </div>
                                         </>
                                     ): (
-                                        <></>
+                                        <div>
+                                            {
+                                                moreRulesData?.map((rule, i) => (
+                                                    <ol>
+                                                        
+                                                    </ol>
+                                                ))
+                                            }
+                                        </div>
                                     )}
                                 </div>
                             </section>
