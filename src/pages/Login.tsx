@@ -70,7 +70,9 @@ const Login = () => {
                                     /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
                             })}
                             className={`border p-4 rounded-lg w-full ${
-                                formErrors.email ? 'border-red-500 ' : ''
+                                formErrors.email
+                                    ? 'border-red-500 '
+                                    : 'border-color-grey'
                             }`}
                         />
                     </div>
@@ -84,7 +86,11 @@ const Login = () => {
                                 required: true,
                                 minLength: 5,
                             })}
-                            className={`border border-color-grey p-4 rounded-lg w-full`}
+                            className={`border border-color-grey p-4 rounded-lg w-full  ${
+                                formErrors.password
+                                    ? 'border-red-500 '
+                                    : 'border-color-grey'
+                            }`}
                         />
                     </div>
                 </div>
