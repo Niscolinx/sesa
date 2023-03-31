@@ -70,10 +70,7 @@ const Login = () => {
                         </label>
                         <input
                             type='email'
-                            name='email'
-                            required
-                            value={inputs.email}
-                            id='email'
+                            {...register('email')}
                             className='border border-color-grey p-4 rounded-lg w-full outline-color-primary outline-[0.5px]'
                         />
                     </div>
