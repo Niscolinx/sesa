@@ -58,6 +58,10 @@ const Login = () => {
             })
             //navigate('/superAdmin')
             console.log(response_data.data.data.token)
+            const token = response_data.data.data.token
+            if (token) {
+                localStorage.setItem('token', token)
+            }
         } else {
             setResponseMessage({
                 className: 'text-red-600',
