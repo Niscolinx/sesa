@@ -16,10 +16,10 @@ const Login = () => {
     const { register, handleSubmit, watch, formState: {errors} } = useForm<Inputs>()
 
     watch((values) => {
-        console.log({ values, errors })
+        console.log({ values })
     })
+    console.log({errors})
     const onSubmit = handleSubmit((data) => {
-        console.log(errors)
         console.log({ data })
 
         let { email, password } = data
@@ -60,7 +60,9 @@ const Login = () => {
                             type='email'
                             {...register('email', {
                                 required: true,
-                                pattern: /^\S+@\S+$/i,
+                                // pattern: /^\S+@\S+$/i,
+                                pattern:
+                                    /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
                             })}
                             className='border border-color-grey p-4 rounded-lg w-full outline-color-primary outline-[0.5px]'
                         />
