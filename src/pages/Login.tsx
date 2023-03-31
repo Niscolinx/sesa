@@ -58,7 +58,6 @@ const Login = () => {
                 displayMessage: 'Login Successful',
             })
             //navigate('/superAdmin')
-            console.log(response_data.data.data.token)
             const token = response_data.data.data.token
             if (token) {
                 storeToken(token)
