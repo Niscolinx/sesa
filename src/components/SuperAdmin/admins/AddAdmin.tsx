@@ -103,9 +103,17 @@ const AddAdmin = () => {
             phoneNumber,
             photoUrl
         } = data
+
         const adminData = {
-            
+            name: firstName.concat(lastName),
+            gender,
+            dob,
+            email,
+            phoneNumber,
+            image: photoUrl,
         }
+
+        console.log({adminData})
     })
 
     console.log({ formErrors })
