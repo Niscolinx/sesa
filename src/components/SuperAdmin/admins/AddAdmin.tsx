@@ -23,11 +23,18 @@ const AddAdmin = () => {
     const ModalContextData = useContext(ModalContext)
     const { handleOpen } = ModalContextData
 
-    const [photoUrl, setPhotoUrl] = useState('')
+    const [photoPreview, setPhotoPreview] = useState('')
+    const [imageUrl, setImage] = useState('')
 
     const handlePhotoPreview = async () => {
         const getUrl = await getPhotoUrl(`#photoUpload`)
-        setPhotoUrl(getUrl)
+        //setPhotoPreview(getUrl)
+    }
+
+    const handlePicture = (e: React.ChangeEvent) => {
+        const preview = URL.createObjectURL(e.target.files[0])
+        console.log({preview})
+        setPhotoPreview(preview)
     }
 
     // const handleSubmit = (e: React.FormEvent) => {
@@ -101,7 +108,7 @@ const AddAdmin = () => {
             email,
             address: 'no 4 odeyim street',
             phone: `+234${phoneNumber}`,
-            image: photoUrl,
+            image: 'ssdsdsdsdsd',
         }
 
         console.log({ adminData })
@@ -202,13 +209,14 @@ const AddAdmin = () => {
                             id='photoUpload'
                             accept='image/*'
                             className='hidden'
-                            onClick={handlePhotoPreview}
+                            onChange={handlePicture}
+                            //onClick={handlePhotoPreview}
                         />
 
-                        {photoUrl && (
+                        {photoPreview && (
                             <div className='file__uploadImgBox'>
                                 <img
-                                    src={photoUrl}
+                                    src={photoPreview}
                                     alt='photoPreview'
                                     className='object-contain'
                                 />
