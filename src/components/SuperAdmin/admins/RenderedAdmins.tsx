@@ -1,3 +1,4 @@
+import React from 'react'
 import { ChangeEvent, useEffect, useRef, useState } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
 import { GrDown } from 'react-icons/gr'
@@ -7,7 +8,6 @@ import { useAppDispatch } from '../../../store/app/hooks'
 import { setAdminPath } from '../../../store/features/routeChange'
 import { useNavigate } from 'react-router'
 import { toast, ToastContainer } from 'react-toastify'
-import React from 'react'
 
 interface IAdmin {
     id: string
@@ -87,7 +87,7 @@ const ADMINDATA: IAdmin[] = [
     },
 ]
 
-type Actions = 'View Details'
+type Actions = 'view details' | 'edit details' | 'reset profile' | 'deactivate'
 
 function RenderedAdmins() {
     const dispatch = useAppDispatch()
@@ -116,7 +116,7 @@ function RenderedAdmins() {
         }, 100)
     }, [])
 
-    const actions = ['View Details'] satisfies Actions[]
+    const actions = ['view details', 'edit Details','Reset '] satisfies Actions[]
 
     const [toggleDropDown, setToggleDropDown] = useState<{
         isDropDownOpen: boolean
@@ -470,17 +470,20 @@ function RenderedAdmins() {
                                                                 className='cursor-pointer'
                                                             />
 
-                                                            <div>
+                                                            <div className='flex items-center gap-2'>
                                                                 {imgUrl && (
                                                                     <img
                                                                         src={
                                                                             imgUrl
                                                                         }
                                                                         alt=''
+                                                                        className='w-[3.5rem] h-[h-3.5rem] rounded-full object-cover'
                                                                     />
                                                                 )}
 
-                                                                <p>{name}</p>
+                                                                <p className='max-w-[40rem] overflow-hidden text-ellipsis whitespace-nowrap'>
+                                                                    {name}
+                                                                </p>
                                                             </div>
                                                         </div>
                                                         <p>{gender}</p>
