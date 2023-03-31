@@ -103,6 +103,7 @@ const AddAdmin = () => {
             gender,
             dob,
             email,
+            address: '',
             phone: `+234${phoneNumber}`,
             image: photoUrl,
         }
