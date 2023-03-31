@@ -94,9 +94,14 @@ const AddAdmin = () => {
 
     const onSubmit = handleSubmit((data) => {
         console.log({ data })
+        const {
+            firstName,
+            lastName,
+            
+        } = data
         const adminData = {
             ...data,
-            
+            name
         }
     })
 
