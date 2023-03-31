@@ -16,10 +16,10 @@ const Login = () => {
     const { register, handleSubmit, watch, formState: {errors} } = useForm<Inputs>()
 
     watch((values) => {
-        console.log({ values })
-        console.log(errors)
+        console.log({ values, errors })
     })
     const onSubmit = handleSubmit((data) => {
+        console.log(errors)
         console.log({ data })
 
         let { email, password } = data
