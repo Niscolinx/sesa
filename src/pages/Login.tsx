@@ -17,9 +17,9 @@ const Login = () => {
         formState: { errors: formErrors },
     } = useForm<Inputs>()
 
-    watch((values) => {
-        console.log({ values })
-    })
+    // watch((values) => {
+    //     console.log({ values })
+    // })
 
     const postLogin = (data: Inputs) => {
         const user = {
