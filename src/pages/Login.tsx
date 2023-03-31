@@ -73,7 +73,9 @@ const Login = () => {
                 </div>
                 <div className='grid gap-8'>
                     {response_data?.status === 200 ? (
-                        <span></span>
+                        <span className='text-green-600'>
+                            Login Successful
+                        </span>
                     ) : (
                         <span className='text-red-500'>
                             {response_data?.response?.data.message}
