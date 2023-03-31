@@ -15,7 +15,7 @@ const AddAdmin = () => {
         firstName: string
         lastName: string
         dateOfBirth: string
-        Gender: string
+        gender: string
         phoneNumber: number
     }
 
@@ -37,76 +37,83 @@ const AddAdmin = () => {
     //     handleOpen('renderedAdmins')
     // }
 
-      const {
-          register,
-          handleSubmit,
-          watch,
-          formState: { errors: formErrors },
-      } = useForm<Inputs>()
+    const {
+        register,
+        handleSubmit,
+        watch,
+        formState: { errors: formErrors },
+    } = useForm<Inputs>()
 
-      type ResponseMessage = {
-          className: string
-          displayMessage: string
-      }
+    type ResponseMessage = {
+        className: string
+        displayMessage: string
+    }
 
-      const [responseMessage, setResponseMessage] =
-          useState<ResponseMessage | null>(null)
+    const [responseMessage, setResponseMessage] =
+        useState<ResponseMessage | null>(null)
 
-      // watch((values) => {
-      //     console.log({ values })
-      // })
+    // watch((values) => {
+    //     console.log({ values })
+    // })
 
-      const postLogin = (data: Inputs) => {
-          const user = {
-              user: data.email,
-              password: data.password,
-          }
+    const postLogin = (data: Inputs) => {
+        const user = {
+            user: data.email,
+            password: data.password,
+        }
 
-          return AxiosRequest({
-              token: '',
-              url: '/login',
-              method: 'post',
-              data: user,
-          })
-      }
-      const {
-          mutate,
-          data: response_data,
-          isLoading,
-      } = useMutation(postLogin) as any
+        return AxiosRequest({
+            token: '',
+            url: '/login',
+            method: 'post',
+            data: user,
+        })
+    }
+    const {
+        mutate,
+        data: response_data,
+        isLoading,
+    } = useMutation(postLogin) as any
 
-      useEffect(() => {
-          if (response_data?.status === 200) {
-              setResponseMessage({
-                  className: 'text-green-600',
-                  displayMessage: 'Login Successful',
-              })
-             
-          } else {
-              setResponseMessage({
-                  className: 'text-red-600',
-                  displayMessage: response_data?.response?.data.message,
-              })
-          }
+    useEffect(() => {
+        if (response_data?.status === 200) {
+            setResponseMessage({
+                className: 'text-green-600',
+                displayMessage: 'Login Successful',
+            })
+        } else {
+            setResponseMessage({
+                className: 'text-red-600',
+                displayMessage: response_data?.response?.data.message,
+            })
+        }
 
-          const timeoutId = setTimeout(() => {
-              setResponseMessage(null)
-          }, 1000 * 3)
-      }, [response_data])
+        const timeoutId = setTimeout(() => {
+            setResponseMessage(null)
+        }, 1000 * 3)
+    }, [response_data])
 
-      const onSubmit = handleSubmit((data) => {
-         
-      })
-
+    const onSubmit = handleSubmit((data) => {})
 
     return (
         <div className='addAdmin'>
             <p className='addAdmin__heading'>Personal Information</p>
             <form onSubmit={onSubmit} className='addAdmin__formBox'>
+                {responseMessage?.displayMessage && (
+                    <p className='text-center'>
+                        <span className={responseMessage?.className}>
+                            {responseMessage?.displayMessage}
+                        </span>
+                    </p>
+                )}
                 <section className='addAdmin__form'>
                     <div className='addAdmin__form--item'>
                         <label htmlFor='firstName'>First Name *</label>
-                        <Input label={'firstName'} register={register} formErrors={formErrors} />
+                        <Input
+                            label={'firstName'}
+                            register={register}
+                            formErrors={formErrors}
+                        />
                     </div>
                     <div className='addAdmin__form--item'>
                         <label htmlFor='lastName'>Last Name *</label>
@@ -119,16 +126,13 @@ const AddAdmin = () => {
                     <div className='addAdmin__form--item'>
                         <label htmlFor='gender'>Gender *</label>
                         <div className='item__select'>
-                            <select id='gender'>
-                                <option hidden>&nbsp;</option>
+                            
+                            <select
+                                id='gender'
+                                {...register('gender', { required: true })}
+                            >
                                 <option value='male'>Male</option>
                                 <option value='female'>Female</option>
-                            </select>
-                            <select {...register('gender', { required: true })}>
-                                <option value='Mr'>Mr</option>
-                                <option value='Mrs'>Mrs</option>
-                                <option value='Miss'>Miss</option>
-                                <option value='Dr'>Dr</option>
                             </select>
                             <GrDown />
                         </div>
@@ -192,7 +196,7 @@ const AddAdmin = () => {
                         <span>
                             <IoMdAdd />
                         </span>{' '}
-                        Add Admin
+                        {isLoading ? 'Loading...' : 'Login'}
                     </button>
                 </section>
             </form>

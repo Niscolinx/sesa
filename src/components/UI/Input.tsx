@@ -7,7 +7,7 @@ interface Input {
     required?: boolean
     register: any
     formErrors: any
-    options: any
+    options?: any
 }
 
 const Input: FC<Input> = ({
@@ -21,9 +21,9 @@ const Input: FC<Input> = ({
     // const [inputType, setInputType] = useState(type)
 
     const validationOptions = {
-      required: true,
-      minLength: 5,
-      ...options,
+        required: true,
+        minLength: 5,
+        ...options,
     }
 
     // const formType = new Map([
@@ -41,6 +41,7 @@ const Input: FC<Input> = ({
                 {label}
             </label>
             <input
+                id={label}
                 type={type}
                 {...register(label, validationOptions)}
                 className={`border border-color-grey p-4 rounded-lg w-full ${
