@@ -1,10 +1,12 @@
-import { useEffect, useState } from 'react'
+import { ChangeEvent, useEffect, useRef, useState } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
 import { GrDown } from 'react-icons/gr'
 import { IoMdAdd } from 'react-icons/io'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { useAppDispatch } from '../../../store/app/hooks'
 import { setAdminPath } from '../../../store/features/routeChange'
+import { useNavigate } from 'react-router'
+import { toast } from 'react-toastify'
 
 interface IAdmin{
     id: string
@@ -87,6 +89,7 @@ type Actions = 'View Details'
 
 function RenderedAdmins() {
     const dispatch = useAppDispatch()
+    const navigate = useNavigate()
 
     const [fetchedUsers, setFetchedUsers] = useState<IAdmin[] | null>([])
 
@@ -105,12 +108,12 @@ function RenderedAdmins() {
 
 
     const [fetchedAdmins, setFetchedAdmins] = useState<
-        IAdmins[]
+        IAdmin[]
     >([])
 
     useEffect(() => {
         setTimeout(() => {
-            setFetchedAdmins(ARTISAN_LIST)
+            setFetchedAdmins(ADMINDATA)
         }, 100)
     }, [])
 
@@ -143,7 +146,7 @@ function RenderedAdmins() {
         currentPage: number
         itemsPerPage: number
         totalPage: number
-        slicedPages: IAdmins[][] | null
+        slicedPages: IAdmin[][] | null
     }
 
     const itemsPerPageArr = [2, 4, 6, 8]
@@ -165,7 +168,7 @@ function RenderedAdmins() {
     const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
         const item = parseInt(e.target.value)
 
-        const slicedPages: IAdmins[][] = []
+        const slicedPages: IAdmin[][] = []
         for (let i = 0; i < fetchedAdmins.length; i += item) {
             slicedPages.push(fetchedAdmins.slice(i, i + item))
         }
@@ -183,7 +186,7 @@ function RenderedAdmins() {
     }
 
     useEffect(() => {
-        const slicedPages: IAdmins[][] = []
+        const slicedPages: IAdmin[][] = []
         for (
             let i = 0;
             i < fetchedAdmins.length;
