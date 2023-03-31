@@ -5,7 +5,6 @@ import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { IoMdAdd } from 'react-icons/io'
 import { useNavigate } from 'react-router'
 import { toast, ToastContainer } from 'react-toastify'
-import RenderArtisans from '../../../components/SuperAdmin/artisans/RenderArtisans'
 import StarRating from '../../../components/SuperAdmin/UI/StarRating'
 
 export interface IArtisanList {
