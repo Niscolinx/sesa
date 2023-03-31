@@ -32,16 +32,14 @@ const Login = () => {
             url: '/login',
             method: 'post',
             data: user,
-        })
+        }) 
     }
     const {
         mutate,
         data: response_data,
         isLoading,
-        isError,
     } = useMutation(postLogin)
 
-    console.log({ response_data, isLoading, isError })
 
     const onSubmit = handleSubmit((data) => {
         let { email } = data
@@ -79,7 +77,9 @@ const Login = () => {
                         <span></span>
                     ) : (
                         <span className='text-red-500'>
-                            
+                            {
+                                response_data?.response?.data.message
+                            }
                         </span>
                     )}
                     <div className='w-full grid gap-4'>
