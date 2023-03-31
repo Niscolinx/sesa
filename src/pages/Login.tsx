@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useMutation, useQuery } from 'react-query'
 import { useNavigate } from 'react-router'
@@ -19,7 +19,12 @@ const Login = () => {
         formState: { errors: formErrors },
     } = useForm<Inputs>()
 
-    const [responseMessage, setResponseMessage]  = useState()
+    type ResponseMessage = {
+        className: string,
+        displayMessage: string
+    }
+
+    const [responseMessage, setResponseMessage]  = useState<ResponseMessage | null>(null)
 
     // watch((values) => {
     //     console.log({ values })
