@@ -34,20 +34,23 @@ const Login = () => {
             data: user,
         })
     }
-    const { mutate, data: response_data, isLoading, isError } = useMutation(postLogin)
+    const {
+        mutate,
+        data: response_data,
+        isLoading,
+        isError,
+    } = useMutation(postLogin)
 
     console.log({ response_data, isLoading, isError })
-    
+
     const onSubmit = handleSubmit((data) => {
-        
         let { email } = data
-        
+
         email = email.toLowerCase().trim()
-        
+
         if (email === 'superadmin@gmail.com') {
             //  navigate('/superAdmin')
-            mutate(data)        
-            
+            mutate(data)
         }
 
         if (email === 'securitycompany@sesa.com') {
@@ -72,6 +75,11 @@ const Login = () => {
                     <p>Kindly enter your details</p>
                 </div>
                 <div className='grid gap-8'>
+                    {response_data?.status === 200 ? (
+                        <span></span>
+                    ) : (
+                        <span></span>
+                    )}
                     <div className='w-full grid gap-4'>
                         <label htmlFor='email' className='font-semibold'>
                             Email
@@ -124,7 +132,7 @@ const Login = () => {
                     </div>
                 </div>
                 <button className='btn bg-[#0556E5] text-white rounded-lg py-4'>
-                    {isLoading ? 'Loading...': 'Login'}
+                    {isLoading ? 'Loading...' : 'Login'}
                 </button>
             </form>
             <figure>
