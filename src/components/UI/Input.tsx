@@ -42,7 +42,7 @@ const Input: FC<Input> = ({
     return (
         <div className='w-full grid gap-4 self-baseline'>
             <label htmlFor={label} className='font-semibold capitalize'>
-                {label}
+                {label === 'dob' ? 'Date of birth' : label}
             </label>
             <input
                 id={label}
@@ -62,7 +62,9 @@ const Input: FC<Input> = ({
                     {formErrors[label].type === 'required' ? (
                         <span>Field cannot be empty</span>
                     ) : (
-                        <span>Invalid {label}</span>
+                        <span>
+                            Invalid {label === 'dob' ? 'Date of birth' : label}
+                        </span>
                     )}
                 </p>
             )}
