@@ -1,5 +1,5 @@
 import { useForm } from 'react-hook-form'
-import { useQuery } from 'react-query'
+import { useMutation, useQuery } from 'react-query'
 import { useNavigate } from 'react-router'
 import { AxiosRequest } from '../utils/axios'
 
@@ -9,8 +9,6 @@ const Login = () => {
         email: string
         password: string
     }
-
-
 
     const {
         register,
@@ -23,14 +21,12 @@ const Login = () => {
         console.log({ values })
     })
 
-    const { isLoading, data: response_data } = useQuery('user', () => {
-        return AxiosRequest({url: '/login'})
-    }, {
-        cacheTime: 5000,
-        staleTime: 30000
-    })
+    const postLogin = (userData: Inputs) => {
+        return AxiosRequest({ url: '/login', method: 'post', data: userData })
+    }
+    const { mutate, data, isLoading } = useMutation(postLogin)
 
-   
+    console.log({data, isLoading})
 
     const onSubmit = handleSubmit((data) => {
         console.log({ data })
@@ -40,7 +36,8 @@ const Login = () => {
         email = email.toLowerCase().trim()
 
         if (email === 'superadmin@gmail.com') {
-          //  navigate('/superAdmin')
+            //  navigate('/superAdmin')
+            mutate(data)
         }
 
         if (email === 'securitycompany@sesa.com') {
@@ -85,8 +82,9 @@ const Login = () => {
                             <p className='text-[1.2rem] text-red-500'>
                                 {formErrors.email.type === 'required' ? (
                                     <span>Field cannot be empty</span>
-                                ): (<span>Invalid email</span>)}
-                                
+                                ) : (
+                                    <span>Invalid email</span>
+                                )}
                             </p>
                         )}
                     </div>
@@ -108,10 +106,9 @@ const Login = () => {
                             <p className='text-[1.2rem] text-red-500'>
                                 {formErrors.password.type === 'required' ? (
                                     <span>Field cannot be empty</span>
-                                ): (
+                                ) : (
                                     <span>Minimum length is 5</span>
                                 )}
-                               
                             </p>
                         )}
                     </div>
