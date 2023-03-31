@@ -40,7 +40,7 @@ const Input: FC<Input> = ({
     // ])
 
     return (
-        <div className='w-full grid gap-4'>
+        <div className='w-full grid gap-4 self-baseline'>
             <label htmlFor={label} className='font-semibold capitalize'>
                 {label}
             </label>
@@ -49,7 +49,7 @@ const Input: FC<Input> = ({
                 type={type}
                 {...register(label, validationOptions)}
                 className={`border border-color-grey p-4 rounded-lg w-full ${
-                    formErrors.label && 'border-red-500 '
+                    formErrors[label] && 'border-red-500 '
                 }`}
                 min={
                     type === 'date' && label.indexOf('birth') === 0
@@ -57,12 +57,12 @@ const Input: FC<Input> = ({
                         : null
                 }
             />
-            {formErrors.label && (
+            {formErrors[label] && (
                 <p className='text-[1.2rem] text-red-500'>
-                    {formErrors.label.type === 'required' ? (
+                    {formErrors[label].type === 'required' ? (
                         <span>Field cannot be empty</span>
                     ) : (
-                        <span>Invalid label</span>
+                        <span>Invalid {label}</span>
                     )}
                 </p>
             )}

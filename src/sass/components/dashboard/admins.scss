@@ -31,7 +31,7 @@
         width: 100%;
         display: grid;
         align-content: flex-start;
-        border: 1px solid $color-grey-1;
+        //border: 1px solid $color-grey-1;
         border-radius: $border-radius;
 
         &__tableBox {
@@ -87,7 +87,7 @@
             select {
                 width: 25rem;
                 border-radius: $border-radius;
-                border: 1px solid $color-blue-light;
+                //border: 1px solid $color-blue-light;
                 padding: 1rem 2rem;
                 outline: none;
                 appearance: none;
@@ -250,7 +250,7 @@
                 select {
                     width: 100%;
                     border-radius: $border-radius;
-                    border: 1px solid $color-grey-1;
+                   // border: 1px solid $color-grey-1;
                     padding: 1.2rem 2rem;
                     font-size: 1.6rem;
                     outline: none;

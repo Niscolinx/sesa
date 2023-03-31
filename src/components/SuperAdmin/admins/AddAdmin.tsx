@@ -97,7 +97,7 @@ const AddAdmin = () => {
         console.log({ data })
     })
 
-    console.log({formErrors})
+    console.log({ formErrors })
 
     return (
         <div className='addAdmin'>
@@ -135,7 +135,7 @@ const AddAdmin = () => {
                     </div>
                     <div className='addAdmin__form--item'>
                         <label htmlFor='gender'>Gender *</label>
-                        <div className='item__select'>
+                        <div className='item__select border border-color-grey rounded-lg w-full'>
                             <select
                                 id='gender'
                                 {...register('gender', { required: true })}
@@ -158,7 +158,7 @@ const AddAdmin = () => {
                                 {...register('phoneNumber', {
                                     required: true,
                                     minLength: 9,
-                                    maxLength: 10
+                                    maxLength: 10,
                                 })}
                                 type='number'
                                 inputMode='numeric'
