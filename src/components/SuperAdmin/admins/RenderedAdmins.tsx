@@ -16,6 +16,7 @@ interface IAdmin {
     phoneNumber: string
     status: string
     onboardingDate: string
+    imgUrl?: string
 }
 
 const ADMINDATA: IAdmin[] = [
@@ -26,6 +27,7 @@ const ADMINDATA: IAdmin[] = [
         phoneNumber: '(+234) 814 324 6719',
         onboardingDate: '02-May-22',
         status: 'Active',
+        imgUrl: '/img/avatar11.png',
     },
     {
         id: '1',
@@ -452,7 +454,7 @@ function RenderedAdmins() {
                                                     name,
                                                     onboardingDate,
                                                     status,
-                                                    imgUrl
+                                                    imgUrl,
                                                 },
                                                 i
                                             ) => {
@@ -468,10 +470,13 @@ function RenderedAdmins() {
                                                                 className='cursor-pointer'
                                                             />
 
-                                                        <div>
-                                                            <img src={imgUrl} alt="" />
-                                                            <p>{name}</p>
-                                                        </div>
+                                                            <div>
+                                                                <img
+                                                                    src={imgUrl}
+                                                                    alt=''
+                                                                />
+                                                                <p>{name}</p>
+                                                            </div>
                                                         </div>
                                                         <p>{gender}</p>
                                                         <p>{phoneNumber}</p>
