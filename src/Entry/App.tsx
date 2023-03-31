@@ -21,39 +21,45 @@ import securityCompanyRoutes from './routes/securityCompanyRoutes'
 import { Route } from 'use-react-router-breadcrumbs'
 import estateManagerRoutes from './routes/estateManagerRoutes'
 import { isAuthenticated } from '../utils/token'
-
-
-const isAuth = isAuthenticated()
-
-console.log({isAuth})
-
-let router = createBrowserRouter([
-    {
-        path: '/',
-        element: <Login />,
-    },
-    {
-        path: '*',
-        element: <Navigate to='/' />,
-    },
-])
-
-if (isAuth) {
-    console.log('authenticated')
-    router = createBrowserRouter(
-        createRoutesFromElements([
-            <Route path='/' element={<Login />} />,
-            superAdminRoutes,
-            securityCompanyRoutes,
-            estateManagerRoutes,
-            <Route path='*' element={<Navigate to='/' />} />,
-        ])
-    )
-}
-
-console.log('router======',router)
+import { useEffect, useState } from 'react'
 
 const App = () => {
+    const [isAuth, setIsAuth] = useState(false)
+
+    console.log({ isAuth })
+
+    useEffect(() => {
+        const auth = isAuthenticated()
+
+        auth ? setIsAuth(true) : setIsAuth(false)
+    }, [])
+
+    let router = createBrowserRouter([
+        {
+            path: '/',
+            element: <Login />,
+        },
+        {
+            path: '*',
+            element: <Navigate to='/' />,
+        },
+    ])
+
+    if (isAuth) {
+        console.log('authenticated')
+        router = createBrowserRouter(
+            createRoutesFromElements([
+                <Route path='/' element={<Login />} />,
+                superAdminRoutes,
+                securityCompanyRoutes,
+                estateManagerRoutes,
+                <Route path='*' element={<Navigate to='/' />} />,
+            ])
+        )
+    }
+
+    console.log('router======', router)
+
     return (
         <div className='text-[1.6rem] max-w-[180rem] mx-auto'>
             <SkeletonTheme baseColor='#202020' highlightColor='#444'>
