@@ -113,7 +113,7 @@ const AddAdmin = () => {
             email,
             address: 'no 4 odeyim street',
             phone: `+234${phoneNumber}`,
-            image: imageUrl,
+            image: imageUrl?.name,
         }
 
         console.log({ adminData })
