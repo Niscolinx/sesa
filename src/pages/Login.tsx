@@ -6,6 +6,7 @@ import { AxiosRequest } from '../utils/axios'
 
 const Login = () => {
     const navigate = useNavigate()
+
     interface Inputs {
         email: string
         password: string
@@ -17,6 +18,8 @@ const Login = () => {
         watch,
         formState: { errors: formErrors },
     } = useForm<Inputs>()
+
+    const [responseMessage, setResponseMessage]  = useState()
 
     // watch((values) => {
     //     console.log({ values })
@@ -42,7 +45,8 @@ const Login = () => {
     } = useMutation(postLogin) as any
 
     useEffect(() => {
-        
+        response_data?.status === 200 ?
+        set
 
     }, [response_data])
 
