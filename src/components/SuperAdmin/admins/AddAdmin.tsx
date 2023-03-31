@@ -59,7 +59,7 @@ const AddAdmin = () => {
     const postLogin = (data: Inputs) => {
         const user = {
             user: data.email,
-            password: data.password,
+            // password: data.password,
         }
 
         return AxiosRequest({
@@ -93,7 +93,9 @@ const AddAdmin = () => {
         }, 1000 * 3)
     }, [response_data])
 
-    const onSubmit = handleSubmit((data) => {})
+    const onSubmit = handleSubmit((data) => {
+        console.log({data})
+    })
 
     return (
         <div className='addAdmin'>
@@ -126,7 +128,6 @@ const AddAdmin = () => {
                     <div className='addAdmin__form--item'>
                         <label htmlFor='gender'>Gender *</label>
                         <div className='item__select'>
-                            
                             <select
                                 id='gender'
                                 {...register('gender', { required: true })}
