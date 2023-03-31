@@ -27,8 +27,12 @@ const Login = () => {
             password: data.password,
         }
 
-        console.log(user)
-        return AxiosRequest({ url: '/login', method: 'post', data: user },)
+        return AxiosRequest({
+            token: '',
+            url: '/login',
+            method: 'post',
+            data: user,
+        })
     }
     const { mutate, data, isLoading } = useMutation(postLogin)
 
