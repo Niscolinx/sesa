@@ -60,16 +60,13 @@ const AddAdmin = () => {
     // })
 
     const postLogin = (data: Inputs) => {
-        const user = {
-            user: data.email,
-            // password: data.password,
-        }
+       
 
         return AxiosRequest({
             token: '',
-            url: '/login',
+            url: '/admin/create',
             method: 'post',
-            data: user,
+            data
         })
     }
     const {
