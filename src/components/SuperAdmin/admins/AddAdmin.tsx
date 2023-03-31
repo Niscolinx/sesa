@@ -1,13 +1,21 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import { useForm } from 'react-hook-form'
 import { GrDown } from 'react-icons/gr'
 import { IoMdAdd } from 'react-icons/io'
+import { useMutation } from 'react-query'
 import { ModalContext } from '../../../Context/ModalContext'
+import { AxiosRequest } from '../../../utils/axios'
 import { getPhotoUrl } from '../../../utils/getPhotoUrl'
+import { storeToken } from '../../../utils/token'
 
 const AddAdmin = () => {
     interface Inputs {
+        email: string
         firstName: string
         lastName: string
+        dateOfBirth: string
+        Gender: string
+        phoneNumber: number
     }
 
     const ModalContextData = useContext(ModalContext)
@@ -28,10 +36,72 @@ const AddAdmin = () => {
         handleOpen('renderedAdmins')
     }
 
+      const {
+          register,
+          handleSubmit,
+          watch,
+          formState: { errors: formErrors },
+      } = useForm<Inputs>()
+
+      type ResponseMessage = {
+          className: string
+          displayMessage: string
+      }
+
+      const [responseMessage, setResponseMessage] =
+          useState<ResponseMessage | null>(null)
+
+      // watch((values) => {
+      //     console.log({ values })
+      // })
+
+      const postLogin = (data: Inputs) => {
+          const user = {
+              user: data.email,
+              password: data.password,
+          }
+
+          return AxiosRequest({
+              token: '',
+              url: '/login',
+              method: 'post',
+              data: user,
+          })
+      }
+      const {
+          mutate,
+          data: response_data,
+          isLoading,
+      } = useMutation(postLogin) as any
+
+      useEffect(() => {
+          if (response_data?.status === 200) {
+              setResponseMessage({
+                  className: 'text-green-600',
+                  displayMessage: 'Login Successful',
+              })
+             
+          } else {
+              setResponseMessage({
+                  className: 'text-red-600',
+                  displayMessage: response_data?.response?.data.message,
+              })
+          }
+
+          const timeoutId = setTimeout(() => {
+              setResponseMessage(null)
+          }, 1000 * 3)
+      }, [response_data])
+
+      const onSubmit = handleSubmit((data) => {
+         
+      })
+
+
     return (
         <div className='addAdmin'>
             <p className='addAdmin__heading'>Personal Information</p>
-            <form onSubmit={handleSubmit} className='addAdmin__formBox'>
+            <form onSubmit={onSubmit} className='addAdmin__formBox'>
                 <section className='addAdmin__form'>
                     <div className='addAdmin__form--item'>
                         <label htmlFor='firstName'>First Name *</label>
@@ -52,6 +122,12 @@ const AddAdmin = () => {
                                 <option hidden>&nbsp;</option>
                                 <option value='male'>Male</option>
                                 <option value='female'>Female</option>
+                            </select>
+                            <select {...register('gender', { required: true })}>
+                                <option value='Mr'>Mr</option>
+                                <option value='Mrs'>Mrs</option>
+                                <option value='Miss'>Miss</option>
+                                <option value='Dr'>Dr</option>
                             </select>
                             <GrDown />
                         </div>
