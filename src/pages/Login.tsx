@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form'
 import { useMutation, useQuery } from 'react-query'
 import { useNavigate } from 'react-router'
 import { AxiosRequest } from '../utils/axios'
+import { storeToken } from '../utils/token'
 
 const Login = () => {
     const navigate = useNavigate()
@@ -51,8 +52,6 @@ const Login = () => {
     } = useMutation(postLogin) as any
 
     useEffect(() => {
-        
-
         if (response_data?.status === 200) {
             setResponseMessage({
                 className: 'text-green-600',
