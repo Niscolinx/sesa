@@ -20,7 +20,7 @@ const Login = () => {
         formState: { errors: formErrors },
     } = useForm<Inputs>()
 
-    console.log({formErrors})
+    console.log({ formErrors })
     watch((values) => {
         console.log({ values })
     })
@@ -70,12 +70,13 @@ const Login = () => {
                                 pattern:
                                     /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
                             })}
-                            className={`border p-4 rounded-lg w-full ${
-                                formErrors.email
-                                    ? 'border-red-500 '
-                                    : 'border-color-grey'
+                            className={`border border-color-grey p-4 rounded-lg w-full ${
+                                formErrors.email && 'border-red-500 '
                             }`}
                         />
+                        {formErrors.email && <p className='text-[1.2rem]'>
+                                
+                            </p>}
                     </div>
                     <div className='w-full grid gap-4'>
                         <label htmlFor='password' className='font-semibold'>
@@ -88,9 +89,7 @@ const Login = () => {
                                 minLength: 5,
                             })}
                             className={`border border-color-grey p-4 rounded-lg w-full  ${
-                                formErrors.password
-                                    ? 'border-red-500 '
-                                    : 'border-color-grey'
+                                formErrors.password && 'border-red-500 '
                             }`}
                         />
                     </div>
