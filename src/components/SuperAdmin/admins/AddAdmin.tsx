@@ -86,8 +86,8 @@ const AddAdmin = () => {
     } = useMutation(postLogin) as any
 
     useEffect(() => {
+        console.log({response_data})
         if (response_data?.status === 200) {
-            console.log({response_data})
             setResponseMessage({
                 className: 'text-green-600',
                 displayMessage: 'Login Successful',
