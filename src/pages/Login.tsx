@@ -20,36 +20,34 @@ const Login = () => {
 
         email = email.toLowerCase().trim()
 
-        if (email === 'superadmin@sesa.com') {
+        if (email.includes('superadmin')) {
             navigate('/superAdmin')
         }
-        
+
         if (email === 'securitycompany@sesa.com') {
             navigate('/securityCompany')
         }
 
-        if(email === 'estatemanager@sesa.com') {
+        if (email === 'estatemanager@sesa.com') {
             navigate('/estateManager')
         }
     }
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-
-
         setInputs((prev) => ({
             ...prev,
             [e.target.name]: e.target.value,
         }))
     }
 
-     const { register, handleSubmit, watch } = useForm<Inputs>()
+    const { register, handleSubmit, watch } = useForm<Inputs>()
 
-     watch((values) => {
-        console.log({values})
-     })
-     const onSubmit = handleSubmit((data) => {
-         console.log({ data })
-     })
+    watch((values) => {
+        console.log({ values })
+    })
+    const onSubmit = handleSubmit((data) => {
+        console.log({ data })
+    })
 
     return (
         <div className='flex h-screen overflow-hidden'>
