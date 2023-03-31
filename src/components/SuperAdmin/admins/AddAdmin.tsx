@@ -97,7 +97,9 @@ const AddAdmin = () => {
         const {
             firstName,
             lastName,
-            
+            gender,
+            dob,
+
         } = data
         const adminData = {
             ...data,
@@ -136,7 +138,7 @@ const AddAdmin = () => {
                     <div className='addAdmin__form--item'>
                         <Input
                             type={'date'}
-                            label={'Date of Birth'}
+                            label={'dob'}
                             register={register}
                             formErrors={formErrors}
                         />
