@@ -26,14 +26,17 @@ const AddAdmin = () => {
     const [photoPreview, setPhotoPreview] = useState('')
     const [imageUrl, setImage] = useState('')
 
-    const handlePhotoPreview = async () => {
-        const getUrl = await getPhotoUrl(`#photoUpload`)
-        //setPhotoPreview(getUrl)
-    }
+    // const handlePhotoPreview = async () => {
+    //     const getUrl = await getPhotoUrl(`#photoUpload`)
+    //     //setPhotoPreview(getUrl)
+    // }
 
     const handlePicture = (e: React.ChangeEvent) => {
-        const preview = URL.createObjectURL(e.target.files[0])
-        console.log({preview})
+        const target = e.target as HTMLInputElement
+        const file: File = (target.files as FileList)[0]
+
+        const preview = URL.createObjectURL(file)
+        const picture = file
         setPhotoPreview(preview)
     }
 
