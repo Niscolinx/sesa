@@ -3,6 +3,8 @@ import { useForm } from 'react-hook-form'
 import { useMutation, useQuery } from 'react-query'
 import { useNavigate } from 'react-router'
 import { AxiosRequest } from '../utils/axios'
+import { createHash } from 'crypto'
+
 
 const Login = () => {
     const navigate = useNavigate()
@@ -52,10 +54,16 @@ const Login = () => {
 
     useEffect(() => {
         const storeToken = (token:string) => {
+            const hashToken = (token: string) => {
+                const hash = createHash('sha256')
+                hash.update(token)
+                return hash.digest('hex')
+            }
+            const hashedToken = hashToken(token)
             const expirationDate = new Date().getTime() + 3600 * 1000 // set expiration date to 1 hour from now
             localStorage.setItem(
                 'token',
-                JSON.stringify({ token, expirationDate })
+                JSON.stringify({ hashedToken, expirationDate })
             )
         }
 
@@ -81,7 +89,7 @@ const Login = () => {
             console.log(response_data.data.data.token)
             const token = response_data.data.data.token
             if (token) {
-                localStorage.setItem('token', token)
+                storeToken(token)
             }
         } else {
             setResponseMessage({
