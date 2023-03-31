@@ -8,20 +8,9 @@ const Login = () => {
         email: string
         password: string
     }
-    const [inputs, setInputs] = useState<Inputs>({
-        email: '',
-        password: '',
-    })
 
     const handleLogin = (e: FormEvent) => {
         e.preventDefault()
-    }
-
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setInputs((prev) => ({
-            ...prev,
-            [e.target.name]: e.target.value,
-        }))
     }
 
     const { register, handleSubmit, watch } = useForm<Inputs>()
@@ -61,7 +50,7 @@ const Login = () => {
                     </h1>
                     <p>Kindly enter your details</p>
                 </div>
-                <div className='grid gap-8' onChange={handleInputChange}>
+                <div className='grid gap-8'>
                     <div className='w-full grid gap-4'>
                         <label htmlFor='email' className='font-semibold'>
                             Email
@@ -81,10 +70,10 @@ const Login = () => {
                         </label>
                         <input
                             type='password'
-                            required
-                            value={inputs.password}
-                            name='password'
-                            id='password'
+                            {...register('password', {
+                                required: true,
+                                minLength: 5,
+                            })}
                             className='border border-color-grey p-4  rounded-lg w-full'
                         />
                     </div>
