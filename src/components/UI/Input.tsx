@@ -52,7 +52,7 @@ const Input: FC<Input> = ({
                     formErrors[label] && 'border-red-500 '
                 }`}
                 min={
-                    type === 'date' && label.indexOf('birth') === 0
+                    type === 'date' && label.indexOf('dob') === 0
                         ? new Date().toISOString().split('T')[0]
                         : null
                 }
