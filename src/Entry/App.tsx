@@ -24,19 +24,17 @@ import { isAuthenticated } from '../utils/token'
 import { useEffect, useState } from 'react'
 
 const App = () => {
-    const [isAuth, setIsAuth] = useState(false)
+    // const [isAuth, setIsAuth] = useState(false)
 
-    console.log({ isAuth })
-    const tokenData = localStorage.getItem('token')
+    // console.log({ isAuth })
+    // const tokenData = localStorage.getItem('token')
+    // useEffect(() => {
+    //     const auth = isAuthenticated()
 
-    useEffect(() => {
-        console.log({tokenData})
-        const auth = isAuthenticated()
+    //     auth ? setIsAuth(true) : setIsAuth(false)
 
-        auth ? setIsAuth(true) : setIsAuth(false)
-
-        console.log('on load')
-    }, [tokenData])
+    //     console.log('on load')
+    // }, [tokenData])
 
     let router = createBrowserRouter([
         {
