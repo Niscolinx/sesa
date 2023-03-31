@@ -27,7 +27,7 @@ const App = () => {
     // const [isAuth, setIsAuth] = useState(false)
 
     // console.log({ isAuth })
-    // const tokenData = localStorage.getItem('token')
+     const tokenData = localStorage.getItem('token')
     // useEffect(() => {
     //     const auth = isAuthenticated()
 
@@ -47,7 +47,7 @@ const App = () => {
         },
     ])
 
-    if (isAuth) {
+    if (tokenData) {
         console.log('authenticated')
         router = createBrowserRouter(
             createRoutesFromElements([
@@ -60,7 +60,6 @@ const App = () => {
         )
     }
 
-    console.log('router======', router)
 
     return (
         <div className='text-[1.6rem] max-w-[180rem] mx-auto'>
