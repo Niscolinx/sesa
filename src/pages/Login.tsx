@@ -36,7 +36,7 @@ const Login = () => {
     }
     const { mutate, data, isLoading, isError } = useMutation(postLogin)
 
-    console.log({ data, isLoading })
+    console.log({ data, isLoading, isError })
 
     const onSubmit = handleSubmit((data) => {
 

@@ -21,5 +21,7 @@ export const AxiosRequest = ({
     const onSuccess = (response: AxiosResponse) => response
     const onError = (error: AxiosError) => error
 
-    return client(options).then(onSuccess).catch(onError)
+    return client(options)
+        .then(onSuccess)
+        .catch(onError)
 }
