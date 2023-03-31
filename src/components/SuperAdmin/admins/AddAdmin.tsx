@@ -24,7 +24,7 @@ const AddAdmin = () => {
     const { handleOpen } = ModalContextData
 
     const [photoPreview, setPhotoPreview] = useState('')
-    const [imageUrl, setImage] = useState('')
+    const [imageUrl, setImageUrl] = useState<File | null>(null)
 
     // const handlePhotoPreview = async () => {
     //     const getUrl = await getPhotoUrl(`#photoUpload`)
@@ -36,8 +36,8 @@ const AddAdmin = () => {
         const file: File = (target.files as FileList)[0]
 
         const preview = URL.createObjectURL(file)
-        const picture = file
         setPhotoPreview(preview)
+        setImageUrl(file)
     }
 
     // const handleSubmit = (e: React.FormEvent) => {
