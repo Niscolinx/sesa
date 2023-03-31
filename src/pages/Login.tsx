@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { useMutation, useQuery } from 'react-query'
 import { useNavigate } from 'react-router'
@@ -39,6 +40,11 @@ const Login = () => {
         data: response_data,
         isLoading,
     } = useMutation(postLogin) as any
+
+    useEffect(() => {
+        
+
+    }, [response_data])
 
     const onSubmit = handleSubmit((data) => {
         let { email } = data
