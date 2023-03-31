@@ -11,12 +11,7 @@ interface Input {
 const Input: FC<Input> = ({ label, type = 'text', required }) => {
     const [inputType, setInputType] = useState(type)
 
-    type ValidationOptions = {
-        required: boolean
-        pattern: string
-        minLength: number
-        maxLength: number
-    }
+    
 
     const formType = new Map([
         [
@@ -25,7 +20,7 @@ const Input: FC<Input> = ({ label, type = 'text', required }) => {
                 required: true,
             },
         ],
-    ]) satisfies Map<string, Partial<ValidationOptions>>
+    ]) 
 
     return (
         <div className='w-full grid gap-4'>
