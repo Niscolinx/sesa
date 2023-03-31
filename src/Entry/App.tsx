@@ -21,6 +21,9 @@ import securityCompanyRoutes from './routes/securityCompanyRoutes'
 import { Route } from 'use-react-router-breadcrumbs'
 import estateManagerRoutes from './routes/estateManagerRoutes'
 
+
+let isAuth = false
+
 const router = createBrowserRouter(
     createRoutesFromElements([
         <Route path='/' element={<Login />} />,
