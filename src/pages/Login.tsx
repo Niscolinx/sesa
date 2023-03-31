@@ -22,7 +22,10 @@ const Login = () => {
     })
 
     const postLogin = (userData: Inputs) => {
-        return AxiosRequest({ url: '/login', method: 'post', data: userData })
+        const user = {
+            ...userData
+        }
+        return AxiosRequest({ url: '/login', method: 'post', data: user })
     }
     const { mutate, data, isLoading } = useMutation(postLogin)
 
