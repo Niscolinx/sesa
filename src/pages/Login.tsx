@@ -34,19 +34,21 @@ const Login = () => {
             data: user,
         })
     }
-    const { mutate, data, isLoading, isError } = useMutation(postLogin)
+    const { mutate, data: response_data, isLoading, isError } = useMutation(postLogin)
 
-    console.log({ data, isLoading, isError })
-
+    
     const onSubmit = handleSubmit((data) => {
-
+        
         let { email } = data
-
+        
         email = email.toLowerCase().trim()
-
+        
         if (email === 'superadmin@gmail.com') {
             //  navigate('/superAdmin')
             mutate(data)
+            
+            console.log({ data, isLoading, isError })
+            
         }
 
         if (email === 'securitycompany@sesa.com') {
