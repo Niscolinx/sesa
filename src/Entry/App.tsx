@@ -22,9 +22,8 @@ import { Route } from 'use-react-router-breadcrumbs'
 import estateManagerRoutes from './routes/estateManagerRoutes'
 import { isAuthenticated } from '../utils/token'
 
-const isAuth = isAuthenticated()
 
-console.log({isAuth})
+const isAuth = isAuthenticated()
 
 let router = createBrowserRouter([
     {
@@ -33,7 +32,7 @@ let router = createBrowserRouter([
     },
     {
         path: '*',
-        element: <Login />,
+        element: <Navigate to='/' />,
     },
 ])
 
