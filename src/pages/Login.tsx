@@ -82,7 +82,7 @@ const Login = () => {
                                 required: true,
                                 minLength: 5,
                             })}
-                            className='border border-color-grey p-4  rounded-lg w-full'
+                            className='border border-color-grey p-4 outline-color-primary outline-[0.5px] rounded-lg w-full'
                         />
                     </div>
                 </div>
