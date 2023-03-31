@@ -29,7 +29,7 @@ const Login = () => {
 
         return AxiosRequest({
             token: '',
-            url: '/logiffn',
+            url: '/login',
             method: 'post',
             data: user,
         })
