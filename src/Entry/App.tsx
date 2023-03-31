@@ -20,29 +20,21 @@ import superAdminRoutes from './routes/superAdminRoutes'
 import securityCompanyRoutes from './routes/securityCompanyRoutes'
 import { Route } from 'use-react-router-breadcrumbs'
 import estateManagerRoutes from './routes/estateManagerRoutes'
-import { isAuthenticated } from '../utils/token'
-import { useEffect, useState } from 'react'
+
 
 const App = () => {
-    // const [isAuth, setIsAuth] = useState(false)
-
-    // console.log({ isAuth })
     const tokenData = localStorage.getItem('token')
-    // useEffect(() => {
-    //     const auth = isAuthenticated()
 
-    //     auth ? setIsAuth(true) : setIsAuth(false)
-
-    //     console.log('on load')
-    // }, [tokenData])
+    const isAuth = tokenData && [
+        superAdminRoutes,
+        securityCompanyRoutes,
+        estateManagerRoutes,
+    ]
 
     const router = createBrowserRouter(
         createRoutesFromElements([
             <Route path='/' element={<Login />} />,
-
-            superAdminRoutes,
-            securityCompanyRoutes,
-            estateManagerRoutes,
+            isAuth,
             <Route path='*' element={<Navigate to='/' />} />,
         ])
     )
