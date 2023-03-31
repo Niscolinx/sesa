@@ -6,7 +6,7 @@
 //     return hash.digest('hex')
 // }
 
-export const storeToken = (token: string) => {
+export const storeToken = (token: string):void => {
     // const hashedToken = hashToken(token)
     const expirationDate = new Date().getTime() + 3600 * 1000 // set expiration date to 1 hour from now
     localStorage.setItem('token', JSON.stringify({ token, expirationDate }))
