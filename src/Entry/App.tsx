@@ -25,6 +25,8 @@ import { isAuthenticated } from '../utils/token'
 
 const isAuth = isAuthenticated()
 
+
+
 let router = createBrowserRouter([
     {
         path: '/',
