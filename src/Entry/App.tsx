@@ -32,6 +32,8 @@ const App = () => {
         const auth = isAuthenticated()
 
         auth ? setIsAuth(true) : setIsAuth(false)
+
+        console.log('on load')
     }, [])
 
     let router = createBrowserRouter([
