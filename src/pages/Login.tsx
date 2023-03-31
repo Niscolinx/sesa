@@ -65,7 +65,6 @@ const Login = () => {
             setResponseMessage(null)
         }, 1000 * 3)
 
-        return clearTimeout(timeoutId)
     }, [response_data])
 
     const onSubmit = handleSubmit((data) => {
@@ -100,7 +99,7 @@ const Login = () => {
                     <p>Kindly enter your details</p>
                 </div>
                 <div className='grid gap-8'>
-                    {responseMessage && (
+                    {responseMessage?.displayMessage && (
                         <p className='text-center'>
                             <span className={responseMessage?.className}>
                                 {responseMessage?.displayMessage}
