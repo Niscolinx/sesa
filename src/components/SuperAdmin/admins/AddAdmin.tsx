@@ -148,6 +148,7 @@ const AddAdmin = () => {
                         <Input
                             type={'date'}
                             label={'dob'}
+                            name={'Date of Birth'}
                             register={register}
                             formErrors={formErrors}
                         />
@@ -188,7 +189,8 @@ const AddAdmin = () => {
                     <div className='addAdmin__form--item'>
                         <Input
                             type={'email'}
-                            label={'Email Address'}
+                            label={'email'}
+                            name={'email address'}
                             register={register}
                             formErrors={formErrors}
                         />

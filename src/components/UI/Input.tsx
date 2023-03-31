@@ -3,6 +3,7 @@ import { FieldValues, UseFormRegister } from 'react-hook-form'
 
 interface Input {
     label: string
+    name?: string
     type?: string
     required?: boolean
     register: any
@@ -12,6 +13,7 @@ interface Input {
 
 const Input: FC<Input> = ({
     label,
+    name,
     type = 'text',
     required,
     register,
@@ -44,7 +46,7 @@ const Input: FC<Input> = ({
     return (
         <div className='w-full grid gap-4 self-baseline'>
             <label htmlFor={label} className='font-semibold capitalize'>
-                {label === 'dob' ? 'Date of birth' : label.replace('_', ' ')}
+                {name ?? label.replace('_', ' ')}
             </label>
             <input
                 id={label}
@@ -65,7 +67,7 @@ const Input: FC<Input> = ({
                         <span>Field cannot be empty</span>
                     ) : (
                         <span>
-                            Invalid {label === 'dob' ? 'Date of birth' : label}
+                            Invalid {label}
                         </span>
                     )}
                 </p>
