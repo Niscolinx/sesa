@@ -39,6 +39,8 @@ const Input: FC<Input> = ({
     //     ],
     // ])
 
+  
+
     return (
         <div className='w-full grid gap-4 self-baseline'>
             <label htmlFor={label} className='font-semibold capitalize'>
@@ -52,7 +54,7 @@ const Input: FC<Input> = ({
                     formErrors[label] && 'border-red-500 '
                 }`}
                 min={
-                    type === 'date' && label.indexOf('dob') === 0
+                    type === 'date' && label.indexOf('dob') !== 0
                         ? new Date().toISOString().split('T')[0]
                         : null
                 }
