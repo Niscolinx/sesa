@@ -16,21 +16,7 @@ const Login = () => {
     const handleLogin = (e: FormEvent) => {
         e.preventDefault()
 
-        let { email, password } = inputs
-
-        email = email.toLowerCase().trim()
-
-        if (email.includes('superadmin')) {
-            navigate('/superAdmin')
-        }
-
-        if (email === 'securitycompany@sesa.com') {
-            navigate('/securityCompany')
-        }
-
-        if (email === 'estatemanager@sesa.com') {
-            navigate('/estateManager')
-        }
+        
     }
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -47,6 +33,22 @@ const Login = () => {
     })
     const onSubmit = handleSubmit((data) => {
         console.log({ data })
+
+        let { email, password } = data
+
+        email = email.toLowerCase().trim()
+
+        if (email.includes('superadmin')) {
+            navigate('/superAdmin')
+        }
+
+        if (email === 'securitycompany@sesa.com') {
+            navigate('/securityCompany')
+        }
+
+        if (email === 'estatemanager@sesa.com') {
+            navigate('/estateManager')
+        }
     })
 
     return (
