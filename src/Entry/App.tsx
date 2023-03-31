@@ -28,8 +28,9 @@ const App = () => {
 
     console.log({ isAuth })
     const tokenData = localStorage.getItem('token')
-    
+
     useEffect(() => {
+        console.log({tokenData})
         const auth = isAuthenticated()
 
         auth ? setIsAuth(true) : setIsAuth(false)
