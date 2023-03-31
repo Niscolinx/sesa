@@ -14,7 +14,7 @@ const AddAdmin = () => {
         email: string
         firstName: string
         lastName: string
-        dateOfBirth: string
+        dob: string
         gender: string
         phoneNumber: number
         photoUrl?: string
@@ -51,9 +51,9 @@ const AddAdmin = () => {
     const [responseMessage, setResponseMessage] =
         useState<ResponseMessage | null>(null)
 
-    watch((values) => {
-        console.log({ values })
-    })
+    // watch((values) => {
+    //     console.log({ values })
+    // })
 
     const postLogin = (data: Inputs) => {
         const user = {
@@ -94,6 +94,10 @@ const AddAdmin = () => {
 
     const onSubmit = handleSubmit((data) => {
         console.log({ data })
+        const adminData = {
+            ...data,
+            
+        }
     })
 
     console.log({ formErrors })
