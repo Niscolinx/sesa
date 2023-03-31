@@ -99,7 +99,7 @@ const Login = () => {
                         />
                         {formErrors.password && (
                             <p className='text-[1.2rem] text-red-500'>
-                                {formErrors.password.type === 'required' && (
+                                {formErrors.password.type === 'required' ? (
                                     <span>Field cannot be empty</span>
                                 ): (
                                     <span>Minimum length is 5</span>
