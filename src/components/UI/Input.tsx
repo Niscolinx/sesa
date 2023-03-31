@@ -3,10 +3,11 @@ import { FC, useState } from 'react'
 interface Input {
     label: string
     type: string
+    required?: boolean
 }
 
-const Input: FC<Input> = ({}) => {
-    const [type, setType] = useState('text')
+const Input: FC<Input> = ({ label, type = 'text', required }) => {
+    const [inputType, setInputType] = useState(type)
 
     type ValidationOptions = {
         required: boolean
