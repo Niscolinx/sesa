@@ -1,20 +1,28 @@
-import { FC, useState } from "react"
+import { FC, useState } from 'react'
 
 interface Input {
     label: string
     type: string
 }
 
-const Input:FC<Input> = ({}) => {
+const Input: FC<Input> = ({}) => {
     const [type, setType] = useState('text')
- 
+
+    type ValidationOptions = {
+        required: boolean
+        pattern: string
+        minLength: number
+        maxLength: number
+    }
+
     const formType = new Map([
-        [1, <First />],
-        [2, <Second />],
-        [3, <Third />],
-        [4, <Fourth />],
-        [5, <Last />],
-    ]) satisfies Map<number, JSX.Element>
+        [
+            'text',
+            {
+                required: true,
+            },
+        ],
+    ]) satisfies Map<string, Partial<ValidationOptions>>
 
     return (
         <div className='w-full grid gap-4'>
