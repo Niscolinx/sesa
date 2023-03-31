@@ -6,9 +6,11 @@ interface Input {
     type: string
     required?: boolean
     register: any
+    formErrors: any
+    validationOptions: any
 }
 
-const Input: FC<Input> = ({ label, type = 'text', required }) => {
+const Input: FC<Input> = ({ label, type = 'text', required, register, formErrors, validationOptions }) => {
     const [inputType, setInputType] = useState(type)
 
     
@@ -28,23 +30,18 @@ const Input: FC<Input> = ({ label, type = 'text', required }) => {
                 {label}
             </label>
             <input
-                type='email'
-                {...register('email', {
-                    required: true,
-                    // pattern: /^\S+@\S+$/i,
-                    pattern:
-                        /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                })}
+                type={type}
+                {...register(label, validationOptions)}
                 className={`border border-color-grey p-4 rounded-lg w-full ${
-                    formErrors.email && 'border-red-500 '
+                    formErrors.label && 'border-red-500 '
                 }`}
             />
-            {formErrors.email && (
+            {formErrors.label && (
                 <p className='text-[1.2rem] text-red-500'>
-                    {formErrors.email.type === 'required' ? (
+                    {formErrors.label.type === 'required' ? (
                         <span>Field cannot be empty</span>
                     ) : (
-                        <span>Invalid email</span>
+                        <span>Invalid label</span>
                     )}
                 </p>
             )}
