@@ -21,9 +21,11 @@ const Login = () => {
         console.log({ values })
     })
 
-    const postLogin = (userData: Inputs) => {
+    const postLogin = (data: Inputs) => {
+        
         const user = {
-            ...userData
+            email: data.email,
+            password: data.password
         }
 
         console.log(user)
