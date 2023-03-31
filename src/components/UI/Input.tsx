@@ -47,6 +47,11 @@ const Input: FC<Input> = ({
                 className={`border border-color-grey p-4 rounded-lg w-full ${
                     formErrors.label && 'border-red-500 '
                 }`}
+                min={
+                    type === 'date'
+                        ? new Date().toISOString().split('T')[0]
+                        : null
+                }
             />
             {formErrors.label && (
                 <p className='text-[1.2rem] text-red-500'>

@@ -94,7 +94,7 @@ const AddAdmin = () => {
     }, [response_data])
 
     const onSubmit = handleSubmit((data) => {
-        console.log({data})
+        console.log({ data })
     })
 
     return (
@@ -111,18 +111,25 @@ const AddAdmin = () => {
                 <section className='addAdmin__form'>
                     <div className='addAdmin__form--item'>
                         <Input
-                            label={'firstName'}
+                            label={'first Name'}
                             register={register}
                             formErrors={formErrors}
                         />
                     </div>
                     <div className='addAdmin__form--item'>
-                        <label htmlFor='lastName'>Last Name *</label>
-                        <input type='text' required id='lastName' />
+                        <Input
+                            label={'last Name'}
+                            register={register}
+                            formErrors={formErrors}
+                        />
                     </div>
                     <div className='addAdmin__form--item'>
-                        <label htmlFor='date'>Date of Birth *</label>
-                        <input type='date' id='date' required />
+                        <Input
+                            type={'date'}
+                            label={'Date of Birth'}
+                            register={register}
+                            formErrors={formErrors}
+                        />
                     </div>
                     <div className='addAdmin__form--item'>
                         <label htmlFor='gender'>Gender *</label>
