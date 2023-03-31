@@ -20,6 +20,7 @@ const Login = () => {
         formState: { errors: formErrors },
     } = useForm<Inputs>()
 
+    console.log({formErrors})
     watch((values) => {
         console.log({ values })
     })
