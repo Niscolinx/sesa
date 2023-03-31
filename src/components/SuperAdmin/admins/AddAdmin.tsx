@@ -119,6 +119,8 @@ const AddAdmin = () => {
         }
 
         console.log({adminData})
+
+        mutate(adminData)
     })
 
     console.log({ formErrors })
