@@ -93,8 +93,11 @@ const Login = () => {
         }
     })
 
+    interface Input {
+        label: string
+        type: string
+    }
 
-    
 
     const Input = () => {
         
