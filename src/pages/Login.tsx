@@ -57,11 +57,11 @@ const Login = () => {
                 className: 'text-green-600',
                 displayMessage: 'Login Successful',
             })
-            //navigate('/superAdmin')
             const token = response_data.data.data.token
             if (token) {
                 storeToken(token)
             }
+            navigate('/superAdmin')
         } else {
             setResponseMessage({
                 className: 'text-red-600',
