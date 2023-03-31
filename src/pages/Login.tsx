@@ -75,7 +75,8 @@ const Login = () => {
                             }`}
                         />
                         {formErrors.email && <p className='text-[1.2rem]'>
-                                
+                                {formErrors.email.type === 'required' && (<span></span>)}
+                                {formErrors.email.type === 'required' && (<span></span>)}
                             </p>}
                     </div>
                     <div className='w-full grid gap-4'>
