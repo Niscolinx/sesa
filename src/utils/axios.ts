@@ -2,10 +2,22 @@ import axios, { AxiosError, AxiosResponse } from 'axios'
 
 const client = axios.create({ baseURL: 'https://sesadigital.com/api' })
 
-export const AxiosRequest = (token: string, { ...options }) => {
+interface RequestOptions {
+    method?: string
+    url?: string
+    data?: any
+    params?: any
+    headers?: any
+}
+
+export const AxiosRequest = ({
+    token,
+    ...options
+}: RequestOptions & { token: string }) => {
     if (token) {
         client.defaults.headers.common.Authorization = `Bearer ${token}`
     }
+
     const onSuccess = (response: AxiosResponse) => response
     const onError = (error: AxiosError) => error
 
