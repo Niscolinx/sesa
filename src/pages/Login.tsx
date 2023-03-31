@@ -36,6 +36,7 @@ const Login = () => {
     }
     const { mutate, data: response_data, isLoading, isError } = useMutation(postLogin)
 
+    console.log({ response_data, isLoading, isError })
     
     const onSubmit = handleSubmit((data) => {
         
@@ -45,9 +46,7 @@ const Login = () => {
         
         if (email === 'superadmin@gmail.com') {
             //  navigate('/superAdmin')
-            mutate(data)
-            
-            console.log({ data, isLoading, isError })
+            mutate(data)        
             
         }
 
