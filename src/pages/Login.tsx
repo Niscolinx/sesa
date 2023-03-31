@@ -69,7 +69,9 @@ const Login = () => {
                                 pattern:
                                     /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
                             })}
-                            className={`border border-color-grey p-4 rounded-lg w-full`}
+                            className={`border p-4 rounded-lg w-full ${
+                                formErrors.email ? 'border-red-500 ' : ''
+                            }`}
                         />
                     </div>
                     <div className='w-full grid gap-4'>
