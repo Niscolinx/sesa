@@ -20,11 +20,12 @@ const Login = () => {
     } = useForm<Inputs>()
 
     type ResponseMessage = {
-        className: string,
+        className: string
         displayMessage: string
     }
 
-    const [responseMessage, setResponseMessage]  = useState<ResponseMessage | null>(null)
+    const [responseMessage, setResponseMessage] =
+        useState<ResponseMessage | null>(null)
 
     // watch((values) => {
     //     console.log({ values })
@@ -50,9 +51,15 @@ const Login = () => {
     } = useMutation(postLogin) as any
 
     useEffect(() => {
-        response_data?.status === 200 ?
-        set
-
+        response_data?.status === 200
+            ? setResponseMessage({
+                  className: 'text-green-600',
+                  displayMessage: 'Login Successful',
+              })
+            : setResponseMessage({
+                  className: 'text-red-600',
+                  displayMessage: response_data?.response?.data.message,
+              })
     }, [response_data])
 
     const onSubmit = handleSubmit((data) => {
@@ -89,9 +96,7 @@ const Login = () => {
                 <div className='grid gap-8'>
                     <p className='text-center'>
                         {response_data?.status === 200 ? (
-                            <span className='text-green-600'>
-                                Login Successful
-                            </span>
+                            <span className=''>Login Successful</span>
                         ) : (
                             <span className='text-red-500'>
                                 {response_data?.response?.data.message}
