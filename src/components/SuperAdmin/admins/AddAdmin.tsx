@@ -153,10 +153,10 @@ const AddAdmin = () => {
                             </select>
                             <input
                                 required
+                                {...register('phoneNumber', { required: true, minLength: 9 })}
                                 type='number'
                                 inputMode='numeric'
                                 id='phoneNumber'
-                                placeholder='Phone Number'
                             />
                         </div>
                     </div>
