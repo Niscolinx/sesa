@@ -7,13 +7,24 @@ interface Input {
     required?: boolean
     register: any
     formErrors: any
-    validationOptions: any
+    options: any
 }
 
-const Input: FC<Input> = ({ label, type = 'text', required, register, formErrors, validationOptions }) => {
+const Input: FC<Input> = ({
+    label,
+    type = 'text',
+    required,
+    register,
+    formErrors,
+    options,
+}) => {
     // const [inputType, setInputType] = useState(type)
 
-    
+    const validationOptions = {
+      required: true,
+      minLength: 5,
+      ...options,
+    }
 
     // const formType = new Map([
     //     [
@@ -22,7 +33,7 @@ const Input: FC<Input> = ({ label, type = 'text', required, register, formErrors
     //             required: true,
     //         },
     //     ],
-    // ]) 
+    // ])
 
     return (
         <div className='w-full grid gap-4'>

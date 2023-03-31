@@ -7,6 +7,7 @@ import { ModalContext } from '../../../Context/ModalContext'
 import { AxiosRequest } from '../../../utils/axios'
 import { getPhotoUrl } from '../../../utils/getPhotoUrl'
 import { storeToken } from '../../../utils/token'
+import Input from '../../UI/Input'
 
 const AddAdmin = () => {
     interface Inputs {
@@ -105,7 +106,7 @@ const AddAdmin = () => {
                 <section className='addAdmin__form'>
                     <div className='addAdmin__form--item'>
                         <label htmlFor='firstName'>First Name *</label>
-                        <input type='text' required id='firstName' />
+                        <Input label={'firstName'} register={register} formErrors={formErrors} />
                     </div>
                     <div className='addAdmin__form--item'>
                         <label htmlFor='lastName'>Last Name *</label>
