@@ -56,7 +56,8 @@ const Login = () => {
                 className: 'text-green-600',
                 displayMessage: 'Login Successful',
             })
-            navigate('/superAdmin')
+            //navigate('/superAdmin')
+            console.log(response_data.data.data.token)
         } else {
             setResponseMessage({
                 className: 'text-red-600',
