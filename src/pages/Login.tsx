@@ -51,6 +51,27 @@ const Login = () => {
     } = useMutation(postLogin) as any
 
     useEffect(() => {
+        const storeToken = (token:string) => {
+            const expirationDate = new Date().getTime() + 3600 * 1000 // set expiration date to 1 hour from now
+            localStorage.setItem(
+                'token',
+                JSON.stringify({ token, expirationDate })
+            )
+        }
+
+        const getToken = () => {
+            const tokenData = localStorage.getItem('token')
+            if (tokenData) {
+                const { token, expirationDate } = JSON.parse(tokenData)
+                if (expirationDate && new Date().getTime() > expirationDate) {
+                    localStorage.removeItem('token')
+                    return null
+                }
+                return token
+            }
+            return null
+        }
+
         if (response_data?.status === 200) {
             setResponseMessage({
                 className: 'text-green-600',
