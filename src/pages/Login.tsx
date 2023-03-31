@@ -19,7 +19,6 @@ const Login = () => {
 
         email = email.toLowerCase().trim()
 
-        console.log({email})
         if (email === 'superadmin@sesa.com') {
             navigate('/superAdmin')
         }
@@ -34,6 +33,8 @@ const Login = () => {
     }
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+
+
         setInputs((prev) => ({
             ...prev,
             [e.target.name]: e.target.value,
@@ -73,6 +74,7 @@ const Login = () => {
                         <input
                             type='password'
                             required
+                            value={inputs.password}
                             name='password'
                             id='password'
                             className='border border-color-grey p-4  rounded-lg w-full'
