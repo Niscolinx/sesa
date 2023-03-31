@@ -12,8 +12,8 @@ import Input from '../../UI/Input'
 const AddAdmin = () => {
     interface Inputs {
         email: string
-        firstName: string
-        lastName: string
+        first_name: string
+        last_name: string
         dob: string
         gender: string
         phoneNumber: number
@@ -95,8 +95,8 @@ const AddAdmin = () => {
     const onSubmit = handleSubmit((data) => {
         console.log({ data })
         const {
-            firstName,
-            lastName,
+            first_name,
+            last_name,
             gender,
             dob,
             email,
@@ -105,7 +105,7 @@ const AddAdmin = () => {
         } = data
 
         const adminData = {
-            name: firstName.concat(lastName),
+            name: `${first_name}${last_name}`,
             gender,
             dob,
             email,
@@ -132,14 +132,14 @@ const AddAdmin = () => {
                 <section className='addAdmin__form'>
                     <div className='addAdmin__form--item'>
                         <Input
-                            label={'first Name'}
+                            label={'first_name'}
                             register={register}
                             formErrors={formErrors}
                         />
                     </div>
                     <div className='addAdmin__form--item'>
                         <Input
-                            label={'last Name'}
+                            label={'last_name'}
                             register={register}
                             formErrors={formErrors}
                         />
