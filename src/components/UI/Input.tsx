@@ -3,7 +3,7 @@ import { FieldValues, UseFormRegister } from 'react-hook-form'
 
 interface Input {
     label: string
-    type: string
+    type?: string
     required?: boolean
     register: any
     formErrors: any
