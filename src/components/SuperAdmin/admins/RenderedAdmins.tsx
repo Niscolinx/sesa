@@ -6,7 +6,8 @@ import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { useAppDispatch } from '../../../store/app/hooks'
 import { setAdminPath } from '../../../store/features/routeChange'
 import { useNavigate } from 'react-router'
-import { toast } from 'react-toastify'
+import { toast, ToastContainer } from 'react-toastify'
+import React from 'react'
 
 interface IAdmin{
     id: string
@@ -303,119 +304,343 @@ function RenderedAdmins() {
     }
 
 
+      ;<caption className='renderedAdmins__caption'>
+          <p className='caption__title'>
+              Admin List <span>(200)</span>
+          </p>
+          <div className='caption__searchBox'>
+              <img src='/icons/admins/search.svg' alt='' />
+              <input type='text' placeholder='Search Parameters' />
+          </div>
+          <div className='caption__select'>
+              <select>
+                  <option hidden value=''>
+                      Sort By
+                  </option>
+                  <option value='date'>date</option>
+                  <option value='alpha'>Alpha</option>
+              </select>
+              <GrDown />
+          </div>
+          <button className='btn admins__btn' onClick={handlePathSwitch}>
+              <span>
+                  <IoMdAdd />
+              </span>{' '}
+              <p>Add Admin</p>
+          </button>
+      </caption>
     return (
-        <div className='renderedAdmins'>
-            <table className='renderedAdmins__tableBox'>
-                <caption className='renderedAdmins__caption'>
-                    <p className='caption__title'>
-                        Admin List <span>(200)</span>
-                    </p>
-                    <div className='caption__searchBox'>
-                        <img src='/icons/admins/search.svg' alt='' />
-                        <input type='text' placeholder='Search Parameters' />
-                    </div>
-                    <div className='caption__select'>
-                        <select>
-                            <option hidden value=''>
-                                Sort By
-                            </option>
-                            <option value='date'>date</option>
-                            <option value='alpha'>Alpha</option>
-                        </select>
-                        <GrDown />
-                    </div>
-                    <button
-                        className='btn admins__btn'
-                        onClick={handlePathSwitch}
-                    >
-                        <span>
-                            <IoMdAdd />
-                        </span>{' '}
-                        <p>Add Admin</p>
-                    </button>
-                </caption>
-                <div className='renderedAdmins__table'>
-                    <thead className='renderedAdmins__table--head'>
-                        <tr>
-                            <th>
-                                <input type='checkbox' />
-                                <p>Name</p>
-                            </th>
-                            <th>Gender</th>
-                            <th>Phone Number</th>
-                            <th>Joined</th>
-                            <th>Status</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody className='renderedAdmins__table--body'>
-                        {fetchedUsers && fetchedUsers.length > 0 ? (
-                            fetchedUsers.map((value, i) => {
-                                return (
-                                    <tr key={i}>
-                                        <td>
-                                            <input type='checkbox' />
-                                            <img src='/img/me.jpeg' alt='' />
-                                            <span>{value.name}</span>
-                                        </td>
-                                        <td>{value.gender}</td>
-                                        <td>{value.phoneNumber}</td>
-                                        <td>{value.onboardingDate}</td>
-                                        <td>{value.status}</td>
-                                        <td>
-                                            <button>
-                                                <img
-                                                    src='/icons/admins/threeDots.svg'
-                                                    alt=''
-                                                />
-                                            </button>
-                                        </td>
-                                    </tr>
-                                )
-                            })
+        <>
+            <ToastContainer />
+            {/* <dialog className='dialog' ref={dialogRef}>
+                <section className='grid place-content-center w-full h-[100vh]'>
+                    <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
+                        {dialogType === 'Deactivate' ? (
+                            <>
+                                <img
+                                    src='/icons/admins/modalDeactivate.svg'
+                                    alt=''
+                                />
+                                <p className='text-[1.6rem]'>
+                                    Are you sure you want to deactivate this
+                                    Artisan
+                                </p>
+
+                                <div className='flex w-full justify-center gap-8'>
+                                    <button
+                                        className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
+                                        onClick={() => handleClose()}
+                                    >
+                                        Cancel
+                                    </button>
+                                    <button
+                                        className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
+                                        onClick={handleDeactivateArtisan}
+                                    >
+                                        Deactivate
+                                    </button>
+                                </div>
+                            </>
                         ) : (
-                            <tr>
-                                <td className='relative'>
-                                    <div className='absolute w-full grid place-content-center'>
-                                        <CgSpinnerTwo className='animate-spin text-[#0660FE] text-4xl' />
-                                    </div>
-                                </td>
-                            </tr>
+                            <>
+                                <img
+                                    src='/icons/admins/modalWarning.svg'
+                                    alt=''
+                                />
+                                <p className='text-[1.6rem]'>
+                                    Are you sure you want to delete this Artisan
+                                </p>
+
+                                <div className='flex w-full justify-center gap-8'>
+                                    <button
+                                        className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
+                                        onClick={() => handleClose()}
+                                    >
+                                        Cancel
+                                    </button>
+                                    <button
+                                        className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
+                                        onClick={handleDeleteArtisan}
+                                    >
+                                        Delete
+                                    </button>
+                                </div>
+                            </>
                         )}
-                    </tbody>
-                </div>
-                <footer className='renderedAdmins__footer'>
-                    <div className='flex gap-8 items-center'>
-                        <p>View</p>
-                        <div className='flex items-center border px-4 rounded-lg'>
-                            <input
-                                type='number'
-                                className='w-8 outline-none border-none cursor-pointer'
-                                value={6}
-                            />
-                            <GrDown className='text-[1.3rem]' />
-                        </div>
-                        <p className='text'>List per page</p>
                     </div>
-                    <ul className='flex items-center gap-5 ml-10'>
-                        <HiOutlineChevronLeft />
-                        <li className='grid place-content-center border w-[3rem] h-[3rem]'>
-                            1
-                        </li>
-                        <li className='grid place-content-center border w-[3rem] h-[3rem]'>
-                            2
-                        </li>
-                        <li className='grid place-content-center border w-[3rem] h-[3rem]'>
-                            3
-                        </li>
-                        <li className='grid place-content-center border w-[3rem] h-[3rem]'>
-                            4
-                        </li>
-                        <HiOutlineChevronRight />
-                    </ul>
-                </footer>
-            </table>
-        </div>
+                </section>
+            </dialog> */}
+            <div className='rounded-lg mt-[3rem] h-[80vh]'>
+                <>
+                    <div className='grid text-[1.6rem]'>
+                        <div className='flex w-full items-center gap-12 p-10 bg-white rounded-lg'>
+                            <p className=' font-bold'>
+                                Admin List <span>(10)</span>
+                            </p>
+                            <div className='relative flex items-center'>
+                                <img
+                                    src='/icons/admins/search.svg'
+                                    alt=''
+                                    className='absolute left-4 text-[4rem]'
+                                />
+                                <input
+                                    type='text'
+                                    placeholder='Search Parameters'
+                                    className='pl-16 w-[25rem] rounded-lg border border-color-blue-light appearance-none outline-none p-4'
+                                />
+                            </div>
+                            <div className='relative flex items-center'>
+                                <select>
+                                    <option hidden value=''>
+                                        Sort By
+                                    </option>
+                                    <option value='date'>date</option>
+                                    <option value='alpha'>Alpha</option>
+                                </select>
+                                <GrDown />
+                            </div>
+                            <button
+                                className='btn admins__btn'
+                                onClick={handlePathSwitch}
+                            >
+                                <span>
+                                    <IoMdAdd />
+                                </span>{' '}
+                                <p>Add Admin</p>
+                            </button>
+                        </div>
+
+                        <div className='grid bg-white'>
+                            <div
+                                className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-6 items-center gap-8'
+                                style={{
+                                    fontSize: '1.4rem',
+                                }}
+                            >
+                                <p className='flex items-center gap-2'>
+                                    <input
+                                        type='checkbox'
+                                        className='cursor-pointer'
+                                    />
+                                    <p> Name</p>
+                                </p>
+                                <p>Gender</p>
+                                <p>Phone Number</p>
+                                <p>joined Date</p>
+                                <p>Status</p>
+                                <p>Actions</p>
+                            </div>
+
+                            <div className='grid gap-8 mt-8 p-8'>
+                                {slicedPages && slicedPages.length > 0 ? (
+                                    React.Children.toArray(
+                                        slicedPages[paginate.index].map(
+                                            (
+                                                {
+                                                    
+                                                    phoneNumber,
+                                                    id,
+                                                    gender,
+                                                    name,
+                                                    onboardingDate,
+                                                    status
+                                                },
+                                                i
+                                            ) => {
+                                                const {
+                                                    isDropDownOpen,
+                                                    index,
+                                                } = toggleDropDown
+                                                return (
+                                                    <div className='grid justify-between border-b grid-cols-6 items-center gap-8 text-[1.6rem] py-4'>
+                                                        <p className='flex items-center gap-4'>
+                                                            <input
+                                                                type='checkbox'
+                                                                className='cursor-pointer'
+                                                            />
+
+                                                            <span>
+                                                                {name}
+                                                            </span>
+                                                        </p>
+                                                        <p>{gender}</p>
+                                                        <p>{phoneNumber}</p>
+                                                        <p>{category}</p>
+
+                                                        <p>
+                                                            <StarRating
+                                                                starsNum={
+                                                                    rating
+                                                                }
+                                                            />
+                                                        </p>
+
+                                                        <div className='relative'>
+                                                            <label
+                                                                className='font-semibold capitalize cursor-pointer flex items-center gap-2 relative z-10'
+                                                                htmlFor={i.toString()}
+                                                                onClick={() =>
+                                                                    setToggleDropDown(
+                                                                        (
+                                                                            prev
+                                                                        ) => {
+                                                                            return {
+                                                                                isDropDownOpen:
+                                                                                    !prev.isDropDownOpen,
+                                                                                index: i,
+                                                                            }
+                                                                        }
+                                                                    )
+                                                                }
+                                                            >
+                                                                <span className='text-color-primary'>
+                                                                    <img
+                                                                        src='/icons/admins/threeDots.svg'
+                                                                        alt=''
+                                                                    />
+                                                                </span>
+                                                            </label>
+                                                            <input
+                                                                type='radio'
+                                                                name='dropdown'
+                                                                className='hidden'
+                                                                id={i.toString()}
+                                                                onChange={(e) =>
+                                                                    dropDownHandler(
+                                                                        e,
+                                                                        i
+                                                                    )
+                                                                }
+                                                            />
+
+                                                            {isDropDownOpen &&
+                                                                index === i && (
+                                                                    <div className='absolute top-0 translate-x-[4rem] border border-color-primary-light w-[10rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
+                                                                        {actions.map(
+                                                                            (
+                                                                                item,
+                                                                                index
+                                                                            ) => (
+                                                                                <p
+                                                                                    className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
+                                                                                    key={
+                                                                                        index +
+                                                                                        i
+                                                                                    }
+                                                                                    onClick={() =>
+                                                                                        handleSelectedAction(
+                                                                                            item,
+                                                                                            id
+                                                                                        )
+                                                                                    }
+                                                                                >
+                                                                                    {
+                                                                                        item
+                                                                                    }
+                                                                                </p>
+                                                                            )
+                                                                        )}
+                                                                    </div>
+                                                                )}
+                                                        </div>
+                                                    </div>
+                                                )
+                                            }
+                                        )
+                                    )
+                                ) : (
+                                    <div>
+                                        <div className='relative'>
+                                            <div className='absolute w-full grid place-content-center'>
+                                                <CgSpinnerTwo className='animate-spin text-[#0660FE] text-4xl' />
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+                        <footer className='flex items-center p-4 mt-4 bg-color-white rounded-lg'>
+                            <div className='flex gap-8 items-center'>
+                                <p>View</p>
+                                <select
+                                    name=''
+                                    id=''
+                                    className='flex items-center border px-4 rounded-lg outline-none cursor-pointer'
+                                    onChange={handleItemsPerPage}
+                                >
+                                    {itemsPerPageArr.map((item, index) => (
+                                        <option
+                                            value={item}
+                                            key={index}
+                                            selected={item === itemsPerPage}
+                                            className='capitalize cursor-pointer bg-white'
+                                        >
+                                            {item}
+                                        </option>
+                                    ))}
+                                </select>
+                                <p className='text'>List per page</p>
+                            </div>
+                            <ul className='flex items-center gap-5 ml-10'>
+                                <HiOutlineChevronLeft
+                                    onClick={handlePrev}
+                                    className='cursor-pointer'
+                                />
+
+                                {slicedPages?.map((item, index) => {
+                                    return (
+                                        <li key={index}>
+                                            {index + 1 === currentPage ? (
+                                                <span className='bg-color-primary text-white grid place-content-center w-[3rem] h-[3rem] cursor-pointer'>
+                                                    {index + 1}
+                                                </span>
+                                            ) : (
+                                                <span
+                                                    className='text-color-primary bg-white grid place-content-center border w-[3rem] h-[3rem] cursor-pointer'
+                                                    onClick={(e) =>
+                                                        jumpToPage(e, index)
+                                                    }
+                                                >
+                                                    {index + 1}
+                                                </span>
+                                            )}
+                                        </li>
+                                    )
+                                })}
+
+                                {/* <li className='grid place-content-center border w-[3rem] h-[3rem] cursor-pointer'>
+                        {totalPage}
+                    </li> */}
+                                <HiOutlineChevronRight
+                                    onClick={handleNext}
+                                    className='cursor-pointer'
+                                />
+                            </ul>
+                        </footer>
+                    </div>
+                </>
+            </div>
+        </>
     )
 }
 
