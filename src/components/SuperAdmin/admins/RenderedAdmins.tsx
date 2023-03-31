@@ -452,6 +452,7 @@ function RenderedAdmins() {
                                                     name,
                                                     onboardingDate,
                                                     status,
+                                                    imgUrl
                                                 },
                                                 i
                                             ) => {
@@ -461,14 +462,17 @@ function RenderedAdmins() {
                                                 } = toggleDropDown
                                                 return (
                                                     <div className='grid justify-between border-b grid-cols-6 items-center gap-8 text-[1.6rem] py-4'>
-                                                        <p className='flex items-center gap-4'>
+                                                        <div className='flex items-center gap-4'>
                                                             <input
                                                                 type='checkbox'
                                                                 className='cursor-pointer'
                                                             />
 
-                                                            <span>{name}</span>
-                                                        </p>
+                                                        <div>
+                                                            <img src={imgUrl} alt="" />
+                                                            <p>{name}</p>
+                                                        </div>
+                                                        </div>
                                                         <p>{gender}</p>
                                                         <p>{phoneNumber}</p>
                                                         <p>{onboardingDate}</p>
