@@ -97,6 +97,8 @@ const AddAdmin = () => {
         console.log({ data })
     })
 
+    console.log({formErrors})
+
     return (
         <div className='addAdmin'>
             <p className='addAdmin__heading'>Personal Information</p>
@@ -156,6 +158,7 @@ const AddAdmin = () => {
                                 {...register('phoneNumber', {
                                     required: true,
                                     minLength: 9,
+                                    maxLength: 10
                                 })}
                                 type='number'
                                 inputMode='numeric'
