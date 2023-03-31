@@ -27,7 +27,7 @@ const App = () => {
     // const [isAuth, setIsAuth] = useState(false)
 
     // console.log({ isAuth })
-     const tokenData = localStorage.getItem('token')
+    const tokenData = localStorage.getItem('token')
     // useEffect(() => {
     //     const auth = isAuthenticated()
 
@@ -36,30 +36,15 @@ const App = () => {
     //     console.log('on load')
     // }, [tokenData])
 
-    let router = createBrowserRouter([
-        {
-            path: '/',
-            element: <Login />,
-        },
-        {
-            path: '*',
-            element: <Navigate to='/' />,
-        },
-    ])
-
-    if (tokenData) {
-        console.log('authenticated')
-        router = createBrowserRouter(
-            createRoutesFromElements([
-                <Route path='/' element={<Login />} />,
-                superAdminRoutes,
-                securityCompanyRoutes,
-                estateManagerRoutes,
-                <Route path='*' element={<Navigate to='/' />} />,
-            ])
-        )
-    }
-
+    const router = createBrowserRouter(
+        createRoutesFromElements([
+            <Route path='/' element={<Login />} />,
+            superAdminRoutes,
+            securityCompanyRoutes,
+            estateManagerRoutes,
+            <Route path='*' element={<Navigate to='/' />} />,
+        ])
+    )
 
     return (
         <div className='text-[1.6rem] max-w-[180rem] mx-auto'>
