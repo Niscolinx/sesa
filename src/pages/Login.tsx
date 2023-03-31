@@ -1,4 +1,5 @@
 import React, { FormEvent, useState } from 'react'
+import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router'
 
 const Login = () => {
@@ -41,10 +42,19 @@ const Login = () => {
         }))
     }
 
+     const { register, handleSubmit, watch } = useForm<Inputs>()
+
+     watch((values) => {
+        console.log({values})
+     })
+     const onSubmit = handleSubmit((data) => {
+         console.log({ data })
+     })
+
     return (
         <div className='flex h-screen overflow-hidden'>
             <form
-                onSubmit={handleLogin}
+                onSubmit={onSubmit}
                 className='basis-1/2 grid place-content-center gap-10'
             >
                 <div>
