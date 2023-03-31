@@ -43,7 +43,7 @@ const Login = () => {
         email = email.toLowerCase().trim()
 
         if (email.includes('superadmin')) {
-            navigate('/superAdmin')
+          //  navigate('/superAdmin')
         }
 
         if (email === 'securitycompany@sesa.com') {
