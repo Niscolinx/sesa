@@ -30,11 +30,11 @@ const AddAdmin = () => {
         setPhotoUrl(getUrl)
     }
 
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault()
+    // const handleSubmit = (e: React.FormEvent) => {
+    //     e.preventDefault()
 
-        handleOpen('renderedAdmins')
-    }
+    //     handleOpen('renderedAdmins')
+    // }
 
       const {
           register,
