@@ -6,7 +6,7 @@ import { useMutation } from 'react-query'
 import { ModalContext } from '../../../Context/ModalContext'
 import { AxiosRequest } from '../../../utils/axios'
 import { getPhotoUrl } from '../../../utils/getPhotoUrl'
-import { storeToken } from '../../../utils/token'
+import { isAuthenticated, storeToken } from '../../../utils/token'
 import Input from '../../UI/Input'
 
 const AddAdmin = () => {
@@ -37,7 +37,7 @@ const AddAdmin = () => {
     // }
 
     useEffect(() => {
-        console.log("photoUrl", photoUrl)
+        console.log('photoUrl', photoUrl)
     }, [photoUrl])
 
     const {
@@ -60,13 +60,11 @@ const AddAdmin = () => {
     // })
 
     const postLogin = (data: Inputs) => {
-       
-
         return AxiosRequest({
-            token: '',
+            token: isAuthenticated() || '',
             url: '/admin/create',
             method: 'post',
-            data
+            data,
         })
     }
     const {
@@ -95,16 +93,7 @@ const AddAdmin = () => {
 
     const onSubmit = handleSubmit((data) => {
         console.log({ data })
-        const {
-            first_name,
-            last_name,
-            gender,
-            dob,
-            email,
-            phoneNumber,
-        } = data
-
-    
+        const { first_name, last_name, gender, dob, email, phoneNumber } = data
 
         const adminData = {
             name: `${first_name} ${last_name}`,
@@ -115,7 +104,7 @@ const AddAdmin = () => {
             image: photoUrl,
         }
 
-        console.log({adminData})
+        console.log({ adminData })
 
         mutate(adminData)
     })
