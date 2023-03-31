@@ -153,7 +153,10 @@ const AddAdmin = () => {
                             </select>
                             <input
                                 required
-                                {...register('phoneNumber', { required: true, minLength: 9 })}
+                                {...register('phoneNumber', {
+                                    required: true,
+                                    minLength: 9,
+                                })}
                                 type='number'
                                 inputMode='numeric'
                                 id='phoneNumber'
@@ -161,12 +164,11 @@ const AddAdmin = () => {
                         </div>
                     </div>
                     <div className='addAdmin__form--item'>
-                        <label htmlFor='email'>Email Address *</label>
-                        <input
-                            required
-                            type='email'
-                            id='email'
-                            placeholder='Your Email'
+                        <Input
+                            type={'email'}
+                            label={'Email Address'}
+                            register={register}
+                            formErrors={formErrors}
                         />
                     </div>
                     <div className='addAdmin__form--file'>
