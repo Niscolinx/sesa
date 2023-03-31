@@ -74,10 +74,14 @@ const Login = () => {
                                 formErrors.email && 'border-red-500 '
                             }`}
                         />
-                        {formErrors.email && <p className='text-[1.2rem]'>
-                                {formErrors.email.type === 'required' && (<span></span>)}
-                                {formErrors.email.type === 'required' && (<span></span>)}
-                            </p>}
+                        {formErrors.email && (
+                            <p className='text-[1.2rem] text-red-500'>
+                                {formErrors.email.type === 'required' ? (
+                                    <span>Field cannot be empty</span>
+                                ): (<span>Invalid email</span>)}
+                                
+                            </p>
+                        )}
                     </div>
                     <div className='w-full grid gap-4'>
                         <label htmlFor='password' className='font-semibold'>
@@ -93,6 +97,16 @@ const Login = () => {
                                 formErrors.password && 'border-red-500 '
                             }`}
                         />
+                        {formErrors.password && (
+                            <p className='text-[1.2rem] text-red-500'>
+                                {formErrors.password.type === 'required' && (
+                                    <span>Field cannot be empty</span>
+                                )}
+                                {formErrors.password.type === 'minLength' && (
+                                    <span>Inva</span>
+                                )}
+                            </p>
+                        )}
                     </div>
                 </div>
                 <button className='btn bg-[#0556E5] text-white rounded-lg py-4'>
