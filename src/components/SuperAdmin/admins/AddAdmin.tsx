@@ -60,8 +60,11 @@ const AddAdmin = () => {
     // })
 
     const postLogin = (data: Inputs) => {
+        const token = isAuthenticated() || ''
+
+        console.log({token})
         return AxiosRequest({
-            token: isAuthenticated() || '',
+            token,
             url: '/admin/create',
             method: 'post',
             data,
