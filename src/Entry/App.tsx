@@ -25,7 +25,7 @@ import { isAuthenticated } from '../utils/token'
 
 const isAuth = isAuthenticated()
 
-
+console.log({isAuth})
 
 let router = createBrowserRouter([
     {
@@ -39,6 +39,7 @@ let router = createBrowserRouter([
 ])
 
 if (isAuth) {
+    console.log('authenticated')
     router = createBrowserRouter(
         createRoutesFromElements([
             <Route path='/' element={<Login />} />,
@@ -49,6 +50,8 @@ if (isAuth) {
         ])
     )
 }
+
+console.log('router======',router)
 
 const App = () => {
     return (
