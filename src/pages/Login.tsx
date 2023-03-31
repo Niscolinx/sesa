@@ -78,7 +78,9 @@ const Login = () => {
                     {response_data?.status === 200 ? (
                         <span></span>
                     ) : (
-                        <span></span>
+                        <span className='text-red-500'>
+                            
+                        </span>
                     )}
                     <div className='w-full grid gap-4'>
                         <label htmlFor='email' className='font-semibold'>
