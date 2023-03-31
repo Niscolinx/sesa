@@ -15,8 +15,6 @@ const Login = () => {
 
     const handleLogin = (e: FormEvent) => {
         e.preventDefault()
-
-        
     }
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -70,7 +68,10 @@ const Login = () => {
                         </label>
                         <input
                             type='email'
-                            {...register('email')}
+                            {...register('email', {
+                                required: true,
+                                pattern: /^\S+@\S+$/i,
+                            })}
                             className='border border-color-grey p-4 rounded-lg w-full outline-color-primary outline-[0.5px]'
                         />
                     </div>
