@@ -34,14 +34,13 @@ const Login = () => {
             data: user,
         })
     }
-    const { mutate, data, isLoading } = useMutation(postLogin)
+    const { mutate, data, isLoading, isError } = useMutation(postLogin)
 
-    console.log({ data, isLoading })
+    console.log({ data, isLoading, isError })
 
     const onSubmit = handleSubmit((data) => {
-        console.log({ data })
 
-        let { email, password } = data
+        let { email } = data
 
         email = email.toLowerCase().trim()
 
