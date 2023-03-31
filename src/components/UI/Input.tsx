@@ -11,18 +11,18 @@ interface Input {
 }
 
 const Input: FC<Input> = ({ label, type = 'text', required, register, formErrors, validationOptions }) => {
-    const [inputType, setInputType] = useState(type)
+    // const [inputType, setInputType] = useState(type)
 
     
 
-    const formType = new Map([
-        [
-            'text',
-            {
-                required: true,
-            },
-        ],
-    ]) 
+    // const formType = new Map([
+    //     [
+    //         'text',
+    //         {
+    //             required: true,
+    //         },
+    //     ],
+    // ]) 
 
     return (
         <div className='w-full grid gap-4'>
