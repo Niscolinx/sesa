@@ -1,4 +1,4 @@
-import { FC } from "react"
+import { FC, useState } from "react"
 
 interface Input {
     label: string
@@ -6,6 +6,16 @@ interface Input {
 }
 
 const Input:FC<Input> = ({}) => {
+    const [type, setType] = useState('text')
+ 
+    const formType = new Map([
+        [1, <First />],
+        [2, <Second />],
+        [3, <Third />],
+        [4, <Fourth />],
+        [5, <Last />],
+    ]) satisfies Map<number, JSX.Element>
+
     return (
         <div className='w-full grid gap-4'>
             <label htmlFor='email' className='font-semibold'>
