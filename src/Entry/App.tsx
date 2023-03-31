@@ -27,14 +27,15 @@ const App = () => {
     const [isAuth, setIsAuth] = useState(false)
 
     console.log({ isAuth })
-
+    const tokenData = localStorage.getItem('token')
+    
     useEffect(() => {
         const auth = isAuthenticated()
 
         auth ? setIsAuth(true) : setIsAuth(false)
 
         console.log('on load')
-    }, [])
+    }, [tokenData])
 
     let router = createBrowserRouter([
         {
