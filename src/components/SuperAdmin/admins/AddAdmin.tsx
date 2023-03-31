@@ -105,11 +105,11 @@ const AddAdmin = () => {
         } = data
 
         const adminData = {
-            name: `${first_name}${last_name}`,
+            name: `${first_name} ${last_name}`,
             gender,
             dob,
             email,
-            phoneNumber,
+            phone: `+234${phoneNumber}`,
             image: photoUrl,
         }
 
