@@ -108,7 +108,7 @@ const ViewMessage = () => {
                                         fontFamily: 'Satoshi-Medium',
                                     }}
                                 >
-                                    {status === 'Sent' ? (
+                                   {status  === 'Sent' ? (
                                         <span className='text-green-600'>
                                             {status}
                                         </span>

@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router'
 import { toast, ToastContainer } from 'react-toastify'
 import React from 'react'
 
-interface IAdmin{
+interface IAdmin {
     id: string
     name: string
     gender: string
@@ -87,7 +87,6 @@ const ADMINDATA: IAdmin[] = [
 
 type Actions = 'View Details'
 
-
 function RenderedAdmins() {
     const dispatch = useAppDispatch()
     const navigate = useNavigate()
@@ -107,10 +106,7 @@ function RenderedAdmins() {
         dispatch(setAdminPath('addAdmin'))
     }
 
-
-    const [fetchedAdmins, setFetchedAdmins] = useState<
-        IAdmin[]
-    >([])
+    const [fetchedAdmins, setFetchedAdmins] = useState<IAdmin[]>([])
 
     useEffect(() => {
         setTimeout(() => {
@@ -188,14 +184,8 @@ function RenderedAdmins() {
 
     useEffect(() => {
         const slicedPages: IAdmin[][] = []
-        for (
-            let i = 0;
-            i < fetchedAdmins.length;
-            i += paginate.itemsPerPage
-        ) {
-            slicedPages.push(
-                fetchedAdmins.slice(i, i + paginate.itemsPerPage)
-            )
+        for (let i = 0; i < fetchedAdmins.length; i += paginate.itemsPerPage) {
+            slicedPages.push(fetchedAdmins.slice(i, i + paginate.itemsPerPage))
         }
 
         setPaginate((prev) => {
@@ -303,32 +293,31 @@ function RenderedAdmins() {
         })
     }
 
-
-      ;<caption className='renderedAdmins__caption'>
-          <p className='caption__title'>
-              Admin List <span>(200)</span>
-          </p>
-          <div className='caption__searchBox'>
-              <img src='/icons/admins/search.svg' alt='' />
-              <input type='text' placeholder='Search Parameters' />
-          </div>
-          <div className='caption__select'>
-              <select>
-                  <option hidden value=''>
-                      Sort By
-                  </option>
-                  <option value='date'>date</option>
-                  <option value='alpha'>Alpha</option>
-              </select>
-              <GrDown />
-          </div>
-          <button className='btn admins__btn' onClick={handlePathSwitch}>
-              <span>
-                  <IoMdAdd />
-              </span>{' '}
-              <p>Add Admin</p>
-          </button>
-      </caption>
+    ;<caption className='renderedAdmins__caption'>
+        <p className='caption__title'>
+            Admin List <span>(200)</span>
+        </p>
+        <div className='caption__searchBox'>
+            <img src='/icons/admins/search.svg' alt='' />
+            <input type='text' placeholder='Search Parameters' />
+        </div>
+        <div className='caption__select'>
+            <select>
+                <option hidden value=''>
+                    Sort By
+                </option>
+                <option value='date'>date</option>
+                <option value='alpha'>Alpha</option>
+            </select>
+            <GrDown />
+        </div>
+        <button className='btn admins__btn' onClick={handlePathSwitch}>
+            <span>
+                <IoMdAdd />
+            </span>{' '}
+            <p>Add Admin</p>
+        </button>
+    </caption>
     return (
         <>
             <ToastContainer />
@@ -457,13 +446,12 @@ function RenderedAdmins() {
                                         slicedPages[paginate.index].map(
                                             (
                                                 {
-                                                    
                                                     phoneNumber,
                                                     id,
                                                     gender,
                                                     name,
                                                     onboardingDate,
-                                                    status
+                                                    status,
                                                 },
                                                 i
                                             ) => {
@@ -479,22 +467,24 @@ function RenderedAdmins() {
                                                                 className='cursor-pointer'
                                                             />
 
-                                                            <span>
-                                                                {name}
-                                                            </span>
+                                                            <span>{name}</span>
                                                         </p>
                                                         <p>{gender}</p>
                                                         <p>{phoneNumber}</p>
-                                                        <p>{category}</p>
+                                                        <p>{onboardingDate}</p>
 
                                                         <p>
-                                                            <StarRating
-                                                                starsNum={
-                                                                    rating
-                                                                }
-                                                            />
+                                                            {status ===
+                                                            'Active' ? (
+                                                                <span className='text-green-600'>
+                                                                    {status}
+                                                                </span>
+                                                            ) : (
+                                                                <span className='text-red-500'>
+                                                                    {status}
+                                                                </span>
+                                                            )}
                                                         </p>
-
                                                         <div className='relative'>
                                                             <label
                                                                 className='font-semibold capitalize cursor-pointer flex items-center gap-2 relative z-10'
