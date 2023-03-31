@@ -6,7 +6,7 @@ import { useMutation } from 'react-query'
 import { ModalContext } from '../../../Context/ModalContext'
 import { AxiosRequest } from '../../../utils/axios'
 import { getPhotoUrl } from '../../../utils/getPhotoUrl'
-import { isAuthenticated, storeToken } from '../../../utils/token'
+import { isAuthenticated } from '../../../utils/token'
 import Input from '../../UI/Input'
 
 const AddAdmin = () => {

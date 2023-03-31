@@ -13,13 +13,17 @@ export const storeToken = (token: string):void => {
 }
 
 export const isAuthenticated = (): null | string => {
+    console.log("is auth")
     const tokenData = localStorage.getItem('token')
+    console.log('token data', tokenData)
     if (tokenData) {
         const { token, expirationDate } = JSON.parse(tokenData)
         if (expirationDate && new Date().getTime() > expirationDate) {
+            console.log('expired token')
             localStorage.removeItem('token')
             return null
         }
+        console.log('gotten token', token)
         return token
     }
     return null
