@@ -1,7 +1,12 @@
-import axios from 'axios'
+import axios, { AxiosError, AxiosResponse } from 'axios'
 
-const client = axios.create({baseURL: 'https://sesadigital.com/api'})
+const client = axios.create({ baseURL: 'https://sesadigital.com/api' })
 
-export const request = ({...options}) => {
+export const request = ({ ...options }) => {
     client.defaults.headers.common.Authorization = 'Bearer token'
+
+    const onSuccess = (response: AxiosResponse) => response
+    const onError = (error: AxiosError) => error
+
+    return client(options).then(onSuccess).catch(onError)
 }
