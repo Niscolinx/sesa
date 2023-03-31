@@ -4,8 +4,12 @@ import { IoMdAdd } from 'react-icons/io'
 import { ModalContext } from '../../../Context/ModalContext'
 import { getPhotoUrl } from '../../../utils/getPhotoUrl'
 
-
 const AddAdmin = () => {
+    interface Inputs {
+        firstName: string
+        lastName: string
+    }
+
     const ModalContextData = useContext(ModalContext)
     const { handleOpen } = ModalContextData
 
