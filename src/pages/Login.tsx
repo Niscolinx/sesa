@@ -124,7 +124,7 @@ const Login = () => {
                     </div>
                 </div>
                 <button className='btn bg-[#0556E5] text-white rounded-lg py-4'>
-                    {isLoading ? '...loading': 'Login'}
+                    {isLoading ? 'loading...': 'Login'}
                 </button>
             </form>
             <figure>
