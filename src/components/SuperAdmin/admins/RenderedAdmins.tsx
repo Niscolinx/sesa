@@ -116,7 +116,7 @@ function RenderedAdmins() {
         }, 100)
     }, [])
 
-    const actions = ['view details', 'edit Details','Reset '] satisfies Actions[]
+    const actions = ['view details', 'edit details','reset profile', 'deactivate'] satisfies Actions[]
 
     const [toggleDropDown, setToggleDropDown] = useState<{
         isDropDownOpen: boolean
@@ -265,7 +265,7 @@ function RenderedAdmins() {
             }
         })
 
-        if (item === 'View Details') {
+        if (item === 'view details') {
             navigate(`/estateManager/artisan/view/:${id}`)
         }
 
@@ -481,7 +481,7 @@ function RenderedAdmins() {
                                                                     />
                                                                 )}
 
-                                                                <p className='max-w-[40rem] overflow-hidden text-ellipsis whitespace-nowrap'>
+                                                                <p className='max-w-[50rem] overflow-hidden text-ellipsis whitespace-nowrap'>
                                                                     {name}
                                                                 </p>
                                                             </div>
