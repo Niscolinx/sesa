@@ -22,10 +22,9 @@ const Login = () => {
     })
 
     const postLogin = (data: Inputs) => {
-        
         const user = {
             email: data.email,
-            password: data.password
+            password: data.password,
         }
 
         console.log(user)
@@ -33,7 +32,7 @@ const Login = () => {
     }
     const { mutate, data, isLoading } = useMutation(postLogin)
 
-    console.log({data, isLoading})
+    console.log({ data, isLoading })
 
     const onSubmit = handleSubmit((data) => {
         console.log({ data })
