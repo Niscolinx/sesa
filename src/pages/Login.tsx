@@ -60,6 +60,12 @@ const Login = () => {
                   className: 'text-red-600',
                   displayMessage: response_data?.response?.data.message,
               })
+
+        const timeoutId = setTimeout(() => {
+            setResponseMessage(null)
+        }, 1000 * 3)
+
+        return clearTimeout(timeoutId)
     }, [response_data])
 
     const onSubmit = handleSubmit((data) => {
