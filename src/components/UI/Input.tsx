@@ -24,8 +24,8 @@ const Input: FC<Input> = ({ label, type = 'text', required }) => {
 
     return (
         <div className='w-full grid gap-4'>
-            <label htmlFor='email' className='font-semibold'>
-                Email
+            <label htmlFor={label} className='font-semibold capitalize'>
+                {label}
             </label>
             <input
                 type='email'
