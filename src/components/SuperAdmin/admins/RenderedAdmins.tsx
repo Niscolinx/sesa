@@ -116,7 +116,12 @@ function RenderedAdmins() {
         }, 100)
     }, [])
 
-    const actions = ['view details', 'edit details','reset profile', 'deactivate'] satisfies Actions[]
+    const actions = [
+        'view details',
+        'edit details',
+        'reset profile',
+        'deactivate',
+    ] satisfies Actions[]
 
     const [toggleDropDown, setToggleDropDown] = useState<{
         isDropDownOpen: boolean
@@ -408,10 +413,9 @@ function RenderedAdmins() {
                                     <option value='date'>date</option>
                                     <option value='alpha'>Alpha</option>
                                 </select>
-                                <GrDown />
                             </div>
                             <button
-                                className='btn admins__btn'
+                                className='btn admins__btn ml-auto'
                                 onClick={handlePathSwitch}
                             >
                                 <span>
@@ -481,7 +485,7 @@ function RenderedAdmins() {
                                                                     />
                                                                 )}
 
-                                                                <p className='max-w-[50rem] overflow-hidden text-ellipsis whitespace-nowrap'>
+                                                                <p className='min-w-[30rem] overflow-hidden text-ellipsis whitespace-nowrap'>
                                                                     {name}
                                                                 </p>
                                                             </div>
@@ -561,9 +565,20 @@ function RenderedAdmins() {
                                                                                         )
                                                                                     }
                                                                                 >
-                                                                                    {
-                                                                                        item
-                                                                                    }
+                                                                                    {item ===
+                                                                                    'deactivate' ? (
+                                                                                        <span className='text-red-600'>
+                                                                                            {
+                                                                                                item
+                                                                                            }
+                                                                                        </span>
+                                                                                    ) : (
+                                                                                        <span>
+                                                                                            {
+                                                                                                item
+                                                                                            }
+                                                                                        </span>
+                                                                                    )}
                                                                                 </p>
                                                                             )
                                                                         )}
