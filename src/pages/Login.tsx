@@ -16,7 +16,8 @@ const Login = () => {
     const { register, handleSubmit, watch, formState: {...items} } = useForm<Inputs>()
 
     watch((values) => {
-        console.log({ values, items })
+        console.log({ values })
+        console.log()
     })
     const onSubmit = handleSubmit((data) => {
         console.log({ data })
