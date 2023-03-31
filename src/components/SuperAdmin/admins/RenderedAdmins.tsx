@@ -471,10 +471,15 @@ function RenderedAdmins() {
                                                             />
 
                                                             <div>
-                                                                <img
-                                                                    src={imgUrl}
-                                                                    alt=''
-                                                                />
+                                                                {imgUrl && (
+                                                                    <img
+                                                                        src={
+                                                                            imgUrl
+                                                                        }
+                                                                        alt=''
+                                                                    />
+                                                                )}
+
                                                                 <p>{name}</p>
                                                             </div>
                                                         </div>
