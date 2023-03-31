@@ -88,10 +88,7 @@ const AddAdmin = () => {
     useEffect(() => {
         console.log({response_data})
         if (response_data?.status === 200) {
-            setResponseMessage({
-                className: 'text-green-600',
-                displayMessage: 'Login Successful',
-            })
+            handleOpen('renderedAdmins')
         } else {
             setResponseMessage({
                 className: 'text-red-600',
@@ -99,9 +96,9 @@ const AddAdmin = () => {
             })
         }
 
-        const timeoutId = setTimeout(() => {
-            setResponseMessage(null)
-        }, 1000 * 3)
+        // const timeoutId = setTimeout(() => {
+        //     setResponseMessage(null)
+        // }, 10000)
     }, [response_data])
 
     const onSubmit = handleSubmit((data) => {
@@ -126,7 +123,6 @@ const AddAdmin = () => {
     return (
         <div className='addAdmin'>
             <p className='addAdmin__heading'>Personal Information</p>
-            <form onSubmit={onSubmit} className='addAdmin__formBox'>
                 {responseMessage?.displayMessage && (
                     <p className='text-center'>
                         <span className={responseMessage?.className}>
@@ -134,6 +130,7 @@ const AddAdmin = () => {
                         </span>
                     </p>
                 )}
+            <form onSubmit={onSubmit} className='addAdmin__formBox'>
                 <section className='addAdmin__form'>
                     <div className='addAdmin__form--item'>
                         <Input
