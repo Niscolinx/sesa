@@ -17,6 +17,7 @@ const AddAdmin = () => {
         dateOfBirth: string
         gender: string
         phoneNumber: number
+        photoUrl?: string
     }
 
     const ModalContextData = useContext(ModalContext)
@@ -24,9 +25,7 @@ const AddAdmin = () => {
 
     const [photoUrl, setPhotoUrl] = useState('')
 
-    const handlePhotoPreview = async (
-        value: React.MouseEvent<HTMLInputElement>
-    ) => {
+    const handlePhotoPreview = async () => {
         const getUrl = await getPhotoUrl(`#photoUpload`)
         setPhotoUrl(getUrl)
     }
@@ -157,8 +156,8 @@ const AddAdmin = () => {
                                 required
                                 {...register('phoneNumber', {
                                     required: true,
-                                    minLength: 9,
-                                    maxLength: 10,
+                                    //minLength: 8,
+                                    // maxLength: 10,
                                 })}
                                 type='number'
                                 inputMode='numeric'
