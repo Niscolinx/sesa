@@ -1,7 +1,7 @@
-import  { FormEvent } from 'react'
 import { useForm } from 'react-hook-form'
 import { useQuery } from 'react-query'
 import { useNavigate } from 'react-router'
+import { AxiosRequest } from '../utils/axios'
 
 const Login = () => {
     const navigate = useNavigate()
@@ -10,9 +10,7 @@ const Login = () => {
         password: string
     }
 
-    const handleLogin = (e: FormEvent) => {
-        e.preventDefault()
-    }
+
 
     const {
         register,
@@ -26,7 +24,7 @@ const Login = () => {
     })
 
     const { isLoading, data: response_data } = useQuery('user', () => {
-        return axios.get('http://localhost:4000/users')
+        return AxiosRequest({url: '/login'})
     }, {
         cacheTime: 5000,
         staleTime: 30000
