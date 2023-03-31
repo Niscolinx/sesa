@@ -13,10 +13,10 @@ const Login = () => {
         e.preventDefault()
     }
 
-    const { register, handleSubmit, watch } = useForm<Inputs>()
+    const { register, handleSubmit, watch, formState: {...items} } = useForm<Inputs>()
 
     watch((values) => {
-        console.log({ values })
+        console.log({ values, items })
     })
     const onSubmit = handleSubmit((data) => {
         console.log({ data })
