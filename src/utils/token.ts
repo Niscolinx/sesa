@@ -15,19 +15,16 @@ export const storeToken = (token: string) => {
     )
 }
 
-export const isAuthenticated = () => {
+export const isAuthenticated = (): Boolean => {
     const tokenData = localStorage.getItem('token')
     if (tokenData) {
         const { token, expirationDate } = JSON.parse(tokenData)
         if (expirationDate && new Date().getTime() > expirationDate) {
             localStorage.removeItem('token')
-            return null
+            return false
         }
         const hashedToken = hashToken(token)
         return hashedToken === tokenData
-        
     }
-    return null
+    return false
 }
-
-
