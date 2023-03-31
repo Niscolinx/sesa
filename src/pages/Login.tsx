@@ -29,14 +29,14 @@ const Login = () => {
 
         return AxiosRequest({
             token: '',
-            url: '/login',
+            url: '/logiffn',
             method: 'post',
             data: user,
         })
     }
     const { mutate, data, isLoading, isError } = useMutation(postLogin)
 
-    console.log({ data, isLoading, isError })
+    console.log({ data, isLoading })
 
     const onSubmit = handleSubmit((data) => {
 
