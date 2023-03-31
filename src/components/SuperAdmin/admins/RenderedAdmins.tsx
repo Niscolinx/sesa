@@ -6,7 +6,7 @@ import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { useAppDispatch } from '../../../store/app/hooks'
 import { setAdminPath } from '../../../store/features/routeChange'
 
-type Admin = {
+interface IAdmin{
     id: string
     name: string
     gender: string
@@ -15,7 +15,7 @@ type Admin = {
     onboardingDate: string
 }
 
-const ADMINDATA: Admin[] = [
+const ADMINDATA: IAdmin[] = [
     {
         id: '1',
         name: 'Jacintha Sage',
@@ -82,10 +82,13 @@ const ADMINDATA: Admin[] = [
     },
 ]
 
+type Actions = 'View Details'
+
+
 function RenderedAdmins() {
     const dispatch = useAppDispatch()
 
-    const [fetchedUsers, setFetchedUsers] = useState<Admin[] | null>([])
+    const [fetchedUsers, setFetchedUsers] = useState<IAdmin[] | null>([])
 
     useEffect(() => {
         const fetchData = async () => {
@@ -99,6 +102,203 @@ function RenderedAdmins() {
     const handlePathSwitch = () => {
         dispatch(setAdminPath('addAdmin'))
     }
+
+
+    const [fetchedAdmins, setFetchedAdmins] = useState<
+        IAdmins[]
+    >([])
+
+    useEffect(() => {
+        setTimeout(() => {
+            setFetchedAdmins(ARTISAN_LIST)
+        }, 100)
+    }, [])
+
+    const actions = ['View Details'] satisfies Actions[]
+
+    const [toggleDropDown, setToggleDropDown] = useState<{
+        isDropDownOpen: boolean
+        index: number | null
+    }>({
+        isDropDownOpen: false,
+        index: null,
+    })
+
+    const dropDownHandler = (
+        e: React.ChangeEvent<HTMLInputElement>,
+        index: number
+    ) => {
+        setToggleDropDown(() => {
+            return {
+                isDropDownOpen: e.target.checked,
+                index,
+            }
+        })
+    }
+
+    //const [dialogType, setDialogType] = useState<Actions>('Deactivate')
+
+    interface Paginate {
+        index: number
+        currentPage: number
+        itemsPerPage: number
+        totalPage: number
+        slicedPages: IAdmins[][] | null
+    }
+
+    const itemsPerPageArr = [2, 4, 6, 8]
+
+    const perPage = 6
+    const [paginate, setPaginate] = useState<Paginate>({
+        index: 0,
+        currentPage: 1,
+        itemsPerPage: perPage,
+
+        totalPage: Math.ceil(fetchedAdmins.length / perPage),
+        slicedPages: null,
+    })
+
+    // const handleSelectedSort = (item: SortBy) => {
+    //     setToggleSortMenu(false)
+    // }
+
+    const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
+        const item = parseInt(e.target.value)
+
+        const slicedPages: IAdmins[][] = []
+        for (let i = 0; i < fetchedAdmins.length; i += item) {
+            slicedPages.push(fetchedAdmins.slice(i, i + item))
+        }
+
+        setPaginate((prev) => {
+            return {
+                ...prev,
+                itemsPerPage: item,
+                index: 0,
+                currentPage: 1,
+                slicedPages,
+                totalPage: Math.ceil(fetchedAdmins.length / item),
+            }
+        })
+    }
+
+    useEffect(() => {
+        const slicedPages: IAdmins[][] = []
+        for (
+            let i = 0;
+            i < fetchedAdmins.length;
+            i += paginate.itemsPerPage
+        ) {
+            slicedPages.push(
+                fetchedAdmins.slice(i, i + paginate.itemsPerPage)
+            )
+        }
+
+        setPaginate((prev) => {
+            return {
+                ...prev,
+                slicedPages,
+            }
+        })
+    }, [fetchedAdmins])
+
+    const handleNext = () => {
+        if (paginate.currentPage === paginate.totalPage) return
+        setPaginate((prev) => {
+            return {
+                ...prev,
+                index: prev.index + 1,
+                currentPage: prev.currentPage + 1,
+            }
+        })
+    }
+
+    const handlePrev = () => {
+        if (paginate.currentPage === 1) return
+        setPaginate((prev) => {
+            return {
+                ...prev,
+                index: prev.index - 1,
+                currentPage: prev.currentPage - 1,
+            }
+        })
+    }
+
+    const { currentPage, slicedPages, itemsPerPage } = paginate
+
+    const jumpToPage = (e: React.MouseEvent, index: number) => {
+        setPaginate((prev) => {
+            return {
+                ...prev,
+                index,
+                currentPage: index + 1,
+            }
+        })
+    }
+
+    const addArtisan = () => {
+        navigate('/superAdmin/artisan/add')
+    }
+
+    const dialogRef = useRef<HTMLDialogElement | null>(null)
+
+    const handleClose = () => {
+        if (dialogRef.current) {
+            dialogRef.current.close()
+        }
+    }
+
+    // const handleOpen = (dialogType: Actions) => {
+    //     if (dialogType === 'Deactivate') {
+    //         setDialogType('Deactivate')
+    //     }
+    //     if (dialogType === 'Delete') {
+    //         setDialogType('Delete')
+    //     }
+
+    //     if (dialogRef.current) {
+    //         dialogRef.current.showModal()
+    //     }
+    // }
+
+    const handleSelectedAction = (item: Actions, id: string) => {
+        setToggleDropDown(() => {
+            return {
+                isDropDownOpen: false,
+                index: null,
+            }
+        })
+
+        if (item === 'View Details') {
+            navigate(`/estateManager/artisan/view/:${id}`)
+        }
+
+        // if (item === 'Deactivate') {
+        //     handleOpen('Deactivate')
+        // }
+
+        // if (item === 'Delete') {
+        //     handleOpen('Delete')
+        // }
+    }
+
+    const handleDeleteArtisan = () => {
+        handleClose()
+
+        toast('Artisan deleted successfully', {
+            type: 'error',
+            className: 'bg-red-100 text-red-600 text-[1.4rem]',
+        })
+    }
+    const handleDeactivateArtisan = () => {
+        handleClose()
+
+        toast('Artisan deactivated successfully', {
+            type: 'error',
+            className: 'bg-red-100 text-red-600 text-[1.4rem]',
+        })
+    }
+
 
     return (
         <div className='renderedAdmins'>
