@@ -36,6 +36,10 @@ const AddAdmin = () => {
     //     handleOpen('renderedAdmins')
     // }
 
+    useEffect(() => {
+        console.log("photoUrl", photoUrl)
+    }, [photoUrl])
+
     const {
         register,
         handleSubmit,
@@ -101,8 +105,9 @@ const AddAdmin = () => {
             dob,
             email,
             phoneNumber,
-            photoUrl
         } = data
+
+    
 
         const adminData = {
             name: `${first_name} ${last_name}`,
