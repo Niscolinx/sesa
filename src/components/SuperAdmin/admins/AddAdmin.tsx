@@ -87,6 +87,7 @@ const AddAdmin = () => {
 
     useEffect(() => {
         if (response_data?.status === 200) {
+            console.log({response_data})
             setResponseMessage({
                 className: 'text-green-600',
                 displayMessage: 'Login Successful',
@@ -234,7 +235,7 @@ const AddAdmin = () => {
                         <span>
                             <IoMdAdd />
                         </span>{' '}
-                        {isLoading ? 'Loading...' : 'Login'}
+                        {isLoading ? 'Loading...' : 'Add'}
                     </button>
                 </section>
             </form>
