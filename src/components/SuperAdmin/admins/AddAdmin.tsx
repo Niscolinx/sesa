@@ -52,9 +52,9 @@ const AddAdmin = () => {
     const [responseMessage, setResponseMessage] =
         useState<ResponseMessage | null>(null)
 
-    // watch((values) => {
-    //     console.log({ values })
-    // })
+    watch((values) => {
+        console.log({ values })
+    })
 
     const postLogin = (data: Inputs) => {
         const user = {
@@ -110,7 +110,6 @@ const AddAdmin = () => {
                 )}
                 <section className='addAdmin__form'>
                     <div className='addAdmin__form--item'>
-                        <label htmlFor='firstName'>First Name *</label>
                         <Input
                             label={'firstName'}
                             register={register}
