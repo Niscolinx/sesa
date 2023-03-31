@@ -1,5 +1,7 @@
+import axios from 'axios'
 import React, { FormEvent, useState } from 'react'
 import { useForm } from 'react-hook-form'
+import { useQuery } from 'react-query'
 import { useNavigate } from 'react-router'
 
 const Login = () => {
@@ -23,6 +25,15 @@ const Login = () => {
     watch((values) => {
         console.log({ values })
     })
+
+    const { isLoading, data: response_data } = useQuery('user', () => {
+        return axios.get('http://localhost:4000/users')
+    }, {
+        cacheTime: 5000,
+        staleTime: 30000
+    })
+
+   
 
     const onSubmit = handleSubmit((data) => {
         console.log({ data })
