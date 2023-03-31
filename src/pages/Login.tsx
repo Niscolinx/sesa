@@ -51,20 +51,22 @@ const Login = () => {
     } = useMutation(postLogin) as any
 
     useEffect(() => {
-        response_data?.status === 200
-            ? setResponseMessage({
-                  className: 'text-green-600',
-                  displayMessage: 'Login Successful',
-              })
-            : setResponseMessage({
-                  className: 'text-red-600',
-                  displayMessage: response_data?.response?.data.message,
-              })
+        if (response_data?.status === 200) {
+            setResponseMessage({
+                className: 'text-green-600',
+                displayMessage: 'Login Successful',
+            })
+            navigate('/superAdmin')
+        } else {
+            setResponseMessage({
+                className: 'text-red-600',
+                displayMessage: response_data?.response?.data.message,
+            })
+        }
 
         const timeoutId = setTimeout(() => {
             setResponseMessage(null)
         }, 1000 * 3)
-
     }, [response_data])
 
     const onSubmit = handleSubmit((data) => {
