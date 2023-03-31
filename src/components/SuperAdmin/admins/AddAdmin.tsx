@@ -99,11 +99,12 @@ const AddAdmin = () => {
             lastName,
             gender,
             dob,
-
+            email,
+            phoneNumber,
+            photoUrl
         } = data
         const adminData = {
-            ...data,
-            name
+            
         }
     })
 
