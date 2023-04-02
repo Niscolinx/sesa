@@ -26,8 +26,6 @@ const AddAdmin = () => {
         const target = e.target as HTMLInputElement
         const file: File = (target.files as FileList)[0]
 
-        console.log({ file })
-
         const preview = URL.createObjectURL(file)
         setPhotoPreview(preview)
         setImageUrl(file)
