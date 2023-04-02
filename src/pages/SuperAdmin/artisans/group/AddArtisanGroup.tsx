@@ -2,7 +2,7 @@ import React, { FormEvent, useRef, useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
 
 import { toast, ToastContainer } from 'react-toastify'
-import { MultipleSelect } from '../../UI/Select'
+import { MultipleSelect } from '../../../../components/SuperAdmin/UI/Select'
 
 type DialogType = 'validate' | 'add-Artisan'
 
