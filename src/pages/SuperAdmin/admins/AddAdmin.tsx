@@ -110,9 +110,9 @@ const AddAdmin = () => {
     }
 
     const formInputs = [
-        'first_name',
-        'last_name',
-        
+        {
+            label: 'first_name'
+        },
     ]
 
     return (
