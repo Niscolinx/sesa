@@ -19,16 +19,16 @@ const AddAdmin = () => {
         photoUrl?: string
     }
 
-    const ModalContextData = useContext(ModalContext)
-    // const { handleOpen } = ModalContextData
+
 
     const [photoPreview, setPhotoPreview] = useState('')
     const [imageUrl, setImageUrl] = useState<File | null>(null)
+        const [selectedGender, setSelectedGender] = useState<string | null>(
+            null
+        )
 
-    // const handlePhotoPreview = async () => {
-    //     const getUrl = await getPhotoUrl(`#photoUpload`)
-    //     //setPhotoPreview(getUrl)
-    // }
+
+   
 
     const handlePicture = (e: React.ChangeEvent) => {
         const target = e.target as HTMLInputElement
@@ -203,6 +203,13 @@ const AddAdmin = () => {
                             </select>
                             <GrDown />
                         </div>
+
+                        <Select
+                            label='Gender'
+                            state={['Male', 'Female']}
+                            selectedState={selectedGender}
+                            setSelectedState={setSelectedGender}
+                        />
                         <div className='addAdmin__form--phoneNumber'>
                             <label htmlFor='phoneNumber'>Phone Number *</label>
 
