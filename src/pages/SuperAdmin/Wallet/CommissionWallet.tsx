@@ -6,8 +6,8 @@ import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { useNavigate } from 'react-router'
 import { ToastContainer, toast } from 'react-toastify'
 import { IoMdClose } from 'react-icons/io'
-import WalletBarChart from '../../../../components/SuperAdmin/charts/WalletBarChart'
-import { OverviewWallet } from '../../../../components/SuperAdmin/overview/OverviewWallets'
+import WalletBarChart from '../../../components/SuperAdmin/charts/WalletBarChart'
+import { OverviewWallet } from '../../../components/SuperAdmin/overview/OverviewWallets'
 
 type Trend = 'This Week' | 'This Month' | 'This Year'
 

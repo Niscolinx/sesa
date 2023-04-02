@@ -5,8 +5,8 @@ import { GrUp, GrDown } from 'react-icons/gr'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { useNavigate } from 'react-router'
 import { ToastContainer, toast } from 'react-toastify'
-import WalletBarChart from '../../../../components/SuperAdmin/charts/WalletBarChart'
-import { OverviewWallet } from '../../../../components/SuperAdmin/overview/OverviewWallets'
+import WalletBarChart from '../../../components/SuperAdmin/charts/WalletBarChart'
+import { OverviewWallet } from '../../../components/SuperAdmin/overview/OverviewWallets'
 
 export type Trend = 'This Week' | 'This Month' | 'This Year'
 
