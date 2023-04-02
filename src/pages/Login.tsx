@@ -107,7 +107,7 @@ const Login = () => {
                     </h1>
                     <p>Kindly enter your details</p>
                 </div>
-                <div className='grid gap-8'>
+                <div className='grid gap-8' >
                     {responseMessage?.displayMessage && (
                         <p className='text-center'>
                             <span className={responseMessage?.className}>
