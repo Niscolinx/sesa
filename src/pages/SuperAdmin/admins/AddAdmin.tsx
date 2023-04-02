@@ -201,26 +201,21 @@ const AddAdmin = () => {
                             selectedState={selectedGender}
                             setSelectedState={setSelectedGender}
                         />
-                        <div className='addAdmin__form--phoneNumber'>
-                            <label htmlFor='phoneNumber'>Phone Number *</label>
-
-                            <div className='phoneNumber__box'>
-                                <select>
-                                    <option value='234'>+234</option>
-                                </select>
-                                <input
-                                    required
-                                    {...register('phoneNumber', {
-                                        required: true,
-                                        //minLength: 8,
-                                        // maxLength: 10,
-                                    })}
-                                    type='number'
-                                    inputMode='numeric'
-                                    id='phoneNumber'
-                                />
-                            </div>
-                        </div>
+                        <div className='w-full grid gap-4'>
+                        <label
+                            htmlFor='phoneNumber'
+                            className='text-[1.4rem] font-semibold'
+                        >
+                            Phone Number
+                        </label>
+                        <input
+                            type='text'
+                            required
+                            id='phoneNumber'
+                            className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] '
+                        />
+                    </div>
+                       
 
                         <Input
                             type={'email'}
