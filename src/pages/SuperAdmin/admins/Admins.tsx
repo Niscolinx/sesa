@@ -11,7 +11,7 @@ function Admins() {
         setAdminsLoaded(true)
         // dispatch(setAdminPath('renderedAdmins'))
 
-        navigate('/superAdmin/addAdmin')
+        navigate('/superAdmin/admins/add')
     }
 
     return (

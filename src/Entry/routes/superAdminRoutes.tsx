@@ -45,7 +45,7 @@ const superAdminRoutes = (
     <Route path='/superAdmin' element={<SuperAdminDashboard />}>
         <Route index element={<Overview />} />
         <Route path='admins' element={<Admins />} />
-        <Route path='addAdmin' element={<AddAdmin />} />
+        <Route path='admins/add' element={<AddAdmin />} />
         <Route path='estates' element={<Estates />} />
         <Route path='estates/detail/:Id' element={<EstateDetail />} />
         <Route path='estates/detail/report/:Id' element={<EstateReport />} />
