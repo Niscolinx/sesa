@@ -1,12 +1,8 @@
 import { useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
-
-import { useAppDispatch, useAppSelector } from '../../../store/app/hooks'
 import ResidentUsers from './ResidentUsers'
 
 function AdditionalResident() {
-    const dispatch = useAppDispatch()
-
     type SwitchRoute = 'showAll' | 'add'
 
     const [additionalResident, setAdditionalResident] = useState(false)
