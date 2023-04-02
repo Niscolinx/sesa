@@ -113,6 +113,17 @@ const AddAdmin = () => {
         {
             label: 'first_name'
         },
+        {
+            label: 'last_name'
+        },
+        {
+            label: 'dob',
+            type: 'date',
+            name: 'date of birth'
+        },
+        {
+            label: 'first_name'
+        },
     ]
 
     return (
