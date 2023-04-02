@@ -3,7 +3,6 @@ import { Route } from 'use-react-router-breadcrumbs'
 
 import EstateDetail from '../../pages/SuperAdmin/estates/EstateDetail'
 import EstateManagers from '../../pages/SuperAdmin/estateManagers/EstateManagers'
-import Estates from '../../pages/SuperAdmin/Estate/Estates'
 import RolesAndPerm from '../../pages/SuperAdmin/rolesAndPerm/RolesAndPerm'
 import AdditionalResident from '../../pages/SuperAdmin/additionalResident/AdditionalResident'
 import AdditionalResidentDetails from '../../pages/SuperAdmin/additionalResident/AdditionalResidentDetails'
@@ -35,9 +34,10 @@ import AddSecurityCompany from '../../pages/SuperAdmin/securityCompany/AddSecuri
 import SuperAdminDashboard from '../../pages/SuperAdmin/Dashboard'
 import Admins from '../../pages/SuperAdmin/admins/Admins'
 import Overview from '../../pages/SuperAdmin/Overview'
-import EstateReport from '../../pages/SuperAdmin/Estate/EstateReport'
 import ViewArtisanCategory from '../../pages/SuperAdmin/artisans/category/ViewArtisanCategory'
 import AddProperty from '../../pages/SuperAdmin/platformSettings/settings/AddProperty'
+import Estates from '../../pages/SuperAdmin/estates/Estates'
+import EstateReport from '../../pages/SuperAdmin/estates/EstateReport'
 
 const superAdminRoutes = (
     <Route path='/superAdmin' element={<SuperAdminDashboard />}>
