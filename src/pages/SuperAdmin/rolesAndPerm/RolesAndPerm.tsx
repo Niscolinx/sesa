@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
-import RenderedRolesAndPerm from '../../../components/SuperAdmin/rolesAndPerm/RenderedRolesAndPerm'
+import RenderedRolesAndPerm from './RenderedRolesAndPerm'
 
 
 function RolesAndPerm() {

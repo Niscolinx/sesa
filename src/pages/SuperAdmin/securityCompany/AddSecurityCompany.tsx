@@ -3,10 +3,9 @@ import { GrDown, GrUp } from 'react-icons/gr'
 import { IoMdAdd } from 'react-icons/io'
 import { getPhotoUrl } from '../../../utils/getPhotoUrl'
 
-type State = 'Lagos' | 'Imo' | 'Abia' | 'FCT'
 
 const AddSecurityCompany = () => {
-    const state: Array<State> = ['Lagos', 'Imo', 'Abia', 'FCT']
+    const state = ['Lagos', 'Imo', 'Abia', 'FCT']
 
     const [toggleStateMenu, setToggleStateMenu] = useState(false)
     const [selectedState, setSelectedState] = useState<State | null>(null)
