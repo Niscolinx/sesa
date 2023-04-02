@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
-import AddEstateManager from '../../../components/SuperAdmin/estateManagers/AddEstateManager'
-import RenderedEstateManagers from '../../../components/SuperAdmin/estateManagers/RenderedEstateManagers'
+
 
 import { useAppDispatch, useAppSelector } from '../../../store/app/hooks'
 import {
@@ -9,6 +8,8 @@ import {
     RenderEstateManagerPath,
     setEstateManagerPath,
 } from '../../../store/features/routeChange'
+import AddEstateManager from './AddEstateManager'
+import RenderedEstateManagers from './RenderedEstateManagers'
 
 function EstateManagers() {
     const dispatch = useAppDispatch()
