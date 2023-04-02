@@ -21,12 +21,6 @@ function AdditionalResident() {
 
    
 
-
-    const switchRoute = new Map([['showAll', <ResidentUsers/>], ['add', <AddResidentPackage/>]]) satisfies Map<
-        SwitchRoute,
-        JSX.Element
-    >
-
     const handleAddEstate = () => {
         setAdditionalResident(true)
         dispatch(setAdditionalResidentPath('renderedAdditionalResident'))
@@ -36,7 +30,7 @@ function AdditionalResident() {
         <div>
             <div className='rounded-lg mt-[3rem] h-[80vh]'>
                 {additionalResident ? (
-                    <section>{switchRoute(additionalResidentPath)}</section>
+                    <section><ResidentUsers/></section>
                 ) : (
                     <section className='grid place-content-center w-full h-full justify-items-center gap-4 bg-white'>
                         <img src='/icons/admins/errorSvg.svg' alt='' />
