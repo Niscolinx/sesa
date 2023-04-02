@@ -4,11 +4,6 @@ import { BsQuestionCircle } from 'react-icons/bs'
 import { toast, ToastContainer } from 'react-toastify'
 
 import {
-    AddBankAccount,
-    AddedSiteWorkerSuccessfully,
-    OpenedBankAccountSuccessful,
-} from './DialogSteps'
-import {
     MultipleSelect,
     Select,
 } from '../../../components/SuperAdmin/UI/Select'
@@ -21,6 +16,7 @@ import {
     PhoneNumber,
     Voters_Card,
 } from '../../SecurityCompany/dashboard/company/AddSecurity/Inputs'
+import { AddBankAccount, AddedSiteWorkerSuccessfully, OpenedBankAccountSuccessful } from './DialogSteps'
 
 type DialogType = 'validate' | 'add-siteWorker' | 'reassign'
 

@@ -1,8 +1,7 @@
 import { useContext } from 'react'
 import { TbCopy } from 'react-icons/tb'
 import { Select } from '../../../components/SuperAdmin/UI/Select'
-import { AddedSecurityGuardContext } from './AddSecurityGuard'
-import { EditSecurityGuardContext } from './EditSecurityGuard'
+
 
 export const AddedSecurityGuardSuccessfully = ({
     contextData,
