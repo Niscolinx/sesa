@@ -222,15 +222,21 @@ const AddAdmin = () => {
                             formErrors={formErrors}
                         />
 
-                        <div className='addAdmin__form--file'>
-                            <label htmlFor='photoUpload'>
+                        <div className='col-span-full rounded-lg border border-width-[.2rem] border-dashed border-color-grey-1 p-8 text-[1.6rem] relative w-full'>
+                            <label
+                                htmlFor='photoUpload'
+                                className='flex justify-center gap-4 items-center cursor-pointer'
+                            >
                                 <img
                                     src='/icons/admins/photo_library.svg'
                                     alt=''
                                 />
                                 <p>
                                     Drag picture here or{' '}
-                                    <span>click</span> to upload
+                                    <span className='text-color-blue font-bold'>
+                                        click
+                                    </span>{' '}
+                                    to upload
                                 </p>
                             </label>
                             <input
