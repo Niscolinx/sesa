@@ -190,12 +190,18 @@ const AddAdmin = () => {
                     }}
                 >
                     <>
-                    {
-                        formInputs.map((input, idx) => {
-                            const {label, type, name} = input
-                            return <Input />
-                        } )
-                    }
+                        {formInputs.map((input, idx) => {
+                            const { label, type, name } = input
+                            return (
+                                <Input
+                                    label={label}
+                                    register={register}
+                                    formErrors={formErrors}
+                                    type={type || 'text'}
+                                    name={name || undefined}
+                                />
+                            )
+                        })}
                         <Input
                             label={'first_name'}
                             register={register}
