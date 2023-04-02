@@ -65,7 +65,7 @@ const EditAdmin = () => {
     useEffect(() => {
         console.log({ response_data })
         if (response_data?.status === 200) {
-            handleOpen()
+            openDialog()
         } else {
             setResponseMessage({
                 className: 'text-red-600',
@@ -103,13 +103,13 @@ const EditAdmin = () => {
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
-    const handleClose = () => {
+    const closeDialog = () => {
         if (dialogRef.current) {
             dialogRef.current.close()
         }
     }
 
-    const handleOpen = () => {
+    const openDialog = () => {
         if (dialogRef.current) {
             dialogRef.current.showModal()
         }
@@ -156,15 +156,15 @@ const EditAdmin = () => {
                         <div className='flex w-full justify-center gap-8'>
                             <button
                                 className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
-                                onClick={handleClose}
+                                onClick={closeDialog}
                             >
-                                View details
+                                Cancel
                             </button>
                             <button
-                                className='bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
-                                onClick={handleClose}
+                                className='bg-red py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
+                                onClick={closeDialog}
                             >
-                                Ok
+                                Deactivate
                             </button>
                         </div>
                     </div>
