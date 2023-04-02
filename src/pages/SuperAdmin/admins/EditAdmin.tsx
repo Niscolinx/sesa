@@ -149,7 +149,14 @@ const EditAdmin = () => {
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
-                        <img src='/icons/admins/modalWarning.svg' alt='' />
+                        <img
+                            src='/icons/admins/modalWarning.svg'
+                            alt=''
+                            className='animate animated__pulse'
+                            style={{
+                                animationIterationCount: 'infinite',
+                            }}
+                        />
                         <p>Are you sure you want to deactivate this admin?</p>
 
                         <div className='flex w-full justify-center gap-8'>
