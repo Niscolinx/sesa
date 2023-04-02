@@ -237,8 +237,6 @@ function RenderedAdmins() {
         })
     }
 
-    
-
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
     const handleClose = () => {
@@ -269,7 +267,11 @@ function RenderedAdmins() {
         })
 
         if (item === 'view details') {
-            navigate(`/estateManager/artisan/view/:${id}`)
+            navigate(`/superAdmin/admins/view/:${id}`)
+        }
+
+        if (item === 'edit details') {
+            navigate(`/superAdmin/admins/edit/:${id}`)
         }
 
         // if (item === 'Deactivate') {

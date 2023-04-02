@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router'
 import RenderedAdmins from './RenderedAdmins'
 
 function Admins() {
-    const [adminsLoaded, setAdminsLoaded] = useState(false)
+    const [adminsLoaded, setAdminsLoaded] = useState(true)
     const navigate = useNavigate()
 
     const handleAddAdmin = () => {
