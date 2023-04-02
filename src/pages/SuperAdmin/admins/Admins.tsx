@@ -3,33 +3,23 @@ import { IoMdAdd } from 'react-icons/io'
 import AddAdmin from './AddAdmin'
 import RenderedAdmins from './RenderedAdmins'
 
-import { useAppDispatch, useAppSelector } from '../../../store/app/hooks'
-import {
-    routeChangeSelector,
-    setAdminPath,
-} from '../../../store/features/routeChange'
 
 function Admins() {
-    const dispatch = useAppDispatch()
-    const { adminPath } = useAppSelector(routeChangeSelector)
 
     const [adminsLoaded, setAdminsLoaded] = useState(false)
 
-    const switchRoute = {
-        renderedAdmins: <RenderedAdmins />,
-        addAdmin: <AddAdmin />,
-    }
+   
 
     const handleAddAdmin = () => {
         setAdminsLoaded(true)
-        dispatch(setAdminPath('renderedAdmins'))
+       // dispatch(setAdminPath('renderedAdmins'))
     }
 
     return (
         <div className='admins'>
             <div className='admins__container'>
                 {adminsLoaded ? (
-                    <section>{switchRoute[adminPath]}</section>
+                    <section><RenderedAdmins/></section>
                 ) : (
                     <section className='admins__wrapper'>
                         <img src='/icons/admins/errorSvg.svg' alt='' />
