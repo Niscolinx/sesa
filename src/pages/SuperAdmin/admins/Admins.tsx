@@ -1,16 +1,17 @@
 import { useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
-import { useLocation } from 'react-router'
+import { useNavigate } from 'react-router'
 import RenderedAdmins from './RenderedAdmins'
 
 function Admins() {
     const [adminsLoaded, setAdminsLoaded] = useState(false)
-    const navigate = useLocation()
+    const navigate = useNavigate()
 
     const handleAddAdmin = () => {
         setAdminsLoaded(true)
         // dispatch(setAdminPath('renderedAdmins'))
 
+        navigate('/superAdmin/')
     }
 
     return (
