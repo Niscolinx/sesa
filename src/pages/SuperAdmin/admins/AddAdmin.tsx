@@ -9,7 +9,7 @@ import { Select } from '../../../components/SuperAdmin/UI/Select'
 
 const AddAdmin = () => {
     interface Inputs {
-        email: string
+        email_address: string
         first_name: string
         last_name: string
         dob: string
@@ -80,13 +80,13 @@ const AddAdmin = () => {
     }, [response_data])
 
     const onSubmit = handleSubmit((data) => {
-        const { first_name, last_name, gender, dob, email, phoneNumber } = data
+        const { first_name, last_name, gender, dob, email_address, phoneNumber } = data
 
         const adminData = {
             name: `${first_name} ${last_name}`,
             gender,
             dob,
-            email,
+            email: email_address,
             address: 'no 4 odeyim street',
             phone: `+234${phoneNumber}`,
             image: imageUrl?.name,
@@ -122,7 +122,8 @@ const AddAdmin = () => {
             name: 'date of birth'
         },
         {
-            label: 'first_name'
+            label: 'phone_number',
+            type: 'number'
         },
     ]
 
@@ -206,8 +207,7 @@ const AddAdmin = () => {
 
                         <Input
                             type={'email'}
-                            label={'email'}
-                            name={'email address'}
+                            label={'email_address'}
                             register={register}
                             formErrors={formErrors}
                         />
