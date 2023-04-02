@@ -139,7 +139,7 @@ const AddAdmin = () => {
             label: 'email_address',
             type: 'email',
         },
-    ] 
+    ] as const
 
     return (
         <>
