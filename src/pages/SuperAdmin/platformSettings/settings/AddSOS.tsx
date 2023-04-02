@@ -1,6 +1,6 @@
 import React, { FormEvent, useRef, useState } from 'react'
 import { IoMdClose } from 'react-icons/io'
-import { MultipleSelect } from '../../../components/SuperAdmin/UI/Select'
+import { MultipleSelect } from '../../../../components/SuperAdmin/UI/Select'
 
 const AddSOS = () => {
     const [selectedEstates, setSelectedEstates] = useState<string[]>([])
