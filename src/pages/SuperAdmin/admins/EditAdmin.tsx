@@ -38,7 +38,11 @@ const EditAdmin = () => {
         useState<ResponseMessage | null>(null)
 
     useEffect(() => {
-        console.log({ params })
+        if(params){
+
+            const id = params.Id?.split(':')
+            console.log({id})
+        }
     }, [])
 
     const handlePicture = (e: React.ChangeEvent) => {
