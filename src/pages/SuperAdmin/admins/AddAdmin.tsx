@@ -193,17 +193,7 @@ const AddAdmin = () => {
                             formErrors={formErrors}
                         />
 
-                        <label htmlFor='gender'>Gender *</label>
-                        <div className='item__select border border-color-grey rounded-lg w-full'>
-                            <select
-                                id='gender'
-                                {...register('gender', { required: true })}
-                            >
-                                <option value='male'>Male</option>
-                                <option value='female'>Female</option>
-                            </select>
-                            <GrDown />
-                        </div>
+                        
 
                         <Select
                             label='Gender'
