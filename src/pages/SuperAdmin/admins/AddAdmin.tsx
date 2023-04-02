@@ -1,9 +1,7 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { GrDown } from 'react-icons/gr'
 import { IoMdAdd } from 'react-icons/io'
 import { useMutation } from 'react-query'
-import { ModalContext } from '../../../Context/ModalContext'
 import { AxiosRequest } from '../../../utils/axios'
 import { isAuthenticated } from '../../../utils/token'
 import Input from '../../../components/UI/Input'
@@ -20,16 +18,9 @@ const AddAdmin = () => {
         photoUrl?: string
     }
 
-
-
     const [photoPreview, setPhotoPreview] = useState('')
     const [imageUrl, setImageUrl] = useState<File | null>(null)
-        const [selectedGender, setSelectedGender] = useState<string | null>(
-            null
-        )
-
-
-   
+    const [selectedGender, setSelectedGender] = useState<string | null>(null)
 
     const handlePicture = (e: React.ChangeEvent) => {
         const target = e.target as HTMLInputElement
