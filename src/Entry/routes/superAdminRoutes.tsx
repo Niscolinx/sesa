@@ -1,6 +1,9 @@
 //import { Route } from 'react-router-dom'
 import { Route } from 'use-react-router-breadcrumbs'
 
+import Admins from '../../pages/SuperAdmin/admins/Admins'
+import AddAdmin from '../../pages/SuperAdmin/admins/AddAdmin'
+
 import EstateDetail from '../../pages/SuperAdmin/estates/EstateDetail'
 import EstateManagers from '../../pages/SuperAdmin/estateManagers/EstateManagers'
 import RolesAndPerm from '../../pages/SuperAdmin/rolesAndPerm/RolesAndPerm'
@@ -32,7 +35,6 @@ import AddSOS from '../../pages/SuperAdmin/platformSettings/settings/AddSOS'
 import SOSDetails from '../../pages/SuperAdmin/platformSettings/settings/SOSDetails'
 import AddSecurityCompany from '../../pages/SuperAdmin/securityCompany/AddSecurityCompany'
 import SuperAdminDashboard from '../../pages/SuperAdmin/Dashboard'
-import Admins from '../../pages/SuperAdmin/admins/Admins'
 import Overview from '../../pages/SuperAdmin/Overview'
 import ViewArtisanCategory from '../../pages/SuperAdmin/artisans/category/ViewArtisanCategory'
 import AddProperty from '../../pages/SuperAdmin/platformSettings/settings/AddProperty'
@@ -43,6 +45,7 @@ const superAdminRoutes = (
     <Route path='/superAdmin' element={<SuperAdminDashboard />}>
         <Route index element={<Overview />} />
         <Route path='admins' element={<Admins />} />
+        <Route path='addAdmin' element={<AddAdmin />} />
         <Route path='estates' element={<Estates />} />
         <Route path='estates/detail/:Id' element={<EstateDetail />} />
         <Route path='estates/detail/report/:Id' element={<EstateReport />} />
