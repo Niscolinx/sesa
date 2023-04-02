@@ -172,7 +172,7 @@ const EditAdmin = () => {
             </dialog>
 
             <div className='bg-white rounded-2xl grid p-8'>
-                <div className='flex justify-between items-center'>
+                <div className='flex justify-between items-center mb-20'>
                     <label
                         htmlFor='photoUpload'
                         className='grid gap-4 cursor-pointer justify-items-center'
@@ -203,7 +203,7 @@ const EditAdmin = () => {
                         >
                             <img src='/icons/admins/delete.svg' alt='' />
                             <span className='text-red-600 text-[1.4rem] font-semibold'>
-                                Delete
+                                Deactivate
                             </span>
                         </button>
                     </div>
