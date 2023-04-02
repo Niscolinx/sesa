@@ -5,7 +5,7 @@ import { AxiosRequest } from '../../../utils/axios'
 import { isAuthenticated } from '../../../utils/token'
 import Input from '../../../components/UI/Input'
 import { Select } from '../../../components/SuperAdmin/UI/Select'
-import { useLocation, useParams } from 'react-router'
+import { useParams } from 'react-router'
 
 const EditAdmin = () => {
     interface Inputs {
@@ -23,7 +23,7 @@ const EditAdmin = () => {
         displayMessage: string
     }
 
-    const params = useLocation()
+    const params = useParams()
 
     const [photoPreview, setPhotoPreview] = useState('')
     const [imageUrl, setImageUrl] = useState<File | null>(null)
