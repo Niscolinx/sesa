@@ -192,8 +192,16 @@ const AddAdmin = () => {
                     <>
                         {formInputs.map((input, idx) => {
                             const { label, type, name } = input
-                            return (
+                            return idx === 3 ? (
+                                <Select
+                                    label='Gender'
+                                    state={['Male', 'Female']}
+                                    selectedState={selectedGender}
+                                    setSelectedState={setSelectedGender}
+                                />
+                            ) : (
                                 <Input
+                                    key={idx + label}
                                     label={label}
                                     register={register}
                                     formErrors={formErrors}
@@ -202,46 +210,6 @@ const AddAdmin = () => {
                                 />
                             )
                         })}
-                        <Input
-                            label={'first_name'}
-                            register={register}
-                            formErrors={formErrors}
-                        />
-
-                        <Input
-                            label={'last_name'}
-                            register={register}
-                            formErrors={formErrors}
-                        />
-
-                        <Input
-                            type={'date'}
-                            label={'dob'}
-                            name={'Date of Birth'}
-                            register={register}
-                            formErrors={formErrors}
-                        />
-
-                        <Select
-                            label='Gender'
-                            state={['Male', 'Female']}
-                            selectedState={selectedGender}
-                            setSelectedState={setSelectedGender}
-                        />
-
-                        <Input
-                            type={'number'}
-                            label={'phone_number'}
-                            register={register}
-                            formErrors={formErrors}
-                        />
-
-                        <Input
-                            type={'email'}
-                            label={'email_address'}
-                            register={register}
-                            formErrors={formErrors}
-                        />
 
                         <div className='col-span-full rounded-lg border border-width-[.2rem] border-dashed border-color-grey-1 p-8 text-[1.6rem] relative w-full'>
                             <label
