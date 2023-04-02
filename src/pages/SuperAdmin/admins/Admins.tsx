@@ -15,19 +15,6 @@ function Admins() {
 
     const [adminsLoaded, setAdminsLoaded] = useState(false)
 
-    // const switchRoute = (path: RenderAdminPath) => {
-    //     switch (path) {
-    //         case 'renderedAdmins':
-    //             return <RenderedAdmins />
-
-    //         case 'addAdmin':
-    //             return <AddAdmin />
-
-    //         default:
-    //             return <AddAdmin />
-    //     }
-    // }
-
     const switchRoute = {
         renderedAdmins: <RenderedAdmins />,
         addAdmin: <AddAdmin />,
