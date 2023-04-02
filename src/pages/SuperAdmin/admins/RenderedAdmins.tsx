@@ -237,9 +237,7 @@ function RenderedAdmins() {
         })
     }
 
-    const addArtisan = () => {
-        navigate('/superAdmin/artisan/add')
-    }
+    
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
