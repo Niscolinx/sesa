@@ -1,4 +1,4 @@
-import { Swiper, SwiperRef, SwiperSlide } from 'swiper/react'
+import { Swiper, SwiperRef } from 'swiper/react'
 import { Autoplay, Pagination } from 'swiper'
 import React, { MutableRefObject, useEffect, useRef, useState } from 'react'
 import OverviewChart from '../../components/SuperAdmin/charts/OverviewChart'
