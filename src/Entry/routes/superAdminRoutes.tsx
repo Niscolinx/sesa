@@ -1,8 +1,5 @@
 //import { Route } from 'react-router-dom'
-import  {
-    Route,
-} from 'use-react-router-breadcrumbs'
-
+import { Route } from 'use-react-router-breadcrumbs'
 
 import EstateReport from '../../pages/SuperAdmin/dashboard/Estate/EstateReport'
 import EstateDetail from '../../pages/SuperAdmin/dashboard/Estate/EstateDetail'
@@ -39,15 +36,15 @@ import AddSOS from '../../components/SuperAdmin/platformSettings/AddSOS'
 import SOSDetails from '../../components/SuperAdmin/platformSettings/SOSDetails'
 import AddSecurityCompany from '../../components/SuperAdmin/securityCompany/AddSecurityCompany'
 import SuperAdminDashboard from '../../pages/SuperAdmin/Dashboard'
-import Admins from '../../pages/SuperAdmin/dashboard/Admins'
+import Admins from '../../pages/SuperAdmin/admins/Admins'
 import Overview from '../../pages/SuperAdmin/dashboard/Overview'
 
- const superAdminRoutes = (
+const superAdminRoutes = (
     <Route path='/superAdmin' element={<SuperAdminDashboard />}>
         <Route index element={<Overview />} />
         <Route path='admins' element={<Admins />} />
         <Route path='estates' element={<Estates />} />
-        <Route path='estates/detail/:Id' element={<EstateDetail />}/>
+        <Route path='estates/detail/:Id' element={<EstateDetail />} />
         <Route path='estates/detail/report/:Id' element={<EstateReport />} />
         <Route path='security-company' element={<SecurityCompany />} />
         <Route

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
-import AddAdmin from '../admins/AddAdmin'
-import RenderedAdmins from '../admins/RenderedAdmins'
+import AddAdmin from './AddAdmin'
+import RenderedAdmins from './RenderedAdmins'
 
 import { useAppDispatch, useAppSelector } from '../../../store/app/hooks'
 import {
