@@ -26,7 +26,6 @@ const EditAdmin = () => {
         const target = e.target as HTMLInputElement
         const file: File = (target.files as FileList)[0]
 
-
         const preview = URL.createObjectURL(file)
         setPhotoPreview(preview)
         setImageUrl(file)
@@ -150,7 +149,7 @@ const EditAdmin = () => {
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
-                        <img src='/icons/admins/modalSuccess.svg' alt='' />
+                        <img src='/icons/admins/modalWarning.svg' alt='' />
                         <p>Are you sure you want to deactivate this admin?</p>
 
                         <div className='flex w-full justify-center gap-8'>
@@ -161,7 +160,7 @@ const EditAdmin = () => {
                                 Cancel
                             </button>
                             <button
-                                className='bg-red py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
+                                className='bg-red-500 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
                                 onClick={closeDialog}
                             >
                                 Deactivate
@@ -198,7 +197,7 @@ const EditAdmin = () => {
                     <div className='flex gap-8'>
                         <button
                             className='border border-red-600 px-16 py-4 flex items-center  rounded-lg gap-4'
-                            //onClick={() => handleSelectedAction('Delete')}
+                            onClick={openDialog}
                         >
                             <img src='/icons/admins/delete.svg' alt='' />
                             <span className='text-red-600 text-[1.4rem] font-semibold'>
