@@ -152,7 +152,7 @@ const EditAdmin = () => {
                         <img
                             src='/icons/admins/modalWarning.svg'
                             alt=''
-                            className='animate animated__pulse'
+                            className='animate__animated animate__pulse '
                             style={{
                                 animationIterationCount: 'infinite',
                             }}
