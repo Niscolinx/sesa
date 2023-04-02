@@ -120,6 +120,10 @@ const AddAdmin = () => {
         }
     }
 
+    const formInputs = [
+
+    ]
+
     return (
         <>
             <dialog className='dialog' ref={dialogRef}>
@@ -190,20 +194,13 @@ const AddAdmin = () => {
                             selectedState={selectedGender}
                             setSelectedState={setSelectedGender}
                         />
-                        <div className='w-full grid gap-4'>
-                            <label
-                                htmlFor='phoneNumber'
-                                className='text-[1.4rem] font-semibold'
-                            >
-                                Phone Number
-                            </label>
-                            <input
-                                type='text'
-                                required
-                                id='phoneNumber'
-                                className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] '
-                            />
-                        </div>
+
+                        <Input
+                            type={'number'}
+                            label={'phone_number'}
+                            register={register}
+                            formErrors={formErrors}
+                        />
 
                         <Input
                             type={'email'}
@@ -241,11 +238,11 @@ const AddAdmin = () => {
                             />
 
                             {photoPreview && (
-                                <div className='file__uploadImgBox'>
+                                <div className='flex justify-center justify-self-center'>
                                     <img
                                         src={photoPreview}
                                         alt='photoPreview'
-                                        className='object-contain'
+                                        className='object-cover w-[11rem] h-[11rem] rounded-full'
                                     />
                                 </div>
                             )}
