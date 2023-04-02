@@ -229,7 +229,7 @@ const AddAdmin = () => {
                                     alt=''
                                 />
                                 <p>
-                                    Drag estate manager picture here or{' '}
+                                    Drag picture here or{' '}
                                     <span>click</span> to upload
                                 </p>
                             </label>
