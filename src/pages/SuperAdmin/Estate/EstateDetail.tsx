@@ -4,7 +4,7 @@ import { GrDown } from 'react-icons/gr'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 
 import { Link } from 'react-router-dom'
-import OverviewCard from '../../../../components/SuperAdmin/overview/OverviewCard'
+import OverviewCard from '../../../components/SuperAdmin/overview/OverviewCard'
 
 interface EstateManager {
     id: string
