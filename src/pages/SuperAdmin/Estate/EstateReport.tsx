@@ -2,7 +2,7 @@ import React, { useState, useEffect, FC } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
 import { GrDown } from 'react-icons/gr'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
-import OverviewCard from '../../../../components/SuperAdmin/overview/OverviewCard'
+import OverviewCard from '../../../components/SuperAdmin/overview/OverviewCard'
 
 interface ActivityReport {
     id: string
