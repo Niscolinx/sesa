@@ -33,16 +33,9 @@ const AddAdmin = () => {
         setImageUrl(file)
     }
 
-    // const handleSubmit = (e: React.FormEvent) => {
-    //     e.preventDefault()
-
-    //     handleOpen('renderedAdmins')
-    // }
-
     const {
         register,
         handleSubmit,
-        watch,
         formState: { errors: formErrors },
     } = useForm<Inputs>()
 
@@ -53,10 +46,6 @@ const AddAdmin = () => {
 
     const [responseMessage, setResponseMessage] =
         useState<ResponseMessage | null>(null)
-
-    // watch((values) => {
-    //     console.log({ values })
-    // })
 
     const postLogin = (data: Inputs) => {
         const token = isAuthenticated() || ''
@@ -120,9 +109,7 @@ const AddAdmin = () => {
         }
     }
 
-    const formInputs = [
-
-    ]
+    const formInputs = []
 
     return (
         <>
