@@ -7,6 +7,7 @@ import { ModalContext } from '../../../Context/ModalContext'
 import { AxiosRequest } from '../../../utils/axios'
 import { isAuthenticated } from '../../../utils/token'
 import Input from '../../../components/UI/Input'
+import { Select } from '../../../components/SuperAdmin/UI/Select'
 
 const AddAdmin = () => {
     interface Inputs {
