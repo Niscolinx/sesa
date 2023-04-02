@@ -115,6 +115,11 @@ const AddAdmin = () => {
             dialogRef.current.showModal()
         }
     }
+    type FormInputs = {
+        label: string
+        type?: string
+        name?: string
+    }
 
     const formInputs = [
         {
@@ -139,7 +144,7 @@ const AddAdmin = () => {
             label: 'email_address',
             type: 'email',
         },
-    ] as const
+    ] satisfies FormInputs[]
 
     return (
         <>
@@ -186,7 +191,8 @@ const AddAdmin = () => {
                 >
                     <>
                     {
-                        formInputs.map((input, idx) => {
+                        formInputs.map((input: , idx) => {
+                            const {label, type, name} = input
                             return <Input />
                         } )
                     }
