@@ -3,7 +3,7 @@ import { IoMdAdd, IoMdClose } from 'react-icons/io'
 import { getPhotoUrl } from '../../../../utils/getPhotoUrl'
 import { BsQuestionCircle } from 'react-icons/bs'
 import { ToastContainer } from 'react-toastify'
-import { Select } from '../../UI/Select'
+import { Select } from '../../../../components/SuperAdmin/UI/Select'
 
 type DialogType = 'validate' | 'add-Artisan'
 

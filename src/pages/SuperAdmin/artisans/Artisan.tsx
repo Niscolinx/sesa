@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
 import { useNavigate } from 'react-router'
-import RenderArtisans from '../../../components/SuperAdmin/artisans/RenderArtisans'
+import RenderArtisans from './RenderArtisans'
 
 function Artisan() {
     const navigate = useNavigate()
