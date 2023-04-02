@@ -3,10 +3,11 @@ import { useForm } from 'react-hook-form'
 import { GrDown } from 'react-icons/gr'
 import { IoMdAdd } from 'react-icons/io'
 import { useMutation } from 'react-query'
-import { ModalContext } from '../../../../Context/ModalContext'
-import { AxiosRequest } from '../../../../utils/axios'
-import { isAuthenticated } from '../../../../utils/token'
-import Input from '../../../UI/Input'
+import { ModalContext } from '../../../Context/ModalContext'
+import { AxiosRequest } from '../../../utils/axios'
+import { isAuthenticated } from '../../../utils/token'
+import Input from '../../UI/Input'
+
 
 const AddAdmin = () => {
     interface Inputs {

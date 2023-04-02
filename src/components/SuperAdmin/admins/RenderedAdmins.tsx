@@ -4,10 +4,10 @@ import { CgSpinnerTwo } from 'react-icons/cg'
 import { GrDown } from 'react-icons/gr'
 import { IoMdAdd } from 'react-icons/io'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
-import { useAppDispatch } from '../../../store/app/hooks'
-import { setAdminPath } from '../../../store/features/routeChange'
 import { useNavigate } from 'react-router'
 import { toast, ToastContainer } from 'react-toastify'
+import { setAdminPath } from '../../../store/features/routeChange'
+import { useAppDispatch } from '../../../store/app/hooks'
 
 interface IAdmin {
     id: string
@@ -90,8 +90,8 @@ const ADMINDATA: IAdmin[] = [
 type Actions = 'view details' | 'edit details' | 'reset profile' | 'deactivate'
 
 function RenderedAdmins() {
-    const dispatch = useAppDispatch()
     const navigate = useNavigate()
+    const dispatch = useAppDispatch()
 
     const [fetchedUsers, setFetchedUsers] = useState<IAdmin[] | null>([])
 
