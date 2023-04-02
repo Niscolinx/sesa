@@ -186,9 +186,9 @@ const AddAdmin = () => {
                 >
                     <>
                     {
-                        formInputs.map((input, idx) => (
-                            <Input/>
-                        ))
+                        formInputs.map((input, idx) => {
+                            return <Input />
+                        } )
                     }
                         <Input
                             label={'first_name'}
