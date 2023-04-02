@@ -5,6 +5,7 @@ import { AxiosRequest } from '../../../utils/axios'
 import { isAuthenticated } from '../../../utils/token'
 import Input from '../../../components/UI/Input'
 import { Select } from '../../../components/SuperAdmin/UI/Select'
+import { useLocation, useParams } from 'react-router'
 
 const EditAdmin = () => {
     interface Inputs {
@@ -17,9 +18,28 @@ const EditAdmin = () => {
         photoUrl?: string
     }
 
+    type ResponseMessage = {
+        className: string
+        displayMessage: string
+    }
+
+    const params = useLocation()
+
     const [photoPreview, setPhotoPreview] = useState('')
     const [imageUrl, setImageUrl] = useState<File | null>(null)
     const [selectedGender, setSelectedGender] = useState<string | null>(null)
+    const {
+        register,
+        handleSubmit,
+        formState: { errors: formErrors },
+    } = useForm<Inputs>()
+
+    const [responseMessage, setResponseMessage] =
+        useState<ResponseMessage | null>(null)
+
+    useEffect(() => {
+        console.log({ params })
+    }, [])
 
     const handlePicture = (e: React.ChangeEvent) => {
         const target = e.target as HTMLInputElement
@@ -29,20 +49,6 @@ const EditAdmin = () => {
         setPhotoPreview(preview)
         setImageUrl(file)
     }
-
-    const {
-        register,
-        handleSubmit,
-        formState: { errors: formErrors },
-    } = useForm<Inputs>()
-
-    type ResponseMessage = {
-        className: string
-        displayMessage: string
-    }
-
-    const [responseMessage, setResponseMessage] =
-        useState<ResponseMessage | null>(null)
 
     const postLogin = (data: Inputs) => {
         const token = isAuthenticated() || ''
@@ -235,6 +241,7 @@ const EditAdmin = () => {
                             const { label, type, name } = input
                             return idx === 3 ? (
                                 <Select
+                                    key={idx + label}
                                     label='Gender'
                                     state={['Male', 'Female']}
                                     selectedState={selectedGender}
