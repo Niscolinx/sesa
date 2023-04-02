@@ -5,7 +5,8 @@ import { getPhotoUrl } from '../../../utils/getPhotoUrl'
 
 
 const AddSecurityCompany = () => {
-    const state = ['Lagos', 'Imo', 'Abia', 'FCT']
+    const state = ['Lagos', 'Imo', 'Abia', 'FCT'] as const 
+    type State = typeof state[number]
 
     const [toggleStateMenu, setToggleStateMenu] = useState(false)
     const [selectedState, setSelectedState] = useState<State | null>(null)
