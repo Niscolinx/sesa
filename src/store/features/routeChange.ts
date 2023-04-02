@@ -7,7 +7,6 @@ export type RenderEstateManagerPath =
     | 'renderedEstateManagers'
     | 'addEstateManager'
 export type RenderRolesAndPerm = 'renderRolesAndPerm' | 'addRolesAndPerm'
-export type RenderAdditionalResidentPath = 'renderedAdditionalResidents' | 'addResidentUserPackage'
 export type RenderSecurityCompanyPath = 'renderedSecurityCompanies' | 'addSecurityCompany'
 interface RouteChangeState {
     adminPath: RenderAdminPath

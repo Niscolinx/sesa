@@ -13,20 +13,19 @@ function AdditionalResident() {
     const dispatch = useAppDispatch()
     const { additionalResidentPath } = useAppSelector(routeChangeSelector)
 
+    type SwitchRoute =
+        | 'showAll'
+        | 'add'
+
     const [additionalResident, setAdditionalResident] = useState(false)
 
-    const switchRoute = (path: RenderAdditionalResidentPath) => {
-        switch (path) {
-            case 'renderedAdditionalResidents':
-                return <ResidentUsers />
+   
 
-            case 'addResidentUserPackage':
-                return <AddResidentPackage />
 
-            default:
-                return <ResidentUsers />
-        }
-    }
+    const switchRoute = new Map([['showAll', <ResidentUsers/>], ['add', <AddResidentPackage/>]]) satisfies Map<
+        SwitchRoute,
+        JSX.Element
+    >
 
     const handleAddEstate = () => {
         setAdditionalResident(true)
