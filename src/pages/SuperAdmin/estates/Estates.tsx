@@ -12,29 +12,28 @@ function Estates() {
 
     const [estatesLoaded, setEstatesLoaded] = useState(false)
 
-    const switchRoute = (estatePath: RenderEstatePath) => {
-        switch (estatePath) {
-            case 'renderedEstates':
-                return <RenderedEstates />
+    // const switchRoute = (estatePath: RenderEstatePath) => {
+    //     switch (estatePath) {
+    //         case 'renderedEstates':
+    //             return <RenderedEstates />
 
-            case 'addEstate':
-                return <AddEstate />
+    //         case 'addEstate':
+    //             return <AddEstate />
 
-            default:
-                return <AddEstate />
-        }
-    }
+    //         default:
+    //             return <AddEstate />
+    //     }
+    // }
 
     const handleAddEstate = () => {
         setEstatesLoaded(true)
-        dispatch(setEstatePath('renderedEstates'))
     }
 
     return (
         <div className='estates'>
             <div className='estates__container'>
                 {estatesLoaded ? (
-                    <section>{switchRoute(estatePath)}</section>
+                    <section><RenderedEstates/></section>
                 ) : (
                     <section className='estates__wrapper bg-white'>
                         <img src='/icons/admins/errorSvg.svg' alt='' />
