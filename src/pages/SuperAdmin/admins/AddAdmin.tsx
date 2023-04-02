@@ -80,7 +80,14 @@ const AddAdmin = () => {
     }, [response_data])
 
     const onSubmit = handleSubmit((data) => {
-        const { first_name, last_name, gender, dob, email_address, phoneNumber } = data
+        const {
+            first_name,
+            last_name,
+            gender,
+            dob,
+            email_address,
+            phoneNumber,
+        } = data
 
         const adminData = {
             name: `${first_name} ${last_name}`,
@@ -111,21 +118,28 @@ const AddAdmin = () => {
 
     const formInputs = [
         {
-            label: 'first_name'
+            label: 'first_name',
         },
         {
-            label: 'last_name'
+            label: 'last_name',
         },
         {
             label: 'dob',
             type: 'date',
-            name: 'date of birth'
+            name: 'date of birth',
+        },
+        {
+            type: 'select'
         },
         {
             label: 'phone_number',
-            type: 'number'
+            type: 'number',
         },
-    ]
+        {
+            label: 'email_address',
+            type: 'email',
+        },
+    ] 
 
     return (
         <>
