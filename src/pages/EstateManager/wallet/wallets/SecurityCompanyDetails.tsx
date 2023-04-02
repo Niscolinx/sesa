@@ -1,8 +1,8 @@
 import React, { useContext } from 'react'
-import { ModalContext } from '../../../Context/ModalContext'
 
+import { ModalContext } from '../../../../Context/ModalContext'
 
-const CommissionWalletDetails = () => {
+const SecurityCompanyWalletDetails = () => {
     const ModalContextData = useContext(ModalContext)
     const { handleOpen } = ModalContextData
 
@@ -16,7 +16,7 @@ const CommissionWalletDetails = () => {
             >
                 <div className='w-full grid gap-4'>
                     <label
-                        htmlFor='commissionName'
+                        htmlFor='securityCompanyName'
                         className='text-[1.4rem] font-semibold'
                     >
                         Transaction Type
@@ -25,7 +25,7 @@ const CommissionWalletDetails = () => {
                         disabled
                         type='text'
                         required
-                        id='commissionName'
+                        id='securityCompanyName'
                         className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] disabled:text-gray-500 disabled:cursor-not-allowed'
                         value={'02-May-2022'}
                     />
@@ -184,4 +184,4 @@ const CommissionWalletDetails = () => {
     )
 }
 
-export default CommissionWalletDetails
+export default SecurityCompanyWalletDetails

@@ -1,5 +1,5 @@
 
-import RenderAdverts from '../../../components/SuperAdmin/advert/RenderAdverts'
+import RenderAdverts from './RenderAdverts'
 
 function Advert() {
 

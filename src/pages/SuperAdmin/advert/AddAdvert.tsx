@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react'
 import { IoMdClose } from 'react-icons/io'
+import { MultipleSelect } from '../../../components/SuperAdmin/UI/Select'
 import { getPhotoUrl } from '../../../utils/getPhotoUrl'
-import { MultipleSelect } from '../UI/Select'
 
 const AddAdvert = () => {
     const [selectedEstates, setSelectedEstates] = useState<string[]>([])
