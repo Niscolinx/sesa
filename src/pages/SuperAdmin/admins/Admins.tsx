@@ -1,25 +1,22 @@
 import { useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
-import AddAdmin from './AddAdmin'
 import RenderedAdmins from './RenderedAdmins'
 
-
 function Admins() {
-
     const [adminsLoaded, setAdminsLoaded] = useState(false)
-
-   
 
     const handleAddAdmin = () => {
         setAdminsLoaded(true)
-       // dispatch(setAdminPath('renderedAdmins'))
+        // dispatch(setAdminPath('renderedAdmins'))
     }
 
     return (
         <div className='admins'>
             <div className='admins__container'>
                 {adminsLoaded ? (
-                    <section><RenderedAdmins/></section>
+                    <section>
+                        <RenderedAdmins />
+                    </section>
                 ) : (
                     <section className='admins__wrapper'>
                         <img src='/icons/admins/errorSvg.svg' alt='' />
