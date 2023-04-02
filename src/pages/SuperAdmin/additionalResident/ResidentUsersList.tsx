@@ -4,7 +4,6 @@ import { GrDown } from 'react-icons/gr'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { IoMdAdd } from 'react-icons/io'
 import { useAppDispatch } from '../../../store/app/hooks'
-import { setAdditionalResidentPath } from '../../../store/features/routeChange'
 
 export interface IResidentUsersList {
     id: string
@@ -92,7 +91,7 @@ const ResidentUsersList: FC<{
     }
 
     const handleAddPackage = () => {
-        dispatch(setAdditionalResidentPath('addResidentUserPackage'))
+        //dispatch(setAdditionalResidentPath('addResidentUserPackage'))
     }
 
     return (
