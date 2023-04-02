@@ -1,7 +1,7 @@
 //import { Route } from 'react-router-dom'
 import { Route } from 'use-react-router-breadcrumbs'
 
-import EstateDetail from '../../pages/SuperAdmin/Estate/EstateDetail'
+import EstateDetail from '../../pages/SuperAdmin/estates/EstateDetail'
 import EstateManagers from '../../pages/SuperAdmin/estateManagers/EstateManagers'
 import Estates from '../../pages/SuperAdmin/Estate/Estates'
 import RolesAndPerm from '../../pages/SuperAdmin/rolesAndPerm/RolesAndPerm'

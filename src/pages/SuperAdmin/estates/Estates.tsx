@@ -1,17 +1,14 @@
 import { useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
-import AddEstate from '../../../../components/SuperAdmin/estates/AddEstate'
-import RenderedEstates from '../../../../components/SuperAdmin/estates/RenderedEstates'
-import { useAppDispatch, useAppSelector } from '../../../../store/app/hooks'
-import {
-    RenderEstatePath,
-    routeChangeSelector,
-    setEstatePath,
-} from '../../../../store/features/routeChange'
+import AddEstate from './AddEstate'
+import RenderedEstates from './RenderedEstates'
+// import {
+//     RenderEstatePath,
+//     routeChangeSelector,
+//     setEstatePath,
+// } from '../../../../store/features/routeChange'
 
 function Estates() {
-    const dispatch = useAppDispatch()
-    const { estatePath } = useAppSelector(routeChangeSelector)
 
     const [estatesLoaded, setEstatesLoaded] = useState(false)
 
