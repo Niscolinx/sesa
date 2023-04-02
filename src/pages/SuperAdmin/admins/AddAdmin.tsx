@@ -129,7 +129,7 @@ const AddAdmin = () => {
             name: 'date of birth',
         },
         {
-            type: 'select'
+            type: 'select',
         },
         {
             label: 'phone_number',
@@ -185,6 +185,11 @@ const AddAdmin = () => {
                     }}
                 >
                     <>
+                    {
+                        formInputs.map((input, idx) => (
+                            <Input/>
+                        ))
+                    }
                         <Input
                             label={'first_name'}
                             register={register}
