@@ -40,12 +40,14 @@ import ViewArtisanCategory from '../../pages/SuperAdmin/artisans/category/ViewAr
 import AddProperty from '../../pages/SuperAdmin/platformSettings/settings/AddProperty'
 import Estates from '../../pages/SuperAdmin/estates/Estates'
 import EstateReport from '../../pages/SuperAdmin/estates/EstateReport'
+import EditAdmin from '../../pages/SuperAdmin/admins/EditAdmin'
 
 const superAdminRoutes = (
     <Route path='/superAdmin' element={<SuperAdminDashboard />}>
         <Route index element={<Overview />} />
         <Route path='admins' element={<Admins />} />
         <Route path='admins/add' element={<AddAdmin />} />
+        <Route path='admins/edit' element={<EditAdmin />} />
         <Route path='estates' element={<Estates />} />
         <Route path='estates/detail/:Id' element={<EstateDetail />} />
         <Route path='estates/detail/report/:Id' element={<EstateReport />} />

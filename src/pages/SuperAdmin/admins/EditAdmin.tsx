@@ -7,7 +7,7 @@ import { isAuthenticated } from '../../../utils/token'
 import Input from '../../../components/UI/Input'
 import { Select } from '../../../components/SuperAdmin/UI/Select'
 
-const AddAdmin = () => {
+const EditAdmin = () => {
     interface Inputs {
         email_address: string
         first_name: string
@@ -173,7 +173,9 @@ const AddAdmin = () => {
             </dialog>
 
             <div className='bg-white rounded-2xl grid p-8'>
-                <p className='text-[2rem] font-Satoshi-Medium'>Personal Information</p>
+                <p className='text-[2rem] font-Satoshi-Medium'>
+                    Personal Information
+                </p>
                 {responseMessage?.displayMessage && (
                     <p className='text-center'>
                         <span className={responseMessage?.className}>
@@ -264,4 +266,4 @@ const AddAdmin = () => {
     )
 }
 
-export default AddAdmin
+export default EditAdmin
