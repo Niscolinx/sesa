@@ -163,43 +163,45 @@ const AddAdmin = () => {
                         </span>
                     </p>
                 )}
-                <form onSubmit={onSubmit} className='addAdmin__formBox'>
-                    <section className='addAdmin__form'>
-                        <div className='addAdmin__form--item'>
-                            <Input
-                                label={'first_name'}
-                                register={register}
-                                formErrors={formErrors}
-                            />
-                        </div>
-                        <div className='addAdmin__form--item'>
-                            <Input
-                                label={'last_name'}
-                                register={register}
-                                formErrors={formErrors}
-                            />
-                        </div>
-                        <div className='addAdmin__form--item'>
-                            <Input
-                                type={'date'}
-                                label={'dob'}
-                                name={'Date of Birth'}
-                                register={register}
-                                formErrors={formErrors}
-                            />
-                        </div>
-                        <div className='addAdmin__form--item'>
-                            <label htmlFor='gender'>Gender *</label>
-                            <div className='item__select border border-color-grey rounded-lg w-full'>
-                                <select
-                                    id='gender'
-                                    {...register('gender', { required: true })}
-                                >
-                                    <option value='male'>Male</option>
-                                    <option value='female'>Female</option>
-                                </select>
-                                <GrDown />
-                            </div>
+                <form
+                    onSubmit={onSubmit}
+                    className='grid max-w-[84rem] gap-16 mt-12 '
+                    style={{
+                        gridTemplateColumns:
+                            ' repeat(auto-fit, minmax(35rem, 1fr))',
+                    }}
+                >
+                    <>
+                        <Input
+                            label={'first_name'}
+                            register={register}
+                            formErrors={formErrors}
+                        />
+
+                        <Input
+                            label={'last_name'}
+                            register={register}
+                            formErrors={formErrors}
+                        />
+
+                        <Input
+                            type={'date'}
+                            label={'dob'}
+                            name={'Date of Birth'}
+                            register={register}
+                            formErrors={formErrors}
+                        />
+
+                        <label htmlFor='gender'>Gender *</label>
+                        <div className='item__select border border-color-grey rounded-lg w-full'>
+                            <select
+                                id='gender'
+                                {...register('gender', { required: true })}
+                            >
+                                <option value='male'>Male</option>
+                                <option value='female'>Female</option>
+                            </select>
+                            <GrDown />
                         </div>
                         <div className='addAdmin__form--phoneNumber'>
                             <label htmlFor='phoneNumber'>Phone Number *</label>
@@ -221,15 +223,15 @@ const AddAdmin = () => {
                                 />
                             </div>
                         </div>
-                        <div className='addAdmin__form--item'>
-                            <Input
-                                type={'email'}
-                                label={'email'}
-                                name={'email address'}
-                                register={register}
-                                formErrors={formErrors}
-                            />
-                        </div>
+
+                        <Input
+                            type={'email'}
+                            label={'email'}
+                            name={'email address'}
+                            register={register}
+                            formErrors={formErrors}
+                        />
+
                         <div className='addAdmin__form--file'>
                             <label htmlFor='photoUpload'>
                                 <img
@@ -270,7 +272,7 @@ const AddAdmin = () => {
                             </span>{' '}
                             {isLoading ? 'Loading...' : 'Add'}
                         </button>
-                    </section>
+                    </>
                 </form>
             </div>
         </>
