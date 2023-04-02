@@ -1,36 +1,27 @@
 import { useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
-import AddResidentPackage from '../../../components/SuperAdmin/additionalResident/AddResidentUserPackage'
-import ResidentUsers from '../../../components/SuperAdmin/additionalResident/ResidentUsers'
+
 import { useAppDispatch, useAppSelector } from '../../../store/app/hooks'
-import {
-    RenderAdditionalResidentPath,
-    routeChangeSelector,
-    setAdditionalResidentPath,
-} from '../../../store/features/routeChange'
+import ResidentUsers from './ResidentUsers'
 
 function AdditionalResident() {
     const dispatch = useAppDispatch()
-    const { additionalResidentPath } = useAppSelector(routeChangeSelector)
 
-    type SwitchRoute =
-        | 'showAll'
-        | 'add'
+    type SwitchRoute = 'showAll' | 'add'
 
     const [additionalResident, setAdditionalResident] = useState(false)
 
-   
-
     const handleAddEstate = () => {
         setAdditionalResident(true)
-        dispatch(setAdditionalResidentPath('renderedAdditionalResident'))
     }
 
     return (
         <div>
             <div className='rounded-lg mt-[3rem] h-[80vh]'>
                 {additionalResident ? (
-                    <section><ResidentUsers/></section>
+                    <section>
+                        <ResidentUsers />
+                    </section>
                 ) : (
                     <section className='grid place-content-center w-full h-full justify-items-center gap-4 bg-white'>
                         <img src='/icons/admins/errorSvg.svg' alt='' />
