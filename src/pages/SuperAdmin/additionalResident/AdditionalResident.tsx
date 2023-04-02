@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
+import { useLocation } from 'react-router'
 import ResidentUsers from './ResidentUsers'
 
 function AdditionalResident() {
-    type SwitchRoute = 'showAll' | 'add'
-
+    const navigate = useLocation()
     const [additionalResident, setAdditionalResident] = useState(false)
 
     const handleAddEstate = () => {
