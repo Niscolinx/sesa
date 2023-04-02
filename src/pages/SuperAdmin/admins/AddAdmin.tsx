@@ -134,7 +134,7 @@ const AddAdmin = () => {
             name: 'date of birth',
         },
         {
-            type: 'select',
+            label: 'select',
         },
         {
             label: 'phone_number',
@@ -191,7 +191,7 @@ const AddAdmin = () => {
                 >
                     <>
                     {
-                        formInputs.map((input: , idx) => {
+                        formInputs.map((input, idx) => {
                             const {label, type, name} = input
                             return <Input />
                         } )
