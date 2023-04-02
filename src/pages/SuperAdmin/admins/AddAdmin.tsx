@@ -155,8 +155,8 @@ const AddAdmin = () => {
                 </section>
             </dialog>
 
-            <div className='addAdmin'>
-                <p className='addAdmin__heading'>Personal Information</p>
+            <div className='bg-white rounded-2xl grid p-8'>
+                <p>Personal Information</p>
                 {responseMessage?.displayMessage && (
                     <p className='text-center'>
                         <span className={responseMessage?.className}>
@@ -193,8 +193,6 @@ const AddAdmin = () => {
                             formErrors={formErrors}
                         />
 
-                        
-
                         <Select
                             label='Gender'
                             state={['Male', 'Female']}
@@ -202,20 +200,19 @@ const AddAdmin = () => {
                             setSelectedState={setSelectedGender}
                         />
                         <div className='w-full grid gap-4'>
-                        <label
-                            htmlFor='phoneNumber'
-                            className='text-[1.4rem] font-semibold'
-                        >
-                            Phone Number
-                        </label>
-                        <input
-                            type='text'
-                            required
-                            id='phoneNumber'
-                            className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] '
-                        />
-                    </div>
-                       
+                            <label
+                                htmlFor='phoneNumber'
+                                className='text-[1.4rem] font-semibold'
+                            >
+                                Phone Number
+                            </label>
+                            <input
+                                type='text'
+                                required
+                                id='phoneNumber'
+                                className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] '
+                            />
+                        </div>
 
                         <Input
                             type={'email'}
