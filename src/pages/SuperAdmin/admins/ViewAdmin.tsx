@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { useQuery } from 'react-query'
+import { useMutation } from 'react-query'
 import { AxiosRequest } from '../../../utils/axios'
 import { isAuthenticated } from '../../../utils/token'
 import Input from '../../../components/UI/Input'
@@ -50,20 +50,21 @@ const ViewAdmin = () => {
         setImageUrl(file)
     }
 
-    const getAdmin = (data: Inputs) => {
+    const postAdmin = (data: Inputs) => {
         const token = isAuthenticated() || ''
 
         return AxiosRequest({
             token,
             url: '/admin/create',
-            method: 'get',
+            method: 'post',
+            data,
         })
     }
     const {
-        
+        mutate,
         data: response_data,
         isLoading,
-    } = useQuery(getAdmin) as any
+    } = useMutation(postAdmin) as any
 
     useEffect(() => {
         console.log({ response_data })
