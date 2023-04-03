@@ -125,6 +125,7 @@ const ViewAdmin = () => {
         label: string
         type?: string
         name?: string
+        defaultValue?: string
     }
 
     const formInputs = [
@@ -256,7 +257,7 @@ const ViewAdmin = () => {
                 >
                     <>
                         {formInputs.map((input, idx) => {
-                            const { label, type, name } = input
+                            const { label, type, name, defaultValue } = input
                             return idx === 3 ? (
                                 <Select
                                     key={idx + label}
