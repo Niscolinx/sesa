@@ -61,36 +61,42 @@ const ViewAdmin = () => {
         isLoading: admin_loading,
     } = useMutation(getAdmin) as any
 
-     const formInputs = [
-         {
-             label: 'first_name',
-         },
-         {
-             label: 'last_name',
-         },
-         {
-             label: 'dob',
-             type: 'date',
-             name: 'date of birth',
-         },
-         {
-             label: 'select',
-         },
-         {
-             label: 'phone_number',
-             type: 'number',
-         },
-         {
-             label: 'email_address',
-             type: 'email',
-         },
-     ] satisfies FormInputs[]
+    const formInputs = [
+        {
+            label: 'first_name',
+        },
+        {
+            label: 'last_name',
+        },
+        {
+            label: 'dob',
+            type: 'date',
+            name: 'date of birth',
+        },
+        {
+            label: 'select',
+        },
+        {
+            label: 'phone_number',
+            type: 'number',
+        },
+        {
+            label: 'email_address',
+            type: 'email',
+        },
+    ] satisfies FormInputs[]
 
     useEffect(() => {
         mutate_admin(admin_id)
     }, [])
 
-    console.log({ admin_data })
+    useEffect(() => {
+        console.log({ admin_data })
+        if(admin_data.status === 200){
+            
+        }
+        // const fetched_data = admin_data
+    }, [admin_data])
 
     const {
         mutate,
@@ -153,11 +159,6 @@ const ViewAdmin = () => {
         defaultValue?: string
     }
 
-   
-
-
-
-
     const handlePicture = (e: React.ChangeEvent) => {
         const target = e.target as HTMLInputElement
         const file: File = (target.files as FileList)[0]
@@ -167,10 +168,8 @@ const ViewAdmin = () => {
         setImageUrl(file)
     }
 
-    if(admin_loading){
-        return (
-            <p>loading...</p>
-        )
+    if (admin_loading) {
+        return <p>loading...</p>
     }
 
     return (
