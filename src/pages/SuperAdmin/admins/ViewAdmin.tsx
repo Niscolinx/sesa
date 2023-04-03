@@ -135,7 +135,7 @@ const ViewAdmin = () => {
         const {
             first_name,
             last_name,
-            gender,
+        
             dob,
             email_address,
             phone_number,
@@ -143,7 +143,7 @@ const ViewAdmin = () => {
 
         const adminData = {
             name: `${first_name} ${last_name}`,
-            gender,
+            gender: selectedGender,
             dob,
             id: admin_id,
             email: email_address,
@@ -151,7 +151,8 @@ const ViewAdmin = () => {
             phone: `+234${phone_number}`,
             image: 'https://res.cloudinary.com/aladdin-digital-bank/image/upload/v1665580939/international_payments/s1brifvx0tqcwjwjnpov.jpg',
         }
-
+        console.log({adminData})
+        
         mutate(adminData)
     })
 
