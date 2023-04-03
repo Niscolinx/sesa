@@ -45,7 +45,7 @@ const AddAdmin = () => {
     const [responseMessage, setResponseMessage] =
         useState<ResponseMessage | null>(null)
 
-    const postLogin = (data: Inputs) => {
+    const postAdmin = (data: Inputs) => {
         const token = isAuthenticated() || ''
 
         return AxiosRequest({
@@ -59,7 +59,7 @@ const AddAdmin = () => {
         mutate,
         data: response_data,
         isLoading,
-    } = useMutation(postLogin) as any
+    } = useMutation(postAdmin) as any
 
     useEffect(() => {
         console.log({ response_data })

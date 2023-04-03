@@ -50,7 +50,7 @@ const ViewAdmin = () => {
         setImageUrl(file)
     }
 
-    const postLogin = (data: Inputs) => {
+    const getAdmin = (data: Inputs) => {
         const token = isAuthenticated() || ''
 
         return AxiosRequest({
