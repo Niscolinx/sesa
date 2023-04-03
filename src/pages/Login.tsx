@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form'
 import { useMutation } from 'react-query'
 import { useNavigate } from 'react-router'
 import { useAppDispatch } from '../store/app/hooks'
-import { storeToken } from '../store/features/auth'
+import { setAuth, storeToken } from '../store/features/auth'
 import { AxiosRequest } from '../utils/axios'
 
 const Login = () => {
@@ -62,6 +62,7 @@ const Login = () => {
             const token = response_data.data.data.token
             if (token) {
                 dispatch(storeToken(token))
+                dispatch(setAuth(true))
             }
             navigate('/superAdmin')
         } else {

@@ -1,5 +1,7 @@
 import { setAuth } from '../store/features/auth';
 import { useAppDispatch } from './../store/app/hooks';
+
+
 export const isAuthenticated = (): string | null => {
     const tokenData = localStorage.getItem('token')
     if (tokenData) {
@@ -18,15 +20,15 @@ export const isAuthenticated = (): string | null => {
 }
 
 export const getToken = () => {
-    const dispatch = useAppDispatch()
+    //const dispatch = useAppDispatch()
 
     const token = isAuthenticated()
 
     if(token){
-        dispatch(setAuth(true))
+       // dispatch(setAuth(true))
         return token
     }
 
     
-    return dispatch(setAuth(false))
+    //return dispatch(setAuth(false))
 }

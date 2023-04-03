@@ -23,7 +23,6 @@ import estateManagerRoutes from './routes/estateManagerRoutes'
 import { useEffect } from 'react'
 
 const App = () => {
-    const tokenData = localStorage.getItem('token')
 
     // const isAuth = tokenData && [
     //     superAdminRoutes,
