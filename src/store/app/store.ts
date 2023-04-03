@@ -23,6 +23,7 @@ import authReducer from '../features/auth'
 const persistConfig = {
     key: 'root',
     storage,
+    
 }
 
 const rootReducer = combineReducers({
@@ -31,10 +32,10 @@ const rootReducer = combineReducers({
     auth: authReducer,
 })
 
-//const persistedReducer = persistReducer(persistConfig, rootReducer);
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = configureStore({
-    reducer: rootReducer,
+    reducer: persistedReducer,
     devTools: process.env.NODE_ENV !== 'production',
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({

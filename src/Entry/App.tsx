@@ -25,31 +25,31 @@ import { useAppSelector } from '../store/app/hooks'
 import { selectAuth } from '../store/features/auth'
 
 const App = () => {
-    const {isAuth} = useAppSelector(selectAuth)
+    const { isAuth } = useAppSelector(selectAuth)
 
-    // const isAuth = tokenData && [
-    //     superAdminRoutes,
-    //     securityCompanyRoutes,
-    //     estateManagerRoutes,
-    // ]
+    const checkAuth = isAuth && [
+        superAdminRoutes,
+        securityCompanyRoutes,
+        estateManagerRoutes,
+    ]
 
     //console.log({tokenData})
 
-    // useEffect(() => {
-    //     console.log('authenticated status', localStorage.getItem('token'))
-    // }, [isAuth])
+    useEffect(() => {
+        console.log('authenticated status', localStorage.getItem('token'))
+    }, [isAuth])
 
-    console.log({isAuth})
+    console.log({ isAuth })
 
     const router = createBrowserRouter(
         createRoutesFromElements([
             <Route path='/' element={<Login />} />,
-            superAdminRoutes,
-            securityCompanyRoutes,
-            estateManagerRoutes,
+            checkAuth,
             <Route path='*' element={<Navigate to='/' />} />,
         ])
     )
+
+    console.log({ router })
 
     return (
         <div className='text-[1.6rem] max-w-[180rem] mx-auto'>
