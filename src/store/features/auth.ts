@@ -1,5 +1,6 @@
 //import { isAuthenticated } from './../../utils/token';
 import { createSlice } from '@reduxjs/toolkit'
+import { isAuthenticated } from '../../utils/token'
 import { AppState } from '../app/store'
 
 const initialState = {
@@ -10,7 +11,7 @@ const initialState = {
 type StateKey = keyof typeof initialState
 type StateValue = typeof initialState[StateKey]
 
- const authSlice = createSlice({
+const authSlice = createSlice({
     name: 'authSlice',
     initialState,
     reducers: {
@@ -25,32 +26,14 @@ type StateValue = typeof initialState[StateKey]
             state.isAuth = true
         },
 
-        isAuthenticated: (state, _) => {
-            console.log('calling the isAuthenticated')
-            const tokenData = localStorage.getItem('token')
-            if (tokenData) {
-                const { token, expirationDate } = JSON.parse(tokenData)
-                if (expirationDate && new Date().getTime() > expirationDate) {
-                    console.log('expired token')
-                    localStorage.removeItem('token')
-
-                    state.isAuth = false
-                }
-
-                state.token = token
-            }
-
-            state.isAuth = false
-        },
-
-        getToken: function(state, _) {
+        getToken: function (state, _) {
+            isAuthenticated()
             console.log('is called')
-            this.isAuthenticated()
-        }
+        },
     },
 })
 
-export const {  storeToken, getToken} = authSlice.actions
+export const { storeToken, getToken } = authSlice.actions
 
 export const selectAuth = (state: AppState) => state.auth
 
