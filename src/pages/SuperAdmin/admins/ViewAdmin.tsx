@@ -91,7 +91,6 @@ const ViewAdmin = () => {
     }, [])
 
     useEffect(() => {
-        console.log({ admin_response })
         if (admin_response?.status === 200) {
             const { dob } = admin_response.data.data
             const fetched_data = admin_response.data.data.user
@@ -106,7 +105,11 @@ const ViewAdmin = () => {
                 if (input.label === 'dob') {
                     return { ...input, defaultValue: dob }
                 }
-                console.log({ input })
+                if(input.label === 'first_name'){
+                    return {
+                        ...input, defaultValue: first_name
+                    }
+                }
                 return input
             })
 
@@ -280,7 +283,7 @@ const ViewAdmin = () => {
                     <>
                         {console.log({ formInputs }, 'Render')}
                         {formInputs.map((input, idx) => {
-                            const { label, type, name, defaultValue } = input
+                            const { label, type, name, defaultValue, value } = input
 
                             console.log({ defaultValue })
                             return idx === 3 && label === 'select' ? (
@@ -292,17 +295,23 @@ const ViewAdmin = () => {
                                     setSelectedState={setSelectedGender}
                                 />
                             ) : (
+                                <>
+
                                 <Input
                                     key={idx + label}
                                     label={label}
                                     register={register}
+                                    value={value}
                                     defaultValue={defaultValue}
                                     formErrors={formErrors}
                                     type={type || 'text'}
                                     name={name || undefined}
                                 />
+                                <input type="text" defaultValue={defaultValue} className='border' />
+                                </>
                             )
                         })}
+
 
                         <button
                             className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg col-span-full mt-[5rem]'

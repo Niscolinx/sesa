@@ -5,6 +5,7 @@ interface Input {
     label: string
     name?: string
     type?: string
+    value?: string
     defaultValue?: string
     register: any
     formErrors: any
@@ -16,6 +17,7 @@ const Input: FC<Input> = ({
     name,
     type = 'text',
     register,
+    value,
     defaultValue,
     formErrors,
     options,
@@ -44,6 +46,7 @@ console.log({defaultValue, type, label})
             <input
                 id={label}
                 type={type}
+                value={value}
                 defaultValue={defaultValue || undefined}
                 {...register(label, validationOptions)}
                 className={`border border-color-grey p-4 rounded-lg w-full ${
