@@ -6,7 +6,7 @@ import Input from '../../../components/UI/Input'
 import { Select } from '../../../components/SuperAdmin/UI/Select'
 import { useParams } from 'react-router'
 import { useAppDispatch } from '../../../store/app/hooks'
-import { isAuthenticated } from '../../../store/features/auth'
+import { isAuthenticated, selectAuth } from '../../../store/features/auth'
 
 const ViewAdmin = () => {
     interface Inputs {
@@ -52,7 +52,7 @@ const ViewAdmin = () => {
 
     const getAdmin = (id: string) => {
         const token = dispatch(isAuthenticated)
-
+        const  = selectAuth
         return AxiosRequest({
             token,
             url: `/admin/get`,
