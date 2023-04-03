@@ -13,82 +13,16 @@ import { useQuery } from 'react-query'
 import { AxiosRequest } from '../../../utils/axios'
 
 interface IAdmin {
-    id: string
-    name: string
-    gender: string
-    phoneNumber: string
-    status: string
-    onboardingDate: string
-    imgUrl?: string
+    user: {
+        id: string
+        name: string
+        gender: string
+        phoneNumber: string
+        status: string
+        onboardingDate: string
+        imgUrl?: string
+    }
 }
-
-const ADMINDATA: IAdmin[] = [
-    {
-        id: '1',
-        name: 'Jacintha Sage',
-        gender: 'Male',
-        phoneNumber: '(+234) 814 324 6719',
-        onboardingDate: '02-May-22',
-        status: 'Active',
-        imgUrl: '/img/avatar11.png',
-    },
-    {
-        id: '1',
-        name: 'Jacintha Sage',
-        gender: 'Male',
-        phoneNumber: '(+234) 814 324 6719',
-        onboardingDate: '02-May-22',
-        status: 'Active',
-    },
-    {
-        id: '1',
-        name: 'Jacintha Sage',
-        gender: 'Male',
-        phoneNumber: '(+234) 814 324 6719',
-        onboardingDate: '02-May-22',
-        status: 'Active',
-    },
-    {
-        id: '1',
-        name: 'Jacintha Sage',
-        gender: 'Male',
-        phoneNumber: '(+234) 814 324 6719',
-        onboardingDate: '02-May-22',
-        status: 'Active',
-    },
-    {
-        id: '1',
-        name: 'Jacintha Sage',
-        gender: 'Male',
-        phoneNumber: '(+234) 814 324 6719',
-        onboardingDate: '02-May-22',
-        status: 'Active',
-    },
-    {
-        id: '1',
-        name: 'Jacintha Sage',
-        gender: 'Male',
-        phoneNumber: '(+234) 814 324 6719',
-        onboardingDate: '02-May-22',
-        status: 'Active',
-    },
-    {
-        id: '1',
-        name: 'Jacintha Sage',
-        gender: 'Male',
-        phoneNumber: '(+234) 814 324 6719',
-        onboardingDate: '02-May-22',
-        status: 'Active',
-    },
-    {
-        id: '1',
-        name: 'Jacintha Sage',
-        gender: 'Male',
-        phoneNumber: '(+234) 814 324 6719',
-        onboardingDate: '02-May-22',
-        status: 'Active',
-    },
-]
 
 type Actions = 'view details' | 'deactivate'
 
@@ -112,7 +46,7 @@ function RenderedAdmins() {
     const {
         isLoading: get_admins_loading,
         data: get_admins_response_data,
-        isFetching: get_admins_fetching,
+        // isFetching: get_admins_fetching,
     } = useQuery('admins', fetchAdmins) as any
 
     useEffect(() => {
@@ -121,8 +55,6 @@ function RenderedAdmins() {
             console.log(get_admins_response_data.data.data)
         }
     }, [get_admins_response_data])
-
-   
 
     const actions = ['view details', 'deactivate'] satisfies Actions[]
 
@@ -376,13 +308,15 @@ function RenderedAdmins() {
                                         slicedPages[paginate.index].map(
                                             (
                                                 {
-                                                    phoneNumber,
-                                                    id,
-                                                    gender,
-                                                    name,
-                                                    onboardingDate,
-                                                    status,
-                                                    imgUrl,
+                                                    user: {
+                                                        phoneNumber,
+                                                        id,
+                                                        gender,
+                                                        name,
+                                                        onboardingDate,
+                                                        status,
+                                                        imgUrl,
+                                                    },
                                                 },
                                                 i
                                             ) => {
