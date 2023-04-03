@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { useMutation, useQuery } from 'react-query'
+import { useMutation } from 'react-query'
 import { useNavigate } from 'react-router'
 import { AxiosRequest } from '../utils/axios'
 import { storeToken } from '../utils/token'

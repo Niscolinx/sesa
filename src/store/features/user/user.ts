@@ -19,7 +19,6 @@ export const userSlice = createSlice({
     updateUser(state, action) {
       const payload = action.payload;
 
-      console.log(payload);
 
       const values = Object.entries(payload);
 
@@ -30,7 +29,6 @@ export const userSlice = createSlice({
       });
     },
     clearUser(state, action) {
-      console.log('++++++++++++++clearing user');
       state = initialState;
     },
   },
