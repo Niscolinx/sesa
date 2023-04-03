@@ -34,6 +34,31 @@ const ViewAdmin = () => {
         formState: { errors: formErrors },
     } = useForm<Inputs>()
 
+    const [formInputs, setFormInputs] = useState<FormInputs[]>([
+        {
+            label: 'first_name',
+        },
+        {
+            label: 'last_name',
+        },
+        {
+            label: 'dob',
+            type: 'date',
+            name: 'date of birth',
+        },
+        {
+            label: 'select',
+        },
+        {
+            label: 'phone_number',
+            type: 'number',
+        },
+        {
+            label: 'email_address',
+            type: 'email',
+        },
+    ]) 
+
     const [responseMessage, setResponseMessage] =
         useState<ResponseMessage | null>(null)
 
@@ -61,30 +86,7 @@ const ViewAdmin = () => {
         isLoading: admin_loading,
     } = useMutation(getAdmin) as any
 
-    const formInputs = [
-        {
-            label: 'first_name',
-        },
-        {
-            label: 'last_name',
-        },
-        {
-            label: 'dob',
-            type: 'date',
-            name: 'date of birth',
-        },
-        {
-            label: 'select',
-        },
-        {
-            label: 'phone_number',
-            type: 'number',
-        },
-        {
-            label: 'email_address',
-            type: 'email',
-        },
-    ] satisfies FormInputs[]
+    
 
     useEffect(() => {
         mutate_admin(admin_id)
@@ -103,6 +105,8 @@ const ViewAdmin = () => {
             const last_name = name.split(' ')[1]
 
             console.log({first_name, last_name})
+
+            set
             
 
             setSelectedGender(fetched_data.gender)
