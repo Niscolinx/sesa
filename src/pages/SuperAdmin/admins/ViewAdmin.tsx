@@ -93,7 +93,7 @@ const ViewAdmin = () => {
     useEffect(() => {
         console.log({ admin_response })
         if (admin_response?.status === 200) {
-            const { dob } = admin_response.data
+            const { dob } = admin_response.data.data
             const fetched_data = admin_response.data.data.user
 
             console.log({ fetched_data })
@@ -101,21 +101,16 @@ const ViewAdmin = () => {
             const first_name = name.split(' ')[0]
             const last_name = name.split(' ')[1]
 
-            const updatedInputs = Object.entries(([key, value]:any) => {
-
+            console.log({ dob })
+            const updatedInputs = formInputs.map((input) => {
+                if (input.label === 'dob') {
+                    return { ...input, defaultValue: dob }
+                }
+                console.log({ input })
+                return input
             })
 
-            // const updatedInputs = formInputs.map((input) => {
-            //     if (input.label === label) {
-            //         return { ...input, value }
-            //     }
-            //     return input
-            // })
-            // setFormInputs(updatedInputs)
-
-            setFormInputs((prev) => {
-                return [...prev]
-            })
+            setFormInputs(updatedInputs)
 
             setSelectedGender(fetched_data.gender)
         }
@@ -283,8 +278,11 @@ const ViewAdmin = () => {
                     }}
                 >
                     <>
+                        {console.log({ formInputs }, 'Render')}
                         {formInputs.map((input, idx) => {
                             const { label, type, name, defaultValue } = input
+
+                            console.log({ defaultValue })
                             return idx === 3 && label === 'select' ? (
                                 <Select
                                     key={idx + label}

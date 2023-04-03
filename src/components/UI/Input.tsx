@@ -33,7 +33,7 @@ const Input: FC<Input> = ({
     }
 
  
-
+console.log({defaultValue, type, label})
   
 
     return (
