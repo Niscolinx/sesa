@@ -2,11 +2,13 @@ import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useMutation } from 'react-query'
 import { useNavigate } from 'react-router'
+import { useAppDispatch } from '../store/app/hooks'
+import { storeToken } from '../store/features/auth/auth'
 import { AxiosRequest } from '../utils/axios'
-import { storeToken } from '../utils/token'
 
 const Login = () => {
     const navigate = useNavigate()
+    const dispatch = useAppDispatch()
 
     interface Inputs {
         email: string
@@ -59,7 +61,7 @@ const Login = () => {
             })
             const token = response_data.data.data.token
             if (token) {
-                storeToken(token)
+                dispatch(storeToken(token))
             }
             navigate('/superAdmin')
         } else {
