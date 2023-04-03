@@ -93,8 +93,8 @@ const ViewAdmin = () => {
     useEffect(() => {
         console.log({ admin_data })
         if(admin_data?.status === 200){
-
-            const fetched_data = admin_data
+            
+            const fetched_data = admin_data.data.user
         }
     }, [admin_data])
 
