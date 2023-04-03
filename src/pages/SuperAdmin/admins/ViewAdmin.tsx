@@ -48,8 +48,12 @@ const ViewAdmin = () => {
         })
     }
 
-    const getAdmin = (id: string) => {
+    const getAdmin = (id?: string) => {
         const token = isAuthenticated() || ''
+
+        if (!id) {
+            return null
+        }
 
         return AxiosRequest({
             token,
@@ -60,7 +64,7 @@ const ViewAdmin = () => {
 
     const admin_id = params.Id?.replace(':', '')
 
-    const {} = useQuery(['get-admin', admin_id], () => getAdmin(admin_id!))
+    const {} = useQuery(['get-admin', admin_id], () => getAdmin(admin_id))
 
     const {
         mutate,
