@@ -142,7 +142,6 @@ function RenderedAdmins() {
         })
     }
 
-    //const [dialogType, setDialogType] = useState<Actions>('Deactivate')
 
     interface Paginate {
         index: number
@@ -332,15 +331,12 @@ function RenderedAdmins() {
                                     className='pl-16 w-[25rem] rounded-lg border border-color-blue-light appearance-none outline-none p-4'
                                 />
                             </div>
-                            <div className='relative flex items-center'>
-                                <select>
-                                    <option hidden value=''>
-                                        Sort By
-                                    </option>
-                                    <option value='date'>date</option>
-                                    <option value='alpha'>Alpha</option>
-                                </select>
-                            </div>
+                            <Select
+                                label='Gender'
+                                state={['Male', 'Female']}
+                                selectedState={selectedGender}
+                                setSelectedState={setSelectedGender}
+                            />
                             <button
                                 className='btn admins__btn ml-auto'
                                 onClick={handlePathSwitch}
