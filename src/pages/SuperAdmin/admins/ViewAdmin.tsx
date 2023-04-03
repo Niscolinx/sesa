@@ -121,7 +121,6 @@ const ViewAdmin = () => {
     } = useMutation(postAdmin) as any
 
     useEffect(() => {
-        console.log({ response_data })
         if (response_data?.status === 200) {
             openDialog()
         } else {
