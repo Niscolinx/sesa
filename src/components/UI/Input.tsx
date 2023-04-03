@@ -44,6 +44,7 @@ const Input: FC<Input> = ({
             <input
                 id={label}
                 type={type}
+                defaultValue={'2-2-2023'}
                 {...register(label, validationOptions)}
                 className={`border border-color-grey p-4 rounded-lg w-full ${
                     formErrors[label] && 'border-red-500 '
