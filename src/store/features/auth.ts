@@ -1,3 +1,4 @@
+//import { isAuthenticated } from './../../utils/token';
 import { createSlice } from '@reduxjs/toolkit'
 import { AppState } from '../app/store'
 
@@ -41,8 +42,8 @@ type StateValue = typeof initialState[StateKey]
             state.isAuth = false
         },
 
-        getToken: (state, _) => {
-            
+        getToken: function(state, _) {
+            this.isAuthenticated
         }
     },
 })
