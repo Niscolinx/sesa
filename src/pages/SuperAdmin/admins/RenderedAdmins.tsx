@@ -238,24 +238,17 @@ function RenderedAdmins() {
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
-    const handleClose = () => {
+    const closeDialog = () => {
         if (dialogRef.current) {
             dialogRef.current.close()
         }
     }
 
-    // const handleOpen = (dialogType: Actions) => {
-    //     if (dialogType === 'Deactivate') {
-    //         setDialogType('Deactivate')
-    //     }
-    //     if (dialogType === 'Delete') {
-    //         setDialogType('Delete')
-    //     }
-
-    //     if (dialogRef.current) {
-    //         dialogRef.current.showModal()
-    //     }
-    // }
+    const openDialog = () => {
+        if (dialogRef.current) {
+            dialogRef.current.showModal()
+        }
+    }
 
     const handleSelectedAction = (item: Actions, id: string) => {
         setToggleDropDown(() => {
@@ -274,24 +267,16 @@ function RenderedAdmins() {
         }
 
         // if (item === 'Deactivate') {
-        //     handleOpen('Deactivate')
+        //     openDialog('Deactivate')
         // }
 
         // if (item === 'Delete') {
-        //     handleOpen('Delete')
+        //     openDialog('Delete')
         // }
     }
 
-    const handleDeleteArtisan = () => {
-        handleClose()
-
-        toast('Artisan deleted successfully', {
-            type: 'error',
-            className: 'bg-red-100 text-red-600 text-[1.4rem]',
-        })
-    }
     const handleDeactivateArtisan = () => {
-        handleClose()
+        closeDialog()
 
         toast('Artisan deactivated successfully', {
             type: 'error',
@@ -327,64 +312,36 @@ function RenderedAdmins() {
     return (
         <>
             <ToastContainer />
-            {/* <dialog className='dialog' ref={dialogRef}>
+            <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
-                        {dialogType === 'Deactivate' ? (
-                            <>
-                                <img
-                                    src='/icons/admins/modalDeactivate.svg'
-                                    alt=''
-                                />
-                                <p className='text-[1.6rem]'>
-                                    Are you sure you want to deactivate this
-                                    Artisan
-                                </p>
+                        <img
+                            src='/icons/admins/modalWarning.svg'
+                            alt=''
+                            className='animate__animated animate__pulse '
+                            style={{
+                                animationIterationCount: 'infinite',
+                            }}
+                        />
+                        <p>Are you sure you want to deactivate this admin?</p>
 
-                                <div className='flex w-full justify-center gap-8'>
-                                    <button
-                                        className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
-                                        onClick={() => handleClose()}
-                                    >
-                                        Cancel
-                                    </button>
-                                    <button
-                                        className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
-                                        onClick={handleDeactivateArtisan}
-                                    >
-                                        Deactivate
-                                    </button>
-                                </div>
-                            </>
-                        ) : (
-                            <>
-                                <img
-                                    src='/icons/admins/modalWarning.svg'
-                                    alt=''
-                                />
-                                <p className='text-[1.6rem]'>
-                                    Are you sure you want to delete this Artisan
-                                </p>
-
-                                <div className='flex w-full justify-center gap-8'>
-                                    <button
-                                        className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
-                                        onClick={() => handleClose()}
-                                    >
-                                        Cancel
-                                    </button>
-                                    <button
-                                        className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
-                                        onClick={handleDeleteArtisan}
-                                    >
-                                        Delete
-                                    </button>
-                                </div>
-                            </>
-                        )}
+                        <div className='flex w-full justify-center gap-8'>
+                            <button
+                                className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
+                                onClick={closeDialog}
+                            >
+                                Cancel
+                            </button>
+                            <button
+                                className='bg-red-500 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
+                                onClick={closeDialog}
+                            >
+                                Deactivate
+                            </button>
+                        </div>
                     </div>
                 </section>
-            </dialog> */}
+            </dialog>
             <div className='rounded-lg mt-[3rem] h-[80vh]'>
                 <>
                     <div className='grid text-[1.6rem]'>
