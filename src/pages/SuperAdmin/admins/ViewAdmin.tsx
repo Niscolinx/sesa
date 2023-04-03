@@ -31,7 +31,7 @@ const ViewAdmin = () => {
     const {
         register,
         handleSubmit,
-        formState: { errors: formErrors },
+        formState: { errors: formErrors, defaultValues },
     } = useForm<Inputs>()
 
     const [formInputs, setFormInputs] = useState<FormInputs[]>([
@@ -100,7 +100,6 @@ const ViewAdmin = () => {
             const first_name = name.split(' ')[0]
             const last_name = name.split(' ')[1]
 
-            console.log({ dob })
             const updatedInputs = formInputs.map((input) => {
                 if (input.label === 'dob') {
                     return { ...input, defaultValue: dob }
