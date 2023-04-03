@@ -71,6 +71,13 @@ const ViewAdmin = () => {
     const [responseMessage, setResponseMessage] =
         useState<ResponseMessage | null>(null)
 
+    const postDeactivateAdmin = (id: string) => {
+        return AxiosRequest({
+            url: '/change/user/status',
+            method: 'post',
+            data: {id}
+        })
+    }
     const postUpdateAdmin = (data: Inputs) => {
         return AxiosRequest({
             url: '/admin/update',
@@ -89,14 +96,20 @@ const ViewAdmin = () => {
 
     const admin_id = params.Id?.replace(':', '')
 
+    // const {
+    //     mutate: mutate_admin,
+    //     data: admin_response,
+    //     isLoading: admin_loading,
+    // } = useMutation(getAdmin) as any
+
     const {
-        mutate: mutate_admin,
+        mutate: update_admin,
         data: admin_response,
-        isLoading: admin_loading,
+        isLoading: get_admin_loading,
     } = useMutation(getAdmin) as any
 
     useEffect(() => {
-        mutate_admin(admin_id)
+        update_admin(admin_id)
     }, [])
 
     useEffect(() => {
@@ -180,6 +193,10 @@ const ViewAdmin = () => {
             dialogRef.current.showModal()
         }
     }
+
+    const deactivateHandler = () => {
+
+    }
     
 
     const handlePicture = (e: React.ChangeEvent) => {
@@ -191,7 +208,7 @@ const ViewAdmin = () => {
         setImageUrl(file)
     }
 
-    if (admin_loading) {
+    if (get_admin_loading) {
         return <p>loading...</p>
     }
 
@@ -220,7 +237,7 @@ const ViewAdmin = () => {
                             </button>
                             <button
                                 className='bg-red-500 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
-                                onClick={closeDialog}
+                                onClick={deactivateHandler}
                             >
                                 Deactivate
                             </button>
