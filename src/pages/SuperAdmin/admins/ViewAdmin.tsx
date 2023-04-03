@@ -152,12 +152,11 @@ const ViewAdmin = () => {
             gender: selectedGender,
             dob,
             id: admin_id,
-            email: 'hello@gmail.com',
+            email: email_address,
             address: 'no 4 odeyim street',
             phone: `+234${phone_number}`,
             image: 'https://res.cloudinary.com/aladdin-digital-bank/image/upload/v1665580939/international_payments/s1brifvx0tqcwjwjnpov.jpg',
         }
-        console.log({adminData})
         
         mutate(adminData)
     })
