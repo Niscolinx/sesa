@@ -16,7 +16,7 @@ const authSlice = createSlice({
     reducers: {
         storeToken: (state, action) => {
             const token: string = action.payload
-            const expirationDate = new Date().getTime() + 3600 * 1000 // set expiration date to 1 hour from now
+            const expirationDate = new Date().getTime() + 3600 * 1000 * 5 // set expiration date to 5 hour from now
             localStorage.setItem(
                 'token',
                 JSON.stringify({ token, expirationDate })

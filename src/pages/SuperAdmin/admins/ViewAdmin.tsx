@@ -57,7 +57,7 @@ const ViewAdmin = () => {
             label: 'email_address',
             type: 'email',
         },
-    ]) 
+    ])
 
     const [responseMessage, setResponseMessage] =
         useState<ResponseMessage | null>(null)
@@ -86,28 +86,33 @@ const ViewAdmin = () => {
         isLoading: admin_loading,
     } = useMutation(getAdmin) as any
 
-    
-
     useEffect(() => {
         mutate_admin(admin_id)
     }, [])
 
     useEffect(() => {
         console.log({ admin_response })
-        if(admin_response?.status === 200){
-
-            const {dob} = admin_response.data
+        if (admin_response?.status === 200) {
+            const { dob } = admin_response.data
             const fetched_data = admin_response.data.data.user
 
-            console.log({fetched_data})
-            const {name} = fetched_data
+            console.log({ fetched_data })
+            const { name, email, phone, image } = fetched_data
             const first_name = name.split(' ')[0]
             const last_name = name.split(' ')[1]
 
-            console.log({first_name, last_name})
+            console.log({ first_name, last_name })
+            // const updatedInputs = formInputs.map((input) => {
+            //     if (input.label === label) {
+            //         return { ...input, value }
+            //     }
+            //     return input
+            // })
+            // setFormInputs(updatedInputs)
 
-            set
-            
+            setFormInputs((prev) => {
+                return [...prev]
+            })
 
             setSelectedGender(fetched_data.gender)
         }

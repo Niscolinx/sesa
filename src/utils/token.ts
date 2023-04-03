@@ -9,7 +9,7 @@ export const isAuthenticated = (): string | null => {
         if (expirationDate && new Date().getTime() > expirationDate) {
             console.log('expired token')
             localStorage.removeItem('token')
-
+            
             return null
         }
 
