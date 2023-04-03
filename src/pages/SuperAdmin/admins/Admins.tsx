@@ -15,8 +15,8 @@ function Admins() {
     }
 
     return (
-        <div className='admins'>
-            <div className='admins__container'>
+        <div>
+            <div>
                 {adminsLoaded ? (
                     <section>
                         <RenderedAdmins />

@@ -298,7 +298,7 @@ function RenderedAdmins() {
                     </div>
                 </section>
             </dialog>
-            <div className='rounded-lg mt-[3rem] h-[80vh]'>
+            <div className='rounded-lg mt-[3rem] '>
                 <>
                     <div className='grid text-[1.6rem]'>
                         <div className='flex w-full items-center gap-12 p-10 bg-white rounded-lg'>
