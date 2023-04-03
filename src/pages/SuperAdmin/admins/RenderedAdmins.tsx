@@ -305,7 +305,7 @@ function RenderedAdmins() {
                             </button>
                             <button
                                 className='bg-red-500 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
-                                onClick={closeDialog}
+                                onClick={deactivateHandler}
                             >
                                 Deactivate
                             </button>
