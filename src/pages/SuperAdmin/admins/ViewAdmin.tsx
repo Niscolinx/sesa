@@ -14,7 +14,7 @@ const ViewAdmin = () => {
         last_name: string
         dob: string
         gender: string
-        phoneNumber: number | null
+        phone_number: number | null
         photoUrl?: string
     }
 
@@ -104,12 +104,14 @@ const ViewAdmin = () => {
             const first_name = name.split(' ')[0]
             const last_name = name.split(' ')[1]
             console.log({phone})
+
+            const phone_number = 4
             reset({
                 first_name,
                 last_name,
                 dob,
                 email_address: email,
-                phoneNumber: 23223
+                phone_number
             })
 
             setSelectedGender(fetched_data.gender)
