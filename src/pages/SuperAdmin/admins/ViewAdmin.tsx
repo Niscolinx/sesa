@@ -54,15 +54,7 @@ const ViewAdmin = () => {
         },
     ]
 
-    const [inputDefaultValues, setInputDefaultValues] = useState<Inputs>({
-        email_address: 'hello',
-        first_name: 'dsfsdfdsfdfdfsdfs',
-        last_name: '',
-        dob: '',
-        gender: '',
-        phoneNumber: null,
-        photoUrl: '',
-    })
+   
 
     const {
         register,
@@ -117,16 +109,13 @@ const ViewAdmin = () => {
                 last_name,
                 dob,
                 email_address: email,
-                phoneNumber: phone
+                phoneNumber: 23223
             })
 
             setSelectedGender(fetched_data.gender)
         }
     }, [admin_response])
 
-    useEffect(() => {
-        console.log({ inputDefaultValues })
-    }, [inputDefaultValues])
 
     const {
         mutate,
