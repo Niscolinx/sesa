@@ -5,7 +5,8 @@ import { useMutation } from 'react-query'
 import { AxiosRequest } from '../../../utils/axios'
 import Input from '../../../components/UI/Input'
 import { Select } from '../../../components/SuperAdmin/UI/Select'
-import { useAppDispatch } from '../../../store/app/hooks'
+import { useAppSelector } from '../../../store/app/hooks'
+import { selectAuth } from '../../../store/features/auth'
 
 const AddAdmin = () => {
     interface Inputs {
@@ -18,7 +19,7 @@ const AddAdmin = () => {
         photoUrl?: string
     }
 
-    const dispatch = useAppDispatch()
+    const { token } = useAppSelector(selectAuth)
 
     const [photoPreview, setPhotoPreview] = useState('')
     const [imageUrl, setImageUrl] = useState<File | null>(null)
@@ -48,8 +49,6 @@ const AddAdmin = () => {
         useState<ResponseMessage | null>(null)
 
     const postAdmin = (data: Inputs) => {
-        const token = dispatch(isAuthenticated)
-
         return AxiosRequest({
             token,
             url: '/admin/create',
@@ -173,7 +172,9 @@ const AddAdmin = () => {
             </dialog>
 
             <div className='bg-white rounded-2xl grid p-8'>
-                <p className='text-[2rem] font-Satoshi-Medium'>Personal Information</p>
+                <p className='text-[2rem] font-Satoshi-Medium'>
+                    Personal Information
+                </p>
                 {responseMessage?.displayMessage && (
                     <p className='text-center'>
                         <span className={responseMessage?.className}>

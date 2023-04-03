@@ -24,7 +24,9 @@ export const getToken = () => {
 
     if(token){
         dispatch(setAuth(true))
-
+        return token
     }
 
+    
+    return dispatch(setAuth(false))
 }

@@ -7,6 +7,7 @@ import { Select } from '../../../components/SuperAdmin/UI/Select'
 import { useParams } from 'react-router'
 import {  useAppSelector } from '../../../store/app/hooks'
 import {  selectAuth } from '../../../store/features/auth'
+import { getToken } from '../../../utils/token'
 
 const ViewAdmin = () => {
     interface Inputs {
@@ -25,7 +26,6 @@ const ViewAdmin = () => {
     }
 
     const params = useParams()
-    const {token} = useAppSelector(selectAuth)
 
     const [photoPreview, setPhotoPreview] = useState('')
     const [imageUrl, setImageUrl] = useState<File | null>(null)
@@ -40,7 +40,8 @@ const ViewAdmin = () => {
         useState<ResponseMessage | null>(null)
 
     const postAdmin = (data: Inputs) => {
-        //const token = dispatch(isAuthenticated)
+         const token = getToken() || ''
+         console.log({ token })
 
         return AxiosRequest({
             token,
@@ -51,6 +52,7 @@ const ViewAdmin = () => {
     }
 
     const getAdmin = (id: string) => {
+        const token = getToken() || ''
         console.log({token})
         
         return AxiosRequest({
