@@ -39,15 +39,6 @@ const ViewAdmin = () => {
 
     const id = params.Id?.replace(':', '')
 
-    const handlePicture = (e: React.ChangeEvent) => {
-        const target = e.target as HTMLInputElement
-        const file: File = (target.files as FileList)[0]
-
-        const preview = URL.createObjectURL(file)
-        setPhotoPreview(preview)
-        setImageUrl(file)
-    }
-
     const postAdmin = (data: Inputs) => {
         const token = isAuthenticated() || ''
 
@@ -58,6 +49,7 @@ const ViewAdmin = () => {
             data,
         })
     }
+
     const {
         mutate,
         data: response_data,
@@ -74,10 +66,6 @@ const ViewAdmin = () => {
                 displayMessage: response_data?.response?.data.message,
             })
         }
-
-        // const timeoutId = setTimeout(() => {
-        //     setResponseMessage(null)
-        // }, 10000)
     }, [response_data])
 
     const onSubmit = handleSubmit((data) => {
@@ -146,6 +134,15 @@ const ViewAdmin = () => {
             type: 'email',
         },
     ] satisfies FormInputs[]
+
+    const handlePicture = (e: React.ChangeEvent) => {
+        const target = e.target as HTMLInputElement
+        const file: File = (target.files as FileList)[0]
+
+        const preview = URL.createObjectURL(file)
+        setPhotoPreview(preview)
+        setImageUrl(file)
+    }
 
     return (
         <>
