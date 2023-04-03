@@ -41,7 +41,6 @@ const App = () => {
         ])
     )
 
-    console.log({ router })
 
     return (
         <div className='text-[1.6rem] max-w-[180rem] mx-auto'>
