@@ -26,13 +26,16 @@ const authSlice = createSlice({
             state.isAuth = true
         },
 
-        setAuth: function (state, _) {
-            state.isAuth = true
+        setAuth: function (state, action) {
+
+            const auth = action.payload
+            
+            state.isAuth = auth
         },
     },
 })
 
-export const { storeToken, getToken } = authSlice.actions
+export const { storeToken, setAuth } = authSlice.actions
 
 export const selectAuth = (state: AppState) => state.auth
 
