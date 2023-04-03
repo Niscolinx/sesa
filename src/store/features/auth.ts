@@ -1,3 +1,4 @@
+import { isAuthenticated } from './../../utils/token';
 import { createSlice } from '@reduxjs/toolkit'
 import { AppState } from '../app/store'
 
@@ -33,16 +34,15 @@ export const authSlice = createSlice({
                     localStorage.removeItem('token')
 
                     state.isAuth = false
-                    return false
                 }
 
                 state.token = token
-                return true
             }
 
             state.isAuth = false
-            return false
         },
+
+        
     },
 })
 

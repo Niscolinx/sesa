@@ -51,7 +51,7 @@ const ViewAdmin = () => {
     }
 
     const getAdmin = (id: string) => {
-        const token =  dispatch(isAuthenticated)
+        const token =  dispatch(isAuthenticated())
 
         console.log({token})
         
