@@ -6,7 +6,7 @@ import Input from '../../../components/UI/Input'
 import { Select } from '../../../components/SuperAdmin/UI/Select'
 import { useParams } from 'react-router'
 import { useAppDispatch } from '../../../store/app/hooks'
-import { isAuthenticated } from '../../../store/features/auth/auth'
+import { isAuthenticated } from '../../../store/features/auth'
 
 const ViewAdmin = () => {
     interface Inputs {
@@ -57,7 +57,7 @@ const ViewAdmin = () => {
             token,
             url: `/admin/get`,
             method: 'post',
-            data: {id},
+            data: { id },
         })
     }
 
@@ -278,8 +278,6 @@ const ViewAdmin = () => {
                                 />
                             )
                         })}
-
-                     
 
                         <button
                             className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg col-span-full mt-[5rem]'

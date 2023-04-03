@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form'
 import { useMutation } from 'react-query'
 import { useNavigate } from 'react-router'
 import { useAppDispatch } from '../store/app/hooks'
-import { storeToken } from '../store/features/auth/auth'
+import { storeToken } from '../store/features/auth'
 import { AxiosRequest } from '../utils/axios'
 
 const Login = () => {
@@ -95,8 +95,6 @@ const Login = () => {
         }
     })
 
-   
-
     return (
         <div className='flex h-screen overflow-hidden'>
             <form
@@ -109,7 +107,7 @@ const Login = () => {
                     </h1>
                     <p>Kindly enter your details</p>
                 </div>
-                <div className='grid gap-8' >
+                <div className='grid gap-8'>
                     {responseMessage?.displayMessage && (
                         <p className='text-center'>
                             <span className={responseMessage?.className}>

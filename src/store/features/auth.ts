@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
+import { AppState } from '../app/store'
 
 const initialState = {
     isAuth: false,
@@ -44,3 +45,8 @@ export const authSlice = createSlice({
 })
 
 export const {isAuthenticated, storeToken} = authSlice.actions
+
+
+export const selectAuth = (state: AppState) => state.auth
+
+export default authSlice.reducer

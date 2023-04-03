@@ -12,7 +12,7 @@ const initialState = {
 type StateKey = keyof typeof initialState
 type StateValue = (typeof initialState)[StateKey]
 
-export const userSlice = createSlice({
+ const userSlice = createSlice({
   name: 'userState',
   initialState,
   reducers: {
