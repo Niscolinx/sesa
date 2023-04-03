@@ -7,7 +7,7 @@ import Input from '../../../components/UI/Input'
 import { Select } from '../../../components/SuperAdmin/UI/Select'
 import { useParams } from 'react-router'
 
-const EditAdmin = () => {
+const ViewAdmin = () => {
     interface Inputs {
         email_address: string
         first_name: string
@@ -279,4 +279,4 @@ const EditAdmin = () => {
     )
 }
 
-export default EditAdmin
+export default ViewAdmin

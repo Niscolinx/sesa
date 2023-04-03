@@ -88,7 +88,7 @@ const ADMINDATA: IAdmin[] = [
     },
 ]
 
-type Actions = 'view details' | 'edit details' | 'deactivate'
+type Actions = 'view details' | 'deactivate'
 
 function RenderedAdmins() {
     const navigate = useNavigate()
@@ -107,11 +107,7 @@ function RenderedAdmins() {
         }, 100)
     }, [])
 
-    const actions = [
-        'view details',
-        'edit details',
-        'deactivate',
-    ] satisfies Actions[]
+    const actions = ['view details', 'deactivate'] satisfies Actions[]
 
     const [toggleDropDown, setToggleDropDown] = useState<{
         isDropDownOpen: boolean
@@ -245,10 +241,6 @@ function RenderedAdmins() {
 
         if (item === 'view details') {
             navigate(`/superAdmin/admins/view/:${id}`)
-        }
-
-        if (item === 'edit details') {
-            navigate(`/superAdmin/admins/edit/:${id}`)
         }
 
         if (item === 'deactivate') {
