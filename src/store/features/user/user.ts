@@ -26,7 +26,7 @@ export const userSlice = createSlice({
       values.forEach((item) => {
         const [key, value] = item;
 
-        state[key as ] = value as string;
+        state[key as StateKey] = value as StateValue;
       });
     },
     clearUser(state, action) {
