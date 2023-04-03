@@ -75,7 +75,7 @@ const ViewAdmin = () => {
         return AxiosRequest({
             url: '/change/user/status',
             method: 'post',
-            data: { id },
+            data: { user_id: id},
         })
     }
     const postUpdateAdmin = (data: Inputs) => {
@@ -157,6 +157,22 @@ const ViewAdmin = () => {
         }
     }, [post_admin_response_data])
 
+    useEffect(() => {
+        if (post_deactivate_admin_response?.status === 200) {
+            toast('Admin Deactivated successfully', {
+                type: 'success',
+                className: 'bg-green-100 text-green-600 text-[1.4rem]',
+            })
+            closeDialog()
+        } else {
+            setResponseMessage({
+                className: 'text-red-600',
+                displayMessage:
+                    post_admin_response_data?.response?.data.message,
+            })
+        }
+    }, [post_deactivate_admin_response])
+
     const onSubmit = handleSubmit((data) => {
         const { first_name, last_name, dob, email_address, phone_number } = data
 
@@ -228,7 +244,7 @@ const ViewAdmin = () => {
                             </button>
                             <button
                                 className='bg-red-500 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem] capitalize'
-                                onClick={deactivate_admin_mutation(admin_id)}
+                                onClick={() => deactivate_admin_mutation(admin_id)}
                             >
                                 {deactivate_admin_loading ? 'Loading...': 'deactivate'}
                             </button>
