@@ -100,16 +100,23 @@ const ViewAdmin = () => {
         mutate: deactivate_admin_mutation,
         data: post_deactivate_admin_response,
         isLoading: deactivate_admin_loading,
-    } = useMutation(getAdmin) as any
+    } = useMutation(postDeactivateAdmin) as any
 
     const {
-        mutate: update_admin_mutation,
+        mutate: get_admin_mutation,
         data: get_admin_response,
         isLoading: get_admin_loading,
     } = useMutation(getAdmin) as any
 
+    const {
+        mutate: post_admin_mutation,
+        data: post_admin_response_data,
+        isLoading: post_admin_loading,
+    } = useMutation(postUpdateAdmin) as any
+
+
     useEffect(() => {
-        update_admin_mutation(admin_id)
+        get_admin_mutation(admin_id)
     }, [])
 
     useEffect(() => {
@@ -134,12 +141,7 @@ const ViewAdmin = () => {
         }
     }, [get_admin_response])
 
-    const {
-        mutate: post_admin_mutation,
-        data: post_admin_response_data,
-        isLoading: post_admin_loading,
-    } = useMutation(postUpdateAdmin) as any
-
+    
     useEffect(() => {
         if (post_admin_response_data?.status === 200) {
             toast('Admin Updated successfully', {
@@ -186,7 +188,7 @@ const ViewAdmin = () => {
         }
     }
 
-    const deactivateHandler = () => {}
+    
 
     const handlePicture = (e: React.ChangeEvent) => {
         const target = e.target as HTMLInputElement
@@ -225,10 +227,10 @@ const ViewAdmin = () => {
                                 Cancel
                             </button>
                             <button
-                                className='bg-red-500 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
-                                onClick={deactivateHandler}
+                                className='bg-red-500 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem] capitalize'
+                                onClick={deactivate_admin_mutation(admin_id)}
                             >
-                                Deactivate
+                                {deactivate_admin_loading ? 'Loading...': 'deactivate'}
                             </button>
                         </div>
                     </div>
