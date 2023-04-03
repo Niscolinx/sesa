@@ -87,7 +87,7 @@ const ADMINDATA: IAdmin[] = [
     },
 ]
 
-type Actions = 'view details' | 'edit details' | 'reset profile' | 'deactivate'
+type Actions = 'view details' | 'edit details' | 'deactivate'
 
 function RenderedAdmins() {
     const navigate = useNavigate()
@@ -119,7 +119,6 @@ function RenderedAdmins() {
     const actions = [
         'view details',
         'edit details',
-        'reset profile',
         'deactivate',
     ] satisfies Actions[]
 
