@@ -5,7 +5,6 @@ import { AppState } from '../app/store'
 
 const initialState = {
     isAuth: false,
-    token: ''
 }
 
 type StateKey = keyof typeof initialState
@@ -24,7 +23,6 @@ const authSlice = createSlice({
             )
 
             state.isAuth = true
-            state.token = token
         },
 
         setAuth: function (state, action) {
