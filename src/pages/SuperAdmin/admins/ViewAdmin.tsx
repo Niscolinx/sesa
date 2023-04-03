@@ -97,7 +97,6 @@ const ViewAdmin = () => {
             const { dob } = admin_response.data.data
             const fetched_data = admin_response.data.data.user
 
-            console.log({ fetched_data })
             const { name, email, phone, image } = fetched_data
             const first_name = name.split(' ')[0]
             const last_name = name.split(' ')[1]
@@ -110,6 +109,7 @@ const ViewAdmin = () => {
                 phone_number: parseInt(phone),
             })
 
+            setPhotoPreview(image)
             setSelectedGender(fetched_data.gender)
         }
     }, [admin_response])
@@ -139,7 +139,7 @@ const ViewAdmin = () => {
             gender,
             dob,
             email_address,
-            phoneNumber,
+            phone_number,
         } = data
 
         const adminData = {
@@ -148,7 +148,7 @@ const ViewAdmin = () => {
             dob,
             email: email_address,
             address: 'no 4 odeyim street',
-            phone: `+234${phoneNumber}`,
+            phone: `+234${phone_number}`,
             image: imageUrl?.name,
         }
 
