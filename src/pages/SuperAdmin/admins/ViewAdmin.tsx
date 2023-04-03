@@ -1,12 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { useMutation, useQuery } from 'react-query'
+import { useMutation } from 'react-query'
 import { AxiosRequest } from '../../../utils/axios'
 import Input from '../../../components/UI/Input'
 import { Select } from '../../../components/SuperAdmin/UI/Select'
 import { useParams } from 'react-router'
-import {  useAppSelector } from '../../../store/app/hooks'
-import {  selectAuth } from '../../../store/features/auth'
 import { getToken } from '../../../utils/token'
 
 const ViewAdmin = () => {
