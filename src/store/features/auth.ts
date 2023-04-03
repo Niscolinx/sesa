@@ -41,7 +41,9 @@ type StateValue = typeof initialState[StateKey]
             state.isAuth = false
         },
 
-        
+        getToken: (state, _) => {
+            
+        }
     },
 })
 
