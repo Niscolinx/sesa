@@ -48,10 +48,10 @@ const ViewAdmin = () => {
         })
     }
 
-    const getAdmin = ({queryKey}) => {
+    const getAdmin = ({ queryKey }: any) => {
         const token = isAuthenticated() || ''
         const id = queryKey[1]
-        
+
         return AxiosRequest({
             token,
             url: `/admin/create/${id}`,
