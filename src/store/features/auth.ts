@@ -23,13 +23,11 @@ const authSlice = createSlice({
                 JSON.stringify({ token, expirationDate })
             )
 
-
             state.isAuth = true
         },
 
-        getToken: function (state, _) {
-            isAuthenticated()
-             
+        setAuth: function (state, _) {
+            state.isAuth = true
         },
     },
 })

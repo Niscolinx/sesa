@@ -19,4 +19,9 @@ export const getToken = () => {
 
     const token = isAuthenticated()
 
+    if(token){
+
+        
+    }
+
 }
