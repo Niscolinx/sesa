@@ -265,7 +265,7 @@ const ViewAdmin = () => {
                                     className='w-[1.7rem] h-[1.7rem]'
                                 />
                             </span>{' '}
-                            Save Changes
+                            {isLoading ? 'Loading...' : 'Save Changes'}
                         </button>
                     </>
                 </form>
