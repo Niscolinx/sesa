@@ -54,7 +54,7 @@ const ViewAdmin = () => {
         },
     ]
 
-    const inputDefaultValues: Inputs = {
+    const [inputDefaultValues, setInputDefaultValues] = useState<Inputs>({
         email_address: 'hello',
         first_name: 'dsfsdfdsfdfdfsdfs',
         last_name: '',
@@ -62,15 +62,14 @@ const ViewAdmin = () => {
         gender: '',
         phoneNumber: null,
         photoUrl: '',
-    }
+    })
 
     const {
         register,
         handleSubmit,
         formState: { errors: formErrors },
-    } = useForm<Inputs>({
-        defaultValues: inputDefaultValues,
-    })
+        reset,
+    } = useForm<Inputs>()
 
     const [responseMessage, setResponseMessage] =
         useState<ResponseMessage | null>(null)
@@ -112,25 +111,22 @@ const ViewAdmin = () => {
             const { name, email, phone, image } = fetched_data
             const first_name = name.split(' ')[0]
             const last_name = name.split(' ')[1]
-
-            // const updatedInputs = formInputs.map((input) => {
-            //     if (input.label === 'dob') {
-            //         return { ...input, defaultValue: dob }
-            //     }
-            //     if (input.label === 'first_name') {
-            //         return {
-            //             ...input,
-            //             defaultValue: first_name,
-            //         }
-            //     }
-            //     return input
-            // })
-
-            // setFormInputs(updatedInputs)
+            console.log({phone})
+            reset({
+                first_name,
+                last_name,
+                dob,
+                email_address: email,
+                phoneNumber: phone
+            })
 
             setSelectedGender(fetched_data.gender)
         }
     }, [admin_response])
+
+    useEffect(() => {
+        console.log({ inputDefaultValues })
+    }, [inputDefaultValues])
 
     const {
         mutate,
