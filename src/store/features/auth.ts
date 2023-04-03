@@ -26,6 +26,7 @@ type StateValue = typeof initialState[StateKey]
         },
 
         isAuthenticated: (state, _) => {
+            console.log('calling the isAuthenticated')
             const tokenData = localStorage.getItem('token')
             if (tokenData) {
                 const { token, expirationDate } = JSON.parse(tokenData)
