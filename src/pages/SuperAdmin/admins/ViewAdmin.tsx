@@ -6,6 +6,7 @@ import Input from '../../../components/UI/Input'
 import { Select } from '../../../components/SuperAdmin/UI/Select'
 import { useParams } from 'react-router'
 import { getToken } from '../../../utils/token'
+import { toast, ToastContainer } from 'react-toastify'
 
 const ViewAdmin = () => {
     interface Inputs {
@@ -128,7 +129,12 @@ const ViewAdmin = () => {
 
     useEffect(() => {
         if (response_data?.status === 200) {
-            openDialog()
+
+             toast('Admin Updated successfully', {
+                 type: 'success',
+                 className: 'bg-green-100 text-green-600 text-[1.4rem]',
+             })
+
         } else {
             setResponseMessage({
                 className: 'text-red-600',
@@ -191,6 +197,7 @@ const ViewAdmin = () => {
 
     return (
         <>
+        <ToastContainer/>
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
