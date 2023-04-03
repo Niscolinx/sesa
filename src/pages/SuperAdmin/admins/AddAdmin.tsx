@@ -3,9 +3,9 @@ import { useForm } from 'react-hook-form'
 import { IoMdAdd } from 'react-icons/io'
 import { useMutation } from 'react-query'
 import { AxiosRequest } from '../../../utils/axios'
-import { isAuthenticated } from '../../../utils/token'
 import Input from '../../../components/UI/Input'
 import { Select } from '../../../components/SuperAdmin/UI/Select'
+import { useAppDispatch } from '../../../store/app/hooks'
 
 const AddAdmin = () => {
     interface Inputs {
@@ -17,6 +17,8 @@ const AddAdmin = () => {
         phoneNumber: number
         photoUrl?: string
     }
+
+    const dispatch = useAppDispatch()
 
     const [photoPreview, setPhotoPreview] = useState('')
     const [imageUrl, setImageUrl] = useState<File | null>(null)
@@ -46,7 +48,7 @@ const AddAdmin = () => {
         useState<ResponseMessage | null>(null)
 
     const postAdmin = (data: Inputs) => {
-        const token = isAuthenticated() || ''
+        const token = dispatch(isAuthenticated)
 
         return AxiosRequest({
             token,

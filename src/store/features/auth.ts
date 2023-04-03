@@ -32,20 +32,21 @@ export const authSlice = createSlice({
                     console.log('expired token')
                     localStorage.removeItem('token')
 
-                    return state.isAuth = false
+                    state.isAuth = false
+                    return false
                 }
 
-               return state.token = token
-                
+                state.token = token
+                return true
             }
 
             state.isAuth = false
+            return false
         },
     },
 })
 
-export const {isAuthenticated, storeToken} = authSlice.actions
-
+export const { isAuthenticated, storeToken } = authSlice.actions
 
 export const selectAuth = (state: AppState) => state.auth
 

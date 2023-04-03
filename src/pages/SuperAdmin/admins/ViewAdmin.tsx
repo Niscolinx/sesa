@@ -51,8 +51,8 @@ const ViewAdmin = () => {
     }
 
     const getAdmin = (id: string) => {
-        const token = dispatch(isAuthenticated)
-        const  = selectAuth
+         dispatch(isAuthenticated)
+        
         return AxiosRequest({
             token,
             url: `/admin/get`,
