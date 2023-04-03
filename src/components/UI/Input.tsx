@@ -1,11 +1,10 @@
-import { FC, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 import { FieldValues, UseFormRegister } from 'react-hook-form'
 
 interface Input {
     label: string
     name?: string
     type?: string
-    value?: string
     defaultValue?: string
     register: any
     formErrors: any
@@ -17,12 +16,10 @@ const Input: FC<Input> = ({
     name,
     type = 'text',
     register,
-    value,
     defaultValue,
     formErrors,
     options,
 }) => {
-    // const [inputType, setInputType] = useState(type)
 
     const validationOptions = {
         required: true,
@@ -35,7 +32,7 @@ const Input: FC<Input> = ({
     }
 
  
-console.log({defaultValue, type, label})
+
   
 
     return (
@@ -43,11 +40,11 @@ console.log({defaultValue, type, label})
             <label htmlFor={label} className='font-semibold capitalize'>
                 {name ?? label.replace('_', ' ')}
             </label>
+           
             <input
                 id={label}
                 type={type}
-                value={value}
-                defaultValue={defaultValue || undefined}
+                defaultValue={defaultValue}
                 {...register(label, validationOptions)}
                 className={`border border-color-grey p-4 rounded-lg w-full ${
                     formErrors[label] && 'border-red-500 '

@@ -283,7 +283,7 @@ const ViewAdmin = () => {
                     <>
                         {console.log({ formInputs }, 'Render')}
                         {formInputs.map((input, idx) => {
-                            const { label, type, name, defaultValue, value } = input
+                            const { label, type, name, defaultValue } = input
 
                             console.log({ defaultValue })
                             return idx === 3 && label === 'select' ? (
@@ -301,13 +301,12 @@ const ViewAdmin = () => {
                                     key={idx + label}
                                     label={label}
                                     register={register}
-                                    value={value}
                                     defaultValue={defaultValue}
                                     formErrors={formErrors}
                                     type={type || 'text'}
                                     name={name || undefined}
                                 />
-                                <input type="text" defaultValue={defaultValue} className='border' />
+                                <input type={type} defaultValue={defaultValue} className='border' />
                                 </>
                             )
                         })}
