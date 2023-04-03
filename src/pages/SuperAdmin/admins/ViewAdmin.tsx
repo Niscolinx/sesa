@@ -37,8 +37,6 @@ const ViewAdmin = () => {
     const [responseMessage, setResponseMessage] =
         useState<ResponseMessage | null>(null)
 
-    const id = params.Id?.replace(':', '')
-
     const postAdmin = (data: Inputs) => {
         const token = isAuthenticated() || ''
 
@@ -50,17 +48,20 @@ const ViewAdmin = () => {
         })
     }
 
-    const getAdmin = () => {
+    const getAdmin = ({queryKey}) => {
         const token = isAuthenticated() || ''
-
+        const id = queryKey[1]
+        
         return AxiosRequest({
             token,
-            url: '/admin/create',
+            url: `/admin/create/${id}`,
             method: 'get',
         })
     }
 
-    const {} = useQuery
+    const admin_id = params.Id?.replace(':', '')
+
+    const {} = useQuery(['get-admin', admin_id], getAdmin)
 
     const {
         mutate,
