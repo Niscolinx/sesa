@@ -61,6 +61,31 @@ const ViewAdmin = () => {
         isLoading: admin_loading,
     } = useMutation(getAdmin) as any
 
+     const formInputs = [
+         {
+             label: 'first_name',
+         },
+         {
+             label: 'last_name',
+         },
+         {
+             label: 'dob',
+             type: 'date',
+             name: 'date of birth',
+         },
+         {
+             label: 'select',
+         },
+         {
+             label: 'phone_number',
+             type: 'number',
+         },
+         {
+             label: 'email_address',
+             type: 'email',
+         },
+     ] satisfies FormInputs[]
+
     useEffect(() => {
         mutate_admin(admin_id)
     }, [])
@@ -128,30 +153,10 @@ const ViewAdmin = () => {
         defaultValue?: string
     }
 
-    const formInputs = [
-        {
-            label: 'first_name',
-        },
-        {
-            label: 'last_name',
-        },
-        {
-            label: 'dob',
-            type: 'date',
-            name: 'date of birth',
-        },
-        {
-            label: 'select',
-        },
-        {
-            label: 'phone_number',
-            type: 'number',
-        },
-        {
-            label: 'email_address',
-            type: 'email',
-        },
-    ] satisfies FormInputs[]
+   
+
+
+
 
     const handlePicture = (e: React.ChangeEvent) => {
         const target = e.target as HTMLInputElement
@@ -271,6 +276,7 @@ const ViewAdmin = () => {
                                     key={idx + label}
                                     label={label}
                                     register={register}
+                                    defaultValue={defaultValue}
                                     formErrors={formErrors}
                                     type={type || 'text'}
                                     name={name || undefined}
