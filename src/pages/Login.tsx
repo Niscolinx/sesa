@@ -62,6 +62,7 @@ const Login = () => {
             if (token) {
                 dispatch(storeToken(token))
                 dispatch(setAuth(true))
+                
             }
             navigate('/superAdmin')
         } else {
