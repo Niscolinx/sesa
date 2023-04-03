@@ -2,10 +2,10 @@ import React, { useEffect, useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useMutation, useQuery } from 'react-query'
 import { AxiosRequest } from '../../../utils/axios'
-import { isAuthenticated } from '../../../utils/token'
 import Input from '../../../components/UI/Input'
 import { Select } from '../../../components/SuperAdmin/UI/Select'
 import { useParams } from 'react-router'
+import { useAppDispatch } from '../../../store/app/hooks'
 
 const ViewAdmin = () => {
     interface Inputs {
@@ -24,6 +24,7 @@ const ViewAdmin = () => {
     }
 
     const params = useParams()
+    const dispatch = useAppDispatch()
 
     const [photoPreview, setPhotoPreview] = useState('')
     const [imageUrl, setImageUrl] = useState<File | null>(null)
