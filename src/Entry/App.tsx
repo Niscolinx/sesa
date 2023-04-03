@@ -21,8 +21,11 @@ import securityCompanyRoutes from './routes/securityCompanyRoutes'
 import { Route } from 'use-react-router-breadcrumbs'
 import estateManagerRoutes from './routes/estateManagerRoutes'
 import { useEffect } from 'react'
+import { useAppSelector } from '../store/app/hooks'
+import { selectAuth } from '../store/features/auth'
 
 const App = () => {
+    const {isAuth} = useAppSelector(selectAuth)
 
     // const isAuth = tokenData && [
     //     superAdminRoutes,
@@ -32,9 +35,11 @@ const App = () => {
 
     //console.log({tokenData})
 
-    useEffect(() => {
-        console.log('authenticated status', localStorage.getItem('token'))
-    }, [localStorage.getItem('token')])
+    // useEffect(() => {
+    //     console.log('authenticated status', localStorage.getItem('token'))
+    // }, [isAuth])
+
+    console.log({isAuth})
 
     const router = createBrowserRouter(
         createRoutesFromElements([
