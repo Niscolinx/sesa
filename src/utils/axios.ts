@@ -16,20 +16,18 @@ instance.interceptors.request.use(
         // Do something before request is sent
         const token = getToken()
         if (token) {
-            instance.defaults.headers.common.Authorization = `Bearer ${token}`
+            config.headers.Authorization = `Bearer ${token}`
         }
-        console.group(token)
-        console.group({config})
-        
+
         return config
     },
     function (error) {
         // Do something with request error
+        console.log({error})
         return Promise.reject(error)
     }
 )
 export const AxiosRequest = ({ ...options }: Partial<RequestOptions>) => {
-
     const onSuccess = (response: AxiosResponse) => response
     const onError = (error: AxiosError) => error
 
