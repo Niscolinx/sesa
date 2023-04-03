@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router'
 import { toast, ToastContainer } from 'react-toastify'
 import { setAdminPath } from '../../../store/features/routeChange'
 import { useAppDispatch } from '../../../store/app/hooks'
+import { Select } from '../../../components/SuperAdmin/UI/Select'
 
 interface IAdmin {
     id: string
@@ -93,22 +94,12 @@ function RenderedAdmins() {
     const navigate = useNavigate()
     const dispatch = useAppDispatch()
 
-    const [fetchedUsers, setFetchedUsers] = useState<IAdmin[] | null>([])
-
-    useEffect(() => {
-        const fetchData = async () => {
-            setTimeout(() => {
-                setFetchedUsers(ADMINDATA)
-            }, 200)
-        }
-        fetchData()
-    }, [])
+    const [fetchedAdmins, setFetchedAdmins] = useState<IAdmin[]>([])
+    const [sortBy, setSortBy] = useState<string | null>(null)
 
     const handlePathSwitch = () => {
         dispatch(setAdminPath('addAdmin'))
     }
-
-    const [fetchedAdmins, setFetchedAdmins] = useState<IAdmin[]>([])
 
     useEffect(() => {
         setTimeout(() => {
@@ -142,7 +133,6 @@ function RenderedAdmins() {
         })
     }
 
-
     interface Paginate {
         index: number
         currentPage: number
@@ -162,10 +152,6 @@ function RenderedAdmins() {
         totalPage: Math.ceil(fetchedAdmins.length / perPage),
         slicedPages: null,
     })
-
-    // const handleSelectedSort = (item: SortBy) => {
-    //     setToggleSortMenu(false)
-    // }
 
     const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
         const item = parseInt(e.target.value)
@@ -331,12 +317,14 @@ function RenderedAdmins() {
                                     className='pl-16 w-[25rem] rounded-lg border border-color-blue-light appearance-none outline-none p-4'
                                 />
                             </div>
-                            <Select
-                                label='Gender'
-                                state={['Male', 'Female']}
-                                selectedState={selectedGender}
-                                setSelectedState={setSelectedGender}
-                            />
+                            <div className='w-[10rem] grid self-baseline '>
+                                <Select
+                                    state={['A-Z', 'Date']}
+                                    selectedState={sortBy}
+                                    placeholder={'A-Z'}
+                                    setSelectedState={setSortBy}
+                                />
+                            </div>
                             <button
                                 className='btn admins__btn ml-auto'
                                 onClick={handlePathSwitch}
