@@ -282,7 +282,7 @@ const ViewAdmin = () => {
                         <input
                             type='date'
                             className='border'
-                            defaultValue='2014/02/09'
+                            defaultValue='2014-02-09'
                         />
 
                         <button
