@@ -280,31 +280,6 @@ function RenderedAdmins() {
         })
     }
 
-    ;<caption className='renderedAdmins__caption'>
-        <p className='caption__title'>
-            Admin List <span>(200)</span>
-        </p>
-        <div className='caption__searchBox'>
-            <img src='/icons/admins/search.svg' alt='' />
-            <input type='text' placeholder='Search Parameters' />
-        </div>
-        <div className='caption__select'>
-            <select>
-                <option hidden value=''>
-                    Sort By
-                </option>
-                <option value='date'>date</option>
-                <option value='alpha'>Alpha</option>
-            </select>
-            <GrDown />
-        </div>
-        <button className='btn admins__btn' onClick={handlePathSwitch}>
-            <span>
-                <IoMdAdd />
-            </span>{' '}
-            <p>Add Admin</p>
-        </button>
-    </caption>
     return (
         <>
             <ToastContainer />
