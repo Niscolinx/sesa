@@ -98,7 +98,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
     }
 
     return (
-        <div className={`relative grid self-baseline ${label && 'gap-4'}`}>
+        <div className={`relative grid self-baseline capitalize ${label && 'gap-4'}`}>
             <p className='text-[1.4rem] font-semibold'>{label}</p>
             <div className='relative flex items-center'>
                 {color ? (

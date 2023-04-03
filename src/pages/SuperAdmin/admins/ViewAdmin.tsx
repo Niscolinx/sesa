@@ -98,6 +98,8 @@ const ViewAdmin = () => {
             const fetched_data = admin_response.data.data.user
 
             console.log({fetched_data})
+
+            setSelectedGender(fetched_data.gender)
         }
     }, [admin_response])
 
