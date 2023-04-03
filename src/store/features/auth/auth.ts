@@ -20,5 +20,19 @@ export const authSlice = createSlice({
                 JSON.stringify({ token, expirationDate })
             )
         },
+
+        isAuthenticated: (state, action) => {
+            const tokenData = localStorage.getItem('token')
+            if (tokenData) {
+                const { token, expirationDate } = JSON.parse(tokenData)
+                if (expirationDate && new Date().getTime() > expirationDate) {
+                    console.log('expired token')
+                    localStorage.removeItem('token')
+                    return null
+                }
+                return token
+            }
+            return null
+        },
     },
 })
