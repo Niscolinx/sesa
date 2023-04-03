@@ -17,9 +17,9 @@ interface IAdmin {
         id: string
         name: string
         gender: string
-        phoneNumber: string
+        phone: string
         status: string
-        onboardingDate: string
+        created_at: string
         imgUrl?: string
     }
 }
@@ -309,11 +309,11 @@ function RenderedAdmins() {
                                             (
                                                 {
                                                     user: {
-                                                        phoneNumber,
+                                                        phone,
                                                         id,
                                                         gender,
                                                         name,
-                                                        onboardingDate,
+                                                        created_at,
                                                         status,
                                                         imgUrl,
                                                     },
@@ -349,8 +349,8 @@ function RenderedAdmins() {
                                                             </div>
                                                         </div>
                                                         <p>{gender}</p>
-                                                        <p>{phoneNumber}</p>
-                                                        <p>{onboardingDate}</p>
+                                                        <p>{phone}</p>
+                                                        <p>{created_at}</p>
 
                                                         <p>
                                                             {status ===
