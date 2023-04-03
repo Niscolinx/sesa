@@ -98,13 +98,13 @@ const ViewAdmin = () => {
 
     // const {
     //     mutate: mutate_admin,
-    //     data: admin_response,
+    //     data: get_admin_response,
     //     isLoading: admin_loading,
     // } = useMutation(getAdmin) as any
 
     const {
         mutate: update_admin,
-        data: admin_response,
+        data: get_admin_response,
         isLoading: get_admin_loading,
     } = useMutation(getAdmin) as any
 
@@ -113,9 +113,9 @@ const ViewAdmin = () => {
     }, [])
 
     useEffect(() => {
-        if (admin_response?.status === 200) {
-            const { dob } = admin_response.data.data
-            const fetched_data = admin_response.data.data.user
+        if (get_admin_response?.status === 200) {
+            const { dob } = get_admin_response.data.data
+            const fetched_data = get_admin_response.data.data.user
 
             const { name, email, phone, image } = fetched_data
             const first_name = name.split(' ')[0]
@@ -132,16 +132,16 @@ const ViewAdmin = () => {
             setPhotoPreview(image)
             setSelectedGender(fetched_data.gender)
         }
-    }, [admin_response])
+    }, [get_admin_response])
 
     const {
         mutate,
-        data: response_data,
-        isLoading,
+        data: post_admin_response_data,
+        isLoading: post_admin_loading
     } = useMutation(postUpdateAdmin) as any
 
     useEffect(() => {
-        if (response_data?.status === 200) {
+        if (post_admin_response_data?.status === 200) {
 
              toast('Admin Updated successfully', {
                  type: 'success',
@@ -151,16 +151,15 @@ const ViewAdmin = () => {
         } else {
             setResponseMessage({
                 className: 'text-red-600',
-                displayMessage: response_data?.response?.data.message,
+                displayMessage: post_admin_response_data?.response?.data.message,
             })
         }
-    }, [response_data])
+    }, [post_admin_response_data])
 
     const onSubmit = handleSubmit((data) => {
         const {
             first_name,
             last_name,
-        
             dob,
             email_address,
             phone_number,
@@ -335,7 +334,7 @@ const ViewAdmin = () => {
                                     className='w-[1.7rem] h-[1.7rem]'
                                 />
                             </span>{' '}
-                            {isLoading ? 'Loading...' : 'Save Changes'}
+                            {post_admin_loading ? 'Loading...' : 'Save Changes'}
                         </button>
                     </>
                 </form>
