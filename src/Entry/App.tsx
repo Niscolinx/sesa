@@ -33,14 +33,6 @@ const App = () => {
         estateManagerRoutes,
     ]
 
-    //console.log({tokenData})
-
-    useEffect(() => {
-        console.log('authenticated status', localStorage.getItem('token'))
-    }, [isAuth])
-
-    console.log({ isAuth })
-
     const router = createBrowserRouter(
         createRoutesFromElements([
             <Route path='/' element={<Login />} />,
