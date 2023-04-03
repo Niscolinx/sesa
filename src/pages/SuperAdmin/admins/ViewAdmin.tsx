@@ -290,7 +290,6 @@ const ViewAdmin = () => {
                     }}
                 >
                     <>
-                        {console.log({ formInputs }, 'Render')}
                         {formInputs.map((input, idx) => {
                             const { label, type, name } = input
 
