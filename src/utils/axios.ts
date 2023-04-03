@@ -18,6 +18,8 @@ instance.interceptors.request.use(
         if (token) {
             instance.defaults.headers.common.Authorization = `Bearer ${token}`
         }
+        console.group(token)
+        console.group({config})
         
         return config
     },
