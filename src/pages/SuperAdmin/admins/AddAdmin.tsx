@@ -5,8 +5,7 @@ import { useMutation } from 'react-query'
 import { AxiosRequest } from '../../../utils/axios'
 import Input from '../../../components/UI/Input'
 import { Select } from '../../../components/SuperAdmin/UI/Select'
-import { useAppSelector } from '../../../store/app/hooks'
-import { selectAuth } from '../../../store/features/auth'
+import { getToken } from '../../../utils/token'
 
 const AddAdmin = () => {
     interface Inputs {
@@ -18,8 +17,6 @@ const AddAdmin = () => {
         phoneNumber: number
         photoUrl?: string
     }
-
-    const { token } = useAppSelector(selectAuth)
 
     const [photoPreview, setPhotoPreview] = useState('')
     const [imageUrl, setImageUrl] = useState<File | null>(null)
@@ -49,6 +46,7 @@ const AddAdmin = () => {
         useState<ResponseMessage | null>(null)
 
     const postAdmin = (data: Inputs) => {
+        const token = getToken() || ''
         return AxiosRequest({
             token,
             url: '/admin/create',
