@@ -104,21 +104,25 @@ function RenderedAdmins() {
     }
 
     const fetchAdmins = () => {
-        AxiosRequest({
-            url: 'admin/get/all?perPage=2'
+        return AxiosRequest({
+            url: '/admin/get/all',
         })
     }
 
-    const {isLoading} = useQuery(
-        'admins',
-        fetchAdmins
-    )
+    const {
+        isLoading: get_admins_loading,
+        data: get_admins_response_data,
+        isFetching: get_admins_fetching,
+    } = useQuery('admins', fetchAdmins) as any
 
     useEffect(() => {
-        setTimeout(() => {
-            setFetchedAdmins(ADMINDATA)
-        }, 100)
-    }, [])
+        if (get_admins_response_data?.status === 200) {
+            setFetchedAdmins(get_admins_response_data.data.data)
+            console.log(get_admins_response_data.data.data)
+        }
+    }, [get_admins_response_data])
+
+   
 
     const actions = ['view details', 'deactivate'] satisfies Actions[]
 
@@ -158,7 +162,7 @@ function RenderedAdmins() {
         currentPage: 1,
         itemsPerPage: perPage,
 
-        totalPage: Math.ceil(fetchedAdmins.length / perPage),
+        totalPage: Math.ceil(fetchedAdmins?.length / perPage),
         slicedPages: null,
     })
 
@@ -166,7 +170,7 @@ function RenderedAdmins() {
         const item = parseInt(e.target.value)
 
         const slicedPages: IAdmin[][] = []
-        for (let i = 0; i < fetchedAdmins.length; i += item) {
+        for (let i = 0; i < fetchedAdmins?.length; i += item) {
             slicedPages.push(fetchedAdmins.slice(i, i + item))
         }
 
@@ -177,15 +181,15 @@ function RenderedAdmins() {
                 index: 0,
                 currentPage: 1,
                 slicedPages,
-                totalPage: Math.ceil(fetchedAdmins.length / item),
+                totalPage: Math.ceil(fetchedAdmins?.length / item),
             }
         })
     }
 
     useEffect(() => {
         const slicedPages: IAdmin[][] = []
-        for (let i = 0; i < fetchedAdmins.length; i += paginate.itemsPerPage) {
-            slicedPages.push(fetchedAdmins.slice(i, i + paginate.itemsPerPage))
+        for (let i = 0; i < fetchedAdmins?.length; i += paginate.itemsPerPage) {
+            slicedPages.push(fetchedAdmins?.slice(i, i + paginate.itemsPerPage))
         }
 
         setPaginate((prev) => {
@@ -268,6 +272,10 @@ function RenderedAdmins() {
             type: 'success',
             className: 'bg-green-100 text-green-600 text-[1.4rem]',
         })
+    }
+
+    if (get_admins_loading) {
+        return <p>Loading...</p>
     }
 
     return (
@@ -363,7 +371,7 @@ function RenderedAdmins() {
                             </div>
 
                             <div className='grid gap-8 mt-8 p-8'>
-                                {slicedPages && slicedPages.length > 0 ? (
+                                {slicedPages && slicedPages?.length > 0 ? (
                                     React.Children.toArray(
                                         slicedPages[paginate.index].map(
                                             (
