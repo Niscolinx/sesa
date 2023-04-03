@@ -1,4 +1,4 @@
-export const isAuthenticated = () => {
+export const isAuthenticated = (): string | null => {
     const tokenData = localStorage.getItem('token')
     if (tokenData) {
         const { token, expirationDate } = JSON.parse(tokenData)
@@ -13,4 +13,10 @@ export const isAuthenticated = () => {
     }
 
     return null
+}
+
+export const getToken = () => {
+
+    const token = isAuthenticated()
+
 }
