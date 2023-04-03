@@ -266,13 +266,9 @@ function RenderedAdmins() {
             navigate(`/superAdmin/admins/edit/:${id}`)
         }
 
-        // if (item === 'Deactivate') {
-        //     openDialog('Deactivate')
-        // }
-
-        // if (item === 'Delete') {
-        //     openDialog('Delete')
-        // }
+        if (item === 'deactivate') {
+            openDialog()
+        }
     }
 
     const handleDeactivateArtisan = () => {
