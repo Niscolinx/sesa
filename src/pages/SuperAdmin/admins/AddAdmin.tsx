@@ -5,7 +5,6 @@ import { useMutation } from 'react-query'
 import { AxiosRequest } from '../../../utils/axios'
 import Input from '../../../components/UI/Input'
 import { Select } from '../../../components/SuperAdmin/UI/Select'
-import { getToken } from '../../../utils/token'
 
 const AddAdmin = () => {
     interface Inputs {
@@ -46,12 +45,10 @@ const AddAdmin = () => {
         useState<ResponseMessage | null>(null)
 
     const postAdmin = (data: Inputs) => {
-        const token = getToken() || ''
         return AxiosRequest({
-            token,
             url: '/admin/create',
             method: 'post',
-            data,
+            data
         })
     }
     const {

@@ -38,11 +38,7 @@ const ViewAdmin = () => {
         useState<ResponseMessage | null>(null)
 
     const postAdmin = (data: Inputs) => {
-         const token = getToken() || ''
-         console.log({ token })
-
         return AxiosRequest({
-            token,
             url: '/admin/create',
             method: 'post',
             data,
@@ -50,11 +46,7 @@ const ViewAdmin = () => {
     }
 
     const getAdmin = (id: string) => {
-        const token = getToken() || ''
-        console.log({token})
-        
         return AxiosRequest({
-            token,
             url: `/admin/get`,
             method: 'post',
             data: { id },
