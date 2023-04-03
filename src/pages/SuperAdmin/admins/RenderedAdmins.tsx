@@ -9,6 +9,8 @@ import { toast, ToastContainer } from 'react-toastify'
 import { setAdminPath } from '../../../store/features/routeChange'
 import { useAppDispatch } from '../../../store/app/hooks'
 import { Select } from '../../../components/SuperAdmin/UI/Select'
+import { useQuery } from 'react-query'
+import { AxiosRequest } from '../../../utils/axios'
 
 interface IAdmin {
     id: string
@@ -100,6 +102,17 @@ function RenderedAdmins() {
     const handlePathSwitch = () => {
         dispatch(setAdminPath('addAdmin'))
     }
+
+    const fetchAdmins = () => {
+        AxiosRequest({
+            url: 'admin/get/all?perPage=2'
+        })
+    }
+
+    const {isLoading} = useQuery(
+        'admins',
+        fetchAdmins
+    )
 
     useEffect(() => {
         setTimeout(() => {
