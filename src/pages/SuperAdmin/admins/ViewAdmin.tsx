@@ -145,10 +145,11 @@ const ViewAdmin = () => {
             name: `${first_name} ${last_name}`,
             gender,
             dob,
+            id: admin_id,
             email: email_address,
             address: 'no 4 odeyim street',
             phone: `+234${phone_number}`,
-            image: imageUrl?.name,
+            image: 'https://res.cloudinary.com/aladdin-digital-bank/image/upload/v1665580939/international_payments/s1brifvx0tqcwjwjnpov.jpg',
         }
 
         mutate(adminData)
