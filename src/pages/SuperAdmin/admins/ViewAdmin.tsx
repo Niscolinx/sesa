@@ -57,14 +57,15 @@ const ViewAdmin = () => {
 
         return AxiosRequest({
             token,
-            url: `/admin/create/${id}`,
-            method: 'get',
+            url: `/admin/get/${id}`,
+            method: 'post',
+            data: id
         })
     }
 
     const admin_id = params.Id?.replace(':', '')
 
-    const {} = useQuery(['get-admin', admin_id], () => getAdmin(admin_id))
+    const {mutate, data: admin_data, isLoading} = useMutation(getAdmin) as any
 
     const {
         mutate,
