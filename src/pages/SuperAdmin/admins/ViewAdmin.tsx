@@ -101,7 +101,10 @@ const ViewAdmin = () => {
             const first_name = name.split(' ')[0]
             const last_name = name.split(' ')[1]
 
-            console.log({ first_name, last_name })
+            const updatedInputs = Object.entries(([key, value]:any) => {
+
+            })
+
             // const updatedInputs = formInputs.map((input) => {
             //     if (input.label === label) {
             //         return { ...input, value }
