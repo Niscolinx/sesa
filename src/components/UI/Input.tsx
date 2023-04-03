@@ -32,14 +32,7 @@ const Input: FC<Input> = ({
         ...options,
     }
 
-    // const formType = new Map([
-    //     [
-    //         'text',
-    //         {
-    //             required: true,
-    //         },
-    //     ],
-    // ])
+ 
 
   
 

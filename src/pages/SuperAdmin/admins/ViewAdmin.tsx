@@ -51,11 +51,13 @@ const ViewAdmin = () => {
     const getAdmin = (id: string) => {
         const token = isAuthenticated() || ''
 
+        
+
         return AxiosRequest({
             token,
-            url: `/admin/get/`,
+            url: `/admin/get`,
             method: 'post',
-            data: id,
+            data: {id},
         })
     }
 
@@ -67,7 +69,11 @@ const ViewAdmin = () => {
         isLoading: admin_loading,
     } = useMutation(getAdmin) as any
 
-    mutate_admin(admin_id)
+    useEffect(() => {
+        mutate_admin(admin_id)
+    }, [])
+
+    console.log({ admin_data })
 
     const {
         mutate,
@@ -265,6 +271,7 @@ const ViewAdmin = () => {
                                 <Input
                                     key={idx + label}
                                     label={label}
+                                    
                                     register={register}
                                     formErrors={formErrors}
                                     type={type || 'text'}
