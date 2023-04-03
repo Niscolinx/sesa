@@ -57,7 +57,7 @@ const ViewAdmin = () => {
 
     const {
         mutate: mutate_admin,
-        data: admin_data,
+        data: admin_response,
         isLoading: admin_loading,
     } = useMutation(getAdmin) as any
 
@@ -91,12 +91,15 @@ const ViewAdmin = () => {
     }, [])
 
     useEffect(() => {
-        console.log({ admin_data })
-        if(admin_data?.status === 200){
-            
-            const fetched_data = admin_data.data.user
+        console.log({ admin_response })
+        if(admin_response?.status === 200){
+
+            const {dob} = admin_response.data
+            const fetched_data = admin_response.data.data.user
+
+            console.log({fetched_data})
         }
-    }, [admin_data])
+    }, [admin_response])
 
     const {
         mutate,
