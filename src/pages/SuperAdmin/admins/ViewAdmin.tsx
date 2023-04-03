@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { useMutation } from 'react-query'
+import { useMutation, useQuery } from 'react-query'
 import { AxiosRequest } from '../../../utils/axios'
 import { isAuthenticated } from '../../../utils/token'
 import Input from '../../../components/UI/Input'
@@ -49,6 +49,18 @@ const ViewAdmin = () => {
             data,
         })
     }
+
+    const getAdmin = () => {
+        const token = isAuthenticated() || ''
+
+        return AxiosRequest({
+            token,
+            url: '/admin/create',
+            method: 'get',
+        })
+    }
+
+    const {} = useQuery
 
     const {
         mutate,
