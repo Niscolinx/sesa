@@ -64,9 +64,9 @@ const ViewAdmin = () => {
     const [responseMessage, setResponseMessage] =
         useState<ResponseMessage | null>(null)
 
-    const postAdmin = (data: Inputs) => {
+    const postUpdateAdmin = (data: Inputs) => {
         return AxiosRequest({
-            url: '/admin/create',
+            url: '/admin/update',
             method: 'post',
             data,
         })
@@ -118,7 +118,7 @@ const ViewAdmin = () => {
         mutate,
         data: response_data,
         isLoading,
-    } = useMutation(postAdmin) as any
+    } = useMutation(postUpdateAdmin) as any
 
     useEffect(() => {
         if (response_data?.status === 200) {
