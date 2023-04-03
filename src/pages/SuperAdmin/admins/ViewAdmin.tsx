@@ -105,7 +105,7 @@ const ViewAdmin = () => {
             const last_name = name.split(' ')[1]
             console.log({phone})
 
-            const phone_number = 4
+            const phone_number = parseInt(phone)
             reset({
                 first_name,
                 last_name,
