@@ -37,9 +37,7 @@ const ViewAdmin = () => {
     const [responseMessage, setResponseMessage] =
         useState<ResponseMessage | null>(null)
 
-    useEffect(() => {
-        const id = params.Id?.replace(':', '')
-    }, [])
+    const id = params.Id?.replace(':', '')
 
     const handlePicture = (e: React.ChangeEvent) => {
         const target = e.target as HTMLInputElement
