@@ -28,7 +28,7 @@ const authSlice = createSlice({
 
         getToken: function (state, _) {
             isAuthenticated()
-            console.log('is called')
+        
         },
     },
 })
