@@ -30,7 +30,8 @@ export const authSlice = createSlice({
                 if (expirationDate && new Date().getTime() > expirationDate) {
                     console.log('expired token')
                     localStorage.removeItem('token')
-                    return null
+                    
+                    return state.isAuth = false
                 }
                 return token
             }
