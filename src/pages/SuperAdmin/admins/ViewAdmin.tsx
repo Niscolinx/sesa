@@ -270,7 +270,7 @@ const ViewAdmin = () => {
                             ) : (
                                 <Input
                                     key={idx + label}
-                                    label={label}  
+                                    label={label}
                                     register={register}
                                     formErrors={formErrors}
                                     type={type || 'text'}
@@ -279,7 +279,11 @@ const ViewAdmin = () => {
                             )
                         })}
 
-                        <input type="date" className='border' />
+                        <input
+                            type='date'
+                            className='border'
+                            defaultValue='2014/02/09'
+                        />
 
                         <button
                             className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg col-span-full mt-[5rem]'
