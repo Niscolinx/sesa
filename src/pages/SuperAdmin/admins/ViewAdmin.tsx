@@ -54,8 +54,6 @@ const ViewAdmin = () => {
         },
     ]
 
-   
-
     const {
         register,
         handleSubmit,
@@ -103,21 +101,18 @@ const ViewAdmin = () => {
             const { name, email, phone, image } = fetched_data
             const first_name = name.split(' ')[0]
             const last_name = name.split(' ')[1]
-            console.log({phone})
 
-            const phone_number = parseInt(phone)
             reset({
                 first_name,
                 last_name,
                 dob,
                 email_address: email,
-                phone_number
+                phone_number: parseInt(phone),
             })
 
             setSelectedGender(fetched_data.gender)
         }
     }, [admin_response])
-
 
     const {
         mutate,
