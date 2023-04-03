@@ -41,7 +41,6 @@ const Login = () => {
         }
 
         return AxiosRequest({
-            token: '',
             url: '/login',
             method: 'post',
             data: user,
