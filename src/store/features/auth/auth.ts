@@ -35,7 +35,7 @@ export const authSlice = createSlice({
                 }
                 return token
             }
-            return null
+            return state.isAuth = false
         },
     },
 })
