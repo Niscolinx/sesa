@@ -49,7 +49,7 @@ type StateValue = typeof initialState[StateKey]
     },
 })
 
-export const {  storeToken } = authSlice.actions
+export const {  storeToken, getToken} = authSlice.actions
 
 export const selectAuth = (state: AppState) => state.auth
 

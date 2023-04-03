@@ -6,7 +6,7 @@ import Input from '../../../components/UI/Input'
 import { Select } from '../../../components/SuperAdmin/UI/Select'
 import { useParams } from 'react-router'
 import { useAppDispatch } from '../../../store/app/hooks'
-import { isAuthenticated, selectAuth } from '../../../store/features/auth'
+import {  getToken, selectAuth } from '../../../store/features/auth'
 
 const ViewAdmin = () => {
     interface Inputs {
@@ -40,10 +40,9 @@ const ViewAdmin = () => {
         useState<ResponseMessage | null>(null)
 
     const postAdmin = (data: Inputs) => {
-        const token = dispatch(isAuthenticated)
+        //const token = dispatch(isAuthenticated)
 
         return AxiosRequest({
-            token,
             url: '/admin/create',
             method: 'post',
             data,
@@ -51,12 +50,11 @@ const ViewAdmin = () => {
     }
 
     const getAdmin = (id: string) => {
-        const token =  dispatch(isAuthenticated())
-
+       // const token =  dispatch(isAuthenticated())
+        const token = dispatch(getToken)
         console.log({token})
         
         return AxiosRequest({
-            token,
             url: `/admin/get`,
             method: 'post',
             data: { id },
