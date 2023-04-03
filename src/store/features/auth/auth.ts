@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
     isAuth: false,
-    token: ''
+    token: '',
 }
 
 type StateKey = keyof typeof initialState
@@ -30,13 +30,17 @@ export const authSlice = createSlice({
                 if (expirationDate && new Date().getTime() > expirationDate) {
                     console.log('expired token')
                     localStorage.removeItem('token')
-                    
+
                     return state.isAuth = false
                 }
+
+               return state.token = token
                 
-                return state.token = token
             }
-            return state.isAuth = false
+
+            state.isAuth = false
         },
     },
 })
+
+export const {isAuthenticated, storeToken} = authSlice.actions
