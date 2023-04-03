@@ -20,7 +20,6 @@ import superAdminRoutes from './routes/superAdminRoutes'
 import securityCompanyRoutes from './routes/securityCompanyRoutes'
 import { Route } from 'use-react-router-breadcrumbs'
 import estateManagerRoutes from './routes/estateManagerRoutes'
-import { useEffect } from 'react'
 import { useAppSelector } from '../store/app/hooks'
 import { selectAuth } from '../store/features/auth'
 
@@ -40,7 +39,6 @@ const App = () => {
             <Route path='*' element={<Navigate to='/' />} />,
         ])
     )
-
 
     return (
         <div className='text-[1.6rem] max-w-[180rem] mx-auto'>

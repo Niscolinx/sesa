@@ -161,6 +161,12 @@ const ViewAdmin = () => {
         setImageUrl(file)
     }
 
+    if(admin_loading){
+        return (
+            <p>loading...</p>
+        )
+    }
+
     return (
         <>
             <dialog className='dialog' ref={dialogRef}>
