@@ -44,7 +44,8 @@ type StateValue = typeof initialState[StateKey]
         },
 
         getToken: function(state, _) {
-            this.isAuthenticated
+            console.log('is called')
+            this.isAuthenticated()
         }
     },
 })
