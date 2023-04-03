@@ -48,24 +48,26 @@ const ViewAdmin = () => {
         })
     }
 
-    const getAdmin = (id?: string) => {
+    const getAdmin = (id: string) => {
         const token = isAuthenticated() || ''
-
-        if (!id) {
-            return null
-        }
 
         return AxiosRequest({
             token,
-            url: `/admin/get/${id}`,
+            url: `/admin/get/`,
             method: 'post',
-            data: id
+            data: id,
         })
     }
 
     const admin_id = params.Id?.replace(':', '')
 
-    const {mutate, data: admin_data, isLoading} = useMutation(getAdmin) as any
+    const {
+        mutate: mutate_admin,
+        data: admin_data,
+        isLoading: admin_loading,
+    } = useMutation(getAdmin) as any
+
+    mutate_admin(admin_id)
 
     const {
         mutate,
