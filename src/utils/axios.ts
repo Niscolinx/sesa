@@ -13,7 +13,6 @@ interface RequestOptions {
 
 instance.interceptors.request.use(
     function (config) {
-        // Do something before request is sent
         const token = getToken()
         if (token) {
             config.headers.Authorization = `Bearer ${token}`
@@ -22,7 +21,6 @@ instance.interceptors.request.use(
         return config
     },
     function (error) {
-        // Do something with request error
         console.log({error})
         return Promise.reject(error)
     }
