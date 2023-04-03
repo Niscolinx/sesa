@@ -51,7 +51,9 @@ const ViewAdmin = () => {
     }
 
     const getAdmin = (id: string) => {
-         dispatch(isAuthenticated)
+        const token =  dispatch(isAuthenticated)
+
+        console.log({token})
         
         return AxiosRequest({
             token,
