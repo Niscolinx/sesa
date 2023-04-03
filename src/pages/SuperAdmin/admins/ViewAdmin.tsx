@@ -14,7 +14,7 @@ const ViewAdmin = () => {
         last_name: string
         dob: string
         gender: string
-        phoneNumber: number
+        phoneNumber: number | null
         photoUrl?: string
     }
 
@@ -28,13 +28,8 @@ const ViewAdmin = () => {
     const [photoPreview, setPhotoPreview] = useState('')
     const [imageUrl, setImageUrl] = useState<File | null>(null)
     const [selectedGender, setSelectedGender] = useState<string | null>(null)
-    const {
-        register,
-        handleSubmit,
-        formState: { errors: formErrors, defaultValues },
-    } = useForm<Inputs>()
 
-    const [formInputs, setFormInputs] = useState<FormInputs[]>([
+    const formInputs = [
         {
             label: 'first_name',
         },
@@ -57,7 +52,25 @@ const ViewAdmin = () => {
             label: 'email_address',
             type: 'email',
         },
-    ])
+    ]
+
+    const inputDefaultValues: Inputs = {
+        email_address: 'hello',
+        first_name: 'dsfsdfdsfdfdfsdfs',
+        last_name: '',
+        dob: '',
+        gender: '',
+        phoneNumber: null,
+        photoUrl: '',
+    }
+
+    const {
+        register,
+        handleSubmit,
+        formState: { errors: formErrors },
+    } = useForm<Inputs>({
+        defaultValues: inputDefaultValues,
+    })
 
     const [responseMessage, setResponseMessage] =
         useState<ResponseMessage | null>(null)
@@ -100,19 +113,20 @@ const ViewAdmin = () => {
             const first_name = name.split(' ')[0]
             const last_name = name.split(' ')[1]
 
-            const updatedInputs = formInputs.map((input) => {
-                if (input.label === 'dob') {
-                    return { ...input, defaultValue: dob }
-                }
-                if(input.label === 'first_name'){
-                    return {
-                        ...input, defaultValue: first_name
-                    }
-                }
-                return input
-            })
+            // const updatedInputs = formInputs.map((input) => {
+            //     if (input.label === 'dob') {
+            //         return { ...input, defaultValue: dob }
+            //     }
+            //     if (input.label === 'first_name') {
+            //         return {
+            //             ...input,
+            //             defaultValue: first_name,
+            //         }
+            //     }
+            //     return input
+            // })
 
-            setFormInputs(updatedInputs)
+            // setFormInputs(updatedInputs)
 
             setSelectedGender(fetched_data.gender)
         }
@@ -282,9 +296,8 @@ const ViewAdmin = () => {
                     <>
                         {console.log({ formInputs }, 'Render')}
                         {formInputs.map((input, idx) => {
-                            const { label, type, name, defaultValue } = input
+                            const { label, type, name } = input
 
-                            console.log({ defaultValue })
                             return idx === 3 && label === 'select' ? (
                                 <Select
                                     key={idx + label}
@@ -294,22 +307,16 @@ const ViewAdmin = () => {
                                     setSelectedState={setSelectedGender}
                                 />
                             ) : (
-                                <>
-
                                 <Input
                                     key={idx + label}
                                     label={label}
                                     register={register}
-                                    defaultValue={defaultValue}
                                     formErrors={formErrors}
                                     type={type || 'text'}
                                     name={name || undefined}
                                 />
-                                <input type={type} defaultValue={defaultValue} className='border' />
-                                </>
                             )
                         })}
-
 
                         <button
                             className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg col-span-full mt-[5rem]'
