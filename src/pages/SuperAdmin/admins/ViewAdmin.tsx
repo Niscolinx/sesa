@@ -75,7 +75,7 @@ const ViewAdmin = () => {
         return AxiosRequest({
             url: '/change/user/status',
             method: 'post',
-            data: {id}
+            data: { id },
         })
     }
     const postUpdateAdmin = (data: Inputs) => {
@@ -96,20 +96,20 @@ const ViewAdmin = () => {
 
     const admin_id = params.Id?.replace(':', '')
 
-    // const {
-    //     mutate: mutate_admin,
-    //     data: get_admin_response,
-    //     isLoading: admin_loading,
-    // } = useMutation(getAdmin) as any
+    const {
+        mutate: deactivate_admin_mutation,
+        data: post_deactivate_admin_response,
+        isLoading: deactivate_admin_loading,
+    } = useMutation(getAdmin) as any
 
     const {
-        mutate: update_admin,
+        mutate: update_admin_mutation,
         data: get_admin_response,
         isLoading: get_admin_loading,
     } = useMutation(getAdmin) as any
 
     useEffect(() => {
-        update_admin(admin_id)
+        update_admin_mutation(admin_id)
     }, [])
 
     useEffect(() => {
@@ -135,35 +135,28 @@ const ViewAdmin = () => {
     }, [get_admin_response])
 
     const {
-        mutate,
+        mutate: post_admin_mutation,
         data: post_admin_response_data,
-        isLoading: post_admin_loading
+        isLoading: post_admin_loading,
     } = useMutation(postUpdateAdmin) as any
 
     useEffect(() => {
         if (post_admin_response_data?.status === 200) {
-
-             toast('Admin Updated successfully', {
-                 type: 'success',
-                 className: 'bg-green-100 text-green-600 text-[1.4rem]',
-             })
-
+            toast('Admin Updated successfully', {
+                type: 'success',
+                className: 'bg-green-100 text-green-600 text-[1.4rem]',
+            })
         } else {
             setResponseMessage({
                 className: 'text-red-600',
-                displayMessage: post_admin_response_data?.response?.data.message,
+                displayMessage:
+                    post_admin_response_data?.response?.data.message,
             })
         }
     }, [post_admin_response_data])
 
     const onSubmit = handleSubmit((data) => {
-        const {
-            first_name,
-            last_name,
-            dob,
-            email_address,
-            phone_number,
-        } = data
+        const { first_name, last_name, dob, email_address, phone_number } = data
 
         const adminData = {
             name: `${first_name} ${last_name}`,
@@ -175,8 +168,8 @@ const ViewAdmin = () => {
             phone: `+234${phone_number}`,
             image: 'https://res.cloudinary.com/aladdin-digital-bank/image/upload/v1665580939/international_payments/s1brifvx0tqcwjwjnpov.jpg',
         }
-        
-        mutate(adminData)
+
+        post_admin_mutation(adminData)
     })
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
@@ -193,10 +186,7 @@ const ViewAdmin = () => {
         }
     }
 
-    const deactivateHandler = () => {
-
-    }
-    
+    const deactivateHandler = () => {}
 
     const handlePicture = (e: React.ChangeEvent) => {
         const target = e.target as HTMLInputElement
@@ -213,7 +203,7 @@ const ViewAdmin = () => {
 
     return (
         <>
-        <ToastContainer/>
+            <ToastContainer />
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
