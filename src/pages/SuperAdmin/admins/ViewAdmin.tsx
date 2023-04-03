@@ -98,6 +98,11 @@ const ViewAdmin = () => {
             const fetched_data = admin_response.data.data.user
 
             console.log({fetched_data})
+            const {name} = fetched_data
+            const first_name = name.split(' ')[0]
+            const last_name = name.split(' ')[1]
+
+            console.log({first_name, last_name})
             
 
             setSelectedGender(fetched_data.gender)
@@ -268,7 +273,7 @@ const ViewAdmin = () => {
                     <>
                         {formInputs.map((input, idx) => {
                             const { label, type, name, defaultValue } = input
-                            return idx === 3 ? (
+                            return idx === 3 && label === 'select' ? (
                                 <Select
                                     key={idx + label}
                                     label='Gender'
