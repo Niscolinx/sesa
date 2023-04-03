@@ -22,6 +22,12 @@ const ViewAdmin = () => {
         className: string
         displayMessage: string
     }
+    type FormInputs = {
+        label: string
+        type?: string
+        name?: string
+        defaultValue?: string
+    }
 
     const params = useParams()
 
@@ -52,7 +58,7 @@ const ViewAdmin = () => {
             label: 'email_address',
             type: 'email',
         },
-    ]
+    ] satisfies FormInputs[]
 
     const {
         register,
@@ -146,7 +152,7 @@ const ViewAdmin = () => {
             gender: selectedGender,
             dob,
             id: admin_id,
-            email: email_address,
+            email: 'hello@gmail.com',
             address: 'no 4 odeyim street',
             phone: `+234${phone_number}`,
             image: 'https://res.cloudinary.com/aladdin-digital-bank/image/upload/v1665580939/international_payments/s1brifvx0tqcwjwjnpov.jpg',
@@ -169,12 +175,7 @@ const ViewAdmin = () => {
             dialogRef.current.showModal()
         }
     }
-    type FormInputs = {
-        label: string
-        type?: string
-        name?: string
-        defaultValue?: string
-    }
+    
 
     const handlePicture = (e: React.ChangeEvent) => {
         const target = e.target as HTMLInputElement
@@ -295,7 +296,7 @@ const ViewAdmin = () => {
                                     register={register}
                                     formErrors={formErrors}
                                     type={type || 'text'}
-                                    name={name || undefined}
+                                    name={name}
                                 />
                             )
                         })}
