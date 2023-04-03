@@ -1,17 +1,16 @@
 import { AppState } from '../../app/store';
 import { createSlice } from '@reduxjs/toolkit';
 
-export interface IUser {
-  firstName: string;
-  lastName: string;
-  email: string;
-}
 
-const initialState: IUser = {
+
+const initialState = {
   firstName: '',
   lastName: '',
   email: '',
-};
+} as const
+
+type StateKey = keyof typeof initialState
+type StateValue = (typeof initialState)[StateKey]
 
 export const userSlice = createSlice({
   name: 'userState',
@@ -27,7 +26,7 @@ export const userSlice = createSlice({
       values.forEach((item) => {
         const [key, value] = item;
 
-        state[key as keyof IUser] = value as string;
+        state[key as ] = value as string;
       });
     },
     clearUser(state, action) {

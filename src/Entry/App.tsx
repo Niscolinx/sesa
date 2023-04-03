@@ -23,7 +23,7 @@ import estateManagerRoutes from './routes/estateManagerRoutes'
 import { useEffect } from 'react'
 
 const App = () => {
-    //const tokenData = localStorage.getItem('token')
+    const tokenData = localStorage.getItem('token')
 
     // const isAuth = tokenData && [
     //     superAdminRoutes,
@@ -32,6 +32,10 @@ const App = () => {
     // ]
 
     //console.log({tokenData})
+
+    useEffect(() => {
+        console.log('authenticated status', localStorage.getItem('token'))
+    }, [localStorage.getItem('token')])
 
     const router = createBrowserRouter(
         createRoutesFromElements([
