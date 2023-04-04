@@ -1,9 +1,5 @@
 import axios, { AxiosError, AxiosResponse } from 'axios'
-import { clearAuth, getToken } from './token'
-
-
-
-
+import {  getToken } from './token'
 
 const instance = axios.create({ baseURL: 'https://sesadigital.com/api' })
 
@@ -15,24 +11,21 @@ interface RequestOptions {
     headers: any
 }
 
-instance.interceptors.request.use(
-    function (config) {
-        const token = getToken()
-        if (token) {
-            config.headers.Authorization = `Bearer ${token}`
-        }
+instance.interceptors.request.use(function (config) {
+    const token = getToken()
 
-        return config
-    },
-    function (error) {
-        console.log('is error from axios rejection', error)
-        clearAuth()
-        return Promise.reject(error)
+    console.log({ token })
+    if (token) {
+        config.headers.Authorization = `Bearer ${token}`
     }
-)
+
+    return config
+})
 export const AxiosRequest = ({ ...options }: Partial<RequestOptions>) => {
     const onSuccess = (response: AxiosResponse) => response
-    const onError = (error: AxiosError) =>  Promise.reject(error)
+    const onError = (error: AxiosError) => {
+        return Promise.reject(error)
+    }
 
     return instance(options).then(onSuccess).catch(onError)
 }
