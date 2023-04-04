@@ -41,9 +41,14 @@ import AddProperty from '../../pages/SuperAdmin/platformSettings/settings/AddPro
 import Estates from '../../pages/SuperAdmin/estates/Estates'
 import EstateReport from '../../pages/SuperAdmin/estates/EstateReport'
 import ViewAdmin from '../../pages/SuperAdmin/admins/ViewAdmin'
+import ErrorBoundary from '../../components/UI/ErrorBoundary'
 
 const superAdminRoutes = (
-    <Route path='/superAdmin' element={<SuperAdminDashboard />}>
+    <Route
+        path='/superAdmin'
+        element={<SuperAdminDashboard />}
+        errorElement={<ErrorBoundary />}
+    >
         <Route index element={<Overview />} />
         <Route path='admins' element={<Admins />} />
         <Route path='admins/add' element={<AddAdmin />} />

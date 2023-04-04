@@ -51,18 +51,18 @@ function Admins() {
 
     const {
         isLoading: get_admins_loading,
-        data: get_admins_response_data,
+        data: get_admins_response,
         isError: get_admins_isError,
         error: get_admins_error,
         // isFetching: get_admins_fetching,
     } = useQuery('admins', fetchAdmins) as any
 
     useEffect(() => {
-        if (get_admins_response_data?.status === 200) {
-            setFetchedAdmins(get_admins_response_data.data.data)
-            console.log(get_admins_response_data.data.data)
+        if (get_admins_response?.status === 200) {
+            setFetchedAdmins(get_admins_response.data)
+            console.log(get_admins_response.data, 'fetchedData')
         }
-    }, [get_admins_response_data])
+    }, [get_admins_response])
 
     const actions = ['view details', 'deactivate'] satisfies Actions[]
 
@@ -111,7 +111,7 @@ function Admins() {
 
         const slicedPages: IAdmin[][] = []
         for (let i = 0; i < fetchedAdmins?.length; i += item) {
-            slicedPages.push(fetchedAdmins.slice(i, i + item))
+            slicedPages.push(fetchedAdmins?.slice(i, i + item))
         }
 
         setPaginate((prev) => {
@@ -217,7 +217,7 @@ function Admins() {
         get_admins_loading,
         get_admins_isError,
         get_admins_error,
-        get_admins_response_data,
+        get_admins_response,
     })
 
     if (get_admins_loading) {
@@ -229,8 +229,10 @@ function Admins() {
     }
 
     const adminsLoaded =
-        get_admins_response_data.status === 200 &&
-        get_admins_response_data.data.length > 0
+        get_admins_response.status === 200 &&
+        get_admins_response.data.length > 0
+
+    console.log({ adminsLoaded, slicedPages })
 
     return (
         <div>
@@ -332,7 +334,7 @@ function Admins() {
 
                                         <div className='grid gap-8 mt-8 p-8'>
                                             {slicedPages &&
-                                            slicedPages?.length > 0 ? (
+                                                slicedPages?.length > 0 &&
                                                 React.Children.toArray(
                                                     slicedPages[
                                                         paginate.index
@@ -500,16 +502,7 @@ function Admins() {
                                                             )
                                                         }
                                                     )
-                                                )
-                                            ) : (
-                                                <div>
-                                                    <div className='relative'>
-                                                        <div className='absolute w-full grid place-content-center'>
-                                                            <CgSpinnerTwo className='animate-spin text-[#0660FE] text-4xl' />
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            )}
+                                                )}
                                         </div>
                                     </div>
                                     <footer className='flex items-center p-4 mt-4 bg-color-white rounded-lg'>
