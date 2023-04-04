@@ -8,22 +8,23 @@ export interface SelectProps {
     setSelectedState: React.Dispatch<React.SetStateAction<string | null>>
 }
 interface Input {
-    label: string
-    name?: string
-    type?: string
+    name: string
+    type: string
     register: any
     formErrors: any
-    options?: any
-    isSelect?: boolean
-    select?: SelectProps
+    options: any
+    fullWidth: boolean
+    isSelect: boolean
+    select: SelectProps
 }
 
-const Input: FC<Input> = ({
+const Input: FC<Partial<Input> & {label: string}> = ({
     label,
     name,
     type = 'text',
     register,
     isSelect,
+    fullWidth,
     select,
     formErrors,
     options,

@@ -160,9 +160,18 @@ const AddEstate = () => {
             label: 'estate_manager',
             type: 'select',
             selectProps: {
-                state: estateLocationState,
-                selectedState,
-                setSelectedState,
+                state: estateManager,
+                selectedState: selectedEstateManager,
+                setSelectedState: setSelectedEstateManager
+            },
+        },
+        {
+            label: 'security_company',
+            type: 'select',
+            selectProps: {
+                state: securityCompany,
+                selectedState: selectedSecurityCompany,
+                setSelectedState: setSelectedSecurityCompany
             },
         },
     ] satisfies Partial<FormInputs>[]
@@ -189,6 +198,7 @@ const AddEstate = () => {
                                 label={label}
                                 register={register}
                                 formErrors={formErrors}
+                                fullWidth={label === 'address'}
                                 type={type || 'text'}
                                 name={name || undefined}
                                 isSelect={type === 'select'}
