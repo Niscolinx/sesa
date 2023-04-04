@@ -242,7 +242,7 @@ const AddEstate = () => {
                         }}
                     >
                         {second_section_inputs.map((input, idx) => {
-                            const { label, type, name, selectProps } = input
+                            const { label, type, name } = input
 
                             return (
                                 <Input
@@ -252,8 +252,6 @@ const AddEstate = () => {
                                     formErrors={formErrors}
                                     type={type || 'text'}
                                     name={name}
-                                    isSelect={type === 'select'}
-                                    select={selectProps}
                                 />
                             )
                         })}

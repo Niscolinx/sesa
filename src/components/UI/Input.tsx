@@ -43,7 +43,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
         <div className={`w-full grid gap-4 self-baseline ${fullWidth && 'col-span-full'}`}>
             {isSelect && select ? (
                 <Select
-                    label={name ?? label.replace('_', ' ')}
+                    label={name ?? label.replaceAll('_', ' ')}
                     state={select.state}
                     selectedState={select.selectedState}
                     setSelectedState={select.setSelectedState}
@@ -54,7 +54,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                         htmlFor={label}
                         className='text-[1.4rem] font-semibold capitalize'
                     >
-                        {name ?? label.replace('_', ' ')}
+                        {name ?? label.replaceAll('_', ' ')}
                     </label>
 
                     <input
