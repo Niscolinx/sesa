@@ -72,16 +72,18 @@ const ViewAdmin = () => {
 
     const [responseMessage, setResponseMessage] =
         useState<ResponseMessage | null>(null)
-    
+
     const postDeactivateAdmin = (id: string) => {
         return AxiosRequest({
+            dispatch,
             url: '/change/user/status',
             method: 'post',
-            data: { user_id: id},
+            data: { user_id: id },
         })
     }
     const postUpdateAdmin = (data: Inputs) => {
         return AxiosRequest({
+            dispatch,
             url: '/admin/update',
             method: 'post',
             data,
@@ -90,6 +92,7 @@ const ViewAdmin = () => {
 
     const getAdmin = (id: string) => {
         return AxiosRequest({
+            dispatch,
             url: `/admin/get`,
             method: 'post',
             data: { id },
@@ -115,7 +118,6 @@ const ViewAdmin = () => {
         data: post_admin_response_data,
         isLoading: post_admin_loading,
     } = useMutation(postUpdateAdmin) as any
-
 
     useEffect(() => {
         get_admin_mutation(admin_id)
@@ -143,7 +145,6 @@ const ViewAdmin = () => {
         }
     }, [get_admin_response])
 
-    
     useEffect(() => {
         if (post_admin_response_data?.status === 200) {
             toast('Admin Updated successfully', {
@@ -206,8 +207,6 @@ const ViewAdmin = () => {
         }
     }
 
-    
-
     const handlePicture = (e: React.ChangeEvent) => {
         const target = e.target as HTMLInputElement
         const file: File = (target.files as FileList)[0]
@@ -246,9 +245,13 @@ const ViewAdmin = () => {
                             </button>
                             <button
                                 className='bg-red-500 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem] capitalize'
-                                onClick={() => deactivate_admin_mutation(admin_id)}
+                                onClick={() =>
+                                    deactivate_admin_mutation(admin_id)
+                                }
                             >
-                                {deactivate_admin_loading ? 'Loading...': 'deactivate'}
+                                {deactivate_admin_loading
+                                    ? 'Loading...'
+                                    : 'deactivate'}
                             </button>
                         </div>
                     </div>

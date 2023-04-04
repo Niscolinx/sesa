@@ -1,7 +1,6 @@
 import React from 'react'
 import { ChangeEvent, useEffect, useRef, useState } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
-import { GrDown } from 'react-icons/gr'
 import { IoMdAdd } from 'react-icons/io'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { useNavigate } from 'react-router'

@@ -1,4 +1,5 @@
 import axios, { AxiosError, AxiosResponse } from 'axios'
+import { AppDispatch } from '../store/app/store'
 import { setAuth } from '../store/features/auth'
 import { getToken } from './token'
 
@@ -25,7 +26,7 @@ instance.interceptors.request.use(function (config) {
 export const AxiosRequest = ({
     dispatch,
     ...options
-}: Partial<RequestOptions> & { dispatch: any }) => {
+}: Partial<RequestOptions> & { dispatch: AppDispatch }) => {
     const onSuccess = (response: AxiosResponse) => response
     const onError = (error: AxiosError) => {
         dispatch(setAuth(false))
