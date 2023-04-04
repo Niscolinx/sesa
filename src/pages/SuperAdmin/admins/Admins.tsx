@@ -10,7 +10,6 @@ import { useAppDispatch } from '../../../store/app/hooks'
 import { Select } from '../../../components/SuperAdmin/UI/Select'
 import { useQuery } from 'react-query'
 import { AxiosRequest } from '../../../utils/axios'
-import useAxios from '../../../components/hooks/useAxios'
 
 interface IAdmin {
     user: {
