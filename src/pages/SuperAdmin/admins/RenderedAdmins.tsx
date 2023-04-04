@@ -36,7 +36,7 @@ function RenderedAdmins() {
         dispatch(setAdminPath('addAdmin'))
     }
 
-    const fetchAdmins = async () => {
+    const fetchAdmins =  () => {
         return AxiosRequest({
             dispatch,
             url: '/admin/get/all',
