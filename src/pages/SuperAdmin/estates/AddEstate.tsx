@@ -1,5 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from 'react'
-import { GrDown } from 'react-icons/gr'
+import React, { useEffect, useRef, useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
 import Input, { SelectProps } from '../../../components/UI/Input'
 import { useForm } from 'react-hook-form'
@@ -252,6 +251,28 @@ const AddEstate = () => {
                                 />
                             )
                         })}
+                        <div className='grid items-center justify-between gap-4'>
+                            <p className='font-Satoshi-Medium text-[1.4rem]'>
+                                Sign Out Required
+                                
+                            </p>
+                            <div
+                                onClick={toggleIskyg}
+                                className='cursor-pointer'
+                            >
+                                {iskyg ? (
+                                    <img
+                                        src='/icons/admins/switchOn.svg'
+                                        alt=''
+                                    />
+                                ) : (
+                                    <img
+                                        src='/icons/admins/switchOff.svg'
+                                        alt=''
+                                    />
+                                )}
+                            </div>
+                        </div>
                     </section>
                 </div>
                 <section className='addEstate__box'>
