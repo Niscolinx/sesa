@@ -40,7 +40,7 @@ function RenderedAdmins() {
 
     const fetchAdmins = async () => {
         return AxiosRequest({
-            url: '/883',
+            url: '/admin/get/all',
         })
 
         

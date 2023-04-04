@@ -1,6 +1,10 @@
 import axios, { AxiosError, AxiosResponse } from 'axios'
 import { getToken } from './token'
 
+
+
+
+
 const instance = axios.create({ baseURL: 'https://sesadigital.com/api' })
 
 interface RequestOptions {
@@ -21,6 +25,7 @@ instance.interceptors.request.use(
         return config
     },
     function (error) {
+        
         return Promise.reject(error)
     }
 )
