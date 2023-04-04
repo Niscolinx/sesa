@@ -1,11 +1,9 @@
 import React from 'react'
 
-
 import { TbCurrencyNaira } from 'react-icons/tb'
 import { Link } from 'react-router-dom'
 import OverviewChart from '../../components/SuperAdmin/charts/OverviewChart'
 import { OverviewWallet } from '../../components/SuperAdmin/overview/OverviewWallets'
-
 
 export const overviewChart_data = [
     { name: 'Resident Wallet', value: 10, color: '#098DFF' },
@@ -23,7 +21,7 @@ const Wallet = () => {
                         <p className='text-[1.6rem] font-semibold'>
                             Total Balance (Pool Wallet)
                         </p>
-                        <h1 className='text-[3rem] font-bold flex items-center gap-0'>
+                        <h1 className='text-[3rem] font-Satoshi-Medium flex items-center gap-0'>
                             <TbCurrencyNaira className='text-[3rem]' />
                             800,836,709.74
                         </h1>
@@ -32,7 +30,7 @@ const Wallet = () => {
                         <OverviewChart />
 
                         <div className='overviewChart__label'>
-                            <p className='text-[3.4rem] font-bold relative'>
+                            <p className='text-[3.4rem] font-Satoshi-Medium relative'>
                                 45
                                 <span>%</span>
                             </p>
