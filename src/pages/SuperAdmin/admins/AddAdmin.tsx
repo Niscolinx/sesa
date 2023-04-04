@@ -5,6 +5,7 @@ import { useMutation } from 'react-query'
 import { AxiosRequest } from '../../../utils/axios'
 import Input from '../../../components/UI/Input'
 import { Select } from '../../../components/SuperAdmin/UI/Select'
+import { useAppDispatch } from '../../../store/app/hooks'
 
 const AddAdmin = () => {
     interface Inputs {
@@ -16,6 +17,8 @@ const AddAdmin = () => {
         phoneNumber: number
         photoUrl?: string
     }
+
+    const dispatch = useAppDispatch()
 
     const [photoPreview, setPhotoPreview] = useState('')
     const [imageUrl, setImageUrl] = useState<File | null>(null)
@@ -46,6 +49,7 @@ const AddAdmin = () => {
 
     const postAdmin = (data: Inputs) => {
         return AxiosRequest({
+            dispatch,
             url: '/admin/create',
             method: 'post',
             data

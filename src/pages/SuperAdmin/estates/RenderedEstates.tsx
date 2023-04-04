@@ -99,11 +99,11 @@ function RenderedEstates() {
     const [fetchedEstates, setFetchedEstates] = useState<Estate[]>(ESTATEDATA)
     const [sortBy, setSortBy] = useState<string | null>(null)
 
-    const handleAddAdmin = () => {
-        navigate('/superAdmin/admins/add')
+    const handleAddEstate = () => {
+        navigate('/superAdmin/estates/add')
     }
 
-    const fetchAdmins = () => {
+    const fetchEstates = () => {
         return AxiosRequest({
             dispatch,
             // url: '/admin/get/all',
@@ -112,19 +112,19 @@ function RenderedEstates() {
     }
 
     const {
-        isLoading: get_admins_loading,
-        data: get_admins_response,
-        isError: get_admins_isError,
-        error: get_admins_error,
-        // isFetching: get_admins_fetching,
-    } = useQuery('admins', fetchAdmins) as any
+        isLoading: get_estates_loading,
+        data: get_estates_response,
+        isError: get_estates_isError,
+        error: get_estates_error,
+        // isFetching: get_estates_fetching,
+    } = useQuery('estates', fetchEstates) as any
 
     useEffect(() => {
-        if (get_admins_response?.status === 200) {
-            // setFetchedEstates(get_admins_response.data)
-            console.log(get_admins_response.data, 'fetchedData')
+        if (get_estates_response?.status === 200) {
+            // setFetchedEstates(get_estates_response.data)
+            console.log(get_estates_response.data, 'fetchedData')
         }
-    }, [get_admins_response])
+    }, [get_estates_response])
 
     const actions = ['view details', 'deactivate'] satisfies Actions[]
 
@@ -265,7 +265,7 @@ function RenderedEstates() {
         })
 
         if (item === 'view details') {
-            navigate(`/superAdmin/admins/view/:${id}`)
+            navigate(`/superAdmin/estates/view/:${id}`)
         }
 
         if (item === 'deactivate') {
@@ -282,27 +282,24 @@ function RenderedEstates() {
         })
     }
     console.log({
-        get_admins_loading,
-        get_admins_isError,
-        get_admins_error,
-        get_admins_response,
+        get_estates_loading,
+        get_estates_isError,
+        get_estates_error,
+        get_estates_response,
     })
 
-    if (get_admins_loading) {
+    if (get_estates_loading) {
         return <p>Loading...</p>
     }
 
-    if (get_admins_isError) {
-        return <p>{get_admins_error.message}</p>
+    if (get_estates_isError) {
+        return <p>{get_estates_error.message}</p>
     }
 
-    const adminsLoaded =
-        get_admins_response.status === 200 &&
-        get_admins_response.data.length > 0
+    const estatesLoaded =
+        get_estates_response.status === 200 &&
+        get_estates_response.data.length > 0
 
-    const handlePathSwitch = () => {
-        dispatch(setEstatePath('addEstate'))
-    }
 
     return (
         <div className='renderedEstates'>
@@ -327,7 +324,7 @@ function RenderedEstates() {
                     </div>
                     <button
                         className='btn addEstate__btn'
-                        onClick={handlePathSwitch}
+                        onClick={handleAddEstate}
                     >
                         <span>
                             <IoMdAdd />
@@ -479,7 +476,7 @@ function RenderedEstates() {
                                                         >
                                                             <span className='text-color-primary'>
                                                                 <img
-                                                                    src='/icons/admins/threeDots.svg'
+                                                                    src='/icons/estates/threeDots.svg'
                                                                     alt=''
                                                                 />
                                                             </span>

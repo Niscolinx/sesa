@@ -42,6 +42,7 @@ import Estates from '../../pages/SuperAdmin/estates/Estates'
 import EstateReport from '../../pages/SuperAdmin/estates/EstateReport'
 import ViewAdmin from '../../pages/SuperAdmin/admins/ViewAdmin'
 import ErrorBoundary from '../../components/UI/ErrorBoundary'
+import AddEstate from '../../pages/SuperAdmin/estates/AddEstate'
 
 const superAdminRoutes = (
     <Route
@@ -54,8 +55,9 @@ const superAdminRoutes = (
         <Route path='admins/add' element={<AddAdmin />} />
         <Route path='admins/view/:Id' element={<ViewAdmin />} />
         <Route path='estates' element={<Estates />} />
-        <Route path='estates/detail/:Id' element={<EstateDetail />} />
-        <Route path='estates/detail/report/:Id' element={<EstateReport />} />
+        <Route path='estates/:Id' element={<EstateDetail />} />
+        <Route path='estates/add' element={<AddEstate />} />
+        <Route path='estates/report/:Id' element={<EstateReport />} />
         <Route path='security-company' element={<SecurityCompany />} />
         <Route
             path='security-company/:Id'
