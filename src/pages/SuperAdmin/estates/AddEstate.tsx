@@ -41,6 +41,9 @@ const AddEstate = () => {
 
     const [photoPreview, setPhotoPreview] = useState('')
     const [imageUrl, setImageUrl] = useState<File | null>(null)
+    const [iskyg, setIskyg] = useState(false)
+
+    const toggleIskyg = () => setIskyg(!iskyg)
 
     const handlePicture = (e: React.ChangeEvent) => {
         const target = e.target as HTMLInputElement
@@ -243,7 +246,7 @@ const AddEstate = () => {
                             />
                         </div>
                         <div className='flex items-center justify-between'>
-                            <p className='text-[2rem] font-bold flex items-center gap-2'>
+                            <p className='text-[2rem] font-Satoshi-Medium flex items-center gap-2'>
                                
                                
                             </p>

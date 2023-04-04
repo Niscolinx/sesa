@@ -52,7 +52,7 @@ const AddAdmin = () => {
             dispatch,
             url: '/admin/create',
             method: 'post',
-            data
+            data,
         })
     }
     const {
@@ -222,7 +222,7 @@ const AddAdmin = () => {
                                 />
                                 <p>
                                     Drag picture here or{' '}
-                                    <span className='text-color-blue font-bold'>
+                                    <span className='text-color-blue font-Satoshi-Medium'>
                                         click
                                     </span>{' '}
                                     to upload

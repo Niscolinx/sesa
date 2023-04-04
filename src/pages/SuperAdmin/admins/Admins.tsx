@@ -230,7 +230,6 @@ function Admins() {
         get_admins_response.status === 200 &&
         get_admins_response.data.length > 0
 
-
     return (
         <div>
             <div>
@@ -274,7 +273,7 @@ function Admins() {
                             <>
                                 <div className='grid text-[1.6rem]'>
                                     <div className='flex w-full items-center gap-12 p-10 bg-white rounded-lg'>
-                                        <p className=' font-bold'>
+                                        <p className=' font-Satoshi-Medium'>
                                             Admin List <span>(10)</span>
                                         </p>
                                         <div className='relative flex items-center'>
@@ -562,7 +561,6 @@ function Admins() {
                                                 )
                                             })}
 
-                                  
                                             <HiOutlineChevronRight
                                                 onClick={handleNext}
                                                 className='cursor-pointer'

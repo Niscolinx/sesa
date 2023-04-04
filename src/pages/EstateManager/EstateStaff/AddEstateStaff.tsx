@@ -269,7 +269,7 @@ const AddEstateStaff = () => {
                                 onSubmit={handleDialogSubmit}
                             >
                                 <h3
-                                    className='text-[2rem] font-bold border-b '
+                                    className='text-[2rem] font-Satoshi-Medium border-b '
                                     style={{
                                         fontFamily: 'Satoshi-Medium',
                                     }}
@@ -497,7 +497,7 @@ const AddEstateStaff = () => {
                                     }}
                                 >
                                     Drag picture here{' '}
-                                    <span className='text-color-blue font-bold'>
+                                    <span className='text-color-blue font-Satoshi-Medium'>
                                         click
                                     </span>{' '}
                                     to upload
@@ -527,7 +527,7 @@ const AddEstateStaff = () => {
                 <section className='grid p-8 bg-white'>
                     <div className='grid gap-8 max-w-[40rem] mt-[5rem] '>
                         <div className='flex items-center justify-between'>
-                            <p className='text-[2rem] font-bold flex items-center gap-2'>
+                            <p className='text-[2rem] font-Satoshi-Medium flex items-center gap-2'>
                                 KYG{' '}
                                 <span className='text-[#043FA7]'>
                                     <BsQuestionCircle />
