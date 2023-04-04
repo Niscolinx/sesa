@@ -96,7 +96,7 @@ function RenderedEstates() {
     const navigate = useNavigate()
     const dispatch = useAppDispatch()
 
-    const [fetchedEstates, setFetchedEstates] = useState<Estate[]>([])
+    const [fetchedEstates, setFetchedEstates] = useState<Estate[]>(ESTATEDATA)
     const [sortBy, setSortBy] = useState<string | null>(null)
 
     const handleAddAdmin = () => {
