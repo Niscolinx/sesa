@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ChangeEvent, useRef } from 'react'
 import { useEffect, useState } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
 import { GrDown } from 'react-icons/gr'
@@ -13,6 +13,11 @@ import { TbCurrencyNaira } from 'react-icons/tb'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAppDispatch } from '../../../store/app/hooks'
 import { setEstatePath } from '../../../store/features/routeChange'
+import { Actions } from '@reduxjs/toolkit'
+import { useQuery } from 'react-query'
+import { toast } from 'react-toastify'
+import { i } from 'vitest/dist/types-71ccd11d'
+import { AxiosRequest } from '../../../utils/axios'
 
 type EstateDetails = {
     estateName: string
@@ -87,11 +92,12 @@ const ESTATEDATA: Estate[] = [
 
 function RenderedEstates() {
 
+    type Actions = 'view details' | 'deactivate'
 
      const navigate = useNavigate()
      const dispatch = useAppDispatch()
 
-     const [fetchedEstates, setFetchedEstates] = useState<IAdmin[]>([])
+     const [fetchedEstates, setFetchedEstates] = useState<EstateDetails[]>([])
      const [sortBy, setSortBy] = useState<string | null>(null)
 
     
@@ -150,7 +156,7 @@ function RenderedEstates() {
          currentPage: number
          itemsPerPage: number
          totalPage: number
-         slicedPages: IAdmin[][] | null
+         slicedPages: EstateDetails[][] | null
      }
 
      const itemsPerPageArr = [2, 4, 6, 8]
@@ -168,7 +174,7 @@ function RenderedEstates() {
      const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
          const item = parseInt(e.target.value)
 
-         const slicedPages: IAdmin[][] = []
+         const slicedPages: EstateDetails[][] = []
          for (let i = 0; i < fetchedEstates?.length; i += item) {
              slicedPages.push(fetchedEstates?.slice(i, i + item))
          }
@@ -186,7 +192,7 @@ function RenderedEstates() {
      }
 
      useEffect(() => {
-         const slicedPages: IAdmin[][] = []
+         const slicedPages: EstateDetails[][] = []
          for (
              let i = 0;
              i < fetchedEstates?.length;
@@ -336,10 +342,12 @@ function RenderedEstates() {
                 </caption>
                 <div className=''>
                     <tbody className='renderedEstates__table--body'>
-                        {fetchedUsers && fetchedUsers.length > 0 ? (
-                            React.Children.toArray(
-                                fetchedUsers.map(
-                                    ({
+                        {slicedPages &&
+                                                slicedPages?.length > 0 &&
+                                                React.Children.toArray(
+                                                    slicedPages[
+                                                        paginate.index
+                                                    ].map(({
                                         img,
                                         id,
                                         details: {
