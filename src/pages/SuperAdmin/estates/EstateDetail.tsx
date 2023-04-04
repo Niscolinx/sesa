@@ -25,7 +25,6 @@ interface EstateManager {
 
 type Actions = 'view details' | 'deactivate'
 
-
 const ESTATEMANAGERDATA: EstateManager[] = Array.from({ length: 10 }).map(
     (_, i) => {
         return {
@@ -43,32 +42,28 @@ const ESTATEMANAGERDATA: EstateManager[] = Array.from({ length: 10 }).map(
 )
 
 function EstateDetail() {
-    const [fetchedUsers, setFetchedUsers] = useState<EstateManager[] | null>([])
+    //BEFORE
+    // const [fetchedUsers, setFetchedUsers] = useState<EstateManager[] | null>([])
 
-    useEffect(() => {
-        const fetchData = async () => {
-            setTimeout(() => {
-                setFetchedUsers(ESTATEMANAGERDATA)
-            }, 200)
-        }
-        fetchData()
-    }, [])
+    // useEffect(() => {
+    //     const fetchData = async () => {
+    //         setTimeout(() => {
+    //             setFetchedUsers(ESTATEMANAGERDATA)
+    //         }, 200)
+    //     }
+    //     fetchData()
+    // }, [])
+
+    //AFTER
 
     const navigate = useNavigate()
     const dispatch = useAppDispatch()
 
-    const [fetchedAdmins, setFetchedAdmins] = useState<IAdmin[]>([])
-    const [sortBy, setSortBy] = useState<string | null>(null)
+    const [fetchedEstateDetails, setFetchedEstateDetails] = useState<
+        EstateManager[]
+    >([])
 
-    const handlePathSwitch = () => {
-        dispatch(setAdminPath('addAdmin'))
-    }
-
-    const handleAddAdmin = () => {
-        navigate('/superAdmin/admins/add')
-    }
-
-    const fetchAdmins = () => {
+    const fetchEstateDetails = () => {
         return AxiosRequest({
             dispatch,
             // url: '/admin/get/all',
@@ -77,19 +72,19 @@ function EstateDetail() {
     }
 
     const {
-        isLoading: get_admins_loading,
-        data: get_admins_response,
-        isError: get_admins_isError,
-        error: get_admins_error,
-        // isFetching: get_admins_fetching,
-    } = useQuery('admins', fetchAdmins) as any
+        isLoading: get_estateDetails_loading,
+        data: get_estateDetails_response,
+        isError: get_estateDetails_isError,
+        error: get_estateDetails_error,
+        // isFetching: get_estateDetails_fetching,
+    } = useQuery('estateDetails', fetchEstateDetails) as any
 
     useEffect(() => {
-        if (get_admins_response?.status === 200) {
-            // setFetchedAdmins(get_admins_response.data)
-            console.log(get_admins_response.data, 'fetchedData')
+        if (get_estateDetails_response?.status === 200) {
+            // setFetchedEstateDetails(get_estateDetails_response.data)
+            console.log(get_estateDetails_response.data, 'fetchedData')
         }
-    }, [get_admins_response])
+    }, [get_estateDetails_response])
 
     const actions = ['view details', 'deactivate'] satisfies Actions[]
 
@@ -118,7 +113,7 @@ function EstateDetail() {
         currentPage: number
         itemsPerPage: number
         totalPage: number
-        slicedPages: IAdmin[][] | null
+        slicedPages: EstateManager[][] | null
     }
 
     const itemsPerPageArr = [2, 4, 6, 8]
@@ -129,16 +124,16 @@ function EstateDetail() {
         currentPage: 1,
         itemsPerPage: perPage,
 
-        totalPage: Math.ceil(fetchedAdmins?.length / perPage),
+        totalPage: Math.ceil(fetchedEstateDetails?.length / perPage),
         slicedPages: null,
     })
 
     const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
         const item = parseInt(e.target.value)
 
-        const slicedPages: IAdmin[][] = []
-        for (let i = 0; i < fetchedAdmins?.length; i += item) {
-            slicedPages.push(fetchedAdmins?.slice(i, i + item))
+        const slicedPages: EstateManager[][] = []
+        for (let i = 0; i < fetchedEstateDetails?.length; i += item) {
+            slicedPages.push(fetchedEstateDetails?.slice(i, i + item))
         }
 
         setPaginate((prev) => {
@@ -148,15 +143,21 @@ function EstateDetail() {
                 index: 0,
                 currentPage: 1,
                 slicedPages,
-                totalPage: Math.ceil(fetchedAdmins?.length / item),
+                totalPage: Math.ceil(fetchedEstateDetails?.length / item),
             }
         })
     }
 
     useEffect(() => {
-        const slicedPages: IAdmin[][] = []
-        for (let i = 0; i < fetchedAdmins?.length; i += paginate.itemsPerPage) {
-            slicedPages.push(fetchedAdmins?.slice(i, i + paginate.itemsPerPage))
+        const slicedPages: EstateManager[][] = []
+        for (
+            let i = 0;
+            i < fetchedEstateDetails?.length;
+            i += paginate.itemsPerPage
+        ) {
+            slicedPages.push(
+                fetchedEstateDetails?.slice(i, i + paginate.itemsPerPage)
+            )
         }
 
         setPaginate((prev) => {
@@ -165,7 +166,7 @@ function EstateDetail() {
                 slicedPages,
             }
         })
-    }, [fetchedAdmins])
+    }, [fetchedEstateDetails])
 
     const handleNext = () => {
         if (paginate.currentPage === paginate.totalPage) return
@@ -224,7 +225,7 @@ function EstateDetail() {
         })
 
         if (item === 'view details') {
-            navigate(`/superAdmin/admins/view/:${id}`)
+            navigate(`/superAdmin/estateDetails/view/:${id}`)
         }
 
         if (item === 'deactivate') {
@@ -241,23 +242,23 @@ function EstateDetail() {
         })
     }
     console.log({
-        get_admins_loading,
-        get_admins_isError,
-        get_admins_error,
-        get_admins_response,
+        get_estateDetails_loading,
+        get_estateDetails_isError,
+        get_estateDetails_error,
+        get_estateDetails_response,
     })
 
-    if (get_admins_loading) {
+    if (get_estateDetails_loading) {
         return <p>Loading...</p>
     }
 
-    if (get_admins_isError) {
-        return <p>{get_admins_error.message}</p>
+    if (get_estateDetails_isError) {
+        return <p>{get_estateDetails_error.message}</p>
     }
 
-    const adminsLoaded =
-        get_admins_response.status === 200 &&
-        get_admins_response.data.length > 0
+    const estateDetailsLoaded =
+        get_estateDetails_response.status === 200 &&
+        get_estateDetails_response.data.length > 0
 
     return (
         <div className='estateDetail'>
@@ -310,7 +311,7 @@ function EstateDetail() {
                             </p>
                             <div className='relative flex items-center'>
                                 <img
-                                    src='/icons/admins/search.svg'
+                                    src='/icons/estateDetails/search.svg'
                                     alt=''
                                     className='absolute left-4 text-[4rem]'
                                 />
@@ -353,9 +354,10 @@ function EstateDetail() {
                             </div>
 
                             <div className='grid gap-8 mt-8 p-8'>
-                                {fetchedUsers && fetchedUsers.length > 0 ? (
+                                {slicedPages &&
+                                    slicedPages?.length > 0 &&
                                     React.Children.toArray(
-                                        fetchedUsers.map(
+                                        slicedPages[paginate.index].map(
                                             ({
                                                 propertyCategory,
                                                 propertyCode,
@@ -388,47 +390,62 @@ function EstateDetail() {
                                                 )
                                             }
                                         )
-                                    )
-                                ) : (
-                                    <div>
-                                        <div className='relative'>
-                                            <div className='absolute w-full grid place-content-center'>
-                                                <CgSpinnerTwo className='animate-spin text-[#0660FE] text-4xl' />
-                                            </div>
-                                        </div>
-                                    </div>
-                                )}
+                                    )}
                             </div>
                         </div>
                         <footer className='flex items-center p-4 mt-4 bg-color-white rounded-lg'>
                             <div className='flex gap-8 items-center'>
                                 <p>View</p>
-                                <div className='flex items-center border px-4 rounded-lg'>
-                                    <input
-                                        type='text'
-                                        className='w-8 outline-none border-none cursor-pointer '
-                                        value={6}
-                                        inputMode='numeric'
-                                    />
-                                    <GrDown className='text-[1.3rem]' />
-                                </div>
+                                <select
+                                    name=''
+                                    id=''
+                                    className='flex items-center border px-4 rounded-lg outline-none cursor-pointer'
+                                    onChange={handleItemsPerPage}
+                                >
+                                    {itemsPerPageArr.map((item, index) => (
+                                        <option
+                                            value={item}
+                                            key={index}
+                                            selected={item === itemsPerPage}
+                                            className='capitalize cursor-pointer bg-white'
+                                        >
+                                            {item}
+                                        </option>
+                                    ))}
+                                </select>
                                 <p className='text'>List per page</p>
                             </div>
                             <ul className='flex items-center gap-5 ml-10'>
-                                <HiOutlineChevronLeft />
-                                <li className='grid place-content-center border w-[3rem] h-[3rem] cursor-pointer'>
-                                    1
-                                </li>
-                                <li className='grid place-content-center border w-[3rem] h-[3rem] cursor-pointer'>
-                                    2
-                                </li>
-                                <li className='grid place-content-center border w-[3rem] h-[3rem] cursor-pointer'>
-                                    3
-                                </li>
-                                <li className='grid place-content-center border w-[3rem] h-[3rem] cursor-pointer'>
-                                    4
-                                </li>
-                                <HiOutlineChevronRight />
+                                <HiOutlineChevronLeft
+                                    onClick={handlePrev}
+                                    className='cursor-pointer'
+                                />
+
+                                {slicedPages?.map((item, index) => {
+                                    return (
+                                        <li key={index}>
+                                            {index + 1 === currentPage ? (
+                                                <span className='bg-color-primary text-white grid place-content-center w-[3rem] h-[3rem] cursor-pointer'>
+                                                    {index + 1}
+                                                </span>
+                                            ) : (
+                                                <span
+                                                    className='text-color-primary bg-white grid place-content-center border w-[3rem] h-[3rem] cursor-pointer'
+                                                    onClick={(e) =>
+                                                        jumpToPage(e, index)
+                                                    }
+                                                >
+                                                    {index + 1}
+                                                </span>
+                                            )}
+                                        </li>
+                                    )
+                                })}
+
+                                <HiOutlineChevronRight
+                                    onClick={handleNext}
+                                    className='cursor-pointer'
+                                />
                             </ul>
                         </footer>
                     </div>
