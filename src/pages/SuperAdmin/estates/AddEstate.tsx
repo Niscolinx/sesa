@@ -233,7 +233,7 @@ const AddEstate = () => {
                                     register={register}
                                     formErrors={formErrors}
                                     fullWidth={label === 'address'}
-                                    type={type || 'text'}
+                                    type={type}
                                     name={name}
                                     isSelect={type === 'select'}
                                     select={selectProps}
@@ -262,7 +262,7 @@ const AddEstate = () => {
                                     label={label}
                                     register={register}
                                     formErrors={formErrors}
-                                    type={type || 'text'}
+                                    type={type}
                                     name={name}
                                 />
                             )
@@ -314,21 +314,20 @@ const AddEstate = () => {
                                     label={label}
                                     register={register}
                                     formErrors={formErrors}
-                                    type={type || 'text'}
-                                    name={name}
+                                    type={type}
                                 />
                             )
                         })}
                     </section>
                 </div>
                 <button
-                    className='btn addEstate__btn'
-                    style={{ justifySelf: 'start' }}
+                    className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
+                   // onClick={addArtisanHandler}
                 >
                     <span>
                         <IoMdAdd />
                     </span>{' '}
-                    Add AddEstate
+                    Add Estate
                 </button>
             </form>
         </div>
