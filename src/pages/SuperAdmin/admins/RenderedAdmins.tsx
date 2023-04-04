@@ -52,9 +52,7 @@ function RenderedAdmins() {
         isError: get_admins_isError,
         error: get_admins_error,
         // isFetching: get_admins_fetching,
-    } = useQuery('admins', fetchAdmins, {
-        refetchInterval: 0
-    }) as any
+    } = useQuery('admins', fetchAdmins) as any
 
     useEffect(() => {
         if (get_admins_response_data?.status === 200) {

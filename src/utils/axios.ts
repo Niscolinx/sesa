@@ -1,5 +1,5 @@
 import axios, { AxiosError, AxiosResponse } from 'axios'
-import { getToken } from './token'
+import { clearAuth, getToken } from './token'
 
 
 
@@ -25,7 +25,8 @@ instance.interceptors.request.use(
         return config
     },
     function (error) {
-        
+        console.log('is error from axios rejection', error)
+        clearAuth()
         return Promise.reject(error)
     }
 )
