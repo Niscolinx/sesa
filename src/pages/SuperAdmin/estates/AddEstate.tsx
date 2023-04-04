@@ -18,7 +18,9 @@ const AddEstate = () => {
         sesa_fee: number
         number_of_resident_user: number
         additional_resident_user: number
-
+        bank_name: string
+        account_name: string
+        account_number: number
     }
 
     const dispatch = useAppDispatch()
@@ -205,7 +207,6 @@ const AddEstate = () => {
             label: 'account_number',
             type: 'number',
         },
-       
     ] satisfies FormInputs[]
 
     return (
@@ -293,25 +294,33 @@ const AddEstate = () => {
                         />
                     </section>
                 </div>
-                <section className='addEstate__box'>
-                    <p className='addEstate__heading'>Estate Account Details</p>
-                    <div className='addEstate__form'>
-                        <div className='addEstate__form--item'>
-                            <label htmlFor='bankName'>Bank Name *</label>
-                            <input type='text' required id='bankName' />
-                        </div>
-                        <div className='addEstate__form--item'>
-                            <label htmlFor='accountName'>Account Name *</label>
-                            <input type='text' required id='accountName' />
-                        </div>
-                        <div className='addEstate__form--item'>
-                            <label htmlFor='accountNumber'>
-                                Account Number *
-                            </label>
-                            <input type='number' id='accountNumber' required />
-                        </div>
-                    </div>
-                </section>
+                <div className='border-t grid gap-10 pt-16'>
+                    <p className='text-[2rem] font-Satoshi-Medium'>
+                        Estate Account Details
+                    </p>
+                    <section
+                        className='grid max-w-[84rem] gap-16  '
+                        style={{
+                            gridTemplateColumns:
+                                ' repeat(auto-fit, minmax(35rem, 1fr))',
+                        }}
+                    >
+                        {second_section_inputs.map((input, idx) => {
+                            const { label, type, name } = input
+
+                            return (
+                                <Input
+                                    key={idx + label}
+                                    label={label}
+                                    register={register}
+                                    formErrors={formErrors}
+                                    type={type || 'text'}
+                                    name={name}
+                                />
+                            )
+                        })}
+                    </section>
+                </div>
                 <button
                     className='btn addEstate__btn'
                     style={{ justifySelf: 'start' }}
