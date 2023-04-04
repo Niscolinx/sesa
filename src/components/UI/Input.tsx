@@ -18,7 +18,7 @@ interface Input {
     select: SelectProps
 }
 
-const Input: FC<Partial<Input> & {label: string}> = ({
+const Input: FC<Partial<Input> & { label: string }> = ({
     label,
     name,
     type = 'text',
@@ -40,7 +40,7 @@ const Input: FC<Partial<Input> & {label: string}> = ({
     }
 
     return (
-        <div className='w-full grid gap-4 self-baseline'>
+        <div className={`w-full grid gap-4 self-baseline ${fullWidth && 'col-span-full'}`}>
             {isSelect && select ? (
                 <Select
                     label={name ?? label.replace('_', ' ')}

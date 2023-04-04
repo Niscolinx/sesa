@@ -138,7 +138,7 @@ const AddEstate = () => {
         selectProps: SelectProps
     }
 
-    const formInputs = [
+    const first_section_inputs = [
         {
             label: 'estate_name',
         },
@@ -189,7 +189,7 @@ const AddEstate = () => {
                             ' repeat(auto-fit, minmax(35rem, 1fr))',
                     }}
                 >
-                    {formInputs.map((input, idx) => {
+                    {first_section_inputs.map((input, idx) => {
                         const { label, type, name, selectProps } = input
 
                         return (
@@ -206,55 +206,8 @@ const AddEstate = () => {
                             />
                         )
                     })}
-                    <div className='addEstate__form'>
-                        <div className='addEstate__form--item'>
-                            <label htmlFor='firstName'>Estate Name *</label>
-                            <input type='text' required id='firstName' />
-                        </div>
-                        <div className='addEstate__form--item'>
-                            <label htmlFor='lastName'>State *</label>
-                            <div className='item__select'>
-                                <select id='state'>
-                                    <option hidden>&nbsp;</option>
-                                    <option value='lagos'>Lagos</option>
-                                    <option value='FCT'>FCT</option>
-                                </select>
-                                <GrDown />
-                            </div>
-                        </div>
-                        <div className='addEstate__form--item col-span-full'>
-                            <label htmlFor='address'>Address *</label>
-                            <input type='text' id='address' required />
-                        </div>
-                        <div className='addEstate__form--item'>
-                            <label htmlFor='estateManager'>
-                                Estate Manager *
-                            </label>
-                            <div className='item__select'>
-                                <select id='estateManager'>
-                                    <option hidden>&nbsp;</option>
-                                    <option value='manager'>Manager1</option>
-                                    <option value='manager2'>Manager2</option>
-                                </select>
-                                <GrDown />
-                            </div>
-                        </div>
-
-                        <div className='addEstate__form--item'>
-                            <label htmlFor='securityCompaany'>
-                                Security Company *
-                            </label>
-                            <div className='item__select'>
-                                <select id='securityCompaany'>
-                                    <option hidden>&nbsp;</option>
-                                    <option value='company'>Company1</option>
-                                    <option value='company2'>Company2</option>
-                                </select>
-                                <GrDown />
-                            </div>
-                        </div>
-                    </div>
                 </section>
+
                 <section className='addEstate__box'>
                     <p className='addEstate__heading'>
                         Estate Convenience Fees
@@ -289,21 +242,26 @@ const AddEstate = () => {
                                 id='additionalResidentUser'
                             />
                         </div>
-                        <div className='addEstate__form--item'>
-                            <label htmlFor='signOutRequired'>
-                                Sign Out Required
-                            </label>
+                        <div className='flex items-center justify-between'>
+                            <p className='text-[2rem] font-bold flex items-center gap-2'>
+                               
+                               
+                            </p>
                             <div
-                                className='item__select'
-                                style={{
-                                    width: '10rem',
-                                }}
+                                onClick={toggleIskyg}
+                                className='cursor-pointer'
                             >
-                                <select id='signOutRequired'>
-                                    <option value='yes'>Yes</option>
-                                    <option value='no'>No</option>
-                                </select>
-                                <GrDown />
+                                {iskyg ? (
+                                    <img
+                                        src='/icons/admins/switchOn.svg'
+                                        alt=''
+                                    />
+                                ) : (
+                                    <img
+                                        src='/icons/admins/switchOff.svg'
+                                        alt=''
+                                    />
+                                )}
                             </div>
                         </div>
                         <div className='addEstate__form--file'>
