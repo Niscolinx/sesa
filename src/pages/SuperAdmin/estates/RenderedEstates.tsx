@@ -91,223 +91,218 @@ const ESTATEDATA: Estate[] = [
 ]
 
 function RenderedEstates() {
-
     type Actions = 'view details' | 'deactivate'
 
-     const navigate = useNavigate()
-     const dispatch = useAppDispatch()
+    const navigate = useNavigate()
+    const dispatch = useAppDispatch()
 
-     const [fetchedEstates, setFetchedEstates] = useState<EstateDetails[]>([])
-     const [sortBy, setSortBy] = useState<string | null>(null)
+    const [fetchedEstates, setFetchedEstates] = useState<Estate[]>([])
+    const [sortBy, setSortBy] = useState<string | null>(null)
 
-    
+    const handleAddAdmin = () => {
+        navigate('/superAdmin/admins/add')
+    }
 
-     const handleAddAdmin = () => {
-         navigate('/superAdmin/admins/add')
-     }
+    const fetchAdmins = () => {
+        return AxiosRequest({
+            dispatch,
+            // url: '/admin/get/all',
+            url: '/users',
+        })
+    }
 
-     const fetchAdmins = () => {
-         return AxiosRequest({
-             dispatch,
-             // url: '/admin/get/all',
-             url: '/users',
-         })
-     }
+    const {
+        isLoading: get_admins_loading,
+        data: get_admins_response,
+        isError: get_admins_isError,
+        error: get_admins_error,
+        // isFetching: get_admins_fetching,
+    } = useQuery('admins', fetchAdmins) as any
 
-     const {
-         isLoading: get_admins_loading,
-         data: get_admins_response,
-         isError: get_admins_isError,
-         error: get_admins_error,
-         // isFetching: get_admins_fetching,
-     } = useQuery('admins', fetchAdmins) as any
+    useEffect(() => {
+        if (get_admins_response?.status === 200) {
+            // setFetchedEstates(get_admins_response.data)
+            console.log(get_admins_response.data, 'fetchedData')
+        }
+    }, [get_admins_response])
 
-     useEffect(() => {
-         if (get_admins_response?.status === 200) {
-             // setFetchedEstates(get_admins_response.data)
-             console.log(get_admins_response.data, 'fetchedData')
-         }
-     }, [get_admins_response])
+    const actions = ['view details', 'deactivate'] satisfies Actions[]
 
-     const actions = ['view details', 'deactivate'] satisfies Actions[]
+    const [toggleDropDown, setToggleDropDown] = useState<{
+        isDropDownOpen: boolean
+        index: number | null
+    }>({
+        isDropDownOpen: false,
+        index: null,
+    })
 
-     const [toggleDropDown, setToggleDropDown] = useState<{
-         isDropDownOpen: boolean
-         index: number | null
-     }>({
-         isDropDownOpen: false,
-         index: null,
-     })
+    const dropDownHandler = (
+        e: React.ChangeEvent<HTMLInputElement>,
+        index: number
+    ) => {
+        setToggleDropDown(() => {
+            return {
+                isDropDownOpen: e.target.checked,
+                index,
+            }
+        })
+    }
 
-     const dropDownHandler = (
-         e: React.ChangeEvent<HTMLInputElement>,
-         index: number
-     ) => {
-         setToggleDropDown(() => {
-             return {
-                 isDropDownOpen: e.target.checked,
-                 index,
-             }
-         })
-     }
+    interface Paginate {
+        index: number
+        currentPage: number
+        itemsPerPage: number
+        totalPage: number
+        slicedPages: Estate[][] | null
+    }
 
-     interface Paginate {
-         index: number
-         currentPage: number
-         itemsPerPage: number
-         totalPage: number
-         slicedPages: EstateDetails[][] | null
-     }
+    const itemsPerPageArr = [2, 4, 6, 8]
 
-     const itemsPerPageArr = [2, 4, 6, 8]
+    const perPage = 6
+    const [paginate, setPaginate] = useState<Paginate>({
+        index: 0,
+        currentPage: 1,
+        itemsPerPage: perPage,
 
-     const perPage = 6
-     const [paginate, setPaginate] = useState<Paginate>({
-         index: 0,
-         currentPage: 1,
-         itemsPerPage: perPage,
+        totalPage: Math.ceil(fetchedEstates?.length / perPage),
+        slicedPages: null,
+    })
 
-         totalPage: Math.ceil(fetchedEstates?.length / perPage),
-         slicedPages: null,
-     })
+    const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
+        const item = parseInt(e.target.value)
 
-     const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
-         const item = parseInt(e.target.value)
+        const slicedPages: Estate[][] = []
+        for (let i = 0; i < fetchedEstates?.length; i += item) {
+            slicedPages.push(fetchedEstates?.slice(i, i + item))
+        }
 
-         const slicedPages: EstateDetails[][] = []
-         for (let i = 0; i < fetchedEstates?.length; i += item) {
-             slicedPages.push(fetchedEstates?.slice(i, i + item))
-         }
+        setPaginate((prev) => {
+            return {
+                ...prev,
+                itemsPerPage: item,
+                index: 0,
+                currentPage: 1,
+                slicedPages,
+                totalPage: Math.ceil(fetchedEstates?.length / item),
+            }
+        })
+    }
 
-         setPaginate((prev) => {
-             return {
-                 ...prev,
-                 itemsPerPage: item,
-                 index: 0,
-                 currentPage: 1,
-                 slicedPages,
-                 totalPage: Math.ceil(fetchedEstates?.length / item),
-             }
-         })
-     }
+    useEffect(() => {
+        const slicedPages: Estate[][] = []
+        for (
+            let i = 0;
+            i < fetchedEstates?.length;
+            i += paginate.itemsPerPage
+        ) {
+            slicedPages.push(
+                fetchedEstates?.slice(i, i + paginate.itemsPerPage)
+            )
+        }
 
-     useEffect(() => {
-         const slicedPages: EstateDetails[][] = []
-         for (
-             let i = 0;
-             i < fetchedEstates?.length;
-             i += paginate.itemsPerPage
-         ) {
-             slicedPages.push(
-                 fetchedEstates?.slice(i, i + paginate.itemsPerPage)
-             )
-         }
+        setPaginate((prev) => {
+            return {
+                ...prev,
+                slicedPages,
+            }
+        })
+    }, [fetchedEstates])
 
-         setPaginate((prev) => {
-             return {
-                 ...prev,
-                 slicedPages,
-             }
-         })
-     }, [fetchedEstates])
+    const handleNext = () => {
+        if (paginate.currentPage === paginate.totalPage) return
+        setPaginate((prev) => {
+            return {
+                ...prev,
+                index: prev.index + 1,
+                currentPage: prev.currentPage + 1,
+            }
+        })
+    }
 
-     const handleNext = () => {
-         if (paginate.currentPage === paginate.totalPage) return
-         setPaginate((prev) => {
-             return {
-                 ...prev,
-                 index: prev.index + 1,
-                 currentPage: prev.currentPage + 1,
-             }
-         })
-     }
+    const handlePrev = () => {
+        if (paginate.currentPage === 1) return
+        setPaginate((prev) => {
+            return {
+                ...prev,
+                index: prev.index - 1,
+                currentPage: prev.currentPage - 1,
+            }
+        })
+    }
 
-     const handlePrev = () => {
-         if (paginate.currentPage === 1) return
-         setPaginate((prev) => {
-             return {
-                 ...prev,
-                 index: prev.index - 1,
-                 currentPage: prev.currentPage - 1,
-             }
-         })
-     }
+    const { currentPage, slicedPages, itemsPerPage } = paginate
 
-     const { currentPage, slicedPages, itemsPerPage } = paginate
+    const jumpToPage = (e: React.MouseEvent, index: number) => {
+        setPaginate((prev) => {
+            return {
+                ...prev,
+                index,
+                currentPage: index + 1,
+            }
+        })
+    }
 
-     const jumpToPage = (e: React.MouseEvent, index: number) => {
-         setPaginate((prev) => {
-             return {
-                 ...prev,
-                 index,
-                 currentPage: index + 1,
-             }
-         })
-     }
+    const dialogRef = useRef<HTMLDialogElement | null>(null)
 
-     const dialogRef = useRef<HTMLDialogElement | null>(null)
+    const closeDialog = () => {
+        if (dialogRef.current) {
+            dialogRef.current.close()
+        }
+    }
 
-     const closeDialog = () => {
-         if (dialogRef.current) {
-             dialogRef.current.close()
-         }
-     }
+    const openDialog = () => {
+        if (dialogRef.current) {
+            dialogRef.current.showModal()
+        }
+    }
 
-     const openDialog = () => {
-         if (dialogRef.current) {
-             dialogRef.current.showModal()
-         }
-     }
+    const handleSelectedAction = (item: Actions, id: string) => {
+        setToggleDropDown(() => {
+            return {
+                isDropDownOpen: false,
+                index: null,
+            }
+        })
 
-     const handleSelectedAction = (item: Actions, id: string) => {
-         setToggleDropDown(() => {
-             return {
-                 isDropDownOpen: false,
-                 index: null,
-             }
-         })
+        if (item === 'view details') {
+            navigate(`/superAdmin/admins/view/:${id}`)
+        }
 
-         if (item === 'view details') {
-             navigate(`/superAdmin/admins/view/:${id}`)
-         }
+        if (item === 'deactivate') {
+            openDialog()
+        }
+    }
 
-         if (item === 'deactivate') {
-             openDialog()
-         }
-     }
+    const deactivateHandler = () => {
+        closeDialog()
 
-     const deactivateHandler = () => {
-         closeDialog()
+        toast('Admin deactivated successfully', {
+            type: 'success',
+            className: 'bg-green-100 text-green-600 text-[1.4rem]',
+        })
+    }
+    console.log({
+        get_admins_loading,
+        get_admins_isError,
+        get_admins_error,
+        get_admins_response,
+    })
 
-         toast('Admin deactivated successfully', {
-             type: 'success',
-             className: 'bg-green-100 text-green-600 text-[1.4rem]',
-         })
-     }
-     console.log({
-         get_admins_loading,
-         get_admins_isError,
-         get_admins_error,
-         get_admins_response,
-     })
+    if (get_admins_loading) {
+        return <p>Loading...</p>
+    }
 
-     if (get_admins_loading) {
-         return <p>Loading...</p>
-     }
+    if (get_admins_isError) {
+        return <p>{get_admins_error.message}</p>
+    }
 
-     if (get_admins_isError) {
-         return <p>{get_admins_error.message}</p>
-     }
-
-     const adminsLoaded =
-         get_admins_response.status === 200 &&
-         get_admins_response.data.length > 0
+    const adminsLoaded =
+        get_admins_response.status === 200 &&
+        get_admins_response.data.length > 0
 
     const handlePathSwitch = () => {
         dispatch(setEstatePath('addEstate'))
     }
-
-
 
     return (
         <div className='renderedEstates'>
@@ -343,24 +338,28 @@ function RenderedEstates() {
                 <div className=''>
                     <tbody className='renderedEstates__table--body'>
                         {slicedPages &&
-                                                slicedPages?.length > 0 &&
-                                                React.Children.toArray(
-                                                    slicedPages[
-                                                        paginate.index
-                                                    ].map(({
-                                        img,
-                                        id,
-                                        details: {
-                                            estateBalance,
-                                            estateManager,
-                                            estateName,
-                                            NoOfHouseholds,
-                                            NoOfResidents,
-                                            securityCompany,
-                                            signOutRequired,
-                                            status,
+                            slicedPages?.length > 0 &&
+                            React.Children.toArray(
+                                slicedPages[paginate.index].map(
+                                    (
+                                        {
+                                            img,
+                                            id,
+                                            details: {
+                                                estateBalance,
+                                                estateManager,
+                                                estateName,
+                                                NoOfHouseholds,
+                                                NoOfResidents,
+                                                securityCompany,
+                                                signOutRequired,
+                                                status,
+                                            },
                                         },
-                                    }) => {
+                                        i
+                                    ) => {
+                                        const { isDropDownOpen, index } =
+                                            toggleDropDown
                                         return (
                                             <Link
                                                 to={`/superAdmin/estates/detail/:${id}`}
@@ -544,46 +543,62 @@ function RenderedEstates() {
                                         )
                                     }
                                 )
-                            )
-                        ) : (
-                            <tr>
-                                <td className='relative'>
-                                    <div className='absolute w-full grid place-content-center'>
-                                        <CgSpinnerTwo className='animate-spin text-[#0660FE] text-4xl' />
-                                    </div>
-                                </td>
-                            </tr>
-                        )}
+                            )}
                     </tbody>
                 </div>
-                <footer className='renderedEstates__footer'>
+                <footer className='flex items-center p-4 mt-4 bg-color-white rounded-lg'>
                     <div className='flex gap-8 items-center'>
                         <p>View</p>
-                        <div className='flex items-center border px-4 rounded-lg'>
-                            <input
-                                type='number'
-                                className='w-8 outline-none border-none cursor-pointer'
-                                value={6}
-                            />
-                            <GrDown className='text-[1.3rem]' />
-                        </div>
+                        <select
+                            name=''
+                            id=''
+                            className='flex items-center border px-4 rounded-lg outline-none cursor-pointer'
+                            onChange={handleItemsPerPage}
+                        >
+                            {itemsPerPageArr.map((item, index) => (
+                                <option
+                                    value={item}
+                                    key={index}
+                                    selected={item === itemsPerPage}
+                                    className='capitalize cursor-pointer bg-white'
+                                >
+                                    {item}
+                                </option>
+                            ))}
+                        </select>
                         <p className='text'>List per page</p>
                     </div>
                     <ul className='flex items-center gap-5 ml-10'>
-                        <HiOutlineChevronLeft />
-                        <li className='grid place-content-center border w-[3rem] h-[3rem]'>
-                            1
-                        </li>
-                        <li className='grid place-content-center border w-[3rem] h-[3rem]'>
-                            2
-                        </li>
-                        <li className='grid place-content-center border w-[3rem] h-[3rem]'>
-                            3
-                        </li>
-                        <li className='grid place-content-center border w-[3rem] h-[3rem]'>
-                            4
-                        </li>
-                        <HiOutlineChevronRight />
+                        <HiOutlineChevronLeft
+                            onClick={handlePrev}
+                            className='cursor-pointer'
+                        />
+
+                        {slicedPages?.map((item, index) => {
+                            return (
+                                <li key={index}>
+                                    {index + 1 === currentPage ? (
+                                        <span className='bg-color-primary text-white grid place-content-center w-[3rem] h-[3rem] cursor-pointer'>
+                                            {index + 1}
+                                        </span>
+                                    ) : (
+                                        <span
+                                            className='text-color-primary bg-white grid place-content-center border w-[3rem] h-[3rem] cursor-pointer'
+                                            onClick={(e) =>
+                                                jumpToPage(e, index)
+                                            }
+                                        >
+                                            {index + 1}
+                                        </span>
+                                    )}
+                                </li>
+                            )
+                        })}
+
+                        <HiOutlineChevronRight
+                            onClick={handleNext}
+                            className='cursor-pointer'
+                        />
                     </ul>
                 </footer>
             </table>
