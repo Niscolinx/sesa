@@ -46,6 +46,8 @@ function RenderedAdmins() {
     const {
         isLoading: get_admins_loading,
         data: get_admins_response_data,
+        isError: get_admins_isError,
+        error: get_admins_error
         // isFetching: get_admins_fetching,
     } = useQuery('admins', fetchAdmins) as any
 
@@ -208,6 +210,10 @@ function RenderedAdmins() {
 
     if (get_admins_loading) {
         return <p>Loading...</p>
+    }
+
+    if(get_admins_isError){
+        return <p>{get_admins_error.message}</p>
     }
 
     return (
