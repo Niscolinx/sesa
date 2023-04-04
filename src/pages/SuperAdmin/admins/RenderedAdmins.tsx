@@ -325,8 +325,8 @@ function RenderedAdmins() {
                                                     index,
                                                 } = toggleDropDown
                                                 return (
-                                                    <div className='grid justify-between border-b grid-cols-6 items-center gap-8 text-[1.6rem] py-4'>
-                                                        <div className='flex items-center gap-4'>
+                                                    <div className='grid justify-between border-b grid-cols-6 items-center gap-8 text-[1.6rem] py-4 table__ellipsis'>
+                                                        <div className='flex items-center gap-4  '>
                                                             <input
                                                                 type='checkbox'
                                                                 className='cursor-pointer'
