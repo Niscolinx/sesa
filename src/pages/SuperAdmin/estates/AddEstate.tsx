@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form'
 import { useMutation } from 'react-query'
 import { useAppDispatch } from '../../../store/app/hooks'
 import { AxiosRequest } from '../../../utils/axios'
+import ImageInput from '../../../components/UI/input/ImageInput'
 
 const AddEstate = () => {
     interface Inputs {
@@ -17,6 +18,7 @@ const AddEstate = () => {
         sesa_fee: number
         number_of_resident_user: number
         additional_resident_user: number
+        
     }
 
     const dispatch = useAppDispatch()
@@ -193,6 +195,20 @@ const AddEstate = () => {
         },
     ] satisfies FormInputs[]
 
+    const third_section_inputs = [
+        {
+            label: 'bank_name',
+        },
+        {
+            label: 'account_name',
+        },
+        {
+            label: 'account_number',
+            type: 'number',
+        },
+       
+    ] satisfies FormInputs[]
+
     return (
         <div className='bg-white rounded-lg p-8'>
             <form onSubmit={onSubmit} className='grid gap-20'>
@@ -272,6 +288,10 @@ const AddEstate = () => {
                                 )}
                             </div>
                         </div>
+                        <ImageInput
+                            handlePicture={handlePicture}
+                            photoPreview={photoPreview}
+                        />
                     </section>
                 </div>
                 <section className='addEstate__box'>
