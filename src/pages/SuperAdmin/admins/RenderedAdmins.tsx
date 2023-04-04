@@ -38,32 +38,23 @@ function RenderedAdmins() {
         dispatch(setAdminPath('addAdmin'))
     }
 
-    const fetchAdmins = async() => {
-        // return AxiosRequest({
-        //     url: '/883',
-        // })
+    const fetchAdmins = async () => {
+        return AxiosRequest({
+            url: '/883',
+        })
 
-        try{
-
-            const response = await axios.get('/sdfsf')
-            console.log({response})
-            return response
-        }
-        catch(err){
-            console.log(err)
-            return err
-        }
-
-
+        
     }
 
     const {
         isLoading: get_admins_loading,
         data: get_admins_response_data,
         isError: get_admins_isError,
-        error: get_admins_error
+        error: get_admins_error,
         // isFetching: get_admins_fetching,
-    } = useQuery('admins', fetchAdmins) as any
+    } = useQuery('admins', fetchAdmins, {
+        refetchInterval: 0
+    }) as any
 
     useEffect(() => {
         if (get_admins_response_data?.status === 200) {
@@ -221,13 +212,18 @@ function RenderedAdmins() {
             className: 'bg-green-100 text-green-600 text-[1.4rem]',
         })
     }
-    console.log({get_admins_loading, get_admins_isError, get_admins_error, get_admins_response_data})
+    console.log({
+        get_admins_loading,
+        get_admins_isError,
+        get_admins_error,
+        get_admins_response_data,
+    })
 
     if (get_admins_loading) {
         return <p>Loading...</p>
     }
 
-    if(get_admins_isError){
+    if (get_admins_isError) {
         return <p>{get_admins_error.message}</p>
     }
 

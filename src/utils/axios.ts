@@ -21,13 +21,12 @@ instance.interceptors.request.use(
         return config
     },
     function (error) {
-        console.log({error})
         return Promise.reject(error)
     }
 )
 export const AxiosRequest = ({ ...options }: Partial<RequestOptions>) => {
     const onSuccess = (response: AxiosResponse) => response
-    const onError = (error: AxiosError) => error
+    const onError = (error: AxiosError) =>  Promise.reject(error)
 
     return instance(options).then(onSuccess).catch(onError)
 }
