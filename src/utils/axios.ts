@@ -21,7 +21,7 @@ instance.interceptors.request.use(function (config) {
 
     return config
 })
-export const AxiosRequest = ({ ...options }: Partial<RequestOptions>) => {
+export const AxiosRequest = ({ dispatch, ...options }: { dispatch: any, ...options: Partial<RequestOptions> }) => {
     const onSuccess = (response: AxiosResponse) => response
     const onError = (error: AxiosError) => {
         return Promise.reject(error)
