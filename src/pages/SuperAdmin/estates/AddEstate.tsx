@@ -1,32 +1,179 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import { GrDown } from 'react-icons/gr'
 import { IoMdAdd } from 'react-icons/io'
 import { getPhotoUrl } from '../../../utils/getPhotoUrl'
 import { ModalContext } from '../../../Context/ModalContext'
+import { Select } from '../../../components/SuperAdmin/UI/Select'
+import Input from '../../../components/UI/Input'
+import { useForm } from 'react-hook-form'
+import { useMutation } from 'react-query'
+import { useAppDispatch } from '../../../store/app/hooks'
+import { AxiosRequest } from '../../../utils/axios'
 
 const AddEstate = () => {
-    const ModalContextData = useContext(ModalContext)
-    const { handleOpen } = ModalContextData
+    interface Inputs {
+        email_address: string
+        first_name: string
+        last_name: string
+        dob: string
+        gender: string
+        phoneNumber: number
+        photoUrl?: string
+    }
 
+    const dispatch = useAppDispatch()
     const [photoUrl, setPhotoUrl] = useState('')
+    const [selectedState, setSelectedState] = useState<string | null>('')
 
-    const handlePhotoPreview = async (
-        value: React.MouseEvent<HTMLInputElement>
-    ) => {
-        const getUrl = await getPhotoUrl(`#photoUpload`)
-        setPhotoUrl(getUrl)
+    const [photoPreview, setPhotoPreview] = useState('')
+    const [imageUrl, setImageUrl] = useState<File | null>(null)
+
+    const handlePicture = (e: React.ChangeEvent) => {
+        const target = e.target as HTMLInputElement
+        const file: File = (target.files as FileList)[0]
+
+        const preview = URL.createObjectURL(file)
+        setPhotoPreview(preview)
+        setImageUrl(file)
     }
 
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault()
-        handleOpen('renderedEstates')
+    const {
+        register,
+        handleSubmit,
+        formState: { errors: formErrors },
+    } = useForm<Inputs>()
+
+    type ResponseMessage = {
+        className: string
+        displayMessage: string
     }
+
+    const [responseMessage, setResponseMessage] =
+        useState<ResponseMessage | null>(null)
+
+    const postAdmin = (data: Inputs) => {
+        return AxiosRequest({
+            dispatch,
+            url: '/admin/create',
+            method: 'post',
+            data,
+        })
+    }
+    const {
+        mutate,
+        data: response_data,
+        isLoading,
+    } = useMutation(postAdmin) as any
+
+    useEffect(() => {
+        console.log({ response_data })
+        if (response_data?.status === 200) {
+            handleOpen()
+        } else {
+            setResponseMessage({
+                className: 'text-red-600',
+                displayMessage: response_data?.response?.data.message,
+            })
+        }
+
+        // const timeoutId = setTimeout(() => {
+        //     setResponseMessage(null)
+        // }, 10000)
+    }, [response_data])
+
+    const onSubmit = handleSubmit((data) => {
+        const {
+            first_name,
+            last_name,
+            gender,
+            dob,
+            email_address,
+            phoneNumber,
+        } = data
+
+        const adminData = {
+            name: `${first_name} ${last_name}`,
+            gender,
+            dob,
+            email: email_address,
+            address: 'no 4 odeyim street',
+            phone: `+234${phoneNumber}`,
+            image: imageUrl?.name,
+        }
+
+        mutate(adminData)
+    })
+
+    const dialogRef = useRef<HTMLDialogElement | null>(null)
+
+    const handleClose = () => {
+        if (dialogRef.current) {
+            dialogRef.current.close()
+        }
+    }
+
+    const handleOpen = () => {
+        if (dialogRef.current) {
+            dialogRef.current.showModal()
+        }
+    }
+
+    type FormInputs = {
+        label: string
+        type?: string
+        name?: string
+    }
+
+    const formInputs = [
+        {
+            label: 'first_name',
+        },
+        {
+            label: 'last_name',
+        },
+        {
+            label: 'dob',
+            type: 'date',
+            name: 'date of birth',
+        },
+        {
+            label: 'select',
+        },
+        {
+            label: 'phone_number',
+            type: 'number',
+        },
+        {
+            label: 'email_address',
+            type: 'email',
+        },
+    ] satisfies FormInputs[]
 
     return (
         <div className='addEstate'>
-            <form onSubmit={handleSubmit} className='addEstate__formBox'>
-                <section className='addEstate__box'>
-                    <p className='addEstate__heading'>Estate Details</p>
+            <form onSubmit={onSubmit} className='addEstate__formBox'>
+                <section className='grid gap-4'>
+                    <p className='text-[2rem] font-Satoshi-Medium'>Estate Details</p>
+                    {formInputs.map((input, idx) => {
+                        const { label, type, name } = input
+                        return idx === 3 ? (
+                            <Select
+                                label='Gender'
+                                state={['Male', 'Female']}
+                                selectedState={selectedState}
+                                setSelectedState={setSelectedState}
+                            />
+                        ) : (
+                            <Input
+                                key={idx + label}
+                                label={label}
+                                register={register}
+                                formErrors={formErrors}
+                                type={type || 'text'}
+                                name={name || undefined}
+                            />
+                        )
+                    })}
                     <div className='addEstate__form'>
                         <div className='addEstate__form--item'>
                             <label htmlFor='firstName'>Estate Name *</label>
@@ -144,7 +291,7 @@ const AddEstate = () => {
                                 id='photoUpload'
                                 accept='image/*'
                                 className='hidden'
-                                onClick={handlePhotoPreview}
+                                onChange={handlePicture}
                             />
 
                             {photoUrl && (
