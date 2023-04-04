@@ -350,7 +350,16 @@ function RenderedAdmins() {
                                                         </div>
                                                         <p>{gender}</p>
                                                         <p>{phone}</p>
-                                                        <p>{created_at}</p>
+                                                        <p>
+                                                            {new Date(
+                                                                created_at
+                                                            )
+                                                                .toLocaleDateString()
+                                                                .replace(
+                                                                    /\//g,
+                                                                    '-'
+                                                                )}
+                                                        </p>
 
                                                         <p>
                                                             {status ===

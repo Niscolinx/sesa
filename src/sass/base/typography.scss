@@ -151,7 +151,7 @@ h5 {
 }
 
 .table__ellipsis {
-    & > * {
+    & > *:not(:last-child) {
         overflow: hidden;
         max-width: 15rem;
         white-space: nowrap;
