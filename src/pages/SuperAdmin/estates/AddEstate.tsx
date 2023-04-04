@@ -37,9 +37,9 @@ const AddEstate = () => {
 
     const [photoPreview, setPhotoPreview] = useState('')
     const [imageUrl, setImageUrl] = useState<File | null>(null)
-    const [iskyg, setIskyg] = useState(false)
+    const [isSignOutRequired, setIsSignOutRequired] = useState(false)
 
-    const toggleIskyg = () => setIskyg(!iskyg)
+    const toggleIsSignOutRequired = () => setIsSignOutRequired(!isSignOutRequired)
 
     const handlePicture = (e: React.ChangeEvent) => {
         const target = e.target as HTMLInputElement
@@ -81,7 +81,7 @@ const AddEstate = () => {
     useEffect(() => {
         console.log({ response_data })
         if (response_data?.status === 200) {
-            handleOpen()
+            openDialog()
         } else {
             setResponseMessage({
                 className: 'text-red-600',
@@ -113,20 +113,22 @@ const AddEstate = () => {
         //     image: imageUrl?.name,
         // }
 
-        console.log({data})
+        console.log({data, selectedState, selectedEstateManager, selectedSecurityCompany, isSignOutRequired, imageUrl})
 
-        mutate(data)
+        openDialog()
+
+       // mutate(data)
     })
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
-    const handleClose = () => {
+    const closeDialog = () => {
         if (dialogRef.current) {
             dialogRef.current.close()
         }
     }
 
-    const handleOpen = () => {
+    const openDialog = () => {
         if (dialogRef.current) {
             dialogRef.current.showModal()
         }
@@ -213,6 +215,29 @@ const AddEstate = () => {
 
     return (
         <div className='bg-white rounded-lg p-8'>
+            <dialog className='dialog' ref={dialogRef}>
+                <section className='grid place-content-center w-full h-[100vh]'>
+                    <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
+                        <img src='/icons/admins/modalSuccess.svg' alt='' />
+                        <p>You have successfully added an Estate</p>
+
+                        <div className='flex w-full justify-center gap-8'>
+                            <button
+                                className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
+                                onClick={closeDialog}
+                            >
+                                View details
+                            </button>
+                            <button
+                                className='bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
+                                onClick={closeDialog}
+                            >
+                                Ok
+                            </button>
+                        </div>
+                    </div>
+                </section>
+            </dialog>
             <form onSubmit={onSubmit} className='grid gap-20'>
                 <div className='grid gap-10'>
                     <p className='text-[2rem] font-Satoshi-Medium'>
@@ -274,10 +299,10 @@ const AddEstate = () => {
                                 Sign Out Required
                             </p>
                             <div
-                                onClick={toggleIskyg}
+                                onClick={toggleIsSignOutRequired}
                                 className='cursor-pointer'
                             >
-                                {iskyg ? (
+                                {isSignOutRequired ? (
                                     <img
                                         src='/icons/admins/switchOn.svg'
                                         alt=''
@@ -324,7 +349,7 @@ const AddEstate = () => {
                 </div>
                 <button
                     className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg justify-self-start'
-                   // onClick={addArtisanHandler}
+                    // onClick={addArtisanHandler}
                 >
                     <span>
                         <IoMdAdd />
