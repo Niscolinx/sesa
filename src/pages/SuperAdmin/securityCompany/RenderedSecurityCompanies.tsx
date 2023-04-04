@@ -186,7 +186,7 @@ function RenderedSecurityCompanies() {
                     </section>
                 </dialog>
                 <div className='flex w-full justify-between items-center gap-12 p-8 bg-color-white rounded-lg'>
-                    <p className='text-[1.6rem] font-bold'>
+                    <p className='text-[1.6rem] font-Satoshi-Medium'>
                         SecurityCompany List <span>(202)</span>
                     </p>
                     <div className='relative flex items-center'>

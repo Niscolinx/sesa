@@ -142,7 +142,7 @@ const Fourth: FC = () => {
                 <img src='/img/alpha.svg' alt='' />
             </p>
             <div className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
-                <p className=' font-bold'>
+                <p className=' font-Satoshi-Medium'>
                     Voters List <span>(50)</span>
                 </p>
                 <div className='relative flex items-center'>

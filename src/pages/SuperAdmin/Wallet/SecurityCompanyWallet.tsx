@@ -7,7 +7,6 @@ import { useNavigate } from 'react-router'
 import WalletBarChart from '../../../components/SuperAdmin/charts/WalletBarChart'
 import { OverviewWallet } from '../../../components/SuperAdmin/overview/OverviewWallets'
 
-
 type Trend = 'This Week' | 'This Month' | 'This Year'
 
 export interface ITransactionHistory {
@@ -326,7 +325,7 @@ const SecurityCompanyWallet = () => {
 
                     <div className='border-l border-l-color-grey'>
                         <div className='flex justify-between'>
-                            <p className='text-[1.6rem] font-bold p-8'>
+                            <p className='text-[1.6rem] font-Satoshi-Medium p-8'>
                                 Wallet Trend
                             </p>
 
@@ -368,7 +367,7 @@ const SecurityCompanyWallet = () => {
                 <div className='grid gap-10'>
                     <div className='grid text-[1.6rem] gap-[3rem] bg-white p-8 rounded-lg'>
                         <div className='flex w-full items-center gap-12 '>
-                            <p className=' font-bold'>
+                            <p className=' font-Satoshi-Medium'>
                                 Transactions <span>(200)</span>
                             </p>
                             <div className='relative flex items-center'>
@@ -464,7 +463,7 @@ const SecurityCompanyWallet = () => {
                     </div>
                     <div className='grid text-[1.6rem] gap-10 bg-white p-8 rounded-lg'>
                         <div className='flex w-full items-center gap-12 '>
-                            <p className=' font-bold'>
+                            <p className=' font-Satoshi-Medium'>
                                 Withdrawal History <span>(10)</span>
                             </p>
                             <div className='relative flex items-center'>

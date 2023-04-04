@@ -25,7 +25,6 @@ export interface Payments {
     expectedAmount: string
 }
 
-
 export const PAYMENTS_LIST: Payments[] = Array.from({ length: 10 }).map(
     (_, i) => ({
         id: `${i} + 1`,
@@ -171,7 +170,7 @@ function RenderedPayments() {
         <div className='grid gap-10 rounded-lg border min-w-[112rem]'>
             <div className='grid text-[1.6rem] border rounded-lg'>
                 <div className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
-                    <p className=' font-bold'>
+                    <p className=' font-Satoshi-Medium'>
                         Payments <span>(200)</span>
                     </p>
                     <div className='relative flex items-center'>
@@ -373,9 +372,10 @@ function RenderedPayments() {
                                                     </p>
                                                     <p>₦{expectedAmount}</p>
 
-                                                    <Link to={`/estateManager/payments/view/:${id}`} state={
-                                                        paymentBody
-                                                    }>
+                                                    <Link
+                                                        to={`/estateManager/payments/view/:${id}`}
+                                                        state={paymentBody}
+                                                    >
                                                         <p className='text-[#076AFF] capitalize'>
                                                             More details
                                                         </p>

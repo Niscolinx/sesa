@@ -14,7 +14,6 @@ export interface IResidentUsersList {
 }
 export type Actions = 'View Details' | 'Activate' | 'Deactivate' | 'Delete'
 
-
 // export interface Action {
 //     View: 'View Details'
 //     Activate: 'Activate'
@@ -97,7 +96,7 @@ const ResidentUsersList: FC<{
     return (
         <div className='grid text-[1.6rem]'>
             <caption className='flex w-full items-center gap-12 p-10 bg-white rounded-lg'>
-                <p className=' font-bold'>
+                <p className=' font-Satoshi-Medium'>
                     Resident User List <span>(4)</span>
                 </p>
                 <div className='relative flex items-center'>

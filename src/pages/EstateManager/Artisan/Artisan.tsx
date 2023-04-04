@@ -18,15 +18,14 @@ export interface IArtisanList {
 
 type Actions = 'View Details'
 
-const ARTISAN_LIST:IArtisanList[] = Array.from({length: 20}, (_, i) => {
+const ARTISAN_LIST: IArtisanList[] = Array.from({ length: 20 }, (_, i) => {
     return {
         id: `i + ${i}`,
         artisanName: 'Okoye Emmanuel',
         businessName: 'Robert Fox',
         phoneNumber: '(+234) 8143246719',
         category: 'plumber',
-        rating: Math.floor(Math.random() * 4 + 1)
-
+        rating: Math.floor(Math.random() * 4 + 1),
     }
 })
 
@@ -300,7 +299,7 @@ function Artisan() {
                     <>
                         <div className='grid text-[1.6rem]'>
                             <div className='flex w-full items-center gap-12 p-10 bg-white rounded-lg'>
-                                <p className=' font-bold'>
+                                <p className=' font-Satoshi-Medium'>
                                     Artisan List <span>(10)</span>
                                 </p>
                                 <div className='relative flex items-center'>

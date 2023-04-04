@@ -158,7 +158,7 @@ function EstateListTable() {
     return (
         <div className='grid text-[1.6rem] bg-white rounded-lg mt-20'>
             <div className='flex w-full items-center gap-12 py-8 bg-white rounded-lg'>
-                <p className=' font-bold'>
+                <p className=' font-Satoshi-Medium'>
                     Estate List <span>(5)</span>
                 </p>
                 <div className='relative flex items-center'>

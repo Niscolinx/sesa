@@ -157,7 +157,7 @@ function Estate() {
                 <section className='bg-color-white rounded-lg border min-w-[112rem]'>
                     <div className='grid text-[1.6rem] border rounded-lg'>
                         <div className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
-                            <p className=' font-bold'>
+                            <p className=' font-Satoshi-Medium'>
                                 HouseHold List <span>(200)</span>
                             </p>
                             <div className='relative flex items-center'>

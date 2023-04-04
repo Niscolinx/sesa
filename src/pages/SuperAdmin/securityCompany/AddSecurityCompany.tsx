@@ -3,9 +3,8 @@ import { GrDown, GrUp } from 'react-icons/gr'
 import { IoMdAdd } from 'react-icons/io'
 import { getPhotoUrl } from '../../../utils/getPhotoUrl'
 
-
 const AddSecurityCompany = () => {
-    const state = ['Lagos', 'Imo', 'Abia', 'FCT'] as const 
+    const state = ['Lagos', 'Imo', 'Abia', 'FCT'] as const
     type State = typeof state[number]
 
     const [toggleStateMenu, setToggleStateMenu] = useState(false)
@@ -251,7 +250,7 @@ const AddSecurityCompany = () => {
                                 }}
                             >
                                 Drag estate manager picture here or{' '}
-                                <span className='text-color-blue font-bold'>
+                                <span className='text-color-blue font-Satoshi-Medium'>
                                     click
                                 </span>{' '}
                                 to upload

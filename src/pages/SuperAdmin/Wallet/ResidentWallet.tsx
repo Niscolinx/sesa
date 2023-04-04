@@ -6,7 +6,11 @@ import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { useNavigate } from 'react-router'
 import WalletBarChart from '../../../components/SuperAdmin/charts/WalletBarChart'
 import { OverviewWallet } from '../../../components/SuperAdmin/overview/OverviewWallets'
-import { ResidentTransactions, RESIDENT_BALANCE, RESIDENT_TRANSACTION_HISTORY } from '../../EstateManager/wallet/wallets/resident/ResidentTransactions'
+import {
+    ResidentTransactions,
+    RESIDENT_BALANCE,
+    RESIDENT_TRANSACTION_HISTORY,
+} from '../../EstateManager/wallet/wallets/resident/ResidentTransactions'
 // import {
 //     ResidentTransactions,
 //     RESIDENT_BALANCE,
@@ -332,7 +336,7 @@ const ResidentWallet = () => {
 
                     <div className='border-l border-l-color-grey'>
                         <div className='flex justify-between'>
-                            <p className='text-[1.6rem] font-bold p-8'>
+                            <p className='text-[1.6rem] font-Satoshi-Medium p-8'>
                                 Wallet Trend
                             </p>
 
@@ -410,7 +414,7 @@ const ResidentWallet = () => {
                     </div>
                     <div className='grid text-[1.6rem] gap-10 bg-white p-8 rounded-lg'>
                         <div className='flex w-full items-center gap-12 '>
-                            <p className=' font-bold'>
+                            <p className=' font-Satoshi-Medium'>
                                 Withdrawal History <span>(10)</span>
                             </p>
                             <div className='relative flex items-center'>

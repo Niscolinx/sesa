@@ -198,7 +198,7 @@ const SecurityGuard = () => {
                     <section className='bg-color-white rounded-lg border min-w-[112rem] overflow-scroll'>
                         <div className='grid text-[1.6rem]'>
                             <caption className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
-                                <p className=' font-bold'>
+                                <p className=' font-Satoshi-Medium'>
                                     Security Guard List <span>(4)</span>
                                 </p>
                                 <div className='relative flex items-center'>
@@ -290,7 +290,7 @@ const SecurityGuard = () => {
                                                             <p className=' max-w-[40rem] overflow-hidden text-ellipsis whitespace-nowrap'>
                                                                 {phoneNumber}
                                                             </p>
-                                                           
+
                                                             <p>
                                                                 {status ===
                                                                 'Active' ? (

@@ -17,6 +17,10 @@ const AddEstate = () => {
         address: string
         estate_manager: string
         security_company: string
+        estate_fee: number
+        sesa_fee: number
+        number_of_resident_user: number
+        additional_resident_user: number
     }
 
     const dispatch = useAppDispatch()
@@ -135,7 +139,6 @@ const AddEstate = () => {
     }
 
     type FormInputs = {
-        label: string
         type: string
         name: string
         selectProps: SelectProps
@@ -177,7 +180,46 @@ const AddEstate = () => {
                 setSelectedState: setSelectedSecurityCompany
             },
         },
-    ] satisfies Partial<FormInputs>[]
+    ] satisfies Partial<FormInputs>[] & {label: string}[]
+
+
+    const second_section_inputs = [
+        {
+            label: 'estate_name',
+        },
+
+        {
+            label: 'estate_location_state',
+            name: 'state',
+            type: 'select',
+            selectProps: {
+                state: estateLocationState,
+                selectedState,
+                setSelectedState,
+            },
+        },
+        {
+            label: 'address',
+        },
+        {
+            label: 'estate_manager',
+            type: 'select',
+            selectProps: {
+                state: estateManager,
+                selectedState: selectedEstateManager,
+                setSelectedState: setSelectedEstateManager,
+            },
+        },
+        {
+            label: 'security_company',
+            type: 'select',
+            selectProps: {
+                state: securityCompany,
+                selectedState: selectedSecurityCompany,
+                setSelectedState: setSelectedSecurityCompany,
+            },
+        },
+    ] satisfies Partial<FormInputs>[] & { label: string }[]
 
     return (
         <div className='bg-white rounded-lg p-8'>

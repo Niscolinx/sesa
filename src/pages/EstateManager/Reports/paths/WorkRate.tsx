@@ -1,5 +1,3 @@
-
-
 import React, { useState, useEffect, ChangeEvent } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
 import { GrDown, GrUp } from 'react-icons/gr'
@@ -135,9 +133,7 @@ function WorkRate() {
             return {
                 ...prev,
                 slicedPages,
-                totalPage: Math.ceil(
-                    workRate.length / paginate.itemsPerPage
-                ),
+                totalPage: Math.ceil(workRate.length / paginate.itemsPerPage),
             }
         })
     }, [workRate])
@@ -201,14 +197,14 @@ function WorkRate() {
                                     </div>
                                 </div>
                             </section>
-                            <EstateBarChart color1='#08D231' color2='#f7e541'/>
+                            <EstateBarChart color1='#08D231' color2='#f7e541' />
                         </div>
                         <div className='bg-white p-8 rounded-lg'>
                             <section className='overviewChart__box'>
                                 <EstateChart outerRadius={100} />
 
                                 <div className='overviewChart__label'>
-                                    <p className='text-[3rem] font-bold relative'>
+                                    <p className='text-[3rem] font-Satoshi-Medium relative'>
                                         50,000
                                     </p>
                                     <p className='text-[1.2rem] max-w-[9.8rem]'>
@@ -270,7 +266,7 @@ function WorkRate() {
                                 />
 
                                 <div className='overviewChart__label'>
-                                    <p className='text-[3rem] font-bold relative'>
+                                    <p className='text-[3rem] font-Satoshi-Medium relative'>
                                         50,000
                                     </p>
                                     <p className='text-[1.2rem] max-w-[9.8rem]'>
@@ -304,7 +300,7 @@ function WorkRate() {
                 <section className='bg-color-white rounded-lg border min-w-[112rem]'>
                     <div className='grid border rounded-lg'>
                         <div className='grid p-10'>
-                            <p className=' font-bold'>
+                            <p className=' font-Satoshi-Medium'>
                                 Site Worker Report List <span>(200)</span>
                             </p>
                             <div className='flex w-full justify-start items-end gap-12 bg-white rounded-lg'>
@@ -381,7 +377,6 @@ function WorkRate() {
                                                     phoneNumber,
                                                     mode_of_contact,
                                                     accessType,
-
                                                 },
                                                 i
                                             ) => {

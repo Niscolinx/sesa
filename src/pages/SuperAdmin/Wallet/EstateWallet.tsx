@@ -375,7 +375,7 @@ const EstateWallet = () => {
                         )}
                         {isWarning && (
                             <p
-                                className='font-bold text-[1.8rem]'
+                                className='font-Satoshi-Medium text-[1.8rem]'
                                 style={{
                                     fontFamily: 'Satoshi-Medium',
                                 }}
@@ -446,7 +446,7 @@ const EstateWallet = () => {
 
                     <div className='border-l border-l-color-grey'>
                         <div className='flex justify-between'>
-                            <p className='text-[1.6rem] font-bold p-8'>
+                            <p className='text-[1.6rem] font-Satoshi-Medium p-8'>
                                 Wallet Trend
                             </p>
 
@@ -488,7 +488,7 @@ const EstateWallet = () => {
                 <div className='grid gap-10'>
                     <div className='grid text-[1.6rem] gap-[3rem] bg-white p-8 rounded-lg'>
                         <div className='flex w-full items-center gap-12 '>
-                            <p className=' font-bold'>
+                            <p className=' font-Satoshi-Medium'>
                                 Estate List <span>(200)</span>
                             </p>
                             <div className='relative flex items-center'>
@@ -574,7 +574,7 @@ const EstateWallet = () => {
                     </div>
                     <div className='grid text-[1.6rem] gap-10 bg-white p-8 rounded-lg'>
                         <div className='flex w-full items-center gap-12 '>
-                            <p className=' font-bold'>
+                            <p className=' font-Satoshi-Medium'>
                                 Withdrawal History <span>(10)</span>
                             </p>
                             <div className='relative flex items-center'>

@@ -33,7 +33,7 @@ const EstateWorkRate = () => {
                             <EstateChart />
 
                             <div className='overviewChart__label'>
-                                <p className='text-[3rem] font-bold relative'>
+                                <p className='text-[3rem] font-Satoshi-Medium relative'>
                                     50,000
                                 </p>
                                 <p className='text-[1.2rem] max-w-[9.8rem]'>
@@ -91,7 +91,7 @@ const EstateWorkRate = () => {
                             <EstateChart color1='#3d08d2' color2='#F74183' />
 
                             <div className='overviewChart__label'>
-                                <p className='text-[3rem] font-bold relative'>
+                                <p className='text-[3rem] font-Satoshi-Medium relative'>
                                     50,000
                                 </p>
                                 <p className='text-[1.2rem] max-w-[9.8rem]'>

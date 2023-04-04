@@ -258,7 +258,7 @@ const AdvertDetail = () => {
                     </div>
                     <div>
                         <div className='flex justify-between'>
-                            <p className='text-[1.6rem] font-bold p-8'>
+                            <p className='text-[1.6rem] font-Satoshi-Medium p-8'>
                                 Click Rate
                             </p>
 

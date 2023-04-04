@@ -550,7 +550,7 @@ const ViewGuard = () => {
                                     }}
                                 >
                                     Drag Security Guard picture here or{' '}
-                                    <span className='text-color-blue font-bold'>
+                                    <span className='text-color-blue font-Satoshi-Medium'>
                                         click
                                     </span>{' '}
                                     to upload

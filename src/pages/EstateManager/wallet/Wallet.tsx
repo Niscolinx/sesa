@@ -203,7 +203,7 @@ function Wallet() {
                         />
 
                         <h3
-                            className='text-[2rem] font-bold border-b '
+                            className='text-[2rem] font-Satoshi-Medium border-b '
                             style={{
                                 fontFamily: 'Satoshi-Medium',
                             }}
@@ -311,7 +311,7 @@ function Wallet() {
                     >
                         <div className='border-l border-l-color-grey bg-white rounded-lg p-8 grid gap-10'>
                             <div className='flex justify-between'>
-                                <p className='text-[1.6rem] font-bold p-8'>
+                                <p className='text-[1.6rem] font-Satoshi-Medium p-8'>
                                     Wallet Trend
                                 </p>
 
@@ -380,7 +380,7 @@ function Wallet() {
                     <section className='bg-color-white rounded-lg border min-w-[112rem]'>
                         <div className='grid text-[1.6rem] border rounded-lg'>
                             <div className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
-                                <p className=' font-bold'>
+                                <p className=' font-Satoshi-Medium'>
                                     Transaction History <span>(200)</span>
                                 </p>
                                 <div className='relative flex items-center'>

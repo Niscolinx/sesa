@@ -1,10 +1,4 @@
-import React, {
-    ChangeEvent,
-    FC,
-    useEffect,
-    useRef,
-    useState,
-} from 'react'
+import React, { ChangeEvent, FC, useEffect, useRef, useState } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { IoMdAdd } from 'react-icons/io'
@@ -276,7 +270,7 @@ const ArtisanGroup: FC<{
             </dialog>
             <div className='grid text-[1.6rem]'>
                 <div className='flex w-full items-center gap-12 p-10 bg-white rounded-lg'>
-                    <p className=' font-bold'>
+                    <p className=' font-Satoshi-Medium'>
                         Artisan Group <span>(10)</span>
                     </p>
                     <div className='relative flex items-center'>

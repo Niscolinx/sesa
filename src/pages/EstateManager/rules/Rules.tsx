@@ -344,7 +344,7 @@ function Rules() {
                         <div className='grid'>
                             <div className='grid text-[1.6rem]  rounded-lg my-10'>
                                 <div className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
-                                    <p className=' font-bold'>
+                                    <p className=' font-Satoshi-Medium'>
                                         Rule lists <span>(200)</span>
                                     </p>
                                     <div className='relative flex items-center'>

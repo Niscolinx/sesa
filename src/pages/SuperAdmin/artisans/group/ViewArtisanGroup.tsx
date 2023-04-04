@@ -273,7 +273,7 @@ const ViewArtisanGroup = () => {
                                 onSubmit={handleDialogSubmit}
                             >
                                 <h3
-                                    className='text-[2rem] font-bold border-b '
+                                    className='text-[2rem] font-Satoshi-Medium border-b '
                                     style={{
                                         fontFamily: 'Satoshi-Medium',
                                     }}
@@ -356,7 +356,7 @@ const ViewArtisanGroup = () => {
                     </button>
                 </div>
                 <div className='flex w-full items-center gap-12 py-8 bg-white rounded-lg'>
-                    <p className=' font-bold'>
+                    <p className=' font-Satoshi-Medium'>
                         Group Users <span>(5)</span>
                     </p>
                     <div className='relative flex items-center'>

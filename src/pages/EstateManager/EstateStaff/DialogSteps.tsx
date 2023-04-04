@@ -17,7 +17,7 @@ export const AddedEstateStaffSuccessfully = ({
             <p>You have successfully added an Estate Staff </p>
 
             <p
-                className='font-bold text-[1.8rem] max-w-[40rem] text-center'
+                className='font-Satoshi-Medium text-[1.8rem] max-w-[40rem] text-center'
                 style={{
                     fontFamily: 'Satoshi-Medium',
                 }}
@@ -27,7 +27,7 @@ export const AddedEstateStaffSuccessfully = ({
 
             <div className='flex w-full justify-center gap-8 mt-10'>
                 <button
-                    className='btn bg-white text-[#0556E5] border-[#0556E5] border rounded-lg w-[20rem] font-bold'
+                    className='btn bg-white text-[#0556E5] border-[#0556E5] border rounded-lg w-[20rem] font-Satoshi-Medium'
                     onClick={() => handleClose()}
                 >
                     Skip, Later
@@ -86,14 +86,13 @@ export const AddBankAccount = ({
     )
 }
 
-export const OpenedBankAccountSuccessful =  ({
+export const OpenedBankAccountSuccessful = ({
     context,
 }: {
     context: React.Context<AddedEstateStaffContext>
 }) => {
-    const { handleClose, selectedBank, setAddedEstateStaffStep } = useContext(
-        context
-    )
+    const { handleClose, selectedBank, setAddedEstateStaffStep } =
+        useContext(context)
 
     const closeSteps = () => {
         handleClose()
@@ -104,14 +103,11 @@ export const OpenedBankAccountSuccessful =  ({
         <div className='w-full grid justify-items-center gap-4'>
             <img src='/icons/admins/modalSuccess.svg' alt='' />
 
-            <p>
-                You have successfully opened an account number for this staff
-                
-            </p>
+            <p>You have successfully opened an account number for this staff</p>
 
             <div className='grid justify-items-center gap-4'>
                 <h2
-                    className='font-bold text-[2rem] text-center uppercase flex items-center gap-4'
+                    className='font-Satoshi-Medium text-[2rem] text-center uppercase flex items-center gap-4'
                     style={{
                         fontFamily: 'Satoshi-Medium',
                     }}
@@ -120,7 +116,7 @@ export const OpenedBankAccountSuccessful =  ({
                     {selectedBank}
                 </h2>
                 <p
-                    className='uppercase text-[2rem] font-bold'
+                    className='uppercase text-[2rem] font-Satoshi-Medium'
                     style={{
                         fontFamily: 'Satoshi-Medium',
                     }}

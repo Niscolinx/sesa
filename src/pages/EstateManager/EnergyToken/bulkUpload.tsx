@@ -242,7 +242,7 @@ const BulkUpload = () => {
                                     }}
                                 >
                                     {/* Drag picture here{' '}
-                                <span className='text-color-blue font-bold'>
+                                <span className='text-color-blue font-Satoshi-Medium'>
                                 click
                                 </span>{' '}
                             to upload */}

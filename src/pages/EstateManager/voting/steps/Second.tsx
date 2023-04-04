@@ -5,7 +5,8 @@ import { getPhotoUrl } from '../../../../utils/getPhotoUrl'
 import { useCreateElectionContext } from '../createElection'
 
 function Second() {
-    const { electionCategory, candidate_details, setCandidate_details } = useCreateElectionContext()
+    const { electionCategory, candidate_details, setCandidate_details } =
+        useCreateElectionContext()
     const [candidate, setCandidate] = useState<string | null>(null)
     const [category, setCategory] = useState<string | null>(null)
     const [name, setName] = useState('Aliba Desmond')
@@ -13,7 +14,6 @@ function Second() {
     const [manifesto, setManifesto] = useState('')
     const [currentIdx, setCurrentIdx] = useState<number>(0)
 
-  
     const [photoUrl, setPhotoUrl] = useState('')
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
@@ -208,7 +208,7 @@ function Second() {
                                 }}
                             >
                                 Drag picture here{' '}
-                                <span className='text-color-blue font-bold'>
+                                <span className='text-color-blue font-Satoshi-Medium'>
                                     click
                                 </span>{' '}
                                 to upload

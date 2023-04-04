@@ -4,7 +4,6 @@ import { GrDown, GrUp } from 'react-icons/gr'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { useNavigate } from 'react-router'
 
-
 export interface IResidentUserHistory {
     id: string
     packageName: string
@@ -171,7 +170,7 @@ const ResidentUserHistory: FC<{
     return (
         <div className='grid text-[1.6rem]'>
             <div className='flex w-full items-center gap-12 p-10 bg-white rounded-lg'>
-                <p className=' font-bold'>
+                <p className=' font-Satoshi-Medium'>
                     Resident User History <span>(10)</span>
                 </p>
                 <div className='relative flex items-center'>

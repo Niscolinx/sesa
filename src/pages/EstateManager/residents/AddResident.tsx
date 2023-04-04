@@ -210,7 +210,7 @@ const AddResident = () => {
                                 onSubmit={handleDialogSubmit}
                             >
                                 <h3
-                                    className='text-[2rem] font-bold border-b '
+                                    className='text-[2rem] font-Satoshi-Medium border-b '
                                     style={{
                                         fontFamily: 'Satoshi-Medium',
                                     }}
@@ -319,7 +319,7 @@ const AddResident = () => {
             </dialog>
             <div className='grid p-8 bg-white h-[80vh] items-baseline overflow-y-scroll rounded-lg'>
                 <div className='grid gap-8 max-w-[40rem]'>
-                    <p className='text-[2rem] font-bold'>
+                    <p className='text-[2rem] font-Satoshi-Medium'>
                         KYA <span className='text-gray-500'>(Optional)</span>
                     </p>
                     <div className='flex justify-between text-[1.6rem]'>
@@ -462,7 +462,7 @@ const AddResident = () => {
                                 }}
                             >
                                 Drag estate manager picture here or{' '}
-                                <span className='text-color-blue font-bold'>
+                                <span className='text-color-blue font-Satoshi-Medium'>
                                     click
                                 </span>{' '}
                                 to upload

@@ -324,7 +324,7 @@ const CommissionWallet = () => {
                         />
 
                         <h3
-                            className='text-[2rem] font-bold border-b '
+                            className='text-[2rem] font-Satoshi-Medium border-b '
                             style={{
                                 fontFamily: 'Satoshi-Medium',
                             }}
@@ -511,7 +511,7 @@ const CommissionWallet = () => {
 
                     <div className='border-l border-l-color-grey'>
                         <div className='flex justify-between'>
-                            <p className='text-[1.6rem] font-bold p-8'>
+                            <p className='text-[1.6rem] font-Satoshi-Medium p-8'>
                                 Wallet Trend
                             </p>
 
@@ -553,7 +553,7 @@ const CommissionWallet = () => {
 
                 <div className='grid text-[1.6rem] gap-10 bg-white p-8 rounded-lg'>
                     <div className='flex w-full items-center gap-12 '>
-                        <p className=' font-bold'>
+                        <p className=' font-Satoshi-Medium'>
                             Withdrawal History <span>(10)</span>
                         </p>
                         <div className='relative flex items-center'>

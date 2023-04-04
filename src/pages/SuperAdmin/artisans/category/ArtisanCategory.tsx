@@ -223,7 +223,7 @@ const ArtisanCategory: FC<{
                                 onSubmit={handleDialogSubmit}
                             >
                                 <h3
-                                    className='text-[2rem] font-bold border-b '
+                                    className='text-[2rem] font-Satoshi-Medium border-b '
                                     style={{
                                         fontFamily: 'Satoshi-Medium',
                                     }}
@@ -284,7 +284,7 @@ const ArtisanCategory: FC<{
             </dialog>
             <div className='grid text-[1.6rem]'>
                 <div className='flex w-full items-center gap-12 p-10 bg-white rounded-lg'>
-                    <p className=' font-bold'>
+                    <p className=' font-Satoshi-Medium'>
                         Artisan Category <span>(10)</span>
                     </p>
                     <div className='relative flex items-center'>

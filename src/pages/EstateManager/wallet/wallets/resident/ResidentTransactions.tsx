@@ -211,7 +211,7 @@ export const ResidentTransactions: FC<ResidentTransactionsProps> = ({
     return (
         <div className='grid text-[1.6rem]'>
             <div className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
-                <p className=' font-bold'>
+                <p className=' font-Satoshi-Medium'>
                     {isResidentBalance
                         ? 'Resident Balance'
                         : 'Resident Transactions'}
@@ -232,7 +232,9 @@ export const ResidentTransactions: FC<ResidentTransactionsProps> = ({
 
             <div className='grid px-8'>
                 <div
-                    className={`grid justify-between text-color-dark-1 bg-color-grey p-8 gap-8 ${isResidentBalance ? 'grid-cols-4' : 'grid-cols-3'}`}
+                    className={`grid justify-between text-color-dark-1 bg-color-grey p-8 gap-8 ${
+                        isResidentBalance ? 'grid-cols-4' : 'grid-cols-3'
+                    }`}
                     style={{
                         fontSize: '1.6rem',
                     }}
@@ -302,7 +304,6 @@ export const ResidentTransactions: FC<ResidentTransactionsProps> = ({
                         className='flex items-center border px-4 rounded-lg outline-none cursor-pointer'
                         onChange={handleItemsPerPage}
                     >
-
                         {itemsPerPageArr.map((item, index) => (
                             <option
                                 value={item}

@@ -262,7 +262,7 @@ function ResidentReport() {
                 <section className='bg-color-white rounded-lg border min-w-[112rem]'>
                     <div className='grid border rounded-lg'>
                         <div className='grid p-10'>
-                            <p className=' font-bold'>
+                            <p className=' font-Satoshi-Medium'>
                                 Resident Report List <span>(200)</span>
                             </p>
                             <div className='flex w-full justify-start items-end gap-12 bg-white rounded-lg'>

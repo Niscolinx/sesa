@@ -296,7 +296,7 @@ const ViewPayment = () => {
                 </section>
                 <section className='border-l border-l-color-grey bg-white rounded-lg p-8 grid gap-10'>
                     <div className='flex justify-between'>
-                        <p className='text-[1.6rem] font-bold p-8'>
+                        <p className='text-[1.6rem] font-Satoshi-Medium p-8'>
                             Payment Trend
                         </p>
 

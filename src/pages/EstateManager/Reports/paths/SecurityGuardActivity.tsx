@@ -186,7 +186,7 @@ function SecurityGuardActivity() {
                 <section className='bg-color-white rounded-lg border min-w-[112rem]'>
                     <div className='grid border rounded-lg'>
                         <div className='grid p-10'>
-                            <p className=' font-bold'>
+                            <p className=' font-Satoshi-Medium'>
                                 Guard Report List <span>(200)</span>
                             </p>
                             <div className='flex w-full justify-start items-end gap-12 bg-white rounded-lg'>
@@ -245,7 +245,6 @@ function SecurityGuardActivity() {
                                 <p>Check - in Count</p>
                                 <p>Check - out Count</p>
                                 {/* <p>Panic Alert</p> */}
-                             
                             </div>
 
                             <div className='grid gap-8 mt-8 p-8'>
@@ -265,8 +264,6 @@ function SecurityGuardActivity() {
                                                 },
                                                 i
                                             ) => {
-                                               
-
                                                 return (
                                                     <div className='grid justify-between border-b grid-cols-6 items-center gap-8 py-4'>
                                                         <div className='flex items-center gap-4'>
@@ -290,7 +287,6 @@ function SecurityGuardActivity() {
                                                         <p>{guardCode}</p>
                                                         <p>{checkInCount}</p>
                                                         <p>{checkOutCount}</p>
-                                                  
                                                     </div>
                                                 )
                                             }

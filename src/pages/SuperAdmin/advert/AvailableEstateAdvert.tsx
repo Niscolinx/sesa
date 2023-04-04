@@ -129,7 +129,7 @@ const AvailableEstateAdvert: FC<{
         <>
             <div className='grid text-[1.6rem]'>
                 <div className='flex w-full items-center gap-12 p-10 bg-white rounded-lg'>
-                    <p className=' font-bold'>
+                    <p className=' font-Satoshi-Medium'>
                         Availabe Estate Adverts <span>(10)</span>
                     </p>
                     <div className='relative flex items-center'>

@@ -8,11 +8,11 @@ import { useNavigate } from 'react-router-dom'
 interface ResidentProfile {
     id: number
     residentCode: string
-    name: string,
-    phoneNumber: string,
-    category: string,
-    residentClass: string,
-    status: 'Active' | 'Inactive',
+    name: string
+    phoneNumber: string
+    category: string
+    residentClass: string
+    status: 'Active' | 'Inactive'
 }
 
 const RESIDENT_PROFILE_DATA: ResidentProfile[] = Array.from({
@@ -151,8 +151,8 @@ const ResidentProfile = () => {
                 <section className='bg-color-white rounded-lg border min-w-[112rem] overflow-scroll'>
                     <div className='grid text-[1.6rem]'>
                         <caption className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
-                            <p className=' font-bold'>
-                                 Resident Profile <span>(4)</span>
+                            <p className=' font-Satoshi-Medium'>
+                                Resident Profile <span>(4)</span>
                             </p>
                             <div className='relative flex items-center'>
                                 <img
@@ -251,8 +251,6 @@ const ResidentProfile = () => {
                                                                 </span>
                                                             )}
                                                         </p>
-                                                        
-                                                        
                                                     </div>
                                                 )
                                             }

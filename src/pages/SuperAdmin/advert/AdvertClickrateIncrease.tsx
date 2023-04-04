@@ -180,7 +180,7 @@ const AdvertClickrateIncrease = () => {
         <>
             <div className='grid text-[1.6rem] border'>
                 <div className='flex w-full items-center gap-12 p-10 bg-white rounded-lg'>
-                    <p className=' font-bold'>
+                    <p className=' font-Satoshi-Medium'>
                         Total Views <span>(10)</span>
                     </p>
                     <div className='relative flex items-center'>

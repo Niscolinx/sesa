@@ -275,7 +275,7 @@ const AddSecurityGuard = () => {
                                 onSubmit={handleDialogSubmit}
                             >
                                 <h3
-                                    className='text-[2rem] font-bold border-b '
+                                    className='text-[2rem] font-Satoshi-Medium border-b '
                                     style={{
                                         fontFamily: 'Satoshi-Medium',
                                     }}
@@ -502,7 +502,7 @@ const AddSecurityGuard = () => {
                                     }}
                                 >
                                     Drag Security Guard picture here or{' '}
-                                    <span className='text-color-blue font-bold'>
+                                    <span className='text-color-blue font-Satoshi-Medium'>
                                         click
                                     </span>{' '}
                                     to upload
@@ -650,7 +650,7 @@ const AddSecurityGuard = () => {
                     </div>
                     <div className='grid gap-8 max-w-[40rem] mt-[5rem] '>
                         <div className='flex items-center justify-between'>
-                            <p className='text-[2rem] font-bold flex items-center gap-2'>
+                            <p className='text-[2rem] font-Satoshi-Medium flex items-center gap-2'>
                                 KYG{' '}
                                 <span className='text-[#043FA7]'>
                                     <BsQuestionCircle />

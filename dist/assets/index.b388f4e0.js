@@ -12702,7 +12702,7 @@ const qe = ({
                         'flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg',
                     children: [
                         d('p', {
-                            className: ' font-bold',
+                            className: ' font-Satoshi-Medium',
                             children: [
                                 'Activity Report List ',
                                 i('span', { children: '(4)' }),
@@ -12978,7 +12978,7 @@ const qe = ({
                         'flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg',
                     children: [
                         d('p', {
-                            className: ' font-bold',
+                            className: ' font-Satoshi-Medium',
                             children: [
                                 'Attendance Report List ',
                                 i('span', { children: '(4)' }),
@@ -13536,7 +13536,7 @@ function pA() {
                                         'flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg',
                                     children: [
                                         d('p', {
-                                            className: ' font-bold',
+                                            className: ' font-Satoshi-Medium',
                                             children: [
                                                 'EstateManager List ',
                                                 i('span', {
@@ -18458,7 +18458,7 @@ const rk = () => {
                         'flex w-full items-center gap-12 p-10 bg-white rounded-lg',
                     children: [
                         d('p', {
-                            className: ' font-bold',
+                            className: ' font-Satoshi-Medium',
                             children: [
                                 'Resident User History ',
                                 i('span', { children: '(10)' }),
@@ -18863,7 +18863,7 @@ const rk = () => {
                         'flex w-full items-center gap-12 p-10 bg-white rounded-lg',
                     children: [
                         d('p', {
-                            className: ' font-bold',
+                            className: ' font-Satoshi-Medium',
                             children: [
                                 'Resident User List ',
                                 i('span', { children: '(4)' }),
@@ -19873,7 +19873,7 @@ function ck() {
                         'flex w-full justify-between items-center gap-12 p-8 bg-color-white rounded-lg',
                     children: [
                         d('p', {
-                            className: 'text-[1.6rem] font-bold',
+                            className: 'text-[1.6rem] font-Satoshi-Medium',
                             children: [
                                 'SecurityCompany List ',
                                 i('span', { children: '(202)' }),
@@ -52880,7 +52880,7 @@ const gne = [
                                     }),
                                     d('h1', {
                                         className:
-                                            'text-[3rem] font-bold flex items-center gap-0',
+                                            'text-[3rem] font-Satoshi-Medium flex items-center gap-0',
                                         children: [
                                             i(U0, { className: 'text-[3rem]' }),
                                             '800,836,709.74',
@@ -52897,7 +52897,7 @@ const gne = [
                                         children: [
                                             d('p', {
                                                 className:
-                                                    'text-[3.4rem] font-bold relative',
+                                                    'text-[3.4rem] font-Satoshi-Medium relative',
                                                 children: [
                                                     '45',
                                                     i('span', {
@@ -54188,7 +54188,8 @@ const Ene = [
                                       }),
                                 t &&
                                     i('p', {
-                                        className: 'font-bold text-[1.8rem]',
+                                        className:
+                                            'font-Satoshi-Medium text-[1.8rem]',
                                         style: { fontFamily: 'Satoshi-Medium' },
                                         children: 'Denial Confirmation',
                                     }),
@@ -54289,7 +54290,7 @@ const Ene = [
                                             children: [
                                                 i('p', {
                                                     className:
-                                                        'text-[1.6rem] font-bold p-8',
+                                                        'text-[1.6rem] font-Satoshi-Medium p-8',
                                                     children: 'Wallet Trend',
                                                 }),
                                                 d('div', {
@@ -54361,7 +54362,8 @@ const Ene = [
                                                 'flex w-full items-center gap-12 ',
                                             children: [
                                                 d('p', {
-                                                    className: ' font-bold',
+                                                    className:
+                                                        ' font-Satoshi-Medium',
                                                     children: [
                                                         'Estate List ',
                                                         i('span', {
@@ -54561,7 +54563,8 @@ const Ene = [
                                                 'flex w-full items-center gap-12 ',
                                             children: [
                                                 d('p', {
-                                                    className: ' font-bold',
+                                                    className:
+                                                        ' font-Satoshi-Medium',
                                                     children: [
                                                         'Withdrawal History ',
                                                         i('span', {
@@ -55515,7 +55518,7 @@ const Ene = [
                         'flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg',
                     children: [
                         i('p', {
-                            className: ' font-bold',
+                            className: ' font-Satoshi-Medium',
                             children: t
                                 ? 'Resident Balance'
                                 : 'Resident Transactions',
@@ -55897,7 +55900,7 @@ const Ene = [
                                         children: [
                                             i('p', {
                                                 className:
-                                                    'text-[1.6rem] font-bold p-8',
+                                                    'text-[1.6rem] font-Satoshi-Medium p-8',
                                                 children: 'Wallet Trend',
                                             }),
                                             d('div', {
@@ -56015,7 +56018,8 @@ const Ene = [
                                             'flex w-full items-center gap-12 ',
                                         children: [
                                             d('p', {
-                                                className: ' font-bold',
+                                                className:
+                                                    ' font-Satoshi-Medium',
                                                 children: [
                                                     'Withdrawal History ',
                                                     i('span', {
@@ -56982,7 +56986,7 @@ const Ene = [
                                 }),
                                 i('h3', {
                                     className:
-                                        'text-[2rem] font-bold border-b ',
+                                        'text-[2rem] font-Satoshi-Medium border-b ',
                                     style: { fontFamily: 'Satoshi-Medium' },
                                     children: r
                                         ? 'Withdrawal'
@@ -57251,7 +57255,7 @@ const Ene = [
                                             children: [
                                                 i('p', {
                                                     className:
-                                                        'text-[1.6rem] font-bold p-8',
+                                                        'text-[1.6rem] font-Satoshi-Medium p-8',
                                                     children: 'Wallet Trend',
                                                 }),
                                                 d('div', {
@@ -57320,7 +57324,7 @@ const Ene = [
                                         'flex w-full items-center gap-12 ',
                                     children: [
                                         d('p', {
-                                            className: ' font-bold',
+                                            className: ' font-Satoshi-Medium',
                                             children: [
                                                 'Withdrawal History ',
                                                 i('span', { children: '(10)' }),
@@ -58292,7 +58296,7 @@ const Ene = [
                                         children: [
                                             i('p', {
                                                 className:
-                                                    'text-[1.6rem] font-bold p-8',
+                                                    'text-[1.6rem] font-Satoshi-Medium p-8',
                                                 children: 'Wallet Trend',
                                             }),
                                             d('div', {
@@ -58364,7 +58368,8 @@ const Ene = [
                                             'flex w-full items-center gap-12 ',
                                         children: [
                                             d('p', {
-                                                className: ' font-bold',
+                                                className:
+                                                    ' font-Satoshi-Medium',
                                                 children: [
                                                     'Transactions ',
                                                     i('span', {
@@ -58550,7 +58555,8 @@ const Ene = [
                                             'flex w-full items-center gap-12 ',
                                         children: [
                                             d('p', {
-                                                className: ' font-bold',
+                                                className:
+                                                    ' font-Satoshi-Medium',
                                                 children: [
                                                     'Withdrawal History ',
                                                     i('span', {
@@ -59470,7 +59476,7 @@ const Ene = [
                                           children: [
                                               i('h3', {
                                                   className:
-                                                      'text-[2rem] font-bold border-b ',
+                                                      'text-[2rem] font-Satoshi-Medium border-b ',
                                                   style: {
                                                       fontFamily:
                                                           'Satoshi-Medium',
@@ -59517,7 +59523,7 @@ const Ene = [
                                 'flex w-full items-center gap-12 p-10 bg-white rounded-lg',
                             children: [
                                 d('p', {
-                                    className: ' font-bold',
+                                    className: ' font-Satoshi-Medium',
                                     children: [
                                         'Artisan Category ',
                                         i('span', { children: '(10)' }),
@@ -60028,7 +60034,7 @@ const Ene = [
                                 'flex w-full items-center gap-12 p-10 bg-white rounded-lg',
                             children: [
                                 d('p', {
-                                    className: ' font-bold',
+                                    className: ' font-Satoshi-Medium',
                                     children: [
                                         'Artisan Group ',
                                         i('span', { children: '(10)' }),
@@ -60594,7 +60600,7 @@ const Ene = [
                                 'flex w-full items-center gap-12 p-10 bg-white rounded-lg',
                             children: [
                                 d('p', {
-                                    className: ' font-bold',
+                                    className: ' font-Satoshi-Medium',
                                     children: [
                                         'Artisan List ',
                                         i('span', { children: '(10)' }),
@@ -61394,7 +61400,7 @@ const Xne = [
                                           children: [
                                               i('h3', {
                                                   className:
-                                                      'text-[2rem] font-bold border-b ',
+                                                      'text-[2rem] font-Satoshi-Medium border-b ',
                                                   style: {
                                                       fontFamily:
                                                           'Satoshi-Medium',
@@ -61471,7 +61477,7 @@ const Xne = [
                                 'flex w-full items-center gap-12 py-8 bg-white rounded-lg',
                             children: [
                                 d('p', {
-                                    className: ' font-bold',
+                                    className: ' font-Satoshi-Medium',
                                     children: [
                                         'Category Users ',
                                         i('span', { children: '(3)' }),
@@ -62373,7 +62379,7 @@ const Pt = ({
                                           children: [
                                               i('h3', {
                                                   className:
-                                                      'text-[2rem] font-bold border-b ',
+                                                      'text-[2rem] font-Satoshi-Medium border-b ',
                                                   style: {
                                                       fontFamily:
                                                           'Satoshi-Medium',
@@ -62497,7 +62503,8 @@ const Pt = ({
                             className: 'grid gap-8 max-w-[40rem]',
                             children: [
                                 d('p', {
-                                    className: 'text-[2rem] font-bold',
+                                    className:
+                                        'text-[2rem] font-Satoshi-Medium',
                                     children: [
                                         'KYA ',
                                         i('span', {
@@ -62731,7 +62738,7 @@ const Pt = ({
                                                         ' ',
                                                         i('span', {
                                                             className:
-                                                                'text-color-blue font-bold',
+                                                                'text-color-blue font-Satoshi-Medium',
                                                             children: 'click',
                                                         }),
                                                         ' ',
@@ -63813,7 +63820,7 @@ function nae() {
                     'flex w-full items-center gap-12 py-8 bg-white rounded-lg',
                 children: [
                     d('p', {
-                        className: ' font-bold',
+                        className: ' font-Satoshi-Medium',
                         children: [
                             'Estate List ',
                             i('span', { children: '(5)' }),
@@ -64160,7 +64167,7 @@ const aae = [
                                           children: [
                                               i('h3', {
                                                   className:
-                                                      'text-[2rem] font-bold border-b ',
+                                                      'text-[2rem] font-Satoshi-Medium border-b ',
                                                   style: {
                                                       fontFamily:
                                                           'Satoshi-Medium',
@@ -64237,7 +64244,7 @@ const aae = [
                                 'flex w-full items-center gap-12 py-8 bg-white rounded-lg',
                             children: [
                                 d('p', {
-                                    className: ' font-bold',
+                                    className: ' font-Satoshi-Medium',
                                     children: [
                                         'Group Users ',
                                         i('span', { children: '(5)' }),
@@ -64688,7 +64695,7 @@ const aae = [
                                 'flex w-full items-center gap-12 p-10 bg-white rounded-lg',
                             children: [
                                 d('p', {
-                                    className: ' font-bold',
+                                    className: ' font-Satoshi-Medium',
                                     children: [
                                         'Total Advert ',
                                         i('span', { children: '(10)' }),
@@ -65106,7 +65113,7 @@ const aae = [
                             'flex w-full items-center gap-12 p-10 bg-white rounded-lg',
                         children: [
                             d('p', {
-                                className: ' font-bold',
+                                className: ' font-Satoshi-Medium',
                                 children: [
                                     'Availabe Estate Adverts ',
                                     i('span', { children: '(10)' }),
@@ -65656,7 +65663,7 @@ const fae = () => {
                                                 ' ',
                                                 i('span', {
                                                     className:
-                                                        'text-color-blue font-bold',
+                                                        'text-color-blue font-Satoshi-Medium',
                                                     children: 'click',
                                                 }),
                                                 ' ',
@@ -66507,7 +66514,7 @@ const Yw = 'https://sesadigital.com/thelink_copyhere',
                                             children: [
                                                 i('p', {
                                                     className:
-                                                        'text-[1.6rem] font-bold p-8',
+                                                        'text-[1.6rem] font-Satoshi-Medium p-8',
                                                     children: 'Click Rate',
                                                 }),
                                                 d('div', {
@@ -66742,7 +66749,7 @@ const Rae = [
                             'flex w-full items-center gap-12 p-10 bg-white rounded-lg',
                         children: [
                             d('p', {
-                                className: ' font-bold',
+                                className: ' font-Satoshi-Medium',
                                 children: [
                                     'Total Views ',
                                     i('span', { children: '(10)' }),
@@ -67025,7 +67032,7 @@ const Rae = [
                             'flex w-full items-center gap-12 p-10 bg-white rounded-lg',
                         children: [
                             d('p', {
-                                className: ' font-bold',
+                                className: ' font-Satoshi-Medium',
                                 children: [
                                     'Total Views ',
                                     i('span', { children: '(10)' }),
@@ -68950,7 +68957,7 @@ const Hae = () => {
                                                         ' ',
                                                         i('span', {
                                                             className:
-                                                                'text-color-blue font-bold',
+                                                                'text-color-blue font-Satoshi-Medium',
                                                             children: 'click',
                                                         }),
                                                         ' ',
@@ -70329,7 +70336,7 @@ function mie() {
                                     'flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg',
                                 children: [
                                     d('p', {
-                                        className: ' font-bold',
+                                        className: ' font-Satoshi-Medium',
                                         children: [
                                             'HouseHold List ',
                                             i('span', { children: '(200)' }),
@@ -70940,7 +70947,7 @@ function Pie() {
                                     'flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg',
                                 children: [
                                     d('p', {
-                                        className: ' font-bold',
+                                        className: ' font-Satoshi-Medium',
                                         children: [
                                             'HouseHold List ',
                                             i('span', { children: '(200)' }),
@@ -71428,7 +71435,7 @@ function _ie() {
                                     'flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg',
                                 children: [
                                     d('p', {
-                                        className: ' font-bold',
+                                        className: ' font-Satoshi-Medium',
                                         children: [
                                             'Security Guards ',
                                             i('span', { children: '(200)' }),
@@ -72766,7 +72773,7 @@ const Aie = () => {
                                                 children: [
                                                     i('p', {
                                                         className:
-                                                            'text-[3rem] font-bold relative',
+                                                            'text-[3rem] font-Satoshi-Medium relative',
                                                         children: '50,000',
                                                     }),
                                                     i('p', {
@@ -72914,7 +72921,7 @@ const Aie = () => {
                                                 children: [
                                                     i('p', {
                                                         className:
-                                                            'text-[3rem] font-bold relative',
+                                                            'text-[3rem] font-Satoshi-Medium relative',
                                                         children: '50,000',
                                                     }),
                                                     i('p', {
@@ -73073,7 +73080,7 @@ const Aie = () => {
                         'flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg',
                     children: [
                         d('p', {
-                            className: ' font-bold',
+                            className: ' font-Satoshi-Medium',
                             children: [
                                 'Activity Report List ',
                                 i('span', { children: '(4)' }),
@@ -73417,7 +73424,7 @@ const Aie = () => {
                         'flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg',
                     children: [
                         d('p', {
-                            className: ' font-bold',
+                            className: ' font-Satoshi-Medium',
                             children: [
                                 'Attendance Report List ',
                                 i('span', { children: '(4)' }),
@@ -73914,7 +73921,8 @@ const $ie = Array.from({ length: 20 }).map((e, t) => ({
                                             'flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg',
                                         children: [
                                             d('p', {
-                                                className: ' font-bold',
+                                                className:
+                                                    ' font-Satoshi-Medium',
                                                 children: [
                                                     'Security Guard List ',
                                                     i('span', {
@@ -75017,7 +75025,7 @@ const $ie = Array.from({ length: 20 }).map((e, t) => ({
                                                                 ' ',
                                                                 i('span', {
                                                                     className:
-                                                                        'text-color-blue font-bold',
+                                                                        'text-color-blue font-Satoshi-Medium',
                                                                     children:
                                                                         'click',
                                                                 }),
@@ -75620,7 +75628,7 @@ const $ie = Array.from({ length: 20 }).map((e, t) => ({
                 }),
                 i('p', {
                     className:
-                        'font-bold text-[1.8rem] max-w-[40rem] text-center',
+                        'font-Satoshi-Medium text-[1.8rem] max-w-[40rem] text-center',
                     style: { fontFamily: 'Satoshi-Medium' },
                     children:
                         'Do you want to open a bank account for this Security Guard?',
@@ -75630,7 +75638,7 @@ const $ie = Array.from({ length: 20 }).map((e, t) => ({
                     children: [
                         i('button', {
                             className:
-                                'btn bg-white text-[#0556E5] border-[#0556E5] border rounded-lg w-[20rem] font-bold',
+                                'btn bg-white text-[#0556E5] border-[#0556E5] border rounded-lg w-[20rem] font-Satoshi-Medium',
                             onClick: () => e(),
                             children: 'Skip, Later',
                         }),
@@ -75703,7 +75711,7 @@ const $ie = Array.from({ length: 20 }).map((e, t) => ({
                     children: [
                         d('h2', {
                             className:
-                                'font-bold text-[2rem] text-center uppercase flex items-center gap-4',
+                                'font-Satoshi-Medium text-[2rem] text-center uppercase flex items-center gap-4',
                             style: { fontFamily: 'Satoshi-Medium' },
                             children: [
                                 '2094828922 ',
@@ -75714,7 +75722,8 @@ const $ie = Array.from({ length: 20 }).map((e, t) => ({
                             ],
                         }),
                         i('p', {
-                            className: 'uppercase text-[2rem] font-bold',
+                            className:
+                                'uppercase text-[2rem] font-Satoshi-Medium',
                             style: { fontFamily: 'Satoshi-Medium' },
                             children: 'Ajayi Suileman Adeyemi',
                         }),
@@ -75982,7 +75991,7 @@ const $ie = Array.from({ length: 20 }).map((e, t) => ({
                                           children: [
                                               i('h3', {
                                                   className:
-                                                      'text-[2rem] font-bold border-b ',
+                                                      'text-[2rem] font-Satoshi-Medium border-b ',
                                                   style: {
                                                       fontFamily:
                                                           'Satoshi-Medium',
@@ -76263,7 +76272,7 @@ const $ie = Array.from({ length: 20 }).map((e, t) => ({
                                                             ' ',
                                                             i('span', {
                                                                 className:
-                                                                    'text-color-blue font-bold',
+                                                                    'text-color-blue font-Satoshi-Medium',
                                                                 children:
                                                                     'click',
                                                             }),
@@ -76516,7 +76525,7 @@ const $ie = Array.from({ length: 20 }).map((e, t) => ({
                                             children: [
                                                 d('p', {
                                                     className:
-                                                        'text-[2rem] font-bold flex items-center gap-2',
+                                                        'text-[2rem] font-Satoshi-Medium flex items-center gap-2',
                                                     children: [
                                                         'KYG',
                                                         ' ',
@@ -76691,7 +76700,7 @@ function Vie() {
                             'flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg',
                         children: [
                             d('p', {
-                                className: ' font-bold',
+                                className: ' font-Satoshi-Medium',
                                 children: [
                                     'Messages ',
                                     i('span', { children: '(200)' }),
@@ -78111,7 +78120,8 @@ function Yie() {
                                 onClick: () => M(),
                             }),
                             i('h3', {
-                                className: 'text-[2rem] font-bold border-b ',
+                                className:
+                                    'text-[2rem] font-Satoshi-Medium border-b ',
                                 style: { fontFamily: 'Satoshi-Medium' },
                                 children: N ? 'Withdrawal' : 'Fund Wallet',
                             }),
@@ -78309,7 +78319,7 @@ function Yie() {
                                             children: [
                                                 i('p', {
                                                     className:
-                                                        'text-[1.6rem] font-bold p-8',
+                                                        'text-[1.6rem] font-Satoshi-Medium p-8',
                                                     children: 'Wallet Trend',
                                                 }),
                                                 d('div', {
@@ -78419,7 +78429,8 @@ function Yie() {
                                             'flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg',
                                         children: [
                                             d('p', {
-                                                className: ' font-bold',
+                                                className:
+                                                    ' font-Satoshi-Medium',
                                                 children: [
                                                     'Transaction History ',
                                                     i('span', {
@@ -80266,7 +80277,8 @@ function Cle() {
                                 onClick: () => M(),
                             }),
                             i('h3', {
-                                className: 'text-[2rem] font-bold border-b ',
+                                className:
+                                    'text-[2rem] font-Satoshi-Medium border-b ',
                                 style: { fontFamily: 'Satoshi-Medium' },
                                 children: N ? 'Withdrawal' : 'Fund Wallet',
                             }),
@@ -80404,7 +80416,7 @@ function Cle() {
                                             children: [
                                                 i('p', {
                                                     className:
-                                                        'text-[1.6rem] font-bold p-8',
+                                                        'text-[1.6rem] font-Satoshi-Medium p-8',
                                                     children: 'Wallet Trend',
                                                 }),
                                                 d('div', {
@@ -80509,7 +80521,8 @@ function Cle() {
                                             'flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg',
                                         children: [
                                             d('p', {
-                                                className: ' font-bold',
+                                                className:
+                                                    ' font-Satoshi-Medium',
                                                 children: [
                                                     'Transaction History ',
                                                     i('span', {
@@ -81202,7 +81215,7 @@ const Ple = () =>
                                         'flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg',
                                     children: [
                                         d('p', {
-                                            className: ' font-bold',
+                                            className: ' font-Satoshi-Medium',
                                             children: [
                                                 'Resident Profile ',
                                                 i('span', { children: '(4)' }),
@@ -81689,7 +81702,7 @@ const Ple = () =>
                                         'flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg',
                                     children: [
                                         d('p', {
-                                            className: ' font-bold',
+                                            className: ' font-Satoshi-Medium',
                                             children: [
                                                 'Unique Resident ',
                                                 i('span', { children: '(4)' }),
@@ -82399,7 +82412,7 @@ const Tle = () => {
                                           children: [
                                               i('h3', {
                                                   className:
-                                                      'text-[2rem] font-bold border-b ',
+                                                      'text-[2rem] font-Satoshi-Medium border-b ',
                                                   style: {
                                                       fontFamily:
                                                           'Satoshi-Medium',
@@ -82488,7 +82501,8 @@ const Tle = () => {
                             className: 'grid gap-8 max-w-[40rem]',
                             children: [
                                 d('p', {
-                                    className: 'text-[2rem] font-bold',
+                                    className:
+                                        'text-[2rem] font-Satoshi-Medium',
                                     children: [
                                         'KYA ',
                                         i('span', {
@@ -82722,7 +82736,7 @@ const Tle = () => {
                                                         ' ',
                                                         i('span', {
                                                             className:
-                                                                'text-color-blue font-bold',
+                                                                'text-color-blue font-Satoshi-Medium',
                                                             children: 'click',
                                                         }),
                                                         ' ',

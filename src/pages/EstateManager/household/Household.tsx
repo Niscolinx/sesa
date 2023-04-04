@@ -36,9 +36,7 @@ export type Actions = 'View Details' | 'Edit Details' | 'Delete'
 
 function HouseHold() {
     const [isHousehold, setIsHousehold] = useState(false)
-    const [propertyCode, setPropertyCode] = useState<
-        string | null
-    >(null)
+    const [propertyCode, setPropertyCode] = useState<string | null>(null)
     const addhousehold = () => {
         setIsHousehold(true)
     }
@@ -227,12 +225,9 @@ function HouseHold() {
         dialogRef.current?.close()
     }
 
-
     const handleOpen = () => {
         dialogRef.current?.showModal()
     }
-
-  
 
     return (
         <>
@@ -246,7 +241,7 @@ function HouseHold() {
 
                         <div className='grid gap-12'>
                             <h3
-                                className='text-[2rem] font-bold border-b '
+                                className='text-[2rem] font-Satoshi-Medium border-b '
                                 style={{
                                     fontFamily: 'Satoshi-Medium',
                                 }}
@@ -293,7 +288,7 @@ function HouseHold() {
                         <section className='bg-color-white rounded-lg border min-w-[112rem] overflow-scroll'>
                             <div className='grid text-[1.6rem]'>
                                 <div className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
-                                    <p className=' font-bold'>
+                                    <p className=' font-Satoshi-Medium'>
                                         Household List <span>(50)</span>
                                     </p>
                                     <div className='relative flex items-center'>
@@ -341,10 +336,7 @@ function HouseHold() {
                                 </div>
 
                                 <div className='grid'>
-                                    <div
-                                        className='grid items-center justify-between text-color-dark-1 bg-gray-100 p-8 grid-cols-9 gap-8'
-                                       
-                                    >
+                                    <div className='grid items-center justify-between text-color-dark-1 bg-gray-100 p-8 grid-cols-9 gap-8'>
                                         <p className='flex items-center gap-4'>
                                             <input
                                                 type='checkbox'
