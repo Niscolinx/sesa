@@ -26,6 +26,8 @@ import { selectAuth } from '../store/features/auth'
 const App = () => {
     const { isAuth } = useAppSelector(selectAuth)
 
+    console.log({isAuth})
+
     const checkAuth = isAuth && [
         superAdminRoutes,
         securityCompanyRoutes,
