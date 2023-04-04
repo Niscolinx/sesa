@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
-import Input, { SelectProps } from '../../../components/UI/Input'
+import Input, { SelectProps } from '../../../components/UI/input/Input'
 import { useForm } from 'react-hook-form'
 import { useMutation } from 'react-query'
 import { useAppDispatch } from '../../../store/app/hooks'
@@ -254,7 +254,6 @@ const AddEstate = () => {
                         <div className='grid items-center justify-between gap-4'>
                             <p className='font-Satoshi-Medium text-[1.4rem]'>
                                 Sign Out Required
-                                
                             </p>
                             <div
                                 onClick={toggleIskyg}

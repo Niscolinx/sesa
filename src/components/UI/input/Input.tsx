@@ -1,6 +1,6 @@
 import { FC, useEffect, useState } from 'react'
 import { FieldValues, UseFormRegister } from 'react-hook-form'
-import { Select } from '../SuperAdmin/UI/Select'
+import { Select } from '../../SuperAdmin/UI/Select'
 
 export interface SelectProps {
     state: string[]
@@ -40,7 +40,11 @@ const Input: FC<Partial<Input> & { label: string }> = ({
     }
 
     return (
-        <div className={`w-full grid gap-4 self-baseline ${fullWidth && 'col-span-full'}`}>
+        <div
+            className={`w-full grid gap-4 self-baseline ${
+                fullWidth && 'col-span-full'
+            }`}
+        >
             {isSelect && select ? (
                 <Select
                     label={name ?? label.replaceAll('_', ' ')}

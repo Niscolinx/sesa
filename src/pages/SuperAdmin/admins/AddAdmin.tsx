@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form'
 import { IoMdAdd } from 'react-icons/io'
 import { useMutation } from 'react-query'
 import { AxiosRequest } from '../../../utils/axios'
-import Input from '../../../components/UI/Input'
+import Input from '../../../components/UI/input/Input'
 import { Select } from '../../../components/SuperAdmin/UI/Select'
 import { useAppDispatch } from '../../../store/app/hooks'
 
