@@ -7,6 +7,7 @@ import { Select } from '../../../components/SuperAdmin/UI/Select'
 import { useParams } from 'react-router'
 import { getToken } from '../../../utils/token'
 import { toast, ToastContainer } from 'react-toastify'
+import { useAppDispatch } from '../../../store/app/hooks'
 
 const ViewAdmin = () => {
     interface Inputs {
@@ -31,6 +32,7 @@ const ViewAdmin = () => {
     }
 
     const params = useParams()
+    const dispatch = useAppDispatch()
 
     const [photoPreview, setPhotoPreview] = useState('')
     const [imageUrl, setImageUrl] = useState<File | null>(null)
@@ -70,7 +72,7 @@ const ViewAdmin = () => {
 
     const [responseMessage, setResponseMessage] =
         useState<ResponseMessage | null>(null)
-
+    
     const postDeactivateAdmin = (id: string) => {
         return AxiosRequest({
             url: '/change/user/status',

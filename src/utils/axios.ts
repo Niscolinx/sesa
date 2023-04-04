@@ -1,5 +1,6 @@
 import axios, { AxiosError, AxiosResponse } from 'axios'
-import {  getToken } from './token'
+import { setAuth } from '../store/features/auth'
+import { getToken } from './token'
 
 const instance = axios.create({ baseURL: 'https://sesadigital.com/api' })
 
@@ -21,9 +22,13 @@ instance.interceptors.request.use(function (config) {
 
     return config
 })
-export const AxiosRequest = ({ dispatch, ...options }: { dispatch: any, ...options: Partial<RequestOptions> }) => {
+export const AxiosRequest = ({
+    dispatch,
+    ...options
+}: Partial<RequestOptions> & { dispatch: any }) => {
     const onSuccess = (response: AxiosResponse) => response
     const onError = (error: AxiosError) => {
+        dispatch(setAuth(false))
         return Promise.reject(error)
     }
 

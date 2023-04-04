@@ -11,7 +11,6 @@ import { useAppDispatch } from '../../../store/app/hooks'
 import { Select } from '../../../components/SuperAdmin/UI/Select'
 import { useQuery } from 'react-query'
 import { AxiosRequest } from '../../../utils/axios'
-import axios from 'axios'
 
 interface IAdmin {
     user: {
@@ -40,6 +39,7 @@ function RenderedAdmins() {
 
     const fetchAdmins = async () => {
         return AxiosRequest({
+            dispatch,
             url: '/admin/get/all',
         })
 
