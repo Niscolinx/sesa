@@ -194,7 +194,7 @@ const AddAdmin = () => {
                             const { label, type, name } = input
                             return idx === 3 ? (
                                 <Select
-                                    label='Gender'
+                                    label='State'
                                     state={['Male', 'Female']}
                                     selectedState={selectedGender}
                                     setSelectedState={setSelectedGender}

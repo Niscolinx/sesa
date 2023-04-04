@@ -150,13 +150,21 @@ const AddEstate = () => {
     ] satisfies FormInputs[]
 
     return (
-        <div className='addEstate'>
-            <form onSubmit={onSubmit} className='addEstate__formBox'>
-                <section className='grid gap-4'>
-                    <p className='text-[2rem] font-Satoshi-Medium'>Estate Details</p>
+        <div className='bg-white rounded-lg p-8'>
+            <form onSubmit={onSubmit} className='grid gap-4'>
+                <p className='text-[2rem] font-Satoshi-Medium'>
+                    Estate Details
+                </p>
+                <section
+                    className='grid max-w-[84rem] gap-16 mt-12 '
+                    style={{
+                        gridTemplateColumns:
+                            ' repeat(auto-fit, minmax(35rem, 1fr))',
+                    }}
+                >
                     {formInputs.map((input, idx) => {
                         const { label, type, name } = input
-                        return idx === 3 ? (
+                        return idx === 1 ? (
                             <Select
                                 label='Gender'
                                 state={['Male', 'Female']}
