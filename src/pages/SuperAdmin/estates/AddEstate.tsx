@@ -12,20 +12,32 @@ import { AxiosRequest } from '../../../utils/axios'
 
 const AddEstate = () => {
     interface Inputs {
-       estate_name: string
-       estate_location_state: string
-       address: string
-       estate_manager: string
-       security_company: string
+        estate_name: string
+        estate_location_state: string
+        address: string
+        estate_manager: string
+        security_company: string
     }
 
     const dispatch = useAppDispatch()
     const [photoUrl, setPhotoUrl] = useState('')
     const [selectedState, setSelectedState] = useState<string | null>('')
-    const [estateLocationState, setEstateLocationState] = useState([
+    const estateLocationState = [
         'Abuja',
         'Lagos',
-    ])
+    ]
+    const [selectedEstateManager, setSelectedEstateManager] = useState<string | null>('')
+    const estateManager = [
+        'Manager 1',
+        'Manager 2',
+        'Manager 3',
+    ]
+    const [selectedSecurityCompany, setSelectedSecurityCompany] = useState<string | null>('')
+    const securityCompany = [
+        'Company 1',
+        'Company 2',
+        'Company 3',
+    ]
 
     const [photoPreview, setPhotoPreview] = useState('')
     const [imageUrl, setImageUrl] = useState<File | null>(null)
@@ -89,7 +101,7 @@ const AddEstate = () => {
             estate_location_state,
             estate_manager,
             address,
-            security_company
+            security_company,
         } = data
 
         // const adminData = {
@@ -121,9 +133,9 @@ const AddEstate = () => {
 
     type FormInputs = {
         label: string
-        type?: string
-        name?: string
-        selectProps?: SelectProps
+        type: string
+        name: string
+        selectProps: SelectProps
     }
 
     const formInputs = [
@@ -142,10 +154,18 @@ const AddEstate = () => {
             },
         },
         {
-            label: 'estate_location_state',
-            name: 'state',
+            label: 'address',
         },
-    ] satisfies FormInputs[]
+        {
+            label: 'estate_manager',
+            type: 'select',
+            selectProps: {
+                state: estateLocationState,
+                selectedState,
+                setSelectedState,
+            },
+        },
+    ] satisfies Partial<FormInputs>[]
 
     return (
         <div className='bg-white rounded-lg p-8'>

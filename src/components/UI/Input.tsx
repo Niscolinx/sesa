@@ -42,14 +42,17 @@ const Input: FC<Input> = ({
         <div className='w-full grid gap-4 self-baseline'>
             {isSelect && select ? (
                 <Select
-                    label={label}
+                    label={name ?? label.replace('_', ' ')}
                     state={select.state}
                     selectedState={select.selectedState}
                     setSelectedState={select.setSelectedState}
                 />
             ) : (
                 <>
-                    <label htmlFor={label} className='font-semibold capitalize'>
+                    <label
+                        htmlFor={label}
+                        className='text-[1.4rem] font-semibold capitalize'
+                    >
                         {name ?? label.replace('_', ' ')}
                     </label>
 
