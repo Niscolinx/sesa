@@ -4,7 +4,7 @@ import { IoMdAdd } from 'react-icons/io'
 import { getPhotoUrl } from '../../../utils/getPhotoUrl'
 import { ModalContext } from '../../../Context/ModalContext'
 import { Select } from '../../../components/SuperAdmin/UI/Select'
-import Input from '../../../components/UI/Input'
+import Input, { SelectProps } from '../../../components/UI/Input'
 import { useForm } from 'react-hook-form'
 import { useMutation } from 'react-query'
 import { useAppDispatch } from '../../../store/app/hooks'
@@ -12,18 +12,20 @@ import { AxiosRequest } from '../../../utils/axios'
 
 const AddEstate = () => {
     interface Inputs {
-        email_address: string
-        first_name: string
-        last_name: string
-        dob: string
-        gender: string
-        phoneNumber: number
-        photoUrl?: string
+       estate_name: string
+       estate_location_state: string
+       address: string
+       estate_manager: string
+       security_company: string
     }
 
     const dispatch = useAppDispatch()
     const [photoUrl, setPhotoUrl] = useState('')
     const [selectedState, setSelectedState] = useState<string | null>('')
+    const [estateLocationState, setEstateLocationState] = useState([
+        'Abuja',
+        'Lagos',
+    ])
 
     const [photoPreview, setPhotoPreview] = useState('')
     const [imageUrl, setImageUrl] = useState<File | null>(null)
@@ -83,25 +85,24 @@ const AddEstate = () => {
 
     const onSubmit = handleSubmit((data) => {
         const {
-            first_name,
-            last_name,
-            gender,
-            dob,
-            email_address,
-            phoneNumber,
+            estate_name,
+            estate_location_state,
+            estate_manager,
+            address,
+            security_company
         } = data
 
-        const adminData = {
-            name: `${first_name} ${last_name}`,
-            gender,
-            dob,
-            email: email_address,
-            address: 'no 4 odeyim street',
-            phone: `+234${phoneNumber}`,
-            image: imageUrl?.name,
-        }
+        // const adminData = {
+        //     name: `${first_name} ${last_name}`,
+        //     gender,
+        //     dob,
+        //     email: email_address,
+        //     address: 'no 4 odeyim street',
+        //     phone: `+234${phoneNumber}`,
+        //     image: imageUrl?.name,
+        // }
 
-        mutate(adminData)
+        mutate(data)
     })
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
@@ -122,30 +123,27 @@ const AddEstate = () => {
         label: string
         type?: string
         name?: string
+        selectProps?: SelectProps
     }
 
     const formInputs = [
         {
-            label: 'first_name',
+            label: 'estate_name',
+        },
+
+        {
+            label: 'estate_location_state',
+            name: 'state',
+            type: 'select',
+            selectProps: {
+                state: estateLocationState,
+                selectedState,
+                setSelectedState,
+            },
         },
         {
-            label: 'last_name',
-        },
-        {
-            label: 'dob',
-            type: 'date',
-            name: 'date of birth',
-        },
-        {
-            label: 'select',
-        },
-        {
-            label: 'phone_number',
-            type: 'number',
-        },
-        {
-            label: 'email_address',
-            type: 'email',
+            label: 'estate_location_state',
+            name: 'state',
         },
     ] satisfies FormInputs[]
 
@@ -163,15 +161,9 @@ const AddEstate = () => {
                     }}
                 >
                     {formInputs.map((input, idx) => {
-                        const { label, type, name } = input
-                        return idx === 1 ? (
-                            <Select
-                                label='Gender'
-                                state={['Male', 'Female']}
-                                selectedState={selectedState}
-                                setSelectedState={setSelectedState}
-                            />
-                        ) : (
+                        const { label, type, name, selectProps } = input
+
+                        return (
                             <Input
                                 key={idx + label}
                                 label={label}
@@ -179,6 +171,8 @@ const AddEstate = () => {
                                 formErrors={formErrors}
                                 type={type || 'text'}
                                 name={name || undefined}
+                                isSelect={type === 'select'}
+                                select={selectProps}
                             />
                         )
                     })}
