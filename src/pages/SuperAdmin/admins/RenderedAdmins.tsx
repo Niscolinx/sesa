@@ -11,6 +11,7 @@ import { useAppDispatch } from '../../../store/app/hooks'
 import { Select } from '../../../components/SuperAdmin/UI/Select'
 import { useQuery } from 'react-query'
 import { AxiosRequest } from '../../../utils/axios'
+import axios from 'axios'
 
 interface IAdmin {
     user: {
@@ -37,10 +38,23 @@ function RenderedAdmins() {
         dispatch(setAdminPath('addAdmin'))
     }
 
-    const fetchAdmins = () => {
-        return AxiosRequest({
-            url: '/admin/get/all',
-        })
+    const fetchAdmins = async() => {
+        // return AxiosRequest({
+        //     url: '/883',
+        // })
+
+        try{
+
+            const response = await axios.get('/sdfsf')
+            console.log({response})
+            return response
+        }
+        catch(err){
+            console.log(err)
+            return err
+        }
+
+
     }
 
     const {
@@ -207,6 +221,7 @@ function RenderedAdmins() {
             className: 'bg-green-100 text-green-600 text-[1.4rem]',
         })
     }
+    console.log({get_admins_loading, get_admins_isError, get_admins_error, get_admins_response_data})
 
     if (get_admins_loading) {
         return <p>Loading...</p>
