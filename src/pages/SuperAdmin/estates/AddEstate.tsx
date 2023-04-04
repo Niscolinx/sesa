@@ -26,22 +26,15 @@ const AddEstate = () => {
     const dispatch = useAppDispatch()
     const [photoUrl, setPhotoUrl] = useState('')
     const [selectedState, setSelectedState] = useState<string | null>('')
-    const estateLocationState = [
-        'Abuja',
-        'Lagos',
-    ]
-    const [selectedEstateManager, setSelectedEstateManager] = useState<string | null>('')
-    const estateManager = [
-        'Manager 1',
-        'Manager 2',
-        'Manager 3',
-    ]
-    const [selectedSecurityCompany, setSelectedSecurityCompany] = useState<string | null>('')
-    const securityCompany = [
-        'Company 1',
-        'Company 2',
-        'Company 3',
-    ]
+    const estateLocationState = ['Abuja', 'Lagos']
+    const [selectedEstateManager, setSelectedEstateManager] = useState<
+        string | null
+    >('')
+    const estateManager = ['Manager 1', 'Manager 2', 'Manager 3']
+    const [selectedSecurityCompany, setSelectedSecurityCompany] = useState<
+        string | null
+    >('')
+    const securityCompany = ['Company 1', 'Company 2', 'Company 3']
 
     const [photoPreview, setPhotoPreview] = useState('')
     const [imageUrl, setImageUrl] = useState<File | null>(null)
@@ -139,9 +132,10 @@ const AddEstate = () => {
     }
 
     type FormInputs = {
-        type: string
-        name: string
-        selectProps: SelectProps
+        label?: string
+        type?: string
+        name?: string
+        selectProps?: SelectProps
     }
 
     const first_section_inputs = [
@@ -168,7 +162,7 @@ const AddEstate = () => {
             selectProps: {
                 state: estateManager,
                 selectedState: selectedEstateManager,
-                setSelectedState: setSelectedEstateManager
+                setSelectedState: setSelectedEstateManager,
             },
         },
         {
@@ -177,157 +171,94 @@ const AddEstate = () => {
             selectProps: {
                 state: securityCompany,
                 selectedState: selectedSecurityCompany,
-                setSelectedState: setSelectedSecurityCompany
+                setSelectedState: setSelectedSecurityCompany,
             },
         },
-    ] satisfies Partial<FormInputs>[] & {label: string}[]
-
+    ] satisfies Partial<FormInputs>[] & { label: string }[]
 
     const second_section_inputs = [
         {
             label: 'estate_fee',
             name: 'estate (%)',
-            type: 'number'
+            type: 'number',
         },
         {
             label: 'sesa_fee',
             name: 'SESA (%)',
-            type: 'number'
+            type: 'number',
         },
         {
-            label: 'estate_fee',
-            type: 'number'
+            label: 'number_of_resident_user',
+            type: 'number',
         },
         {
-            label: 'estate_fee',
-            type: 'number'
+            label: 'additional_resident_user',
+            type: 'number',
         },
-
-        
-           
-        
-    ] satisfies Partial<FormInputs>[] & { label: string }[]
+    ] satisfies FormInputs[]
 
     return (
         <div className='bg-white rounded-lg p-8'>
-            <form onSubmit={onSubmit} className='grid gap-4'>
-                <p className='text-[2rem] font-Satoshi-Medium'>
-                    Estate Details
-                </p>
-                <section
-                    className='grid max-w-[84rem] gap-16 mt-12 '
-                    style={{
-                        gridTemplateColumns:
-                            ' repeat(auto-fit, minmax(35rem, 1fr))',
-                    }}
-                >
-                    {first_section_inputs.map((input, idx) => {
-                        const { label, type, name, selectProps } = input
-
-                        return (
-                            <Input
-                                key={idx + label}
-                                label={label}
-                                register={register}
-                                formErrors={formErrors}
-                                fullWidth={label === 'address'}
-                                type={type || 'text'}
-                                name={name || undefined}
-                                isSelect={type === 'select'}
-                                select={selectProps}
-                            />
-                        )
-                    })}
-                </section>
-
-                <section className='addEstate__box'>
-                    <p className='addEstate__heading'>
-                        Estate Convenience Fees
+            <form onSubmit={onSubmit} className='grid gap-20'>
+                <div className='grid gap-10'>
+                    <p className='text-[2rem] font-Satoshi-Medium'>
+                        Estate Details
                     </p>
-                    <div className='addEstate__form'>
-                        <div className='addEstate__form--item'>
-                            <label htmlFor='firstName'>Estate(%)</label>
-                            <input type='text' required id='estatePercentage' />
-                        </div>
-                        <div className='addEstate__form--item'>
-                            <label htmlFor='lastName'>SESA(%)</label>
-                            <input type='text' required id='sesaPercentage' />
-                        </div>
-                        <div className='addEstate__form--item'>
-                            <label htmlFor='date'>
-                                Number of Resident User
-                            </label>
-                            <input
-                                type='number'
-                                id='residentUsersNo'
-                                required
-                            />
-                        </div>
+                    <section
+                        className='grid max-w-[84rem] gap-16'
+                        style={{
+                            gridTemplateColumns:
+                                ' repeat(auto-fit, minmax(35rem, 1fr))',
+                        }}
+                    >
+                        {first_section_inputs.map((input, idx) => {
+                            const { label, type, name, selectProps } = input
 
-                        <div className='addEstate__form--item'>
-                            <label htmlFor='additionalResidentUser'>
-                                Additional Resident User
-                            </label>
-                            <input
-                                required
-                                type='text'
-                                id='additionalResidentUser'
-                            />
-                        </div>
-                        <div className='flex items-center justify-between'>
-                            <p className='text-[2rem] font-Satoshi-Medium flex items-center gap-2'>
-                               
-                               
-                            </p>
-                            <div
-                                onClick={toggleIskyg}
-                                className='cursor-pointer'
-                            >
-                                {iskyg ? (
-                                    <img
-                                        src='/icons/admins/switchOn.svg'
-                                        alt=''
-                                    />
-                                ) : (
-                                    <img
-                                        src='/icons/admins/switchOff.svg'
-                                        alt=''
-                                    />
-                                )}
-                            </div>
-                        </div>
-                        <div className='addEstate__form--file'>
-                            <label htmlFor='photoUpload'>
-                                <img
-                                    src='/icons/addEstates/photo_library.svg'
-                                    alt=''
+                            return (
+                                <Input
+                                    key={idx + label}
+                                    label={label}
+                                    register={register}
+                                    formErrors={formErrors}
+                                    fullWidth={label === 'address'}
+                                    type={type || 'text'}
+                                    name={name}
+                                    isSelect={type === 'select'}
+                                    select={selectProps}
                                 />
-                                <p>
-                                    Drag addEstate manager picture here or{' '}
-                                    <span>click</span> to upload
-                                </p>
-                            </label>
-                            <input
-                                type='file'
-                                name='photoUpload'
-                                id='photoUpload'
-                                accept='image/*'
-                                className='hidden'
-                                onChange={handlePicture}
-                            />
+                            )
+                        })}
+                    </section>
+                </div>
+                <div className='border-t grid gap-10 pt-16'>
+                    <p className='text-[2rem] font-Satoshi-Medium'>
+                        Estate Convinience Fees
+                    </p>
+                    <section
+                        className='grid max-w-[84rem] gap-16  '
+                        style={{
+                            gridTemplateColumns:
+                                ' repeat(auto-fit, minmax(35rem, 1fr))',
+                        }}
+                    >
+                        {second_section_inputs.map((input, idx) => {
+                            const { label, type, name, selectProps } = input
 
-                            {photoUrl && (
-                                <div className='file__uploadImgBox'>
-                                    <img
-                                        src={photoUrl}
-                                        alt='photoPreview'
-                                        className='object-contain'
-                                    />
-                                </div>
-                            )}
-                        </div>
-                    </div>
-                </section>
+                            return (
+                                <Input
+                                    key={idx + label}
+                                    label={label}
+                                    register={register}
+                                    formErrors={formErrors}
+                                    type={type || 'text'}
+                                    name={name}
+                                    isSelect={type === 'select'}
+                                    select={selectProps}
+                                />
+                            )
+                        })}
+                    </section>
+                </div>
                 <section className='addEstate__box'>
                     <p className='addEstate__heading'>Estate Account Details</p>
                     <div className='addEstate__form'>
