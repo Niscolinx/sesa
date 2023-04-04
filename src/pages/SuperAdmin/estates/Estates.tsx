@@ -2,29 +2,13 @@ import { useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
 import AddEstate from './AddEstate'
 import RenderedEstates from './RenderedEstates'
-// import {
-//     RenderEstatePath,
-//     routeChangeSelector,
-//     setEstatePath,
-// } from '../../../../store/features/routeChange'
+
 
 function Estates() {
 
     const [estatesLoaded, setEstatesLoaded] = useState(false)
 
-    // const switchRoute = (estatePath: RenderEstatePath) => {
-    //     switch (estatePath) {
-    //         case 'renderedEstates':
-    //             return <RenderedEstates />
-
-    //         case 'addEstate':
-    //             return <AddEstate />
-
-    //         default:
-    //             return <AddEstate />
-    //     }
-    // }
-
+   
     const handleAddEstate = () => {
         setEstatesLoaded(true)
     }

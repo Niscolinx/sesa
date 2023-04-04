@@ -230,7 +230,6 @@ function Admins() {
         get_admins_response.status === 200 &&
         get_admins_response.data.length > 0
 
-    console.log({ adminsLoaded, slicedPages })
 
     return (
         <div>
