@@ -2,7 +2,6 @@ import React from 'react'
 import { IoMdAdd } from 'react-icons/io'
 import { useNavigate } from 'react-router'
 import { ChangeEvent, useEffect, useRef, useState } from 'react'
-import { CgSpinnerTwo } from 'react-icons/cg'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { toast, ToastContainer } from 'react-toastify'
 import { setAdminPath } from '../../../store/features/routeChange'
@@ -58,7 +57,7 @@ function Admins() {
 
     useEffect(() => {
         if (get_admins_response?.status === 200) {
-            setFetchedAdmins(get_admins_response.data)
+            // setFetchedAdmins(get_admins_response.data)
             console.log(get_admins_response.data, 'fetchedData')
         }
     }, [get_admins_response])
