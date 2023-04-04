@@ -305,8 +305,8 @@ const AddEstate = () => {
                                 ' repeat(auto-fit, minmax(35rem, 1fr))',
                         }}
                     >
-                        {second_section_inputs.map((input, idx) => {
-                            const { label, type, name } = input
+                        {third_section_inputs.map((input, idx) => {
+                            const { label, type } = input
 
                             return (
                                 <Input
