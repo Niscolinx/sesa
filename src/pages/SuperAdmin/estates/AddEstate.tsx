@@ -185,40 +185,27 @@ const AddEstate = () => {
 
     const second_section_inputs = [
         {
-            label: 'estate_name',
+            label: 'estate_fee',
+            name: 'estate (%)',
+            type: 'number'
+        },
+        {
+            label: 'sesa_fee',
+            name: 'SESA (%)',
+            type: 'number'
+        },
+        {
+            label: 'estate_fee',
+            type: 'number'
+        },
+        {
+            label: 'estate_fee',
+            type: 'number'
         },
 
-        {
-            label: 'estate_location_state',
-            name: 'state',
-            type: 'select',
-            selectProps: {
-                state: estateLocationState,
-                selectedState,
-                setSelectedState,
-            },
-        },
-        {
-            label: 'address',
-        },
-        {
-            label: 'estate_manager',
-            type: 'select',
-            selectProps: {
-                state: estateManager,
-                selectedState: selectedEstateManager,
-                setSelectedState: setSelectedEstateManager,
-            },
-        },
-        {
-            label: 'security_company',
-            type: 'select',
-            selectProps: {
-                state: securityCompany,
-                selectedState: selectedSecurityCompany,
-                setSelectedState: setSelectedSecurityCompany,
-            },
-        },
+        
+           
+        
     ] satisfies Partial<FormInputs>[] & { label: string }[]
 
     return (
