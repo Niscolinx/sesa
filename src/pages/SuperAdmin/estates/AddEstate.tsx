@@ -18,11 +18,10 @@ const AddEstate = () => {
         sesa_fee: number
         number_of_resident_user: number
         additional_resident_user: number
-        
+
     }
 
     const dispatch = useAppDispatch()
-    const [photoUrl, setPhotoUrl] = useState('')
     const [selectedState, setSelectedState] = useState<string | null>('')
     const estateLocationState = ['Abuja', 'Lagos']
     const [selectedEstateManager, setSelectedEstateManager] = useState<
