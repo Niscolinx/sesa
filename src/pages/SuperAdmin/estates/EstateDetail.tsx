@@ -1,10 +1,15 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, ChangeEvent, useRef } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
 import { GrDown } from 'react-icons/gr'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import OverviewCard from '../../../components/SuperAdmin/overview/OverviewCard'
+import { useQuery } from 'react-query'
+import { toast } from 'react-toastify'
+import { useAppDispatch } from '../../../store/app/hooks'
+import { setAdminPath } from '../../../store/features/routeChange'
+import { AxiosRequest } from '../../../utils/axios'
 
 interface EstateManager {
     id: string
@@ -17,6 +22,9 @@ interface EstateManager {
     accessCard: number
     status: string
 }
+
+type Actions = 'view details' | 'deactivate'
+
 
 const ESTATEMANAGERDATA: EstateManager[] = Array.from({ length: 10 }).map(
     (_, i) => {
@@ -46,7 +54,210 @@ function EstateDetail() {
         fetchData()
     }, [])
 
-    const handlePathSwitch = () => {}
+    const navigate = useNavigate()
+    const dispatch = useAppDispatch()
+
+    const [fetchedAdmins, setFetchedAdmins] = useState<IAdmin[]>([])
+    const [sortBy, setSortBy] = useState<string | null>(null)
+
+    const handlePathSwitch = () => {
+        dispatch(setAdminPath('addAdmin'))
+    }
+
+    const handleAddAdmin = () => {
+        navigate('/superAdmin/admins/add')
+    }
+
+    const fetchAdmins = () => {
+        return AxiosRequest({
+            dispatch,
+            // url: '/admin/get/all',
+            url: '/users',
+        })
+    }
+
+    const {
+        isLoading: get_admins_loading,
+        data: get_admins_response,
+        isError: get_admins_isError,
+        error: get_admins_error,
+        // isFetching: get_admins_fetching,
+    } = useQuery('admins', fetchAdmins) as any
+
+    useEffect(() => {
+        if (get_admins_response?.status === 200) {
+            // setFetchedAdmins(get_admins_response.data)
+            console.log(get_admins_response.data, 'fetchedData')
+        }
+    }, [get_admins_response])
+
+    const actions = ['view details', 'deactivate'] satisfies Actions[]
+
+    const [toggleDropDown, setToggleDropDown] = useState<{
+        isDropDownOpen: boolean
+        index: number | null
+    }>({
+        isDropDownOpen: false,
+        index: null,
+    })
+
+    const dropDownHandler = (
+        e: React.ChangeEvent<HTMLInputElement>,
+        index: number
+    ) => {
+        setToggleDropDown(() => {
+            return {
+                isDropDownOpen: e.target.checked,
+                index,
+            }
+        })
+    }
+
+    interface Paginate {
+        index: number
+        currentPage: number
+        itemsPerPage: number
+        totalPage: number
+        slicedPages: IAdmin[][] | null
+    }
+
+    const itemsPerPageArr = [2, 4, 6, 8]
+
+    const perPage = 6
+    const [paginate, setPaginate] = useState<Paginate>({
+        index: 0,
+        currentPage: 1,
+        itemsPerPage: perPage,
+
+        totalPage: Math.ceil(fetchedAdmins?.length / perPage),
+        slicedPages: null,
+    })
+
+    const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
+        const item = parseInt(e.target.value)
+
+        const slicedPages: IAdmin[][] = []
+        for (let i = 0; i < fetchedAdmins?.length; i += item) {
+            slicedPages.push(fetchedAdmins?.slice(i, i + item))
+        }
+
+        setPaginate((prev) => {
+            return {
+                ...prev,
+                itemsPerPage: item,
+                index: 0,
+                currentPage: 1,
+                slicedPages,
+                totalPage: Math.ceil(fetchedAdmins?.length / item),
+            }
+        })
+    }
+
+    useEffect(() => {
+        const slicedPages: IAdmin[][] = []
+        for (let i = 0; i < fetchedAdmins?.length; i += paginate.itemsPerPage) {
+            slicedPages.push(fetchedAdmins?.slice(i, i + paginate.itemsPerPage))
+        }
+
+        setPaginate((prev) => {
+            return {
+                ...prev,
+                slicedPages,
+            }
+        })
+    }, [fetchedAdmins])
+
+    const handleNext = () => {
+        if (paginate.currentPage === paginate.totalPage) return
+        setPaginate((prev) => {
+            return {
+                ...prev,
+                index: prev.index + 1,
+                currentPage: prev.currentPage + 1,
+            }
+        })
+    }
+
+    const handlePrev = () => {
+        if (paginate.currentPage === 1) return
+        setPaginate((prev) => {
+            return {
+                ...prev,
+                index: prev.index - 1,
+                currentPage: prev.currentPage - 1,
+            }
+        })
+    }
+
+    const { currentPage, slicedPages, itemsPerPage } = paginate
+
+    const jumpToPage = (e: React.MouseEvent, index: number) => {
+        setPaginate((prev) => {
+            return {
+                ...prev,
+                index,
+                currentPage: index + 1,
+            }
+        })
+    }
+
+    const dialogRef = useRef<HTMLDialogElement | null>(null)
+
+    const closeDialog = () => {
+        if (dialogRef.current) {
+            dialogRef.current.close()
+        }
+    }
+
+    const openDialog = () => {
+        if (dialogRef.current) {
+            dialogRef.current.showModal()
+        }
+    }
+
+    const handleSelectedAction = (item: Actions, id: string) => {
+        setToggleDropDown(() => {
+            return {
+                isDropDownOpen: false,
+                index: null,
+            }
+        })
+
+        if (item === 'view details') {
+            navigate(`/superAdmin/admins/view/:${id}`)
+        }
+
+        if (item === 'deactivate') {
+            openDialog()
+        }
+    }
+
+    const deactivateHandler = () => {
+        closeDialog()
+
+        toast('Admin deactivated successfully', {
+            type: 'success',
+            className: 'bg-green-100 text-green-600 text-[1.4rem]',
+        })
+    }
+    console.log({
+        get_admins_loading,
+        get_admins_isError,
+        get_admins_error,
+        get_admins_response,
+    })
+
+    if (get_admins_loading) {
+        return <p>Loading...</p>
+    }
+
+    if (get_admins_isError) {
+        return <p>{get_admins_error.message}</p>
+    }
+
+    const adminsLoaded =
+        get_admins_response.status === 200 &&
+        get_admins_response.data.length > 0
 
     return (
         <div className='estateDetail'>

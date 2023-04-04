@@ -265,7 +265,7 @@ function RenderedEstates() {
         })
 
         if (item === 'view details') {
-            navigate(`/superAdmin/estates/view/:${id}`)
+            navigate(`/superAdmin/estates/detail/:${id}`)
         }
 
         if (item === 'deactivate') {
@@ -299,7 +299,6 @@ function RenderedEstates() {
     const estatesLoaded =
         get_estates_response.status === 200 &&
         get_estates_response.data.length > 0
-
 
     return (
         <div className='renderedEstates'>
@@ -358,9 +357,7 @@ function RenderedEstates() {
                                         const { isDropDownOpen, index } =
                                             toggleDropDown
                                         return (
-                                            <Link
-                                                to={`/superAdmin/estates/detail/:${id}`}
-                                            >
+                                            <>
                                                 <tr className='w-full'>
                                                     <td>
                                                         <img
@@ -448,17 +445,7 @@ function RenderedEstates() {
                                                         </div>
                                                     </td>
 
-                                                    <td
-                                                        className='flex items-start content-start mr-4'
-                                                        style={{
-                                                            width: '1rem',
-                                                        }}
-                                                    >
-                                                        <button>
-                                                            <HiOutlineDotsVertical className='text-[2rem]' />
-                                                        </button>
-                                                    </td>
-                                                    <div className='relative'>
+                                                    <div className='relative flex items-start content-start mr-4'>
                                                         <label
                                                             className='font-semibold capitalize cursor-pointer flex items-center gap-2 relative z-10'
                                                             htmlFor={i.toString()}
@@ -474,12 +461,7 @@ function RenderedEstates() {
                                                                 )
                                                             }
                                                         >
-                                                            <span className='text-color-primary'>
-                                                                <img
-                                                                    src='/icons/estates/threeDots.svg'
-                                                                    alt=''
-                                                                />
-                                                            </span>
+                                                            <HiOutlineDotsVertical className='text-[2rem]' />
                                                         </label>
                                                         <input
                                                             type='radio'
@@ -496,7 +478,7 @@ function RenderedEstates() {
 
                                                         {isDropDownOpen &&
                                                             index === i && (
-                                                                <div className='absolute top-0 translate-x-[4rem] border border-color-primary-light w-[10rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
+                                                                <div className='absolute top-0 translate-x-[-10rem] border border-color-primary-light w-[10rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
                                                                     {actions.map(
                                                                         (
                                                                             item,
@@ -536,7 +518,7 @@ function RenderedEstates() {
                                                             )}
                                                     </div>
                                                 </tr>
-                                            </Link>
+                                            </>
                                         )
                                     }
                                 )
