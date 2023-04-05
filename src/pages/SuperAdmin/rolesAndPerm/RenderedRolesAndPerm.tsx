@@ -332,9 +332,10 @@ function RenderedRolesAndPerm() {
                     </div>
 
                     <div className='grid gap-8 mt-8 p-8'>
-                        {fetchedRolesAndPerm &&
+                        {slicedPages &&
+                            slicedPages?.length > 0 &&
                             React.Children.toArray(
-                                fetchedRolesAndPerm.map(
+                                slicedPages[paginate.index].map(
                                     ({ name, imgUrl }, i) => {
                                         const { isDropDownOpen, index } =
                                             toggleDropDown
