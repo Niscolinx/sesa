@@ -1,7 +1,7 @@
 import { ChangeEvent, useEffect, useRef, useState } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
 import { GrDown, GrUp } from 'react-icons/gr'
-import { IoMdAdd } from 'react-icons/io'
+import { IoMdAdd, IoMdClose } from 'react-icons/io'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import React from 'react'
 import { useQuery } from 'react-query'
@@ -239,11 +239,11 @@ function RenderedRolesAndPerm() {
         })
     }
 
-    const showModal = () => {
+    const openDialog = () => {
         dialogRef.current?.showModal()
     }
 
-    const hideModal = () => {
+    const closeDialog = () => {
         dialogRef.current?.close()
     }
 
@@ -266,7 +266,11 @@ function RenderedRolesAndPerm() {
         <div className='rounded-lg mt-[3rem] h-[80vh]'>
             <dialog ref={dialogRef} className='dialog'>
                 <section className='grid place-content-center w-full h-[100vh]'>
-                    <div className='bg-white rounded-2xl grid  w-[64rem] h-[60rem] gap-8 py-8 px-10 items-center'>
+                    <div className='bg-white rounded-2xl grid  w-[64rem] h-[60rem] gap-8 py-8 px-10 items-center relative'>
+                        <IoMdClose
+                            className='absolute right-0 top-0 m-4 text-[2rem] cursor-pointer'
+                            onClick={() => closeDialog()}
+                        />
                         <div className='border-b'>
                             <p className='text-[1.6rem] font-semibold'>
                                 Permissions List
@@ -294,7 +298,7 @@ function RenderedRolesAndPerm() {
                         </div>
                         <button
                             className='bg-color-blue-1 px-12 py-4 text-white text-[1.4rem] flex items-center justify-self-start rounded-lg gap-4 self-center'
-                            onClick={hideModal}
+                            onClick={closeDialog}
                         >
                             <img src='/icons/admins/saveDisk.svg' alt='' />
                             <span>Save Changes</span>
@@ -461,7 +465,7 @@ function RenderedRolesAndPerm() {
                                                 <td>
                                                     <button
                                                         className='text-[#098DFF]'
-                                                        onClick={showModal}
+                                                        onClick={openDialog}
                                                     >
                                                         Edit Permissions
                                                     </button>
