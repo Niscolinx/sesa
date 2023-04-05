@@ -95,14 +95,12 @@ function RenderedRolesAndPerm() {
 
     const fetchAllRoles = () => {
         return axiosInstance({
-            // url: '/admin/get/all',
             url: '/role/get/all',
         })
     }
     const fetchRolesAndPerm = () => {
         return axiosInstance({
-            // url: '/admin/get/all',
-            url: '/role/get/all',
+            url: '/get/all/users',
         })
     }
 
