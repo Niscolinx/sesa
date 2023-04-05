@@ -29,7 +29,7 @@ function RenderedRolesAndPerm() {
     const dialogRef = useRef<HTMLDialogElement | null>(null)
     const [permissions, setPermissions] = useState<{
         [key: string]: string[]
-    }>(null as any)
+    } | null>(null)
 
     const [sortBy, setSortBy] = useState<string | null>(null)
     const [fetchedRolesAndPerm, setFetchedRolesAndPerm] = useState<
@@ -260,7 +260,7 @@ function RenderedRolesAndPerm() {
     }
 
     useEffect(() => {
-        console.log({ permissions })
+        console.log({ permissions }, permissions!['2'])
     }, [permissions])
 
     return (
@@ -277,28 +277,29 @@ function RenderedRolesAndPerm() {
                                 Permissions List
                             </p>
                         </div>
-                        {/* <div className='my-10 grid gap-4 h-full'>
-                            {<>{console.log({ permissions })}</>}
-                            {permissions[0].length > 0 &&
-                                React.Children.toArray(
-                                    permissions[0].map((value, i) => {
-                                        return (
-                                            <div
-                                                key={i}
-                                                className='flex items-center gap-4 '
-                                            >
-                                                <input
-                                                    type='checkbox'
-                                                    className='cursor-pointer'
-                                                />
-                                                <p className='text-[1.6rem]'>
-                                                    Permission {i + 1}
-                                                </p>
-                                            </div>
-                                        )
-                                    })
-                                )}
-                        </div> */}
+                        <div className='my-10 grid gap-4 h-full'>
+                            {permissions && permissions['2'].length > 0 &&
+                            <p>hello</p>
+                                // React.Children.toArray(
+                                //     permissions['2'].map((value, i) => {
+                                //         return (
+                                //             <div
+                                //                 key={i}
+                                //                 className='flex items-center gap-4 '
+                                //             >
+                                //                 <input
+                                //                     type='checkbox'
+                                //                     className='cursor-pointer'
+                                //                 />
+                                //                 <p className='text-[1.6rem]'>
+                                //                     Permission {i + 1}
+                                //                 </p>
+                                //             </div>
+                                //         )
+                                //     })
+                                //)
+                                }
+                        </div>
                         <button
                             className='bg-color-blue-1 px-12 py-4 text-white text-[1.4rem] flex items-center justify-self-start rounded-lg gap-4 self-center'
                             onClick={closeDialog}
