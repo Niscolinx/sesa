@@ -232,7 +232,7 @@ function Admins() {
 
     return (
         <div>
-            <div>
+            <div className='rounded-lg mt-[3rem] h-[80vh]'>
                 {adminsLoaded ? (
                     <>
                         <ToastContainer />
@@ -572,7 +572,7 @@ function Admins() {
                         </div>
                     </>
                 ) : (
-                    <section className='admins__wrapper'>
+                    <section className='grid  place-content-center w-full h-full justify-items-center gap-4 bg-white rounded-lg'>
                         <img src='/icons/admins/errorSvg.svg' alt='' />
                         <p className='text'>
                             Ooops you have not added any Admin yet
