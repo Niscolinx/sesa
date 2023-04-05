@@ -15,7 +15,7 @@ type Roles =
     | 'resident'
 
 interface RolesAndPerm {
-    id: string
+    id: number
     name: string
     imgUrl: string
     role: {
@@ -324,7 +324,7 @@ function RenderedRolesAndPerm() {
                             slicedPages?.length > 0 &&
                             React.Children.toArray(
                                 slicedPages[paginate.index].map(
-                                    ({ name, imgUrl, role }, i) => {
+                                    ({ name, imgUrl, role, id }) => {
                                         const { isDropDownOpen, index } =
                                             toggleDropDown
                                         
@@ -352,29 +352,29 @@ function RenderedRolesAndPerm() {
                                                 <td>
                                                     <label
                                                         className='font-semibold capitalize cursor-pointer flex items-center gap-2 relative z-10'
-                                                        htmlFor={i.toString()}
+                                                        htmlFor={id.toString()}
                                                         onClick={() =>
                                                             setToggleDropDown(
                                                                 (prev) => {
                                                                     return {
                                                                         isDropDownOpen:
                                                                             !prev.isDropDownOpen,
-                                                                        index: i,
+                                                                        index: id,
                                                                     }
                                                                 }
                                                             )
                                                         }
                                                     >
                                                         {selectedRole &&
-                                                        selectedRole[i] ? (
-                                                            selectedRole[i]
+                                                        selectedRole[id] ? (
+                                                            selectedRole[id]
                                                         ) : (
                                                             <span className='text-color-primary'>
                                                                 Select Role
                                                             </span>
                                                         )}
                                                         {isDropDownOpen &&
-                                                        index === i ? (
+                                                        index === id ? (
                                                             <GrUp className='w-[1rem] h-[1rem]' />
                                                         ) : (
                                                             <GrDown className='w-[1rem] h-[1rem]' />
@@ -384,17 +384,17 @@ function RenderedRolesAndPerm() {
                                                         type='radio'
                                                         name='dropdown'
                                                         className='hidden'
-                                                        id={i.toString()}
+                                                        id={id.toString()}
                                                         onChange={(e) =>
                                                             dropDownHandler(
                                                                 e,
-                                                                i
+                                                                id
                                                             )
                                                         }
                                                     />
 
                                                     {isDropDownOpen &&
-                                                        index === i && (
+                                                        index === id && (
                                                             <div className='absolute top-[5rem] translate-x-[6rem] border border-color-primary-light w-[24rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
                                                                 {get_roles_response.data.map(
                                                                     (
