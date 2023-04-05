@@ -25,7 +25,7 @@ function useAxios() {
         )
 
         const responseInterceptor = axiosInstance.interceptors.response.use(
-            (response) => response,
+            (response) => response.data,
             (error) => Promise.reject(error)
         )
 

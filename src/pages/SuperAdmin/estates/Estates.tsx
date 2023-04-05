@@ -65,9 +65,9 @@ function Estates() {
     } = useQuery('estates', fetchEstates) as any
 
     useEffect(() => {
-        if (get_estates_response?.data.success) {
+        if (get_estates_response?.success) {
             // setFetchedEstates(get_estates_response.data)
-            console.log(get_estates_response.data, 'fetchedData')
+            console.log(get_estates_response, 'fetchedData')
         }
     }, [get_estates_response])
 

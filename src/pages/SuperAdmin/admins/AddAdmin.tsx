@@ -7,6 +7,7 @@ import Input from '../../../components/UI/input/Input'
 import { Select } from '../../../components/SuperAdmin/UI/Select'
 import { useAppDispatch } from '../../../store/app/hooks'
 import ImageInput from '../../../components/UI/input/ImageInput'
+import useAxios from '../../../components/hooks/useAxios'
 
 const AddAdmin = () => {
     interface Inputs {
@@ -20,6 +21,7 @@ const AddAdmin = () => {
     }
 
     const dispatch = useAppDispatch()
+    const axiosInstance = useAxios()
 
     const [photoPreview, setPhotoPreview] = useState('')
     const [imageUrl, setImageUrl] = useState<File | null>(null)
@@ -48,13 +50,14 @@ const AddAdmin = () => {
     const [responseMessage, setResponseMessage] =
         useState<ResponseMessage | null>(null)
 
+    
     const postAdmin = (data: Inputs) => {
-        return AxiosRequest({
-            dispatch,
-            url: '/admin/create',
-            method: 'post',
-            data,
-        })
+         return axiosInstance({
+             url: '/admin/create',
+             method: 'post',
+             data,
+         }).then(({data}) => data)
+       
     }
     const {
         mutate,

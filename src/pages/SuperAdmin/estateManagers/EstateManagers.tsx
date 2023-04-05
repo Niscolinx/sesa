@@ -38,7 +38,7 @@ function EstateManagers() {
         return axiosInstance({
             // url: '/admin/get/all',
             url: '/manager/get/all',
-        }).then(({data}) => data)
+        })
     }
 
     const {

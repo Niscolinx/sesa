@@ -52,8 +52,8 @@ function Admins() {
     }) as any
 
     useEffect(() => {
-        if (get_admins_response?.data.success) {
-            setFetchedAdmins(get_admins_response.data.data.data)
+        if (get_admins_response?.success) {
+            setFetchedAdmins(get_admins_response.data.data)
         }
     }, [get_admins_response])
 
