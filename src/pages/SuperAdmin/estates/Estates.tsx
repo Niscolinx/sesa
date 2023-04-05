@@ -315,195 +315,186 @@ function Estates() {
                                                         index,
                                                     } = toggleDropDown
                                                     return (
-                                                        <>
-                                                            <div className='w-full'>
-                                                                <div>
-                                                                    <img
-                                                                        src={
-                                                                            img
-                                                                        }
-                                                                        alt=''
-                                                                        className='table__img'
-                                                                    />
-                                                                </div>
+                                                        <div className='w-full'>
+                                                            <div>
+                                                                <img
+                                                                    src={img}
+                                                                    alt=''
+                                                                    className='table__img'
+                                                                />
+                                                            </div>
 
+                                                            <div>
                                                                 <div>
-                                                                    <div>
-                                                                        <p className='text-[1.4rem] text-[#043FA7]'>
-                                                                            Estate&nbsp;Name
-                                                                        </p>
-                                                                        <p className='font-[1.6rem] whitespace-nowrap'>
-                                                                            {
-                                                                                estateName
-                                                                            }
-                                                                        </p>
-                                                                    </div>
-                                                                    <div>
-                                                                        <p className='text-[#043FA7]'>
-                                                                            Security
-                                                                            Company
-                                                                        </p>
-                                                                        <p>
-                                                                            {
-                                                                                securityCompany
-                                                                            }
-                                                                        </p>
-                                                                    </div>
-                                                                    <div>
-                                                                        <p className='text-[#043FA7]'>
-                                                                            Status
-                                                                        </p>
-                                                                        <p className='text-[#1D9F5F]'>
-                                                                            {
-                                                                                status
-                                                                            }
-                                                                        </p>
-                                                                    </div>
+                                                                    <p className='text-[1.4rem] text-[#043FA7]'>
+                                                                        Estate&nbsp;Name
+                                                                    </p>
+                                                                    <p className='font-[1.6rem] whitespace-nowrap'>
+                                                                        {
+                                                                            estateName
+                                                                        }
+                                                                    </p>
                                                                 </div>
                                                                 <div>
-                                                                    <div>
-                                                                        <p className='text-[#043FA7]'>
-                                                                            Estate
-                                                                            Balance
-                                                                        </p>
-                                                                        <p className='flex items-center'>
-                                                                            <TbCurrencyNaira className='text-[2rem]' />
-                                                                            {
-                                                                                estateBalance
-                                                                            }
-                                                                        </p>
-                                                                    </div>
-                                                                    <div>
-                                                                        <p className='text-[#043FA7]'>
-                                                                            No
-                                                                            of
-                                                                            Residents
-                                                                        </p>
-                                                                        <p>
-                                                                            {
-                                                                                NoOfResidents
-                                                                            }
-                                                                        </p>
-                                                                    </div>
-                                                                    <div>
-                                                                        <p className='text-[#043FA7]'>
-                                                                            Sign
-                                                                            Out
-                                                                            Required
-                                                                        </p>
-                                                                        <p>
-                                                                            {signOutRequired
-                                                                                ? 'Yes'
-                                                                                : 'No'}
-                                                                        </p>
-                                                                    </div>
-                                                                </div>
-                                                                <div className=' grid content-start'>
-                                                                    <div>
-                                                                        <p className='text-[#043FA7]'>
-                                                                            Estate
-                                                                            Manager
-                                                                        </p>
-                                                                        <p>
-                                                                            {
-                                                                                estateManager
-                                                                            }
-                                                                        </p>
-                                                                    </div>
-                                                                    <div className=' mt-10'>
-                                                                        <p className='text-[#043FA7]'>
-                                                                            {' '}
-                                                                            No
-                                                                            of
-                                                                            Households
-                                                                        </p>
-                                                                        <p>
-                                                                            {
-                                                                                NoOfHouseholds
-                                                                            }
-                                                                        </p>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div className='relative flex items-start content-start mr-4'>
-                                                                    <label
-                                                                        className='font-semibold capitalize cursor-pointer flex items-center gap-2 relative z-10'
-                                                                        htmlFor={i.toString()}
-                                                                        onClick={() =>
-                                                                            setToggleDropDown(
-                                                                                (
-                                                                                    prev
-                                                                                ) => {
-                                                                                    return {
-                                                                                        isDropDownOpen:
-                                                                                            !prev.isDropDownOpen,
-                                                                                        index: i,
-                                                                                    }
-                                                                                }
-                                                                            )
+                                                                    <p className='text-[#043FA7]'>
+                                                                        Security
+                                                                        Company
+                                                                    </p>
+                                                                    <p>
+                                                                        {
+                                                                            securityCompany
                                                                         }
-                                                                    >
-                                                                        <HiOutlineDotsVertical className='text-[2rem]' />
-                                                                    </label>
-                                                                    <input
-                                                                        type='radio'
-                                                                        name='dropdown'
-                                                                        className='hidden'
-                                                                        id={i.toString()}
-                                                                        onChange={(
-                                                                            e
-                                                                        ) =>
-                                                                            dropDownHandler(
-                                                                                e,
-                                                                                i
-                                                                            )
-                                                                        }
-                                                                    />
-
-                                                                    {isDropDownOpen &&
-                                                                        index ===
-                                                                            i && (
-                                                                            <div className='absolute top-0 translate-x-[-10rem] border border-color-primary-light w-[10rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
-                                                                                {actions.map(
-                                                                                    (
-                                                                                        item,
-                                                                                        index
-                                                                                    ) => (
-                                                                                        <p
-                                                                                            className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
-                                                                                            key={
-                                                                                                index +
-                                                                                                i
-                                                                                            }
-                                                                                            onClick={() =>
-                                                                                                handleSelectedAction(
-                                                                                                    item,
-                                                                                                    id
-                                                                                                )
-                                                                                            }
-                                                                                        >
-                                                                                            {item ===
-                                                                                            'deactivate' ? (
-                                                                                                <span className='text-red-600'>
-                                                                                                    {
-                                                                                                        item
-                                                                                                    }
-                                                                                                </span>
-                                                                                            ) : (
-                                                                                                <span>
-                                                                                                    {
-                                                                                                        item
-                                                                                                    }
-                                                                                                </span>
-                                                                                            )}
-                                                                                        </p>
-                                                                                    )
-                                                                                )}
-                                                                            </div>
-                                                                        )}
+                                                                    </p>
+                                                                </div>
+                                                                <div>
+                                                                    <p className='text-[#043FA7]'>
+                                                                        Status
+                                                                    </p>
+                                                                    <p className='text-[#1D9F5F]'>
+                                                                        {status}
+                                                                    </p>
                                                                 </div>
                                                             </div>
-                                                        </>
+                                                            <div>
+                                                                <div>
+                                                                    <p className='text-[#043FA7]'>
+                                                                        Estate
+                                                                        Balance
+                                                                    </p>
+                                                                    <p className='flex items-center'>
+                                                                        <TbCurrencyNaira className='text-[2rem]' />
+                                                                        {
+                                                                            estateBalance
+                                                                        }
+                                                                    </p>
+                                                                </div>
+                                                                <div>
+                                                                    <p className='text-[#043FA7]'>
+                                                                        No of
+                                                                        Residents
+                                                                    </p>
+                                                                    <p>
+                                                                        {
+                                                                            NoOfResidents
+                                                                        }
+                                                                    </p>
+                                                                </div>
+                                                                <div>
+                                                                    <p className='text-[#043FA7]'>
+                                                                        Sign Out
+                                                                        Required
+                                                                    </p>
+                                                                    <p>
+                                                                        {signOutRequired
+                                                                            ? 'Yes'
+                                                                            : 'No'}
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                            <div className=' grid content-start'>
+                                                                <div>
+                                                                    <p className='text-[#043FA7]'>
+                                                                        Estate
+                                                                        Manager
+                                                                    </p>
+                                                                    <p>
+                                                                        {
+                                                                            estateManager
+                                                                        }
+                                                                    </p>
+                                                                </div>
+                                                                <div className=' mt-10'>
+                                                                    <p className='text-[#043FA7]'>
+                                                                        {' '}
+                                                                        No of
+                                                                        Households
+                                                                    </p>
+                                                                    <p>
+                                                                        {
+                                                                            NoOfHouseholds
+                                                                        }
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+
+                                                            <div className='relative flex items-start content-start mr-4'>
+                                                                <label
+                                                                    className='font-semibold capitalize cursor-pointer flex items-center gap-2 relative z-10'
+                                                                    htmlFor={i.toString()}
+                                                                    onClick={() =>
+                                                                        setToggleDropDown(
+                                                                            (
+                                                                                prev
+                                                                            ) => {
+                                                                                return {
+                                                                                    isDropDownOpen:
+                                                                                        !prev.isDropDownOpen,
+                                                                                    index: i,
+                                                                                }
+                                                                            }
+                                                                        )
+                                                                    }
+                                                                >
+                                                                    <HiOutlineDotsVertical className='text-[2rem]' />
+                                                                </label>
+                                                                <input
+                                                                    type='radio'
+                                                                    name='dropdown'
+                                                                    className='hidden'
+                                                                    id={i.toString()}
+                                                                    onChange={(
+                                                                        e
+                                                                    ) =>
+                                                                        dropDownHandler(
+                                                                            e,
+                                                                            i
+                                                                        )
+                                                                    }
+                                                                />
+
+                                                                {isDropDownOpen &&
+                                                                    index ===
+                                                                        i && (
+                                                                        <div className='absolute top-0 translate-x-[-10rem] border border-color-primary-light w-[10rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
+                                                                            {actions.map(
+                                                                                (
+                                                                                    item,
+                                                                                    index
+                                                                                ) => (
+                                                                                    <p
+                                                                                        className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
+                                                                                        key={
+                                                                                            index +
+                                                                                            i
+                                                                                        }
+                                                                                        onClick={() =>
+                                                                                            handleSelectedAction(
+                                                                                                item,
+                                                                                                id
+                                                                                            )
+                                                                                        }
+                                                                                    >
+                                                                                        {item ===
+                                                                                        'deactivate' ? (
+                                                                                            <span className='text-red-600'>
+                                                                                                {
+                                                                                                    item
+                                                                                                }
+                                                                                            </span>
+                                                                                        ) : (
+                                                                                            <span>
+                                                                                                {
+                                                                                                    item
+                                                                                                }
+                                                                                            </span>
+                                                                                        )}
+                                                                                    </p>
+                                                                                )
+                                                                            )}
+                                                                        </div>
+                                                                    )}
+                                                            </div>
+                                                        </div>
                                                     )
                                                 }
                                             )
