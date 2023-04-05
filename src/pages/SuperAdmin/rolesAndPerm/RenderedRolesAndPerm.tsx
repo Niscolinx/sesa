@@ -7,8 +7,7 @@ import React from 'react'
 import { useQuery } from 'react-query'
 import useAxios from '../../../components/hooks/useAxios'
 import { Select } from '../../../components/SuperAdmin/UI/Select'
-import { useNavigate } from 'react-router'
-import Estate from '../../SecurityCompany/dashboard/Estates/Estates'
+
 
 type Roles =
     | 'admin'
@@ -86,7 +85,7 @@ function RenderedRolesAndPerm() {
     ) as any
 
     useEffect(() => {
-        if (get_rolesAndPerm_response.data) {
+        if (get_rolesAndPerm_response?.data) {
             setFetchedRolesAndPerm(get_rolesAndPerm_response.data)
         }
     }, [get_rolesAndPerm_response])
