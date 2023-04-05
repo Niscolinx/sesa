@@ -33,7 +33,6 @@ function RenderedRolesAndPerm() {
         RolesAndPerm[]
     >([])
 
-
     // const [roles, setRoles] = useState<Roles[]>([
     //     'admin',
     //     'estate Manager',
@@ -41,6 +40,7 @@ function RenderedRolesAndPerm() {
     //     'security Guard',
     //     'resident',
     // ])
+    
     const [selectedRole, setSelectedRole] = useState<{
         [key: string]: Roles
     }>(null as any)
@@ -91,13 +91,25 @@ function RenderedRolesAndPerm() {
         if (get_rolesAndPerm_response?.data) {
             setFetchedRolesAndPerm(get_rolesAndPerm_response.data)
 
-            const permissions: string[] = []
+            let permissions = {}
 
             const roles = get_rolesAndPerm_response.data.reduce(
-                (acc: {}, curr: { id: string; roles: { name: string, permissions: string[] }[] }) => {
+                (
+                    acc: {},
+                    curr: {
+                        id: string
+                        roles: { name: string; permissions: string[] }[]
+                    }
+                ) => {
                     const currRoleObj = { [curr.id]: curr.roles[0].name }
+                    const currPermissionsObj = {
+                        [curr.id]: curr.roles[0].permissions,
+                    }
 
-                    permissions.push(curr.roles[0].permissions)
+                    permissions = {
+                        ...permissions,
+                        ...currPermissionsObj,
+                    }
 
                     return {
                         ...acc,
@@ -107,7 +119,7 @@ function RenderedRolesAndPerm() {
                 {}
             )
 
-            console.log({permissions})
+            console.log({ permissions })
             setSelectedRole(roles)
         }
     }, [get_rolesAndPerm_response])
@@ -387,7 +399,9 @@ function RenderedRolesAndPerm() {
                                                     >
                                                         {selectedRole &&
                                                         selectedRole[id] ? (
-                                                            selectedRole[id].replace('-', ' ')
+                                                            selectedRole[
+                                                                id
+                                                            ].replace('-', ' ')
                                                         ) : (
                                                             <span className='text-color-primary'>
                                                                 Select Role
