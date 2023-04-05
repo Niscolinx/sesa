@@ -60,17 +60,23 @@ const AddEstateManager = () => {
         mutate,
         data: response_data,
         isLoading,
+        isError, 
+        error: response_error
     } = useMutation(postEstateManager) as any
 
+    console.log({response_error, response_data})
+
     useEffect(() => {
-        console.log({ response_data })
-        if (response_data?.success) {
+        if (!isError && response_data?.success) {
             handleOpen()
         } else {
-            console.log('response message', response_data?.response.data.message)
+            console.log(
+                'response error =======',
+                response_error?.response.data.message
+            )
             setResponseMessage({
                 className: 'text-red-600',
-                displayMessage: response_data?.response.data.message,
+                displayMessage: response_error?.response.data.message,
             })
         }
 
