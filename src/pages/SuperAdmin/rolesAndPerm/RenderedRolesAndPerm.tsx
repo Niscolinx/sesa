@@ -353,7 +353,7 @@ function RenderedRolesAndPerm() {
                                                             <img
                                                                 src={imgUrl}
                                                                 alt=''
-                                                                className='w-[3.5rem] h-[h-3.5rem] rounded-full object-cover'
+                                                                className='w-[3.5rem] h-[3.5rem] rounded-full object-cover'
                                                             />
                                                         )}
 
