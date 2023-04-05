@@ -228,10 +228,14 @@ function EstateManagers() {
         navigate('/superAdmin/estateManagers/add')
     }
 
+    const fetched = get_estateManagers_response.data.data
+
+    console.log({fetched})
+
     return (
         <div>
             <div className='rounded-lg mt-[3rem] h-[80vh]'>
-                {fetchedEstateManagers.length > 0 ? (
+                {fetched.length > 0 ? (
                     <>
                         <ToastContainer />
                         <dialog className='dialog' ref={dialogRef}>
@@ -274,7 +278,7 @@ function EstateManagers() {
                                         <p className=' font-Satoshi-Medium'>
                                             EstateManager List{' '}
                                             <span>
-                                                ({fetchedEstateManagers.length})
+                                                ({fetched.length})
                                             </span>
                                         </p>
                                         <div className='relative flex items-center'>

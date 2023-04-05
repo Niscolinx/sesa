@@ -4,6 +4,8 @@ import { GrDown, GrUp } from 'react-icons/gr'
 import { IoMdAdd } from 'react-icons/io'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import React from 'react'
+import { useQuery } from 'react-query'
+import useAxios from '../../../components/hooks/useAxios'
 
 type Roles =
     | 'admin'
@@ -47,6 +49,7 @@ const ROLES_AND_PERM: RolesAndPerm[] = [
 ]
 
 function RenderedRolesAndPerm() {
+    const axiosInstance = useAxios()
     const dialogRef = useRef<HTMLDialogElement | null>(null)
     const [permissions, setPermissions] = useState(new Array(10).fill(''))
     const [roles, setRoles] = useState<Roles[]>([
@@ -77,6 +80,21 @@ function RenderedRolesAndPerm() {
         }
         fetchData()
     }, [])
+
+    const fetchRolesAndPerm = () => {
+        return axiosInstance({
+            // url: '/admin/get/all',
+            url: '/role/get/all',
+        })
+    }
+
+    const {
+        isLoading: get_rolesAndPerm_loading,
+        data: get_rolesAndPerm_response,
+        isError: get_rolesAndPerm_isError,
+        error: get_rolesAndPerm_error,
+        // isFetching: get_rolesAndPerm_fetching,
+    } = useQuery('rolesAndPerm', fetchRolesAndPerm) as any
 
     const dropDownHandler = (
         e: React.ChangeEvent<HTMLInputElement>,
@@ -109,8 +127,23 @@ function RenderedRolesAndPerm() {
         dialogRef.current?.close()
     }
 
+    console.log({
+        get_rolesAndPerm_loading,
+        get_rolesAndPerm_isError,
+        get_rolesAndPerm_error,
+        get_rolesAndPerm_response,
+    })
+
+    if (get_rolesAndPerm_loading) {
+        return <p>Loading...</p>
+    }
+
+    if (get_rolesAndPerm_isError) {
+        return <p>{get_rolesAndPerm_error.message}</p>
+    }
+
     return (
-        <div className='renderedEstateManagers'>
+        <div className='renderedRolesAndPerm'>
             <dialog ref={dialogRef} className='dialog'>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid  w-[64rem] h-[60rem] gap-8 py-8 px-10 items-center'>
@@ -149,13 +182,13 @@ function RenderedRolesAndPerm() {
                     </div>
                 </section>
             </dialog>
-            <table className='renderedEstateManagers__tableBox'>
-                <caption className='renderedEstateManagers__caption justify-baseline'>
+            <table className='renderedRolesAndPerm__tableBox'>
+                <caption className='renderedRolesAndPerm__caption justify-baseline'>
                     <p className='caption__title'>
                         Role List <span>(200)</span>
                     </p>
                     <div className='caption__searchBox'>
-                        <img src='/icons/estateManagers/search.svg' alt='' />
+                        <img src='/icons/rolesAndPerm/search.svg' alt='' />
                         <input type='text' placeholder='Search Parameters' />
                     </div>
                     <div className='caption__select'>
@@ -169,8 +202,8 @@ function RenderedRolesAndPerm() {
                         <GrDown />
                     </div>
                 </caption>
-                <div className='renderedEstateManagers__table'>
-                    <thead className='renderedEstateManagers__table--head'>
+                <div className='renderedRolesAndPerm__table'>
+                    <thead className='renderedRolesAndPerm__table--head'>
                         <tr>
                             <th>
                                 <input type='checkbox' />
@@ -180,7 +213,7 @@ function RenderedRolesAndPerm() {
                             <th>Actions</th>
                         </tr>
                     </thead>
-                    <tbody className='renderedEstateManagers__table--body'>
+                    <tbody className='renderedRolesAndPerm__table--body'>
                         {fetchedUsers && fetchedUsers.length > 0 ? (
                             React.Children.toArray(
                                 fetchedUsers.map((value, i) => {
@@ -292,7 +325,7 @@ function RenderedRolesAndPerm() {
                         )}
                     </tbody>
                 </div>
-                <footer className='renderedEstateManagers__footer'>
+                <footer className='renderedRolesAndPerm__footer'>
                     <div className='flex gap-8 items-center'>
                         <p>View</p>
                         <div className='flex items-center border px-4 rounded-lg'>
