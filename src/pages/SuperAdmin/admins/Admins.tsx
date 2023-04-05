@@ -8,8 +8,6 @@ import { useAppDispatch } from '../../../store/app/hooks'
 import { Select } from '../../../components/SuperAdmin/UI/Select'
 import { useQuery } from 'react-query'
 import useAxios from '../../../components/hooks/useAxios'
-import axios from 'axios'
-import { getToken } from '../../../utils/token'
 
 interface IAdmin {
     user: {
