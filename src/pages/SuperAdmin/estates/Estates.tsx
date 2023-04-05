@@ -15,6 +15,7 @@ import {
 } from 'react-icons/hi'
 import { TbCurrencyNaira } from 'react-icons/tb'
 import { Select } from '../../../components/SuperAdmin/UI/Select'
+import useAxios from '../../../components/hooks/useAxios'
 
 type EstateDetails = {
     estateName: string
@@ -40,7 +41,7 @@ function Estates() {
     type Actions = 'view details' | 'deactivate'
 
     const navigate = useNavigate()
-    const dispatch = useAppDispatch()
+    const axiosInstance = useAxios()
 
     const [fetchedEstates, setFetchedEstates] = useState<Estate[]>(ESTATEDATA)
     const [sortBy, setSortBy] = useState<string | null>(null)
@@ -50,8 +51,7 @@ function Estates() {
     }
 
     const fetchEstates = () => {
-        return AxiosRequest({
-            dispatch,
+        return axiosInstance({
             url: '/estate/getall',
         })
     }
@@ -240,8 +240,6 @@ function Estates() {
     if (get_estates_isError) {
         return <p>{get_estates_error.message}</p>
     }
-
-   
 
     return (
         <div>

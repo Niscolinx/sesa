@@ -32,12 +32,12 @@ function EstateManagers() {
     const [fetchedEstateManagers, setFetchedEstateManagers] = useState<
         EstateManager[]
     >([])
-
+    
     const fetchEstateManagers = () => {
         return AxiosRequest({
             dispatch,
             // url: '/admin/get/all',
-            url: '/users',
+            url: '/manager/get/all',
         })
     }
 
@@ -50,7 +50,7 @@ function EstateManagers() {
     } = useQuery('estateManagers', fetchEstateManagers) as any
 
     useEffect(() => {
-        if (get_estateManagers_response?.status === 200) {
+        if (get_estateManagers_response?.data.success) {
             // setFetchedEstateManagers(get_estateManagers_response.data)
             console.log(get_estateManagers_response.data, 'fetchedData')
         }
@@ -226,9 +226,7 @@ function EstateManagers() {
         return <p>{get_estateManagers_error.message}</p>
     }
 
-    const estateManagersLoaded =
-        get_estateManagers_response.status === 200 &&
-        get_estateManagers_response.data.length > 0
+    
 
     const handlePathSwitch = () => {
         navigate('/superAdmin/estateManagers/add')
@@ -237,7 +235,7 @@ function EstateManagers() {
     return (
         <div>
             <div className='rounded-lg mt-[3rem] h-[80vh]'>
-                {estateManagersLoaded ? (
+                {fetchedEstateManagers.length > 0 ? (
                     <>
                         <ToastContainer />
                         <dialog className='dialog' ref={dialogRef}>
