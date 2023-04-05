@@ -91,11 +91,13 @@ function RenderedRolesAndPerm() {
         if (get_rolesAndPerm_response?.data) {
             setFetchedRolesAndPerm(get_rolesAndPerm_response.data)
 
+            const permissions: string[] = []
+
             const roles = get_rolesAndPerm_response.data.reduce(
-                (acc: {}, curr: { id: string; roles: { name: string }[] }) => {
+                (acc: {}, curr: { id: string; roles: { name: string, permissions: string[] }[] }) => {
                     const currRoleObj = { [curr.id]: curr.roles[0].name }
 
-                    console.log(curr.roles[0].permissions)
+                    permissions.push(curr.roles[0].permissions)
 
                     return {
                         ...acc,
@@ -105,6 +107,7 @@ function RenderedRolesAndPerm() {
                 {}
             )
 
+            console.log({permissions})
             setSelectedRole(roles)
         }
     }, [get_rolesAndPerm_response])
