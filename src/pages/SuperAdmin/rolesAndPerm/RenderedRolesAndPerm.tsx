@@ -32,6 +32,7 @@ function RenderedRolesAndPerm() {
     } | null>(null)
 
     const [sortBy, setSortBy] = useState<string | null>(null)
+    const [roleId, setRoleId] = useState('')
     const [fetchedRolesAndPerm, setFetchedRolesAndPerm] = useState<
         RolesAndPerm[]
     >([])
