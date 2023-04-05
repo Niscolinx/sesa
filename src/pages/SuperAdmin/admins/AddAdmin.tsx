@@ -12,8 +12,7 @@ const AddAdmin = () => {
         first_name: string
         last_name: string
         dob: string
-        gender: string
-        phoneNumber: number
+        phone_number: number
         photoUrl?: string
     }
     
@@ -83,19 +82,18 @@ const AddAdmin = () => {
         const {
             first_name,
             last_name,
-            gender,
             dob,
             email_address,
-            phoneNumber,
+            phone_number,
         } = data
 
         const adminData = {
             name: `${first_name} ${last_name}`,
-            gender,
+            gender: selectedGender,
             dob,
             email: email_address,
             address: 'no 4 odeyim street',
-            phone: `+234${phoneNumber}`,
+            phone: `+234${phone_number}`,
             image: imageUrl?.name,
         }
 
@@ -162,12 +160,12 @@ const AddAdmin = () => {
                         <p>You have successfully added an Admin</p>
 
                         <div className='flex w-full justify-center gap-8'>
-                            <button
+                            {/* <button
                                 className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
                                 onClick={handleClose}
                             >
-                                View details
-                            </button>
+                                View details 
+                            </button>*/}
                             <button
                                 className='bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
                                 onClick={handleClose}

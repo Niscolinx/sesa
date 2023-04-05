@@ -12,7 +12,6 @@ const AddEstateManager = () => {
         first_name: string
         last_name: string
         dob: string
-        gender: string
         phone_number: number
         photoUrl?: string
     }
@@ -89,7 +88,6 @@ const AddEstateManager = () => {
         const {
             first_name,
             last_name,
-            gender,
             dob,
             email_address,
             phone_number,
@@ -97,7 +95,7 @@ const AddEstateManager = () => {
 
         const estateManagerData = {
             name: `${first_name} ${last_name}`,
-            gender,
+            gender: selectedGender,
             dob,
             email: email_address,
             address: 'no 4 odeyim street',

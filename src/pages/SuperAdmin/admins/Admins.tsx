@@ -212,12 +212,7 @@ function Admins() {
             className: 'bg-green-100 text-green-600 text-[1.4rem]',
         })
     }
-    console.log({
-        get_admins_loading,
-        get_admins_isError,
-        get_admins_error,
-        get_admins_response,
-    })
+   
 
     if (get_admins_loading) {
         return <p>Loading...</p>
