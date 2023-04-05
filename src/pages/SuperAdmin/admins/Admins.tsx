@@ -9,8 +9,8 @@ import { useMutation, useQuery } from 'react-query'
 import useAxios from '../../../components/hooks/useAxios'
 
 interface IAdmin {
+    id: string
     user: {
-        id: string
         name: string
         gender: string
         phone: string
@@ -42,7 +42,7 @@ function Admins() {
              data: { user_id: id },
          })
      }
-     
+
     const fetchAdmins = () => {
         return axiosInstance({
             url: `admin/get/all?perPage=${pageNum}`,
@@ -340,9 +340,9 @@ function Admins() {
                                         {fetchedAdmins.map(
                                             (
                                                 {
+                                                    id,
                                                     user: {
                                                         phone,
-                                                        id,
                                                         gender,
                                                         name,
                                                         created_at,

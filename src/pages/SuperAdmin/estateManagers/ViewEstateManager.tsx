@@ -5,7 +5,6 @@ import Input, { SelectProps } from '../../../components/UI/input/Input'
 import { useParams } from 'react-router'
 import { toast, ToastContainer } from 'react-toastify'
 import useAxios from '../../../components/hooks/useAxios'
-import { Select } from '../../../components/SuperAdmin/UI/Select'
 
 
 
@@ -90,7 +89,7 @@ const ViewEstateManager = () => {
     }
     const postUpdateEstateManager = (data: Inputs) => {
         return axiosInstance({
-            url: '/estateManager/update',
+            url: '/manager/update',
             method: 'post',
             data,
         })
@@ -98,7 +97,7 @@ const ViewEstateManager = () => {
 
     const getEstateManager = (id: string) => {
         return axiosInstance({
-            url: `/estateManager/get`,
+            url: `/manager/get`,
             method: 'post',
             data: { id },
         })

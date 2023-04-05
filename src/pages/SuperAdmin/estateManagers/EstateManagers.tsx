@@ -11,8 +11,8 @@ import { Select } from '../../../components/SuperAdmin/UI/Select'
 import useAxios from '../../../components/hooks/useAxios'
 
 interface EstateManager {
+    id: string
     user: {
-        id: string
         name: string
         gender: string
         phone: string
@@ -274,7 +274,10 @@ function EstateManagers() {
                                 <div className='grid text-[1.6rem]'>
                                     <div className='flex w-full items-center gap-12 p-10 bg-white rounded-lg'>
                                         <p className=' font-Satoshi-Medium'>
-                                            EstateManager List <span>({fetchedEstateManagers.length})</span>
+                                            EstateManager List{' '}
+                                            <span>
+                                                ({fetchedEstateManagers.length})
+                                            </span>
                                         </p>
                                         <div className='relative flex items-center'>
                                             <img
@@ -337,9 +340,10 @@ function EstateManagers() {
                                                     ].map(
                                                         (
                                                             {
+                                                                id,
                                                                 user: {
                                                                     phone,
-                                                                    id,
+
                                                                     gender,
                                                                     name,
                                                                     created_at,
