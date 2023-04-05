@@ -32,7 +32,7 @@ function RenderedRolesAndPerm() {
     } | null>(null)
 
     const [sortBy, setSortBy] = useState<string | null>(null)
-    const [roleId, setRoleId] = useState('')
+    const [roleId, setRoleId] = useState<number | null>(null)
     const [fetchedRolesAndPerm, setFetchedRolesAndPerm] = useState<
         RolesAndPerm[]
     >([])
@@ -118,6 +118,20 @@ function RenderedRolesAndPerm() {
             setSelectedRole(roles)
         }
     }, [get_rolesAndPerm_response])
+
+    const openDialog = () => {
+        dialogRef.current?.showModal()
+    }
+
+    const closeDialog = () => {
+        setRoleId(null)
+        dialogRef.current?.close()
+    }
+
+    const openPermissions = (id: number) => {
+        setRoleId(id)
+        openDialog()
+    }
 
     const dropDownHandler = (
         e: React.ChangeEvent<HTMLInputElement>,
@@ -236,14 +250,6 @@ function RenderedRolesAndPerm() {
         })
     }
 
-    const openDialog = () => {
-        dialogRef.current?.showModal()
-    }
-
-    const closeDialog = () => {
-        dialogRef.current?.close()
-    }
-
     console.log({
         get_rolesAndPerm_loading,
         get_rolesAndPerm_isError,
@@ -355,7 +361,7 @@ function RenderedRolesAndPerm() {
                             slicedPages?.length > 0 &&
                             React.Children.toArray(
                                 slicedPages[paginate.index].map(
-                                    ({ name, imgUrl, role, id }) => {
+                                    ({ name, imgUrl, id }) => {
                                         const { isDropDownOpen, index } =
                                             toggleDropDown
 
@@ -468,7 +474,9 @@ function RenderedRolesAndPerm() {
                                                 <td>
                                                     <button
                                                         className='text-[#098DFF]'
-                                                        onClick={openDialog}
+                                                        onClick={() =>
+                                                            openPermissions(id)
+                                                        }
                                                     >
                                                         Edit Permissions
                                                     </button>
