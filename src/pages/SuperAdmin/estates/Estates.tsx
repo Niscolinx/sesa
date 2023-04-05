@@ -10,6 +10,7 @@ import React from 'react'
 import { GrDown } from 'react-icons/gr'
 import { HiOutlineDotsVertical, HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { TbCurrencyNaira } from 'react-icons/tb'
+import { Select } from '../../../components/SuperAdmin/UI/Select'
 
 type EstateDetails = {
     estateName: string
@@ -245,42 +246,42 @@ function Estates() {
         <div>
             <div className='rounded-lg mt-[3rem] h-[80vh]'>
                 {estatesLoaded ? (
-                    <div className='renderedEstates'>
-                        <table className='renderedEstates__tableBox'>
-                            <caption className='renderedEstates__caption'>
-                                <p className='caption__title'>
-                                    Estate List <span>(202)</span>
+                    <div className='rounded-lg mt-[3rem] '>
+                        <div className='grid text-[1.6rem]'>
+                            <div className='flex w-full items-center gap-12 p-10 bg-white rounded-lg'>
+                                <p className=' font-Satoshi-Medium'>
+                                    Estate List <span>(10)</span>
                                 </p>
-                                <div className='caption__searchBox'>
+                                <div className='relative flex items-center'>
                                     <img
-                                        src='/icons/estates/search.svg'
+                                        src='/icons/admins/search.svg'
                                         alt=''
+                                        className='absolute left-4 text-[4rem]'
                                     />
                                     <input
                                         type='text'
                                         placeholder='Search Parameters'
+                                        className='pl-16 w-[25rem] rounded-lg border border-color-blue-light appearance-none outline-none p-4'
                                     />
                                 </div>
-                                <div className='caption__select'>
-                                    <select>
-                                        <option hidden value=''>
-                                            Category
-                                        </option>
-                                        <option value='date'>date</option>
-                                        <option value='alpha'>Alpha</option>
-                                    </select>
-                                    <GrDown />
+                                <div className='w-[10rem] grid self-baseline '>
+                                    <Select
+                                        state={['A-Z', 'Date']}
+                                        selectedState={sortBy}
+                                        placeholder={'A-Z'}
+                                        setSelectedState={setSortBy}
+                                    />
                                 </div>
                                 <button
-                                    className='btn addEstate__btn'
+                                    className='btn admins__btn ml-auto'
                                     onClick={handleAddEstate}
                                 >
                                     <span>
                                         <IoMdAdd />
                                     </span>{' '}
-                                    <p>Add Estate</p>
+                                    <p>Add Admin</p>
                                 </button>
-                            </caption>
+                            </div>
                             <div className=''>
                                 <tbody className='renderedEstates__table--body'>
                                     {slicedPages &&
@@ -559,7 +560,7 @@ function Estates() {
                                     />
                                 </ul>
                             </footer>
-                        </table>
+                        </div>
                     </div>
                 ) : (
                     <section className='grid  place-content-center w-full h-full justify-items-center gap-4 bg-white rounded-lg'>

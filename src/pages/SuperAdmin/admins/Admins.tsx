@@ -31,9 +31,7 @@ function Admins() {
     const [fetchedAdmins, setFetchedAdmins] = useState<IAdmin[]>([])
     const [sortBy, setSortBy] = useState<string | null>(null)
 
-    const handlePathSwitch = () => {
-        dispatch(setAdminPath('addAdmin'))
-    }
+    
 
     const handleAddAdmin = () => {
         navigate('/superAdmin/admins/add')
@@ -298,7 +296,7 @@ function Admins() {
                                         </div>
                                         <button
                                             className='btn admins__btn ml-auto'
-                                            onClick={handlePathSwitch}
+                                            onClick={handleAddAdmin}
                                         >
                                             <span>
                                                 <IoMdAdd />
