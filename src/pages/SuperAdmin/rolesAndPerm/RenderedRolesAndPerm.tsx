@@ -263,6 +263,7 @@ function RenderedRolesAndPerm() {
 
     if (get_rolesAndPerm_response) {
         setFetchedRolesAndPerm(get_rolesAndPerm_response)
+        console.log({get_rolesAndPerm_response})
     }
 
     return (

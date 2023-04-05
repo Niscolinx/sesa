@@ -42,7 +42,7 @@ const Login = () => {
             password: data.password,
         }
 
-        console.log('sdf')
+    
         return axiosInstance({
             url: '/login',
             method: 'post',
@@ -58,12 +58,12 @@ const Login = () => {
     } = useMutation(postLogin) as any
 
     useEffect(() => {
-        if (response_data?.status === 200) {
+        if (response_data?.success) {
             setResponseMessage({
                 className: 'text-green-600',
                 displayMessage: 'Login Successful',
             })
-            const token = response_data.data.data.token
+            const token = response_data.data.token
             if (token) {
                 dispatch(storeToken(token))
                 dispatch(setAuth(true))
@@ -77,9 +77,7 @@ const Login = () => {
             })
         }
 
-        const timeoutId = setTimeout(() => {
-            setResponseMessage(null)
-        }, 1000 * 3)
+        
     }, [response_data])
 
     const onSubmit = handleSubmit((data) => {
