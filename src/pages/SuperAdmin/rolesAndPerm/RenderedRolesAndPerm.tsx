@@ -27,11 +27,13 @@ interface RolesAndPerm {
 function RenderedRolesAndPerm() {
     const axiosInstance = useAxios()
     const dialogRef = useRef<HTMLDialogElement | null>(null)
-    const [permissions, setPermissions] = useState(new Array(10).fill(''))
+    const [permissions, setPermissions] = useState([])
     const [sortBy, setSortBy] = useState<string | null>(null)
     const [fetchedRolesAndPerm, setFetchedRolesAndPerm] = useState<
         RolesAndPerm[]
     >([])
+
+
     // const [roles, setRoles] = useState<Roles[]>([
     //     'admin',
     //     'estate Manager',
@@ -92,7 +94,7 @@ function RenderedRolesAndPerm() {
             const roles = get_rolesAndPerm_response.data.reduce(
                 (acc: {}, curr: { id: string; roles: { name: string }[] }) => {
                     const currRoleObj = { [curr.id]: curr.roles[0].name }
-
+                    
                     return {
                         ...acc,
                         ...currRoleObj,

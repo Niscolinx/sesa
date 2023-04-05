@@ -70,7 +70,7 @@ const superAdminRoutes = (
         <Route path='estateManagers/add' element={<AddEstateManager />} />
         <Route path='estateManagers/view/:Id' element={<ViewEstateManager />} />
 
-        <Route path='rolesAndPerm' element={<RolesAndPerm />} />
+        <Route path='roles-and-permissions' element={<RolesAndPerm />} />
         <Route path='additional-resident' element={<AdditionalResident />} />
         <Route
             path='additional-resident/:Id'

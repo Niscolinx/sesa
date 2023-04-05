@@ -42,7 +42,7 @@ function IconsBox() {
               </Link>
           </li>
           <li className='iconsBox__list'>
-              <Link to='/superAdmin/rolesAndPerm'>
+              <Link to='/superAdmin/roles-and-permissions'>
                   <RolesAndPermSvg />
                   <span>Roles & Permissions</span>
               </Link>
