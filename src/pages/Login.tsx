@@ -40,11 +40,14 @@ const Login = () => {
             password: data.password,
         }
 
-        return AxiosRequest({
-            url: '/login',
-            method: 'post',
-            data: user,
-        })
+        console.log('sdf')
+
+        // return AxiosRequest({
+        //     dispatch,
+        //     url: '/login',
+        //     method: 'post',
+        //     data: user,
+        // })
     }
     const {
         mutate,

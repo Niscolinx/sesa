@@ -5,7 +5,6 @@ import { getToken } from './token'
 import { useAppDispatch } from '../store/app/hooks'
 
 //const instance = axios.create({ baseURL: 'http://localhost:4000' })
-export const axiosInstance = axios.create({ baseURL: 'https://sesadigital.com/api' })
 
 interface RequestOptions {
     method: string
@@ -25,7 +24,7 @@ interface RequestOptions {
         return Promise.reject(error)
     }
 
-    return axiosInstance(options).then(onSuccess).catch(onError)
+    //return axiosInstance(options).then(onSuccess).catch(onError)
 }
 
 export default AxiosRequest

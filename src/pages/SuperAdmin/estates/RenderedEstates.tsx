@@ -17,7 +17,7 @@ import { Actions } from '@reduxjs/toolkit'
 import { useQuery } from 'react-query'
 import { toast } from 'react-toastify'
 import { i } from 'vitest/dist/types-71ccd11d'
-import { AxiosRequest } from '../../../utils/axios'
+import AxiosRequest from '../../../utils/axios'
 
 type EstateDetails = {
     estateName: string

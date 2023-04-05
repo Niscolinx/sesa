@@ -1,28 +1,41 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useAppDispatch } from '../../store/app/hooks'
-import { axiosInstance } from '../../utils/axios'
 import { getToken } from '../../utils/token'
 import { setAuth } from '../../store/features/auth'
+import axios from 'axios'
 
-function useAxios({ ...props }) {
+function useAxios() {
     const dispatch = useAppDispatch()
-
-    axiosInstance.interceptors.request.use(function (config) {
-        const token = getToken()
-
-        if (token) {
-            config.headers.Authorization = `Bearer ${token}`
-        } else {
-            dispatch(setAuth(false))
-        }
-        return config
+    const axiosInstance = axios.create({
+        baseURL: 'https://sesadigital.com/api',
     })
 
-    return (
-        <>
-            <p>hello</p>
-        </>
-    )
+    useEffect(() => {
+        const requestInterceptor = axiosInstance.interceptors.request.use(
+            (config) => {
+                const token = localStorage.getItem('token')
+                if (token) {
+                    config.headers.Authorization = `Bearer ${token}`
+                } else {
+                    dispatch(setAuth(false))
+                }
+                return config
+            },
+            (error) => Promise.reject(error)
+        )
+
+        const responseInterceptor = axiosInstance.interceptors.response.use(
+            (response) => response,
+            (error) => Promise.reject(error)
+        )
+
+        return () => {
+            axiosInstance.interceptors.request.eject(requestInterceptor)
+            axiosInstance.interceptors.response.eject(responseInterceptor)
+        }
+    }, [dispatch, axiosInstance])
+
+    return axiosInstance
 }
 
 export default useAxios
