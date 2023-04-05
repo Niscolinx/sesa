@@ -19,7 +19,7 @@ interface RolesAndPerm {
     name: string
     imgUrl: string
     role: {
-        name: string,
+        name: string
         permissions: string[]
     }[]
 }
@@ -88,6 +88,7 @@ function RenderedRolesAndPerm() {
     useEffect(() => {
         if (get_rolesAndPerm_response?.data) {
             setFetchedRolesAndPerm(get_rolesAndPerm_response.data)
+            console.log(get_rolesAndPerm_response.data.roles)
         }
     }, [get_rolesAndPerm_response])
 
@@ -327,7 +328,7 @@ function RenderedRolesAndPerm() {
                                     ({ name, imgUrl, role, id }) => {
                                         const { isDropDownOpen, index } =
                                             toggleDropDown
-                                        
+
                                         return (
                                             <div className='grid justify-between border-b grid-cols-3 items-center gap-8 text-[1.6rem] py-4  relative'>
                                                 {' '}
@@ -407,7 +408,7 @@ function RenderedRolesAndPerm() {
                                                                             className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
                                                                             key={
                                                                                 index +
-                                                                                i
+                                                                                id
                                                                             }
                                                                             onClick={(
                                                                                 e
@@ -418,7 +419,7 @@ function RenderedRolesAndPerm() {
                                                                                         '-',
                                                                                         ' '
                                                                                     ),
-                                                                                    i
+                                                                                    id
                                                                                 )
                                                                             }
                                                                         >
