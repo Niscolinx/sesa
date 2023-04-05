@@ -103,7 +103,6 @@ function RenderedRolesAndPerm() {
     }
 
     const selectRole = (e: React.MouseEvent, item: string, index: number) => {
-        console.log('select role')
         setSelectedRole((prev) => {
             return {
                 ...prev,
@@ -128,7 +127,7 @@ function RenderedRolesAndPerm() {
         currentPage: 1,
         itemsPerPage: perPage,
 
-        totalPage: Math.ceil(fetchedRolesAndPerm?.length / perPage),
+        totalPage: Math.ceil(get_roles_response?.data.length / perPage),
         slicedPages: null,
     })
 
@@ -168,6 +167,7 @@ function RenderedRolesAndPerm() {
             return {
                 ...prev,
                 slicedPages,
+                totalPage: Math.ceil(fetchedRolesAndPerm?.length / perPage),
             }
         })
     }, [fetchedRolesAndPerm])
