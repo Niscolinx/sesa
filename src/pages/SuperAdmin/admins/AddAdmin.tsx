@@ -65,7 +65,6 @@ const AddAdmin = () => {
     } = useMutation(postAdmin) as any
 
     useEffect(() => {
-        console.log({ response_data })
         if (!isError && response_data?.success) {
             handleOpen()
         } else {
