@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useMutation } from 'react-query'
 import AxiosRequest from '../../../utils/axios'
-import Input from '../../../components/UI/input/Input'
+import Input, { SelectProps } from '../../../components/UI/input/Input'
 import { Select } from '../../../components/SuperAdmin/UI/Select'
 import { useParams } from 'react-router'
 import { getToken } from '../../../utils/token'
@@ -25,12 +25,13 @@ const ViewAdmin = () => {
         className: string
         displayMessage: string
     }
-    type FormInputs = {
-        label: string
-        type?: string
-        name?: string
-        defaultValue?: string
-    }
+    
+     type FormInputs = {
+         label?: string
+         type?: string
+         name?: string
+         selectProps?: SelectProps
+     }
 
     const params = useParams()
     const axiosInstance = useAxios()

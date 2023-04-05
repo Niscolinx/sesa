@@ -1,13 +1,14 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useMutation } from 'react-query'
-import AxiosRequest from '../../../utils/axios'
-import Input from '../../../components/UI/input/Input'
+import Input, { SelectProps } from '../../../components/UI/input/Input'
 import { useParams } from 'react-router'
-import { getToken } from '../../../utils/token'
 import { toast, ToastContainer } from 'react-toastify'
-import { useAppDispatch } from '../../../store/app/hooks'
 import useAxios from '../../../components/hooks/useAxios'
+import { Select } from '../../../components/SuperAdmin/UI/Select'
+
+
+const genderState = ['Male', 'Female']
 
 const ViewEstateManager = () => {
     interface Inputs {
@@ -25,18 +26,19 @@ const ViewEstateManager = () => {
         displayMessage: string
     }
     type FormInputs = {
-        label: string
+        label?: string
         type?: string
         name?: string
-        defaultValue?: string
+        selectProps?: SelectProps
     }
 
     const params = useParams()
     const axiosInstance = useAxios()
-
     const [photoPreview, setPhotoPreview] = useState('')
     const [imageUrl, setImageUrl] = useState<File | null>(null)
-    const [selectedGender, setSelectedGender] = useState<string | null>(null)
+    const [selectedGender, setSelectedGender] = useState<string | null>(
+        genderState[0]
+    )
 
     const formInputs = [
         {
@@ -237,7 +239,10 @@ const ViewEstateManager = () => {
                                 animationIterationCount: 'infinite',
                             }}
                         />
-                        <p>Are you sure you want to deactivate this estateManager?</p>
+                        <p>
+                            Are you sure you want to deactivate this
+                            estateManager?
+                        </p>
 
                         <div className='flex w-full justify-center gap-8'>
                             <button
@@ -249,7 +254,9 @@ const ViewEstateManager = () => {
                             <button
                                 className='bg-red-500 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem] capitalize'
                                 onClick={() =>
-                                    deactivate_estateManager_mutation(estateManager_id)
+                                    deactivate_estateManager_mutation(
+                                        estateManager_id
+                                    )
                                 }
                             >
                                 {deactivate_estateManager_loading
@@ -290,7 +297,10 @@ const ViewEstateManager = () => {
                             className='border border-red-600 px-16 py-4 flex items-center  rounded-lg gap-4'
                             onClick={openDialog}
                         >
-                            <img src='/icons/estateManagers/delete.svg' alt='' />
+                            <img
+                                src='/icons/estateManagers/delete.svg'
+                                alt=''
+                            />
                             <span className='text-red-600 text-[1.4rem] font-semibold'>
                                 Deactivate
                             </span>
@@ -350,7 +360,9 @@ const ViewEstateManager = () => {
                                     className='w-[1.7rem] h-[1.7rem]'
                                 />
                             </span>{' '}
-                            {post_estateManager_loading ? 'Loading...' : 'Save Changes'}
+                            {post_estateManager_loading
+                                ? 'Loading...'
+                                : 'Save Changes'}
                         </button>
                     </>
                 </form>
