@@ -94,7 +94,9 @@ function RenderedRolesAndPerm() {
             const roles = get_rolesAndPerm_response.data.reduce(
                 (acc: {}, curr: { id: string; roles: { name: string }[] }) => {
                     const currRoleObj = { [curr.id]: curr.roles[0].name }
-                    
+
+                    console.log(curr.roles[0].permissions)
+
                     return {
                         ...acc,
                         ...currRoleObj,
