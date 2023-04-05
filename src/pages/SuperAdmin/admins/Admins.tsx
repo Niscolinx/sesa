@@ -230,7 +230,7 @@ function Admins() {
     return (
         <div>
             <div className='rounded-lg mt-[3rem] h-[80vh]'>
-                {get_admins_response.data.data.data.length > 0 ? (
+                {fetchedAdmins.length > 0 ? (
                     <>
                         <ToastContainer />
                         <dialog className='dialog' ref={dialogRef}>

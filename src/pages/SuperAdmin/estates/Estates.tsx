@@ -65,7 +65,7 @@ function Estates() {
     } = useQuery('estates', fetchEstates) as any
 
     useEffect(() => {
-        if (get_estates_response?.status === 200) {
+        if (get_estates_response?.data.success) {
             // setFetchedEstates(get_estates_response.data)
             console.log(get_estates_response.data, 'fetchedData')
         }
@@ -241,14 +241,12 @@ function Estates() {
         return <p>{get_estates_error.message}</p>
     }
 
-    const estatesLoaded =
-        get_estates_response.status === 200 &&
-        get_estates_response.data.length > 0
+   
 
     return (
         <div>
             <div className='rounded-lg mt-[3rem] h-[80vh]'>
-                {estatesLoaded ? (
+                {fetchedEstates.length > 0 ? (
                     <div className='rounded-lg mt-[3rem] '>
                         <div className='grid text-[1.6rem]'>
                             <div className='flex w-full items-center gap-12 p-10 bg-white rounded-lg'>
