@@ -8,6 +8,7 @@ import AxiosRequest from '../../../utils/axios'
 import React from 'react'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { Select } from '../../../components/SuperAdmin/UI/Select'
+import useAxios from '../../../components/hooks/useAxios'
 
 interface EstateManager {
     user: {
@@ -25,17 +26,16 @@ type Actions = 'view details' | 'deactivate'
 
 function EstateManagers() {
     const navigate = useNavigate()
-    const dispatch = useAppDispatch()
+    const axiosInstance = useAxios()
 
     const [sortBy, setSortBy] = useState<string | null>(null)
 
     const [fetchedEstateManagers, setFetchedEstateManagers] = useState<
         EstateManager[]
     >([])
-    
+
     const fetchEstateManagers = () => {
-        return AxiosRequest({
-            dispatch,
+        return axiosInstance({
             // url: '/admin/get/all',
             url: '/manager/get/all',
         })
@@ -225,8 +225,6 @@ function EstateManagers() {
     if (get_estateManagers_isError) {
         return <p>{get_estateManagers_error.message}</p>
     }
-
-    
 
     const handlePathSwitch = () => {
         navigate('/superAdmin/estateManagers/add')
