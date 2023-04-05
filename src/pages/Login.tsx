@@ -49,12 +49,7 @@ const Login = () => {
             data: user
         })
 
-        // return AxiosRequest({
-        //     dispatch,
-        //     url: '/login',
-        //     method: 'post',
-        //     data: user,
-        // })
+       
     }
     const {
         mutate,

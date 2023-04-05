@@ -38,7 +38,7 @@ function EstateManagers() {
         return axiosInstance({
             // url: '/admin/get/all',
             url: '/manager/get/all',
-        })
+        }).then(({data}) => data)
     }
 
     const {
@@ -50,8 +50,8 @@ function EstateManagers() {
     } = useQuery('estateManagers', fetchEstateManagers) as any
 
     useEffect(() => {
-        if (get_estateManagers_response?.data.success) {
-            // setFetchedEstateManagers(get_estateManagers_response.data)
+        if (get_estateManagers_response?.success) {
+            setFetchedEstateManagers(get_estateManagers_response.data.data)
             console.log(get_estateManagers_response.data, 'fetchedData')
         }
     }, [get_estateManagers_response])
@@ -274,7 +274,7 @@ function EstateManagers() {
                                 <div className='grid text-[1.6rem]'>
                                     <div className='flex w-full items-center gap-12 p-10 bg-white rounded-lg'>
                                         <p className=' font-Satoshi-Medium'>
-                                            EstateManager List <span>(10)</span>
+                                            EstateManager List <span>({fetchedEstateManagers.length})</span>
                                         </p>
                                         <div className='relative flex items-center'>
                                             <img
