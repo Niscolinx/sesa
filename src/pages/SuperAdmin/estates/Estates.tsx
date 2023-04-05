@@ -6,6 +6,10 @@ import { useQuery } from 'react-query'
 import { toast } from 'react-toastify'
 import { useAppDispatch } from '../../../store/app/hooks'
 import { AxiosRequest } from '../../../utils/axios'
+import React from 'react'
+import { GrDown } from 'react-icons/gr'
+import { HiOutlineDotsVertical, HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
+import { TbCurrencyNaira } from 'react-icons/tb'
 
 type EstateDetails = {
     estateName: string
@@ -33,7 +37,7 @@ function Estates() {
     const navigate = useNavigate()
     const dispatch = useAppDispatch()
 
-    const [fetchedEstates, setFetchedEstates] = useState<Estate[]>(ESTATEDATA)
+    const [fetchedEstates, setFetchedEstates] = useState<Estate[]>([])
     const [sortBy, setSortBy] = useState<string | null>(null)
 
     const handleAddEstate = () => {
@@ -241,9 +245,322 @@ function Estates() {
         <div>
             <div className='rounded-lg mt-[3rem] h-[80vh]'>
                 {estatesLoaded ? (
-                    <section>
-                        <RenderedEstates />
-                    </section>
+                    <div className='renderedEstates'>
+                        <table className='renderedEstates__tableBox'>
+                            <caption className='renderedEstates__caption'>
+                                <p className='caption__title'>
+                                    Estate List <span>(202)</span>
+                                </p>
+                                <div className='caption__searchBox'>
+                                    <img
+                                        src='/icons/estates/search.svg'
+                                        alt=''
+                                    />
+                                    <input
+                                        type='text'
+                                        placeholder='Search Parameters'
+                                    />
+                                </div>
+                                <div className='caption__select'>
+                                    <select>
+                                        <option hidden value=''>
+                                            Category
+                                        </option>
+                                        <option value='date'>date</option>
+                                        <option value='alpha'>Alpha</option>
+                                    </select>
+                                    <GrDown />
+                                </div>
+                                <button
+                                    className='btn addEstate__btn'
+                                    onClick={handleAddEstate}
+                                >
+                                    <span>
+                                        <IoMdAdd />
+                                    </span>{' '}
+                                    <p>Add Estate</p>
+                                </button>
+                            </caption>
+                            <div className=''>
+                                <tbody className='renderedEstates__table--body'>
+                                    {slicedPages &&
+                                        slicedPages?.length > 0 &&
+                                        React.Children.toArray(
+                                            slicedPages[paginate.index].map(
+                                                (
+                                                    {
+                                                        img,
+                                                        id,
+                                                        details: {
+                                                            estateBalance,
+                                                            estateManager,
+                                                            estateName,
+                                                            NoOfHouseholds,
+                                                            NoOfResidents,
+                                                            securityCompany,
+                                                            signOutRequired,
+                                                            status,
+                                                        },
+                                                    },
+                                                    i
+                                                ) => {
+                                                    const {
+                                                        isDropDownOpen,
+                                                        index,
+                                                    } = toggleDropDown
+                                                    return (
+                                                        <>
+                                                            <tr className='w-full'>
+                                                                <td>
+                                                                    <img
+                                                                        src={
+                                                                            img
+                                                                        }
+                                                                        alt=''
+                                                                        className='table__img'
+                                                                    />
+                                                                </td>
+
+                                                                <td>
+                                                                    <div>
+                                                                        <p className='text-[1.4rem] text-[#043FA7]'>
+                                                                            Estate&nbsp;Name
+                                                                        </p>
+                                                                        <p className='font-[1.6rem] whitespace-nowrap'>
+                                                                            {
+                                                                                estateName
+                                                                            }
+                                                                        </p>
+                                                                    </div>
+                                                                    <div>
+                                                                        <p className='text-[#043FA7]'>
+                                                                            Security
+                                                                            Company
+                                                                        </p>
+                                                                        <p>
+                                                                            {
+                                                                                securityCompany
+                                                                            }
+                                                                        </p>
+                                                                    </div>
+                                                                    <div>
+                                                                        <p className='text-[#043FA7]'>
+                                                                            Status
+                                                                        </p>
+                                                                        <p className='text-[#1D9F5F]'>
+                                                                            {
+                                                                                status
+                                                                            }
+                                                                        </p>
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div>
+                                                                        <p className='text-[#043FA7]'>
+                                                                            Estate
+                                                                            Balance
+                                                                        </p>
+                                                                        <p className='flex items-center'>
+                                                                            <TbCurrencyNaira className='text-[2rem]' />
+                                                                            {
+                                                                                estateBalance
+                                                                            }
+                                                                        </p>
+                                                                    </div>
+                                                                    <div>
+                                                                        <p className='text-[#043FA7]'>
+                                                                            No
+                                                                            of
+                                                                            Residents
+                                                                        </p>
+                                                                        <p>
+                                                                            {
+                                                                                NoOfResidents
+                                                                            }
+                                                                        </p>
+                                                                    </div>
+                                                                    <div>
+                                                                        <p className='text-[#043FA7]'>
+                                                                            Sign
+                                                                            Out
+                                                                            Required
+                                                                        </p>
+                                                                        <p>
+                                                                            {signOutRequired
+                                                                                ? 'Yes'
+                                                                                : 'No'}
+                                                                        </p>
+                                                                    </div>
+                                                                </td>
+                                                                <td className=' grid content-start'>
+                                                                    <div>
+                                                                        <p className='text-[#043FA7]'>
+                                                                            Estate
+                                                                            Manager
+                                                                        </p>
+                                                                        <p>
+                                                                            {
+                                                                                estateManager
+                                                                            }
+                                                                        </p>
+                                                                    </div>
+                                                                    <div className=' mt-10'>
+                                                                        <p className='text-[#043FA7]'>
+                                                                            {' '}
+                                                                            No
+                                                                            of
+                                                                            Households
+                                                                        </p>
+                                                                        <p>
+                                                                            {
+                                                                                NoOfHouseholds
+                                                                            }
+                                                                        </p>
+                                                                    </div>
+                                                                </td>
+
+                                                                <div className='relative flex items-start content-start mr-4'>
+                                                                    <label
+                                                                        className='font-semibold capitalize cursor-pointer flex items-center gap-2 relative z-10'
+                                                                        htmlFor={i.toString()}
+                                                                        onClick={() =>
+                                                                            setToggleDropDown(
+                                                                                (
+                                                                                    prev
+                                                                                ) => {
+                                                                                    return {
+                                                                                        isDropDownOpen:
+                                                                                            !prev.isDropDownOpen,
+                                                                                        index: i,
+                                                                                    }
+                                                                                }
+                                                                            )
+                                                                        }
+                                                                    >
+                                                                        <HiOutlineDotsVertical className='text-[2rem]' />
+                                                                    </label>
+                                                                    <input
+                                                                        type='radio'
+                                                                        name='dropdown'
+                                                                        className='hidden'
+                                                                        id={i.toString()}
+                                                                        onChange={(
+                                                                            e
+                                                                        ) =>
+                                                                            dropDownHandler(
+                                                                                e,
+                                                                                i
+                                                                            )
+                                                                        }
+                                                                    />
+
+                                                                    {isDropDownOpen &&
+                                                                        index ===
+                                                                            i && (
+                                                                            <div className='absolute top-0 translate-x-[-10rem] border border-color-primary-light w-[10rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
+                                                                                {actions.map(
+                                                                                    (
+                                                                                        item,
+                                                                                        index
+                                                                                    ) => (
+                                                                                        <p
+                                                                                            className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
+                                                                                            key={
+                                                                                                index +
+                                                                                                i
+                                                                                            }
+                                                                                            onClick={() =>
+                                                                                                handleSelectedAction(
+                                                                                                    item,
+                                                                                                    id
+                                                                                                )
+                                                                                            }
+                                                                                        >
+                                                                                            {item ===
+                                                                                            'deactivate' ? (
+                                                                                                <span className='text-red-600'>
+                                                                                                    {
+                                                                                                        item
+                                                                                                    }
+                                                                                                </span>
+                                                                                            ) : (
+                                                                                                <span>
+                                                                                                    {
+                                                                                                        item
+                                                                                                    }
+                                                                                                </span>
+                                                                                            )}
+                                                                                        </p>
+                                                                                    )
+                                                                                )}
+                                                                            </div>
+                                                                        )}
+                                                                </div>
+                                                            </tr>
+                                                        </>
+                                                    )
+                                                }
+                                            )
+                                        )}
+                                </tbody>
+                            </div>
+                            <footer className='flex items-center p-4 mt-4 bg-color-white rounded-lg'>
+                                <div className='flex gap-8 items-center'>
+                                    <p>View</p>
+                                    <select
+                                        name=''
+                                        id=''
+                                        className='flex items-center border px-4 rounded-lg outline-none cursor-pointer'
+                                        onChange={handleItemsPerPage}
+                                    >
+                                        {itemsPerPageArr.map((item, index) => (
+                                            <option
+                                                value={item}
+                                                key={index}
+                                                selected={item === itemsPerPage}
+                                                className='capitalize cursor-pointer bg-white'
+                                            >
+                                                {item}
+                                            </option>
+                                        ))}
+                                    </select>
+                                    <p className='text'>List per page</p>
+                                </div>
+                                <ul className='flex items-center gap-5 ml-10'>
+                                    <HiOutlineChevronLeft
+                                        onClick={handlePrev}
+                                        className='cursor-pointer'
+                                    />
+
+                                    {slicedPages?.map((item, index) => {
+                                        return (
+                                            <li key={index}>
+                                                {index + 1 === currentPage ? (
+                                                    <span className='bg-color-primary text-white grid place-content-center w-[3rem] h-[3rem] cursor-pointer'>
+                                                        {index + 1}
+                                                    </span>
+                                                ) : (
+                                                    <span
+                                                        className='text-color-primary bg-white grid place-content-center border w-[3rem] h-[3rem] cursor-pointer'
+                                                        onClick={(e) =>
+                                                            jumpToPage(e, index)
+                                                        }
+                                                    >
+                                                        {index + 1}
+                                                    </span>
+                                                )}
+                                            </li>
+                                        )
+                                    })}
+
+                                    <HiOutlineChevronRight
+                                        onClick={handleNext}
+                                        className='cursor-pointer'
+                                    />
+                                </ul>
+                            </footer>
+                        </table>
+                    </div>
                 ) : (
                     <section className='grid  place-content-center w-full h-full justify-items-center gap-4 bg-white rounded-lg'>
                         <img src='/icons/admins/errorSvg.svg' alt='' />
