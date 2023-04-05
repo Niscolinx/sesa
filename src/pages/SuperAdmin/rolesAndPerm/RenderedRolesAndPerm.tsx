@@ -28,7 +28,7 @@ function RenderedRolesAndPerm() {
     const axiosInstance = useAxios()
     const dialogRef = useRef<HTMLDialogElement | null>(null)
     const [permissions, setPermissions] = useState<{
-         [key: string]: string[]
+        [key: string]: string[]
     }>(null as any)
 
     const [sortBy, setSortBy] = useState<string | null>(null)
@@ -274,24 +274,26 @@ function RenderedRolesAndPerm() {
                             </p>
                         </div>
                         <div className='my-10 grid gap-4 h-full'>
-                            {React.Children.toArray(
-                                permissions.map((value, i) => {
-                                    return (
-                                        <div
-                                            key={i}
-                                            className='flex items-center gap-4 '
-                                        >
-                                            <input
-                                                type='checkbox'
-                                                className='cursor-pointer'
-                                            />
-                                            <p className='text-[1.6rem]'>
-                                                Permission {i + 1}
-                                            </p>
-                                        </div>
-                                    )
-                                })
-                            )}
+                            {<>{console.log({ permissions })}</>}
+                            {permissions[0].length > 0 &&
+                                React.Children.toArray(
+                                    permissions[0].map((value, i) => {
+                                        return (
+                                            <div
+                                                key={i}
+                                                className='flex items-center gap-4 '
+                                            >
+                                                <input
+                                                    type='checkbox'
+                                                    className='cursor-pointer'
+                                                />
+                                                <p className='text-[1.6rem]'>
+                                                    Permission {i + 1}
+                                                </p>
+                                            </div>
+                                        )
+                                    })
+                                )}
                         </div>
                         <button
                             className='bg-color-blue-1 px-12 py-4 text-white text-[1.4rem] flex items-center justify-self-start rounded-lg gap-4 self-center'
