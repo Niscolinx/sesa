@@ -20,6 +20,7 @@ type Roles =
 interface RolesAndPerm {
     id: string
     name: string
+    imgUrl: string
     role: string
 }
 
@@ -27,26 +28,31 @@ const ROLES_AND_PERM: RolesAndPerm[] = [
     {
         id: '1',
         name: 'Jacintha Sage',
+        imgUrl: '/img/me.jpeg',
         role: 'admin',
     },
     {
         id: '2',
         name: 'Jacintha Sage',
+        imgUrl: '/img/me.jpeg',
         role: 'estate Manager',
     },
     {
         id: '3',
         name: 'Jacintha Sage',
+        imgUrl: '/img/me.jpeg',
         role: 'security Company',
     },
     {
         id: '4',
         name: 'Jacintha Sage',
+        imgUrl: '/img/me.jpeg',
         role: 'security Company',
     },
     {
         id: '5',
         name: 'Jacintha Sage',
+        imgUrl: '/img/me.jpeg',
         role: 'Admin',
     },
 ]
@@ -328,103 +334,123 @@ function RenderedRolesAndPerm() {
                     <div className='grid gap-8 mt-8 p-8'>
                         {fetchedRolesAndPerm &&
                             React.Children.toArray(
-                                fetchedRolesAndPerm.map((value, i) => {
-                                    const { isDropDownOpen, index } =
-                                        toggleDropDown
-                                    return (
-                                        <tr key={i} className='relative'>
-                                            <td>
-                                                <input type='checkbox' />
-                                                <img
-                                                    src='/img/me.jpeg'
-                                                    alt=''
-                                                />
-                                                <span>{value.name}</span>
-                                            </td>
-                                            <td>
-                                                <label
-                                                    className='font-semibold capitalize cursor-pointer flex items-center gap-2 relative z-10'
-                                                    htmlFor={i.toString()}
-                                                    onClick={() =>
-                                                        setToggleDropDown(
-                                                            (prev) => {
-                                                                return {
-                                                                    isDropDownOpen:
-                                                                        !prev.isDropDownOpen,
-                                                                    index: i,
+                                fetchedRolesAndPerm.map(
+                                    ({ name, imgUrl }, i) => {
+                                        const { isDropDownOpen, index } =
+                                            toggleDropDown
+
+                                        return (
+                                            <div className='grid justify-between border-b grid-cols-3 items-center gap-8 text-[1.6rem] py-4 table__ellipsis relative'>
+                                                {' '}
+                                                <div className='flex items-center gap-4  '>
+                                                    <input
+                                                        type='checkbox'
+                                                        className='cursor-pointer'
+                                                    />
+
+                                                    <div className='flex items-center gap-2'>
+                                                        {imgUrl && (
+                                                            <img
+                                                                src={imgUrl}
+                                                                alt=''
+                                                                className='w-[3.5rem] h-[h-3.5rem] rounded-full object-cover'
+                                                            />
+                                                        )}
+
+                                                        <p className='min-w-[30rem] overflow-hidden text-ellipsis whitespace-nowrap'>
+                                                            {name}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <td>
+                                                    <label
+                                                        className='font-semibold capitalize cursor-pointer flex items-center gap-2 relative z-10'
+                                                        htmlFor={i.toString()}
+                                                        onClick={() =>
+                                                            setToggleDropDown(
+                                                                (prev) => {
+                                                                    return {
+                                                                        isDropDownOpen:
+                                                                            !prev.isDropDownOpen,
+                                                                        index: i,
+                                                                    }
                                                                 }
-                                                            }
-                                                        )
-                                                    }
-                                                >
-                                                    {selectedRole &&
-                                                    selectedRole[i] ? (
-                                                        selectedRole[i]
-                                                    ) : (
-                                                        <span className='text-color-primary'>
-                                                            Select Role
-                                                        </span>
-                                                    )}
+                                                            )
+                                                        }
+                                                    >
+                                                        {selectedRole &&
+                                                        selectedRole[i] ? (
+                                                            selectedRole[i]
+                                                        ) : (
+                                                            <span className='text-color-primary'>
+                                                                Select Role
+                                                            </span>
+                                                        )}
+                                                        {isDropDownOpen &&
+                                                        index === i ? (
+                                                            <GrUp className='w-[1rem] h-[1rem]' />
+                                                        ) : (
+                                                            <GrDown className='w-[1rem] h-[1rem]' />
+                                                        )}
+                                                    </label>
+                                                    <input
+                                                        type='radio'
+                                                        name='dropdown'
+                                                        className='hidden'
+                                                        id={i.toString()}
+                                                        onChange={(e) =>
+                                                            dropDownHandler(
+                                                                e,
+                                                                i
+                                                            )
+                                                        }
+                                                    />
+
                                                     {isDropDownOpen &&
-                                                    index === i ? (
-                                                        <GrUp className='w-[1rem] h-[1rem]' />
-                                                    ) : (
-                                                        <GrDown className='w-[1rem] h-[1rem]' />
-                                                    )}
-                                                </label>
-                                                <input
-                                                    type='radio'
-                                                    name='dropdown'
-                                                    className='hidden'
-                                                    id={i.toString()}
-                                                    onChange={(e) =>
-                                                        dropDownHandler(e, i)
-                                                    }
-                                                />
-
-                                                {isDropDownOpen &&
-                                                    index === i && (
-                                                        <div className='absolute top-[5rem] translate-x-[6rem] border border-color-primary-light w-[24rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
-                                                            {roles.map(
-                                                                (
-                                                                    item,
-                                                                    index
-                                                                ) => (
-                                                                    <p
-                                                                        className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
-                                                                        key={
-                                                                            index +
-                                                                            i
-                                                                        }
-                                                                        onClick={(
-                                                                            e
-                                                                        ) =>
-                                                                            selectRole(
-                                                                                e,
-                                                                                item,
+                                                        index === i && (
+                                                            <div className='absolute top-[5rem] translate-x-[6rem] border border-color-primary-light w-[24rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
+                                                                {roles.map(
+                                                                    (
+                                                                        item,
+                                                                        index
+                                                                    ) => (
+                                                                        <p
+                                                                            className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
+                                                                            key={
+                                                                                index +
                                                                                 i
-                                                                            )
-                                                                        }
-                                                                    >
-                                                                        {item}
-                                                                    </p>
-                                                                )
-                                                            )}
-                                                        </div>
-                                                    )}
-                                            </td>
-
-                                            <td>
-                                                <button
-                                                    className='text-[#098DFF]'
-                                                    onClick={showModal}
-                                                >
-                                                    Edit Permissions
-                                                </button>
-                                            </td>
-                                        </tr>
-                                    )
-                                })
+                                                                            }
+                                                                            onClick={(
+                                                                                e
+                                                                            ) =>
+                                                                                selectRole(
+                                                                                    e,
+                                                                                    item,
+                                                                                    i
+                                                                                )
+                                                                            }
+                                                                        >
+                                                                            {
+                                                                                item
+                                                                            }
+                                                                        </p>
+                                                                    )
+                                                                )}
+                                                            </div>
+                                                        )}
+                                                </td>
+                                                <td>
+                                                    <button
+                                                        className='text-[#098DFF]'
+                                                        onClick={showModal}
+                                                    >
+                                                        Edit Permissions
+                                                    </button>
+                                                </td>
+                                            </div>
+                                        )
+                                    }
+                                )
                             )}
                     </div>
                 </div>
