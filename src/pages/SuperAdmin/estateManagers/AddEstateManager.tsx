@@ -16,13 +16,13 @@ const AddEstateManager = () => {
         phone_number: number
         photoUrl?: string
     }
+    const genderState = ['Male', 'Female']
 
     const axiosInstance = useAxios()
 
     const [photoPreview, setPhotoPreview] = useState('')
     const [imageUrl, setImageUrl] = useState<File | null>(null)
-    const [selectedGender, setSelectedGender] = useState<string | null>(null)
-    const genderState = ['Male', 'Female']
+    const [selectedGender, setSelectedGender] = useState<string | null>(genderState[0])
 
     const handlePicture = (e: React.ChangeEvent) => {
         const target = e.target as HTMLInputElement
