@@ -381,7 +381,7 @@ function RenderedRolesAndPerm() {
                                                     >
                                                         {selectedRole &&
                                                         selectedRole[id] ? (
-                                                            selectedRole[id]
+                                                            selectedRole[id].replace('-', ' ')
                                                         ) : (
                                                             <span className='text-color-primary'>
                                                                 Select Role
