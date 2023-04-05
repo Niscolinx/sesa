@@ -60,23 +60,25 @@ const AddAdmin = () => {
         mutate,
         data: response_data,
         isLoading,
+        isError,
+        error: response_error,
     } = useMutation(postAdmin) as any
 
     useEffect(() => {
         console.log({ response_data })
-        if (response_data?.success) {
+        if (!isError && response_data?.success) {
             handleOpen()
         } else {
             setResponseMessage({
                 className: 'text-red-600',
-                displayMessage: response_data?.response.data.message,
+                displayMessage: response_error?.response.data.message,
             })
         }
 
         // const timeoutId = setTimeout(() => {
         //     setResponseMessage(null)
         // }, 10000)
-    }, [response_data])
+    }, [response_data, response_error])
 
     const onSubmit = handleSubmit((data) => {
         const {
