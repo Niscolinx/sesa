@@ -4,7 +4,7 @@ import Input, { SelectProps } from '../../../components/UI/input/Input'
 import { useForm } from 'react-hook-form'
 import { useMutation } from 'react-query'
 import { useAppDispatch } from '../../../store/app/hooks'
-import { AxiosRequest } from '../../../utils/axios'
+import  AxiosRequest  from '../../../utils/axios'
 import ImageInput from '../../../components/UI/input/ImageInput'
 
 const AddEstate = () => {

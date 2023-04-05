@@ -9,7 +9,7 @@ import { useQuery } from 'react-query'
 import { toast } from 'react-toastify'
 import { useAppDispatch } from '../../../store/app/hooks'
 import { setAdminPath } from '../../../store/features/routeChange'
-import { AxiosRequest } from '../../../utils/axios'
+import AxiosRequest  from '../../../utils/axios'
 
 interface EstateManager {
     id: string

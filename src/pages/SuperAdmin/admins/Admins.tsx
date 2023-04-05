@@ -8,7 +8,7 @@ import { setAdminPath } from '../../../store/features/routeChange'
 import { useAppDispatch } from '../../../store/app/hooks'
 import { Select } from '../../../components/SuperAdmin/UI/Select'
 import { useQuery } from 'react-query'
-import { AxiosRequest } from '../../../utils/axios'
+import AxiosRequest  from '../../../utils/axios'
 
 interface IAdmin {
     user: {
@@ -40,8 +40,7 @@ function Admins() {
     const fetchAdmins = () => {
         return AxiosRequest({
             dispatch,
-            // url: '/admin/get/all',
-            url: '/users',
+            url: '/admin/get/all',
         })
     }
 

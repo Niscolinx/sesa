@@ -1,6 +1,5 @@
 //import { isAuthenticated } from './../../utils/token';
 import { createSlice } from '@reduxjs/toolkit'
-import { isAuthenticated } from '../../utils/token'
 import { AppState } from '../app/store'
 
 const initialState = {
