@@ -340,7 +340,7 @@ function RenderedRolesAndPerm() {
                                             toggleDropDown
 
                                         return (
-                                            <div className='grid justify-between border-b grid-cols-3 items-center gap-8 text-[1.6rem] py-4 table__ellipsis relative'>
+                                            <div className='grid justify-between border-b grid-cols-3 items-center gap-8 text-[1.6rem] py-4  relative'>
                                                 {' '}
                                                 <div className='flex items-center gap-4  '>
                                                     <input
@@ -357,9 +357,7 @@ function RenderedRolesAndPerm() {
                                                             />
                                                         )}
 
-                                                        <p className='min-w-[30rem] overflow-hidden text-ellipsis whitespace-nowrap'>
-                                                            {name}
-                                                        </p>
+                                                        <p>{name}</p>
                                                     </div>
                                                 </div>
                                                 <td>
