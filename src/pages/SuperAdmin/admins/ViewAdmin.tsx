@@ -8,6 +8,7 @@ import { useParams } from 'react-router'
 import { getToken } from '../../../utils/token'
 import { toast, ToastContainer } from 'react-toastify'
 import { useAppDispatch } from '../../../store/app/hooks'
+import useAxios from '../../../components/hooks/useAxios'
 
 const ViewAdmin = () => {
     interface Inputs {
@@ -32,7 +33,7 @@ const ViewAdmin = () => {
     }
 
     const params = useParams()
-    const dispatch = useAppDispatch()
+    const axiosInstance = useAxios()
 
     const [photoPreview, setPhotoPreview] = useState('')
     const [imageUrl, setImageUrl] = useState<File | null>(null)
@@ -74,16 +75,14 @@ const ViewAdmin = () => {
         useState<ResponseMessage | null>(null)
 
     const postDeactivateAdmin = (id: string) => {
-        return AxiosRequest({
-            dispatch,
+        return axiosInstance({
             url: '/change/user/status',
             method: 'post',
             data: { user_id: id },
         })
     }
     const postUpdateAdmin = (data: Inputs) => {
-        return AxiosRequest({
-            dispatch,
+        return axiosInstance({
             url: '/admin/update',
             method: 'post',
             data,
@@ -91,8 +90,7 @@ const ViewAdmin = () => {
     }
 
     const getAdmin = (id: string) => {
-        return AxiosRequest({
-            dispatch,
+        return axiosInstance({
             url: `/admin/get`,
             method: 'post',
             data: { id },
@@ -124,9 +122,9 @@ const ViewAdmin = () => {
     }, [])
 
     useEffect(() => {
-        if (get_admin_response?.status === 200) {
-            const { dob } = get_admin_response.data.data
-            const fetched_data = get_admin_response.data.data.user
+        if (get_admin_response?.success) {
+            const { dob } = get_admin_response.data
+            const fetched_data = get_admin_response.data.user
 
             const { name, email, phone, image } = fetched_data
             const first_name = name.split(' ')[0]
@@ -146,7 +144,7 @@ const ViewAdmin = () => {
     }, [get_admin_response])
 
     useEffect(() => {
-        if (post_admin_response_data?.status === 200) {
+        if (post_admin_response_data?.success) {
             toast('Admin Updated successfully', {
                 type: 'success',
                 className: 'bg-green-100 text-green-600 text-[1.4rem]',
@@ -161,7 +159,7 @@ const ViewAdmin = () => {
     }, [post_admin_response_data])
 
     useEffect(() => {
-        if (post_deactivate_admin_response?.status === 200) {
+        if (post_deactivate_admin_response?.success) {
             toast('Admin Deactivated successfully', {
                 type: 'success',
                 className: 'bg-green-100 text-green-600 text-[1.4rem]',

@@ -13,7 +13,7 @@ const AddEstateManager = () => {
         last_name: string
         dob: string
         gender: string
-        phoneNumber: number
+        phone_number: number
         photoUrl?: string
     }
 
@@ -83,7 +83,7 @@ const AddEstateManager = () => {
             gender,
             dob,
             email_address,
-            phoneNumber,
+            phone_number,
         } = data
 
         const estateManagerData = {
@@ -92,7 +92,7 @@ const AddEstateManager = () => {
             dob,
             email: email_address,
             address: 'no 4 odeyim street',
-            phone: `+234${phoneNumber}`,
+            phone: `+234${phone_number}`,
             image: imageUrl?.name,
         }
 
@@ -156,18 +156,18 @@ const AddEstateManager = () => {
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
                         <img
-                            src='/icons/estateManagers/modalSuccess.svg'
+                            src='/icons/admins/modalSuccess.svg'
                             alt=''
                         />
                         <p>You have successfully added an EstateManager</p>
 
                         <div className='flex w-full justify-center gap-8'>
-                            <button
+                            {/* <button
                                 className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
                                 onClick={handleClose}
                             >
                                 View details
-                            </button>
+                            </button> */}
                             <button
                                 className='bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
                                 onClick={handleClose}
