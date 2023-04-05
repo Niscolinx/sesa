@@ -88,7 +88,17 @@ function RenderedRolesAndPerm() {
     useEffect(() => {
         if (get_rolesAndPerm_response?.data) {
             setFetchedRolesAndPerm(get_rolesAndPerm_response.data)
-            console.log(get_rolesAndPerm_response.data.roles)
+            console.log(get_rolesAndPerm_response.data.roles, '=============')
+
+            get_rolesAndPerm_response.data.forEach((item) => {
+                console.log(item.roles[0], item.id)
+            })
+
+            setSelectedRole((prev) => {
+
+
+                
+            })
         }
     }, [get_rolesAndPerm_response])
 
