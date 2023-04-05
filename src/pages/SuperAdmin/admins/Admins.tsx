@@ -9,6 +9,7 @@ import { Select } from '../../../components/SuperAdmin/UI/Select'
 import { useQuery } from 'react-query'
 import useAxios from '../../../components/hooks/useAxios'
 import axios from 'axios'
+import { getToken } from '../../../utils/token'
 
 interface IAdmin {
     user: {
@@ -40,8 +41,15 @@ function Admins() {
         // axiosInstance({
         //     url: '/admin/get/all',
         // })
-
-        axios.get('/admin/get/all').then(data => console.log({data})).catch(err => console.log({err}))
+        const token = getToken()
+        axios
+            .get('https://sesadigital.com/api/admin/get/all', {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            })
+            .then((data) => console.log({ data }))
+            .catch((err) => console.log({ err }))
     }
 
     const {
