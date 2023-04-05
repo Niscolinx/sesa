@@ -38,18 +38,9 @@ function Admins() {
     }
 
     const fetchAdmins = () => {
-        // axiosInstance({
-        //     url: '/admin/get/all',
-        // })
-        const token = getToken()
-        axios
-            .get('https://sesadigital.com/api/admin/get/all', {
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                },
-            })
-            .then((data) => console.log({ data }))
-            .catch((err) => console.log({ err }))
+        return axiosInstance({
+            url: 'admin/get/all',
+        })
     }
 
     const {
@@ -57,12 +48,12 @@ function Admins() {
         data: get_admins_response,
         isError: get_admins_isError,
         error: get_admins_error,
-        // isFetching: get_admins_fetching,
-    } = useQuery('admins', fetchAdmins) as any
+        isFetching: get_admins_fetching,
+    } = useQuery('admin', fetchAdmins) as any
 
     useEffect(() => {
-        if (get_admins_response) {
-            // setFetchedAdmins(get_admins_response.data)
+        if (get_admins_response?.status === 200) {
+            setFetchedAdmins(get_admins_response.data)
             console.log(get_admins_response, 'fetchedData')
         }
     }, [get_admins_response])
@@ -232,7 +223,8 @@ function Admins() {
     }
 
     const adminsLoaded =
-        get_admins_response && get_admins_response.data.length > 0
+        get_admins_response?.status === 200 &&
+        get_admins_response.data.data.data.length > 0
 
     return (
         <div>
