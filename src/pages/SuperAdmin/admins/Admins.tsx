@@ -578,7 +578,7 @@ function Admins() {
                             Ooops you have not added any Admin yet
                         </p>
                         <button
-                            className='btn admins__btn'
+                            className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
                             onClick={handleAddAdmin}
                         >
                             <span>
