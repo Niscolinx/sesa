@@ -24,44 +24,14 @@ interface RolesAndPerm {
     role: string
 }
 
-const ROLES_AND_PERM: RolesAndPerm[] = [
-    {
-        id: '1',
-        name: 'Jacintha Sage',
-        imgUrl: '/img/me.jpeg',
-        role: 'admin',
-    },
-    {
-        id: '2',
-        name: 'Jacintha Sage',
-        imgUrl: '/img/me.jpeg',
-        role: 'estate Manager',
-    },
-    {
-        id: '3',
-        name: 'Jacintha Sage',
-        imgUrl: '/img/me.jpeg',
-        role: 'security Company',
-    },
-    {
-        id: '4',
-        name: 'Jacintha Sage',
-        imgUrl: '/img/me.jpeg',
-        role: 'security Company',
-    },
-    {
-        id: '5',
-        name: 'Jacintha Sage',
-        imgUrl: '/img/me.jpeg',
-        role: 'Admin',
-    },
-]
-
 function RenderedRolesAndPerm() {
     const axiosInstance = useAxios()
     const dialogRef = useRef<HTMLDialogElement | null>(null)
     const [permissions, setPermissions] = useState(new Array(10).fill(''))
     const [sortBy, setSortBy] = useState<string | null>(null)
+    const [fetchedRolesAndPerm, setFetchedRolesAndPerm] = useState<
+        RolesAndPerm[]
+    >([])
     // const [roles, setRoles] = useState<Roles[]>([
     //     'admin',
     //     'estate Manager',
@@ -79,10 +49,6 @@ function RenderedRolesAndPerm() {
         isDropDownOpen: false,
         index: null,
     })
-
-    const [fetchedRolesAndPerm, setFetchedRolesAndPerm] = useState<
-        RolesAndPerm[]
-    >([])
 
     // useEffect(() => {
     //     const fetchData = async () => {
@@ -119,7 +85,11 @@ function RenderedRolesAndPerm() {
         }
     ) as any
 
-    console.log({ get_roles_response })
+    useEffect(() => {
+        if (get_rolesAndPerm_response.data) {
+            setFetchedRolesAndPerm(get_rolesAndPerm_response.data)
+        }
+    }, [get_rolesAndPerm_response])
 
     const dropDownHandler = (
         e: React.ChangeEvent<HTMLInputElement>,
@@ -205,6 +175,7 @@ function RenderedRolesAndPerm() {
     }, [fetchedRolesAndPerm])
 
     const handleNext = () => {
+        console.log(paginate.currentPage, '===', paginate.totalPage)
         if (paginate.currentPage === paginate.totalPage) return
         setPaginate((prev) => {
             return {
@@ -259,11 +230,6 @@ function RenderedRolesAndPerm() {
 
     if (get_rolesAndPerm_isError) {
         return <p>{get_rolesAndPerm_error.message}</p>
-    }
-
-    if (get_rolesAndPerm_response) {
-        setFetchedRolesAndPerm(get_rolesAndPerm_response)
-        console.log({get_rolesAndPerm_response})
     }
 
     return (
