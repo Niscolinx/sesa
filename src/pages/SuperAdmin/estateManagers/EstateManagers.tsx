@@ -10,12 +10,13 @@ import {
 } from '../../../store/features/routeChange'
 import AddEstateManager from './AddEstateManager'
 import RenderedEstateManagers from './RenderedEstateManagers'
+import { useNavigate } from 'react-router'
 
 function EstateManagers() {
-
+    const navigate = useNavigate()
 
     const routeToAddEstateManager = () => {
-        
+        navigate('/superAdmin/estateManager/add')
     }
 
 
