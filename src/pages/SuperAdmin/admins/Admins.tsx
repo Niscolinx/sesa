@@ -35,13 +35,13 @@ function Admins() {
         navigate('/superAdmin/admins/add')
     }
 
-     const postDeactivateAdmin = (id: string) => {
-         return axiosInstance({
-             url: '/change/user/status',
-             method: 'post',
-             data: { user_id: id },
-         })
-     }
+    const postDeactivateAdmin = (id: string) => {
+        return axiosInstance({
+            url: '/change/user/status',
+            method: 'post',
+            data: { user_id: id },
+        })
+    }
 
     const fetchAdmins = () => {
         return axiosInstance({
@@ -60,12 +60,11 @@ function Admins() {
         keepPreviousData: true,
     }) as any
 
-
-     const {
-         mutate: deactivate_admin_mutation,
-         data: post_deactivate_admin_response,
-         isLoading: deactivate_admin_loading,
-     } = useMutation(postDeactivateAdmin) as any
+    const {
+        mutate: deactivate_admin_mutation,
+        data: post_deactivate_admin_response,
+        isLoading: deactivate_admin_loading,
+    } = useMutation(postDeactivateAdmin) as any
 
     useEffect(() => {
         if (get_admins_response?.success) {
@@ -229,7 +228,6 @@ function Admins() {
             className: 'bg-green-100 text-green-600 text-[1.4rem]',
         })
     }
-   
 
     if (get_admins_loading) {
         return <p>Loading...</p>
@@ -278,284 +276,268 @@ function Admins() {
                                 </div>
                             </section>
                         </dialog>
-                        <div className='rounded-lg mt-[3rem] '>
-                            <div className='grid text-[1.6rem]'>
-                                <div className='flex w-full items-center gap-12 p-10 bg-white rounded-lg'>
-                                    <p className=' font-Satoshi-Medium'>
-                                        Admin List <span>(10)</span>
-                                    </p>
-                                    <div className='relative flex items-center'>
-                                        <img
-                                            src='/icons/admins/search.svg'
-                                            alt=''
-                                            className='absolute left-4 text-[4rem]'
-                                        />
+                        <div className='rounded-lg mt-[3rem] grid text-[1.6rem]'>
+                            <div className='flex w-full items-center gap-12 p-10 bg-white rounded-lg'>
+                                <p className=' font-Satoshi-Medium'>
+                                    Admin List <span>(10)</span>
+                                </p>
+                                <div className='relative flex items-center'>
+                                    <img
+                                        src='/icons/admins/search.svg'
+                                        alt=''
+                                        className='absolute left-4 text-[4rem]'
+                                    />
+                                    <input
+                                        type='text'
+                                        placeholder='Search Parameters'
+                                        className='pl-16 w-[25rem] rounded-lg border border-color-blue-light appearance-none outline-none p-4'
+                                    />
+                                </div>
+                                <div className='w-[10rem] grid self-baseline '>
+                                    <Select
+                                        state={['A-Z', 'Date']}
+                                        selectedState={sortBy}
+                                        placeholder={'A-Z'}
+                                        setSelectedState={setSortBy}
+                                    />
+                                </div>
+                                <button
+                                    className='btn admins__btn ml-auto'
+                                    onClick={handleAddAdmin}
+                                >
+                                    <span>
+                                        <IoMdAdd />
+                                    </span>{' '}
+                                    <p>Add Admin</p>
+                                </button>
+                            </div>
+
+                            <div className='grid bg-white'>
+                                <div
+                                    className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-6 items-center gap-8'
+                                    style={{
+                                        fontSize: '1.4rem',
+                                    }}
+                                >
+                                    <p className='flex items-center gap-2'>
                                         <input
-                                            type='text'
-                                            placeholder='Search Parameters'
-                                            className='pl-16 w-[25rem] rounded-lg border border-color-blue-light appearance-none outline-none p-4'
+                                            type='checkbox'
+                                            className='cursor-pointer'
                                         />
-                                    </div>
-                                    <div className='w-[10rem] grid self-baseline '>
-                                        <Select
-                                            state={['A-Z', 'Date']}
-                                            selectedState={sortBy}
-                                            placeholder={'A-Z'}
-                                            setSelectedState={setSortBy}
-                                        />
-                                    </div>
-                                    <button
-                                        className='btn admins__btn ml-auto'
-                                        onClick={handleAddAdmin}
-                                    >
-                                        <span>
-                                            <IoMdAdd />
-                                        </span>{' '}
-                                        <p>Add Admin</p>
-                                    </button>
+                                        <p> Name</p>
+                                    </p>
+                                    <p>Gender</p>
+                                    <p>Phone Number</p>
+                                    <p>joined Date</p>
+                                    <p>Status</p>
+                                    <p>Actions</p>
                                 </div>
 
-                                <div className='grid bg-white'>
-                                    <div
-                                        className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-6 items-center gap-8'
-                                        style={{
-                                            fontSize: '1.4rem',
-                                        }}
-                                    >
-                                        <p className='flex items-center gap-2'>
-                                            <input
-                                                type='checkbox'
-                                                className='cursor-pointer'
-                                            />
-                                            <p> Name</p>
-                                        </p>
-                                        <p>Gender</p>
-                                        <p>Phone Number</p>
-                                        <p>joined Date</p>
-                                        <p>Status</p>
-                                        <p>Actions</p>
-                                    </div>
-
-                                    <div className='grid gap-8 mt-8 p-8'>
-                                        {fetchedAdmins.map(
-                                            (
-                                                {
-                                                    id,
-                                                    user: {
-                                                        phone,
-                                                        gender,
-                                                        name,
-                                                        created_at,
-                                                        status,
-                                                        imgUrl,
-                                                    },
+                                <div className='grid gap-8 mt-8 p-8'>
+                                    {fetchedAdmins.map(
+                                        (
+                                            {
+                                                id,
+                                                user: {
+                                                    phone,
+                                                    gender,
+                                                    name,
+                                                    created_at,
+                                                    status,
+                                                    imgUrl,
                                                 },
-                                                i
-                                            ) => {
-                                                const {
-                                                    isDropDownOpen,
-                                                    index,
-                                                } = toggleDropDown
-                                                return (
-                                                    <div className='grid justify-between border-b grid-cols-6 items-center gap-8 text-[1.6rem] py-4 table__ellipsis'>
-                                                        <div className='flex items-center gap-4  '>
-                                                            <input
-                                                                type='checkbox'
-                                                                className='cursor-pointer'
-                                                            />
+                                            },
+                                            i
+                                        ) => {
+                                            const { isDropDownOpen, index } =
+                                                toggleDropDown
+                                            return (
+                                                <div className='grid justify-between border-b grid-cols-6 items-center gap-8 text-[1.6rem] py-4 table__ellipsis'>
+                                                    <div className='flex items-center gap-4  '>
+                                                        <input
+                                                            type='checkbox'
+                                                            className='cursor-pointer'
+                                                        />
 
-                                                            <div className='flex items-center gap-2'>
-                                                                {imgUrl && (
-                                                                    <img
-                                                                        src={
-                                                                            imgUrl
-                                                                        }
-                                                                        alt=''
-                                                                        className='w-[3.5rem] h-[h-3.5rem] rounded-full object-cover'
-                                                                    />
-                                                                )}
-
-                                                                <p className='min-w-[30rem] overflow-hidden text-ellipsis whitespace-nowrap'>
-                                                                    {name}
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                        <p>{gender}</p>
-                                                        <p>{phone}</p>
-                                                        <p>
-                                                            {new Date(
-                                                                created_at
-                                                            )
-                                                                .toLocaleDateString()
-                                                                .replace(
-                                                                    /\//g,
-                                                                    '-'
-                                                                )}
-                                                        </p>
-
-                                                        <p>
-                                                            {status ===
-                                                            'Active' ? (
-                                                                <span className='text-green-600'>
-                                                                    {status}
-                                                                </span>
-                                                            ) : (
-                                                                <span className='text-red-500'>
-                                                                    {status}
-                                                                </span>
+                                                        <div className='flex items-center gap-2'>
+                                                            {imgUrl && (
+                                                                <img
+                                                                    src={imgUrl}
+                                                                    alt=''
+                                                                    className='w-[3.5rem] h-[h-3.5rem] rounded-full object-cover'
+                                                                />
                                                             )}
-                                                        </p>
-                                                        <div className='relative'>
-                                                            <label
-                                                                className='font-semibold capitalize cursor-pointer flex items-center gap-2 relative z-10'
-                                                                htmlFor={i.toString()}
-                                                                onClick={() =>
-                                                                    setToggleDropDown(
-                                                                        (
-                                                                            prev
-                                                                        ) => {
-                                                                            return {
-                                                                                isDropDownOpen:
-                                                                                    !prev.isDropDownOpen,
-                                                                                index: i,
-                                                                            }
-                                                                        }
-                                                                    )
-                                                                }
-                                                            >
-                                                                <span className='text-color-primary'>
-                                                                    <img
-                                                                        src='/icons/admins/threeDots.svg'
-                                                                        alt=''
-                                                                    />
-                                                                </span>
-                                                            </label>
-                                                            <input
-                                                                type='radio'
-                                                                name='dropdown'
-                                                                className='hidden'
-                                                                id={i.toString()}
-                                                                onChange={(e) =>
-                                                                    dropDownHandler(
-                                                                        e,
-                                                                        i
-                                                                    )
-                                                                }
-                                                            />
 
-                                                            {isDropDownOpen &&
-                                                                index === i && (
-                                                                    <div className='absolute top-0 translate-x-[4rem] border border-color-primary-light w-[10rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
-                                                                        {actions.map(
-                                                                            (
-                                                                                item,
-                                                                                index
-                                                                            ) => (
-                                                                                <p
-                                                                                    className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
-                                                                                    key={
-                                                                                        index +
-                                                                                        i
-                                                                                    }
-                                                                                    onClick={() =>
-                                                                                        handleSelectedAction(
-                                                                                            item,
-                                                                                            id
-                                                                                        )
-                                                                                    }
-                                                                                >
-                                                                                    {item ===
-                                                                                    'deactivate' ? (
-                                                                                        <span className='text-red-600'>
-                                                                                            {
-                                                                                                item
-                                                                                            }
-                                                                                        </span>
-                                                                                    ) : (
-                                                                                        <span>
-                                                                                            {
-                                                                                                item
-                                                                                            }
-                                                                                        </span>
-                                                                                    )}
-                                                                                </p>
-                                                                            )
-                                                                        )}
-                                                                    </div>
-                                                                )}
+                                                            <p className='min-w-[30rem] overflow-hidden text-ellipsis whitespace-nowrap'>
+                                                                {name}
+                                                            </p>
                                                         </div>
                                                     </div>
-                                                )
-                                            }
-                                        )}
-                                    </div>
-                                </div>
-                                <footer className='flex items-center p-4 mt-4 bg-color-white rounded-lg'>
-                                    <div className='flex gap-8 items-center'>
-                                        <p>View</p>
-                                        <select
-                                            name=''
-                                            id=''
-                                            className='flex items-center border px-4 rounded-lg outline-none cursor-pointer'
-                                            onChange={handleItemsPerPage}
-                                        >
-                                            {itemsPerPageArr.map(
-                                                (item, index) => (
-                                                    <option
-                                                        value={item}
-                                                        key={index}
-                                                        selected={
-                                                            item ===
-                                                            itemsPerPage
-                                                        }
-                                                        className='capitalize cursor-pointer bg-white'
-                                                    >
-                                                        {item}
-                                                    </option>
-                                                )
-                                            )}
-                                        </select>
-                                        <p className='text'>List per page</p>
-                                    </div>
-                                    <ul className='flex items-center gap-5 ml-10'>
-                                        <HiOutlineChevronLeft
-                                            onClick={handlePrev}
-                                            className='cursor-pointer'
-                                        />
+                                                    <p>{gender}</p>
+                                                    <p>{phone}</p>
+                                                    <p>
+                                                        {new Date(created_at)
+                                                            .toLocaleDateString()
+                                                            .replace(
+                                                                /\//g,
+                                                                '-'
+                                                            )}
+                                                    </p>
 
-                                        {get_admins_response.data.data.links?.map(
-                                            (item: any, index: number) => {
-                                                return (
-                                                    <li key={index}>
-                                                        {item.active ? (
-                                                            <span className='bg-color-primary text-white grid place-content-center w-[3rem] h-[3rem] cursor-pointer'>
-                                                                {index + 1}
+                                                    <p>
+                                                        {status === 'Active' ? (
+                                                            <span className='text-green-600'>
+                                                                {status}
                                                             </span>
                                                         ) : (
-                                                            <span
-                                                                className='text-color-primary bg-white grid place-content-center border w-[3rem] h-[3rem] cursor-pointer'
-                                                                onClick={(e) =>
-                                                                    jumpToPage(
-                                                                        e,
-                                                                        index
-                                                                    )
-                                                                }
-                                                            >
-                                                                {index + 1}
+                                                            <span className='text-red-500'>
+                                                                {status}
                                                             </span>
                                                         )}
-                                                    </li>
-                                                )
-                                            }
-                                        )}
+                                                    </p>
+                                                    <div className='relative'>
+                                                        <label
+                                                            className='font-semibold capitalize cursor-pointer flex items-center gap-2 relative z-10'
+                                                            htmlFor={i.toString()}
+                                                            onClick={() =>
+                                                                setToggleDropDown(
+                                                                    (prev) => {
+                                                                        return {
+                                                                            isDropDownOpen:
+                                                                                !prev.isDropDownOpen,
+                                                                            index: i,
+                                                                        }
+                                                                    }
+                                                                )
+                                                            }
+                                                        >
+                                                            <span className='text-color-primary'>
+                                                                <img
+                                                                    src='/icons/admins/threeDots.svg'
+                                                                    alt=''
+                                                                />
+                                                            </span>
+                                                        </label>
+                                                        <input
+                                                            type='radio'
+                                                            name='dropdown'
+                                                            className='hidden'
+                                                            id={i.toString()}
+                                                            onChange={(e) =>
+                                                                dropDownHandler(
+                                                                    e,
+                                                                    i
+                                                                )
+                                                            }
+                                                        />
 
-                                        <HiOutlineChevronRight
-                                            onClick={handleNext}
-                                            className='cursor-pointer'
-                                        />
-                                    </ul>
-                                </footer>
+                                                        {isDropDownOpen &&
+                                                            index === i && (
+                                                                <div className='absolute top-0 translate-x-[4rem] border border-color-primary-light w-[10rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
+                                                                    {actions.map(
+                                                                        (
+                                                                            item,
+                                                                            index
+                                                                        ) => (
+                                                                            <p
+                                                                                className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
+                                                                                key={
+                                                                                    index +
+                                                                                    i
+                                                                                }
+                                                                                onClick={() =>
+                                                                                    handleSelectedAction(
+                                                                                        item,
+                                                                                        id
+                                                                                    )
+                                                                                }
+                                                                            >
+                                                                                {item ===
+                                                                                'deactivate' ? (
+                                                                                    <span className='text-red-600'>
+                                                                                        {
+                                                                                            item
+                                                                                        }
+                                                                                    </span>
+                                                                                ) : (
+                                                                                    <span>
+                                                                                        {
+                                                                                            item
+                                                                                        }
+                                                                                    </span>
+                                                                                )}
+                                                                            </p>
+                                                                        )
+                                                                    )}
+                                                                </div>
+                                                            )}
+                                                    </div>
+                                                </div>
+                                            )
+                                        }
+                                    )}
+                                </div>
                             </div>
+                            <footer className='flex items-center p-4 mt-4 bg-color-white rounded-lg'>
+                                <div className='flex gap-8 items-center'>
+                                    <p>View</p>
+                                    <select
+                                        name=''
+                                        id=''
+                                        className='flex items-center border px-4 rounded-lg outline-none cursor-pointer'
+                                        onChange={handleItemsPerPage}
+                                    >
+                                        {itemsPerPageArr.map((item, index) => (
+                                            <option
+                                                value={item}
+                                                key={index}
+                                                selected={item === itemsPerPage}
+                                                className='capitalize cursor-pointer bg-white'
+                                            >
+                                                {item}
+                                            </option>
+                                        ))}
+                                    </select>
+                                    <p className='text'>List per page</p>
+                                </div>
+                                <ul className='flex items-center gap-5 ml-10'>
+                                    <HiOutlineChevronLeft
+                                        onClick={handlePrev}
+                                        className='cursor-pointer'
+                                    />
+
+                                    {get_admins_response.data.data.links?.map(
+                                        (item: any, index: number) => {
+                                            return (
+                                                <li key={index}>
+                                                    {item.active ? (
+                                                        <span className='bg-color-primary text-white grid place-content-center w-[3rem] h-[3rem] cursor-pointer'>
+                                                            {index + 1}
+                                                        </span>
+                                                    ) : (
+                                                        <span
+                                                            className='text-color-primary bg-white grid place-content-center border w-[3rem] h-[3rem] cursor-pointer'
+                                                            onClick={(e) =>
+                                                                jumpToPage(
+                                                                    e,
+                                                                    index
+                                                                )
+                                                            }
+                                                        >
+                                                            {index + 1}
+                                                        </span>
+                                                    )}
+                                                </li>
+                                            )
+                                        }
+                                    )}
+
+                                    <HiOutlineChevronRight
+                                        onClick={handleNext}
+                                        className='cursor-pointer'
+                                    />
+                                </ul>
+                            </footer>
                         </div>
                     </>
                 ) : (

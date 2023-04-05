@@ -184,7 +184,7 @@ function RenderedRolesAndPerm() {
                     </div>
                 </section>
             </dialog>
-            <table className='renderedRolesAndPerm__tableBox'>
+            <div className='rounded-lg mt-[3rem] grid text-[1.6rem] '>
                 <div className='flex w-full items-center gap-12 p-10 bg-white rounded-lg'>
                     <p className=' font-Satoshi-Medium'>
                         Roles List <span>(10)</span>
@@ -209,7 +209,6 @@ function RenderedRolesAndPerm() {
                             setSelectedState={setSortBy}
                         />
                     </div>
-                   
                 </div>
                 <div className='renderedRolesAndPerm__table'>
                     <thead className='renderedRolesAndPerm__table--head'>
@@ -364,7 +363,7 @@ function RenderedRolesAndPerm() {
                         <HiOutlineChevronRight />
                     </ul>
                 </footer>
-            </table>
+            </div>
         </div>
     )
 }
