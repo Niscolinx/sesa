@@ -280,8 +280,6 @@ function Estates() {
                                 <p>Add Estate</p>
                             </button>
                         </div>
-                        <div className=''>
-                            {/* <tbody className='renderedEstates__table--body'> */}
                             <div className='grid gap-8 mt-8'>
                                 {slicedPages &&
                                     slicedPages?.length > 0 &&
@@ -489,7 +487,7 @@ function Estates() {
                                         )
                                     )}
                             </div>
-                        </div>
+                       
                         <footer className='flex items-center p-4 mt-4 bg-color-white rounded-lg'>
                             <div className='flex gap-8 items-center'>
                                 <p>View</p>
