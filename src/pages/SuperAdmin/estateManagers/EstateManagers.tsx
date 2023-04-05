@@ -308,7 +308,7 @@ function EstateManagers() {
                                             <span>
                                                 <IoMdAdd />
                                             </span>{' '}
-                                            <p>Add Admin</p>
+                                            <p>Add EstateManager</p>
                                         </button>
                                     </div>
 
@@ -584,7 +584,7 @@ function EstateManagers() {
                         </p>
                         <button
                             className='btn estateManagers__btn'
-                            onClick={routeToAddEstateManager}
+                            onClick={handlePathSwitch}
                         >
                             <span>
                                 <IoMdAdd />
