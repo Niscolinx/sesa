@@ -46,13 +46,13 @@ function Admins() {
         isError: get_admins_isError,
         error: get_admins_error,
         // isFetching: get_admins_fetching,
-        isPreviousData
+        isPreviousData,
     } = useQuery(['admin', pageNum], fetchAdmins, {
-        keepPreviousData: true
+        keepPreviousData: true,
     }) as any
 
     useEffect(() => {
-        if (get_admins_response?.status === 200) {
+        if (get_admins_response?.data.success) {
             setFetchedAdmins(get_admins_response.data.data.data)
         }
     }, [get_admins_response])
@@ -142,13 +142,13 @@ function Admins() {
         //         currentPage: prev.currentPage + 1,
         //     }
         // })
-        if (!isPreviousData){
+        if (!isPreviousData) {
             setPageNum((prev) => prev + 1)
         }
     }
 
     const handlePrev = () => {
-        if(pageNum === 1) return 
+        if (pageNum === 1) return
 
         setPageNum((prev) => prev - 1)
         // if (paginate.currentPage === 1) return
@@ -227,13 +227,10 @@ function Admins() {
         return <p>{get_admins_error.message}</p>
     }
 
-    
-       
-
     return (
         <div>
             <div className='rounded-lg mt-[3rem] h-[80vh]'>
-                { get_admins_response.data.data.data.length > 0? (
+                {get_admins_response.data.data.data.length > 0 ? (
                     <>
                         <ToastContainer />
                         <dialog className='dialog' ref={dialogRef}>
@@ -329,166 +326,156 @@ function Admins() {
 
                                     <div className='grid gap-8 mt-8 p-8'>
                                         {fetchedAdmins.map(
-                                                    (
-                                                        {
-                                                            user: {
-                                                                phone,
-                                                                id,
-                                                                gender,
-                                                                name,
-                                                                created_at,
-                                                                status,
-                                                                imgUrl,
-                                                            },
-                                                        },
-                                                        i
-                                                    ) => {
-                                                        const {
-                                                            isDropDownOpen,
-                                                            index,
-                                                        } = toggleDropDown
-                                                        return (
-                                                            <div className='grid justify-between border-b grid-cols-6 items-center gap-8 text-[1.6rem] py-4 table__ellipsis'>
-                                                                <div className='flex items-center gap-4  '>
-                                                                    <input
-                                                                        type='checkbox'
-                                                                        className='cursor-pointer'
-                                                                    />
+                                            (
+                                                {
+                                                    user: {
+                                                        phone,
+                                                        id,
+                                                        gender,
+                                                        name,
+                                                        created_at,
+                                                        status,
+                                                        imgUrl,
+                                                    },
+                                                },
+                                                i
+                                            ) => {
+                                                const {
+                                                    isDropDownOpen,
+                                                    index,
+                                                } = toggleDropDown
+                                                return (
+                                                    <div className='grid justify-between border-b grid-cols-6 items-center gap-8 text-[1.6rem] py-4 table__ellipsis'>
+                                                        <div className='flex items-center gap-4  '>
+                                                            <input
+                                                                type='checkbox'
+                                                                className='cursor-pointer'
+                                                            />
 
-                                                                    <div className='flex items-center gap-2'>
-                                                                        {imgUrl && (
-                                                                            <img
-                                                                                src={
-                                                                                    imgUrl
-                                                                                }
-                                                                                alt=''
-                                                                                className='w-[3.5rem] h-[h-3.5rem] rounded-full object-cover'
-                                                                            />
-                                                                        )}
-
-                                                                        <p className='min-w-[30rem] overflow-hidden text-ellipsis whitespace-nowrap'>
-                                                                            {
-                                                                                name
-                                                                            }
-                                                                        </p>
-                                                                    </div>
-                                                                </div>
-                                                                <p>{gender}</p>
-                                                                <p>{phone}</p>
-                                                                <p>
-                                                                    {new Date(
-                                                                        created_at
-                                                                    )
-                                                                        .toLocaleDateString()
-                                                                        .replace(
-                                                                            /\//g,
-                                                                            '-'
-                                                                        )}
-                                                                </p>
-
-                                                                <p>
-                                                                    {status ===
-                                                                    'Active' ? (
-                                                                        <span className='text-green-600'>
-                                                                            {
-                                                                                status
-                                                                            }
-                                                                        </span>
-                                                                    ) : (
-                                                                        <span className='text-red-500'>
-                                                                            {
-                                                                                status
-                                                                            }
-                                                                        </span>
-                                                                    )}
-                                                                </p>
-                                                                <div className='relative'>
-                                                                    <label
-                                                                        className='font-semibold capitalize cursor-pointer flex items-center gap-2 relative z-10'
-                                                                        htmlFor={i.toString()}
-                                                                        onClick={() =>
-                                                                            setToggleDropDown(
-                                                                                (
-                                                                                    prev
-                                                                                ) => {
-                                                                                    return {
-                                                                                        isDropDownOpen:
-                                                                                            !prev.isDropDownOpen,
-                                                                                        index: i,
-                                                                                    }
-                                                                                }
-                                                                            )
+                                                            <div className='flex items-center gap-2'>
+                                                                {imgUrl && (
+                                                                    <img
+                                                                        src={
+                                                                            imgUrl
                                                                         }
-                                                                    >
-                                                                        <span className='text-color-primary'>
-                                                                            <img
-                                                                                src='/icons/admins/threeDots.svg'
-                                                                                alt=''
-                                                                            />
-                                                                        </span>
-                                                                    </label>
-                                                                    <input
-                                                                        type='radio'
-                                                                        name='dropdown'
-                                                                        className='hidden'
-                                                                        id={i.toString()}
-                                                                        onChange={(
-                                                                            e
-                                                                        ) =>
-                                                                            dropDownHandler(
-                                                                                e,
-                                                                                i
-                                                                            )
-                                                                        }
+                                                                        alt=''
+                                                                        className='w-[3.5rem] h-[h-3.5rem] rounded-full object-cover'
                                                                     />
+                                                                )}
 
-                                                                    {isDropDownOpen &&
-                                                                        index ===
-                                                                            i && (
-                                                                            <div className='absolute top-0 translate-x-[4rem] border border-color-primary-light w-[10rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
-                                                                                {actions.map(
-                                                                                    (
-                                                                                        item,
-                                                                                        index
-                                                                                    ) => (
-                                                                                        <p
-                                                                                            className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
-                                                                                            key={
-                                                                                                index +
-                                                                                                i
-                                                                                            }
-                                                                                            onClick={() =>
-                                                                                                handleSelectedAction(
-                                                                                                    item,
-                                                                                                    id
-                                                                                                )
-                                                                                            }
-                                                                                        >
-                                                                                            {item ===
-                                                                                            'deactivate' ? (
-                                                                                                <span className='text-red-600'>
-                                                                                                    {
-                                                                                                        item
-                                                                                                    }
-                                                                                                </span>
-                                                                                            ) : (
-                                                                                                <span>
-                                                                                                    {
-                                                                                                        item
-                                                                                                    }
-                                                                                                </span>
-                                                                                            )}
-                                                                                        </p>
-                                                                                    )
-                                                                                )}
-                                                                            </div>
-                                                                        )}
-                                                                </div>
+                                                                <p className='min-w-[30rem] overflow-hidden text-ellipsis whitespace-nowrap'>
+                                                                    {name}
+                                                                </p>
                                                             </div>
-                                                        )
-                                                    }
+                                                        </div>
+                                                        <p>{gender}</p>
+                                                        <p>{phone}</p>
+                                                        <p>
+                                                            {new Date(
+                                                                created_at
+                                                            )
+                                                                .toLocaleDateString()
+                                                                .replace(
+                                                                    /\//g,
+                                                                    '-'
+                                                                )}
+                                                        </p>
+
+                                                        <p>
+                                                            {status ===
+                                                            'Active' ? (
+                                                                <span className='text-green-600'>
+                                                                    {status}
+                                                                </span>
+                                                            ) : (
+                                                                <span className='text-red-500'>
+                                                                    {status}
+                                                                </span>
+                                                            )}
+                                                        </p>
+                                                        <div className='relative'>
+                                                            <label
+                                                                className='font-semibold capitalize cursor-pointer flex items-center gap-2 relative z-10'
+                                                                htmlFor={i.toString()}
+                                                                onClick={() =>
+                                                                    setToggleDropDown(
+                                                                        (
+                                                                            prev
+                                                                        ) => {
+                                                                            return {
+                                                                                isDropDownOpen:
+                                                                                    !prev.isDropDownOpen,
+                                                                                index: i,
+                                                                            }
+                                                                        }
+                                                                    )
+                                                                }
+                                                            >
+                                                                <span className='text-color-primary'>
+                                                                    <img
+                                                                        src='/icons/admins/threeDots.svg'
+                                                                        alt=''
+                                                                    />
+                                                                </span>
+                                                            </label>
+                                                            <input
+                                                                type='radio'
+                                                                name='dropdown'
+                                                                className='hidden'
+                                                                id={i.toString()}
+                                                                onChange={(e) =>
+                                                                    dropDownHandler(
+                                                                        e,
+                                                                        i
+                                                                    )
+                                                                }
+                                                            />
+
+                                                            {isDropDownOpen &&
+                                                                index === i && (
+                                                                    <div className='absolute top-0 translate-x-[4rem] border border-color-primary-light w-[10rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
+                                                                        {actions.map(
+                                                                            (
+                                                                                item,
+                                                                                index
+                                                                            ) => (
+                                                                                <p
+                                                                                    className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
+                                                                                    key={
+                                                                                        index +
+                                                                                        i
+                                                                                    }
+                                                                                    onClick={() =>
+                                                                                        handleSelectedAction(
+                                                                                            item,
+                                                                                            id
+                                                                                        )
+                                                                                    }
+                                                                                >
+                                                                                    {item ===
+                                                                                    'deactivate' ? (
+                                                                                        <span className='text-red-600'>
+                                                                                            {
+                                                                                                item
+                                                                                            }
+                                                                                        </span>
+                                                                                    ) : (
+                                                                                        <span>
+                                                                                            {
+                                                                                                item
+                                                                                            }
+                                                                                        </span>
+                                                                                    )}
+                                                                                </p>
+                                                                            )
+                                                                        )}
+                                                                    </div>
+                                                                )}
+                                                        </div>
+                                                    </div>
                                                 )
                                             }
+                                        )}
                                     </div>
                                 </div>
                                 <footer className='flex items-center p-4 mt-4 bg-color-white rounded-lg'>
@@ -524,29 +511,31 @@ function Admins() {
                                             className='cursor-pointer'
                                         />
 
-                                        {get_admins_response.data.data.links?.map((item:any, index:number) => {
-                                            return (
-                                                <li key={index}>
-                                                    {item.active ? (
-                                                        <span className='bg-color-primary text-white grid place-content-center w-[3rem] h-[3rem] cursor-pointer'>
-                                                            {index + 1}
-                                                        </span>
-                                                    ) : (
-                                                        <span
-                                                            className='text-color-primary bg-white grid place-content-center border w-[3rem] h-[3rem] cursor-pointer'
-                                                            onClick={(e) =>
-                                                                jumpToPage(
-                                                                    e,
-                                                                    index
-                                                                )
-                                                            }
-                                                        >
-                                                            {index + 1}
-                                                        </span>
-                                                    )}
-                                                </li>
-                                            )
-                                        })}
+                                        {get_admins_response.data.data.links?.map(
+                                            (item: any, index: number) => {
+                                                return (
+                                                    <li key={index}>
+                                                        {item.active ? (
+                                                            <span className='bg-color-primary text-white grid place-content-center w-[3rem] h-[3rem] cursor-pointer'>
+                                                                {index + 1}
+                                                            </span>
+                                                        ) : (
+                                                            <span
+                                                                className='text-color-primary bg-white grid place-content-center border w-[3rem] h-[3rem] cursor-pointer'
+                                                                onClick={(e) =>
+                                                                    jumpToPage(
+                                                                        e,
+                                                                        index
+                                                                    )
+                                                                }
+                                                            >
+                                                                {index + 1}
+                                                            </span>
+                                                        )}
+                                                    </li>
+                                                )
+                                            }
+                                        )}
 
                                         <HiOutlineChevronRight
                                             onClick={handleNext}
