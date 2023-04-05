@@ -278,7 +278,12 @@ function RenderedRolesAndPerm() {
                             </p>
                         </div>
                         <div className='my-10 grid gap-4 h-full'>
-                            {permissions && permissions['2'].length > 0 &&
+                            {<>
+                                {console.log({ permissions })}
+                            </>
+                                }
+
+                            {/* {permissions && permissions['2'].length > 0 &&
                             <p>hello</p>
                                 // React.Children.toArray(
                                 //     permissions['2'].map((value, i) => {
@@ -299,6 +304,7 @@ function RenderedRolesAndPerm() {
                                 //     })
                                 //)
                                 }
+                            */}
                         </div>
                         <button
                             className='bg-color-blue-1 px-12 py-4 text-white text-[1.4rem] flex items-center justify-self-start rounded-lg gap-4 self-center'
