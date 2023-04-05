@@ -90,14 +90,15 @@ function RenderedRolesAndPerm() {
             setFetchedRolesAndPerm(get_rolesAndPerm_response.data)
             console.log(get_rolesAndPerm_response.data.roles, '=============')
 
-            get_rolesAndPerm_response.data.forEach((item) => {
-                console.log(item.roles[0], item.id)
-            })
+            get_rolesAndPerm_response.data.reduce((acc, prev) => {
+                // console.log(item.roles[0], item.id)
+                console.log({acc, prev})
+            }, {})
 
             setSelectedRole((prev) => {
 
 
-                
+
             })
         }
     }, [get_rolesAndPerm_response])
