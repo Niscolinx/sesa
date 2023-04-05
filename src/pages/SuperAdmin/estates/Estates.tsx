@@ -14,10 +14,12 @@ function Estates() {
     }
 
     return (
-        <div className='estates'>
-            <div className='estates__container'>
+        <div>
+            <div className='rounded-lg mt-[3rem] h-[80vh]'>
                 {estatesLoaded ? (
-                    <section><RenderedEstates/></section>
+                    <section>
+                        <RenderedEstates />
+                    </section>
                 ) : (
                     <section className='estates__wrapper bg-white'>
                         <img src='/icons/admins/errorSvg.svg' alt='' />
