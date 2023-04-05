@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { IoMdAdd } from 'react-icons/io'
 import { useMutation } from 'react-query'
-import  AxiosRequest  from '../../../utils/axios'
+import AxiosRequest from '../../../utils/axios'
 import Input, { SelectProps } from '../../../components/UI/input/Input'
 import { Select } from '../../../components/SuperAdmin/UI/Select'
 import { useAppDispatch } from '../../../store/app/hooks'
@@ -20,12 +20,12 @@ const AddAdmin = () => {
         photoUrl?: string
     }
 
-    const dispatch = useAppDispatch()
     const axiosInstance = useAxios()
 
     const [photoPreview, setPhotoPreview] = useState('')
     const [imageUrl, setImageUrl] = useState<File | null>(null)
     const [selectedGender, setSelectedGender] = useState<string | null>(null)
+    const genderState = ['Male', 'Female']
 
     const handlePicture = (e: React.ChangeEvent) => {
         const target = e.target as HTMLInputElement
@@ -50,14 +50,12 @@ const AddAdmin = () => {
     const [responseMessage, setResponseMessage] =
         useState<ResponseMessage | null>(null)
 
-    
     const postAdmin = (data: Inputs) => {
-         return axiosInstance({
-             url: '/admin/create',
-             method: 'post',
-             data,
-         })
-       
+        return axiosInstance({
+            url: '/admin/create',
+            method: 'post',
+            data,
+        })
     }
     const {
         mutate,
@@ -117,12 +115,12 @@ const AddAdmin = () => {
             dialogRef.current.showModal()
         }
     }
-   type FormInputs = {
-       label?: string
-       type?: string
-       name?: string
-       selectProps?: SelectProps
-   }
+    type FormInputs = {
+        label?: string
+        type?: string
+        name?: string
+        selectProps?: SelectProps
+    }
 
     const formInputs = [
         {
@@ -140,9 +138,9 @@ const AddAdmin = () => {
             label: 'gender',
             type: 'select',
             selectProps: {
-                state: estateManager,
-                selectedState: selectedEstateManager,
-                setSelectedState: setSelectedEstateManager,
+                state: genderState,
+                selectedState: selectedGender,
+                setSelectedState: setSelectedGender,
             },
         },
         {
@@ -202,22 +200,17 @@ const AddAdmin = () => {
                 >
                     <>
                         {formInputs.map((input, idx) => {
-                            const { label, type, name } = input
-                            return idx === 3 ? (
-                                <Select
-                                    label='State'
-                                    state={['Male', 'Female']}
-                                    selectedState={selectedGender}
-                                    setSelectedState={setSelectedGender}
-                                />
-                            ) : (
+                            const { label, type, name, selectProps } = input
+                            return (
                                 <Input
                                     key={idx + label}
                                     label={label}
                                     register={register}
                                     formErrors={formErrors}
-                                    type={type || 'text'}
-                                    name={name || undefined}
+                                    type={type}
+                                    name={name}
+                                    isSelect={type === 'select'}
+                                    select={selectProps}
                                 />
                             )
                         })}

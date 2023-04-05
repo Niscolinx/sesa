@@ -24,7 +24,6 @@ const AddEstate = () => {
         account_number: number
     }
 
-    const dispatch = useAppDispatch()
     const axiosInstance = useAxios()
 
     const [selectedState, setSelectedState] = useState<string | null>('')
