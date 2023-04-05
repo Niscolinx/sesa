@@ -311,7 +311,7 @@ function RenderedRolesAndPerm() {
 
                 <div className='grid bg-white'>
                     <div
-                        className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-6 items-center gap-8'
+                        className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-3 items-center gap-8'
                         style={{
                             fontSize: '1.4rem',
                         }}
@@ -325,9 +325,8 @@ function RenderedRolesAndPerm() {
                         <p>Actions</p>
                     </div>
 
-                    <tbody className='renderedRolesAndPerm__table--body'>
+                    <div className='grid gap-8 mt-8 p-8'>
                         {fetchedRolesAndPerm &&
-                        fetchedRolesAndPerm.length > 0 ? (
                             React.Children.toArray(
                                 fetchedRolesAndPerm.map((value, i) => {
                                     const { isDropDownOpen, index } =
@@ -426,17 +425,8 @@ function RenderedRolesAndPerm() {
                                         </tr>
                                     )
                                 })
-                            )
-                        ) : (
-                            <tr>
-                                <td className='relative'>
-                                    <div className='absolute w-full grid place-content-center'>
-                                        <CgSpinnerTwo className='animate-spin text-[#0660FE] text-4xl' />
-                                    </div>
-                                </td>
-                            </tr>
-                        )}
-                    </tbody>
+                            )}
+                    </div>
                 </div>
                 <footer className='flex items-center p-4 mt-4 bg-color-white rounded-lg'>
                     <div className='flex gap-8 items-center'>
