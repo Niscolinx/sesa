@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router'
 import { ChangeEvent, useEffect, useRef, useState } from 'react'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { toast, ToastContainer } from 'react-toastify'
-import { useAppDispatch } from '../../../store/app/hooks'
 import { Select } from '../../../components/SuperAdmin/UI/Select'
 import { useQuery } from 'react-query'
 import useAxios from '../../../components/hooks/useAxios'
@@ -26,6 +25,7 @@ type Actions = 'view details' | 'deactivate'
 function Admins() {
     const navigate = useNavigate()
     const axiosInstance = useAxios()
+    const [pageNum, setPageNum] = useState(1)
 
     const [fetchedAdmins, setFetchedAdmins] = useState<IAdmin[]>([])
     const [sortBy, setSortBy] = useState<string | null>(null)
@@ -36,7 +36,7 @@ function Admins() {
 
     const fetchAdmins = () => {
         return axiosInstance({
-            url: 'admin/get/all',
+            url: `admin/get/all?perPage=${pageNum}`,
         })
     }
 
@@ -46,12 +46,14 @@ function Admins() {
         isError: get_admins_isError,
         error: get_admins_error,
         // isFetching: get_admins_fetching,
-    } = useQuery('admin', fetchAdmins) as any
+        isPreviousData
+    } = useQuery(['admin', pageNum], fetchAdmins, {
+        keepPreviousData: true
+    }) as any
 
     useEffect(() => {
         if (get_admins_response?.status === 200) {
-            setFetchedAdmins(get_admins_response.data)
-            console.log(get_admins_response, 'fetchedData')
+            setFetchedAdmins(get_admins_response.data.data.data)
         }
     }, [get_admins_response])
 
@@ -132,25 +134,31 @@ function Admins() {
     }, [fetchedAdmins])
 
     const handleNext = () => {
-        if (paginate.currentPage === paginate.totalPage) return
-        setPaginate((prev) => {
-            return {
-                ...prev,
-                index: prev.index + 1,
-                currentPage: prev.currentPage + 1,
-            }
-        })
+        // if (paginate.currentPage === paginate.totalPage) return
+        // setPaginate((prev) => {
+        //     return {
+        //         ...prev,
+        //         index: prev.index + 1,
+        //         currentPage: prev.currentPage + 1,
+        //     }
+        // })
+        if (!isPreviousData){
+            setPageNum((prev) => prev + 1)
+        }
     }
 
     const handlePrev = () => {
-        if (paginate.currentPage === 1) return
-        setPaginate((prev) => {
-            return {
-                ...prev,
-                index: prev.index - 1,
-                currentPage: prev.currentPage - 1,
-            }
-        })
+        if(pageNum === 1) return 
+
+        setPageNum((prev) => prev - 1)
+        // if (paginate.currentPage === 1) return
+        // setPaginate((prev) => {
+        //     return {
+        //         ...prev,
+        //         index: prev.index - 1,
+        //         currentPage: prev.currentPage - 1,
+        //     }
+        // })
     }
 
     const { currentPage, slicedPages, itemsPerPage } = paginate
@@ -219,14 +227,13 @@ function Admins() {
         return <p>{get_admins_error.message}</p>
     }
 
-    const adminsLoaded =
-        get_admins_response?.status === 200 &&
-        get_admins_response.data.data.data.length > 0
+    
+       
 
     return (
         <div>
             <div className='rounded-lg mt-[3rem] h-[80vh]'>
-                {adminsLoaded ? (
+                { get_admins_response.data.data.data.length > 0? (
                     <>
                         <ToastContainer />
                         <dialog className='dialog' ref={dialogRef}>
@@ -321,10 +328,7 @@ function Admins() {
                                     </div>
 
                                     <div className='grid gap-8 mt-8 p-8'>
-                                        {slicedPages &&
-                                            slicedPages?.length > 0 &&
-                                            React.Children.toArray(
-                                                slicedPages[paginate.index].map(
+                                        {fetchedAdmins.map(
                                                     (
                                                         {
                                                             user: {
@@ -484,7 +488,7 @@ function Admins() {
                                                         )
                                                     }
                                                 )
-                                            )}
+                                            }
                                     </div>
                                 </div>
                                 <footer className='flex items-center p-4 mt-4 bg-color-white rounded-lg'>
@@ -520,11 +524,10 @@ function Admins() {
                                             className='cursor-pointer'
                                         />
 
-                                        {slicedPages?.map((item, index) => {
+                                        {get_admins_response.data.data.links?.map((item:any, index:number) => {
                                             return (
                                                 <li key={index}>
-                                                    {index + 1 ===
-                                                    currentPage ? (
+                                                    {item.active ? (
                                                         <span className='bg-color-primary text-white grid place-content-center w-[3rem] h-[3rem] cursor-pointer'>
                                                             {index + 1}
                                                         </span>

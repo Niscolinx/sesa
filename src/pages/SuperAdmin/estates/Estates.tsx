@@ -52,8 +52,7 @@ function Estates() {
     const fetchEstates = () => {
         return AxiosRequest({
             dispatch,
-            // url: '/admin/get/all',
-            url: '/users',
+            url: '/estate/getall',
         })
     }
 
