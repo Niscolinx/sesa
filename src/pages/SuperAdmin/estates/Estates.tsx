@@ -288,7 +288,7 @@ function Estates() {
                             </div>
                             <div className=''>
                                 {/* <tbody className='renderedEstates__table--body'> */}
-                                <div className='grid gap-8 mt-8 p-8'>
+                                <div className='grid gap-8 mt-8'>
                                     {slicedPages &&
                                         slicedPages?.length > 0 &&
                                         React.Children.toArray(
@@ -315,7 +315,7 @@ function Estates() {
                                                         index,
                                                     } = toggleDropDown
                                                     return (
-                                                        <div className='w-full'>
+                                                        <div className='w-full flex gap-4 justify-between border-gray-100 bg-white p-8 rounded-lg'>
                                                             <div>
                                                                 <img
                                                                     src={img}
@@ -324,7 +324,7 @@ function Estates() {
                                                                 />
                                                             </div>
 
-                                                            <div>
+                                                            <div className='grid'>
                                                                 <div>
                                                                     <p className='text-[1.4rem] text-[#043FA7]'>
                                                                         Estate&nbsp;Name
@@ -355,7 +355,7 @@ function Estates() {
                                                                     </p>
                                                                 </div>
                                                             </div>
-                                                            <div>
+                                                            <div className='grid'>
                                                                 <div>
                                                                     <p className='text-[#043FA7]'>
                                                                         Estate
