@@ -206,7 +206,7 @@ function EstateManagers() {
     const deactivateHandler = () => {
         closeDialog()
 
-        toast('Admin deactivated successfully', {
+        toast('EstateManager deactivated successfully', {
             type: 'success',
             className: 'bg-green-100 text-green-600 text-[1.4rem]',
         })
@@ -231,12 +231,12 @@ function EstateManagers() {
         get_estateManagers_response.data.length > 0
 
     const handlePathSwitch = () => {
-        navigate('/superAdmin/estateManager/add')
+        navigate('/superAdmin/estateManagers/add')
     }
 
     return (
-        <div className='estateManagers'>
-            <div className='estateManagers__container'>
+        <div>
+            <div>
                 {estateManagersLoaded ? (
                     <>
                         <ToastContainer />
