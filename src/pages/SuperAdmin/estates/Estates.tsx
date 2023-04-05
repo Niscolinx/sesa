@@ -1,6 +1,6 @@
 import { ChangeEvent, useEffect, useRef, useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
-import RenderedEstates from './RenderedEstates'
+import RenderedEstates, { ESTATEDATA } from './RenderedEstates'
 import { useNavigate } from 'react-router-dom'
 import { useQuery } from 'react-query'
 import { toast } from 'react-toastify'
@@ -8,7 +8,11 @@ import { useAppDispatch } from '../../../store/app/hooks'
 import { AxiosRequest } from '../../../utils/axios'
 import React from 'react'
 import { GrDown } from 'react-icons/gr'
-import { HiOutlineDotsVertical, HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
+import {
+    HiOutlineDotsVertical,
+    HiOutlineChevronLeft,
+    HiOutlineChevronRight,
+} from 'react-icons/hi'
 import { TbCurrencyNaira } from 'react-icons/tb'
 import { Select } from '../../../components/SuperAdmin/UI/Select'
 
@@ -38,7 +42,7 @@ function Estates() {
     const navigate = useNavigate()
     const dispatch = useAppDispatch()
 
-    const [fetchedEstates, setFetchedEstates] = useState<Estate[]>([])
+    const [fetchedEstates, setFetchedEstates] = useState<Estate[]>(ESTATEDATA)
     const [sortBy, setSortBy] = useState<string | null>(null)
 
     const handleAddEstate = () => {
@@ -279,11 +283,12 @@ function Estates() {
                                     <span>
                                         <IoMdAdd />
                                     </span>{' '}
-                                    <p>Add Admin</p>
+                                    <p>Add Estate</p>
                                 </button>
                             </div>
                             <div className=''>
-                                <tbody className='renderedEstates__table--body'>
+                                {/* <tbody className='renderedEstates__table--body'> */}
+                                <div className='grid gap-8 mt-8 p-8'>
                                     {slicedPages &&
                                         slicedPages?.length > 0 &&
                                         React.Children.toArray(
@@ -311,8 +316,8 @@ function Estates() {
                                                     } = toggleDropDown
                                                     return (
                                                         <>
-                                                            <tr className='w-full'>
-                                                                <td>
+                                                            <div className='w-full'>
+                                                                <div>
                                                                     <img
                                                                         src={
                                                                             img
@@ -320,7 +325,7 @@ function Estates() {
                                                                         alt=''
                                                                         className='table__img'
                                                                     />
-                                                                </td>
+                                                                </div>
 
                                                                 <td>
                                                                     <div>
@@ -497,13 +502,13 @@ function Estates() {
                                                                             </div>
                                                                         )}
                                                                 </div>
-                                                            </tr>
+                                                            </div>
                                                         </>
                                                     )
                                                 }
                                             )
                                         )}
-                                </tbody>
+                                </div>
                             </div>
                             <footer className='flex items-center p-4 mt-4 bg-color-white rounded-lg'>
                                 <div className='flex gap-8 items-center'>

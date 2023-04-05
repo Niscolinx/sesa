@@ -39,7 +39,7 @@ type Estate = {
     details: EstateDetails
 }
 
-const ESTATEDATA: Estate[] = [
+export const ESTATEDATA: Estate[] = [
     {
         id: '1',
         img: '/img/img1.png',
