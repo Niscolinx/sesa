@@ -3,14 +3,13 @@ import { useForm } from 'react-hook-form'
 import { useMutation } from 'react-query'
 import AxiosRequest from '../../../utils/axios'
 import Input from '../../../components/UI/input/Input'
-import { Select } from '../../../components/SuperAdmin/UI/Select'
 import { useParams } from 'react-router'
 import { getToken } from '../../../utils/token'
 import { toast, ToastContainer } from 'react-toastify'
 import { useAppDispatch } from '../../../store/app/hooks'
 import useAxios from '../../../components/hooks/useAxios'
 
-const ViewAdmin = () => {
+const ViewEstateManager = () => {
     interface Inputs {
         email_address: string
         first_name: string
@@ -80,57 +79,57 @@ const ViewAdmin = () => {
     const [responseMessage, setResponseMessage] =
         useState<ResponseMessage | null>(null)
 
-    const postDeactivateAdmin = (id: string) => {
+    const postDeactivateEstateManager = (id: string) => {
         return axiosInstance({
             url: '/change/user/status',
             method: 'post',
             data: { user_id: id },
         })
     }
-    const postUpdateAdmin = (data: Inputs) => {
+    const postUpdateEstateManager = (data: Inputs) => {
         return axiosInstance({
-            url: '/admin/update',
+            url: '/estateManager/update',
             method: 'post',
             data,
         })
     }
 
-    const getAdmin = (id: string) => {
+    const getEstateManager = (id: string) => {
         return axiosInstance({
-            url: `/admin/get`,
+            url: `/estateManager/get`,
             method: 'post',
             data: { id },
         })
     }
 
-    const admin_id = params.Id?.replace(':', '')
+    const estateManager_id = params.Id?.replace(':', '')
 
     const {
-        mutate: deactivate_admin_mutation,
-        data: post_deactivate_admin_response,
-        isLoading: deactivate_admin_loading,
-    } = useMutation(postDeactivateAdmin) as any
+        mutate: deactivate_estateManager_mutation,
+        data: post_deactivate_estateManager_response,
+        isLoading: deactivate_estateManager_loading,
+    } = useMutation(postDeactivateEstateManager) as any
 
     const {
-        mutate: get_admin_mutation,
-        data: get_admin_response,
-        isLoading: get_admin_loading,
-    } = useMutation(getAdmin) as any
+        mutate: get_estateManager_mutation,
+        data: get_estateManager_response,
+        isLoading: get_estateManager_loading,
+    } = useMutation(getEstateManager) as any
 
     const {
-        mutate: post_admin_mutation,
-        data: post_admin_response_data,
-        isLoading: post_admin_loading,
-    } = useMutation(postUpdateAdmin) as any
+        mutate: post_estateManager_mutation,
+        data: post_estateManager_response_data,
+        isLoading: post_estateManager_loading,
+    } = useMutation(postUpdateEstateManager) as any
 
     useEffect(() => {
-        get_admin_mutation(admin_id)
+        get_estateManager_mutation(estateManager_id)
     }, [])
 
     useEffect(() => {
-        if (get_admin_response?.success) {
-            const { dob } = get_admin_response.data
-            const fetched_data = get_admin_response.data.user
+        if (get_estateManager_response?.success) {
+            const { dob } = get_estateManager_response.data
+            const fetched_data = get_estateManager_response.data.user
 
             const { name, email, phone, image } = fetched_data
             const first_name = name.split(' ')[0]
@@ -147,11 +146,11 @@ const ViewAdmin = () => {
             setPhotoPreview(image)
             setSelectedGender(fetched_data.gender)
         }
-    }, [get_admin_response])
+    }, [get_estateManager_response])
 
     useEffect(() => {
-        if (post_admin_response_data?.success) {
-            toast('Admin Updated successfully', {
+        if (post_estateManager_response_data?.success) {
+            toast('EstateManager Updated successfully', {
                 type: 'success',
                 className: 'bg-green-100 text-green-600 text-[1.4rem]',
             })
@@ -159,14 +158,14 @@ const ViewAdmin = () => {
             setResponseMessage({
                 className: 'text-red-600',
                 displayMessage:
-                    post_admin_response_data?.response?.data.message,
+                    post_estateManager_response_data?.response?.data.message,
             })
         }
-    }, [post_admin_response_data])
+    }, [post_estateManager_response_data])
 
     useEffect(() => {
-        if (post_deactivate_admin_response?.success) {
-            toast('Admin Deactivated successfully', {
+        if (post_deactivate_estateManager_response?.success) {
+            toast('EstateManager Deactivated successfully', {
                 type: 'success',
                 className: 'bg-green-100 text-green-600 text-[1.4rem]',
             })
@@ -175,26 +174,26 @@ const ViewAdmin = () => {
             setResponseMessage({
                 className: 'text-red-600',
                 displayMessage:
-                    post_admin_response_data?.response?.data.message,
+                    post_estateManager_response_data?.response?.data.message,
             })
         }
-    }, [post_deactivate_admin_response])
+    }, [post_deactivate_estateManager_response])
 
     const onSubmit = handleSubmit((data) => {
         const { first_name, last_name, dob, email_address, phone_number } = data
 
-        const adminData = {
+        const estateManagerData = {
             name: `${first_name} ${last_name}`,
             gender: selectedGender,
             dob,
-            id: admin_id,
+            id: estateManager_id,
             email: email_address,
             address: 'no 4 odeyim street',
             phone: `+234${phone_number}`,
             image: 'https://res.cloudinary.com/aladdin-digital-bank/image/upload/v1665580939/international_payments/s1brifvx0tqcwjwjnpov.jpg',
         }
 
-        post_admin_mutation(adminData)
+        post_estateManager_mutation(estateManagerData)
     })
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
@@ -220,7 +219,7 @@ const ViewAdmin = () => {
         setImageUrl(file)
     }
 
-    if (get_admin_loading) {
+    if (get_estateManager_loading) {
         return <p>loading...</p>
     }
 
@@ -231,14 +230,14 @@ const ViewAdmin = () => {
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
                         <img
-                            src='/icons/admins/modalWarning.svg'
+                            src='/icons/estateManagers/modalWarning.svg'
                             alt=''
                             className='animate__animated animate__pulse '
                             style={{
                                 animationIterationCount: 'infinite',
                             }}
                         />
-                        <p>Are you sure you want to deactivate this admin?</p>
+                        <p>Are you sure you want to deactivate this estateManager?</p>
 
                         <div className='flex w-full justify-center gap-8'>
                             <button
@@ -250,10 +249,10 @@ const ViewAdmin = () => {
                             <button
                                 className='bg-red-500 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem] capitalize'
                                 onClick={() =>
-                                    deactivate_admin_mutation(admin_id)
+                                    deactivate_estateManager_mutation(estateManager_id)
                                 }
                             >
-                                {deactivate_admin_loading
+                                {deactivate_estateManager_loading
                                     ? 'Loading...'
                                     : 'deactivate'}
                             </button>
@@ -291,7 +290,7 @@ const ViewAdmin = () => {
                             className='border border-red-600 px-16 py-4 flex items-center  rounded-lg gap-4'
                             onClick={openDialog}
                         >
-                            <img src='/icons/admins/delete.svg' alt='' />
+                            <img src='/icons/estateManagers/delete.svg' alt='' />
                             <span className='text-red-600 text-[1.4rem] font-semibold'>
                                 Deactivate
                             </span>
@@ -346,12 +345,12 @@ const ViewAdmin = () => {
                         >
                             <span>
                                 <img
-                                    src='/icons/admins/saveDisk.svg'
+                                    src='/icons/admin/saveDisk.svg'
                                     alt=''
                                     className='w-[1.7rem] h-[1.7rem]'
                                 />
                             </span>{' '}
-                            {post_admin_loading ? 'Loading...' : 'Save Changes'}
+                            {post_estateManager_loading ? 'Loading...' : 'Save Changes'}
                         </button>
                     </>
                 </form>
@@ -360,4 +359,4 @@ const ViewAdmin = () => {
     )
 }
 
-export default ViewAdmin
+export default ViewEstateManager

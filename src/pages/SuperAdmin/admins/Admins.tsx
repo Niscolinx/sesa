@@ -5,7 +5,7 @@ import { ChangeEvent, useEffect, useRef, useState } from 'react'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { toast, ToastContainer } from 'react-toastify'
 import { Select } from '../../../components/SuperAdmin/UI/Select'
-import { useQuery } from 'react-query'
+import { useMutation, useQuery } from 'react-query'
 import useAxios from '../../../components/hooks/useAxios'
 
 interface IAdmin {
@@ -29,11 +29,20 @@ function Admins() {
 
     const [fetchedAdmins, setFetchedAdmins] = useState<IAdmin[]>([])
     const [sortBy, setSortBy] = useState<string | null>(null)
+    const [adminId, setAdminId] = useState('')
 
     const handleAddAdmin = () => {
         navigate('/superAdmin/admins/add')
     }
 
+     const postDeactivateAdmin = (id: string) => {
+         return axiosInstance({
+             url: '/change/user/status',
+             method: 'post',
+             data: { user_id: id },
+         })
+     }
+     
     const fetchAdmins = () => {
         return axiosInstance({
             url: `admin/get/all?perPage=${pageNum}`,
@@ -50,6 +59,13 @@ function Admins() {
     } = useQuery(['admin', pageNum], fetchAdmins, {
         keepPreviousData: true,
     }) as any
+
+
+     const {
+         mutate: deactivate_admin_mutation,
+         data: post_deactivate_admin_response,
+         isLoading: deactivate_admin_loading,
+     } = useMutation(postDeactivateAdmin) as any
 
     useEffect(() => {
         if (get_admins_response?.success) {
@@ -200,6 +216,7 @@ function Admins() {
         }
 
         if (item === 'deactivate') {
+            setAdminId(id)
             openDialog()
         }
     }
