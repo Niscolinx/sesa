@@ -1,4 +1,3 @@
-import { axiosInstance } from './axios';
 import axios, { AxiosError, AxiosResponse } from 'axios'
 import { AppDispatch } from '../store/app/store'
 import { setAuth } from '../store/features/auth'

@@ -1,16 +1,28 @@
 import React from 'react'
 import { useAppDispatch } from '../../store/app/hooks'
-import { AxiosRequest } from '../../utils/axios'
+import { axiosInstance } from '../../utils/axios'
+import { getToken } from '../../utils/token'
+import { setAuth } from '../../store/features/auth'
 
-function useAxios({...props}) {
+function useAxios({ ...props }) {
     const dispatch = useAppDispatch()
 
-    AxiosRequest({
-        dispatch,
-        ...props
+    axiosInstance.interceptors.request.use(function (config) {
+        const token = getToken()
+
+        if (token) {
+            config.headers.Authorization = `Bearer ${token}`
+        } else {
+            dispatch(setAuth(false))
+        }
+        return config
     })
 
-   return AxiosRequest
+    return (
+        <>
+            <p>hello</p>
+        </>
+    )
 }
 
 export default useAxios

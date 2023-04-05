@@ -4,7 +4,7 @@ import { useMutation } from 'react-query'
 import { useNavigate } from 'react-router'
 import { useAppDispatch } from '../store/app/hooks'
 import { setAuth, storeToken } from '../store/features/auth'
-import { AxiosRequest } from '../utils/axios'
+import  AxiosRequest  from '../utils/axios'
 
 const Login = () => {
     const navigate = useNavigate()
