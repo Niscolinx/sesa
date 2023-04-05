@@ -93,6 +93,12 @@ function RenderedRolesAndPerm() {
         fetchData()
     }, [])
 
+    const fetchAllRoles = () => {
+        return axiosInstance({
+            // url: '/admin/get/all',
+            url: '/role/get/all',
+        })
+    }
     const fetchRolesAndPerm = () => {
         return axiosInstance({
             // url: '/admin/get/all',
@@ -106,7 +112,15 @@ function RenderedRolesAndPerm() {
         isError: get_rolesAndPerm_isError,
         error: get_rolesAndPerm_error,
         // isFetching: get_rolesAndPerm_fetching,
-    } = useQuery('rolesAndPerm', fetchRolesAndPerm) as any
+    } = useQuery('get_rolesAndPerm', fetchRolesAndPerm) as any
+
+    const {
+        isLoading: get_roles_loading,
+        data: get_roles_response,
+        isError: get_roles_isError,
+        error: get_roles_error,
+        // isFetching: get_rolesAndPerm_fetching,
+    } = useQuery('get_allRoles', fetchAllRoles) as any
 
     const dropDownHandler = (
         e: React.ChangeEvent<HTMLInputElement>,
