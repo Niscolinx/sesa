@@ -12,34 +12,18 @@ import AddEstateManager from './AddEstateManager'
 import RenderedEstateManagers from './RenderedEstateManagers'
 
 function EstateManagers() {
-    const dispatch = useAppDispatch()
-    const { estateManagerPath } = useAppSelector(routeChangeSelector)
 
-    const [estateManagersLoaded, setEstateManagersLoaded] = useState(false)
 
-    const switchRoute = (path: RenderEstateManagerPath) => {
-        switch (path) {
-            case 'renderedEstateManagers':
-                return <RenderedEstateManagers />
-
-            case 'addEstateManager':
-                return <AddEstateManager />
-
-            default:
-                return <AddEstateManager />
-        }
+    const routeToAddEstateManager = () => {
+        
     }
 
-    const handlePathSwitch = () => {
-        setEstateManagersLoaded(true)
-        dispatch(setEstateManagerPath('renderedEstateManagers'))
-    }
 
     return (
         <div className='estateManagers'>
             <div className='estateManagers__container'>
                 {estateManagersLoaded ? (
-                    <section>{switchRoute(estateManagerPath)}</section>
+                    <section><RenderedEstateManagers/></section>
                 ) : (
                     <section className='estateManagers__wrapper'>
                         <img src='/icons/admins/errorSvg.svg' alt='' />
@@ -48,7 +32,7 @@ function EstateManagers() {
                         </p>
                         <button
                             className='btn estateManagers__btn'
-                            onClick={handlePathSwitch}
+                            onClick={routeToAddEstateManager}
                         >
                             <span>
                                 <IoMdAdd />
