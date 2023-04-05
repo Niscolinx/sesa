@@ -25,7 +25,6 @@ type Actions = 'view details' | 'deactivate'
 
 function Admins() {
     const navigate = useNavigate()
-    const dispatch = useAppDispatch()
     const axiosInstance = useAxios()
 
     const [fetchedAdmins, setFetchedAdmins] = useState<IAdmin[]>([])
@@ -46,7 +45,7 @@ function Admins() {
         data: get_admins_response,
         isError: get_admins_isError,
         error: get_admins_error,
-        isFetching: get_admins_fetching,
+        // isFetching: get_admins_fetching,
     } = useQuery('admin', fetchAdmins) as any
 
     useEffect(() => {
