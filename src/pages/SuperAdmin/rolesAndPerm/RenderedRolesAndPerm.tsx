@@ -259,6 +259,10 @@ function RenderedRolesAndPerm() {
         return <p>{get_rolesAndPerm_error.message}</p>
     }
 
+    useEffect(() => {
+        console.log({ permissions })
+    }, [permissions])
+
     return (
         <div className='rounded-lg mt-[3rem] h-[80vh]'>
             <dialog ref={dialogRef} className='dialog'>
