@@ -29,10 +29,10 @@ function useAxios() {
             (error) => Promise.reject(error)
         )
 
-        return () => {
-            axiosInstance.interceptors.request.eject(requestInterceptor)
-            axiosInstance.interceptors.response.eject(responseInterceptor)
-        }
+        // return () => {
+        //     axiosInstance.interceptors.request.eject(requestInterceptor)
+        //   //  axiosInstance.interceptors.response.eject(responseInterceptor)
+        // }
     }, [dispatch, axiosInstance])
 
     return axiosInstance

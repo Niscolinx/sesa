@@ -53,6 +53,7 @@ const AddAdmin = () => {
             method: 'post',
             data,
         })
+
     }
     const {
         mutate,
@@ -62,12 +63,12 @@ const AddAdmin = () => {
 
     useEffect(() => {
         console.log({ response_data })
-        if (response_data?.status === 200) {
+        if (response_data?.success) {
             handleOpen()
         } else {
             setResponseMessage({
                 className: 'text-red-600',
-                displayMessage: response_data?.response?.data.message,
+                displayMessage: response_data?.data.message,
             })
         }
 
