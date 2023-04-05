@@ -4,8 +4,9 @@ import Input, { SelectProps } from '../../../components/UI/input/Input'
 import { useForm } from 'react-hook-form'
 import { useMutation } from 'react-query'
 import { useAppDispatch } from '../../../store/app/hooks'
-import  AxiosRequest  from '../../../utils/axios'
+import AxiosRequest from '../../../utils/axios'
 import ImageInput from '../../../components/UI/input/ImageInput'
+import useAxios from '../../../components/hooks/useAxios'
 
 const AddEstate = () => {
     interface Inputs {
@@ -24,6 +25,8 @@ const AddEstate = () => {
     }
 
     const dispatch = useAppDispatch()
+    const axiosInstance = useAxios()
+
     const [selectedState, setSelectedState] = useState<string | null>('')
     const estateLocationState = ['Abuja', 'Lagos']
     const [selectedEstateManager, setSelectedEstateManager] = useState<
@@ -39,7 +42,8 @@ const AddEstate = () => {
     const [imageUrl, setImageUrl] = useState<File | null>(null)
     const [isSignOutRequired, setIsSignOutRequired] = useState(false)
 
-    const toggleIsSignOutRequired = () => setIsSignOutRequired(!isSignOutRequired)
+    const toggleIsSignOutRequired = () =>
+        setIsSignOutRequired(!isSignOutRequired)
 
     const handlePicture = (e: React.ChangeEvent) => {
         const target = e.target as HTMLInputElement
@@ -65,8 +69,7 @@ const AddEstate = () => {
         useState<ResponseMessage | null>(null)
 
     const postAdmin = (data: Inputs) => {
-        return AxiosRequest({
-            dispatch,
+        return axiosInstance({
             url: '/admin/create',
             method: 'post',
             data,
@@ -113,11 +116,18 @@ const AddEstate = () => {
         //     image: imageUrl?.name,
         // }
 
-        console.log({data, selectedState, selectedEstateManager, selectedSecurityCompany, isSignOutRequired, imageUrl})
+        console.log({
+            data,
+            selectedState,
+            selectedEstateManager,
+            selectedSecurityCompany,
+            isSignOutRequired,
+            imageUrl,
+        })
 
         openDialog()
 
-       // mutate(data)
+        // mutate(data)
     })
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)

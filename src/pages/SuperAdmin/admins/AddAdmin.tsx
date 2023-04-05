@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form'
 import { IoMdAdd } from 'react-icons/io'
 import { useMutation } from 'react-query'
 import  AxiosRequest  from '../../../utils/axios'
-import Input from '../../../components/UI/input/Input'
+import Input, { SelectProps } from '../../../components/UI/input/Input'
 import { Select } from '../../../components/SuperAdmin/UI/Select'
 import { useAppDispatch } from '../../../store/app/hooks'
 import ImageInput from '../../../components/UI/input/ImageInput'
@@ -56,7 +56,7 @@ const AddAdmin = () => {
              url: '/admin/create',
              method: 'post',
              data,
-         }).then(({data}) => data)
+         })
        
     }
     const {
@@ -117,11 +117,12 @@ const AddAdmin = () => {
             dialogRef.current.showModal()
         }
     }
-    type FormInputs = {
-        label: string
-        type?: string
-        name?: string
-    }
+   type FormInputs = {
+       label?: string
+       type?: string
+       name?: string
+       selectProps?: SelectProps
+   }
 
     const formInputs = [
         {
@@ -136,7 +137,13 @@ const AddAdmin = () => {
             name: 'date of birth',
         },
         {
-            label: 'select',
+            label: 'gender',
+            type: 'select',
+            selectProps: {
+                state: estateManager,
+                selectedState: selectedEstateManager,
+                setSelectedState: setSelectedEstateManager,
+            },
         },
         {
             label: 'phone_number',
