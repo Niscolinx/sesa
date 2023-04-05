@@ -22,20 +22,23 @@ const ViewAdmin = () => {
         className: string
         displayMessage: string
     }
-    
-     type FormInputs = {
-         label?: string
-         type?: string
-         name?: string
-         selectProps?: SelectProps
-     }
+
+    type FormInputs = {
+        label?: string
+        type?: string
+        name?: string
+        selectProps?: SelectProps
+    }
 
     const params = useParams()
     const axiosInstance = useAxios()
 
     const [photoPreview, setPhotoPreview] = useState('')
     const [imageUrl, setImageUrl] = useState<File | null>(null)
-    const [selectedGender, setSelectedGender] = useState<string | null>(null)
+    const genderState = ['Male', 'Female']
+    const [selectedGender, setSelectedGender] = useState<string | null>(
+        genderState[0]
+    )
 
     const formInputs = [
         {
@@ -316,24 +319,18 @@ const ViewAdmin = () => {
                 >
                     <>
                         {formInputs.map((input, idx) => {
-                            const { label, type, name } = input
+                            const { label, type, name, selectProps } = input
 
-                            return idx === 3 && label === 'select' ? (
-                                <Select
-                                    key={idx + label}
-                                    label='Gender'
-                                    state={['Male', 'Female']}
-                                    selectedState={selectedGender}
-                                    setSelectedState={setSelectedGender}
-                                />
-                            ) : (
+                            return (
                                 <Input
                                     key={idx + label}
                                     label={label}
                                     register={register}
                                     formErrors={formErrors}
-                                    type={type || 'text'}
+                                    type={type}
                                     name={name}
+                                    isSelect={type === 'select'}
+                                    select={selectProps}
                                 />
                             )
                         })}

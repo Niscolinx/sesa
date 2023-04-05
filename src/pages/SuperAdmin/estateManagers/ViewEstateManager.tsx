@@ -8,7 +8,6 @@ import useAxios from '../../../components/hooks/useAxios'
 import { Select } from '../../../components/SuperAdmin/UI/Select'
 
 
-const genderState = ['Male', 'Female']
 
 const ViewEstateManager = () => {
     interface Inputs {
@@ -20,7 +19,7 @@ const ViewEstateManager = () => {
         phone_number: number | null
         photoUrl?: string
     }
-
+    
     type ResponseMessage = {
         className: string
         displayMessage: string
@@ -31,11 +30,12 @@ const ViewEstateManager = () => {
         name?: string
         selectProps?: SelectProps
     }
-
+    
     const params = useParams()
     const axiosInstance = useAxios()
     const [photoPreview, setPhotoPreview] = useState('')
     const [imageUrl, setImageUrl] = useState<File | null>(null)
+    const genderState = ['Male', 'Female']
     const [selectedGender, setSelectedGender] = useState<string | null>(
         genderState[0]
     )
@@ -327,26 +327,20 @@ const ViewEstateManager = () => {
                 >
                     <>
                         {formInputs.map((input, idx) => {
-                            const { label, type, name } = input
+                            const { label, type, name, selectProps} = input
 
-                            return idx === 3 && label === 'select' ? (
-                                <Select
-                                    key={idx + label}
-                                    label='Gender'
-                                    state={['Male', 'Female']}
-                                    selectedState={selectedGender}
-                                    setSelectedState={setSelectedGender}
-                                />
-                            ) : (
-                                <Input
-                                    key={idx + label}
-                                    label={label}
-                                    register={register}
-                                    formErrors={formErrors}
-                                    type={type || 'text'}
-                                    name={name}
-                                />
-                            )
+                           return (
+                               <Input
+                                   key={idx + label}
+                                   label={label}
+                                   register={register}
+                                   formErrors={formErrors}
+                                   type={type}
+                                   name={name}
+                                   isSelect={type === 'select'}
+                                   select={selectProps}
+                               />
+                           )
                         })}
 
                         <button
