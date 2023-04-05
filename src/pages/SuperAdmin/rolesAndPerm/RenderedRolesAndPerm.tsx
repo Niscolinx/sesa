@@ -111,7 +111,6 @@ function RenderedRolesAndPerm() {
         e: React.ChangeEvent<HTMLInputElement>,
         index: number
     ) => {
-        console.log('clicked')
         setToggleDropDown((prev) => {
             return {
                 isDropDownOpen: e.target.checked,
