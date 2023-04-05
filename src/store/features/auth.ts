@@ -4,7 +4,7 @@ import { isAuthenticated } from '../../utils/token'
 import { AppState } from '../app/store'
 
 const initialState = {
-    isAuth: true,
+    isAuth: false,
 }
 
 type StateKey = keyof typeof initialState
@@ -28,8 +28,8 @@ const authSlice = createSlice({
         setAuth: function (state, action) {
             const auth = action.payload
 
-           // state.isAuth = auth
-           state.isAuth= true
+           state.isAuth = auth
+           //state.isAuth= true
         },
     },
 })

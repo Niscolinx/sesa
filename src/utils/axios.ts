@@ -3,8 +3,8 @@ import { AppDispatch } from '../store/app/store'
 import { setAuth } from '../store/features/auth'
 import { getToken } from './token'
 
-const instance = axios.create({ baseURL: 'http://localhost:4000' })
-// const instance = axios.create({ baseURL: 'https://sesadigital.com/api' })
+//const instance = axios.create({ baseURL: 'http://localhost:4000' })
+const instance = axios.create({ baseURL: 'https://sesadigital.com/api' })
 
 interface RequestOptions {
     method: string
