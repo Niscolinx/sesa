@@ -308,17 +308,23 @@ function RenderedRolesAndPerm() {
                         />
                     </div>
                 </div>
-                <div className='renderedRolesAndPerm__table'>
-                    <thead className='renderedRolesAndPerm__table--head'>
-                        <tr>
-                            <th>
-                                <input type='checkbox' />
-                                <p>Name</p>
-                            </th>
-                            <th>Roles</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
+
+                <div className='grid bg-white'>
+                    <div
+                        className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-6 items-center gap-8'
+                        style={{
+                            fontSize: '1.4rem',
+                        }}
+                    >
+                        <p className='flex items-center gap-2'>
+                            <input type='checkbox' className='cursor-pointer' />
+                            <p> Name</p>
+                        </p>
+                        <p>Roles</p>
+
+                        <p>Actions</p>
+                    </div>
+
                     <tbody className='renderedRolesAndPerm__table--body'>
                         {fetchedRolesAndPerm &&
                         fetchedRolesAndPerm.length > 0 ? (
