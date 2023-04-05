@@ -327,7 +327,7 @@ function Estates() {
                                                                     />
                                                                 </div>
 
-                                                                <td>
+                                                                <div>
                                                                     <div>
                                                                         <p className='text-[1.4rem] text-[#043FA7]'>
                                                                             Estate&nbsp;Name
@@ -359,8 +359,8 @@ function Estates() {
                                                                             }
                                                                         </p>
                                                                     </div>
-                                                                </td>
-                                                                <td>
+                                                                </div>
+                                                                <div>
                                                                     <div>
                                                                         <p className='text-[#043FA7]'>
                                                                             Estate
@@ -397,8 +397,8 @@ function Estates() {
                                                                                 : 'No'}
                                                                         </p>
                                                                     </div>
-                                                                </td>
-                                                                <td className=' grid content-start'>
+                                                                </div>
+                                                                <div className=' grid content-start'>
                                                                     <div>
                                                                         <p className='text-[#043FA7]'>
                                                                             Estate
@@ -423,7 +423,7 @@ function Estates() {
                                                                             }
                                                                         </p>
                                                                     </div>
-                                                                </td>
+                                                                </div>
 
                                                                 <div className='relative flex items-start content-start mr-4'>
                                                                     <label
