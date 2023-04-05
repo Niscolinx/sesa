@@ -1,7 +1,6 @@
 import { ChangeEvent, useEffect, useRef, useState } from 'react'
-import { CgSpinnerTwo } from 'react-icons/cg'
 import { GrDown, GrUp } from 'react-icons/gr'
-import { IoMdAdd, IoMdClose } from 'react-icons/io'
+import {  IoMdClose } from 'react-icons/io'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import React from 'react'
 import { useQuery } from 'react-query'
