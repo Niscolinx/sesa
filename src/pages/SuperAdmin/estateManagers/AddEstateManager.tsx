@@ -22,7 +22,9 @@ const AddEstateManager = () => {
 
     const [photoPreview, setPhotoPreview] = useState('')
     const [imageUrl, setImageUrl] = useState<File | null>(null)
-    const [selectedGender, setSelectedGender] = useState<string | null>(genderState[0])
+    const [selectedGender, setSelectedGender] = useState<string | null>(
+        genderState[0]
+    )
 
     const handlePicture = (e: React.ChangeEvent) => {
         const target = e.target as HTMLInputElement
@@ -65,9 +67,10 @@ const AddEstateManager = () => {
         if (response_data?.success) {
             handleOpen()
         } else {
+            console.log('response message', response_data?.response.data.message)
             setResponseMessage({
                 className: 'text-red-600',
-                displayMessage: response_data?.data.message,
+                displayMessage: response_data?.response.data.message,
             })
         }
 
@@ -155,10 +158,7 @@ const AddEstateManager = () => {
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
-                        <img
-                            src='/icons/admins/modalSuccess.svg'
-                            alt=''
-                        />
+                        <img src='/icons/admins/modalSuccess.svg' alt='' />
                         <p>You have successfully added an EstateManager</p>
 
                         <div className='flex w-full justify-center gap-8'>

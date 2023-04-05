@@ -69,7 +69,7 @@ const AddAdmin = () => {
         } else {
             setResponseMessage({
                 className: 'text-red-600',
-                displayMessage: response_data?.data.message,
+                displayMessage: response_data?.response.data.message,
             })
         }
 
