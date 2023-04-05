@@ -273,7 +273,7 @@ function RenderedRolesAndPerm() {
                                 Permissions List
                             </p>
                         </div>
-                        <div className='my-10 grid gap-4 h-full'>
+                        {/* <div className='my-10 grid gap-4 h-full'>
                             {<>{console.log({ permissions })}</>}
                             {permissions[0].length > 0 &&
                                 React.Children.toArray(
@@ -294,7 +294,7 @@ function RenderedRolesAndPerm() {
                                         )
                                     })
                                 )}
-                        </div>
+                        </div> */}
                         <button
                             className='bg-color-blue-1 px-12 py-4 text-white text-[1.4rem] flex items-center justify-self-start rounded-lg gap-4 self-center'
                             onClick={closeDialog}
