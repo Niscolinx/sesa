@@ -84,14 +84,14 @@ function RenderedRolesAndPerm() {
         RolesAndPerm[]
     >([])
 
-    useEffect(() => {
-        const fetchData = async () => {
-            setTimeout(() => {
-                setFetchedRolesAndPerm(ROLES_AND_PERM)
-            }, 200)
-        }
-        fetchData()
-    }, [])
+    // useEffect(() => {
+    //     const fetchData = async () => {
+    //         setTimeout(() => {
+    //             setFetchedRolesAndPerm(ROLES_AND_PERM)
+    //         }, 200)
+    //     }
+    //     fetchData()
+    // }, [])
 
     const fetchAllRoles = () => {
         return axiosInstance({
@@ -111,12 +111,13 @@ function RenderedRolesAndPerm() {
         error: get_rolesAndPerm_error,
     } = useQuery('get_rolesAndPerm', fetchRolesAndPerm) as any
 
-    const {
-        data: get_roles_response,
-
-    } = useQuery('get_allRoles', fetchAllRoles, {
-        staleTime: 100000,
-    }) as any
+    const { data: get_roles_response } = useQuery(
+        'get_allRoles',
+        fetchAllRoles,
+        {
+            staleTime: 100000,
+        }
+    ) as any
 
     console.log({ get_roles_response })
 
@@ -258,6 +259,10 @@ function RenderedRolesAndPerm() {
 
     if (get_rolesAndPerm_isError) {
         return <p>{get_rolesAndPerm_error.message}</p>
+    }
+
+    if (get_rolesAndPerm_response) {
+        setFetchedRolesAndPerm(get_rolesAndPerm_response)
     }
 
     return (
