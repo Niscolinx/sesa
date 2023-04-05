@@ -143,7 +143,7 @@ function RenderedRolesAndPerm() {
     }
 
     return (
-        <div className='renderedRolesAndPerm'>
+        <div className='rounded-lg mt-[3rem] h-[80vh]'>
             <dialog ref={dialogRef} className='dialog'>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid  w-[64rem] h-[60rem] gap-8 py-8 px-10 items-center'>
