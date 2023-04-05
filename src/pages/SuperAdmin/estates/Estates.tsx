@@ -21,13 +21,13 @@ function Estates() {
                         <RenderedEstates />
                     </section>
                 ) : (
-                    <section className='estates__wrapper bg-white'>
+                    <section className='grid  place-content-center w-full h-full justify-items-center gap-4 bg-white rounded-lg'>
                         <img src='/icons/admins/errorSvg.svg' alt='' />
                         <p className='text'>
                             Ooops you have not added any Estate yet
                         </p>
                         <button
-                            className='btn addEstate__btn'
+                            className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
                             onClick={handleAddEstate}
                         >
                             <span>
