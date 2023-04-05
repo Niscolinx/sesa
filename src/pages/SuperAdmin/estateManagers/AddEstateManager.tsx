@@ -6,7 +6,7 @@ import Input, { SelectProps } from '../../../components/UI/input/Input'
 import ImageInput from '../../../components/UI/input/ImageInput'
 import useAxios from '../../../components/hooks/useAxios'
 
-const AddAdmin = () => {
+const AddEstateManager = () => {
     interface Inputs {
         email_address: string
         first_name: string
@@ -47,9 +47,9 @@ const AddAdmin = () => {
     const [responseMessage, setResponseMessage] =
         useState<ResponseMessage | null>(null)
 
-    const postAdmin = (data: Inputs) => {
+    const postEstateManager = (data: Inputs) => {
         return axiosInstance({
-            url: '/admin/create',
+            url: '/manager/create',
             method: 'post',
             data,
         })
@@ -58,7 +58,7 @@ const AddAdmin = () => {
         mutate,
         data: response_data,
         isLoading,
-    } = useMutation(postAdmin) as any
+    } = useMutation(postEstateManager) as any
 
     useEffect(() => {
         console.log({ response_data })
@@ -86,7 +86,7 @@ const AddAdmin = () => {
             phoneNumber,
         } = data
 
-        const adminData = {
+        const estateManagerData = {
             name: `${first_name} ${last_name}`,
             gender,
             dob,
@@ -96,7 +96,7 @@ const AddAdmin = () => {
             image: imageUrl?.name,
         }
 
-        mutate(adminData)
+        mutate(estateManagerData)
     })
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
@@ -155,8 +155,11 @@ const AddAdmin = () => {
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
-                        <img src='/icons/admins/modalSuccess.svg' alt='' />
-                        <p>You have successfully added an Admin</p>
+                        <img
+                            src='/icons/estateManagers/modalSuccess.svg'
+                            alt=''
+                        />
+                        <p>You have successfully added an EstateManager</p>
 
                         <div className='flex w-full justify-center gap-8'>
                             <button
@@ -217,7 +220,7 @@ const AddAdmin = () => {
                             photoPreview={photoPreview}
                         />
                         <button
-                            className='btn admins__btn'
+                            className='btn estateManagers__btn'
                             style={{ justifySelf: 'start' }}
                         >
                             <span>
@@ -232,4 +235,4 @@ const AddAdmin = () => {
     )
 }
 
-export default AddAdmin
+export default AddEstateManager
