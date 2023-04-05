@@ -6,6 +6,7 @@ import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import React from 'react'
 import { useQuery } from 'react-query'
 import useAxios from '../../../components/hooks/useAxios'
+import { Select } from '../../../components/SuperAdmin/UI/Select'
 
 type Roles =
     | 'admin'
@@ -52,6 +53,7 @@ function RenderedRolesAndPerm() {
     const axiosInstance = useAxios()
     const dialogRef = useRef<HTMLDialogElement | null>(null)
     const [permissions, setPermissions] = useState(new Array(10).fill(''))
+    const [sortBy, setSortBy] = useState<string | null>(null)
     const [roles, setRoles] = useState<Roles[]>([
         'admin',
         'estate Manager',
@@ -183,25 +185,32 @@ function RenderedRolesAndPerm() {
                 </section>
             </dialog>
             <table className='renderedRolesAndPerm__tableBox'>
-                <caption className='renderedRolesAndPerm__caption justify-baseline'>
-                    <p className='caption__title'>
-                        Role List <span>(200)</span>
+                <div className='flex w-full items-center gap-12 p-10 bg-white rounded-lg'>
+                    <p className=' font-Satoshi-Medium'>
+                        Roles List <span>(10)</span>
                     </p>
-                    <div className='caption__searchBox'>
-                        <img src='/icons/rolesAndPerm/search.svg' alt='' />
-                        <input type='text' placeholder='Search Parameters' />
+                    <div className='relative flex items-center'>
+                        <img
+                            src='/icons/admins/search.svg'
+                            alt=''
+                            className='absolute left-4 text-[4rem]'
+                        />
+                        <input
+                            type='text'
+                            placeholder='Search Parameters'
+                            className='pl-16 w-[25rem] rounded-lg border border-color-blue-light appearance-none outline-none p-4'
+                        />
                     </div>
-                    <div className='caption__select'>
-                        <select>
-                            <option hidden value=''>
-                                Sort By
-                            </option>
-                            <option value='date'>date</option>
-                            <option value='alpha'>Alpha</option>
-                        </select>
-                        <GrDown />
+                    <div className='w-[10rem] grid self-baseline '>
+                        <Select
+                            state={['A-Z', 'Date']}
+                            selectedState={sortBy}
+                            placeholder={'A-Z'}
+                            setSelectedState={setSortBy}
+                        />
                     </div>
-                </caption>
+                   
+                </div>
                 <div className='renderedRolesAndPerm__table'>
                     <thead className='renderedRolesAndPerm__table--head'>
                         <tr>

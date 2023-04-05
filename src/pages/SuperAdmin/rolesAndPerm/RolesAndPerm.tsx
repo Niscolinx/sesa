@@ -5,7 +5,7 @@ import RenderedRolesAndPerm from './RenderedRolesAndPerm'
 
 function RolesAndPerm() {
 
-    const [estateManagersLoaded, setEstateManagersLoaded] = useState(false)
+    const [estateManagersLoaded, setEstateManagersLoaded] = useState(true)
 
     
 
