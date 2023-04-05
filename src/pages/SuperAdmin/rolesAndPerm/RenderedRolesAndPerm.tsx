@@ -62,13 +62,13 @@ function RenderedRolesAndPerm() {
     const dialogRef = useRef<HTMLDialogElement | null>(null)
     const [permissions, setPermissions] = useState(new Array(10).fill(''))
     const [sortBy, setSortBy] = useState<string | null>(null)
-    const [roles, setRoles] = useState<Roles[]>([
-        'admin',
-        'estate Manager',
-        'security Company',
-        'security Guard',
-        'resident',
-    ])
+    // const [roles, setRoles] = useState<Roles[]>([
+    //     'admin',
+    //     'estate Manager',
+    //     'security Company',
+    //     'security Guard',
+    //     'resident',
+    // ])
     const [selectedRole, setSelectedRole] = useState<{
         [key: string]: Roles
     }>(null as any)
@@ -111,16 +111,16 @@ function RenderedRolesAndPerm() {
         data: get_rolesAndPerm_response,
         isError: get_rolesAndPerm_isError,
         error: get_rolesAndPerm_error,
-        // isFetching: get_rolesAndPerm_fetching,
     } = useQuery('get_rolesAndPerm', fetchRolesAndPerm) as any
 
     const {
-        isLoading: get_roles_loading,
         data: get_roles_response,
-        isError: get_roles_isError,
-        error: get_roles_error,
-        // isFetching: get_rolesAndPerm_fetching,
-    } = useQuery('get_allRoles', fetchAllRoles) as any
+
+    } = useQuery('get_allRoles', fetchAllRoles, {
+        staleTime: 100000,
+    }) as any
+
+    console.log({ get_roles_response })
 
     const dropDownHandler = (
         e: React.ChangeEvent<HTMLInputElement>,
@@ -422,10 +422,12 @@ function RenderedRolesAndPerm() {
                                                     {isDropDownOpen &&
                                                         index === i && (
                                                             <div className='absolute top-[5rem] translate-x-[6rem] border border-color-primary-light w-[24rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
-                                                                {roles.map(
+                                                                {get_roles_response.data.map(
                                                                     (
-                                                                        item,
-                                                                        index
+                                                                        {
+                                                                            name,
+                                                                        }: any,
+                                                                        index: number
                                                                     ) => (
                                                                         <p
                                                                             className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
@@ -438,14 +440,18 @@ function RenderedRolesAndPerm() {
                                                                             ) =>
                                                                                 selectRole(
                                                                                     e,
-                                                                                    item,
+                                                                                    name.replace(
+                                                                                        '-',
+                                                                                        ' '
+                                                                                    ),
                                                                                     i
                                                                                 )
                                                                             }
                                                                         >
-                                                                            {
-                                                                                item
-                                                                            }
+                                                                            {name.replace(
+                                                                                '-',
+                                                                                ' '
+                                                                            )}
                                                                         </p>
                                                                     )
                                                                 )}
