@@ -27,7 +27,10 @@ interface RolesAndPerm {
 function RenderedRolesAndPerm() {
     const axiosInstance = useAxios()
     const dialogRef = useRef<HTMLDialogElement | null>(null)
-    const [permissions, setPermissions] = useState([])
+    const [permissions, setPermissions] = useState<{
+         [key: string]: string[]
+    }>(null as any)
+
     const [sortBy, setSortBy] = useState<string | null>(null)
     const [fetchedRolesAndPerm, setFetchedRolesAndPerm] = useState<
         RolesAndPerm[]
@@ -40,7 +43,7 @@ function RenderedRolesAndPerm() {
     //     'security Guard',
     //     'resident',
     // ])
-    
+
     const [selectedRole, setSelectedRole] = useState<{
         [key: string]: Roles
     }>(null as any)
@@ -51,15 +54,6 @@ function RenderedRolesAndPerm() {
         isDropDownOpen: false,
         index: null,
     })
-
-    // useEffect(() => {
-    //     const fetchData = async () => {
-    //         setTimeout(() => {
-    //             setFetchedRolesAndPerm(ROLES_AND_PERM)
-    //         }, 200)
-    //     }
-    //     fetchData()
-    // }, [])
 
     const fetchAllRoles = () => {
         return axiosInstance({
@@ -120,6 +114,7 @@ function RenderedRolesAndPerm() {
             )
 
             console.log({ permissions })
+            setPermissions(permissions)
             setSelectedRole(roles)
         }
     }, [get_rolesAndPerm_response])
