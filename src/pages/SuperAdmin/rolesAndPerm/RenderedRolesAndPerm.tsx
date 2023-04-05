@@ -113,7 +113,6 @@ function RenderedRolesAndPerm() {
                 {}
             )
 
-            console.log({ permissions })
             setPermissions(permissions)
             setSelectedRole(roles)
         }
@@ -259,9 +258,7 @@ function RenderedRolesAndPerm() {
         return <p>{get_rolesAndPerm_error.message}</p>
     }
 
-    useEffect(() => {
-        console.log({ permissions }, permissions!['2'])
-    }, [permissions])
+   
 
     return (
         <div className='rounded-lg mt-[3rem] h-[80vh]'>
@@ -279,7 +276,7 @@ function RenderedRolesAndPerm() {
                         </div>
                         <div className='my-10 grid gap-4 h-full'>
                             {<>
-                                {console.log({ permissions })}
+                                {/* {console.log({ permissions })} */}
                             </>
                                 }
 
