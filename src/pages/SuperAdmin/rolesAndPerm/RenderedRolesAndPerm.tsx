@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { ChangeEvent, useEffect, useRef, useState } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
 import { GrDown, GrUp } from 'react-icons/gr'
 import { IoMdAdd } from 'react-icons/io'
@@ -7,6 +7,8 @@ import React from 'react'
 import { useQuery } from 'react-query'
 import useAxios from '../../../components/hooks/useAxios'
 import { Select } from '../../../components/SuperAdmin/UI/Select'
+import { useNavigate } from 'react-router'
+import Estate from '../../SecurityCompany/dashboard/Estates/Estates'
 
 type Roles =
     | 'admin'
@@ -72,12 +74,12 @@ function RenderedRolesAndPerm() {
         index: null,
     })
 
-    const [fetchedUsers, setFetchedUsers] = useState<RolesAndPerm[] | null>([])
+    const [fetchedRolesAndPerm, setFetchedRolesAndPerm] = useState<RolesAndPerm[] | null>([])
 
     useEffect(() => {
         const fetchData = async () => {
             setTimeout(() => {
-                setFetchedUsers(ROLES_AND_PERM)
+                setFetchedRolesAndPerm(ROLES_AND_PERM)
             }, 200)
         }
         fetchData()
@@ -120,6 +122,112 @@ function RenderedRolesAndPerm() {
             }
         })
     }
+
+
+interface Paginate {
+    index: number
+    currentPage: number
+    itemsPerPage: number
+    totalPage: number
+    slicedPages: RolesAndPerm[][] | null
+}
+
+const itemsPerPageArr = [2, 4, 6, 8]
+
+const perPage = 6
+const [paginate, setPaginate] = useState<Paginate>({
+    index: 0,
+    currentPage: 1,
+    itemsPerPage: perPage,
+
+    totalPage: Math.ceil(fetchedRolesAndPerm?.length / perPage),
+    slicedPages: null,
+})
+
+const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
+    const item = parseInt(e.target.value)
+
+    const slicedPages: RolesAndPerm[][] = []
+    for (let i = 0; i < fetchedRolesAndPerm?.length; i += item) {
+        slicedPages.push(fetchedRolesAndPerm?.slice(i, i + item))
+    }
+
+    setPaginate((prev) => {
+        return {
+            ...prev,
+            itemsPerPage: item,
+            index: 0,
+            currentPage: 1,
+            slicedPages,
+            totalPage: Math.ceil(fetchedRolesAndPerm?.length / item),
+        }
+    })
+}
+
+useEffect(() => {
+    const slicedPages: RolesAndPerm[][] = []
+    for (let i = 0; i < fetchedRolesAndPerm?.length; i += paginate.itemsPerPage) {
+        slicedPages.push(fetchedRolesAndPerm?.slice(i, i + paginate.itemsPerPage))
+    }
+
+    setPaginate((prev) => {
+        return {
+            ...prev,
+            slicedPages,
+        }
+    })
+}, [fetchedRolesAndPerm])
+
+const handleNext = () => {
+    if (paginate.currentPage === paginate.totalPage) return
+    setPaginate((prev) => {
+        return {
+            ...prev,
+            index: prev.index + 1,
+            currentPage: prev.currentPage + 1,
+        }
+    })
+}
+
+const handlePrev = () => {
+    if (paginate.currentPage === 1) return
+    setPaginate((prev) => {
+        return {
+            ...prev,
+            index: prev.index - 1,
+            currentPage: prev.currentPage - 1,
+        }
+    })
+}
+
+const { currentPage, slicedPages, itemsPerPage } = paginate
+
+const jumpToPage = (e: React.MouseEvent, index: number) => {
+    setPaginate((prev) => {
+        return {
+            ...prev,
+            index,
+            currentPage: index + 1,
+        }
+    })
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     const showModal = () => {
         dialogRef.current?.showModal()
@@ -222,9 +330,9 @@ function RenderedRolesAndPerm() {
                         </tr>
                     </thead>
                     <tbody className='renderedRolesAndPerm__table--body'>
-                        {fetchedUsers && fetchedUsers.length > 0 ? (
+                        {fetchedRolesAndPerm && fetchedRolesAndPerm.length > 0 ? (
                             React.Children.toArray(
-                                fetchedUsers.map((value, i) => {
+                                fetchedRolesAndPerm.map((value, i) => {
                                     const { isDropDownOpen, index } =
                                         toggleDropDown
                                     return (
