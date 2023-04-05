@@ -258,8 +258,6 @@ function RenderedRolesAndPerm() {
         return <p>{get_rolesAndPerm_error.message}</p>
     }
 
-   
-
     return (
         <div className='rounded-lg mt-[3rem] h-[80vh]'>
             <dialog ref={dialogRef} className='dialog'>
@@ -275,33 +273,29 @@ function RenderedRolesAndPerm() {
                             </p>
                         </div>
                         <div className='my-10 grid gap-4 h-full'>
-                            {<>
-                                {/* {console.log({ permissions })} */}
-                            </>
+                           
+                            {permissions && Object.values(permissions).length > 0 &&
+                           
+                                React.Children.toArray(
+                                    ['2'].map((value, i) => {
+                                        return (
+                                            <div
+                                                key={i}
+                                                className='flex items-center gap-4 '
+                                            >
+                                                <input
+                                                    type='checkbox'
+                                                    className='cursor-pointer'
+                                                />
+                                                <p className='text-[1.6rem]'>
+                                                    Permission {i + 1}
+                                                </p>
+                                            </div>
+                                        )
+                                    })
+                                )
                                 }
-
-                            {/* {permissions && permissions['2'].length > 0 &&
-                            <p>hello</p>
-                                // React.Children.toArray(
-                                //     permissions['2'].map((value, i) => {
-                                //         return (
-                                //             <div
-                                //                 key={i}
-                                //                 className='flex items-center gap-4 '
-                                //             >
-                                //                 <input
-                                //                     type='checkbox'
-                                //                     className='cursor-pointer'
-                                //                 />
-                                //                 <p className='text-[1.6rem]'>
-                                //                     Permission {i + 1}
-                                //                 </p>
-                                //             </div>
-                                //         )
-                                //     })
-                                //)
-                                }
-                            */}
+                           
                         </div>
                         <button
                             className='bg-color-blue-1 px-12 py-4 text-white text-[1.4rem] flex items-center justify-self-start rounded-lg gap-4 self-center'
