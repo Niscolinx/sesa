@@ -1,12 +1,11 @@
 import { ChangeEvent, useEffect, useRef, useState } from 'react'
 import { GrDown, GrUp } from 'react-icons/gr'
-import {  IoMdClose } from 'react-icons/io'
+import { IoMdClose } from 'react-icons/io'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import React from 'react'
 import { useQuery } from 'react-query'
 import useAxios from '../../../components/hooks/useAxios'
 import { Select } from '../../../components/SuperAdmin/UI/Select'
-
 
 type Roles =
     | 'admin'
@@ -19,7 +18,10 @@ interface RolesAndPerm {
     id: string
     name: string
     imgUrl: string
-    role: string
+    role: {
+        name: string,
+        permissions: string[]
+    }[]
 }
 
 function RenderedRolesAndPerm() {
@@ -322,10 +324,10 @@ function RenderedRolesAndPerm() {
                             slicedPages?.length > 0 &&
                             React.Children.toArray(
                                 slicedPages[paginate.index].map(
-                                    ({ name, imgUrl }, i) => {
+                                    ({ name, imgUrl, role }, i) => {
                                         const { isDropDownOpen, index } =
                                             toggleDropDown
-
+                                        
                                         return (
                                             <div className='grid justify-between border-b grid-cols-3 items-center gap-8 text-[1.6rem] py-4  relative'>
                                                 {' '}
