@@ -8,6 +8,7 @@ import { useAppDispatch } from '../../../store/app/hooks'
 import { Select } from '../../../components/SuperAdmin/UI/Select'
 import { useQuery } from 'react-query'
 import useAxios from '../../../components/hooks/useAxios'
+import axios from 'axios'
 
 interface IAdmin {
     user: {
@@ -36,15 +37,11 @@ function Admins() {
     }
 
     const fetchAdmins = () => {
-        // return AxiosRequest({
-        //     dispatch,
+        // axiosInstance({
         //     url: '/admin/get/all',
         // })
 
-
-        axiosInstance({
-            url: '/admin/get/all',
-        })
+        axios.get('/admin/get/all').then(data => console.log({data})).catch(err => console.log({err}))
     }
 
     const {
@@ -56,9 +53,9 @@ function Admins() {
     } = useQuery('admins', fetchAdmins) as any
 
     useEffect(() => {
-        if (get_admins_response?.status === 200) {
+        if (get_admins_response) {
             // setFetchedAdmins(get_admins_response.data)
-            console.log(get_admins_response.data, 'fetchedData')
+            console.log(get_admins_response, 'fetchedData')
         }
     }, [get_admins_response])
 
@@ -227,8 +224,7 @@ function Admins() {
     }
 
     const adminsLoaded =
-        get_admins_response.status === 200 &&
-        get_admins_response.data.length > 0
+        get_admins_response && get_admins_response.data.length > 0
 
     return (
         <div>

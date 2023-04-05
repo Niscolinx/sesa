@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router'
 import { useAppDispatch } from '../store/app/hooks'
 import { setAuth, storeToken } from '../store/features/auth'
 import  AxiosRequest  from '../utils/axios'
+import useAxios from '../components/hooks/useAxios'
 
 const Login = () => {
     const navigate = useNavigate()
@@ -34,6 +35,7 @@ const Login = () => {
     //     console.log({ values })
     // })
 
+    const axiosInstance = useAxios()
     const postLogin = (data: Inputs) => {
         const user = {
             user: data.email,
@@ -41,6 +43,11 @@ const Login = () => {
         }
 
         console.log('sdf')
+        return axiosInstance({
+            url: '/login',
+            method: 'post',
+            data: user
+        })
 
         // return AxiosRequest({
         //     dispatch,
@@ -87,7 +94,7 @@ const Login = () => {
 
         if (email === 'superadmin@gmail.com') {
             //  navigate('/superAdmin')
-            mutate(data)
+            return mutate(data)
         }
 
         if (email === 'securitycompany@sesa.com') {
