@@ -3,10 +3,6 @@ import ResidentUsersList from './ResidentUsersList';
 import ResidentUserHistory from './ResidentUserHistory';
 
 
-
-
-
-
 function ResidentUsers() {
     type SwitchRoute = 'list' | 'history'
 
