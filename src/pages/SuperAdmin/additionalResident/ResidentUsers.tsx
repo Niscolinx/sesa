@@ -19,7 +19,7 @@ function ResidentUsers() {
     ]) satisfies Map<SwitchRoute, JSX.Element>
 
     return (
-        <div>
+        <>
             <div className='estateDetail__radioBox'>
                 {resident_paths.map((eachPath, idx) => {
                     const { label, path } = eachPath
@@ -38,12 +38,12 @@ function ResidentUsers() {
                     )
                 })}
             </div>
-            <div className='mt-8 grid gap-8'>
+            <div className='mt-8 grid gap-8 min-h-[60vh]'>
                 <section className='bg-color-white rounded-lg border min-w-[112rem] overflow-scroll'>
                     {switchRoute.get(currentPath)}
                 </section>
             </div>
-        </div>
+        </>
     )
 }
 

@@ -101,7 +101,8 @@ const ResidentUsersList = () => {
 
     useEffect(() => {
         if (get_packages_response?.success) {
-            setFetchedPackages(get_packages_response.data.data)
+           // setFetchedPackages(get_packages_response.data.data)
+           setFetchedPackages(RESIDENT_LISTS)
             console.log(get_packages_response.data, 'fetchedData')
         }
     }, [get_packages_response])
