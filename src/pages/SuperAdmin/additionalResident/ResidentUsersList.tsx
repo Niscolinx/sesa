@@ -12,14 +12,9 @@ export interface IResidentUsersList {
     price: number
     status: string
 }
+
 export type Actions = 'View Details' | 'Activate' | 'Deactivate' | 'Delete'
 
-// export interface Action {
-//     View: 'View Details'
-//     Activate: 'Activate'
-//     Deactivate: 'Deactivate'
-//     Delete: 'Delete'
-// }
 
 export const RESIDENT_LISTS: IResidentUsersList[] = [
     {

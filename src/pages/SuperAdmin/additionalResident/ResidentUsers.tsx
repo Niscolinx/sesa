@@ -10,118 +10,7 @@ import ResidentUsersList, {
     IResidentUsersList,
 } from './ResidentUsersList'
 
-export const RESIDENT_HISTORY: IResidentUserHistory[] = [
-    {
-        id: '1',
-        packageName: 'Gold',
-        userName: 'John Doe',
-        frequency: 'Monthly',
-        amount: 1000,
-        startDate: '2021-01-01',
-        endDate: '2021-01-31',
-        transactionType: 'purchase',
-        status: 'active',
-    },
-    {
-        id: '2',
-        packageName: 'Gold',
-        userName: 'John Doe',
-        frequency: 'Monthly',
-        amount: 1000,
-        startDate: '2021-01-01',
-        endDate: '2021-01-31',
-        transactionType: 'purchase',
-        status: 'active',
-    },
-    {
-        id: '3',
-        packageName: 'Gold',
-        userName: 'John Doe',
-        frequency: 'Monthly',
-        amount: 1000,
-        startDate: '2021-01-01',
-        endDate: '2021-01-31',
-        transactionType: 'purchase',
-        status: 'active',
-    },
-    {
-        id: '4',
-        packageName: 'Gold',
-        userName: 'John Doe',
-        frequency: 'Monthly',
-        amount: 1000,
-        startDate: '2021-01-01',
-        endDate: '2021-01-31',
-        transactionType: 'purchase',
-        status: 'active',
-    },
-    {
-        id: '5',
-        packageName: 'Gold',
-        userName: 'John Doe',
-        frequency: 'Monthly',
-        amount: 1000,
-        startDate: '2021-01-01',
-        endDate: '2021-01-31',
-        transactionType: 'purchase',
-        status: 'active',
-    },
-    {
-        id: '6',
-        packageName: 'Gold',
-        userName: 'John Doe',
-        frequency: 'Monthly',
-        amount: 1000,
-        startDate: '2021-01-01',
-        endDate: '2021-01-31',
-        transactionType: 'purchase',
-        status: 'active',
-    },
-    {
-        id: '7',
-        packageName: 'Gold',
-        userName: 'John Doe',
-        frequency: 'Monthly',
-        amount: 1000,
-        startDate: '2021-01-01',
-        endDate: '2021-01-31',
-        transactionType: 'purchase',
-        status: 'active',
-    },
-    {
-        id: '8',
-        packageName: 'Gold',
-        userName: 'John Doe',
-        frequency: 'Monthly',
-        amount: 1000,
-        startDate: '2021-01-01',
-        endDate: '2021-01-31',
-        transactionType: 'purchase',
-        status: 'active',
-    },
-    {
-        id: '9',
-        packageName: 'Gold',
-        userName: 'John Doe',
-        frequency: 'Monthly',
-        amount: 1000,
-        startDate: '2021-01-01',
-        endDate: '2021-01-31',
-        transactionType: 'purchase',
-        status: 'active',
-    },
-    {
-        id: '10',
-        packageName: 'Gold',
-        userName: 'John Doe',
-        frequency: 'Monthly',
-        amount: 1000,
-        startDate: '2021-01-01',
-        endDate: '2021-01-31',
-        transactionType: 'purchase',
-        status: 'active',
-    },
-]
+
 
 function ResidentUsers() {
     type SwitchRoute = 'list' | 'history'
@@ -131,26 +20,10 @@ function ResidentUsers() {
         { path: 'history', label: 'Package purchase history' },
     ] satisfies { path: SwitchRoute; label: string }[]
 
-    const [fetchedResidentUsers, setFetchedResidentUsers] = useState<
-        IResidentUsersList[] | null
-    >(null)
-    const [fetchedResidentUserHistory, setFetchedResidentUserHistory] =
-        useState<IResidentUserHistory[] | null>(null)
-
     const [currentPath, setCurrentPath] = useState<SwitchRoute>('list')
 
-    useEffect(() => {
-        const fetchData = async () => {
-            setTimeout(() => {
-                setFetchedResidentUsers(RESIDENT_LISTS)
-                setFetchedResidentUserHistory(RESIDENT_HISTORY)
-            }, 200)
-        }
-        fetchData()
-    }, [])
-
     const switchRoute = new Map([
-        ['list', <ResidentUsersList  />],
+        ['list', <ResidentUsersList />],
         ['history', <ResidentUserHistory />],
     ]) satisfies Map<SwitchRoute, JSX.Element>
 
