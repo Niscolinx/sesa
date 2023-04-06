@@ -41,7 +41,6 @@ export const RESIDENT_LISTS: IResidentUsersList[] = [
 ]
 
 const ResidentUsersList = () => {
-    const dispatch = useAppDispatch()
 
     const [actions, setActions] = useState<Actions[]>([
         'View Details',

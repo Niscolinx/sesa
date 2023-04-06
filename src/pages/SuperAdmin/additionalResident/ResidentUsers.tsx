@@ -1,14 +1,9 @@
-import { useState, useEffect, Fragment } from 'react'
-import { CgSpinnerTwo } from 'react-icons/cg'
-import ResidentUserHistory, {
-    IResidentUserHistory,
-} from './ResidentUserHistory'
-;('react-icons/hi')
+import { useState, Fragment } from 'react'
+import ResidentUsersList from './ResidentUsersList';
+import ResidentUserHistory from './ResidentUserHistory';
 
-import ResidentUsersList, {
-    RESIDENT_LISTS,
-    IResidentUsersList,
-} from './ResidentUsersList'
+
+
 
 
 
