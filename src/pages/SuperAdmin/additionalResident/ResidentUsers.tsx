@@ -158,36 +158,23 @@ function ResidentUsers() {
         <div>
             <div className='estateDetail__radioBox'>
                 {resident_paths.map((eachPath, idx) => {
-                    const {label, path} = eachPath
+                    const { label, path } = eachPath
                     return (
                         <Fragment key={label + idx}>
                             <input
                                 type='radio'
                                 name='report'
-                                id={label+idx}
+                                id={label + idx}
                                 className='hidden'
                                 onChange={() => setCurrentPath(path)}
-                                defaultChecked
+                                defaultChecked = {currentPath === 'list'}
                             />
-                            <label htmlFor={label+idx}>
-                                {label}
-                            </label>
+                            <label htmlFor={label + idx}>{label}</label>
                         </Fragment>
                     )
                 })}
 
-                <input
-                    type='radio'
-                    name='report'
-                    id='residentUserHistory'
-                    className='hidden'
-                    onChange={() => setCurrentPage(2)}
-                />
-                <label htmlFor='residentUserHistory' className='capitalize'>
-                    Package purchase history
-                    {/* //TODO Change the custom select of package to be normal input field
-                    //comma separated in Amount */}
-                </label>
+               
             </div>
             <div className='mt-8 grid gap-8'>
                 <section className='bg-color-white rounded-lg border min-w-[112rem] overflow-scroll'>
