@@ -21,7 +21,7 @@ export const RESIDENT_LISTS: ResidentPackageList[] = [
     {
         id: '1',
         user: {
-            packageName: 'list',
+            packageName: 'Gold',
             frequency: 'Monthly',
             price: 6000,
             status: 'active',

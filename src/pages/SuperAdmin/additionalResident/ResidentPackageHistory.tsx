@@ -21,7 +21,7 @@ export const RESIDENT_LISTS: ResidentPackageHistory[] = [
     {
         id: '1',
         user: {
-            packageName: 'list',
+            packageName: 'Gold',
             frequency: 'Monthly',
             price: 6000,
             status: 'active',
@@ -30,17 +30,16 @@ export const RESIDENT_LISTS: ResidentPackageHistory[] = [
 ]
 
 const ResidentPackageHistory = () => {
-    type Actions = 'view details'  | 'deactivate' 
-
+    type Actions = 'view details' | 'deactivate'
 
     const navigate = useNavigate()
     const axiosInstance = useAxios()
 
     const [sortBy, setSortBy] = useState<string | null>(null)
 
-    const [fetchedPackages, setFetchedPackages] = useState<ResidentPackageHistory[]>(
-        []
-    )
+    const [fetchedPackages, setFetchedPackages] = useState<
+        ResidentPackageHistory[]
+    >([])
 
     const fetchPackages = () => {
         return axiosInstance({
@@ -65,12 +64,7 @@ const ResidentPackageHistory = () => {
         }
     }, [get_packages_response])
 
-    const actions = [
-        'view details',
-        'activate',
-        'deactivate',
-        'delete',
-    ] satisfies Actions[]
+    const actions = ['view details', 'deactivate'] satisfies Actions[]
 
     const [toggleDropDown, setToggleDropDown] = useState<{
         isDropDownOpen: boolean
@@ -288,7 +282,7 @@ const ResidentPackageHistory = () => {
                     <div className='grid text-[1.6rem]'>
                         <div className='flex w-full items-center gap-12 p-10 bg-white rounded-lg'>
                             <p className=' font-Satoshi-Medium'>
-                                Package List <span>({fetched.length})</span>
+                                Package Purchase History <span>({fetched.length})</span>
                             </p>
                             <div className='relative flex items-center'>
                                 <img

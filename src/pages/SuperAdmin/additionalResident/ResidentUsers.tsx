@@ -19,7 +19,7 @@ function ResidentUsers() {
 
     return (
         <>
-            <div className='estateDetail__radioBox'>
+            <div className='estateDetail__radioBox capitalize'>
                 {resident_paths.map((eachPath, idx) => {
                     const { label, path } = eachPath
                     return (
