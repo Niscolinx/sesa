@@ -1,54 +1,115 @@
-import React, { FC, useState } from 'react'
-import { CgSpinnerTwo } from 'react-icons/cg'
-import { GrDown } from 'react-icons/gr'
+import React, { ChangeEvent, useEffect, useRef, useState } from 'react'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { IoMdAdd } from 'react-icons/io'
-import { useAppDispatch } from '../../../store/app/hooks'
+import { useQuery } from 'react-query'
+import { useNavigate } from 'react-router'
+import { ToastContainer, toast } from 'react-toastify'
+import useAxios from '../../../components/hooks/useAxios'
+import { Select } from '../../../components/SuperAdmin/UI/Select'
 
-export interface IResidentUsersList {
+export interface ResidentUsersList {
     id: string
-    packageName: string
-    frequency: string
-    price: number
-    status: string
+    user: {
+        packageName: string
+        frequency: string
+        price: number
+        status: string
+    }
 }
 
 export type Actions = 'View Details' | 'Activate' | 'Deactivate' | 'Delete'
 
-export const RESIDENT_LISTS: IResidentUsersList[] = [
+export const RESIDENT_LISTS: ResidentUsersList[] = [
     {
         id: '1',
-        packageName: 'list',
-        frequency: 'Monthly',
-        price: 6000,
-        status: 'Active',
-    },
-    {
-        id: '1',
-        packageName: 'Gold',
-        frequency: 'Monthly',
-        price: 12000,
-        status: 'Active',
-    },
-    {
-        id: '1',
-        packageName: 'Gold',
-        frequency: 'Monthly',
-        price: 8000,
-        status: 'Active',
+        user: {
+            packageName: 'list',
+            frequency: 'Monthly',
+            price: 6000,
+            status: 'Active',
+        },
     },
 ]
 
 const ResidentUsersList = () => {
-    const [actions, setActions] = useState<Actions[]>([
-        'View Details',
-        'Activate',
-        'Deactivate',
-        'Delete',
-    ])
-    const [selectedAction, setSelectedAction] = useState<{
-        [key: string]: Actions
-    }>(null as any)
+    type Actions = 'view details' | 'activate' | 'deactivate' | 'delete'
+
+    // const [actions, setActions] = useState<Actions[]>([
+    //     'View Details',
+    //     'Activate',
+    //     'Deactivate',
+    //     'Delete',
+    // ])
+    // const [selectedAction, setSelectedAction] = useState<{
+    //     [key: string]: Actions
+    // }>(null as any)
+    // const [toggleDropDown, setToggleDropDown] = useState<{
+    //     isDropDownOpen: boolean
+    //     index: number | null
+    // }>({
+    //     isDropDownOpen: false,
+    //     index: null,
+    // })
+
+    // const dropDownHandler = (
+    //     e: React.ChangeEvent<HTMLInputElement>,
+    //     index: number
+    // ) => {
+    //     console.log('clicked')
+    //     setToggleDropDown((prev) => {
+    //         return {
+    //             isDropDownOpen: e.target.checked,
+    //             index: index,
+    //         }
+    //     })
+    // }
+
+    // const selectAction = (e: React.MouseEvent, item: string, index: number) => {
+    //     setSelectedAction((prev) => {
+    //         return {
+    //             ...prev,
+    //             [index]: item,
+    //         }
+    //     })
+    // }
+
+    // const handleAddPackage = () => {
+    //     //dispatch(setAdditionalResidentPath('addResidentUserPackage'))
+    // }
+
+    const navigate = useNavigate()
+    const axiosInstance = useAxios()
+
+    const [sortBy, setSortBy] = useState<string | null>(null)
+
+    const [fetchedEstateManagers, setFetchedEstateManagers] = useState<
+        ResidentUsersList[]
+    >([])
+
+    const fetchEstateManagers = () => {
+        return axiosInstance({
+            // url: '/admin/get/all',
+            url: '/manager/get/all',
+        })
+    }
+
+    const {
+        isLoading: get_estateManagers_loading,
+        data: get_estateManagers_response,
+        isError: get_estateManagers_isError,
+        error: get_estateManagers_error,
+        // isFetching: get_estateManagers_fetching,
+    } = useQuery('estateManagers', fetchEstateManagers) as any
+
+    useEffect(() => {
+        if (get_estateManagers_response?.success) {
+            setFetchedEstateManagers(get_estateManagers_response.data.data)
+            console.log(get_estateManagers_response.data, 'fetchedData')
+        }
+    }, [get_estateManagers_response])
+
+    const actions = ['view details', 'deactivate'] satisfies Actions[]
+
     const [toggleDropDown, setToggleDropDown] = useState<{
         isDropDownOpen: boolean
         index: number | null
@@ -61,218 +122,504 @@ const ResidentUsersList = () => {
         e: React.ChangeEvent<HTMLInputElement>,
         index: number
     ) => {
-        console.log('clicked')
-        setToggleDropDown((prev) => {
+        setToggleDropDown(() => {
             return {
                 isDropDownOpen: e.target.checked,
-                index: index,
+                index,
             }
         })
     }
 
-    const selectAction = (e: React.MouseEvent, item: string, index: number) => {
-        setSelectedAction((prev) => {
+    interface Paginate {
+        index: number
+        currentPage: number
+        itemsPerPage: number
+        totalPage: number
+        slicedPages: ResidentUsersList[][] | null
+    }
+
+    const itemsPerPageArr = [2, 4, 6, 8]
+
+    const perPage = 6
+    const [paginate, setPaginate] = useState<Paginate>({
+        index: 0,
+        currentPage: 1,
+        itemsPerPage: perPage,
+
+        totalPage: Math.ceil(fetchedEstateManagers?.length / perPage),
+        slicedPages: null,
+    })
+
+    const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
+        const item = parseInt(e.target.value)
+
+        const slicedPages: ResidentUsersList[][] = []
+        for (let i = 0; i < fetchedEstateManagers?.length; i += item) {
+            slicedPages.push(fetchedEstateManagers?.slice(i, i + item))
+        }
+
+        setPaginate((prev) => {
             return {
                 ...prev,
-                [index]: item,
+                itemsPerPage: item,
+                index: 0,
+                currentPage: 1,
+                slicedPages,
+                totalPage: Math.ceil(fetchedEstateManagers?.length / item),
             }
         })
     }
 
-    const handleAddPackage = () => {
-        //dispatch(setAdditionalResidentPath('addResidentUserPackage'))
+    useEffect(() => {
+        const slicedPages: ResidentUsersList[][] = []
+        for (
+            let i = 0;
+            i < fetchedEstateManagers?.length;
+            i += paginate.itemsPerPage
+        ) {
+            slicedPages.push(
+                fetchedEstateManagers?.slice(i, i + paginate.itemsPerPage)
+            )
+        }
+
+        setPaginate((prev) => {
+            return {
+                ...prev,
+                slicedPages,
+            }
+        })
+    }, [fetchedEstateManagers])
+
+    const handleNext = () => {
+        if (paginate.currentPage === paginate.totalPage) return
+        setPaginate((prev) => {
+            return {
+                ...prev,
+                index: prev.index + 1,
+                currentPage: prev.currentPage + 1,
+            }
+        })
     }
 
+    const handlePrev = () => {
+        if (paginate.currentPage === 1) return
+        setPaginate((prev) => {
+            return {
+                ...prev,
+                index: prev.index - 1,
+                currentPage: prev.currentPage - 1,
+            }
+        })
+    }
+
+    const { currentPage, slicedPages, itemsPerPage } = paginate
+
+    const jumpToPage = (e: React.MouseEvent, index: number) => {
+        setPaginate((prev) => {
+            return {
+                ...prev,
+                index,
+                currentPage: index + 1,
+            }
+        })
+    }
+
+    const dialogRef = useRef<HTMLDialogElement | null>(null)
+
+    const closeDialog = () => {
+        if (dialogRef.current) {
+            dialogRef.current.close()
+        }
+    }
+
+    const openDialog = () => {
+        if (dialogRef.current) {
+            dialogRef.current.showModal()
+        }
+    }
+
+    const handleSelectedAction = (item: Actions, id: string) => {
+        setToggleDropDown(() => {
+            return {
+                isDropDownOpen: false,
+                index: null,
+            }
+        })
+
+        //  if (item === 'view details') {
+        //      navigate(`/superAdmin/estateManagers/view/:${id}`)
+        //  }
+
+        //  if (item === 'deactivate') {
+        //      openDialog()
+        //  }
+    }
+
+    const deactivateHandler = () => {
+        closeDialog()
+
+        toast('EstateManager deactivated successfully', {
+            type: 'success',
+            className: 'bg-green-100 text-green-600 text-[1.4rem]',
+        })
+    }
+    console.log({
+        get_estateManagers_loading,
+        get_estateManagers_isError,
+        get_estateManagers_error,
+        get_estateManagers_response,
+    })
+
+    if (get_estateManagers_loading) {
+        return <p>Loading...</p>
+    }
+
+    if (get_estateManagers_isError) {
+        return <p>{get_estateManagers_error.message}</p>
+    }
+
+    const handlePathSwitch = () => {
+        navigate('/superAdmin/estateManagers/add')
+    }
+
+    const fetched = get_estateManagers_response.data.data
+
+    console.log({ fetched })
+
     return (
-        <div className='grid text-[1.6rem]'>
-            <caption className='flex w-full items-center gap-12 p-10 bg-white rounded-lg'>
-                <p className=' font-Satoshi-Medium'>
-                    Resident User List <span>(4)</span>
-                </p>
-                <div className='relative flex items-center'>
-                    <img
-                        src='/icons/admins/search.svg'
-                        alt=''
-                        className='absolute left-4 text-[4rem]'
-                    />
-                    <input
-                        type='text'
-                        placeholder='Search Parameters'
-                        className='pl-16 w-[18rem] rounded-lg border border-color-blue-light appearance-none outline-none p-4'
-                    />
-                </div>
-                <div className='relative flex items-center'>
-                    <select className=' cursor-pointer w-[18rem] rounded-lg border border-color-blue-light appearance-none outline-none p-4 bg-white'>
-                        <option hidden value=''>
-                            Sort By
-                        </option>
-                        <option value='date'>date</option>
-                        <option value='alpha'>Alpha</option>
-                    </select>
-                    <GrDown className='absolute right-4 text-[1.3rem]' />
-                </div>
-                <button
-                    className='bg-color-blue-1 text-white flex gap-2 items-center rounded-lg py-4 px-16 text-[1.6rem] ml-auto'
-                    onClick={handleAddPackage}
-                >
-                    <span>
-                        <IoMdAdd />
-                    </span>{' '}
-                    Add Package
-                </button>
-            </caption>
+        <div className='rounded-lg mt-[3rem] h-[80vh]'>
+            {fetched.length > 0 ? (
+                <>
+                    <ToastContainer />
+                    <dialog className='dialog' ref={dialogRef}>
+                        <section className='grid place-content-center w-full h-[100vh]'>
+                            <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
+                                <img
+                                    src='/icons/admins/modalWarning.svg'
+                                    alt=''
+                                    className='animate__animated animate__pulse '
+                                    style={{
+                                        animationIterationCount: 'infinite',
+                                    }}
+                                />
+                                <p>
+                                    Are you sure you want to deactivate this
+                                    admin?
+                                </p>
 
-            <div className='grid'>
-                <div
-                    className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-5 gap-8'
-                    style={{
-                        fontSize: '1.6rem',
-                    }}
-                >
-                    <p className='flex items-center gap-2'>
-                        <input type='checkbox' className='cursor-pointer' />
-                        <p>Package Name</p>
-                    </p>
-                    <p>Frequency</p>
-                    <p>Price</p>
-                    <p>Status</p>
-                    <p>Actions</p>
-                </div>
+                                <div className='flex w-full justify-center gap-8'>
+                                    <button
+                                        className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
+                                        onClick={closeDialog}
+                                    >
+                                        Cancel
+                                    </button>
+                                    <button
+                                        className='bg-red-500 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
+                                        onClick={deactivateHandler}
+                                    >
+                                        Deactivate
+                                    </button>
+                                </div>
+                            </div>
+                        </section>
+                    </dialog>
+                    <div className='rounded-lg mt-[3rem] '>
+                        <div className='grid text-[1.6rem]'>
+                            <div className='flex w-full items-center gap-12 p-10 bg-white rounded-lg'>
+                                <p className=' font-Satoshi-Medium'>
+                                    EstateManager List{' '}
+                                    <span>({fetched.length})</span>
+                                </p>
+                                <div className='relative flex items-center'>
+                                    <img
+                                        src='/icons/admins/search.svg'
+                                        alt=''
+                                        className='absolute left-4 text-[4rem]'
+                                    />
+                                    <input
+                                        type='text'
+                                        placeholder='Search Parameters'
+                                        className='pl-16 w-[25rem] rounded-lg border border-color-blue-light appearance-none outline-none p-4'
+                                    />
+                                </div>
+                                <div className='w-[10rem] grid self-baseline '>
+                                    <Select
+                                        state={['A-Z', 'Date']}
+                                        selectedState={sortBy}
+                                        placeholder={'A-Z'}
+                                        setSelectedState={setSortBy}
+                                    />
+                                </div>
+                                <button
+                                    className='btn admins__btn ml-auto'
+                                    onClick={handlePathSwitch}
+                                >
+                                    <span>
+                                        <IoMdAdd />
+                                    </span>{' '}
+                                    <p>Add EstateManager</p>
+                                </button>
+                            </div>
 
-                <div className='grid gap-8 mt-8 p-8'>
-                    {RESIDENT_LISTS.map(
-                        ({ packageName, price, frequency, status }, i) => {
-                            const { isDropDownOpen, index } = toggleDropDown
-                            return (
-                                <div className='grid justify-between border-b grid-cols-5 gap-8 '>
-                                    <p className='flex items-center gap-4'>
+                            <div className='grid bg-white'>
+                                <div
+                                    className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-6 items-center gap-8'
+                                    style={{
+                                        fontSize: '1.4rem',
+                                    }}
+                                >
+                                    <p className='flex items-center gap-2'>
                                         <input
                                             type='checkbox'
                                             className='cursor-pointer'
                                         />
-
-                                        <span>{packageName}</span>
+                                        <p> Name</p>
                                     </p>
-                                    <p>{frequency}</p>
-                                    <p className='flex items-center gap-.5'>
-                                        <img src='/icons/Naira.svg' alt='' />
-                                        <span>{price}</span>
-                                    </p>
-                                    <p>{status}</p>
-                                    <div className='relative'>
-                                        <label
-                                            className='font-semibold capitalize cursor-pointer flex items-center gap-2 relative z-10'
-                                            htmlFor={i.toString()}
-                                            onClick={() =>
-                                                setToggleDropDown((prev) => {
-                                                    return {
-                                                        isDropDownOpen:
-                                                            !prev.isDropDownOpen,
-                                                        index: i,
-                                                    }
-                                                })
-                                            }
-                                        >
-                                            <span className='text-color-primary'>
-                                                <img
-                                                    src='/icons/admins/threeDots.svg'
-                                                    alt=''
-                                                />
-                                            </span>
-                                        </label>
-                                        <input
-                                            type='radio'
-                                            name='dropdown'
-                                            className='hidden'
-                                            id={i.toString()}
-                                            onChange={(e) =>
-                                                dropDownHandler(e, i)
-                                            }
-                                        />
+                                    <p>Gender</p>
+                                    <p>Phone Number</p>
+                                    <p>joined Date</p>
+                                    <p>Status</p>
+                                    <p>Actions</p>
+                                </div>
 
-                                        {isDropDownOpen && index === i && (
-                                            <div className='absolute top-0 translate-x-[5rem] border border-color-primary-light w-[10rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
-                                                {actions.map((item, index) => (
-                                                    <p
-                                                        className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
-                                                        key={index + i}
+                                <div className='grid gap-8 mt-8 p-8'>
+                                    {slicedPages &&
+                                        slicedPages?.length > 0 &&
+                                        React.Children.toArray(
+                                            slicedPages[paginate.index].map(
+                                                (
+                                                    {
+                                                        id,
+                                                        user: {
+                                                            phone,
+
+                                                            gender,
+                                                            name,
+                                                            created_at,
+                                                            status,
+                                                            imgUrl,
+                                                        },
+                                                    },
+                                                    i
+                                                ) => {
+                                                    const {
+                                                        isDropDownOpen,
+                                                        index,
+                                                    } = toggleDropDown
+                                                    return (
+                                                        <div className='grid justify-between border-b grid-cols-6 items-center gap-8 text-[1.6rem] py-4 table__ellipsis'>
+                                                            <div className='flex items-center gap-4  '>
+                                                                <input
+                                                                    type='checkbox'
+                                                                    className='cursor-pointer'
+                                                                />
+
+                                                                <div className='flex items-center gap-2'>
+                                                                    {imgUrl && (
+                                                                        <img
+                                                                            src={
+                                                                                imgUrl
+                                                                            }
+                                                                            alt=''
+                                                                            className='w-[3.5rem] h-[h-3.5rem] rounded-full object-cover'
+                                                                        />
+                                                                    )}
+
+                                                                    <p className='min-w-[30rem] overflow-hidden text-ellipsis whitespace-nowrap'>
+                                                                        {name}
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                            <p>{gender}</p>
+                                                            <p>{phone}</p>
+                                                            <p>
+                                                                {new Date(
+                                                                    created_at
+                                                                )
+                                                                    .toLocaleDateString()
+                                                                    .replace(
+                                                                        /\//g,
+                                                                        '-'
+                                                                    )}
+                                                            </p>
+
+                                                            <p>
+                                                                {status ===
+                                                                'Active' ? (
+                                                                    <span className='text-green-600'>
+                                                                        {status}
+                                                                    </span>
+                                                                ) : (
+                                                                    <span className='text-red-500'>
+                                                                        {status}
+                                                                    </span>
+                                                                )}
+                                                            </p>
+                                                            <div className='relative'>
+                                                                <label
+                                                                    className='font-semibold capitalize cursor-pointer flex items-center gap-2 relative z-10'
+                                                                    htmlFor={i.toString()}
+                                                                    onClick={() =>
+                                                                        setToggleDropDown(
+                                                                            (
+                                                                                prev
+                                                                            ) => {
+                                                                                return {
+                                                                                    isDropDownOpen:
+                                                                                        !prev.isDropDownOpen,
+                                                                                    index: i,
+                                                                                }
+                                                                            }
+                                                                        )
+                                                                    }
+                                                                >
+                                                                    <span className='text-color-primary'>
+                                                                        <img
+                                                                            src='/icons/admins/threeDots.svg'
+                                                                            alt=''
+                                                                        />
+                                                                    </span>
+                                                                </label>
+                                                                <input
+                                                                    type='radio'
+                                                                    name='dropdown'
+                                                                    className='hidden'
+                                                                    id={i.toString()}
+                                                                    onChange={(
+                                                                        e
+                                                                    ) =>
+                                                                        dropDownHandler(
+                                                                            e,
+                                                                            i
+                                                                        )
+                                                                    }
+                                                                />
+
+                                                                {isDropDownOpen &&
+                                                                    index ===
+                                                                        i && (
+                                                                        <div className='absolute top-0 translate-x-[4rem] border border-color-primary-light w-[10rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
+                                                                            {actions.map(
+                                                                                (
+                                                                                    item,
+                                                                                    index
+                                                                                ) => (
+                                                                                    <p
+                                                                                        className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
+                                                                                        key={
+                                                                                            index +
+                                                                                            i
+                                                                                        }
+                                                                                        onClick={() =>
+                                                                                            handleSelectedAction(
+                                                                                                item,
+                                                                                                id
+                                                                                            )
+                                                                                        }
+                                                                                    >
+                                                                                        {item ===
+                                                                                        'deactivate' ? (
+                                                                                            <span className='text-red-600'>
+                                                                                                {
+                                                                                                    item
+                                                                                                }
+                                                                                            </span>
+                                                                                        ) : (
+                                                                                            <span>
+                                                                                                {
+                                                                                                    item
+                                                                                                }
+                                                                                            </span>
+                                                                                        )}
+                                                                                    </p>
+                                                                                )
+                                                                            )}
+                                                                        </div>
+                                                                    )}
+                                                            </div>
+                                                        </div>
+                                                    )
+                                                }
+                                            )
+                                        )}
+                                </div>
+                            </div>
+                            <footer className='flex items-center p-4 mt-4 bg-color-white rounded-lg'>
+                                <div className='flex gap-8 items-center'>
+                                    <p>View</p>
+                                    <select
+                                        name=''
+                                        id=''
+                                        className='flex items-center border px-4 rounded-lg outline-none cursor-pointer'
+                                        onChange={handleItemsPerPage}
+                                    >
+                                        {itemsPerPageArr.map((item, index) => (
+                                            <option
+                                                value={item}
+                                                key={index}
+                                                selected={item === itemsPerPage}
+                                                className='capitalize cursor-pointer bg-white'
+                                            >
+                                                {item}
+                                            </option>
+                                        ))}
+                                    </select>
+                                    <p className='text'>List per page</p>
+                                </div>
+                                <ul className='flex items-center gap-5 ml-10'>
+                                    <HiOutlineChevronLeft
+                                        onClick={handlePrev}
+                                        className='cursor-pointer'
+                                    />
+
+                                    {slicedPages?.map((item, index) => {
+                                        return (
+                                            <li key={index}>
+                                                {index + 1 === currentPage ? (
+                                                    <span className='bg-color-primary text-white grid place-content-center w-[3rem] h-[3rem] cursor-pointer'>
+                                                        {index + 1}
+                                                    </span>
+                                                ) : (
+                                                    <span
+                                                        className='text-color-primary bg-white grid place-content-center border w-[3rem] h-[3rem] cursor-pointer'
                                                         onClick={(e) =>
-                                                            selectAction(
-                                                                e,
-                                                                item,
-                                                                i
-                                                            )
+                                                            jumpToPage(e, index)
                                                         }
                                                     >
-                                                        {item === 'Activate' ? (
-                                                            <span className='text-green-600'>
-                                                                {item}
-                                                            </span>
-                                                        ) : item ===
-                                                          'Delete' ? (
-                                                            <span className='text-red-600'>
-                                                                {item}
-                                                            </span>
-                                                        ) : (
-                                                            item
-                                                        )}
-                                                    </p>
-                                                ))}
-                                            </div>
-                                        )}
-                                    </div>
-                                </div>
-                            )
-                        }
+                                                        {index + 1}
+                                                    </span>
+                                                )}
+                                            </li>
+                                        )
+                                    })}
 
-                        // (
-                        //     <div>
-                        //         <div className='relative'>
-                        //             <div className='absolute w-full grid place-content-center'>
-                        //                 <CgSpinnerTwo className='animate-spin text-[#0660FE] text-4xl' />
-                        //             </div>
-                        //         </div>
-                        //     </div>
-                    )}
-                </div>
-            </div>
-            <footer className='flex items-center p-4 mt-4 bg-color-white rounded-lg'>
-                <div className='flex gap-8 items-center'>
-                    <p>View</p>
-                    <div className='flex items-center border px-4 rounded-lg'>
-                        <input
-                            type='text'
-                            className='w-8 outline-none border-none cursor-pointer '
-                            value={6}
-                            inputMode='numeric'
-                        />
-                        <GrDown className='text-[1.3rem]' />
+                                    <HiOutlineChevronRight
+                                        onClick={handleNext}
+                                        className='cursor-pointer'
+                                    />
+                                </ul>
+                            </footer>
+                        </div>
                     </div>
-                    <p className='text'>List per page</p>
-                </div>
-                <ul className='flex items-center gap-5 ml-10'>
-                    <HiOutlineChevronLeft />
-                    <li className='grid place-content-center border w-[3rem] h-[3rem] cursor-pointer'>
-                        1
-                    </li>
-                    <li className='grid place-content-center border w-[3rem] h-[3rem] cursor-pointer'>
-                        2
-                    </li>
-                    <li className='grid place-content-center border w-[3rem] h-[3rem] cursor-pointer'>
-                        3
-                    </li>
-                    <li className='grid place-content-center border w-[3rem] h-[3rem] cursor-pointer'>
-                        4
-                    </li>
-                    <li className='grid place-content-center w-[3rem] h-[3rem] cursor-pointer'>
-                        ....
-                    </li>
-                    <li className='grid place-content-center border w-[3rem] h-[3rem] cursor-pointer'>
-                        10
-                    </li>
-                    <HiOutlineChevronRight />
-                </ul>
-            </footer>
+                </>
+            ) : (
+                <section className='grid  place-content-center w-full h-full justify-items-center gap-4 bg-white rounded-lg'>
+                    <img src='/icons/admins/errorSvg.svg' alt='' />
+                    <p className='text'>
+                        Ooops you have not added any EstateManager yet
+                    </p>
+                    <button
+                        className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
+                        onClick={handlePathSwitch}
+                    >
+                        <span>
+                            <IoMdAdd />
+                        </span>{' '}
+                        Add EstateManager
+                    </button>
+                </section>
+            )}
         </div>
     )
 }
