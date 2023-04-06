@@ -32,57 +32,14 @@ export const RESIDENT_LISTS: ResidentPackageList[] = [
 const ResidentPackageList = () => {
     type Actions = 'view details' | 'activate' | 'deactivate' | 'delete'
 
-    // const [actions, setActions] = useState<Actions[]>([
-    //     'View Details',
-    //     'Activate',
-    //     'Deactivate',
-    //     'Delete',
-    // ])
-    // const [selectedAction, setSelectedAction] = useState<{
-    //     [key: string]: Actions
-    // }>(null as any)
-    // const [toggleDropDown, setToggleDropDown] = useState<{
-    //     isDropDownOpen: boolean
-    //     index: number | null
-    // }>({
-    //     isDropDownOpen: false,
-    //     index: null,
-    // })
-
-    // const dropDownHandler = (
-    //     e: React.ChangeEvent<HTMLInputElement>,
-    //     index: number
-    // ) => {
-    //     console.log('clicked')
-    //     setToggleDropDown((prev) => {
-    //         return {
-    //             isDropDownOpen: e.target.checked,
-    //             index: index,
-    //         }
-    //     })
-    // }
-
-    // const selectAction = (e: React.MouseEvent, item: string, index: number) => {
-    //     setSelectedAction((prev) => {
-    //         return {
-    //             ...prev,
-    //             [index]: item,
-    //         }
-    //     })
-    // }
-
-    // const handleAddPackage = () => {
-    //     //dispatch(setAdditionalResidentPath('addResidentUserPackage'))
-    // }
-
     const navigate = useNavigate()
     const axiosInstance = useAxios()
 
     const [sortBy, setSortBy] = useState<string | null>(null)
 
-    const [fetchedPackages, setFetchedPackages] = useState<ResidentPackageList[]>(
-        []
-    )
+    const [fetchedPackages, setFetchedPackages] = useState<
+        ResidentPackageList[]
+    >([])
 
     const fetchPackages = () => {
         return axiosInstance({
