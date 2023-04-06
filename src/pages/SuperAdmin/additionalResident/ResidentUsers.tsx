@@ -1,6 +1,6 @@
 import { useState, Fragment } from 'react'
-import ResidentUsersList from './ResidentUsersList'
-import ResidentUserHistory from './ResidentUserHistory'
+import ResidentPackageList from './ResidentPackageList'
+import ResidentPackageHistory from './ResidentPackageHistory'
 
 function ResidentUsers() {
     type SwitchRoute = 'list' | 'history'
@@ -13,8 +13,8 @@ function ResidentUsers() {
     const [currentPath, setCurrentPath] = useState<SwitchRoute>('list')
 
     const switchRoute = new Map([
-        ['list', <ResidentUsersList />],
-        ['history', <ResidentUserHistory />],
+        ['list', <ResidentPackageList />],
+        ['history', <ResidentPackageHistory />],
     ]) satisfies Map<SwitchRoute, JSX.Element>
 
     return (

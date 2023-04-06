@@ -7,7 +7,7 @@ import { ToastContainer, toast } from 'react-toastify'
 import useAxios from '../../../components/hooks/useAxios'
 import { Select } from '../../../components/SuperAdmin/UI/Select'
 
-export interface ResidentUsersList {
+export interface ResidentPackageList {
     id: string
     user: {
         packageName: string
@@ -17,7 +17,7 @@ export interface ResidentUsersList {
     }
 }
 
-export const RESIDENT_LISTS: ResidentUsersList[] = [
+export const RESIDENT_LISTS: ResidentPackageList[] = [
     {
         id: '1',
         user: {
@@ -29,7 +29,7 @@ export const RESIDENT_LISTS: ResidentUsersList[] = [
     },
 ]
 
-const ResidentUsersList = () => {
+const ResidentPackageList = () => {
     type Actions = 'view details' | 'activate' | 'deactivate' | 'delete'
 
     // const [actions, setActions] = useState<Actions[]>([
@@ -80,7 +80,7 @@ const ResidentUsersList = () => {
 
     const [sortBy, setSortBy] = useState<string | null>(null)
 
-    const [fetchedPackages, setFetchedPackages] = useState<ResidentUsersList[]>(
+    const [fetchedPackages, setFetchedPackages] = useState<ResidentPackageList[]>(
         []
     )
 
@@ -139,7 +139,7 @@ const ResidentUsersList = () => {
         currentPage: number
         itemsPerPage: number
         totalPage: number
-        slicedPages: ResidentUsersList[][] | null
+        slicedPages: ResidentPackageList[][] | null
     }
 
     const itemsPerPageArr = [2, 4, 6, 8]
@@ -157,7 +157,7 @@ const ResidentUsersList = () => {
     const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
         const item = parseInt(e.target.value)
 
-        const slicedPages: ResidentUsersList[][] = []
+        const slicedPages: ResidentPackageList[][] = []
         for (let i = 0; i < fetchedPackages?.length; i += item) {
             slicedPages.push(fetchedPackages?.slice(i, i + item))
         }
@@ -175,7 +175,7 @@ const ResidentUsersList = () => {
     }
 
     useEffect(() => {
-        const slicedPages: ResidentUsersList[][] = []
+        const slicedPages: ResidentPackageList[][] = []
         for (
             let i = 0;
             i < fetchedPackages?.length;
@@ -262,7 +262,7 @@ const ResidentUsersList = () => {
     const deactivateHandler = () => {
         closeDialog()
 
-        toast('EstateManager deactivated successfully', {
+        toast('Package deactivated successfully', {
             type: 'success',
             className: 'bg-green-100 text-green-600 text-[1.4rem]',
         })
@@ -359,7 +359,7 @@ const ResidentUsersList = () => {
                                 <span>
                                     <IoMdAdd />
                                 </span>{' '}
-                                <p>Add EstateManager</p>
+                                <p>Add Package</p>
                             </button>
                         </div>
 
@@ -583,7 +583,7 @@ const ResidentUsersList = () => {
                 <section className='grid  place-content-center w-full h-full justify-items-center gap-4 bg-white rounded-lg'>
                     <img src='/icons/admins/errorSvg.svg' alt='' />
                     <p className='text'>
-                        Ooops you have not added any EstateManager yet
+                        Ooops you have not added any Package yet
                     </p>
                     <button
                         className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
@@ -592,7 +592,7 @@ const ResidentUsersList = () => {
                         <span>
                             <IoMdAdd />
                         </span>{' '}
-                        Add EstateManager
+                        Add Package
                     </button>
                 </section>
             )}
@@ -600,4 +600,4 @@ const ResidentUsersList = () => {
     )
 }
 
-export default ResidentUsersList
+export default ResidentPackageList
