@@ -17,7 +17,6 @@ export interface ResidentUsersList {
     }
 }
 
-
 export const RESIDENT_LISTS: ResidentUsersList[] = [
     {
         id: '1',
@@ -81,11 +80,11 @@ const ResidentUsersList = () => {
 
     const [sortBy, setSortBy] = useState<string | null>(null)
 
-    const [fetchedEstateManagers, setFetchedEstateManagers] = useState<
-        ResidentUsersList[]
-    >([])
+    const [fetchedPackages, setFetchedPackages] = useState<ResidentUsersList[]>(
+        []
+    )
 
-    const fetchEstateManagers = () => {
+    const fetchPackages = () => {
         return axiosInstance({
             // url: '/admin/get/all',
             url: '/manager/get/all',
@@ -93,21 +92,26 @@ const ResidentUsersList = () => {
     }
 
     const {
-        isLoading: get_estateManagers_loading,
-        data: get_estateManagers_response,
-        isError: get_estateManagers_isError,
-        error: get_estateManagers_error,
-        // isFetching: get_estateManagers_fetching,
-    } = useQuery('estateManagers', fetchEstateManagers) as any
+        isLoading: get_packages_loading,
+        data: get_packages_response,
+        isError: get_packages_isError,
+        error: get_packages_error,
+        // isFetching: get_packages_fetching,
+    } = useQuery('packages', fetchPackages) as any
 
     useEffect(() => {
-        if (get_estateManagers_response?.success) {
-            setFetchedEstateManagers(get_estateManagers_response.data.data)
-            console.log(get_estateManagers_response.data, 'fetchedData')
+        if (get_packages_response?.success) {
+            setFetchedPackages(get_packages_response.data.data)
+            console.log(get_packages_response.data, 'fetchedData')
         }
-    }, [get_estateManagers_response])
+    }, [get_packages_response])
 
-    const actions = ['view details', 'activate', 'deactivate', 'delete'] satisfies Actions[]
+    const actions = [
+        'view details',
+        'activate',
+        'deactivate',
+        'delete',
+    ] satisfies Actions[]
 
     const [toggleDropDown, setToggleDropDown] = useState<{
         isDropDownOpen: boolean
@@ -145,7 +149,7 @@ const ResidentUsersList = () => {
         currentPage: 1,
         itemsPerPage: perPage,
 
-        totalPage: Math.ceil(fetchedEstateManagers?.length / perPage),
+        totalPage: Math.ceil(fetchedPackages?.length / perPage),
         slicedPages: null,
     })
 
@@ -153,8 +157,8 @@ const ResidentUsersList = () => {
         const item = parseInt(e.target.value)
 
         const slicedPages: ResidentUsersList[][] = []
-        for (let i = 0; i < fetchedEstateManagers?.length; i += item) {
-            slicedPages.push(fetchedEstateManagers?.slice(i, i + item))
+        for (let i = 0; i < fetchedPackages?.length; i += item) {
+            slicedPages.push(fetchedPackages?.slice(i, i + item))
         }
 
         setPaginate((prev) => {
@@ -164,7 +168,7 @@ const ResidentUsersList = () => {
                 index: 0,
                 currentPage: 1,
                 slicedPages,
-                totalPage: Math.ceil(fetchedEstateManagers?.length / item),
+                totalPage: Math.ceil(fetchedPackages?.length / item),
             }
         })
     }
@@ -173,11 +177,11 @@ const ResidentUsersList = () => {
         const slicedPages: ResidentUsersList[][] = []
         for (
             let i = 0;
-            i < fetchedEstateManagers?.length;
+            i < fetchedPackages?.length;
             i += paginate.itemsPerPage
         ) {
             slicedPages.push(
-                fetchedEstateManagers?.slice(i, i + paginate.itemsPerPage)
+                fetchedPackages?.slice(i, i + paginate.itemsPerPage)
             )
         }
 
@@ -187,7 +191,7 @@ const ResidentUsersList = () => {
                 slicedPages,
             }
         })
-    }, [fetchedEstateManagers])
+    }, [fetchedPackages])
 
     const handleNext = () => {
         if (paginate.currentPage === paginate.totalPage) return
@@ -246,7 +250,7 @@ const ResidentUsersList = () => {
         })
 
         //  if (item === 'view details') {
-        //      navigate(`/superAdmin/estateManagers/view/:${id}`)
+        //      navigate(`/superAdmin/packages/view/:${id}`)
         //  }
 
         //  if (item === 'deactivate') {
@@ -263,27 +267,25 @@ const ResidentUsersList = () => {
         })
     }
     console.log({
-        get_estateManagers_loading,
-        get_estateManagers_isError,
-        get_estateManagers_error,
-        get_estateManagers_response,
+        get_packages_loading,
+        get_packages_isError,
+        get_packages_error,
+        get_packages_response,
     })
 
-    if (get_estateManagers_loading) {
+    if (get_packages_loading) {
         return <p>Loading...</p>
     }
 
-    if (get_estateManagers_isError) {
-        return <p>{get_estateManagers_error.message}</p>
+    if (get_packages_isError) {
+        return <p>{get_packages_error.message}</p>
     }
 
     const handlePathSwitch = () => {
-        navigate('/superAdmin/estateManagers/add')
+        navigate('/superAdmin/packages/add')
     }
 
-    const fetched = get_estateManagers_response.data.data
-
-    console.log({ fetched })
+    const fetched = get_packages_response.data.data
 
     return (
         <div className='rounded-lg mt-[3rem] h-[80vh]'>
@@ -303,7 +305,7 @@ const ResidentUsersList = () => {
                                 />
                                 <p>
                                     Are you sure you want to deactivate this
-                                    admin?
+                                    Package?
                                 </p>
 
                                 <div className='flex w-full justify-center gap-8'>
@@ -327,8 +329,7 @@ const ResidentUsersList = () => {
                         <div className='grid text-[1.6rem]'>
                             <div className='flex w-full items-center gap-12 p-10 bg-white rounded-lg'>
                                 <p className=' font-Satoshi-Medium'>
-                                    EstateManager List{' '}
-                                    <span>({fetched.length})</span>
+                                    Package List <span>({fetched.length})</span>
                                 </p>
                                 <div className='relative flex items-center'>
                                     <img
@@ -363,7 +364,7 @@ const ResidentUsersList = () => {
 
                             <div className='grid bg-white'>
                                 <div
-                                    className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-6 items-center gap-8'
+                                    className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-5 items-center gap-8'
                                     style={{
                                         fontSize: '1.4rem',
                                     }}
@@ -373,11 +374,10 @@ const ResidentUsersList = () => {
                                             type='checkbox'
                                             className='cursor-pointer'
                                         />
-                                        <p> Name</p>
+                                        <p>Package Name</p>
                                     </p>
-                                    <p>Gender</p>
-                                    <p>Phone Number</p>
-                                    <p>joined Date</p>
+                                    <p>Frequency</p>
+                                    <p>Price</p>
                                     <p>Status</p>
                                     <p>Actions</p>
                                 </div>
@@ -394,7 +394,7 @@ const ResidentUsersList = () => {
                                                             packageName,
                                                             frequency,
                                                             price,
-                                                            status
+                                                            status,
                                                         },
                                                     },
                                                     i
@@ -404,7 +404,7 @@ const ResidentUsersList = () => {
                                                         index,
                                                     } = toggleDropDown
                                                     return (
-                                                        <div className='grid justify-between border-b grid-cols-6 items-center gap-8 text-[1.6rem] py-4 table__ellipsis'>
+                                                        <div className='grid justify-between border-b grid-cols-5 items-center gap-8 text-[1.6rem] py-4 table__ellipsis'>
                                                             <div className='flex items-center gap-4  '>
                                                                 <input
                                                                     type='checkbox'
