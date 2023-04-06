@@ -383,6 +383,7 @@ const ResidentPackageHistory = () => {
 
                                                             <p>{packageName}</p>
                                                         </div>
+                                                        <p>{userName}</p>
                                                         <p>{frequency}</p>
                                                         <div className='flex items-center'>
                                                             <img
@@ -390,9 +391,11 @@ const ResidentPackageHistory = () => {
                                                                 alt='naira'
                                                             />
 
-                                                            <p>{price}</p>
+                                                            <p>{amount}</p>
                                                         </div>
-
+                                                    <p>{startDate}</p>
+                                                    <p>{endDate}</p>
+                                                    <p>{transactionType}</p>
                                                         <p>
                                                             {status ===
                                                             'active' ? (
