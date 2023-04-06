@@ -18,7 +18,7 @@ export type Actions = 'View Details' | 'Activate' | 'Deactivate' | 'Delete'
 export const RESIDENT_LISTS: IResidentUsersList[] = [
     {
         id: '1',
-        packageName: 'Gold',
+        packageName: 'list',
         frequency: 'Monthly',
         price: 6000,
         status: 'Active',

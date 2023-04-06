@@ -17,12 +17,11 @@ export interface IResidentUserHistory {
     status: 'active' | 'inactive'
 }
 
-type SortBy = 'A-Z' | 'date'
 
 export const RESIDENT_HISTORY: IResidentUserHistory[] = [
     {
         id: '1',
-        packageName: 'Gold',
+        packageName: 'history',
         userName: 'John Doe',
         frequency: 'Monthly',
         amount: 1000,
