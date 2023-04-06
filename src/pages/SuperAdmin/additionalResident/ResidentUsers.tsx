@@ -124,13 +124,16 @@ export const RESIDENT_HISTORY: IResidentUserHistory[] = [
 ]
 
 function ResidentUsers() {
+    type SwitchRoute = 'list' | 'history'
+    const routes = new Set<SwitchRoute>(['list', 'history'])
+
     const [fetchedResidentUsers, setFetchedResidentUsers] = useState<
         IResidentUsersList[] | null
     >(null)
     const [fetchedResidentUserHistory, setFetchedResidentUserHistory] =
         useState<IResidentUserHistory[] | null>(null)
 
-    const [currentPage, setCurrentPage] = useState(1)
+    const [currentRoute, setCurrentRoute] = useState<SwitchRoute>('list')
 
     useEffect(() => {
         const fetchData = async () => {
@@ -142,30 +145,10 @@ function ResidentUsers() {
         fetchData()
     }, [])
 
-    const handlePathSwitch = (pageNum: number) => {
-        switch (pageNum) {
-            case 1:
-                return (
-                    <ResidentUsersList
-                        fetchedResidentUsers={fetchedResidentUsers ?? []}
-                    />
-                )
-            case 2:
-                return (
-                    <ResidentUserHistory
-                        fetchedResidentUserHistory={
-                            fetchedResidentUserHistory ?? []
-                        }
-                    />
-                )
-            default:
-                return (
-                    <ResidentUsersList
-                        fetchedResidentUsers={fetchedResidentUsers ?? []}
-                    />
-                )
-        }
-    }
+    const switchRoute = new Map([
+        ['list', <ResidentUsersList fetchedResidentUsers={[]} />],
+        ['history', <ResidentUserHistory fetchedResidentUserHistory={[]} />],
+    ]) satisfies Map<SwitchRoute, JSX.Element>
 
     return (
         <div>
