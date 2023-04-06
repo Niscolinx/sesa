@@ -17,7 +17,6 @@ export interface ResidentUsersList {
     }
 }
 
-export type Actions = 'View Details' | 'Activate' | 'Deactivate' | 'Delete'
 
 export const RESIDENT_LISTS: ResidentUsersList[] = [
     {
@@ -26,7 +25,7 @@ export const RESIDENT_LISTS: ResidentUsersList[] = [
             packageName: 'list',
             frequency: 'Monthly',
             price: 6000,
-            status: 'Active',
+            status: 'active',
         },
     },
 ]
@@ -108,7 +107,7 @@ const ResidentUsersList = () => {
         }
     }, [get_estateManagers_response])
 
-    const actions = ['view details', 'deactivate'] satisfies Actions[]
+    const actions = ['view details', 'activate', 'deactivate', 'delete'] satisfies Actions[]
 
     const [toggleDropDown, setToggleDropDown] = useState<{
         isDropDownOpen: boolean
@@ -392,13 +391,10 @@ const ResidentUsersList = () => {
                                                     {
                                                         id,
                                                         user: {
-                                                            phone,
-
-                                                            gender,
-                                                            name,
-                                                            created_at,
-                                                            status,
-                                                            imgUrl,
+                                                            packageName,
+                                                            frequency,
+                                                            price,
+                                                            status
                                                         },
                                                     },
                                                     i
@@ -415,38 +411,25 @@ const ResidentUsersList = () => {
                                                                     className='cursor-pointer'
                                                                 />
 
-                                                                <div className='flex items-center gap-2'>
-                                                                    {imgUrl && (
-                                                                        <img
-                                                                            src={
-                                                                                imgUrl
-                                                                            }
-                                                                            alt=''
-                                                                            className='w-[3.5rem] h-[h-3.5rem] rounded-full object-cover'
-                                                                        />
-                                                                    )}
-
-                                                                    <p className='min-w-[30rem] overflow-hidden text-ellipsis whitespace-nowrap'>
-                                                                        {name}
-                                                                    </p>
-                                                                </div>
+                                                                <p>
+                                                                    {
+                                                                        packageName
+                                                                    }
+                                                                </p>
                                                             </div>
-                                                            <p>{gender}</p>
-                                                            <p>{phone}</p>
-                                                            <p>
-                                                                {new Date(
-                                                                    created_at
-                                                                )
-                                                                    .toLocaleDateString()
-                                                                    .replace(
-                                                                        /\//g,
-                                                                        '-'
-                                                                    )}
-                                                            </p>
+                                                            <p>{frequency}</p>
+                                                            <div className='flex items-center'>
+                                                                <img
+                                                                    src='/icons/Naira.svg'
+                                                                    alt='naira'
+                                                                />
+
+                                                                <p>{price}</p>
+                                                            </div>
 
                                                             <p>
                                                                 {status ===
-                                                                'Active' ? (
+                                                                'active' ? (
                                                                     <span className='text-green-600'>
                                                                         {status}
                                                                     </span>

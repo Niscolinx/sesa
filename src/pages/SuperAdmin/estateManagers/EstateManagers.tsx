@@ -251,7 +251,7 @@ function EstateManagers() {
                                     />
                                     <p>
                                         Are you sure you want to deactivate this
-                                        admin?
+                                        Estate Manager?
                                     </p>
 
                                     <div className='flex w-full justify-center gap-8'>
