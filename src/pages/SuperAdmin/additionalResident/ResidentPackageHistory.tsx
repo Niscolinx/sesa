@@ -30,50 +30,8 @@ export const RESIDENT_LISTS: ResidentPackageHistory[] = [
 ]
 
 const ResidentPackageHistory = () => {
-    type Actions = 'view details' | 'activate' | 'deactivate' | 'delete'
+    type Actions = 'view details'  | 'deactivate' 
 
-    // const [actions, setActions] = useState<Actions[]>([
-    //     'View Details',
-    //     'Activate',
-    //     'Deactivate',
-    //     'Delete',
-    // ])
-    // const [selectedAction, setSelectedAction] = useState<{
-    //     [key: string]: Actions
-    // }>(null as any)
-    // const [toggleDropDown, setToggleDropDown] = useState<{
-    //     isDropDownOpen: boolean
-    //     index: number | null
-    // }>({
-    //     isDropDownOpen: false,
-    //     index: null,
-    // })
-
-    // const dropDownHandler = (
-    //     e: React.ChangeEvent<HTMLInputElement>,
-    //     index: number
-    // ) => {
-    //     console.log('clicked')
-    //     setToggleDropDown((prev) => {
-    //         return {
-    //             isDropDownOpen: e.target.checked,
-    //             index: index,
-    //         }
-    //     })
-    // }
-
-    // const selectAction = (e: React.MouseEvent, item: string, index: number) => {
-    //     setSelectedAction((prev) => {
-    //         return {
-    //             ...prev,
-    //             [index]: item,
-    //         }
-    //     })
-    // }
-
-    // const handleAddPackage = () => {
-    //     //dispatch(setAdditionalResidentPath('addResidentUserPackage'))
-    // }
 
     const navigate = useNavigate()
     const axiosInstance = useAxios()
