@@ -11,9 +11,13 @@ export interface ResidentPackageHistory {
     id: string
     user: {
         packageName: string
+        userName: string
         frequency: string
-        price: number
-        status: string
+        amount: number
+        startDate: string
+        endDate: string
+        transactionType: 'purchase' | 'renewal'
+        status: 'active' | 'inactive'
     }
 }
 
@@ -22,8 +26,12 @@ export const RESIDENT_LISTS: ResidentPackageHistory[] = [
         id: '1',
         user: {
             packageName: 'Gold',
+            userName: 'John Doe',
             frequency: 'Monthly',
-            price: 6000,
+            amount: 1000,
+            startDate: '2021-01-01',
+            endDate: '2021-01-31',
+            transactionType: 'purchase',
             status: 'active',
         },
     },
@@ -282,7 +290,8 @@ const ResidentPackageHistory = () => {
                     <div className='grid text-[1.6rem]'>
                         <div className='flex w-full items-center gap-12 p-10 bg-white rounded-lg'>
                             <p className=' font-Satoshi-Medium'>
-                                Package Purchase History <span>({fetched.length})</span>
+                                Package Purchase History{' '}
+                                <span>({fetched.length})</span>
                             </p>
                             <div className='relative flex items-center'>
                                 <img
@@ -329,8 +338,12 @@ const ResidentPackageHistory = () => {
                                     />
                                     <p>Package Name</p>
                                 </p>
+                                <p>User Name</p>
                                 <p>Frequency</p>
-                                <p>Price</p>
+                                <p>Amount</p>
+                                <p>Start Date</p>
+                                <p>End Date</p>
+                                <p>Transaction Type</p>
                                 <p>Status</p>
                                 <p>Actions</p>
                             </div>
@@ -345,8 +358,12 @@ const ResidentPackageHistory = () => {
                                                     id,
                                                     user: {
                                                         packageName,
+                                                        userName,
                                                         frequency,
-                                                        price,
+                                                        amount,
+                                                        startDate,
+                                                        endDate,
+                                                        transactionType,
                                                         status,
                                                     },
                                                 },
