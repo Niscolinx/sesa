@@ -167,26 +167,16 @@ function ResidentUsers() {
                                 id={label + idx}
                                 className='hidden'
                                 onChange={() => setCurrentPath(path)}
-                                defaultChecked = {currentPath === 'list'}
+                                defaultChecked={currentPath === 'list'}
                             />
                             <label htmlFor={label + idx}>{label}</label>
                         </Fragment>
                     )
                 })}
-
-               
             </div>
             <div className='mt-8 grid gap-8'>
                 <section className='bg-color-white rounded-lg border min-w-[112rem] overflow-scroll'>
-                    {fetchedResidentUsers && fetchedResidentUsers.length > 0 ? (
-                        handlePathSwitch(currentPage)
-                    ) : (
-                        <section className='relative w-[70vw] h-[60vh] mx-auto grid'>
-                            <div className='absolute w-full h-full grid place-content-center'>
-                                <CgSpinnerTwo className='animate-spin text-color-green-light text-5xl' />
-                            </div>
-                        </section>
-                    )}
+                    {switchRoute.get(currentPath)}
                 </section>
             </div>
         </div>
