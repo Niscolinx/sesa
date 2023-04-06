@@ -35,7 +35,7 @@ function ResidentUsers() {
                                 id={label + idx}
                                 className='hidden'
                                 onChange={() => setCurrentPath(path)}
-                                defaultChecked={currentPath === 'list'}
+                                checked={currentPath === path}
                             />
                             <label htmlFor={label + idx}>{label}</label>
                         </Fragment>
