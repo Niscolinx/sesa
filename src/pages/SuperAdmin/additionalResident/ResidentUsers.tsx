@@ -150,8 +150,8 @@ function ResidentUsers() {
     }, [])
 
     const switchRoute = new Map([
-        ['list', <ResidentUsersList fetchedResidentUsers={[]} />],
-        ['history', <ResidentUserHistory fetchedResidentUserHistory={[]} />],
+        ['list', <ResidentUsersList  />],
+        ['history', <ResidentUserHistory />],
     ]) satisfies Map<SwitchRoute, JSX.Element>
 
     return (

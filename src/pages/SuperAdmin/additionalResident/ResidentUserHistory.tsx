@@ -18,9 +18,7 @@ export interface IResidentUserHistory {
 
 type SortBy = 'A-Z' | 'date'
 
-const ResidentUserHistory: FC<{
-    fetchedResidentUserHistory: IResidentUserHistory[]
-}> = ({ fetchedResidentUserHistory }) => {
+const ResidentUserHistory = () => {
     const navigate = useNavigate()
 
     const [actions, _] = useState<['View Details', 'Deactivate']>([

@@ -45,9 +45,7 @@ export const RESIDENT_LISTS: IResidentUsersList[] = [
     },
 ]
 
-const ResidentUsersList: FC<{
-    fetchedResidentUsers: IResidentUsersList[]
-}> = ({ fetchedResidentUsers }) => {
+const ResidentUsersList = () => {
     const dispatch = useAppDispatch()
 
     const [actions, setActions] = useState<Actions[]>([
