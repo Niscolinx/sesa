@@ -1,7 +1,6 @@
 import { useState, Fragment } from 'react'
-import ResidentUsersList from './ResidentUsersList';
-import ResidentUserHistory from './ResidentUserHistory';
-
+import ResidentUsersList from './ResidentUsersList'
+import ResidentUserHistory from './ResidentUserHistory'
 
 function ResidentUsers() {
     type SwitchRoute = 'list' | 'history'
@@ -38,11 +37,9 @@ function ResidentUsers() {
                     )
                 })}
             </div>
-            <div className='mt-8 grid gap-8 min-h-[60vh]'>
-                <section className='bg-color-white rounded-lg border min-w-[112rem] overflow-scroll'>
-                    {switchRoute.get(currentPath)}
-                </section>
-            </div>
+            <section className='bg-color-white rounded-lg border min-w-[112rem] overflow-scroll mt-8 min-h-[60vh]'>
+                {switchRoute.get(currentPath)}
+            </section>
         </>
     )
 }
