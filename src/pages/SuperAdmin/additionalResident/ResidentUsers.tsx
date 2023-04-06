@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Fragment } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
 import ResidentUserHistory, {
     IResidentUserHistory,
@@ -125,7 +125,11 @@ export const RESIDENT_HISTORY: IResidentUserHistory[] = [
 
 function ResidentUsers() {
     type SwitchRoute = 'list' | 'history'
-    const routes = new Set<SwitchRoute>(['list', 'history'])
+
+    const resident_paths = [
+        { path: 'list', label: 'Additional Resident Package' },
+        { path: 'history', label: 'Package purchase history' },
+    ] satisfies { path: SwitchRoute; label: string }[]
 
     const [fetchedResidentUsers, setFetchedResidentUsers] = useState<
         IResidentUsersList[] | null
@@ -133,7 +137,7 @@ function ResidentUsers() {
     const [fetchedResidentUserHistory, setFetchedResidentUserHistory] =
         useState<IResidentUserHistory[] | null>(null)
 
-    const [currentRoute, setCurrentRoute] = useState<SwitchRoute>('list')
+    const [currentPath, setCurrentPath] = useState<SwitchRoute>('list')
 
     useEffect(() => {
         const fetchData = async () => {
@@ -153,17 +157,24 @@ function ResidentUsers() {
     return (
         <div>
             <div className='estateDetail__radioBox'>
-                <input
-                    type='radio'
-                    name='report'
-                    id='additionalResidentUsr'
-                    className='hidden'
-                    onChange={() => setCurrentPage(1)}
-                    defaultChecked
-                />
-                <label htmlFor='additionalResidentUsr'>
-                    Additional Resident Package
-                </label>
+                {resident_paths.map((eachPath, idx) => {
+                    const {label, path} = eachPath
+                    return (
+                        <Fragment key={label + idx}>
+                            <input
+                                type='radio'
+                                name='report'
+                                id={label+idx}
+                                className='hidden'
+                                onChange={() => setCurrentPath(path)}
+                                defaultChecked
+                            />
+                            <label htmlFor={label+idx}>
+                                {label}
+                            </label>
+                        </Fragment>
+                    )
+                })}
 
                 <input
                     type='radio'
