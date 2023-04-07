@@ -12,6 +12,7 @@ import { TbCurrencyNaira } from 'react-icons/tb'
 
 import { useNavigate } from 'react-router-dom'
 import { useAppDispatch } from '../../../store/app/hooks'
+import useAxios from '../../../components/hooks/useAxios'
 
 type SecurityCompanyDetails = {
     companyName: string
@@ -74,11 +75,18 @@ export type Actions = 'View Details' | 'Activate' | 'Deactivate'
 
 function RenderedSecurityCompanies() {
     const navigate = useNavigate()
-    const dispatch = useAppDispatch()
+    const axiosInstance = useAxios()
 
     const [fetchedSecurityCompanies, setFetchedSecurityCompanies] = useState<
         SecurityCompany[] | null
     >([])
+
+    const fetchEstateManagers = () => {
+        return axiosInstance({
+            // url: '/admin/get/all',
+            url: '/manager/get/all',
+        })
+    }
 
     const [toggleDropDown, setToggleDropDown] = useState<{
         isDropDownOpen: boolean
