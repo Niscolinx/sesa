@@ -36,7 +36,7 @@ const AddResidentUserPackage = () => {
         'quarterly',
         'yearly',
     ] satisfies Frequency[]
-   
+
     const [selectedFrequency, setSelectedFrequency] = useState<string | null>(
         frequencyState[0]
     )
@@ -77,13 +77,7 @@ const AddResidentUserPackage = () => {
 
     const onSubmit = handleSubmit((data) => {
         const adminData = {
-            name: `${first_name} ${last_name}`,
-            gender: selectedGender,
-            dob,
-            email: email_address,
-            address: 'no 4 odeyim street',
-            phone: `+234${phone_number}`,
-            image: imageUrl?.name,
+            data,
         }
 
         mutate(adminData)
@@ -158,6 +152,7 @@ const AddResidentUserPackage = () => {
                 style={{
                     gridTemplateColumns: 'repeat(auto-fit, minmax(40rem, 1fr))',
                 }}
+                onSubmit={onSubmit}
             >
                 {formInputs.map((input, idx) => {
                     const { label, type, name, selectProps } = input
