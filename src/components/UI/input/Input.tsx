@@ -10,8 +10,9 @@ export interface SelectProps {
 interface Input {
     name: string
     type: string
-    register: any
+    register?: any
     formErrors: any
+    disabled?: boolean
     setValue: any
     options: any
     minLength?: number
@@ -27,6 +28,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
     register,
     isSelect,
     fullWidth,
+    disabled,
     select,
     formErrors,
     setValue,
@@ -73,8 +75,9 @@ const Input: FC<Partial<Input> & { label: string }> = ({
 
                         <input
                             id={label}
+                            disabled={disabled}
                             type={type}
-                            {...register(label, validationOptions)}
+                            {...register && register(label, validationOptions)}
                             className={` w-full ${
                                 formErrors[label] && 'border-red-500 '
                             }`}
