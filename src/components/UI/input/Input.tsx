@@ -14,7 +14,7 @@ interface Input {
     formErrors: any
     disabled?: boolean
     setValue: any
-    value?:any
+    value?: any
     options: any
     minLength?: number
     fullWidth: boolean
@@ -66,7 +66,9 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                     >
                         {name ?? label.replaceAll('_', ' ')}
                     </label>
-                    <div className={`relative flex items-center border border-color-grey p-4 rounded-lg w-full `}>
+                    <div
+                        className={`relative flex items-center border border-color-grey p-4 rounded-lg w-full `}
+                    >
                         {label.toLowerCase() === 'amount' && (
                             <img
                                 src='/icons/Naira.svg'
@@ -80,9 +82,12 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                             disabled={disabled}
                             type={type}
                             value={value}
-                            {...register && register(label, validationOptions)}
+                            {...(register &&
+                                register(label, validationOptions))}
                             className={` w-full disabled:opacity-50 disabled:cursor-not-allowed ${
-                               formErrors && formErrors[label] && 'border-red-500 '
+                                formErrors &&
+                                formErrors[label] &&
+                                'border-red-500 '
                             }`}
                             min={
                                 type === 'date' && label.indexOf('dob') !== 0
