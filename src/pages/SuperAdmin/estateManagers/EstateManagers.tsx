@@ -72,8 +72,7 @@ function EstateManagers() {
     } = useQuery('estateManagers', fetchEstateManagers, {}) as any
 
     useEffect(() => {
-        if(get_estateManagers_response){
-
+        if (get_estateManagers_response) {
             setFetchedEstateManagers(get_estateManagers_response.data.data)
         }
     }, [get_estateManagers_response])
@@ -238,12 +237,9 @@ function EstateManagers() {
         navigate('/superAdmin/estateManagers/add')
     }
 
-    
-
     const fetched = get_estateManagers_response?.data.data
 
     return (
-     
         <div>
             <div className='rounded-lg mt-[3rem] h-[80vh]'>
                 {fetched.length > 0 ? (
@@ -274,7 +270,9 @@ function EstateManagers() {
                                         </button>
                                         <button
                                             className='bg-red-500 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem] capitalize'
-                                            // onClick={}
+                                            onClick={() =>
+                                                deactivate_estateManager_mutation
+                                            }
                                         >
                                             {deactivate_estateManager_loading
                                                 ? 'Loading...'
