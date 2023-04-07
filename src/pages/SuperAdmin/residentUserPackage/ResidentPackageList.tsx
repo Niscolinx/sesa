@@ -53,7 +53,6 @@ const ResidentPackageList = () => {
         isError: get_packages_isError,
         error: get_packages_error,
         data: get_packages_response
-        // isFetching: get_packages_fetching,
     } = useQuery('packages', fetchPackages) as any
 
   
