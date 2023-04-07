@@ -199,8 +199,6 @@ const ResidentPackageList: FC<ResponseData> = ({ fetched }) => {
         }
     }
 
-
-
     const handlePathSwitch = () => {
         navigate('/superAdmin/resident-user-package/add')
     }

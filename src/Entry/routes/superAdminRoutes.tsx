@@ -78,7 +78,7 @@ const superAdminRoutes = (
             element={<AddResidentUserPackage />}
         />
         <Route
-            path='resident-user-package/view:Id'
+            path='resident-user-package/view/:Id'
             element={<ResidentUserPackageDetails />}
         />
 
