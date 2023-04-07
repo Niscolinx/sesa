@@ -53,8 +53,6 @@ function EstateManagers() {
     } = useMutation(postDeactivateEstateManager, {
         onSuccess: (data) => {
             if ((data as any).success as any) {
-                console.log({ data }, 'success')
-
                 closeDialog()
 
                 toast('Estate Manager deactivated successfully', {
@@ -247,14 +245,10 @@ function EstateManagers() {
         navigate('/superAdmin/estateManagers/add')
     }
 
-    const fetched = get_estateManagers_response.data.data
-
-    console.log({ fetched })
-
     return (
         <div>
             <div className='rounded-lg mt-[3rem] h-[80vh]'>
-                {fetched.length > 0 ? (
+                {fetchedEstateManagers.length > 0 ? (
                     <>
                         <ToastContainer />
                         <dialog className='dialog' ref={dialogRef}>
@@ -297,7 +291,9 @@ function EstateManagers() {
                                 <div className='flex w-full items-center gap-12 p-10 bg-white rounded-lg'>
                                     <p className=' font-Satoshi-Medium'>
                                         EstateManager List{' '}
-                                        <span>({fetched.length})</span>
+                                        <span>
+                                            ({fetchEstateManagers.length})
+                                        </span>
                                     </p>
                                     <div className='relative flex items-center'>
                                         <img

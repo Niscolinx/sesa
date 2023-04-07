@@ -58,6 +58,9 @@ function Admins() {
         isPreviousData,
     } = useQuery(['admin', pageNum], fetchAdmins, {
         keepPreviousData: true,
+        onSuccess: (response) => {
+            setFetchedAdmins(response.data.data)
+        },
     }) as any
 
     const {
@@ -65,12 +68,6 @@ function Admins() {
         data: post_deactivate_admin_response,
         isLoading: deactivate_admin_loading,
     } = useMutation(postDeactivateAdmin) as any
-
-    useEffect(() => {
-        if (get_admins_response?.success) {
-            setFetchedAdmins(get_admins_response.data.data)
-        }
-    }, [get_admins_response])
 
     const actions = ['view details', 'deactivate'] satisfies Actions[]
 
@@ -222,10 +219,9 @@ function Admins() {
 
     const deactivateHandler = () => {
         deactivate_admin_mutation()
-        if(post_deactivate_admin_response.success){
-
+        if (post_deactivate_admin_response.success) {
             closeDialog()
-            
+
             toast('Admin deactivated successfully', {
                 type: 'success',
                 className: 'bg-green-100 text-green-600 text-[1.4rem]',
@@ -274,7 +270,9 @@ function Admins() {
                                             className='bg-red-500 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem] capitalize'
                                             onClick={deactivateHandler}
                                         >
-                                            {deactivate_admin_loading ? 'Loading...' : 'deactivate'}
+                                            {deactivate_admin_loading
+                                                ? 'Loading...'
+                                                : 'deactivate'}
                                         </button>
                                     </div>
                                 </div>
