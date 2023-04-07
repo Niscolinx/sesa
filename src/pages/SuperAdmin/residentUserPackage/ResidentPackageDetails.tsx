@@ -1,18 +1,18 @@
 import Input, { SelectProps } from '../../../components/UI/input/Input'
 
-const AdditionalResidentDetails = () => {
-    interface Inputs {
-        package_name: string
-        buyer_name: string
-        amount: number
-        frequency: string
-        start_date: string
-        end_date: string
-        user_estate: string
-        transaction_type: string
-        phone_number: number
-        status: string
-    }
+const residentPackageDetails = () => {
+    // interface Inputs {
+    //     package_name: string
+    //     buyer_name: string
+    //     amount: number
+    //     frequency: string
+    //     start_date: string
+    //     end_date: string
+    //     user_estate: string
+    //     transaction_type: string
+    //     phone_number: number
+    //     status: string
+    // }
 
     type FormInputs = {
         label?: string
@@ -30,6 +30,7 @@ const AdditionalResidentDetails = () => {
         },
         {
             label: 'amount',
+            type: 'number'
         },
         {
             label: 'frequency',
@@ -48,6 +49,7 @@ const AdditionalResidentDetails = () => {
         },
         {
             label: 'phone_number',
+            type: 'number'
         },
         {
             label: 'status',
@@ -66,37 +68,20 @@ const AdditionalResidentDetails = () => {
             </div>
             <form>
                 <>
-                     {formInputs.map((input, idx) => {
-                            const { label, type } = input
-                            return (
-                                <Input
-                                    key={idx + label}
-                                    label={label}
-                                    register={register}
-                                    formErrors={formErrors}
-                                    type={type}
-                                    name={name}
-                                    isSelect={type === 'select'}
-                                    select={selectProps}
-                                />
-                            )
-                        })}
+                    {formInputs.map((input, idx) => {
+                        const { label, type } = input
+                        return (
+                            <Input
+                                key={idx + label}
+                                label={label}
+                                type={type}
+                            />
+                        )
+                    })}
 
-                        <ImageInput
-                            handlePicture={handlePicture}
-                            photoPreview={photoPreview}
-                        />
-                        <button
-                            className='btn estateManagers__btn'
-                            style={{ justifySelf: 'start' }}
-                        >
-                            <span>
-                                <IoMdAdd />
-                            </span>{' '}
-                            {isLoading ? 'Loading...' : 'Add'}
-                        </button>
-                    </>
-                </form>
+                   
+                </>
+            </form>
             <section className='grid text-[1.4rem] w-full py-10 gap-8 border-t mt-20'>
                 <h4 className='text-[1.6rem] font-semibold'>
                     Beneficiary Details
@@ -133,4 +118,4 @@ const AdditionalResidentDetails = () => {
     )
 }
 
-export default AdditionalResidentDetails
+export default residentPackageDetails

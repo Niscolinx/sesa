@@ -8,7 +8,7 @@ import EstateDetail from '../../pages/SuperAdmin/estates/EstateDetail'
 import EstateManagers from '../../pages/SuperAdmin/estateManagers/EstateManagers'
 import RolesAndPerm from '../../pages/SuperAdmin/rolesAndPerm/RolesAndPerm'
 import ResidentUserPackage from '../../pages/SuperAdmin/residentUserPackage/ResidentUserPackage'
-import ResidentUserPackageDetails from '../../pages/SuperAdmin/residentUserPackage/ResidentUserPackageDetails'
+import ResidentPackageDetails from '../../pages/SuperAdmin/residentUserPackage/ResidentPackageDetails'
 import SecurityCompany from '../../pages/SuperAdmin/securityCompany/SecurityCompany'
 import SecurityCompanyDetail from '../../pages/SuperAdmin/securityCompany/SecurityCompanyDetail'
 import Wallet from '../../pages/SuperAdmin/Wallet'
@@ -79,7 +79,7 @@ const superAdminRoutes = (
         />
         <Route
             path='resident-user-package/view/:Id'
-            element={<ResidentUserPackageDetails />}
+            element={<ResidentPackageDetails />}
         />
 
         <Route path='wallet' element={<Wallet />} />
