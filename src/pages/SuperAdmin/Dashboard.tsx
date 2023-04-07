@@ -4,13 +4,11 @@ import Sidebar from '../../components/SuperAdmin/dashboard/Sidebar'
 // import Header from '../../../../components/SuperAdmin/dashboard/Header'
 // import Sidebar from '../../components/SuperAdmin/dashboard/Sidebar'
 
-import Modal from '../../components/SuperAdmin/Modal'
 import BreadCrumb from '../../components/UI/BreadCrumb'
 
 function Dashboard() {
    
     return (
-        <Modal>
             <div className='dashboard'>
                 <Sidebar />
                 <div className='dashboard__container'>
@@ -26,7 +24,6 @@ function Dashboard() {
                     </div>
                 </div>
             </div>
-        </Modal>
     )
 }
 
