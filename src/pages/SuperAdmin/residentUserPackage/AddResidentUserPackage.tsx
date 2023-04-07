@@ -39,7 +39,7 @@ const AddResidentUserPackage = () => {
     ] satisfies Frequency[]
 
     const [selectedFrequency, setSelectedFrequency] = useState<string | null>(
-        null
+        'monthly'
     )
     const [responseMessage, setResponseMessage] =
         useState<ResponseMessage | null>(null)
@@ -148,12 +148,20 @@ const AddResidentUserPackage = () => {
                 </section>
             </dialog>
             <form className='grid gap-16' onSubmit={onSubmit}>
-                <div className='grid gap-16'
+                <div
+                    className='grid gap-16'
                     style={{
                         gridTemplateColumns:
                             'repeat(auto-fit, minmax(40rem, 1fr))',
                     }}
                 >
+                    {responseMessage?.displayMessage && (
+                        <p className='text-center'>
+                            <span className={responseMessage?.className}>
+                                {responseMessage?.displayMessage}
+                            </span>
+                        </p>
+                    )}
                     {formInputs.map((input, idx) => {
                         const { label, type, selectProps, minLength } = input
                         return (

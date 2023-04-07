@@ -253,10 +253,8 @@ function PaymentForm({ props }: PaymentForm) {
                   }, 0)
                 : 0
 
-        console.log({ amount }, typeof reducedAmount)
         const balance = parseInt(amount.split(',').join('')) - reducedAmount
 
-        console.log({ balance })
 
      
 
