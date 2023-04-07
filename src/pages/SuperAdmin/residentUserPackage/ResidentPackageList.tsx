@@ -239,10 +239,11 @@ const ResidentPackageList = () => {
         navigate('/superAdmin/resident-user-package/add')
     }
 
+    const fetched = get_packages_response?.data.data
 
     return (
         <>
-            {fetchedPackages.length > 0 ? (
+            {fetched.length > 0 ? (
                 <>
                     <ToastContainer />
                     <dialog className='dialog' ref={dialogRef}>
