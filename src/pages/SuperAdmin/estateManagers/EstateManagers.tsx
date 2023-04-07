@@ -27,7 +27,7 @@ function EstateManagers() {
     const axiosInstance = useAxios()
 
     const [sortBy, setSortBy] = useState<string | null>(null)
-
+    const [estateManagerId, setEstateManagerId] = useState('')
     const [fetchedEstateManagers, setFetchedEstateManagers] = useState<
         EstateManager[]
     >([])
