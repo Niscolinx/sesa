@@ -1,18 +1,34 @@
 import { Fragment, useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
-import { useLocation } from 'react-router'
-import ResidentUsers from './ResidentUserPackages'
 import ResidentPackageHistory from './ResidentPackageHistory'
 import ResidentPackageList from './ResidentPackageList'
+import useAxios from '../../../components/hooks/useAxios'
+import { useQuery } from 'react-query'
+import { useNavigate } from 'react-router'
 
 function AdditionalResident() {
-    const navigate = useLocation()
-    const [additionalResident, setAdditionalResident] = useState(false)
-
-    const handleAddEstate = () => {
-        setAdditionalResident(true)
-    }
     type SwitchRoute = 'list' | 'history'
+    const axiosInstance = useAxios()
+    const navigate = useNavigate()
+
+   const handlePathSwitch = () => {
+    navigate('/superAdmin/resident-user-package/add')
+   }
+
+     const fetchPackages = () => {
+         return axiosInstance({
+             // url: '/admin/get/all',
+             url: '/manager/get/all',
+         })
+     }
+
+     const {
+         isLoading: get_packages_loading,
+         data: get_packages_response,
+         isError: get_packages_isError,
+         error: get_packages_error,
+         // isFetching: get_packages_fetching,
+     } = useQuery('packages', fetchPackages) as any
 
     const resident_paths = [
         { path: 'list', label: 'Additional Resident Package' },
@@ -26,10 +42,12 @@ function AdditionalResident() {
         ['history', <ResidentPackageHistory />],
     ]) satisfies Map<SwitchRoute, JSX.Element>
 
+    const fetched = get_packages_response.data.data
+
     return (
         <div>
             <div className='rounded-lg mt-[3rem] h-[80vh]'>
-                {additionalResident ? (
+                {fetched.length > 0 ? (
                     <>
                         <div className='estateDetail__radioBox capitalize'>
                             {resident_paths.map((eachPath, idx) => {
@@ -65,7 +83,7 @@ function AdditionalResident() {
                         </p>
                         <button
                             className='bg-color-blue-1 text-white flex gap-2 items-center rounded-lg justify-self-center py-4 px-16 text-[1.6rem]'
-                            onClick={handleAddEstate}
+                            onClick={handlePathSwitch}
                         >
                             <span>
                                 <IoMdAdd />
