@@ -60,7 +60,6 @@ const AddResidentUserPackage = () => {
     }
     const {
         mutate,
-        data: response_data,
         isLoading,
     } = useMutation(postPackage, {
         onSuccess: () => {

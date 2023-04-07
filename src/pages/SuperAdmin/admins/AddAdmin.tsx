@@ -55,25 +55,20 @@ const AddAdmin = () => {
         })
 
     }
-    const {
-        mutate,
-        data: response_data,
-        isLoading,
-        isError,
-        error: response_error,
-    } = useMutation(postAdmin) as any
-
-    useEffect(() => {
-        if (!isError && response_data?.success) {
+    const { mutate, isLoading } = useMutation(postAdmin, {
+        onSuccess: () => {
             handleOpen()
-        } else {
+        },
+        onError: (err: any) => {
+            console.log({ err })
             setResponseMessage({
                 className: 'text-red-600',
-                displayMessage: response_error?.response.data.message,
+                displayMessage: err?.response.data.message,
             })
-        }
+        },
+    }) as any
 
-    }, [response_data, response_error])
+   
 
     const onSubmit = handleSubmit((data) => {
         const {
