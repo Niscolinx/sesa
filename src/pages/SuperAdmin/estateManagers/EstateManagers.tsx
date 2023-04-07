@@ -38,17 +38,17 @@ function EstateManagers() {
             url: '/manager/get/all',
         })
     }
-     const postDeactivateEstateManager = () => {
-         return axiosInstance({
-             url: '/change/user/status',
-             method: 'post',
-             data: { user_id: estateManagerId },
-         })
-     }
+    const postDeactivateEstateManager = () => {
+        return axiosInstance({
+            url: '/change/user/status',
+            method: 'post',
+            data: { user_id: estateManagerId },
+        })
+    }
 
     const {
         mutate: deactivate_estateManager_mutation,
-        data: post_deactivate_estateManager_response,
+        data: deactivate_estateManager_response,
         isLoading: deactivate_estateManager_loading,
     } = useMutation(postDeactivateEstateManager) as any
 
@@ -199,7 +199,7 @@ function EstateManagers() {
 
     const deactivateHandler = () => {
         deactivate_estateManager_mutation()
-        if (post_deactivate_estateManager_response.success) {
+        if (deactivate_estateManager_response.success) {
             closeDialog()
 
             toast('Estate Manager deactivated successfully', {
@@ -280,10 +280,12 @@ function EstateManagers() {
                                             Cancel
                                         </button>
                                         <button
-                                            className='bg-red-500 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
+                                            className='bg-red-500 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem] capitalize'
                                             onClick={deactivateHandler}
                                         >
-                                            Deactivate
+                                            {deactivate_estateManager_loading
+                                                ? 'Loading...'
+                                                : 'deactivate'}
                                         </button>
                                     </div>
                                 </div>
