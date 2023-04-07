@@ -388,6 +388,13 @@ const ResidentPackageList: FC<ResponseData> = ({ fetched }) => {
                                                                                         item
                                                                                     }
                                                                                 </span>
+                                                                            ) : item ===
+                                                                              'activate' ? (
+                                                                                <span className='text-green-600'>
+                                                                                    {
+                                                                                        item
+                                                                                    }
+                                                                                </span>
                                                                             ) : (
                                                                                 <span>
                                                                                     {
