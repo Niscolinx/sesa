@@ -143,27 +143,28 @@ const AddResidentUserPackage = () => {
                     </div>
                 </section>
             </dialog>
-            <form
-                className='grid max-w-[65vw] gap-16'
-                style={{
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(40rem, 1fr))',
-                }}
-                onSubmit={onSubmit}
-            >
-                {formInputs.map((input, idx) => {
-                    const { label, type, selectProps } = input
-                    return (
-                        <Input
-                            key={idx + label}
-                            label={label}
-                            register={register}
-                            formErrors={formErrors}
-                            type={type}
-                            isSelect={type === 'select'}
-                            select={selectProps}
-                        />
-                    )
-                })}
+            <form className='grid gap-16' onSubmit={onSubmit}>
+                <div className='grid gap-16'
+                    style={{
+                        gridTemplateColumns:
+                            'repeat(auto-fit, minmax(40rem, 1fr))',
+                    }}
+                >
+                    {formInputs.map((input, idx) => {
+                        const { label, type, selectProps } = input
+                        return (
+                            <Input
+                                key={idx + label}
+                                label={label}
+                                register={register}
+                                formErrors={formErrors}
+                                type={type}
+                                isSelect={type === 'select'}
+                                select={selectProps}
+                            />
+                        )
+                    })}
+                </div>
 
                 <button className='btn justify-self-start btn-blue'>
                     <span>
