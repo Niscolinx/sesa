@@ -78,7 +78,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                             disabled={disabled}
                             type={type}
                             {...register && register(label, validationOptions)}
-                            className={` w-full ${
+                            className={` w-full disabled:opacity-50 disabled:cursor-not-allowed ${
                                 formErrors[label] && 'border-red-500 '
                             }`}
                             min={

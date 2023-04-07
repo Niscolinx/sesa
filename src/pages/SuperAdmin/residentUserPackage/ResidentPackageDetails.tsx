@@ -30,7 +30,7 @@ const residentPackageDetails = () => {
         },
         {
             label: 'amount',
-            type: 'number'
+            type: 'number',
         },
         {
             label: 'frequency',
@@ -49,7 +49,7 @@ const residentPackageDetails = () => {
         },
         {
             label: 'phone_number',
-            type: 'number'
+            type: 'number',
         },
         {
             label: 'status',
@@ -72,14 +72,13 @@ const residentPackageDetails = () => {
                         const { label, type } = input
                         return (
                             <Input
+                                disabled={true}
                                 key={idx + label}
                                 label={label}
                                 type={type}
                             />
                         )
                     })}
-
-                   
                 </>
             </form>
             <section className='grid text-[1.4rem] w-full py-10 gap-8 border-t mt-20'>
