@@ -240,7 +240,7 @@ function Admins() {
     return (
         <div>
             <div className='rounded-lg mt-[3rem] h-[80vh]'>
-                {/* {fetchedAdmins.length > 0 ? ( */}
+                {fetchedAdmins.length > 0 ? (
                     <>
                         <ToastContainer />
                         <dialog className='dialog' ref={dialogRef}>
@@ -545,7 +545,7 @@ function Admins() {
                             </footer>
                         </div>
                     </>
-                {/* ) : (
+                ) : (
                     <section className='grid  place-content-center w-full h-full justify-items-center gap-4 bg-white rounded-lg'>
                         <img src='/icons/admins/errorSvg.svg' alt='' />
                         <p className='text'>
@@ -561,7 +561,7 @@ function Admins() {
                             Add Admin
                         </button>
                     </section>
-                )} */}
+                )}
             </div>
         </div>
     )

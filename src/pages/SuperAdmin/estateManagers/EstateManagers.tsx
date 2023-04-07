@@ -70,15 +70,32 @@ function EstateManagers() {
         isError: get_estateManagers_isError,
         error: get_estateManagers_error,
         isFetching,
-        data: get_estateManagers_response
-    } = useQuery('estateManagers', fetchEstateManagers, {
-        keepPreviousData: true,
-        onSuccess: (response) => {
-            console.log({response})
-            setFetchedEstateManagers(response.data.data)
-        },
-    
-    }) as any
+        data: get_estateManagers_response,
+    } = useQuery('estateManagers', fetchEstateManagers, {}) as any
+
+    useEffect(() => {
+        setFetchedEstateManagers(get_estateManagers_response.data.data)
+    }, [get_estateManagers_response])
+
+    useEffect(() => {
+        const slicedPages: EstateManager[][] = []
+        for (
+            let i = 0;
+            i < fetchedEstateManagers?.length;
+            i += paginate.itemsPerPage
+        ) {
+            slicedPages.push(
+                fetchedEstateManagers?.slice(i, i + paginate.itemsPerPage)
+            )
+        }
+
+        setPaginate((prev) => {
+            return {
+                ...prev,
+                slicedPages,
+            }
+        })
+    }, [fetchedEstateManagers])
 
     const actions = ['view details', 'deactivate'] satisfies Actions[]
 
@@ -141,26 +158,6 @@ function EstateManagers() {
             }
         })
     }
-
-    useEffect(() => {
-        const slicedPages: EstateManager[][] = []
-        for (
-            let i = 0;
-            i < fetchedEstateManagers?.length;
-            i += paginate.itemsPerPage
-        ) {
-            slicedPages.push(
-                fetchedEstateManagers?.slice(i, i + paginate.itemsPerPage)
-            )
-        }
-
-        setPaginate((prev) => {
-            return {
-                ...prev,
-                slicedPages,
-            }
-        })
-    }, [fetchedEstateManagers])
 
     const handleNext = () => {
         if (paginate.currentPage === paginate.totalPage) return
@@ -240,7 +237,6 @@ function EstateManagers() {
         navigate('/superAdmin/estateManagers/add')
     }
 
-
     console.log({
         get_estateManagers_loading,
         isFetching,
@@ -248,10 +244,11 @@ function EstateManagers() {
         fetchedEstateManagers,
     })
 
+    const fetched = get_estateManagers_response?.data.data
     return (
         <div>
             <div className='rounded-lg mt-[3rem] h-[80vh]'>
-                {fetchedEstateManagers.length > 0 ? (
+                {fetched.length > 0 ? (
                     <>
                         <ToastContainer />
                         <dialog className='dialog' ref={dialogRef}>
