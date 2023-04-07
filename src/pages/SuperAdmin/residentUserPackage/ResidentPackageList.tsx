@@ -38,14 +38,13 @@ const ResidentPackageList: FC<ResponseData> = ({ fetched }) => {
     }
 
     const {
-        mutate: deactivate_admin_mutation,
-        data: deactivate_admin_response,
-        isLoading: deactivate_admin_loading,
+        mutate: deactivate_package_mutation,
+        isLoading: deactivate_package_loading,
     } = useMutation(postDeactivate, {
         onSuccess: () => {
             closeDialog()
 
-            toast('Admin deactivated successfully', {
+            toast('Package deactivated successfully', {
                 type: 'success',
                 className: 'bg-green-100 text-green-600 text-[1.4rem]',
             })
@@ -237,10 +236,12 @@ const ResidentPackageList: FC<ResponseData> = ({ fetched }) => {
                                 Cancel
                             </button>
                             <button
-                                className='bg-red-500 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
-                                onClick={deactivateHandler}
+                                className='bg-red-500 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem] capitalize'
+                                onClick={() => deactivate_package_mutation()}
                             >
-                                Deactivate
+                                {deactivate_package_loading
+                                    ? 'Loading...'
+                                    : 'deactivate'}
                             </button>
                         </div>
                     </div>
