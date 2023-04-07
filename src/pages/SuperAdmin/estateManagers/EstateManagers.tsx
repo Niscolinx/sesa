@@ -69,12 +69,10 @@ function EstateManagers() {
         isLoading: get_estateManagers_loading,
         isError: get_estateManagers_isError,
         error: get_estateManagers_error,
-        isFetching,
         data: get_estateManagers_response,
     } = useQuery('estateManagers', fetchEstateManagers, {}) as any
 
     useEffect(() => {
-        console.log({get_estateManagers_response})
         if(get_estateManagers_response){
 
             setFetchedEstateManagers(get_estateManagers_response.data.data)
@@ -241,21 +239,15 @@ function EstateManagers() {
         navigate('/superAdmin/estateManagers/add')
     }
 
-    console.log({
-        get_estateManagers_loading,
-        isFetching,
-        get_estateManagers_response,
-        fetchedEstateManagers,
-    })
+    
 
     const fetched = get_estateManagers_response?.data.data
 
-    console.log({fetched})
     return (
      
         <div>
             <div className='rounded-lg mt-[3rem] h-[80vh]'>
-                {fetchedEstateManagers.length > 0 ? (
+                {fetched.length > 0 ? (
                     <>
                         <ToastContainer />
                         <dialog className='dialog' ref={dialogRef}>
