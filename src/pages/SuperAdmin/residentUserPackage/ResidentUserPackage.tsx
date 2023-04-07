@@ -42,7 +42,7 @@ function AdditionalResident() {
         ['history', <ResidentPackageHistory />],
     ]) satisfies Map<SwitchRoute, JSX.Element>
 
-    const fetched = get_packages_response.data.data
+    const fetched = get_packages_response?.data.data
 
      console.log({
          get_packages_loading,
