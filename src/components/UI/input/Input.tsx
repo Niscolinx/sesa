@@ -45,7 +45,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
 
     return (
         <div
-            className={`w-full grid gap-4 self-baseline ${
+            className={`w-full grid gap-4 self-baseline ${disabled && 'opacity-50'} ${
                 fullWidth && 'col-span-full'
             }`}
         >
@@ -64,7 +64,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                     >
                         {name ?? label.replaceAll('_', ' ')}
                     </label>
-                    <div className='relative flex items-center border border-color-grey p-4 rounded-lg w-full'>
+                    <div className={`relative flex items-center border border-color-grey p-4 rounded-lg w-full `}>
                         {label.toLowerCase() === 'amount' && (
                             <img
                                 src='/icons/Naira.svg'
@@ -79,7 +79,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                             type={type}
                             {...register && register(label, validationOptions)}
                             className={` w-full disabled:opacity-50 disabled:cursor-not-allowed ${
-                                formErrors[label] && 'border-red-500 '
+                               formErrors && formErrors[label] && 'border-red-500 '
                             }`}
                             min={
                                 type === 'date' && label.indexOf('dob') !== 0
@@ -91,7 +91,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                 </>
             )}
 
-            {formErrors[label] && (
+            {formErrors && formErrors[label] && (
                 <p className='text-[1.2rem] text-red-500'>
                     {formErrors[label].type === 'required' ? (
                         <span>Field cannot be empty</span>

@@ -66,21 +66,25 @@ const residentPackageDetails = () => {
                     </span>
                 </button>
             </div>
-            <form>
-                <>
-                    {formInputs.map((input, idx) => {
-                        const { label, type } = input
-                        return (
-                            <Input
-                                disabled={true}
-                                key={idx + label}
-                                label={label}
-                                type={type}
-                            />
-                        )
-                    })}
-                </>
-            </form>
+            <div
+                className='grid max-w-[84rem] gap-16 mt-12 '
+                style={{
+                    gridTemplateColumns:
+                        ' repeat(auto-fit, minmax(35rem, 1fr))',
+                }}
+            >
+                {formInputs.map((input, idx) => {
+                    const { label, type } = input
+                    return (
+                        <Input
+                            disabled={true}
+                            key={idx + label}
+                            label={label}
+                            type={type}
+                        />
+                    )
+                })}
+            </div>
             <section className='grid text-[1.4rem] w-full py-10 gap-8 border-t mt-20'>
                 <h4 className='text-[1.6rem] font-semibold'>
                     Beneficiary Details
