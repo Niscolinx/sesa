@@ -150,6 +150,7 @@ const ResidentPackageHistory = () => {
             return {
                 ...prev,
                 slicedPages,
+                totalPage: Math.ceil(fetchedPackages?.length / perPage),
             }
         })
     }, [fetchedPackages])
