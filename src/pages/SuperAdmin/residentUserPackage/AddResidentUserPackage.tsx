@@ -80,6 +80,8 @@ const AddResidentUserPackage = () => {
             data,
         }
 
+        console.log({data})
+
         mutate(adminData)
     })
 
