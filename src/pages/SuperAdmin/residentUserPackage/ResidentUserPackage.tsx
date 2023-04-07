@@ -11,23 +11,23 @@ function ResidentUserPackage() {
     const axiosInstance = useAxios()
     const navigate = useNavigate()
 
-   const handlePathSwitch = () => {
-    navigate('/superAdmin/resident-user-package/add')
-   }
+    const handlePathSwitch = () => {
+        navigate('/superAdmin/resident-user-package/add')
+    }
 
-     const fetchPackages = () => {
-         return axiosInstance({
-             url: '/admin/resident/user/get/package',
-         })
-     }
+    const fetchPackages = () => {
+        return axiosInstance({
+            url: '/admin/resident/user/get/package',
+        })
+    }
 
-     const {
-         isLoading: get_packages_loading,
-         data: get_packages_response,
-         isError: get_packages_isError,
-         error: get_packages_error,
-         // isFetching: get_packages_fetching,
-     } = useQuery('packages', fetchPackages) as any
+    const {
+        isLoading: get_packages_loading,
+        data: get_packages_response,
+        isError: get_packages_isError,
+        error: get_packages_error,
+        // isFetching: get_packages_fetching,
+    } = useQuery('packages', fetchPackages) as any
 
     const resident_paths = [
         { path: 'list', label: 'Additional Resident Package' },
@@ -36,31 +36,29 @@ function ResidentUserPackage() {
 
     const [currentPath, setCurrentPath] = useState<SwitchRoute>('list')
 
-    
-    
     console.log({
         get_packages_loading,
         get_packages_isError,
         get_packages_error,
         get_packages_response,
     })
-    
+
     if (get_packages_loading) {
         return <p className='p-8'>Loading...</p>
     }
-    
+
     if (get_packages_isError) {
         return <p>{get_packages_error.message}</p>
     }
-    
+
     const fetched = get_packages_response?.data.data
-    
+
     const switchRoute = new Map([
         ['list', <ResidentPackageList fetched={fetched ?? []} />],
         ['history', <ResidentPackageHistory />],
     ]) satisfies Map<SwitchRoute, JSX.Element>
 
-    console.log({fetched})
+    console.log({ fetched })
 
     return (
         <div>
@@ -91,6 +89,7 @@ function ResidentUserPackage() {
                         </div>
                         <section className='bg-color-white rounded-lg border min-w-[112rem] overflow-scroll mt-8 min-h-[60vh]'>
                             {switchRoute.get(currentPath)}
+
                         </section>
                     </>
                 ) : (
