@@ -17,7 +17,7 @@ export interface ResidentPackageList {
     }
 }
 
-export const RESIDENT_LISTS: ResidentPackageList[] = [
+export const PACKAGES: ResidentPackageList[] = [
     {
         id: '1',
         user: {
@@ -53,15 +53,16 @@ const ResidentPackageList = () => {
         isLoading: get_packages_loading,
         isError: get_packages_isError,
         error: get_packages_error,
+        data: get_packages_response
         // isFetching: get_packages_fetching,
-    } = useQuery('packages', fetchPackages, {
-        onSuccess: (response) => {
-           // setFetchedPackages(response.data.data)
-            setFetchedPackages(RESIDENT_LISTS)
-        },
-    }) as any
+    } = useQuery('packages', fetchPackages) as any
 
   
+    useEffect(() => {
+        if(get_packages_response){
+            setFetchedPackages(PACKAGES)
+        }
+    }, [])
 
     const actions = [
         'view details',
