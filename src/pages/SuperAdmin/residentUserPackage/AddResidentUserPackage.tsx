@@ -51,7 +51,7 @@ const AddResidentUserPackage = () => {
         formState: { errors: formErrors },
     } = useForm<Inputs>()
 
-    const postAdmin = (data: Inputs) => {
+    const postPackage = (data: Inputs) => {
         return axiosInstance({
             url: '/admin/resident/user/package/create',
             method: 'post',
@@ -62,20 +62,18 @@ const AddResidentUserPackage = () => {
         mutate,
         data: response_data,
         isLoading,
-        isError,
-        error: response_error,
-    } = useMutation(postAdmin) as any
-
-    useEffect(() => {
-        if (!isError && response_data?.success) {
+    } = useMutation(postPackage, {
+        onSuccess: () => {
             handleOpen()
-        } else {
+        },
+        onError: (err: any) => {
+            console.log({err})
             setResponseMessage({
                 className: 'text-red-600',
-                displayMessage: response_error?.response.data.message,
+                displayMessage: err?.response.data.message,
             })
-        }
-    }, [response_data, response_error])
+        },
+    }) as any
 
     const onSubmit = handleSubmit((data) => {
         const { amount, ...others } = data
@@ -85,7 +83,6 @@ const AddResidentUserPackage = () => {
             price: amount,
             frequency: selectedFrequency,
         }
-
 
         mutate(adminData)
     })
