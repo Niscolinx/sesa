@@ -1,6 +1,35 @@
-
+import { SelectProps } from '../../../components/UI/input/Input'
 
 const AdditionalResidentDetails = () => {
+    type FormInputs = {
+        label?: string
+        type?: string
+        name?: string
+        selectProps?: SelectProps
+    }
+
+    const formInputs = [
+        {
+            label: 'first_name',
+        },
+        {
+            label: 'last_name',
+        },
+        {
+            label: 'dob',
+            type: 'date',
+            name: 'date of birth',
+        },
+
+        {
+            label: 'phone_number',
+            type: 'number',
+        },
+        {
+            label: 'email_address',
+            type: 'email',
+        },
+    ] satisfies FormInputs[]
 
     return (
         <div className=' p-8 bg-white h-[80vh] rounded-lg overflow-y-scroll'>
@@ -12,12 +41,14 @@ const AdditionalResidentDetails = () => {
                     </span>
                 </button>
             </div>
-            <section
-                className='grid max-w-[65vw] gap-16'
-                style={{
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(40rem, 1fr))',
-                }}
-            >
+            <form className='grid max-w-[65vw] gap-16'>
+                <div
+                    className='grid gap-16'
+                    style={{
+                        gridTemplateColumns:
+                            'repeat(auto-fit, minmax(40rem, 1fr))',
+                    }}
+                ></div>
                 <div className='w-full grid gap-4'>
                     <label
                         htmlFor='packageName'
@@ -185,7 +216,7 @@ const AdditionalResidentDetails = () => {
                         value={'Status'}
                     />
                 </div>
-            </section>
+            </form>
             <section className='grid text-[1.4rem] w-full py-10 gap-8 border-t mt-20'>
                 <h4 className='text-[1.6rem] font-semibold'>
                     Beneficiary Details
