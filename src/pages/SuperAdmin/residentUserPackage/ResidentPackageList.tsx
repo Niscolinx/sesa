@@ -44,8 +44,7 @@ const ResidentPackageList = () => {
 
     const fetchPackages = () => {
         return axiosInstance({
-            // url: '/admin/get/all',
-            url: '/manager/get/all',
+            url: '/admin/resident/user/get/package',
         })
     }
 
@@ -60,7 +59,8 @@ const ResidentPackageList = () => {
   
     useEffect(() => {
         if(get_packages_response){
-            setFetchedPackages(PACKAGES)
+            console.log({get_packages_response})
+            setFetchedPackages(get_packages_response.data)
         }
     }, [])
 
