@@ -13,6 +13,7 @@ interface Input {
     register: any
     formErrors: any
     options: any
+    minLength?: number
     fullWidth: boolean
     isSelect: boolean
     select: SelectProps
@@ -27,11 +28,12 @@ const Input: FC<Partial<Input> & { label: string }> = ({
     fullWidth,
     select,
     formErrors,
+    minLength = 3,
     options,
 }) => {
     const validationOptions = {
         required: true,
-        minLength: 3,
+        minLength,
         pattern:
             type === 'email'
                 ? /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
