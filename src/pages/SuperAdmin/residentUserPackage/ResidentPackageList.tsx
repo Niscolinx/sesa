@@ -51,19 +51,17 @@ const ResidentPackageList = () => {
 
     const {
         isLoading: get_packages_loading,
-        data: get_packages_response,
         isError: get_packages_isError,
         error: get_packages_error,
         // isFetching: get_packages_fetching,
-    } = useQuery('packages', fetchPackages) as any
-
-    useEffect(() => {
-        if (get_packages_response?.success) {
-            // setFetchedPackages(get_packages_response.data.data)
+    } = useQuery('packages', fetchPackages, {
+        onSuccess: (response) => {
+           // setFetchedPackages(response.data.data)
             setFetchedPackages(RESIDENT_LISTS)
-            console.log(get_packages_response.data, 'fetchedData')
-        }
-    }, [get_packages_response])
+        },
+    }) as any
+
+  
 
     const actions = [
         'view details',
@@ -209,14 +207,14 @@ const ResidentPackageList = () => {
             }
         })
 
-         if (item === 'view details') {
-             navigate(`/superAdmin/packages/view/:${id}`)
-         }
+        if (item === 'view details') {
+            navigate(`/superAdmin/packages/view/:${id}`)
+        }
 
-         if (item === 'deactivate') {
-             setPackageId(id)
-             openDialog()
-         }
+        if (item === 'deactivate') {
+            setPackageId(id)
+            openDialog()
+        }
     }
 
     const deactivateHandler = () => {
@@ -227,7 +225,6 @@ const ResidentPackageList = () => {
             className: 'bg-green-100 text-green-600 text-[1.4rem]',
         })
     }
-   
 
     if (get_packages_loading) {
         return <p className='p-8'>Loading...</p>
@@ -241,11 +238,10 @@ const ResidentPackageList = () => {
         navigate('/superAdmin/resident-user-package/add')
     }
 
-    const fetched = get_packages_response.data.data
 
     return (
         <>
-            {fetched.length > 0 ? (
+            {fetchedPackages.length > 0 ? (
                 <>
                     <ToastContainer />
                     <dialog className='dialog' ref={dialogRef}>
@@ -285,7 +281,7 @@ const ResidentPackageList = () => {
                     <div className='grid text-[1.6rem]'>
                         <div className='flex w-full items-center gap-12 p-10 bg-white rounded-lg'>
                             <p className=' font-Satoshi-Medium'>
-                                Package List <span>({fetched.length})</span>
+                                Package List <span>({fetchedPackages.length})</span>
                             </p>
                             <div className='relative flex items-center'>
                                 <img

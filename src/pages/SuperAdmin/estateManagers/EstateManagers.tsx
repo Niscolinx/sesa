@@ -69,11 +69,11 @@ function EstateManagers() {
         isLoading: get_estateManagers_loading,
         isError: get_estateManagers_isError,
         error: get_estateManagers_error,
-        // isFetching: get_estateManagers_fetching,
     } = useQuery('estateManagers', fetchEstateManagers, {
         onSuccess: (response) => {
             setFetchedEstateManagers(response.data.data)
         },
+    
     }) as any
 
     const actions = ['view details', 'deactivate'] satisfies Actions[]
