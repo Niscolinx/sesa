@@ -1,7 +1,7 @@
 import { IoMdAdd } from 'react-icons/io'
 import { useNavigate } from 'react-router'
 import { useState, useEffect, ChangeEvent, useRef } from 'react'
-import { useQuery } from 'react-query'
+import { useMutation, useQuery } from 'react-query'
 import { ToastContainer, toast } from 'react-toastify'
 import React from 'react'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
@@ -38,6 +38,19 @@ function EstateManagers() {
             url: '/manager/get/all',
         })
     }
+     const postDeactivateEstateManager = () => {
+         return axiosInstance({
+             url: '/change/user/status',
+             method: 'post',
+             data: { user_id: estateManagerId },
+         })
+     }
+
+    const {
+        mutate: deactivate_estateManager_mutation,
+        data: post_deactivate_estateManager_response,
+        isLoading: deactivate_estateManager_loading,
+    } = useMutation(postDeactivateEstateManager) as any
 
     const {
         isLoading: get_estateManagers_loading,
@@ -184,6 +197,18 @@ function EstateManagers() {
         }
     }
 
+    const deactivateHandler = () => {
+        deactivate_estateManager_mutation()
+        if (post_deactivate_estateManager_response.success) {
+            closeDialog()
+
+            toast('Estate Manager deactivated successfully', {
+                type: 'success',
+                className: 'bg-green-100 text-green-600 text-[1.4rem]',
+            })
+        }
+    }
+
     const handleSelectedAction = (item: Actions, id: string) => {
         setToggleDropDown(() => {
             return {
@@ -202,14 +227,6 @@ function EstateManagers() {
         }
     }
 
-    const deactivateHandler = () => {
-        closeDialog()
-
-        toast('EstateManager deactivated successfully', {
-            type: 'success',
-            className: 'bg-green-100 text-green-600 text-[1.4rem]',
-        })
-    }
     console.log({
         get_estateManagers_loading,
         get_estateManagers_isError,
