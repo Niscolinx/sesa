@@ -72,6 +72,7 @@ function EstateManagers() {
         isFetching,
         data: get_estateManagers_response
     } = useQuery('estateManagers', fetchEstateManagers, {
+        keepPreviousData: true,
         onSuccess: (response) => {
             console.log({response})
             setFetchedEstateManagers(response.data.data)
