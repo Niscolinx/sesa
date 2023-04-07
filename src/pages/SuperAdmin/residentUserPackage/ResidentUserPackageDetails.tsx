@@ -1,6 +1,19 @@
 import { SelectProps } from '../../../components/UI/input/Input'
 
 const AdditionalResidentDetails = () => {
+      interface Inputs {
+          package_name: string
+          buyer_name: string
+          amount: number
+          frequency: string
+          start_date: string
+          end_date: string
+          user_estate: string
+          transactionType: string
+          phone_number: number
+          status: string
+      }
+
     type FormInputs = {
         label?: string
         type?: string
@@ -9,26 +22,9 @@ const AdditionalResidentDetails = () => {
     }
 
     const formInputs = [
-        {
-            label: 'first_name',
-        },
-        {
-            label: 'last_name',
-        },
-        {
-            label: 'dob',
-            type: 'date',
-            name: 'date of birth',
-        },
-
-        {
-            label: 'phone_number',
-            type: 'number',
-        },
-        {
-            label: 'email_address',
-            type: 'email',
-        },
+       {
+        label: ''
+       }
     ] satisfies FormInputs[]
 
     return (
@@ -48,7 +44,10 @@ const AdditionalResidentDetails = () => {
                         gridTemplateColumns:
                             'repeat(auto-fit, minmax(40rem, 1fr))',
                     }}
-                ></div>
+                >
+
+
+                </div>
                 <div className='w-full grid gap-4'>
                     <label
                         htmlFor='packageName'
