@@ -14,6 +14,7 @@ interface Input {
     formErrors: any
     disabled?: boolean
     setValue: any
+    value?:any
     options: any
     minLength?: number
     fullWidth: boolean
@@ -31,6 +32,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
     disabled,
     select,
     formErrors,
+    value,
     setValue,
     minLength = 3,
 }) => {
@@ -45,7 +47,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
 
     return (
         <div
-            className={`w-full grid gap-4 self-baseline ${disabled && 'opacity-50'} ${
+            className={`w-full grid gap-4 self-baseline ${
                 fullWidth && 'col-span-full'
             }`}
         >
@@ -77,6 +79,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                             id={label}
                             disabled={disabled}
                             type={type}
+                            value={value}
                             {...register && register(label, validationOptions)}
                             className={` w-full disabled:opacity-50 disabled:cursor-not-allowed ${
                                formErrors && formErrors[label] && 'border-red-500 '

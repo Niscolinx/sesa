@@ -80,6 +80,7 @@ const residentPackageDetails = () => {
                             disabled={true}
                             key={idx + label}
                             label={label}
+                            value={'sdfsf'}
                             type={type}
                         />
                     )
