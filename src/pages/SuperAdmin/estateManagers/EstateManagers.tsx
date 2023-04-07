@@ -199,13 +199,17 @@ function EstateManagers() {
 
     const deactivateHandler = () => {
         deactivate_estateManager_mutation()
-        if (deactivate_estateManager_response.success) {
+        if (deactivate_estateManager_response?.success) {
+            console.log({ deactivate_estateManager_response }, 'success')
+
             closeDialog()
 
             toast('Estate Manager deactivated successfully', {
                 type: 'success',
                 className: 'bg-green-100 text-green-600 text-[1.4rem]',
             })
+        } else {
+            console.log({ deactivate_estateManager_response }, 'failed')
         }
     }
 
@@ -226,13 +230,6 @@ function EstateManagers() {
             openDialog()
         }
     }
-
-    console.log({
-        get_estateManagers_loading,
-        get_estateManagers_isError,
-        get_estateManagers_error,
-        get_estateManagers_response,
-    })
 
     if (get_estateManagers_loading) {
         return <p>Loading...</p>
