@@ -44,6 +44,21 @@ function AdditionalResident() {
 
     const fetched = get_packages_response.data.data
 
+     console.log({
+         get_packages_loading,
+         get_packages_isError,
+         get_packages_error,
+         get_packages_response,
+     })
+
+     if (get_packages_loading) {
+         return <p className='p-8'>Loading...</p>
+     }
+
+     if (get_packages_isError) {
+         return <p>{get_packages_error.message}</p>
+     }
+
     return (
         <div>
             <div className='rounded-lg mt-[3rem] h-[80vh]'>

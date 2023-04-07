@@ -240,7 +240,7 @@ const ResidentPackageList = () => {
     }
 
     const handlePathSwitch = () => {
-        navigate('/superAdmin/packages/add')
+        navigate('/superAdmin/resident-user-package/add')
     }
 
     const fetched = get_packages_response.data.data
