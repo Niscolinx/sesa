@@ -33,7 +33,7 @@ interface ResponseData {
     fetched: []
 }
 
-const ResidentPackageList:FC<ResponseData> = ({fetched = []}) => {
+const ResidentPackageList:FC<ResponseData> = ({fetched}) => {
     type Actions = 'view details' | 'activate' | 'deactivate' | 'delete'
 
     const navigate = useNavigate()
