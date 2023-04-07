@@ -62,12 +62,12 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                     >
                         {name ?? label.replaceAll('_', ' ')}
                     </label>
-                    <div className='relative flex items-center'>
+                    <div className='relative flex items-center border border-color-grey p-4 rounded-lg w-full'>
                         {label.toLowerCase() === 'amount' && (
                             <img
                                 src='/icons/Naira.svg'
                                 alt=''
-                                className='absolute left-3'
+                                className='mr-1'
                             />
                         )}
 
@@ -75,7 +75,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                             id={label}
                             type={type}
                             {...register(label, validationOptions)}
-                            className={`border border-color-grey p-4 rounded-lg w-full ${
+                            className={` w-full ${
                                 formErrors[label] && 'border-red-500 '
                             }`}
                             min={
