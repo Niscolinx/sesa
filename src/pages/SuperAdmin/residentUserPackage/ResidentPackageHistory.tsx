@@ -326,7 +326,7 @@ const ResidentPackageHistory = () => {
 
                         <div className='grid bg-white'>
                             <div
-                                className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-5 items-center gap-8'
+                                className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-9 items-center gap-8 whitespace-nowrap'
                                 style={{
                                     fontSize: '1.4rem',
                                 }}
@@ -374,7 +374,7 @@ const ResidentPackageHistory = () => {
                                                     index,
                                                 } = toggleDropDown
                                                 return (
-                                                    <div className='grid justify-between border-b grid-cols-5 items-center gap-8 text-[1.6rem] py-4 table__ellipsis'>
+                                                    <div className='grid justify-between border-b grid-cols-9 items-center gap-8 text-[1.6rem] py-4 table__ellipsis'>
                                                         <div className='flex items-center gap-4  '>
                                                             <input
                                                                 type='checkbox'
@@ -393,9 +393,9 @@ const ResidentPackageHistory = () => {
 
                                                             <p>{amount}</p>
                                                         </div>
-                                                    <p>{startDate}</p>
-                                                    <p>{endDate}</p>
-                                                    <p>{transactionType}</p>
+                                                        <p>{startDate}</p>
+                                                        <p>{endDate}</p>
+                                                        <p>{transactionType}</p>
                                                         <p>
                                                             {status ===
                                                             'active' ? (

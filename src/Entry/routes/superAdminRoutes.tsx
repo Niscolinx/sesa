@@ -7,8 +7,8 @@ import AddAdmin from '../../pages/SuperAdmin/admins/AddAdmin'
 import EstateDetail from '../../pages/SuperAdmin/estates/EstateDetail'
 import EstateManagers from '../../pages/SuperAdmin/estateManagers/EstateManagers'
 import RolesAndPerm from '../../pages/SuperAdmin/rolesAndPerm/RolesAndPerm'
-import AdditionalResident from '../../pages/SuperAdmin/additionalResident/AdditionalResident'
-import AdditionalResidentDetails from '../../pages/SuperAdmin/additionalResident/AdditionalResidentDetails'
+import AdditionalResident from '../../pages/SuperAdmin/residentUserPackage/ResidentUserPackage'
+import AdditionalResidentDetails from '../../pages/SuperAdmin/residentUserPackage/ResidentUserPackageDetails'
 import SecurityCompany from '../../pages/SuperAdmin/securityCompany/SecurityCompany'
 import SecurityCompanyDetail from '../../pages/SuperAdmin/securityCompany/SecurityCompanyDetail'
 import Wallet from '../../pages/SuperAdmin/Wallet'
@@ -71,9 +71,13 @@ const superAdminRoutes = (
         <Route path='estateManagers/view/:Id' element={<ViewEstateManager />} />
 
         <Route path='roles-and-permissions' element={<RolesAndPerm />} />
-        <Route path='additional-resident' element={<AdditionalResident />} />
+        <Route path='resident-user-package' element={<AdditionalResident />} />
         <Route
-            path='additional-resident/:Id'
+            path='resident-user-package/:Id'
+            element={<AdditionalResidentDetails />}
+        />
+        <Route
+            path='resident-user-package/:Id'
             element={<AdditionalResidentDetails />}
         />
         <Route path='wallet' element={<Wallet />} />

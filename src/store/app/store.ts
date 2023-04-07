@@ -17,7 +17,6 @@ import {
 } from 'redux-persist'
 
 import userReducer from '../features/user/user'
-import routeChangeReducer from '../features/routeChange'
 import authReducer from '../features/auth'
 
 const persistConfig = {
@@ -28,7 +27,6 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
     user: userReducer,
-    routeChange: routeChangeReducer,
     auth: authReducer,
 })
 
