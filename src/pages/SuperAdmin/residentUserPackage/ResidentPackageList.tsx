@@ -36,6 +36,7 @@ const ResidentPackageList = () => {
     const axiosInstance = useAxios()
 
     const [sortBy, setSortBy] = useState<string | null>(null)
+    const [packageId, setPackageId] = useState('')
 
     const [fetchedPackages, setFetchedPackages] = useState<
         ResidentPackageList[]
@@ -208,13 +209,14 @@ const ResidentPackageList = () => {
             }
         })
 
-        //  if (item === 'view details') {
-        //      navigate(`/superAdmin/packages/view/:${id}`)
-        //  }
+         if (item === 'view details') {
+             navigate(`/superAdmin/packages/view/:${id}`)
+         }
 
-        //  if (item === 'deactivate') {
-        //      openDialog()
-        //  }
+         if (item === 'deactivate') {
+             setPackageId(id)
+             openDialog()
+         }
     }
 
     const deactivateHandler = () => {

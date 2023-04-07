@@ -185,7 +185,7 @@ const AddResidentUserPackage = () => {
                     <span>
                         <IoMdAdd />
                     </span>{' '}
-                    {isLoading ? 'Loading...' : 'Add'}
+                    {isLoading ? 'Loading...' : 'Add Package'}
                 </button>
             </form>
         </div>
