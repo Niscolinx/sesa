@@ -45,6 +45,7 @@ import ErrorBoundary from '../../components/UI/ErrorBoundary'
 import AddEstate from '../../pages/SuperAdmin/estates/AddEstate'
 import AddEstateManager from '../../pages/SuperAdmin/estateManagers/AddEstateManager'
 import ViewEstateManager from '../../pages/SuperAdmin/estateManagers/ViewEstateManager'
+import AddResidentUserPackage from '../../pages/SuperAdmin/residentUserPackage/AddResidentUserPackage'
 
 const superAdminRoutes = (
     <Route
@@ -72,6 +73,7 @@ const superAdminRoutes = (
 
         <Route path='roles-and-permissions' element={<RolesAndPerm />} />
         <Route path='resident-user-package' element={<ResidentUserPackage />} />
+        <Route path='resident-user-package/add' element={<AddResidentUserPackage />} />
         <Route
             path='resident-user-package/:Id'
             element={<ResidentUserPackageDetails />}

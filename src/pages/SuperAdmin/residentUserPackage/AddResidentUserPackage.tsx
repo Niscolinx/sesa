@@ -1,44 +1,65 @@
 import  {  useState } from 'react'
+import { SelectProps } from '../../../components/UI/input/Input'
 
 
-type Packages = 'package 1' | 'package 2' | 'package 3' | 'package 4'
 type Frequency = 'monthly' | 'weekly' | 'quarterly' | 'yearly'
 
 const AddResidentUserPackage = () => {
   
-    const [packages, setPackages] = useState<Packages[]>([
-        'package 1',
-        'package 2',
-        'package 3',
-        'package 4',
-    ])
-    const [frequency, setFrequency] = useState<Frequency[]>([
+   
+    const frequencyState = [
         'monthly',
         'weekly',
         'quarterly',
         'yearly',
-    ])
+    ] satisfies Frequency[]
 
     const [togglePackageMenu, setTogglePackageMenu] = useState(false)
-    const [selectedPackage, setSelectedPackage] =
-        useState<Packages>('package 1')
+    
     const [toggleFrequencyMenu, setToggleFrequencyMenu] = useState(false)
     const [selectedFrequency, setSelectedFrequency] =
         useState<Frequency>('monthly')
 
-    const packageMenuToggler = () => setTogglePackageMenu(!togglePackageMenu)
+    
 
-    const handleSelectedPackage = (item: Packages) => {
-        setSelectedPackage(item)
-        setTogglePackageMenu(false)
-    }
-    const frequencyMenuToggler = () =>
-        setToggleFrequencyMenu(!toggleFrequencyMenu)
+     type FormInputs = {
+         label?: string
+         type?: string
+         name?: string
+         selectProps?: SelectProps
+     }
 
-    const handleSelectedFrequency = (item: Frequency) => {
-        setSelectedFrequency(item)
-        setToggleFrequencyMenu(false)
-    }
+     const formInputs = [
+         {
+             label: 'first_name',
+         },
+         {
+             label: 'last_name',
+         },
+         {
+             label: 'dob',
+             type: 'date',
+             name: 'date of birth',
+         },
+         {
+             label: 'gender',
+             type: 'select',
+             selectProps: {
+                 state: genderState,
+                 selectedState: selectedGender,
+                 setSelectedState: setSelectedGender,
+             },
+         },
+         {
+             label: 'phone_number',
+             type: 'number',
+         },
+         {
+             label: 'email_address',
+             type: 'email',
+         },
+     ] satisfies FormInputs[]
+     
 
     return (
         <div className=' p-8 bg-white h-[70vh] rounded-lg overflow-y-scroll'>
