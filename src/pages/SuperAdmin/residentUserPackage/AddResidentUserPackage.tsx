@@ -25,6 +25,7 @@ const AddResidentUserPackage = () => {
         label?: string
         type?: string
         name?: string
+        minLength?: number
         selectProps?: SelectProps
     }
 
@@ -123,6 +124,7 @@ const AddResidentUserPackage = () => {
         {
             label: 'discount',
             type: 'number',
+            minLength: 1
         },
     ] satisfies FormInputs[]
 
@@ -153,7 +155,7 @@ const AddResidentUserPackage = () => {
                     }}
                 >
                     {formInputs.map((input, idx) => {
-                        const { label, type, selectProps } = input
+                        const { label, type, selectProps, minLength } = input
                         return (
                             <Input
                                 key={idx + label}
@@ -161,6 +163,7 @@ const AddResidentUserPackage = () => {
                                 register={register}
                                 formErrors={formErrors}
                                 type={type}
+                                minLength={minLength}
                                 isSelect={type === 'select'}
                                 select={selectProps}
                             />

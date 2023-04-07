@@ -29,7 +29,6 @@ const Input: FC<Partial<Input> & { label: string }> = ({
     select,
     formErrors,
     minLength = 3,
-    options,
 }) => {
     const validationOptions = {
         required: true,
@@ -38,7 +37,6 @@ const Input: FC<Partial<Input> & { label: string }> = ({
             type === 'email'
                 ? /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
                 : '',
-        ...options,
     }
 
     return (
@@ -96,6 +94,12 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                         <span>Invalid {label}</span>
                     )}
                 </p>
+            )}
+
+            {isSelect && !select?.selectedState && (
+                <span className='text-[1.2rem] text-red-500'>
+                    Field cannot be empty
+                </span>
             )}
         </div>
     )
