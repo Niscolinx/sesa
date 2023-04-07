@@ -59,39 +59,21 @@ const AddEstateManager = () => {
         mutate,
         data: response_data,
         isLoading,
-        isError, 
-        error: response_error
-    } = useMutation(postEstateManager) as any
-
-    console.log({response_error, response_data})
-
-    useEffect(() => {
-        if (!isError && response_data?.success) {
+    } = useMutation(postEstateManager, {
+        onSuccess: () => {
             handleOpen()
-        } else {
-            console.log(
-                'response error =======',
-                response_error?.response.data.message
-            )
+        },
+        onError: (err: any) => {
+            console.log({ err })
             setResponseMessage({
                 className: 'text-red-600',
-                displayMessage: response_error?.response.data.message,
+                displayMessage: err?.response.data.message,
             })
-        }
-
-        // const timeoutId = setTimeout(() => {
-        //     setResponseMessage(null)
-        // }, 10000)
-    }, [response_data, response_error])
+        },
+    }) as any
 
     const onSubmit = handleSubmit((data) => {
-        const {
-            first_name,
-            last_name,
-            dob,
-            email_address,
-            phone_number,
-        } = data
+        const { first_name, last_name, dob, email_address, phone_number } = data
 
         const estateManagerData = {
             name: `${first_name} ${last_name}`,
