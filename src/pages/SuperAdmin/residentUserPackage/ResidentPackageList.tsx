@@ -42,26 +42,26 @@ const ResidentPackageList = () => {
         ResidentPackageList[]
     >([])
 
-    const fetchPackages = () => {
-        return axiosInstance({
-            url: '/admin/resident/user/get/package',
-        })
-    }
+    // const fetchPackages = () => {
+    //     return axiosInstance({
+    //         url: '/admin/resident/user/get/package',
+    //     })
+    // }
 
-    const {
-        isLoading: get_packages_loading,
-        isError: get_packages_isError,
-        error: get_packages_error,
-        data: get_packages_response
-    } = useQuery('packages', fetchPackages) as any
+    // const {
+    //     isLoading: get_packages_loading,
+    //     isError: get_packages_isError,
+    //     error: get_packages_error,
+    //     data: get_packages_response
+    // } = useQuery('packages', fetchPackages) as any
 
   
-    useEffect(() => {
-        if(get_packages_response){
-            console.log({get_packages_response})
-            setFetchedPackages(get_packages_response.data)
-        }
-    }, [])
+    // useEffect(() => {
+    //     if(get_packages_response){
+    //         console.log({get_packages_response})
+    //         setFetchedPackages(get_packages_response.data)
+    //     }
+    // }, [])
 
     const actions = [
         'view details',
@@ -226,19 +226,12 @@ const ResidentPackageList = () => {
         })
     }
 
-    if (get_packages_loading) {
-        return <p className='p-8'>Loading...</p>
-    }
-
-    if (get_packages_isError) {
-        return <p>{get_packages_error.message}</p>
-    }
+   
 
     const handlePathSwitch = () => {
         navigate('/superAdmin/resident-user-package/add')
     }
 
-    const fetched = get_packages_response?.data.data
 
     return (
         <>
