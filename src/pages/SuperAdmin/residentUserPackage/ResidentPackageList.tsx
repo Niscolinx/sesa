@@ -30,10 +30,13 @@ export const PACKAGES: ResidentPackageList[] = [
 ]
 
 interface ResponseData {
-    fetched: []
+    fetched: {
+        data: []
+    }
 }
 
-const ResidentPackageList: FC<ResponseData> = ({ fetched }) => {
+const ResidentPackageList: FC<ResponseData> = (props) => {
+    const fetched = props.fetched.data
     type Actions = 'view details' | 'activate' | 'deactivate' | 'delete'
 
     const navigate = useNavigate()
@@ -41,7 +44,7 @@ const ResidentPackageList: FC<ResponseData> = ({ fetched }) => {
     const [sortBy, setSortBy] = useState<string | null>(null)
     const [packageId, setPackageId] = useState('')
 
-    console.log({ fetched })
+    console.log(fetched )
     // const fetchPackages = () => {
     //     return axiosInstance({
     //         url: '/admin/resident/user/get/package',
