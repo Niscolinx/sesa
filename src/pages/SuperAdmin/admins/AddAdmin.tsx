@@ -60,7 +60,6 @@ const AddAdmin = () => {
             handleOpen()
         },
         onError: (err: any) => {
-            console.log({ err })
             setResponseMessage({
                 className: 'text-red-600',
                 displayMessage: err?.response.data.message,
