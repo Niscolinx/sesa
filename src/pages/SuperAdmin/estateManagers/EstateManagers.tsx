@@ -1,6 +1,6 @@
 import { IoMdAdd } from 'react-icons/io'
 import { useNavigate } from 'react-router'
-import { useState, useEffect, ChangeEvent, useRef } from 'react'
+import { useState, useEffect, ChangeEvent, useRef, useCallback } from 'react'
 import { useMutation, useQuery } from 'react-query'
 import { ToastContainer, toast } from 'react-toastify'
 import React from 'react'
@@ -197,7 +197,9 @@ function EstateManagers() {
         }
     }
 
-    const deactivateHandler = () => {
+    const deactivateHandler = useCallback(() => {
+        console.log({ deactivate_estateManager_response }, 'stale')
+
         deactivate_estateManager_mutation()
         if (deactivate_estateManager_response?.success) {
             console.log({ deactivate_estateManager_response }, 'success')
@@ -211,7 +213,9 @@ function EstateManagers() {
         } else {
             console.log({ deactivate_estateManager_response }, 'failed')
         }
-    }
+    }, [deactivate_estateManager_response])
+
+    console.log({ deactivate_estateManager_response })
 
     const handleSelectedAction = (item: Actions, id: string) => {
         setToggleDropDown(() => {
