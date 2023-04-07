@@ -35,11 +35,11 @@ function Admins() {
         navigate('/superAdmin/admins/add')
     }
 
-    const postDeactivateAdmin = (id: string) => {
+    const postDeactivateAdmin = () => {
         return axiosInstance({
             url: '/change/user/status',
             method: 'post',
-            data: { user_id: id },
+            data: { user_id: adminId },
         })
     }
 
@@ -221,12 +221,17 @@ function Admins() {
     }
 
     const deactivateHandler = () => {
-        closeDialog()
+        deactivate_admin_mutation()
+        console.log({post_deactivate_admin_response})
+        if(post_deactivate_admin_response){
 
-        toast('Admin deactivated successfully', {
-            type: 'success',
-            className: 'bg-green-100 text-green-600 text-[1.4rem]',
-        })
+            closeDialog()
+            
+            toast('Admin deactivated successfully', {
+                type: 'success',
+                className: 'bg-green-100 text-green-600 text-[1.4rem]',
+            })
+        }
     }
 
     if (get_admins_loading) {

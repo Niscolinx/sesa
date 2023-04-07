@@ -197,6 +197,7 @@ function EstateManagers() {
         }
 
         if (item === 'deactivate') {
+            setEstateManagerId(id)
             openDialog()
         }
     }
