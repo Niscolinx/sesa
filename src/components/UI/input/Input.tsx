@@ -74,8 +74,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                         <input
                             id={label}
                             type={type}
-                            {...(label.toLowerCase() !== 'amount' &&
-                                register(label, validationOptions))}
+                            {...register(label, validationOptions)}
                             className={` w-full ${
                                 formErrors[label] && 'border-red-500 '
                             }`}

@@ -53,7 +53,7 @@ const AddResidentUserPackage = () => {
 
     const postAdmin = (data: Inputs) => {
         return axiosInstance({
-            url: '/admin/create',
+            url: '/admin/resident/user/package/create',
             method: 'post',
             data,
         })
@@ -78,11 +78,18 @@ const AddResidentUserPackage = () => {
     }, [response_data, response_error])
 
     const onSubmit = handleSubmit((data) => {
+        console.log({data})
+
+        const {amount, ...others} = data
+
+        
         const adminData = {
-            data,
+            others,
+            price: amount,
+            frequency: selectedFrequency
         }
 
-        console.log({ data })
+        console.log({ data, adminData })
 
         mutate(adminData)
     })
