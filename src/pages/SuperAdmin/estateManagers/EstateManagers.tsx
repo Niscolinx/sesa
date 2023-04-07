@@ -67,7 +67,6 @@ function EstateManagers() {
 
     const {
         isLoading: get_estateManagers_loading,
-        data: get_estateManagers_response,
         isError: get_estateManagers_isError,
         error: get_estateManagers_error,
         // isFetching: get_estateManagers_fetching,
