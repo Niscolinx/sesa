@@ -1,4 +1,5 @@
 import Input, { SelectProps } from '../../../components/UI/input/Input'
+import useAxios from '../../../components/hooks/useAxios'
 
 const residentPackageDetails = () => {
     // interface Inputs {
@@ -19,6 +20,14 @@ const residentPackageDetails = () => {
         type?: string
         name?: string
         selectProps?: SelectProps
+    }
+
+    const axiosInstance = useAxios()
+    const fetchEstateManagers = () => {
+        return axiosInstance({
+            // url: '/admin/get/all',
+            url: '/manager/get/all',
+        })
     }
 
     const formInputs = [

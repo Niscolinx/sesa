@@ -82,40 +82,41 @@ function RenderedRolesAndPerm() {
         }
     ) as any
 
+    // const fetchedRolesAndPerm = get_rolesAndPerm_response?.data
+
     useEffect(() => {
         if (get_rolesAndPerm_response?.data) {
             setFetchedRolesAndPerm(get_rolesAndPerm_response.data)
+             let permissions = {}
 
-            let permissions = {}
+             const roles = get_rolesAndPerm_response.data.reduce(
+                 (
+                     acc: {},
+                     curr: {
+                         id: string
+                         roles: { name: string; permissions: string[] }[]
+                     }
+                 ) => {
+                     const currRoleObj = { [curr.id]: curr.roles[0].name }
+                     const currPermissionsObj = {
+                         [curr.id]: curr.roles[0].permissions,
+                     }
 
-            const roles = get_rolesAndPerm_response.data.reduce(
-                (
-                    acc: {},
-                    curr: {
-                        id: string
-                        roles: { name: string; permissions: string[] }[]
-                    }
-                ) => {
-                    const currRoleObj = { [curr.id]: curr.roles[0].name }
-                    const currPermissionsObj = {
-                        [curr.id]: curr.roles[0].permissions,
-                    }
+                     permissions = {
+                         ...permissions,
+                         ...currPermissionsObj,
+                     }
 
-                    permissions = {
-                        ...permissions,
-                        ...currPermissionsObj,
-                    }
+                     return {
+                         ...acc,
+                         ...currRoleObj,
+                     }
+                 },
+                 {}
+             )
 
-                    return {
-                        ...acc,
-                        ...currRoleObj,
-                    }
-                },
-                {}
-            )
-
-            setPermissions(permissions)
-            setSelectedRole(roles)
+             setPermissions(permissions)
+             setSelectedRole(roles)
         }
     }, [get_rolesAndPerm_response])
 
