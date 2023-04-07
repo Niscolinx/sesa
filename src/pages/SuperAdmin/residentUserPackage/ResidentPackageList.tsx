@@ -92,94 +92,94 @@ const ResidentPackageList: FC<ResponseData> = (props) => {
         })
     }
 
-    interface Paginate {
-        index: number
-        currentPage: number
-        itemsPerPage: number
-        totalPage: number
-        slicedPages: ResidentPackageList[][] | null
-    }
+    // interface Paginate {
+    //     index: number
+    //     currentPage: number
+    //     itemsPerPage: number
+    //     totalPage: number
+    //     slicedPages: ResidentPackageList[][] | null
+    // }
 
-    const itemsPerPageArr = [2, 4, 6, 8]
+    // const itemsPerPageArr = [2, 4, 6, 8]
 
-    const perPage = 6
-    const [paginate, setPaginate] = useState<Paginate>({
-        index: 0,
-        currentPage: 1,
-        itemsPerPage: perPage,
+    // const perPage = 6
+    // const [paginate, setPaginate] = useState<Paginate>({
+    //     index: 0,
+    //     currentPage: 1,
+    //     itemsPerPage: perPage,
 
-        totalPage: Math.ceil(fetched?.length / perPage),
-        slicedPages: null,
-    })
+    //     totalPage: Math.ceil(fetched?.length / perPage),
+    //     slicedPages: null,
+    // })
 
-    const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
-        const item = parseInt(e.target.value)
+    // const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
+    //     const item = parseInt(e.target.value)
 
-        const slicedPages: ResidentPackageList[][] = []
-        for (let i = 0; i < fetched?.length; i += item) {
-            slicedPages.push(fetched?.slice(i, i + item))
-        }
+    //     const slicedPages: ResidentPackageList[][] = []
+    //     for (let i = 0; i < fetched?.length; i += item) {
+    //         slicedPages.push(fetched?.slice(i, i + item))
+    //     }
 
-        setPaginate((prev) => {
-            return {
-                ...prev,
-                itemsPerPage: item,
-                index: 0,
-                currentPage: 1,
-                slicedPages,
-                totalPage: Math.ceil(fetched?.length / item),
-            }
-        })
-    }
+    //     setPaginate((prev) => {
+    //         return {
+    //             ...prev,
+    //             itemsPerPage: item,
+    //             index: 0,
+    //             currentPage: 1,
+    //             slicedPages,
+    //             totalPage: Math.ceil(fetched?.length / item),
+    //         }
+    //     })
+    // }
 
-    useEffect(() => {
-        const slicedPages: ResidentPackageList[][] = []
-        for (let i = 0; i < fetched?.length; i += paginate.itemsPerPage) {
-            slicedPages.push(fetched?.slice(i, i + paginate.itemsPerPage))
-        }
+    // useEffect(() => {
+    //     const slicedPages: ResidentPackageList[][] = []
+    //     for (let i = 0; i < fetched?.length; i += paginate.itemsPerPage) {
+    //         slicedPages.push(fetched?.slice(i, i + paginate.itemsPerPage))
+    //     }
 
-        setPaginate((prev) => {
-            return {
-                ...prev,
-                slicedPages,
-                totalPage: Math.ceil(fetched?.length / perPage),
-            }
-        })
-    }, [])
+    //     setPaginate((prev) => {
+    //         return {
+    //             ...prev,
+    //             slicedPages,
+    //             totalPage: Math.ceil(fetched?.length / perPage),
+    //         }
+    //     })
+    // }, [])
 
-    const handleNext = () => {
-        if (paginate.currentPage === paginate.totalPage) return
-        setPaginate((prev) => {
-            return {
-                ...prev,
-                index: prev.index + 1,
-                currentPage: prev.currentPage + 1,
-            }
-        })
-    }
+    // const handleNext = () => {
+    //     if (paginate.currentPage === paginate.totalPage) return
+    //     setPaginate((prev) => {
+    //         return {
+    //             ...prev,
+    //             index: prev.index + 1,
+    //             currentPage: prev.currentPage + 1,
+    //         }
+    //     })
+    // }
 
-    const handlePrev = () => {
-        if (paginate.currentPage === 1) return
-        setPaginate((prev) => {
-            return {
-                ...prev,
-                index: prev.index - 1,
-                currentPage: prev.currentPage - 1,
-            }
-        })
-    }
+    // const handlePrev = () => {
+    //     if (paginate.currentPage === 1) return
+    //     setPaginate((prev) => {
+    //         return {
+    //             ...prev,
+    //             index: prev.index - 1,
+    //             currentPage: prev.currentPage - 1,
+    //         }
+    //     })
+    // }
 
-    const { currentPage, slicedPages, itemsPerPage } = paginate
+    // const { currentPage, slicedPages, itemsPerPage } = paginate
 
-    const jumpToPage = (e: React.MouseEvent, index: number) => {
-        setPaginate((prev) => {
-            return {
-                ...prev,
-                index,
-                currentPage: index + 1,
-            }
-        })
-    }
+    // const jumpToPage = (e: React.MouseEvent, index: number) => {
+    //     setPaginate((prev) => {
+    //         return {
+    //             ...prev,
+    //             index,
+    //             currentPage: index + 1,
+    //         }
+    //     })
+    // }
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
@@ -314,10 +314,11 @@ const ResidentPackageList: FC<ResponseData> = (props) => {
                     </div>
 
                     <div className='grid gap-8 mt-8 p-8'>
-                        {slicedPages &&
+                        {/* {slicedPages &&
                             slicedPages?.length > 0 &&
                             React.Children.toArray(
-                                slicedPages[paginate.index].map(
+                                slicedPages[paginate.index].map( */}
+                                {fetched.map(
                                     (
                                         {
                                             id,
@@ -443,11 +444,11 @@ const ResidentPackageList: FC<ResponseData> = (props) => {
                                             </div>
                                         )
                                     }
-                                )
+                                
                             )}
                     </div>
                 </div>
-                <footer className='flex items-center p-4 mt-4 bg-color-white rounded-lg'>
+                {/* <footer className='flex items-center p-4 mt-4 bg-color-white rounded-lg'>
                     <div className='flex gap-8 items-center'>
                         <p>View</p>
                         <select
@@ -501,7 +502,7 @@ const ResidentPackageList: FC<ResponseData> = (props) => {
                             className='cursor-pointer'
                         />
                     </ul>
-                </footer>
+                </footer> */}
             </div>
         </>
     )
