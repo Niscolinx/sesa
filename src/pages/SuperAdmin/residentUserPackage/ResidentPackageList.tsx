@@ -190,7 +190,7 @@ const ResidentPackageList: FC<ResponseData> = ({ fetched }) => {
         })
 
         if (item === 'view details') {
-            navigate(`/superAdmin/packages/view/:${id}`)
+            navigate(`/superAdmin/resident-user-package/view/:${id}`)
         }
 
         if (item === 'deactivate') {

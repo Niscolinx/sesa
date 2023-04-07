@@ -73,15 +73,15 @@ const superAdminRoutes = (
 
         <Route path='roles-and-permissions' element={<RolesAndPerm />} />
         <Route path='resident-user-package' element={<ResidentUserPackage />} />
-        <Route path='resident-user-package/add' element={<AddResidentUserPackage />} />
         <Route
-            path='resident-user-package/:Id'
-            element={<ResidentUserPackageDetails />}
+            path='resident-user-package/add'
+            element={<AddResidentUserPackage />}
         />
         <Route
-            path='resident-user-package/:Id'
+            path='resident-user-package/view:Id'
             element={<ResidentUserPackageDetails />}
         />
+
         <Route path='wallet' element={<Wallet />} />
         <Route path='wallet/estate' element={<EstateWallet />} />
         <Route path='wallet/estate/:id' element={<EstateWalletDetails />} />
