@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form'
 type Frequency = 'monthly' | 'weekly' | 'quarterly' | 'yearly'
 
 const AddResidentUserPackage = () => {
+
     interface Inputs {
        name_of_package: string
        frequency: string
@@ -84,14 +85,38 @@ const AddResidentUserPackage = () => {
 
     return (
         <div className=' p-8 bg-white h-[70vh] rounded-lg overflow-y-scroll'>
-            <section
+            <form
                 className='grid max-w-[65vw] gap-16'
                 style={{
                     gridTemplateColumns: 'repeat(auto-fit, minmax(40rem, 1fr))',
                 }}
             >
+                {formInputs.map((input, idx) => {
+                    const { label, type, name, selectProps } = input
+                    return (
+                        <Input
+                            key={idx + label}
+                            label={label}
+                            register={register}
+                            formErrors={formErrors}
+                            type={type}
+                            name={name}
+                            isSelect={type === 'select'}
+                            select={selectProps}
+                        />
+                    )
+                })}
+
                 
-            </section>
+                <button
+                    className='btn justify-self-start'
+                >
+                    <span>
+                        <IoMdAdd />
+                    </span>{' '}
+                    {isLoading ? 'Loading...' : 'Add'}
+                </button>
+            </form>
         </div>
     )
 }

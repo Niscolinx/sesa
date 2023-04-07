@@ -218,7 +218,7 @@ const AddAdmin = () => {
                             photoPreview={photoPreview}
                         />
                         <button
-                            className='btn admins__btn'
+                            className='btn'
                             style={{ justifySelf: 'start' }}
                         >
                             <span>
