@@ -222,8 +222,7 @@ function Admins() {
 
     const deactivateHandler = () => {
         deactivate_admin_mutation()
-        console.log({post_deactivate_admin_response})
-        if(post_deactivate_admin_response){
+        if(post_deactivate_admin_response.success){
 
             closeDialog()
             
@@ -272,10 +271,10 @@ function Admins() {
                                             Cancel
                                         </button>
                                         <button
-                                            className='bg-red-500 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
+                                            className='bg-red-500 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem] capitalize'
                                             onClick={deactivateHandler}
                                         >
-                                            Deactivate
+                                            {deactivate_admin_loading ? 'Loading...' : 'deactivate'}
                                         </button>
                                     </div>
                                 </div>
@@ -357,7 +356,10 @@ function Admins() {
                                             const { isDropDownOpen, index } =
                                                 toggleDropDown
                                             return (
-                                                <div className='grid justify-between border-b grid-cols-6 items-center gap-8 text-[1.6rem] py-4 table__ellipsis'>
+                                                <div
+                                                    className='grid justify-between border-b grid-cols-6 items-center gap-8 text-[1.6rem] py-4 table__ellipsis'
+                                                    key={id}
+                                                >
                                                     <div className='flex items-center gap-4  '>
                                                         <input
                                                             type='checkbox'
