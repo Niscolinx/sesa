@@ -1,7 +1,8 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Input, { SelectProps } from '../../../components/UI/input/Input'
 import { useForm } from 'react-hook-form'
 import { IoMdAdd } from 'react-icons/io'
+import { useMutation } from 'react-query'
 
 type Frequency = 'monthly' | 'weekly' | 'quarterly' | 'yearly'
 
@@ -51,7 +52,61 @@ const AddResidentUserPackage = () => {
         formState: { errors: formErrors },
     } = useForm<Inputs>()
 
-   
+   const postAdmin = (data: Inputs) => {
+       return axiosInstance({
+           url: '/admin/create',
+           method: 'post',
+           data,
+       })
+   }
+   const {
+       mutate,
+       data: response_data,
+       isLoading,
+       isError,
+       error: response_error,
+   } = useMutation(postAdmin) as any
+
+   useEffect(() => {
+       if (!isError && response_data?.success) {
+           handleOpen()
+       } else {
+           setResponseMessage({
+               className: 'text-red-600',
+               displayMessage: response_error?.response.data.message,
+           })
+       }
+   }, [response_data, response_error])
+
+   const onSubmit = handleSubmit((data) => {
+       
+
+       const adminData = {
+           name: `${first_name} ${last_name}`,
+           gender: selectedGender,
+           dob,
+           email: email_address,
+           address: 'no 4 odeyim street',
+           phone: `+234${phone_number}`,
+           image: imageUrl?.name,
+       }
+
+       mutate(adminData)
+   })
+
+   const dialogRef = useRef<HTMLDialogElement | null>(null)
+
+   const handleClose = () => {
+       if (dialogRef.current) {
+           dialogRef.current.close()
+       }
+   }
+
+   const handleOpen = () => {
+       if (dialogRef.current) {
+           dialogRef.current.showModal()
+       }
+   }
 
     const formInputs = [
         {
@@ -86,6 +141,24 @@ const AddResidentUserPackage = () => {
 
     return (
         <div className=' p-8 bg-white h-[70vh] rounded-lg overflow-y-scroll'>
+            <dialog className='dialog' ref={dialogRef}>
+                <section className='grid place-content-center w-full h-[100vh]'>
+                    <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
+                        <img src='/icons/admins/modalSuccess.svg' alt='' />
+                        <p>You have successfully added a Package</p>
+
+                        <div className='flex w-full justify-center gap-8'>
+                            
+                            <button
+                                className='bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
+                                onClick={handleClose}
+                            >
+                                Ok
+                            </button>
+                        </div>
+                    </div>
+                </section>
+            </dialog>
             <form
                 className='grid max-w-[65vw] gap-16'
                 style={{
@@ -108,10 +181,7 @@ const AddResidentUserPackage = () => {
                     )
                 })}
 
-                
-                <button
-                    className='btn justify-self-start'
-                >
+                <button className='btn justify-self-start'>
                     <span>
                         <IoMdAdd />
                     </span>{' '}
