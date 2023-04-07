@@ -38,7 +38,7 @@ const AddResidentUserPackage = () => {
     ] satisfies Frequency[]
 
     const [selectedFrequency, setSelectedFrequency] = useState<string | null>(
-        frequencyState[0]
+        null
     )
     const [responseMessage, setResponseMessage] =
         useState<ResponseMessage | null>(null)
