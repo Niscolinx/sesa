@@ -315,7 +315,7 @@ function EstateManagers() {
                                         />
                                     </div>
                                     <button
-                                        className='btn admins__btn ml-auto'
+                                        className='btn btn-blue ml-auto'
                                         onClick={handlePathSwitch}
                                     >
                                         <span>

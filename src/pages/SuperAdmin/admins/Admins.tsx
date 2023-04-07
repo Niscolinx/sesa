@@ -17,7 +17,7 @@ interface IAdmin {
         status: string
         created_at: string
         imgUrl?: string
-    },
+    }
     links: []
 }
 
@@ -54,6 +54,7 @@ function Admins() {
         isLoading: get_admins_loading,
         isError: get_admins_isError,
         error: get_admins_error,
+        data: get_admins_response,
         // isFetching: get_admins_fetching,
         isPreviousData,
     } = useQuery(['admin', pageNum], fetchAdmins, {
@@ -237,10 +238,12 @@ function Admins() {
         return <p>{get_admins_error.message}</p>
     }
 
+    const fetched = get_admins_response?.data.data
+
     return (
         <div>
             <div className='rounded-lg mt-[3rem] h-[80vh]'>
-                {fetchedAdmins.length > 0 ? (
+                {fetched.length > 0 ? (
                     <>
                         <ToastContainer />
                         <dialog className='dialog' ref={dialogRef}>
@@ -304,7 +307,7 @@ function Admins() {
                                     />
                                 </div>
                                 <button
-                                    className='btn admins__btn ml-auto'
+                                    className='btn btn-blue ml-auto'
                                     onClick={handleAddAdmin}
                                 >
                                     <span>
@@ -336,7 +339,7 @@ function Admins() {
                                 </div>
 
                                 <div className='grid gap-8 mt-8 p-8'>
-                                    {fetchedAdmins.map(
+                                    {fetched.map(
                                         (
                                             {
                                                 id,
