@@ -5,8 +5,6 @@ import { ModalContext } from '../../../Context/ModalContext'
 import { getPhotoUrl } from '../../../utils/getPhotoUrl'
 
 const AdditionalResidentDetails = () => {
-    const ModalContextData = useContext(ModalContext)
-    const { handleOpen } = ModalContextData
 
     return (
         <div className=' p-8 bg-white h-[80vh] rounded-lg overflow-y-scroll'>
