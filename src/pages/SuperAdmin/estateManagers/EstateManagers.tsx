@@ -134,7 +134,6 @@ function EstateManagers() {
         index: 0,
         currentPage: 1,
         itemsPerPage: perPage,
-
         totalPage: Math.ceil(fetchedEstateManagers?.length / perPage),
         slicedPages: null,
     })
