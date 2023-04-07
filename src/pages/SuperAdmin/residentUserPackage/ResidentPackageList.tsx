@@ -29,7 +29,9 @@ export const PACKAGES: ResidentPackageList[] = [
     },
 ]
 
-const ResidentPackageList = () => {
+
+
+const ResidentPackageList:FC<> = () => {
     type Actions = 'view details' | 'activate' | 'deactivate' | 'delete'
 
     const navigate = useNavigate()
