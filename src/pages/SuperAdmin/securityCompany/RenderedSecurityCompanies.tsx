@@ -81,7 +81,7 @@ function RenderedSecurityCompanies() {
         SecurityCompany[] | null
     >([])
 
-    const fetchEstateManagers = () => {
+    const fetchSecurityCompanies = () => {
         return axiosInstance({
             // url: '/admin/get/all',
             url: '/manager/get/all',
