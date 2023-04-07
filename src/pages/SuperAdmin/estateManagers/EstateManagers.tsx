@@ -48,7 +48,6 @@ function EstateManagers() {
 
     const {
         mutate: deactivate_estateManager_mutation,
-        data: deactivate_estateManager_response,
         isLoading: deactivate_estateManager_loading,
     } = useMutation(postDeactivateEstateManager, {
         onSuccess: (data) => {
@@ -275,7 +274,7 @@ function EstateManagers() {
                                         </button>
                                         <button
                                             className='bg-red-500 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem] capitalize'
-                                            // onClick={ deactivate_estateManager_mutation()}
+                                             onClick={}
                                         >
                                             {deactivate_estateManager_loading
                                                 ? 'Loading...'
