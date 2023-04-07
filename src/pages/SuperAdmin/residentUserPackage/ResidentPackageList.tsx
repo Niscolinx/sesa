@@ -224,12 +224,7 @@ const ResidentPackageList = () => {
             className: 'bg-green-100 text-green-600 text-[1.4rem]',
         })
     }
-    console.log({
-        get_packages_loading,
-        get_packages_isError,
-        get_packages_error,
-        get_packages_response,
-    })
+   
 
     if (get_packages_loading) {
         return <p className='p-8'>Loading...</p>

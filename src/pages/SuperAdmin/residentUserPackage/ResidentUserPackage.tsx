@@ -59,6 +59,7 @@ function AdditionalResident() {
     }
     
     const fetched = get_packages_response?.data.data
+    
     return (
         <div>
             <div className='rounded-lg mt-[3rem] h-[80vh]'>
