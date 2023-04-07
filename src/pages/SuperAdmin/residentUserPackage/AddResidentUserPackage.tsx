@@ -151,7 +151,7 @@ const AddResidentUserPackage = () => {
                 onSubmit={onSubmit}
             >
                 {formInputs.map((input, idx) => {
-                    const { label, type, name, selectProps } = input
+                    const { label, type, selectProps } = input
                     return (
                         <Input
                             key={idx + label}
@@ -159,14 +159,13 @@ const AddResidentUserPackage = () => {
                             register={register}
                             formErrors={formErrors}
                             type={type}
-                            name={name}
                             isSelect={type === 'select'}
                             select={selectProps}
                         />
                     )
                 })}
 
-                <button className='btn justify-self-start'>
+                <button className='btn justify-self-start btn-blue'>
                     <span>
                         <IoMdAdd />
                     </span>{' '}
