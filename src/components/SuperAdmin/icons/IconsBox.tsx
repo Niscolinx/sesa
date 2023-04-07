@@ -51,7 +51,7 @@ function IconsBox() {
               <Link to='/superAdmin/resident-user-package'>
                   {' '}
                   <AdditionalResidentSvg />
-                  <span>Additional Resident</span>{' '}
+                  <span>Resident User Package</span>{' '}
               </Link>
           </li>
           <li className='iconsBox__list'>
