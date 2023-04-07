@@ -17,7 +17,8 @@ interface IAdmin {
         status: string
         created_at: string
         imgUrl?: string
-    }
+    },
+    links: []
 }
 
 type Actions = 'view details' | 'deactivate'
@@ -51,7 +52,6 @@ function Admins() {
 
     const {
         isLoading: get_admins_loading,
-        data: get_admins_response,
         isError: get_admins_isError,
         error: get_admins_error,
         // isFetching: get_admins_fetching,
@@ -511,7 +511,7 @@ function Admins() {
                                         className='cursor-pointer'
                                     />
 
-                                    {get_admins_response.data.data.links?.map(
+                                    {fetchedAdmins.links?.map(
                                         (item: any, index: number) => {
                                             return (
                                                 <li key={index}>
