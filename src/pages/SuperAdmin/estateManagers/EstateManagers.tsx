@@ -77,7 +77,7 @@ function EstateManagers() {
         onSuccess: (response) => {
             setFetchedEstateManagers(response.data.data)
         },
-    })
+    }) as any
 
     const actions = ['view details', 'deactivate'] satisfies Actions[]
 
