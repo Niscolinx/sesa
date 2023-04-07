@@ -66,9 +66,18 @@ function Admins() {
 
     const {
         mutate: deactivate_admin_mutation,
-        data: post_deactivate_admin_response,
+        data: deactivate_admin_response,
         isLoading: deactivate_admin_loading,
-    } = useMutation(postDeactivateAdmin) as any
+    } = useMutation(postDeactivateAdmin, {
+        onSuccess: () => {
+            closeDialog()
+
+            toast('Admin deactivated successfully', {
+                type: 'success',
+                className: 'bg-green-100 text-green-600 text-[1.4rem]',
+            })
+        },
+    }) as any
 
     const actions = ['view details', 'deactivate'] satisfies Actions[]
 
@@ -218,18 +227,6 @@ function Admins() {
         }
     }
 
-    const deactivateHandler = () => {
-        deactivate_admin_mutation()
-        if (post_deactivate_admin_response.success) {
-            closeDialog()
-
-            toast('Admin deactivated successfully', {
-                type: 'success',
-                className: 'bg-green-100 text-green-600 text-[1.4rem]',
-            })
-        }
-    }
-
     if (get_admins_loading) {
         return <p>Loading...</p>
     }
@@ -271,7 +268,9 @@ function Admins() {
                                         </button>
                                         <button
                                             className='bg-red-500 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem] capitalize'
-                                            onClick={deactivateHandler}
+                                            onClick={() =>
+                                                deactivate_admin_mutation()
+                                            }
                                         >
                                             {deactivate_admin_loading
                                                 ? 'Loading...'

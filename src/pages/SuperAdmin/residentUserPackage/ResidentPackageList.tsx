@@ -1,7 +1,7 @@
 import React, { ChangeEvent, FC, useEffect, useRef, useState } from 'react'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { IoMdAdd } from 'react-icons/io'
-import { useQuery } from 'react-query'
+import { useMutation, useQuery } from 'react-query'
 import { useNavigate } from 'react-router'
 import { ToastContainer, toast } from 'react-toastify'
 import useAxios from '../../../components/hooks/useAxios'
@@ -24,9 +24,33 @@ const ResidentPackageList: FC<ResponseData> = ({ fetched }) => {
     type Actions = 'view details' | 'activate' | 'deactivate' | 'delete'
 
     const navigate = useNavigate()
+    const axiosInstance = useAxios()
 
     const [sortBy, setSortBy] = useState<string | null>(null)
     const [packageId, setPackageId] = useState('')
+
+    const postDeactivate = () => {
+        return axiosInstance({
+            url: '/admin/resident/user/package/changestatus',
+            method: 'post',
+            data: { id: packageId },
+        })
+    }
+
+    const {
+        mutate: deactivate_admin_mutation,
+        data: deactivate_admin_response,
+        isLoading: deactivate_admin_loading,
+    } = useMutation(postDeactivate, {
+        onSuccess: () => {
+            closeDialog()
+
+            toast('Admin deactivated successfully', {
+                type: 'success',
+                className: 'bg-green-100 text-green-600 text-[1.4rem]',
+            })
+        },
+    }) as any
 
     const actions = [
         'view details',
