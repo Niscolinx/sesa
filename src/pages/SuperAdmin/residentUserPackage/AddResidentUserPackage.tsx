@@ -78,18 +78,14 @@ const AddResidentUserPackage = () => {
     }, [response_data, response_error])
 
     const onSubmit = handleSubmit((data) => {
-        console.log({data})
+        const { amount, ...others } = data
 
-        const {amount, ...others} = data
-
-        
         const adminData = {
-            others,
+            ...others,
             price: amount,
-            frequency: selectedFrequency
+            frequency: selectedFrequency,
         }
 
-        console.log({ data, adminData })
 
         mutate(adminData)
     })
