@@ -52,21 +52,20 @@ function EstateManagers() {
         isLoading: deactivate_estateManager_loading,
     } = useMutation(postDeactivateEstateManager, {
         onSuccess: (data) => {
-        
-             if ((data as any).success as any) {
-                 console.log({ data }, 'success')
+            if ((data as any).success as any) {
+                console.log({ data }, 'success')
 
-                 closeDialog()
+                closeDialog()
 
-                 toast('Estate Manager deactivated successfully', {
-                     type: 'success',
-                     className: 'bg-green-100 text-green-600 text-[1.4rem]',
-                 })
-             } else {
-                 console.log({ data }, 'failed')
-             }
-        }
-    }) 
+                toast('Estate Manager deactivated successfully', {
+                    type: 'success',
+                    className: 'bg-green-100 text-green-600 text-[1.4rem]',
+                })
+            } else {
+                console.log({ data }, 'failed')
+            }
+        },
+    })
 
     const {
         isLoading: get_estateManagers_loading,
@@ -75,18 +74,10 @@ function EstateManagers() {
         error: get_estateManagers_error,
         // isFetching: get_estateManagers_fetching,
     } = useQuery('estateManagers', fetchEstateManagers, {
-        onSuccess: (data) => {
-
-            
-        }
-    }) 
-
-    useEffect(() => {
-        if (get_estateManagers_response?.success) {
-            setFetchedEstateManagers(get_estateManagers_response.data.data)
-            console.log(get_estateManagers_response.data, 'fetchedData')
-        }
-    }, [get_estateManagers_response])
+        onSuccess: (response) => {
+            setFetchedEstateManagers(response.data.data)
+        },
+    })
 
     const actions = ['view details', 'deactivate'] satisfies Actions[]
 
@@ -222,7 +213,6 @@ function EstateManagers() {
         console.log({ deactivate_estateManager_response }, 'stale')
 
         deactivate_estateManager_mutation()
-       
     }
 
     console.log({ deactivate_estateManager_response })
