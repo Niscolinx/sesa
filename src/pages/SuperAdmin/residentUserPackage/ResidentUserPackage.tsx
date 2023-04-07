@@ -6,7 +6,7 @@ import useAxios from '../../../components/hooks/useAxios'
 import { useQuery } from 'react-query'
 import { useNavigate } from 'react-router'
 
-function AdditionalResident() {
+function ResidentUserPackage() {
     type SwitchRoute = 'list' | 'history'
     const axiosInstance = useAxios()
     const navigate = useNavigate()
@@ -59,7 +59,7 @@ function AdditionalResident() {
     }
     
     const fetched = get_packages_response?.data.data
-    
+
     return (
         <div>
             <div className='rounded-lg mt-[3rem] h-[80vh]'>
@@ -113,4 +113,4 @@ function AdditionalResident() {
     )
 }
 
-export default AdditionalResident
+export default ResidentUserPackage
