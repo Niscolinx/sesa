@@ -9,7 +9,7 @@ type Frequency = 'monthly' | 'weekly' | 'quarterly' | 'yearly'
 
 const AddResidentUserPackage = () => {
     interface Inputs {
-        name_of_package: string
+        package_name: string
         frequency: string
         amount: number
         details: string
@@ -99,18 +99,11 @@ const AddResidentUserPackage = () => {
 
     const formInputs = [
         {
-            label: 'first_name',
+            label: 'package_name',
         },
+
         {
-            label: 'last_name',
-        },
-        {
-            label: 'dob',
-            type: 'date',
-            name: 'date of birth',
-        },
-        {
-            label: 'gender',
+            label: 'frequency',
             type: 'select',
             selectProps: {
                 state: frequencyState,
@@ -119,12 +112,15 @@ const AddResidentUserPackage = () => {
             },
         },
         {
-            label: 'phone_number',
+            label: 'amount',
             type: 'number',
         },
         {
-            label: 'email_address',
-            type: 'email',
+            label: 'details',
+        },
+        {
+            label: 'discount',
+            type: 'number',
         },
     ] satisfies FormInputs[]
 
