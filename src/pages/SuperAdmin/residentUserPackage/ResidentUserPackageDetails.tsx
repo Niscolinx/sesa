@@ -1,18 +1,18 @@
-import { SelectProps } from '../../../components/UI/input/Input'
+import Input, { SelectProps } from '../../../components/UI/input/Input'
 
 const AdditionalResidentDetails = () => {
-      interface Inputs {
-          package_name: string
-          buyer_name: string
-          amount: number
-          frequency: string
-          start_date: string
-          end_date: string
-          user_estate: string
-          transaction_type: string
-          phone_number: number
-          status: string
-      }
+    interface Inputs {
+        package_name: string
+        buyer_name: string
+        amount: number
+        frequency: string
+        start_date: string
+        end_date: string
+        user_estate: string
+        transaction_type: string
+        phone_number: number
+        status: string
+    }
 
     type FormInputs = {
         label?: string
@@ -22,36 +22,36 @@ const AdditionalResidentDetails = () => {
     }
 
     const formInputs = [
-       {
-        label: 'package_name'
-       },
-       {
-        label: 'buyer_name'
-       },
-       {
-        label: 'amount'
-       },
-       {
-        label: 'frequency'
-       },
-       {
-        label: 'start_date'
-       },
-       {
-        label: 'end_date'
-       },
-       {
-        label: 'user_estate'
-       },
-       {
-        label: 'transaction_type'
-       },
-       {
-        label: 'phone_number'
-       },
-       {
-        label: 'status'
-       },
+        {
+            label: 'package_name',
+        },
+        {
+            label: 'buyer_name',
+        },
+        {
+            label: 'amount',
+        },
+        {
+            label: 'frequency',
+        },
+        {
+            label: 'start_date',
+        },
+        {
+            label: 'end_date',
+        },
+        {
+            label: 'user_estate',
+        },
+        {
+            label: 'transaction_type',
+        },
+        {
+            label: 'phone_number',
+        },
+        {
+            label: 'status',
+        },
     ] satisfies FormInputs[]
 
     return (
@@ -64,185 +64,39 @@ const AdditionalResidentDetails = () => {
                     </span>
                 </button>
             </div>
-            <form className='grid max-w-[65vw] gap-16'>
-                <div
-                    className='grid gap-16'
-                    style={{
-                        gridTemplateColumns:
-                            'repeat(auto-fit, minmax(40rem, 1fr))',
-                    }}
-                >
+            <form>
+                <>
+                     {formInputs.map((input, idx) => {
+                            const { label, type } = input
+                            return (
+                                <Input
+                                    key={idx + label}
+                                    label={label}
+                                    register={register}
+                                    formErrors={formErrors}
+                                    type={type}
+                                    name={name}
+                                    isSelect={type === 'select'}
+                                    select={selectProps}
+                                />
+                            )
+                        })}
 
-
-                </div>
-                <div className='w-full grid gap-4'>
-                    <label
-                        htmlFor='packageName'
-                        className='text-[1.4rem] font-semibold'
-                    >
-                        Name of Package
-                    </label>
-                    <input
-                        disabled
-                        type='text'
-                        required
-                        id='packageName'
-                        className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] disabled:text-gray-500 disabled:cursor-not-allowed'
-                        value={'Gold'}
-                    />
-                </div>
-                <div className='w-full grid gap-4'>
-                    <label
-                        htmlFor='userName'
-                        className='text-[1.4rem] font-semibold'
-                    >
-                        Name of User (Buyer)
-                    </label>
-                    <input
-                        disabled
-                        type='text'
-                        required
-                        id='userName'
-                        className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] disabled:text-gray-500 disabled:cursor-not-allowed'
-                        value={'Wale Ogunleye'}
-                    />
-                </div>
-                <div className='w-full grid gap-4'>
-                    <label
-                        htmlFor='packageName'
-                        className='text-[1.4rem] font-semibold'
-                    >
-                        Amount
-                    </label>
-                    <div className='relative flex items-center'>
-                        <img
-                            src='/icons/Naira.svg'
-                            alt=''
-                            className='absolute left-3'
+                        <ImageInput
+                            handlePicture={handlePicture}
+                            photoPreview={photoPreview}
                         />
-                        <input
-                            disabled
-                            type='text'
-                            required
-                            id='amount'
-                            className='border pl-8 border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] disabled:text-gray-500 disabled:cursor-not-allowed'
-                            value={6000}
-                        />
-                    </div>
-                </div>
-                <div className='w-full grid gap-4'>
-                    <label
-                        htmlFor='frequency'
-                        className='text-[1.4rem] font-semibold'
-                    >
-                        Frequency
-                    </label>
-                    <input
-                        disabled
-                        type='text'
-                        required
-                        id='frequency'
-                        className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] disabled:text-gray-500 disabled:cursor-not-allowed'
-                        value={'Monthly'}
-                    />
-                </div>
-                <div className='w-full grid gap-4'>
-                    <label
-                        htmlFor='startDate'
-                        className='text-[1.4rem] font-semibold'
-                    >
-                        Start Date
-                    </label>
-                    <input
-                        disabled
-                        type='text'
-                        required
-                        id='startDate'
-                        className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] disabled:text-gray-500 disabled:cursor-not-allowed'
-                        value={'12-May-22'}
-                    />
-                </div>
-                <div className='w-full grid gap-4'>
-                    <label
-                        htmlFor='endDate'
-                        className='text-[1.4rem] font-semibold'
-                    >
-                        End Date
-                    </label>
-                    <input
-                        disabled
-                        type='text'
-                        required
-                        id='endDate'
-                        className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] disabled:text-gray-500 disabled:cursor-not-allowed'
-                        value={'12-May-22'}
-                    />
-                </div>
-                <div className='w-full grid gap-4'>
-                    <label
-                        htmlFor='estateUser'
-                        className='text-[1.4rem] font-semibold'
-                    >
-                        Estate User
-                    </label>
-                    <input
-                        disabled
-                        type='text'
-                        required
-                        id='estateUser'
-                        className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] disabled:text-gray-500 disabled:cursor-not-allowed'
-                        value={'Ibare'}
-                    />
-                </div>
-                <div className='w-full grid gap-4'>
-                    <label
-                        htmlFor='transactionType'
-                        className='text-[1.4rem] font-semibold'
-                    >
-                        Transaction Type
-                    </label>
-                    <input
-                        disabled
-                        type='text'
-                        required
-                        id='transactionType'
-                        className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] disabled:text-gray-500 disabled:cursor-not-allowed'
-                        value={'Purchase'}
-                    />
-                </div>
-                <div className='w-full grid gap-4'>
-                    <label
-                        htmlFor='phoneNumber'
-                        className='text-[1.4rem] font-semibold'
-                    >
-                        Phone Number
-                    </label>
-                    <input
-                        disabled
-                        type='text'
-                        required
-                        id='phoneNumber'
-                        className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] disabled:text-gray-500 disabled:cursor-not-allowed'
-                        value={'09023238423'}
-                    />
-                </div>
-                <div className='w-full grid gap-4'>
-                    <label
-                        htmlFor='status'
-                        className='text-[1.4rem] font-semibold'
-                    >
-                        Status
-                    </label>
-                    <input
-                        disabled
-                        type='text'
-                        required
-                        id='status'
-                        className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] disabled:text-gray-500 disabled:cursor-not-allowed'
-                        value={'Status'}
-                    />
-                </div>
-            </form>
+                        <button
+                            className='btn estateManagers__btn'
+                            style={{ justifySelf: 'start' }}
+                        >
+                            <span>
+                                <IoMdAdd />
+                            </span>{' '}
+                            {isLoading ? 'Loading...' : 'Add'}
+                        </button>
+                    </>
+                </form>
             <section className='grid text-[1.4rem] w-full py-10 gap-8 border-t mt-20'>
                 <h4 className='text-[1.6rem] font-semibold'>
                     Beneficiary Details
