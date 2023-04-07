@@ -6,12 +6,11 @@ type Frequency = 'monthly' | 'weekly' | 'quarterly' | 'yearly'
 
 const AddResidentUserPackage = () => {
     interface Inputs {
-        email_address: string
-        first_name: string
-        last_name: string
-        dob: string
-        phone_number: number
-        photoUrl?: string
+       name_of_package: string
+       frequency: string
+       amount: number
+       details: string
+       discount: number
     }
 
      type ResponseMessage = {

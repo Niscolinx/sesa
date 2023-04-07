@@ -61,26 +61,28 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                         {name ?? label.replaceAll('_', ' ')}
                     </label>
                     <div className='relative flex items-center'>
-                        <img
-                            src='/icons/Naira.svg'
-                            alt=''
-                            className='absolute left-3'
+                        {label.toLowerCase() === 'amount' && (
+                            <img
+                                src='/icons/Naira.svg'
+                                alt=''
+                                className='absolute left-3'
+                            />
+                        )}
+
+                        <input
+                            id={label}
+                            type={type}
+                            {...register(label, validationOptions)}
+                            className={`border border-color-grey p-4 rounded-lg w-full ${
+                                formErrors[label] && 'border-red-500 '
+                            }`}
+                            min={
+                                type === 'date' && label.indexOf('dob') !== 0
+                                    ? new Date().toISOString().split('T')[0]
+                                    : null
+                            }
                         />
-                        
-                    <input
-                        id={label}
-                        type={type}
-                        {...register(label, validationOptions)}
-                        className={`border border-color-grey p-4 rounded-lg w-full ${
-                            formErrors[label] && 'border-red-500 '
-                        }`}
-                        min={
-                            type === 'date' && label.indexOf('dob') !== 0
-                            ? new Date().toISOString().split('T')[0]
-                            : null
-                        }
-                        />
-                        </div>
+                    </div>
                 </>
             )}
 
