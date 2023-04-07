@@ -206,14 +206,6 @@ function EstateManagers() {
         }
     }
 
-    const deactivateHandler = () => {
-        console.log({ deactivate_estateManager_response }, 'stale')
-
-        deactivate_estateManager_mutation()
-    }
-
-    console.log({ deactivate_estateManager_response })
-
     const handleSelectedAction = (item: Actions, id: string) => {
         setToggleDropDown(() => {
             return {
@@ -243,6 +235,11 @@ function EstateManagers() {
     const handlePathSwitch = () => {
         navigate('/superAdmin/estateManagers/add')
     }
+
+
+    console.log({
+        get_estateManagers_loading
+    })
 
     return (
         <div>
@@ -275,7 +272,7 @@ function EstateManagers() {
                                         </button>
                                         <button
                                             className='bg-red-500 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem] capitalize'
-                                            onClick={deactivateHandler}
+                                            onClick={ deactivate_estateManager_mutation()}
                                         >
                                             {deactivate_estateManager_loading
                                                 ? 'Loading...'
