@@ -9,7 +9,7 @@ const AdditionalResidentDetails = () => {
           start_date: string
           end_date: string
           user_estate: string
-          transactionType: string
+          transaction_type: string
           phone_number: number
           status: string
       }
@@ -23,8 +23,35 @@ const AdditionalResidentDetails = () => {
 
     const formInputs = [
        {
-        label: ''
-       }
+        label: 'package_name'
+       },
+       {
+        label: 'buyer_name'
+       },
+       {
+        label: 'amount'
+       },
+       {
+        label: 'frequency'
+       },
+       {
+        label: 'start_date'
+       },
+       {
+        label: 'end_date'
+       },
+       {
+        label: 'user_estate'
+       },
+       {
+        label: 'transaction_type'
+       },
+       {
+        label: 'phone_number'
+       },
+       {
+        label: 'status'
+       },
     ] satisfies FormInputs[]
 
     return (
