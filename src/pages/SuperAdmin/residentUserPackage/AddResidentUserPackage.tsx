@@ -3,31 +3,32 @@ import Input, { SelectProps } from '../../../components/UI/input/Input'
 import { useForm } from 'react-hook-form'
 import { IoMdAdd } from 'react-icons/io'
 import { useMutation } from 'react-query'
+import useAxios from '../../../components/hooks/useAxios'
 
 type Frequency = 'monthly' | 'weekly' | 'quarterly' | 'yearly'
 
 const AddResidentUserPackage = () => {
-
     interface Inputs {
-       name_of_package: string
-       frequency: string
-       amount: number
-       details: string
-       discount: number
+        name_of_package: string
+        frequency: string
+        amount: number
+        details: string
+        discount: number
     }
 
-     type ResponseMessage = {
-         className: string
-         displayMessage: string
-     }
+    type ResponseMessage = {
+        className: string
+        displayMessage: string
+    }
 
-     type FormInputs = {
-         label?: string
-         type?: string
-         name?: string
-         selectProps?: SelectProps
-     }
+    type FormInputs = {
+        label?: string
+        type?: string
+        name?: string
+        selectProps?: SelectProps
+    }
 
+    const axiosInstance = useAxios()
 
     const frequencyState = [
         'monthly',
@@ -35,16 +36,12 @@ const AddResidentUserPackage = () => {
         'quarterly',
         'yearly',
     ] satisfies Frequency[]
-
-    const [togglePackageMenu, setTogglePackageMenu] = useState(false)
-
-    const [toggleFrequencyMenu, setToggleFrequencyMenu] = useState(false)
+   
     const [selectedFrequency, setSelectedFrequency] = useState<string | null>(
         frequencyState[0]
     )
-     const [responseMessage, setResponseMessage] =
-         useState<ResponseMessage | null>(null)
-
+    const [responseMessage, setResponseMessage] =
+        useState<ResponseMessage | null>(null)
 
     const {
         register,
@@ -52,61 +49,59 @@ const AddResidentUserPackage = () => {
         formState: { errors: formErrors },
     } = useForm<Inputs>()
 
-   const postAdmin = (data: Inputs) => {
-       return axiosInstance({
-           url: '/admin/create',
-           method: 'post',
-           data,
-       })
-   }
-   const {
-       mutate,
-       data: response_data,
-       isLoading,
-       isError,
-       error: response_error,
-   } = useMutation(postAdmin) as any
+    const postAdmin = (data: Inputs) => {
+        return axiosInstance({
+            url: '/admin/create',
+            method: 'post',
+            data,
+        })
+    }
+    const {
+        mutate,
+        data: response_data,
+        isLoading,
+        isError,
+        error: response_error,
+    } = useMutation(postAdmin) as any
 
-   useEffect(() => {
-       if (!isError && response_data?.success) {
-           handleOpen()
-       } else {
-           setResponseMessage({
-               className: 'text-red-600',
-               displayMessage: response_error?.response.data.message,
-           })
-       }
-   }, [response_data, response_error])
+    useEffect(() => {
+        if (!isError && response_data?.success) {
+            handleOpen()
+        } else {
+            setResponseMessage({
+                className: 'text-red-600',
+                displayMessage: response_error?.response.data.message,
+            })
+        }
+    }, [response_data, response_error])
 
-   const onSubmit = handleSubmit((data) => {
-       
+    const onSubmit = handleSubmit((data) => {
+        const adminData = {
+            name: `${first_name} ${last_name}`,
+            gender: selectedGender,
+            dob,
+            email: email_address,
+            address: 'no 4 odeyim street',
+            phone: `+234${phone_number}`,
+            image: imageUrl?.name,
+        }
 
-       const adminData = {
-           name: `${first_name} ${last_name}`,
-           gender: selectedGender,
-           dob,
-           email: email_address,
-           address: 'no 4 odeyim street',
-           phone: `+234${phone_number}`,
-           image: imageUrl?.name,
-       }
+        mutate(adminData)
+    })
 
-       mutate(adminData)
-   })
+    const dialogRef = useRef<HTMLDialogElement | null>(null)
 
-   const dialogRef = useRef<HTMLDialogElement | null>(null)
+    const handleClose = () => {
+        if (dialogRef.current) {
+            dialogRef.current.close()
+        }
+    }
 
-   const handleClose = () => {
-       if (dialogRef.current) {
-           dialogRef.current.close()
-       }
-   }
-
-   const handleOpen = () => {
-       if (dialogRef.current) {
-           dialogRef.current.showModal()
-       }
-   }
+    const handleOpen = () => {
+        if (dialogRef.current) {
+            dialogRef.current.showModal()
+        }
+    }
 
     const formInputs = [
         {
@@ -148,7 +143,6 @@ const AddResidentUserPackage = () => {
                         <p>You have successfully added a Package</p>
 
                         <div className='flex w-full justify-center gap-8'>
-                            
                             <button
                                 className='bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
                                 onClick={handleClose}
