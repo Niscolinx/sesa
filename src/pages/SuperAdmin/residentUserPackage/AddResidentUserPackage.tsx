@@ -47,6 +47,7 @@ const AddResidentUserPackage = () => {
     const {
         register,
         handleSubmit,
+        setValue,
         formState: { errors: formErrors },
     } = useForm<Inputs>()
 
@@ -81,7 +82,7 @@ const AddResidentUserPackage = () => {
             data,
         }
 
-        console.log({data})
+        console.log({ data })
 
         mutate(adminData)
     })
@@ -124,7 +125,7 @@ const AddResidentUserPackage = () => {
         {
             label: 'discount',
             type: 'number',
-            minLength: 1
+            minLength: 1,
         },
     ] satisfies FormInputs[]
 
@@ -148,6 +149,13 @@ const AddResidentUserPackage = () => {
                 </section>
             </dialog>
             <form className='grid gap-16' onSubmit={onSubmit}>
+                {responseMessage?.displayMessage && (
+                    <p className='text-center'>
+                        <span className={responseMessage?.className}>
+                            {responseMessage?.displayMessage}
+                        </span>
+                    </p>
+                )}
                 <div
                     className='grid gap-16'
                     style={{
@@ -155,13 +163,6 @@ const AddResidentUserPackage = () => {
                             'repeat(auto-fit, minmax(40rem, 1fr))',
                     }}
                 >
-                    {responseMessage?.displayMessage && (
-                        <p className='text-center'>
-                            <span className={responseMessage?.className}>
-                                {responseMessage?.displayMessage}
-                            </span>
-                        </p>
-                    )}
                     {formInputs.map((input, idx) => {
                         const { label, type, selectProps, minLength } = input
                         return (
@@ -169,6 +170,7 @@ const AddResidentUserPackage = () => {
                                 key={idx + label}
                                 label={label}
                                 register={register}
+                                setValue={setValue}
                                 formErrors={formErrors}
                                 type={type}
                                 minLength={minLength}

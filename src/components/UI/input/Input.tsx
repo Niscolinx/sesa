@@ -12,6 +12,7 @@ interface Input {
     type: string
     register: any
     formErrors: any
+    setValue: any
     options: any
     minLength?: number
     fullWidth: boolean
@@ -28,6 +29,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
     fullWidth,
     select,
     formErrors,
+    setValue,
     minLength = 3,
 }) => {
     const validationOptions = {
@@ -72,7 +74,8 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                         <input
                             id={label}
                             type={type}
-                            {...register(label, validationOptions)}
+                            {...(label.toLowerCase() !== 'amount' &&
+                                register(label, validationOptions))}
                             className={` w-full ${
                                 formErrors[label] && 'border-red-500 '
                             }`}
@@ -95,8 +98,6 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                     )}
                 </p>
             )}
-
-        
         </div>
     )
 }
