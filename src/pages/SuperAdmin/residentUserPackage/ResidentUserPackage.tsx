@@ -17,8 +17,7 @@ function ResidentUserPackage() {
 
      const fetchPackages = () => {
          return axiosInstance({
-             // url: '/admin/get/all',
-             url: '/manager/get/all',
+             url: '/admin/resident/user/get/package',
          })
      }
 
