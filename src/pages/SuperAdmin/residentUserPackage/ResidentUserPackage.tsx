@@ -36,11 +36,7 @@ function ResidentUserPackage() {
 
     const [currentPath, setCurrentPath] = useState<SwitchRoute>('list')
 
-    const switchRoute = new Map([
-        ['list', <ResidentPackageList />],
-        ['history', <ResidentPackageHistory />],
-    ]) satisfies Map<SwitchRoute, JSX.Element>
-
+    
     
     console.log({
         get_packages_loading,
@@ -58,6 +54,12 @@ function ResidentUserPackage() {
     }
     
     const fetched = get_packages_response?.data.data
+    
+    const switchRoute = new Map([
+        ['list', <ResidentPackageList fetched={fetched}  />],
+        ['history', <ResidentPackageHistory />],
+    ]) satisfies Map<SwitchRoute, JSX.Element>
+
 
     return (
         <div>

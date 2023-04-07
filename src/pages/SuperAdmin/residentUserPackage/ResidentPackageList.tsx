@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useEffect, useRef, useState } from 'react'
+import React, { ChangeEvent, FC, useEffect, useRef, useState } from 'react'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { IoMdAdd } from 'react-icons/io'
 import { useQuery } from 'react-query'
@@ -10,7 +10,7 @@ import { Select } from '../../../components/SuperAdmin/UI/Select'
 export interface ResidentPackageList {
     id: string
     user: {
-        packageName: string
+        package_name: string
         frequency: string
         price: number
         status: string
@@ -21,7 +21,7 @@ export const PACKAGES: ResidentPackageList[] = [
     {
         id: '1',
         user: {
-            packageName: 'Gold',
+            package_name: 'Gold',
             frequency: 'Monthly',
             price: 6000,
             status: 'active',
@@ -29,20 +29,18 @@ export const PACKAGES: ResidentPackageList[] = [
     },
 ]
 
+interface ResponseData {
+    fetched: []
+}
 
-
-const ResidentPackageList:FC<> = () => {
+const ResidentPackageList:FC<ResponseData> = ({fetched = []}) => {
     type Actions = 'view details' | 'activate' | 'deactivate' | 'delete'
 
     const navigate = useNavigate()
-    const axiosInstance = useAxios()
 
     const [sortBy, setSortBy] = useState<string | null>(null)
     const [packageId, setPackageId] = useState('')
 
-    const [fetchedPackages, setFetchedPackages] = useState<
-        ResidentPackageList[]
-    >([])
 
     // const fetchPackages = () => {
     //     return axiosInstance({
@@ -108,7 +106,7 @@ const ResidentPackageList:FC<> = () => {
         currentPage: 1,
         itemsPerPage: perPage,
 
-        totalPage: Math.ceil(fetchedPackages?.length / perPage),
+        totalPage: Math.ceil(fetched?.length / perPage),
         slicedPages: null,
     })
 
@@ -116,8 +114,8 @@ const ResidentPackageList:FC<> = () => {
         const item = parseInt(e.target.value)
 
         const slicedPages: ResidentPackageList[][] = []
-        for (let i = 0; i < fetchedPackages?.length; i += item) {
-            slicedPages.push(fetchedPackages?.slice(i, i + item))
+        for (let i = 0; i < fetched?.length; i += item) {
+            slicedPages.push(fetched?.slice(i, i + item))
         }
 
         setPaginate((prev) => {
@@ -127,7 +125,7 @@ const ResidentPackageList:FC<> = () => {
                 index: 0,
                 currentPage: 1,
                 slicedPages,
-                totalPage: Math.ceil(fetchedPackages?.length / item),
+                totalPage: Math.ceil(fetched?.length / item),
             }
         })
     }
@@ -136,11 +134,11 @@ const ResidentPackageList:FC<> = () => {
         const slicedPages: ResidentPackageList[][] = []
         for (
             let i = 0;
-            i < fetchedPackages?.length;
+            i < fetched?.length;
             i += paginate.itemsPerPage
         ) {
             slicedPages.push(
-                fetchedPackages?.slice(i, i + paginate.itemsPerPage)
+                fetched?.slice(i, i + paginate.itemsPerPage)
             )
         }
 
@@ -148,10 +146,10 @@ const ResidentPackageList:FC<> = () => {
             return {
                 ...prev,
                 slicedPages,
-                totalPage: Math.ceil(fetchedPackages?.length / perPage),
+                totalPage: Math.ceil(fetched?.length / perPage),
             }
         })
-    }, [fetchedPackages])
+    }, [fetched])
 
     const handleNext = () => {
         if (paginate.currentPage === paginate.totalPage) return
@@ -277,7 +275,7 @@ const ResidentPackageList:FC<> = () => {
                     <div className='grid text-[1.6rem]'>
                         <div className='flex w-full items-center gap-12 p-10 bg-white rounded-lg'>
                             <p className=' font-Satoshi-Medium'>
-                                Package List <span>({fetchedPackages.length})</span>
+                                Package List <span>({fetched.length})</span>
                             </p>
                             <div className='relative flex items-center'>
                                 <img
@@ -339,7 +337,7 @@ const ResidentPackageList:FC<> = () => {
                                                 {
                                                     id,
                                                     user: {
-                                                        packageName,
+                                                        package_name,
                                                         frequency,
                                                         price,
                                                         status,
@@ -359,7 +357,7 @@ const ResidentPackageList:FC<> = () => {
                                                                 className='cursor-pointer'
                                                             />
 
-                                                            <p>{packageName}</p>
+                                                            <p>{package_name}</p>
                                                         </div>
                                                         <p>{frequency}</p>
                                                         <div className='flex items-center'>
