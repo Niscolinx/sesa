@@ -50,7 +50,23 @@ function EstateManagers() {
         mutate: deactivate_estateManager_mutation,
         data: deactivate_estateManager_response,
         isLoading: deactivate_estateManager_loading,
-    } = useMutation(postDeactivateEstateManager) as any
+    } = useMutation(postDeactivateEstateManager, {
+        onSuccess: (data) => {
+        
+             if ((data as any).success as any) {
+                 console.log({ data }, 'success')
+
+                 closeDialog()
+
+                 toast('Estate Manager deactivated successfully', {
+                     type: 'success',
+                     className: 'bg-green-100 text-green-600 text-[1.4rem]',
+                 })
+             } else {
+                 console.log({ data }, 'failed')
+             }
+        }
+    }) 
 
     const {
         isLoading: get_estateManagers_loading,
@@ -58,7 +74,12 @@ function EstateManagers() {
         isError: get_estateManagers_isError,
         error: get_estateManagers_error,
         // isFetching: get_estateManagers_fetching,
-    } = useQuery('estateManagers', fetchEstateManagers) as any
+    } = useQuery('estateManagers', fetchEstateManagers, {
+        onSuccess: (data) => {
+
+            
+        }
+    }) 
 
     useEffect(() => {
         if (get_estateManagers_response?.success) {
@@ -197,23 +218,12 @@ function EstateManagers() {
         }
     }
 
-    const deactivateHandler = useCallback(() => {
+    const deactivateHandler = () => {
         console.log({ deactivate_estateManager_response }, 'stale')
 
         deactivate_estateManager_mutation()
-        if (deactivate_estateManager_response?.success) {
-            console.log({ deactivate_estateManager_response }, 'success')
-
-            closeDialog()
-
-            toast('Estate Manager deactivated successfully', {
-                type: 'success',
-                className: 'bg-green-100 text-green-600 text-[1.4rem]',
-            })
-        } else {
-            console.log({ deactivate_estateManager_response }, 'failed')
-        }
-    }, [deactivate_estateManager_response])
+       
+    }
 
     console.log({ deactivate_estateManager_response })
 
