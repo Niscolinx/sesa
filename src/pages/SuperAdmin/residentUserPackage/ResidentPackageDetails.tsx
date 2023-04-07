@@ -3,6 +3,7 @@ import Input, { SelectProps } from '../../../components/UI/input/Input'
 import useAxios from '../../../components/hooks/useAxios'
 import { useMutation } from 'react-query'
 import { toast, ToastContainer } from 'react-toastify'
+import { useParams } from 'react-router'
 
 const residentPackageDetails = () => {
     // interface Inputs {
@@ -18,6 +19,10 @@ const residentPackageDetails = () => {
     //     status: string
     // }
 
+    const params = useParams()
+
+    const packageId = params.Id
+
     type FormInputs = {
         label?: string
         type?: string
@@ -25,8 +30,6 @@ const residentPackageDetails = () => {
         selectProps?: SelectProps
     }
     const axiosInstance = useAxios()
-
-    const [packageId, setPackageId] = useState('')
 
     const postDeactivate = () => {
         return axiosInstance({
