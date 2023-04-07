@@ -73,9 +73,6 @@ const AddAdmin = () => {
             })
         }
 
-        // const timeoutId = setTimeout(() => {
-        //     setResponseMessage(null)
-        // }, 10000)
     }, [response_data, response_error])
 
     const onSubmit = handleSubmit((data) => {
@@ -218,8 +215,7 @@ const AddAdmin = () => {
                             photoPreview={photoPreview}
                         />
                         <button
-                            className='btn'
-                            style={{ justifySelf: 'start' }}
+                            className='btn justify-self-start btn-blue'
                         >
                             <span>
                                 <IoMdAdd />

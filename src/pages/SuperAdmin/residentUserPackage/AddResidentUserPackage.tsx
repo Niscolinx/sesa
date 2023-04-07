@@ -1,6 +1,7 @@
 import { useState } from 'react'
-import { SelectProps } from '../../../components/UI/input/Input'
+import Input, { SelectProps } from '../../../components/UI/input/Input'
 import { useForm } from 'react-hook-form'
+import { IoMdAdd } from 'react-icons/io'
 
 type Frequency = 'monthly' | 'weekly' | 'quarterly' | 'yearly'
 
