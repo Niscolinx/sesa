@@ -34,6 +34,7 @@ interface ResponseData {
 }
 
 const ResidentPackageList:FC<ResponseData> = ({fetched}) => {
+    
     type Actions = 'view details' | 'activate' | 'deactivate' | 'delete'
 
     const navigate = useNavigate()
@@ -42,6 +43,7 @@ const ResidentPackageList:FC<ResponseData> = ({fetched}) => {
     const [packageId, setPackageId] = useState('')
 
 
+    console.log({fetched})
     // const fetchPackages = () => {
     //     return axiosInstance({
     //         url: '/admin/resident/user/get/package',
@@ -149,7 +151,7 @@ const ResidentPackageList:FC<ResponseData> = ({fetched}) => {
                 totalPage: Math.ceil(fetched?.length / perPage),
             }
         })
-    }, [fetched])
+    }, [])
 
     const handleNext = () => {
         if (paginate.currentPage === paginate.totalPage) return
