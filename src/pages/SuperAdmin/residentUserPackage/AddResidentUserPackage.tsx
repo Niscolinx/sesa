@@ -1,9 +1,32 @@
 import { useState } from 'react'
 import { SelectProps } from '../../../components/UI/input/Input'
+import { useForm } from 'react-hook-form'
 
 type Frequency = 'monthly' | 'weekly' | 'quarterly' | 'yearly'
 
 const AddResidentUserPackage = () => {
+    interface Inputs {
+        email_address: string
+        first_name: string
+        last_name: string
+        dob: string
+        phone_number: number
+        photoUrl?: string
+    }
+
+     type ResponseMessage = {
+         className: string
+         displayMessage: string
+     }
+
+     type FormInputs = {
+         label?: string
+         type?: string
+         name?: string
+         selectProps?: SelectProps
+     }
+     
+
     const frequencyState = [
         'monthly',
         'weekly',
@@ -15,15 +38,19 @@ const AddResidentUserPackage = () => {
 
     const [toggleFrequencyMenu, setToggleFrequencyMenu] = useState(false)
     const [selectedFrequency, setSelectedFrequency] = useState<string | null>(
-        'monthly'
+        frequencyState[0]
     )
+     const [responseMessage, setResponseMessage] =
+         useState<ResponseMessage | null>(null)
 
-    type FormInputs = {
-        label?: string
-        type?: string
-        name?: string
-        selectProps?: SelectProps
-    }
+
+    const {
+        register,
+        handleSubmit,
+        formState: { errors: formErrors },
+    } = useForm<Inputs>()
+
+   
 
     const formInputs = [
         {
