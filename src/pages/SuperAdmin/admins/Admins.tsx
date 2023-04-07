@@ -66,7 +66,6 @@ function Admins() {
 
     const {
         mutate: deactivate_admin_mutation,
-        data: deactivate_admin_response,
         isLoading: deactivate_admin_loading,
     } = useMutation(postDeactivateAdmin, {
         onSuccess: () => {
