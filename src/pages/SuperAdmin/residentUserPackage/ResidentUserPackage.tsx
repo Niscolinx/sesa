@@ -54,7 +54,7 @@ function ResidentUserPackage() {
     const fetched = get_packages_response?.data.data
 
     const switchRoute = new Map([
-        ['list', <ResidentPackageList fetched={[]} />],
+        ['list', <ResidentPackageList fetched={get_packages_response?.data || []} />],
         ['history', <ResidentPackageHistory />],
     ]) satisfies Map<SwitchRoute, JSX.Element>
 
