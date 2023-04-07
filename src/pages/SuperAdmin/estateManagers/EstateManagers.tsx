@@ -69,7 +69,10 @@ function EstateManagers() {
         isLoading: get_estateManagers_loading,
         isError: get_estateManagers_isError,
         error: get_estateManagers_error,
+        isFetching,
+        data: get_estateManagers_response
     } = useQuery('estateManagers', fetchEstateManagers, {
+        staleTime: 60000,
         onSuccess: (response) => {
             setFetchedEstateManagers(response.data.data)
         },
@@ -238,7 +241,9 @@ function EstateManagers() {
 
 
     console.log({
-        get_estateManagers_loading
+        get_estateManagers_loading,
+        isFetching,
+        get_estateManagers_response
     })
 
     return (
@@ -272,7 +277,7 @@ function EstateManagers() {
                                         </button>
                                         <button
                                             className='bg-red-500 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem] capitalize'
-                                            onClick={ deactivate_estateManager_mutation()}
+                                            // onClick={ deactivate_estateManager_mutation()}
                                         >
                                             {deactivate_estateManager_loading
                                                 ? 'Loading...'
