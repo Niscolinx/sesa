@@ -60,7 +60,13 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                     >
                         {name ?? label.replaceAll('_', ' ')}
                     </label>
-
+                    <div className='relative flex items-center'>
+                        <img
+                            src='/icons/Naira.svg'
+                            alt=''
+                            className='absolute left-3'
+                        />
+                        
                     <input
                         id={label}
                         type={type}
@@ -70,10 +76,11 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                         }`}
                         min={
                             type === 'date' && label.indexOf('dob') !== 0
-                                ? new Date().toISOString().split('T')[0]
-                                : null
+                            ? new Date().toISOString().split('T')[0]
+                            : null
                         }
-                    />
+                        />
+                        </div>
                 </>
             )}
 
