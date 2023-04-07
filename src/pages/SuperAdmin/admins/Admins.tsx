@@ -339,7 +339,7 @@ function Admins() {
                                 </div>
 
                                 <div className='grid gap-8 mt-8 p-8'>
-                                    {fetched.map(
+                                    {fetchedAdmins.map(
                                         (
                                             {
                                                 id,
