@@ -247,7 +247,6 @@ function PaymentForm({ props }: PaymentForm) {
                       if (isNaN(amount)) {
                           return prev
                       } else {
-                          console.log('ramisafsdf')
                           return amount
                       }
                   }, 0)
