@@ -27,9 +27,11 @@ interface Table {
     deactivate_url: string
     fetch_url: string
     title: string
+    view_page_url: string
+    add_page_url: string
 }
 
-const Table:FC<Table> = ({deactivate_url, title, fetch_url}) => {
+const Table:FC<Table> = ({deactivate_url, title, fetch_url, add_page_url, view_page_url}) => {
     const {
         navigate,
         axiosInstance,
@@ -213,7 +215,7 @@ const Table:FC<Table> = ({deactivate_url, title, fetch_url}) => {
         })
 
         if (item === 'view details') {
-            navigate(`/superAdmin/estateManagers/view/:${id}`)
+            navigate(`${view_page_url}:${id}`)
         }
 
         if (item === 'deactivate') {
@@ -231,7 +233,7 @@ const Table:FC<Table> = ({deactivate_url, title, fetch_url}) => {
     }
 
     const handlePathSwitch = () => {
-        navigate('/superAdmin/data/add')
+        navigate(`${add_page_url}`)
     }
 
     const fetched = get_data_response?.data.data
