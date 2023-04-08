@@ -75,6 +75,7 @@ const TableData = () => {
     useEffect(() => {
         if (get_data_response) {
             setFetchedData(get_data_response.data.data)
+            setFetchedId(get_data_response.data.data.id)
         }
     }, [get_data_response])
 
