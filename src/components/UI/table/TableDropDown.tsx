@@ -2,20 +2,11 @@ import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
 import { Actions, useTableContext } from './Table'
 
-const TableDropDown = () => {
-    const {
-        setFetchedId,
-        setIsDialogOpen,
-        actions,
-        view_page_url,
-        fetchedId: id,
-    } = useTableContext()
+const TableDropDown = ({id}: {id: number}) => {
+    const { setFetchedId, setIsDialogOpen, actions, view_page_url } =
+        useTableContext()
 
     const navigate = useNavigate()
-
-    useEffect(() => {
-        console.log({id})
-    }, [])
 
     const [toggleDropDown, setToggleDropDown] = useState<{
         isDropDownOpen: boolean
@@ -44,8 +35,6 @@ const TableDropDown = () => {
     }
 
     const { isDropDownOpen, index } = toggleDropDown
-
-    
 
     return (
         <div className='relative'>

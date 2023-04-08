@@ -75,7 +75,6 @@ const TableData = () => {
     useEffect(() => {
         if (get_data_response) {
             setFetchedData(get_data_response.data.data)
-            setFetchedId(get_data_response.data.data.id)
         }
     }, [get_data_response])
 
@@ -180,6 +179,8 @@ const TableData = () => {
 
     const fetched = get_data_response?.data.data
 
+
+
     return (
         <div>
             <div className='rounded-lg mt-[3rem] h-[80vh]'>
@@ -233,7 +234,7 @@ const TableData = () => {
                                     >
                                         {THeader.map((header, idx) =>
                                             idx === 0 ? (
-                                                <div className='flex items-center gap-2'>
+                                                <div className='flex items-center gap-2' key={idx}>
                                                     <input
                                                         type='checkbox'
                                                         className='cursor-pointer'
@@ -241,7 +242,7 @@ const TableData = () => {
                                                     <p>{header}</p>
                                                 </div>
                                             ) : (
-                                                <p>{header}</p>
+                                                <p key={idx}>{header}</p>
                                             )
                                         )}
                                     </div>
@@ -318,7 +319,7 @@ const TableData = () => {
                                                                         </span>
                                                                     )}
                                                                 </p>
-                                                                <TableDropDown/>
+                                                                <TableDropDown id={id}/>
                                                             </div>
                                                         )
                                                     }
