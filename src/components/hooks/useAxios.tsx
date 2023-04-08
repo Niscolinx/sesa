@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import  { useEffect } from 'react'
 import { useAppDispatch } from '../../store/app/hooks'
 import { getToken } from '../../utils/token'
 import { setAuth } from '../../store/features/auth'

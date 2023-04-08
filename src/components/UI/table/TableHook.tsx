@@ -1,9 +1,11 @@
 import  { createContext, useState } from 'react'
-import { useNavigate } from 'react-router'
+import { NavigateFunction, useNavigate } from 'react-router'
 import useAxios from '../../hooks/useAxios'
 
 
-
+interface CreateTableHook {
+    navigate: NavigateFunction
+}
 
 const CreateTableHook = createContext(null)
 
