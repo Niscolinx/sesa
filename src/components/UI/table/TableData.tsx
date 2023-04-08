@@ -178,13 +178,7 @@ const TableData = () => {
 
     console.log({ fetched, slicedPages })
 
-    const sliced_pages = () => {
-
-        return (
-            <div></div>
-
-        )
-    }
+   
 
     return (
         <div>
