@@ -24,17 +24,20 @@ interface EstateManager {
 type Actions = 'view details' | 'deactivate'
 
 function Table() {
-    const {} = useTableContext()
-    
-    const navigate = useNavigate()
-    const axiosInstance = useAxios()
+    const {
+        navigate,
+        axiosInstance,
+        sortBy,
+        setSortBy,
+        fetchedId,
+        setFetchedId,
+        fetchedState,
+        setFetchedState,
+        isDialogOpen,
+        setIsDialogOpen
+    } = useTableContext()
 
-    const [sortBy, setSortBy] = useState<string | null>(null)
-    const [estateManagerId, setEstateManagerId] = useState('')
-    const [fetchedEstateManagers, setFetchedEstateManagers] = useState<
-        EstateManager[]
-    >([])
-    const [isDialogOpen, setIsDialogOpen] = useState(false)
+   
 
     const fetchEstateManagers = () => {
         return axiosInstance({
