@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 
 function TableDialog() {
     const dialogRef = useRef<HTMLDialogElement | null>(null)
