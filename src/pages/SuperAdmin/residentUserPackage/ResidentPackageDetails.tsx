@@ -21,7 +21,7 @@ const residentPackageDetails = () => {
 
     const params = useParams()
 
-    const packageId = params.Id?.replace(':', '')
+    const packageId = params.id?.replace(':', '')
 
     type FormInputs = {
         label?: string

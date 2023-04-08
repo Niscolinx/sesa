@@ -103,7 +103,7 @@ const ViewEstateManager = () => {
         })
     }
 
-    const estateManager_id = params.Id?.replace(':', '')
+    const estateManager_id = params.id?.replace(':', '')
 
     const {
         mutate: deactivate_estateManager_mutation,

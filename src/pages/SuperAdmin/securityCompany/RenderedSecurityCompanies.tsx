@@ -149,7 +149,8 @@ function RenderedSecurityCompanies() {
         })
 
         if (item === 'View Details') {
-            navigate(`/superAdmin/security-company/:${index}`)
+            console.log('view')
+            navigate(`/superAdmin/security-company/view/:${index}`)
         }
 
         if (item === 'Deactivate') {

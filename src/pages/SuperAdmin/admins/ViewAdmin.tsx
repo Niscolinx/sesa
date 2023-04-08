@@ -104,7 +104,7 @@ const ViewAdmin = () => {
         })
     }
 
-    const admin_id = params.Id?.replace(':', '')
+    const admin_id = params.id?.replace(':', '')
 
     const {
         mutate: deactivate_admin_mutation,

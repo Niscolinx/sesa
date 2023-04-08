@@ -56,20 +56,21 @@ const superAdminRoutes = (
         <Route index element={<Overview />} />
         <Route path='admins' element={<Admins />} />
         <Route path='admins/add' element={<AddAdmin />} />
-        <Route path='admins/view/:Id' element={<ViewAdmin />} />
+        <Route path='admins/view/:id' element={<ViewAdmin />} />
         <Route path='estates' element={<Estates />} />
-        <Route path='estates/detail/:Id' element={<EstateDetail />} />
+        <Route path='estates/detail/:id' element={<EstateDetail />} />
         <Route path='estates/add' element={<AddEstate />} />
-        <Route path='estates/report/:Id' element={<EstateReport />} />
+        <Route path='estates/report/:id' element={<EstateReport />} />
         <Route path='security-company' element={<SecurityCompany />} />
         <Route
-            path='security-company/:Id'
+            path='security-company/:id'
             element={<SecurityCompanyDetail />}
         />
         <Route path='security-company/add' element={<AddSecurityCompany />} />
+        <Route path='security-company/view/:id' element={<SecurityCompanyDetail/>} />
         <Route path='estateManagers' element={<EstateManagers />} />
         <Route path='estateManagers/add' element={<AddEstateManager />} />
-        <Route path='estateManagers/view/:Id' element={<ViewEstateManager />} />
+        <Route path='estateManagers/view/:id' element={<ViewEstateManager />} />
 
         <Route path='roles-and-permissions' element={<RolesAndPerm />} />
         <Route path='resident-user-package' element={<ResidentUserPackage />} />
@@ -78,7 +79,7 @@ const superAdminRoutes = (
             element={<AddResidentUserPackage />}
         />
         <Route
-            path='resident-user-package/view/:Id'
+            path='resident-user-package/view/:id'
             element={<ResidentPackageDetails />}
         />
 
@@ -101,14 +102,14 @@ const superAdminRoutes = (
             element={<SecurityCompanyWalletDetails />}
         />
         <Route path='artisan' element={<Artisan />} />
-        <Route path='artisan/category/:Id' element={<ViewArtisanCategory />} />
-        <Route path='artisan/detail/:Id' element={<ArtisanDetail />} />
+        <Route path='artisan/category/:id' element={<ViewArtisanCategory />} />
+        <Route path='artisan/detail/:id' element={<ArtisanDetail />} />
         <Route path='artisan/add' element={<AddArtisan />} />
         <Route path='artisan/group/add' element={<AddArtisanGroup />} />
-        <Route path='artisan/group/:Id' element={<ViewArtisanGroup />} />
+        <Route path='artisan/group/:id' element={<ViewArtisanGroup />} />
         <Route path='advert' element={<Advert />} />
         <Route path='advert/add' element={<AddAdvert />} />
-        <Route path='advert/detail/:Id' element={<AdvertDetail />} />
+        <Route path='advert/detail/:id' element={<AdvertDetail />} />
         <Route
             path='advert/clickrate/increase'
             element={<AdvertClickrateIncrease />}
@@ -121,7 +122,7 @@ const superAdminRoutes = (
         <Route path='platformSettings/addProperty' element={<AddProperty />} />
         <Route path='platformSettings/addSOS' element={<AddSOS />} />
         <Route
-            path='platformSettings/SOSDetails/:Id'
+            path='platformSettings/SOSDetails/:id'
             element={<SOSDetails />}
         />
     </Route>
