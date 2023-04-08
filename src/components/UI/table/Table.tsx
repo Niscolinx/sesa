@@ -31,6 +31,7 @@ function EstateManagers() {
     const [fetchedEstateManagers, setFetchedEstateManagers] = useState<
         EstateManager[]
     >([])
+    const [isDialogOpen, setIsDialogOpen] = useState(false)
 
     const fetchEstateManagers = () => {
         return axiosInstance({
@@ -52,7 +53,7 @@ function EstateManagers() {
     } = useMutation(postDeactivateEstateManager, {
         onSuccess: (data) => {
             if ((data as any).success as any) {
-                closeDialog()
+                setIsDialogOpen(false)
 
                 toast('Estate Manager deactivated successfully', {
                     type: 'success',
@@ -208,7 +209,7 @@ function EstateManagers() {
 
         if (item === 'deactivate') {
             setEstateManagerId(id)
-            openDialog()
+            setIsDialogOpen(true)
         }
     }
 
