@@ -239,7 +239,7 @@ const ViewEstateManager = () => {
                         />
                         <p>
                             Are you sure you want to deactivate this
-                            estateManager?
+                            Estate Manager?
                         </p>
 
                         <div className='flex w-full justify-center gap-8'>
