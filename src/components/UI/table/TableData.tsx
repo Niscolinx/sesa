@@ -49,7 +49,6 @@ const TableData = () => {
             url: fetch_url,
         })
     }
-   
 
     const {
         isLoading: get_data_loading,
@@ -207,7 +206,17 @@ const TableData = () => {
                                             <span>
                                                 <IoMdAdd />
                                             </span>{' '}
-                                            <p>Add {title}</p>
+                                            <p>
+                                                Add{' '}
+                                                {title
+                                                    .replace(
+                                                        /([a-z])([A-Z])/g,
+                                                        '$1 $2'
+                                                    )
+                                                    .replace(/^\w/, (c) =>
+                                                        c.toUpperCase()
+                                                    )}
+                                            </p>
                                         </button>
                                     )}
                                 </div>
@@ -239,21 +248,18 @@ const TableData = () => {
                                             slicedPages?.length > 0 &&
                                             React.Children.toArray(
                                                 slicedPages[paginate.index].map(
-                                                    (
-                                                        {
-                                                            id,
-                                                            user: {
-                                                                phone,
+                                                    ({
+                                                        id,
+                                                        user: {
+                                                            phone,
 
-                                                                gender,
-                                                                name,
-                                                                created_at,
-                                                                status,
-                                                                imgUrl,
-                                                            },
-                                                        }
-                                                    
-                                                    ) => {
+                                                            gender,
+                                                            name,
+                                                            created_at,
+                                                            status,
+                                                            imgUrl,
+                                                        },
+                                                    }) => {
                                                         return (
                                                             <div className='grid justify-between border-b grid-cols-6 items-center gap-8 text-[1.6rem] py-4 table__ellipsis'>
                                                                 <div className='flex items-center gap-4  '>
