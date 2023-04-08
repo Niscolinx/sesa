@@ -6,7 +6,8 @@ interface SlicedPages {
 }
 
 const SlicedPages: FC<SlicedPages> = ({ pages, index }) => {
-    console.log({pages, index})
+    console.log({ pages, index })
+    console.log(pages, pages?.flat())
     if (!pages || !pages.length) {
         return null
     }
@@ -16,9 +17,17 @@ const SlicedPages: FC<SlicedPages> = ({ pages, index }) => {
         return <p>{name}</p>
     }
 
+    const dataToDisplay = [
+        'phone',
+        'gender',
+        'name',
+        'created_at',
+        'status',
+        'image',
+    ]
     return (
         <>
-            {page.map(({ id, user }: any ) =>
+            {page.map(({ id, user }: any) =>
                 Object.values(user).map((item: any, i: number) => (
                     <TableItem key={`${id}-${i}`} name={item} />
                 ))
