@@ -333,6 +333,12 @@ const TableData = () => {
                                                                     )}
                                                                 </p>
                                                                 <TableDropDown
+                                                                    toggleDropDown={
+                                                                        toggleDropDown
+                                                                    }
+                                                                    setToggleDropDown={
+                                                                        setToggleDropDown
+                                                                    }
                                                                     id={idx}
                                                                 />
                                                             </div>
