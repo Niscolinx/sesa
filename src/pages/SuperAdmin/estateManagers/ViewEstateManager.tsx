@@ -119,16 +119,34 @@ const ViewEstateManager = () => {
 
     const {
         mutate: estateManager_mutation,
-        data: estateManager_response_data,
+        data: estateManager_mutation_response,
         isLoading: estateManager_loading,
-    } = useMutation(postUpdateEstateManager) as any
+    } = useMutation(postUpdateEstateManager, {
+        onSuccess: (res) => {
+             if ((res as any).success) {
+                 toast('EstateManager Updated successfully', {
+                     type: 'success',
+                     className: 'bg-green-100 text-green-600 text-[1.4rem]',
+                 })
+             } else {
+                 setResponseMessage({
+                     className: 'text-red-600',
+                     displayMessage:
+                         res?.response?.data.message,
+                 })
+             }
+        }
+    }) as any
 
     useEffect(() => {
         get_estateManager_mutation(estateManager_id)
     }, [])
 
     useEffect(() => {
-        if (get_estateManager_response?.success) {
+        if (
+            get_estateManager_response?.success &&
+            get_estateManager_response.data.length > 0
+        ) {
             const { dob } = get_estateManager_response.data
             const fetched_data = get_estateManager_response.data.user
 
