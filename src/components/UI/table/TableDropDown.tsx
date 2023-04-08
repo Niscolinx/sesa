@@ -29,7 +29,7 @@ const TableDropDown = ({
         })
 
         if (item === 'view details') {
-            navigate(`${view_page_url}:${itemId}`)
+            navigate(`${view_page_url}/:${itemId}`)
         }
 
         if (item === 'deactivate') {
