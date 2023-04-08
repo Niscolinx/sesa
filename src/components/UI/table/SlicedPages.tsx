@@ -89,7 +89,9 @@ const SlicedPages: FC<SlicedPages> = ({
                     ([key, value]: any, idx: number) =>
                         dataToDisplay.includes(key) && (
                             <div
-                                className='grid justify-between border-b grid-cols-6 items-center gap-8 text-[1.6rem] py-4 table__ellipsis'
+                                className={`grid justify-between border-b grid-cols-${
+                                    dataToDisplay.length + 1
+                                } items-center gap-8 text-[1.6rem] py-4 table__ellipsis`}
                                 key={`${id}-${idx}`}
                             >
                                 <TableItem
