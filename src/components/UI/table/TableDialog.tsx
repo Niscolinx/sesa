@@ -1,11 +1,17 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { useTableContext } from './Table'
 import { useMutation } from 'react-query'
 import { toast } from 'react-toastify'
 
 function TableDialog() {
-    const { axiosInstance, deactivate_url, fetchedId, setIsDialogOpen, title } =
-        useTableContext()
+    const {
+        axiosInstance,
+        deactivate_url,
+        fetchedId,
+        setIsDialogOpen,
+        title,
+        isDialogOpen,
+    } = useTableContext()
 
     const postDeactivate = () => {
         return axiosInstance({
@@ -29,6 +35,11 @@ function TableDialog() {
             },
         })
 
+    useEffect(() => {
+        if (isDialogOpen) {
+            openDialog()
+        }
+    }, [isDialogOpen])
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
     const closeDialog = () => {
@@ -56,7 +67,8 @@ function TableDialog() {
                         }}
                     />
                     <p>
-                        Are you sure you want to deactivate this {title.split(/[A-Z]/).join(' ')}?
+                        Are you sure you want to deactivate this{' '}
+                        {title.split(/[A-Z]/).join(' ')}?
                     </p>
 
                     <div className='flex w-full justify-center gap-8'>
