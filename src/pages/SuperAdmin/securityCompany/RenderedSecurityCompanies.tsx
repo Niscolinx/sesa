@@ -226,10 +226,10 @@ function RenderedSecurityCompanies() {
                                     Cancel
                                 </button>
                                 <button
-                                    className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
-                                    onClick={handleRouteChange}
+                                    className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem] capitalize'
+                                    onClick={() => deactivate_securityCompany_mutation()}
                                 >
-                                    Deactivate
+                                    {deactivate_securityCompany_loading ? 'Loading...' : 'deactivate'}
                                 </button>
                             </div>
                         </div>
