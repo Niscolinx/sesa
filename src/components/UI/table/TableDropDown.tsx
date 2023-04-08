@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router'
-import { Actions, useTableContext } from './TableHook'
-
+import { Actions, useTableContext } from './Table'
 
 interface ITableDropDown {
     id: number
