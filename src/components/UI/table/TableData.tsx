@@ -165,19 +165,7 @@ const TableData = () => {
 
     const fetched = get_data_response?.data.data
 
-    const data = {
-        // id,
-        // user: {
-        //     phone,
-        //     gender,
-        //     name,
-        //     created_at,
-        //     status,
-        //     imgUrl,
-        // },
-    }
 
-    console.log({ fetched, slicedPages })
 
     return (
         <div>
