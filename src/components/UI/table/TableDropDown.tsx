@@ -1,9 +1,8 @@
-import { Dispatch, useEffect, useState } from 'react'
+import { Dispatch } from 'react'
 import { useNavigate } from 'react-router'
 import { Actions, useTableContext } from './Table'
 import { SetStateAction } from 'jotai'
 import { ToggleDropDown } from './TableData'
-
 
 interface TableDropDown {
     id: number
@@ -11,14 +10,15 @@ interface TableDropDown {
     setToggleDropDown: Dispatch<SetStateAction<ToggleDropDown>>
 }
 
-const TableDropDown = ({id, toggleDropDown, setToggleDropDown}: TableDropDown) => {
+const TableDropDown = ({
+    id,
+    toggleDropDown,
+    setToggleDropDown,
+}: TableDropDown) => {
     const { setFetchedId, setIsDialogOpen, actions, view_page_url } =
         useTableContext()
 
     const navigate = useNavigate()
-
-
-   
 
     const handleSelectedAction = (item: Actions, itemId: number) => {
         setToggleDropDown(() => {
@@ -40,7 +40,7 @@ const TableDropDown = ({id, toggleDropDown, setToggleDropDown}: TableDropDown) =
 
     const { isDropDownOpen, index } = toggleDropDown
 
-    console.log({toggleDropDown, id})
+    console.log({ toggleDropDown, id })
 
     return (
         <div className='relative'>
