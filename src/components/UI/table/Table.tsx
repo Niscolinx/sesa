@@ -22,7 +22,7 @@ interface EstateManager {
 
 type Actions = 'view details' | 'deactivate'
 
-function EstateManagers() {
+function Table() {
     const navigate = useNavigate()
     const axiosInstance = useAxios()
 
@@ -552,4 +552,4 @@ function EstateManagers() {
     )
 }
 
-export default EstateManagers
+export default Table
