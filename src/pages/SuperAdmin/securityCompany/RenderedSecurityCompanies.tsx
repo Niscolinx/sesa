@@ -13,6 +13,7 @@ import { TbCurrencyNaira } from 'react-icons/tb'
 import { useNavigate } from 'react-router-dom'
 import { useAppDispatch } from '../../../store/app/hooks'
 import useAxios from '../../../components/hooks/useAxios'
+import { useQuery } from 'react-query'
 
 type SecurityCompanyDetails = {
     companyName: string
@@ -87,6 +88,19 @@ function RenderedSecurityCompanies() {
             url: '/manager/get/all',
         })
     }
+     const {
+         isLoading: get_securityCompanies_loading,
+         isError: get_securityCompanies_isError,
+         error: get_securityCompanies_error,
+         data: get_securityCompanies_response,
+     } = useQuery('securityCompanies', fetchSecurityCompanies, {}) as any
+
+     useEffect(() => {
+         if (get_securityCompanies_response) {
+             setFetchedSecurityCompanies(SECURITYCOMPANYDATA)
+            //  setFetchedSecurityCompanies(get_securityCompanies_response.data.data)
+         }
+     }, [get_securityCompanies_response])
 
     const [toggleDropDown, setToggleDropDown] = useState<{
         isDropDownOpen: boolean
@@ -107,14 +121,7 @@ function RenderedSecurityCompanies() {
             }
         })
     }
-    useEffect(() => {
-        const fetchData = async () => {
-            setTimeout(() => {
-                setFetchedSecurityCompanies(SECURITYCOMPANYDATA)
-            }, 200)
-        }
-        fetchData()
-    }, [])
+   
 
     const handlePathSwitch = () => {
         navigate('/superAdmin/security-company/add')
