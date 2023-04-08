@@ -36,6 +36,8 @@ const TableDropDown = ({id}: {id: number}) => {
 
     const { isDropDownOpen, index } = toggleDropDown
 
+    console.log({toggleDropDown, id})
+
     return (
         <div className='relative'>
             <label

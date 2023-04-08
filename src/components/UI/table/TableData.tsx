@@ -179,8 +179,6 @@ const TableData = () => {
 
     const fetched = get_data_response?.data.data
 
-
-
     return (
         <div>
             <div className='rounded-lg mt-[3rem] h-[80vh]'>
@@ -234,7 +232,10 @@ const TableData = () => {
                                     >
                                         {THeader.map((header, idx) =>
                                             idx === 0 ? (
-                                                <div className='flex items-center gap-2' key={idx}>
+                                                <div
+                                                    className='flex items-center gap-2'
+                                                    key={idx}
+                                                >
                                                     <input
                                                         type='checkbox'
                                                         className='cursor-pointer'
@@ -252,18 +253,21 @@ const TableData = () => {
                                             slicedPages?.length > 0 &&
                                             React.Children.toArray(
                                                 slicedPages[paginate.index].map(
-                                                    ({
-                                                        id,
-                                                        user: {
-                                                            phone,
+                                                    (
+                                                        {
+                                                            id,
+                                                            user: {
+                                                                phone,
 
-                                                            gender,
-                                                            name,
-                                                            created_at,
-                                                            status,
-                                                            imgUrl,
+                                                                gender,
+                                                                name,
+                                                                created_at,
+                                                                status,
+                                                                imgUrl,
+                                                            },
                                                         },
-                                                    }) => {
+                                                        idx
+                                                    ) => {
                                                         return (
                                                             <div className='grid justify-between border-b grid-cols-6 items-center gap-8 text-[1.6rem] py-4 table__ellipsis'>
                                                                 <div className='flex items-center gap-4  '>
@@ -319,7 +323,9 @@ const TableData = () => {
                                                                         </span>
                                                                     )}
                                                                 </p>
-                                                                <TableDropDown id={id}/>
+                                                                <TableDropDown
+                                                                    id={idx}
+                                                                />
                                                             </div>
                                                         )
                                                     }

@@ -236,6 +236,8 @@ function Admins() {
 
     const fetched = get_admins_response?.data.data
 
+    console.log({toggleDropDown})
+
     return (
         <div>
             <div className='rounded-lg mt-[3rem] h-[80vh]'>
