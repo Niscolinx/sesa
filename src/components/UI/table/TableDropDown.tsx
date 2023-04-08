@@ -29,7 +29,6 @@ const TableDropDown = ({
         })
 
         if (item === 'view details') {
-            console.log(`${view_page_url}:${itemId}`)
             navigate(`${view_page_url}:${itemId}`)
         }
 

@@ -297,7 +297,7 @@ const ViewEstateManager = () => {
                             onClick={openDialog}
                         >
                             <img
-                                src='/icons/estateManagers/delete.svg'
+                                src='/icons/admins/delete.svg'
                                 alt=''
                             />
                             <span className='text-red-600 text-[1.4rem] font-semibold'>
@@ -348,7 +348,7 @@ const ViewEstateManager = () => {
                         >
                             <span>
                                 <img
-                                    src='/icons/admin/saveDisk.svg'
+                                    src='/icons/admins/saveDisk.svg'
                                     alt=''
                                     className='w-[1.7rem] h-[1.7rem]'
                                 />
