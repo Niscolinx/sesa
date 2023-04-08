@@ -33,21 +33,20 @@ const SlicedPages: FC<SlicedPages> = ({
     ]
 
     const TableItem = ({ user, id }: any) => {
+        const details:any = []
         Object.entries(user).map(
             ([key, value]: any, idx: number) =>
                 dataToDisplay.includes(key) &&
-                {
-                    /* {dataToDisplay.length + 1 && (
-                                    <TableDropDown
-                                        toggleDropDown={toggleDropDown}
-                                        setToggleDropDown={setToggleDropDown}
-                                        id={id}
-                                    />
-                                )} */
-                }
+                details.push(user)
         )
 
-        return <>p</>
+        return (
+            details?.map((detail: any, idx: any) => (
+                <>
+                p
+                </>
+            ))
+        )
 
         // if (idx === 0) {
         //     return (
