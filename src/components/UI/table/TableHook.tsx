@@ -24,8 +24,8 @@ function TableHook<T>() {
     const axiosInstance = useAxios()
 
     const [sortBy, setSortBy] = useState<string | null>(null)
-    const [estateManagerId, setEstateManagerId] = useState('')
-    const [fetchedEstateManagers, setFetchedEstateManagers] = useState<T[]>([])
+    const [fetchedId, setFetchedId] = useState('')
+    const [fetchedState, setFetchedState] = useState<T[]>([])
     const [isDialogOpen, setIsDialogOpen] = useState(false)
 
     return <div>TableHook</div>
