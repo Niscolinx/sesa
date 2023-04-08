@@ -2,18 +2,18 @@ import { FC } from "react"
 import { Paginate } from "./TableData"
 
 interface SlicedPages {
-    pages: Pick<Paginate, 'slicedPages'>
-    index: Pick<Paginate, 'index'>
+    pages: any[][] | null
+    index: number
 }
 
 const SlicedPages:FC<SlicedPages> = ({ pages, index }) => {
-    const page = pages[index]
-
+    
     // Return early if page is undefined or empty
-    if (!page || !page.length) {
+    if (!pages || !pages.length) {
         return null
     }
-
+    const page = pages[index]
+    
     return (
         <>
             {page.map(({ data: { id, user } }) =>
