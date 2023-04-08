@@ -1,6 +1,6 @@
 import { IoMdAdd } from 'react-icons/io'
 import { useNavigate } from 'react-router'
-import { useState, useEffect, ChangeEvent, useRef, useCallback } from 'react'
+import { useState, useEffect, ChangeEvent, useRef, useCallback, FC } from 'react'
 import { useMutation, useQuery } from 'react-query'
 import { ToastContainer, toast } from 'react-toastify'
 import React from 'react'
@@ -21,9 +21,13 @@ interface EstateManager {
     }
 }
 
-type Actions = 'view details' | 'deactivate'
+type Actions = 'view details' | 'deactivate' | 'activate' | 'delete'
 
-function Table() {
+interface Table {
+
+}
+
+const Table:FC<Table> = ({}) => {
     const {
         navigate,
         axiosInstance,
