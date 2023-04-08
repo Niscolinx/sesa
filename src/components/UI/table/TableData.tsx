@@ -165,17 +165,19 @@ const TableData = () => {
     const fetched = get_data_response?.data.data
 
     const data = {
-        id,
-        user: {
-            phone,
+        // id,
+        // user: {
+        //     phone,
+        //     gender,
+        //     name,
+        //     created_at,
+        //     status,
+        //     imgUrl,
+        // },
 
-            gender,
-            name,
-            created_at,
-            status,
-            imgUrl,
-        },
     }
+
+    
 
     return (
         <div>
@@ -263,70 +265,71 @@ const TableData = () => {
                                                 slicedPages[paginate.index].map(
                                                     () => {
                                                         return (
-                                                            <div className='grid justify-between border-b grid-cols-6 items-center gap-8 text-[1.6rem] py-4 table__ellipsis'>
-                                                                <div className='flex items-center gap-4  '>
-                                                                    <input
-                                                                        type='checkbox'
-                                                                        className='cursor-pointer'
-                                                                    />
+                                                            <></>
+                                                            // <div className='grid justify-between border-b grid-cols-6 items-center gap-8 text-[1.6rem] py-4 table__ellipsis'>
+                                                            //     <div className='flex items-center gap-4  '>
+                                                            //         <input
+                                                            //             type='checkbox'
+                                                            //             className='cursor-pointer'
+                                                            //         />
 
-                                                                    <div className='flex items-center gap-2'>
-                                                                        {imgUrl && (
-                                                                            <img
-                                                                                src={
-                                                                                    imgUrl
-                                                                                }
-                                                                                alt=''
-                                                                                className='w-[3.5rem] h-[h-3.5rem] rounded-full object-cover'
-                                                                            />
-                                                                        )}
+                                                            //         <div className='flex items-center gap-2'>
+                                                            //             {imgUrl && (
+                                                            //                 <img
+                                                            //                     src={
+                                                            //                         imgUrl
+                                                            //                     }
+                                                            //                     alt=''
+                                                            //                     className='w-[3.5rem] h-[h-3.5rem] rounded-full object-cover'
+                                                            //                 />
+                                                            //             )}
 
-                                                                        <p className='min-w-[30rem] overflow-hidden text-ellipsis whitespace-nowrap'>
-                                                                            {
-                                                                                name
-                                                                            }
-                                                                        </p>
-                                                                    </div>
-                                                                </div>
-                                                                <p>{gender}</p>
-                                                                <p>{phone}</p>
-                                                                <p>
-                                                                    {new Date(
-                                                                        created_at
-                                                                    )
-                                                                        .toLocaleDateString()
-                                                                        .replace(
-                                                                            /\//g,
-                                                                            '-'
-                                                                        )}
-                                                                </p>
+                                                            //             <p className='min-w-[30rem] overflow-hidden text-ellipsis whitespace-nowrap'>
+                                                            //                 {
+                                                            //                     name
+                                                            //                 }
+                                                            //             </p>
+                                                            //         </div>
+                                                            //     </div>
+                                                            //     <p>{gender}</p>
+                                                            //     <p>{phone}</p>
+                                                            //     <p>
+                                                            //         {new Date(
+                                                            //             created_at
+                                                            //         )
+                                                            //             .toLocaleDateString()
+                                                            //             .replace(
+                                                            //                 /\//g,
+                                                            //                 '-'
+                                                            //             )}
+                                                            //     </p>
 
-                                                                <p>
-                                                                    {status ===
-                                                                    'Active' ? (
-                                                                        <span className='text-green-600'>
-                                                                            {
-                                                                                status
-                                                                            }
-                                                                        </span>
-                                                                    ) : (
-                                                                        <span className='text-red-500'>
-                                                                            {
-                                                                                status
-                                                                            }
-                                                                        </span>
-                                                                    )}
-                                                                </p>
-                                                                <TableDropDown
-                                                                    toggleDropDown={
-                                                                        toggleDropDown
-                                                                    }
-                                                                    setToggleDropDown={
-                                                                        setToggleDropDown
-                                                                    }
-                                                                    id={id}
-                                                                />
-                                                            </div>
+                                                            //     <p>
+                                                            //         {status ===
+                                                            //         'Active' ? (
+                                                            //             <span className='text-green-600'>
+                                                            //                 {
+                                                            //                     status
+                                                            //                 }
+                                                            //             </span>
+                                                            //         ) : (
+                                                            //             <span className='text-red-500'>
+                                                            //                 {
+                                                            //                     status
+                                                            //                 }
+                                                            //             </span>
+                                                            //         )}
+                                                            //     </p>
+                                                            //     <TableDropDown
+                                                            //         toggleDropDown={
+                                                            //             toggleDropDown
+                                                            //         }
+                                                            //         setToggleDropDown={
+                                                            //             setToggleDropDown
+                                                            //         }
+                                                            //         id={id}
+                                                            //     />
+                                                            // </div>
                                                         )
                                                     }
                                                 )
