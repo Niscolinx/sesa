@@ -23,7 +23,10 @@ function TableDialog() {
 
                     toast(
                         `${title
-                            .replace(/([a-z])([A-Z])/g, '$1 $2').replace(/^\w/, c => c.toUpperCase())} deactivated successfully`,
+                            .replace(/([a-z])([A-Z])/g, '$1 $2')
+                            .replace(/^\w/, (c) =>
+                                c.toUpperCase()
+                            )} deactivated successfully`,
                         {
                             type: 'success',
                             className:
