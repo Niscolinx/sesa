@@ -4,7 +4,7 @@ import useAxios from '../../hooks/useAxios'
 import { AxiosInstance } from 'axios'
 import { SetStateAction } from 'jotai'
 import TableDialog from './TableDialog'
-import Table from './Table'
+import TableData from './Table'
 
 type Select = string | null
 
@@ -23,6 +23,12 @@ interface ICreateTableContext {
     setActions: Dispatch<SetStateAction<Actions[]>>
     setFetchedData: Dispatch<SetStateAction<any[]>>
     setIsDialogOpen: Dispatch<SetStateAction<boolean>>
+    deactivate_url: string
+    fetch_url: string
+    title: string
+    view_page_url: string
+    add_page_url: string
+    is_add_btn: boolean
 }
 
 const CreateTableContext = createContext<ICreateTableContext | null>(null)
@@ -37,7 +43,23 @@ export const useTableContext = () => {
     return context
 }
 
-function TableHook<T>() {
+interface Table {
+    fetch_url: string
+    title: string
+    view_page_url: string
+    add_page_url: string
+    is_add_btn: boolean
+    deactivate_url: string
+}
+
+const Table = ({
+    fetch_url,
+    title,
+    view_page_url,
+    add_page_url,
+    is_add_btn,
+    deactivate_url,
+}: Table) => {
     const navigate = useNavigate()
     const axiosInstance = useAxios()
 
@@ -47,7 +69,7 @@ function TableHook<T>() {
         'view details',
         'deactivate',
     ])
-    const [fetchedData, setFetchedData] = useState<T[]>([])
+    const [fetchedData, setFetchedData] = useState<any[]>([])
     const [isDialogOpen, setIsDialogOpen] = useState(false)
 
     return (
@@ -65,12 +87,18 @@ function TableHook<T>() {
                 actions,
                 setActions,
                 setIsDialogOpen,
+                deactivate_url,
+                fetch_url,
+                title,
+                view_page_url,
+                add_page_url,
+                is_add_btn,
             }}
         >
             <TableDialog />
-            {/* <Table /> */}
+            <TableData />
         </CreateTableContext.Provider>
     )
 }
 
-export default TableHook
+export default Table

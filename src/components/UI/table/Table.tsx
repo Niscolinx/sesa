@@ -17,23 +17,9 @@ const THeader = [
     'actions',
 ]
 
-interface Table {
-    deactivate_url: string
-    fetch_url: string
-    title: string
-    view_page_url: string
-    add_page_url: string
-    is_add_btn: boolean
-}
 
-const Table: FC<Table> = ({
-    deactivate_url,
-    title,
-    fetch_url,
-    add_page_url,
-    view_page_url,
-    is_add_btn,
-}) => {
+
+const Table = () => {
     const {
         navigate,
         axiosInstance,
@@ -45,6 +31,12 @@ const Table: FC<Table> = ({
         setFetchedData,
         isDialogOpen,
         setIsDialogOpen,
+        deactivate_url,
+        title,
+        fetch_url,
+        add_page_url,
+        view_page_url,
+        is_add_btn,
     } = useTableContext()
 
     const fetchData = () => {

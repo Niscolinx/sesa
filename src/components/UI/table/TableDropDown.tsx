@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router'
-import { useTableContext } from './TableHook'
+import { Actions, useTableContext } from './TableHook'
 
 
 interface ITableDropDown {
@@ -9,7 +9,7 @@ interface ITableDropDown {
 }
 
 const TableDropDown = ({ id, view_page_url }: ITableDropDown) => {
-    const { setFetchedId, setIsDialogOpen } = useTableContext()
+    const { setFetchedId, setIsDialogOpen, actions } = useTableContext()
 
     const navigate = useNavigate()
 
