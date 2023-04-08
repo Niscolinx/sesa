@@ -25,10 +25,11 @@ type Actions = 'view details' | 'deactivate' | 'activate' | 'delete'
 
 interface Table {
     deactivate_url: string
+    fetch_url: string
     title: string
 }
 
-const Table:FC<Table> = ({deactivate_url, title}) => {
+const Table:FC<Table> = ({deactivate_url, title, fetch_url}) => {
     const {
         navigate,
         axiosInstance,
@@ -36,18 +37,17 @@ const Table:FC<Table> = ({deactivate_url, title}) => {
         setSortBy,
         fetchedId,
         setFetchedId,
-        fetchedState,
-        setFetchedState,
+        fetchedData,
+        setFetchedData,
         isDialogOpen,
         setIsDialogOpen
     } = useTableContext()
 
    
 
-    const fetchEstateManagers = () => {
+    const fetchData = () => {
         return axiosInstance({
-            // url: '/admin/get/all',
-            url: '/manager/get/all',
+            url: fetch_url
         })
     }
     const postDeactivate = () => {
@@ -75,17 +75,17 @@ const Table:FC<Table> = ({deactivate_url, title}) => {
     })
 
     const {
-        isLoading: get_estateManagers_loading,
-        isError: get_estateManagers_isError,
-        error: get_estateManagers_error,
-        data: get_estateManagers_response,
-    } = useQuery('estateManagers', fetchEstateManagers, {}) as any
+        isLoading: get_data_loading,
+        isError: get_data_isError,
+        error: get_data_error,
+        data: get_data_response,
+    } = useQuery('estateManagers', fetchData, {}) as any
 
     useEffect(() => {
-        if (get_estateManagers_response) {
-            setFetchedEstateManagers(get_estateManagers_response.data.data)
+        if (get_data_response) {
+            setFetchedEstateManagers(get_data_response.data.data)
         }
-    }, [get_estateManagers_response])
+    }, [get_data_response])
 
     // useEffect(() => {
     //     const slicedPages: EstateManager[][] = []
@@ -250,7 +250,7 @@ const Table:FC<Table> = ({deactivate_url, title}) => {
         //                             <p className=' font-Satoshi-Medium'>
         //                                 EstateManager List{' '}
         //                                 <span>
-        //                                     ({fetchEstateManagers.length})
+        //                                     ({fetchData.length})
         //                                 </span>
         //                             </p>
         //                             <div className='relative flex items-center'>

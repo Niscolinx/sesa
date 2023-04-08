@@ -16,8 +16,8 @@ interface ICreateTableContext {
     fetchedId: string
     setFetchedId: Dispatch<SetStateAction<string>>
     isDialogOpen: boolean
-    fetchedState: any[]
-    setFetchedState: Dispatch<SetStateAction<any[]>>
+    fetchedData: any[]
+    setFetchedData: Dispatch<SetStateAction<any[]>>
     setIsDialogOpen: Dispatch<SetStateAction<boolean>>
 }
 
@@ -39,7 +39,7 @@ function TableHook<T>() {
 
     const [sortBy, setSortBy] = useState<string | null>(null)
     const [fetchedId, setFetchedId] = useState('')
-    const [fetchedState, setFetchedState] = useState<T[]>([])
+    const [fetchedData, setFetchedData] = useState<T[]>([])
     const [isDialogOpen, setIsDialogOpen] = useState(false)
 
     return (
@@ -51,8 +51,8 @@ function TableHook<T>() {
                 setSortBy,
                 fetchedId,
                 setFetchedId,
-                fetchedState,
-                setFetchedState,
+                fetchedData,
+                setFetchedData,
                 isDialogOpen,
                 setIsDialogOpen,
             }}
