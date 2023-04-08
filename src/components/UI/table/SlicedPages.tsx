@@ -84,7 +84,7 @@ const SlicedPages: FC<SlicedPages> = ({
     ]
     return (
         <>
-            {page.every(({ id, user }: any) =>
+            {page.map(({ id, user }: any) =>
                 Object.entries(user).map(
                     ([key, value]: any, idx: number) =>
                         dataToDisplay.includes(key) && (
@@ -99,11 +99,13 @@ const SlicedPages: FC<SlicedPages> = ({
                                     key={key}
                                     index={idx}
                                 />
-                                <TableDropDown
-                                    toggleDropDown={toggleDropDown}
-                                    setToggleDropDown={setToggleDropDown}
-                                    id={id}
-                                />
+                                {/* {dataToDisplay.length + 1 && (
+                                    <TableDropDown
+                                        toggleDropDown={toggleDropDown}
+                                        setToggleDropDown={setToggleDropDown}
+                                        id={id}
+                                    />
+                                )} */}
                             </div>
                         )
                 )
