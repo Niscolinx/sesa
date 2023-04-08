@@ -83,7 +83,7 @@ const Table:FC<Table> = ({deactivate_url, title, fetch_url}) => {
 
     useEffect(() => {
         if (get_data_response) {
-            setFetchedEstateManagers(get_data_response.data.data)
+            setFetchedData(get_data_response.data.data)
         }
     }, [get_data_response])
 
