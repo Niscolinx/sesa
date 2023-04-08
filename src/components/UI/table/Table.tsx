@@ -283,7 +283,7 @@ const Table: FC<Table> = ({
                                 </div>
 
                                 <div className='grid bg-white'>
-                                    <div className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-6 items-center gap-8 text-[1.4rem] capitalize'>
+                                    <div className={`grid justify-between text-color-dark-1 bg-color-grey p-8  items-center gap-8 text-[1.4rem] capitalize grid-cols-${THeader.length}`}>
                                         {THeader.map((header, idx) =>
                                             idx === 0 ? (
                                                 <div className='flex items-center gap-2'>
