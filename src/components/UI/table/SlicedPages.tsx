@@ -1,7 +1,9 @@
 import { FC } from "react"
+import { Paginate } from "./TableData"
 
 interface SlicedPages {
-    pages: any[][] | null
+    pages: Pick<Paginate, 'slicedPages'>
+    index: Pick<Paginate, 'index'>
 }
 
 const SlicedPages:FC<SlicedPages> = ({ pages, index }) => {

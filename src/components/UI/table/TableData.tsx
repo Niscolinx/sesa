@@ -23,6 +23,14 @@ export type ToggleDropDown = {
     index: number | null
 }
 
+export interface Paginate {
+    index: number
+    currentPage: number
+    itemsPerPage: number
+    totalPage: number
+    slicedPages: any[][] | null
+}
+
 const TableData = () => {
     const {
         navigate,
@@ -77,13 +85,7 @@ const TableData = () => {
         })
     }, [fetchedData])
 
-    interface Paginate {
-        index: number
-        currentPage: number
-        itemsPerPage: number
-        totalPage: number
-        slicedPages: any[][] | null
-    }
+    
 
     const itemsPerPageArr = [2, 4, 6, 8]
 
