@@ -33,12 +33,18 @@ export const useTableContext = () => {
     return context
 }
 
+
+
+export type Actions = 'view details' | 'deactivate' | 'activate' | 'delete'
+
 function TableHook<T>() {
+
     const navigate = useNavigate()
     const axiosInstance = useAxios()
 
     const [sortBy, setSortBy] = useState<string | null>(null)
     const [fetchedId, setFetchedId] = useState<number>(null as any)
+    const [actions, setActions] = useState<Actions[]>(['view details', 'deactivate'])
     const [fetchedData, setFetchedData] = useState<T[]>([])
     const [isDialogOpen, setIsDialogOpen] = useState(false)
 

@@ -1,28 +1,15 @@
-import { useState } from "react"
-import { useNavigate } from "react-router"
-import { useTableContext } from "./TableHook"
+import { useState } from 'react'
+import { useNavigate } from 'react-router'
+import { useTableContext } from './TableHook'
 
-
-type Actions = 'view details' | 'deactivate' | 'activate' | 'delete'
 
 interface ITableDropDown {
-
-    id: number,
-    actions: Actions[]
+    id: number
     view_page_url: string
 }
 
-
-const TableDropDown = ({
-    id,
-    actions,
-    view_page_url
-}: ITableDropDown) => {
-    
-    const {
-        setFetchedId,
-        setIsDialogOpen
-    } = useTableContext()
+const TableDropDown = ({ id, view_page_url }: ITableDropDown) => {
+    const { setFetchedId, setIsDialogOpen } = useTableContext()
 
     const navigate = useNavigate()
 
