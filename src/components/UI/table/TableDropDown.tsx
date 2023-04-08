@@ -3,6 +3,12 @@ import { useNavigate } from "react-router"
 
 
 
+interface ITableDropDown {
+
+
+}
+
+
 const TableDropDown = ({ id }: { id: number }) => {
     const navigate = useNavigate()
     type Actions = 'view details' | 'deactivate' | 'activate' | 'delete'
