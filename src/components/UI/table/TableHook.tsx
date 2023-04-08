@@ -8,6 +8,8 @@ import Table from './Table'
 
 type Select = string | null
 
+export type Actions = 'view details' | 'deactivate' | 'activate' | 'delete'
+
 interface ICreateTableContext {
     navigate: NavigateFunction
     axiosInstance: AxiosInstance
@@ -17,6 +19,8 @@ interface ICreateTableContext {
     setFetchedId: Dispatch<SetStateAction<number>>
     isDialogOpen: boolean
     fetchedData: any[]
+    actions: Actions[]
+    setActions: Dispatch<SetStateAction<Actions[]>>
     setFetchedData: Dispatch<SetStateAction<any[]>>
     setIsDialogOpen: Dispatch<SetStateAction<boolean>>
 }
@@ -33,18 +37,16 @@ export const useTableContext = () => {
     return context
 }
 
-
-
-export type Actions = 'view details' | 'deactivate' | 'activate' | 'delete'
-
 function TableHook<T>() {
-
     const navigate = useNavigate()
     const axiosInstance = useAxios()
 
     const [sortBy, setSortBy] = useState<string | null>(null)
     const [fetchedId, setFetchedId] = useState<number>(null as any)
-    const [actions, setActions] = useState<Actions[]>(['view details', 'deactivate'])
+    const [actions, setActions] = useState<Actions[]>([
+        'view details',
+        'deactivate',
+    ])
     const [fetchedData, setFetchedData] = useState<T[]>([])
     const [isDialogOpen, setIsDialogOpen] = useState(false)
 
@@ -60,11 +62,13 @@ function TableHook<T>() {
                 fetchedData,
                 setFetchedData,
                 isDialogOpen,
+                actions,
+                setActions,
                 setIsDialogOpen,
             }}
         >
-            <TableDialog/>
-            <Table/>
+            <TableDialog />
+            {/* <Table /> */}
         </CreateTableContext.Provider>
     )
 }
