@@ -178,6 +178,14 @@ const TableData = () => {
 
     console.log({ fetched, slicedPages })
 
+    const sliced_pages = () => {
+
+        return (
+            <div></div>
+
+        )
+    }
+
     return (
         <div>
             <div className='rounded-lg mt-[3rem] h-[80vh]'>
@@ -262,7 +270,9 @@ const TableData = () => {
                                             slicedPages?.length > 0 &&
                                             React.Children.toArray(
                                                 slicedPages[paginate.index].map(
-                                                    () => {
+                                                    ({
+                                                        data: { id, user },
+                                                    }) => {
                                                         return (
                                                             <></>
                                                             // <div className='grid justify-between border-b grid-cols-6 items-center gap-8 text-[1.6rem] py-4 table__ellipsis'>
