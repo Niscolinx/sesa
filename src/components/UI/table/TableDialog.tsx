@@ -56,7 +56,7 @@ function TableDialog() {
                         }}
                     />
                     <p>
-                        Are you sure you want to deactivate this Estate Manager?
+                        Are you sure you want to deactivate this {title.split(/[A-Z]/).join(' ')}?
                     </p>
 
                     <div className='flex w-full justify-center gap-8'>
