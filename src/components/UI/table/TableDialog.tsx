@@ -8,7 +8,6 @@ function TableDialog() {
         axiosInstance,
         deactivate_url,
         fetchedId,
-        setIsDialogOpen,
         title,
         isDialogOpen,
     } = useTableContext()
@@ -25,7 +24,7 @@ function TableDialog() {
         useMutation(postDeactivate, {
             onSuccess: (data) => {
                 if ((data as any).success) {
-                    setIsDialogOpen(false)
+                    closeDialog()
 
                     toast(`${title} deactivated successfully`, {
                         type: 'success',
@@ -40,6 +39,7 @@ function TableDialog() {
             openDialog()
         }
     }, [isDialogOpen])
+
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
     const closeDialog = () => {
@@ -68,7 +68,9 @@ function TableDialog() {
                     />
                     <p>
                         Are you sure you want to deactivate this{' '}
-                        {title.split(/[A-Z]/).join(' ')}?
+                        <span className='capitalize'>
+                            {title.split(/(?=[A-Z])/).join(' ')}?
+                        </span>
                     </p>
 
                     <div className='flex w-full justify-center gap-8'>
