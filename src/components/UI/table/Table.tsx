@@ -49,11 +49,11 @@ const Table:FC<Table> = ({}) => {
             url: '/manager/get/all',
         })
     }
-    const postDeactivateEstateManager = () => {
+    const postDeactivateEstateManager = (id) => {
         return axiosInstance({
             url: '/change/user/status',
             method: 'post',
-            data: { user_id: estateManagerId },
+            data: { id },
         })
     }
 
