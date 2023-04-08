@@ -6,8 +6,6 @@ import { useParams } from 'react-router'
 import { toast, ToastContainer } from 'react-toastify'
 import useAxios from '../../../components/hooks/useAxios'
 
-
-
 const ViewEstateManager = () => {
     interface Inputs {
         email_address: string
@@ -18,7 +16,7 @@ const ViewEstateManager = () => {
         phone_number: number | null
         photoUrl?: string
     }
-    
+
     type ResponseMessage = {
         className: string
         displayMessage: string
@@ -29,7 +27,7 @@ const ViewEstateManager = () => {
         name?: string
         selectProps?: SelectProps
     }
-    
+
     const params = useParams()
     const axiosInstance = useAxios()
     const [photoPreview, setPhotoPreview] = useState('')
@@ -109,7 +107,22 @@ const ViewEstateManager = () => {
         mutate: deactivate_estateManager_mutation,
         data: deactivate_estateManager_response,
         isLoading: deactivate_estateManager_loading,
-    } = useMutation(postDeactivateEstateManager) as any
+    } = useMutation(postDeactivateEstateManager, {
+        onSuccess: (res) => {
+            if (res?.success) {
+                toast('EstateManager Deactivated successfully', {
+                    type: 'success',
+                    className: 'bg-green-100 text-green-600 text-[1.4rem]',
+                })
+                closeDialog()
+            } else {
+                setResponseMessage({
+                    className: 'text-red-600',
+                    displayMessage: res?.response?.data.message,
+                })
+            }
+        },
+    }) as any
 
     const {
         mutate: get_estateManager_mutation,
@@ -123,19 +136,18 @@ const ViewEstateManager = () => {
         isLoading: estateManager_loading,
     } = useMutation(postUpdateEstateManager, {
         onSuccess: (res) => {
-             if ((res as any).success) {
-                 toast('EstateManager Updated successfully', {
-                     type: 'success',
-                     className: 'bg-green-100 text-green-600 text-[1.4rem]',
-                 })
-             } else {
-                 setResponseMessage({
-                     className: 'text-red-600',
-                     displayMessage:
-                         res?.response?.data.message,
-                 })
-             }
-        }
+            if ((res as any).success) {
+                toast('EstateManager Updated successfully', {
+                    type: 'success',
+                    className: 'bg-green-100 text-green-600 text-[1.4rem]',
+                })
+            } else {
+                setResponseMessage({
+                    className: 'text-red-600',
+                    displayMessage: res?.response?.data.message,
+                })
+            }
+        },
     }) as any
 
     useEffect(() => {
@@ -167,36 +179,7 @@ const ViewEstateManager = () => {
         }
     }, [get_estateManager_response])
 
-    useEffect(() => {
-        if (estateManager_response_data?.success) {
-            toast('EstateManager Updated successfully', {
-                type: 'success',
-                className: 'bg-green-100 text-green-600 text-[1.4rem]',
-            })
-        } else {
-            setResponseMessage({
-                className: 'text-red-600',
-                displayMessage:
-                    estateManager_response_data?.response?.data.message,
-            })
-        }
-    }, [estateManager_response_data])
-
-    useEffect(() => {
-        if (deactivate_estateManager_response?.success) {
-            toast('EstateManager Deactivated successfully', {
-                type: 'success',
-                className: 'bg-green-100 text-green-600 text-[1.4rem]',
-            })
-            closeDialog()
-        } else {
-            setResponseMessage({
-                className: 'text-red-600',
-                displayMessage:
-                    estateManager_response_data?.response?.data.message,
-            })
-        }
-    }, [deactivate_estateManager_response])
+    
 
     const onSubmit = handleSubmit((data) => {
         const { first_name, last_name, dob, email_address, phone_number } = data
@@ -314,10 +297,7 @@ const ViewEstateManager = () => {
                             className='border border-red-600 px-16 py-4 flex items-center  rounded-lg gap-4'
                             onClick={openDialog}
                         >
-                            <img
-                                src='/icons/admins/delete.svg'
-                                alt=''
-                            />
+                            <img src='/icons/admins/delete.svg' alt='' />
                             <span className='text-red-600 text-[1.4rem] font-semibold'>
                                 Deactivate
                             </span>
@@ -344,20 +324,20 @@ const ViewEstateManager = () => {
                 >
                     <>
                         {formInputs.map((input, idx) => {
-                            const { label, type, name, selectProps} = input
+                            const { label, type, name, selectProps } = input
 
-                           return (
-                               <Input
-                                   key={idx + label}
-                                   label={label}
-                                   register={register}
-                                   formErrors={formErrors}
-                                   type={type}
-                                   name={name}
-                                   isSelect={type === 'select'}
-                                   select={selectProps}
-                               />
-                           )
+                            return (
+                                <Input
+                                    key={idx + label}
+                                    label={label}
+                                    register={register}
+                                    formErrors={formErrors}
+                                    type={type}
+                                    name={name}
+                                    isSelect={type === 'select'}
+                                    select={selectProps}
+                                />
+                            )
                         })}
 
                         <button
