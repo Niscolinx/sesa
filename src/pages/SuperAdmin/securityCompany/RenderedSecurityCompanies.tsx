@@ -14,6 +14,7 @@ import { useNavigate } from 'react-router-dom'
 import { useAppDispatch } from '../../../store/app/hooks'
 import useAxios from '../../../components/hooks/useAxios'
 import { useMutation, useQuery } from 'react-query'
+import { ToastContainer } from 'react-toastify'
 
 type SecurityCompanyDetails = {
     companyName: string
@@ -198,20 +199,16 @@ function RenderedSecurityCompanies() {
         return <p>{get_securityCompanies_error.message}</p>
     }
 
-    const handlePathSwitch = () => {
-        navigate('/superAdmin/securityCompanies/add')
-    }
+   
 
     const fetched = get_securityCompanies_response?.data.data
 
     return (
         <div className='w-full grid item rounded-lg'>
-            <div
-                className='grid text-[1.6rem] gap-10'
-                style={{
-                    fontFamily: 'Satoshi-Regular',
-                }}
-            >
+             {fetched.length > 0 ? (
+                    <>
+                        <ToastContainer />
+            <div className='grid gap-10'>
                 <dialog className='dialog' ref={dialogRef}>
                     <section className='grid place-content-center w-full h-[100vh]'>
                         <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
@@ -505,6 +502,11 @@ function RenderedSecurityCompanies() {
                     </ul>
                 </footer>
             </div>
+            </>): (
+                <>
+                
+                </>
+            )
         </div>
     )
 }
