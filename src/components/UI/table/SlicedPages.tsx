@@ -20,8 +20,8 @@ const SlicedPages: FC<SlicedPages> = ({ pages, index }) => {
     return (
         <>
             {page.map(({ data: { id, user } }) =>
-                user.map((name, i) => (
-                    <TableItem key={`${id}-${i}`} name={name} />
+                user.map((item: any, i: number) => (
+                    <TableItem key={`${id}-${i}`} name={item} />
                 ))
             )}
         </>
