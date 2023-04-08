@@ -1,19 +1,30 @@
 import { useState } from "react"
 import { useNavigate } from "react-router"
+import { useTableContext } from "./TableHook"
 
 
+type Actions = 'view details' | 'deactivate' | 'activate' | 'delete'
 
 interface ITableDropDown {
 
-
+    id: number,
+    actions: Actions[]
+    view_page_url: string
 }
 
 
-const TableDropDown = ({ id }: { id: number }) => {
-    const navigate = useNavigate()
-    type Actions = 'view details' | 'deactivate' | 'activate' | 'delete'
+const TableDropDown = ({
+    id,
+    actions,
+    view_page_url
+}: ITableDropDown) => {
+    
+    const {
+        setFetchedId,
+        setIsDialogOpen
+    } = useTableContext()
 
-    const actions = ['view details', 'deactivate'] satisfies Actions[]
+    const navigate = useNavigate()
 
     const [toggleDropDown, setToggleDropDown] = useState<{
         isDropDownOpen: boolean
@@ -23,7 +34,7 @@ const TableDropDown = ({ id }: { id: number }) => {
         index: null,
     })
 
-    const handleSelectedAction = (item: Actions, id: number) => {
+    const handleSelectedAction = (item: Actions, itemId: number) => {
         setToggleDropDown(() => {
             return {
                 isDropDownOpen: false,
@@ -32,11 +43,11 @@ const TableDropDown = ({ id }: { id: number }) => {
         })
 
         if (item === 'view details') {
-            navigate(`${view_page_url}:${id}`)
+            navigate(`${view_page_url}:${itemId}`)
         }
 
         if (item === 'deactivate') {
-            setFetchedId(id)
+            setFetchedId(itemId)
             setIsDialogOpen(true)
         }
     }
