@@ -20,7 +20,6 @@ interface ICreateTableContext {
     isDialogOpen: boolean
     fetchedData: any[]
     actions: Actions[]
-    setActions: Dispatch<SetStateAction<Actions[]>>
     setFetchedData: Dispatch<SetStateAction<any[]>>
     setIsDialogOpen: Dispatch<SetStateAction<boolean>>
     deactivate_url: string
@@ -50,6 +49,7 @@ interface Table {
     add_page_url: string
     is_add_btn: boolean
     deactivate_url: string
+    actions: Actions[]
 }
 
 const Table = ({
@@ -59,16 +59,13 @@ const Table = ({
     add_page_url,
     is_add_btn,
     deactivate_url,
+    actions = ['view details', 'deactivate'],
 }: Table) => {
     const navigate = useNavigate()
     const axiosInstance = useAxios()
 
     const [sortBy, setSortBy] = useState<string | null>(null)
     const [fetchedId, setFetchedId] = useState<number>(null as any)
-    const [actions, setActions] = useState<Actions[]>([
-        'view details',
-        'deactivate',
-    ])
     const [fetchedData, setFetchedData] = useState<any[]>([])
     const [isDialogOpen, setIsDialogOpen] = useState(false)
 
@@ -85,7 +82,6 @@ const Table = ({
                 setFetchedData,
                 isDialogOpen,
                 actions,
-                setActions,
                 setIsDialogOpen,
                 deactivate_url,
                 fetch_url,
