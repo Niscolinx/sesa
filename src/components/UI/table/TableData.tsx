@@ -176,7 +176,7 @@ const TableData = () => {
         // },
     }
 
-    console.log({ fetched })
+    console.log({ fetched, slicedPages })
 
     return (
         <div>
