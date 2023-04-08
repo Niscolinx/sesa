@@ -174,10 +174,9 @@ const TableData = () => {
         //     status,
         //     imgUrl,
         // },
-
     }
 
-    
+    console.log({ fetched })
 
     return (
         <div>
