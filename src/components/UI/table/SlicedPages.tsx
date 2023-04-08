@@ -23,27 +23,33 @@ const SlicedPages: FC<SlicedPages> = ({
     }
     const page = pages[index]
 
-    const TableItem = ({ key, value }: any) => {
-        
+    const TableItem = ({ key, value, idx }: any) => {
+            if(idx === 0){
+                return (
+                    <div className='flex items-center gap-4  '>
+                        <input type='checkbox' className='cursor-pointer' />
+
+                        <div className='flex items-center gap-2'>
+                            {value && (
+                                <figure className='w-[3.5rem] h-[3.5rem]'>
+                                    <img
+                                        src={value}
+                                        alt=''
+                                        className='w-full h-full rounded-full object-cover'
+                                    />
+                                </figure>
+                            )}
+
+                            <p className='min-w-[30rem] overflow-hidden text-ellipsis whitespace-nowrap'>
+                                {value}
+                            </p>
+                        </div>
+                    </div>
+                )
+            }
         return (
             <>
-                <div className='flex items-center gap-4  '>
-                    <input type='checkbox' className='cursor-pointer' />
-
-                    <div className='flex items-center gap-2'>
-                        {imgUrl && (
-                            <img
-                                src={imgUrl}
-                                alt=''
-                                className='w-[3.5rem] h-[h-3.5rem] rounded-full object-cover'
-                            />
-                        )}
-
-                        <p className='min-w-[30rem] overflow-hidden text-ellipsis whitespace-nowrap'>
-                            {name}
-                        </p>
-                    </div>
-                </div>
+               
                 <p>{gender}</p>
                 <p>{phone}</p>
                 <p>
