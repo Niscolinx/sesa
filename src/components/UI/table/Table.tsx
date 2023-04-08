@@ -8,8 +8,6 @@ import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { Select } from '../../../components/SuperAdmin/UI/Select'
 import { useTableContext } from './TableHook'
 
-type Actions = 'view details' | 'deactivate' | 'activate' | 'delete'
-
 const THeader = [
     'name',
     'gender',
@@ -103,28 +101,6 @@ const Table: FC<Table> = ({
         })
     }, [fetchedData])
 
-    const actions = ['view details', 'deactivate'] satisfies Actions[]
-
-    const [toggleDropDown, setToggleDropDown] = useState<{
-        isDropDownOpen: boolean
-        index: number | null
-    }>({
-        isDropDownOpen: false,
-        index: null,
-    })
-
-    const dropDownHandler = (
-        e: React.ChangeEvent<HTMLInputElement>,
-        index: number
-    ) => {
-        setToggleDropDown(() => {
-            return {
-                isDropDownOpen: e.target.checked,
-                index,
-            }
-        })
-    }
-
     interface Paginate {
         index: number
         currentPage: number
@@ -198,24 +174,6 @@ const Table: FC<Table> = ({
         })
     }
 
-    const handleSelectedAction = (item: Actions, id: string) => {
-        setToggleDropDown(() => {
-            return {
-                isDropDownOpen: false,
-                index: null,
-            }
-        })
-
-        if (item === 'view details') {
-            navigate(`${view_page_url}:${id}`)
-        }
-
-        if (item === 'deactivate') {
-            setFetchedId(id)
-            setIsDialogOpen(true)
-        }
-    }
-
     if (get_data_loading) {
         return <p>Loading...</p>
     }
@@ -229,6 +187,98 @@ const Table: FC<Table> = ({
     }
 
     const fetched = get_data_response?.data.data
+
+    const DropDown = ({ id }) => {
+        type Actions = 'view details' | 'deactivate' | 'activate' | 'delete'
+
+        const actions = ['view details', 'deactivate'] satisfies Actions[]
+
+        const [toggleDropDown, setToggleDropDown] = useState<{
+            isDropDownOpen: boolean
+            index: number | null
+        }>({
+            isDropDownOpen: false,
+            index: null,
+        })
+
+        const dropDownHandler = (
+            e: React.ChangeEvent<HTMLInputElement>,
+            index: number
+        ) => {
+            setToggleDropDown(() => {
+                return {
+                    isDropDownOpen: e.target.checked,
+                    index,
+                }
+            })
+        }
+
+        const handleSelectedAction = (item: Actions, id: string) => {
+            setToggleDropDown(() => {
+                return {
+                    isDropDownOpen: false,
+                    index: null,
+                }
+            })
+
+            if (item === 'view details') {
+                navigate(`${view_page_url}:${id}`)
+            }
+
+            if (item === 'deactivate') {
+                setFetchedId(id)
+                setIsDialogOpen(true)
+            }
+        }
+
+        const { isDropDownOpen, index} = toggleDropDown
+
+        return (
+            <div className='relative'>
+                <label
+                    className='font-semibold capitalize cursor-pointer flex items-center gap-2 relative z-10'
+                    htmlFor={i.toString()}
+                    onClick={() =>
+                        setToggleDropDown((prev) => {
+                            return {
+                                isDropDownOpen: !prev.isDropDownOpen,
+                                index: id,
+                            }
+                        })
+                    }
+                >
+                    <span className='text-color-primary'>
+                        <img src='/icons/admins/threeDots.svg' alt='' />
+                    </span>
+                </label>
+                <input
+                    type='radio'
+                    name='dropdown'
+                    className='hidden'
+                    id={id.toString()}
+                    onChange={(e) => dropDownHandler(e, id)}
+                />
+
+                {isDropDownOpen && index === id && (
+                    <div className='absolute top-0 translate-x-[4rem] border border-color-primary-light w-[10rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
+                        {actions.map((item, i) => (
+                            <p
+                                className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
+                                key={i}
+                                onClick={() => handleSelectedAction(item, id)}
+                            >
+                                {['deactivate', 'delete'].includes(item) ? (
+                                    <span className='text-red-600'>{item}</span>
+                                ) : (
+                                    <span>{item}</span>
+                                )}
+                            </p>
+                        ))}
+                    </div>
+                )}
+            </div>
+        )
+    }
 
     return (
         <div>
@@ -314,12 +364,7 @@ const Table: FC<Table> = ({
                                                                 imgUrl,
                                                             },
                                                         },
-                                                        i
                                                     ) => {
-                                                        const {
-                                                            isDropDownOpen,
-                                                            index,
-                                                        } = toggleDropDown
                                                         return (
                                                             <div className='grid justify-between border-b grid-cols-6 items-center gap-8 text-[1.6rem] py-4 table__ellipsis'>
                                                                 <div className='flex items-center gap-4  '>
@@ -375,7 +420,6 @@ const Table: FC<Table> = ({
                                                                         </span>
                                                                     )}
                                                                 </p>
-                                                                
                                                             </div>
                                                         )
                                                     }
