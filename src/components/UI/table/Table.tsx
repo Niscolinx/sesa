@@ -188,7 +188,7 @@ const Table: FC<Table> = ({
 
     const fetched = get_data_response?.data.data
 
-    const DropDown = ({ id }: {id: number}) => {
+    const DropDown = ({ id }: { id: number }) => {
         type Actions = 'view details' | 'deactivate' | 'activate' | 'delete'
 
         const actions = ['view details', 'deactivate'] satisfies Actions[]
@@ -200,8 +200,6 @@ const Table: FC<Table> = ({
             isDropDownOpen: false,
             index: null,
         })
-
-      
 
         const handleSelectedAction = (item: Actions, id: number) => {
             setToggleDropDown(() => {
@@ -229,12 +227,10 @@ const Table: FC<Table> = ({
                     className='font-semibold capitalize cursor-pointer flex items-center gap-2 relative z-10'
                     htmlFor={id.toString()}
                     onClick={() =>
-                        setToggleDropDown((prev) => {
-                            return {
-                                isDropDownOpen: !prev.isDropDownOpen,
-                                index: id,
-                            }
-                        })
+                        setToggleDropDown((prev) => ({
+                            isDropDownOpen: !prev.isDropDownOpen,
+                            index: id,
+                        }))
                     }
                 >
                     <span className='text-color-primary'>
@@ -248,12 +244,10 @@ const Table: FC<Table> = ({
                     id={id.toString()}
                     // onChange={(e) => dropDownHandler(e, id)}
                     onChange={(e) =>
-                        setToggleDropDown(() => {
-                            return {
-                                isDropDownOpen: e.target.checked,
-                                index: id
-                            }
-                        })
+                        setToggleDropDown(() => ({
+                            isDropDownOpen: e.target.checked,
+                            index: id,
+                        }))
                     }
                 />
 
