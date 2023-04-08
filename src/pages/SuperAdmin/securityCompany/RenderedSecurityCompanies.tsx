@@ -14,7 +14,7 @@ import { useNavigate } from 'react-router-dom'
 import { useAppDispatch } from '../../../store/app/hooks'
 import useAxios from '../../../components/hooks/useAxios'
 import { useMutation, useQuery } from 'react-query'
-import { ToastContainer } from 'react-toastify'
+import { ToastContainer, toast } from 'react-toastify'
 
 type SecurityCompanyDetails = {
     companyName: string
@@ -171,8 +171,7 @@ function RenderedSecurityCompanies() {
         }
     }
 
-    const handleSelectedAction = (item: string, index: string) => {
-        console.log({ item, index })
+    const handleSelectedAction = (item: string, id: string) => {
 
         setToggleDropDown(() => {
             return {
@@ -183,11 +182,12 @@ function RenderedSecurityCompanies() {
 
         if (item === 'View Details') {
             console.log('view')
-            navigate(`/superAdmin/security-company/view/:${index}`)
+            navigate(`/superAdmin/security-company/view/:${id}`)
         }
 
         if (item === 'Deactivate') {
-            handleOpen()
+            setSecurityCompanyId(id)
+            openDialog()
         }
     }
 
@@ -205,7 +205,7 @@ function RenderedSecurityCompanies() {
 
     return (
         <div className='w-full grid item rounded-lg'>
-             {fetched.length > 0 ? (
+             {/* {fetched.length > 0 ? (
                     <>
                         <ToastContainer />
             <div className='grid gap-10'>
@@ -271,10 +271,10 @@ function RenderedSecurityCompanies() {
                 </div>
                 <div className='w-full'>
                     <div className='grid gap-8 '>
-                        {fetchedSecurityCompanies &&
-                        fetchedSecurityCompanies.length > 0 ? (
-                            React.Children.toArray(
-                                fetchedSecurityCompanies.map(
+                        {slicedPages &&
+                                            slicedPages?.length > 0 &&
+                                            React.Children.toArray(
+                                                slicedPages[paginate.index].map(
                                     (
                                         {
                                             img,
@@ -435,14 +435,14 @@ function RenderedSecurityCompanies() {
                                                                             }
                                                                         >
                                                                             {item ===
-                                                                            'Activate' ? (
+                                                                            'activate' ? (
                                                                                 <span className='text-green-600'>
                                                                                     {
                                                                                         item
                                                                                     }
                                                                                 </span>
                                                                             ) : item ===
-                                                                              'Deactivate' ? (
+                                                                              'deactivate' ? (
                                                                                 <span className='text-red-600'>
                                                                                     {
                                                                                         item
@@ -462,13 +462,7 @@ function RenderedSecurityCompanies() {
                                     }
                                 )
                             )
-                        ) : (
-                            <div className='relative'>
-                                <div className='absolute w-full grid place-content-center'>
-                                    <CgSpinnerTwo className='animate-spin text-[#0660FE] text-4xl' />
-                                </div>
-                            </div>
-                        )}
+                       }
                     </div>
                 </div>
                 <footer className='flex items-center p-8 mt-8 bg-white rounded-lg'>
@@ -506,7 +500,7 @@ function RenderedSecurityCompanies() {
                 <>
                 
                 </>
-            )
+            )} */}
         </div>
     )
 }
