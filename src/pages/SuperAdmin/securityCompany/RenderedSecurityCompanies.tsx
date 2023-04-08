@@ -13,7 +13,7 @@ import { TbCurrencyNaira } from 'react-icons/tb'
 import { useNavigate } from 'react-router-dom'
 import { useAppDispatch } from '../../../store/app/hooks'
 import useAxios from '../../../components/hooks/useAxios'
-import { useQuery } from 'react-query'
+import { useMutation, useQuery } from 'react-query'
 
 type SecurityCompanyDetails = {
     companyName: string
@@ -84,11 +84,13 @@ function RenderedSecurityCompanies() {
         SecurityCompany[] | null
     >([])
 
-    const postDeactivateEstateManager = () => {
+    const [securityCompanyId, setSecurityCompanyId] = useState('')
+
+    const postDeactivateSecurityCompany = () => {
         return axiosInstance({
             url: '/change/user/status',
             method: 'post',
-            data: { user_id: estateManagerId },
+            data: { user_id: securityCompanyId },
         })
     }
 
@@ -100,9 +102,9 @@ function RenderedSecurityCompanies() {
     }
 
     const {
-        mutate: deactivate_estateManager_mutation,
-        isLoading: deactivate_estateManager_loading,
-    } = useMutation(postDeactivateEstateManager, {
+        mutate: deactivate_securityCompany_mutation,
+        isLoading: deactivate_securityCompany_loading,
+    } = useMutation(postDeactivateSecurityCompany, {
         onSuccess: (data) => {
             if ((data as any).success as any) {
                 closeDialog()
