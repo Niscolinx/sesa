@@ -16,17 +16,7 @@ import { Select } from '../../../components/SuperAdmin/UI/Select'
 import useAxios from '../../../components/hooks/useAxios'
 import { useTableContext } from './TableHook'
 
-interface EstateManager {
-    id: string
-    user: {
-        name: string
-        gender: string
-        phone: string
-        status: string
-        created_at: string
-        imgUrl?: string
-    }
-}
+
 
 type Actions = 'view details' | 'deactivate' | 'activate' | 'delete'
 
@@ -39,7 +29,7 @@ const THeader = [
     'actions',
 ]
 
-interface Table {
+interface Table<T> {
     deactivate_url: string
     fetch_url: string
     title: string
@@ -47,7 +37,7 @@ interface Table {
     add_page_url: string
 }
 
-const Table: FC<Table> = ({
+const Table: FC<Table<T>> = ({
     deactivate_url,
     title,
     fetch_url,
@@ -108,7 +98,7 @@ const Table: FC<Table> = ({
     }, [get_data_response])
 
     useEffect(() => {
-        const slicedPages: EstateManager[][] = []
+        const slicedPages: T[][] = []
         for (let i = 0; i < fetchedData?.length; i += paginate.itemsPerPage) {
             slicedPages.push(fetchedData?.slice(i, i + paginate.itemsPerPage))
         }
@@ -148,7 +138,7 @@ const Table: FC<Table> = ({
         currentPage: number
         itemsPerPage: number
         totalPage: number
-        slicedPages: EstateManager[][] | null
+        slicedPages: T[][] | null
     }
 
     const itemsPerPageArr = [2, 4, 6, 8]
@@ -165,7 +155,7 @@ const Table: FC<Table> = ({
     const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
         const item = parseInt(e.target.value)
 
-        const slicedPages: EstateManager[][] = []
+        const slicedPages: T[][] = []
         for (let i = 0; i < fetchedData?.length; i += item) {
             slicedPages.push(fetchedData?.slice(i, i + item))
         }
@@ -549,7 +539,7 @@ const Table: FC<Table> = ({
                     <section className='grid  place-content-center w-full h-full justify-items-center gap-4 bg-white rounded-lg'>
                         <img src='/icons/admins/errorSvg.svg' alt='' />
                         <p className='text'>
-                            Ooops you have not added any EstateManager yet
+                            Ooops you have not added any {title} yet
                         </p>
                         <button
                             className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
@@ -558,7 +548,7 @@ const Table: FC<Table> = ({
                             <span>
                                 <IoMdAdd />
                             </span>{' '}
-                            Add EstateManager
+                            Add {title}
                         </button>
                     </section>
                 )}
