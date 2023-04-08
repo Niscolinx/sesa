@@ -30,6 +30,15 @@ interface EstateManager {
 
 type Actions = 'view details' | 'deactivate' | 'activate' | 'delete'
 
+const THeader = [
+    'name',
+    'gender',
+    'phone number',
+    'joined date',
+    'status',
+    'actions',
+]
+
 interface Table {
     deactivate_url: string
     fetch_url: string
@@ -285,10 +294,7 @@ const Table: FC<Table> = ({
                                 </div>
 
                                 <div className='grid bg-white'>
-                                    <div
-                                        className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-6 items-center gap-8 text-[1.4rem]'
-                                       
-                                    >
+                                    <div className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-6 items-center gap-8 text-[1.4rem]'>
                                         <p className='flex items-center gap-2'>
                                             <input
                                                 type='checkbox'
