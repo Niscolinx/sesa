@@ -4,6 +4,7 @@ import useAxios from '../../hooks/useAxios'
 import { AxiosInstance } from 'axios'
 import { SetStateAction } from 'jotai'
 import TableDialog from './TableDialog'
+import Table from './Table'
 
 type Select = string | null
 
@@ -57,6 +58,7 @@ function TableHook<T>() {
             }}
         >
             <TableDialog/>
+            <Table/>
         </CreateTableContext.Provider>
     )
 }
