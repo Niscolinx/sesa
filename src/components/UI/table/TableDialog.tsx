@@ -4,13 +4,8 @@ import { useMutation } from 'react-query'
 import { toast } from 'react-toastify'
 
 function TableDialog() {
-    const {
-        axiosInstance,
-        deactivate_url,
-        fetchedId,
-        title,
-        isDialogOpen,
-    } = useTableContext()
+    const { axiosInstance, deactivate_url, fetchedId, title, isDialogOpen } =
+        useTableContext()
 
     const postDeactivate = () => {
         return axiosInstance({
@@ -26,10 +21,16 @@ function TableDialog() {
                 if ((data as any).success) {
                     closeDialog()
 
-                    toast(`${title} deactivated successfully`, {
-                        type: 'success',
-                        className: 'bg-green-100 text-green-600 text-[1.4rem]',
-                    })
+                    toast(
+                        `${title
+                            .split(/(?=[A-Z])/)
+                            .join(' ')} deactivated successfully`,
+                        {
+                            type: 'success',
+                            className:
+                                'bg-green-100 text-green-600 text-[1.4rem]',
+                        }
+                    )
                 }
             },
         })
