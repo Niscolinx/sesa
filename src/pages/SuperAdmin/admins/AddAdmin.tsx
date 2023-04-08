@@ -25,20 +25,7 @@ const AddAdmin = () => {
     const [selectedGender, setSelectedGender] = useState<string | null>(genderState[0])
 
 
-    const [formData, setFormData] = useState(new FormData())
 
-    const handleFileChange = (e) => {
-        const file = e.target.files[0]
-
-        const reader = new FileReader()
-        reader.readAsDataURL(file)
-        reader.onload = (e) => {
-            const dataURL = e.target.result
-            const fileName = file.name
-            formData.append('picture', dataURL, fileName)
-            setFormData(formData)
-        }
-    }
     const handlePicture = (e: React.ChangeEvent) => {
         const target = e.target as HTMLInputElement
         const file: File = (target.files as FileList)[0]
@@ -46,6 +33,7 @@ const AddAdmin = () => {
         const preview = URL.createObjectURL(file)
         setPhotoPreview(preview)
         setImageFile(file)
+
     }
 
     const {
@@ -93,7 +81,6 @@ const AddAdmin = () => {
             phone_number,
         } = data
 
-        console.log({imageFile})
         const adminData = {
             name: `${first_name} ${last_name}`,
             gender: selectedGender,
@@ -101,6 +88,7 @@ const AddAdmin = () => {
             email: email_address,
             address: 'no 4 odeyim street',
             phone: `+234${phone_number}`,
+            // image: imageFile,
             image: imageFile,
         }
 
