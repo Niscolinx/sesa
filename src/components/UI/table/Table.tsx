@@ -1,11 +1,6 @@
 import { IoMdAdd } from 'react-icons/io'
 import { useNavigate } from 'react-router'
-import {
-    useState,
-    useEffect,
-    ChangeEvent,
-    FC,
-} from 'react'
+import { useState, useEffect, ChangeEvent, FC } from 'react'
 import { useMutation, useQuery } from 'react-query'
 import { ToastContainer, toast } from 'react-toastify'
 import React from 'react'
@@ -39,7 +34,7 @@ const Table: FC<Table> = ({
     fetch_url,
     add_page_url,
     view_page_url,
-    is_add_btn
+    is_add_btn,
 }) => {
     const {
         navigate,
@@ -283,7 +278,9 @@ const Table: FC<Table> = ({
                                 </div>
 
                                 <div className='grid bg-white'>
-                                    <div className={`grid justify-between text-color-dark-1 bg-color-grey p-8  items-center gap-8 text-[1.4rem] capitalize grid-cols-${THeader.length}`}>
+                                    <div
+                                        className={`grid justify-between text-color-dark-1 bg-color-grey p-8  items-center gap-8 text-[1.4rem] capitalize grid-cols-${THeader.length}`}
+                                    >
                                         {THeader.map((header, idx) =>
                                             idx === 0 ? (
                                                 <div className='flex items-center gap-2'>
@@ -440,8 +437,12 @@ const Table: FC<Table> = ({
                                                                                                 )
                                                                                             }
                                                                                         >
-                                                                                            {item ===
-                                                                                            'deactivate' ? (
+                                                                                            {[
+                                                                                                'deactivate',
+                                                                                                'delete',
+                                                                                            ].includes(
+                                                                                                item
+                                                                                            ) ? (
                                                                                                 <span className='text-red-600'>
                                                                                                     {
                                                                                                         item
