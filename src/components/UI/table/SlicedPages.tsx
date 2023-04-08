@@ -6,8 +6,8 @@ interface SlicedPages {
 }
 
 const SlicedPages: FC<SlicedPages> = ({ pages, index }) => {
-    console.log(pages, 'not flat')
-    console.log(pages?.flat(), 'flat')
+    console.log(pages)
+    
     if (!pages || !pages.length) {
         return null
     }
