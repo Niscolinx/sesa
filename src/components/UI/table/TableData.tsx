@@ -164,6 +164,19 @@ const TableData = () => {
 
     const fetched = get_data_response?.data.data
 
+    const data = {
+        id,
+        user: {
+            phone,
+
+            gender,
+            name,
+            created_at,
+            status,
+            imgUrl,
+        },
+    }
+
     return (
         <div>
             <div className='rounded-lg mt-[3rem] h-[80vh]'>
@@ -248,18 +261,7 @@ const TableData = () => {
                                             slicedPages?.length > 0 &&
                                             React.Children.toArray(
                                                 slicedPages[paginate.index].map(
-                                                    ({
-                                                        id,
-                                                        user: {
-                                                            phone,
-
-                                                            gender,
-                                                            name,
-                                                            created_at,
-                                                            status,
-                                                            imgUrl,
-                                                        }
-                                                    }) => {
+                                                    () => {
                                                         return (
                                                             <div className='grid justify-between border-b grid-cols-6 items-center gap-8 text-[1.6rem] py-4 table__ellipsis'>
                                                                 <div className='flex items-center gap-4  '>
