@@ -108,7 +108,7 @@ const ViewEstateManager = () => {
         data: deactivate_estateManager_response,
         isLoading: deactivate_estateManager_loading,
     } = useMutation(postDeactivateEstateManager, {
-        onSuccess: (res) => {
+        onSuccess: (res: any) => {
             if (res?.success) {
                 toast('EstateManager Deactivated successfully', {
                     type: 'success',
@@ -135,8 +135,8 @@ const ViewEstateManager = () => {
         data: estateManager_mutation_response,
         isLoading: estateManager_loading,
     } = useMutation(postUpdateEstateManager, {
-        onSuccess: (res) => {
-            if ((res as any).success) {
+        onSuccess: (res:any) => {
+            if (res?.success) {
                 toast('EstateManager Updated successfully', {
                     type: 'success',
                     className: 'bg-green-100 text-green-600 text-[1.4rem]',
@@ -178,8 +178,6 @@ const ViewEstateManager = () => {
             setSelectedGender(fetched_data.gender)
         }
     }, [get_estateManager_response])
-
-    
 
     const onSubmit = handleSubmit((data) => {
         const { first_name, last_name, dob, email_address, phone_number } = data
