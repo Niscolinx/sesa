@@ -49,11 +49,11 @@ const Table:FC<Table> = ({deactivate_url}) => {
             url: '/manager/get/all',
         })
     }
-    const postDeactivate = (id:any) => {
+    const postDeactivate = () => {
         return axiosInstance({
             url: deactivate_url,
             method: 'post',
-            data: { id },
+            data: { user_id: fetchedId },
         })
     }
 
@@ -62,7 +62,7 @@ const Table:FC<Table> = ({deactivate_url}) => {
         isLoading: deactivate_loading,
     } = useMutation(postDeactivate, {
         onSuccess: (data) => {
-            if ((data as any).success as any) {
+            if ((data as any).success) {
                 setIsDialogOpen(false)
 
                 toast('Estate Manager deactivated successfully', {
