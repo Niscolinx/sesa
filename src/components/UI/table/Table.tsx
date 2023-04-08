@@ -294,19 +294,20 @@ const Table: FC<Table> = ({
                                 </div>
 
                                 <div className='grid bg-white'>
-                                    <div className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-6 items-center gap-8 text-[1.4rem]'>
-                                        <p className='flex items-center gap-2'>
-                                            <input
-                                                type='checkbox'
-                                                className='cursor-pointer'
-                                            />
-                                            <p> Name</p>
-                                        </p>
-                                        <p>Gender</p>
-                                        <p>Phone Number</p>
-                                        <p>joined Date</p>
-                                        <p>Status</p>
-                                        <p>Actions</p>
+                                    <div className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-6 items-center gap-8 text-[1.4rem] capitalize'>
+                                        {THeader.map((header, idx) =>
+                                            idx === 0 ? (
+                                                <div className='flex items-center gap-2'>
+                                                    <input
+                                                        type='checkbox'
+                                                        className='cursor-pointer'
+                                                    />
+                                                    <p>{header}</p>
+                                                </div>
+                                            ) : (
+                                                <p>{header}</p>
+                                            )
+                                        )}
                                     </div>
 
                                     <div className='grid gap-8 mt-8 p-8'>
