@@ -1,13 +1,23 @@
-import  { createContext, useState } from 'react'
+import { Dispatch, createContext, useState } from 'react'
 import { NavigateFunction, useNavigate } from 'react-router'
 import useAxios from '../../hooks/useAxios'
+import { AxiosInstance } from 'axios'
+import { SetStateAction } from 'jotai'
 
+type Select = string | null
 
 interface CreateTableHook {
     navigate: NavigateFunction
+    axiosInstance: AxiosInstance
+    sortBy: Select
+    setSortBy: Dispatch<SetStateAction<Select>>
+    fetchedId: string
+    setFetchedId: Dispatch<SetStateAction<string>>
+    isDialogOpen: boolean
+    setIsDialogOpen: Dispatch<SetStateAction<boolean>>
 }
 
-const CreateTableHook = createContext(null)
+const CreateTableHook = createContext<CreateTableHook | null>(null)
 
 function TableHook<T>() {
     const navigate = useNavigate()
@@ -15,15 +25,10 @@ function TableHook<T>() {
 
     const [sortBy, setSortBy] = useState<string | null>(null)
     const [estateManagerId, setEstateManagerId] = useState('')
-    const [fetchedEstateManagers, setFetchedEstateManagers] = useState<
-        T[]
-    >([])
+    const [fetchedEstateManagers, setFetchedEstateManagers] = useState<T[]>([])
     const [isDialogOpen, setIsDialogOpen] = useState(false)
-    
 
-  return (
-    <div>TableHook</div>
-  )
+    return <div>TableHook</div>
 }
 
 export default TableHook
