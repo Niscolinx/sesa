@@ -16,8 +16,6 @@ import { Select } from '../../../components/SuperAdmin/UI/Select'
 import useAxios from '../../../components/hooks/useAxios'
 import { useTableContext } from './TableHook'
 
-
-
 type Actions = 'view details' | 'deactivate' | 'activate' | 'delete'
 
 const THeader = [
@@ -29,7 +27,7 @@ const THeader = [
     'actions',
 ]
 
-interface Table<T> {
+interface Table {
     deactivate_url: string
     fetch_url: string
     title: string
@@ -37,7 +35,7 @@ interface Table<T> {
     add_page_url: string
 }
 
-const Table: FC<Table<T>> = ({
+const Table: FC<Table> = ({
     deactivate_url,
     title,
     fetch_url,
@@ -98,7 +96,7 @@ const Table: FC<Table<T>> = ({
     }, [get_data_response])
 
     useEffect(() => {
-        const slicedPages: T[][] = []
+        const slicedPages: any[][] = []
         for (let i = 0; i < fetchedData?.length; i += paginate.itemsPerPage) {
             slicedPages.push(fetchedData?.slice(i, i + paginate.itemsPerPage))
         }
@@ -138,7 +136,7 @@ const Table: FC<Table<T>> = ({
         currentPage: number
         itemsPerPage: number
         totalPage: number
-        slicedPages: T[][] | null
+        slicedPages: any[][] | null
     }
 
     const itemsPerPageArr = [2, 4, 6, 8]
@@ -155,7 +153,7 @@ const Table: FC<Table<T>> = ({
     const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
         const item = parseInt(e.target.value)
 
-        const slicedPages: T[][] = []
+        const slicedPages: any[][] = []
         for (let i = 0; i < fetchedData?.length; i += item) {
             slicedPages.push(fetchedData?.slice(i, i + item))
         }
