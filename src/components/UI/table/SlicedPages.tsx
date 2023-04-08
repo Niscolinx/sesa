@@ -6,7 +6,7 @@ import { ToggleDropDown } from './TableData'
 interface SlicedPages {
     pages: any[][] | null
     index: number
-    toggleDropDown: ToggleDropDown,
+    toggleDropDown: ToggleDropDown
     setToggleDropDown: Dispatch<SetStateAction<ToggleDropDown>>
 }
 
@@ -24,49 +24,54 @@ const SlicedPages: FC<SlicedPages> = ({
     const page = pages[index]
 
     const TableItem = ({ key, value, idx }: any) => {
-            if(idx === 0){
-                return (
-                    <div className='flex items-center gap-4  '>
-                        <input type='checkbox' className='cursor-pointer' />
+        if (idx === 0) {
+            return (
+                <div className='flex items-center gap-4  '>
+                    <input type='checkbox' className='cursor-pointer' />
 
-                        <div className='flex items-center gap-2'>
-                            {value && (
-                                <figure className='w-[3.5rem] h-[3.5rem]'>
-                                    <img
-                                        src={value}
-                                        alt=''
-                                        className='w-full h-full rounded-full object-cover'
-                                    />
-                                </figure>
-                            )}
+                    <div className='flex items-center gap-2'>
+                        {key === 'image' && (
+                            <>
+                                {value && (
+                                    <figure className='w-[3.5rem] h-[3.5rem]'>
+                                        <img
+                                            src={value}
+                                            alt=''
+                                            className='w-full h-full rounded-full object-cover'
+                                        />
+                                    </figure>
+                                )}
+                            </>
+                        )}
 
-                            <p className='min-w-[30rem] overflow-hidden text-ellipsis whitespace-nowrap'>
-                                {value}
-                            </p>
-                        </div>
+                        <p className='min-w-[30rem] overflow-hidden text-ellipsis whitespace-nowrap'>
+                            {value}
+                        </p>
                     </div>
-                )
-            }
-        return (
-            <>
-               
-                <p>{gender}</p>
-                <p>{phone}</p>
+                </div>
+            )
+        }
+        if (key === 'created_at') {
+            return (
                 <p>
-                    {new Date(created_at)
-                        .toLocaleDateString()
-                        .replace(/\//g, '-')}
+                    {new Date(value).toLocaleDateString().replace(/\//g, '-')}
                 </p>
+            )
+        }
 
+        if (key === 'status') {
+            return (
                 <p>
-                    {status === 'Active' ? (
+                    {value === 'active' ? (
                         <span className='text-green-600'>{status}</span>
                     ) : (
                         <span className='text-red-500'>{status}</span>
                     )}
                 </p>
-            </>
-        )
+            )
+        } else {
+            return <p>{value}</p>
+        }
     }
 
     const dataToDisplay = [
@@ -80,20 +85,26 @@ const SlicedPages: FC<SlicedPages> = ({
     return (
         <>
             {page.map(({ id, user }: any) =>
-                Object.entries(user).map(([key, value]: any, idx: number) => (
-                    <div
-                        className='grid justify-between border-b grid-cols-6 items-center gap-8 text-[1.6rem] py-4 table__ellipsis'
-                        key={`${id}-${idx}`}
-                    >
-                        dataToDisplay.includes(key) &&{' '}
-                        <TableItem value={value} key={key} index={idx} />
-                        <TableDropDown
-                            toggleDropDown={toggleDropDown}
-                            setToggleDropDown={setToggleDropDown}
-                            id={id}
-                        />
-                    </div>
-                ))
+                Object.entries(user).map(
+                    ([key, value]: any, idx: number) =>
+                        dataToDisplay.includes(key) && (
+                            <div
+                                className='grid justify-between border-b grid-cols-6 items-center gap-8 text-[1.6rem] py-4 table__ellipsis'
+                                key={`${id}-${idx}`}
+                            >
+                                <TableItem
+                                    value={value}
+                                    key={key}
+                                    index={idx}
+                                />
+                                <TableDropDown
+                                    toggleDropDown={toggleDropDown}
+                                    setToggleDropDown={setToggleDropDown}
+                                    id={id}
+                                />
+                            </div>
+                        )
+                )
             )}
         </>
     )
