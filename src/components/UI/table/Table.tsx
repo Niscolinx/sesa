@@ -4,8 +4,6 @@ import {
     useState,
     useEffect,
     ChangeEvent,
-    useRef,
-    useCallback,
     FC,
 } from 'react'
 import { useMutation, useQuery } from 'react-query'
@@ -13,7 +11,6 @@ import { ToastContainer, toast } from 'react-toastify'
 import React from 'react'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { Select } from '../../../components/SuperAdmin/UI/Select'
-import useAxios from '../../../components/hooks/useAxios'
 import { useTableContext } from './TableHook'
 
 type Actions = 'view details' | 'deactivate' | 'activate' | 'delete'
@@ -33,6 +30,7 @@ interface Table {
     title: string
     view_page_url: string
     add_page_url: string
+    is_add_btn: boolean
 }
 
 const Table: FC<Table> = ({
@@ -41,6 +39,7 @@ const Table: FC<Table> = ({
     fetch_url,
     add_page_url,
     view_page_url,
+    is_add_btn
 }) => {
     const {
         navigate,
@@ -270,15 +269,17 @@ const Table: FC<Table> = ({
                                             setSelectedState={setSortBy}
                                         />
                                     </div>
-                                    <button
-                                        className='btn btn-blue ml-auto'
-                                        onClick={handlePathSwitch}
-                                    >
-                                        <span>
-                                            <IoMdAdd />
-                                        </span>{' '}
-                                        <p>Add {title}</p>
-                                    </button>
+                                    {is_add_btn && (
+                                        <button
+                                            className='btn btn-blue ml-auto'
+                                            onClick={handlePathSwitch}
+                                        >
+                                            <span>
+                                                <IoMdAdd />
+                                            </span>{' '}
+                                            <p>Add {title}</p>
+                                        </button>
+                                    )}
                                 </div>
 
                                 <div className='grid bg-white'>
