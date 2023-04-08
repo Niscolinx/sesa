@@ -47,13 +47,13 @@ const SlicedPages: FC<SlicedPages> = ({
 
         console.log({details})
         return (
-            details?.map((detail: any, idx: number) => {
+            details?.map(({key, value}: any, idx: number) => {
               
                     return (
                         <div className='flex items-center gap-4  '>
                             <input type='checkbox' className='cursor-pointer' />
                             <div className='flex items-center gap-2'>
-                                {/* {key === 'image' && (
+                                {key === 'image' && (
                                     <>
                                         {value && (
                                             <figure className='w-[3.5rem] h-[3.5rem]'>
@@ -65,9 +65,9 @@ const SlicedPages: FC<SlicedPages> = ({
                                             </figure>
                                         )}
                                     </>
-                                )} */}
+                                )}
                                 <p className='min-w-[30rem] overflow-hidden text-ellipsis whitespace-nowrap'>
-                                    {JSON.stringify(detail)}
+                                    {value}
                                 </p>
                             </div>
                         </div>
