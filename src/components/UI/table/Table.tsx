@@ -87,154 +87,154 @@ const Table:FC<Table> = ({deactivate_url, title, fetch_url}) => {
         }
     }, [get_data_response])
 
-    // useEffect(() => {
-    //     const slicedPages: EstateManager[][] = []
-    //     for (
-    //         let i = 0;
-    //         i < fetchedEstateManagers?.length;
-    //         i += paginate.itemsPerPage
-    //     ) {
-    //         slicedPages.push(
-    //             fetchedEstateManagers?.slice(i, i + paginate.itemsPerPage)
-    //         )
-    //     }
+    useEffect(() => {
+        const slicedPages: EstateManager[][] = []
+        for (
+            let i = 0;
+            i < fetchedData?.length;
+            i += paginate.itemsPerPage
+        ) {
+            slicedPages.push(
+                fetchedData?.slice(i, i + paginate.itemsPerPage)
+            )
+        }
 
-    //     setPaginate((prev) => {
-    //         return {
-    //             ...prev,
-    //             slicedPages,
-    //         }
-    //     })
-    // }, [fetchedEstateManagers])
+        setPaginate((prev) => {
+            return {
+                ...prev,
+                slicedPages,
+            }
+        })
+    }, [fetchedData])
 
-    // const actions = ['view details', 'deactivate'] satisfies Actions[]
+    const actions = ['view details', 'deactivate'] satisfies Actions[]
 
-    // const [toggleDropDown, setToggleDropDown] = useState<{
-    //     isDropDownOpen: boolean
-    //     index: number | null
-    // }>({
-    //     isDropDownOpen: false,
-    //     index: null,
-    // })
+    const [toggleDropDown, setToggleDropDown] = useState<{
+        isDropDownOpen: boolean
+        index: number | null
+    }>({
+        isDropDownOpen: false,
+        index: null,
+    })
 
-    // const dropDownHandler = (
-    //     e: React.ChangeEvent<HTMLInputElement>,
-    //     index: number
-    // ) => {
-    //     setToggleDropDown(() => {
-    //         return {
-    //             isDropDownOpen: e.target.checked,
-    //             index,
-    //         }
-    //     })
-    // }
+    const dropDownHandler = (
+        e: React.ChangeEvent<HTMLInputElement>,
+        index: number
+    ) => {
+        setToggleDropDown(() => {
+            return {
+                isDropDownOpen: e.target.checked,
+                index,
+            }
+        })
+    }
 
-    // interface Paginate {
-    //     index: number
-    //     currentPage: number
-    //     itemsPerPage: number
-    //     totalPage: number
-    //     slicedPages: EstateManager[][] | null
-    // }
+    interface Paginate {
+        index: number
+        currentPage: number
+        itemsPerPage: number
+        totalPage: number
+        slicedPages: EstateManager[][] | null
+    }
 
-    // const itemsPerPageArr = [2, 4, 6, 8]
+    const itemsPerPageArr = [2, 4, 6, 8]
 
-    // const perPage = 6
-    // const [paginate, setPaginate] = useState<Paginate>({
-    //     index: 0,
-    //     currentPage: 1,
-    //     itemsPerPage: perPage,
-    //     totalPage: Math.ceil(fetchedEstateManagers?.length / perPage),
-    //     slicedPages: null,
-    // })
+    const perPage = 6
+    const [paginate, setPaginate] = useState<Paginate>({
+        index: 0,
+        currentPage: 1,
+        itemsPerPage: perPage,
+        totalPage: Math.ceil(fetchedData?.length / perPage),
+        slicedPages: null,
+    })
 
-    // const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
-    //     const item = parseInt(e.target.value)
+    const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
+        const item = parseInt(e.target.value)
 
-    //     const slicedPages: EstateManager[][] = []
-    //     for (let i = 0; i < fetchedEstateManagers?.length; i += item) {
-    //         slicedPages.push(fetchedEstateManagers?.slice(i, i + item))
-    //     }
+        const slicedPages: EstateManager[][] = []
+        for (let i = 0; i < fetchedData?.length; i += item) {
+            slicedPages.push(fetchedData?.slice(i, i + item))
+        }
 
-    //     setPaginate((prev) => {
-    //         return {
-    //             ...prev,
-    //             itemsPerPage: item,
-    //             index: 0,
-    //             currentPage: 1,
-    //             slicedPages,
-    //             totalPage: Math.ceil(fetchedEstateManagers?.length / item),
-    //         }
-    //     })
-    // }
+        setPaginate((prev) => {
+            return {
+                ...prev,
+                itemsPerPage: item,
+                index: 0,
+                currentPage: 1,
+                slicedPages,
+                totalPage: Math.ceil(fetchedData?.length / item),
+            }
+        })
+    }
 
-    // const handleNext = () => {
-    //     if (paginate.currentPage === paginate.totalPage) return
-    //     setPaginate((prev) => {
-    //         return {
-    //             ...prev,
-    //             index: prev.index + 1,
-    //             currentPage: prev.currentPage + 1,
-    //         }
-    //     })
-    // }
+    const handleNext = () => {
+        if (paginate.currentPage === paginate.totalPage) return
+        setPaginate((prev) => {
+            return {
+                ...prev,
+                index: prev.index + 1,
+                currentPage: prev.currentPage + 1,
+            }
+        })
+    }
 
-    // const handlePrev = () => {
-    //     if (paginate.currentPage === 1) return
-    //     setPaginate((prev) => {
-    //         return {
-    //             ...prev,
-    //             index: prev.index - 1,
-    //             currentPage: prev.currentPage - 1,
-    //         }
-    //     })
-    // }
+    const handlePrev = () => {
+        if (paginate.currentPage === 1) return
+        setPaginate((prev) => {
+            return {
+                ...prev,
+                index: prev.index - 1,
+                currentPage: prev.currentPage - 1,
+            }
+        })
+    }
 
-    // const { currentPage, slicedPages, itemsPerPage } = paginate
+    const { currentPage, slicedPages, itemsPerPage } = paginate
 
-    // const jumpToPage = (e: React.MouseEvent, index: number) => {
-    //     setPaginate((prev) => {
-    //         return {
-    //             ...prev,
-    //             index,
-    //             currentPage: index + 1,
-    //         }
-    //     })
-    // }
+    const jumpToPage = (e: React.MouseEvent, index: number) => {
+        setPaginate((prev) => {
+            return {
+                ...prev,
+                index,
+                currentPage: index + 1,
+            }
+        })
+    }
 
     
 
-    // const handleSelectedAction = (item: Actions, id: string) => {
-    //     setToggleDropDown(() => {
-    //         return {
-    //             isDropDownOpen: false,
-    //             index: null,
-    //         }
-    //     })
+    const handleSelectedAction = (item: Actions, id: string) => {
+        setToggleDropDown(() => {
+            return {
+                isDropDownOpen: false,
+                index: null,
+            }
+        })
 
-    //     if (item === 'view details') {
-    //         navigate(`/superAdmin/estateManagers/view/:${id}`)
-    //     }
+        if (item === 'view details') {
+            navigate(`/superAdmin/estateManagers/view/:${id}`)
+        }
 
-    //     if (item === 'deactivate') {
-    //         setEstateManagerId(id)
-    //         setIsDialogOpen(true)
-    //     }
-    // }
+        if (item === 'deactivate') {
+            setFetchedId(id)
+            setIsDialogOpen(true)
+        }
+    }
 
-    // if (get_estateManagers_loading) {
-    //     return <p>Loading...</p>
-    // }
+    if (get_data_loading) {
+        return <p>Loading...</p>
+    }
 
-    // if (get_estateManagers_isError) {
-    //     return <p>{get_estateManagers_error.message}</p>
-    // }
+    if (get_data_isError) {
+        return <p>{get_data_error.message}</p>
+    }
 
-    // const handlePathSwitch = () => {
-    //     navigate('/superAdmin/estateManagers/add')
-    // }
+    const handlePathSwitch = () => {
+        navigate('/superAdmin/data/add')
+    }
 
-    // const fetched = get_estateManagers_response?.data.data
+    const fetched = get_data_response?.data.data
 
     return (
         <></>
