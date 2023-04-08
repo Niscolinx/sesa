@@ -1,4 +1,4 @@
-import  { useEffect } from 'react'
+import { useEffect } from 'react'
 import { useAppDispatch } from '../../store/app/hooks'
 import { getToken } from '../../utils/token'
 import { setAuth } from '../../store/features/auth'
@@ -7,7 +7,7 @@ import axios from 'axios'
 function useAxios() {
     const dispatch = useAppDispatch()
     const axiosInstance = axios.create({
-        baseURL: 'https://sesadigital.com/api',
+        baseURL: 'https://sesa-digital.herokuapp.com/api',
     })
 
     useEffect(() => {
