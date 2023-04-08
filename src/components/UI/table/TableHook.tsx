@@ -3,6 +3,7 @@ import { NavigateFunction, useNavigate } from 'react-router'
 import useAxios from '../../hooks/useAxios'
 import { AxiosInstance } from 'axios'
 import { SetStateAction } from 'jotai'
+import TableDialog from './TableDialog'
 
 type Select = string | null
 
@@ -54,7 +55,9 @@ function TableHook<T>() {
                 isDialogOpen,
                 setIsDialogOpen,
             }}
-        ></CreateTableContext.Provider>
+        >
+            <TableDialog/>
+        </CreateTableContext.Provider>
     )
 }
 
