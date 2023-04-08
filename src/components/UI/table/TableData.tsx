@@ -33,13 +33,11 @@ const TableData = () => {
         setFetchedId,
         fetchedData,
         setFetchedData,
-        isDialogOpen,
         setIsDialogOpen,
         deactivate_url,
         title,
         fetch_url,
         add_page_url,
-        view_page_url,
         is_add_btn,
     } = useTableContext()
 
