@@ -84,7 +84,7 @@ const SlicedPages: FC<SlicedPages> = ({
     ]
     return (
         <>
-            {page.map(({ id, user }: any) =>
+            {page.every(({ id, user }: any) =>
                 Object.entries(user).map(
                     ([key, value]: any, idx: number) =>
                         dataToDisplay.includes(key) && (
