@@ -1,4 +1,4 @@
-import Table from "../../../components/UI/table/Table"
+import Table from '../../../components/UI/table/Table'
 
 function EstateManagers() {
     return (

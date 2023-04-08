@@ -7,6 +7,7 @@ import React from 'react'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { Select } from '../../SuperAdmin/UI/Select'
 import { useTableContext } from './Table'
+import TableDropDown from './TableDropDown'
 
 const THeader = [
     'name',
@@ -190,7 +191,7 @@ const TableData = () => {
                                 <div className='flex w-full items-center gap-12 p-10 bg-white rounded-lg'>
                                     <p className=' font-Satoshi-Medium capitalize'>
                                         {title} list
-                                        <span>({fetchData.length})</span>
+                                        <span>({fetched.length})</span>
                                     </p>
                                     <div className='relative flex items-center'>
                                         <img
@@ -316,6 +317,7 @@ const TableData = () => {
                                                                         </span>
                                                                     )}
                                                                 </p>
+                                                                <TableDropDown/>
                                                             </div>
                                                         )
                                                     }
