@@ -6,7 +6,7 @@ import { SetStateAction } from 'jotai'
 
 type Select = string | null
 
-interface CreateTableHook {
+interface ICreateTableContext {
     navigate: NavigateFunction
     axiosInstance: AxiosInstance
     sortBy: Select
@@ -17,7 +17,7 @@ interface CreateTableHook {
     setIsDialogOpen: Dispatch<SetStateAction<boolean>>
 }
 
- const CreateTableHook = createContext<CreateTableHook | null>(null)
+ const CreateTableContext = createContext<ICreateTableContext | null>(null)
 
 function TableHook<T>() {
     const navigate = useNavigate()
@@ -28,7 +28,11 @@ function TableHook<T>() {
     const [fetchedState, setFetchedState] = useState<T[]>([])
     const [isDialogOpen, setIsDialogOpen] = useState(false)
 
-    return <CreateTableHook value></CreateTableHook>
+    return <CreateTableContext provider={{
+
+    }}>
+        <p>hello</p>
+    </CreateTableContext>
 }
 
 export default TableHook
