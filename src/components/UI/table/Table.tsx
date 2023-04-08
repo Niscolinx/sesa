@@ -242,7 +242,6 @@ const Table: FC<Table> = ({
                     name='dropdown'
                     className='hidden'
                     id={id.toString()}
-                    // onChange={(e) => dropDownHandler(e, id)}
                     onChange={(e) =>
                         setToggleDropDown(() => ({
                             isDropDownOpen: e.target.checked,
