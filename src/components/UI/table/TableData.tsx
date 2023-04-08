@@ -328,6 +328,8 @@ const TableData = () => {
                                         <SlicedPages
                                             pages={slicedPages}
                                             index={paginate.index}
+                                            toggleDropDown={toggleDropDown}
+                                            setToggleDropDown={setToggleDropDown}
                                         />
                                     </div>
                                 </div>
