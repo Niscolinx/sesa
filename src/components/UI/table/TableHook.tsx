@@ -1,4 +1,4 @@
-import { Dispatch, createContext, useState } from 'react'
+import { Dispatch, createContext, useContext, useState } from 'react'
 import { NavigateFunction, useNavigate } from 'react-router'
 import useAxios from '../../hooks/useAxios'
 import { AxiosInstance } from 'axios'
@@ -14,10 +14,22 @@ interface ICreateTableContext {
     fetchedId: string
     setFetchedId: Dispatch<SetStateAction<string>>
     isDialogOpen: boolean
+    fetchedState: any[]
+    setFetchedState: Dispatch<SetStateAction<any[]>>
     setIsDialogOpen: Dispatch<SetStateAction<boolean>>
 }
 
- const CreateTableContext = createContext<ICreateTableContext | null>(null)
+const CreateTableContext = createContext<ICreateTableContext | null>(null)
+
+export const useTableContext = () => {
+    const context = useContext(CreateTableContext)
+
+    if (!context) {
+        throw new Error('Table Context must be used within the Table Container')
+    }
+
+    return context
+}
 
 function TableHook<T>() {
     const navigate = useNavigate()
@@ -28,11 +40,22 @@ function TableHook<T>() {
     const [fetchedState, setFetchedState] = useState<T[]>([])
     const [isDialogOpen, setIsDialogOpen] = useState(false)
 
-    return <CreateTableContext provider={{
-
-    }}>
-        <p>hello</p>
-    </CreateTableContext>
+    return (
+        <CreateTableContext.Provider
+            value={{
+                axiosInstance,
+                navigate,
+                sortBy,
+                setSortBy,
+                fetchedId,
+                setFetchedId,
+                fetchedState,
+                setFetchedState,
+                isDialogOpen,
+                setIsDialogOpen,
+            }}
+        ></CreateTableContext.Provider>
+    )
 }
 
 export default TableHook
