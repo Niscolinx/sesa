@@ -30,7 +30,6 @@ const TableData = () => {
         sortBy,
         setSortBy,
         fetchedId,
-        setFetchedId,
         fetchedData,
         setFetchedData,
         setIsDialogOpen,
@@ -50,27 +49,7 @@ const TableData = () => {
             url: fetch_url,
         })
     }
-    const postDeactivate = () => {
-        return axiosInstance({
-            url: deactivate_url,
-            method: 'post',
-            data: { user_id: fetchedId },
-        })
-    }
-
-    const { mutate: deactivate_mutation, isLoading: deactivate_loading } =
-        useMutation(postDeactivate, {
-            onSuccess: (data) => {
-                if ((data as any).success) {
-                    setIsDialogOpen(false)
-
-                    toast(`${title} deactivated successfully`, {
-                        type: 'success',
-                        className: 'bg-green-100 text-green-600 text-[1.4rem]',
-                    })
-                }
-            },
-        })
+   
 
     const {
         isLoading: get_data_loading,
