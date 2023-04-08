@@ -19,7 +19,7 @@ const THeader = [
 
 
 
-const Table = () => {
+const TableData = () => {
     const {
         navigate,
         axiosInstance,
