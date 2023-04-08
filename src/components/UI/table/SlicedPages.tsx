@@ -7,7 +7,6 @@ interface SlicedPages {
 }
 
 const SlicedPages: FC<SlicedPages> = ({ pages, index }) => {
-    // Return early if page is undefined or empty
     if (!pages || !pages.length) {
         return null
     }
