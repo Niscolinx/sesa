@@ -16,7 +16,7 @@ interface IAdmin {
         phone: string
         status: string
         created_at: string
-        imgUrl?: string
+        image?: string
     }
     links: []
 }
@@ -46,7 +46,8 @@ function Admins() {
 
     const fetchAdmins = () => {
         return axiosInstance({
-            url: `admin/get/all?perPage=${pageNum}`,
+            url: `admin/get/all`,
+            // url: `admin/get/all?perPage=${pageNum}`,
         })
     }
 
@@ -349,7 +350,7 @@ function Admins() {
                                                     name,
                                                     created_at,
                                                     status,
-                                                    imgUrl,
+                                                    image,
                                                 },
                                             },
                                             i
@@ -368,12 +369,16 @@ function Admins() {
                                                         />
 
                                                         <div className='flex items-center gap-2'>
-                                                            {imgUrl && (
-                                                                <img
-                                                                    src={imgUrl}
-                                                                    alt=''
-                                                                    className='w-[3.5rem] h-[3.5rem] rounded-full object-cover'
-                                                                />
+                                                            {image && (
+                                                                <figure className='w-[3.5rem] h-[3.5rem]'>
+                                                                    <img
+                                                                        src={
+                                                                            image
+                                                                        }
+                                                                        alt=''
+                                                                        className='w-full h-full rounded-full object-cover'
+                                                                    />
+                                                                </figure>
                                                             )}
 
                                                             <p className='min-w-[30rem] overflow-hidden text-ellipsis whitespace-nowrap'>

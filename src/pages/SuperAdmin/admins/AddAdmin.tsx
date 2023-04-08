@@ -15,16 +15,16 @@ const AddAdmin = () => {
         phone_number: number
         photoUrl?: string
     }
-    
+
     const axiosInstance = useAxios()
-    
+
     const genderState = ['Male', 'Female']
 
     const [photoPreview, setPhotoPreview] = useState('')
     const [imageFile, setImageFile] = useState<File | null>(null)
-    const [selectedGender, setSelectedGender] = useState<string | null>(genderState[0])
-
-
+    const [selectedGender, setSelectedGender] = useState<string | null>(
+        genderState[0]
+    )
 
     const handlePicture = (e: React.ChangeEvent) => {
         const target = e.target as HTMLInputElement
@@ -33,7 +33,6 @@ const AddAdmin = () => {
         const preview = URL.createObjectURL(file)
         setPhotoPreview(preview)
         setImageFile(file)
-
     }
 
     const {
@@ -55,8 +54,9 @@ const AddAdmin = () => {
             url: '/admin/create',
             method: 'post',
             data,
-        })
 
+            headers: { 'Content-Type': 'multipart/form-data' },
+        })
     }
     const { mutate, isLoading } = useMutation(postAdmin, {
         onSuccess: () => {
@@ -70,16 +70,10 @@ const AddAdmin = () => {
         },
     }) as any
 
-    
-
     const onSubmit = handleSubmit((data) => {
-        const {
-            first_name,
-            last_name,
-            dob,
-            email_address,
-            phone_number,
-        } = data
+        const { first_name, last_name, dob, email_address, phone_number } = data
+
+       
 
         const adminData = {
             name: `${first_name} ${last_name}`,
@@ -91,6 +85,8 @@ const AddAdmin = () => {
             // image: imageFile,
             image: imageFile,
         }
+
+        console.log({ adminData })
 
         mutate(adminData)
     })
@@ -185,6 +181,7 @@ const AddAdmin = () => {
                 )}
                 <form
                     onSubmit={onSubmit}
+                    id='formFile'
                     className='grid max-w-[84rem] gap-16 mt-12 '
                     style={{
                         gridTemplateColumns:
@@ -212,9 +209,7 @@ const AddAdmin = () => {
                             handlePicture={handlePicture}
                             photoPreview={photoPreview}
                         />
-                        <button
-                            className='btn justify-self-start btn-blue'
-                        >
+                        <button className='btn justify-self-start btn-blue'>
                             <span>
                                 <IoMdAdd />
                             </span>{' '}
