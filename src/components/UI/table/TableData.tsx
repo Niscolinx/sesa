@@ -272,8 +272,8 @@ const TableData = () => {
                                                                 status,
                                                                 imgUrl,
                                                             },
-                                                        },
-                                                        idx
+                                                        }
+                                                    
                                                     ) => {
                                                         return (
                                                             <div className='grid justify-between border-b grid-cols-6 items-center gap-8 text-[1.6rem] py-4 table__ellipsis'>
@@ -337,7 +337,7 @@ const TableData = () => {
                                                                     setToggleDropDown={
                                                                         setToggleDropDown
                                                                     }
-                                                                    id={idx}
+                                                                    id={id}
                                                                 />
                                                             </div>
                                                         )
