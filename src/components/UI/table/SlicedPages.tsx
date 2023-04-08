@@ -35,16 +35,19 @@ const SlicedPages: FC<SlicedPages> = ({
     const TableItem = ({ user, id }: any) => {
         const details:any = []
         Object.entries(user).map(
-            ([key, value]: any, idx: number) =>
-                dataToDisplay.includes(key) &&
-                details.push(user)
+            ([key, value]: any, idx: number) => {
+                console.log({key, value})
+                return dataToDisplay.includes(key) && details.push(value)
+            }
+                
         )
 
+        console.log({details})
         return (
             details?.map((detail: any, idx: any) => (
-                <>
-                p
-                </>
+                <p>
+                {JSON.stringify(detail)}
+                </p>
             ))
         )
 
