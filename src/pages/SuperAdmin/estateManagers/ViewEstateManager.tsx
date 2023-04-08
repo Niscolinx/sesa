@@ -107,7 +107,7 @@ const ViewEstateManager = () => {
 
     const {
         mutate: deactivate_estateManager_mutation,
-        data: post_deactivate_estateManager_response,
+        data: deactivate_estateManager_response,
         isLoading: deactivate_estateManager_loading,
     } = useMutation(postDeactivateEstateManager) as any
 
@@ -118,9 +118,9 @@ const ViewEstateManager = () => {
     } = useMutation(getEstateManager) as any
 
     const {
-        mutate: post_estateManager_mutation,
-        data: post_estateManager_response_data,
-        isLoading: post_estateManager_loading,
+        mutate: estateManager_mutation,
+        data: estateManager_response_data,
+        isLoading: estateManager_loading,
     } = useMutation(postUpdateEstateManager) as any
 
     useEffect(() => {
@@ -150,7 +150,7 @@ const ViewEstateManager = () => {
     }, [get_estateManager_response])
 
     useEffect(() => {
-        if (post_estateManager_response_data?.success) {
+        if (estateManager_response_data?.success) {
             toast('EstateManager Updated successfully', {
                 type: 'success',
                 className: 'bg-green-100 text-green-600 text-[1.4rem]',
@@ -159,13 +159,13 @@ const ViewEstateManager = () => {
             setResponseMessage({
                 className: 'text-red-600',
                 displayMessage:
-                    post_estateManager_response_data?.response?.data.message,
+                    estateManager_response_data?.response?.data.message,
             })
         }
-    }, [post_estateManager_response_data])
+    }, [estateManager_response_data])
 
     useEffect(() => {
-        if (post_deactivate_estateManager_response?.success) {
+        if (deactivate_estateManager_response?.success) {
             toast('EstateManager Deactivated successfully', {
                 type: 'success',
                 className: 'bg-green-100 text-green-600 text-[1.4rem]',
@@ -175,10 +175,10 @@ const ViewEstateManager = () => {
             setResponseMessage({
                 className: 'text-red-600',
                 displayMessage:
-                    post_estateManager_response_data?.response?.data.message,
+                    estateManager_response_data?.response?.data.message,
             })
         }
-    }, [post_deactivate_estateManager_response])
+    }, [deactivate_estateManager_response])
 
     const onSubmit = handleSubmit((data) => {
         const { first_name, last_name, dob, email_address, phone_number } = data
@@ -194,7 +194,7 @@ const ViewEstateManager = () => {
             image: 'https://res.cloudinary.com/aladdin-digital-bank/image/upload/v1665580939/international_payments/s1brifvx0tqcwjwjnpov.jpg',
         }
 
-        post_estateManager_mutation(estateManagerData)
+        estateManager_mutation(estateManagerData)
     })
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
@@ -353,7 +353,7 @@ const ViewEstateManager = () => {
                                     className='w-[1.7rem] h-[1.7rem]'
                                 />
                             </span>{' '}
-                            {post_estateManager_loading
+                            {estateManager_loading
                                 ? 'Loading...'
                                 : 'Save Changes'}
                         </button>
