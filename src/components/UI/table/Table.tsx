@@ -25,9 +25,10 @@ type Actions = 'view details' | 'deactivate' | 'activate' | 'delete'
 
 interface Table {
     deactivate_url: string
+    title: string
 }
 
-const Table:FC<Table> = ({deactivate_url}) => {
+const Table:FC<Table> = ({deactivate_url, title}) => {
     const {
         navigate,
         axiosInstance,
@@ -65,13 +66,11 @@ const Table:FC<Table> = ({deactivate_url}) => {
             if ((data as any).success) {
                 setIsDialogOpen(false)
 
-                toast('Estate Manager deactivated successfully', {
+                toast(`${title} deactivated successfully`, {
                     type: 'success',
                     className: 'bg-green-100 text-green-600 text-[1.4rem]',
                 })
-            } else {
-                console.log({ data }, 'failed')
-            }
+            } 
         },
     })
 
