@@ -81,7 +81,7 @@ const Table:FC<Table> = ({deactivate_url, title, fetch_url, add_page_url, view_p
         isError: get_data_isError,
         error: get_data_error,
         data: get_data_response,
-    } = useQuery('estateManagers', fetchData, {}) as any
+    } = useQuery(title, fetchData, {}) as any
 
     useEffect(() => {
         if (get_data_response) {
