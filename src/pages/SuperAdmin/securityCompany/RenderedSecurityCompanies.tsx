@@ -72,7 +72,9 @@ export const SECURITYCOMPANYDATA: SecurityCompany[] = [
     },
 ]
 
-export type Actions = 'View Details' | 'Activate' | 'Deactivate'
+export type Actions = 'view details' | 'activate' | 'deactivate'
+
+const actions: Array<Actions> = ['view details', 'activate', 'deactivate']
 
 function RenderedSecurityCompanies() {
     const navigate = useNavigate()
@@ -82,25 +84,51 @@ function RenderedSecurityCompanies() {
         SecurityCompany[] | null
     >([])
 
+    const postDeactivateEstateManager = () => {
+        return axiosInstance({
+            url: '/change/user/status',
+            method: 'post',
+            data: { user_id: estateManagerId },
+        })
+    }
+
     const fetchSecurityCompanies = () => {
         return axiosInstance({
             // url: '/admin/get/all',
             url: '/manager/get/all',
         })
     }
-     const {
-         isLoading: get_securityCompanies_loading,
-         isError: get_securityCompanies_isError,
-         error: get_securityCompanies_error,
-         data: get_securityCompanies_response,
-     } = useQuery('securityCompanies', fetchSecurityCompanies, {}) as any
 
-     useEffect(() => {
-         if (get_securityCompanies_response) {
-             setFetchedSecurityCompanies(SECURITYCOMPANYDATA)
+    const {
+        mutate: deactivate_estateManager_mutation,
+        isLoading: deactivate_estateManager_loading,
+    } = useMutation(postDeactivateEstateManager, {
+        onSuccess: (data) => {
+            if ((data as any).success as any) {
+                closeDialog()
+
+                toast('Estate Manager deactivated successfully', {
+                    type: 'success',
+                    className: 'bg-green-100 text-green-600 text-[1.4rem]',
+                })
+            } else {
+                console.log({ data }, 'failed')
+            }
+        },
+    })
+    const {
+        isLoading: get_securityCompanies_loading,
+        isError: get_securityCompanies_isError,
+        error: get_securityCompanies_error,
+        data: get_securityCompanies_response,
+    } = useQuery('securityCompanies', fetchSecurityCompanies, {}) as any
+
+    useEffect(() => {
+        if (get_securityCompanies_response) {
+            setFetchedSecurityCompanies(SECURITYCOMPANYDATA)
             //  setFetchedSecurityCompanies(get_securityCompanies_response.data.data)
-         }
-     }, [get_securityCompanies_response])
+        }
+    }, [get_securityCompanies_response])
 
     const [toggleDropDown, setToggleDropDown] = useState<{
         isDropDownOpen: boolean
@@ -121,7 +149,6 @@ function RenderedSecurityCompanies() {
             }
         })
     }
-   
 
     const handlePathSwitch = () => {
         navigate('/superAdmin/security-company/add')
@@ -129,20 +156,16 @@ function RenderedSecurityCompanies() {
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
-    const handleClose = () => {
+    const closeDialog = () => {
         if (dialogRef.current) {
             dialogRef.current.close()
         }
     }
 
-    const handleOpen = () => {
+    const openDialog = () => {
         if (dialogRef.current) {
             dialogRef.current.showModal()
         }
-    }
-
-    const handleRouteChange = () => {
-        handleClose()
     }
 
     const handleSelectedAction = (item: string, index: string) => {
@@ -165,7 +188,19 @@ function RenderedSecurityCompanies() {
         }
     }
 
-    const actions: Array<Actions> = ['View Details', 'Activate', 'Deactivate']
+    if (get_securityCompanies_loading) {
+        return <p>Loading...</p>
+    }
+
+    if (get_securityCompanies_isError) {
+        return <p>{get_securityCompanies_error.message}</p>
+    }
+
+    const handlePathSwitch = () => {
+        navigate('/superAdmin/securityCompanies/add')
+    }
+
+    const fetched = get_securityCompanies_response?.data.data
 
     return (
         <div className='w-full grid item rounded-lg'>
@@ -187,7 +222,7 @@ function RenderedSecurityCompanies() {
                             <div className='flex w-full justify-center gap-8'>
                                 <button
                                     className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
-                                    onClick={() => handleClose()}
+                                    onClick={() => closeDialog()}
                                 >
                                     Cancel
                                 </button>
