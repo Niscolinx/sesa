@@ -17,7 +17,7 @@ interface CreateTableHook {
     setIsDialogOpen: Dispatch<SetStateAction<boolean>>
 }
 
-const CreateTableHook = createContext<CreateTableHook | null>(null)
+ const CreateTableHook = createContext<CreateTableHook | null>(null)
 
 function TableHook<T>() {
     const navigate = useNavigate()
@@ -28,7 +28,7 @@ function TableHook<T>() {
     const [fetchedState, setFetchedState] = useState<T[]>([])
     const [isDialogOpen, setIsDialogOpen] = useState(false)
 
-    return <div>TableHook</div>
+    return <CreateTableHook value></CreateTableHook>
 }
 
 export default TableHook
