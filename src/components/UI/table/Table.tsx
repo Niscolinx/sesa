@@ -24,10 +24,10 @@ interface EstateManager {
 type Actions = 'view details' | 'deactivate' | 'activate' | 'delete'
 
 interface Table {
-
+    deactivate_url: string
 }
 
-const Table:FC<Table> = ({}) => {
+const Table:FC<Table> = ({deactivate_url}) => {
     const {
         navigate,
         axiosInstance,
@@ -49,9 +49,9 @@ const Table:FC<Table> = ({}) => {
             url: '/manager/get/all',
         })
     }
-    const postDeactivateEstateManager = (id) => {
+    const postDeactivate = (id:any) => {
         return axiosInstance({
-            url: '/change/user/status',
+            url: deactivate_url,
             method: 'post',
             data: { id },
         })
@@ -60,7 +60,7 @@ const Table:FC<Table> = ({}) => {
     const {
         mutate: deactivate_estateManager_mutation,
         isLoading: deactivate_estateManager_loading,
-    } = useMutation(postDeactivateEstateManager, {
+    } = useMutation(postDeactivate, {
         onSuccess: (data) => {
             if ((data as any).success as any) {
                 setIsDialogOpen(false)
