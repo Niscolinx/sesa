@@ -18,6 +18,11 @@ const THeader = [
     'actions',
 ]
 
+export type ToggleDropDown = {
+    isDropDownOpen: boolean
+    index: number | null
+}
+
 const TableData = () => {
     const {
         navigate,
@@ -38,6 +43,10 @@ const TableData = () => {
         is_add_btn,
     } = useTableContext()
 
+    const [toggleDropDown, setToggleDropDown] = useState<ToggleDropDown>({
+        isDropDownOpen: false,
+        index: null,
+    })
     const fetchData = () => {
         return axiosInstance({
             url: fetch_url,

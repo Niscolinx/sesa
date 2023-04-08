@@ -1,20 +1,24 @@
-import { useEffect, useState } from 'react'
+import { Dispatch, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
 import { Actions, useTableContext } from './Table'
+import { SetStateAction } from 'jotai'
+import { ToggleDropDown } from './TableData'
 
-const TableDropDown = ({id}: {id: number}) => {
+
+interface TableDropDown {
+    id: number
+    toggleDropDown: ToggleDropDown
+    setToggleDropDown: Dispatch<SetStateAction<ToggleDropDown>>
+}
+
+const TableDropDown = ({id, toggleDropDown, setToggleDropDown}: TableDropDown) => {
     const { setFetchedId, setIsDialogOpen, actions, view_page_url } =
         useTableContext()
 
     const navigate = useNavigate()
 
-    const [toggleDropDown, setToggleDropDown] = useState<{
-        isDropDownOpen: boolean
-        index: number | null
-    }>({
-        isDropDownOpen: false,
-        index: null,
-    })
+
+   
 
     const handleSelectedAction = (item: Actions, itemId: number) => {
         setToggleDropDown(() => {
