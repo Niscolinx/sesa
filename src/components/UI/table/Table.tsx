@@ -1,6 +1,13 @@
 import { IoMdAdd } from 'react-icons/io'
 import { useNavigate } from 'react-router'
-import { useState, useEffect, ChangeEvent, useRef, useCallback, FC } from 'react'
+import {
+    useState,
+    useEffect,
+    ChangeEvent,
+    useRef,
+    useCallback,
+    FC,
+} from 'react'
 import { useMutation, useQuery } from 'react-query'
 import { ToastContainer, toast } from 'react-toastify'
 import React from 'react'
@@ -31,7 +38,13 @@ interface Table {
     add_page_url: string
 }
 
-const Table:FC<Table> = ({deactivate_url, title, fetch_url, add_page_url, view_page_url}) => {
+const Table: FC<Table> = ({
+    deactivate_url,
+    title,
+    fetch_url,
+    add_page_url,
+    view_page_url,
+}) => {
     const {
         navigate,
         axiosInstance,
@@ -42,14 +55,12 @@ const Table:FC<Table> = ({deactivate_url, title, fetch_url, add_page_url, view_p
         fetchedData,
         setFetchedData,
         isDialogOpen,
-        setIsDialogOpen
+        setIsDialogOpen,
     } = useTableContext()
-
-   
 
     const fetchData = () => {
         return axiosInstance({
-            url: fetch_url
+            url: fetch_url,
         })
     }
     const postDeactivate = () => {
@@ -60,21 +71,19 @@ const Table:FC<Table> = ({deactivate_url, title, fetch_url, add_page_url, view_p
         })
     }
 
-    const {
-        mutate: deactivate_mutation,
-        isLoading: deactivate_loading,
-    } = useMutation(postDeactivate, {
-        onSuccess: (data) => {
-            if ((data as any).success) {
-                setIsDialogOpen(false)
+    const { mutate: deactivate_mutation, isLoading: deactivate_loading } =
+        useMutation(postDeactivate, {
+            onSuccess: (data) => {
+                if ((data as any).success) {
+                    setIsDialogOpen(false)
 
-                toast(`${title} deactivated successfully`, {
-                    type: 'success',
-                    className: 'bg-green-100 text-green-600 text-[1.4rem]',
-                })
-            } 
-        },
-    })
+                    toast(`${title} deactivated successfully`, {
+                        type: 'success',
+                        className: 'bg-green-100 text-green-600 text-[1.4rem]',
+                    })
+                }
+            },
+        })
 
     const {
         isLoading: get_data_loading,
@@ -91,14 +100,8 @@ const Table:FC<Table> = ({deactivate_url, title, fetch_url, add_page_url, view_p
 
     useEffect(() => {
         const slicedPages: EstateManager[][] = []
-        for (
-            let i = 0;
-            i < fetchedData?.length;
-            i += paginate.itemsPerPage
-        ) {
-            slicedPages.push(
-                fetchedData?.slice(i, i + paginate.itemsPerPage)
-            )
+        for (let i = 0; i < fetchedData?.length; i += paginate.itemsPerPage) {
+            slicedPages.push(fetchedData?.slice(i, i + paginate.itemsPerPage))
         }
 
         setPaginate((prev) => {
@@ -204,8 +207,6 @@ const Table:FC<Table> = ({deactivate_url, title, fetch_url, add_page_url, view_p
         })
     }
 
-    
-
     const handleSelectedAction = (item: Actions, id: string) => {
         setToggleDropDown(() => {
             return {
@@ -239,328 +240,323 @@ const Table:FC<Table> = ({deactivate_url, title, fetch_url, add_page_url, view_p
     const fetched = get_data_response?.data.data
 
     return (
-        <></>
-        // <div>
-        //     <div className='rounded-lg mt-[3rem] h-[80vh]'>
-        //         {fetched.length > 0 ? (
-        //             <>
-        //                 <ToastContainer />
-                        
-        //                 <div className='rounded-lg mt-[3rem] '>
-        //                     <div className='grid text-[1.6rem]'>
-        //                         <div className='flex w-full items-center gap-12 p-10 bg-white rounded-lg'>
-        //                             <p className=' font-Satoshi-Medium'>
-        //                                 EstateManager List{' '}
-        //                                 <span>
-        //                                     ({fetchData.length})
-        //                                 </span>
-        //                             </p>
-        //                             <div className='relative flex items-center'>
-        //                                 <img
-        //                                     src='/icons/admins/search.svg'
-        //                                     alt=''
-        //                                     className='absolute left-4 text-[4rem]'
-        //                                 />
-        //                                 <input
-        //                                     type='text'
-        //                                     placeholder='Search Parameters'
-        //                                     className='pl-16 w-[25rem] rounded-lg border border-color-blue-light appearance-none outline-none p-4'
-        //                                 />
-        //                             </div>
-        //                             <div className='w-[10rem] grid self-baseline '>
-        //                                 <Select
-        //                                     state={['A-Z', 'Date']}
-        //                                     selectedState={sortBy}
-        //                                     placeholder={'A-Z'}
-        //                                     setSelectedState={setSortBy}
-        //                                 />
-        //                             </div>
-        //                             <button
-        //                                 className='btn btn-blue ml-auto'
-        //                                 onClick={handlePathSwitch}
-        //                             >
-        //                                 <span>
-        //                                     <IoMdAdd />
-        //                                 </span>{' '}
-        //                                 <p>Add EstateManager</p>
-        //                             </button>
-        //                         </div>
+        <div>
+            <div className='rounded-lg mt-[3rem] h-[80vh]'>
+                {fetched.length > 0 ? (
+                    <>
+                        <ToastContainer />
 
-        //                         <div className='grid bg-white'>
-        //                             <div
-        //                                 className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-6 items-center gap-8'
-        //                                 style={{
-        //                                     fontSize: '1.4rem',
-        //                                 }}
-        //                             >
-        //                                 <p className='flex items-center gap-2'>
-        //                                     <input
-        //                                         type='checkbox'
-        //                                         className='cursor-pointer'
-        //                                     />
-        //                                     <p> Name</p>
-        //                                 </p>
-        //                                 <p>Gender</p>
-        //                                 <p>Phone Number</p>
-        //                                 <p>joined Date</p>
-        //                                 <p>Status</p>
-        //                                 <p>Actions</p>
-        //                             </div>
+                        <div className='rounded-lg mt-[3rem] '>
+                            <div className='grid text-[1.6rem]'>
+                                <div className='flex w-full items-center gap-12 p-10 bg-white rounded-lg'>
+                                    <p className=' font-Satoshi-Medium capitalize'>
+                                        {title} list
+                                        <span>({fetchData.length})</span>
+                                    </p>
+                                    <div className='relative flex items-center'>
+                                        <img
+                                            src='/icons/admins/search.svg'
+                                            alt=''
+                                            className='absolute left-4 text-[4rem]'
+                                        />
+                                        <input
+                                            type='text'
+                                            placeholder='Search Parameters'
+                                            className='pl-16 w-[25rem] rounded-lg border border-color-blue-light appearance-none outline-none p-4'
+                                        />
+                                    </div>
+                                    <div className='w-[10rem] grid self-baseline '>
+                                        <Select
+                                            state={['A-Z', 'Date']}
+                                            selectedState={sortBy}
+                                            placeholder={'A-Z'}
+                                            setSelectedState={setSortBy}
+                                        />
+                                    </div>
+                                    <button
+                                        className='btn btn-blue ml-auto'
+                                        onClick={handlePathSwitch}
+                                    >
+                                        <span>
+                                            <IoMdAdd />
+                                        </span>{' '}
+                                        <p>Add {title}</p>
+                                    </button>
+                                </div>
 
-        //                             <div className='grid gap-8 mt-8 p-8'>
-        //                                 {slicedPages &&
-        //                                     slicedPages?.length > 0 &&
-        //                                     React.Children.toArray(
-        //                                         slicedPages[paginate.index].map(
-        //                                             (
-        //                                                 {
-        //                                                     id,
-        //                                                     user: {
-        //                                                         phone,
+                                <div className='grid bg-white'>
+                                    <div
+                                        className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-6 items-center gap-8 text-[1.4rem]'
+                                       
+                                    >
+                                        <p className='flex items-center gap-2'>
+                                            <input
+                                                type='checkbox'
+                                                className='cursor-pointer'
+                                            />
+                                            <p> Name</p>
+                                        </p>
+                                        <p>Gender</p>
+                                        <p>Phone Number</p>
+                                        <p>joined Date</p>
+                                        <p>Status</p>
+                                        <p>Actions</p>
+                                    </div>
 
-        //                                                         gender,
-        //                                                         name,
-        //                                                         created_at,
-        //                                                         status,
-        //                                                         imgUrl,
-        //                                                     },
-        //                                                 },
-        //                                                 i
-        //                                             ) => {
-        //                                                 const {
-        //                                                     isDropDownOpen,
-        //                                                     index,
-        //                                                 } = toggleDropDown
-        //                                                 return (
-        //                                                     <div className='grid justify-between border-b grid-cols-6 items-center gap-8 text-[1.6rem] py-4 table__ellipsis'>
-        //                                                         <div className='flex items-center gap-4  '>
-        //                                                             <input
-        //                                                                 type='checkbox'
-        //                                                                 className='cursor-pointer'
-        //                                                             />
+                                    <div className='grid gap-8 mt-8 p-8'>
+                                        {slicedPages &&
+                                            slicedPages?.length > 0 &&
+                                            React.Children.toArray(
+                                                slicedPages[paginate.index].map(
+                                                    (
+                                                        {
+                                                            id,
+                                                            user: {
+                                                                phone,
 
-        //                                                             <div className='flex items-center gap-2'>
-        //                                                                 {imgUrl && (
-        //                                                                     <img
-        //                                                                         src={
-        //                                                                             imgUrl
-        //                                                                         }
-        //                                                                         alt=''
-        //                                                                         className='w-[3.5rem] h-[h-3.5rem] rounded-full object-cover'
-        //                                                                     />
-        //                                                                 )}
+                                                                gender,
+                                                                name,
+                                                                created_at,
+                                                                status,
+                                                                imgUrl,
+                                                            },
+                                                        },
+                                                        i
+                                                    ) => {
+                                                        const {
+                                                            isDropDownOpen,
+                                                            index,
+                                                        } = toggleDropDown
+                                                        return (
+                                                            <div className='grid justify-between border-b grid-cols-6 items-center gap-8 text-[1.6rem] py-4 table__ellipsis'>
+                                                                <div className='flex items-center gap-4  '>
+                                                                    <input
+                                                                        type='checkbox'
+                                                                        className='cursor-pointer'
+                                                                    />
 
-        //                                                                 <p className='min-w-[30rem] overflow-hidden text-ellipsis whitespace-nowrap'>
-        //                                                                     {
-        //                                                                         name
-        //                                                                     }
-        //                                                                 </p>
-        //                                                             </div>
-        //                                                         </div>
-        //                                                         <p>{gender}</p>
-        //                                                         <p>{phone}</p>
-        //                                                         <p>
-        //                                                             {new Date(
-        //                                                                 created_at
-        //                                                             )
-        //                                                                 .toLocaleDateString()
-        //                                                                 .replace(
-        //                                                                     /\//g,
-        //                                                                     '-'
-        //                                                                 )}
-        //                                                         </p>
+                                                                    <div className='flex items-center gap-2'>
+                                                                        {imgUrl && (
+                                                                            <img
+                                                                                src={
+                                                                                    imgUrl
+                                                                                }
+                                                                                alt=''
+                                                                                className='w-[3.5rem] h-[h-3.5rem] rounded-full object-cover'
+                                                                            />
+                                                                        )}
 
-        //                                                         <p>
-        //                                                             {status ===
-        //                                                             'Active' ? (
-        //                                                                 <span className='text-green-600'>
-        //                                                                     {
-        //                                                                         status
-        //                                                                     }
-        //                                                                 </span>
-        //                                                             ) : (
-        //                                                                 <span className='text-red-500'>
-        //                                                                     {
-        //                                                                         status
-        //                                                                     }
-        //                                                                 </span>
-        //                                                             )}
-        //                                                         </p>
-        //                                                         <div className='relative'>
-        //                                                             <label
-        //                                                                 className='font-semibold capitalize cursor-pointer flex items-center gap-2 relative z-10'
-        //                                                                 htmlFor={i.toString()}
-        //                                                                 onClick={() =>
-        //                                                                     setToggleDropDown(
-        //                                                                         (
-        //                                                                             prev
-        //                                                                         ) => {
-        //                                                                             return {
-        //                                                                                 isDropDownOpen:
-        //                                                                                     !prev.isDropDownOpen,
-        //                                                                                 index: i,
-        //                                                                             }
-        //                                                                         }
-        //                                                                     )
-        //                                                                 }
-        //                                                             >
-        //                                                                 <span className='text-color-primary'>
-        //                                                                     <img
-        //                                                                         src='/icons/admins/threeDots.svg'
-        //                                                                         alt=''
-        //                                                                     />
-        //                                                                 </span>
-        //                                                             </label>
-        //                                                             <input
-        //                                                                 type='radio'
-        //                                                                 name='dropdown'
-        //                                                                 className='hidden'
-        //                                                                 id={i.toString()}
-        //                                                                 onChange={(
-        //                                                                     e
-        //                                                                 ) =>
-        //                                                                     dropDownHandler(
-        //                                                                         e,
-        //                                                                         i
-        //                                                                     )
-        //                                                                 }
-        //                                                             />
+                                                                        <p className='min-w-[30rem] overflow-hidden text-ellipsis whitespace-nowrap'>
+                                                                            {
+                                                                                name
+                                                                            }
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                                <p>{gender}</p>
+                                                                <p>{phone}</p>
+                                                                <p>
+                                                                    {new Date(
+                                                                        created_at
+                                                                    )
+                                                                        .toLocaleDateString()
+                                                                        .replace(
+                                                                            /\//g,
+                                                                            '-'
+                                                                        )}
+                                                                </p>
 
-        //                                                             {isDropDownOpen &&
-        //                                                                 index ===
-        //                                                                     i && (
-        //                                                                     <div className='absolute top-0 translate-x-[4rem] border border-color-primary-light w-[10rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
-        //                                                                         {actions.map(
-        //                                                                             (
-        //                                                                                 item,
-        //                                                                                 index
-        //                                                                             ) => (
-        //                                                                                 <p
-        //                                                                                     className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
-        //                                                                                     key={
-        //                                                                                         index +
-        //                                                                                         i
-        //                                                                                     }
-        //                                                                                     onClick={() =>
-        //                                                                                         handleSelectedAction(
-        //                                                                                             item,
-        //                                                                                             id
-        //                                                                                         )
-        //                                                                                     }
-        //                                                                                 >
-        //                                                                                     {item ===
-        //                                                                                     'deactivate' ? (
-        //                                                                                         <span className='text-red-600'>
-        //                                                                                             {
-        //                                                                                                 item
-        //                                                                                             }
-        //                                                                                         </span>
-        //                                                                                     ) : (
-        //                                                                                         <span>
-        //                                                                                             {
-        //                                                                                                 item
-        //                                                                                             }
-        //                                                                                         </span>
-        //                                                                                     )}
-        //                                                                                 </p>
-        //                                                                             )
-        //                                                                         )}
-        //                                                                     </div>
-        //                                                                 )}
-        //                                                         </div>
-        //                                                     </div>
-        //                                                 )
-        //                                             }
-        //                                         )
-        //                                     )}
-        //                             </div>
-        //                         </div>
-        //                         <footer className='flex items-center p-4 mt-4 bg-color-white rounded-lg'>
-        //                             <div className='flex gap-8 items-center'>
-        //                                 <p>View</p>
-        //                                 <select
-        //                                     name=''
-        //                                     id=''
-        //                                     className='flex items-center border px-4 rounded-lg outline-none cursor-pointer'
-        //                                     onChange={handleItemsPerPage}
-        //                                 >
-        //                                     {itemsPerPageArr.map(
-        //                                         (item, index) => (
-        //                                             <option
-        //                                                 value={item}
-        //                                                 key={index}
-        //                                                 selected={
-        //                                                     item ===
-        //                                                     itemsPerPage
-        //                                                 }
-        //                                                 className='capitalize cursor-pointer bg-white'
-        //                                             >
-        //                                                 {item}
-        //                                             </option>
-        //                                         )
-        //                                     )}
-        //                                 </select>
-        //                                 <p className='text'>List per page</p>
-        //                             </div>
-        //                             <ul className='flex items-center gap-5 ml-10'>
-        //                                 <HiOutlineChevronLeft
-        //                                     onClick={handlePrev}
-        //                                     className='cursor-pointer'
-        //                                 />
+                                                                <p>
+                                                                    {status ===
+                                                                    'Active' ? (
+                                                                        <span className='text-green-600'>
+                                                                            {
+                                                                                status
+                                                                            }
+                                                                        </span>
+                                                                    ) : (
+                                                                        <span className='text-red-500'>
+                                                                            {
+                                                                                status
+                                                                            }
+                                                                        </span>
+                                                                    )}
+                                                                </p>
+                                                                <div className='relative'>
+                                                                    <label
+                                                                        className='font-semibold capitalize cursor-pointer flex items-center gap-2 relative z-10'
+                                                                        htmlFor={i.toString()}
+                                                                        onClick={() =>
+                                                                            setToggleDropDown(
+                                                                                (
+                                                                                    prev
+                                                                                ) => {
+                                                                                    return {
+                                                                                        isDropDownOpen:
+                                                                                            !prev.isDropDownOpen,
+                                                                                        index: i,
+                                                                                    }
+                                                                                }
+                                                                            )
+                                                                        }
+                                                                    >
+                                                                        <span className='text-color-primary'>
+                                                                            <img
+                                                                                src='/icons/admins/threeDots.svg'
+                                                                                alt=''
+                                                                            />
+                                                                        </span>
+                                                                    </label>
+                                                                    <input
+                                                                        type='radio'
+                                                                        name='dropdown'
+                                                                        className='hidden'
+                                                                        id={i.toString()}
+                                                                        onChange={(
+                                                                            e
+                                                                        ) =>
+                                                                            dropDownHandler(
+                                                                                e,
+                                                                                i
+                                                                            )
+                                                                        }
+                                                                    />
 
-        //                                 {slicedPages?.map((item, index) => {
-        //                                     return (
-        //                                         <li key={index}>
-        //                                             {index + 1 ===
-        //                                             currentPage ? (
-        //                                                 <span className='bg-color-primary text-white grid place-content-center w-[3rem] h-[3rem] cursor-pointer'>
-        //                                                     {index + 1}
-        //                                                 </span>
-        //                                             ) : (
-        //                                                 <span
-        //                                                     className='text-color-primary bg-white grid place-content-center border w-[3rem] h-[3rem] cursor-pointer'
-        //                                                     onClick={(e) =>
-        //                                                         jumpToPage(
-        //                                                             e,
-        //                                                             index
-        //                                                         )
-        //                                                     }
-        //                                                 >
-        //                                                     {index + 1}
-        //                                                 </span>
-        //                                             )}
-        //                                         </li>
-        //                                     )
-        //                                 })}
+                                                                    {isDropDownOpen &&
+                                                                        index ===
+                                                                            i && (
+                                                                            <div className='absolute top-0 translate-x-[4rem] border border-color-primary-light w-[10rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
+                                                                                {actions.map(
+                                                                                    (
+                                                                                        item,
+                                                                                        index
+                                                                                    ) => (
+                                                                                        <p
+                                                                                            className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
+                                                                                            key={
+                                                                                                index +
+                                                                                                i
+                                                                                            }
+                                                                                            onClick={() =>
+                                                                                                handleSelectedAction(
+                                                                                                    item,
+                                                                                                    id
+                                                                                                )
+                                                                                            }
+                                                                                        >
+                                                                                            {item ===
+                                                                                            'deactivate' ? (
+                                                                                                <span className='text-red-600'>
+                                                                                                    {
+                                                                                                        item
+                                                                                                    }
+                                                                                                </span>
+                                                                                            ) : (
+                                                                                                <span>
+                                                                                                    {
+                                                                                                        item
+                                                                                                    }
+                                                                                                </span>
+                                                                                            )}
+                                                                                        </p>
+                                                                                    )
+                                                                                )}
+                                                                            </div>
+                                                                        )}
+                                                                </div>
+                                                            </div>
+                                                        )
+                                                    }
+                                                )
+                                            )}
+                                    </div>
+                                </div>
+                                <footer className='flex items-center p-4 mt-4 bg-color-white rounded-lg'>
+                                    <div className='flex gap-8 items-center'>
+                                        <p>View</p>
+                                        <select
+                                            name=''
+                                            id=''
+                                            className='flex items-center border px-4 rounded-lg outline-none cursor-pointer'
+                                            onChange={handleItemsPerPage}
+                                        >
+                                            {itemsPerPageArr.map(
+                                                (item, index) => (
+                                                    <option
+                                                        value={item}
+                                                        key={index}
+                                                        selected={
+                                                            item ===
+                                                            itemsPerPage
+                                                        }
+                                                        className='capitalize cursor-pointer bg-white'
+                                                    >
+                                                        {item}
+                                                    </option>
+                                                )
+                                            )}
+                                        </select>
+                                        <p className='text'>List per page</p>
+                                    </div>
+                                    <ul className='flex items-center gap-5 ml-10'>
+                                        <HiOutlineChevronLeft
+                                            onClick={handlePrev}
+                                            className='cursor-pointer'
+                                        />
 
-        //                                 <HiOutlineChevronRight
-        //                                     onClick={handleNext}
-        //                                     className='cursor-pointer'
-        //                                 />
-        //                             </ul>
-        //                         </footer>
-        //                     </div>
-        //                 </div>
-        //             </>
-        //         ) : (
-        //             <section className='grid  place-content-center w-full h-full justify-items-center gap-4 bg-white rounded-lg'>
-        //                 <img src='/icons/admins/errorSvg.svg' alt='' />
-        //                 <p className='text'>
-        //                     Ooops you have not added any EstateManager yet
-        //                 </p>
-        //                 <button
-        //                     className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
-        //                     onClick={handlePathSwitch}
-        //                 >
-        //                     <span>
-        //                         <IoMdAdd />
-        //                     </span>{' '}
-        //                     Add EstateManager
-        //                 </button>
-        //             </section>
-        //         )}
-        //     </div>
-        // </div>
+                                        {slicedPages?.map((item, index) => {
+                                            return (
+                                                <li key={index}>
+                                                    {index + 1 ===
+                                                    currentPage ? (
+                                                        <span className='bg-color-primary text-white grid place-content-center w-[3rem] h-[3rem] cursor-pointer'>
+                                                            {index + 1}
+                                                        </span>
+                                                    ) : (
+                                                        <span
+                                                            className='text-color-primary bg-white grid place-content-center border w-[3rem] h-[3rem] cursor-pointer'
+                                                            onClick={(e) =>
+                                                                jumpToPage(
+                                                                    e,
+                                                                    index
+                                                                )
+                                                            }
+                                                        >
+                                                            {index + 1}
+                                                        </span>
+                                                    )}
+                                                </li>
+                                            )
+                                        })}
+
+                                        <HiOutlineChevronRight
+                                            onClick={handleNext}
+                                            className='cursor-pointer'
+                                        />
+                                    </ul>
+                                </footer>
+                            </div>
+                        </div>
+                    </>
+                ) : (
+                    <section className='grid  place-content-center w-full h-full justify-items-center gap-4 bg-white rounded-lg'>
+                        <img src='/icons/admins/errorSvg.svg' alt='' />
+                        <p className='text'>
+                            Ooops you have not added any EstateManager yet
+                        </p>
+                        <button
+                            className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
+                            onClick={handlePathSwitch}
+                        >
+                            <span>
+                                <IoMdAdd />
+                            </span>{' '}
+                            Add EstateManager
+                        </button>
+                    </section>
+                )}
+            </div>
+        </div>
     )
 }
 
