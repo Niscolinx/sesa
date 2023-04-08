@@ -58,8 +58,8 @@ const Table:FC<Table> = ({deactivate_url}) => {
     }
 
     const {
-        mutate: deactivate_estateManager_mutation,
-        isLoading: deactivate_estateManager_loading,
+        mutate: deactivate_mutation,
+        isLoading: deactivate_loading,
     } = useMutation(postDeactivate, {
         onSuccess: (data) => {
             if ((data as any).success as any) {
