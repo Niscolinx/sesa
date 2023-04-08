@@ -29,7 +29,7 @@ const SlicedPages: FC<SlicedPages> = ({ pages, index }) => {
         <>
             {page.map(({ id, user }: any) =>
                 Object.entries(user).map(([key, value]: any, i: number) => (
-                    <TableItem key={`${id}-${i}`} name={value} />
+                   dataToDisplay.includes(key) && <TableItem key={`${id}-${i}`} name={value} />
                 ))
             )}
         </>
