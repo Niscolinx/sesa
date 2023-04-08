@@ -188,7 +188,7 @@ const Table: FC<Table> = ({
 
     const fetched = get_data_response?.data.data
 
-    const DropDown = ({ id }) => {
+    const DropDown = ({ id }: {id: number}) => {
         type Actions = 'view details' | 'deactivate' | 'activate' | 'delete'
 
         const actions = ['view details', 'deactivate'] satisfies Actions[]
@@ -201,19 +201,9 @@ const Table: FC<Table> = ({
             index: null,
         })
 
-        const dropDownHandler = (
-            e: React.ChangeEvent<HTMLInputElement>,
-            index: number
-        ) => {
-            setToggleDropDown(() => {
-                return {
-                    isDropDownOpen: e.target.checked,
-                    index,
-                }
-            })
-        }
+      
 
-        const handleSelectedAction = (item: Actions, id: string) => {
+        const handleSelectedAction = (item: Actions, id: number) => {
             setToggleDropDown(() => {
                 return {
                     isDropDownOpen: false,
@@ -231,13 +221,13 @@ const Table: FC<Table> = ({
             }
         }
 
-        const { isDropDownOpen, index} = toggleDropDown
+        const { isDropDownOpen, index } = toggleDropDown
 
         return (
             <div className='relative'>
                 <label
                     className='font-semibold capitalize cursor-pointer flex items-center gap-2 relative z-10'
-                    htmlFor={i.toString()}
+                    htmlFor={id.toString()}
                     onClick={() =>
                         setToggleDropDown((prev) => {
                             return {
@@ -256,7 +246,15 @@ const Table: FC<Table> = ({
                     name='dropdown'
                     className='hidden'
                     id={id.toString()}
-                    onChange={(e) => dropDownHandler(e, id)}
+                    // onChange={(e) => dropDownHandler(e, id)}
+                    onChange={(e) =>
+                        setToggleDropDown(() => {
+                            return {
+                                isDropDownOpen: e.target.checked,
+                                index: id
+                            }
+                        })
+                    }
                 />
 
                 {isDropDownOpen && index === id && (
@@ -351,20 +349,18 @@ const Table: FC<Table> = ({
                                             slicedPages?.length > 0 &&
                                             React.Children.toArray(
                                                 slicedPages[paginate.index].map(
-                                                    (
-                                                        {
-                                                            id,
-                                                            user: {
-                                                                phone,
+                                                    ({
+                                                        id,
+                                                        user: {
+                                                            phone,
 
-                                                                gender,
-                                                                name,
-                                                                created_at,
-                                                                status,
-                                                                imgUrl,
-                                                            },
+                                                            gender,
+                                                            name,
+                                                            created_at,
+                                                            status,
+                                                            imgUrl,
                                                         },
-                                                    ) => {
+                                                    }) => {
                                                         return (
                                                             <div className='grid justify-between border-b grid-cols-6 items-center gap-8 text-[1.6rem] py-4 table__ellipsis'>
                                                                 <div className='flex items-center gap-4  '>

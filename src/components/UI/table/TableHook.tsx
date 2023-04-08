@@ -13,8 +13,8 @@ interface ICreateTableContext {
     axiosInstance: AxiosInstance
     sortBy: Select
     setSortBy: Dispatch<SetStateAction<Select>>
-    fetchedId: string
-    setFetchedId: Dispatch<SetStateAction<string>>
+    fetchedId: number
+    setFetchedId: Dispatch<SetStateAction<number>>
     isDialogOpen: boolean
     fetchedData: any[]
     setFetchedData: Dispatch<SetStateAction<any[]>>
@@ -38,7 +38,7 @@ function TableHook<T>() {
     const axiosInstance = useAxios()
 
     const [sortBy, setSortBy] = useState<string | null>(null)
-    const [fetchedId, setFetchedId] = useState('')
+    const [fetchedId, setFetchedId] = useState<number>(null as any)
     const [fetchedData, setFetchedData] = useState<T[]>([])
     const [isDialogOpen, setIsDialogOpen] = useState(false)
 
