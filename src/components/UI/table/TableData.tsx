@@ -8,6 +8,7 @@ import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { Select } from '../../SuperAdmin/UI/Select'
 import { useTableContext } from './Table'
 import TableDropDown from './TableDropDown'
+import SlicedPages from './SlicedPages'
 
 const THeader = [
     'name',
@@ -84,8 +85,6 @@ const TableData = () => {
             }
         })
     }, [fetchedData])
-
-    
 
     const itemsPerPageArr = [2, 4, 6, 8]
 
@@ -180,8 +179,6 @@ const TableData = () => {
 
     console.log({ fetched, slicedPages })
 
-   
-
     return (
         <div>
             <div className='rounded-lg mt-[3rem] h-[80vh]'>
@@ -262,7 +259,7 @@ const TableData = () => {
                                     </div>
 
                                     <div className='grid gap-8 mt-8 p-8'>
-                                        {slicedPages &&
+                                        {/* {slicedPages &&
                                             slicedPages?.length > 0 &&
                                             React.Children.toArray(
                                                 slicedPages[paginate.index].map(
@@ -338,7 +335,12 @@ const TableData = () => {
                                                         )
                                                     }
                                                 )
-                                            )}
+                                            )} */}
+
+                                        <SlicedPages
+                                            pages={slicedPages}
+                                            index={paginate.index}
+                                        />
                                     </div>
                                 </div>
                                 <footer className='flex items-center p-4 mt-4 bg-color-white rounded-lg'>

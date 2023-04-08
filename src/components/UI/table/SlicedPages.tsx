@@ -1,5 +1,4 @@
 import { FC } from 'react'
-import { Paginate } from './TableData'
 
 interface SlicedPages {
     pages: any[][] | null
