@@ -23,7 +23,8 @@ const SlicedPages: FC<SlicedPages> = ({
     }
     const page = pages[index]
 
-    const TableItem = ({ name }: any) => {
+    const TableItem = ({ key, value }: any) => {
+        
         return (
             <>
                 <div className='flex items-center gap-4  '>
@@ -79,7 +80,7 @@ const SlicedPages: FC<SlicedPages> = ({
                         key={`${id}-${idx}`}
                     >
                         dataToDisplay.includes(key) &&{' '}
-                        <TableItem name={value} index={idx} />
+                        <TableItem value={value} key={key} index={idx} />
                         <TableDropDown
                             toggleDropDown={toggleDropDown}
                             setToggleDropDown={setToggleDropDown}
