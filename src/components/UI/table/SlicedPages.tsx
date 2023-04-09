@@ -104,9 +104,9 @@ const SlicedPages: FC<SlicedPages> = ({
                 return (
                     <p>
                         {value === 'active' ? (
-                            <span className='text-green-600'>{status}</span>
+                            <span className='text-green-600'>{value}</span>
                         ) : (
-                            <span className='text-red-500'>{status}</span>
+                            <span className='text-red-500'>{value}</span>
                         )}
                     </p>
                 )
@@ -121,7 +121,7 @@ const SlicedPages: FC<SlicedPages> = ({
             {page.map(({ id, user }: any) => (
                 <div
                     className={`grid justify-between border-b grid-cols-${
-                        dataToDisplay.length + 1
+                        dataToDisplay.length
                     } items-center gap-8 text-[1.6rem] py-4 table__ellipsis`}
                     key={`${id}`}
                 >
