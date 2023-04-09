@@ -47,7 +47,10 @@ const SlicedPages: FC<SlicedPages> = ({
 
         const sorted = dataToDisplay.map((item: string, i:number) => {
             console.log({item})
-            console.log(details.flatMap())
+           
+           const isFound =  details.filter((detail: any) => detail.key === item)
+
+           console.log({isFound})
         })
 
         
