@@ -35,6 +35,7 @@ const SlicedPages: FC<SlicedPages> = ({
     const TableItem = ({ user, id }: any) => {
         const details: any = []
         Object.entries(user).map(([key, value]: any, idx: number) => {
+        console.log({key, value})
             return (
                 dataToDisplay.includes(key) &&
                 details.push({
@@ -44,6 +45,8 @@ const SlicedPages: FC<SlicedPages> = ({
             )
         })
         details.push({key: 'actions'})
+
+        console.log({details})
 
         return details?.map(({ key, value }: any, idx: number) => {
             if(key === 'actions'){
