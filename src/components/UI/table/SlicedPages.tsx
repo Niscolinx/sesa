@@ -48,13 +48,17 @@ const SlicedPages: FC<SlicedPages> = ({
         const sorted = dataToDisplay.map((item: string, i:number) => {
             console.log({item})
            
-           const isFound =  details.filter((detail: any) => detail.key === item)
+           const isFound =  details.filter((detail: any) => detail.key === item && detail)
 
-           console.log({isFound})
+           //console.log({isFound})
+           if(isFound){
+            return {isFound}
+           }
         })
 
         
         console.log({ details })
+        console.log({sorted})
 
          return details?.map(({ key, value }: any, idx: number) => {
             if (key === 'actions') {
