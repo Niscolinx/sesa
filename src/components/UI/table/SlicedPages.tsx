@@ -44,20 +44,19 @@ const SlicedPages: FC<SlicedPages> = ({
             )
         })
 
-        const sorted = dataToDisplay.map(
+        const sorted: any = dataToDisplay.map(
             (item: string, i: number) =>
                 details.filter((detail: any) => detail.key === item && detail)
 
             //console.log({isFound})
         )
 
-        sorted.push({key: 'actions'})
-
+        sorted.push({ key: 'actions' })
 
         console.log({ details })
         console.log({ sorted })
 
-        return sorted?.map(({ key, value }: any, idx: number) => {
+        return sorted?.flat().map(({ key, value }: any, idx: number) => {
             if (key === 'actions') {
                 return (
                     <TableDropDown
