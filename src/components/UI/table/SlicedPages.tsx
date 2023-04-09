@@ -46,7 +46,8 @@ const SlicedPages: FC<SlicedPages> = ({
         details.push({ key: 'actions' })
 
         const sorted = dataToDisplay.map((item: string, i:number) => {
-            console.log(details.key)
+            console.log({item})
+            console.log(details.flatMap())
         })
 
         
