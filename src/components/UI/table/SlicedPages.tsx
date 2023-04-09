@@ -24,12 +24,12 @@ const SlicedPages: FC<SlicedPages> = ({
     const page = pages[index]
 
     const dataToDisplay = [
-        'phone',
-        'gender',
         'name',
+        'gender',
+        'phone',
         'created_at',
-        'status',
         'image',
+        'status',
     ]
 
     const TableItem = ({ user, id }: any) => {
@@ -43,7 +43,6 @@ const SlicedPages: FC<SlicedPages> = ({
                 })
             )
         })
-        details.push({ key: 'actions' })
 
         const sorted = dataToDisplay.map(
             (item: string, i: number) =>
@@ -52,10 +51,13 @@ const SlicedPages: FC<SlicedPages> = ({
             //console.log({isFound})
         )
 
+        sorted.push({key: 'actions'})
+
+
         console.log({ details })
         console.log({ sorted })
 
-        return details?.map(({ key, value }: any, idx: number) => {
+        return sorted?.map(({ key, value }: any, idx: number) => {
             if (key === 'actions') {
                 return (
                     <TableDropDown
