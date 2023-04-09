@@ -43,8 +43,16 @@ const SlicedPages: FC<SlicedPages> = ({
                 })
             )
         })
+        details.push({key: 'actions'})
 
         return details?.map(({ key, value }: any, idx: number) => {
+            if(key === 'actions'){
+                return  <TableDropDown
+                    toggleDropDown={toggleDropDown}
+                    setToggleDropDown={setToggleDropDown}
+                    id={id}
+                />
+            }
             if (idx === 0) {
                 return (
                     <div className='flex items-center gap-4  '>
@@ -69,32 +77,30 @@ const SlicedPages: FC<SlicedPages> = ({
                         </div>
                     </div>
                 )
+            }
+            if (key === 'created_at') {
+                return (
+                    <p>
+                        {new Date(value)
+                            .toLocaleDateString()
+                            .replace(/\//g, '-')}
+                    </p>
+                )
+            }
+            if (key === 'status') {
+                return (
+                    <p>
+                        {value === 'active' ? (
+                            <span className='text-green-600'>{status}</span>
+                        ) : (
+                            <span className='text-red-500'>{status}</span>
+                        )}
+                    </p>
+                )
             } else {
                 return <p>{value}</p>
             }
         })
-
-        // if (key === 'created_at') {
-        //     return (
-        //         <p>
-        //             {new Date(value).toLocaleDateString().replace(/\//g, '-')}
-        //         </p>
-        //     )
-        // }
-
-        // if (key === 'status') {
-        //     return (
-        //         <p>
-        //             {value === 'active' ? (
-        //                 <span className='text-green-600'>{status}</span>
-        //             ) : (
-        //                 <span className='text-red-500'>{status}</span>
-        //             )}
-        //         </p>
-        //     )
-        // } else {
-        //     return <p>{value}</p>
-        // }
     }
 
     return (
