@@ -121,7 +121,7 @@ const SlicedPages: FC<SlicedPages> = ({
             {page.map(({ id, user }: any) => (
                 <div
                     className={`grid justify-between border-b grid-cols-${
-                        dataToDisplay.length
+                        dataToDisplay.length + 1
                     } items-center gap-8 text-[1.6rem] py-4 table__ellipsis`}
                     key={`${id}`}
                 >
