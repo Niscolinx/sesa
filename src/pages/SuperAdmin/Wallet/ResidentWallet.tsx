@@ -153,12 +153,15 @@ const ResidentWallet = () => {
                         isWalletScreen
                     />
                     <section>
-                        <div className='w-[10rem]'>
-                            <Select
-                                state={trend}
-                                selectedState={selectedTrend}
-                                setSelectedState={setSelectedTrend}
-                            />
+                        <div>
+                            <p className='font-Satoshi-Medium text-[2rem]'>Wallet Trend</p>
+                            <div className='w-[13rem]'>
+                                <Select
+                                    state={trend}
+                                    selectedState={selectedTrend}
+                                    setSelectedState={setSelectedTrend}
+                                />
+                            </div>
                         </div>
                         <WalletBarChart />
                     </section>
