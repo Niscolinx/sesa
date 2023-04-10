@@ -43,7 +43,7 @@ const SlicedPages: FC<SlicedPages> = ({
             if (data_to_display.includes(key)) {
                 if (key === data_to_display[0]) {
                    // console.log({key})
-                    details.set(key, {
+                   return details.set(key, {
                         name: value,
                         image: 'hello world',
                     })
@@ -52,14 +52,14 @@ const SlicedPages: FC<SlicedPages> = ({
                 if (key === 'image') {
                     const firstKey = details.keys().next().value
                     const firstValue = details.get(firstKey)
-                    details.set(firstKey, {
+                   return details.set(firstKey, {
                         firstValue,
                         image: value,
                     })
                 }
-                //  else {
-                //     details.set(key, value)
-                // }
+                 else {
+                    return details.set(key, value)
+                }
             }
         })
 
@@ -99,6 +99,7 @@ const SlicedPages: FC<SlicedPages> = ({
                         )
                     }
                     if (idx === 0) {
+                        console.log({value}, value.image)
                         return (
                             <div className='flex items-center gap-4  '>
                                 <input
@@ -108,6 +109,7 @@ const SlicedPages: FC<SlicedPages> = ({
                                 <div className='flex items-center gap-2'>
                                  
                                         {value.image && (
+
                                             <figure className='w-[3.5rem] h-[3.5rem]'>
                                                 <img
                                                     src={value.image}
