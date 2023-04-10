@@ -8,26 +8,6 @@ import { useNavigate } from 'react-router'
 
 function ResidentUserPackage() {
     type SwitchRoute = 'list' | 'history'
-    const axiosInstance = useAxios()
-    const navigate = useNavigate()
-
-    const handlePathSwitch = () => {
-        navigate('/superAdmin/resident-user-package/add')
-    }
-
-    const fetchPackages = () => {
-        return axiosInstance({
-            url: '/admin/resident/user/get/package',
-        })
-    }
-
-    const {
-        isLoading: get_packages_loading,
-        data: get_packages_response,
-        isError: get_packages_isError,
-        error: get_packages_error,
-        // isFetching: get_packages_fetching,
-    } = useQuery('packages', fetchPackages) as any
 
     const resident_paths = [
         { path: 'list', label: 'Additional Resident Package' },
@@ -36,29 +16,10 @@ function ResidentUserPackage() {
 
     const [currentPath, setCurrentPath] = useState<SwitchRoute>('list')
 
-    console.log({
-        get_packages_loading,
-        get_packages_isError,
-        get_packages_error,
-        get_packages_response,
-    })
-
-    if (get_packages_loading) {
-        return <p className='p-8'>Loading...</p>
-    }
-
-    if (get_packages_isError) {
-        return <p>{get_packages_error.message}</p>
-    }
-
-    const fetched = get_packages_response?.data.data
-
     const switchRoute = new Map([
         ['list', <ResidentPackageList />],
         ['history', <ResidentPackageHistory />],
     ]) satisfies Map<SwitchRoute, JSX.Element>
-
-    console.log({ fetched })
 
     return (
         <div className='rounded-lg mt-[3rem] h-[80vh]'>
