@@ -75,7 +75,7 @@ const Table = ({
     nested = true,
     deactivateProp,
     THeader,
-    actions ,
+    actions = ['view details'] ,
 }: Table) => {
     const navigate = useNavigate()
     const axiosInstance = useAxios()
@@ -84,8 +84,6 @@ const Table = ({
     const [fetchedId, setFetchedId] = useState<number>(null as any)
     const [fetchedData, setFetchedData] = useState<any[]>([])
     const [isDialogOpen, setIsDialogOpen] = useState(false)
-    const updatedActions = [...actions, 'f']
-
 
     return (
         <CreateTableContext.Provider
