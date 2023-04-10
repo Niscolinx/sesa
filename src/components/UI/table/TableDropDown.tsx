@@ -51,6 +51,9 @@ const TableDropDown = ({
 
         console.log({actions})
     }
+    else{
+        console.log('no status', {status})
+    }
 
     const { isDropDownOpen, index } = toggleDropDown
 

@@ -47,7 +47,6 @@ const SlicedPages: FC<SlicedPages> = ({
                     const firstKey = details.keys().next().value
                     const firstValue = details.get(firstKey)
 
-
                     return details.set(firstKey, {
                         name: firstValue.name,
                         image: value,
@@ -58,7 +57,7 @@ const SlicedPages: FC<SlicedPages> = ({
             }
         })
 
-        const sorted = []
+        const sorted: any[] = []
         data_to_display.map((item: string, i: number) => {
             if (item)
                 for (const [key, value] of details.entries()) {
@@ -68,12 +67,14 @@ const SlicedPages: FC<SlicedPages> = ({
                             value,
                         })
                     }
-                }
-        })
 
-        sorted.push({
-            key: 'actions',
-            value: null,
+                    if (key === 'status') {
+                        return sorted.push({
+                            key: 'actions',
+                            value,
+                        })
+                    }
+                }
         })
 
         return (
@@ -85,7 +86,7 @@ const SlicedPages: FC<SlicedPages> = ({
                                 toggleDropDown={toggleDropDown}
                                 setToggleDropDown={setToggleDropDown}
                                 id={id}
-                                status={key === 'status' && value}
+                                status={value}
                                 key={idx}
                             />
                         )
