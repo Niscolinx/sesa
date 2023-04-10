@@ -17,14 +17,20 @@ export const overviewChart_data = [
 
 const Wallet = () => {
     interface Wallet {
-        id: number
-        name: string
-        balance: number
+        estate_wallet: number
+        security_company_wallet: number
+        resident_wallet: number
+        commission_wallet: number
+        pool_wallet: number
+        estate_percentage: number
+        security_company_percentage: number
+        resident_percentage: number
+        commission_percentage: number
     }
 
     interface ApiResponse {
         success: boolean
-        wallets: Wallet[]
+        wallets: Wallet
     }
 
     const axiosInstance = useAxios()
@@ -35,7 +41,7 @@ const Wallet = () => {
         })
     }
 
-    const { data, isLoading, isError, error } = useQuery<ApiResponse[], Error>(
+    const { data, isLoading, isError, error } = useQuery<ApiResponse, Error>(
         'wallets',
         fetchWallets
     )
@@ -48,6 +54,8 @@ const Wallet = () => {
         return <p>{error.message}</p>
     }
 
+    console.log({ data })
+
     return (
         <div className='bg-white grid mt-12 py-10 gap-8 rounded-lg'>
             <div className='flex items-center max-w-[90rem] mx-auto gap-10'>
@@ -57,7 +65,7 @@ const Wallet = () => {
                     </p>
                     <h1 className='text-[3rem] font-Satoshi-Medium flex items-center gap-0'>
                         <TbCurrencyNaira className='text-[3rem]' />
-                        800,836,709.74
+                        {}
                     </h1>
                 </div>
                 <div className='overviewChart__box'>
