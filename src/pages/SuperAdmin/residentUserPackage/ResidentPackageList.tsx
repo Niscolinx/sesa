@@ -36,7 +36,10 @@ const ResidentPackageList = () => {
                     'price',
                     'status',
                 ]}
-                deactivate={url: '/admin/resident/user/package/changestatus', tag: 'id'}
+                deactivateProp={{
+                    url: '/admin/resident/user/package/changestatus',
+                    tag: 'id',
+                }}
             />
         </div>
     )
