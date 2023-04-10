@@ -22,7 +22,7 @@ interface ICreateTableContext {
     actions: Actions[]
     setFetchedData: Dispatch<SetStateAction<any[]>>
     setIsDialogOpen: Dispatch<SetStateAction<boolean>>
-    deactivate_url: string
+    deactivate: {url: string, id?: string}
     fetch_url: string
     title: string
     view_page_url: string
@@ -49,7 +49,7 @@ interface Table {
     view_page_url: string
     add_page_url: string
     is_add_btn: boolean
-    deactivate_url: string
+    deactivate: string
     data_to_display: string[]
     actions?: Actions[]
 }
@@ -61,7 +61,7 @@ const Table = ({
     add_page_url,
     data_to_display,
     is_add_btn,
-    deactivate_url,
+    deactivate,
     actions = ['view details', 'deactivate'],
 }: Table) => {
     const navigate = useNavigate()
@@ -86,7 +86,7 @@ const Table = ({
                 isDialogOpen,
                 actions,
                 setIsDialogOpen,
-                deactivate_url,
+                deactivate,
                 fetch_url,
                 title,
                 view_page_url,

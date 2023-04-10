@@ -22,13 +22,12 @@ interface ResponseData {
 }
 
 const ResidentPackageList = () => {
-   
     return (
         <div className='rounded-lg mt-[3rem] h-[80vh]'>
             <Table
                 fetch_url={'/admin/resident/user/get/package'}
                 title={'estateManager'}
-                view_page_url={'/superAdmin/estateManagers/view/'}
+                view_page_url={'/superAdmin/resident-user-package/view/'}
                 add_page_url={'/superAdmin/resident-user-package/add'}
                 is_add_btn={true}
                 data_to_display={[
@@ -37,7 +36,7 @@ const ResidentPackageList = () => {
                     'price',
                     'status',
                 ]}
-                deactivate_url={'change/user/status'}
+                deactivate={url: '/admin/resident/user/package/changestatus', tag: 'id'}
             />
         </div>
     )
