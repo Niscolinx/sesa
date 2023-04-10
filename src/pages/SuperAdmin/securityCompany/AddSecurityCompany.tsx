@@ -75,19 +75,11 @@ const AddAdmin = () => {
     }) as any
 
     const onSubmit = handleSubmit((data) => {
-        console.log({data})
-        const adminData = {
-            name: ``,
-            gender: selectedRegion,
-            dob,
-            email: email_address,
-            address: 'no 4 odeyim street',
-            phone: `+234${phone_number}`,
-            // image: imageFile,
+        const updatedData = {
+            ...data,
             image: imageFile,
         }
-        console.log({ adminData })
-        mutate(adminData)
+        mutate(updatedData)
     })
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
@@ -107,7 +99,7 @@ const AddAdmin = () => {
     const formInputs = [
         {
             label: 'name',
-            name: 'Security Company'
+            name: 'Security Company',
         },
         {
             name: 'email Address',
@@ -141,7 +133,6 @@ const AddAdmin = () => {
                         <p>You have successfully added a security company</p>
 
                         <div className='flex w-full justify-center gap-8'>
-                          
                             <button
                                 className='bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
                                 onClick={handleClose}
