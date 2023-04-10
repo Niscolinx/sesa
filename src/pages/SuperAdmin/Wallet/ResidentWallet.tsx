@@ -147,21 +147,21 @@ const ResidentWallet = () => {
         <div>
             <div className='grid mt-12 pb-10 rounded-lg  items-baseline gap-10'>
                 <div className='flex justify-between items-center content-start bg-white p-8 rounded-lg'>
-                    <div className=''>
-                        <OverviewWallet
-                            amount={200_333_500.89}
-                            title='Resident Wallet'
-                            isWalletScreen
-                        />
-                    </div>
-                    <div className='w-[10rem]'>
-                        <Select
-                            label='Wallet Trend'
-                            state={trend}
-                            selectedState={selectedTrend}
-                            setSelectedState={setSelectedTrend}
-                        />
-                    </div>
+                    <OverviewWallet
+                        amount={200_333_500.89}
+                        title='Resident Wallet'
+                        isWalletScreen
+                    />
+                    <section>
+                        <div className='w-[10rem]'>
+                            <Select
+                                state={trend}
+                                selectedState={selectedTrend}
+                                setSelectedState={setSelectedTrend}
+                            />
+                        </div>
+                        <WalletBarChart />
+                    </section>
                 </div>
                 <div className='grid gap-10'>
                     <div className='estateDetail__radioBox'>
