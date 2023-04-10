@@ -12,7 +12,7 @@ function TableDialog() {
         return axiosInstance({
             url: url,
             method: 'post',
-            data: { tag: fetchedId },
+            data: { [tag]: fetchedId },
         })
     }
 
