@@ -32,9 +32,8 @@ interface ICreateTableContext extends Table {
     setFetchedId: Dispatch<SetStateAction<number>>
     isDialogOpen: boolean
     fetchedData: any[]
+    actions: Actions[]
     setFetchedData: Dispatch<SetStateAction<any[]>>
-    tableActions: Actions[]
-    setTableActions: Dispatch<SetStateAction<Actions[]>>
     setIsDialogOpen: Dispatch<SetStateAction<boolean>>
 }
 
@@ -85,7 +84,6 @@ const Table = ({
     const [fetchedId, setFetchedId] = useState<number>(null as any)
     const [fetchedData, setFetchedData] = useState<any[]>([])
     const [isDialogOpen, setIsDialogOpen] = useState(false)
-    const [tableActions, setTableActions] = useState(actions)
 
     return (
         <CreateTableContext.Provider
@@ -99,8 +97,7 @@ const Table = ({
                 fetchedData,
                 setFetchedData,
                 isDialogOpen,
-                tableActions,
-                setTableActions,
+                actions,
                 setIsDialogOpen,
                 deactivateProp,
                 fetch_url,

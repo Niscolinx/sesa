@@ -16,7 +16,7 @@ const SlicedPages: FC<SlicedPages> = ({
     toggleDropDown,
     setToggleDropDown,
 }) => {
-    const { data_to_display, nested, THeader, setTableActions } = useTableContext()
+    const { data_to_display, nested, THeader, actions } = useTableContext()
 
     if (!pages || !pages.length) {
         return null
