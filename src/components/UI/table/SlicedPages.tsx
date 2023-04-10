@@ -102,7 +102,7 @@ const SlicedPages: FC<SlicedPages> = ({
                                     className='cursor-pointer'
                                 />
                                 <div className='flex items-center gap-2'>
-                                    <>
+                                 
                                         {value.image && (
                                             <figure className='w-[3.5rem] h-[3.5rem]'>
                                                 <img
@@ -112,7 +112,7 @@ const SlicedPages: FC<SlicedPages> = ({
                                                 />
                                             </figure>
                                         )}
-                                    </>
+                                
 
                                     <p className=''>{value.firstValue}</p>
                                 </div>
