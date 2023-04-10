@@ -2,7 +2,7 @@ import Table from '../../../components/UI/table/Table'
 
 function EstateManagers() {
     return (
-        <div>
+      
             <div className='rounded-lg mt-[3rem] h-[80vh]'>
                 <Table
                     fetch_url={'/manager/get/all'}
@@ -20,7 +20,7 @@ function EstateManagers() {
                     ]}
                     deactivate_url={'change/user/status'}
                 />
-            </div>
+        
         </div>
     )
 }
