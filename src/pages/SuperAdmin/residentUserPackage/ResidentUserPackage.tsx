@@ -41,9 +41,7 @@ function ResidentUserPackage() {
                     )
                 })}
             </div>
-            <section className='bg-color-white rounded-lg border min-w-[112rem] overflow-scroll mt-8 min-h-[60vh]'>
-                {switchRoute.get(currentPath)}
-            </section>
+            {switchRoute.get(currentPath)}
         </div>
     )
 }
