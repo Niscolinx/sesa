@@ -30,6 +30,7 @@ const ResidentPackageList = () => {
                 view_page_url={'/superAdmin/resident-user-package/view/'}
                 add_page_url={'/superAdmin/resident-user-package/add'}
                 is_add_btn={true}
+                nested={false}
                 data_to_display={[
                     'package_name',
                     'frequency',

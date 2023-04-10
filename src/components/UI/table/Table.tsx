@@ -55,7 +55,7 @@ const Table = ({
     add_page_url,
     data_to_display,
     is_add_btn,
-    nested,
+    nested = true,
     deactivateProp,
     actions = ['view details', 'deactivate'],
 }: Table) => {

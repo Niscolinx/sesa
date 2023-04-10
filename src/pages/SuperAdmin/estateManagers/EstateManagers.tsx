@@ -9,7 +9,6 @@ function EstateManagers() {
                 view_page_url={'/superAdmin/estateManagers/view/'}
                 add_page_url={'/superAdmin/estateManagers/add'}
                 is_add_btn={true}
-                nested={true}
                 data_to_display={[
                     'name',
                     'gender',

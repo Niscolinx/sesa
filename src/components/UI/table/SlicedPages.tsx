@@ -36,7 +36,7 @@ const SlicedPages: FC<SlicedPages> = ({
             string | { name: string; image: string | null }
         >()
 
-        console.log({user})
+        console.log({user, nested})
 
         Object.entries(user).map(([key, value]: any, idx: number) => {
             if (data_to_display.includes(key)) {

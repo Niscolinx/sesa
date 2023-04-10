@@ -66,10 +66,7 @@ const TableData = () => {
 
     useEffect(() => {
         if (get_data_response) {
-            const data = nested
-                ? get_data_response.data.data
-                : get_data_response.data
-            setFetchedData(data)
+            setFetchedData(get_data_response.data.data)
         }
     }, [get_data_response])
 
@@ -165,11 +162,7 @@ const TableData = () => {
         navigate(`${add_page_url}`)
     }
 
-    const fetched = nested
-        ? get_data_response.data.data
-        : get_data_response.data
-
-        console.log({fetched})
+    const fetched = get_data_response?.data.data
 
     return (
         <div>
