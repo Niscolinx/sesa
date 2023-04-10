@@ -13,7 +13,6 @@ const AddAdmin = () => {
         last_name: string
         dob: string
         phone_number: number
-        photoUrl?: string
     }
 
     const axiosInstance = useAxios()
