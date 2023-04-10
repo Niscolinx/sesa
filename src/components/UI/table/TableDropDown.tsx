@@ -40,6 +40,18 @@ const TableDropDown = ({
         }
     }
 
+    if (status) {
+        // actions.splice(actions.at('deactivate'), 1)
+
+        const index =
+            status === '0'
+                ? actions.indexOf('deactivate')
+                : actions.indexOf('activate')
+        actions.splice(index, 1)
+
+        console.log({actions})
+    }
+
     const { isDropDownOpen, index } = toggleDropDown
 
     return (
