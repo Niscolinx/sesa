@@ -42,7 +42,6 @@ const TableDropDown = ({
 
     const { isDropDownOpen, index } = toggleDropDown
 
-
     return (
         <div className='relative'>
             <label
@@ -82,6 +81,8 @@ const TableDropDown = ({
                         >
                             {['deactivate', 'delete'].includes(item) ? (
                                 <span className='text-red-600'>{item}</span>
+                            ) : item === 'activate' ? (
+                                <span className='text-green-600'>{item}</span>
                             ) : (
                                 <span>{item}</span>
                             )}
