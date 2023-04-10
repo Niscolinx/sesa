@@ -58,24 +58,26 @@ const SlicedPages: FC<SlicedPages> = ({
         })
 
         const sorted: any[] = []
+        let status
         data_to_display.map((item: string, i: number) => {
             if (item)
                 for (const [key, value] of details.entries()) {
                     if (key === item) {
+                        if (item === 'status') {
+                            sorted.push({
+                                key: 'actions',
+                                value,
+                            })
+                        }
                         return sorted.push({
                             key,
                             value,
                         })
                     }
-
-                    if (key === 'status') {
-                        return sorted.push({
-                            key: 'actions',
-                            value,
-                        })
-                    }
                 }
         })
+
+        console.log({ sorted })
 
         return (
             <>
