@@ -16,7 +16,7 @@ const SlicedPages: FC<SlicedPages> = ({
     toggleDropDown,
     setToggleDropDown,
 }) => {
-    const { data_to_display, nested, THeader, actions } = useTableContext()
+    const { data_to_display, nested, THeader, setTableActions } = useTableContext()
 
     if (!pages || !pages.length) {
         return null
@@ -85,7 +85,9 @@ const SlicedPages: FC<SlicedPages> = ({
             <>
                 {sorted.map(({ key, value }: any, idx: number) => {
                     if (key === 'actions') {
-                        
+                            if(value === '0'){
+                                setTableActions(prev => [...prev, 'hwe'])
+                            }
                         return (
                             <TableDropDown
                                 toggleDropDown={toggleDropDown}
