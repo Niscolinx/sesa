@@ -11,11 +11,7 @@ import {
     RESIDENT_BALANCE,
     RESIDENT_TRANSACTION_HISTORY,
 } from '../../EstateManager/wallet/wallets/resident/ResidentTransactions'
-// import {
-//     ResidentTransactions,
-//     RESIDENT_BALANCE,
-//     RESIDENT_TRANSACTION_HISTORY,
-// } from '../../../components/SuperAdmin/wallet/resident/ResidentTransactions'
+
 
 type Trend = 'This Week' | 'This Month' | 'This Year'
 
@@ -114,195 +110,194 @@ export const TRANSACTION_HISTORY: ITransactions[] = [
 
 const ResidentWallet = () => {
     const trend: Array<Trend> = ['This Week', 'This Month', 'This Year']
-    const [isWarning, setIsWarning] = useState(true)
 
-    const [togglResidentMenu, setTogglResidentMenu] = useState(false)
-    const [selectedTrend, setSelectedTrend] = useState<Trend>('This Week')
+    // const [togglResidentMenu, setTogglResidentMenu] = useState(false)
+    // const [selectedTrend, setSelectedTrend] = useState<Trend>('This Week')
 
-    const menuToggler = () => setTogglResidentMenu(!togglResidentMenu)
+    // const menuToggler = () => setTogglResidentMenu(!togglResidentMenu)
 
-    const handleSelectedTrend = (item: Trend) => {
-        setSelectedTrend(item)
-        setTogglResidentMenu(false)
-    }
+    // const handleSelectedTrend = (item: Trend) => {
+    //     setSelectedTrend(item)
+    //     setTogglResidentMenu(false)
+    // }
 
-    const [fetchedTransactions, setFetchedTransactions] = useState<
-        ITransactions[]
-    >([])
+    // const [fetchedTransactions, setFetchedTransactions] = useState<
+    //     ITransactions[]
+    // >([])
 
-    useEffect(() => {
-        const fetchData = async () => {
-            setTimeout(() => {
-                setFetchedTransactions(TRANSACTION_HISTORY)
-            }, 200)
-        }
-        fetchData()
-    }, [])
+    // useEffect(() => {
+    //     const fetchData = async () => {
+    //         setTimeout(() => {
+    //             setFetchedTransactions(TRANSACTION_HISTORY)
+    //         }, 200)
+    //     }
+    //     fetchData()
+    // }, [])
 
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
 
-    type Actions = 'View Details'
+    // type Actions = 'View Details'
 
-    const actions = ['View Details'] satisfies Actions[]
+    // const actions = ['View Details'] satisfies Actions[]
 
-    const [toggleDropDown, setToggleDropDown] = useState<{
-        isDropDownOpen: boolean
-        index: number | null
-    }>({
-        isDropDownOpen: false,
-        index: null,
-    })
+    // const [toggleDropDown, setToggleDropDown] = useState<{
+    //     isDropDownOpen: boolean
+    //     index: number | null
+    // }>({
+    //     isDropDownOpen: false,
+    //     index: null,
+    // })
 
-    const dropDownHandler = (
-        e: React.ChangeEvent<HTMLInputElement>,
-        index: number
-    ) => {
-        setToggleDropDown(() => {
-            return {
-                isDropDownOpen: e.target.checked,
-                index,
-            }
-        })
-    }
+    // const dropDownHandler = (
+    //     e: React.ChangeEvent<HTMLInputElement>,
+    //     index: number
+    // ) => {
+    //     setToggleDropDown(() => {
+    //         return {
+    //             isDropDownOpen: e.target.checked,
+    //             index,
+    //         }
+    //     })
+    // }
 
-    const selectAction = (e: React.MouseEvent, item: string) => {
-        if (item === 'View Details') {
-            navigate('/superAdmin/wallet/resident/:id')
-        }
-    }
+    // const selectAction = (e: React.MouseEvent, item: string) => {
+    //     if (item === 'View Details') {
+    //         navigate('/superAdmin/wallet/resident/:id')
+    //     }
+    // }
 
-    const sortBy: SortBy[] = ['A-Z', 'date']
+    // const sortBy: SortBy[] = ['A-Z', 'date']
 
-    interface Paginate {
-        index: number
-        currentPage: number
-        itemsPerPage: number
-        totalPage: number
-        slicedPages: ITransactions[][] | null
-    }
+    // interface Paginate {
+    //     index: number
+    //     currentPage: number
+    //     itemsPerPage: number
+    //     totalPage: number
+    //     slicedPages: ITransactions[][] | null
+    // }
 
-    const [toggleSortMenu, setToggleSortMenu] = useState(false)
-    const itemsPerPageArr = [2, 4, 6, 8]
+    // const [toggleSortMenu, setToggleSortMenu] = useState(false)
+    // const itemsPerPageArr = [2, 4, 6, 8]
 
-    const [selectedSort, setSelectedSort] = useState<SortBy | null>(null)
-    const [paginate, setPaginate] = useState<Paginate>({
-        index: 0,
-        currentPage: 1,
-        itemsPerPage: 6,
+    // const [selectedSort, setSelectedSort] = useState<SortBy | null>(null)
+    // const [paginate, setPaginate] = useState<Paginate>({
+    //     index: 0,
+    //     currentPage: 1,
+    //     itemsPerPage: 6,
 
-        totalPage: Math.ceil(fetchedTransactions.length / 2),
-        slicedPages: null,
-    })
+    //     totalPage: Math.ceil(fetchedTransactions.length / 2),
+    //     slicedPages: null,
+    // })
 
-    const sortMenuToggler = () => setToggleSortMenu(!toggleSortMenu)
+    // const sortMenuToggler = () => setToggleSortMenu(!toggleSortMenu)
 
-    const handleSelectedSort = (item: SortBy) => {
-        setSelectedSort(item)
-        setToggleSortMenu(false)
-    }
+    // const handleSelectedSort = (item: SortBy) => {
+    //     setSelectedSort(item)
+    //     setToggleSortMenu(false)
+    // }
 
-    const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
-        const item = parseInt(e.target.value)
+    // const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
+    //     const item = parseInt(e.target.value)
 
-        const slicedPages: ITransactions[][] = []
-        for (let i = 0; i < fetchedTransactions.length; i += item) {
-            slicedPages.push(fetchedTransactions.slice(i, i + item))
-        }
+    //     const slicedPages: ITransactions[][] = []
+    //     for (let i = 0; i < fetchedTransactions.length; i += item) {
+    //         slicedPages.push(fetchedTransactions.slice(i, i + item))
+    //     }
 
-        setPaginate((prev) => {
-            return {
-                ...prev,
-                itemsPerPage: item,
-                index: 0,
-                currentPage: 1,
-                slicedPages,
-                totalPage: Math.ceil(fetchedTransactions.length / item),
-            }
-        })
-    }
+    //     setPaginate((prev) => {
+    //         return {
+    //             ...prev,
+    //             itemsPerPage: item,
+    //             index: 0,
+    //             currentPage: 1,
+    //             slicedPages,
+    //             totalPage: Math.ceil(fetchedTransactions.length / item),
+    //         }
+    //     })
+    // }
 
-    useEffect(() => {
-        const slicedPages: ITransactions[][] = []
-        for (
-            let i = 0;
-            i < fetchedTransactions.length;
-            i += paginate.itemsPerPage
-        ) {
-            slicedPages.push(
-                fetchedTransactions.slice(i, i + paginate.itemsPerPage)
-            )
-        }
+    // useEffect(() => {
+    //     const slicedPages: ITransactions[][] = []
+    //     for (
+    //         let i = 0;
+    //         i < fetchedTransactions.length;
+    //         i += paginate.itemsPerPage
+    //     ) {
+    //         slicedPages.push(
+    //             fetchedTransactions.slice(i, i + paginate.itemsPerPage)
+    //         )
+    //     }
 
-        setPaginate((prev) => {
-            return {
-                ...prev,
-                slicedPages,
-            }
-        })
-    }, [fetchedTransactions])
+    //     setPaginate((prev) => {
+    //         return {
+    //             ...prev,
+    //             slicedPages,
+    //         }
+    //     })
+    // }, [fetchedTransactions])
 
-    const handleNext = () => {
-        if (paginate.currentPage === paginate.totalPage) return
-        setPaginate((prev) => {
-            return {
-                ...prev,
-                index: prev.index + 1,
-                currentPage: prev.currentPage + 1,
-            }
-        })
-    }
+    // const handleNext = () => {
+    //     if (paginate.currentPage === paginate.totalPage) return
+    //     setPaginate((prev) => {
+    //         return {
+    //             ...prev,
+    //             index: prev.index + 1,
+    //             currentPage: prev.currentPage + 1,
+    //         }
+    //     })
+    // }
 
-    const handlePrev = () => {
-        if (paginate.currentPage === 1) return
-        setPaginate((prev) => {
-            return {
-                ...prev,
-                index: prev.index - 1,
-                currentPage: prev.currentPage - 1,
-            }
-        })
-    }
+    // const handlePrev = () => {
+    //     if (paginate.currentPage === 1) return
+    //     setPaginate((prev) => {
+    //         return {
+    //             ...prev,
+    //             index: prev.index - 1,
+    //             currentPage: prev.currentPage - 1,
+    //         }
+    //     })
+    // }
 
-    const { currentPage, slicedPages, itemsPerPage } = paginate
+    // const { currentPage, slicedPages, itemsPerPage } = paginate
 
-    const jumpToPage = (e: React.MouseEvent, index: number) => {
-        setPaginate((prev) => {
-            return {
-                ...prev,
-                index,
-                currentPage: index + 1,
-            }
-        })
-    }
+    // const jumpToPage = (e: React.MouseEvent, index: number) => {
+    //     setPaginate((prev) => {
+    //         return {
+    //             ...prev,
+    //             index,
+    //             currentPage: index + 1,
+    //         }
+    //     })
+    // }
 
-    const handleSelectedAction = (item: Actions, index: string) => {
-        setToggleDropDown(() => {
-            return {
-                isDropDownOpen: false,
-                index: null,
-            }
-        })
+    // const handleSelectedAction = (item: Actions, index: string) => {
+    //     setToggleDropDown(() => {
+    //         return {
+    //             isDropDownOpen: false,
+    //             index: null,
+    //         }
+    //     })
 
-        if (item === 'View Details') {
-            navigate(`/superAdmin/wallet/resident/:${index}`)
-        }
-    }
+    //     if (item === 'View Details') {
+    //         navigate(`/superAdmin/wallet/resident/:${index}`)
+    //     }
+    // }
 
-    const [fetchedResidentBalance, setFetchedResidentBalance] = useState<
-        ResidentTransactions[] | null
-    >(null)
-    const [fetchedTransactionHistory, setFetchedTransactionHistory] = useState<
-        ResidentTransactions[] | null
-    >(null)
+    // const [fetchedResidentBalance, setFetchedResidentBalance] = useState<
+    //     ResidentTransactions[] | null
+    // >(null)
+    // const [fetchedTransactionHistory, setFetchedTransactionHistory] = useState<
+    //     ResidentTransactions[] | null
+    // >(null)
 
     type Path = 'resident-transaction-history' | 'resident-balance'
 
-    useEffect(() => {
-        setTimeout(() => {
-            setFetchedResidentBalance(RESIDENT_BALANCE)
-            setFetchedTransactionHistory(RESIDENT_TRANSACTION_HISTORY)
-        }, 200)
-    }, [])
+    // useEffect(() => {
+    //     setTimeout(() => {
+    //         setFetchedResidentBalance(RESIDENT_BALANCE)
+    //         setFetchedTransactionHistory(RESIDENT_TRANSACTION_HISTORY)
+    //     }, 200)
+    // }, [])
 
     const [pathIndex, setpathIndex] = useState<Path>(
         'resident-transaction-history'
