@@ -8,12 +8,14 @@ interface TableDropDown {
     id: number
     toggleDropDown: ToggleDropDown
     setToggleDropDown: Dispatch<SetStateAction<ToggleDropDown>>
+    status: string
 }
 
 const TableDropDown = ({
     id,
     toggleDropDown,
     setToggleDropDown,
+    status,
 }: TableDropDown) => {
     const { setFetchedId, setIsDialogOpen, actions, view_page_url } =
         useTableContext()

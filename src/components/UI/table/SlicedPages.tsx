@@ -88,6 +88,7 @@ const SlicedPages: FC<SlicedPages> = ({
                                 toggleDropDown={toggleDropDown}
                                 setToggleDropDown={setToggleDropDown}
                                 id={id}
+                                status={key === 'status' && value}
                                 key={idx}
                             />
                         )
