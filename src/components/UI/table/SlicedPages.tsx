@@ -23,7 +23,10 @@ const SlicedPages: FC<SlicedPages> = ({
     }
     const page = pages[index]
 
-    const TableItem = ({ user, id }: any) => {
+    const TableItem = ({data}:any) => {
+
+        const {user} = data
+
         const details: Map<any, any> = new Map<
             string,
             string | { name: string; image: string | null }
