@@ -109,7 +109,7 @@ const AddAdmin = () => {
             label: 'security_company',
         },
         {
-            name: 'email_address',
+            name: 'email Address',
             label: 'email',
             type: 'email',
         },
