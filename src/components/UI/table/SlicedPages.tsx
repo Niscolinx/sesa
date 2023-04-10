@@ -87,7 +87,7 @@ const SlicedPages: FC<SlicedPages> = ({
 
         return (
             <>
-                {sorted?.flat().map(({ key, value }: any, idx: number) => {
+                {sorted.map(({ key, value }: any, idx: number) => {
                     console.log({ key, value })
 
                     if (key === 'actions') {
