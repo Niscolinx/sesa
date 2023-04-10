@@ -21,49 +21,44 @@ const SlicedPages: FC<SlicedPages> = ({
     if (!pages || !pages.length) {
         return null
     }
-    
-    
+
     const page = pages[index]
-    
+
     console.log({ page })
 
-    const TableItem = ({data}:any) => {
-
-        const {id, ...restData} = data
+    const TableItem = ({ data }: any) => {
+        const { id, ...restData } = data
 
         const details: Map<any, any> = new Map<
             string,
             string | { name: string; image: string | null }
         >()
 
-        console.log({restData, data_to_display})
         const dataToLoop = nested ? restData.user : restData
 
         Object.entries(dataToLoop).map(([key, value]: any, idx: number) => {
             if (data_to_display.includes(key)) {
                 if (key === data_to_display[0]) {
-                   // console.log({key})
-                   return details.set(key, {
+                    return details.set(key, {
                         name: value,
-                        image: 'hello world',
+                        image: null,
                     })
                 }
 
                 if (key === 'image') {
                     const firstKey = details.keys().next().value
                     const firstValue = details.get(firstKey)
-                   return details.set(firstKey, {
+
+                    return details.set(firstKey, {
                         firstValue,
                         image: value,
                     })
-                }
-                 else {
+                } else {
                     return details.set(key, value)
                 }
             }
         })
 
-        //console.log({details})
 
         const sorted = []
         data_to_display.map((item: string, i: number) => {
@@ -83,12 +78,11 @@ const SlicedPages: FC<SlicedPages> = ({
             value: null,
         })
 
-       // console.log({sorted})
+        // console.log({sorted})
 
         return (
             <>
                 {sorted.map(({ key, value }: any, idx: number) => {
-
                     if (key === 'actions') {
                         return (
                             <TableDropDown
@@ -99,7 +93,7 @@ const SlicedPages: FC<SlicedPages> = ({
                         )
                     }
                     if (idx === 0) {
-                        console.log({value}, value.image)
+                        console.log({ value }, value.image)
                         return (
                             <div className='flex items-center gap-4  '>
                                 <input
@@ -107,18 +101,15 @@ const SlicedPages: FC<SlicedPages> = ({
                                     className='cursor-pointer'
                                 />
                                 <div className='flex items-center gap-2'>
-                                 
-                                        {value.image && (
-
-                                            <figure className='w-[3.5rem] h-[3.5rem]'>
-                                                <img
-                                                    src={value.image}
-                                                    alt=''
-                                                    className='w-full h-full rounded-full object-cover'
-                                                />
-                                            </figure>
-                                        )}
-                                
+                                    {value.image && (
+                                        <figure className='w-[3.5rem] h-[3.5rem]'>
+                                            <img
+                                                src={value.image}
+                                                alt=''
+                                                className='w-full h-full rounded-full object-cover'
+                                            />
+                                        </figure>
+                                    )}
 
                                     <p className=''>{value.firstValue}</p>
                                 </div>
