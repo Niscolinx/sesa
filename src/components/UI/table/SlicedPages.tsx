@@ -29,16 +29,15 @@ const SlicedPages: FC<SlicedPages> = ({
 
     const TableItem = ({data}:any) => {
 
-        const {user, id} = data
+        const {id, ...restData} = data
 
         const details: Map<any, any> = new Map<
             string,
             string | { name: string; image: string | null }
         >()
 
-        console.log({user, nested})
-
-        const dataToLoop = nested ? user : data
+        console.log({restData, id})
+        const dataToLoop = nested ? restData.user : restData
 
         Object.entries(dataToLoop).map(([key, value]: any, idx: number) => {
             if (data_to_display.includes(key)) {
