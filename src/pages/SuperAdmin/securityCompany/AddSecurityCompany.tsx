@@ -8,20 +8,31 @@ import useAxios from '../../../components/hooks/useAxios'
 
 const AddAdmin = () => {
     interface Inputs {
-        email_address: string
+        email: string
         security_company: string
         address: string
         phone_number: number
     }
+    type ResponseMessage = {
+        className: string
+        displayMessage: string
+    }
 
+    type FormInputs = {
+        label?: string
+        type?: string
+        name?: string
+        selectProps?: SelectProps
+    }
+    
     const axiosInstance = useAxios()
 
-    const genderState = ['Male', 'Female']
+    const region = ['Lagos', 'Abuja']
 
     const [photoPreview, setPhotoPreview] = useState('')
     const [imageFile, setImageFile] = useState<File | null>(null)
-    const [selectedGender, setSelectedGender] = useState<string | null>(
-        genderState[0]
+    const [selectedRegion, setSelectedRegion] = useState<string | null>(
+        region[0]
     )
 
     const handlePicture = (e: React.ChangeEvent) => {
@@ -39,10 +50,7 @@ const AddAdmin = () => {
         formState: { errors: formErrors },
     } = useForm<Inputs>()
 
-    type ResponseMessage = {
-        className: string
-        displayMessage: string
-    }
+    
 
     const [responseMessage, setResponseMessage] =
         useState<ResponseMessage | null>(null)
@@ -69,11 +77,11 @@ const AddAdmin = () => {
     }) as any
 
     const onSubmit = handleSubmit((data) => {
-        const { first_name, last_name, dob, email_address, phone_number } = data
+        const {  } = data
 
         const adminData = {
             name: `${first_name} ${last_name}`,
-            gender: selectedGender,
+            gender: selectedRegion,
             dob,
             email: email_address,
             address: 'no 4 odeyim street',
@@ -100,12 +108,7 @@ const AddAdmin = () => {
             dialogRef.current.showModal()
         }
     }
-    type FormInputs = {
-        label?: string
-        type?: string
-        name?: string
-        selectProps?: SelectProps
-    }
+    
 
     const formInputs = [
         {
@@ -123,9 +126,9 @@ const AddAdmin = () => {
             label: 'gender',
             type: 'select',
             selectProps: {
-                state: genderState,
-                selectedState: selectedGender,
-                setSelectedState: setSelectedGender,
+                state: region,
+                selectedState: selectedRegion,
+                setSelectedState: setSelectedRegion,
             },
         },
         {
@@ -133,7 +136,8 @@ const AddAdmin = () => {
             type: 'number',
         },
         {
-            label: 'email_address',
+            name: 'email_address',
+            label: 'email',
             type: 'email',
         },
     ] satisfies FormInputs[]

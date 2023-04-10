@@ -14,7 +14,17 @@ const AddAdmin = () => {
         dob: string
         phone_number: number
     }
+     type ResponseMessage = {
+         className: string
+         displayMessage: string
+     }
 
+      type FormInputs = {
+          label?: string
+          type?: string
+          name?: string
+          selectProps?: SelectProps
+      }
     const axiosInstance = useAxios()
 
     const genderState = ['Male', 'Female']
@@ -40,10 +50,7 @@ const AddAdmin = () => {
         formState: { errors: formErrors },
     } = useForm<Inputs>()
 
-    type ResponseMessage = {
-        className: string
-        displayMessage: string
-    }
+   
 
     const [responseMessage, setResponseMessage] =
         useState<ResponseMessage | null>(null)
@@ -103,12 +110,7 @@ const AddAdmin = () => {
             dialogRef.current.showModal()
         }
     }
-    type FormInputs = {
-        label?: string
-        type?: string
-        name?: string
-        selectProps?: SelectProps
-    }
+   
 
     const formInputs = [
         {
