@@ -49,25 +49,12 @@ export const useTableContext = () => {
     return context
 }
 
-//  if (status) {
-//      // actions.splice(actions.at('deactivate'), 1)
-//      console.log('before', actions)
-//      const index =
-//          status === '0'
-//              ? actions.indexOf('deactivate')
-//              : actions.indexOf('activate')
 
-//      console.log({ index, status, actions })
-//      const updated = actions.splice(0, 1)
-
-//      console.log({ actions, updated })
-//  } else {
-//      console.log('no status', { status })
-//  }
 
 const Table = ({
     fetch_url,
     title,
+    isDropDownOpen
     view_page_url,
     add_page_url,
     data_to_display,

@@ -113,12 +113,9 @@ const ResidentWallet = () => {
 
     const [selectedTrend, setSelectedTrend] = useState<string | null>(trend[0])
 
-
     type Path = 'resident-balance' | 'transaction-history'
 
     const paths: Path[] = ['resident-balance', 'transaction-history']
-
-  
 
     const [currentPath, setcurrentPath] = useState<Path>('resident-balance')
 
