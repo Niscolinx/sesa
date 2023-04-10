@@ -38,11 +38,8 @@ const TableData = () => {
         axiosInstance,
         sortBy,
         setSortBy,
-        fetchedId,
         fetchedData,
         setFetchedData,
-        setIsDialogOpen,
-        deactivate_url,
         title,
         fetch_url,
         add_page_url,
@@ -130,7 +127,6 @@ const TableData = () => {
     }
 
     const handlePrev = () => {
-
         if (paginate.currentPage === 1) return
         setPaginate((prev) => {
             return {
