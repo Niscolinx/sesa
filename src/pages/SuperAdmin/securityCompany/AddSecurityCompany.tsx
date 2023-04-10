@@ -75,6 +75,7 @@ const AddAdmin = () => {
     }) as any
 
     const onSubmit = handleSubmit((data) => {
+        console.log({data})
         // const {  } = data
         // const adminData = {
         //     name: `${first_name} ${last_name}`,
