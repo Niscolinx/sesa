@@ -49,7 +49,7 @@ const SlicedPages: FC<SlicedPages> = ({
                 if (key === 'image') {
                     const firstKey = details.keys().next().value
                     const firstValue = details.get(firstKey)
-                    details.set(firstValue, {
+                    details.set(firstKey, {
                         firstValue,
                         image: value,
                     })
@@ -61,75 +61,100 @@ const SlicedPages: FC<SlicedPages> = ({
 
         console.log({ details })
 
-        const sorted: any = dataToDisplay.map(
-            (item: string, i: number) =>
-                Array.from(details).filter((detail: any) => detail[0] === item && detail)
+        const sorted = dataToDisplay.map(
+            (item: string, i: number) => {
+                for (const [key, value] of details.entries()) {
+                    console.log(`${key} => ${value}`)
+                    if (key === item) {
+                        return {
+                            key,
+                            value,
+                        }
+                    }
+                }
+            }
+            // Array.from(details).filter((detail: any) => detail[0] === item && detail)
 
             //console.log({isFound})
         )
 
+        console.log({ sorted })
 
-        console.log({sorted})
-
-        return sorted?.flat().map(({ key, value }: any, idx: number) => {
-            console.log({ key, value })
-            if (key === 'actions') {
-                return (
-                    <TableDropDown
-                        toggleDropDown={toggleDropDown}
-                        setToggleDropDown={setToggleDropDown}
-                        id={id}
-                    />
-                )
-            }
-            if (idx === 0) {
-                return (
-                    <div className='flex items-center gap-4  '>
-                        <input type='checkbox' className='cursor-pointer' />
-                        <div className='flex items-center gap-2'>
-                            <>
-                                {value && (
-                                    <figure className='w-[3.5rem] h-[3.5rem]'>
-                                        <img
-                                            src={value}
-                                            alt=''
-                                            className='w-full h-full rounded-full object-cover'
-                                        />
-                                    </figure>
-                                )}
-                            </>
-
-                            <p className=''>{value}</p>
-                        </div>
-                    </div>
-                )
-            }
-            if (key === 'created_at') {
-                return (
-                    <p>
-                        {new Date(value)
-                            .toLocaleDateString()
-                            .replace(/\//g, '-')}
-                    </p>
-                )
-            }
-            if (key === 'status') {
-                return (
-                    <p>
-                        {value === 'active' ? (
-                            <span className='text-green-600'>{value}</span>
-                        ) : (
-                            <span className='text-red-500'>{value}</span>
-                        )}
-                    </p>
-                )
-            }
-            //  else {
-            //     return <p>{value}</p>
-            // }
+        sorted.push({
+            key: 'actions',
+            value: null,
         })
-    }
 
+        return (
+            <>
+                {sorted?.flat().map(({ key, value }: any, idx: number) => {
+                    console.log({ key, value })
+
+                    if (key === 'actions') {
+                        return (
+                            <TableDropDown
+                                toggleDropDown={toggleDropDown}
+                                setToggleDropDown={setToggleDropDown}
+                                id={id}
+                            />
+                        )
+                    }
+                    if (idx === 0) {
+                        console.log({key}, value.image, value.firstValue)
+                        return (
+                            <div className='flex items-center gap-4  '>
+                                <input
+                                    type='checkbox'
+                                    className='cursor-pointer'
+                                />
+                                <div className='flex items-center gap-2'>
+                                    <>
+                                        {value.image && (
+                                            <figure className='w-[3.5rem] h-[3.5rem]'>
+                                                <img
+                                                    src={value.image}
+                                                    alt=''
+                                                    className='w-full h-full rounded-full object-cover'
+                                                />
+                                            </figure>
+                                        )}
+                                    </>
+
+                                    <p className=''>{value.firstValue}</p>
+                                </div>
+                            </div>
+                        )
+                    }
+                    if (key === 'created_at') {
+                        return (
+                            <p>
+                                {new Date(value)
+                                    .toLocaleDateString()
+                                    .replace(/\//g, '-')}
+                            </p>
+                        )
+                    }
+                    if (key === 'status') {
+                        return (
+                            <p>
+                                {value === 'active' ? (
+                                    <span className='text-green-600'>
+                                        {value}
+                                    </span>
+                                ) : (
+                                    <span className='text-red-500'>
+                                        {value}
+                                    </span>
+                                )}
+                            </p>
+                        )
+                    } else {
+                        return <p>{value}</p>
+                    }
+                })}
+            </>
+        )
+    }
     return (
         <>
             {page.map(({ id, user }: any) => (
