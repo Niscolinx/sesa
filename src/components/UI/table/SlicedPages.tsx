@@ -36,7 +36,7 @@ const SlicedPages: FC<SlicedPages> = ({
             string | { name: string; image: string | null }
         >()
 
-        console.log({restData, id})
+        console.log({restData, data_to_display})
         const dataToLoop = nested ? restData.user : restData
 
         Object.entries(dataToLoop).map(([key, value]: any, idx: number) => {
@@ -78,6 +78,8 @@ const SlicedPages: FC<SlicedPages> = ({
             key: 'actions',
             value: null,
         })
+
+        console.log({sorted})
 
         return (
             <>
