@@ -36,7 +36,6 @@ const TableData = () => {
         title,
         fetch_url,
         add_page_url,
-        nested,
         THeader,
         is_add_btn,
     } = useTableContext()
