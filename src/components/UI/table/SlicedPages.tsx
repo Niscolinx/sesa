@@ -33,48 +33,44 @@ const SlicedPages: FC<SlicedPages> = ({
     ]
 
     const TableItem = ({ user, id }: any) => {
-        const details: any = []
+        const details: Map<any, any> = new Map<
+            string,
+            string | { name: string; image: string | null }
+        >()
         Object.entries(user).map(([key, value]: any, idx: number) => {
             if (dataToDisplay.includes(key)) {
                 if (key === dataToDisplay[0]) {
-                    console.log({idx, key, value})
-                    details.push({
-                        key,
-                        value: {
-                            name: value,
-                            image: null,
-                        },
+                    details.set(key, {
+                        name: value,
+                        image: null,
                     })
                 }
 
                 if (key === 'image') {
-                    details[0] = {
-                        key: dataToDisplay[0],
-                        value: {
-                            name: null,
-                            image: value,
-                        },
-                    }
-                } else {
-                    details.push({
-                        key,
-                        value,
+                    const firstValue = details.keys().next().value
+
+                    console.log({firstValue})
+                    details.set(firstValue, {
+                        ...firstValue,
+                        image: value,
                     })
+                } else {
+                    details.set(key, value)
                 }
             }
         })
 
-        console.log({details})
+        console.log({ details })
 
         const sorted: any = dataToDisplay.map(
             (item: string, i: number) =>
-                details.filter((detail: any) => detail.key === item && detail)
+                Array.from(details).filter((detail: any) => detail.key === item && detail)
 
             //console.log({isFound})
         )
 
         return sorted?.flat().map(({ key, value }: any, idx: number) => {
-            console.log({key, value})
+            console.log({ key, value })
             if (key === 'actions') {
                 return (
                     <TableDropDown
@@ -89,19 +85,18 @@ const SlicedPages: FC<SlicedPages> = ({
                     <div className='flex items-center gap-4  '>
                         <input type='checkbox' className='cursor-pointer' />
                         <div className='flex items-center gap-2'>
-                            
-                                <>
-                                    {value && (
-                                        <figure className='w-[3.5rem] h-[3.5rem]'>
-                                            <img
-                                                src={value}
-                                                alt=''
-                                                className='w-full h-full rounded-full object-cover'
-                                            />
-                                        </figure>
-                                    )}
-                                </>
-                          
+                            <>
+                                {value && (
+                                    <figure className='w-[3.5rem] h-[3.5rem]'>
+                                        <img
+                                            src={value}
+                                            alt=''
+                                            className='w-full h-full rounded-full object-cover'
+                                        />
+                                    </figure>
+                                )}
+                            </>
+
                             <p className=''>{value}</p>
                         </div>
                     </div>
