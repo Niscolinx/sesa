@@ -11,7 +11,7 @@ import {
     RESIDENT_BALANCE,
     RESIDENT_TRANSACTION_HISTORY,
 } from '../../EstateManager/wallet/wallets/resident/ResidentTransactions'
-
+import { Select } from '../../../components/SuperAdmin/UI/Select'
 
 type Trend = 'This Week' | 'This Month' | 'This Year'
 
@@ -110,6 +110,8 @@ export const TRANSACTION_HISTORY: ITransactions[] = [
 
 const ResidentWallet = () => {
     const trend: Array<Trend> = ['This Week', 'This Month', 'This Year']
+
+    const [selectedTrend, setSelectedTrend] = useState<string | null>(trend[0])
 
     // const [togglResidentMenu, setTogglResidentMenu] = useState(false)
     // const [selectedTrend, setSelectedTrend] = useState<Trend>('This Week')
@@ -290,7 +292,7 @@ const ResidentWallet = () => {
     //     ResidentTransactions[] | null
     // >(null)
 
-    type Path = 'resident-transaction-history' | 'resident-balance'
+    type Path = 'transaction-history' | 'resident-balance'
 
     // useEffect(() => {
     //     setTimeout(() => {
@@ -299,14 +301,11 @@ const ResidentWallet = () => {
     //     }, 200)
     // }, [])
 
-    const [pathIndex, setpathIndex] = useState<Path>(
-        'resident-transaction-history'
-    )
-
+    const [pathIndex, setpathIndex] = useState<Path>('resident-balance')
 
     const handlePathSwitch = new Map([
-        ['resident-transaction-history', <TransactionHisoty/>],
-        ['resident-balance', <ResidentBalance/>],
+        ['transaction-history', <></>],
+        ['resident-balance', <></>],
     ]) satisfies Map<Path, JSX.Element>
 
     return (
@@ -321,50 +320,17 @@ const ResidentWallet = () => {
                         />
                     </div>
 
-                    <div className='border-l border-l-color-grey'>
-                        <div className='flex justify-between'>
-                            <p className='text-[1.6rem] font-Satoshi-Medium p-8'>
-                                Wallet Trend
-                            </p>
-
-                            <div className='relative grid gap-4'>
-                                <div className='relative flex items-center w-[12rem]'>
-                                    <p
-                                        className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer'
-                                        onClick={menuToggler}
-                                    >
-                                        {selectedTrend}
-                                    </p>
-                                    {togglResidentMenu ? (
-                                        <GrUp className='absolute right-4' />
-                                    ) : (
-                                        <GrDown className='absolute right-4' />
-                                    )}
-                                </div>
-
-                                {togglResidentMenu && (
-                                    <div className='absolute top-[8rem]  left-0 border border-color-primary-light  bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
-                                        {trend.map((item, index) => (
-                                            <p
-                                                className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
-                                                key={index}
-                                                onClick={() =>
-                                                    handleSelectedTrend(item)
-                                                }
-                                            >
-                                                {item}
-                                            </p>
-                                        ))}
-                                    </div>
-                                )}
-                            </div>
-                        </div>
-                        <WalletBarChart />
-                    </div>
+                    <Select
+                        label='Wallet Trend'
+                        state={trend}
+                        selectedState={selectedTrend}
+                        setSelectedState={setSelectedTrend}
+                    />
                 </div>
                 <div className='grid gap-10'>
                     <div className='estateDetail'>
                         <div className='estateDetail__radioBox'>
+                            {}
                             <input
                                 defaultChecked
                                 type='radio'
@@ -394,8 +360,7 @@ const ResidentWallet = () => {
                         </div>
                         <div className='mt-8 grid gap-8'>
                             <section className='bg-color-white rounded-lg border min-w-[112rem] overflow-scroll'>
-                                {fetchedResidentBalance &&
-                                    handlePathSwitch[pathIndex]}
+                                {handlePathSwitch.get(pathIndex)}
                             </section>
                         </div>
                     </div>
