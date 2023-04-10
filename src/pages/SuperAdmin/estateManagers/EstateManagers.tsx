@@ -9,12 +9,20 @@ function EstateManagers() {
                 view_page_url={'/superAdmin/estateManagers/view/'}
                 add_page_url={'/superAdmin/estateManagers/add'}
                 is_add_btn={true}
+                THeader={[
+                    'name',
+                    'gender',
+                    'phone number',
+                    'joined date',
+                    'status',
+                    'actions',
+                ]}
                 data_to_display={[
                     'name',
+                    'image',
                     'gender',
                     'phone',
                     'created_at',
-                    'image',
                     'status',
                 ]}
                 deactivateProp={{ url: 'change/user/status' }}

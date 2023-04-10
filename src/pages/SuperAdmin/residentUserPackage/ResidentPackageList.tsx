@@ -31,6 +31,13 @@ const ResidentPackageList = () => {
                 add_page_url={'/superAdmin/resident-user-package/add'}
                 is_add_btn={true}
                 nested={false}
+                THeader={[
+                    'package name',
+                    'frequency',
+                    'price',
+                    'status',
+                    'actions',
+                ]}
                 data_to_display={[
                     'package_name',
                     'frequency',

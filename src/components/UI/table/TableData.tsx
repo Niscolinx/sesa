@@ -10,14 +10,7 @@ import { useTableContext } from './Table'
 import TableDropDown from './TableDropDown'
 import SlicedPages from './SlicedPages'
 
-const THeader = [
-    'name',
-    'gender',
-    'phone number',
-    'joined date',
-    'status',
-    'actions',
-]
+
 
 export type ToggleDropDown = {
     isDropDownOpen: boolean
@@ -44,6 +37,7 @@ const TableData = () => {
         fetch_url,
         add_page_url,
         nested,
+        THeader,
         is_add_btn,
     } = useTableContext()
 
@@ -225,7 +219,7 @@ const TableData = () => {
                                     <div
                                         className={`grid justify-between text-color-dark-1 bg-color-grey p-8  items-center gap-8 text-[1.4rem] capitalize grid-cols-${THeader.length}`}
                                     >
-                                        {THeader.map((header, idx) =>
+                                        {THeader.map((header:string, idx:number) =>
                                             idx === 0 ? (
                                                 <div
                                                     className='flex items-center gap-2'

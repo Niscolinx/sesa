@@ -16,7 +16,7 @@ const SlicedPages: FC<SlicedPages> = ({
     toggleDropDown,
     setToggleDropDown,
 }) => {
-    const { data_to_display, nested } = useTableContext()
+    const { data_to_display, nested, THeader } = useTableContext()
 
     if (!pages || !pages.length) {
         return null
@@ -150,7 +150,7 @@ const SlicedPages: FC<SlicedPages> = ({
         <>
             {page.map((data, idx) => (
                 <div
-                    className={`grid justify-between border-b grid-cols-${data_to_display.length} items-center gap-8 text-[1.6rem] py-4 table__ellipsis`}
+                    className={`grid justify-between border-b grid-cols-${THeader.length} items-center gap-8 text-[1.6rem] py-4 table__ellipsis`}
                     key={`${idx}`}
                 >
                     <TableItem data={data} />

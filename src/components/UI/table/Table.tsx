@@ -19,6 +19,7 @@ interface Table {
     deactivateProp: { url: string; tag?: string }
     data_to_display: string[]
     nested?: boolean
+    THeader: string[]
     actions?: Actions[]
 }
 
@@ -57,6 +58,7 @@ const Table = ({
     is_add_btn,
     nested = true,
     deactivateProp,
+    THeader,
     actions = ['view details', 'deactivate'],
 }: Table) => {
     const navigate = useNavigate()
@@ -88,6 +90,7 @@ const Table = ({
                 add_page_url,
                 is_add_btn,
                 nested,
+                THeader,
                 data_to_display,
             }}
         >
