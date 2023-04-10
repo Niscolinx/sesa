@@ -80,6 +80,7 @@ const SlicedPages: FC<SlicedPages> = ({
         return (
             <>
                 {sorted.map(({ key, value }: any, idx: number) => {
+                    console.log({value})
                     if (key === 'actions') {
                         return (
                             <TableDropDown
