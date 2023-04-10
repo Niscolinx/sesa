@@ -150,12 +150,7 @@ const AddAdmin = () => {
                         <p>You have successfully added an Admin</p>
 
                         <div className='flex w-full justify-center gap-8'>
-                            {/* <button
-                                className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
-                                onClick={handleClose}
-                            >
-                                View details 
-                            </button>*/}
+                            
                             <button
                                 className='bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
                                 onClick={handleClose}
