@@ -1,7 +1,7 @@
 import { Dispatch, FC, SetStateAction } from 'react'
 import TableDropDown from './TableDropDown'
 import { ToggleDropDown } from './TableData'
-import { useTableContext } from './Table'
+import { Actions, useTableContext } from './Table'
 
 interface SlicedPages {
     pages: any[][] | null
@@ -80,15 +80,14 @@ const SlicedPages: FC<SlicedPages> = ({
                 }
         })
 
-       
         return (
             <>
                 {sorted.map(({ key, value }: any, idx: number) => {
                     if (key === 'actions') {
-                            let updatedActions = [...actions]
-                            if(value === '0'){
-                            
-                            }
+                        let updatedActions: Actions[] = []
+                        if (value === '0') {
+                            updatedActions = [...actions, 'deactivate']
+                        }
                         return (
                             <TableDropDown
                                 toggleDropDown={toggleDropDown}
