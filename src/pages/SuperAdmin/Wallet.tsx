@@ -22,12 +22,18 @@ const Wallet = () => {
         })
     }
 
-    const { data, isLoading, isError } = useQuery('wallets', fetchWallets)
+    const { data, isLoading, isError, error } = useQuery(
+        'wallets',
+        fetchWallets
+    )
 
     if (isLoading) {
         return <p className='p-8'> Loading...</p>
     }
 
+    if (isError) {
+        return <p>{error.message}</p>
+    }
     return (
         <div className='bg-white grid mt-12 py-10 gap-8 rounded-lg'>
             <div className='flex items-center max-w-[90rem] mx-auto gap-10'>
