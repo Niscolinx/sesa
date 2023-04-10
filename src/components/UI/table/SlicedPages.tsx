@@ -42,23 +42,24 @@ const SlicedPages: FC<SlicedPages> = ({
         Object.entries(dataToLoop).map(([key, value]: any, idx: number) => {
             if (data_to_display.includes(key)) {
                 if (key === data_to_display[0]) {
-                    console.log({key})
+                   // console.log({key})
                     details.set(key, {
                         name: value,
                         image: 'hello world',
                     })
                 }
 
-                // if (key === 'image') {
-                //     const firstKey = details.keys().next().value
-                //     const firstValue = details.get(firstKey)
-                //     details.set(firstKey, {
-                //         firstValue,
-                //         image: value,
-                //     })
-                // } else {
-                //     details.set(key, value)
-                // }
+                if (key === 'image') {
+                    console.log({key}, {value})
+                    const firstKey = details.keys().next().value
+                    const firstValue = details.get(firstKey)
+                    details.set(firstKey, {
+                        firstValue,
+                        image: value,
+                    })
+                } else {
+                    details.set(key, value)
+                }
             }
         })
 
