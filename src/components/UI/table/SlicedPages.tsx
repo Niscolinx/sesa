@@ -1,6 +1,5 @@
-import { Dispatch, FC } from 'react'
+import { Dispatch, FC, SetStateAction } from 'react'
 import TableDropDown from './TableDropDown'
-import { SetStateAction } from 'jotai'
 import { ToggleDropDown } from './TableData'
 import { useTableContext } from './Table'
 
