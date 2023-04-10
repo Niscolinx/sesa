@@ -32,12 +32,10 @@ const ResidentPackageList = () => {
                     add_page_url={'/superAdmin/estateManagers/add'}
                     is_add_btn={true}
                     data_to_display={[
-                        'name',
-                        'gender',
-                        'phone',
-                        'created_at',
-                        'image',
-                        'status',
+                        'package_name',
+                        'frequency',
+                        'price',
+                        'status'
                     ]}
                     deactivate_url={'change/user/status'}
                 />

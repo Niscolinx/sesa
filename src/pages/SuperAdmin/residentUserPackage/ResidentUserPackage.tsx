@@ -61,55 +61,28 @@ function ResidentUserPackage() {
     console.log({ fetched })
 
     return (
-        <div>
-            <div className='rounded-lg mt-[3rem] h-[80vh]'>
-                {fetched.length > 0 ? (
-                    <>
-                        <div className='estateDetail__radioBox capitalize'>
-                            {resident_paths.map((eachPath, idx) => {
-                                const { label, path } = eachPath
-                                return (
-                                    <Fragment key={label + idx}>
-                                        <input
-                                            type='radio'
-                                            name='report'
-                                            id={label + idx}
-                                            className='hidden'
-                                            onChange={() =>
-                                                setCurrentPath(path)
-                                            }
-                                            checked={currentPath === path}
-                                        />
-                                        <label htmlFor={label + idx}>
-                                            {label}
-                                        </label>
-                                    </Fragment>
-                                )
-                            })}
-                        </div>
-                        <section className='bg-color-white rounded-lg border min-w-[112rem] overflow-scroll mt-8 min-h-[60vh]'>
-                            {switchRoute.get(currentPath)}
-
-                        </section>
-                    </>
-                ) : (
-                    <section className='grid place-content-center w-full h-full justify-items-center gap-4 bg-white'>
-                        <img src='/icons/admins/errorSvg.svg' alt='' />
-                        <p className='text'>
-                            Ooops you have not added any Package yet
-                        </p>
-                        <button
-                            className='bg-color-blue-1 text-white flex gap-2 items-center rounded-lg justify-self-center py-4 px-16 text-[1.6rem]'
-                            onClick={handlePathSwitch}
-                        >
-                            <span>
-                                <IoMdAdd />
-                            </span>{' '}
-                            Add Package
-                        </button>
-                    </section>
-                )}
+        <div className='rounded-lg mt-[3rem] h-[80vh]'>
+            <div className='estateDetail__radioBox capitalize'>
+                {resident_paths.map((eachPath, idx) => {
+                    const { label, path } = eachPath
+                    return (
+                        <Fragment key={label + idx}>
+                            <input
+                                type='radio'
+                                name='report'
+                                id={label + idx}
+                                className='hidden'
+                                onChange={() => setCurrentPath(path)}
+                                checked={currentPath === path}
+                            />
+                            <label htmlFor={label + idx}>{label}</label>
+                        </Fragment>
+                    )
+                })}
             </div>
+            <section className='bg-color-white rounded-lg border min-w-[112rem] overflow-scroll mt-8 min-h-[60vh]'>
+                {switchRoute.get(currentPath)}
+            </section>
         </div>
     )
 }
