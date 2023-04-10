@@ -38,12 +38,7 @@ const ResidentPackageList = () => {
                     'status',
                     'actions',
                 ]}
-                actions={[
-                    'view details',
-                    'activate',
-                    'deactivate',
-                    'delete'
-                ]}
+                actions={['delete']}
                 data_to_display={[
                     'package_name',
                     'frequency',
