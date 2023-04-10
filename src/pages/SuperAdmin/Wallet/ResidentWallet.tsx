@@ -308,23 +308,10 @@ const ResidentWallet = () => {
         'resident-transaction-history'
     )
 
-    const handlePathSwitch = {
-        'resident-transaction-history': (
-            <ResidentTransactions
-                fetchedResidentTransactions={fetchedTransactionHistory ?? []}
-            />
-        ),
-        'resident-balance': (
-            <ResidentTransactions
-                fetchedResidentTransactions={fetchedResidentBalance ?? []}
-                isResidentBalance
-            />
-        ),
-    }
 
     const handlePathSwitch = new Map([
-        ['resident-transaction-history', fetchedTransactionHistory],
-        ['resident-balance', fetchedResidentBalance],
+        ['resident-transaction-history', <TransactionHisoty/>],
+        ['resident-balance', <ResidentBalance/>],
     ]) satisfies Map<Path, JSX.Element>
 
     return (
