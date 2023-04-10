@@ -36,12 +36,20 @@ const SlicedPages: FC<SlicedPages> = ({
         const details: any = []
         Object.entries(user).map(([key, value]: any, idx: number) => {
             if (dataToDisplay.includes(key)) {
-
-
-                details.push({
-                    key,
-                    value,
-                })
+                if (key === 'image') {
+                    details.push({
+                        key: [dataToDisplay[0]],
+                        value: {
+                            name: [dataToDisplay[0]],
+                            image: value,
+                        },
+                    })
+                } else {
+                    details.push({
+                        key,
+                        value,
+                    })
+                }
             }
         })
 
@@ -52,17 +60,7 @@ const SlicedPages: FC<SlicedPages> = ({
             //console.log({isFound})
         )
 
-        details = [
-            {key: 'name', value: ''},
-            {key: 'image', value: ''},
-        ]
-
-        details = [
-            {key: 'name', value: {
-                name: '',
-                image: ''
-            }}
-        ]
+      
 
         return sorted?.flat().map(({ key, value }: any, idx: number) => {
             if (key === 'actions') {
