@@ -47,7 +47,9 @@ const TableDropDown = ({
             status === '0'
                 ? actions.indexOf('deactivate')
                 : actions.indexOf('activate')
-        actions.splice(index, 1)
+
+                console.log({index, status, actions})
+        actions.splice(0, 1)
 
         console.log({actions})
     }

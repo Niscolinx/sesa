@@ -63,21 +63,23 @@ const SlicedPages: FC<SlicedPages> = ({
             if (item)
                 for (const [key, value] of details.entries()) {
                     if (key === item) {
+                        sorted.push({
+                            key,
+                            value,
+                        })
+
                         if (item === 'status') {
                             sorted.push({
                                 key: 'actions',
                                 value,
                             })
                         }
-                        return sorted.push({
-                            key,
-                            value,
-                        })
+
+                        return
                     }
                 }
         })
 
-        console.log({ sorted })
 
         return (
             <>
