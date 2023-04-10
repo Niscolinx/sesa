@@ -16,7 +16,7 @@ const SlicedPages: FC<SlicedPages> = ({
     toggleDropDown,
     setToggleDropDown,
 }) => {
-    const { data_to_display } = useTableContext()
+    const { data_to_display, nested } = useTableContext()
 
     if (!pages || !pages.length) {
         return null
@@ -28,6 +28,9 @@ const SlicedPages: FC<SlicedPages> = ({
             string,
             string | { name: string; image: string | null }
         >()
+
+        console.log({user})
+
         Object.entries(user).map(([key, value]: any, idx: number) => {
             if (data_to_display.includes(key)) {
                 if (key === data_to_display[0]) {
@@ -136,14 +139,16 @@ const SlicedPages: FC<SlicedPages> = ({
             </>
         )
     }
+
+    console.log({page})
     return (
         <>
-            {page?.map(({ id, user }: any) => (
+            {page.map((data, idx) => (
                 <div
                     className={`grid justify-between border-b grid-cols-${data_to_display.length} items-center gap-8 text-[1.6rem] py-4 table__ellipsis`}
-                    key={`${id}`}
+                    key={`${idx}`}
                 >
-                    <TableItem id={id} user={user} key={id} />
+                    <TableItem data={data} />
                 </div>
             ))}
         </>

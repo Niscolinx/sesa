@@ -10,7 +10,19 @@ type Select = string | null
 
 export type Actions = 'view details' | 'deactivate' | 'activate' | 'delete'
 
-interface ICreateTableContext {
+interface Table {
+    fetch_url: string
+    title: string
+    view_page_url: string
+    add_page_url: string
+    is_add_btn: boolean
+    deactivateProp: { url: string; tag?: string }
+    data_to_display: string[]
+    nested?: boolean
+    actions?: Actions[]
+}
+
+interface ICreateTableContext extends Table {
     navigate: NavigateFunction
     axiosInstance: AxiosInstance
     sortBy: Select
@@ -22,13 +34,6 @@ interface ICreateTableContext {
     actions: Actions[]
     setFetchedData: Dispatch<SetStateAction<any[]>>
     setIsDialogOpen: Dispatch<SetStateAction<boolean>>
-    deactivateProp: {url: string, tag?: string}
-    fetch_url: string
-    title: string
-    view_page_url: string
-    add_page_url: string
-    is_add_btn: boolean
-    data_to_display: string[]
 }
 
 const CreateTableContext = createContext<ICreateTableContext | null>(null)
@@ -43,17 +48,6 @@ export const useTableContext = () => {
     return context
 }
 
-interface Table {
-    fetch_url: string
-    title: string
-    view_page_url: string
-    add_page_url: string
-    is_add_btn: boolean
-    deactivateProp: {url: string, tag?: string}
-    data_to_display: string[]
-    actions?: Actions[]
-}
-
 const Table = ({
     fetch_url,
     title,
@@ -61,6 +55,7 @@ const Table = ({
     add_page_url,
     data_to_display,
     is_add_btn,
+    nested,
     deactivateProp,
     actions = ['view details', 'deactivate'],
 }: Table) => {
@@ -92,6 +87,7 @@ const Table = ({
                 view_page_url,
                 add_page_url,
                 is_add_btn,
+                nested,
                 data_to_display,
             }}
         >
