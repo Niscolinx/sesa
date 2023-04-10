@@ -16,21 +16,13 @@ const SlicedPages: FC<SlicedPages> = ({
     toggleDropDown,
     setToggleDropDown,
 }) => {
-    console.log(pages)
 
     if (!pages || !pages.length) {
         return null
     }
     const page = pages[index]
 
-    const dataToDisplay = [
-        'name',
-        'gender',
-        'phone',
-        'created_at',
-        'image',
-        'status',
-    ]
+    
 
     const TableItem = ({ user, id }: any) => {
         const details: Map<any, any> = new Map<
@@ -77,7 +69,6 @@ const SlicedPages: FC<SlicedPages> = ({
             value: null,
         })
 
-        console.log({ sorted })
 
         return (
             <>
