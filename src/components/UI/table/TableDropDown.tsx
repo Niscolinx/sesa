@@ -8,18 +8,18 @@ interface TableDropDown {
     id: number
     toggleDropDown: ToggleDropDown
     setToggleDropDown: Dispatch<SetStateAction<ToggleDropDown>>
-    status: string
+    actions: Actions[]
 }
 
 const TableDropDown = ({
     id,
     toggleDropDown,
     setToggleDropDown,
+    actions
 }: TableDropDown) => {
     const {
         setFetchedId,
         setIsDialogOpen,
-        tableActions,
         view_page_url,
     } = useTableContext()
 
@@ -79,7 +79,7 @@ const TableDropDown = ({
 
             {isDropDownOpen && index === id && (
                 <div className='absolute top-0 translate-x-[4rem] border border-color-primary-light w-[10rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
-                    {tableActions.map((item, i) => (
+                    {actions.map((item, i) => (
                         <p
                             className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
                             key={i}
