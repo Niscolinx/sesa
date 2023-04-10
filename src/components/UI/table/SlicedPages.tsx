@@ -49,18 +49,20 @@ const SlicedPages: FC<SlicedPages> = ({
                     })
                 }
 
-                if (key === 'image') {
-                    const firstKey = details.keys().next().value
-                    const firstValue = details.get(firstKey)
-                    details.set(firstKey, {
-                        firstValue,
-                        image: value,
-                    })
-                } else {
-                    details.set(key, value)
-                }
+                // if (key === 'image') {
+                //     const firstKey = details.keys().next().value
+                //     const firstValue = details.get(firstKey)
+                //     details.set(firstKey, {
+                //         firstValue,
+                //         image: value,
+                //     })
+                // } else {
+                //     details.set(key, value)
+                // }
             }
         })
+
+        console.log({details})
 
         const sorted = []
         data_to_display.map((item: string, i: number) => {
