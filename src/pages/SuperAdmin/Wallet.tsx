@@ -106,7 +106,7 @@ const Wallet = () => {
                     >
                         <Link to='/superAdmin/wallet/resident'>
                             <OverviewWallet
-                                amount={200_333_500.89}
+                                amount={data.resident_wallet}
                                 title='Resident Wallet'
                                 isWalletScreen
                             />
@@ -114,7 +114,7 @@ const Wallet = () => {
 
                         <Link to='/superAdmin/wallet/security-company'>
                             <OverviewWallet
-                                amount={160_847}
+                                amount={data.security_company_wallet}
                                 title={'Security Company Wallet'}
                                 isWalletScreen
                                 bgImgUri='/icons/overview/card/bgS.svg'
@@ -125,7 +125,7 @@ const Wallet = () => {
 
                         <Link to='/superAdmin/wallet/estate'>
                             <OverviewWallet
-                                amount={1_032_422}
+                                amount={data.estate_wallet}
                                 title={'Estate Wallet'}
                                 isWalletScreen
                                 bgImgUri='/icons/overview/card/bgE.svg'
@@ -135,7 +135,7 @@ const Wallet = () => {
                         </Link>
                         <Link to='/superAdmin/wallet/commission'>
                             <OverviewWallet
-                                amount={4_000_832}
+                                amount={data.commission_wallet}
                                 title={'Commission Wallet'}
                                 isWalletScreen
                                 bgImgUri='/icons/overview/card/bgC.svg'
