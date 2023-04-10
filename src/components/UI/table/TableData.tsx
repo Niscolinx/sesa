@@ -43,6 +43,7 @@ const TableData = () => {
         title,
         fetch_url,
         add_page_url,
+        nested,
         is_add_btn,
     } = useTableContext()
 
@@ -65,7 +66,10 @@ const TableData = () => {
 
     useEffect(() => {
         if (get_data_response) {
-            setFetchedData(get_data_response.data.data)
+            const data = nested
+                ? get_data_response.data.data
+                : get_data_response.data
+            setFetchedData(data)
         }
     }, [get_data_response])
 
@@ -161,7 +165,9 @@ const TableData = () => {
         navigate(`${add_page_url}`)
     }
 
-    const fetched = get_data_response?.data.data
+    const fetched = nested
+        ? get_data_response.data.data
+        : get_data_response.data
 
     return (
         <div>
