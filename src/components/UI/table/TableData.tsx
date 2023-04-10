@@ -165,8 +165,6 @@ const TableData = () => {
 
     const fetched = get_data_response?.data.data
 
-
-
     return (
         <div>
             <div className='rounded-lg mt-[3rem] h-[80vh]'>
@@ -247,13 +245,13 @@ const TableData = () => {
                                     </div>
 
                                     <div className='grid gap-8 mt-8 p-8'>
-                                      
-
                                         <SlicedPages
                                             pages={slicedPages}
                                             index={paginate.index}
                                             toggleDropDown={toggleDropDown}
-                                            setToggleDropDown={setToggleDropDown}
+                                            setToggleDropDown={
+                                                setToggleDropDown
+                                            }
                                         />
                                     </div>
                                 </div>
