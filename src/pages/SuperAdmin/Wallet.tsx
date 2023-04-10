@@ -16,7 +16,7 @@ export const overviewChart_data = [
 ]
 
 const Wallet = () => {
-    interface Wallet {
+    interface ApiResponse {
         estate_wallet: number
         security_company_wallet: number
         resident_wallet: number
@@ -28,17 +28,14 @@ const Wallet = () => {
         commission_percentage: number
     }
 
-    interface ApiResponse {
-        success: boolean
-        wallets: Wallet
-    }
+   
 
     const axiosInstance = useAxios()
 
     const fetchWallets = (): Promise<ApiResponse> => {
         return axiosInstance({
             url: '/admin/get/wallet',
-        })
+        }).then(res => res.data)
     }
 
     const { data, isLoading, isError, error } = useQuery<ApiResponse, Error>(
@@ -65,7 +62,7 @@ const Wallet = () => {
                     </p>
                     <h1 className='text-[3rem] font-Satoshi-Medium flex items-center gap-0'>
                         <TbCurrencyNaira className='text-[3rem]' />
-                        {}
+                        {data?.pool_wallet}
                     </h1>
                 </div>
                 <div className='overviewChart__box'>
