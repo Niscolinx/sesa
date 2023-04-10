@@ -75,7 +75,7 @@ const Table = ({
     nested = true,
     deactivateProp,
     THeader,
-    actions = ['view details'] ,
+    actions = [] ,
 }: Table) => {
     const navigate = useNavigate()
     const axiosInstance = useAxios()
