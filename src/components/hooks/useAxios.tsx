@@ -7,8 +7,8 @@ import axios from 'axios'
 function useAxios() {
     const dispatch = useAppDispatch()
     const axiosInstance = axios.create({
-       // baseURL: 'https://sesa-digital.herokuapp.com/api',
-       baseURL: 'https://sesadigital.com/api'
+        baseURL: 'https://sesa-digital.herokuapp.com/api',
+      // baseURL: 'https://sesadigital.com/api'
     })
 
     useEffect(() => {
