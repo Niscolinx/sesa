@@ -63,6 +63,7 @@ const SlicedPages: FC<SlicedPages> = ({
         const sorted = dataToDisplay.map(
             (item: string, i: number) => {
                  console.log({item})
+                 if(item)
                 for (const [key, value] of details.entries()) {
                     console.log({key, value})
                     console.log(`${key} => ${value}`)
@@ -72,9 +73,9 @@ const SlicedPages: FC<SlicedPages> = ({
                             value,
                         }
                     }
+                    console.log('=============================')
                 }
 
-                console.log('=============================')
             }
            
         )
@@ -101,32 +102,32 @@ const SlicedPages: FC<SlicedPages> = ({
                             />
                         )
                     }
-                    if (idx === 0) {
-                        console.log({key}, value.image, value.firstValue)
-                        return (
-                            <div className='flex items-center gap-4  '>
-                                <input
-                                    type='checkbox'
-                                    className='cursor-pointer'
-                                />
-                                <div className='flex items-center gap-2'>
-                                    <>
-                                        {value.image && (
-                                            <figure className='w-[3.5rem] h-[3.5rem]'>
-                                                <img
-                                                    src={value.image}
-                                                    alt=''
-                                                    className='w-full h-full rounded-full object-cover'
-                                                />
-                                            </figure>
-                                        )}
-                                    </>
+                    // if (idx === 0) {
+                    //     console.log({key}, value.image, value.firstValue)
+                    //     return (
+                    //         <div className='flex items-center gap-4  '>
+                    //             <input
+                    //                 type='checkbox'
+                    //                 className='cursor-pointer'
+                    //             />
+                    //             <div className='flex items-center gap-2'>
+                    //                 <>
+                    //                     {value.image && (
+                    //                         <figure className='w-[3.5rem] h-[3.5rem]'>
+                    //                             <img
+                    //                                 src={value.image}
+                    //                                 alt=''
+                    //                                 className='w-full h-full rounded-full object-cover'
+                    //                             />
+                    //                         </figure>
+                    //                     )}
+                    //                 </>
 
-                                    <p className=''>{value.firstValue}</p>
-                                </div>
-                            </div>
-                        )
-                    }
+                    //                 <p className=''>{value.firstValue}</p>
+                    //             </div>
+                    //         </div>
+                    //     )
+                    // }
                     if (key === 'created_at') {
                         return (
                             <p>
@@ -150,9 +151,10 @@ const SlicedPages: FC<SlicedPages> = ({
                                 )}
                             </p>
                         )
-                    } else {
-                        return <p>{value}</p>
                     }
+                    //  else {
+                    //     return <p>{value}</p>
+                    // }
                 })}
             </>
         )
