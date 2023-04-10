@@ -21,11 +21,15 @@ const SlicedPages: FC<SlicedPages> = ({
     if (!pages || !pages.length) {
         return null
     }
+    
+    
     const page = pages[index]
+    
+    console.log({ page })
 
     const TableItem = ({data}:any) => {
 
-        const {user} = data
+        const {user, id} = data
 
         const details: Map<any, any> = new Map<
             string,
@@ -143,7 +147,6 @@ const SlicedPages: FC<SlicedPages> = ({
         )
     }
 
-    console.log({page})
     return (
         <>
             {page.map((data, idx) => (
