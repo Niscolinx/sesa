@@ -130,7 +130,6 @@ const TableData = () => {
     }
 
     const handlePrev = () => {
-        console.log('=====', paginate.currentPage, paginate.totalPage)
 
         if (paginate.currentPage === 1) return
         setPaginate((prev) => {
