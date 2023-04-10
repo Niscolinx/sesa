@@ -35,13 +35,14 @@ const SlicedPages: FC<SlicedPages> = ({
     const TableItem = ({ user, id }: any) => {
         const details: any = []
         Object.entries(user).map(([key, value]: any, idx: number) => {
-            return (
-                dataToDisplay.includes(key) &&
+            if (dataToDisplay.includes(key)) {
+
+
                 details.push({
                     key,
                     value,
                 })
-            )
+            }
         })
 
         const sorted: any = dataToDisplay.map(
@@ -51,10 +52,17 @@ const SlicedPages: FC<SlicedPages> = ({
             //console.log({isFound})
         )
 
-        sorted.push({ key: 'actions' })
+        details = [
+            {key: 'name', value: ''},
+            {key: 'image', value: ''},
+        ]
 
-        console.log({ details })
-        console.log({ sorted })
+        details = [
+            {key: 'name', value: {
+                name: '',
+                image: ''
+            }}
+        ]
 
         return sorted?.flat().map(({ key, value }: any, idx: number) => {
             if (key === 'actions') {
@@ -84,9 +92,7 @@ const SlicedPages: FC<SlicedPages> = ({
                                     )}
                                 </>
                             )}
-                            <p className='min-w-[30rem] overflow-hidden text-ellipsis whitespace-nowrap'>
-                                {value}
-                            </p>
+                            <p className=''>{value}</p>
                         </div>
                     </div>
                 )
@@ -120,9 +126,7 @@ const SlicedPages: FC<SlicedPages> = ({
         <>
             {page.map(({ id, user }: any) => (
                 <div
-                    className={`grid justify-between border-b grid-cols-${
-                        dataToDisplay.length + 1
-                    } items-center gap-8 text-[1.6rem] py-4 table__ellipsis`}
+                    className={`grid justify-between border-b grid-cols-${dataToDisplay.length} items-center gap-8 text-[1.6rem] py-4 table__ellipsis`}
                     key={`${id}`}
                 >
                     <TableItem id={id} user={user} key={id} />
