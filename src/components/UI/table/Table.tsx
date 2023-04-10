@@ -19,6 +19,7 @@ interface Table {
     deactivateProp: { url: string; tag?: string }
     data_to_display: string[]
     nested?: boolean
+    is_dropdown: boolean
     THeader: string[]
     actions?: Actions[]
 }
@@ -30,7 +31,7 @@ interface ICreateTableContext extends Table {
     setSortBy: Dispatch<SetStateAction<Select>>
     fetchedId: number
     setFetchedId: Dispatch<SetStateAction<number>>
-    isDialogOpen: boolean
+    isDialogOpen?: boolean
     fetchedData: any[]
     actions: Actions[]
     setFetchedData: Dispatch<SetStateAction<any[]>>
@@ -54,7 +55,7 @@ export const useTableContext = () => {
 const Table = ({
     fetch_url,
     title,
-    isDropDownOpen
+    is_dropdown = true,
     view_page_url,
     add_page_url,
     data_to_display,
@@ -94,6 +95,7 @@ const Table = ({
                 is_add_btn,
                 nested,
                 THeader,
+                is_dropdown,
                 data_to_display,
             }}
         >
