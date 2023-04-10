@@ -295,7 +295,7 @@ const ResidentWallet = () => {
         ResidentTransactions[] | null
     >(null)
 
-    type PathIndex = 'resident-transaction-history' | 'resident-balance'
+    type Path = 'resident-transaction-history' | 'resident-balance'
 
     useEffect(() => {
         setTimeout(() => {
@@ -304,7 +304,7 @@ const ResidentWallet = () => {
         }, 200)
     }, [])
 
-    const [pathIndex, setpathIndex] = useState<PathIndex>(
+    const [pathIndex, setpathIndex] = useState<Path>(
         'resident-transaction-history'
     )
 
@@ -321,6 +321,11 @@ const ResidentWallet = () => {
             />
         ),
     }
+
+    const handlePathSwitch = new Map([
+        ['resident-transaction-history', fetchedTransactionHistory],
+        ['resident-balance', fetchedResidentBalance],
+    ]) satisfies Map<Path, JSX.Element>
 
     return (
         <div>
@@ -412,7 +417,6 @@ const ResidentWallet = () => {
                             </section>
                         </div>
                     </div>
-                    
                 </div>
             </div>
         </div>
