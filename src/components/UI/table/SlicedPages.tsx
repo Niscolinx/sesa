@@ -64,7 +64,7 @@ const SlicedPages: FC<SlicedPages> = ({
             if (item)
                 for (const [key, value] of details.entries()) {
                     if (key !== item) {
-                        console.log({item, key})
+                        console.log({item, key}, 'bugggggggg==================')
 
                         break;
                     }
