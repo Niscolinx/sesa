@@ -59,11 +59,12 @@ const SlicedPages: FC<SlicedPages> = ({
             }
         })
 
-        console.log({ details })
 
         const sorted = dataToDisplay.map(
             (item: string, i: number) => {
+                 console.log({item})
                 for (const [key, value] of details.entries()) {
+                    console.log({key, value})
                     console.log(`${key} => ${value}`)
                     if (key === item) {
                         return {
@@ -78,7 +79,6 @@ const SlicedPages: FC<SlicedPages> = ({
             //console.log({isFound})
         )
 
-        console.log({ sorted })
 
         sorted.push({
             key: 'actions',
