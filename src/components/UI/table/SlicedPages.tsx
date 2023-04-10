@@ -48,13 +48,13 @@ const SlicedPages: FC<SlicedPages> = ({
                 }
 
                 if (key === 'image') {
-                    details.push({
+                    details[0] = {
                         key: dataToDisplay[0],
                         value: {
                             name: null,
                             image: value,
                         },
-                    })
+                    }
                 } else {
                     details.push({
                         key,
