@@ -82,7 +82,6 @@ const SlicedPages: FC<SlicedPages> = ({
                         )
                     }
                     if (idx === 0) {
-                        console.log({ key }, value.image, value.firstValue)
                         return (
                             <div className='flex items-center gap-4  '>
                                 <input
