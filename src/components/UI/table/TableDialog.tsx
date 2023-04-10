@@ -4,7 +4,7 @@ import { useMutation } from 'react-query'
 import { toast } from 'react-toastify'
 
 function TableDialog() {
-    const { axiosInstance, deactivateProp, fetchedId, title, isDialogOpen } =
+    const { axiosInstance, deactivateProp, fetchedId, title, isDialogOpen, setIsDialogOpen } =
         useTableContext()
 
     const postDeactivate = () => {
@@ -47,6 +47,7 @@ function TableDialog() {
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
     const closeDialog = () => {
+        setIsDialogOpen(false)
         if (dialogRef.current) {
             dialogRef.current.close()
         }

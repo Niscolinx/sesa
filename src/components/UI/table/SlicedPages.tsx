@@ -49,8 +49,10 @@ const SlicedPages: FC<SlicedPages> = ({
                     const firstKey = details.keys().next().value
                     const firstValue = details.get(firstKey)
 
+                    console.log({firstValue})
+
                     return details.set(firstKey, {
-                        name: firstValue,
+                        name: firstValue.name,
                         image: value,
                     })
                 } else {
