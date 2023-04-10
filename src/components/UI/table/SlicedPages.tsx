@@ -73,10 +73,10 @@ const SlicedPages: FC<SlicedPages> = ({
                         }
                     }
                 }
-            }
-            // Array.from(details).filter((detail: any) => detail[0] === item && detail)
 
-            //console.log({isFound})
+                console.log('=============================')
+            }
+           
         )
 
 
@@ -84,6 +84,8 @@ const SlicedPages: FC<SlicedPages> = ({
             key: 'actions',
             value: null,
         })
+
+         console.log({sorted})
 
         return (
             <>
