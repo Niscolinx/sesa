@@ -63,15 +63,12 @@ const SlicedPages: FC<SlicedPages> = ({
             //console.log({item})
             if (item)
                 for (const [key, value] of details.entries()) {
-                    //  console.log({key, value})
-                    //  console.log(`${key} => ${value}`)
-                    if (key === item) {
-                        return {
-                            key,
-                            value,
-                        }
+                    if (key !== item) return
+
+                    return {
+                        key,
+                        value,
                     }
-                    continue;
                 }
         })
 
