@@ -59,7 +59,6 @@ const SlicedPages: FC<SlicedPages> = ({
             }
         })
 
-
         const sorted = []
         data_to_display.map((item: string, i: number) => {
             if (item)
@@ -78,8 +77,6 @@ const SlicedPages: FC<SlicedPages> = ({
             value: null,
         })
 
-        // console.log({sorted})
-
         return (
             <>
                 {sorted.map(({ key, value }: any, idx: number) => {
@@ -89,12 +86,13 @@ const SlicedPages: FC<SlicedPages> = ({
                                 toggleDropDown={toggleDropDown}
                                 setToggleDropDown={setToggleDropDown}
                                 id={id}
+                                key={idx}
                             />
                         )
                     }
                     if (idx === 0) {
                         return (
-                            <div className='flex items-center gap-4  '>
+                            <div className='flex items-center gap-4 ' key={idx}>
                                 <input
                                     type='checkbox'
                                     className='cursor-pointer'
@@ -117,7 +115,7 @@ const SlicedPages: FC<SlicedPages> = ({
                     }
                     if (key === 'created_at') {
                         return (
-                            <p>
+                            <p key={idx}>
                                 {new Date(value)
                                     .toLocaleDateString()
                                     .replace(/\//g, '-')}
@@ -126,7 +124,7 @@ const SlicedPages: FC<SlicedPages> = ({
                     }
                     if (key === 'status') {
                         return (
-                            <p>
+                            <p key={idx}>
                                 {value === 'active' ? (
                                     <span className='text-green-600'>
                                         {value}
@@ -139,7 +137,7 @@ const SlicedPages: FC<SlicedPages> = ({
                             </p>
                         )
                     } else {
-                        return <p>{value}</p>
+                        return <p key={idx}>{value}</p>
                     }
                 })}
             </>
