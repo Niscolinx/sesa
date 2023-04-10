@@ -28,6 +28,7 @@ interface ICreateTableContext {
     view_page_url: string
     add_page_url: string
     is_add_btn: boolean
+    data_to_display: string[]
 }
 
 const CreateTableContext = createContext<ICreateTableContext | null>(null)
@@ -49,7 +50,8 @@ interface Table {
     add_page_url: string
     is_add_btn: boolean
     deactivate_url: string
-    actions: Actions[]
+    data_to_display: string[]
+    actions?: Actions[]
 }
 
 const Table = ({
@@ -57,6 +59,7 @@ const Table = ({
     title,
     view_page_url,
     add_page_url,
+    data_to_display,
     is_add_btn,
     deactivate_url,
     actions = ['view details', 'deactivate'],
@@ -89,6 +92,7 @@ const Table = ({
                 view_page_url,
                 add_page_url,
                 is_add_btn,
+                data_to_display
             }}
         >
             <TableDialog />

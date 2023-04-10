@@ -2,6 +2,7 @@ import { Dispatch, FC } from 'react'
 import TableDropDown from './TableDropDown'
 import { SetStateAction } from 'jotai'
 import { ToggleDropDown } from './TableData'
+import { useTableContext } from './Table'
 
 interface SlicedPages {
     pages: any[][] | null
@@ -15,7 +16,10 @@ const SlicedPages: FC<SlicedPages> = ({
     index,
     toggleDropDown,
     setToggleDropDown,
+  
 }) => {
+
+    const {data_to_display} = useTableContext()
 
     if (!pages || !pages.length) {
         return null
@@ -30,8 +34,8 @@ const SlicedPages: FC<SlicedPages> = ({
             string | { name: string; image: string | null }
         >()
         Object.entries(user).map(([key, value]: any, idx: number) => {
-            if (dataToDisplay.includes(key)) {
-                if (key === dataToDisplay[0]) {
+            if (data_to_display.includes(key)) {
+                if (key === data_to_display[0]) {
                     details.set(key, {
                         name: value,
                         image: null,
@@ -52,7 +56,7 @@ const SlicedPages: FC<SlicedPages> = ({
         })
 
         const sorted = []
-        dataToDisplay.map((item: string, i: number) => {
+        data_to_display.map((item: string, i: number) => {
             if (item)
                 for (const [key, value] of details.entries()) {
                     if (key === item) {
@@ -144,7 +148,7 @@ const SlicedPages: FC<SlicedPages> = ({
         <>
             {page.map(({ id, user }: any) => (
                 <div
-                    className={`grid justify-between border-b grid-cols-${dataToDisplay.length} items-center gap-8 text-[1.6rem] py-4 table__ellipsis`}
+                    className={`grid justify-between border-b grid-cols-${data_to_display.length} items-center gap-8 text-[1.6rem] py-4 table__ellipsis`}
                     key={`${id}`}
                 >
                     <TableItem id={id} user={user} key={id} />
