@@ -24,7 +24,7 @@ const AddAdmin = () => {
         name?: string
         selectProps?: SelectProps
     }
-    
+
     const axiosInstance = useAxios()
 
     const region = ['Lagos', 'Abuja']
@@ -77,22 +77,22 @@ const AddAdmin = () => {
     }) as any
 
     const onSubmit = handleSubmit((data) => {
-        const {  } = data
+        // const {  } = data
 
-        const adminData = {
-            name: `${first_name} ${last_name}`,
-            gender: selectedRegion,
-            dob,
-            email: email_address,
-            address: 'no 4 odeyim street',
-            phone: `+234${phone_number}`,
-            // image: imageFile,
-            image: imageFile,
-        }
+        // const adminData = {
+        //     name: `${first_name} ${last_name}`,
+        //     gender: selectedRegion,
+        //     dob,
+        //     email: email_address,
+        //     address: 'no 4 odeyim street',
+        //     phone: `+234${phone_number}`,
+        //     // image: imageFile,
+        //     image: imageFile,
+        // }
 
-        console.log({ adminData })
+        // console.log({ adminData })
 
-        mutate(adminData)
+        // mutate(adminData)
     })
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
@@ -112,18 +112,15 @@ const AddAdmin = () => {
 
     const formInputs = [
         {
-            label: 'first_name',
+            label: 'security_company',
         },
         {
-            label: 'last_name',
+            name: 'email_address',
+            label: 'email',
+            type: 'email',
         },
         {
-            label: 'dob',
-            type: 'date',
-            name: 'date of birth',
-        },
-        {
-            label: 'gender',
+            label: 'state',
             type: 'select',
             selectProps: {
                 state: region,
@@ -134,11 +131,6 @@ const AddAdmin = () => {
         {
             label: 'phone_number',
             type: 'number',
-        },
-        {
-            name: 'email_address',
-            label: 'email',
-            type: 'email',
         },
     ] satisfies FormInputs[]
 
