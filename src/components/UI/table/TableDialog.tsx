@@ -4,14 +4,15 @@ import { useMutation } from 'react-query'
 import { toast } from 'react-toastify'
 
 function TableDialog() {
-    const { axiosInstance, deactivate_url, fetchedId, title, isDialogOpen } =
+    const { axiosInstance, deactivateProp, fetchedId, title, isDialogOpen } =
         useTableContext()
 
     const postDeactivate = () => {
+        const { url, tag = 'user_id' } = deactivateProp
         return axiosInstance({
-            url: deactivate_url,
+            url: url,
             method: 'post',
-            data: { user_id: fetchedId },
+            data: { tag: fetchedId },
         })
     }
 
