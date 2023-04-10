@@ -85,14 +85,13 @@ const SlicedPages: FC<SlicedPages> = ({
             <>
                 {sorted.map(({ key, value }: any, idx: number) => {
                     if (key === 'actions') {
-                            if(value === '0'){
-                                setTableActions(prev => [...prev, 'hwe'])
-                            }
+                            
                         return (
                             <TableDropDown
                                 toggleDropDown={toggleDropDown}
                                 setToggleDropDown={setToggleDropDown}
                                 id={id}
+                                status={value}
                                 key={idx}
                             />
                         )

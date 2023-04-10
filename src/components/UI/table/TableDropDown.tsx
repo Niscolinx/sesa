@@ -1,4 +1,4 @@
-import { Dispatch } from 'react'
+import { Dispatch, useEffect } from 'react'
 import { useNavigate } from 'react-router'
 import { Actions, useTableContext } from './Table'
 import { SetStateAction } from 'jotai'
@@ -8,6 +8,7 @@ interface TableDropDown {
     id: number
     toggleDropDown: ToggleDropDown
     setToggleDropDown: Dispatch<SetStateAction<ToggleDropDown>>
+    status: string
 }
 
 const TableDropDown = ({
@@ -15,8 +16,12 @@ const TableDropDown = ({
     toggleDropDown,
     setToggleDropDown,
 }: TableDropDown) => {
-    const { setFetchedId, setIsDialogOpen, tableActions, view_page_url } =
-        useTableContext()
+    const {
+        setFetchedId,
+        setIsDialogOpen,
+        tableActions,
+        view_page_url,
+    } = useTableContext()
 
     const navigate = useNavigate()
 
@@ -39,6 +44,7 @@ const TableDropDown = ({
     }
 
     
+
 
     const { isDropDownOpen, index } = toggleDropDown
 
