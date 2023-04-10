@@ -9,7 +9,7 @@ import useAxios from '../../../components/hooks/useAxios'
 const AddAdmin = () => {
     interface Inputs {
         email: string
-        security_company: string
+        name: string
         address: string
         phone_number: number
     }
@@ -55,7 +55,7 @@ const AddAdmin = () => {
 
     const postAdmin = (data: Inputs) => {
         return axiosInstance({
-            url: '/admin/create',
+            url: '/security-company/create',
             method: 'post',
             data,
 
@@ -76,19 +76,18 @@ const AddAdmin = () => {
 
     const onSubmit = handleSubmit((data) => {
         console.log({data})
-        // const {  } = data
-        // const adminData = {
-        //     name: `${first_name} ${last_name}`,
-        //     gender: selectedRegion,
-        //     dob,
-        //     email: email_address,
-        //     address: 'no 4 odeyim street',
-        //     phone: `+234${phone_number}`,
-        //     // image: imageFile,
-        //     image: imageFile,
-        // }
-        // console.log({ adminData })
-        // mutate(adminData)
+        const adminData = {
+            name: ``,
+            gender: selectedRegion,
+            dob,
+            email: email_address,
+            address: 'no 4 odeyim street',
+            phone: `+234${phone_number}`,
+            // image: imageFile,
+            image: imageFile,
+        }
+        console.log({ adminData })
+        mutate(adminData)
     })
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
@@ -107,7 +106,8 @@ const AddAdmin = () => {
 
     const formInputs = [
         {
-            label: 'security_company',
+            label: 'name',
+            name: 'Security Company'
         },
         {
             name: 'email Address',
