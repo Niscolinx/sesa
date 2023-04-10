@@ -42,16 +42,16 @@ const TableDropDown = ({
 
     if (status) {
         // actions.splice(actions.at('deactivate'), 1)
-
+        console.log('before', actions)
         const index =
             status === '0'
                 ? actions.indexOf('deactivate')
                 : actions.indexOf('activate')
 
                 console.log({index, status, actions})
-        actions.splice(0, 1)
+        const updated = actions.splice(0, 1)
 
-        console.log({actions})
+        console.log({actions, updated})
     }
     else{
         console.log('no status', {status})
