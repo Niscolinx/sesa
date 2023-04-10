@@ -11,7 +11,7 @@ const AddSecurityCompany = () => {
         email: string
         name: string
         address: string
-        phone_number: number
+        phone: number
     }
     type ResponseMessage = {
         className: string
@@ -79,6 +79,7 @@ const AddSecurityCompany = () => {
             ...data,
             image: imageFile,
         }
+
         mutate(updatedData)
     })
 
@@ -107,7 +108,8 @@ const AddSecurityCompany = () => {
             type: 'email',
         },
         {
-            label: 'phone_number',
+            label: 'phone',
+            name: 'Phone Number',
             type: 'number',
         },
         {
