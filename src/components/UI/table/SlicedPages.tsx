@@ -36,7 +36,8 @@ const SlicedPages: FC<SlicedPages> = ({
         const details: any = []
         Object.entries(user).map(([key, value]: any, idx: number) => {
             if (dataToDisplay.includes(key)) {
-                if (idx === 0) {
+                if (key === dataToDisplay[0]) {
+                    console.log({idx, key, value})
                     details.push({
                         key,
                         value: {
@@ -48,7 +49,7 @@ const SlicedPages: FC<SlicedPages> = ({
 
                 if (key === 'image') {
                     details.push({
-                        key: [dataToDisplay[0]],
+                        key: dataToDisplay[0],
                         value: {
                             name: null,
                             image: value,
@@ -73,6 +74,7 @@ const SlicedPages: FC<SlicedPages> = ({
         )
 
         return sorted?.flat().map(({ key, value }: any, idx: number) => {
+            console.log({key, value})
             if (key === 'actions') {
                 return (
                     <TableDropDown
@@ -87,7 +89,7 @@ const SlicedPages: FC<SlicedPages> = ({
                     <div className='flex items-center gap-4  '>
                         <input type='checkbox' className='cursor-pointer' />
                         <div className='flex items-center gap-2'>
-                            {key === 'image' && (
+                            
                                 <>
                                     {value && (
                                         <figure className='w-[3.5rem] h-[3.5rem]'>
@@ -99,7 +101,7 @@ const SlicedPages: FC<SlicedPages> = ({
                                         </figure>
                                     )}
                                 </>
-                            )}
+                          
                             <p className=''>{value}</p>
                         </div>
                     </div>
@@ -124,9 +126,10 @@ const SlicedPages: FC<SlicedPages> = ({
                         )}
                     </p>
                 )
-            } else {
-                return <p>{value}</p>
             }
+            //  else {
+            //     return <p>{value}</p>
+            // }
         })
     }
 
