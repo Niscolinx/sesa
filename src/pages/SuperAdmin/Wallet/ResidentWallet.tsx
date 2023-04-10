@@ -294,6 +294,8 @@ const ResidentWallet = () => {
 
     type Path = 'transaction-history' | 'resident-balance'
 
+    const paths: Path[] = ['transaction-history', 'resident-balance']
+
     // useEffect(() => {
     //     setTimeout(() => {
     //         setFetchedResidentBalance(RESIDENT_BALANCE)
@@ -301,7 +303,7 @@ const ResidentWallet = () => {
     //     }, 200)
     // }, [])
 
-    const [pathIndex, setpathIndex] = useState<Path>('resident-balance')
+    const [currentPath, setcurrentPath] = useState<Path>('resident-balance')
 
     const handlePathSwitch = new Map([
         ['transaction-history', <></>],
@@ -319,50 +321,37 @@ const ResidentWallet = () => {
                             isWalletScreen
                         />
                     </div>
-
-                    <Select
-                        label='Wallet Trend'
-                        state={trend}
-                        selectedState={selectedTrend}
-                        setSelectedState={setSelectedTrend}
-                    />
+                    <div className='w-[10rem]'>
+                        <Select
+                            label='Wallet Trend'
+                            state={trend}
+                            selectedState={selectedTrend}
+                            setSelectedState={setSelectedTrend}
+                        />
+                    </div>
                 </div>
                 <div className='grid gap-10'>
-                    <div className='estateDetail'>
-                        <div className='estateDetail__radioBox'>
-                            {}
-                            <input
-                                defaultChecked
-                                type='radio'
-                                name='resident'
-                                id='residentTransactionHistory'
-                                className='hidden'
-                                onChange={() =>
-                                    setpathIndex('resident-transaction-history')
-                                }
-                            />
-                            <label htmlFor='residentTransactionHistory'>
-                                Transaction History
-                            </label>
-
-                            <input
-                                type='radio'
-                                name='resident'
-                                id='residentBalance'
-                                className='hidden'
-                                onChange={() =>
-                                    setpathIndex('resident-balance')
-                                }
-                            />
-                            <label htmlFor='residentBalance'>
-                                Resident Balance
-                            </label>
-                        </div>
-                        <div className='mt-8 grid gap-8'>
-                            <section className='bg-color-white rounded-lg border min-w-[112rem] overflow-scroll'>
-                                {handlePathSwitch.get(pathIndex)}
-                            </section>
-                        </div>
+                    <div className='estateDetail__radioBox'>
+                        {paths.map((path) => (
+                            <>
+                                <input
+                                    type='radio'
+                                    name='resident'
+                                    id={path}
+                                    className='hidden'
+                                    onChange={() => setcurrentPath(path)}
+                                    checked={path === currentPath}
+                                />
+                                <label htmlFor={path} className='capitalize'>
+                                    {path.replace('-', ' ')}
+                                </label>
+                            </>
+                        ))}
+                    </div>
+                    <div className='mt-8 grid gap-8'>
+                        <section className='bg-color-white rounded-lg border min-w-[112rem] overflow-scroll'>
+                            {handlePathSwitch.get(currentPath)}
+                        </section>
                     </div>
                 </div>
             </div>
