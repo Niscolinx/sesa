@@ -46,8 +46,8 @@ function Admins() {
 
     const fetchAdmins = () => {
         return axiosInstance({
-            url: `admin/get/all`,
-            // url: `admin/get/all?perPage=${pageNum}`,
+          //  url: `admin/get/all`,
+         url: `admin/get/all?perPage=${pageNum}`,
         })
     }
 
