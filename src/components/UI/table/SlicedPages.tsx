@@ -87,8 +87,8 @@ const SlicedPages: FC<SlicedPages> = ({
                         let updatedActions: Actions[] = []
 
                         value === '0'
-                            ? (updatedActions = [...actions, 'deactivate'])
-                            : (updatedActions = [...actions, 'activate'])
+                            ? (updatedActions = [...actions, 'activate'])
+                            : (updatedActions = [...actions, 'deactivate'])
 
                         return (
                             <TableDropDown
