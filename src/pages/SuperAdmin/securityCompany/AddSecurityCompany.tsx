@@ -50,8 +50,6 @@ const AddAdmin = () => {
         formState: { errors: formErrors },
     } = useForm<Inputs>()
 
-    
-
     const [responseMessage, setResponseMessage] =
         useState<ResponseMessage | null>(null)
 
@@ -78,7 +76,6 @@ const AddAdmin = () => {
 
     const onSubmit = handleSubmit((data) => {
         // const {  } = data
-
         // const adminData = {
         //     name: `${first_name} ${last_name}`,
         //     gender: selectedRegion,
@@ -89,9 +86,7 @@ const AddAdmin = () => {
         //     // image: imageFile,
         //     image: imageFile,
         // }
-
         // console.log({ adminData })
-
         // mutate(adminData)
     })
 
@@ -108,7 +103,6 @@ const AddAdmin = () => {
             dialogRef.current.showModal()
         }
     }
-    
 
     const formInputs = [
         {
@@ -120,6 +114,13 @@ const AddAdmin = () => {
             type: 'email',
         },
         {
+            label: 'phone_number',
+            type: 'number',
+        },
+        {
+            label: 'address',
+        },
+        {
             label: 'state',
             type: 'select',
             selectProps: {
@@ -127,10 +128,6 @@ const AddAdmin = () => {
                 selectedState: selectedRegion,
                 setSelectedState: setSelectedRegion,
             },
-        },
-        {
-            label: 'phone_number',
-            type: 'number',
         },
     ] satisfies FormInputs[]
 
@@ -143,12 +140,7 @@ const AddAdmin = () => {
                         <p>You have successfully added a security company</p>
 
                         <div className='flex w-full justify-center gap-8'>
-                            {/* <button
-                                className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
-                                onClick={handleClose}
-                            >
-                                View details 
-                            </button>*/}
+                          
                             <button
                                 className='bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
                                 onClick={handleClose}
@@ -161,7 +153,6 @@ const AddAdmin = () => {
             </dialog>
 
             <div className='bg-white rounded-2xl grid p-8'>
-                
                 {responseMessage?.displayMessage && (
                     <p className='text-center'>
                         <span className={responseMessage?.className}>
