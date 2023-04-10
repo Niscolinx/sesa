@@ -63,7 +63,7 @@ const SlicedPages: FC<SlicedPages> = ({
             }
         })
 
-        console.log({details})
+        //console.log({details})
 
         const sorted = []
         data_to_display.map((item: string, i: number) => {
@@ -83,7 +83,7 @@ const SlicedPages: FC<SlicedPages> = ({
             value: null,
         })
 
-        console.log({sorted})
+       // console.log({sorted})
 
         return (
             <>
