@@ -26,7 +26,7 @@ const ResidentPackageList = () => {
         <div className='rounded-lg mt-[3rem] h-[80vh]'>
             <Table
                 fetch_url={'/admin/resident/user/get/package'}
-                title={'estateManager'}
+                title={'package'}
                 view_page_url={'/superAdmin/resident-user-package/view/'}
                 add_page_url={'/superAdmin/resident-user-package/add'}
                 is_add_btn={true}

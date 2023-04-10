@@ -169,6 +169,8 @@ const TableData = () => {
         ? get_data_response.data.data
         : get_data_response.data
 
+        console.log({fetched})
+
     return (
         <div>
             <div className='rounded-lg mt-[3rem] h-[80vh]'>
