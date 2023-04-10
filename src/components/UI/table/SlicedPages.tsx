@@ -47,11 +47,10 @@ const SlicedPages: FC<SlicedPages> = ({
                 }
 
                 if (key === 'image') {
-                    const firstValue = details.keys().next().value
-
-                    console.log({firstValue})
+                    const firstKey = details.keys().next().value
+                    const firstValue = details.get(firstKey)
                     details.set(firstValue, {
-                        ...firstValue,
+                        firstValue,
                         image: value,
                     })
                 } else {
@@ -64,10 +63,13 @@ const SlicedPages: FC<SlicedPages> = ({
 
         const sorted: any = dataToDisplay.map(
             (item: string, i: number) =>
-                Array.from(details).filter((detail: any) => detail.key === item && detail)
+                Array.from(details).filter((detail: any) => detail[0] === item && detail)
 
             //console.log({isFound})
         )
+
+
+        console.log({sorted})
 
         return sorted?.flat().map(({ key, value }: any, idx: number) => {
             console.log({ key, value })
