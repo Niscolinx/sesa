@@ -82,6 +82,7 @@ const TableData = () => {
             return {
                 ...prev,
                 slicedPages,
+                totalPage: Math.ceil(fetchedData?.length / perPage),
             }
         })
     }, [fetchedData])
@@ -118,7 +119,6 @@ const TableData = () => {
     }
 
     const handleNext = () => {
-        console.log('=====', paginate.currentPage, paginate.totalPage)
         if (paginate.currentPage === paginate.totalPage) return
         setPaginate((prev) => {
             return {
@@ -130,6 +130,8 @@ const TableData = () => {
     }
 
     const handlePrev = () => {
+        console.log('=====', paginate.currentPage, paginate.totalPage)
+
         if (paginate.currentPage === 1) return
         setPaginate((prev) => {
             return {
