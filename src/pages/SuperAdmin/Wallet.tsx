@@ -35,7 +35,7 @@ const Wallet = () => {
 
     const axiosInstance = useAxios()
 
-    const fetchWallets = (): Promise<ApiResponse[]> => {
+    const fetchWallets = (): Promise<ApiResponse> => {
         return axiosInstance({
             url: '/admin/get/wallet',
         })
