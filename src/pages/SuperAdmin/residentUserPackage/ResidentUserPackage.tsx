@@ -22,7 +22,7 @@ function ResidentUserPackage() {
     ]) satisfies Map<SwitchRoute, JSX.Element>
 
     return (
-        <div className='rounded-lg mt-[3rem] h-[80vh]'>
+        <div className='rounded-lg h-[80vh]'>
             <div className='estateDetail__radioBox capitalize'>
                 {resident_paths.map((eachPath, idx) => {
                     const { label, path } = eachPath
