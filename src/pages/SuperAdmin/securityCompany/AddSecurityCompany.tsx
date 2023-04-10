@@ -6,7 +6,7 @@ import Input, { SelectProps } from '../../../components/UI/input/Input'
 import ImageInput from '../../../components/UI/input/ImageInput'
 import useAxios from '../../../components/hooks/useAxios'
 
-const AddAdmin = () => {
+const AddSecurityCompany = () => {
     interface Inputs {
         email: string
         name: string
@@ -53,7 +53,7 @@ const AddAdmin = () => {
     const [responseMessage, setResponseMessage] =
         useState<ResponseMessage | null>(null)
 
-    const postAdmin = (data: Inputs) => {
+    const postRequest = (data: Inputs) => {
         return axiosInstance({
             url: '/security-company/create',
             method: 'post',
@@ -62,7 +62,7 @@ const AddAdmin = () => {
             headers: { 'Content-Type': 'multipart/form-data' },
         })
     }
-    const { mutate, isLoading } = useMutation(postAdmin, {
+    const { mutate, isLoading } = useMutation(postRequest, {
         onSuccess: () => {
             handleOpen()
         },
@@ -195,4 +195,4 @@ const AddAdmin = () => {
     )
 }
 
-export default AddAdmin
+export default AddSecurityCompany
