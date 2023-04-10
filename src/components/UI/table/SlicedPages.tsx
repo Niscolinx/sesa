@@ -42,9 +42,10 @@ const SlicedPages: FC<SlicedPages> = ({
         Object.entries(dataToLoop).map(([key, value]: any, idx: number) => {
             if (data_to_display.includes(key)) {
                 if (key === data_to_display[0]) {
+                    console.log({key})
                     details.set(key, {
                         name: value,
-                        image: null,
+                        image: 'hello world',
                     })
                 }
 
