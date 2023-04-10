@@ -40,7 +40,7 @@ const SlicedPages: FC<SlicedPages> = ({
             if (data_to_display.includes(key)) {
                 if (key === data_to_display[0]) {
                     return details.set(key, {
-                        name: value,
+                        firstValue: value,
                         image: null,
                     })
                 }
@@ -93,7 +93,6 @@ const SlicedPages: FC<SlicedPages> = ({
                         )
                     }
                     if (idx === 0) {
-                        console.log({ value }, value.image)
                         return (
                             <div className='flex items-center gap-4  '>
                                 <input
