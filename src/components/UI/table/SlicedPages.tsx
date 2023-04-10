@@ -59,34 +59,28 @@ const SlicedPages: FC<SlicedPages> = ({
             }
         })
 
-
-        const sorted = dataToDisplay.map(
-            (item: string, i: number) => {
-                 //console.log({item})
-                 if(item)
+        const sorted = dataToDisplay.map((item: string, i: number) => {
+            //console.log({item})
+            if (item)
                 for (const [key, value] of details.entries()) {
-                  //  console.log({key, value})
-                  //  console.log(`${key} => ${value}`)
+                    //  console.log({key, value})
+                    //  console.log(`${key} => ${value}`)
                     if (key === item) {
                         return {
                             key,
                             value,
                         }
                     }
-                  //  console.log('=============================')
+                    continue;
                 }
-
-            }
-           
-        )
-
+        })
 
         sorted.push({
             key: 'actions',
             value: null,
         })
 
-        // console.log({sorted})
+        console.log({ sorted })
 
         return (
             <>
@@ -128,15 +122,15 @@ const SlicedPages: FC<SlicedPages> = ({
                     //         </div>
                     //     )
                     // }
-                    if (key === 'created_at') {
-                        return (
-                            <p>
-                                {new Date(value)
-                                    .toLocaleDateString()
-                                    .replace(/\//g, '-')}
-                            </p>
-                        )
-                    }
+                    // if (key === 'created_at') {
+                    //     return (
+                    //         <p>
+                    //             {new Date(value)
+                    //                 .toLocaleDateString()
+                    //                 .replace(/\//g, '-')}
+                    //         </p>
+                    //     )
+                    // }
                     if (key === 'status') {
                         return (
                             <p>
