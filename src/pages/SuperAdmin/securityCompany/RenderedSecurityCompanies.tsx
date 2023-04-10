@@ -82,7 +82,7 @@ function RenderedSecurityCompanies() {
     const axiosInstance = useAxios()
 
     const [fetchedSecurityCompanies, setFetchedSecurityCompanies] = useState<
-        SecurityCompany[] | null
+        SecurityCompany[]
     >([])
 
     const [securityCompanyId, setSecurityCompanyId] = useState('')
@@ -97,7 +97,6 @@ function RenderedSecurityCompanies() {
 
     const fetchSecurityCompanies = () => {
         return axiosInstance({
-            // url: '/admin/get/all',
             url: '/manager/get/all',
         })
     }
@@ -110,12 +109,10 @@ function RenderedSecurityCompanies() {
             if ((data as any).success as any) {
                 closeDialog()
 
-                toast('Estate Manager deactivated successfully', {
+                toast('Security Company deactivated successfully', {
                     type: 'success',
                     className: 'bg-green-100 text-green-600 text-[1.4rem]',
                 })
-            } else {
-                console.log({ data }, 'failed')
             }
         },
     })
@@ -129,9 +126,108 @@ function RenderedSecurityCompanies() {
     useEffect(() => {
         if (get_securityCompanies_response) {
             setFetchedSecurityCompanies(SECURITYCOMPANYDATA)
-            //  setFetchedSecurityCompanies(get_securityCompanies_response.data.data)
+             setFetchedSecurityCompanies(get_securityCompanies_response.data.data)
         }
     }, [get_securityCompanies_response])
+
+
+
+
+ interface Paginate {
+     index: number
+     currentPage: number
+     itemsPerPage: number
+     totalPage: number
+     slicedPages: SecurityCompany[][] | null
+ }
+
+ const itemsPerPageArr = [2, 4, 6, 8]
+
+ const perPage = 6
+ const [paginate, setPaginate] = useState<Paginate>({
+     index: 0,
+     currentPage: 1,
+     itemsPerPage: perPage,
+
+     totalPage: Math.ceil(fetchedSecurityCompanies?.length / perPage),
+     slicedPages: null,
+ })
+
+ const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
+     const item = parseInt(e.target.value)
+
+     const slicedPages: SecurityCompany[][] = []
+     for (let i = 0; i < fetchedSecurityCompanies?.length; i += item) {
+         slicedPages.push(fetchedSecurityCompanies?.slice(i, i + item))
+     }
+
+     setPaginate((prev) => {
+         return {
+             ...prev,
+             itemsPerPage: item,
+             index: 0,
+             currentPage: 1,
+             slicedPages,
+             totalPage: Math.ceil(fetchedSecurityCompanies?.length / item),
+         }
+     })
+ }
+
+ useEffect(() => {
+     const slicedPages: SecurityCompany[][] = []
+     for (let i = 0; i < fetchedSecurityCompanies?.length; i += paginate.itemsPerPage) {
+         slicedPages.push(fetchedSecurityCompanies?.slice(i, i + paginate.itemsPerPage))
+     }
+
+     setPaginate((prev) => {
+         return {
+             ...prev,
+             slicedPages,
+         }
+     })
+ }, [fetchedSecurityCompanies])
+
+ const handleNext = () => {
+     // if (paginate.currentPage === paginate.totalPage) return
+     // setPaginate((prev) => {
+     //     return {
+     //         ...prev,
+     //         index: prev.index + 1,
+     //         currentPage: prev.currentPage + 1,
+     //     }
+     // })
+     if (!isPreviousData) {
+         setPageNum((prev) => prev + 1)
+     }
+ }
+
+ const handlePrev = () => {
+     if (pageNum === 1) return
+
+     setPageNum((prev) => prev - 1)
+     // if (paginate.currentPage === 1) return
+     // setPaginate((prev) => {
+     //     return {
+     //         ...prev,
+     //         index: prev.index - 1,
+     //         currentPage: prev.currentPage - 1,
+     //     }
+     // })
+ }
+
+ const { currentPage, slicedPages, itemsPerPage } = paginate
+
+ const jumpToPage = (e: React.MouseEvent, index: number) => {
+     setPaginate((prev) => {
+         return {
+             ...prev,
+             index,
+             currentPage: index + 1,
+         }
+     })
+ }
+
+
 
     const [toggleDropDown, setToggleDropDown] = useState<{
         isDropDownOpen: boolean
@@ -205,7 +301,7 @@ function RenderedSecurityCompanies() {
 
     return (
         <div className='w-full grid item rounded-lg'>
-             {/* {fetched.length > 0 ? (
+             {fetched.length > 0 ? (
                     <>
                         <ToastContainer />
             <div className='grid gap-10'>
@@ -500,7 +596,7 @@ function RenderedSecurityCompanies() {
                 <>
                 
                 </>
-            )} */}
+            )}
         </div>
     )
 }

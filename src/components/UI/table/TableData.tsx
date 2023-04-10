@@ -10,8 +10,6 @@ import { useTableContext } from './Table'
 import TableDropDown from './TableDropDown'
 import SlicedPages from './SlicedPages'
 
-
-
 export type ToggleDropDown = {
     isDropDownOpen: boolean
     index: number | null
@@ -169,7 +167,7 @@ const TableData = () => {
                                 <div className='flex w-full items-center gap-12 p-10 bg-white rounded-lg'>
                                     <p className=' font-Satoshi-Medium capitalize'>
                                         {title} list
-                                        <span>({fetched.length})</span>
+                                        <span> ({fetched.length})</span>
                                     </p>
                                     <div className='relative flex items-center'>
                                         <img
@@ -218,21 +216,22 @@ const TableData = () => {
                                     <div
                                         className={`grid justify-between text-color-dark-1 bg-color-grey p-8  items-center gap-8 text-[1.4rem] capitalize grid-cols-${THeader.length}`}
                                     >
-                                        {THeader.map((header:string, idx:number) =>
-                                            idx === 0 ? (
-                                                <div
-                                                    className='flex items-center gap-2'
-                                                    key={idx}
-                                                >
-                                                    <input
-                                                        type='checkbox'
-                                                        className='cursor-pointer'
-                                                    />
-                                                    <p>{header}</p>
-                                                </div>
-                                            ) : (
-                                                <p key={idx}>{header}</p>
-                                            )
+                                        {THeader.map(
+                                            (header: string, idx: number) =>
+                                                idx === 0 ? (
+                                                    <div
+                                                        className='flex items-center gap-2'
+                                                        key={idx}
+                                                    >
+                                                        <input
+                                                            type='checkbox'
+                                                            className='cursor-pointer'
+                                                        />
+                                                        <p>{header}</p>
+                                                    </div>
+                                                ) : (
+                                                    <p key={idx}>{header}</p>
+                                                )
                                         )}
                                     </div>
 
