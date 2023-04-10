@@ -114,10 +114,10 @@ const TransactionHistory = () => {
         <div className='rounded-lg mt-[3rem] h-[80vh]'>
             <Table
                 fetch_url={'/manager/get/all'}
-                title={'estateManager'}
+                title={'transactionHistory'}
                 view_page_url={'/superAdmin/estateManagers/view/'}
                 add_page_url={'/superAdmin/estateManagers/add'}
-                is_add_btn={true}
+                is_add_btn={false}
                 is_dropdown={false}
                 THeader={['resident name', 'amount', 'date']}
                 data_to_display={['resident name', 'amount', 'created_at']}
