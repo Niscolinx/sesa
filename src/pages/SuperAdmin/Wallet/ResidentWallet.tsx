@@ -12,6 +12,7 @@ import {
     RESIDENT_TRANSACTION_HISTORY,
 } from '../../EstateManager/wallet/wallets/resident/ResidentTransactions'
 import { Select } from '../../../components/SuperAdmin/UI/Select'
+import Table from '../../../components/UI/table/Table'
 
 type Trend = 'This Week' | 'This Month' | 'This Year'
 
@@ -108,6 +109,24 @@ export const TRANSACTION_HISTORY: ITransactions[] = [
     },
 ]
 
+const TransactionHistory = () => {
+    return (
+        <div className='rounded-lg mt-[3rem] h-[80vh]'>
+            <Table
+                fetch_url={'/manager/get/all'}
+                title={'estateManager'}
+                view_page_url={'/superAdmin/estateManagers/view/'}
+                add_page_url={'/superAdmin/estateManagers/add'}
+                is_add_btn={true}
+                is_dropdown={false}
+                THeader={['resident name', 'amount', 'date']}
+                data_to_display={['resident name', 'amount', 'created_at']}
+                deactivateProp={{ url: 'change/user/status' }}
+            />
+        </div>
+    )
+}
+
 const ResidentWallet = () => {
     const trend: Array<Trend> = ['This Week', 'This Month', 'This Year']
 
@@ -120,7 +139,7 @@ const ResidentWallet = () => {
     const [currentPath, setcurrentPath] = useState<Path>('resident-balance')
 
     const handlePathSwitch = new Map([
-        ['transaction-history', <></>],
+        ['transaction-history', <TransactionHistory />],
         ['resident-balance', <></>],
     ]) satisfies Map<Path, JSX.Element>
 
