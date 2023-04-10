@@ -292,9 +292,9 @@ const ResidentWallet = () => {
     //     ResidentTransactions[] | null
     // >(null)
 
-    type Path = 'transaction-history' | 'resident-balance'
+    type Path = 'resident-balance' | 'transaction-history'
 
-    const paths: Path[] = ['transaction-history', 'resident-balance']
+    const paths: Path[] = ['resident-balance', 'transaction-history']
 
     // useEffect(() => {
     //     setTimeout(() => {
