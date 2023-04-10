@@ -50,16 +50,16 @@ const SlicedPages: FC<SlicedPages> = ({
                 }
 
                 if (key === 'image') {
-                    console.log({key}, {value})
                     const firstKey = details.keys().next().value
                     const firstValue = details.get(firstKey)
                     details.set(firstKey, {
                         firstValue,
                         image: value,
                     })
-                } else {
-                    details.set(key, value)
                 }
+                //  else {
+                //     details.set(key, value)
+                // }
             }
         })
 
