@@ -32,8 +32,9 @@ interface ICreateTableContext extends Table {
     setFetchedId: Dispatch<SetStateAction<number>>
     isDialogOpen: boolean
     fetchedData: any[]
-    actions: Actions[]
     setFetchedData: Dispatch<SetStateAction<any[]>>
+    tableActions: Actions[]
+    setTableActions: Dispatch<SetStateAction<Actions[]>>
     setIsDialogOpen: Dispatch<SetStateAction<boolean>>
 }
 
@@ -48,6 +49,22 @@ export const useTableContext = () => {
 
     return context
 }
+
+//  if (status) {
+//      // actions.splice(actions.at('deactivate'), 1)
+//      console.log('before', actions)
+//      const index =
+//          status === '0'
+//              ? actions.indexOf('deactivate')
+//              : actions.indexOf('activate')
+
+//      console.log({ index, status, actions })
+//      const updated = actions.splice(0, 1)
+
+//      console.log({ actions, updated })
+//  } else {
+//      console.log('no status', { status })
+//  }
 
 const Table = ({
     fetch_url,
@@ -68,6 +85,7 @@ const Table = ({
     const [fetchedId, setFetchedId] = useState<number>(null as any)
     const [fetchedData, setFetchedData] = useState<any[]>([])
     const [isDialogOpen, setIsDialogOpen] = useState(false)
+    const [tableActions, setTableActions] = useState(actions)
 
     return (
         <CreateTableContext.Provider
@@ -81,7 +99,8 @@ const Table = ({
                 fetchedData,
                 setFetchedData,
                 isDialogOpen,
-                actions,
+                tableActions,
+                setTableActions,
                 setIsDialogOpen,
                 deactivateProp,
                 fetch_url,

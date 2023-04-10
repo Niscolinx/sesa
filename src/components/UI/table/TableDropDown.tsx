@@ -17,7 +17,7 @@ const TableDropDown = ({
     setToggleDropDown,
     status,
 }: TableDropDown) => {
-    const { setFetchedId, setIsDialogOpen, actions, view_page_url } =
+    const { setFetchedId, setIsDialogOpen, tableActions, view_page_url } =
         useTableContext()
 
     const navigate = useNavigate()
@@ -40,22 +40,7 @@ const TableDropDown = ({
         }
     }
 
-    if (status) {
-        // actions.splice(actions.at('deactivate'), 1)
-        console.log('before', actions)
-        const index =
-            status === '0'
-                ? actions.indexOf('deactivate')
-                : actions.indexOf('activate')
-
-                console.log({index, status, actions})
-        const updated = actions.splice(0, 1)
-
-        console.log({actions, updated})
-    }
-    else{
-        console.log('no status', {status})
-    }
+    
 
     const { isDropDownOpen, index } = toggleDropDown
 
@@ -90,7 +75,7 @@ const TableDropDown = ({
 
             {isDropDownOpen && index === id && (
                 <div className='absolute top-0 translate-x-[4rem] border border-color-primary-light w-[10rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
-                    {actions.map((item, i) => (
+                    {tableActions.map((item, i) => (
                         <p
                             className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
                             key={i}
