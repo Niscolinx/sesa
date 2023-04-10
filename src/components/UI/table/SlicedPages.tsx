@@ -40,7 +40,7 @@ const SlicedPages: FC<SlicedPages> = ({
             if (data_to_display.includes(key)) {
                 if (key === data_to_display[0]) {
                     return details.set(key, {
-                        firstValue: value,
+                        name: value,
                         image: null,
                     })
                 }
@@ -50,7 +50,7 @@ const SlicedPages: FC<SlicedPages> = ({
                     const firstValue = details.get(firstKey)
 
                     return details.set(firstKey, {
-                        firstValue,
+                        name: firstValue,
                         image: value,
                     })
                 } else {
@@ -109,7 +109,7 @@ const SlicedPages: FC<SlicedPages> = ({
                                         </figure>
                                     )}
 
-                                    <p className=''>{value.firstValue}</p>
+                                    <p className=''>{value.name}</p>
                                 </div>
                             </div>
                         )
