@@ -407,7 +407,9 @@ const AddArtisan = () => {
                                 </p>
 
                                 <button className='btn bg-[#0556E5] text-white rounded-lg py-4 place-self-start w-[15rem]'>
-                                    Validate
+                                    {
+                                        validationType_isloading ? 'Loading...' : 'Validate'
+                                    }
                                 </button>
                             </form>
                         ) : (
