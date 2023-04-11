@@ -86,13 +86,14 @@ const AddArtisan = () => {
 
     const { data: states_data } = useFetchData({})
 
-    console.log({ states_data })
-
     useEffect(() => {
-        if (states_data?.length > 0) {
-            setRegions(states_data.name)
+        console.log({ states_data })
+        if (states_data) {
+            setRegions(states_data)
         }
     }, [states_data])
+
+    console.log({regions})
 
     const postRequest = (data: Inputs) => {
         return axiosInstance({
