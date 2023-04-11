@@ -120,7 +120,9 @@ const AddArtisan = () => {
         },
     }) as any
 
-    const onSubmitValidation = validation_handleSubmit((data) => {})
+    const onSubmitValidation = validation_handleSubmit((data) => {
+        validationType_mutation(data)
+    })
 
     const onSubmit = handleSubmit((data) => {
         let isError = false
