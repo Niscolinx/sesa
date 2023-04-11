@@ -85,7 +85,7 @@ const Login = () => {
 
         email = email.toLowerCase().trim()
 
-        if (email === 'superadmin@gmail.com') {
+        if (email === 'superadmin@admin.com') {
             //  navigate('/superAdmin')
             return mutate(data)
         }
