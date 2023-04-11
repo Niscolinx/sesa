@@ -29,7 +29,7 @@ function Admins() {
     const [pageNum, setPageNum] = useState(1)
 
     const [fetchedAdmins, setFetchedAdmins] = useState<IAdmin[]>([])
-    const [sortBy, setSortBy] = useState<string | null>(null)
+    const [sortBy, setSortBy] = useState<string>('')
     const [adminId, setAdminId] = useState('')
 
     const handleAddAdmin = () => {
@@ -46,8 +46,8 @@ function Admins() {
 
     const fetchAdmins = () => {
         return axiosInstance({
-          //  url: `admin/get/all`,
-         url: `admin/get/all?perPage=${pageNum}`,
+            //  url: `admin/get/all`,
+            url: `admin/get/all?perPage=${pageNum}`,
         })
     }
 
@@ -237,7 +237,7 @@ function Admins() {
 
     const fetched = get_admins_response?.data.data
 
-    console.log({toggleDropDown})
+    console.log({ toggleDropDown })
 
     return (
         <div>

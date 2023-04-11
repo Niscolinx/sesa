@@ -34,7 +34,7 @@ export const ResidentCode = () => {
                 htmlFor='residentCode'
                 className='text-[1.4rem] font-Satoshi-Medium'
             >
-               ResidentCode
+                ResidentCode
             </label>
 
             <div className='flex text-[1.6rem] gap-4 h-[5rem]'>
@@ -181,7 +181,7 @@ export const International_PassPort = () => {
     )
 }
 export const Voters_Card = () => {
-    const [selectedState, setSelectedState] = useState<string | null>(null)
+    const [selectedState, setSelectedState] = useState<string>('')
 
     return (
         <div className='grid gap-4'>

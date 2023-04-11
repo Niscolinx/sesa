@@ -7,8 +7,8 @@ import { useCreateElectionContext } from '../createElection'
 function Second() {
     const { electionCategory, candidate_details, setCandidate_details } =
         useCreateElectionContext()
-    const [candidate, setCandidate] = useState<string | null>(null)
-    const [category, setCategory] = useState<string | null>(null)
+    const [candidate, setCandidate] = useState<string>('')
+    const [category, setCategory] = useState<string>('')
     const [name, setName] = useState('Aliba Desmond')
     const [gender, setGender] = useState('Male')
     const [manifesto, setManifesto] = useState('')

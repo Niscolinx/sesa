@@ -97,7 +97,7 @@ function RenderedEstates() {
     const dispatch = useAppDispatch()
 
     const [fetchedEstates, setFetchedEstates] = useState<Estate[]>(ESTATEDATA)
-    const [sortBy, setSortBy] = useState<string | null>(null)
+    const [sortBy, setSortBy] = useState<string>('')
 
     const handleAddEstate = () => {
         navigate('/superAdmin/estates/add')

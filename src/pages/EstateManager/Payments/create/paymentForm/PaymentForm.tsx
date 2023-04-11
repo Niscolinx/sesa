@@ -28,7 +28,7 @@ function PaymentForm({ props }: PaymentForm) {
     const [paymentPlan, setPaymentPlan] = useState<string | null | PaymentPlan>(
         null
     )
-    const [trackPayment, setTrackPayment] = useState<string | null>(null)
+    const [trackPayment, setTrackPayment] = useState<string>('')
     const [amount, setAmount] = useState('')
     const [balanceAmount, setBalanceAmount] = useState(Number(amount))
     const [installmentField, setInstallmentField] = useState<
@@ -253,9 +253,6 @@ function PaymentForm({ props }: PaymentForm) {
                 : 0
 
         const balance = parseInt(amount.split(',').join('')) - reducedAmount
-
-
-     
 
         setBalanceAmount(balance)
     }, [installmentField, amount])

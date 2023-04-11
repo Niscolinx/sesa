@@ -26,7 +26,7 @@ const ResidentPackageList: FC<ResponseData> = ({ fetched }) => {
     const navigate = useNavigate()
     const axiosInstance = useAxios()
 
-    const [sortBy, setSortBy] = useState<string | null>(null)
+    const [sortBy, setSortBy] = useState<string>('')
     const [packageId, setPackageId] = useState('')
 
     const postDeactivate = () => {

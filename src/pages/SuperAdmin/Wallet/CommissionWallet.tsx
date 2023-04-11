@@ -111,7 +111,7 @@ const CommissionWallet = () => {
 
     const [togglCommissionMenu, setTogglCommissionMenu] = useState(false)
     const [selectedTrend, setSelectedTrend] = useState<Trend>('This Week')
-    const [sendTo, setSendTo] = useState<string | null>(null)
+    const [sendTo, setSendTo] = useState<string>('')
     const [sendToMenu, setSendToMenu] = useState(false)
 
     const menuToggler = () => setTogglCommissionMenu(!togglCommissionMenu)

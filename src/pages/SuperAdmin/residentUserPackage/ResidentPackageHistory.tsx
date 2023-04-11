@@ -43,7 +43,7 @@ const ResidentPackageHistory = () => {
     const navigate = useNavigate()
     const axiosInstance = useAxios()
 
-    const [sortBy, setSortBy] = useState<string | null>(null)
+    const [sortBy, setSortBy] = useState<string>('')
 
     const [fetchedPackages, setFetchedPackages] = useState<
         ResidentPackageHistory[]

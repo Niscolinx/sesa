@@ -21,12 +21,12 @@ export type ValidateInputTypes =
     | 'Voters Card'
 
 const ViewGuard = () => {
-    const [selectedEstate1, setSelectedEstate1] = useState<string | null>(null)
-    const [selectedEstate2, setSelectedEstate2] = useState<string | null>(null)
-    const [selectedEstate3, setSelectedEstate3] = useState<string | null>(null)
-    const [selectedEstate4, setSelectedEstate4] = useState<string | null>(null)
-    const [selectedState, setSelectedState] = useState<string | null>(null)
-    const [selectedGender, setSelectedGender] = useState<string | null>(null)
+    const [selectedEstate1, setSelectedEstate1] = useState<string>('')
+    const [selectedEstate2, setSelectedEstate2] = useState<string>('')
+    const [selectedEstate3, setSelectedEstate3] = useState<string>('')
+    const [selectedEstate4, setSelectedEstate4] = useState<string>('')
+    const [selectedState, setSelectedState] = useState<string>('')
+    const [selectedGender, setSelectedGender] = useState<string>('')
     const [isAccountCreated, setIsAccountCreated] = useState(true)
     const [isValidated, setIsValidated] = useState(false)
 

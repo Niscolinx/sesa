@@ -60,7 +60,7 @@ const AddEstateStaff = () => {
     const [selectedGender, setSelectedGender] = useState<string>('')
     const [dialogState, setDialogState] = useState<DialogType>('validate')
     const [validationType, setValidationType] = useState<
-        ValidateInputTypes | string | null
+        ValidateInputTypes | string
     >('Phone Number')
 
     const [selectedBank, setSelectedBank] = useState<null | string>(null)
