@@ -22,7 +22,7 @@ export type ValidateInputTypes =
     | 'International Passport'
 
 const EditResident = () => {
-    const [selectedGender, setSelectedGender] = useState<string | null>(null)
+    const [selectedGender, setSelectedGender] = useState<string>('')
     const [isValidated, setIsValidated] = useState(false)
 
     const [dialogState, setDialogState] = useState<DialogType>('validate')

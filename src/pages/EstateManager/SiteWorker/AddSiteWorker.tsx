@@ -54,11 +54,11 @@ const AddSiteWorker = () => {
     const [workDays, setWorkDays] = useState<string[]>([])
     const [isValidated, setIsValidated] = useState(false)
     const [iskysw, setIskysw] = useState(false)
-    const [propertyCode, setPropertyCode] = useState<string | null>(null)
+    const [propertyCode, setPropertyCode] = useState<string>('')
 
     const toggleIskysw = () => setIskysw(!iskysw)
-    const [selectedState, setSelectedState] = useState<string | null>(null)
-    const [selectedGender, setSelectedGender] = useState<string | null>(null)
+    const [selectedState, setSelectedState] = useState<string>('')
+    const [selectedGender, setSelectedGender] = useState<string>('')
     const [dialogState, setDialogState] = useState<DialogType>('validate')
     const [validationType, setValidationType] = useState<
         ValidateInputTypes | string | null

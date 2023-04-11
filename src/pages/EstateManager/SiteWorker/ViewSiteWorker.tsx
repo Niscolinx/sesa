@@ -40,8 +40,8 @@ const ViewSiteWorker = () => {
     const [workDays, setWorkDays] = useState<string[]>([])
     const [isValidated, setIsValidated] = useState(true)
     const [isAccountCreated, setIsAccountCreated] = useState(false)
-    const [selectedState, setSelectedState] = useState<string | null>(null)
-    const [selectedGender, setSelectedGender] = useState<string | null>(null)
+    const [selectedState, setSelectedState] = useState<string>('')
+    const [selectedGender, setSelectedGender] = useState<string>('')
     const [bankDialogState, setBankDialogState] =
         useState<BankDialog>('openBank')
 

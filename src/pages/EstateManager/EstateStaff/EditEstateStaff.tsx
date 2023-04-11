@@ -15,8 +15,8 @@ const EditEstateStaff = () => {
     const [workDays, setWorkDays] = useState<string[]>([])
     const [isValidated, setIsValidated] = useState(true)
 
-    const [selectedState, setSelectedState] = useState<string | null>(null)
-    const [selectedGender, setSelectedGender] = useState<string | null>(null)
+    const [selectedState, setSelectedState] = useState<string>('')
+    const [selectedGender, setSelectedGender] = useState<string>('')
 
     const [photoUrl, setPhotoUrl] = useState('')
 

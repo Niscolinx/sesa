@@ -52,8 +52,8 @@ const AddSecurityGuard = () => {
     const [iskys, setIskys] = useState(false)
 
     const toggleIskys = () => setIskys(!iskys)
-    const [selectedState, setSelectedState] = useState<string | null>(null)
-    const [selectedGender, setSelectedGender] = useState<string | null>(null)
+    const [selectedState, setSelectedState] = useState<string>('')
+    const [selectedGender, setSelectedGender] = useState<string>('')
     const [dialogState, setDialogState] = useState<DialogType>('validate')
     const [validationType, setValidationType] = useState<
         ValidateInputTypes | string | null

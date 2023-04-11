@@ -36,7 +36,7 @@ export type Actions = 'View Details' | 'Edit Details' | 'Delete'
 
 function HouseHold() {
     const [isHousehold, setIsHousehold] = useState(false)
-    const [propertyCode, setPropertyCode] = useState<string | null>(null)
+    const [propertyCode, setPropertyCode] = useState<string>('')
     const addhousehold = () => {
         setIsHousehold(true)
     }

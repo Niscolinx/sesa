@@ -4,11 +4,10 @@ import { Select } from '../../../../components/SuperAdmin/UI/Select'
 import StarRating from '../../../../components/SuperAdmin/UI/StarRating'
 import { getPhotoUrl } from '../../../../utils/getPhotoUrl'
 
-
 type Actions = 'Deactivate' | 'Delete'
 
 const ArtisanDetail = () => {
-    const [selectedGender, setSelectedGender] = useState<string | null>(null)
+    const [selectedGender, setSelectedGender] = useState<string>('')
     const [dialogType, setDialogType] = useState<Actions>('Deactivate')
 
     const [photoUrl, setPhotoUrl] = useState('')

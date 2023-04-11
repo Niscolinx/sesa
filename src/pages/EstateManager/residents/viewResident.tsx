@@ -17,7 +17,7 @@ export type ValidateInputTypes =
     | 'Voters Card'
 
 const ViewResident = () => {
-    const [selectedGender, setSelectedGender] = useState<string | null>(null)
+    const [selectedGender, setSelectedGender] = useState<string>('')
     const [isValidated, setIsValidated] = useState(false)
 
     const [photoUrl, setPhotoUrl] = useState('')
