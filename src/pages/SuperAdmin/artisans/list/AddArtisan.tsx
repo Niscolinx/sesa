@@ -212,11 +212,10 @@ const AddArtisan = () => {
 
     const formInputs = [
         {
-            label: 'first_name',
+            name: 'First Name',
+            label: 'firstname',
         },
-        {
-            label: 'last_name',
-        },
+        { name: 'Last Name', label: 'lastname' },
         {
             label: 'Gender',
             type: 'select',
