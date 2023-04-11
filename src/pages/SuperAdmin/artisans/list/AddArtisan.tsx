@@ -272,20 +272,33 @@ const AddArtisan = () => {
     const { data: states_data, isLoading: states_loading } = useFetchData({})
 
     useEffect(() => {
-        if (states_data) {
-            console.log({ states_data })
-            // console.log(states_data.name)
-            setRegions(['3'])
+        // if (states_data) {
+        //     console.log({ states_data })
+        //     const stateIndex = formInputs.findIndex(
+        //         (input) => input.label === 'State'
+        //     )
 
-            const cp = [...formInputs]
+        //     // console.log(states_data.name)
+        //    const updatedFormInputs:any = [...formInputs]
+        //    updatedFormInputs[stateIndex] = {
+        //        ...updatedFormInputs[stateIndex],
+        //        selectProps: {
+        //            state: states_data,
+        //            selectedState: selectedRegions,
+        //            setSelectedState: setSelectedRegions,
+        //        },
+        //    }
 
-            const find  = cp.filter((item) => item.label === 'State').flat(1)
+        //    // Set the state of formInputs to the updated array
+        //    setFormInputs(updatedFormInputs)
+        // }
 
-            
+        setRegions(['2'])
+    }, [])
 
-            console.log({cp, find})
-        }
-    }, [states_data])
+   useEffect(() => {
+    console.log({regions})
+   }, [regions])
 
 
     const validationResult = [
