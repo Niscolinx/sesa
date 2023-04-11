@@ -85,7 +85,7 @@ const AddArtisan = () => {
 
     const postRequest = (data: Inputs) => {
         return axiosInstance({
-            url: '/advert/create',
+            url: '/admin/artisan',
             method: 'post',
             data,
 
@@ -93,6 +93,24 @@ const AddArtisan = () => {
         })
     }
     const { mutate, isLoading } = useMutation(postRequest, {
+        onError: (err: any) => {
+            setResponseMessage({
+                className: 'text-red-600',
+                displayMessage: err?.response.data.message,
+            })
+        },
+    }) as any
+
+
+    const postValidationType = (data: Inputs) => {
+        return axiosInstance({
+            url: '/admin/artisan',
+            method: 'post',
+            data,
+
+        })
+    }
+    const { mutate: validationType_mutation, isLoading: validationType_isloading } = useMutation(postValidationType, {
         onError: (err: any) => {
             setResponseMessage({
                 className: 'text-red-600',
@@ -142,13 +160,13 @@ const AddArtisan = () => {
         setSelectFormErrors(null)
         openValidateDialog()
 
-        // const updatedData = {
-        //     ...data,
-        //     estate_id: 4,
-        //     image: imageFile,
-        // }
+        const updatedData = {
+            ...data,
+            estate_id: 4,
+            image: imageFile,
+        }
 
-        // mutate(updatedData)
+        mutate(updatedData)
     })
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
@@ -362,10 +380,11 @@ const AddArtisan = () => {
 
                                 {validationInput
                                     .filter(
-                                        ({ name }) => name.toLowerCase() === validationType.toLowerCase()
+                                        ({ name }) =>
+                                            name.toLowerCase() ===
+                                            validationType.toLowerCase()
                                     )
                                     .map(({ label, type }) => {
-
                                         return (
                                             <Input
                                                 label={label}
