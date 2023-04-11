@@ -47,7 +47,6 @@ const AddArtisan = () => {
     const categories = ['Category1', 'Category2', 'Category3']
     const gender = ['Male', 'Female']
 
-    const [regions, setRegions] = useState<string[]>(['2', '4'])
     const [isAddArtisan, setIsAddArtisan] = useState(true)
     const [validationType, setValidationType] = useState<string>('Phone Number')
     const [selectFormErrors, setSelectFormErrors] = useState<{
@@ -59,6 +58,8 @@ const AddArtisan = () => {
     const [selectedGender, setSelectedGender] = useState<string>('')
     const [selectedCategories, setSelectedCategories] = useState<string[]>([])
     const [selectedRegions, setSelectedRegions] = useState<string[]>([])
+
+    const { data: states_data, isLoading: states_loading } = useFetchData({})
 
     const handlePicture = (e: React.ChangeEvent) => {
         const target = e.target as HTMLInputElement
@@ -245,8 +246,6 @@ const AddArtisan = () => {
             label: 'name',
         },
     ] satisfies FormInputs[]
-
-    const { data: states_data, isLoading: states_loading } = useFetchData({})
 
     if (states_loading) {
         return <p>Loading...</p>
