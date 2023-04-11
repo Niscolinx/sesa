@@ -9,7 +9,7 @@ import useAxios from '../../../components/hooks/useAxios'
 const AddAdvert = () => {
     interface Inputs {
         url: string
-        name: string
+        advert_name: string
         start_date: string
         end_date: string
     }
@@ -53,7 +53,7 @@ const AddAdvert = () => {
 
     const postRequest = (data: Inputs) => {
         return axiosInstance({
-            url: '/security-company/create',
+            url: '/advert/create',
             method: 'post',
             data,
 
@@ -97,8 +97,7 @@ const AddAdvert = () => {
 
     const formInputs = [
         {
-            label: 'name',
-            name: 'Advert Name',
+            label: 'advert_name',
         },
         {
             label: 'Estates',
