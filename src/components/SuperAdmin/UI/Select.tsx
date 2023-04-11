@@ -143,11 +143,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                         )}
                     </p>
                 )}
-                {label && selectFormErrors && selectFormErrors[label] && (
-                    <p className='text-[1.2rem] text-red-500'>
-                        {selectFormErrors[label]}
-                    </p>
-                )}
+
                 {toggleStateMenu ? (
                     <GrUp className='absolute right-4' />
                 ) : (
@@ -191,6 +187,11 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                     </div>
                 )}
             </div>
+            {label && selectFormErrors && selectFormErrors[label] && (
+                <p className='text-[1.2rem] text-red-500'>
+                    {selectFormErrors[label]}
+                </p>
+            )}
         </div>
     )
 }

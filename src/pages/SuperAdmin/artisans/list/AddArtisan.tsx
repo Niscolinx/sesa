@@ -117,15 +117,15 @@ const AddArtisan = () => {
         })
       }
 
-      console.log(isEmpty)
+     
         
-        setSelectFormErrors((prev) => {
-            return {
-                ...prev,
-                'Artisan Categories': 'Field cannot be empty',
-            }
-        })
-        console.log('submit', selectFormErrors)
+       console.log({selectFormErrors})
+       if(selectFormErrors){
+        console.log("errorr ==========")
+       }
+       else{
+        console.log('no errorrrr')
+       }
 
         const updatedData = {
             ...data,
