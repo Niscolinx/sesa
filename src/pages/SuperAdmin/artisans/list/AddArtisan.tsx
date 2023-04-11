@@ -15,6 +15,11 @@ const AddArtisan = () => {
     interface Inputs {
         first_name: string
         last_name: string
+        phone_number: string
+        email_address: string
+        address_line_1: string
+        address_line_2: string
+        business_name: string
     }
     type ResponseMessage = {
         className: string
@@ -365,6 +370,13 @@ const AddArtisan = () => {
                         </p>
                     </div>
                 </div>
+                {responseMessage?.displayMessage && (
+                    <p className='text-center my-5'>
+                        <span className={responseMessage?.className}>
+                            {responseMessage?.displayMessage}
+                        </span>
+                    </p>
+                )}
                 <form
                     onSubmit={onSubmit}
                     id='formFile'
