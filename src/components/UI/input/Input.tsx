@@ -1,6 +1,7 @@
 import { FC, SetStateAction, useEffect, useState } from 'react'
 import { FieldValues, UseFormRegister } from 'react-hook-form'
 import { MultipleSelect, Select } from '../../SuperAdmin/UI/Select'
+import useFetchData from '../../../utils/useFetchData'
 
 export interface SelectProps {
     isMulti?: boolean
@@ -52,7 +53,6 @@ const Input: FC<Partial<Input> & { label: string }> = ({
     }
 
     
-   
 
     return (
         <div

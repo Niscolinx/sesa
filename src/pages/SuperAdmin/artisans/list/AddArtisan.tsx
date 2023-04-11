@@ -47,7 +47,7 @@ const AddArtisan = () => {
     const categories = ['Category1', 'Category2', 'Category3']
     const gender = ['Male', 'Female']
 
-    const [regions, setRegions] = useState([])
+    const [regions, setRegions] = useState<string[]>([])
     const [isAddArtisan, setIsAddArtisan] = useState(true)
     const [validationType, setValidationType] = useState<string>('Phone Number')
     const [selectFormErrors, setSelectFormErrors] = useState<{
@@ -211,13 +211,15 @@ const AddArtisan = () => {
         }
     }
 
-
     const { data: states_data, isLoading: states_loading } = useFetchData({})
 
-   if(states_loading){
-    return <p>Loading...</p>
-   }
-
+    useEffect(() => {
+        if (states_data) {
+            console.log({states_data})
+            // console.log(states_data.name)
+            setRegions(['3'])
+        }
+    }, [states_data])
 
     const formInputs = [
         {
@@ -307,8 +309,6 @@ const AddArtisan = () => {
             label: 'name',
         },
     ] satisfies FormInputs[]
-
-    
 
     return (
         <>
@@ -486,19 +486,23 @@ const AddArtisan = () => {
                     <>
                         {formInputs.map((input, idx) => {
                             const { label, type, selectProps, required } = input
-                            return (
-                                <Input
-                                    key={idx + label}
-                                    label={label}
-                                    register={register}
-                                    formErrors={formErrors}
-                                    selectFormErrors={selectFormErrors}
-                                    type={type}
-                                    required={required}
-                                    isSelect={type === 'select'}
-                                    select={selectProps}
-                                />
-                            )
+
+                            if (states_data) {
+                                // console.log(selectProps)
+                                return (
+                                    <Input
+                                        key={idx + label}
+                                        label={label}
+                                        register={register}
+                                        formErrors={formErrors}
+                                        selectFormErrors={selectFormErrors}
+                                        type={type}
+                                        required={required}
+                                        isSelect={type === 'select'}
+                                        select={selectProps}
+                                    />
+                                )
+                            }
                         })}
 
                         <ImageInput
