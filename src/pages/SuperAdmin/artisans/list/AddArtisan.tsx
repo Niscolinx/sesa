@@ -40,15 +40,15 @@ const AddArtisan = () => {
     const region = ['Lagos', 'FCT']
     const gender = ['Male', 'Female']
 
-    const [selectedGender, setSelectedGender] = useState<string>('')
     const [isAddArtisan, setIsAddArtisan] = useState(true)
     const [validationType, setValidationType] = useState<string>('Phone Number')
     const [selectFormErrors, setSelectFormErrors] = useState<{
         [key: string]: string
     } | null>(null)
-
+    
     const [photoPreview, setPhotoPreview] = useState('')
     const [imageFile, setImageFile] = useState<File | null>(null)
+    const [selectedGender, setSelectedGender] = useState<string>('')
     const [selectedCategories, setSelectedCategories] = useState<string[]>([])
     const [selectedRegions, setSelectedRegions] = useState<string[]>([])
 
