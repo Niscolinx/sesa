@@ -1,6 +1,5 @@
 import React, { FormEvent, useRef, useState } from 'react'
 import { IoMdAdd, IoMdClose } from 'react-icons/io'
-import { getPhotoUrl } from '../../../../utils/getPhotoUrl'
 import { BsQuestionCircle } from 'react-icons/bs'
 import { ToastContainer } from 'react-toastify'
 import { Select } from '../../../../components/SuperAdmin/UI/Select'
@@ -14,10 +13,8 @@ type DialogType = 'validate' | 'add-Artisan'
 
 const AddArtisan = () => {
     interface Inputs {
-        url: string
-        advert_name: string
-        start_date: string
-        end_date: string
+        first_name: string
+        last_name: string
     }
     type ResponseMessage = {
         className: string
