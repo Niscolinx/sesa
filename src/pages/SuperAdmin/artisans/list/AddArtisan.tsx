@@ -153,7 +153,6 @@ const AddArtisan = () => {
             type: 'select',
             selectProps: {
                 state: gender,
-                selectFormErrors,
                 selectedState: selectedGender,
                 setSelectedState: setSelectedGender,
             },
@@ -177,7 +176,6 @@ const AddArtisan = () => {
             type: 'select',
             selectProps: {
                 state: region,
-                selectFormErrors,
                 selectedState: selectedRegions,
                 setSelectedState: setSelectedRegions,
             },
@@ -188,7 +186,6 @@ const AddArtisan = () => {
             selectProps: {
                 isMulti: true,
                 state: categories,
-                selectFormErrors,
                 selectedState: selectedCategories,
                 setSelectedState: setSelectedCategories,
             },
