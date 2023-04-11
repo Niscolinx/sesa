@@ -84,14 +84,21 @@ const AddArtisan = () => {
     const [responseMessage, setResponseMessage] =
         useState<ResponseMessage | null>(null)
 
-    useEffect(() => {
+
         const { data: states_data } = useFetchData({})
 
         console.log({ states_data })
 
-        if(states_data.length > 0){
-            setRegions(states_data)
+        if (states_data?.length > 0) {
+            setRegions(states_data.name)
         }
+
+    useEffect(() => {
+        const fetch = async() => {
+            
+        }
+
+        fetch()
     }, [])
 
     const postRequest = (data: Inputs) => {
