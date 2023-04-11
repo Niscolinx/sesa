@@ -133,7 +133,7 @@ const AddArtisan = () => {
 
     const {
         data: states_data
-    } = useFetchData()
+    } = useFetchData({})
 
 
     console.log({states_data})

@@ -3,9 +3,9 @@ import { useQuery } from 'react-query'
 import useAxios from '../components/hooks/useAxios'
 
 interface FetchData {
-    url?: string
-    name?: string
-    params?: string
+    url: string
+    name: string
+    params: string
 }
 
 const useFetchData = ({ url = '/states/get', params, name = 'states' }: Partial<FetchData>) => {
@@ -19,10 +19,14 @@ const useFetchData = ({ url = '/states/get', params, name = 'states' }: Partial<
 
     const { isLoading, data, error, refetch } = useQuery(
         [name, queryParams],
-        fetchData
+        fetchData,
+        {
+            refetchOnMount: false,
+            refetchOnWindowFocus: false
+        }
     )
 
-    const updateQueryParams = (newParams: string) => {
+    const updateQueryParams = (newParams?: string) => {
         setQueryParams(newParams)
     }
 
