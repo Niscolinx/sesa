@@ -31,7 +31,7 @@ const AddAdvert = () => {
 
     const [photoPreview, setPhotoPreview] = useState('')
     const [imageFile, setImageFile] = useState<File | null>(null)
-    const [selectedEstates, setSelectedEstates] = useState<string>(estates[0])
+    const [selectedEstates, setSelectedEstates] = useState<string[]>([])
 
     const handlePicture = (e: React.ChangeEvent) => {
         const target = e.target as HTMLInputElement
@@ -101,7 +101,7 @@ const AddAdvert = () => {
             name: 'Advert Name',
         },
         {
-            label: 'state',
+            label: 'Estates',
             type: 'select',
             selectProps: {
                 isMulti: true,
@@ -120,9 +120,8 @@ const AddAdvert = () => {
         },
         {
             label: 'url',
-            name: 'URL'
-        }
-        
+            name: 'URL',
+        },
     ] satisfies FormInputs[]
 
     return (
