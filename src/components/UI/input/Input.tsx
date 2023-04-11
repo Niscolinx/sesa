@@ -5,7 +5,6 @@ import { MultipleSelect, Select } from '../../SuperAdmin/UI/Select'
 export interface SelectProps {
     isMulti?: boolean
     state: string[]
-    selectFormErrors: Record<string, string> | null
     selectedState: string | string[]
     setSelectedState:
         | React.Dispatch<React.SetStateAction<string>>
@@ -23,6 +22,8 @@ interface Input {
     minLength?: number
     fullWidth: boolean
     isSelect: boolean
+    selectFormErrors: Record<string, string> | null
+
     select: SelectProps
 }
 
@@ -35,6 +36,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
     fullWidth,
     disabled,
     select,
+    selectFormErrors,
     required = true,
     formErrors,
     value,
@@ -60,7 +62,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                     {select.isMulti && Array.isArray(select.selectedState) ? (
                         <MultipleSelect
                             label={name ?? label.replaceAll('_', ' ')}
-                            selectFormErrors={select.selectFormErrors}
+                            selectFormErrors={selectFormErrors}
                             selected={select.selectedState}
                         
                             selectFrom={select.state}
@@ -74,7 +76,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                         <Select
                             label={name ?? label.replaceAll('_', ' ')}
                             state={select.state}
-                            selectFormErrors={select.selectFormErrors}
+                            selectFormErrors={selectFormErrors}
                             selectedState={select.selectedState as string}
                             setSelectedState={
                                 select.setSelectedState as React.Dispatch<
