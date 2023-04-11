@@ -44,7 +44,6 @@ const AddArtisan = () => {
 
     const axiosInstance = useAxios()
 
-    const categories = ['Category1', 'Category2', 'Category3']
     const gender = ['Male', 'Female']
 
     const [isAddArtisan, setIsAddArtisan] = useState(true)
