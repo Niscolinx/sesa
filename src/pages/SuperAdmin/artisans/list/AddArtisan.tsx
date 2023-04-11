@@ -214,7 +214,9 @@ const AddArtisan = () => {
 
     const { data: states_data, isLoading: states_loading } = useFetchData({})
 
-   
+   if(states_loading){
+    return <p>Loading...</p>
+   }
 
 
     const formInputs = [
@@ -250,7 +252,7 @@ const AddArtisan = () => {
             label: 'State',
             type: 'select',
             selectProps: {
-                state: states_data,
+                state: regions,
                 selectedState: selectedRegions,
                 setSelectedState: setSelectedRegions,
             },
