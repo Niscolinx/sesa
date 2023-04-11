@@ -3,6 +3,7 @@ import { FieldValues, UseFormRegister } from 'react-hook-form'
 import { MultipleSelect, Select } from '../../SuperAdmin/UI/Select'
 
 export interface SelectProps {
+    isMulti?:boolean
     state: string[]
     selectedState: string | string[]
     setSelectedState:
@@ -18,7 +19,6 @@ interface Input {
     value?: any
     options: any
     minLength?: number
-    multiSelect?: boolean
     fullWidth: boolean
     isSelect: boolean
     select: SelectProps
@@ -35,7 +35,6 @@ const Input: FC<Partial<Input> & { label: string }> = ({
     select,
     formErrors,
     value,
-    multiSelect = false,
     minLength = 3,
 }) => {
     const validationOptions = {
@@ -55,7 +54,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
         >
             {isSelect && select ? (
                 <>
-                    {multiSelect && Array.isArray(select.selectedState) ? (
+                    {select.isMulti && Array.isArray(select.selectedState) ? (
                         <MultipleSelect
                             label={name ?? label.replaceAll('_', ' ')}
                             selected={select.selectedState}

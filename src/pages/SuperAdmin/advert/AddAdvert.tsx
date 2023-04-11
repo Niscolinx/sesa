@@ -12,7 +12,6 @@ const AddAdvert = () => {
         name: string
         start_date: string
         end_date: string
-        phone: number
     }
     type ResponseMessage = {
         className: string
@@ -28,13 +27,11 @@ const AddAdvert = () => {
 
     const axiosInstance = useAxios()
 
-    const region = ['Lagos', 'Abuja']
+    const estates = ['Estate1', 'Estate2', 'Estate3']
 
     const [photoPreview, setPhotoPreview] = useState('')
     const [imageFile, setImageFile] = useState<File | null>(null)
-    const [selectedRegion, setSelectedRegion] = useState<string>(
-        region[0]
-    )
+    const [selectedEstates, setSelectedEstates] = useState<string>(estates[0])
 
     const handlePicture = (e: React.ChangeEvent) => {
         const target = e.target as HTMLInputElement
@@ -107,19 +104,25 @@ const AddAdvert = () => {
             label: 'state',
             type: 'select',
             selectProps: {
-                state: region,
-                selectedState: selectedRegion,
-                setSelectedState: setSelectedRegion,
+                isMulti: true,
+                state: estates,
+                selectedState: selectedEstates,
+                setSelectedState: setSelectedEstates,
             },
         },
         {
-            label: 'phone',
-            name: 'Phone Number',
-            type: 'number',
+            label: 'start_date',
+            type: 'date',
         },
         {
-            label: 'address',
+            label: 'end_date',
+            type: 'date',
         },
+        {
+            label: 'url',
+            name: 'URL'
+        }
+        
     ] satisfies FormInputs[]
 
     return (
