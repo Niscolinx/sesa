@@ -95,8 +95,8 @@ const AddArtisan = () => {
 
 
       const isEmpty =   [selectedCategories, selectedGender, selectedRegions].forEach((selected) => {
-        console.log(...selected)
-
+        console.log(selected.length)
+        
         if(selected.length < 1){
             console.log('error', selected)
 
