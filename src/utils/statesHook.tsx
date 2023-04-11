@@ -1,14 +1,14 @@
 import { useState } from "react"
 import { useQuery } from "react-query"
+import useAxios from "../components/hooks/useAxios"
 
 const useFetchData = (url) => {
     const [queryParams, setQueryParams] = useState({})
 
-    const fetchData = (
-
-        return 
-    )
-
+    const axiosInstance = useAxios()
+    const fetchData = () => axiosInstance({
+        url,
+    })
     const { isLoading, data, error, refetch } = useQuery(
         ['data', queryParams],
         async () => {
