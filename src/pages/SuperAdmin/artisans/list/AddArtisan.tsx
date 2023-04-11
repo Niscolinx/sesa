@@ -101,16 +101,17 @@ const AddArtisan = () => {
         },
     }) as any
 
-
     const postValidationType = (data: Inputs) => {
         return axiosInstance({
             url: '/admin/artisan',
             method: 'post',
             data,
-
         })
     }
-    const { mutate: validationType_mutation, isLoading: validationType_isloading } = useMutation(postValidationType, {
+    const {
+        mutate: validationType_mutation,
+        isLoading: validationType_isloading,
+    } = useMutation(postValidationType, {
         onError: (err: any) => {
             setResponseMessage({
                 className: 'text-red-600',
@@ -158,6 +159,8 @@ const AddArtisan = () => {
             return
         }
         setSelectFormErrors(null)
+        handleClose()
+
         openValidateDialog()
 
         const updatedData = {
@@ -205,12 +208,7 @@ const AddArtisan = () => {
         handleClose()
     }
 
-    const handleDialogSubmit = (e: FormEvent) => {
-        e.preventDefault()
-        handleClose()
-
-        openValidateDialog()
-    }
+ 
 
     const formInputs = [
         {
@@ -468,8 +466,7 @@ const AddArtisan = () => {
                     </p>
                 )}
                 <form
-                    onSubmit={handleDialogSubmit}
-                    // onSubmit={onSubmit}
+                    onSubmit={onSubmit}
                     id='formFile'
                     className='grid max-w-[84rem] gap-16 mt-12 '
                     style={{
