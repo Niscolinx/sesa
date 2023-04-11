@@ -32,7 +32,7 @@ const AddAdvert = () => {
 
     const [photoPreview, setPhotoPreview] = useState('')
     const [imageFile, setImageFile] = useState<File | null>(null)
-    const [selectedRegion, setSelectedRegion] = useState<string | null>(
+    const [selectedRegion, setSelectedRegion] = useState<string>(
         region[0]
     )
 

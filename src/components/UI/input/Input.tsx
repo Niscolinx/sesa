@@ -5,7 +5,9 @@ import { MultipleSelect, Select } from '../../SuperAdmin/UI/Select'
 export interface SelectProps {
     state: string[]
     selectedState: string | string[]
-    setSelectedState: React.Dispatch<React.SetStateAction<string | string[]>>
+    setSelectedState:
+        | React.Dispatch<React.SetStateAction<string>>
+        | React.Dispatch<React.SetStateAction<string[]>>
 }
 interface Input {
     name: string
