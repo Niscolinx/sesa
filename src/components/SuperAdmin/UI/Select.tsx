@@ -378,7 +378,6 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
     }
 
 
-    console.log({selectFormErrors})
 
     return (
         <div className='relative grid gap-4'>
