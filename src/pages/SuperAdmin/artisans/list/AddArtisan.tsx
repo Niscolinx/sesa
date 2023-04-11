@@ -41,11 +41,11 @@ const AddArtisan = () => {
 
     const axiosInstance = useAxios()
 
-    const estates = ['Estate1', 'Estate2', 'Estate3']
+    const categories = ['Category1', 'Category2', 'Category3']
 
     const [photoPreview, setPhotoPreview] = useState('')
     const [imageFile, setImageFile] = useState<File | null>(null)
-    const [selectedEstates, setSelectedEstates] = useState<string[]>([])
+    const [selectedCategories, setSelectedCategories] = useState<string[]>([])
 
     const handlePicture = (e: React.ChangeEvent) => {
         const target = e.target as HTMLInputElement
@@ -138,29 +138,44 @@ const AddArtisan = () => {
 
     const formInputs = [
         {
-            label: 'advert_name',
+            label: 'first_name',
         },
         {
-            label: 'Estates',
+            label: 'last_name',
+        },
+        {
+            label: 'Artisan Categories',
             type: 'select',
             selectProps: {
                 isMulti: true,
-                state: estates,
-                selectedState: selectedEstates,
-                setSelectedState: setSelectedEstates,
+                state: categories,
+                selectedState: selectedCategories,
+                setSelectedState: setSelectedCategories,
             },
         },
         {
-            label: 'start_date',
-            type: 'date',
+            label: 'phone_number',
+            type: 'number',
         },
         {
-            label: 'end_date',
-            type: 'date',
+            label: 'email_address',
+            type: 'email',
         },
         {
-            label: 'url',
-            name: 'URL',
+            label: 'address_line_1',
+        },
+        {
+            label: 'address_line_2',
+        },
+        {
+            label: 'Artisan Categories',
+            type: 'select',
+            selectProps: {
+                isMulti: true,
+                state: categories,
+                selectedState: selectedCategories,
+                setSelectedState: setSelectedCategories,
+            },
         },
     ] satisfies FormInputs[]
 
