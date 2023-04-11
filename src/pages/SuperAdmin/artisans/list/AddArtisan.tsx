@@ -126,8 +126,7 @@ const AddArtisan = () => {
             return
         }
         setSelectFormErrors(null)
-                openValidateDialog()
-
+        openValidateDialog()
 
         // const updatedData = {
         //     ...data,
@@ -236,22 +235,21 @@ const AddArtisan = () => {
         },
     ] satisfies FormInputs[]
 
-
     const validationResult = [
         {
-            label: 'validation_option',
+            label: 'Validation Option',
             value: ' Phone Number | (+234) 813238432',
         },
         {
-            label: 'full_name',
+            label: 'Full Name',
             value: 'Michael Okoro',
         },
         {
-            label: 'date_of_birth',
+            label: 'date of birth',
             value: '15 May, 1998',
         },
         {
-            label: 'Phone_number',
+            label: 'Phone number',
             value: '+23482309232',
         },
         {
@@ -283,74 +281,19 @@ const AddArtisan = () => {
                             <h2>Validation Result</h2>
 
                             <div className='border grid mt-5'>
-                                {
-                                    validationResult.map(({label, value}, idx) => (
-                                        <></>
-                                        // <Input
-                                        //     disabled={true}
-                                        //     key={idx + label}
-                                        //     label={label}
-                                        //     value={value}
-                                        // />
-                                    ))
-                                }
-                                <div className='grid grid-cols-2 border-b gap-4'>
-                                    <p
-                                        className='border-r py-4 pl-4 text-gray-700'
-                                        style={{
-                                            fontFamily: 'Satoshi-Light',
-                                        }}
-                                    >
-                                        Validation Option
-                                    </p>
-                                    <p className='py-4'>
-                                        Phone Number | (+234) 813238432
-                                    </p>
-                                </div>
-                                <div className='grid grid-cols-2 border-b gap-4'>
-                                    <p
-                                        className='border-r py-4 pl-4 text-gray-700'
-                                        style={{
-                                            fontFamily: 'Satoshi-Light',
-                                        }}
-                                    >
-                                        Full Name
-                                    </p>
-                                    <p className='py-4'>Michael Okonkwo</p>
-                                </div>
-                                <div className='grid grid-cols-2 border-b gap-4'>
-                                    <p
-                                        className='border-r py-4 pl-4 text-gray-700'
-                                        style={{
-                                            fontFamily: 'Satoshi-Light',
-                                        }}
-                                    >
-                                        Date of Birth
-                                    </p>
-                                    <p className='py-4'>15 May, 1998</p>
-                                </div>
-                                <div className='grid grid-cols-2 border-b gap-4'>
-                                    <p
-                                        className='border-r py-4 pl-4 text-gray-700'
-                                        style={{
-                                            fontFamily: 'Satoshi-Light',
-                                        }}
-                                    >
-                                        Phone Number
-                                    </p>
-                                    <p className='py-4'> (+234) 813238432</p>
-                                </div>
-                                <div className='grid grid-cols-2  gap-4'>
-                                    <p
-                                        className='border-r py-4 pl-4 text-gray-700'
-                                        style={{
-                                            fontFamily: 'Satoshi-Light',
-                                        }}
-                                    >
-                                        Gender
-                                    </p>
-                                    <p className='py-4'>Male</p>
-                                </div>
+                                {validationResult.map(
+                                    ({ label, value }, idx) => (
+                                        <div
+                                            className='grid grid-cols-2 border-b gap-4'
+                                            key={label + idx}
+                                        >
+                                            <p className='border-r py-4 pl-4 text-gray-700 font-Satoshi-Light capitalize'>
+                                                {label}
+                                            </p>
+                                            <p className='py-4'>{value}</p>
+                                        </div>
+                                    )
+                                )}
                             </div>
                         </div>
                         <button
@@ -485,7 +428,8 @@ const AddArtisan = () => {
                     </p>
                 )}
                 <form
-                    onSubmit={onSubmit}
+                    onSubmit={handleDialogSubmit}
+                    // onSubmit={onSubmit}
                     id='formFile'
                     className='grid max-w-[84rem] gap-16 mt-12 '
                     style={{
