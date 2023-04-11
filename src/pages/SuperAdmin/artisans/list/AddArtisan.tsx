@@ -22,7 +22,7 @@ const AddArtisan = () => {
         business_name: string
     }
 
-        interface ValidationType {
+        interface ValidationTypeInput {
             phone_number: string
             name: string
         }
@@ -50,7 +50,7 @@ const AddArtisan = () => {
     const gender = ['Male', 'Female']
 
     const [isAddArtisan, setIsAddArtisan] = useState(true)
-    const [validationType, setValidationType] = useState<ValidationType>('phone_num')
+    const [validationType, setValidationType] = useState<string>('Phone Number')
     const [selectFormErrors, setSelectFormErrors] = useState<{
         [key: string]: string
     } | null>(null)
@@ -75,6 +75,12 @@ const AddArtisan = () => {
         handleSubmit,
         formState: { errors: formErrors },
     } = useForm<Inputs>()
+
+    const {
+        register: validation_register,
+        handleSubmit: validation_handleSubmit,
+        formState: { errors: validation_formErrors },
+    } = useForm<ValidationTypeInput>()
 
     const [responseMessage, setResponseMessage] =
         useState<ResponseMessage | null>(null)
@@ -267,6 +273,18 @@ const AddArtisan = () => {
     ] satisfies FormInputs[]
 
 
+    const validationInput = [
+        {
+            label: 'phone_number',
+            type: 'number',
+        },
+        {
+            label: 'name',
+        },
+      
+    ] satisfies FormInputs[]
+
+
     
 
     return (
@@ -372,14 +390,13 @@ const AddArtisan = () => {
 
                                          <Input
                                     label={validationType}
-                                    register={register}
-                                    formErrors={formErrors}
-                                    selectFormErrors={selectFormErrors}
-                                    type={type}
+                                    register={validation_register}
+                                    formErrors={validation_formErrors}
+                                    type={validationInput}
                                     required={required}
                                     isSelect={type === 'select'}
                                     select={selectProps}
-                                />
+                                />: <></>
                                     }
 
                                 <p
