@@ -6,6 +6,7 @@ import useFetchData from '../../../utils/useFetchData'
 export interface SelectProps {
     isMulti?: boolean
     state: string[]
+    isSearchable?: boolean
     selectedState: string | string[]
     setSelectedState:
         | React.Dispatch<React.SetStateAction<string>>
@@ -67,7 +68,6 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                             label={name ?? label.replaceAll('_', ' ')}
                             selectFormErrors={selectFormErrors}
                             selected={select.selectedState}
-                        
                             selectFrom={select.state}
                             setSelected={
                                 select.setSelectedState as React.Dispatch<
