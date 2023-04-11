@@ -30,6 +30,7 @@ const AddArtisan = () => {
         label?: string
         type?: string
         name?: string
+        value?: string
         required?: boolean
         selectProps?: SelectProps
     }
@@ -125,14 +126,16 @@ const AddArtisan = () => {
             return
         }
         setSelectFormErrors(null)
+                openValidateDialog()
 
-        const updatedData = {
-            ...data,
-            estate_id: 4,
-            image: imageFile,
-        }
 
-        mutate(updatedData)
+        // const updatedData = {
+        //     ...data,
+        //     estate_id: 4,
+        //     image: imageFile,
+        // }
+
+        // mutate(updatedData)
     })
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
@@ -233,6 +236,30 @@ const AddArtisan = () => {
         },
     ] satisfies FormInputs[]
 
+
+    const validationResult = [
+        {
+            label: 'validation_option',
+            value: ' Phone Number | (+234) 813238432',
+        },
+        {
+            label: 'full_name',
+            value: 'Michael Okoro',
+        },
+        {
+            label: 'date_of_birth',
+            value: '15 May, 1998',
+        },
+        {
+            label: 'Phone_number',
+            value: '+23482309232',
+        },
+        {
+            label: 'gender',
+            value: 'Male',
+        },
+    ] satisfies FormInputs[]
+
     return (
         <>
             <ToastContainer />
@@ -256,6 +283,17 @@ const AddArtisan = () => {
                             <h2>Validation Result</h2>
 
                             <div className='border grid mt-5'>
+                                {
+                                    validationResult.map(({label, value}, idx) => (
+
+                                        <Input
+                                            disabled={true}
+                                            key={idx + label}
+                                            label={label}
+                                            value={value}
+                                        />
+                                    ))
+                                }
                                 <div className='grid grid-cols-2 border-b gap-4'>
                                     <p
                                         className='border-r py-4 pl-4 text-gray-700'
@@ -352,8 +390,6 @@ const AddArtisan = () => {
                                     selectedState={validationType}
                                     setSelectedState={setValidationType}
                                 />
-
-                                
 
                                 <div className='grid gap-4'>
                                     <label
