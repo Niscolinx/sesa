@@ -261,9 +261,9 @@ const AddArtisan = () => {
 
     const slicedStates: string[] = states_data.map(({ name }: any) => name)
 
-
-    const slicedCategories: string[] = categories_data.data.map(({name}: any) => name)
-
+    const slicedCategories: string[] = categories_data.data.map(
+        ({ name }: any) => name
+    )
 
     const formInputs = [
         {
