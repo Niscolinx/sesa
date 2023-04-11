@@ -161,7 +161,7 @@ const AddArtisan = () => {
             return
         }
         setSelectFormErrors(null)
-        handleClose()
+        //handleClose()
 
         openValidateDialog()
 
