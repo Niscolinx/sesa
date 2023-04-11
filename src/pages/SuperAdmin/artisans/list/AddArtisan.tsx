@@ -285,13 +285,13 @@ const AddArtisan = () => {
                             <div className='border grid mt-5'>
                                 {
                                     validationResult.map(({label, value}, idx) => (
-
-                                        <Input
-                                            disabled={true}
-                                            key={idx + label}
-                                            label={label}
-                                            value={value}
-                                        />
+                                        <></>
+                                        // <Input
+                                        //     disabled={true}
+                                        //     key={idx + label}
+                                        //     label={label}
+                                        //     value={value}
+                                        // />
                                     ))
                                 }
                                 <div className='grid grid-cols-2 border-b gap-4'>
