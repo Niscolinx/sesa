@@ -133,7 +133,9 @@ const Input: FC<Partial<Input> & { label: string }> = ({
 
             {isSelect && select && (
                 <p className='text-[1.2rem] text-red-500'>
-                    Field cannot be empty
+                    {!select.selectedState && (
+                        <span>Field cannot be empty</span>
+                    )}
                 </p>
             )}
         </div>
