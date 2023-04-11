@@ -75,6 +75,7 @@ const AddAdvert = () => {
     const onSubmit = handleSubmit((data) => {
         const updatedData = {
             ...data,
+            estate_id: 4,
             image: imageFile,
         }
 
