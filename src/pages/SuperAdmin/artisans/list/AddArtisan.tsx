@@ -8,7 +8,7 @@ import { useForm } from 'react-hook-form'
 import { useMutation } from 'react-query'
 import ImageInput from '../../../../components/UI/input/ImageInput'
 import useAxios from '../../../../components/hooks/useAxios'
-import useFetchData from '../../../../utils/statesHook'
+import useFetchData from '../../../../utils/useFetchData'
 
 type DialogType = 'validate' | 'add-Artisan'
 
@@ -136,6 +136,7 @@ const AddArtisan = () => {
     } = useFetchData()
 
 
+    console.log({states_data})
 
 
 
