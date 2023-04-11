@@ -59,10 +59,14 @@ const AddArtisan = () => {
     const [selectedCategories, setSelectedCategories] = useState<string[]>([])
     const [selectedRegions, setSelectedRegions] = useState<string[]>([])
 
+    // const states_data = ['dsd']
+    // const states_loading = false
     const { data: states_data, isLoading: states_loading } = useFetchData({})
-    const { data: categories_data, isLoading: categories_loading } = useFetchData({
-        url: '/admin/category/getAll',
-    })
+    const { data: categories_data, isLoading: categories_loading } =
+        useFetchData({
+            url: '/admin/category/getAll',
+            name: 'categories',
+        })
 
     const handlePicture = (e: React.ChangeEvent) => {
         const target = e.target as HTMLInputElement
@@ -174,7 +178,7 @@ const AddArtisan = () => {
 
         openValidateDialog()
 
-        console.log({states_data})
+        console.log({ states_data })
 
         const updatedData = {
             ...data,
@@ -267,7 +271,7 @@ const AddArtisan = () => {
 
     const slicedCategories = categories_data
 
-    console.log({slicedCategories})
+    console.log({ slicedCategories })
 
     const formInputs = [
         {
@@ -499,7 +503,8 @@ const AddArtisan = () => {
                 >
                     <>
                         {formInputs.map((input, idx) => {
-                            const { label, type, selectProps, name, required } = input
+                            const { label, type, selectProps, name, required } =
+                                input
 
                             return (
                                 <Input

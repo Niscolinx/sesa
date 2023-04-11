@@ -3,28 +3,30 @@ import { useQuery } from 'react-query'
 import useAxios from '../components/hooks/useAxios'
 
 interface FetchData {
-    url: string
-    name: string
-    params: string
+    url?: string
+    name?: string
+    params?: string
 }
 
-const useFetchData = ({ url = '/states/get', params, name = 'states' }: Partial<FetchData>) => {
+const useFetchData = ({
+    url = '/states/get',
+    params,
+    name = 'states',
+}: FetchData) => {
     const [queryParams, setQueryParams] = useState(params)
 
     const axiosInstance = useAxios()
     const fetchData = () =>
         axiosInstance({
             url,
-        }).then(({data}) => data)
+        }).then(({ data }) => data)
 
     const { isLoading, error, data, refetch } = useQuery(
         [name, queryParams],
         fetchData,
-        {   
+        {
             refetchOnMount: false,
             refetchOnWindowFocus: false,
-            
-           
         }
     )
 
