@@ -276,6 +276,14 @@ const AddArtisan = () => {
             console.log({ states_data })
             // console.log(states_data.name)
             setRegions(['3'])
+
+            const cp = [...formInputs]
+
+            const find  = cp.filter((item) => item.label === 'State').flat(1)
+
+            
+
+            console.log({cp, find})
         }
     }, [states_data])
 
