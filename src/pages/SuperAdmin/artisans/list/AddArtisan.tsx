@@ -89,6 +89,12 @@ const AddArtisan = () => {
     }) as any
 
     const onSubmit = handleSubmit((data) => {
+        setSelectFormErrors((prev) => {
+            return {
+                ...prev,
+                'Artisan Categories': 'Field cannot be empty',
+            }
+        })
         const updatedData = {
             ...data,
             estate_id: 4,
