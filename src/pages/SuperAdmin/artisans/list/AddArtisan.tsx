@@ -211,6 +211,11 @@ const AddArtisan = () => {
         }
     }
 
+
+    const { data: states_data, isLoading: states_loading } = useFetchData({})
+
+   
+
     const formInputs = [
         {
             name: 'First Name',
@@ -299,8 +304,6 @@ const AddArtisan = () => {
             label: 'name',
         },
     ] satisfies FormInputs[]
-
-    const { data: states_data, isLoading: states_loading } = useFetchData({})
 
     
 
