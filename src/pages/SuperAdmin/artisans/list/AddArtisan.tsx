@@ -382,8 +382,11 @@ const AddArtisan = () => {
                                         />
                                     </div>
                                 </div> */}
-                                {
-                                    validationInput.some(({name}) => name === validationType).map(({ label, type}) => {
+                                {validationInput
+                                    .filter(
+                                        ({ name }) => name === validationType
+                                    )
+                                    .map(({ label, type }) => {
                                         return (
                                             <Input
                                                 label={label}
@@ -394,10 +397,7 @@ const AddArtisan = () => {
                                                 type={type}
                                             />
                                         )
-
-                                    })
-                                }
-                                
+                                    })}
 
                                 <p
                                     className='text-[#043FA7] flex items-center gap-2'
