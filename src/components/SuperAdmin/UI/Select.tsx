@@ -53,7 +53,7 @@ interface IMultipleSelect {
     selected: Array<string>
     setSelected: React.Dispatch<React.SetStateAction<string[]>>
     label: string
-    selectFormErrors: Record<string, string> | null
+    selectFormErrors?: Record<string, string> | null
     placeholder?: string
 }
 
