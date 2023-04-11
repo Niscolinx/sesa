@@ -91,8 +91,10 @@ const AddArtisan = () => {
 
 
     const onSubmit = handleSubmit((data) => {
-
+    
+        let isError = false
       if(selectedCategories.length < 1){
+        isError = true
         setSelectFormErrors((prev) => {
             return {
                 ...prev,
@@ -101,6 +103,8 @@ const AddArtisan = () => {
         })
       }
       if(selectedGender.length < 1){
+                isError = true
+
         setSelectFormErrors((prev) => {
             return {
                 ...prev,
@@ -109,6 +113,8 @@ const AddArtisan = () => {
         })
       }
       if(selectedRegions.length < 1){
+                isError = true
+
         setSelectFormErrors((prev) => {
             return {
                 ...prev,
@@ -116,19 +122,17 @@ const AddArtisan = () => {
             }
         })
       }
-      else{
-        setSelectFormErrors(null)
+      
+
+      if(isError){
+        console.log({isError}, 'error')
+        return
       }
+      setSelectFormErrors(null)
 
      
         
-       console.log({selectFormErrors})
-       if(selectFormErrors){
-        console.log("errorr ==========")
-       }
-       else{
-        console.log('no errorrrr')
-       }
+      
 
         const updatedData = {
             ...data,
