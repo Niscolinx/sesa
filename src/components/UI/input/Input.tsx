@@ -18,6 +18,7 @@ interface Input {
     disabled?: boolean
     value?: any
     options: any
+    required?: boolean
     minLength?: number
     fullWidth: boolean
     isSelect: boolean
@@ -33,12 +34,13 @@ const Input: FC<Partial<Input> & { label: string }> = ({
     fullWidth,
     disabled,
     select,
+    required = true,
     formErrors,
     value,
     minLength = 3,
 }) => {
     const validationOptions = {
-        required: true,
+        required,
         minLength,
         pattern:
             type === 'email'

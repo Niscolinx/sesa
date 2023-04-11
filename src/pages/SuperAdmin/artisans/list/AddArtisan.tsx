@@ -30,6 +30,7 @@ const AddArtisan = () => {
         label?: string
         type?: string
         name?: string
+        required?: boolean
         selectProps?: SelectProps
     }
 
@@ -187,6 +188,10 @@ const AddArtisan = () => {
                 setSelectedState: setSelectedCategories,
             },
         },
+        {
+            label: 'business_name',
+            required: false
+        }
     ] satisfies FormInputs[]
 
     return (
@@ -413,7 +418,7 @@ const AddArtisan = () => {
                 >
                     <>
                         {formInputs.map((input, idx) => {
-                            const { label, type, name, selectProps } = input
+                            const { label, type, selectProps, required } = input
                             return (
                                 <Input
                                     key={idx + label}
@@ -421,9 +426,10 @@ const AddArtisan = () => {
                                     register={register}
                                     formErrors={formErrors}
                                     type={type}
-                                    name={name}
+                                    required={required}
                                     isSelect={type === 'select'}
                                     select={selectProps}
+                                    
                                 />
                             )
                         })}
