@@ -60,6 +60,9 @@ const AddArtisan = () => {
     const [selectedRegions, setSelectedRegions] = useState<string[]>([])
 
     const { data: states_data, isLoading: states_loading } = useFetchData({})
+    const { data: categories_data, isLoading: categories_loading } = useFetchData({
+        url: '/admin/category/getAll',
+    })
 
     const handlePicture = (e: React.ChangeEvent) => {
         const target = e.target as HTMLInputElement
@@ -175,7 +178,7 @@ const AddArtisan = () => {
 
         const updatedData = {
             ...data,
-            estate_id: 4,
+            gender: selectedGender,
             image: imageFile,
         }
 
@@ -249,7 +252,7 @@ const AddArtisan = () => {
         },
     ] satisfies FormInputs[]
 
-    if (states_loading) {
+    if (states_loading || categories_loading) {
         return <p>Loading...</p>
     }
 
@@ -261,6 +264,10 @@ const AddArtisan = () => {
             }
         })
         .map(({ name }: any) => name)
+
+    const slicedCategories = categories_data
+
+    console.log({slicedCategories})
 
     const formInputs = [
         {
