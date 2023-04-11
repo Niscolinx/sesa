@@ -14,7 +14,7 @@ interface ISelect<T> {
     selectedState: string
     setSelectedState: React.Dispatch<React.SetStateAction<string>>
     label?: string
-    formErrors?: {
+    selectFormErrors?: {
         [key: string]: string
     }
     placeholder?: string
@@ -50,7 +50,7 @@ interface ComplexSelect extends Omit<ISelect<string>, 'state'> {
     double?: boolean
 }
 
-interface IMultipleSelect {
+interface IMultipleSelect extends ISelect<string> {
     selectFrom: Array<string>
     selected: Array<string>
     setSelected: React.Dispatch<React.SetStateAction<string[]>>
@@ -65,7 +65,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
     label,
     placeholder,
     kyr,
-    formErrors,
+    selectFormErrors,
     fullWidth,
     color,
     isSearchable = false,
@@ -144,9 +144,9 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                         )}
                     </p>
                 )}
-                {label && formErrors && formErrors[label] && (
+                {label && selectFormErrors && selectFormErrors[label] && (
                     <p className='text-[1.2rem] text-red-500'>
-                        {formErrors[label]}
+                        {selectFormErrors[label]}
                     </p>
                 )}
                 {toggleStateMenu ? (
@@ -308,6 +308,7 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
     selectFrom,
     selected,
     setSelected,
+    selectFormErrors,
     label,
     placeholder,
 }) => {

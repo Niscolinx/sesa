@@ -43,6 +43,9 @@ const AddArtisan = () => {
     const [selectedGender, setSelectedGender] = useState<string>('')
     const [isAddArtisan, setIsAddArtisan] = useState(true)
     const [validationType, setValidationType] = useState<string>('Phone Number')
+    const [selectFormErrors, setSelectFormErrors] = useState<{
+        [key: string]: string
+    } | null>(null)
 
 
     const [photoPreview, setPhotoPreview] = useState('')
