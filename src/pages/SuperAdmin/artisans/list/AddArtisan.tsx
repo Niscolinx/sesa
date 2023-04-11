@@ -440,7 +440,7 @@ const AddArtisan = () => {
                     <p className='text-[2rem] font-Satoshi-Medium'>
                         KYA <span className='text-gray-500'>(Optional)</span>
                     </p>
-                    <div className='flex justify-between text-[1.6rem]'>
+                    <div className='flex justify-between text-[1.6rem] w-[40rem]'>
                         <p
                             className='text-[#098DFF] cursor-pointer'
                             onClick={() => handleOpen('validate')}
