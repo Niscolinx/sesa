@@ -357,7 +357,7 @@ const AddArtisan = () => {
 
                         {isAddArtisan ? (
                             <form
-                                className='grid gap-12 max-w-[40rem]'
+                                className='grid gap-12'
                                 onSubmit={onSubmitValidation}
                             >
                                 <h3
@@ -384,7 +384,7 @@ const AddArtisan = () => {
                                     What is KYA <BsQuestionCircle />
                                 </p>
 
-                                <div className='border-t'>
+                                <div className='border-t pt-10'>
                                     {validationInput
                                         .filter(
                                             ({ name }) =>
