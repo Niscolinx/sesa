@@ -7,7 +7,7 @@ import { getPhotoUrl } from '../../../utils/getPhotoUrl'
 type Actions = 'Deactivate' | 'Delete'
 
 const ViewArtisan = () => {
-    const [selectedGender, setSelectedGender] = useState<string | null>(null)
+    const [selectedGender, setSelectedGender] = useState<string>('')
     // const [dialogType, setDialogType] = useState<Actions>('Deactivate')
 
     const [photoUrl, setPhotoUrl] = useState('')
