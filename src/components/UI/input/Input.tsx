@@ -5,7 +5,7 @@ import { MultipleSelect, Select } from '../../SuperAdmin/UI/Select'
 export interface SelectProps {
     isMulti?: boolean
     state: string[]
-    selectFormErrors: Record<string, string>
+    selectFormErrors: Record<string, string> | null
     selectedState: string | string[]
     setSelectedState:
         | React.Dispatch<React.SetStateAction<string>>

@@ -422,6 +422,11 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
                 )}
             </div>
 
+            {label && selectFormErrors && selectFormErrors[label] && (
+                <p className='text-[1.2rem] text-red-500'>
+                    {selectFormErrors[label]}
+                </p>
+            )}
             {toggleStateMenu && (
                 <div className='absolute top-[8rem]  left-0 border border-color-primary-light min-w-[12rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
                     <div className='relative flex items-center text-[1.4rem]'>

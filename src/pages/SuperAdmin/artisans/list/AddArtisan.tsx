@@ -154,6 +154,7 @@ const AddArtisan = () => {
             type: 'select',
             selectProps: {
                 state: gender,
+                selectFormErrors,
                 selectedState: selectedGender,
                 setSelectedState: setSelectedGender,
             },
