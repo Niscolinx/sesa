@@ -384,9 +384,10 @@ const AddArtisan = () => {
                                 </div> */}
                                 {validationInput
                                     .filter(
-                                        ({ name }) => name === validationType
+                                        ({ name }) => name.toLowerCase() === validationType.toLowerCase()
                                     )
                                     .map(({ label, type }) => {
+
                                         return (
                                             <Input
                                                 label={label}
