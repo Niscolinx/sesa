@@ -4,38 +4,92 @@ import { getPhotoUrl } from '../../../../utils/getPhotoUrl'
 import { BsQuestionCircle } from 'react-icons/bs'
 import { ToastContainer } from 'react-toastify'
 import { Select } from '../../../../components/SuperAdmin/UI/Select'
+import Input, { SelectProps } from '../../../../components/UI/input/Input'
+import { useForm } from 'react-hook-form'
+import { useMutation } from 'react-query'
+import ImageInput from '../../../../components/UI/input/ImageInput'
+import useAxios from '../../../../components/hooks/useAxios'
 
 type DialogType = 'validate' | 'add-Artisan'
 
 const AddArtisan = () => {
-      interface Inputs {
-          url: string
-          advert_name: string
-          start_date: string
-          end_date: string
-      }
-      type ResponseMessage = {
-          className: string
-          displayMessage: string
-      }
+    interface Inputs {
+        url: string
+        advert_name: string
+        start_date: string
+        end_date: string
+    }
+    type ResponseMessage = {
+        className: string
+        displayMessage: string
+    }
 
-      type FormInputs = {
-          label?: string
-          type?: string
-          name?: string
-          selectProps?: SelectProps
-      }
+    type FormInputs = {
+        label?: string
+        type?: string
+        name?: string
+        selectProps?: SelectProps
+    }
 
-      
-    const [selectedState, setSelectedState] = useState<string | null>(null)
-    const [selectedArtisan, setSelectedArtisan] = useState<string | null>(null)
-    const [selectedGender, setSelectedGender] = useState<string | null>(null)
+    const [selectedState, setSelectedState] = useState<string>('')
+    const [selectedArtisan, setSelectedArtisan] = useState<string>('')
+    const [selectedGender, setSelectedGender] = useState<string>('')
     const [isAddArtisan, setIsAddArtisan] = useState(true)
-    const [validationType, setValidationType] = useState<string | null>(
-        'Phone Number'
-    )
+    const [validationType, setValidationType] = useState<string>('Phone Number')
 
+    const axiosInstance = useAxios()
 
+    const estates = ['Estate1', 'Estate2', 'Estate3']
+
+    const [photoPreview, setPhotoPreview] = useState('')
+    const [imageFile, setImageFile] = useState<File | null>(null)
+    const [selectedEstates, setSelectedEstates] = useState<string[]>([])
+
+    const handlePicture = (e: React.ChangeEvent) => {
+        const target = e.target as HTMLInputElement
+        const file: File = (target.files as FileList)[0]
+
+        const preview = URL.createObjectURL(file)
+        setPhotoPreview(preview)
+        setImageFile(file)
+    }
+
+    const {
+        register,
+        handleSubmit,
+        formState: { errors: formErrors },
+    } = useForm<Inputs>()
+
+    const [responseMessage, setResponseMessage] =
+        useState<ResponseMessage | null>(null)
+
+    const postRequest = (data: Inputs) => {
+        return axiosInstance({
+            url: '/advert/create',
+            method: 'post',
+            data,
+
+            headers: { 'Content-Type': 'multipart/form-data' },
+        })
+    }
+    const { mutate, isLoading } = useMutation(postRequest, {
+        onError: (err: any) => {
+            setResponseMessage({
+                className: 'text-red-600',
+                displayMessage: err?.response.data.message,
+            })
+        },
+    }) as any
+
+    const onSubmit = handleSubmit((data) => {
+        const updatedData = {
+            ...data,
+            estate_id: 4,
+            image: imageFile,
+        }
+
+        mutate(updatedData)
+    })
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
     const validateDialogRef = useRef<HTMLDialogElement | null>(null)
@@ -69,7 +123,6 @@ const AddArtisan = () => {
         }
     }
 
-
     const confirmAddArtisan = () => {
         handleClose()
     }
@@ -81,33 +134,33 @@ const AddArtisan = () => {
         openValidateDialog()
     }
 
-     const formInputs = [
-         {
-             label: 'advert_name',
-         },
-         {
-             label: 'Estates',
-             type: 'select',
-             selectProps: {
-                 isMulti: true,
-                 state: estates,
-                 selectedState: selectedEstates,
-                 setSelectedState: setSelectedEstates,
-             },
-         },
-         {
-             label: 'start_date',
-             type: 'date',
-         },
-         {
-             label: 'end_date',
-             type: 'date',
-         },
-         {
-             label: 'url',
-             name: 'URL',
-         },
-     ] satisfies FormInputs[]
+    const formInputs = [
+        {
+            label: 'advert_name',
+        },
+        {
+            label: 'Estates',
+            type: 'select',
+            selectProps: {
+                isMulti: true,
+                state: estates,
+                selectedState: selectedEstates,
+                setSelectedState: setSelectedEstates,
+            },
+        },
+        {
+            label: 'start_date',
+            type: 'date',
+        },
+        {
+            label: 'end_date',
+            type: 'date',
+        },
+        {
+            label: 'url',
+            name: 'URL',
+        },
+    ] satisfies FormInputs[]
 
     return (
         <>
