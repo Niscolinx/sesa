@@ -35,18 +35,17 @@ const AddArtisan = () => {
     }
 
     const axiosInstance = useAxios()
-    
-        const categories = ['Category1', 'Category2', 'Category3']
-        const region = ['Lagos', 'FCT']
-        const gender = ['Male', 'Female']
-    
+
+    const categories = ['Category1', 'Category2', 'Category3']
+    const region = ['Lagos', 'FCT']
+    const gender = ['Male', 'Female']
+
     const [selectedGender, setSelectedGender] = useState<string>('')
     const [isAddArtisan, setIsAddArtisan] = useState(true)
     const [validationType, setValidationType] = useState<string>('Phone Number')
     const [selectFormErrors, setSelectFormErrors] = useState<{
         [key: string]: string
     } | null>(null)
-
 
     const [photoPreview, setPhotoPreview] = useState('')
     const [imageFile, setImageFile] = useState<File | null>(null)
@@ -178,6 +177,7 @@ const AddArtisan = () => {
             type: 'select',
             selectProps: {
                 state: region,
+                selectFormErrors,
                 selectedState: selectedRegions,
                 setSelectedState: setSelectedRegions,
             },
@@ -188,14 +188,15 @@ const AddArtisan = () => {
             selectProps: {
                 isMulti: true,
                 state: categories,
+                selectFormErrors,
                 selectedState: selectedCategories,
                 setSelectedState: setSelectedCategories,
             },
         },
         {
             label: 'business_name',
-            required: false
-        }
+            required: false,
+        },
     ] satisfies FormInputs[]
 
     return (
@@ -433,7 +434,6 @@ const AddArtisan = () => {
                                     required={required}
                                     isSelect={type === 'select'}
                                     select={selectProps}
-                                    
                                 />
                             )
                         })}
