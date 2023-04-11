@@ -89,6 +89,7 @@ const AddArtisan = () => {
     }) as any
 
     const onSubmit = handleSubmit((data) => {
+        console.log([selectedCategories, selectedGender, selectedRegions])
         setSelectFormErrors((prev) => {
             return {
                 ...prev,
