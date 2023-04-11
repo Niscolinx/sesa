@@ -35,6 +35,8 @@ const AddArtisan = () => {
         selectProps?: SelectProps
     }
 
+    type ValidationType = 'Phone Number' | 'Name'
+
     const axiosInstance = useAxios()
 
     const categories = ['Category1', 'Category2', 'Category3']
@@ -42,7 +44,7 @@ const AddArtisan = () => {
     const gender = ['Male', 'Female']
 
     const [isAddArtisan, setIsAddArtisan] = useState(true)
-    const [validationType, setValidationType] = useState<string>('Phone Number')
+    const [validationType, setValidationType] = useState<ValidationType>('Phone Number')
     const [selectFormErrors, setSelectFormErrors] = useState<{
         [key: string]: string
     } | null>(null)
@@ -258,6 +260,9 @@ const AddArtisan = () => {
         },
     ] satisfies FormInputs[]
 
+
+    
+
     return (
         <>
             <ToastContainer />
@@ -334,7 +339,7 @@ const AddArtisan = () => {
                                     setSelectedState={setValidationType}
                                 />
 
-                                <div className='grid gap-4'>
+                                {/* <div className='grid gap-4'>
                                     <label
                                         htmlFor='phoneNumber'
                                         className='text-[1.4rem] font-Satoshi-Medium'
@@ -355,7 +360,21 @@ const AddArtisan = () => {
                                             className='w-full rounded-lg border border-color-grey py-4.8 px-8 outline-none text-color-dark'
                                         />
                                     </div>
-                                </div>
+                                </div> */}
+                                    {
+                                        validationType === 'Phone Number' ? 
+
+                                         <Input
+                                    label={validationType}
+                                    register={register}
+                                    formErrors={formErrors}
+                                    selectFormErrors={selectFormErrors}
+                                    type={type}
+                                    required={required}
+                                    isSelect={type === 'select'}
+                                    select={selectProps}
+                                />
+                                    }
 
                                 <p
                                     className='text-[#043FA7] flex items-center gap-2'
