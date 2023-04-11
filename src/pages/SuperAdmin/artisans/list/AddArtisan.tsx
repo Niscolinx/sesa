@@ -21,6 +21,13 @@ const AddArtisan = () => {
         address_line_2: string
         business_name: string
     }
+
+        interface ValidationType {
+            phone_number: string
+            name: string
+        }
+
+
     type ResponseMessage = {
         className: string
         displayMessage: string
@@ -35,7 +42,6 @@ const AddArtisan = () => {
         selectProps?: SelectProps
     }
 
-    type ValidationType = 'Phone Number' | 'Name'
 
     const axiosInstance = useAxios()
 
@@ -44,7 +50,7 @@ const AddArtisan = () => {
     const gender = ['Male', 'Female']
 
     const [isAddArtisan, setIsAddArtisan] = useState(true)
-    const [validationType, setValidationType] = useState<ValidationType>('Phone Number')
+    const [validationType, setValidationType] = useState<ValidationType>('phone_num')
     const [selectFormErrors, setSelectFormErrors] = useState<{
         [key: string]: string
     } | null>(null)
