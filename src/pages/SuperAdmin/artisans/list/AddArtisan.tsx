@@ -92,6 +92,20 @@ const AddArtisan = () => {
 
     const onSubmit = handleSubmit((data) => {
         console.log([selectedCategories, selectedGender, selectedRegions])
+
+
+      const isEmpty =   [selectedCategories, selectedGender, selectedRegions].forEach((selected) => {
+        console.log(...selected)
+
+        if(selected.length < 1){
+            console.log('error', selected)
+
+            return selected
+        }
+      })
+
+      console.log(isEmpty)
+        
         setSelectFormErrors((prev) => {
             return {
                 ...prev,
