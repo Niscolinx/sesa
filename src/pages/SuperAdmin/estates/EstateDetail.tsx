@@ -1,5 +1,4 @@
 import React, { useState, useEffect, ChangeEvent, useRef } from 'react'
-import { CgSpinnerTwo } from 'react-icons/cg'
 import { GrDown } from 'react-icons/gr'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 
@@ -8,7 +7,6 @@ import OverviewCard from '../../../components/SuperAdmin/overview/OverviewCard'
 import { useQuery } from 'react-query'
 import { toast } from 'react-toastify'
 import { useAppDispatch } from '../../../store/app/hooks'
-import { setAdminPath } from '../../../store/features/routeChange'
 import AxiosRequest  from '../../../utils/axios'
 
 interface EstateManager {
