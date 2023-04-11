@@ -23,8 +23,8 @@ const useFetchData:FC<FetchData> = ({url, params}) => {
        fetchData
     )
 
-    const updateQueryParams = (newParams) => {
-        setQueryParams(newParams)
+    const updateQueryParams = (newParams: string) => {
+        setQueryParams({newParams})
     }
 
     return { isLoading, data, error, refetch, updateQueryParams }
