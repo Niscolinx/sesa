@@ -22,11 +22,10 @@ const AddArtisan = () => {
         business_name: string
     }
 
-        interface ValidationTypeInput {
-            phone_number: string
-            name: string
-        }
-
+    interface ValidationTypeInput {
+        phone_number: string
+        name: string
+    }
 
     type ResponseMessage = {
         className: string
@@ -41,7 +40,6 @@ const AddArtisan = () => {
         required?: boolean
         selectProps?: SelectProps
     }
-
 
     const axiosInstance = useAxios()
 
@@ -102,6 +100,8 @@ const AddArtisan = () => {
             })
         },
     }) as any
+
+    const onSubmitValidation = validation_handleSubmit((data) => {})
 
     const onSubmit = handleSubmit((data) => {
         let isError = false
@@ -272,20 +272,17 @@ const AddArtisan = () => {
         },
     ] satisfies FormInputs[]
 
-
     const validationInput = [
         {
+            name: 'phone number',
             label: 'phone_number',
             type: 'number',
         },
         {
+            name: 'name',
             label: 'name',
         },
-      
     ] satisfies FormInputs[]
-
-
-    
 
     return (
         <>
@@ -345,7 +342,7 @@ const AddArtisan = () => {
                         {isAddArtisan ? (
                             <form
                                 className='grid gap-12 max-w-[40rem]'
-                                onSubmit={handleDialogSubmit}
+                                onSubmit={onSubmitValidation}
                             >
                                 <h3
                                     className='text-[2rem] font-Satoshi-Medium border-b '
@@ -385,19 +382,22 @@ const AddArtisan = () => {
                                         />
                                     </div>
                                 </div> */}
-                                    {
-                                        validationType === 'Phone Number' ? 
+                                {
+                                    validationInput.map(({ label, type}) => {
+                                        return (
+                                            <Input
+                                                label={label}
+                                                register={validation_register}
+                                                formErrors={
+                                                    validation_formErrors
+                                                }
+                                                type={type}
+                                            />
+                                        )
 
-                                         <Input
-                                    label={validationType}
-                                    register={validation_register}
-                                    formErrors={validation_formErrors}
-                                    type={validationInput}
-                                    required={required}
-                                    isSelect={type === 'select'}
-                                    select={selectProps}
-                                />: <></>
-                                    }
+                                    })
+                                }
+                                
 
                                 <p
                                     className='text-[#043FA7] flex items-center gap-2'
