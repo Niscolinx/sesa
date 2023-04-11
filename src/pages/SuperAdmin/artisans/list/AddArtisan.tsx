@@ -116,6 +116,9 @@ const AddArtisan = () => {
             }
         })
       }
+      else{
+        setSelectFormErrors(null)
+      }
 
      
         
