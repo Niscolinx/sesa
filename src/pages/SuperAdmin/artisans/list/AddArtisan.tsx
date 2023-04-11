@@ -427,6 +427,7 @@ const AddArtisan = () => {
                                     label={label}
                                     register={register}
                                     formErrors={formErrors}
+                                    selectFormErrors={selectFormErrors}
                                     type={type}
                                     required={required}
                                     isSelect={type === 'select'}
