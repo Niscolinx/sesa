@@ -179,6 +179,14 @@ const AddArtisan = () => {
 
         console.log({ states_data })
 
+        const slicedStates: string[] = states_data.map(({ name }: any) => name)
+
+        const slicedCategories: string[] = categories_data.data.map(
+            ({ name }: any) => name
+        )
+
+        const category = slicedCategories.filter(category)
+
         const updatedData = {
             ...data,
             gender: selectedGender,
