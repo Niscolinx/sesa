@@ -6,7 +6,6 @@ import { SetStateAction } from 'jotai'
 import TableDialog from './TableDialog'
 import TableData from './TableData'
 
-type Select = string | null
 
 export type Actions = 'view details' | 'deactivate' | 'activate' | 'delete'
 
@@ -27,8 +26,8 @@ interface Table {
 interface ICreateTableContext extends Table {
     navigate: NavigateFunction
     axiosInstance: AxiosInstance
-    sortBy: Select
-    setSortBy: Dispatch<SetStateAction<Select>>
+    sortBy: string
+    setSortBy: Dispatch<SetStateAction<string>>
     fetchedId: number
     setFetchedId: Dispatch<SetStateAction<number>>
     isDialogOpen?: boolean
@@ -68,7 +67,7 @@ const Table = ({
     const navigate = useNavigate()
     const axiosInstance = useAxios()
 
-    const [sortBy, setSortBy] = useState<string | null>(null)
+    const [sortBy, setSortBy] = useState<string>('')
     const [fetchedId, setFetchedId] = useState<number>(null as any)
     const [fetchedData, setFetchedData] = useState<any[]>([])
     const [isDialogOpen, setIsDialogOpen] = useState(false)
