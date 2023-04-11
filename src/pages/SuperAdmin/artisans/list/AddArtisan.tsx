@@ -296,6 +296,7 @@ const AddArtisan = () => {
             type: 'select',
             selectProps: {
                 state: slicedState,
+                isSearchable: true,
                 selectedState: selectedRegions,
                 setSelectedState: setSelectedRegions,
             },

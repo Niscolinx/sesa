@@ -78,6 +78,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                     ) : (
                         <Select
                             label={name ?? label.replaceAll('_', ' ')}
+                            isSearchable={select.isSearchable}
                             state={select.state}
                             selectFormErrors={selectFormErrors}
                             selectedState={select.selectedState as string}
