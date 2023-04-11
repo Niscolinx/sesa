@@ -3,7 +3,7 @@ import { FieldValues, UseFormRegister } from 'react-hook-form'
 import { MultipleSelect, Select } from '../../SuperAdmin/UI/Select'
 
 export interface SelectProps {
-    isMulti?:boolean
+    isMulti?: boolean
     state: string[]
     selectedState: string | string[]
     setSelectedState:
@@ -128,6 +128,12 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                     ) : (
                         <span>Invalid {label}</span>
                     )}
+                </p>
+            )}
+
+            {isSelect && select && (
+                <p className='text-[1.2rem] text-red-500'>
+                    Field cannot be empty
                 </p>
             )}
         </div>
