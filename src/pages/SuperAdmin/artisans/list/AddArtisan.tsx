@@ -211,59 +211,7 @@ const AddArtisan = () => {
         }
     }
 
-    const formInputs = [
-        {
-            name: 'First Name',
-            label: 'firstname',
-        },
-        { name: 'Last Name', label: 'lastname' },
-        {
-            label: 'Gender',
-            type: 'select',
-            selectProps: {
-                state: gender,
-                selectedState: selectedGender,
-                setSelectedState: setSelectedGender,
-            },
-        },
-        {
-            label: 'phone_number',
-            type: 'number',
-        },
-        {
-            label: 'email_address',
-            type: 'email',
-        },
-        {
-            label: 'address_line_1',
-        },
-        {
-            label: 'address_line_2',
-        },
-        {
-            label: 'State',
-            type: 'select',
-            selectProps: {
-                state: regions,
-                selectedState: selectedRegions,
-                setSelectedState: setSelectedRegions,
-            },
-        },
-        {
-            label: 'Artisan Categories',
-            type: 'select',
-            selectProps: {
-                isMulti: true,
-                state: categories,
-                selectedState: selectedCategories,
-                setSelectedState: setSelectedCategories,
-            },
-        },
-        {
-            label: 'business_name',
-            required: false,
-        },
-    ] satisfies FormInputs[]
+   
 
   
 
@@ -308,17 +256,68 @@ const AddArtisan = () => {
         return <p>Loading...</p>
     }
 
-    console.log(states_data.name)
-
-
     const slicedState = states_data.map(({name, id}: any) => {
         return {
             name,
             id
         }
-    })
+    }).map(({name}:any) => name)
 
     console.log({slicedState})
+
+     const formInputs = [
+         {
+             name: 'First Name',
+             label: 'firstname',
+         },
+         { name: 'Last Name', label: 'lastname' },
+         {
+             label: 'Gender',
+             type: 'select',
+             selectProps: {
+                 state: gender,
+                 selectedState: selectedGender,
+                 setSelectedState: setSelectedGender,
+             },
+         },
+         {
+             label: 'phone_number',
+             type: 'number',
+         },
+         {
+             label: 'email_address',
+             type: 'email',
+         },
+         {
+             label: 'address_line_1',
+         },
+         {
+             label: 'address_line_2',
+         },
+         {
+             label: 'State',
+             type: 'select',
+             selectProps: {
+                 state: slicedState,
+                 selectedState: selectedRegions,
+                 setSelectedState: setSelectedRegions,
+             },
+         },
+         {
+             label: 'Artisan Categories',
+             type: 'select',
+             selectProps: {
+                 isMulti: true,
+                 state: categories,
+                 selectedState: selectedCategories,
+                 setSelectedState: setSelectedCategories,
+             },
+         },
+         {
+             label: 'business_name',
+             required: false,
+         },
+     ] satisfies FormInputs[]
 
     return (
         <>
