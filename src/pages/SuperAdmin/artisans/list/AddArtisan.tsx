@@ -179,13 +179,15 @@ const AddArtisan = () => {
 
         console.log({ states_data })
 
-        const slicedStates: string[] = states_data.map(({ name }: any) => name)
+        const slicedStates: string[] = states_data.map(({ name, id }: any) => ({name, id}))
 
         const slicedCategories: string[] = categories_data.data.map(
-            ({ name }: any) => name
+            ({ name, id }: any) => ({name, id})
         )
 
-        const category = slicedCategories.filter(category)
+        const category = slicedCategories.filter(({name, id}: any) => selectedCategories.includes(name) && id)
+
+        console.log({category})
 
         const updatedData = {
             ...data,
