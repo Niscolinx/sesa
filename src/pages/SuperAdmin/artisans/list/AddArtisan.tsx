@@ -206,12 +206,6 @@ const AddArtisan = () => {
         }
     }
 
-    const confirmAddArtisan = () => {
-        handleClose()
-    }
-
- 
-
     const formInputs = [
         {
             label: 'first_name',
@@ -407,9 +401,9 @@ const AddArtisan = () => {
                                 </p>
 
                                 <button className='btn bg-[#0556E5] text-white rounded-lg py-4 place-self-start w-[15rem]'>
-                                    {
-                                        validationType_isloading ? 'Loading...' : 'Validate'
-                                    }
+                                    {validationType_isloading
+                                        ? 'Loading...'
+                                        : 'Validate'}
                                 </button>
                             </form>
                         ) : (
@@ -423,14 +417,8 @@ const AddArtisan = () => {
 
                                 <div className='flex w-full justify-center gap-8'>
                                     <button
-                                        className='btn bg-white text-[#0556E5] border-[#0556E5] border rounded-lg w-[15rem]'
-                                        onClick={() => handleClose()}
-                                    >
-                                        Cancel
-                                    </button>
-                                    <button
                                         className='bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
-                                        onClick={confirmAddArtisan}
+                                        onClick={handleClose}
                                     >
                                         Ok
                                     </button>
