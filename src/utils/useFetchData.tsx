@@ -15,7 +15,7 @@ const useFetchData = ({ url = '/states/get', params, name = 'states' }: Partial<
     const fetchData = () =>
         axiosInstance({
             url,
-        })
+        }).then(({data}) => data)
 
     const { isLoading, data, error, refetch } = useQuery(
         [name, queryParams],
