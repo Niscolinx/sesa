@@ -11,9 +11,12 @@ type Complex = {
 
 interface ISelect<T> {
     state: Array<string>
-    selectedState: string 
+    selectedState: string
     setSelectedState: React.Dispatch<React.SetStateAction<string>>
     label?: string
+    formErrors?: {
+        [key: string]: string
+    }
     placeholder?: string
     validate?: boolean
     isSearchable?: boolean
@@ -62,6 +65,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
     label,
     placeholder,
     kyr,
+    formErrors,
     fullWidth,
     color,
     isSearchable = false,
@@ -98,7 +102,11 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
     }
 
     return (
-        <div className={`relative grid self-baseline capitalize ${label && 'gap-4'}`}>
+        <div
+            className={`relative grid self-baseline capitalize ${
+                label && 'gap-4'
+            }`}
+        >
             <p className='text-[1.4rem] font-semibold'>{label}</p>
             <div className='relative flex items-center'>
                 {color ? (
@@ -134,6 +142,11 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                                 {placeholder || ''}
                             </span>
                         )}
+                    </p>
+                )}
+                {label && formErrors && formErrors[label] && (
+                    <p className='text-[1.2rem] text-red-500'>
+                        {formErrors[label]}
                     </p>
                 )}
                 {toggleStateMenu ? (
@@ -450,7 +463,13 @@ export const SelectedItems: FC<
                                 className=' whitespace-nowrap rounded-lg relative flex items-center h-[3.8rem] z-[2] pr-2 '
                                 key={i}
                             >
-                                {i < 2 ? <span className='max-w-[10rem] text-ellipsis overflow-hidden'>{item},</span> : item}
+                                {i < 2 ? (
+                                    <span className='max-w-[10rem] text-ellipsis overflow-hidden'>
+                                        {item},
+                                    </span>
+                                ) : (
+                                    item
+                                )}
                             </p>
                         )
                     })}
