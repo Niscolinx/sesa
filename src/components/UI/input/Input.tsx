@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react'
+import { FC, SetStateAction, useEffect, useState } from 'react'
 import { FieldValues, UseFormRegister } from 'react-hook-form'
 import { MultipleSelect, Select } from '../../SuperAdmin/UI/Select'
 

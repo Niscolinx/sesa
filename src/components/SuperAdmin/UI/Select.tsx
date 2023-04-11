@@ -14,9 +14,7 @@ interface ISelect<T> {
     selectedState: string
     setSelectedState: React.Dispatch<React.SetStateAction<string>>
     label?: string
-    selectFormErrors?: {
-        [key: string]: string
-    }
+    selectFormErrors?: Record<string, string> | null
     placeholder?: string
     validate?: boolean
     isSearchable?: boolean
@@ -50,11 +48,12 @@ interface ComplexSelect extends Omit<ISelect<string>, 'state'> {
     double?: boolean
 }
 
-interface IMultipleSelect extends ISelect<string> {
+interface IMultipleSelect {
     selectFrom: Array<string>
     selected: Array<string>
     setSelected: React.Dispatch<React.SetStateAction<string[]>>
     label: string
+    selectFormErrors: Record<string, string> | null
     placeholder?: string
 }
 
