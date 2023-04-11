@@ -211,10 +211,6 @@ const AddArtisan = () => {
         }
     }
 
-   
-
-  
-
     const validationResult = [
         {
             label: 'Validation Option',
@@ -252,71 +248,72 @@ const AddArtisan = () => {
 
     const { data: states_data, isLoading: states_loading } = useFetchData({})
 
-    if(states_loading){
+    if (states_loading) {
         return <p>Loading...</p>
     }
 
-    const slicedState = states_data.map(({name, id}: any) => {
-        return {
-            name,
-            id
-        }
-    }).map(({name}:any) => name)
+    const slicedState = states_data
+        .map(({ name, id }: any) => {
+            return {
+                name,
+                id,
+            }
+        })
+        .map(({ name }: any) => name)
 
-
-     const formInputs = [
-         {
-             name: 'First Name',
-             label: 'firstname',
-         },
-         { name: 'Last Name', label: 'lastname' },
-         {
-             label: 'Gender',
-             type: 'select',
-             selectProps: {
-                 state: gender,
-                 selectedState: selectedGender,
-                 setSelectedState: setSelectedGender,
-             },
-         },
-         {
-             label: 'phone_number',
-             type: 'number',
-         },
-         {
-             label: 'email_address',
-             type: 'email',
-         },
-         {
-             label: 'address_line_1',
-         },
-         {
-             label: 'address_line_2',
-         },
-         {
-             label: 'State',
-             type: 'select',
-             selectProps: {
-                 state: slicedState,
-                 selectedState: selectedRegions,
-                 setSelectedState: setSelectedRegions,
-             },
-         },
-         {
-             label: 'Artisan Categories',
-             type: 'select',
-             selectProps: {
-                 isMulti: true,
-                 state: categories,
-                 selectedState: selectedCategories,
-                 setSelectedState: setSelectedCategories,
-             },
-         },
-         {
-             label: 'business_name',
-             required: false,
-         },
-     ] satisfies FormInputs[]
+    const formInputs = [
+        {
+            name: 'First Name',
+            label: 'firstname',
+        },
+        { name: 'Last Name', label: 'lastname' },
+        {
+            label: 'Gender',
+            type: 'select',
+            selectProps: {
+                state: gender,
+                selectedState: selectedGender,
+                setSelectedState: setSelectedGender,
+            },
+        },
+        {
+            label: 'phone_number',
+            type: 'number',
+        },
+        {
+            label: 'email_address',
+            type: 'email',
+        },
+        {
+            label: 'address_line_1',
+        },
+        {
+            label: 'address_line_2',
+        },
+        {
+            label: 'State',
+            type: 'select',
+            selectProps: {
+                state: slicedState,
+                selectedState: selectedRegions,
+                setSelectedState: setSelectedRegions,
+            },
+        },
+        {
+            label: 'Artisan Categories',
+            type: 'select',
+            selectProps: {
+                isMulti: true,
+                state: categories,
+                selectedState: selectedCategories,
+                setSelectedState: setSelectedCategories,
+            },
+        },
+        {
+            label: 'business_name',
+            required: false,
+        },
+    ] satisfies FormInputs[]
 
     return (
         <>
