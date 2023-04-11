@@ -45,7 +45,7 @@ const AddArtisan = () => {
     const [selectFormErrors, setSelectFormErrors] = useState<{
         [key: string]: string
     } | null>(null)
-    
+
     const [photoPreview, setPhotoPreview] = useState('')
     const [imageFile, setImageFile] = useState<File | null>(null)
     const [selectedGender, setSelectedGender] = useState<string>('')
@@ -88,51 +88,43 @@ const AddArtisan = () => {
         },
     }) as any
 
-
-
     const onSubmit = handleSubmit((data) => {
-    
         let isError = false
-      if(selectedCategories.length < 1){
-        isError = true
-        setSelectFormErrors((prev) => {
-            return {
-                ...prev,
-                'Artisan Categories': 'Field cannot be empty',
-            }
-        })
-      }
-      if(selectedGender.length < 1){
-                isError = true
+        if (selectedCategories.length < 1) {
+            isError = true
+            setSelectFormErrors((prev) => {
+                return {
+                    ...prev,
+                    'Artisan Categories': 'Field cannot be empty',
+                }
+            })
+        }
+        if (selectedGender.length < 1) {
+            isError = true
 
-        setSelectFormErrors((prev) => {
-            return {
-                ...prev,
-                'Gender': 'Field cannot be empty',
-            }
-        })
-      }
-      if(selectedRegions.length < 1){
-                isError = true
+            setSelectFormErrors((prev) => {
+                return {
+                    ...prev,
+                    Gender: 'Field cannot be empty',
+                }
+            })
+        }
+        if (selectedRegions.length < 1) {
+            isError = true
 
-        setSelectFormErrors((prev) => {
-            return {
-                ...prev,
-                'State': 'Field cannot be empty',
-            }
-        })
-      }
-      
+            setSelectFormErrors((prev) => {
+                return {
+                    ...prev,
+                    State: 'Field cannot be empty',
+                }
+            })
+        }
 
-      if(isError){
-        console.log({isError}, 'error')
-        return
-      }
-      setSelectFormErrors(null)
-
-     
-        
-      
+        if (isError) {
+            console.log({ isError }, 'error')
+            return
+        }
+        setSelectFormErrors(null)
 
         const updatedData = {
             ...data,
@@ -360,6 +352,8 @@ const AddArtisan = () => {
                                     selectedState={validationType}
                                     setSelectedState={setValidationType}
                                 />
+
+                                
 
                                 <div className='grid gap-4'>
                                     <label
