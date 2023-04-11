@@ -4,11 +4,11 @@ import useAxios from '../components/hooks/useAxios'
 
 interface FetchData {
     url: string
-    name?: string
-    params?: string
+    name: string
+    params: string
 }
 
-const useFetchData = ({ url, params, name = 'states' }: FetchData) => {
+const useFetchData = ({ url = '/states/get', params, name = 'states' }: Partial<FetchData>) => {
     const [queryParams, setQueryParams] = useState(params)
 
     const axiosInstance = useAxios()

@@ -8,6 +8,7 @@ import { useForm } from 'react-hook-form'
 import { useMutation } from 'react-query'
 import ImageInput from '../../../../components/UI/input/ImageInput'
 import useAxios from '../../../../components/hooks/useAxios'
+import useFetchData from '../../../../utils/statesHook'
 
 type DialogType = 'validate' | 'add-Artisan'
 
@@ -68,11 +69,17 @@ const AddArtisan = () => {
         setImageFile(file)
     }
 
+
+
     const {
         register,
         handleSubmit,
         formState: { errors: formErrors },
     } = useForm<Inputs>()
+
+
+
+
 
     const {
         register: validation_register,
@@ -123,6 +130,15 @@ const AddArtisan = () => {
             })
         },
     }) as any
+
+    const {
+        data: states_data
+    } = useFetchData()
+
+
+
+
+
 
     const onSubmitValidation = validation_handleSubmit((data) => {
         validationType_mutation(data)
