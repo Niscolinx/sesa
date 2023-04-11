@@ -99,6 +99,10 @@ const AddArtisan = () => {
                 displayMessage: err?.response.data.message,
             })
         },
+
+        onSuccess: () => {
+            handleOpen('add-Artisan')
+        },
     }) as any
 
     const postValidationType = (data: Inputs) => {
@@ -371,26 +375,6 @@ const AddArtisan = () => {
                                     selectedState={validationType}
                                     setSelectedState={setValidationType}
                                 />
-
-                                {validationInput
-                                    .filter(
-                                        ({ name }) =>
-                                            name.toLowerCase() ===
-                                            validationType.toLowerCase()
-                                    )
-                                    .map(({ label, type }) => {
-                                        return (
-                                            <Input
-                                                label={label}
-                                                register={validation_register}
-                                                formErrors={
-                                                    validation_formErrors
-                                                }
-                                                type={type}
-                                            />
-                                        )
-                                    })}
-
                                 <p
                                     className='text-[#043FA7] flex items-center gap-2'
                                     style={{
@@ -399,6 +383,29 @@ const AddArtisan = () => {
                                 >
                                     What is KYA <BsQuestionCircle />
                                 </p>
+
+                                <div className='border-t'>
+                                    {validationInput
+                                        .filter(
+                                            ({ name }) =>
+                                                name.toLowerCase() ===
+                                                validationType.toLowerCase()
+                                        )
+                                        .map(({ label, type }) => {
+                                            return (
+                                                <Input
+                                                    label={label}
+                                                    register={
+                                                        validation_register
+                                                    }
+                                                    formErrors={
+                                                        validation_formErrors
+                                                    }
+                                                    type={type}
+                                                />
+                                            )
+                                        })}
+                                </div>
 
                                 <button className='btn bg-[#0556E5] text-white rounded-lg py-4 place-self-start w-[15rem]'>
                                     {validationType_isloading
