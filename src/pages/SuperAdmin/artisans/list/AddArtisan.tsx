@@ -42,10 +42,12 @@ const AddArtisan = () => {
     const axiosInstance = useAxios()
 
     const categories = ['Category1', 'Category2', 'Category3']
+    const regions = ['Lagos', 'FCT']
 
     const [photoPreview, setPhotoPreview] = useState('')
     const [imageFile, setImageFile] = useState<File | null>(null)
     const [selectedCategories, setSelectedCategories] = useState<string[]>([])
+    const [selectedRegions, setSelectedRegions] = useState<string[]>([])
 
     const handlePicture = (e: React.ChangeEvent) => {
         const target = e.target as HTMLInputElement
@@ -168,13 +170,12 @@ const AddArtisan = () => {
             label: 'address_line_2',
         },
         {
-            label: 'Artisan Categories',
+            label: 'State',
             type: 'select',
             selectProps: {
-                isMulti: true,
-                state: categories,
-                selectedState: selectedCategories,
-                setSelectedState: setSelectedCategories,
+                state: regions,
+                selectedState: selectedRegions,
+                setSelectedState: setSelectedRegions,
             },
         },
     ] satisfies FormInputs[]
