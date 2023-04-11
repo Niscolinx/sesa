@@ -47,7 +47,7 @@ const AddArtisan = () => {
     const categories = ['Category1', 'Category2', 'Category3']
     const gender = ['Male', 'Female']
 
-    const [regions, setRegions] = useState<string[]>([])
+    const [regions, setRegions] = useState<string[]>(['2', '4'])
     const [isAddArtisan, setIsAddArtisan] = useState(true)
     const [validationType, setValidationType] = useState<string>('Phone Number')
     const [selectFormErrors, setSelectFormErrors] = useState<{
@@ -211,8 +211,7 @@ const AddArtisan = () => {
         }
     }
 
-
-    const inputForm = [
+    const formInputs = [
         {
             name: 'First Name',
             label: 'firstname',
@@ -266,40 +265,7 @@ const AddArtisan = () => {
         },
     ] satisfies FormInputs[]
 
-    const [formInputs, setFormInputs] = useState(inputForm)
-
-
-    const { data: states_data, isLoading: states_loading } = useFetchData({})
-
-    useEffect(() => {
-        // if (states_data) {
-        //     console.log({ states_data })
-        //     const stateIndex = formInputs.findIndex(
-        //         (input) => input.label === 'State'
-        //     )
-
-        //     // console.log(states_data.name)
-        //    const updatedFormInputs:any = [...formInputs]
-        //    updatedFormInputs[stateIndex] = {
-        //        ...updatedFormInputs[stateIndex],
-        //        selectProps: {
-        //            state: states_data,
-        //            selectedState: selectedRegions,
-        //            setSelectedState: setSelectedRegions,
-        //        },
-        //    }
-
-        //    // Set the state of formInputs to the updated array
-        //    setFormInputs(updatedFormInputs)
-        // }
-
-        setRegions(['2'])
-    }, [])
-
-   useEffect(() => {
-    console.log({regions})
-   }, [regions])
-
+  
 
     const validationResult = [
         {
@@ -335,6 +301,24 @@ const AddArtisan = () => {
             label: 'name',
         },
     ] satisfies FormInputs[]
+
+    const { data: states_data, isLoading: states_loading } = useFetchData({})
+
+    if(states_loading){
+        return <p>Loading...</p>
+    }
+
+    console.log(states_data.name)
+
+
+    const slicedState = states_data.map(({name, id}: any) => {
+        return {
+            name,
+            id
+        }
+    })
+
+    console.log({slicedState})
 
     return (
         <>
@@ -513,21 +497,19 @@ const AddArtisan = () => {
                         {formInputs.map((input, idx) => {
                             const { label, type, selectProps, required } = input
 
-                          
-                                return (
-                                    <Input
-                                        key={idx + label}
-                                        label={label}
-                                        register={register}
-                                        formErrors={formErrors}
-                                        selectFormErrors={selectFormErrors}
-                                        type={type}
-                                        required={required}
-                                        isSelect={type === 'select'}
-                                        select={selectProps}
-                                    />
-                                )
-                            
+                            return (
+                                <Input
+                                    key={idx + label}
+                                    label={label}
+                                    register={register}
+                                    formErrors={formErrors}
+                                    selectFormErrors={selectFormErrors}
+                                    type={type}
+                                    required={required}
+                                    isSelect={type === 'select'}
+                                    select={selectProps}
+                                />
+                            )
                         })}
 
                         <ImageInput
