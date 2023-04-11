@@ -330,6 +330,8 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
         }
     }
 
+
+
     const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
         const { value } = e.target
         setSearch(value)
@@ -373,6 +375,9 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
     const removeSelectedItem = (item: string) => {
         setSelected((prev) => prev.filter((i) => i !== item))
     }
+
+
+    console.log({selectFormErrors})
 
     return (
         <div className='relative grid gap-4'>
