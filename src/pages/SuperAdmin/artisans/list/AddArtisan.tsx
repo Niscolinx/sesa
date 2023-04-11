@@ -1,4 +1,4 @@
-import React, { FormEvent, useRef, useState } from 'react'
+import React, { FormEvent, useEffect, useRef, useState } from 'react'
 import { IoMdAdd, IoMdClose } from 'react-icons/io'
 import { BsQuestionCircle } from 'react-icons/bs'
 import { ToastContainer } from 'react-toastify'
@@ -45,7 +45,6 @@ const AddArtisan = () => {
     const axiosInstance = useAxios()
 
     const categories = ['Category1', 'Category2', 'Category3']
-    const region = ['Lagos', 'FCT']
     const gender = ['Male', 'Female']
 
     const [regions, setRegions] = useState([])
@@ -70,17 +69,11 @@ const AddArtisan = () => {
         setImageFile(file)
     }
 
-
-
     const {
         register,
         handleSubmit,
         formState: { errors: formErrors },
     } = useForm<Inputs>()
-
-
-
-
 
     const {
         register: validation_register,
@@ -90,6 +83,16 @@ const AddArtisan = () => {
 
     const [responseMessage, setResponseMessage] =
         useState<ResponseMessage | null>(null)
+
+    useEffect(() => {
+        const { data: states_data } = useFetchData({})
+
+        console.log({ states_data })
+
+        if(states_data.length > 0){
+            setRegions(states_data)
+        }
+    }, [])
 
     const postRequest = (data: Inputs) => {
         return axiosInstance({
@@ -131,16 +134,6 @@ const AddArtisan = () => {
             })
         },
     }) as any
-
-    const {
-        data: states_data
-    } = useFetchData({})
-
-
-    console.log({states_data})
-
-
-
 
     const onSubmitValidation = validation_handleSubmit((data) => {
         validationType_mutation(data)
@@ -261,7 +254,7 @@ const AddArtisan = () => {
             label: 'State',
             type: 'select',
             selectProps: {
-                state: region,
+                state: regions,
                 selectedState: selectedRegions,
                 setSelectedState: setSelectedRegions,
             },
