@@ -48,6 +48,7 @@ const AddArtisan = () => {
     const region = ['Lagos', 'FCT']
     const gender = ['Male', 'Female']
 
+    const [regions, setRegions] = useState([])
     const [isAddArtisan, setIsAddArtisan] = useState(true)
     const [validationType, setValidationType] = useState<string>('Phone Number')
     const [selectFormErrors, setSelectFormErrors] = useState<{
