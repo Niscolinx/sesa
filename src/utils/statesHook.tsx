@@ -1,31 +1,32 @@
-import { FC, useState } from "react"
-import { useQuery } from "react-query"
-import useAxios from "../components/hooks/useAxios"
-
+import { useState } from 'react'
+import { useQuery } from 'react-query'
+import useAxios from '../components/hooks/useAxios'
 
 interface FetchData {
     url: string
+    name?: string
     params?: string
 }
 
-const useFetchData:FC<FetchData> = ({url, params}) => {
-    const [queryParams, setQueryParams] = useState({params})
+const useFetchData = ({ url, params, name = 'states' }: FetchData) => {
+    const [queryParams, setQueryParams] = useState(params)
 
     const axiosInstance = useAxios()
-    const fetchData = () => axiosInstance({
-        url,
-    })
-
-    
+    const fetchData = () =>
+        axiosInstance({
+            url,
+        })
 
     const { isLoading, data, error, refetch } = useQuery(
-        ['data', queryParams],
-       fetchData
+        [name, queryParams],
+        fetchData
     )
 
     const updateQueryParams = (newParams: string) => {
-        setQueryParams({newParams})
+        setQueryParams(newParams)
     }
 
     return { isLoading, data, error, refetch, updateQueryParams }
 }
+
+export default useFetchData
