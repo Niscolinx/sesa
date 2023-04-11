@@ -171,6 +171,8 @@ const AddArtisan = () => {
 
         openValidateDialog()
 
+        console.log({states_data})
+
         const updatedData = {
             ...data,
             estate_id: 4,
@@ -489,12 +491,13 @@ const AddArtisan = () => {
                 >
                     <>
                         {formInputs.map((input, idx) => {
-                            const { label, type, selectProps, required } = input
+                            const { label, type, selectProps, name, required } = input
 
                             return (
                                 <Input
                                     key={idx + label}
                                     label={label}
+                                    name={name}
                                     register={register}
                                     formErrors={formErrors}
                                     selectFormErrors={selectFormErrors}
