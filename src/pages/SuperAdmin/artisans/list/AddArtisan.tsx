@@ -260,18 +260,11 @@ const AddArtisan = () => {
         return <p>Loading...</p>
     }
 
-    const slicedState = states_data
-        .map(({ name, id }: any) => {
-            return {
-                name,
-                id,
-            }
-        })
-        .map(({ name }: any) => name)
+    const slicedStates: string[] = states_data.map(({ name }: any) => name)
 
-    const slicedCategories = categories_data
 
-    console.log({ slicedCategories })
+    const slicedCategories: string[] = categories_data.data.map(({name}: any) => name)
+
 
     const formInputs = [
         {
@@ -306,7 +299,7 @@ const AddArtisan = () => {
             label: 'State',
             type: 'select',
             selectProps: {
-                state: slicedState,
+                state: slicedStates,
                 isSearchable: true,
                 selectedState: selectedRegions,
                 setSelectedState: setSelectedRegions,
@@ -317,7 +310,7 @@ const AddArtisan = () => {
             type: 'select',
             selectProps: {
                 isMulti: true,
-                state: categories,
+                state: slicedCategories,
                 selectedState: selectedCategories,
                 setSelectedState: setSelectedCategories,
             },
