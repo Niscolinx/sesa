@@ -383,7 +383,7 @@ const AddArtisan = () => {
                                     </div>
                                 </div> */}
                                 {
-                                    validationInput.map(({ label, type}) => {
+                                    validationInput.some(({name}) => name === validationType).map(({ label, type}) => {
                                         return (
                                             <Input
                                                 label={label}
