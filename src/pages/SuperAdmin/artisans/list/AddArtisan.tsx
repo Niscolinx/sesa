@@ -211,17 +211,8 @@ const AddArtisan = () => {
         }
     }
 
-    const { data: states_data, isLoading: states_loading } = useFetchData({})
 
-    useEffect(() => {
-        if (states_data) {
-            console.log({states_data})
-            // console.log(states_data.name)
-            setRegions(['3'])
-        }
-    }, [states_data])
-
-    const formInputs = [
+    const inputForm = [
         {
             name: 'First Name',
             label: 'firstname',
@@ -274,6 +265,20 @@ const AddArtisan = () => {
             required: false,
         },
     ] satisfies FormInputs[]
+
+    const [formInputs, setFormInputs] = useState(inputForm)
+
+
+    const { data: states_data, isLoading: states_loading } = useFetchData({})
+
+    useEffect(() => {
+        if (states_data) {
+            console.log({ states_data })
+            // console.log(states_data.name)
+            setRegions(['3'])
+        }
+    }, [states_data])
+
 
     const validationResult = [
         {
@@ -487,8 +492,7 @@ const AddArtisan = () => {
                         {formInputs.map((input, idx) => {
                             const { label, type, selectProps, required } = input
 
-                            if (states_data) {
-                                // console.log(selectProps)
+                          
                                 return (
                                     <Input
                                         key={idx + label}
@@ -502,7 +506,7 @@ const AddArtisan = () => {
                                         select={selectProps}
                                     />
                                 )
-                            }
+                            
                         })}
 
                         <ImageInput

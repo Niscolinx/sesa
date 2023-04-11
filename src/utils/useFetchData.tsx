@@ -10,7 +10,6 @@ interface FetchData {
 
 const useFetchData = ({ url = '/states/get', params, name = 'states' }: Partial<FetchData>) => {
     const [queryParams, setQueryParams] = useState(params)
-    const [data, setData] = useState()
 
     const axiosInstance = useAxios()
     const fetchData = () =>
@@ -18,16 +17,14 @@ const useFetchData = ({ url = '/states/get', params, name = 'states' }: Partial<
             url,
         }).then(({data}) => data)
 
-    const { isLoading, error, refetch } = useQuery(
+    const { isLoading, error, data, refetch } = useQuery(
         [name, queryParams],
         fetchData,
         {   
             refetchOnMount: false,
             refetchOnWindowFocus: false,
             
-            onSuccess: (data) => {
-                setData(data)
-            }
+           
         }
     )
 
