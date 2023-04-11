@@ -8,9 +8,10 @@ import useAxios from '../../../components/hooks/useAxios'
 
 const AddAdvert = () => {
     interface Inputs {
-        email: string
+        url: string
         name: string
-        address: string
+        start_date: string
+        end_date: string
         phone: number
     }
     type ResponseMessage = {
@@ -100,20 +101,7 @@ const AddAdvert = () => {
     const formInputs = [
         {
             label: 'name',
-            name: 'Security Company',
-        },
-        {
-            name: 'email Address',
-            label: 'email',
-            type: 'email',
-        },
-        {
-            label: 'phone',
-            name: 'Phone Number',
-            type: 'number',
-        },
-        {
-            label: 'address',
+            name: 'Advert Name',
         },
         {
             label: 'state',
@@ -123,6 +111,14 @@ const AddAdvert = () => {
                 selectedState: selectedRegion,
                 setSelectedState: setSelectedRegion,
             },
+        },
+        {
+            label: 'phone',
+            name: 'Phone Number',
+            type: 'number',
+        },
+        {
+            label: 'address',
         },
     ] satisfies FormInputs[]
 

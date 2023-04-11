@@ -1,11 +1,11 @@
 import { FC, useEffect, useState } from 'react'
 import { FieldValues, UseFormRegister } from 'react-hook-form'
-import { Select } from '../../SuperAdmin/UI/Select'
+import { MultipleSelect, Select } from '../../SuperAdmin/UI/Select'
 
 export interface SelectProps {
     state: string[]
-    selectedState: string | null
-    setSelectedState: React.Dispatch<React.SetStateAction<string | null>>
+    selectedState: string | string[]
+    setSelectedState: React.Dispatch<React.SetStateAction<string | string[]>>
 }
 interface Input {
     name: string
@@ -13,10 +13,10 @@ interface Input {
     register?: any
     formErrors: any
     disabled?: boolean
-    setValue: any
     value?: any
     options: any
     minLength?: number
+    multiSelect?: boolean
     fullWidth: boolean
     isSelect: boolean
     select: SelectProps
@@ -33,7 +33,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
     select,
     formErrors,
     value,
-    setValue,
+    multiSelect = false,
     minLength = 3,
 }) => {
     const validationOptions = {
@@ -52,12 +52,31 @@ const Input: FC<Partial<Input> & { label: string }> = ({
             }`}
         >
             {isSelect && select ? (
-                <Select
-                    label={name ?? label.replaceAll('_', ' ')}
-                    state={select.state}
-                    selectedState={select.selectedState}
-                    setSelectedState={select.setSelectedState}
-                />
+                <>
+                    {multiSelect && Array.isArray(select.selectedState) ? (
+                        <MultipleSelect
+                            label={name ?? label.replaceAll('_', ' ')}
+                            selected={select.selectedState}
+                            selectFrom={select.state}
+                            setSelected={
+                                select.setSelectedState as React.Dispatch<
+                                    React.SetStateAction<string[]>
+                                >
+                            }
+                        />
+                    ) : (
+                        <Select
+                            label={name ?? label.replaceAll('_', ' ')}
+                            state={select.state}
+                            selectedState={select.selectedState as string}
+                            setSelectedState={
+                                select.setSelectedState as React.Dispatch<
+                                    React.SetStateAction<string>
+                                >
+                            }
+                        />
+                    )}
+                </>
             ) : (
                 <>
                     <label

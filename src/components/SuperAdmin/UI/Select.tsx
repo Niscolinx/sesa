@@ -11,8 +11,8 @@ type Complex = {
 
 interface ISelect<T> {
     state: Array<string>
-    selectedState: string | null
-    setSelectedState: React.Dispatch<React.SetStateAction<T | null>>
+    selectedState: string 
+    setSelectedState: React.Dispatch<React.SetStateAction<string>>
     label?: string
     placeholder?: string
     validate?: boolean
@@ -94,7 +94,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
 
     const clearValue = (e: React.MouseEvent<SVGElement, MouseEvent>) => {
         e.stopPropagation()
-        setSelectedState(null)
+        setSelectedState('')
     }
 
     return (
