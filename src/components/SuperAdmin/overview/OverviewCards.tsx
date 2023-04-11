@@ -35,7 +35,7 @@ const OverviewCards = () => {
             <OverviewCard
                 title='Adverts'
                 number={4}
-                iconUrl='icons/overview/adverts.svg'
+                iconUrl='/icons/overview/advert.svg'
                 bgColor='bg-[#EFFFEC]'
                 textColor='text-[#33F110]'
             />
