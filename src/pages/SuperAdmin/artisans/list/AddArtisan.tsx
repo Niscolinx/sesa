@@ -84,17 +84,6 @@ const AddArtisan = () => {
     const [responseMessage, setResponseMessage] =
         useState<ResponseMessage | null>(null)
 
-    const { data: states_data } = useFetchData({})
-
-    useEffect(() => {
-        console.log({ states_data })
-        if (states_data) {
-            setRegions(states_data)
-        }
-    }, [states_data])
-
-    console.log({regions})
-
     const postRequest = (data: Inputs) => {
         return axiosInstance({
             url: '/admin/artisan',
@@ -310,6 +299,10 @@ const AddArtisan = () => {
             label: 'name',
         },
     ] satisfies FormInputs[]
+
+    const { data: states_data, isLoading: states_loading } = useFetchData({})
+
+    
 
     return (
         <>
