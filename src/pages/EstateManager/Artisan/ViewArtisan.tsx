@@ -8,7 +8,6 @@ type Actions = 'Deactivate' | 'Delete'
 
 const ViewArtisan = () => {
     const [selectedGender, setSelectedGender] = useState<string>('')
-    // const [dialogType, setDialogType] = useState<Actions>('Deactivate')
 
     const [photoUrl, setPhotoUrl] = useState('')
 
