@@ -216,6 +216,7 @@ const AddArtisan = () => {
 
    
 
+
     const formInputs = [
         {
             name: 'First Name',
