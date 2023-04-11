@@ -249,7 +249,7 @@ const AddArtisan = () => {
             label: 'State',
             type: 'select',
             selectProps: {
-                state: regions,
+                state: states_data,
                 selectedState: selectedRegions,
                 setSelectedState: setSelectedRegions,
             },
