@@ -33,16 +33,16 @@ const AddArtisan = () => {
         selectProps?: SelectProps
     }
 
-    const [selectedState, setSelectedState] = useState<string>('')
-    const [selectedArtisan, setSelectedArtisan] = useState<string>('')
+    const axiosInstance = useAxios()
+    
+        const categories = ['Category1', 'Category2', 'Category3']
+        const region = ['Lagos', 'FCT']
+        const gender = ['Male', 'Female']
+    
     const [selectedGender, setSelectedGender] = useState<string>('')
     const [isAddArtisan, setIsAddArtisan] = useState(true)
     const [validationType, setValidationType] = useState<string>('Phone Number')
 
-    const axiosInstance = useAxios()
-
-    const categories = ['Category1', 'Category2', 'Category3']
-    const regions = ['Lagos', 'FCT']
 
     const [photoPreview, setPhotoPreview] = useState('')
     const [imageFile, setImageFile] = useState<File | null>(null)
@@ -146,13 +146,12 @@ const AddArtisan = () => {
             label: 'last_name',
         },
         {
-            label: 'Artisan Categories',
+            label: 'Gender',
             type: 'select',
             selectProps: {
-                isMulti: true,
-                state: categories,
-                selectedState: selectedCategories,
-                setSelectedState: setSelectedCategories,
+                state: gender,
+                selectedState: selectedGender,
+                setSelectedState: setSelectedGender,
             },
         },
         {
@@ -173,9 +172,19 @@ const AddArtisan = () => {
             label: 'State',
             type: 'select',
             selectProps: {
-                state: regions,
+                state: region,
                 selectedState: selectedRegions,
                 setSelectedState: setSelectedRegions,
+            },
+        },
+        {
+            label: 'Artisan Categories',
+            type: 'select',
+            selectProps: {
+                isMulti: true,
+                state: categories,
+                selectedState: selectedCategories,
+                setSelectedState: setSelectedCategories,
             },
         },
     ] satisfies FormInputs[]
