@@ -425,6 +425,7 @@ const AddArtisan = () => {
                                             return (
                                                 <Input
                                                     label={label}
+                                                    key={label}
                                                     register={
                                                         validation_register
                                                     }
