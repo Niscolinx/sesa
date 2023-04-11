@@ -91,18 +91,31 @@ const AddArtisan = () => {
 
 
     const onSubmit = handleSubmit((data) => {
-        console.log([selectedCategories, selectedGender, selectedRegions])
 
-
-      const isEmpty =   [selectedCategories, selectedGender, selectedRegions].forEach((selected) => {
-        console.log(selected.length)
-        
-        if(selected.length < 1){
-            console.log('error', selected)
-
-            return selected
-        }
-      })
+      if(selectedCategories.length < 1){
+        setSelectFormErrors((prev) => {
+            return {
+                ...prev,
+                'Artisan Categories': 'Field cannot be empty',
+            }
+        })
+      }
+      if(selectedGender.length < 1){
+        setSelectFormErrors((prev) => {
+            return {
+                ...prev,
+                'Gender': 'Field cannot be empty',
+            }
+        })
+      }
+      if(selectedRegions.length < 1){
+        setSelectFormErrors((prev) => {
+            return {
+                ...prev,
+                'State': 'Field cannot be empty',
+            }
+        })
+      }
 
       console.log(isEmpty)
         
