@@ -263,7 +263,6 @@ const AddArtisan = () => {
         }
     }).map(({name}:any) => name)
 
-    console.log({slicedState})
 
      const formInputs = [
          {
