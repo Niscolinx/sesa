@@ -108,8 +108,6 @@ const ViewEstateManager = () => {
     } = useMutation(postDeactivate) as any
 
     const {
-        mutate: get_mutation,
-        data: get_response,
         isLoading: get_loading,
     } = useQuery('estate_manager', getRequest, {
         onSuccess: ({ data }) => {
@@ -139,9 +137,7 @@ const ViewEstateManager = () => {
         isLoading: post_loading,
     } = useMutation(postUpdate) as any
 
-    useEffect(() => {
-        get_mutation(estateManager_id)
-    }, [])
+    
 
     useEffect(() => {
         if (post_response_data?.success) {
