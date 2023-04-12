@@ -140,6 +140,7 @@ function RenderedSecurityCompanies() {
             return {
                 ...prev,
                 slicedPages,
+                totalPage: Math.ceil(fetchedSecurityCompanies?.length / perPage),
             }
         })
     }, [fetchedSecurityCompanies])
