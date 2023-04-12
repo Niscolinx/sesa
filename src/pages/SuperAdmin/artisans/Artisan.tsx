@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router'
 import RenderArtisans from './RenderArtisans'
 
 function Artisan() {
-    const navigate = useNavigate()
+    type PathSwitch = 'artisanCategory' | 'artisanList' | 'artisanGroup'
 
     const [artisan, setArtisan] = useState(false)
 
