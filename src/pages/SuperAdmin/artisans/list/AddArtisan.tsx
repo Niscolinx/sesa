@@ -129,10 +129,12 @@ const AddArtisan = () => {
                 className: 'text-red-600',
                 displayMessage: err?.response.data.message,
             })
-        },
+        }
     }) as any
 
     const onSubmitValidation = validation_handleSubmit((data) => {
+        console.log({data})
+
         validationType_mutation(data)
     })
 
@@ -204,7 +206,8 @@ const AddArtisan = () => {
             validation_option: 'bvn',
             is_kyr_approved: false,
             gender: selectedGender,
-            image: imageFile,
+            // image: imageFile,
+            image: ''
         }
 
         console.log({updatedData})
@@ -270,12 +273,12 @@ const AddArtisan = () => {
     const validationInput = [
         {
             name: 'phone number',
-            label: 'phone_number',
+            label: 'data',
             type: 'number',
         },
         {
             name: 'name',
-            label: 'name',
+            label: 'data',
         },
     ] satisfies FormInputs[]
 
