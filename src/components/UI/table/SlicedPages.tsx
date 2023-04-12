@@ -61,7 +61,6 @@ const SlicedPages: FC<SlicedPages> = ({
         })
 
         const sorted: any[] = []
-        let status
         data_to_display.map((item: string, i: number) => {
             if (item)
                 for (const [key, value] of details.entries()) {
@@ -83,13 +82,15 @@ const SlicedPages: FC<SlicedPages> = ({
                 }
         })
 
+        const isAction
+
         return (
             <>
                 {sorted.map(({ key, value }: any, idx: number) => {
                     if (key === 'actions') {
                         let updatedActions: Actions[] = ['view details']
 
-                        value === '0'
+                        value === 0
                             ? (updatedActions = [...updatedActions, 'activate'])
                             : (updatedActions = [
                                   ...updatedActions,

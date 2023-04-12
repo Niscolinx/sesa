@@ -48,7 +48,7 @@ function ArtisanList() {
                 'business_name',
                 'phone_number',
                 'rating',
-                'status',
+                'sf'
             ]}
             deactivateProp={{ url: '/admin/artisan/changeStatus' }}
         />
