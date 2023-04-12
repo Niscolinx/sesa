@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { IoMdAdd, IoMdClose } from 'react-icons/io'
 import { BsQuestionCircle } from 'react-icons/bs'
 import { ToastContainer } from 'react-toastify'
@@ -24,8 +24,7 @@ const AddArtisan = () => {
     }
 
     interface ValidationTypeInput {
-        phone_number: string
-        name: string
+        validation_content: string
     }
 
     type ResponseMessage = {
@@ -85,8 +84,14 @@ const AddArtisan = () => {
     const {
         register: validation_register,
         handleSubmit: validation_handleSubmit,
+        reset,
         formState: { errors: validation_formErrors },
     } = useForm<ValidationTypeInput>()
+
+    useEffect(() => {
+        console.log("reset")
+        reset()
+    }, [validationType])
 
     const [responseMessage, setResponseMessage] =
         useState<ResponseMessage | null>(null)
@@ -129,11 +134,11 @@ const AddArtisan = () => {
                 className: 'text-red-600',
                 displayMessage: err?.response.data.message,
             })
-        }
+        },
     }) as any
 
     const onSubmitValidation = validation_handleSubmit((data) => {
-        console.log({data})
+        console.log({ data })
 
         validationType_mutation(data)
     })
@@ -198,7 +203,6 @@ const AddArtisan = () => {
             .filter(({ name }: any) => selectedRegions.includes(name))
             .map(({ id }: any) => id)[0]
 
-
         const updatedData = {
             ...data,
             category,
@@ -207,10 +211,10 @@ const AddArtisan = () => {
             is_kyr_approved: false,
             gender: selectedGender,
             // image: imageFile,
-            image: ''
+            image: '',
         }
 
-        console.log({updatedData})
+        console.log({ updatedData })
 
         mutate(updatedData)
     })
@@ -273,12 +277,12 @@ const AddArtisan = () => {
     const validationInput = [
         {
             name: 'phone number',
-            label: 'data',
+            label: 'validation_content',
             type: 'number',
         },
         {
             name: 'name',
-            label: 'data',
+            label: 'validation_content',
         },
     ] satisfies FormInputs[]
 
@@ -438,11 +442,12 @@ const AddArtisan = () => {
                                                 name.toLowerCase() ===
                                                 validationType.toLowerCase()
                                         )
-                                        .map(({ label, type }) => {
+                                        .map(({ label, type, name }) => {
                                             return (
                                                 <Input
                                                     label={label}
                                                     key={label}
+                                                    name={name}
                                                     register={
                                                         validation_register
                                                     }
