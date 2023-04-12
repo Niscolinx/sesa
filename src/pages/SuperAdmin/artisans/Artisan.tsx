@@ -8,8 +8,8 @@ function ArtisanCategory() {
     return (
         <Table
             fetch_url={'/admin/category/getAll'}
-            title={'artisanList'}
-            view_page_url={'/superAdmin/artisan/detail/'}
+            title={'artisanCategory'}
+            view_page_url={'/superAdmin/artisan/category/'}
             add_page_url={'/superAdmin/artisan/add'}
             is_add_btn={true}
             actions={['delete']}
