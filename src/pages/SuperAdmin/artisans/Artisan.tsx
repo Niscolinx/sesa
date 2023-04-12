@@ -45,13 +45,12 @@ function ArtisanList() {
                 'name',
                 'business name',
                 'phone no',
-                'joined date',
-                'status',
+                'rating',
                 'actions',
             ]}
             data_to_display={[
                 'name',
-                'image',
+                'business_name',
                 'gender',
                 'phone',
                 'created_at',
