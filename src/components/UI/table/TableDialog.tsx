@@ -142,7 +142,7 @@ function TableDialog() {
                     ) : isDialogOpen?.type === 'delete' ? (
                         <>
                             <img
-                                src='/icons/admins/modalWarning.svg'
+                                src='/icons/admins/modalDelete.svg'
                                 alt=''
                                 className='animate__animated animate__pulse '
                                 style={{
@@ -174,7 +174,7 @@ function TableDialog() {
                     ) : (
                         <>
                             <img
-                                src='/icons/admins/modalWarning.svg'
+                                src='/icons/admins/modalDeactivate.svg'
                                 alt=''
                                 className='animate__animated animate__pulse '
                                 style={{
