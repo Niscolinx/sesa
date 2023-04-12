@@ -76,7 +76,7 @@ function TableDialog() {
 
     const closeDialog = () => {
         setIsDialogOpen({
-            state: false
+            state: false,
         })
         if (dialogRef.current) {
             dialogRef.current.close()
@@ -148,7 +148,7 @@ function TableDialog() {
                                 }}
                             />
                             <p>
-                                Are you sure you want to deactivate this{' '}
+                                Are you sure you want to delete this{' '}
                                 <span className='capitalize'>
                                     {title.split(/(?=[A-Z])/).join(' ')}?
                                 </span>
@@ -156,16 +156,16 @@ function TableDialog() {
 
                             <div className='flex w-full justify-center gap-8'>
                                 <button
-                                    className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
+                                    className='btn bg-white text-[#0556E5] border-[#0556E5] border rounded-lg w-[15rem]'
                                     onClick={closeDialog}
                                 >
                                     Cancel
                                 </button>
                                 <button
-                                    className='bg-red-500 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem] capitalize'
+                                    className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
                                     onClick={() => mutate()}
                                 >
-                                    {isLoading ? 'Loading...' : 'deactivate'}
+                                    {isLoading ? 'Loading...' : 'Delete'}
                                 </button>
                             </div>
                         </>
