@@ -197,11 +197,7 @@ const AddArtisanGroup = () => {
                 </div>
                 <form
                     onSubmit={onSubmit}
-                    className='grid max-w-[84rem] gap-16 mt-12 '
-                    style={{
-                        gridTemplateColumns:
-                            ' repeat(auto-fit, minmax(35rem, 1fr))',
-                    }}
+                    className='flex flex-col gap-16 max-w-[40rem] h-[60vh] mt-10'
                 >
                     <>
                         {formInputs.map((input, idx) => {
