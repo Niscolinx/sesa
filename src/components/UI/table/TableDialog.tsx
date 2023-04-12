@@ -50,16 +50,12 @@ function TableDialog() {
                               c.toUpperCase()
                           )
                 
-                const message = {
-                    create: `${messageTitle} Created successfully`,
-                    deactivate: `${messageTitle} deactivated successfully`,
-                    delete: `${messageTitle} deleted successfully`,
-                }
-
-                const {type} = isDialogOpen
                
 
-                toast(`${messageTitle}  successfully`, {
+                const type = isDialogOpen?.type
+               
+
+                toast(`${messageTitle} ${type+'d'} successfully`, {
                     type: 'success',
                     className: 'bg-green-100 text-green-600 text-[1.4rem]',
                 })
