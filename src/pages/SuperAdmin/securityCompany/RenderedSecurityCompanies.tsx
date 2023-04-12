@@ -16,8 +16,6 @@ import useAxios from '../../../components/hooks/useAxios'
 import { useMutation, useQuery } from 'react-query'
 import { ToastContainer, toast } from 'react-toastify'
 
-
-
 type SecurityCompany = {
     id: string
     image: string
@@ -29,7 +27,6 @@ type SecurityCompany = {
     status: number
     security_guard_count: number
 }
-
 
 export type Actions = 'view details' | 'activate' | 'deactivate'
 
@@ -64,7 +61,7 @@ function RenderedSecurityCompanies() {
         isLoading: deactivate_securityCompany_loading,
     } = useMutation(postDeactivateSecurityCompany, {
         onSuccess: (data) => {
-            if ((data as any).success as any) {
+            if (data) {
                 closeDialog()
 
                 toast('Security Company deactivated successfully', {
@@ -87,100 +84,99 @@ function RenderedSecurityCompanies() {
         }
     }, [get_securityCompanies_response])
 
+    interface Paginate {
+        index: number
+        currentPage: number
+        itemsPerPage: number
+        totalPage: number
+        slicedPages: SecurityCompany[][] | null
+    }
 
+    const itemsPerPageArr = [2, 4, 6, 8]
 
+    const perPage = 6
+    const [paginate, setPaginate] = useState<Paginate>({
+        index: 0,
+        currentPage: 1,
+        itemsPerPage: perPage,
 
- interface Paginate {
-     index: number
-     currentPage: number
-     itemsPerPage: number
-     totalPage: number
-     slicedPages: SecurityCompany[][] | null
- }
+        totalPage: Math.ceil(fetchedSecurityCompanies?.length / perPage),
+        slicedPages: null,
+    })
 
- const itemsPerPageArr = [2, 4, 6, 8]
+    const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
+        const item = parseInt(e.target.value)
 
- const perPage = 6
- const [paginate, setPaginate] = useState<Paginate>({
-     index: 0,
-     currentPage: 1,
-     itemsPerPage: perPage,
+        const slicedPages: SecurityCompany[][] = []
+        for (let i = 0; i < fetchedSecurityCompanies?.length; i += item) {
+            slicedPages.push(fetchedSecurityCompanies?.slice(i, i + item))
+        }
 
-     totalPage: Math.ceil(fetchedSecurityCompanies?.length / perPage),
-     slicedPages: null,
- })
+        setPaginate((prev) => {
+            return {
+                ...prev,
+                itemsPerPage: item,
+                index: 0,
+                currentPage: 1,
+                slicedPages,
+                totalPage: Math.ceil(fetchedSecurityCompanies?.length / item),
+            }
+        })
+    }
 
- const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
-     const item = parseInt(e.target.value)
+    useEffect(() => {
+        const slicedPages: SecurityCompany[][] = []
+        for (
+            let i = 0;
+            i < fetchedSecurityCompanies?.length;
+            i += paginate.itemsPerPage
+        ) {
+            slicedPages.push(
+                fetchedSecurityCompanies?.slice(i, i + paginate.itemsPerPage)
+            )
+        }
 
-     const slicedPages: SecurityCompany[][] = []
-     for (let i = 0; i < fetchedSecurityCompanies?.length; i += item) {
-         slicedPages.push(fetchedSecurityCompanies?.slice(i, i + item))
-     }
+        setPaginate((prev) => {
+            return {
+                ...prev,
+                slicedPages,
+            }
+        })
+    }, [fetchedSecurityCompanies])
 
-     setPaginate((prev) => {
-         return {
-             ...prev,
-             itemsPerPage: item,
-             index: 0,
-             currentPage: 1,
-             slicedPages,
-             totalPage: Math.ceil(fetchedSecurityCompanies?.length / item),
-         }
-     })
- }
+    const handleNext = () => {
+        if (paginate.currentPage === paginate.totalPage) return
+        setPaginate((prev) => {
+            return {
+                ...prev,
+                index: prev.index + 1,
+                currentPage: prev.currentPage + 1,
+            }
+        })
+    }
 
- useEffect(() => {
-     const slicedPages: SecurityCompany[][] = []
-     for (let i = 0; i < fetchedSecurityCompanies?.length; i += paginate.itemsPerPage) {
-         slicedPages.push(fetchedSecurityCompanies?.slice(i, i + paginate.itemsPerPage))
-     }
+    const handlePrev = () => {
+        if (paginate.currentPage === 1) return
+        setPaginate((prev) => {
+            return {
+                ...prev,
+                index: prev.index - 1,
+                currentPage: prev.currentPage - 1,
+            }
+        })
+    }
 
-     setPaginate((prev) => {
-         return {
-             ...prev,
-             slicedPages,
-         }
-     })
- }, [fetchedSecurityCompanies])
+    const { slicedPages, itemsPerPage } = paginate
 
- const handleNext = () => {
-     if (paginate.currentPage === paginate.totalPage) return
-     setPaginate((prev) => {
-         return {
-             ...prev,
-             index: prev.index + 1,
-             currentPage: prev.currentPage + 1,
-         }
-     })
-   
- }
-
- const handlePrev = () => {
-   
-     if (paginate.currentPage === 1) return
-     setPaginate((prev) => {
-         return {
-             ...prev,
-             index: prev.index - 1,
-             currentPage: prev.currentPage - 1,
-         }
-     })
- }
-
- const {  slicedPages, itemsPerPage } = paginate
-
- const jumpToPage = (e: React.MouseEvent, index: number) => {
-     setPaginate((prev) => {
-         return {
-             ...prev,
-             index,
-             currentPage: index + 1,
-         }
-     })
- }
-
-
+    const jumpToPage = (e: React.MouseEvent, index: number) => {
+        setPaginate((prev) => {
+            return {
+                ...prev,
+                index,
+                currentPage: index + 1,
+            }
+        })
+    }
 
     const [toggleDropDown, setToggleDropDown] = useState<{
         isDropDownOpen: boolean
@@ -246,8 +242,6 @@ function RenderedSecurityCompanies() {
     if (get_securityCompanies_isError) {
         return <p>{get_securityCompanies_error.message}</p>
     }
-
-   
 
     const fetched = get_securityCompanies_response?.data
 
@@ -331,14 +325,15 @@ function RenderedSecurityCompanies() {
                                     React.Children.toArray(
                                         slicedPages[paginate.index].map(
                                             (
-                                                {   id,
+                                                {
+                                                    id,
                                                     image,
                                                     address,
                                                     balance,
                                                     name,
                                                     onboarding_date,
                                                     security_guard_count,
-                                                    status
+                                                    status,
                                                 },
                                                 i
                                             ) => {
@@ -367,9 +362,7 @@ function RenderedSecurityCompanies() {
                                                                     Name
                                                                 </p>
                                                                 <p className='font-[1.6rem] whitespace-nowrap'>
-                                                                    {
-                                                                        name
-                                                                    }
+                                                                    {name}
                                                                 </p>
                                                             </div>
                                                             <div>
@@ -377,9 +370,7 @@ function RenderedSecurityCompanies() {
                                                                     Address
                                                                 </p>
                                                                 <address className='not-italic max-w-[20rem]'>
-                                                                    {
-                                                                        address
-                                                                    }
+                                                                    {address}
                                                                 </address>
                                                             </div>
                                                         </div>
@@ -399,7 +390,9 @@ function RenderedSecurityCompanies() {
                                                                     Joined Date
                                                                 </p>
                                                                 <p>
-                                                                    {onboarding_date}
+                                                                    {
+                                                                        onboarding_date
+                                                                    }
                                                                 </p>
                                                             </div>
                                                         </div>
@@ -411,7 +404,9 @@ function RenderedSecurityCompanies() {
                                                                     Guards
                                                                 </p>
                                                                 <p>
-                                                                    {security_guard_count}
+                                                                    {
+                                                                        security_guard_count
+                                                                    }
                                                                 </p>
                                                             </div>
                                                             <div className=' mt-10'>
