@@ -89,31 +89,13 @@ const SlicedPages: FC<SlicedPages> = ({
             })
         }
 
+        console.log({sorted})
+
         return (
             <>
                 {sorted.map(({ key, value }: any, idx: number) => {
 
-                    if (key === 'actions' && idx === data_to_display - 1) {
-                        let updatedActions: Actions[] = ['view details']
-
-                        value === 0
-                            ? (updatedActions = [...updatedActions, 'activate'])
-                            : (updatedActions = [
-                                  ...updatedActions,
-                                  'deactivate',
-                              ])
-
-                        updatedActions = [...updatedActions, ...actions]
-                        return is_dropdown ? (
-                            <TableDropDown
-                                toggleDropDown={toggleDropDown}
-                                setToggleDropDown={setToggleDropDown}
-                                id={id}
-                                actions={updatedActions}
-                                key={idx}
-                            />
-                        ) : null
-                    }
+                   
                     if (idx === 0) {
                         return (
                             <div className='flex items-center gap-4 ' key={idx}>
@@ -160,9 +142,36 @@ const SlicedPages: FC<SlicedPages> = ({
                                 )}
                             </p>
                         )
-                    } else {
-                        return <p key={idx}>{value}</p>
-                    }
+                    } 
+                     if (
+                         key === 'actions' &&
+                         idx === data_to_display.length - 1
+                     ) {
+                         let updatedActions: Actions[] = ['view details']
+
+                         value === 0
+                             ? (updatedActions = [
+                                   ...updatedActions,
+                                   'activate',
+                               ])
+                             : (updatedActions = [
+                                   ...updatedActions,
+                                   'deactivate',
+                               ])
+
+                         updatedActions = [...updatedActions, ...actions]
+                         return is_dropdown ? (
+                             <TableDropDown
+                                 toggleDropDown={toggleDropDown}
+                                 setToggleDropDown={setToggleDropDown}
+                                 id={id}
+                                 actions={updatedActions}
+                                 key={idx}
+                             />
+                         ) : null
+                     } else {
+                         return <p key={idx}>{value}</p>
+                     }
                 })}
             </>
         )
