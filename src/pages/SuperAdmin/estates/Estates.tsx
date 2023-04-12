@@ -4,8 +4,7 @@ import RenderedEstates, { ESTATEDATA } from './RenderedEstates'
 import { useNavigate } from 'react-router-dom'
 import { useQuery } from 'react-query'
 import { toast } from 'react-toastify'
-import { useAppDispatch } from '../../../store/app/hooks'
-import AxiosRequest from '../../../utils/axios'
+
 import React from 'react'
 import { GrDown } from 'react-icons/gr'
 import {
