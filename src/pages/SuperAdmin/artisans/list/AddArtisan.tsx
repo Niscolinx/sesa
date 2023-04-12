@@ -195,7 +195,7 @@ const AddArtisan = () => {
         console.log({ selectedRegions })
         const state = slicedStates
             .filter(({ name }: any) => selectedRegions.includes(name))
-            .map(({ id }: any) => id)
+            .map(({ id }: any) => id)[0]
 
         console.log({ category, state })
 
