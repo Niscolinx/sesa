@@ -4,7 +4,7 @@ import { IoMdAdd } from 'react-icons/io'
 import { toast, ToastContainer } from 'react-toastify'
 import { MultipleSelect } from '../../../../components/SuperAdmin/UI/Select'
 import useFetchData from '../../../../utils/useFetchData'
-import { SelectProps } from '../../../../components/UI/input/Input'
+import Input, { SelectProps } from '../../../../components/UI/input/Input'
 import { useForm } from 'react-hook-form'
 import useAxios from '../../../../components/hooks/useAxios'
 import { useMutation } from 'react-query'
@@ -163,7 +163,7 @@ const AddArtisanGroup = () => {
             type: 'select',
             selectProps: {
                 state: slicedEstates,
-                isSearchable: true,
+                isMulti: true,
                 selectedState: selectedEstates,
                 setSelectedState: setSelectedEstates,
             },
@@ -205,34 +205,27 @@ const AddArtisanGroup = () => {
                 >
                     <>
                         {formInputs.map((input, idx) => {
-                            const { label, type, selectProps, name, required } =
-                                input
+                            const { label, type, selectProps } = input
 
                             return (
                                 <Input
                                     key={idx + label}
                                     label={label}
-                                    name={name}
                                     register={register}
                                     formErrors={formErrors}
                                     selectFormErrors={selectFormErrors}
                                     type={type}
-                                    required={required}
                                     isSelect={type === 'select'}
                                     select={selectProps}
                                 />
                             )
                         })}
 
-                        <ImageInput
-                            handlePicture={handlePicture}
-                            photoPreview={photoPreview}
-                        />
                         <button className='btn justify-self-start btn-blue'>
                             <span>
                                 <IoMdAdd />
                             </span>{' '}
-                            {isLoading ? 'Loading...' : 'Add'}
+                            {isLoading ? 'Loading...' : 'Add Group'}
                         </button>
                     </>
                 </form>
