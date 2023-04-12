@@ -64,11 +64,9 @@ function Estates() {
         // isFetching: get_estates_fetching,
     } = useQuery('estates', fetchEstates) as any
 
-    console.log({ get_estates_response })
     useEffect(() => {
-        if (get_estates_response?.success) {
-            // setFetchedEstates(get_estates_response.data)
-            console.log(get_estates_response, 'fetchedData')
+        if (get_estates_response) {
+            setFetchedEstates(get_estates_response.data)
         }
     }, [get_estates_response])
 
@@ -222,7 +220,7 @@ function Estates() {
     const deactivateHandler = () => {
         closeDialog()
 
-        toast('Admin deactivated successfully', {
+        toast('Estate deactivated successfully', {
             type: 'success',
             className: 'bg-green-100 text-green-600 text-[1.4rem]',
         })
