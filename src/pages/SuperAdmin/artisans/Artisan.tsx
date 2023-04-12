@@ -13,14 +13,8 @@ function ArtisanCategory() {
             add_page_url={'/superAdmin/artisan/add'}
             is_add_btn={true}
             actions={['delete']}
-            THeader={['name', 'business name', 'phone no', 'rating', 'actions']}
-            data_to_display={[
-                'firstname',
-                'business_name',
-                'phone_number',
-                'rating',
-                'sf',
-            ]}
+            THeader={['name', 'No of Artisans', 'created at']}
+            data_to_display={['name', 'artisan_count', 'created_at']}
             deactivateProp={{ url: '/admin/artisan/changeStatus' }}
         />
     )
@@ -41,7 +35,6 @@ function ArtisanList() {
                 'business_name',
                 'phone_number',
                 'rating',
-                'sf'
             ]}
             deactivateProp={{ url: '/admin/artisan/changeStatus' }}
         />
