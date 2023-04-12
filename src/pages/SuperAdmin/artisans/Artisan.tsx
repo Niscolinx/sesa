@@ -44,7 +44,7 @@ function ArtisanList() {
             actions={['delete']}
             THeader={['name', 'business name', 'phone no', 'rating', 'actions']}
             data_to_display={[
-                'name',
+                'firstname',
                 'business_name',
                 'phone_number',
                 'rating',
