@@ -13,10 +13,10 @@ function ArtisanCategory() {
             is_add_btn={true}
             isCategory={true}
             actions={['delete']}
-            delete_item_url={'/admin/category/delete'}
+            delete_item_url={'/admin/category/delete/'}
             THeader={['name', 'No of Artisans', 'created at', 'actions']}
             data_to_display={['name', 'artisan_count', 'created_at']}
-            deactivateProp={{ url: '/admin/artisan/changeStatus' }}
+            deactivateProp={{ url: '/admin/artisan/changeStatus', tag: 'id' }}
         />
     )
 }
@@ -29,8 +29,6 @@ function ArtisanList() {
             view_page_url={'/superAdmin/artisan/detail/'}
             add_page_url={'/superAdmin/artisan/add'}
             is_add_btn={true}
-            actions={['delete']}
-            delete_item_url='/admin/category/delete'
             THeader={['name', 'business name', 'phone no', 'rating', 'actions']}
             data_to_display={[
                 'firstname',

@@ -36,9 +36,10 @@ function TableDialog() {
         }
 
         if (isDialogOpen?.type === 'delete') {
+            console.log({ fetchedId })
             return axiosInstance({
-                url: delete_item_url,
-                method: 'post',
+                url: `${delete_item_url}${fetchedId}`,
+                method: 'delete',
                 data: { id: fetchedId },
             })
         }
