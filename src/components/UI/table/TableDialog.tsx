@@ -89,6 +89,8 @@ function TableDialog() {
         }
     }
 
+    console.log({isDialogOpen})
+
     return (
         <dialog className='dialog' ref={dialogRef}>
             <section className='grid place-content-center w-full h-[100vh]'>
