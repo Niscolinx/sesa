@@ -8,7 +8,6 @@ import WalletBarChart from '../../../components/SuperAdmin/charts/WalletBarChart
 import { OverviewWallet } from '../../../components/SuperAdmin/overview/OverviewWallets'
 import {
     ResidentTransactions,
-    RESIDENT_BALANCE,
     RESIDENT_TRANSACTION_HISTORY,
 } from '../../EstateManager/wallet/wallets/resident/ResidentTransactions'
 import { Select } from '../../../components/SuperAdmin/UI/Select'
@@ -140,7 +139,7 @@ const TransactionHistory = () => {
 const ResidentWallet = () => {
     const trend: Array<Trend> = ['This Week', 'This Month', 'This Year']
 
-    const [selectedTrend, setSelectedTrend] = useState<string | null>(trend[0])
+    const [selectedTrend, setSelectedTrend] = useState<string>(trend[0])
 
     type Path = 'resident-balance' | 'transaction-history'
 
