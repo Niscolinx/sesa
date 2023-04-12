@@ -130,7 +130,7 @@ const SlicedPages: FC<SlicedPages> = ({
                             </div>
                         )
                     }
-                    if (key === 'created_at') {
+                    if (key === 'created_at' || key === 'onboarding_date') {
                         return (
                             <p key={idx}>
                                 {new Date(value)

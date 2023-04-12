@@ -22,7 +22,7 @@ function EstateManagers() {
                     'image',
                     'gender',
                     'phone',
-                    'created_at',
+                    'onboarding_date',
                     'status',
                 ]}
                 deactivateProp={{ url: 'change/user/status' }}
