@@ -18,7 +18,7 @@ interface Table {
     deactivateProp: { url: string; tag?: string }
     data_to_display: string[]
     nested?: boolean
-    delete_item_url?: boolean
+    delete_item_url?: string
     is_dropdown?: boolean
     THeader: string[]
     actions?: Actions[]
