@@ -61,10 +61,10 @@ function TableDialog() {
     })
 
     useEffect(() => {
-        if (isDialogOpen) {
-            openDialog()
+        if (isDialogOpen?.state) {
+            return openDialog()
         }
-    }, [isDialogOpen])
+    }, [isDialogOpen?.state])
 
     const onSubmitCategory = (e: FormEvent) => {
         e.preventDefault()
@@ -88,8 +88,6 @@ function TableDialog() {
             dialogRef.current.showModal()
         }
     }
-
-    console.log({isDialogOpen})
 
     return (
         <dialog className='dialog' ref={dialogRef}>
