@@ -25,11 +25,18 @@ function TableDialog() {
 
     const postRequest = () => {
         const { url, tag = 'user_id' } = deactivateProp
-
+        
+        if(isCategory){
+            return axiosInstance({
+                url,
+                method: 'post',
+                data: artisanCategory ?? { [tag]: fetchedId },
+            })
+        }
         return axiosInstance({
-            url: url,
+            url,
             method: 'post',
-            data: artisanCategory ?? { [tag]: fetchedId },
+            data: { [tag]: fetchedId },
         })
     }
 
