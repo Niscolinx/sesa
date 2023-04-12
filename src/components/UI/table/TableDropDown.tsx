@@ -15,13 +15,10 @@ const TableDropDown = ({
     id,
     toggleDropDown,
     setToggleDropDown,
-    actions
+    actions,
 }: TableDropDown) => {
-    const {
-        setFetchedId,
-        setIsDialogOpen,
-        view_page_url,
-    } = useTableContext()
+    const { setFetchedId, setIsDialogOpen, view_page_url, delete_item_url } =
+        useTableContext()
 
     const navigate = useNavigate()
 
@@ -33,18 +30,20 @@ const TableDropDown = ({
             }
         })
 
+        setFetchedId(itemId)
+
         if (item === 'view details') {
             navigate(`${view_page_url}:${itemId}`)
         }
 
         if (item === 'deactivate') {
-            setFetchedId(itemId)
+            setIsDialogOpen(true)
+        }
+
+        if (item === 'delete') {
             setIsDialogOpen(true)
         }
     }
-
-    
-
 
     const { isDropDownOpen, index } = toggleDropDown
 
