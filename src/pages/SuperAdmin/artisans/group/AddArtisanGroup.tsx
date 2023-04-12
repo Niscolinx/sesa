@@ -138,13 +138,11 @@ const AddArtisanGroup = () => {
         mutate(updatedData)
     })
 
-    const addArtisanGroupHandler = () => {}
 
     if (estates_loading || artisans_loading) {
         return <p>Loading...</p>
     }
 
-    console.log({ artisans_data, estates_data })
     const slicedEstates: string[] = estates_data.data.map(
         ({ name }: any) => name
     )
