@@ -37,12 +37,15 @@ const TableDropDown = ({
         }
 
         if (item === 'deactivate') {
+            console.log('deactivate')
             setIsDialogOpen({
                 state: true,
+                type: 'deactivate'
             })
         }
 
         if (item === 'delete') {
+            console.log('delete')
             setIsDialogOpen({
                 state: true,
                 type: 'delete',
