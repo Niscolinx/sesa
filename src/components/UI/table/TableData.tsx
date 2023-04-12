@@ -57,7 +57,7 @@ const TableData = () => {
 
     useEffect(() => {
         if (get_data_response) {
-            const res = get_data_response.data.data ?? get_data_response.data
+            const res = get_data_response.data.data || get_data_response.data
             setFetchedData(res)
         }
     }, [get_data_response])
@@ -156,8 +156,7 @@ const TableData = () => {
         navigate(`${add_page_url}`)
     }
 
-    console.log(get_data_response, 'checking data fetching')
-    const fetched = get_data_response?.data.data ?? get_data_response?.data
+    const fetched = get_data_response?.data.data || get_data_response?.data
 
     return (
         <div>
