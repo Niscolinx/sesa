@@ -23,7 +23,7 @@ function TableDialog() {
 
     const [artisanCategory, setArtisanCategory] = useState('')
 
-    const postRequest = (item?:any) => {
+    const postRequest = (item:any = null) => {
         const { url, tag = 'user_id' } = deactivateProp
 
         return axiosInstance({
