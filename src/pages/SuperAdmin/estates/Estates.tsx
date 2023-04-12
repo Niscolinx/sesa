@@ -64,6 +64,7 @@ function Estates() {
         // isFetching: get_estates_fetching,
     } = useQuery('estates', fetchEstates) as any
 
+    console.log({get_estates_response})
     useEffect(() => {
         if (get_estates_response?.success) {
             // setFetchedEstates(get_estates_response.data)

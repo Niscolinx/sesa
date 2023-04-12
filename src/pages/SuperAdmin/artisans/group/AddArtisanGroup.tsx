@@ -104,16 +104,14 @@ const AddArtisanGroup = () => {
         }
 
         if (isError) {
-            console.log({ isError }, 'error')
             return
         }
 
        
 
         setSelectFormErrors(null)
-        //handleClose()
-
-        // openValidateDialog()
+        setResponseMessage(null)
+       
 
         const slicedEstates: string[] = estates_data.data.map(
             ({ estate_name, id }: any) => ({
