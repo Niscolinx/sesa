@@ -192,18 +192,22 @@ const AddArtisan = () => {
             ({ name, id }: any) => selectedCategories.includes(name) && { id }
         )
 
-        console.log({ selectedRegions })
         const state = slicedStates
             .filter(({ name }: any) => selectedRegions.includes(name))
             .map(({ id }: any) => id)[0]
 
-        console.log({ category, state })
 
         const updatedData = {
             ...data,
+            category,
+            state,
+            validation_option: 'bvn',
+            is_kyr_approved: false,
             gender: selectedGender,
             image: imageFile,
         }
+
+        console.log({updatedData})
 
         mutate(updatedData)
     })
