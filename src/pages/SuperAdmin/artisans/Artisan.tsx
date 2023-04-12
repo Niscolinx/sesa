@@ -13,7 +13,7 @@ function ArtisanCategory() {
             add_page_url={'/superAdmin/artisan/add'}
             is_add_btn={true}
             actions={['delete']}
-            THeader={['name', 'No of Artisans', 'created at']}
+            THeader={['name', 'No of Artisans', 'created at', 'actions']}
             data_to_display={['name', 'artisan_count', 'created_at']}
             deactivateProp={{ url: '/admin/artisan/changeStatus' }}
         />
