@@ -25,7 +25,6 @@ const SlicedPages: FC<SlicedPages> = ({
 
     const page = pages[index]
 
-    console.log({page})
 
     const TableItem = ({ data }: any) => {
         const { id, ...restData } = data
@@ -84,12 +83,11 @@ const SlicedPages: FC<SlicedPages> = ({
         if (is_dropdown && !isAction) {
             sorted.push({
                 key: 'actions',
-                value: findStatus.value || null,
+                value: findStatus?.value || null,
             })
         }
 
 
-        console.log({sorted})
 
         return (
             <>
