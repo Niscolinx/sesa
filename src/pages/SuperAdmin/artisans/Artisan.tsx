@@ -43,28 +43,16 @@ function ArtisanList() {
 function ArtisanGroup() {
     return (
         <Table
-            fetch_url={'/manager/get/all'}
-            title={'estateManager'}
-            view_page_url={'/superAdmin/estateManagers/view/'}
-            add_page_url={'/superAdmin/estateManagers/add'}
+            fetch_url={'/admin/group/getAll'}
+            title={'artisanGroup'}
+            view_page_url={'/superAdmin/artisan/group/'}
+            add_page_url={'/superAdmin/artisan/group/add'}
             is_add_btn={true}
-            THeader={[
-                'name',
-                'gender',
-                'phone number',
-                'joined date',
-                'status',
-                'actions',
-            ]}
-            data_to_display={[
-                'name',
-                'image',
-                'gender',
-                'phone',
-                'created_at',
-                'status',
-            ]}
-            deactivateProp={{ url: 'change/user/status' }}
+            actions={['delete']}
+            delete_item_url={'/admin/group/delete/'}
+            THeader={['name', 'No of Artisans', 'No of Estates', 'status', 'created at', 'actions']}
+            data_to_display={['name', 'artisan_count', 'estate_count', 'status', 'created_at']}
+            deactivateProp={{ url: '/admin/artisan/changeStatus', tag: 'id' }}
         />
     )
 }
