@@ -16,62 +16,20 @@ import useAxios from '../../../components/hooks/useAxios'
 import { useMutation, useQuery } from 'react-query'
 import { ToastContainer, toast } from 'react-toastify'
 
-type SecurityCompanyDetails = {
-    companyName: string
-    CompanyAddress: string
 
-    walletBalance: number
-    joinedDate: Date
-
-    NoOfGuards: number
-    status: string
-}
 
 type SecurityCompany = {
     id: string
-    img: string
+    image: string
 
-    details: SecurityCompanyDetails
+    name: string
+    address: string
+    balance: string
+    onboarding_date: string
+    status: number
+    security_guard_count: number
 }
 
-export const SECURITYCOMPANYDATA: SecurityCompany[] = [
-    {
-        id: '1',
-        img: '/img/security/img1.png',
-        details: {
-            companyName: 'Proton Security',
-            CompanyAddress: '04, Wright Avenue Lagos, Nigeria',
-            walletBalance: 5000,
-            joinedDate: new Date(),
-            NoOfGuards: 3400,
-            status: 'active',
-        },
-    },
-    {
-        id: '2',
-        img: '/img/security/img2.png',
-        details: {
-            companyName: 'Proton Security',
-            CompanyAddress: '04, Wright Avenue Lagos, Nigeria',
-            walletBalance: 5000,
-            joinedDate: new Date(),
-            NoOfGuards: 3400,
-            status: 'active',
-        },
-    },
-    {
-        id: '3',
-        img: '/img/security/img3.png',
-        details: {
-            companyName: 'Proton Security',
-            CompanyAddress: '04, Wright Avenue Lagos, Nigeria',
-            walletBalance: 5000,
-            joinedDate: new Date(),
-            NoOfGuards: 3400,
-            status: 'active',
-        },
-    },
-]
 
 export type Actions = 'view details' | 'activate' | 'deactivate'
 
@@ -97,7 +55,7 @@ function RenderedSecurityCompanies() {
 
     const fetchSecurityCompanies = () => {
         return axiosInstance({
-            url: '/manager/get/all',
+            url: '/security-company/get/all',
         })
     }
 
@@ -125,8 +83,7 @@ function RenderedSecurityCompanies() {
 
     useEffect(() => {
         if (get_securityCompanies_response) {
-            setFetchedSecurityCompanies(SECURITYCOMPANYDATA)
-            // setFetchedSecurityCompanies(get_securityCompanies_response.data.data)
+            setFetchedSecurityCompanies(get_securityCompanies_response.data)
         }
     }, [get_securityCompanies_response])
 
@@ -292,7 +249,7 @@ function RenderedSecurityCompanies() {
 
    
 
-    const fetched = get_securityCompanies_response?.data.data
+    const fetched = get_securityCompanies_response?.data
 
     return (
         <div className='w-full grid item rounded-lg'>
@@ -374,17 +331,14 @@ function RenderedSecurityCompanies() {
                                     React.Children.toArray(
                                         slicedPages[paginate.index].map(
                                             (
-                                                {
-                                                    img,
-                                                    id,
-                                                    details: {
-                                                        companyName,
-                                                        CompanyAddress,
-                                                        walletBalance,
-                                                        joinedDate,
-                                                        NoOfGuards,
-                                                        status,
-                                                    },
+                                                {   id,
+                                                    image,
+                                                    address,
+                                                    balance,
+                                                    name,
+                                                    onboarding_date,
+                                                    security_guard_count,
+                                                    status
                                                 },
                                                 i
                                             ) => {
@@ -402,7 +356,7 @@ function RenderedSecurityCompanies() {
                                                     >
                                                         <div className='w-full py-8 grid items-start gap-4 '>
                                                             <img
-                                                                src={img}
+                                                                src={image}
                                                                 alt=''
                                                                 className='w-[21rem] h-[18rem] object-cover rounded-lg'
                                                             />
@@ -414,7 +368,7 @@ function RenderedSecurityCompanies() {
                                                                 </p>
                                                                 <p className='font-[1.6rem] whitespace-nowrap'>
                                                                     {
-                                                                        companyName
+                                                                        name
                                                                     }
                                                                 </p>
                                                             </div>
@@ -424,7 +378,7 @@ function RenderedSecurityCompanies() {
                                                                 </p>
                                                                 <address className='not-italic max-w-[20rem]'>
                                                                     {
-                                                                        CompanyAddress
+                                                                        address
                                                                     }
                                                                 </address>
                                                             </div>
@@ -437,7 +391,7 @@ function RenderedSecurityCompanies() {
                                                                 </p>
                                                                 <p className='flex items-center'>
                                                                     <TbCurrencyNaira className='text-[2rem]' />
-                                                                    {walletBalance.toLocaleString()}
+                                                                    {balance}
                                                                 </p>
                                                             </div>
                                                             <div>
@@ -445,14 +399,7 @@ function RenderedSecurityCompanies() {
                                                                     Joined Date
                                                                 </p>
                                                                 <p>
-                                                                    {joinedDate.toLocaleDateString(
-                                                                        undefined,
-                                                                        {
-                                                                            day: 'numeric',
-                                                                            month: 'short',
-                                                                            year: 'numeric',
-                                                                        }
-                                                                    )}
+                                                                    {onboarding_date}
                                                                 </p>
                                                             </div>
                                                         </div>
@@ -464,7 +411,7 @@ function RenderedSecurityCompanies() {
                                                                     Guards
                                                                 </p>
                                                                 <p>
-                                                                    {NoOfGuards}
+                                                                    {security_guard_count}
                                                                 </p>
                                                             </div>
                                                             <div className=' mt-10'>
@@ -473,7 +420,7 @@ function RenderedSecurityCompanies() {
                                                                 </p>
                                                                 <p>
                                                                     {status ===
-                                                                    'active' ? (
+                                                                    1 ? (
                                                                         <span className=' text-color-green-light'>
                                                                             Active
                                                                         </span>
