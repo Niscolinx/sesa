@@ -6,7 +6,6 @@ import { useQuery } from 'react-query'
 import { toast } from 'react-toastify'
 
 import React from 'react'
-import { GrDown } from 'react-icons/gr'
 import {
     HiOutlineDotsVertical,
     HiOutlineChevronLeft,
