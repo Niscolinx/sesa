@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { useMutation } from 'react-query'
+import { useMutation, useQuery } from 'react-query'
 import Input, { SelectProps } from '../../../components/UI/input/Input'
 import { useParams } from 'react-router'
 import { toast, ToastContainer } from 'react-toastify'
@@ -21,6 +21,7 @@ const ViewEstateManager = () => {
         className: string
         displayMessage: string
     }
+
     type FormInputs = {
         label?: string
         type?: string
@@ -30,12 +31,11 @@ const ViewEstateManager = () => {
 
     const params = useParams()
     const axiosInstance = useAxios()
+
     const [photoPreview, setPhotoPreview] = useState('')
     const [imageUrl, setImageUrl] = useState<File | null>(null)
     const genderState = ['Male', 'Female']
-    const [selectedGender, setSelectedGender] = useState<string | null>(
-        genderState[0]
-    )
+    const [selectedGender, setSelectedGender] = useState<string>(genderState[0])
 
     const formInputs = [
         {
@@ -74,93 +74,61 @@ const ViewEstateManager = () => {
         formState: { errors: formErrors },
         reset,
     } = useForm<Inputs>()
-
+    
     const [responseMessage, setResponseMessage] =
-        useState<ResponseMessage | null>(null)
+    useState<ResponseMessage | null>(null)
+    
+    const estateManager_id = params.id?.replace(':', '')
 
-    const postDeactivateEstateManager = (id: string) => {
+    const postDeactivate = (id: string) => {
         return axiosInstance({
             url: '/change/user/status',
             method: 'post',
             data: { user_id: id },
         })
     }
-    const postUpdateEstateManager = (data: Inputs) => {
+    const postUpdate = (data: Inputs) => {
         return axiosInstance({
-            url: '/manager/update',
+            url: '/admin/update',
             method: 'post',
             data,
         })
     }
 
-    const getEstateManager = (id: string) => {
+    const getRequest = () => {
         return axiosInstance({
-            url: `/manager/get`,
-            method: 'post',
-            data: { id },
+            url: `/manager/get/${estateManager_id}`,
+          
         })
     }
 
-    const estateManager_id = params.id?.replace(':', '')
 
     const {
-        mutate: deactivate_estateManager_mutation,
-        data: deactivate_estateManager_response,
-        isLoading: deactivate_estateManager_loading,
-    } = useMutation(postDeactivateEstateManager, {
-        onSuccess: (res: any) => {
-            if (res?.success) {
-                toast('EstateManager Deactivated successfully', {
-                    type: 'success',
-                    className: 'bg-green-100 text-green-600 text-[1.4rem]',
-                })
-                closeDialog()
-            } else {
-                setResponseMessage({
-                    className: 'text-red-600',
-                    displayMessage: res?.response?.data.message,
-                })
-            }
-        },
-    }) as any
+        mutate: deactivate_mutation,
+        data: post_deactivate_response,
+        isLoading: deactivate_loading,
+    } = useMutation(postDeactivate) as any
 
     const {
-        mutate: get_estateManager_mutation,
-        data: get_estateManager_response,
-        isLoading: get_estateManager_loading,
-    } = useMutation(getEstateManager) as any
+        mutate: get_mutation,
+        data: get_response,
+        isLoading: get_loading,
+    } = useQuery('estate_manager', getRequest) as any
 
     const {
-        mutate: estateManager_mutation,
-        data: estateManager_mutation_response,
-        isLoading: estateManager_loading,
-    } = useMutation(postUpdateEstateManager, {
-        onSuccess: (res:any) => {
-            if (res?.success) {
-                toast('EstateManager Updated successfully', {
-                    type: 'success',
-                    className: 'bg-green-100 text-green-600 text-[1.4rem]',
-                })
-            } else {
-                setResponseMessage({
-                    className: 'text-red-600',
-                    displayMessage: res?.response?.data.message,
-                })
-            }
-        },
-    }) as any
+        mutate: post_mutation,
+        data: post_response_data,
+        isLoading: post_loading,
+    } = useMutation(postUpdate) as any
 
     useEffect(() => {
-        get_estateManager_mutation(estateManager_id)
+        get_mutation(estateManager_id)
     }, [])
 
     useEffect(() => {
-        if (
-            get_estateManager_response?.success &&
-            get_estateManager_response.data.length > 0
-        ) {
-            const { dob } = get_estateManager_response.data
-            const fetched_data = get_estateManager_response.data.user
+        if (get_response?.success) {
+            const { dob } = get_response.data
+            const fetched_data = get_response.data.user
 
             const { name, email, phone, image } = fetched_data
             const first_name = name.split(' ')[0]
@@ -177,12 +145,43 @@ const ViewEstateManager = () => {
             setPhotoPreview(image)
             setSelectedGender(fetched_data.gender)
         }
-    }, [get_estateManager_response])
+    }, [get_response])
+
+    useEffect(() => {
+        if (post_response_data?.success) {
+            toast('Admin Updated successfully', {
+                type: 'success',
+                className: 'bg-green-100 text-green-600 text-[1.4rem]',
+            })
+        } else {
+            setResponseMessage({
+                className: 'text-red-600',
+                displayMessage:
+                    post_response_data?.response?.data.message,
+            })
+        }
+    }, [post_response_data])
+
+    useEffect(() => {
+        if (post_deactivate_response?.success) {
+            toast('Admin Deactivated successfully', {
+                type: 'success',
+                className: 'bg-green-100 text-green-600 text-[1.4rem]',
+            })
+            closeDialog()
+        } else {
+            setResponseMessage({
+                className: 'text-red-600',
+                displayMessage:
+                    post_response_data?.response?.data.message,
+            })
+        }
+    }, [post_deactivate_response])
 
     const onSubmit = handleSubmit((data) => {
         const { first_name, last_name, dob, email_address, phone_number } = data
 
-        const estateManagerData = {
+        const updatedData = {
             name: `${first_name} ${last_name}`,
             gender: selectedGender,
             dob,
@@ -193,7 +192,7 @@ const ViewEstateManager = () => {
             image: 'https://res.cloudinary.com/aladdin-digital-bank/image/upload/v1665580939/international_payments/s1brifvx0tqcwjwjnpov.jpg',
         }
 
-        estateManager_mutation(estateManagerData)
+        post_mutation(updatedData)
     })
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
@@ -219,7 +218,7 @@ const ViewEstateManager = () => {
         setImageUrl(file)
     }
 
-    if (get_estateManager_loading) {
+    if (get_loading) {
         return <p>loading...</p>
     }
 
@@ -237,10 +236,7 @@ const ViewEstateManager = () => {
                                 animationIterationCount: 'infinite',
                             }}
                         />
-                        <p>
-                            Are you sure you want to deactivate this
-                            Estate Manager?
-                        </p>
+                        <p>Are you sure you want to deactivate this admin?</p>
 
                         <div className='flex w-full justify-center gap-8'>
                             <button
@@ -252,12 +248,10 @@ const ViewEstateManager = () => {
                             <button
                                 className='bg-red-500 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem] capitalize'
                                 onClick={() =>
-                                    deactivate_estateManager_mutation(
-                                        estateManager_id
-                                    )
+                                    deactivate_mutation(estateManager_id)
                                 }
                             >
-                                {deactivate_estateManager_loading
+                                {deactivate_loading
                                     ? 'Loading...'
                                     : 'deactivate'}
                             </button>
@@ -349,9 +343,7 @@ const ViewEstateManager = () => {
                                     className='w-[1.7rem] h-[1.7rem]'
                                 />
                             </span>{' '}
-                            {estateManager_loading
-                                ? 'Loading...'
-                                : 'Save Changes'}
+                            {post_loading ? 'Loading...' : 'Save Changes'}
                         </button>
                     </>
                 </form>

@@ -36,7 +36,7 @@ const ViewAdmin = () => {
     const [photoPreview, setPhotoPreview] = useState('')
     const [imageUrl, setImageUrl] = useState<File | null>(null)
     const genderState = ['Male', 'Female']
-    const [selectedGender, setSelectedGender] = useState<string | null>(
+    const [selectedGender, setSelectedGender] = useState<string>(
         genderState[0]
     )
 
