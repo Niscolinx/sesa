@@ -95,7 +95,7 @@ function TableDialog() {
         <dialog className='dialog' ref={dialogRef}>
             <section className='grid place-content-center w-full h-[100vh]'>
                 <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8 relative'>
-                    {isCategory ? (
+                    {isCategory && isDialogOpen?.type === 'create' ? (
                         <>
                             <IoMdClose
                                 className='absolute right-4 top-4 text-[2rem] cursor-pointer'
@@ -142,7 +142,7 @@ function TableDialog() {
                     ) : isDialogOpen?.type === 'delete' ? (
                         <>
                             <img
-                                src='/icons/admins/modalDelete.svg'
+                                src='/icons/admins/modalDeactivate.svg'
                                 alt=''
                                 className='animate__animated animate__pulse '
                                 style={{
@@ -174,7 +174,7 @@ function TableDialog() {
                     ) : (
                         <>
                             <img
-                                src='/icons/admins/modalDeactivate.svg'
+                                src='/icons/admins/modalWarning.svg'
                                 alt=''
                                 className='animate__animated animate__pulse '
                                 style={{

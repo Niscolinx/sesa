@@ -17,7 +17,7 @@ const TableDropDown = ({
     setToggleDropDown,
     actions,
 }: TableDropDown) => {
-    const { setFetchedId, setIsDialogOpen, view_page_url } =
+    const { setFetchedId, setIsDialogOpen, view_page_url, isCategory } =
         useTableContext()
 
     const navigate = useNavigate()
@@ -40,7 +40,7 @@ const TableDropDown = ({
             console.log('deactivate')
             setIsDialogOpen({
                 state: true,
-                type: 'deactivate'
+                type: isCategory ? 'create' : 'deactivate'
             })
         }
 
