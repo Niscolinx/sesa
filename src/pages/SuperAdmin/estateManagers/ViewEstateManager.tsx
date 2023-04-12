@@ -103,9 +103,23 @@ const ViewEstateManager = () => {
 
     const {
         mutate: deactivate_mutation,
-        data: post_deactivate_response,
         isLoading: deactivate_loading,
-    } = useMutation(postDeactivate) as any
+    } = useMutation(postDeactivate, {
+        onSuccess: (data) => {
+            toast('Admin Deactivated successfully', {
+                type: 'success',
+                className: 'bg-green-100 text-green-600 text-[1.4rem]',
+            })
+
+            closeDialog()
+        },
+        onError: (err: any) => {
+            setResponseMessage({
+                className: 'text-red-600',
+                displayMessage: err.response.data.message,
+            })
+        },
+    }) as any
 
     const { isLoading: get_loading } = useQuery('estate_manager', getRequest, {
         onSuccess: (res) => {
@@ -148,23 +162,6 @@ const ViewEstateManager = () => {
             })
         },
     }) as any
-
-    
-
-    useEffect(() => {
-        if (post_deactivate_response?.success) {
-            toast('Admin Deactivated successfully', {
-                type: 'success',
-                className: 'bg-green-100 text-green-600 text-[1.4rem]',
-            })
-            closeDialog()
-        } else {
-            setResponseMessage({
-                className: 'text-red-600',
-                displayMessage: post_response_data?.response?.data.message,
-            })
-        }
-    }, [post_deactivate_response])
 
     const onSubmit = handleSubmit((data) => {
         const { first_name, last_name, dob, email_address, phone_number } = data
