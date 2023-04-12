@@ -67,8 +67,8 @@ const AddArtisanGroup = () => {
         name: 'estates',
     })
     const { data: artisans_data, isLoading: artisans_loading } = useFetchData({
-        url: '/admin/category/getAll',
-        name: 'categories',
+        url: '/admin/artisan/getAll',
+        name: 'Artisans',
     })
 
     const {
@@ -115,10 +115,11 @@ const AddArtisanGroup = () => {
             })
         )
 
-        const slicedArtisans: string[] = artisans_data.data.map(
+        const slicedArtisans: string[] = artisans_data.map(
             ({ name, id }: any) => ({ name, id })
         )
 
+        console.log({slicedArtisans, slicedEstates, estates_data, artisans_data})
         const artisan = slicedArtisans.map(
             ({ name, id }: any) => selectedArtisans.includes(name) && { id }
         )
@@ -134,6 +135,8 @@ const AddArtisanGroup = () => {
             estate,
         }
 
+        console.log({updatedData})
+
 
         mutate(updatedData)
     })
@@ -147,7 +150,7 @@ const AddArtisanGroup = () => {
         ({ name }: any) => name
     )
 
-    const slicedArtisans: string[] = artisans_data.data.map(
+    const slicedArtisans: string[] = artisans_data.map(
         ({ estate_name }: any) => estate_name
     )
 
@@ -193,6 +196,14 @@ const AddArtisanGroup = () => {
                         Add Artisan Group
                     </h2>
                 </div>
+
+                {responseMessage?.displayMessage && (
+                    <p className='text-center my-5'>
+                        <span className={responseMessage?.className}>
+                            {responseMessage?.displayMessage}
+                        </span>
+                    </p>
+                )}
                 <form
                     onSubmit={onSubmit}
                     className='grid gap-16 max-w-[40rem]  mt-10'
