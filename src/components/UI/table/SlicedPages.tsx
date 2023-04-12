@@ -82,7 +82,7 @@ const SlicedPages: FC<SlicedPages> = ({
                 }
         })
 
-        const isAction
+        const isAction = sorted.some(({key}:any) => key === 'actions')
 
         return (
             <>
