@@ -263,8 +263,7 @@ function RenderedSecurityCompanies() {
         }
     }
 
-    const handleSelectedAction = (item: string, id: string) => {
-
+    const handleSelectedAction = (item: Actions, id: string) => {
         setToggleDropDown(() => {
             return {
                 isDropDownOpen: false,
@@ -272,12 +271,12 @@ function RenderedSecurityCompanies() {
             }
         })
 
-        if (item === 'iew Details') {
+        if (item === 'view details') {
             console.log('view')
             navigate(`/superAdmin/security-company/view/:${id}`)
         }
 
-        if (item === 'Deactivate') {
+        if (item === 'deactivate') {
             setSecurityCompanyId(id)
             openDialog()
         }
