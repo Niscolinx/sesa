@@ -23,36 +23,35 @@ function TableDialog() {
 
     const [artisanCategory, setArtisanCategory] = useState('')
 
-    const postRequest = (item:any = null) => {
+    const postRequest = () => {
         const { url, tag = 'user_id' } = deactivateProp
 
         return axiosInstance({
             url: url,
             method: 'post',
-            data: item ?? { [tag]: fetchedId },
+            data: artisanCategory ?? { [tag]: fetchedId },
         })
     }
 
-    const { mutate, isLoading } =
-        useMutation(postRequest, {
-            onSuccess: (data) => {
-                if ((data as any).success) {
-                    closeDialog()
-                    const message = isCategory
-                        ? 'Category Created successfully'
-                        : `${title
-                              .replace(/([a-z])([A-Z])/g, '$1 $2')
-                              .replace(/^\w/, (c) =>
-                                  c.toUpperCase()
-                              )} deactivated successfully`
+    const { mutate, isLoading } = useMutation(postRequest, {
+        onSuccess: (data) => {
+            if ((data as any).success) {
+                closeDialog()
+                const message = isCategory
+                    ? 'Category Created successfully'
+                    : `${title
+                          .replace(/([a-z])([A-Z])/g, '$1 $2')
+                          .replace(/^\w/, (c) =>
+                              c.toUpperCase()
+                          )} deactivated successfully`
 
-                    toast(message, {
-                        type: 'success',
-                        className: 'bg-green-100 text-green-600 text-[1.4rem]',
-                    })
-                }
-            },
-        })
+                toast(message, {
+                    type: 'success',
+                    className: 'bg-green-100 text-green-600 text-[1.4rem]',
+                })
+            }
+        },
+    })
 
     useEffect(() => {
         if (isDialogOpen) {
@@ -63,7 +62,7 @@ function TableDialog() {
     const onSubmitCategory = (e: FormEvent) => {
         e.preventDefault()
 
-        //mutate(artisanCategory)
+        mutate()
     }
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
@@ -128,9 +127,7 @@ function TableDialog() {
                                     className='btn bg-[#0556E5] text-white rounded-lg py-4 place-self-start w-[15rem]'
                                     onClick={() => mutate()}
                                 >
-                                    {isLoading
-                                        ? 'Loading...'
-                                        : 'Create'}
+                                    {isLoading ? 'Loading...' : 'Create'}
                                 </button>
                             </form>
                         </>
@@ -162,9 +159,7 @@ function TableDialog() {
                                     className='bg-red-500 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem] capitalize'
                                     onClick={() => mutate()}
                                 >
-                                    {isLoading
-                                        ? 'Loading...'
-                                        : 'deactivate'}
+                                    {isLoading ? 'Loading...' : 'deactivate'}
                                 </button>
                             </div>
                         </>
