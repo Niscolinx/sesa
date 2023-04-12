@@ -50,8 +50,21 @@ function ArtisanGroup() {
             is_add_btn={true}
             actions={['delete']}
             delete_item_url={'/admin/group/delete/'}
-            THeader={['name', 'No of Artisans', 'No of Estates', 'status', 'created at', 'actions']}
-            data_to_display={['name', 'artisan_count', 'estate_count', 'status', 'created_at']}
+            THeader={[
+                'name',
+                'No of Artisans',
+                'No of Estates',
+                'status',
+                'created at',
+                'actions',
+            ]}
+            data_to_display={[
+                'name',
+                'artisan_relationship_count',
+                'estate_relationship_count',
+                'status',
+                'created_at',
+            ]}
             deactivateProp={{ url: '/admin/artisan/changeStatus', tag: 'id' }}
         />
     )

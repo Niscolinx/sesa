@@ -93,7 +93,7 @@ const SlicedPages: FC<SlicedPages> = ({
             <>
                 {sorted.map(({ key, value }: any, idx: number) => {
 
-                    if (key === 'actions') {
+                    if (key === 'actions' && idx === data_to_display - 1) {
                         let updatedActions: Actions[] = ['view details']
 
                         value === 0
