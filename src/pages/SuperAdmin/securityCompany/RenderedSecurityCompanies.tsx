@@ -211,7 +211,7 @@ function RenderedSecurityCompanies() {
      })
  }
 
- const { currentPage, slicedPages, itemsPerPage } = paginate
+ const {  slicedPages, itemsPerPage } = paginate
 
  const jumpToPage = (e: React.MouseEvent, index: number) => {
      setPaginate((prev) => {
@@ -272,7 +272,7 @@ function RenderedSecurityCompanies() {
             }
         })
 
-        if (item === 'View Details') {
+        if (item === 'iew Details') {
             console.log('view')
             navigate(`/superAdmin/security-company/view/:${id}`)
         }
