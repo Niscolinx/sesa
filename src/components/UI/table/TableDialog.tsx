@@ -5,8 +5,15 @@ import { toast } from 'react-toastify'
 import { IoMdClose } from 'react-icons/io'
 
 function TableDialog() {
-    const { axiosInstance, deactivateProp, fetchedId, title, isDialogOpen, setIsDialogOpen, isCategory } =
-        useTableContext()
+    const {
+        axiosInstance,
+        deactivateProp,
+        fetchedId,
+        title,
+        isDialogOpen,
+        setIsDialogOpen,
+        isCategory,
+    } = useTableContext()
 
     const postDeactivate = () => {
         const { url, tag = 'user_id' } = deactivateProp
@@ -22,19 +29,18 @@ function TableDialog() {
             onSuccess: (data) => {
                 if ((data as any).success) {
                     closeDialog()
+                    const message = isCategory
+                        ? 'Category Created successfully'
+                        : `${title
+                              .replace(/([a-z])([A-Z])/g, '$1 $2')
+                              .replace(/^\w/, (c) =>
+                                  c.toUpperCase()
+                              )} deactivated successfully`
 
-                    toast(
-                        `${title
-                            .replace(/([a-z])([A-Z])/g, '$1 $2')
-                            .replace(/^\w/, (c) =>
-                                c.toUpperCase()
-                            )} deactivated successfully`,
-                        {
-                            type: 'success',
-                            className:
-                                'bg-green-100 text-green-600 text-[1.4rem]',
-                        }
-                    )
+                    toast(message, {
+                        type: 'success',
+                        className: 'bg-green-100 text-green-600 text-[1.4rem]',
+                    })
                 }
             },
         })
@@ -99,8 +105,13 @@ function TableDialog() {
                                     />
                                 </div>
 
-                                <button className='btn bg-[#0556E5] text-white rounded-lg py-4 place-self-start w-[15rem]'>
-                                    Create
+                                <button
+                                    className='btn bg-[#0556E5] text-white rounded-lg py-4 place-self-start w-[15rem]'
+                                    onClick={() => deactivate_mutation()}
+                                >
+                                    {deactivate_loading
+                                        ? 'Loading...'
+                                        : 'Create'}
                                 </button>
                             </form>
                         </>
