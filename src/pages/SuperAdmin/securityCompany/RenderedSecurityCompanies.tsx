@@ -17,7 +17,7 @@ import { useMutation, useQuery } from 'react-query'
 import { ToastContainer, toast } from 'react-toastify'
 
 type SecurityCompany = {
-    id: string
+    id: number
     image: string
 
     name: string
@@ -46,7 +46,7 @@ function RenderedSecurityCompanies() {
         return axiosInstance({
             url: '/change/user/status',
             method: 'post',
-            data: { user_id: securityCompanyId },
+            data: { user_id: parseInt(securityCompanyId) },
         })
     }
 
@@ -140,7 +140,9 @@ function RenderedSecurityCompanies() {
             return {
                 ...prev,
                 slicedPages,
-                totalPage: Math.ceil(fetchedSecurityCompanies?.length / perPage),
+                totalPage: Math.ceil(
+                    fetchedSecurityCompanies?.length / perPage
+                ),
             }
         })
     }, [fetchedSecurityCompanies])
@@ -335,8 +337,8 @@ function RenderedSecurityCompanies() {
                                                     onboarding_date,
                                                     security_guard_count,
                                                     status,
-                                                },
-                                                i
+                                                }
+                                                
                                             ) => {
                                                 const {
                                                     isDropDownOpen,
@@ -432,7 +434,7 @@ function RenderedSecurityCompanies() {
                                                         <div className='relative'>
                                                             <label
                                                                 className='font-semibold capitalize cursor-pointer flex items-center gap-2 relative z-10'
-                                                                htmlFor={i.toString()}
+                                                                htmlFor={id.toString()}
                                                                 onClick={() =>
                                                                     setToggleDropDown(
                                                                         (
@@ -441,7 +443,7 @@ function RenderedSecurityCompanies() {
                                                                             return {
                                                                                 isDropDownOpen:
                                                                                     !prev.isDropDownOpen,
-                                                                                index: i,
+                                                                                index: id,
                                                                             }
                                                                         }
                                                                     )
@@ -455,17 +457,18 @@ function RenderedSecurityCompanies() {
                                                                 type='radio'
                                                                 name='dropdown'
                                                                 className='hidden'
-                                                                id={i.toString()}
+                                                                id={id.toString()}
                                                                 onChange={(e) =>
                                                                     dropDownHandler(
                                                                         e,
-                                                                        i
+                                                                        id
                                                                     )
                                                                 }
                                                             />
 
                                                             {isDropDownOpen &&
-                                                                index === i && (
+                                                                index ===
+                                                                    id && (
                                                                     <div className='absolute top-0 translate-x-[-10rem] border border-color-primary-light w-[10rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
                                                                         {actions.map(
                                                                             (
@@ -476,14 +479,14 @@ function RenderedSecurityCompanies() {
                                                                                     className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
                                                                                     key={
                                                                                         index +
-                                                                                        i
+                                                                                        id
                                                                                     }
                                                                                     onClick={(
                                                                                         e
                                                                                     ) =>
                                                                                         handleSelectedAction(
                                                                                             item,
-                                                                                            id
+                                                                                            id.toString()
                                                                                         )
                                                                                     }
                                                                                 >
