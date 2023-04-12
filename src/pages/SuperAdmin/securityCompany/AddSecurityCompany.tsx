@@ -76,7 +76,7 @@ const AddSecurityCompany = () => {
     const onSubmit = handleSubmit((data) => {
         const updatedData = {
             ...data,
-            image: imageFile,
+            image: '',
         }
 
         mutate(updatedData)
