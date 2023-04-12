@@ -11,6 +11,7 @@ function Admins() {
                 view_page_url={'/superAdmin/admins/view/'}
                 add_page_url={'/superAdmin/admins/add'}
                 is_add_btn={true}
+                nested={true}
                 THeader={[
                     'name',
                     'gender',

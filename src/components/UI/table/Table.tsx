@@ -59,7 +59,7 @@ const Table = ({
     add_page_url,
     data_to_display,
     is_add_btn,
-    nested = true,
+    nested = false,
     deactivateProp,
     THeader,
     actions = [] ,
