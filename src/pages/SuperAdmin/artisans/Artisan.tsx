@@ -7,28 +7,21 @@ import Table from '../../../components/UI/table/Table'
 function ArtisanCategory() {
     return (
         <Table
-            fetch_url={'/manager/get/all'}
-            title={'estateManager'}
-            view_page_url={'/superAdmin/estateManagers/view/'}
-            add_page_url={'/superAdmin/estateManagers/add'}
+            fetch_url={'/admin/category/getAll'}
+            title={'artisanList'}
+            view_page_url={'/superAdmin/artisan/detail/'}
+            add_page_url={'/superAdmin/artisan/add'}
             is_add_btn={true}
-            THeader={[
-                'name',
-                'gender',
-                'phone number',
-                'joined date',
-                'status',
-                'actions',
-            ]}
+            actions={['delete']}
+            THeader={['name', 'business name', 'phone no', 'rating', 'actions']}
             data_to_display={[
-                'name',
-                'image',
-                'gender',
-                'phone',
-                'created_at',
-                'status',
+                'firstname',
+                'business_name',
+                'phone_number',
+                'rating',
+                'sf',
             ]}
-            deactivateProp={{ url: 'change/user/status' }}
+            deactivateProp={{ url: '/admin/artisan/changeStatus' }}
         />
     )
 }
