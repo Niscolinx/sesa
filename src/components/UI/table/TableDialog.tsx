@@ -1,4 +1,10 @@
-import React, { ChangeEvent, useEffect, useRef, useState } from 'react'
+import React, {
+    ChangeEvent,
+    FormEvent,
+    useEffect,
+    useRef,
+    useState,
+} from 'react'
 import { useTableContext } from './Table'
 import { useMutation } from 'react-query'
 import { toast } from 'react-toastify'
@@ -17,18 +23,18 @@ function TableDialog() {
 
     const [artisanCategory, setArtisanCategory] = useState('')
 
-    const postDeactivate = () => {
+    const postRequest = (item?:any) => {
         const { url, tag = 'user_id' } = deactivateProp
 
         return axiosInstance({
             url: url,
             method: 'post',
-            data: { [tag]: fetchedId },
+            data: item ?? { [tag]: fetchedId },
         })
     }
 
-    const { mutate: deactivate_mutation, isLoading: deactivate_loading } =
-        useMutation(postDeactivate, {
+    const { mutate, isLoading } =
+        useMutation(postRequest, {
             onSuccess: (data) => {
                 if ((data as any).success) {
                     closeDialog()
@@ -53,6 +59,12 @@ function TableDialog() {
             openDialog()
         }
     }, [isDialogOpen])
+
+    const onSubmitCategory = (e: FormEvent) => {
+        e.preventDefault()
+
+        //mutate(artisanCategory)
+    }
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
@@ -81,7 +93,7 @@ function TableDialog() {
                             />
                             <form
                                 className='grid gap-12'
-                                onSubmit={handleDialogSubmit}
+                                onSubmit={onSubmitCategory}
                             >
                                 <h3
                                     className='text-[2rem] font-Satoshi-Medium border-b '
@@ -114,9 +126,9 @@ function TableDialog() {
 
                                 <button
                                     className='btn bg-[#0556E5] text-white rounded-lg py-4 place-self-start w-[15rem]'
-                                    onClick={() => deactivate_mutation()}
+                                    onClick={() => mutate()}
                                 >
-                                    {deactivate_loading
+                                    {isLoading
                                         ? 'Loading...'
                                         : 'Create'}
                                 </button>
@@ -148,9 +160,9 @@ function TableDialog() {
                                 </button>
                                 <button
                                     className='bg-red-500 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem] capitalize'
-                                    onClick={() => deactivate_mutation()}
+                                    onClick={() => mutate()}
                                 >
-                                    {deactivate_loading
+                                    {isLoading
                                         ? 'Loading...'
                                         : 'deactivate'}
                                 </button>
