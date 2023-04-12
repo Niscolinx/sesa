@@ -161,7 +161,7 @@ const TableData = () => {
     return (
         <div>
             <div className='rounded-lg mt-[3rem] h-[80vh]'>
-                {slicedPages && slicedPages?.length > 0 ? (
+                {fetched.length > 0 ? (
                     <>
                         <ToastContainer />
 
