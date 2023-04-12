@@ -37,7 +37,6 @@ function ArtisanCategory() {
 
 function ArtisanList() {
     return (
-        <div className='rounded-lg mt-[3rem] h-[80vh]'>
             <Table
                 fetch_url={'/manager/get/all'}
                 title={'estateManager'}
@@ -62,12 +61,10 @@ function ArtisanList() {
                 ]}
                 deactivateProp={{ url: 'change/user/status' }}
             />
-        </div>
     )
 }
 function ArtisanGroup() {
     return (
-        <div className='rounded-lg mt-[3rem] h-[80vh]'>
             <Table
                 fetch_url={'/manager/get/all'}
                 title={'estateManager'}
@@ -92,7 +89,7 @@ function ArtisanGroup() {
                 ]}
                 deactivateProp={{ url: 'change/user/status' }}
             />
-        </div>
+     
     )
 }
 
@@ -108,7 +105,7 @@ function Artisan() {
     ]) satisfies Map<PathSwitch, JSX.Element>
 
     return (
-        <div>
+        <div className='rounded-lg mt-[3rem] h-[80vh]'>
             <div className='estateDetail__radioBox'>
                 {Array.from(handlePathSwitch.keys()).map((path) => {
                     return (
@@ -118,9 +115,7 @@ function Artisan() {
                                 name='artisan'
                                 id={path}
                                 className='hidden'
-                                onChange={() =>
-                                    setCurrentPath(path)
-                                }
+                                onChange={() => setCurrentPath(path)}
                                 checked={path === currentPath}
                             />
                             <label htmlFor={path} className='capitalize'>
@@ -129,8 +124,8 @@ function Artisan() {
                         </>
                     )
                 })}
-                
             </div>
+            <div className='mt-8 grid gap-8'></div>
             {/* <div className='rounded-lg mt-[3rem] h-[80vh]'>
                 {artisan ? (
                     <section>
