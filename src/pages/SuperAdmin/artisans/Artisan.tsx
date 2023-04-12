@@ -37,9 +37,9 @@ function ArtisanList() {
     return (
         <Table
             fetch_url={'/admin/artisan/getAll'}
-            title={'estateManager'}
-            view_page_url={'/superAdmin/estateManagers/view/'}
-            add_page_url={'/superAdmin/estateManagers/add'}
+            title={'artisanList'}
+            view_page_url={'/superAdmin/artisan/detail/'}
+            add_page_url={'/superAdmin/artisan/add'}
             is_add_btn={true}
             THeader={[
                 'name',
