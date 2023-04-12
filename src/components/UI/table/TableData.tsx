@@ -60,6 +60,7 @@ const TableData = () => {
     useEffect(() => {
         if (get_data_response) {
             const res = get_data_response.data.data || get_data_response.data
+            console.log({ res })
             setFetchedData(res)
         }
     }, [get_data_response])
@@ -156,13 +157,15 @@ const TableData = () => {
         if (isCategory) {
             return setIsDialogOpen({
                 isOpen: true,
-                type: 'create'
+                type: 'create',
             })
         }
         navigate(`${add_page_url}`)
     }
 
     const fetched = get_data_response?.data.data || get_data_response?.data
+
+    console.log({fetched, slicedPages})
 
     return (
         <div>

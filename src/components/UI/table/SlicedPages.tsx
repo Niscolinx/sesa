@@ -76,14 +76,16 @@ const SlicedPages: FC<SlicedPages> = ({
         })
 
         const isAction = sorted.some(({ key }: any) => key === 'actions')
-        const findStatus = sorted.find(({key}))
+        const findStatus = sorted.find(({key}: any) => key === 'status')
+
 
         if (is_dropdown && !isAction) {
             sorted.push({
                 key: 'actions',
-                value: null,
+                value: findStatus.value || null,
             })
         }
+
 
         console.log({sorted})
 
@@ -91,7 +93,7 @@ const SlicedPages: FC<SlicedPages> = ({
             <>
                 {sorted.map(({ key, value }: any, idx: number) => {
 
-                   
+                    
                     if (idx === 0) {
                         return (
                             <div className='flex items-center gap-4 ' key={idx}>
@@ -140,8 +142,7 @@ const SlicedPages: FC<SlicedPages> = ({
                         )
                     } 
                      if (
-                         key === 'actions' &&
-                         idx === data_to_display.length - 1
+                         key === 'actions' 
                      ) {
                          let updatedActions: Actions[] = ['view details']
 
