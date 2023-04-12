@@ -25,7 +25,6 @@ const SlicedPages: FC<SlicedPages> = ({
 
     const page = pages[index]
 
-
     const TableItem = ({ data }: any) => {
         const { id, ...restData } = data
 
@@ -35,7 +34,6 @@ const SlicedPages: FC<SlicedPages> = ({
         >()
 
         const dataToLoop = nested ? restData.user : restData
-
 
         Object.entries(dataToLoop).map(([key, value]: any, idx: number) => {
             if (data_to_display.includes(key)) {
@@ -70,7 +68,7 @@ const SlicedPages: FC<SlicedPages> = ({
                             value,
                         })
 
-                        if (item === 'status') {
+                        if (is_dropdown && item === 'status') {
                             sorted.push({
                                 key: 'actions',
                                 value,
@@ -82,7 +80,14 @@ const SlicedPages: FC<SlicedPages> = ({
                 }
         })
 
-        const isAction = sorted.some(({key}:any) => key === 'actions')
+        const isAction = sorted.some(({ key }: any) => key === 'actions')
+
+        if (is_dropdown && !isAction) {
+            sorted.push({
+                key: 'actions',
+                value: null,
+            })
+        }
 
         return (
             <>
