@@ -57,9 +57,8 @@ const TableData = () => {
 
     useEffect(() => {
         if (get_data_response) {
-            console.log({get_data_response})
-            
-            setFetchedData(get_data_response.data.data)
+            const res = get_data_response.data.data ?? get_data_response.data
+            setFetchedData(res)
         }
     }, [get_data_response])
 
@@ -158,7 +157,7 @@ const TableData = () => {
     }
 
     console.log(get_data_response, 'checking data fetching')
-    const fetched = get_data_response?.data.data
+    const fetched = get_data_response?.data.data ?? get_data_response?.data
 
     return (
         <div>
