@@ -43,8 +43,8 @@ function ArtisanList() {
             is_add_btn={true}
             THeader={[
                 'name',
-                'gender',
-                'phone number',
+                'business name',
+                'phone no',
                 'joined date',
                 'status',
                 'actions',
