@@ -156,6 +156,7 @@ const TableData = () => {
         navigate(`${add_page_url}`)
     }
 
+    console.log(get_data_response)
     const fetched = get_data_response?.data.data
 
     return (
