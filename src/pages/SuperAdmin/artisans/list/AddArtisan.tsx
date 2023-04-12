@@ -56,6 +56,8 @@ const AddArtisan = () => {
     const [selectedGender, setSelectedGender] = useState<string>('')
     const [selectedCategories, setSelectedCategories] = useState<string[]>([])
     const [selectedRegions, setSelectedRegions] = useState<string[]>([])
+    const [responseMessage, setResponseMessage] =
+        useState<ResponseMessage | null>(null)
 
     // const states_data = ['dsd']
     // const states_loading = false
@@ -65,6 +67,10 @@ const AddArtisan = () => {
             url: '/admin/category/getAll',
             name: 'categories',
         })
+
+    useEffect(() => {
+        reset()
+    }, [validationType])
 
     const handlePicture = (e: React.ChangeEvent) => {
         const target = e.target as HTMLInputElement
@@ -87,13 +93,6 @@ const AddArtisan = () => {
         reset,
         formState: { errors: validation_formErrors },
     } = useForm<ValidationTypeInput>()
-
-    useEffect(() => {
-        reset()
-    }, [validationType])
-
-    const [responseMessage, setResponseMessage] =
-        useState<ResponseMessage | null>(null)
 
     const postRequest = (data: Inputs) => {
         return axiosInstance({
@@ -137,7 +136,6 @@ const AddArtisan = () => {
     }) as any
 
     const onSubmitValidation = validation_handleSubmit((data) => {
-
         validationType_mutation(data)
     })
 
@@ -181,7 +179,6 @@ const AddArtisan = () => {
         //handleClose()
 
         // openValidateDialog()
-
 
         const slicedStates: string[] = states_data.map(({ name, id }: any) => ({
             name,

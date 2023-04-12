@@ -4,10 +4,34 @@ import { IoMdAdd } from 'react-icons/io'
 import { toast, ToastContainer } from 'react-toastify'
 import { MultipleSelect } from '../../../../components/SuperAdmin/UI/Select'
 import useFetchData from '../../../../utils/useFetchData'
+import { SelectProps } from '../../../../components/UI/input/Input'
 
 type DialogType = 'validate' | 'add-Artisan'
 
 const AddArtisanGroup = () => {
+     interface Inputs {
+         first_name: string
+         last_name: string
+         phone_number: string
+         email_address: string
+         address_line_1: string
+         address_line_2: string
+         business_name: string
+     }
+     
+     type FormInputs = {
+        label?: string
+        type?: string
+        name?: string
+        value?: string
+        required?: boolean
+        selectProps?: SelectProps
+    }
+      type ResponseMessage = {
+          className: string
+          displayMessage: string
+      }
+
     const [groupName, setGroupName] = useState('')
     const [selectedArtisans, setSelectedArtisans] = useState<string[]>([])
     const [selectedEstates, setSelectedEstates] = useState<string[]>([])
@@ -20,35 +44,85 @@ const AddArtisanGroup = () => {
             name: 'categories',
         })
 
-        
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault()
+      const {
+          register,
+          handleSubmit,
+          formState: { errors: formErrors },
+      } = useForm<Inputs>()
+      
+   const onSubmit = handleSubmit((data) => {
+       let isError = false
+       if (selectedCategories.length < 1) {
+           isError = true
+           setSelectFormErrors((prev) => {
+               return {
+                   ...prev,
+                   'Artisan Categories': 'Field cannot be empty',
+               }
+           })
+       }
+       if (selectedGender.length < 1) {
+           isError = true
 
-         const slicedCategories: string[] = categories_data.data.map(
-             ({ name, id }: any) => ({ name, id })
-         )
+           setSelectFormErrors((prev) => {
+               return {
+                   ...prev,
+                   Gender: 'Field cannot be empty',
+               }
+           })
+       }
+       if (selectedRegions.length < 1) {
+           isError = true
 
-         const category = slicedCategories.map(
-             ({ name, id }: any) => selectedCategories.includes(name) && { id }
-         )
+           setSelectFormErrors((prev) => {
+               return {
+                   ...prev,
+                   State: 'Field cannot be empty',
+               }
+           })
+       }
 
-         const state = slicedStates
-             .filter(({ name }: any) => selectedRegions.includes(name))
-             .map(({ id }: any) => id)[0]
+       if (isError) {
+           console.log({ isError }, 'error')
+           return
+       }
+       setSelectFormErrors(null)
+       //handleClose()
 
-         const updatedData = {
-             ...data,
-             category,
-             state,
-             validation_option: 'bvn',
-             is_kyr_approved: false,
-             gender: selectedGender,
-             // image: imageFile,
-             image: '',
-         }
+       // openValidateDialog()
 
-         console.log({ updatedData })
-    }
+       const slicedStates: string[] = states_data.map(({ name, id }: any) => ({
+           name,
+           id,
+       }))
+
+       const slicedCategories: string[] = categories_data.data.map(
+           ({ name, id }: any) => ({ name, id })
+       )
+
+       const category = slicedCategories.map(
+           ({ name, id }: any) => selectedCategories.includes(name) && { id }
+       )
+
+       const state = slicedStates
+           .filter(({ name }: any) => selectedRegions.includes(name))
+           .map(({ id }: any) => id)[0]
+
+       const updatedData = {
+           ...data,
+           category,
+           state,
+           validation_option: 'bvn',
+           is_kyr_approved: false,
+           gender: selectedGender,
+           // image: imageFile,
+           image: '',
+       }
+
+       console.log({ updatedData })
+
+       mutate(updatedData)
+   })
 
     const addArtisanGroupHandler = () => {}
 
