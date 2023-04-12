@@ -55,6 +55,7 @@ const TableData = () => {
         isError: get_data_isError,
         error: get_data_error,
         data: get_data_response,
+        isFetching,
     } = useQuery(title, fetchData, {}) as any
 
     useEffect(() => {
@@ -149,7 +150,7 @@ const TableData = () => {
         return <p>Loading...</p>
     }
 
-    if (get_data_isError) {
+    if (!isFetching && get_data_isError) {
         return <p>{get_data_error.message}</p>
     }
 
