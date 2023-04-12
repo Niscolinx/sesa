@@ -57,6 +57,7 @@ const TableData = () => {
 
     useEffect(() => {
         if (get_data_response) {
+            console.log({get_data_response})
             setFetchedData(get_data_response.data.data)
         }
     }, [get_data_response])
@@ -74,6 +75,8 @@ const TableData = () => {
                 totalPage: Math.ceil(fetchedData?.length / perPage),
             }
         })
+
+        
     }, [fetchedData])
 
     const itemsPerPageArr = [2, 4, 6, 8]
@@ -155,10 +158,12 @@ const TableData = () => {
 
     const fetched = get_data_response?.data.data
 
+    console.log(get_data_response.data.data, {slicedPages})
+
     return (
         <div>
             <div className='rounded-lg mt-[3rem] h-[80vh]'>
-                {fetched.length > 0 ? (
+                {slicedPages && slicedPages?.length > 0 ? (
                     <>
                         <ToastContainer />
 
