@@ -107,13 +107,10 @@ const ViewEstateManager = () => {
         isLoading: deactivate_loading,
     } = useMutation(postDeactivate) as any
 
-    const {
-        isLoading: get_loading,
-    } = useQuery('estate_manager', getRequest, {
+    const { isLoading: get_loading } = useQuery('estate_manager', getRequest, {
         onSuccess: (res) => {
-
             console.log(res.data)
-            
+
             const fetched_data = res.data
 
             const { name, email, phone, image, dob } = fetched_data
@@ -137,23 +134,22 @@ const ViewEstateManager = () => {
         mutate: post_mutation,
         data: post_response_data,
         isLoading: post_loading,
-    } = useMutation(postUpdate) as any
-
-    
-
-    useEffect(() => {
-        if (post_response_data?.success) {
+    } = useMutation(postUpdate, {
+        onSuccess: (data) => {
             toast('Admin Updated successfully', {
                 type: 'success',
                 className: 'bg-green-100 text-green-600 text-[1.4rem]',
             })
-        } else {
+        },
+        onError: (err: any) => {
             setResponseMessage({
                 className: 'text-red-600',
-                displayMessage: post_response_data?.response?.data.message,
+                displayMessage: err.response.data.message,
             })
-        }
-    }, [post_response_data])
+        },
+    }) as any
+
+    
 
     useEffect(() => {
         if (post_deactivate_response?.success) {
