@@ -270,7 +270,7 @@ const ViewAdmin = () => {
                         className='grid gap-4 cursor-pointer justify-items-center'
                     >
                         <img
-                            src={photoPreview ? photoPreview : '/img/me.jpeg'}
+                            src={photoPreview}
                             alt='photoPreview'
                             className='object-cover w-[11rem] h-[11rem] rounded-full object-top'
                         />

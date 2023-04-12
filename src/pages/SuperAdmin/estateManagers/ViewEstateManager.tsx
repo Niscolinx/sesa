@@ -74,10 +74,10 @@ const ViewEstateManager = () => {
         formState: { errors: formErrors },
         reset,
     } = useForm<Inputs>()
-    
+
     const [responseMessage, setResponseMessage] =
-    useState<ResponseMessage | null>(null)
-    
+        useState<ResponseMessage | null>(null)
+
     const estateManager_id = params.id?.replace(':', '')
 
     const postDeactivate = (id: string) => {
@@ -89,7 +89,7 @@ const ViewEstateManager = () => {
     }
     const postUpdate = (data: Inputs) => {
         return axiosInstance({
-            url: '/admin/update',
+            url: `/admin/update/${estateManager_id}`,
             method: 'post',
             data,
         })
@@ -98,10 +98,8 @@ const ViewEstateManager = () => {
     const getRequest = () => {
         return axiosInstance({
             url: `/manager/get/${estateManager_id}`,
-          
         })
     }
-
 
     const {
         mutate: deactivate_mutation,
@@ -113,22 +111,10 @@ const ViewEstateManager = () => {
         mutate: get_mutation,
         data: get_response,
         isLoading: get_loading,
-    } = useQuery('estate_manager', getRequest) as any
-
-    const {
-        mutate: post_mutation,
-        data: post_response_data,
-        isLoading: post_loading,
-    } = useMutation(postUpdate) as any
-
-    useEffect(() => {
-        get_mutation(estateManager_id)
-    }, [])
-
-    useEffect(() => {
-        if (get_response?.success) {
-            const { dob } = get_response.data
-            const fetched_data = get_response.data.user
+    } = useQuery('estate_manager', getRequest, {
+        onSuccess: ({ data }) => {
+            const { dob } = data
+            const fetched_data = data.user
 
             const { name, email, phone, image } = fetched_data
             const first_name = name.split(' ')[0]
@@ -144,8 +130,18 @@ const ViewEstateManager = () => {
 
             setPhotoPreview(image)
             setSelectedGender(fetched_data.gender)
-        }
-    }, [get_response])
+        },
+    }) as any
+
+    const {
+        mutate: post_mutation,
+        data: post_response_data,
+        isLoading: post_loading,
+    } = useMutation(postUpdate) as any
+
+    useEffect(() => {
+        get_mutation(estateManager_id)
+    }, [])
 
     useEffect(() => {
         if (post_response_data?.success) {
@@ -156,8 +152,7 @@ const ViewEstateManager = () => {
         } else {
             setResponseMessage({
                 className: 'text-red-600',
-                displayMessage:
-                    post_response_data?.response?.data.message,
+                displayMessage: post_response_data?.response?.data.message,
             })
         }
     }, [post_response_data])
@@ -172,8 +167,7 @@ const ViewEstateManager = () => {
         } else {
             setResponseMessage({
                 className: 'text-red-600',
-                displayMessage:
-                    post_response_data?.response?.data.message,
+                displayMessage: post_response_data?.response?.data.message,
             })
         }
     }, [post_deactivate_response])
@@ -189,7 +183,7 @@ const ViewEstateManager = () => {
             email: email_address,
             address: 'no 4 odeyim street',
             phone: `+234${phone_number}`,
-            image: 'https://res.cloudinary.com/aladdin-digital-bank/image/upload/v1665580939/international_payments/s1brifvx0tqcwjwjnpov.jpg',
+            image: photoPreview,
         }
 
         post_mutation(updatedData)
@@ -267,7 +261,7 @@ const ViewEstateManager = () => {
                         className='grid gap-4 cursor-pointer justify-items-center'
                     >
                         <img
-                            src={photoPreview ? photoPreview : '/img/me.jpeg'}
+                            src={photoPreview}
                             alt='photoPreview'
                             className='object-cover w-[11rem] h-[11rem] rounded-full object-top'
                         />
