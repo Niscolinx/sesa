@@ -36,6 +36,8 @@ const TableData = () => {
         add_page_url,
         THeader,
         is_add_btn,
+        isCategory,
+        setIsDialogOpen,
     } = useTableContext()
 
     const [toggleDropDown, setToggleDropDown] = useState<ToggleDropDown>({
@@ -75,8 +77,6 @@ const TableData = () => {
                 totalPage: Math.ceil(fetchedData?.length / perPage),
             }
         })
-
-        
     }, [fetchedData])
 
     const itemsPerPageArr = [2, 4, 6, 8]
@@ -153,6 +153,9 @@ const TableData = () => {
     }
 
     const handlePathSwitch = () => {
+        if (isCategory) {
+            return setIsDialogOpen(true)
+        }
         navigate(`${add_page_url}`)
     }
 
