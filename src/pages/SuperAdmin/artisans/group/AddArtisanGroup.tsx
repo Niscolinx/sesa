@@ -147,6 +147,7 @@ const AddArtisanGroup = () => {
         return <p>Loading...</p>
     }
 
+    console.log({artisans_data, estates_data})
     const slicedEstates: string[] = estates_data.map(({ name }: any) => name)
 
     const slicedArtisans: string[] = artisans_data.data.map(
