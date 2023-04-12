@@ -5,20 +5,15 @@ import { toast, ToastContainer } from 'react-toastify'
 import { MultipleSelect } from '../../../../components/SuperAdmin/UI/Select'
 import useFetchData from '../../../../utils/useFetchData'
 import { SelectProps } from '../../../../components/UI/input/Input'
+import { useForm } from 'react-hook-form'
 
 type DialogType = 'validate' | 'add-Artisan'
 
 const AddArtisanGroup = () => {
      interface Inputs {
-         first_name: string
-         last_name: string
-         phone_number: string
-         email_address: string
-         address_line_1: string
-         address_line_2: string
-         business_name: string
+         name: string
      }
-     
+
      type FormInputs = {
         label?: string
         type?: string
