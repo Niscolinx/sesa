@@ -175,19 +175,24 @@ const AddArtisan = () => {
         setSelectFormErrors(null)
         //handleClose()
 
-        openValidateDialog()
+        // openValidateDialog()
 
         console.log({ states_data })
 
-        const slicedStates: string[] = states_data.map(({ name, id }: any) => ({name, id}))
+        const slicedStates: string[] = states_data.map(({ name, id }: any) => ({
+            name,
+            id,
+        }))
 
         const slicedCategories: string[] = categories_data.data.map(
-            ({ name, id }: any) => ({name, id})
+            ({ name, id }: any) => ({ name, id })
         )
 
-        const category = slicedCategories.filter(({name, id}: any) => selectedCategories.includes(name) && id)
+        const category = slicedCategories.map(
+            ({ name, id }: any) => selectedCategories.includes(name) && id
+        )
 
-        console.log({category})
+        console.log({ category })
 
         const updatedData = {
             ...data,
