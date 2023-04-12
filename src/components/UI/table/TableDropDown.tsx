@@ -37,7 +37,6 @@ const TableDropDown = ({
         }
 
         if (item === 'deactivate') {
-            console.log('deactivate')
             setIsDialogOpen({
                 isOpen: true,
                 type: 'deactivate',
@@ -45,7 +44,6 @@ const TableDropDown = ({
         }
 
         if (item === 'delete') {
-            console.log('delete')
             setIsDialogOpen({
                 isOpen: true,
                 type: 'delete',
