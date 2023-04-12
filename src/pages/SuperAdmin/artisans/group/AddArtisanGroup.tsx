@@ -3,6 +3,7 @@ import { IoMdAdd } from 'react-icons/io'
 
 import { toast, ToastContainer } from 'react-toastify'
 import { MultipleSelect } from '../../../../components/SuperAdmin/UI/Select'
+import useFetchData from '../../../../utils/useFetchData'
 
 type DialogType = 'validate' | 'add-Artisan'
 
@@ -11,11 +12,100 @@ const AddArtisanGroup = () => {
     const [selectedArtisans, setSelectedArtisans] = useState<string[]>([])
     const [selectedEstates, setSelectedEstates] = useState<string[]>([])
 
+
+    const { data: states_data, isLoading: states_loading } = useFetchData({})
+    const { data: categories_data, isLoading: categories_loading } =
+        useFetchData({
+            url: '/admin/category/getAll',
+            name: 'categories',
+        })
+
+        
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
+
+         const slicedCategories: string[] = categories_data.data.map(
+             ({ name, id }: any) => ({ name, id })
+         )
+
+         const category = slicedCategories.map(
+             ({ name, id }: any) => selectedCategories.includes(name) && { id }
+         )
+
+         const state = slicedStates
+             .filter(({ name }: any) => selectedRegions.includes(name))
+             .map(({ id }: any) => id)[0]
+
+         const updatedData = {
+             ...data,
+             category,
+             state,
+             validation_option: 'bvn',
+             is_kyr_approved: false,
+             gender: selectedGender,
+             // image: imageFile,
+             image: '',
+         }
+
+         console.log({ updatedData })
     }
 
     const addArtisanGroupHandler = () => {}
+
+    const formInputs = [
+        {
+            name: 'First Name',
+            label: 'firstname',
+        },
+        { name: 'Last Name', label: 'lastname' },
+        {
+            label: 'Gender',
+            type: 'select',
+            selectProps: {
+                state: gender,
+                selectedState: selectedGender,
+                setSelectedState: setSelectedGender,
+            },
+        },
+        {
+            label: 'phone_number',
+            type: 'number',
+        },
+        {
+            label: 'email_address',
+            type: 'email',
+        },
+        {
+            label: 'address_line_1',
+        },
+        {
+            label: 'address_line_2',
+        },
+        {
+            label: 'State',
+            type: 'select',
+            selectProps: {
+                state: slicedStates,
+                isSearchable: true,
+                selectedState: selectedRegions,
+                setSelectedState: setSelectedRegions,
+            },
+        },
+        {
+            label: 'Artisan Categories',
+            type: 'select',
+            selectProps: {
+                isMulti: true,
+                state: slicedCategories,
+                selectedState: selectedCategories,
+                setSelectedState: setSelectedCategories,
+            },
+        },
+        {
+            label: 'business_name',
+            required: false,
+        },
+    ] satisfies FormInputs[]
 
     return (
         <>

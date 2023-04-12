@@ -137,7 +137,6 @@ const AddArtisan = () => {
     }) as any
 
     const onSubmitValidation = validation_handleSubmit((data) => {
-        console.log({ data })
 
         validationType_mutation(data)
     })
@@ -183,7 +182,6 @@ const AddArtisan = () => {
 
         // openValidateDialog()
 
-        console.log({ states_data })
 
         const slicedStates: string[] = states_data.map(({ name, id }: any) => ({
             name,
