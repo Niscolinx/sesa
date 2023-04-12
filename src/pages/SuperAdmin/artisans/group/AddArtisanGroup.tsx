@@ -55,6 +55,9 @@ const AddArtisanGroup = () => {
         },
 
         onSuccess: () => {
+            reset()
+            setSelectedArtisans([])
+            setSelectedEstates([])
             toast(`Artisan Group successfully`, {
                 type: 'success',
                 className: 'bg-green-100 text-green-600 text-[1.4rem]',
@@ -74,6 +77,7 @@ const AddArtisanGroup = () => {
     const {
         register,
         handleSubmit,
+        reset,
         formState: { errors: formErrors },
     } = useForm<Inputs>()
 
@@ -103,6 +107,9 @@ const AddArtisanGroup = () => {
             console.log({ isError }, 'error')
             return
         }
+
+       
+
         setSelectFormErrors(null)
         //handleClose()
 
@@ -119,12 +126,7 @@ const AddArtisanGroup = () => {
             ({ firstname, id }: any) => ({ firstname, id })
         )
 
-        console.log({
-            slicedArtisans,
-            slicedEstates,
-            estates_data,
-            artisans_data,
-        })
+       
         const artisan = slicedArtisans
             .filter(({ firstname }: any) =>
                 selectedArtisans.includes(firstname)
@@ -143,7 +145,6 @@ const AddArtisanGroup = () => {
             estate,
         }
 
-        console.log({ updatedData })
 
         mutate(updatedData)
     })
