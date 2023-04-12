@@ -15,24 +15,24 @@ import { TbCurrencyNaira } from 'react-icons/tb'
 import { Select } from '../../../components/SuperAdmin/UI/Select'
 import useAxios from '../../../components/hooks/useAxios'
 
-type EstateDetails = {
-    estateName: string
-    securityCompany: string
-    status: string
 
-    estateBalance: number
+
+type Estate = {
+    id: string
+    image: string
+
+    estate_name: string
+    security_company: any
+    status: number
+
+    wallet: {
+        balance: number
+    }
     NoOfResidents: number
     signOutRequired: boolean
 
     estateManager: string
     NoOfHouseholds: number
-}
-
-type Estate = {
-    id: string
-    img: string
-
-    details: EstateDetails
 }
 
 function Estates() {
@@ -285,12 +285,18 @@ function Estates() {
                                                 img,
                                                 id,
                                                 details: {
-                                                    estateBalance,
+                                                    wallet: {
+                                                        balance
+                                                    },
                                                     estateManager,
-                                                    estateName,
+                                                    estate_name,
                                                     NoOfHouseholds,
                                                     NoOfResidents,
-                                                    securityCompany,
+                                                    security_company: {
+                                                        user: {
+                                                            name
+                                                        }
+                                                    },
                                                     signOutRequired,
                                                     status,
                                                 },
@@ -315,7 +321,7 @@ function Estates() {
                                                                 Estate&nbsp;Name
                                                             </p>
                                                             <p className='font-[1.6rem] whitespace-nowrap'>
-                                                                {estateName}
+                                                                {estate_name}
                                                             </p>
                                                         </div>
                                                         <div>
@@ -324,7 +330,7 @@ function Estates() {
                                                             </p>
                                                             <p>
                                                                 {
-                                                                    securityCompany
+                                                                    name
                                                                 }
                                                             </p>
                                                         </div>
@@ -344,7 +350,7 @@ function Estates() {
                                                             </p>
                                                             <p className='flex items-center'>
                                                                 <TbCurrencyNaira className='text-[2rem]' />
-                                                                {estateBalance}
+                                                                {balance}
                                                             </p>
                                                         </div>
                                                         <div>
