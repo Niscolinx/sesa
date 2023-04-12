@@ -12,11 +12,11 @@ import { useMutation } from 'react-query'
 type DialogType = 'validate' | 'add-Artisan'
 
 const AddArtisanGroup = () => {
-     interface Inputs {
-         name: string
-     }
+    interface Inputs {
+        name: string
+    }
 
-     type FormInputs = {
+    type FormInputs = {
         label?: string
         type?: string
         name?: string
@@ -24,10 +24,10 @@ const AddArtisanGroup = () => {
         required?: boolean
         selectProps?: SelectProps
     }
-      type ResponseMessage = {
-          className: string
-          displayMessage: string
-      }
+    type ResponseMessage = {
+        className: string
+        displayMessage: string
+    }
 
     const [groupName, setGroupName] = useState('')
     const [selectedArtisans, setSelectedArtisans] = useState<string[]>([])
@@ -58,102 +58,107 @@ const AddArtisanGroup = () => {
         },
 
         onSuccess: () => {
-            handleOpen('add-Artisan')
+            toast(`Artisan Group successfully`, {
+                type: 'success',
+                className: 'bg-green-100 text-green-600 text-[1.4rem]',
+            })
         },
     }) as any
 
-    const { data: states_data, isLoading: states_loading } = useFetchData({})
-    const { data: categories_data, isLoading: categories_loading } =
-        useFetchData({
-            url: '/admin/category/getAll',
-            name: 'categories',
-        })
+    const { data: estates_data, isLoading: estates_loading } = useFetchData({
+        url: '/estate/getall',
+        name: 'estates',
+    })
+    const { data: artisans_data, isLoading: artisans_loading } = useFetchData({
+        url: '/admin/category/getAll',
+        name: 'categories',
+    })
 
-      const {
-          register,
-          handleSubmit,
-          formState: { errors: formErrors },
-      } = useForm<Inputs>()
-      
-   const onSubmit = handleSubmit((data) => {
-       let isError = false
-       if (selectedArtisans.length < 1) {
-           isError = true
-           setSelectFormErrors((prev) => {
-               return {
-                   ...prev,
-                   'Artisan Categories': 'Field cannot be empty',
-               }
-           })
-       }
-       if (selectedEstates.length < 1) {
-           isError = true
+    const {
+        register,
+        handleSubmit,
+        formState: { errors: formErrors },
+    } = useForm<Inputs>()
 
-           setSelectFormErrors((prev) => {
-               return {
-                   ...prev,
-                   Gender: 'Field cannot be empty',
-               }
-           })
-       }
-      
+    const onSubmit = handleSubmit((data) => {
+        let isError = false
+        if (selectedArtisans.length < 1) {
+            isError = true
+            setSelectFormErrors((prev) => {
+                return {
+                    ...prev,
+                    'Artisan Categories': 'Field cannot be empty',
+                }
+            })
+        }
+        if (selectedEstates.length < 1) {
+            isError = true
 
-       if (isError) {
-           console.log({ isError }, 'error')
-           return
-       }
-       setSelectFormErrors(null)
-       //handleClose()
+            setSelectFormErrors((prev) => {
+                return {
+                    ...prev,
+                    Gender: 'Field cannot be empty',
+                }
+            })
+        }
 
-       // openValidateDialog()
+        if (isError) {
+            console.log({ isError }, 'error')
+            return
+        }
+        setSelectFormErrors(null)
+        //handleClose()
 
-       const slicedStates: string[] = states_data.map(({ name, id }: any) => ({
-           name,
-           id,
-       }))
+        // openValidateDialog()
 
-       const slicedCategories: string[] = categories_data.data.map(
-           ({ name, id }: any) => ({ name, id })
-       )
+        const slicedStates: string[] = estates_data.map(
+            ({ name, id }: any) => ({
+                name,
+                id,
+            })
+        )
 
-       const category = slicedCategories.map(
-           ({ name, id }: any) => selectedArtisans.includes(name) && { id }
-       )
+        const slicedCategories: string[] = artisans_data.data.map(
+            ({ name, id }: any) => ({ name, id })
+        )
 
-       const state = slicedStates
-           .filter(({ name }: any) => selectedEstates.includes(name))
-           .map(({ id }: any) => id)[0]
+        const category = slicedCategories.map(
+            ({ name, id }: any) => selectedArtisans.includes(name) && { id }
+        )
 
-       const updatedData = {
-           ...data,
-           category,
-           state,
-           
-       
-       }
+        const state = slicedStates
+            .filter(({ name }: any) => selectedEstates.includes(name))
+            .map(({ id }: any) => id)[0]
 
-       console.log({ updatedData })
+        const updatedData = {
+            ...data,
+            category,
+            state,
+        }
 
-       mutate(updatedData)
-   })
+        console.log({ updatedData })
+
+        mutate(updatedData)
+    })
 
     const addArtisanGroupHandler = () => {}
+
+    if (estates_loading || artisans_loading) {
+        return <p>Loading...</p>
+    }
+
+    const slicedStates: string[] = estates_data.map(({ name }: any) => name)
+
+    const slicedCategories: string[] = artisans_data.data.map(
+        ({ name }: any) => name
+    )
 
     const formInputs = [
         {
             name: 'First Name',
             label: 'firstname',
         },
-        { name: 'Last Name', label: 'lastname' },
-        {
-            label: 'Gender',
-            type: 'select',
-            selectProps: {
-                state: gender,
-                selectedState: selectedGender,
-                setSelectedState: setSelectedGender,
-            },
-        },
+
         {
             label: 'phone_number',
             type: 'number',
@@ -172,7 +177,7 @@ const AddArtisanGroup = () => {
             label: 'State',
             type: 'select',
             selectProps: {
-                state: slicedStates,
+                state: sliced,
                 isSearchable: true,
                 selectedState: selectedRegions,
                 setSelectedState: setSelectedRegions,
