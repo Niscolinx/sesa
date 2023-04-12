@@ -304,7 +304,7 @@ function Estates() {
                                                         />
                                                     </div>
 
-                                                    <div className='grid'>
+                                                    <div className='grid gap-4'>
                                                         <div>
                                                             <p className='text-[1.4rem] text-[#043FA7]'>
                                                                 Estate&nbsp;Name
@@ -317,14 +317,29 @@ function Estates() {
                                                             <p className='text-[#043FA7]'>
                                                                 Security Company
                                                             </p>
-                                                            <p>{security_company.user.name}</p>
+                                                            <p>
+                                                                {
+                                                                    security_company
+                                                                        .user
+                                                                        .name
+                                                                }
+                                                            </p>
                                                         </div>
                                                         <div>
                                                             <p className='text-[#043FA7]'>
                                                                 Status
                                                             </p>
-                                                            <p className='text-[#1D9F5F]'>
-                                                                {status}
+                                                            <p>
+                                                                {status ===
+                                                                1 ? (
+                                                                    <span className='text-green-600'>
+                                                                        active
+                                                                    </span>
+                                                                ) : (
+                                                                    <span className='text-red-600'>
+                                                                        inactive
+                                                                    </span>
+                                                                )}
                                                             </p>
                                                         </div>
                                                     </div>
@@ -364,7 +379,11 @@ function Estates() {
                                                                 Estate Manager
                                                             </p>
                                                             <p>
-                                                                {estate_manager.user.name}
+                                                                {
+                                                                    estate_manager
+                                                                        .user
+                                                                        .name
+                                                                }
                                                             </p>
                                                         </div>
                                                         <div className=' mt-10'>
@@ -373,7 +392,9 @@ function Estates() {
                                                                 No of Households
                                                             </p>
                                                             <p>
-                                                                {household_count}
+                                                                {
+                                                                    household_count
+                                                                }
                                                             </p>
                                                         </div>
                                                     </div>
