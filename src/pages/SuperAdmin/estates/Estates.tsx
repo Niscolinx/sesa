@@ -39,7 +39,7 @@ function Estates() {
     const navigate = useNavigate()
     const axiosInstance = useAxios()
 
-    const [fetchedEstates, setFetchedEstates] = useState<Estate[]>(ESTATEDATA)
+    const [fetchedEstates, setFetchedEstates] = useState<Estate[]>([])
     const [sortBy, setSortBy] = useState<string>('')
 
     const handleAddEstate = () => {
@@ -63,7 +63,7 @@ function Estates() {
     useEffect(() => {
         if (get_estates_response) {
             console.log(get_estates_response.data)
-            //setFetchedEstates(get_estates_response.data)
+            setFetchedEstates(get_estates_response.data)
         }
     }, [get_estates_response])
 
