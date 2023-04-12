@@ -327,19 +327,16 @@ function RenderedSecurityCompanies() {
                                     slicedPages?.length > 0 &&
                                     React.Children.toArray(
                                         slicedPages[paginate.index].map(
-                                            (
-                                                {
-                                                    id,
-                                                    image,
-                                                    address,
-                                                    balance,
-                                                    name,
-                                                    onboarding_date,
-                                                    security_guard_count,
-                                                    status,
-                                                }
-                                                
-                                            ) => {
+                                            ({
+                                                id,
+                                                image,
+                                                address,
+                                                balance,
+                                                name,
+                                                onboarding_date,
+                                                security_guard_count,
+                                                status,
+                                            }) => {
                                                 const {
                                                     isDropDownOpen,
                                                     index,
@@ -490,17 +487,23 @@ function RenderedSecurityCompanies() {
                                                                                         )
                                                                                     }
                                                                                 >
-                                                                                    {item === 'activate' && status ===
-                                                                                    1 ? (
+                                                                                    {item ===
+                                                                                        'activate' &&
+                                                                                    status ===
+                                                                                        1 ? (
                                                                                         <span className='text-green-600'>
                                                                                             activate
                                                                                         </span>
-                                                                                    ) : item === 'deactivate' && status ===
-                                                                                      0 ? (
+                                                                                    ) : item ===
+                                                                                          'deactivate' &&
+                                                                                      status ===
+                                                                                          0 ? (
                                                                                         <span className='text-red-600'>
                                                                                             deactivate
                                                                                         </span>
                                                                                     ) : (
+                                                                                        item ===
+                                                                                            'view details' &&
                                                                                         item
                                                                                     )}
                                                                                 </p>
