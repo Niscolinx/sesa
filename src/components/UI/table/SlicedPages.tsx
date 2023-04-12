@@ -68,12 +68,7 @@ const SlicedPages: FC<SlicedPages> = ({
                             value,
                         })
 
-                        if (is_dropdown && item === 'status') {
-                            sorted.push({
-                                key: 'actions',
-                                value,
-                            })
-                        }
+                        
 
                         return
                     }
@@ -81,6 +76,7 @@ const SlicedPages: FC<SlicedPages> = ({
         })
 
         const isAction = sorted.some(({ key }: any) => key === 'actions')
+        const findStatus = sorted.find(({key}))
 
         if (is_dropdown && !isAction) {
             sorted.push({
