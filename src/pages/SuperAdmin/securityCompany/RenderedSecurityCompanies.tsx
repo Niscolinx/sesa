@@ -490,19 +490,15 @@ function RenderedSecurityCompanies() {
                                                                                         )
                                                                                     }
                                                                                 >
-                                                                                    {item ===
-                                                                                    'activate' ? (
+                                                                                    {status ===
+                                                                                    1 ? (
                                                                                         <span className='text-green-600'>
-                                                                                            {
-                                                                                                item
-                                                                                            }
+                                                                                            activate
                                                                                         </span>
-                                                                                    ) : item ===
-                                                                                      'deactivate' ? (
+                                                                                    ) : status ===
+                                                                                      0 ? (
                                                                                         <span className='text-red-600'>
-                                                                                            {
-                                                                                                item
-                                                                                            }
+                                                                                            deactivate
                                                                                         </span>
                                                                                     ) : (
                                                                                         item
