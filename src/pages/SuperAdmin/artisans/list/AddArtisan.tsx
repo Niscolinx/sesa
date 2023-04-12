@@ -513,7 +513,6 @@ const AddArtisan = () => {
                 )}
                 <form
                     onSubmit={onSubmit}
-                    id='formFile'
                     className='grid max-w-[84rem] gap-16 mt-12 '
                     style={{
                         gridTemplateColumns:

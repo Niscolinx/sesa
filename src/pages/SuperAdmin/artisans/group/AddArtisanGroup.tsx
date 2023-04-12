@@ -155,24 +155,9 @@ const AddArtisanGroup = () => {
 
     const formInputs = [
         {
-            name: 'First Name',
-            label: 'firstname',
+            label: 'name',
         },
 
-        {
-            label: 'phone_number',
-            type: 'number',
-        },
-        {
-            label: 'email_address',
-            type: 'email',
-        },
-        {
-            label: 'address_line_1',
-        },
-        {
-            label: 'address_line_2',
-        },
         {
             label: 'Estates',
             type: 'select',
@@ -193,10 +178,6 @@ const AddArtisanGroup = () => {
                 setSelectedState: setSelectedArtisans,
             },
         },
-        {
-            label: 'business_name',
-            required: false,
-        },
     ] satisfies FormInputs[]
 
     return (
@@ -216,59 +197,44 @@ const AddArtisanGroup = () => {
                 </div>
                 <form
                     onSubmit={onSubmit}
-                    className='flex flex-col gap-16 max-w-[40rem] h-[60vh] mt-10'
+                    className='grid max-w-[84rem] gap-16 mt-12 '
+                    style={{
+                        gridTemplateColumns:
+                            ' repeat(auto-fit, minmax(35rem, 1fr))',
+                    }}
                 >
-                    <div className='grid gap-4 relative '>
-                        <label
-                            htmlFor='groupName'
-                            className='text-[1.4rem] font-Satoshi-Medium'
-                        >
-                            Name
-                        </label>
-                        <input
-                            type='text'
-                            required
-                            value={groupName}
-                            onChange={(e: ChangeEvent<HTMLInputElement>) =>
-                                setGroupName(e.target.value)
-                            }
-                            id='groupName'
-                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                    <>
+                        {formInputs.map((input, idx) => {
+                            const { label, type, selectProps, name, required } =
+                                input
+
+                            return (
+                                <Input
+                                    key={idx + label}
+                                    label={label}
+                                    name={name}
+                                    register={register}
+                                    formErrors={formErrors}
+                                    selectFormErrors={selectFormErrors}
+                                    type={type}
+                                    required={required}
+                                    isSelect={type === 'select'}
+                                    select={selectProps}
+                                />
+                            )
+                        })}
+
+                        <ImageInput
+                            handlePicture={handlePicture}
+                            photoPreview={photoPreview}
                         />
-                    </div>
-
-                    <MultipleSelect
-                        selectFrom={['Artisan 1', 'Artisan 2', 'Artisan 3']}
-                        label='Artisans'
-                        placeholder='Select Artisans'
-                        selected={selectedArtisans}
-                        setSelected={setSelectedArtisans}
-                    />
-                    <MultipleSelect
-                        selectFrom={[
-                            'Estate 1',
-                            'Estate 2',
-                            'Estate 3',
-                            'Estate 4',
-                            'Estate 5',
-                            'Estate 6',
-                            'Estate 7',
-                        ]}
-                        label='Estates'
-                        placeholder='Select Estate'
-                        selected={selectedEstates}
-                        setSelected={setSelectedEstates}
-                    />
-
-                    <button
-                        className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg col-span-full mt-auto mr-auto'
-                        onClick={addArtisanGroupHandler}
-                    >
-                        <span>
-                            <IoMdAdd />
-                        </span>{' '}
-                        Add Artisan Group
-                    </button>
+                        <button className='btn justify-self-start btn-blue'>
+                            <span>
+                                <IoMdAdd />
+                            </span>{' '}
+                            {isLoading ? 'Loading...' : 'Add'}
+                        </button>
+                    </>
                 </form>
             </div>
         </>
