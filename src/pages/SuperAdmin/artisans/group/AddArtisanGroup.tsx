@@ -1,4 +1,4 @@
-import React, { FormEvent, useRef, useState } from 'react'
+import React, { ChangeEvent, FormEvent, useRef, useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
 
 import { toast, ToastContainer } from 'react-toastify'
@@ -7,7 +7,7 @@ import { MultipleSelect } from '../../../../components/SuperAdmin/UI/Select'
 type DialogType = 'validate' | 'add-Artisan'
 
 const AddArtisanGroup = () => {
-    const [isAddArtisanGroup, setIsAddArtisanGroup] = useState(true)
+    const [groupName, setGroupName] = useState('')
     const [selectedArtisans, setSelectedArtisans] = useState<string[]>([])
     const [selectedEstates, setSelectedEstates] = useState<string[]>([])
 
@@ -38,7 +38,7 @@ const AddArtisanGroup = () => {
                 >
                     <div className='grid gap-4 relative '>
                         <label
-                            htmlFor='name'
+                            htmlFor='groupName'
                             className='text-[1.4rem] font-Satoshi-Medium'
                         >
                             Name
@@ -46,7 +46,11 @@ const AddArtisanGroup = () => {
                         <input
                             type='text'
                             required
-                            id='name'
+                            value={groupName}
+                            onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                                setGroupName(e.target.value)
+                            }
+                            id='groupName'
                             className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                         />
                     </div>
