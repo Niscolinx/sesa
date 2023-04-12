@@ -30,6 +30,7 @@ function ArtisanList() {
             add_page_url={'/superAdmin/artisan/add'}
             is_add_btn={true}
             actions={['delete']}
+            delete_item_url='/admin/category/delete'
             THeader={['name', 'business name', 'phone no', 'rating', 'actions']}
             data_to_display={[
                 'firstname',
@@ -37,7 +38,7 @@ function ArtisanList() {
                 'phone_number',
                 'rating',
             ]}
-            deactivateProp={{ url: '/admin/artisan/changeStatus', tag: 'id'}}
+            deactivateProp={{ url: '/admin/artisan/changeStatus', tag: 'id' }}
         />
     )
 }

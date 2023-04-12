@@ -19,6 +19,7 @@ function TableDialog() {
         isDialogOpen,
         setIsDialogOpen,
         isCategory,
+        delete_item_url,
     } = useTableContext()
 
     const [artisanCategory, setArtisanCategory] = useState('')
@@ -26,11 +27,19 @@ function TableDialog() {
     const postRequest = () => {
         const { url, tag = 'user_id' } = deactivateProp
 
-        if (isCategory) {
+        if (isCategory && isDialogOpen?.type === 'create') {
             return axiosInstance({
                 url: '/admin/category',
                 method: 'post',
                 data: { name: artisanCategory },
+            })
+        }
+
+        if (isDialogOpen?.type === 'delete') {
+            return axiosInstance({
+                url: delete_item_url,
+                method: 'post',
+                data: { id: fetchedId },
             })
         }
         return axiosInstance({
@@ -45,17 +54,12 @@ function TableDialog() {
             if ((data as any).success) {
                 closeDialog()
                 const messageTitle = title
-                          .replace(/([a-z])([A-Z])/g, '$1 $2')
-                          .replace(/^\w/, (c) =>
-                              c.toUpperCase()
-                          )
-                
-               
+                    .replace(/([a-z])([A-Z])/g, '$1 $2')
+                    .replace(/^\w/, (c) => c.toUpperCase())
 
                 const type = isDialogOpen?.type
-               
 
-                toast(`${messageTitle} ${type+'d'} successfully`, {
+                toast(`${messageTitle} ${type + 'd'} successfully`, {
                     type: 'success',
                     className: 'bg-green-100 text-green-600 text-[1.4rem]',
                 })
@@ -82,7 +86,7 @@ function TableDialog() {
             isOpen: false,
         })
         if (dialogRef.current) {
-            console.log("current")
+            console.log('current')
             dialogRef.current.close()
         }
     }
