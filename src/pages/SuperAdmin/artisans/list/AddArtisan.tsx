@@ -89,7 +89,6 @@ const AddArtisan = () => {
     } = useForm<ValidationTypeInput>()
 
     useEffect(() => {
-        console.log("reset")
         reset()
     }, [validationType])
 
