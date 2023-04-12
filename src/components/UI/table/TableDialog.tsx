@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useTableContext } from './Table'
 import { useMutation } from 'react-query'
 import { toast } from 'react-toastify'
@@ -17,6 +17,8 @@ function TableDialog() {
 
     const postDeactivate = () => {
         const { url, tag = 'user_id' } = deactivateProp
+        const [artisanCategory, setArtisanCategory] = useState('')
+
         return axiosInstance({
             url: url,
             method: 'post',
@@ -91,7 +93,7 @@ function TableDialog() {
 
                                 <div className='w-full grid gap-4'>
                                     <label
-                                        htmlFor='artisanName'
+                                        htmlFor='artisanCategory'
                                         className='text-[1.4rem] font-semibold'
                                     >
                                         Name
@@ -99,8 +101,9 @@ function TableDialog() {
 
                                     <input
                                         type='text'
+                                        value={ArtisanCategory}
                                         required
-                                        id='artisanName'
+                                        id='artisanCategory'
                                         className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem]'
                                     />
                                 </div>
