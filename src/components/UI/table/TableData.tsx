@@ -158,8 +158,6 @@ const TableData = () => {
 
     const fetched = get_data_response?.data.data
 
-    console.log(get_data_response.data.data, {slicedPages})
-
     return (
         <div>
             <div className='rounded-lg mt-[3rem] h-[80vh]'>
