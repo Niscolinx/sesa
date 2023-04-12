@@ -189,12 +189,13 @@ const AddArtisan = () => {
         )
 
         const category = slicedCategories.map(
-            ({ name, id }: any) => selectedCategories.includes(name) && {id}
+            ({ name, id }: any) => selectedCategories.includes(name) && { id }
         )
 
-
-        console.log({selectedRegions})
-        const state = slicedStates.map(({name, id}: any) => selectedRegions.includes(name) && id)
+        console.log({ selectedRegions })
+        const state = slicedStates
+            .filter(({ name }: any) => selectedRegions.includes(name))
+            .map(({ id }: any) => id)
 
         console.log({ category, state })
 
