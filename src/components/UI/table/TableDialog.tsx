@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { ChangeEvent, useEffect, useRef, useState } from 'react'
 import { useTableContext } from './Table'
 import { useMutation } from 'react-query'
 import { toast } from 'react-toastify'
@@ -15,9 +15,10 @@ function TableDialog() {
         isCategory,
     } = useTableContext()
 
+    const [artisanCategory, setArtisanCategory] = useState('')
+
     const postDeactivate = () => {
         const { url, tag = 'user_id' } = deactivateProp
-        const [artisanCategory, setArtisanCategory] = useState('')
 
         return axiosInstance({
             url: url,
@@ -101,7 +102,10 @@ function TableDialog() {
 
                                     <input
                                         type='text'
-                                        value={ArtisanCategory}
+                                        value={artisanCategory}
+                                        onChange={(
+                                            e: ChangeEvent<HTMLInputElement>
+                                        ) => setArtisanCategory(e.target.value)}
                                         required
                                         id='artisanCategory'
                                         className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem]'
