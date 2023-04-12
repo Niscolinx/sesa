@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router'
 import RenderArtisans from './RenderArtisans'
 import Table from '../../../components/UI/table/Table'
 
-
 function ArtisanCategory() {
     return (
         <div className='rounded-lg mt-[3rem] h-[80vh]'>
@@ -98,24 +97,41 @@ function ArtisanGroup() {
 }
 
 function Artisan() {
-    type PathSwitch = 'artisanCategory' | 'artisanList' | 'artisanGroup'
+    type PathSwitch = 'artisan_category' | 'artisan_list' | 'artisan_group'
 
-    const [artisan, setArtisan] = useState(false)
-
-    const addArtisanHandler = () => {
-        setArtisan(true)
-        //navigate('/superAdmin/artisan/add')
-    }
+    const [currentPath, setCurrentPath] = useState<PathSwitch>('artisan_list')
 
     const handlePathSwitch = new Map([
-        ['artisanCategory', <ArtisanCategory/> ],
-        ['artisanList', <ArtisanList/> ],
-        ['artisanGroup', <ArtisanGroup/> ],
+        ['artisan_category', <ArtisanCategory />],
+        ['artisan_list', <ArtisanList />],
+        ['artisan_group', <ArtisanGroup />],
     ]) satisfies Map<PathSwitch, JSX.Element>
 
     return (
         <div>
-            <div className='rounded-lg mt-[3rem] h-[80vh]'>
+            <div className='estateDetail__radioBox'>
+                {Array.from(handlePathSwitch.keys()).map((path) => {
+                    return (
+                        <>
+                            <input
+                                type='radio'
+                                name='artisan'
+                                id={path}
+                                className='hidden'
+                                onChange={() =>
+                                    setCurrentPath(path)
+                                }
+                                checked={path === currentPath}
+                            />
+                            <label htmlFor={path} className='capitalize'>
+                                {path.replaceAll('_', ' ')}
+                            </label>
+                        </>
+                    )
+                })}
+                
+            </div>
+            {/* <div className='rounded-lg mt-[3rem] h-[80vh]'>
                 {artisan ? (
                     <section>
                         <RenderArtisans />
@@ -137,7 +153,7 @@ function Artisan() {
                         </button>
                     </section>
                 )}
-            </div>
+            </div> */}
         </div>
     )
 }
