@@ -490,12 +490,12 @@ function RenderedSecurityCompanies() {
                                                                                         )
                                                                                     }
                                                                                 >
-                                                                                    {status ===
+                                                                                    {item === 'activate' && status ===
                                                                                     1 ? (
                                                                                         <span className='text-green-600'>
                                                                                             activate
                                                                                         </span>
-                                                                                    ) : status ===
+                                                                                    ) : item === 'deactivate' && status ===
                                                                                       0 ? (
                                                                                         <span className='text-red-600'>
                                                                                             deactivate
