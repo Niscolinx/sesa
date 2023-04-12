@@ -5,6 +5,7 @@ import { useMutation } from 'react-query'
 import Input, { SelectProps } from '../../../components/UI/input/Input'
 import ImageInput from '../../../components/UI/input/ImageInput'
 import useAxios from '../../../components/hooks/useAxios'
+import useFetchData from '../../../utils/useFetchData'
 
 const AddSecurityCompany = () => {
     interface Inputs {
@@ -27,13 +28,11 @@ const AddSecurityCompany = () => {
 
     const axiosInstance = useAxios()
 
-    const region = ['Lagos', 'Abuja']
+    const { data: states_data, isLoading: states_loading } = useFetchData({})
 
     const [photoPreview, setPhotoPreview] = useState('')
     const [imageFile, setImageFile] = useState<File | null>(null)
-    const [selectedRegion, setSelectedRegion] = useState<string | null>(
-        region[0]
-    )
+    const [selectedRegion, setSelectedRegion] = useState<string[]>([])
 
     const handlePicture = (e: React.ChangeEvent) => {
         const target = e.target as HTMLInputElement
@@ -96,6 +95,11 @@ const AddSecurityCompany = () => {
             dialogRef.current.showModal()
         }
     }
+    if (states_loading) {
+        return <p>Loading...</p>
+    }
+
+    const slicedStates: string[] = states_data.map(({ name }: any) => name)
 
     const formInputs = [
         {
@@ -119,7 +123,7 @@ const AddSecurityCompany = () => {
             label: 'state',
             type: 'select',
             selectProps: {
-                state: region,
+                state: slicedStates,
                 selectedState: selectedRegion,
                 setSelectedState: setSelectedRegion,
             },
