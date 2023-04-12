@@ -121,7 +121,7 @@ const AddArtisanGroup = () => {
 
         console.log({slicedArtisans, slicedEstates, estates_data, artisans_data})
         const artisan = slicedArtisans.map(
-            ({ name, id }: any) => selectedArtisans.includes(name) && { id }
+            ({ firstname, id }: any) => selectedArtisans.includes(firstname) && { id }
         )
 
         const estate = slicedEstates.map(
@@ -147,11 +147,11 @@ const AddArtisanGroup = () => {
     }
 
     const slicedEstates: string[] = estates_data.data.map(
-        ({ name }: any) => name
+        ({ estate_name }: any) => estate_name
     )
 
     const slicedArtisans: string[] = artisans_data.map(
-        ({ estate_name }: any) => estate_name
+        ({ firstname }: any) => firstname
     )
 
     const formInputs = [
