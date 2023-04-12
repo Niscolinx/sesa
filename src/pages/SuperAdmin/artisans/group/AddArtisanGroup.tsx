@@ -109,25 +109,37 @@ const AddArtisanGroup = () => {
         // openValidateDialog()
 
         const slicedEstates: string[] = estates_data.data.map(
-            ({ name, id }: any) => ({
-                name,
+            ({ estate_name, id }: any) => ({
+                estate_name,
                 id,
             })
         )
 
         const slicedArtisans: string[] = artisans_data.map(
-            ({ name, id }: any) => ({ name, id })
+            ({ firstname, id }: any) => ({ firstname, id })
         )
 
-        console.log({slicedArtisans, slicedEstates, estates_data, artisans_data})
-        const artisan = slicedArtisans.map(
-            ({ firstname, id }: any) => selectedArtisans.includes(firstname) && { id }
-        )
+        console.log({
+            slicedArtisans,
+            slicedEstates,
+            estates_data,
+            artisans_data,
+        })
+        const artisan = slicedArtisans
+            .filter(({ firstname }: any) =>
+                selectedArtisans.includes(firstname)
+            )
+            .map(({ id }: any) => {
+                id
+            })
 
-        const estate = slicedEstates.map(
-            ({ estate_name, id }: any) =>
-                selectedEstates.includes(estate_name) && { id }
-        )
+        const estate = slicedEstates
+            .filter(({ estate_name }: any) =>
+                selectedEstates.includes(estate_name)
+            )
+            .map(({ id }: any) => {
+                id
+            })
 
         const updatedData = {
             ...data,
@@ -135,12 +147,10 @@ const AddArtisanGroup = () => {
             estate,
         }
 
-        console.log({updatedData})
-
+        console.log({ updatedData })
 
         mutate(updatedData)
     })
-
 
     if (estates_loading || artisans_loading) {
         return <p>Loading...</p>
