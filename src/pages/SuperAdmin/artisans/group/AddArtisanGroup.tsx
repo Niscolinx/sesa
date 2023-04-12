@@ -29,7 +29,6 @@ const AddArtisanGroup = () => {
         displayMessage: string
     }
 
-    const [groupName, setGroupName] = useState('')
     const [selectedArtisans, setSelectedArtisans] = useState<string[]>([])
     const [selectedEstates, setSelectedEstates] = useState<string[]>([])
     const [selectFormErrors, setSelectFormErrors] = useState<{
@@ -111,7 +110,7 @@ const AddArtisanGroup = () => {
 
         // openValidateDialog()
 
-        const slicedEstates: string[] = estates_data.map(
+        const slicedEstates: string[] = estates_data.data.map(
             ({ name, id }: any) => ({
                 name,
                 id,
@@ -148,7 +147,7 @@ const AddArtisanGroup = () => {
     }
 
     console.log({artisans_data, estates_data})
-    const slicedEstates: string[] = estates_data.map(({ name }: any) => name)
+    const slicedEstates: string[] = estates_data.data.map(({ name }: any) => name)
 
     const slicedArtisans: string[] = artisans_data.data.map(
         ({ name }: any) => name
