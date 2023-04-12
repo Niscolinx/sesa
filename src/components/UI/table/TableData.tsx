@@ -155,7 +155,7 @@ const TableData = () => {
     const handlePathSwitch = () => {
         if (isCategory) {
             return setIsDialogOpen({
-                state: false
+                isOpen: true
             })
         }
         navigate(`${add_page_url}`)

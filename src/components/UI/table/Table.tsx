@@ -31,11 +31,11 @@ interface ICreateTableContext extends Table {
     setSortBy: Dispatch<SetStateAction<string>>
     fetchedId: number
     setFetchedId: Dispatch<SetStateAction<number>>
-    isDialogOpen?: { state: boolean; type?: string }
+    isDialogOpen?: { isOpen: boolean; type?: string }
     fetchedData: any[]
     actions: Actions[]
     setFetchedData: Dispatch<SetStateAction<any[]>>
-    setIsDialogOpen: Dispatch<SetStateAction<{ state: boolean; type?: string }>>
+    setIsDialogOpen: Dispatch<SetStateAction<{ isOpen: boolean; type?: string }>>
 }
 
 const CreateTableContext = createContext<ICreateTableContext | null>(null)
@@ -72,10 +72,10 @@ const Table = ({
     const [fetchedId, setFetchedId] = useState<number>(null as any)
     const [fetchedData, setFetchedData] = useState<any[]>([])
     const [isDialogOpen, setIsDialogOpen] = useState<{
-        state: boolean
+        isOpen: boolean
         type?: string
     }>({
-        state: false,
+        isOpen: false,
     })
 
     return (

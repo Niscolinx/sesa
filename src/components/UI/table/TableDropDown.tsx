@@ -40,7 +40,7 @@ const TableDropDown = ({
             console.log('deactivate')
             setIsDialogOpen({
                 state: true,
-                type: isCategory ? 'create' : 'deactivate'
+                type: 'deactivate',
             })
         }
 
