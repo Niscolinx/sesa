@@ -36,7 +36,7 @@ function ArtisanCategory() {
 function ArtisanList() {
     return (
         <Table
-            fetch_url={'/manager/get/all'}
+            fetch_url={'/admin/artisan/getAll'}
             title={'estateManager'}
             view_page_url={'/superAdmin/estateManagers/view/'}
             add_page_url={'/superAdmin/estateManagers/add'}
