@@ -15,8 +15,6 @@ import { TbCurrencyNaira } from 'react-icons/tb'
 import { Select } from '../../../components/SuperAdmin/UI/Select'
 import useAxios from '../../../components/hooks/useAxios'
 
-
-
 type Estate = {
     id: string
     image: string
@@ -28,11 +26,11 @@ type Estate = {
     wallet: {
         balance: number
     }
-    NoOfResidents: number
+    resident_count: number
     signOutRequired: boolean
 
-    estateManager: string
-    NoOfHouseholds: number
+    estate_manager: any
+    household_count: number
 }
 
 function Estates() {
@@ -224,7 +222,6 @@ function Estates() {
             className: 'bg-green-100 text-green-600 text-[1.4rem]',
         })
     }
-  
 
     if (get_estates_loading) {
         return <p>Loading...</p>
@@ -282,24 +279,16 @@ function Estates() {
                                     slicedPages[paginate.index].map(
                                         (
                                             {
-                                                img,
+                                                image,
                                                 id,
-                                                details: {
-                                                    wallet: {
-                                                        balance
-                                                    },
-                                                    estateManager,
-                                                    estate_name,
-                                                    NoOfHouseholds,
-                                                    NoOfResidents,
-                                                    security_company: {
-                                                        user: {
-                                                            name
-                                                        }
-                                                    },
-                                                    signOutRequired,
-                                                    status,
-                                                },
+
+                                                wallet: { balance },
+                                                estate_manager,
+                                                estate_name,
+                                                household_count,
+                                                resident_count,
+                                                security_company,
+                                                status,
                                             },
                                             i
                                         ) => {
@@ -309,7 +298,7 @@ function Estates() {
                                                 <div className='w-full flex gap-4 justify-between border-gray-100 bg-white p-8 rounded-lg'>
                                                     <div>
                                                         <img
-                                                            src={img}
+                                                            src={image}
                                                             alt=''
                                                             className='table__img'
                                                         />
@@ -328,11 +317,7 @@ function Estates() {
                                                             <p className='text-[#043FA7]'>
                                                                 Security Company
                                                             </p>
-                                                            <p>
-                                                                {
-                                                                    name
-                                                                }
-                                                            </p>
+                                                            <p>{security_company.user.name}</p>
                                                         </div>
                                                         <div>
                                                             <p className='text-[#043FA7]'>
@@ -358,10 +343,10 @@ function Estates() {
                                                                 No of Residents
                                                             </p>
                                                             <p>
-                                                                {NoOfResidents}
+                                                                {resident_count}
                                                             </p>
                                                         </div>
-                                                        <div>
+                                                        {/* <div>
                                                             <p className='text-[#043FA7]'>
                                                                 Sign Out
                                                                 Required
@@ -371,7 +356,7 @@ function Estates() {
                                                                     ? 'Yes'
                                                                     : 'No'}
                                                             </p>
-                                                        </div>
+                                                        </div> */}
                                                     </div>
                                                     <div className=' grid content-start'>
                                                         <div>
@@ -379,7 +364,7 @@ function Estates() {
                                                                 Estate Manager
                                                             </p>
                                                             <p>
-                                                                {estateManager}
+                                                                {estate_manager.user.name}
                                                             </p>
                                                         </div>
                                                         <div className=' mt-10'>
@@ -388,7 +373,7 @@ function Estates() {
                                                                 No of Households
                                                             </p>
                                                             <p>
-                                                                {NoOfHouseholds}
+                                                                {household_count}
                                                             </p>
                                                         </div>
                                                     </div>
