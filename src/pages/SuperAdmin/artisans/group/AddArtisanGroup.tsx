@@ -6,6 +6,8 @@ import { MultipleSelect } from '../../../../components/SuperAdmin/UI/Select'
 import useFetchData from '../../../../utils/useFetchData'
 import { SelectProps } from '../../../../components/UI/input/Input'
 import { useForm } from 'react-hook-form'
+import useAxios from '../../../../components/hooks/useAxios'
+import { useMutation } from 'react-query'
 
 type DialogType = 'validate' | 'add-Artisan'
 
@@ -30,7 +32,35 @@ const AddArtisanGroup = () => {
     const [groupName, setGroupName] = useState('')
     const [selectedArtisans, setSelectedArtisans] = useState<string[]>([])
     const [selectedEstates, setSelectedEstates] = useState<string[]>([])
+    const [selectFormErrors, setSelectFormErrors] = useState<{
+        [key: string]: string
+    } | null>(null)
+    const [responseMessage, setResponseMessage] =
+        useState<ResponseMessage | null>(null)
 
+    const axiosInstance = useAxios()
+
+    const postRequest = (data: Inputs) => {
+        return axiosInstance({
+            url: '/admin/artisan',
+            method: 'post',
+            data,
+
+            headers: { 'Content-Type': 'multipart/form-data' },
+        })
+    }
+    const { mutate, isLoading } = useMutation(postRequest, {
+        onError: (err: any) => {
+            setResponseMessage({
+                className: 'text-red-600',
+                displayMessage: err?.response.data.message,
+            })
+        },
+
+        onSuccess: () => {
+            handleOpen('add-Artisan')
+        },
+    }) as any
 
     const { data: states_data, isLoading: states_loading } = useFetchData({})
     const { data: categories_data, isLoading: categories_loading } =
@@ -47,7 +77,7 @@ const AddArtisanGroup = () => {
       
    const onSubmit = handleSubmit((data) => {
        let isError = false
-       if (selectedCategories.length < 1) {
+       if (selectedArtisans.length < 1) {
            isError = true
            setSelectFormErrors((prev) => {
                return {
@@ -56,7 +86,7 @@ const AddArtisanGroup = () => {
                }
            })
        }
-       if (selectedGender.length < 1) {
+       if (selectedEstates.length < 1) {
            isError = true
 
            setSelectFormErrors((prev) => {
@@ -66,16 +96,7 @@ const AddArtisanGroup = () => {
                }
            })
        }
-       if (selectedRegions.length < 1) {
-           isError = true
-
-           setSelectFormErrors((prev) => {
-               return {
-                   ...prev,
-                   State: 'Field cannot be empty',
-               }
-           })
-       }
+      
 
        if (isError) {
            console.log({ isError }, 'error')
@@ -96,22 +117,19 @@ const AddArtisanGroup = () => {
        )
 
        const category = slicedCategories.map(
-           ({ name, id }: any) => selectedCategories.includes(name) && { id }
+           ({ name, id }: any) => selectedArtisans.includes(name) && { id }
        )
 
        const state = slicedStates
-           .filter(({ name }: any) => selectedRegions.includes(name))
+           .filter(({ name }: any) => selectedEstates.includes(name))
            .map(({ id }: any) => id)[0]
 
        const updatedData = {
            ...data,
            category,
            state,
-           validation_option: 'bvn',
-           is_kyr_approved: false,
-           gender: selectedGender,
-           // image: imageFile,
-           image: '',
+           
+       
        }
 
        console.log({ updatedData })
