@@ -66,7 +66,8 @@ function Estates() {
 
     useEffect(() => {
         if (get_estates_response) {
-            setFetchedEstates(get_estates_response.data)
+            console.log(get_estates_response.data)
+            //setFetchedEstates(get_estates_response.data)
         }
     }, [get_estates_response])
 
@@ -225,12 +226,7 @@ function Estates() {
             className: 'bg-green-100 text-green-600 text-[1.4rem]',
         })
     }
-    console.log({
-        get_estates_loading,
-        get_estates_isError,
-        get_estates_error,
-        get_estates_response,
-    })
+  
 
     if (get_estates_loading) {
         return <p>Loading...</p>
