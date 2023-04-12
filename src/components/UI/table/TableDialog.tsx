@@ -75,10 +75,12 @@ function TableDialog() {
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
     const closeDialog = () => {
+        console.log('close')
         setIsDialogOpen({
             state: false,
         })
         if (dialogRef.current) {
+            console.log("current")
             dialogRef.current.close()
         }
     }

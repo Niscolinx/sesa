@@ -37,7 +37,7 @@ function ArtisanList() {
                 'phone_number',
                 'rating',
             ]}
-            deactivateProp={{ url: '/admin/artisan/changeStatus' }}
+            deactivateProp={{ url: '/admin/artisan/changeStatus', tag: 'id'}}
         />
     )
 }

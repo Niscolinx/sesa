@@ -17,7 +17,7 @@ const TableDropDown = ({
     setToggleDropDown,
     actions,
 }: TableDropDown) => {
-    const { setFetchedId, setIsDialogOpen, view_page_url, delete_item_url } =
+    const { setFetchedId, setIsDialogOpen, view_page_url } =
         useTableContext()
 
     const navigate = useNavigate()
