@@ -41,11 +41,9 @@ const AddArtisanGroup = () => {
 
     const postRequest = (data: Inputs) => {
         return axiosInstance({
-            url: '/admin/artisan',
+            url: '/admin/group',
             method: 'post',
             data,
-
-            headers: { 'Content-Type': 'multipart/form-data' },
         })
     }
     const { mutate, isLoading } = useMutation(postRequest, {
@@ -121,21 +119,21 @@ const AddArtisanGroup = () => {
             ({ name, id }: any) => ({ name, id })
         )
 
-        const category = slicedArtisans.map(
+        const artisan = slicedArtisans.map(
             ({ name, id }: any) => selectedArtisans.includes(name) && { id }
         )
 
-        const state = slicedEstates
-            .filter(({ name }: any) => selectedEstates.includes(name))
-            .map(({ id }: any) => id)[0]
+        const estate = slicedEstates.map(
+            ({ estate_name, id }: any) =>
+                selectedEstates.includes(estate_name) && { id }
+        )
 
         const updatedData = {
             ...data,
-            category,
-            state,
+            artisan,
+            estate,
         }
 
-        console.log({ updatedData })
 
         mutate(updatedData)
     })
@@ -146,11 +144,13 @@ const AddArtisanGroup = () => {
         return <p>Loading...</p>
     }
 
-    console.log({artisans_data, estates_data})
-    const slicedEstates: string[] = estates_data.data.map(({ name }: any) => name)
+    console.log({ artisans_data, estates_data })
+    const slicedEstates: string[] = estates_data.data.map(
+        ({ name }: any) => name
+    )
 
     const slicedArtisans: string[] = artisans_data.data.map(
-        ({ name }: any) => name
+        ({ estate_name }: any) => estate_name
     )
 
     const formInputs = [
@@ -197,7 +197,7 @@ const AddArtisanGroup = () => {
                 </div>
                 <form
                     onSubmit={onSubmit}
-                    className='flex flex-col gap-16 max-w-[40rem] h-[60vh] mt-10'
+                    className='grid gap-16 max-w-[40rem]  mt-10'
                 >
                     <>
                         {formInputs.map((input, idx) => {
