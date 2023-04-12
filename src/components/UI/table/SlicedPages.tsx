@@ -148,7 +148,7 @@ const SlicedPages: FC<SlicedPages> = ({
                     if (key === 'status') {
                         return (
                             <p key={idx}>
-                                {value === '1' ? (
+                                {value === 1 ? (
                                     <span className='text-green-600'>
                                         active
                                     </span>
