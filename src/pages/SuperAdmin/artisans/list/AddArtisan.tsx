@@ -189,10 +189,14 @@ const AddArtisan = () => {
         )
 
         const category = slicedCategories.map(
-            ({ name, id }: any) => selectedCategories.includes(name) && id
+            ({ name, id }: any) => selectedCategories.includes(name) && {id}
         )
 
-        console.log({ category })
+
+        console.log({selectedRegions})
+        const state = slicedStates.map(({name, id}: any) => selectedRegions.includes(name) && id)
+
+        console.log({ category, state })
 
         const updatedData = {
             ...data,
