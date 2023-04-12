@@ -111,22 +111,22 @@ const AddArtisanGroup = () => {
 
         // openValidateDialog()
 
-        const slicedStates: string[] = estates_data.map(
+        const slicedEstates: string[] = estates_data.map(
             ({ name, id }: any) => ({
                 name,
                 id,
             })
         )
 
-        const slicedCategories: string[] = artisans_data.data.map(
+        const slicedArtisans: string[] = artisans_data.data.map(
             ({ name, id }: any) => ({ name, id })
         )
 
-        const category = slicedCategories.map(
+        const category = slicedArtisans.map(
             ({ name, id }: any) => selectedArtisans.includes(name) && { id }
         )
 
-        const state = slicedStates
+        const state = slicedEstates
             .filter(({ name }: any) => selectedEstates.includes(name))
             .map(({ id }: any) => id)[0]
 
@@ -147,9 +147,9 @@ const AddArtisanGroup = () => {
         return <p>Loading...</p>
     }
 
-    const slicedStates: string[] = estates_data.map(({ name }: any) => name)
+    const slicedEstates: string[] = estates_data.map(({ name }: any) => name)
 
-    const slicedCategories: string[] = artisans_data.data.map(
+    const slicedArtisans: string[] = artisans_data.data.map(
         ({ name }: any) => name
     )
 
@@ -174,23 +174,23 @@ const AddArtisanGroup = () => {
             label: 'address_line_2',
         },
         {
-            label: 'State',
+            label: 'Estates',
             type: 'select',
             selectProps: {
-                state: sliced,
+                state: slicedEstates,
                 isSearchable: true,
-                selectedState: selectedRegions,
-                setSelectedState: setSelectedRegions,
+                selectedState: selectedEstates,
+                setSelectedState: setSelectedEstates,
             },
         },
         {
-            label: 'Artisan Categories',
+            label: 'Artisans',
             type: 'select',
             selectProps: {
                 isMulti: true,
-                state: slicedCategories,
-                selectedState: selectedCategories,
-                setSelectedState: setSelectedCategories,
+                state: slicedArtisans,
+                selectedState: selectedArtisans,
+                setSelectedState: setSelectedArtisans,
             },
         },
         {
@@ -215,7 +215,7 @@ const AddArtisanGroup = () => {
                     </h2>
                 </div>
                 <form
-                    onSubmit={handleSubmit}
+                    onSubmit={onSubmit}
                     className='flex flex-col gap-16 max-w-[40rem] h-[60vh] mt-10'
                 >
                     <div className='grid gap-4 relative '>
