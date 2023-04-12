@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { Fragment, useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
 import { useNavigate } from 'react-router'
 import RenderArtisans from './RenderArtisans'
@@ -99,7 +99,7 @@ function Artisan() {
             <div className='estateDetail__radioBox'>
                 {Array.from(handlePathSwitch.keys()).map((path) => {
                     return (
-                        <>
+                        <Fragment key={path}>
                             <input
                                 type='radio'
                                 name='artisan'
@@ -111,7 +111,7 @@ function Artisan() {
                             <label htmlFor={path} className='capitalize'>
                                 {path.replaceAll('_', ' ')}
                             </label>
-                        </>
+                        </Fragment>
                     )
                 })}
             </div>
