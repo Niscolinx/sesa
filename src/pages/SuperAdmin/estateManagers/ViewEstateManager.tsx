@@ -110,11 +110,13 @@ const ViewEstateManager = () => {
     const {
         isLoading: get_loading,
     } = useQuery('estate_manager', getRequest, {
-        onSuccess: ({ data }) => {
-            const { dob } = data
-            const fetched_data = data.user
+        onSuccess: (res) => {
 
-            const { name, email, phone, image } = fetched_data
+            console.log(res.data)
+            
+            const fetched_data = res.data
+
+            const { name, email, phone, image, dob } = fetched_data
             const first_name = name.split(' ')[0]
             const last_name = name.split(' ')[1]
 
