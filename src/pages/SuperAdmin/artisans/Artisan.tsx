@@ -10,8 +10,8 @@ function ArtisanCategory() {
             fetch_url={'/admin/category/getAll'}
             title={'artisanCategory'}
             view_page_url={'/superAdmin/artisan/category/'}
-            add_page_url={'/superAdmin/artisan/add'}
             is_add_btn={true}
+            isCategory={true}
             actions={['delete']}
             THeader={['name', 'No of Artisans', 'created at', 'actions']}
             data_to_display={['name', 'artisan_count', 'created_at']}

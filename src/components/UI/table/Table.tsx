@@ -13,9 +13,9 @@ interface Table {
     fetch_url: string
     title: string
     view_page_url: string
-    add_page_url: string
+    add_page_url?: string
     is_add_btn: boolean
-    isCategory: boolean
+    isCategory?: boolean
     deactivateProp: { url: string; tag?: string }
     data_to_display: string[]
     nested?: boolean
