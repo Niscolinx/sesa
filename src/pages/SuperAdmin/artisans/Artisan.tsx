@@ -2,6 +2,100 @@ import { useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
 import { useNavigate } from 'react-router'
 import RenderArtisans from './RenderArtisans'
+import Table from '../../../components/UI/table/Table'
+
+
+function ArtisanCategory() {
+    return (
+        <div className='rounded-lg mt-[3rem] h-[80vh]'>
+            <Table
+                fetch_url={'/manager/get/all'}
+                title={'estateManager'}
+                view_page_url={'/superAdmin/estateManagers/view/'}
+                add_page_url={'/superAdmin/estateManagers/add'}
+                is_add_btn={true}
+                THeader={[
+                    'name',
+                    'gender',
+                    'phone number',
+                    'joined date',
+                    'status',
+                    'actions',
+                ]}
+                data_to_display={[
+                    'name',
+                    'image',
+                    'gender',
+                    'phone',
+                    'created_at',
+                    'status',
+                ]}
+                deactivateProp={{ url: 'change/user/status' }}
+            />
+        </div>
+    )
+}
+
+function ArtisanList() {
+    return (
+        <div className='rounded-lg mt-[3rem] h-[80vh]'>
+            <Table
+                fetch_url={'/manager/get/all'}
+                title={'estateManager'}
+                view_page_url={'/superAdmin/estateManagers/view/'}
+                add_page_url={'/superAdmin/estateManagers/add'}
+                is_add_btn={true}
+                THeader={[
+                    'name',
+                    'gender',
+                    'phone number',
+                    'joined date',
+                    'status',
+                    'actions',
+                ]}
+                data_to_display={[
+                    'name',
+                    'image',
+                    'gender',
+                    'phone',
+                    'created_at',
+                    'status',
+                ]}
+                deactivateProp={{ url: 'change/user/status' }}
+            />
+        </div>
+    )
+}
+function ArtisanGroup() {
+    return (
+        <div className='rounded-lg mt-[3rem] h-[80vh]'>
+            <Table
+                fetch_url={'/manager/get/all'}
+                title={'estateManager'}
+                view_page_url={'/superAdmin/estateManagers/view/'}
+                add_page_url={'/superAdmin/estateManagers/add'}
+                is_add_btn={true}
+                THeader={[
+                    'name',
+                    'gender',
+                    'phone number',
+                    'joined date',
+                    'status',
+                    'actions',
+                ]}
+                data_to_display={[
+                    'name',
+                    'image',
+                    'gender',
+                    'phone',
+                    'created_at',
+                    'status',
+                ]}
+                deactivateProp={{ url: 'change/user/status' }}
+            />
+        </div>
+    )
+}
 
 function Artisan() {
     type PathSwitch = 'artisanCategory' | 'artisanList' | 'artisanGroup'
@@ -12,6 +106,12 @@ function Artisan() {
         setArtisan(true)
         //navigate('/superAdmin/artisan/add')
     }
+
+    const handlePathSwitch = new Map([
+        ['artisanCategory', <ArtisanCategory/> ],
+        ['artisanList', <ArtisanList/> ],
+        ['artisanGroup', <ArtisanGroup/> ],
+    ]) satisfies Map<PathSwitch, JSX.Element>
 
     return (
         <div>
