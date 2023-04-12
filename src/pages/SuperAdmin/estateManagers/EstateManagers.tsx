@@ -4,7 +4,7 @@ function EstateManagers() {
     return (
         <div className='rounded-lg mt-[3rem] h-[80vh]'>
             <Table
-                fetch_url={'/manager/get/all?perPage=1000'}
+                fetch_url={'/manager/get/all'}
                 title={'estateManager'}
                 view_page_url={'/superAdmin/estateManagers/view/'}
                 add_page_url={'/superAdmin/estateManagers/add'}
