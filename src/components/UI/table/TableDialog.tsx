@@ -30,7 +30,7 @@ function TableDialog() {
             return axiosInstance({
                 url: '/admin/category',
                 method: 'post',
-                data: artisanCategory,
+                data: { name: artisanCategory },
             })
         }
         return axiosInstance({
