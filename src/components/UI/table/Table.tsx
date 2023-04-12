@@ -15,6 +15,7 @@ interface Table {
     view_page_url: string
     add_page_url: string
     is_add_btn: boolean
+    isCategory: boolean
     deactivateProp: { url: string; tag?: string }
     data_to_display: string[]
     nested?: boolean
@@ -55,6 +56,7 @@ const Table = ({
     fetch_url,
     title,
     is_dropdown = true,
+    isCategory,
     view_page_url,
     add_page_url,
     data_to_display,
@@ -94,6 +96,7 @@ const Table = ({
                 is_add_btn,
                 nested,
                 THeader,
+                isCategory,
                 is_dropdown,
                 data_to_display,
             }}
