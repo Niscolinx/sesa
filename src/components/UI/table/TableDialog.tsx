@@ -44,15 +44,22 @@ function TableDialog() {
         onSuccess: (data) => {
             if ((data as any).success) {
                 closeDialog()
-                const message = isCategory
-                    ? 'Category Created successfully'
-                    : `${title
+                const messageTitle = title
                           .replace(/([a-z])([A-Z])/g, '$1 $2')
                           .replace(/^\w/, (c) =>
                               c.toUpperCase()
-                          )} deactivated successfully`
+                          )
+                
+                const message = {
+                    create: `${messageTitle} Created successfully`,
+                    deactivate: `${messageTitle} deactivated successfully`,
+                    delete: `${messageTitle} deleted successfully`,
+                }
 
-                toast(message, {
+                const {type} = isDialogOpen
+               
+
+                toast(`${messageTitle}  successfully`, {
                     type: 'success',
                     className: 'bg-green-100 text-green-600 text-[1.4rem]',
                 })
