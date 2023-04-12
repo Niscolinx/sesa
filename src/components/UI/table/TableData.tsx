@@ -170,7 +170,7 @@ const TableData = () => {
     return (
         <div>
             <div className='rounded-lg mt-[3rem] h-[80vh]'>
-                {fetched.length > 0 ? (
+                {slicedPages && slicedPages.length > 0 ? (
                     <>
                         <ToastContainer />
 
@@ -249,7 +249,7 @@ const TableData = () => {
 
                                     <div className='grid gap-8 mt-8 p-8'>
                                         <SlicedPages
-                                            pages={slicedPages}
+                                            pages={slicedPages || []}
                                             index={paginate.index}
                                             toggleDropDown={toggleDropDown}
                                             setToggleDropDown={

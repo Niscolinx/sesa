@@ -25,6 +25,8 @@ const SlicedPages: FC<SlicedPages> = ({
 
     const page = pages[index]
 
+    console.log({page})
+
     const TableItem = ({ data }: any) => {
         const { id, ...restData } = data
 
