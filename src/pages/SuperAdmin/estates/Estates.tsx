@@ -295,7 +295,7 @@ function Estates() {
                                             const { isDropDownOpen, index } =
                                                 toggleDropDown
                                             return (
-                                                <div className='w-full flex gap-4 justify-between border-gray-100 bg-white p-8 rounded-lg'>
+                                                <div className='w-full flex gap-4 justify-between border-gray-100 bg-white p-8 rounded-lg capitalize'>
                                                     <div>
                                                         <img
                                                             src={image}
