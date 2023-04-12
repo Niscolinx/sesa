@@ -61,10 +61,10 @@ function TableDialog() {
     })
 
     useEffect(() => {
-        if (isDialogOpen?.state) {
+        if (isDialogOpen?.isOpen) {
             return openDialog()
         }
-    }, [isDialogOpen?.state])
+    }, [isDialogOpen?.isOpen])
 
     const onSubmitCategory = (e: FormEvent) => {
         e.preventDefault()
@@ -75,9 +75,8 @@ function TableDialog() {
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
     const closeDialog = () => {
-        console.log('close')
         setIsDialogOpen({
-            state: false,
+            isOpen: false,
         })
         if (dialogRef.current) {
             console.log("current")
