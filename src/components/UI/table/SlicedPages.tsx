@@ -92,6 +92,8 @@ const SlicedPages: FC<SlicedPages> = ({
         return (
             <>
                 {sorted.map(({ key, value }: any, idx: number) => {
+
+                    console.log({key, value})
                     if (key === 'actions') {
                         let updatedActions: Actions[] = ['view details']
 
