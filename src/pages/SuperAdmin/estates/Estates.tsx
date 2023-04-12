@@ -53,7 +53,7 @@ function Estates() {
     const fetchEstates = () => {
         return axiosInstance({
             url: '/estate/getall',
-        })
+        }).then(({ data }) => data)
     }
 
     const {
@@ -64,7 +64,7 @@ function Estates() {
         // isFetching: get_estates_fetching,
     } = useQuery('estates', fetchEstates) as any
 
-    console.log({get_estates_response})
+    console.log({ get_estates_response })
     useEffect(() => {
         if (get_estates_response?.success) {
             // setFetchedEstates(get_estates_response.data)
@@ -242,10 +242,12 @@ function Estates() {
         return <p>{get_estates_error.message}</p>
     }
 
+    const fetched = get_estates_response?.data
+
     return (
         <div>
             <div className='rounded-lg mt-[3rem] h-[80vh]'>
-                {fetchedEstates.length > 0 ? (
+                {fetched.length > 0 ? (
                     <div className='grid text-[1.6rem] rounded-lg mt-[3rem]'>
                         <div className='flex w-full items-center gap-12 p-10 bg-white rounded-lg'>
                             <p className=' font-Satoshi-Medium'>
