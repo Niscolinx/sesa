@@ -6,7 +6,6 @@ import { SetStateAction } from 'jotai'
 import TableDialog from './TableDialog'
 import TableData from './TableData'
 
-
 export type Actions = 'view details' | 'deactivate' | 'activate' | 'delete'
 
 interface Table {
@@ -19,6 +18,7 @@ interface Table {
     deactivateProp: { url: string; tag?: string }
     data_to_display: string[]
     nested?: boolean
+    delete_item_url?: boolean
     is_dropdown?: boolean
     THeader: string[]
     actions?: Actions[]
@@ -31,11 +31,11 @@ interface ICreateTableContext extends Table {
     setSortBy: Dispatch<SetStateAction<string>>
     fetchedId: number
     setFetchedId: Dispatch<SetStateAction<number>>
-    isDialogOpen?: { state: boolean; data?: string }
+    isDialogOpen?: { state: boolean; type?: string }
     fetchedData: any[]
     actions: Actions[]
     setFetchedData: Dispatch<SetStateAction<any[]>>
-    setIsDialogOpen: Dispatch<SetStateAction<{ state: boolean; data?: string }>>
+    setIsDialogOpen: Dispatch<SetStateAction<{ state: boolean; type?: string }>>
 }
 
 const CreateTableContext = createContext<ICreateTableContext | null>(null)
@@ -50,8 +50,6 @@ export const useTableContext = () => {
     return context
 }
 
-
-
 const Table = ({
     fetch_url,
     title,
@@ -64,7 +62,8 @@ const Table = ({
     nested = false,
     deactivateProp,
     THeader,
-    actions = [] ,
+    delete_item_url,
+    actions = [],
 }: Table) => {
     const navigate = useNavigate()
     const axiosInstance = useAxios()
@@ -72,8 +71,11 @@ const Table = ({
     const [sortBy, setSortBy] = useState<string>('')
     const [fetchedId, setFetchedId] = useState<number>(null as any)
     const [fetchedData, setFetchedData] = useState<any[]>([])
-    const [isDialogOpen, setIsDialogOpen] = useState<{state: boolean, data?: string}>({
-        state: false
+    const [isDialogOpen, setIsDialogOpen] = useState<{
+        state: boolean
+        type?: string
+    }>({
+        state: false,
     })
 
     return (
@@ -99,6 +101,7 @@ const Table = ({
                 nested,
                 THeader,
                 isCategory,
+                delete_item_url,
                 is_dropdown,
                 data_to_display,
             }}
