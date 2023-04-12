@@ -36,6 +36,16 @@ interface ResidentWalletList {
 
 type SortBy = 'A-Z' | 'date'
 
+
+const RESIDENT_BALANCE = [
+    {
+        id: 1,
+        estateName: 'sdf',
+        residentName: 'sdfsd',
+        amount: 'sdfs'
+    }
+]
+
 export const TRANSACTION_HISTORY: ITransactions[] = [
     {
         id: '1',
