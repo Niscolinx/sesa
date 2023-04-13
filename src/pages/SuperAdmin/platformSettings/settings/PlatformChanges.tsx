@@ -4,6 +4,12 @@ import useFetchData from '../../../../utils/useFetchData'
 
 const PlatformChanges = () => {
 
+ type FormInputs = {
+     label?: string
+     type?: string
+     name?: string
+ }
+
     const {data, isLoading, error} = useFetchData({
         url: '/platformsettings/generalsettings/get',
     })
@@ -37,9 +43,16 @@ const PlatformChanges = () => {
         return <p>{error.message}</p>
     }
 
-    const formInput = {
-        
-    }
+    const formInput = [
+        {
+            label: 'kyr_validation',
+            type: 'number'
+        },
+        {
+            label: 'sms_notification',
+            type: 'number'
+        },
+    ] satisfies FormInputs[]
 
     return (
         <>
