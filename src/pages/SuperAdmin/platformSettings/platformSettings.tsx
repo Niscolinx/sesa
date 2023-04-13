@@ -1,6 +1,6 @@
 import { Fragment, useState } from 'react'
 import AccountSettings from './settings/AccountSettings'
-import PropertyType from './settings/AddProperty'
+import PropertyType from './settings/PropertyType'
 import PlatformChanges from './settings/PlatformChanges'
 import SOSTable from './settings/SOSTable'
 

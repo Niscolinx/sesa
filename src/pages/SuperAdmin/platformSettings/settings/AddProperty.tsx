@@ -12,7 +12,7 @@ export interface IPropertyType {
     description: string
 }
 
-const PropertyType = () => {
+const AddProperty = () => {
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
@@ -225,4 +225,4 @@ const PropertyType = () => {
     )
 }
 
-export default PropertyType
+export default AddProperty
