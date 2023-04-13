@@ -12,8 +12,6 @@ type PathSwitch =
     | 'account_settings'
 
 function PlatformSettings() {
-
-
     const [currentPath, setCurrentPath] =
         useState<PathSwitch>('platform_changes')
 
@@ -31,18 +29,25 @@ function PlatformSettings() {
         'account_settings',
     ] satisfies PathSwitch[]
 
- 
-  const {prevLocation} =  PrevLocation()
+    const { prevLocation } = PrevLocation()
 
-  console.log({prevLocation})
+    const getLastPath = prevLocation.split('/').pop()
 
-  const getLastPath = prevLocation.split('/').pop()
+    useEffect(() => {
+        if (getLastPath) {
+            paths.some(
+                (path) =>
+                    path
+                        .replace('_', ' ')
+                        .toLowerCase()
+                        .includes(
+                            getLastPath.split(/A-Z/).join(' ').toLowerCase()
+                        ) && setCurrentPath(path)
+            )
+        }
+    }, [getLastPath])
 
-  useEffect(() => {
-    
-  }, [getLastPath])
-
-  console.log(getLastPath)
+    console.log(getLastPath)
 
     return (
         <div>
