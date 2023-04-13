@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { Fragment, useState } from 'react'
 import AccountSettings from './settings/AccountSettings'
 import PropertyType from './settings/AddProperty'
 import PlatformChanges from './settings/PlatformChanges'
@@ -6,25 +6,41 @@ import SOSTable from './settings/SOSTable'
 
 
 type PathSwitch =
-    | 'platformChanges'
-    | 'propertyType'
-    | 'SOSTable'
-    | 'accountSettings'
+    | 'platform_changes'
+    | 'property_type'
+    | 'SOS_table'
+    | 'account_settings'
 
 function PlatformSettings() {
     const [pathToSwitch, setPathToSwitch] =
-        useState<PathSwitch>('platformChanges')
+        useState<PathSwitch>('platform_changes')
 
     const handlePathSwitch: Record<PathSwitch, JSX.Element> = {
-        platformChanges: <PlatformChanges />,
-        propertyType: <PropertyType />,
-        SOSTable: <SOSTable />,
-        accountSettings: <AccountSettings />,
+        platform_changes: <PlatformChanges />,
+        property_type: <PropertyType />,
+        SOS_table: <SOSTable />,
+        account_settings: <AccountSettings />,
     }
+
+
+    const paths = [
+        'platform_changes',
+        'property_type',
+        'SOS_table',
+        'account_settings'
+    ] satisfies PathSwitch[]
 
     return (
         <div>
             <div className='estateDetail__radioBox'>
+
+                    {
+                        paths.map((path) => (
+                            <Fragment key={path}>
+                                
+                            </Fragment>
+                        ))
+                    }
                 <input
                     type='radio'
                     name='platform'
