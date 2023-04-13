@@ -5,8 +5,7 @@ import { useMutation } from 'react-query'
 import { useForm } from 'react-hook-form'
 import useAxios from '../../../../../components/hooks/useAxios'
 import Input from '../../../../../components/UI/input/Input'
-import { useLocation, useParams } from 'react-router'
-import { useSearchParams } from 'react-router-dom'
+import { useParams } from 'react-router'
 
 export interface IPropertyType {
     id: string
@@ -15,11 +14,9 @@ export interface IPropertyType {
 }
 
 const ViewProperty = () => {
-     const params = useParams()
+    const params = useParams()
 
-     const property_id = params.id?.replace(':', '')
-
-    console.log({ property_id })
+    const property_id = params.id?.replace(':', '')
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
@@ -69,11 +66,8 @@ const ViewProperty = () => {
 
     const postRequest = (inputs: Inputs) => {
         return axiosInstance({
-            url:
-                data.length > 0
-                    ? `/platformsettings/propertytype/update/${property_id}`
-                    : '/platformsettings/propertytype/create',
-            method: data.length > 0 ? 'put' : 'post',
+            url: `/platformsettings/propertytype/update/${property_id}`,
+            method: 'put',
             data: inputs,
         })
     }
