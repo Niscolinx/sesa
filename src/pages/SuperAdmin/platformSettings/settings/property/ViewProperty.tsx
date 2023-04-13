@@ -147,7 +147,7 @@ const ViewProperty = () => {
             property_type: 'sd',
             description: 'sd'
         }
-        post_mutation(data)
+        post_mutation(updateData)
     })
 
     if (isLoading) {

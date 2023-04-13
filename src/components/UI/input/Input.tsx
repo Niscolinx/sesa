@@ -2,6 +2,7 @@ import { FC, SetStateAction, useEffect, useState } from 'react'
 import { FieldValues, UseFormRegister } from 'react-hook-form'
 import { MultipleSelect, Select } from '../../SuperAdmin/UI/Select'
 import useFetchData from '../../../utils/useFetchData'
+import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai'
 
 export interface SelectProps {
     isMulti?: boolean
@@ -58,6 +59,9 @@ const Input: FC<Partial<Input> & { label: string }> = ({
     }
 
     
+    const [eyeIcon, setEyeIcon] = useState(false)
+    const toggleEyeIcon = () => setEyeIcon(!eyeIcon)
+    
 
     return (
         <div
@@ -102,56 +106,78 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                     >
                         {name ?? label.replaceAll('_', ' ')}
                     </label>
-                    <div
-                        className={`relative flex items-center border border-color-grey pl-4 rounded-lg w-full `}
-                    >
-                        {label.toLowerCase() === 'amount' ||
-                            (tag === 'amount' && (
-                                <img
-                                    src='/icons/Naira.svg'
-                                    alt=''
-                                    className='mr-1'
-                                />
-                            ))}
 
-                        {type === 'textarea' ? (
-                            <textarea
-                                id={label}
-                                rows={4}
-                                maxLength={30}
-                                disabled={disabled}
-                                type={type}
-                                value={value}
-                                {...(register &&
-                                    register(label, validationOptions))}
-                                className={` w-full border-none outline-none disabled:opacity-50 disabled:cursor-not-allowed p-4 pl-0 ${
-                                    formErrors &&
-                                    formErrors[label] &&
-                                    'border-red-500 '
-                                }`}
-                            />
-                        ) : (
+                    {type === 'password' ? (
+                        <div className='relative flex items-center'>
                             <input
-                                id={label}
-                                disabled={disabled}
-                                type={type}
-                                value={value}
-                                {...(register &&
-                                    register(label, validationOptions))}
-                                className={` w-full border-none outline-none disabled:opacity-50 disabled:cursor-not-allowed p-4 pl-0 ${
-                                    formErrors &&
-                                    formErrors[label] &&
-                                    'border-red-500 '
-                                }`}
-                                min={
-                                    type === 'date' &&
-                                    label.indexOf('dob') !== 0
-                                        ? new Date().toISOString().split('T')[0]
-                                        : null
-                                }
+                                type={eyeIcon ? 'text' : 'password'}
+                                className='border pr-12 border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem]'
+                                name='password'
                             />
-                        )}
-                    </div>
+                            <span className='absolute right-2 cursor-pointer'>
+                                {eyeIcon ? (
+                                    <AiOutlineEyeInvisible
+                                        onClick={toggleEyeIcon}
+                                    />
+                                ) : (
+                                    <AiOutlineEye onClick={toggleEyeIcon} />
+                                )}
+                            </span>
+                        </div>
+                    ) : (
+                        <div
+                            className={`relative flex items-center border border-color-grey pl-4 rounded-lg w-full `}
+                        >
+                            {label.toLowerCase() === 'amount' ||
+                                (tag === 'amount' && (
+                                    <img
+                                        src='/icons/Naira.svg'
+                                        alt=''
+                                        className='mr-1'
+                                    />
+                                ))}
+
+                            {type === 'textarea' ? (
+                                <textarea
+                                    id={label}
+                                    rows={4}
+                                    maxLength={30}
+                                    disabled={disabled}
+                                    type={type}
+                                    value={value}
+                                    {...(register &&
+                                        register(label, validationOptions))}
+                                    className={` w-full border-none outline-none disabled:opacity-50 disabled:cursor-not-allowed p-4 pl-0 ${
+                                        formErrors &&
+                                        formErrors[label] &&
+                                        'border-red-500 '
+                                    }`}
+                                />
+                            ) : (
+                                <input
+                                    id={label}
+                                    disabled={disabled}
+                                    type={type}
+                                    value={value}
+                                    {...(register &&
+                                        register(label, validationOptions))}
+                                    className={` w-full border-none outline-none disabled:opacity-50 disabled:cursor-not-allowed p-4 pl-0 ${
+                                        formErrors &&
+                                        formErrors[label] &&
+                                        'border-red-500 '
+                                    }`}
+                                    min={
+                                        type === 'date' &&
+                                        label.indexOf('dob') !== 0
+                                            ? new Date()
+                                                  .toISOString()
+                                                  .split('T')[0]
+                                            : null
+                                    }
+                                />
+                            )}
+                        </div>
+                    )}
                 </>
             )}
             {!formErrors[label] && pre && (

@@ -1,22 +1,39 @@
 import React, { useState } from 'react'
-import { getPhotoUrl } from '../../../../../utils/getPhotoUrl'
 import { AiOutlineEyeInvisible, AiOutlineEye } from 'react-icons/ai'
 import { toast, ToastContainer } from 'react-toastify'
 
 const AccountSettings = () => {
-    const [isWarning, setIsWarning] = useState(true)
+    type FormInputs = {
+        label: string
+        type?: string
+        pre?: string
+    }
 
-    const [photoUrl, setPhotoUrl] = useState('')
+    type ResponseMessage = {
+        className: string
+        displayMessage: string
+    }
+
+    type Inputs = {
+        property_type: string
+        description: string
+    }
+
+
+    const [photoPreview, setPhotoPreview] = useState('')
+    const [imageFile, setImageFile] = useState<File | null>(null)
 
     const [eyeIcon, setEyeIcon] = useState(false)
     const toggleEyeIcon = () => setEyeIcon(!eyeIcon)
 
-    const handlePhotoPreview = async (
-        value: React.MouseEvent<HTMLInputElement>
-    ) => {
-        const getUrl = await getPhotoUrl(`#photoUpload`)
-        setPhotoUrl(getUrl)
-    }
+   const handlePicture = (e: React.ChangeEvent) => {
+       const target = e.target as HTMLInputElement
+       const file: File = (target.files as FileList)[0]
+
+       const preview = URL.createObjectURL(file)
+       setPhotoPreview(preview)
+       setImageFile(file)
+   }
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
@@ -38,10 +55,10 @@ const AccountSettings = () => {
                         id='photoUpload'
                         accept='image/*'
                         className='hidden'
-                        onClick={handlePhotoPreview}
+                        onChange={handlePicture}
                     />
                     <img
-                        src={photoUrl ? photoUrl : '/img/me.jpeg'}
+                        src={photoPreview}
                         alt='photoPreview'
                         className='object-cover w-[11rem] h-[11rem] rounded-full object-top'
                     />
