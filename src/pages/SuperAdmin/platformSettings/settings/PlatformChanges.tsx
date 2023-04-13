@@ -37,6 +37,10 @@ const PlatformChanges = () => {
         return <p>{error.message}</p>
     }
 
+    const formInput = {
+        
+    }
+
     return (
         <>
             <ToastContainer />

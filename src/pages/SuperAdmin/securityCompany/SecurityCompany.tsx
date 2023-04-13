@@ -4,6 +4,7 @@ import RenderSecurityCompanies from './RenderedSecurityCompanies'
 import { useNavigate } from 'react-router'
 
 function SecurityCompany() {
+    
     const navigate = useNavigate()
 
     const [securityCompanies, setSecurityCompanies] = useState(false)
