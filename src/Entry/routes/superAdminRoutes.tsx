@@ -30,13 +30,13 @@ import AdvertDetail from '../../pages/SuperAdmin/advert/AdvertDetail'
 import AdvertClickrateIncrease from '../../pages/SuperAdmin/advert/AdvertClickrateIncrease'
 import AdvertClickrateDecrease from '../../pages/SuperAdmin/advert/AdvertClickrateDecrease'
 import PlatformSettings from '../../pages/SuperAdmin/platformSettings/platformSettings'
-import AddSOS from '../../pages/SuperAdmin/platformSettings/settings/AddSOS'
-import SOSDetails from '../../pages/SuperAdmin/platformSettings/settings/SOSDetails'
+import AddSOS from '../../pages/SuperAdmin/platformSettings/settings/SOS/AddSOS'
+import SOSDetails from '../../pages/SuperAdmin/platformSettings/settings/SOS/SOSDetails'
 import AddSecurityCompany from '../../pages/SuperAdmin/securityCompany/AddSecurityCompany'
 import SuperAdminDashboard from '../../pages/SuperAdmin/Dashboard'
 import Overview from '../../pages/SuperAdmin/Overview'
 import ViewArtisanCategory from '../../pages/SuperAdmin/artisans/category/ViewArtisanCategory'
-import AddProperty from '../../pages/SuperAdmin/platformSettings/settings/AddProperty'
+import AddProperty from '../../pages/SuperAdmin/platformSettings/settings/property/AddProperty'
 import Estates from '../../pages/SuperAdmin/estates/Estates'
 import EstateReport from '../../pages/SuperAdmin/estates/EstateReport'
 import ViewAdmin from '../../pages/SuperAdmin/admins/ViewAdmin'
@@ -66,7 +66,10 @@ const superAdminRoutes = (
             element={<SecurityCompanyDetail />}
         />
         <Route path='security-company/add' element={<AddSecurityCompany />} />
-        <Route path='security-company/view/:id' element={<SecurityCompanyDetail/>} />
+        <Route
+            path='security-company/view/:id'
+            element={<SecurityCompanyDetail />}
+        />
         <Route path='estateManagers' element={<EstateManagers />} />
         <Route path='estateManagers/add' element={<AddEstateManager />} />
         <Route path='estateManagers/view/:id' element={<ViewEstateManager />} />

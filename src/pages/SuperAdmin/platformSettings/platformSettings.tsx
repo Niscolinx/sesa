@@ -1,8 +1,8 @@
 import { Fragment, useEffect, useLayoutEffect, useState } from 'react'
-import AccountSettings from './settings/AccountSettings'
-import PropertyType from './settings/PropertyType'
+import AccountSettings from './settings/account/AccountSettings'
+import PropertyType from './settings/property/PropertyType'
 import PlatformChanges from './settings/PlatformChanges'
-import SOSTable from './settings/SOSTable'
+import SOSTable from './settings/SOS/SOSTable'
 import PrevLocation from '../../../components/hooks/prevLocation'
 
 type PathSwitch =

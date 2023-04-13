@@ -1,10 +1,10 @@
 import { useRef, useState } from 'react'
 import { toast, ToastContainer } from 'react-toastify'
-import useFetchData from '../../../../utils/useFetchData'
+import useFetchData from '../../../../../utils/useFetchData'
 import { useMutation } from 'react-query'
 import { useForm } from 'react-hook-form'
-import useAxios from '../../../../components/hooks/useAxios'
-import Input from '../../../../components/UI/input/Input'
+import useAxios from '../../../../../components/hooks/useAxios'
+import Input from '../../../../../components/UI/input/Input'
 
 export interface IPropertyType {
     id: string
@@ -170,7 +170,6 @@ const AddProperty = () => {
                             {mutation_loading ? 'Loading...' : 'Add'}
                         </button>
                     </>
-    
                 </form>
             </div>
         </>
