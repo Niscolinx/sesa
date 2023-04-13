@@ -68,7 +68,6 @@ const AddAdmin = () => {
             method: 'post',
             data,
 
-            headers: { 'Content-Type': 'application/json, multipart/form-data' },
         })
     }
     const { mutate, isLoading } = useMutation(postAdmin, {
