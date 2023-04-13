@@ -30,7 +30,7 @@ type SecurityCompany = {
 
 export type Actions = 'view details' | 'activate' | 'deactivate'
 
-const actions = ['view details'] satisfies Actions[]
+const actions: Actions[] = ['view details']
 
 function RenderedSecurityCompanies() {
     const navigate = useNavigate()
@@ -219,7 +219,7 @@ function RenderedSecurityCompanies() {
         }
     }
 
-    const handleSelectedAction = (item: string, id: string) => {
+    const handleSelectedAction = (item: Actions, id: string) => {
         setToggleDropDown(() => {
             return {
                 isDropDownOpen: false,
