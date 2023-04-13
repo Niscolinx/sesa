@@ -1,7 +1,13 @@
 import { FormEvent, useState } from 'react'
 import { toast, ToastContainer } from 'react-toastify'
+import useFetchData from '../../../../utils/useFetchData'
 
 const PlatformChanges = () => {
+
+    const {data, isLoading, error} = useFetchData({
+        url: '/platformsettings/generalsettings/get',
+    })
+
 
     interface Input {
         kyr_validation: number
@@ -20,6 +26,15 @@ const PlatformChanges = () => {
             type: 'success',
             className: 'bg-green-100 text-green-600 text-[1.4rem]',
         })
+    }
+
+
+    if(isLoading){
+        return <p>Loading...</p>
+    }
+
+    if(error){
+        return <p>{error.message}</p>
     }
 
     return (

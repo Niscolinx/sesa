@@ -21,7 +21,7 @@ const useFetchData = ({
             url,
         }).then(({ data }) => data)
 
-    const { isLoading, error, data, refetch } = useQuery(
+    const { isLoading, error, data, refetch } = useQuery<any, Error>(
         [name, queryParams],
         fetchData,
         {
