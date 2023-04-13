@@ -34,18 +34,28 @@ const AccountSettings = () => {
        setImageFile(file)
    }
 
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault()
+   
+     const onSubmit = handleSubmit((data) => {
+        setResponseMessage(null)
 
-        toast('Password Updated successfully', {
-            type: 'success',
-            className: 'bg-green-100 text-green-600 text-[1.4rem]',
-        })
-    }
+        const adminData = {
+            ...data,
+            transferable_fee: 30,
+        }
+
+        mutate(adminData)
+    })
 
     const formInputs = [
         {
             label: 'Current Password',
+            type: 'password'
+        }, {
+            label: 'New Password',
+            type: 'password'
+        },
+        {
+            label: 'Re-Enter New Password',
             type: 'password'
         }
     ] satisfies FormInputs[]
@@ -77,76 +87,45 @@ const AccountSettings = () => {
                 </figure>
 
                 <form
-                    onSubmit={handleSubmit}
+                    onSubmit={onSubmit}
                     className='grid max-w-[84rem] text-[1.6rem] mt-[5rem] gap-10'
                     style={{
                         gridTemplateColumns:
                             ' repeat(auto-fit, minmax(35rem, 1fr))',
                     }}
                 >
-                    <div>
-                        <label className='font-Satoshi-Medium'>
-                            Current Password
-                        </label>
-                        <div className='relative flex items-center'>
-                            <input
-                                type={eyeIcon ? 'text' : 'password'}
-                                className='border pr-12 border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem]'
-                                name='password'
-                            />
-                            <span className='absolute right-2 cursor-pointer'>
-                                {eyeIcon ? (
-                                    <AiOutlineEyeInvisible
-                                        onClick={toggleEyeIcon}
-                                    />
-                                ) : (
-                                    <AiOutlineEye onClick={toggleEyeIcon} />
-                                )}
-                            </span>
-                        </div>
-                    </div>
-                    <div>
-                        <label className='font-Satoshi-Medium'>
-                            New Password
-                        </label>
-                        <div className='relative flex items-center'>
-                            <input
-                                type={eyeIcon ? 'text' : 'password'}
-                                className='border pr-12 border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem]'
-                                name='password'
-                            />
-                            <span className='absolute right-2 cursor-pointer'>
-                                {eyeIcon ? (
-                                    <AiOutlineEyeInvisible
-                                        onClick={toggleEyeIcon}
-                                    />
-                                ) : (
-                                    <AiOutlineEye onClick={toggleEyeIcon} />
-                                )}
-                            </span>
-                        </div>
-                    </div>
-                    <div>
-                        <label className='font-Satoshi-Medium'>
-                            Re-Enter New Password
-                        </label>
-                        <div className='relative flex items-center'>
-                            <input
-                                type={eyeIcon ? 'text' : 'password'}
-                                className='border pr-12 border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem]'
-                                name='password'
-                            />
-                            <span className='absolute right-2 cursor-pointer'>
-                                {eyeIcon ? (
-                                    <AiOutlineEyeInvisible
-                                        onClick={toggleEyeIcon}
-                                    />
-                                ) : (
-                                    <AiOutlineEye onClick={toggleEyeIcon} />
-                                )}
-                            </span>
-                        </div>
-                    </div>
+                  <>
+                        {formInputs.map((input, idx) => {
+                            const { label, type, name, pre, tag } = input
+                            return (
+                                <Input
+                                    key={idx + label}
+                                    label={label}
+                                    pre={pre}
+                                    tag={tag}
+                                    register={register}
+                                    formErrors={formErrors}
+                                    type={type}
+                                    minLength={0}
+                                    name={name}
+                                />
+                            )
+                        })}
+
+                        <button
+                            className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg col-span-full mt-[10rem]'
+                            style={{ justifySelf: 'start' }}
+                        >
+                            <span>
+                                <img
+                                    src='/icons/admins/saveDisk.svg'
+                                    alt=''
+                                    className='w-[1.7rem] h-[1.7rem]'
+                                />
+                            </span>{' '}
+                            {mutation_loading ? 'Loading...' : 'Save Changes'}
+                        </button>
+                    </>
 
                     <button
                         className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg col-span-full mt-[10rem]'

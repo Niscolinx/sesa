@@ -58,10 +58,8 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                 : '',
     }
 
-    
     const [eyeIcon, setEyeIcon] = useState(false)
     const toggleEyeIcon = () => setEyeIcon(!eyeIcon)
-    
 
     return (
         <div
@@ -111,8 +109,17 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                         <div className='relative flex items-center'>
                             <input
                                 type={eyeIcon ? 'text' : 'password'}
-                                className='border pr-12 border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem]'
+                                className={`border pr-12 border-color-grey p-4 outline-none rounded-lg w-full disabled:opacity-50 disabled:cursor-not-allowed ${
+                                    formErrors &&
+                                    formErrors[label] &&
+                                    'border-red-500 '
+                                }`}
                                 name='password'
+                                id={label}
+                                disabled={disabled}
+                                value={value}
+                                {...(register &&
+                                    register(label, validationOptions))}
                             />
                             <span className='absolute right-2 cursor-pointer'>
                                 {eyeIcon ? (
