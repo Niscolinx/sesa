@@ -1,4 +1,4 @@
-import { NavLink, useNavigate } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import useBreadcrumbs from 'use-react-router-breadcrumbs'
 import { BiChevronRight } from 'react-icons/bi'
 import { useLocation, useParams } from 'react-router'
