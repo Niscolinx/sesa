@@ -146,6 +146,7 @@ const ViewProperty = () => {
             ...data,
         }
 
+        console.log({mutation})
         post_mutation(adminData)
     })
 
