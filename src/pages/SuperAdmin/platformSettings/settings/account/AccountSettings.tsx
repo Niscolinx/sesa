@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useForm } from 'react-hook-form'
 import { AiOutlineEyeInvisible, AiOutlineEye } from 'react-icons/ai'
 import { toast, ToastContainer } from 'react-toastify'
 
@@ -19,23 +20,28 @@ const AccountSettings = () => {
         description: string
     }
 
-
     const [photoPreview, setPhotoPreview] = useState('')
     const [imageFile, setImageFile] = useState<File | null>(null)
+    const [responseMessage, setResponseMessage] =
+        useState<ResponseMessage | null>(null)
 
+        const {
+            register,
+            handleSubmit,
+            reset,
+            formState: { errors: formErrors },
+        } = useForm<Inputs>()
 
+    const handlePicture = (e: React.ChangeEvent) => {
+        const target = e.target as HTMLInputElement
+        const file: File = (target.files as FileList)[0]
 
-   const handlePicture = (e: React.ChangeEvent) => {
-       const target = e.target as HTMLInputElement
-       const file: File = (target.files as FileList)[0]
+        const preview = URL.createObjectURL(file)
+        setPhotoPreview(preview)
+        setImageFile(file)
+    }
 
-       const preview = URL.createObjectURL(file)
-       setPhotoPreview(preview)
-       setImageFile(file)
-   }
-
-   
-     const onSubmit = handleSubmit((data) => {
+    const onSubmit = handleSubmit((data) => {
         setResponseMessage(null)
 
         const adminData = {
@@ -49,15 +55,16 @@ const AccountSettings = () => {
     const formInputs = [
         {
             label: 'Current Password',
-            type: 'password'
-        }, {
+            type: 'password',
+        },
+        {
             label: 'New Password',
-            type: 'password'
+            type: 'password',
         },
         {
             label: 'Re-Enter New Password',
-            type: 'password'
-        }
+            type: 'password',
+        },
     ] satisfies FormInputs[]
 
     return (
@@ -94,7 +101,7 @@ const AccountSettings = () => {
                             ' repeat(auto-fit, minmax(35rem, 1fr))',
                     }}
                 >
-                  <>
+                    <>
                         {formInputs.map((input, idx) => {
                             const { label, type, name, pre, tag } = input
                             return (
