@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { AiOutlineEyeInvisible, AiOutlineEye } from 'react-icons/ai'
+import { useMutation } from 'react-query'
 import { toast, ToastContainer } from 'react-toastify'
+import useAxios from '../../../../../components/hooks/useAxios'
+import Input from '../../../../../components/UI/input/Input'
 
 const AccountSettings = () => {
     type FormInputs = {
@@ -26,42 +29,35 @@ const AccountSettings = () => {
     const [responseMessage, setResponseMessage] =
         useState<ResponseMessage | null>(null)
 
-        const {
-            register,
-            handleSubmit,
-            reset,
-            formState: { errors: formErrors },
-        } = useForm<Inputs>()
+    const {
+        register,
+        handleSubmit,
+        reset,
+        formState: { errors: formErrors },
+    } = useForm<Inputs>()
 
-
-         const axiosInstance = useAxios()
-         const postSettings = (inputs: Inputs) => {
-             return axiosInstance({
-                 url:
-                    
-                         ? `/platformsettings/generalsettings/update/${data[0].id}`
-                         : '/platformsettings/generalsettings/create',
-                 method: data.length > 0 ? 'put' : 'post',
-                 data: inputs,
-             })
-         }
-         const { mutate, isLoading: mutation_loading } = useMutation(
-             postSettings,
-             {
-                 onSuccess: () => {
-                     toast('Changes saved successfully', {
-                         type: 'success',
-                         className: 'bg-green-100 text-green-600 text-[1.4rem]',
-                     })
-                 },
-                 onError: (err: any) => {
-                     setResponseMessage({
-                         className: 'text-red-600',
-                         displayMessage: err?.response.data.message,
-                     })
-                 },
-             }
-         ) as any
+    const axiosInstance = useAxios()
+    const postSettings = (inputs: Inputs) => {
+        return axiosInstance({
+            url: `/platformsettings/changepassword`,
+            method: 'post',
+            data: inputs,
+        })
+    }
+    const { mutate, isLoading: mutation_loading } = useMutation(postSettings, {
+        onSuccess: () => {
+            toast('Changes saved successfully', {
+                type: 'success',
+                className: 'bg-green-100 text-green-600 text-[1.4rem]',
+            })
+        },
+        onError: (err: any) => {
+            setResponseMessage({
+                className: 'text-red-600',
+                displayMessage: err?.response.data.message,
+            })
+        },
+    }) as any
 
     const handlePicture = (e: React.ChangeEvent) => {
         const target = e.target as HTMLInputElement
@@ -134,18 +130,14 @@ const AccountSettings = () => {
                 >
                     <>
                         {formInputs.map((input, idx) => {
-                            const { label, type, name, pre, tag } = input
+                            const { label, type } = input
                             return (
                                 <Input
                                     key={idx + label}
                                     label={label}
-                                    pre={pre}
-                                    tag={tag}
                                     register={register}
                                     formErrors={formErrors}
                                     type={type}
-                                    minLength={0}
-                                    name={name}
                                 />
                             )
                         })}
