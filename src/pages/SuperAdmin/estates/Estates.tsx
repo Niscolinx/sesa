@@ -433,7 +433,7 @@ function Estates() {
                                                         {isDropDownOpen &&
                                                             index === i && (
                                                                 <div className='absolute top-0 translate-x-[-10rem] border border-color-primary-light w-[10rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
-                                                                    {actions.map(
+                                                                    {[...actions, status === 1 ? 'activate' : 'deactivate'].map(
                                                                         (
                                                                             item,
                                                                             index
@@ -446,20 +446,20 @@ function Estates() {
                                                                                 }
                                                                                 onClick={() =>
                                                                                     handleSelectedAction(
-                                                                                        item,
+                                                                                        item as Actions,
                                                                                         id
                                                                                     )
                                                                                 }
                                                                             >
-                                                                                {item ===
-                                                                                'deactivate' ? (
+                                                                                {status ===
+                                                                                1 ? (
                                                                                     <span className='text-red-600'>
                                                                                         {
                                                                                             item
                                                                                         }
                                                                                     </span>
                                                                                 ) : (
-                                                                                    <span>
+                                                                                    <span className='text-green-600'>
                                                                                         {
                                                                                             item
                                                                                         }
