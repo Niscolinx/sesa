@@ -51,8 +51,6 @@ const AddProperty = () => {
         })
     }
 
-   
-
     const { mutate, isLoading: mutation_loading } = useMutation(postRequest, {
         onSuccess: () => {
             toast(`Property added successfully`, {
@@ -71,8 +69,6 @@ const AddProperty = () => {
         },
     }) as any
 
-  
-
     const onSubmit = handleSubmit((data) => {
         setResponseMessage(null)
 
@@ -82,16 +78,6 @@ const AddProperty = () => {
 
         mutate(adminData)
     })
-
-    if (property_id) {
-        if (isLoading) {
-            return <p>Loading...</p>
-        }
-
-        if (error) {
-            return <p>{error.message}</p>
-        }
-    }
 
     const formInputs = [
         {
@@ -111,20 +97,7 @@ const AddProperty = () => {
             <div className='grid text-[1.6rem] border rounded-lg bg-white'>
                 <div className=' p-10  rounded-lg '>
                     <div className='flex w-full border-b items-center pb-5 justify-between'>
-                        <h2 className='heading2'>
-                            {data?.property_type ?? 'Property Type'}
-                        </h2>
-                        {data?.property_type && (
-                            <button
-                                className='border border-red-600 px-16 py-4 flex items-center  rounded-lg gap-4'
-                                onClick={() => delete_mutation()}
-                            >
-                                <img src='/icons/admins/delete.svg' alt='' />
-                                <span className='text-red-600 text-[1.4rem] font-semibold capitalize'>
-                                    {delete_loading ? 'Loading...' : 'delete'}
-                                </span>
-                            </button>
-                        )}
+                        <h2 className='heading2'>Property Type</h2>
                     </div>
                 </div>
                 {responseMessage?.displayMessage && (
