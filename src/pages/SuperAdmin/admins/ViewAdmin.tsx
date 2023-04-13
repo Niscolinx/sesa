@@ -34,7 +34,7 @@ const ViewAdmin = () => {
     const axiosInstance = useAxios()
 
     const [photoPreview, setPhotoPreview] = useState('')
-    const [imageUrl, setImageUrl] = useState<File | null>(null)
+    const [imageFile, setImageFile] = useState<File | null>(null)
     const genderState = ['Male', 'Female']
     const [selectedGender, setSelectedGender] = useState<string>(
         genderState[0]
@@ -192,7 +192,7 @@ const ViewAdmin = () => {
             email: email_address,
             address: 'no 4 odeyim street',
             phone: `+234${phone_number}`,
-            image: 'https://res.cloudinary.com/aladdin-digital-bank/image/upload/v1665580939/international_payments/s1brifvx0tqcwjwjnpov.jpg',
+            image: imageFile,
         }
 
         post_admin_mutation(adminData)
@@ -218,7 +218,7 @@ const ViewAdmin = () => {
 
         const preview = URL.createObjectURL(file)
         setPhotoPreview(preview)
-        setImageUrl(file)
+        setImageFile(file)
     }
 
     if (get_admin_loading) {
