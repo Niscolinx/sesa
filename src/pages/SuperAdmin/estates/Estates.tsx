@@ -3,7 +3,7 @@ import { IoMdAdd } from 'react-icons/io'
 import RenderedEstates, { ESTATEDATA } from './RenderedEstates'
 import { useNavigate } from 'react-router-dom'
 import { useMutation, useQuery } from 'react-query'
-import { toast } from 'react-toastify'
+import { ToastContainer, toast } from 'react-toastify'
 
 import React from 'react'
 import {
@@ -237,14 +237,7 @@ function Estates() {
         }
     }
 
-    const deactivateHandler = () => {
-        closeDialog()
-
-        toast('Estate deactivated successfully', {
-            type: 'success',
-            className: 'bg-green-100 text-green-600 text-[1.4rem]',
-        })
-    }
+   
 
     if (get_estates_loading) {
         return <p>Loading...</p>
@@ -258,6 +251,7 @@ function Estates() {
 
     return (
         <div>
+            <ToastContainer/>
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8 relative'>
