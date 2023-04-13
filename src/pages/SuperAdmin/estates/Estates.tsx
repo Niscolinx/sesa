@@ -61,34 +61,26 @@ function Estates() {
         // isFetching: get_estates_fetching,
     } = useQuery('estates', fetchEstates) as any
 
-      const postRequest = () => {
-        
+    const postDeactivate = () => {
+        return axiosInstance({
+            url: '/estate/change/status',
+            method: 'post',
+            data: { estate_id: estateId },
+        })
+    }
 
-        
-          return axiosInstance({
-              url: '/estate/change/status',
-              method: 'post',
-              data: { estate_id: estateId },
-          })
-      }
+    const { mutate, isLoading } = useMutation(postDeactivate, {
+        onSuccess: (data) => {
+            if (data) {
+                closeDialog()
 
-      const { mutate, isLoading } = useMutation(postRequest, {
-          onSuccess: (data) => {
-              if ((data as any).success) {
-                  closeDialog()
-                  const messageTitle = title
-                      .replace(/([a-z])([A-Z])/g, '$1 $2')
-                      .replace(/^\w/, (c) => c.toUpperCase())
-
-                  const type = isDialogOpen?.type
-
-                  toast(`Estate deactivated successfully`, {
-                      type: 'success',
-                      className: 'bg-green-100 text-green-600 text-[1.4rem]',
-                  })
-              }
-          },
-      })
+                toast(`Estate Deactivated successfully`, {
+                    type: 'success',
+                    className: 'bg-green-100 text-green-600 text-[1.4rem]',
+                })
+            }
+        },
+    })
 
     useEffect(() => {
         if (get_estates_response) {
@@ -240,6 +232,7 @@ function Estates() {
         }
 
         if (item === 'deactivate') {
+            setEstateId(id)
             openDialog()
         }
     }
@@ -268,41 +261,35 @@ function Estates() {
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8 relative'>
-                        
-                            <>
-                                <img
-                                    src='/icons/admins/modalWarning.svg'
-                                    alt=''
-                                    className='animate__animated animate__pulse '
-                                    style={{
-                                        animationIterationCount: 'infinite',
-                                    }}
-                                />
-                                <p>
-                                    Are you sure you want to deactivate this{' '}
-                                    <span className='capitalize'>
-                                        Estate ?
-                                    </span>
-                                </p>
+                        <>
+                            <img
+                                src='/icons/admins/modalWarning.svg'
+                                alt=''
+                                className='animate__animated animate__pulse '
+                                style={{
+                                    animationIterationCount: 'infinite',
+                                }}
+                            />
+                            <p>
+                                Are you sure you want to deactivate this{' '}
+                                <span className='capitalize'>Estate ?</span>
+                            </p>
 
-                                <div className='flex w-full justify-center gap-8'>
-                                    <button
-                                        className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
-                                        onClick={closeDialog}
-                                    >
-                                        Cancel
-                                    </button>
-                                    <button
-                                        className='bg-red-500 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem] capitalize'
-                                        onClick={() => mutate()}
-                                    >
-                                        {isLoading
-                                            ? 'Loading...'
-                                            : 'deactivate'}
-                                    </button>
-                                </div>
-                            </>
-                        
+                            <div className='flex w-full justify-center gap-8'>
+                                <button
+                                    className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
+                                    onClick={closeDialog}
+                                >
+                                    Cancel
+                                </button>
+                                <button
+                                    className='bg-red-500 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem] capitalize'
+                                    onClick={() => mutate()}
+                                >
+                                    {isLoading ? 'Loading...' : 'deactivate'}
+                                </button>
+                            </div>
+                        </>
                     </div>
                 </section>
             </dialog>
