@@ -1,7 +1,18 @@
-import { FormEvent } from 'react'
+import { FormEvent, useState } from 'react'
 import { toast, ToastContainer } from 'react-toastify'
 
 const PlatformChanges = () => {
+
+    interface Input {
+        kyr_validation: number
+        sms_notification: number
+    }
+
+    const [input, setInput] = useState<Input>({
+        kyr_validation: 0,
+        sms_notification: 0
+    })
+
     const handleSubmit = (e: FormEvent) => {
         e.preventDefault()
 
