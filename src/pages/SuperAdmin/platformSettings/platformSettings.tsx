@@ -1,4 +1,4 @@
-import { Fragment, useState } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 import AccountSettings from './settings/AccountSettings'
 import PropertyType from './settings/PropertyType'
 import PlatformChanges from './settings/PlatformChanges'
@@ -27,6 +27,10 @@ function PlatformSettings() {
         'SOS_table',
         'account_settings',
     ] satisfies PathSwitch[]
+
+    useEffect(() => {
+        console.log({currentPath})
+    }, [])
 
     return (
         <div>
