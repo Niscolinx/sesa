@@ -16,7 +16,7 @@ function PlatformSettings() {
     const location = useLocation()
     const navigate = useNavigate()
 
-    console.log({location})
+    console.log({location, navigate})
     
     const [currentPath, setCurrentPath] =
         useState<PathSwitch>('platform_changes')

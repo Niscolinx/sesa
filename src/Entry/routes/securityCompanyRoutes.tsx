@@ -1,8 +1,4 @@
-
-import useBreadcrumbs, {
-    createRoutesFromChildren,
-    Route,
-} from 'use-react-router-breadcrumbs'
+import { Route } from 'react-router-dom'
 
 import SecurityCompanyOverview from '../../pages/SecurityCompany/dashboard/SecurityCompanyOverview'
 import SecurityCompanyDashboard from '../../pages/SecurityCompany/Dashboard'
@@ -27,11 +23,7 @@ const securityCompanyRoutes = (
     <Route path='/securityCompany' element={<SecurityCompanyDashboard />}>
         <Route index element={<SecurityCompanyOverview />} />
         <Route path='estates' element={<Estates />} />
-        <Route
-            path='estates/detail/:Id'
-            element={<ViewEstate />}
-           
-        />
+        <Route path='estates/detail/:Id' element={<ViewEstate />} />
         <Route
             path='estates/securityGuard/:Id'
             element={<ViewSecurityGuard />}

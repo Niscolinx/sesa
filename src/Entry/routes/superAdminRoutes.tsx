@@ -1,5 +1,4 @@
-//import { Route } from 'react-router-dom'
-import { Route } from 'use-react-router-breadcrumbs'
+import { Route } from 'react-router-dom'
 
 import Admins from '../../pages/SuperAdmin/admins/Admins'
 import AddAdmin from '../../pages/SuperAdmin/admins/AddAdmin'

@@ -1,4 +1,4 @@
-import { Route } from 'use-react-router-breadcrumbs'
+import { Route } from 'react-router-dom'
 import Dashboard from '../../pages/EstateManager/Dashboard'
 import Overview from '../../pages/EstateManager/Overview'
 import Wallet from '../../pages/EstateManager/wallet/Wallet'
