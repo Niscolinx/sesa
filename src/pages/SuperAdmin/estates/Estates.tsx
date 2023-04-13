@@ -60,6 +60,35 @@ function Estates() {
         // isFetching: get_estates_fetching,
     } = useQuery('estates', fetchEstates) as any
 
+      const postRequest = () => {
+        
+
+        
+          return axiosInstance({
+              url,
+              method: 'post',
+              data: { [tag]: fetchedId },
+          })
+      }
+
+      const { mutate, isLoading } = useMutation(postRequest, {
+          onSuccess: (data) => {
+              if ((data as any).success) {
+                  closeDialog()
+                  const messageTitle = title
+                      .replace(/([a-z])([A-Z])/g, '$1 $2')
+                      .replace(/^\w/, (c) => c.toUpperCase())
+
+                  const type = isDialogOpen?.type
+
+                  toast(`${messageTitle} ${type + 'd'} successfully`, {
+                      type: 'success',
+                      className: 'bg-green-100 text-green-600 text-[1.4rem]',
+                  })
+              }
+          },
+      })
+
     useEffect(() => {
         if (get_estates_response) {
             console.log(get_estates_response.data)
