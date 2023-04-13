@@ -34,7 +34,7 @@ function PlatformSettings() {
             console.log({prev})
             return prev
         })
-    }, [])
+    }, [currentPath])
 
     return (
         <div>
@@ -46,7 +46,7 @@ function PlatformSettings() {
                             name='platform'
                             id={path}
                             className='hidden'
-                            checked={path === currentPath}
+                            defaultChecked={currentPath === path}
                             onChange={() => setCurrentPath(path)}
                         />
                         <label htmlFor={path} className='capitalize'>
