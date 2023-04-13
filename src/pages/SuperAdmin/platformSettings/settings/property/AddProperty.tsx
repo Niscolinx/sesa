@@ -16,9 +16,9 @@ export interface IPropertyType {
 
 const AddProperty = () => {
     const params = useParams()
-    const param = useSearchParams()
+    const [param, searchParam] = useSearchParams()
 
-    console.log({param})
+    console.log({param, searchParam})
     
     
     const property_id = params.id?.replace(':', '')
