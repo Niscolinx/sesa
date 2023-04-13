@@ -43,10 +43,14 @@ function PlatformSettings() {
         })
     }, [location])
 
+    const goBack = () => {
+
+        return navigate(-1)
+    }
     return (
         <div>
             <div className='estateDetail__radioBox'>
-                <button onClick={() => navigate(-1)}>click </button>
+                <button onClick={goBack}>click </button>
                 {paths.map((path) => (
                     <Fragment key={path}>
                         <input

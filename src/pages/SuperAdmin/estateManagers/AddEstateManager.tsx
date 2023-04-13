@@ -34,7 +34,7 @@ const AddEstateManager = () => {
 
     const [photoPreview, setPhotoPreview] = useState('')
     const [imageUrl, setImageUrl] = useState<File | null>(null)
-    const [selectedGender, setSelectedGender] = useState<string | null>(
+    const [selectedGender, setSelectedGender] = useState<string>(
         genderState[0]
     )
 
@@ -67,8 +67,7 @@ const AddEstateManager = () => {
         onSuccess: () => {
             handleOpen()
         },
-        onError: (err: any) => {
-            console.log({ err })
+        onError: (err:any) => {
             setResponseMessage({
                 className: 'text-red-600',
                 displayMessage: err?.response.data.message,
