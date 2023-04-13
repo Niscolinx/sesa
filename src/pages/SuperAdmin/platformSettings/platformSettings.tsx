@@ -35,17 +35,20 @@ function PlatformSettings() {
 
     useEffect(() => {
         if (getLastPath) {
-            getLastPath = getLastPath.replace(/([a-z])([A-Z])/g, '$1 $2')[1].toLowerCase()
-            console.log({getLastPath})
-            paths.some(
-                (path) =>
+            let word = getLastPath
+                .split(/([a-z])([A-Z])/g)
+                
+              console.log({word})
+            
+            paths.some((path) => {
+                    console.log(path.replace('_', ' '), 'path')
+                return (
                     path
                         .replace('_', ' ')
                         .toLowerCase()
-                        .includes(
-                        getLastPath!
-                        ) && setCurrentPath(path)
-            )
+                        .includes(getLastPath!) && setCurrentPath(path)
+                )
+            })
         }
     }, [getLastPath])
 
