@@ -4,9 +4,13 @@ import { useLocation } from 'react-router-dom'
 function PrevLocation() {
     const location = useLocation()
      localStorage.setItem('prevPath', location.pathname)
-     const prevPathRef = localStorage.getItem('prevPath')
+     const prevPath = localStorage.getItem('prevPath')
+
+     const [prevLocation, setPrevLocation] = useState()
      
-    
+    if(prevPath !== location.pathname){
+
+    }
 
     
 }
