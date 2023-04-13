@@ -71,7 +71,7 @@ const AddProperty = () => {
     }
     const { mutate, isLoading: mutation_loading } = useMutation(postSettings, {
         onSuccess: () => {
-            toast('Changes saved successfully', {
+            toast('Property Added successfully', {
                 type: 'success',
                 className: 'bg-green-100 text-green-600 text-[1.4rem]',
             })
