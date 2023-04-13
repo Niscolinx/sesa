@@ -30,7 +30,7 @@ type SecurityCompany = {
 
 export type Actions = 'view details' | 'activate' | 'deactivate'
 
-const actions: Array<Actions> = ['view details']
+const actions = ['view details'] satisfies Actions[]
 
 function RenderedSecurityCompanies() {
     const navigate = useNavigate()
@@ -219,7 +219,7 @@ function RenderedSecurityCompanies() {
         }
     }
 
-    const handleSelectedAction = (item: Actions, id: string) => {
+    const handleSelectedAction = (item: string, id: string) => {
         setToggleDropDown(() => {
             return {
                 isDropDownOpen: false,
@@ -467,7 +467,13 @@ function RenderedSecurityCompanies() {
                                                                 index ===
                                                                     id && (
                                                                     <div className='absolute top-0 translate-x-[-10rem] border border-color-primary-light w-[10rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
-                                                                        {actions.map(
+                                                                        {[
+                                                                            ...actions,
+                                                                            status ===
+                                                                            1
+                                                                                ? 'activate'
+                                                                                : 'deactivate',
+                                                                        ].map(
                                                                             (
                                                                                 item,
                                                                                 index
@@ -487,15 +493,19 @@ function RenderedSecurityCompanies() {
                                                                                         )
                                                                                     }
                                                                                 >
-                                                                                    {status ===
-                                                                                    1 ? (
+                                                                                    {item ===
+                                                                                    'activate' ? (
                                                                                         <span className='text-green-600'>
-                                                                                            activate
+                                                                                            {
+                                                                                                item
+                                                                                            }
                                                                                         </span>
-                                                                                    ) : status ===
-                                                                                      0 ? (
+                                                                                    ) : item ===
+                                                                                      'deactivate' ? (
                                                                                         <span className='text-red-600'>
-                                                                                            deactivate
+                                                                                            {
+                                                                                                item
+                                                                                            }
                                                                                         </span>
                                                                                     ) : (
                                                                                         item
