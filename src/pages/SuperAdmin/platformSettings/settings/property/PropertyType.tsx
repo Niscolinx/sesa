@@ -5,7 +5,7 @@ function PropertyType() {
         <Table
             fetch_url={'/platformsettings/propertytype/getall'}
             title={'propertyType'}
-            view_page_url={'platformSettings/view/'}
+            view_page_url={'/platformSettings/view/'}
             add_page_url={'/superAdmin/platformSettings/addProperty'}
             is_add_btn={true}
             THeader={['property type', 'description', 'actions']}
