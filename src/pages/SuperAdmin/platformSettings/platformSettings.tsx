@@ -46,7 +46,7 @@ function PlatformSettings() {
                             name='platform'
                             id={path}
                             className='hidden'
-                            defaultChecked={currentPath === path}
+                            checked={path === currentPath}
                             onChange={() => setCurrentPath(path)}
                         />
                         <label htmlFor={path} className='capitalize'>
