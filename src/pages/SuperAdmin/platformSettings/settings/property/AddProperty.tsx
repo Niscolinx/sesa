@@ -16,14 +16,12 @@ export interface IPropertyType {
 
 const AddProperty = () => {
     const params = useParams()
-    const location = useLocation()
-
-    console.log({location})
+    const location = useLocation().search
     
     
-    const property_id = params.id?.replace(':', '')
+    const property_id = location.split(':')[1]
 
-    console.log({params, performance, property_id})
+    console.log({ property_id})
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
@@ -56,7 +54,7 @@ const AddProperty = () => {
     }
 
     const { data, isLoading, error } = useFetchData({
-        url: '/platformsettings/generalsettings/get',
+        url: `/platformsettings/propertytype/getbyid/${property_id}`,
     })
 
     console.log({ data })
@@ -75,10 +73,10 @@ const AddProperty = () => {
     const postSettings = (inputs: Inputs) => {
         return axiosInstance({
             url:
-                data.length < 0
-                    ? `/platformsettings/generalsettings/update/${data[0].id}`
+                data.length > 0
+                    ? `/platformsettings/propertytype/update/${property_id}`
                     : '/platformsettings/propertytype/create',
-            method: data.length < 0 ? 'put' : 'post',
+            method: data.length > 0 ? 'put' : 'post',
             data: inputs,
         })
     }
