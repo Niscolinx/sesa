@@ -84,7 +84,16 @@ const ViewProperty = () => {
         })
     }
 
-    const {isLoading, data, error} = useQuery('property', get_request) as any
+    const {isLoading, data, error} = useQuery('property', get_request, {
+        onSuccess: ({data}) => {
+               const { property_type, description } = data
+
+               reset({
+                   property_type,
+                   description,
+               })
+        }
+    }) as any
 
     const { mutate: post_mutation, isLoading: post_loading } = useMutation(
         postRequest,
@@ -147,14 +156,6 @@ const ViewProperty = () => {
         return <p>{error.message}</p>
     }
 
-    if (data) {
-        const { property_type, description } = data
-
-        reset({
-            property_type,
-            description,
-        })
-    }
 
     const formInputs = [
         {
