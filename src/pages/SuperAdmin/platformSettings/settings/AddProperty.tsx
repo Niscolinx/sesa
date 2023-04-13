@@ -165,7 +165,7 @@ const AddProperty = () => {
                                     className='w-[1.7rem] h-[1.7rem]'
                                 />
                             </span>{' '}
-                            {mutation_loading ? 'Loading...' : 'Save Changes'}
+                            {mutation_loading ? 'Loading...' : 'Add'}
                         </button>
                     </>
     
