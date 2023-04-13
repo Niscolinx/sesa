@@ -3,10 +3,9 @@ import { useLocation } from 'react-router'
 
 function LocationHook() {
   const location = useLocation()
-    
-  return (
-    <div>LocationHook</div>
-  )
+  
+
+  return {location}
 }
 
 export default LocationHook

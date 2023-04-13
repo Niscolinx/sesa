@@ -3,6 +3,8 @@ import AccountSettings from './settings/AccountSettings'
 import PropertyType from './settings/PropertyType'
 import PlatformChanges from './settings/PlatformChanges'
 import SOSTable from './settings/SOSTable'
+import { useLocation } from 'react-router'
+import LocationHook from '../../../utils/locationHook'
 
 
 type PathSwitch =
@@ -12,7 +14,7 @@ type PathSwitch =
     | 'account_settings'
 
 function PlatformSettings() {
-
+    const locate = useLocation()
     
     const [currentPath, setCurrentPath] =
         useState<PathSwitch>('platform_changes')
@@ -32,7 +34,9 @@ function PlatformSettings() {
     ] satisfies PathSwitch[]
 
   
+    const {location} = LocationHook()
 
+    console.log({location, locate})
    
     return (
         <div>
