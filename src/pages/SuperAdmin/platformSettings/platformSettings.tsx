@@ -35,6 +35,7 @@ function PlatformSettings() {
 
     useEffect(() => {
         if (getLastPath) {
+            console.log( getLastPath.split(/[A-Z]/))
             paths.some(
                 (path) =>
                     path
