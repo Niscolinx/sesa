@@ -25,7 +25,9 @@ function TableDialog() {
     const [artisanCategory, setArtisanCategory] = useState('')
 
     const postRequest = () => {
-        const { url, tag = 'user_id' } = deactivateProp
+      
+            const { url, tag = 'user_id' } = deactivateProp ?? {}
+        
 
         if (isCategory && isDialogOpen?.type === 'create') {
             return axiosInstance({

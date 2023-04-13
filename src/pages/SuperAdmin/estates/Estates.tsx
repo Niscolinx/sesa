@@ -235,6 +235,47 @@ function Estates() {
 
     return (
         <div>
+            <dialog className='dialog' ref={dialogRef}>
+                <section className='grid place-content-center w-full h-[100vh]'>
+                    <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8 relative'>
+                        
+                            <>
+                                <img
+                                    src='/icons/admins/modalWarning.svg'
+                                    alt=''
+                                    className='animate__animated animate__pulse '
+                                    style={{
+                                        animationIterationCount: 'infinite',
+                                    }}
+                                />
+                                <p>
+                                    Are you sure you want to deactivate this{' '}
+                                    <span className='capitalize'>
+                                        Estate ?
+                                    </span>
+                                </p>
+
+                                <div className='flex w-full justify-center gap-8'>
+                                    <button
+                                        className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
+                                        onClick={closeDialog}
+                                    >
+                                        Cancel
+                                    </button>
+                                    <button
+                                        className='bg-red-500 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem] capitalize'
+                                        onClick={() => mutate()}
+                                    >
+                                        {isLoading
+                                            ? 'Loading...'
+                                            : 'deactivate'}
+                                    </button>
+                                </div>
+                            </>
+                        
+                    </div>
+                </section>
+            </dialog>
             <div className='rounded-lg mt-[3rem] h-[80vh]'>
                 {fetched.length > 0 ? (
                     <div className='grid text-[1.6rem] rounded-lg mt-[3rem]'>
@@ -433,7 +474,13 @@ function Estates() {
                                                         {isDropDownOpen &&
                                                             index === i && (
                                                                 <div className='absolute top-0 translate-x-[-10rem] border border-color-primary-light w-[10rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
-                                                                    {[...actions, status === 1 ? 'deactivate' : 'activate'].map(
+                                                                    {[
+                                                                        ...actions,
+                                                                        status ===
+                                                                        1
+                                                                            ? 'deactivate'
+                                                                            : 'activate',
+                                                                    ].map(
                                                                         (
                                                                             item,
                                                                             index
@@ -452,21 +499,24 @@ function Estates() {
                                                                                 }
                                                                             >
                                                                                 {item ===
-                                                                                'deactivate'? (
+                                                                                'deactivate' ? (
                                                                                     <span className='text-red-600'>
                                                                                         {
                                                                                             item
                                                                                         }
                                                                                     </span>
-                                                                                ) : item === 'activate' ? (
+                                                                                ) : item ===
+                                                                                  'activate' ? (
                                                                                     <span className='text-green-600'>
                                                                                         {
                                                                                             item
                                                                                         }
                                                                                     </span>
-                                                                                ): (
+                                                                                ) : (
                                                                                     <span>
-                                                                                        {item}
+                                                                                        {
+                                                                                            item
+                                                                                        }
                                                                                     </span>
                                                                                 )}
                                                                             </p>
