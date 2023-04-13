@@ -9,7 +9,11 @@ function useAxios() {
     const axiosInstance = axios.create({
         baseURL: 'https://sesa-digital.herokuapp.com/api',
       // baseURL: 'https://sesadigital.com/api'
-    })
+   
+                    headers: { 'Content-Type': 'application/json, multipart/form-data' },
+
+      
+    }, )
 
     useEffect(() => {
         const requestInterceptor = axiosInstance.interceptors.request.use(

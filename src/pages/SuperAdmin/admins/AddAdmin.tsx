@@ -46,6 +46,10 @@ const AddAdmin = () => {
         setImageFile(file)
     }
 
+    useEffect(() => {
+        console.log({imageFile})
+    }, [imageFile])
+
     const {
         register,
         handleSubmit,
@@ -58,12 +62,13 @@ const AddAdmin = () => {
         useState<ResponseMessage | null>(null)
 
     const postAdmin = (data: Inputs) => {
+        console.log('post admin')
         return axiosInstance({
             url: '/admin/create',
             method: 'post',
             data,
 
-            headers: { 'Content-Type': 'multipart/form-data' },
+            headers: { 'Content-Type': 'application/json, multipart/form-data' },
         })
     }
     const { mutate, isLoading } = useMutation(postAdmin, {
@@ -81,7 +86,7 @@ const AddAdmin = () => {
     const onSubmit = handleSubmit((data) => {
         const { first_name, last_name, dob, email_address, phone_number } = data
 
-       
+       console.log({imageFile})
 
         const adminData = {
             name: `${first_name} ${last_name}`,
@@ -93,6 +98,7 @@ const AddAdmin = () => {
             image: imageFile,
         }
 
+        console.log({adminData})
 
         mutate(adminData)
     })
