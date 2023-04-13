@@ -35,14 +35,13 @@ interface ResidentWalletList {
 
 type SortBy = 'A-Z' | 'date'
 
-
 const RESIDENT_BALANCE = [
     {
         id: 1,
         estateName: 'sdf',
         residentName: 'sdfsd',
-        amount: 'sdfs'
-    }
+        amount: 'sdfs',
+    },
 ]
 
 export const TRANSACTION_HISTORY: ITransactions[] = [
@@ -118,6 +117,19 @@ export const TRANSACTION_HISTORY: ITransactions[] = [
     },
 ]
 
+const ResidentBalance = () => {
+    return (
+        <div className='rounded-lg mt-[3rem] h-[80vh]'>
+            <Table
+                fetch_url={'/admin/get/wallet/resident'}
+                title={'residentBalance'}
+                THeader={['resident name', 'amount', 'date']}
+                data_to_display={['resident name', 'amount', 'created_at']}
+                deactivateProp={{ url: 'change/user/status' }}
+            />
+        </div>
+    )
+}
 const TransactionHistory = () => {
     return (
         <div className='rounded-lg mt-[3rem] h-[80vh]'>
