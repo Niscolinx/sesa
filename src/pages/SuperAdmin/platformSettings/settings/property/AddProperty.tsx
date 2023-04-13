@@ -5,6 +5,7 @@ import { useMutation } from 'react-query'
 import { useForm } from 'react-hook-form'
 import useAxios from '../../../../../components/hooks/useAxios'
 import Input from '../../../../../components/UI/input/Input'
+import { useParams } from 'react-router'
 
 export interface IPropertyType {
     id: string
@@ -13,6 +14,11 @@ export interface IPropertyType {
 }
 
 const AddProperty = () => {
+    const params = useParams()
+    const property_id = params.id?.replace(':', '')
+
+    console.log({params, performance, property_id})
+
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
     const closeDialog = () => {
