@@ -58,13 +58,12 @@ function TableDialog() {
                 closeDialog()
                 const messageTitle = title
                     .replace(/([a-z])([A-Z])/g, '$1 $2')
-                    .replace(/^\w/, (c) => c.toUpperCase())
 
                 const type = isDialogOpen?.type
 
                 toast(`${messageTitle} ${type + 'd'} Successfully`, {
                     type: 'success',
-                    className: 'bg-green-100 text-green-600 text-[1.4rem]',
+                    className: 'bg-green-100 text-green-600 text-[1.4rem] capitalize',
                 })
             }
         },
