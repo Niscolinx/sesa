@@ -17,11 +17,10 @@ export interface IPropertyType {
 const AddProperty = () => {
     const params = useParams()
     const location = useLocation().search
-    
-    
+
     const property_id = location.split(':')[1]
 
-    console.log({ property_id})
+    console.log({ property_id })
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
@@ -86,16 +85,16 @@ const AddProperty = () => {
         return axiosInstance({
             url: '/change/status',
             method: 'post',
-            data: {id: property_id},
+            data: { id: property_id },
         })
     }
-
 
     const { mutate, isLoading: mutation_loading } = useMutation(postRequest, {
         onSuccess: () => {
             toast(`Property added successfully`, {
                 type: 'success',
-                className: 'bg-green-100 text-green-600 text-[1.4rem] capitalize',
+                className:
+                    'bg-green-100 text-green-600 text-[1.4rem] capitalize',
             })
 
             reset()
@@ -108,22 +107,26 @@ const AddProperty = () => {
         },
     }) as any
 
-    const { mutate: delete_mutation, isLoading: delete_loading } = useMutation(postDelete, {
-        onSuccess: () => {
-            toast(`Property deleted successfully`, {
-                type: 'success',
-                className: 'bg-green-100 text-green-600 text-[1.4rem] capitalize',
-            })
+    const { mutate: delete_mutation, isLoading: delete_loading } = useMutation(
+        postDelete,
+        {
+            onSuccess: () => {
+                toast(`Property deleted successfully`, {
+                    type: 'success',
+                    className:
+                        'bg-green-100 text-green-600 text-[1.4rem] capitalize',
+                })
 
-            reset()
-        },
-        onError: (err: any) => {
-            setResponseMessage({
-                className: 'text-red-600',
-                displayMessage: err?.response.data.message,
-            })
-        },
-    }) as any
+                reset()
+            },
+            onError: (err: any) => {
+                setResponseMessage({
+                    className: 'text-red-600',
+                    displayMessage: err?.response.data.message,
+                })
+            },
+        }
+    ) as any
 
     const onSubmit = handleSubmit((data) => {
         setResponseMessage(null)
@@ -162,9 +165,7 @@ const AddProperty = () => {
                 <div className=' p-10  rounded-lg '>
                     <div className='flex w-full border-b items-center pb-5 justify-between'>
                         <h2 className='heading2'>
-
-                            
-
+                            {data.property_type ?? 'Property Type'}
                         </h2>
 
                         <button
@@ -178,7 +179,13 @@ const AddProperty = () => {
                         </button>
                     </div>
                 </div>
-
+                {responseMessage?.displayMessage && (
+                    <p className='text-center'>
+                        <span className={responseMessage?.className}>
+                            {responseMessage?.displayMessage}
+                        </span>
+                    </p>
+                )}
                 <form
                     className='grid gap-8 mt-8 p-8 max-w-[60rem]'
                     onSubmit={onSubmit}
