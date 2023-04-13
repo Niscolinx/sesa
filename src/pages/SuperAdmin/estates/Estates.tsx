@@ -2,7 +2,7 @@ import { ChangeEvent, useEffect, useRef, useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
 import RenderedEstates, { ESTATEDATA } from './RenderedEstates'
 import { useNavigate } from 'react-router-dom'
-import { useQuery } from 'react-query'
+import { useMutation, useQuery } from 'react-query'
 import { toast } from 'react-toastify'
 
 import React from 'react'
@@ -41,6 +41,7 @@ function Estates() {
 
     const [fetchedEstates, setFetchedEstates] = useState<Estate[]>([])
     const [sortBy, setSortBy] = useState<string>('')
+    const [estateId, setEstateId] = useState('')
 
     const handleAddEstate = () => {
         navigate('/superAdmin/estates/add')
@@ -65,9 +66,9 @@ function Estates() {
 
         
           return axiosInstance({
-              url,
+              url: '/estate/change/status',
               method: 'post',
-              data: { [tag]: fetchedId },
+              data: { estate_id: estateId },
           })
       }
 
