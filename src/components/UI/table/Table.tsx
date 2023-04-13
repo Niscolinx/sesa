@@ -102,6 +102,7 @@ const Table = ({
                 is_add_btn,
                 nested,
                 THeader,
+                children,
                 isCategory,
                 delete_item_url,
                 is_dropdown,
