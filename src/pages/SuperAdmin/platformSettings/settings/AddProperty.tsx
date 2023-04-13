@@ -168,51 +168,7 @@ const AddProperty = () => {
                             {mutation_loading ? 'Loading...' : 'Save Changes'}
                         </button>
                     </>
-                    <div className='grid gap-4 relative '>
-                        <label
-                            htmlFor='propertyType'
-                            className='text-[1.4rem] font-Satoshi-Medium'
-                        >
-                            Property Type
-                        </label>
-                        <input
-                            type='text'
-                            required
-                            id='propertyType'
-                            className='w-[40rem] rounded-lg border border-color-grey text-[1.6rem] outline-color-blue-1 py-4 px-4'
-                        />
-                    </div>
-                    <div className='grid gap-4 relative '>
-                        <label
-                            htmlFor='description'
-                            className='text-[1.4rem] font-Satoshi-Medium'
-                        >
-                            Description
-                        </label>
-                        <textarea
-                            required
-                            rows={4}
-                            id='description'
-                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-color-blue-1 py-4 px-4'
-                        />
-                        <p className=' text-[1.2rem] text-gray-400'>
-                            Maximum of 30 Characters
-                        </p>
-                    </div>
-
-                    <button
-                        className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg col-span-full mt-[10rem]'
-                        style={{ justifySelf: 'start' }}
-                    >
-                        <span>
-                            <img
-                                src='/icons/admins/saveDisk.svg'
-                                alt=''
-                                className='w-[1.7rem] h-[1.7rem]'
-                            />
-                        </span>{' '}
-                        Save Changes
-                    </button>
+    
                 </form>
             </div>
         </>
