@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useState } from 'react'
+import { Fragment, useEffect, useLayoutEffect, useState } from 'react'
 import AccountSettings from './settings/AccountSettings'
 import PropertyType from './settings/PropertyType'
 import PlatformChanges from './settings/PlatformChanges'
@@ -30,15 +30,18 @@ function PlatformSettings() {
     ] satisfies PathSwitch[]
 
     const { prevLocation } = PrevLocation()
+    let loaded = false
 
     let getLastPath = prevLocation.split('/').pop()
 
-    useEffect(() => {
+    useLayoutEffect(() => {
+        loaded = true
         if (getLastPath) {
-            let word = getLastPath.split(/(?=[A-Z])/).pop()?.toLowerCase()
+            getLastPath = getLastPath.replace(/([a-z])([A-Z])/g, '$1 $2')
+
+            let word = getLastPath.split(' ').pop()?.toLowerCase()
 
             paths.some((path) => {
-                console.log({path, word})
                 return (
                     path.replace('_', ' ').toLowerCase().includes(word!) &&
                     setCurrentPath(path)
@@ -47,7 +50,7 @@ function PlatformSettings() {
         }
     }, [getLastPath])
 
-    console.log(getLastPath)
+    console.log({ loaded })
 
     return (
         <div>
