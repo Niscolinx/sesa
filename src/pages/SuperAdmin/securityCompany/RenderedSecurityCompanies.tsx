@@ -487,23 +487,17 @@ function RenderedSecurityCompanies() {
                                                                                         )
                                                                                     }
                                                                                 >
-                                                                                    {item ===
-                                                                                        'activate' &&
-                                                                                    status ===
-                                                                                        1 ? (
+                                                                                    {status ===
+                                                                                    1 ? (
                                                                                         <span className='text-green-600'>
                                                                                             activate
                                                                                         </span>
-                                                                                    ) : item ===
-                                                                                          'deactivate' &&
-                                                                                      status ===
-                                                                                          0 ? (
+                                                                                    ) : status ===
+                                                                                      0 ? (
                                                                                         <span className='text-red-600'>
                                                                                             deactivate
                                                                                         </span>
                                                                                     ) : (
-                                                                                        item ===
-                                                                                            'view details' &&
                                                                                         item
                                                                                     )}
                                                                                 </p>
