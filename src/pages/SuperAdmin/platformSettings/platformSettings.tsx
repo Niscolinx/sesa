@@ -40,8 +40,9 @@ function PlatformSettings() {
         console.log({})
    }, [])
 
-   PrevLocation()
+  const {prevLocation} =  PrevLocation()
 
+  console.log({prevLocation})
     return (
         <div>
             <div className='estateDetail__radioBox'>

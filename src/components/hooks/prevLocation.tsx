@@ -3,16 +3,20 @@ import { useLocation } from 'react-router-dom'
 
 function PrevLocation() {
     const location = useLocation()
-     localStorage.setItem('prevPath', location.pathname)
-     const prevPath = localStorage.getItem('prevPath')
+    const storePath = localStorage.getItem('prevPath')
+    const prevPath = storePath ?? localStorage.setItem('prevPath', location.pathname)
 
-     const [prevLocation, setPrevLocation] = useState()
-     
-    if(prevPath !== location.pathname){
+    const [prevLocation, setPrevLocation] = useState<any>('')
 
-    }
+    useEffect(() => {
+        if (prevPath !== location.pathname) {
 
-    
+            setPrevLocation(prevPath)
+            localStorage.setItem('prevPath', location.pathname)
+        }
+    }, [location])
+
+    return {prevLocation}
 }
 
 export default PrevLocation
