@@ -29,7 +29,6 @@ const PlatformChanges = () => {
         url: '/platformsettings/generalsettings/get',
     })
 
-    console.log({ data })
 
     const {
         register,

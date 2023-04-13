@@ -9,34 +9,117 @@ export interface IPropertyType {
 }
 
 const PropertyType = () => {
-    const navigate = useNavigate()
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
-    const handleClose = () => {
+    const closeDialog = () => {
         if (dialogRef.current) {
             dialogRef.current.close()
         }
     }
 
-    const handleOpen = () => {
+    const openDialog = () => {
         if (dialogRef.current) {
             dialogRef.current.showModal()
         }
     }
 
-    const handleDeleteProperty = () => {
-        handleClose()
+  
 
-        toast('Property Deleted successfully', {
-            type: 'success',
-            className: 'bg-green-100 text-green-600 text-[1.4rem]',
-        })
-    }
+     type FormInputs = {
+         label: string
+         type: string
+         name: string
+         pre: string
+         tag: 'amount'
+     }
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault()
-    }
+     type ResponseMessage = {
+         className: string
+         displayMessage: string
+     }
+
+     type Inputs = {
+         kyr_validation: number
+         sms_notification: number
+     }
+
+     const { data, isLoading, error } = useFetchData({
+         url: '/platformsettings/generalsettings/get',
+     })
+
+     console.log({ data })
+
+     const {
+         register,
+         handleSubmit,
+         formState: { errors: formErrors },
+     } = useForm<Inputs>()
+
+     const [responseMessage, setResponseMessage] =
+         useState<ResponseMessage | null>(null)
+
+     const axiosInstance = useAxios()
+     const postSettings = (inputs: Inputs) => {
+         return axiosInstance({
+             url:
+                 data.length > 0
+                     ? `/platformsettings/generalsettings/update/${data[0].id}`
+                     : '/platformsettings/generalsettings/create',
+             method: data.length > 0 ? 'put' : 'post',
+             data: inputs,
+         })
+     }
+     const { mutate, isLoading: mutation_loading } = useMutation(postSettings, {
+         onSuccess: () => {
+             toast('Changes saved successfully', {
+                 type: 'success',
+                 className: 'bg-green-100 text-green-600 text-[1.4rem]',
+             })
+         },
+         onError: (err: any) => {
+             setResponseMessage({
+                 className: 'text-red-600',
+                 displayMessage: err?.response.data.message,
+             })
+         },
+     }) as any
+
+     const onSubmit = handleSubmit((data) => {
+         setResponseMessage(null)
+
+         const adminData = {
+             ...data,
+             transferable_fee: 30,
+         }
+
+         mutate(adminData)
+     })
+
+     if (isLoading) {
+         return <p>Loading...</p>
+     }
+
+     if (error) {
+         return <p>{error.message}</p>
+     }
+
+     const formInputs = [
+         {
+             label: 'kyr_validation',
+             name: 'kYR Validation',
+             type: 'number',
+             pre: 'Charges Per Validation',
+             tag: 'amount',
+         },
+         {
+             label: 'sms_notification',
+             name: 'SMS Notification',
+             type: 'number',
+             pre: 'Charges Per sms notification',
+             tag: 'amount',
+         },
+     ] satisfies FormInputs[]
 
     return (
         <>
@@ -52,7 +135,7 @@ const PropertyType = () => {
                         <div className='flex w-full justify-center gap-8'>
                             <button
                                 className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
-                                onClick={() => handleClose()}
+                                onClick={() => closeDialog()}
                             >
                                 Cancel
                             </button>
@@ -73,7 +156,7 @@ const PropertyType = () => {
 
                         <button
                             className='border border-red-600 px-16 py-4 flex items-center  rounded-lg gap-4'
-                            onClick={() => handleOpen()}
+                            onClick={() => openDialog()}
                         >
                             <img src='/icons/admins/delete.svg' alt='' />
                             <span className='text-red-600 text-[1.4rem] font-semibold'>
