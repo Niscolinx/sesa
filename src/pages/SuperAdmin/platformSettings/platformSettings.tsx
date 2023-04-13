@@ -12,7 +12,7 @@ type PathSwitch =
     | 'account_settings'
 
 function PlatformSettings() {
-    const locate = useLocation()
+    const location = useLocation()
 
     const [currentPath, setCurrentPath] =
         useState<PathSwitch>('platform_changes')
@@ -31,7 +31,7 @@ function PlatformSettings() {
         'account_settings',
     ] satisfies PathSwitch[]
 
-    // const {previousPath} = PrevLocation()
+   
 
     return (
         <div>
