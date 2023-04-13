@@ -82,7 +82,7 @@ function Estates() {
 
                   const type = isDialogOpen?.type
 
-                  toast(`${messageTitle} ${type + 'd'} successfully`, {
+                  toast(`Estate deactivated successfully`, {
                       type: 'success',
                       className: 'bg-green-100 text-green-600 text-[1.4rem]',
                   })

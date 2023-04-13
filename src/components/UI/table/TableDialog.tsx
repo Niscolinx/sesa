@@ -62,7 +62,7 @@ function TableDialog() {
 
                 const type = isDialogOpen?.type
 
-                toast(`${messageTitle} ${type + 'd'} successfully`, {
+                toast(`${messageTitle} ${type + 'd'} Successfully`, {
                     type: 'success',
                     className: 'bg-green-100 text-green-600 text-[1.4rem]',
                 })
