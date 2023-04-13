@@ -69,6 +69,8 @@ const ViewProperty = () => {
     }
 
     const postRequest = (inputs: Inputs) => {
+
+        console.log(inputs)
         return axiosInstance({
             url: `/platformsettings/propertytype/update/${property_id}`,
             method: 'put',
@@ -141,13 +143,11 @@ const ViewProperty = () => {
 
     const onSubmit = handleSubmit((data) => {
         setResponseMessage(null)
-
-        const adminData = {
-            ...data,
+        const updateData = {
+            property_type: 'sd',
+            description: 'sd'
         }
-
-        console.log({adminData})
-        post_mutation(adminData)
+        post_mutation(data)
     })
 
     if (isLoading) {
