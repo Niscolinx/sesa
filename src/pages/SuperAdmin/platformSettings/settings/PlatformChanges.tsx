@@ -29,7 +29,7 @@ const PlatformChanges = () => {
         url: '/platformsettings/generalsettings/get',
     })
 
-    console.log({data})
+    console.log({ data })
 
     const {
         register,
@@ -45,7 +45,7 @@ const PlatformChanges = () => {
         return axiosInstance({
             url:
                 data.length > 0
-                    ? `/platformsettings/generalsettings/update/${data.id}`
+                    ? `/platformsettings/generalsettings/update/${data[0].id}`
                     : '/platformsettings/generalsettings/create',
             method: data.length > 0 ? 'put' : 'post',
             data: inputs,
@@ -67,7 +67,8 @@ const PlatformChanges = () => {
     }) as any
 
     const onSubmit = handleSubmit((data) => {
-        const { sms_notification, kyr_validation } = data
+
+        setResponseMessage(null)
 
         const adminData = {
             ...data,
@@ -135,6 +136,7 @@ const PlatformChanges = () => {
                                     register={register}
                                     formErrors={formErrors}
                                     type={type}
+                                    minLength={0}
                                     name={name}
                                 />
                             )

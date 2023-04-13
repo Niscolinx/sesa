@@ -134,7 +134,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                     </div>
                 </>
             )}
-            {!formErrors && pre && (
+            { !formErrors[label] && pre && (
                 <p className=' text-[1.2rem] text-gray-400'>
                     {pre}
                 </p>
