@@ -19,8 +19,10 @@ interface Input {
     formErrors: any
     disabled?: boolean
     value?: any
+    tag?: string
     options: any
     required?: boolean
+    pre?: string
     minLength?: number
     fullWidth: boolean
     isSelect: boolean
@@ -35,8 +37,10 @@ const Input: FC<Partial<Input> & { label: string }> = ({
     type = 'text',
     register,
     isSelect,
+    pre,
     fullWidth,
     disabled,
+    tag,
     select,
     selectFormErrors,
     required = true,
@@ -101,7 +105,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                     <div
                         className={`relative flex items-center border border-color-grey pl-4 rounded-lg w-full `}
                     >
-                        {label.toLowerCase() === 'amount' && (
+                        {label.toLowerCase() === 'amount' || tag === 'amount' && (
                             <img
                                 src='/icons/Naira.svg'
                                 alt=''
@@ -130,7 +134,11 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                     </div>
                 </>
             )}
-
+            {!formErrors && pre && (
+                <p className=' text-[1.2rem] text-gray-400'>
+                    {pre}
+                </p>
+            )}
             {formErrors && formErrors[label] && (
                 <p className='text-[1.2rem] text-red-500'>
                     {formErrors[label].type === 'required' ? (

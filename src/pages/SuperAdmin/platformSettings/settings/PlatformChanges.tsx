@@ -2,19 +2,34 @@ import { FormEvent, useState } from 'react'
 import { toast, ToastContainer } from 'react-toastify'
 import useFetchData from '../../../../utils/useFetchData'
 import Input from '../../../../components/UI/input/Input'
+import { useForm } from 'react-hook-form'
+import { useMutation } from 'react-query'
+import useAxios from '../../../../components/hooks/useAxios'
 
 const PlatformChanges = () => {
+    type FormInputs = {
+        label: string
+        type: string
+        name: string
+        pre: string
+        tag: 'amount'
+    }
 
- type FormInputs = {
-     label?: string
-     type?: string
-     name?: string
- }
+    type ResponseMessage = {
+        className: string
+        displayMessage: string
+    }
 
-    const {data, isLoading, error} = useFetchData({
+    type Inputs = {
+        kyr_validation: number
+        sms_notification: number
+    }
+
+    const { data, isLoading, error } = useFetchData({
         url: '/platformsettings/generalsettings/get',
     })
 
+    console.log({data})
 
     const {
         register,
@@ -25,18 +40,23 @@ const PlatformChanges = () => {
     const [responseMessage, setResponseMessage] =
         useState<ResponseMessage | null>(null)
 
-    const postAdmin = (data: Inputs) => {
+    const axiosInstance = useAxios()
+    const postSettings = (inputs: Inputs) => {
         return axiosInstance({
-            url: '/admin/create',
-            method: 'post',
-            data,
-
-            headers: { 'Content-Type': 'multipart/form-data' },
+            url:
+                data.length > 0
+                    ? `/platformsettings/generalsettings/update/${data.id}`
+                    : '/platformsettings/generalsettings/create',
+            method: data.length > 0 ? 'put' : 'post',
+            data: inputs,
         })
     }
-    const { mutate, isLoading } = useMutation(postAdmin, {
+    const { mutate, isLoading: mutation_loading } = useMutation(postSettings, {
         onSuccess: () => {
-            handleOpen()
+            toast('Changes saved successfully', {
+                type: 'success',
+                className: 'bg-green-100 text-green-600 text-[1.4rem]',
+            })
         },
         onError: (err: any) => {
             setResponseMessage({
@@ -47,54 +67,38 @@ const PlatformChanges = () => {
     }) as any
 
     const onSubmit = handleSubmit((data) => {
-        const { first_name, last_name, dob, email_address, phone_number } = data
+        const { sms_notification, kyr_validation } = data
 
         const adminData = {
-            name: `${first_name} ${last_name}`,
-            gender: selectedGender,
-            dob,
-            email: email_address,
-            address: 'no 4 odeyim street',
-            phone: `+234${phone_number}`,
-            image: imageFile,
+            ...data,
+            transferable_fee: 30,
         }
 
         mutate(adminData)
     })
 
-
-    interface Input {
-        kyr_validation: number
-        sms_notification: number
-    }
-
-
-    const handleSubmit = (e: FormEvent) => {
-        e.preventDefault()
-
-        toast('Changes saved successfully', {
-            type: 'success',
-            className: 'bg-green-100 text-green-600 text-[1.4rem]',
-        })
-    }
-
-
-    if(isLoading){
+    if (isLoading) {
         return <p>Loading...</p>
     }
 
-    if(error){
+    if (error) {
         return <p>{error.message}</p>
     }
 
     const formInputs = [
         {
             label: 'kyr_validation',
-            type: 'number'
+            name: 'kYR Validation',
+            type: 'number',
+            pre: 'Charges Per Validation',
+            tag: 'amount',
         },
         {
             label: 'sms_notification',
-            type: 'number'
+            name: 'SMS Notification',
+            type: 'number',
+            pre: 'Charges Per sms notification',
+            tag: 'amount',
         },
     ] satisfies FormInputs[]
 
@@ -104,8 +108,15 @@ const PlatformChanges = () => {
             <div className='p-8 bg-white h-[80vh] rounded-lg'>
                 <h2 className='heading2 border-b pb-10'>Platform Changes</h2>
 
+                {responseMessage?.displayMessage && (
+                    <p className='text-center'>
+                        <span className={responseMessage?.className}>
+                            {responseMessage?.displayMessage}
+                        </span>
+                    </p>
+                )}
                 <form
-                    onSubmit={handleSubmit}
+                    onSubmit={onSubmit}
                     className='grid max-w-[84rem] gap-16 mt-12 items-center'
                     style={{
                         gridTemplateColumns:
@@ -114,95 +125,35 @@ const PlatformChanges = () => {
                 >
                     <>
                         {formInputs.map((input, idx) => {
-                            const { label, type, name, selectProps } = input
+                            const { label, type, name, pre, tag } = input
                             return (
                                 <Input
                                     key={idx + label}
                                     label={label}
+                                    pre={pre}
+                                    tag={tag}
                                     register={register}
                                     formErrors={formErrors}
                                     type={type}
                                     name={name}
-                                    isSelect={type === 'select'}
-                                    select={selectProps}
                                 />
                             )
                         })}
 
-                        <ImageInput
-                            handlePicture={handlePicture}
-                            photoPreview={photoPreview}
-                        />
-                        <button className='btn justify-self-start btn-blue'>
+                        <button
+                            className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg col-span-full mt-[10rem]'
+                            style={{ justifySelf: 'start' }}
+                        >
                             <span>
-                                <IoMdAdd />
+                                <img
+                                    src='/icons/admins/saveDisk.svg'
+                                    alt=''
+                                    className='w-[1.7rem] h-[1.7rem]'
+                                />
                             </span>{' '}
-                            {isLoading ? 'Loading...' : 'Add'}
+                            {mutation_loading ? 'Loading...' : 'Save Changes'}
                         </button>
                     </>
-
-                    <div>
-                        <label htmlFor='KYR'>
-                            <p className='text-[1.4rem] font-Satoshi-Medium'>
-                                KYR Validation
-                            </p>
-                        </label>
-                        <div className='relative flex items-center'>
-                            <img
-                                src='/icons/Naira.svg'
-                                alt=''
-                                className='absolute left-3'
-                            />
-                            <input
-                                type='number'
-                                required
-                                placeholder='40'
-                                id='description'
-                                className='border pl-8 border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem]'
-                            />
-                        </div>
-                        <p className=' text-[1.2rem] text-gray-400'>
-                            Charges Per Validation
-                        </p>
-                    </div>
-                    <div>
-                        <label htmlFor='KYR'>
-                            <p className='text-[1.4rem] font-Satoshi-Medium'>
-                                SMS Notification
-                            </p>
-                        </label>
-                        <div className='relative flex items-center'>
-                            <img
-                                src='/icons/Naira.svg'
-                                alt=''
-                                className='absolute left-3'
-                            />
-                            <input
-                                type='number'
-                                required
-                                placeholder='40'
-                                id='description'
-                                className='border pl-8 border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem]'
-                            />
-                        </div>
-                        <p className=' text-[1.2rem] text-gray-400'>
-                            Charges Per sms notification
-                        </p>
-                    </div>
-
-                    <button
-                        className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg col-span-full mt-[10rem]'
-                        style={{ justifySelf: 'start' }}
-                    >
-                        <span>
-                            <img
-                                src='/icons/admins/saveDisk.svg'
-                                alt=''
-                                className='w-[1.7rem] h-[1.7rem]'
-                            />
-                        </span>{' '}
-                        Save Changes
-                    </button>
                 </form>
             </div>
         </>
