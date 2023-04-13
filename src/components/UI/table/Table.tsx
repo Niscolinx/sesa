@@ -15,7 +15,7 @@ interface Table {
     add_page_url?: string
     is_add_btn?: boolean
     isCategory?: boolean
-    deactivateProp: { url: string; tag?: string }
+    deactivateProp?: { url: string; tag?: string }
     data_to_display: string[]
     nested?: boolean
     delete_item_url?: string

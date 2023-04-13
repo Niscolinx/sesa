@@ -123,9 +123,8 @@ const ResidentBalance = () => {
             <Table
                 fetch_url={'/admin/get/wallet/resident'}
                 title={'residentBalance'}
-                THeader={['resident name', 'amount', 'date']}
-                data_to_display={['resident name', 'amount', 'created_at']}
-                deactivateProp={{ url: 'change/user/status' }}
+                THeader={['resident name', 'amount', 'created at']}
+                data_to_display={['resident name', 'balance', 'created_at']}
             />
         </div>
     )
@@ -161,7 +160,7 @@ const ResidentWallet = () => {
 
     const handlePathSwitch = new Map([
         ['transaction-history', <TransactionHistory />],
-        ['resident-balance', <></>],
+        ['resident-balance', <ResidentBalance/>],
     ]) satisfies Map<Path, JSX.Element>
 
     return (
