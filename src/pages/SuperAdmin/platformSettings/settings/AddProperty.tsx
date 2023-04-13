@@ -52,6 +52,7 @@ const AddProperty = () => {
     const {
         register,
         handleSubmit,
+        reset,
         formState: { errors: formErrors },
     } = useForm<Inputs>()
 
@@ -75,6 +76,8 @@ const AddProperty = () => {
                 type: 'success',
                 className: 'bg-green-100 text-green-600 text-[1.4rem]',
             })
+
+            reset()
         },
         onError: (err: any) => {
             setResponseMessage({
