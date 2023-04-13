@@ -41,7 +41,7 @@ function PlatformSettings() {
                             checked={path === currentPath}
                             onChange={() => setCurrentPath(path)}
                         />
-                        <label htmlFor='platformChanges' className='capitalize'>
+                        <label htmlFor={path} className='capitalize'>
                             {path.replace('_', ' ')}
                         </label>
                     </Fragment>
