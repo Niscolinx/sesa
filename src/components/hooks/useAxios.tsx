@@ -14,7 +14,7 @@ function useAxios() {
     })
 
     useEffect(() => {
-        const requestInterceptor = axiosInstance.interceptors.request.use(
+       axiosInstance.interceptors.request.use(
             (config) => {
                 const token = getToken()
                 if (token) {
@@ -28,15 +28,12 @@ function useAxios() {
             (error) => Promise.reject(error)
         )
 
-        const responseInterceptor = axiosInstance.interceptors.response.use(
+        axiosInstance.interceptors.response.use(
             (response) => response.data,
             (error) => Promise.reject(error)
         )
 
-        // return () => {
-        //     axiosInstance.interceptors.request.eject(requestInterceptor)
-        //   //  axiosInstance.interceptors.response.eject(responseInterceptor)
-        // }
+      
     }, [dispatch, axiosInstance])
 
     return axiosInstance
