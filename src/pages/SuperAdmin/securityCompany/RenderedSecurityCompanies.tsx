@@ -477,41 +477,44 @@ function RenderedSecurityCompanies() {
                                                                             (
                                                                                 item,
                                                                                 index
-                                                                            ) => (
-                                                                                <p
-                                                                                    className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
-                                                                                    key={
-                                                                                        index +
-                                                                                        id
-                                                                                    }
-                                                                                    onClick={(
-                                                                                        e
-                                                                                    ) =>
-                                                                                        handleSelectedAction(
-                                                                                            item,
-                                                                                            id.toString()
-                                                                                        )
-                                                                                    }
-                                                                                >
-                                                                                    {item ===
-                                                                                    'activate' ? (
-                                                                                        <span className='text-green-600'>
-                                                                                            {
-                                                                                                item
-                                                                                            }
-                                                                                        </span>
-                                                                                    ) : item ===
-                                                                                      'deactivate' ? (
-                                                                                        <span className='text-red-600'>
-                                                                                            {
-                                                                                                item
-                                                                                            }
-                                                                                        </span>
-                                                                                    ) : (
-                                                                                        item
-                                                                                    )}
-                                                                                </p>
-                                                                            )
+                                                                            ) => {
+                                                                                console.log({item})
+                                                                                return (
+                                                                                    <p
+                                                                                        className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
+                                                                                        key={
+                                                                                            index +
+                                                                                            id
+                                                                                        }
+                                                                                        onClick={(
+                                                                                            e
+                                                                                        ) =>
+                                                                                            handleSelectedAction(
+                                                                                                item,
+                                                                                                id.toString()
+                                                                                            )
+                                                                                        }
+                                                                                    >
+                                                                                        {item ===
+                                                                                        'activate' ? (
+                                                                                            <span className='text-green-600'>
+                                                                                                {
+                                                                                                    item
+                                                                                                }
+                                                                                            </span>
+                                                                                        ) : item ===
+                                                                                          'deactivate' ? (
+                                                                                            <span className='text-red-600'>
+                                                                                                {
+                                                                                                    item
+                                                                                                }
+                                                                                            </span>
+                                                                                        ) : (
+                                                                                            item
+                                                                                        )}
+                                                                                    </p>
+                                                                                )
+                                                                            }
                                                                         )}
                                                                     </div>
                                                                 )}
