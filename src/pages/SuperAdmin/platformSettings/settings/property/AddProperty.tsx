@@ -174,7 +174,7 @@ const AddProperty = () => {
                         >
                             <img src='/icons/admins/delete.svg' alt='' />
                             <span className='text-red-600 text-[1.4rem] font-semibold capitalize'>
-                                {mutation_loading ? 'Loading...' : 'delete'}
+                                {delete_loading ? 'Loading...' : 'delete'}
                             </span>
                         </button>
                     </div>
