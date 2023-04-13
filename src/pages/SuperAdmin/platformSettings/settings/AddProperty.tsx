@@ -1,5 +1,4 @@
-import React, { useRef, useState } from 'react'
-import { useNavigate } from 'react-router'
+import { useRef, useState } from 'react'
 import { toast, ToastContainer } from 'react-toastify'
 import useFetchData from '../../../../utils/useFetchData'
 import { useMutation } from 'react-query'
