@@ -67,6 +67,7 @@ const ViewProperty = () => {
             url: `/platformsettings/propertytype/getbyid/${property_id}`,
         })
     }
+
     const postRequest = (inputs: Inputs) => {
         return axiosInstance({
             url: `/platformsettings/propertytype/update/${property_id}`,
@@ -135,7 +136,7 @@ const ViewProperty = () => {
             ...data,
         }
 
-        delete_mutation(adminData)
+        post_mutation(adminData)
     })
 
     if (isLoading) {
@@ -252,7 +253,7 @@ const ViewProperty = () => {
                                     className='w-[1.7rem] h-[1.7rem]'
                                 />
                             </span>{' '}
-                            {delete_loading ? 'Loading...' : 'Save'}
+                            {post_loading ? 'Loading...' : 'Save'}
                         </button>
                     </>
                 </form>
