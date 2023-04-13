@@ -43,12 +43,12 @@ const ViewProperty = () => {
         displayMessage: string
     }
 
-    type Inputs = {
-        kyr_validation: number
-        sms_notification: number
-    }
+   type Inputs = {
+       property_type: string
+       description: string
+   }
 
-    const { data, isLoading, error } = useFetchData({
+    const { data, isLoading, error, } = useFetchData({
         url: `/platformsettings/propertytype/getbyid/${property_id}`,
     })
 
@@ -117,6 +117,16 @@ const ViewProperty = () => {
 
     if (error) {
         return <p>{error.message}</p>
+    }
+
+    if(data){
+         const { property_type, description } = data
+         
+
+         reset({
+             property_type,
+             description
+         })
     }
 
     const formInputs = [

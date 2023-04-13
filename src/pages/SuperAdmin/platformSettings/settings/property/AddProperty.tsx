@@ -28,8 +28,8 @@ const AddProperty = () => {
     }
 
     type Inputs = {
-        kyr_validation: number
-        sms_notification: number
+        property_type: string
+        description: string
     }
 
     const {
