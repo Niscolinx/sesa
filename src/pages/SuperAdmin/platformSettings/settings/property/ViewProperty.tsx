@@ -80,23 +80,6 @@ const ViewProperty = () => {
         })
     }
 
-    const { mutate, isLoading: mutation_loading } = useMutation(postRequest, {
-        onSuccess: () => {
-            toast(`Property added successfully`, {
-                type: 'success',
-                className:
-                    'bg-green-100 text-green-600 text-[1.4rem] capitalize',
-            })
-
-            reset()
-        },
-        onError: (err: any) => {
-            setResponseMessage({
-                className: 'text-red-600',
-                displayMessage: err?.response.data.message,
-            })
-        },
-    }) as any
 
     const { mutate: delete_mutation, isLoading: delete_loading } = useMutation(
         postDelete,
@@ -126,7 +109,7 @@ const ViewProperty = () => {
             ...data,
         }
 
-        mutate(adminData)
+        delete_mutation(adminData)
     })
 
     if (property_id) {
