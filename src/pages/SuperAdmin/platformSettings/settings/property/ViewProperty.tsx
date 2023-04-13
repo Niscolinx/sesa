@@ -206,7 +206,7 @@ const ViewProperty = () => {
             <div className='grid text-[1.6rem] border rounded-lg bg-white'>
                 <div className=' p-10  rounded-lg '>
                     <div className='flex w-full border-b items-center pb-5 justify-between'>
-                        <h2 className='heading2'>{JSON.stringify(data)}</h2>
+                        <h2 className='heading2'>{data?.data.property_type}</h2>
 
                         <button
                             className='border border-red-600 px-16 py-4 flex items-center  rounded-lg gap-4'
