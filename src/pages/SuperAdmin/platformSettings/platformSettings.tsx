@@ -34,7 +34,6 @@ function PlatformSettings() {
     let getLastPath = prevLocation.split('/').pop()
 
     useLayoutEffect(() => {
-        console.log('useEffect')
         if (getLastPath) {
             getLastPath = getLastPath.replace(/([a-z])([A-Z])/g, '$1 $2')
 
@@ -53,8 +52,8 @@ function PlatformSettings() {
     return (
         <div>
            
-                <>
-                    {' '}
+            
+                
                     <div className='estateDetail__radioBox'>
                         {paths.map((path) => (
                             <Fragment key={path}>
