@@ -43,12 +43,12 @@ const ViewProperty = () => {
         displayMessage: string
     }
 
-   type Inputs = {
-       property_type: string
-       description: string
-   }
+    type Inputs = {
+        property_type: string
+        description: string
+    }
 
-    const { data, isLoading, error, } = useFetchData({
+    const { data, isLoading, error } = useFetchData({
         url: `/platformsettings/propertytype/getbyid/${property_id}`,
     })
 
@@ -80,6 +80,27 @@ const ViewProperty = () => {
         })
     }
 
+    const { mutate: post_mutation, isLoading: post_loading } = useMutation(
+        postRequest,
+        {
+            onSuccess: () => {
+                toast(`Property Updated successfully`, {
+                    type: 'success',
+                    className:
+                        'bg-green-100 text-green-600 text-[1.4rem] capitalize',
+                })
+
+                reset()
+            },
+            onError: (err: any) => {
+                setResponseMessage({
+                    className: 'text-red-600',
+                    displayMessage: err?.response.data.message,
+                })
+            },
+        }
+    ) as any
+
     const { mutate: delete_mutation, isLoading: delete_loading } = useMutation(
         postDelete,
         {
@@ -91,6 +112,7 @@ const ViewProperty = () => {
                 })
 
                 reset()
+                closeDialog()
             },
             onError: (err: any) => {
                 setResponseMessage({
@@ -119,14 +141,13 @@ const ViewProperty = () => {
         return <p>{error.message}</p>
     }
 
-    if(data){
-         const { property_type, description } = data
-         
+    if (data) {
+        const { property_type, description } = data
 
-         reset({
-             property_type,
-             description
-         })
+        reset({
+            property_type,
+            description,
+        })
     }
 
     const formInputs = [
@@ -143,24 +164,50 @@ const ViewProperty = () => {
     return (
         <>
             <ToastContainer />
+            <dialog className='dialog' ref={dialogRef}>
+                <section className='grid place-content-center w-full h-[100vh]'>
+                    <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8 relative'>
+                        <img
+                            src='/icons/admins/modalDeactivate.svg'
+                            alt=''
+                            className='animate__animated animate__pulse '
+                            style={{
+                                animationIterationCount: 'infinite',
+                            }}
+                        />
+                        <p>Are you sure you want to delete this Property?</p>
 
+                        <div className='flex w-full justify-center gap-8'>
+                            <button
+                                className='btn bg-white text-[#0556E5] border-[#0556E5] border rounded-lg w-[15rem]'
+                                onClick={closeDialog}
+                            >
+                                Cancel
+                            </button>
+                            <button
+                                className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem] capitalize'
+                                onClick={() => delete_mutation()}
+                            >
+                                {delete_loading ? 'Loading...' : 'delete'}
+                            </button>
+                        </div>
+                    </div>
+                </section>
+            </dialog>
             <div className='grid text-[1.6rem] border rounded-lg bg-white'>
                 <div className=' p-10  rounded-lg '>
                     <div className='flex w-full border-b items-center pb-5 justify-between'>
-                        <h2 className='heading2'>
-                            {data?.property_type}
-                        </h2>
-                       
-                            <button
-                                className='border border-red-600 px-16 py-4 flex items-center  rounded-lg gap-4'
-                                onClick={() => delete_mutation()}
-                            >
-                                <img src='/icons/admins/delete.svg' alt='' />
-                                <span className='text-red-600 text-[1.4rem] font-semibold capitalize'>
-                                    {delete_loading ? 'Loading...' : 'delete'}
-                                </span>
-                            </button>
-                      
+                        <h2 className='heading2'>{data?.property_type}</h2>
+
+                        <button
+                            className='border border-red-600 px-16 py-4 flex items-center  rounded-lg gap-4'
+                            onClick={openDialog}
+                        >
+                            <img src='/icons/admins/delete.svg' alt='' />
+                            <span className='text-red-600 text-[1.4rem] font-semibold capitalize'>
+                                delete
+                            </span>
+                        </button>
                     </div>
                 </div>
                 {responseMessage?.displayMessage && (
