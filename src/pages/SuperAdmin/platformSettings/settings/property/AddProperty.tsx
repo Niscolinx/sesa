@@ -5,7 +5,7 @@ import { useMutation } from 'react-query'
 import { useForm } from 'react-hook-form'
 import useAxios from '../../../../../components/hooks/useAxios'
 import Input from '../../../../../components/UI/input/Input'
-import { useParams } from 'react-router'
+import { useLocation, useParams } from 'react-router'
 import { useSearchParams } from 'react-router-dom'
 
 export interface IPropertyType {
@@ -16,9 +16,9 @@ export interface IPropertyType {
 
 const AddProperty = () => {
     const params = useParams()
-    const [param, searchParam] = useSearchParams()
+    const location = useLocation()
 
-    console.log({param, searchParam})
+    console.log({location})
     
     
     const property_id = params.id?.replace(':', '')
