@@ -1,6 +1,10 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import { useNavigate } from 'react-router'
 import { toast, ToastContainer } from 'react-toastify'
+import useFetchData from '../../../../utils/useFetchData'
+import { useMutation } from 'react-query'
+import { useForm } from 'react-hook-form'
+import useAxios from '../../../../components/hooks/useAxios'
 
 export interface IPropertyType {
     id: string
@@ -85,6 +89,7 @@ const PropertyType = () => {
          },
      }) as any
 
+
      const onSubmit = handleSubmit((data) => {
          setResponseMessage(null)
 
@@ -168,7 +173,7 @@ const PropertyType = () => {
 
                 <form
                     className='grid gap-8 mt-8 p-8 max-w-[60rem]'
-                    onSubmit={handleSubmit}
+                    onSubmit={onSubmit}
                 >
                     <div className='grid gap-4 relative '>
                         <label
