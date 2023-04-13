@@ -471,14 +471,14 @@ function RenderedSecurityCompanies() {
                                                                             ...actions,
                                                                             status ===
                                                                             1
-                                                                                ? 'activate'
-                                                                                : 'deactivate',
+                                                                                ? 'deactivate'
+                                                                                : 'activate',
                                                                         ].map(
                                                                             (
                                                                                 item,
                                                                                 index
                                                                             ) => {
-                                                                                console.log({item})
+                                                                              
                                                                                 return (
                                                                                     <p
                                                                                         className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
