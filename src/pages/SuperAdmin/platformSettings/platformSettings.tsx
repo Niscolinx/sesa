@@ -4,7 +4,6 @@ import PropertyType from './settings/AddProperty'
 import PlatformChanges from './settings/PlatformChanges'
 import SOSTable from './settings/SOSTable'
 
-
 type PathSwitch =
     | 'platform_changes'
     | 'property_type'
@@ -12,75 +11,45 @@ type PathSwitch =
     | 'account_settings'
 
 function PlatformSettings() {
-    const [pathToSwitch, setPathToSwitch] =
+    const [currentPath, setCurrentPath] =
         useState<PathSwitch>('platform_changes')
 
-    const handlePathSwitch: Record<PathSwitch, JSX.Element> = {
-        platform_changes: <PlatformChanges />,
-        property_type: <PropertyType />,
-        SOS_table: <SOSTable />,
-        account_settings: <AccountSettings />,
-    }
-
+    const handlePathSwitch = new Map([
+        ['platform_changes', <PlatformChanges />],
+        ['property_type', <PropertyType />],
+        ['SOS_table', <SOSTable />],
+        ['account_settings', <AccountSettings />],
+    ]) satisfies Map<PathSwitch, JSX.Element>
 
     const paths = [
         'platform_changes',
         'property_type',
         'SOS_table',
-        'account_settings'
+        'account_settings',
     ] satisfies PathSwitch[]
 
     return (
         <div>
             <div className='estateDetail__radioBox'>
-
-                    {
-                        paths.map((path) => (
-                            <Fragment key={path}>
-                                
-                            </Fragment>
-                        ))
-                    }
-                <input
-                    type='radio'
-                    name='platform'
-                    id='platformChanges'
-                    className='hidden'
-                    defaultChecked
-                    onChange={() => setPathToSwitch('platformChanges')}
-                />
-                <label htmlFor='platformChanges' className='capitalize'>
-                    Platform Changes
-                </label>
-
-                <input
-                    type='radio'
-                    name='platform'
-                    id='propertyType'
-                    className='hidden'
-                    onChange={() => setPathToSwitch('propertyType')}
-                />
-                <label htmlFor='propertyType'>Property Type</label>
-                <input
-                    type='radio'
-                    name='platform'
-                    id='SOSTable'
-                    className='hidden'
-                    onChange={() => setPathToSwitch('SOSTable')}
-                />
-                <label htmlFor='SOSTable'>SOS Table</label>
-                <input
-                    type='radio'
-                    name='platform'
-                    id='accountSettings'
-                    className='hidden'
-                    onChange={() => setPathToSwitch('accountSettings')}
-                />
-                <label htmlFor='accountSettings'>Account Settings</label>
+                {paths.map((path) => (
+                    <Fragment key={path}>
+                        <input
+                            type='radio'
+                            name='platform'
+                            id={path}
+                            className='hidden'
+                            checked={path === currentPath}
+                            onChange={() => setCurrentPath(path)}
+                        />
+                        <label htmlFor='platformChanges' className='capitalize'>
+                            {path.replace('_', ' ')}
+                        </label>
+                    </Fragment>
+                ))}
             </div>
             <div className='mt-8 grid gap-8'>
                 <section className='bg-color-white rounded-lg border min-w-[112rem] overflow-scroll'>
-                    {handlePathSwitch[pathToSwitch]}
+                    {handlePathSwitch.get(currentPath)}
                 </section>
             </div>
         </div>
