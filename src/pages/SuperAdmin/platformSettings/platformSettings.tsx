@@ -3,7 +3,8 @@ import AccountSettings from './settings/AccountSettings'
 import PropertyType from './settings/PropertyType'
 import PlatformChanges from './settings/PlatformChanges'
 import SOSTable from './settings/SOSTable'
-import { useParams } from 'react-router'
+import {useLocation, useNavigate} from 'react-router-dom'
+
 
 type PathSwitch =
     | 'platform_changes'
@@ -12,7 +13,11 @@ type PathSwitch =
     | 'account_settings'
 
 function PlatformSettings() {
-    const location = useParams()
+    const location = useLocation()
+    const navigate = useNavigate()
+
+    console.log({location})
+    
     const [currentPath, setCurrentPath] =
         useState<PathSwitch>('platform_changes')
 
@@ -41,6 +46,7 @@ function PlatformSettings() {
     return (
         <div>
             <div className='estateDetail__radioBox'>
+                <button onClick={() => navigate(-1)}>click </button>
                 {paths.map((path) => (
                     <Fragment key={path}>
                         <input
