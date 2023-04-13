@@ -70,7 +70,8 @@ const AddProperty = () => {
         useState<ResponseMessage | null>(null)
 
     const axiosInstance = useAxios()
-    const postSettings = (inputs: Inputs) => {
+
+    const postRequest = (inputs: Inputs) => {
         return axiosInstance({
             url:
                 data.length > 0
@@ -80,11 +81,38 @@ const AddProperty = () => {
             data: inputs,
         })
     }
-    const { mutate, isLoading: mutation_loading } = useMutation(postSettings, {
+
+    const postDelete = () => {
+        return axiosInstance({
+            url: '/change/status',
+            method: 'post',
+            data: {id: property_id},
+        })
+    }
+
+
+    const { mutate, isLoading: mutation_loading } = useMutation(postRequest, {
         onSuccess: () => {
-            toast('Property Added successfully', {
+            toast(`Property added successfully`, {
                 type: 'success',
-                className: 'bg-green-100 text-green-600 text-[1.4rem]',
+                className: 'bg-green-100 text-green-600 text-[1.4rem] capitalize',
+            })
+
+            reset()
+        },
+        onError: (err: any) => {
+            setResponseMessage({
+                className: 'text-red-600',
+                displayMessage: err?.response.data.message,
+            })
+        },
+    }) as any
+
+    const { mutate: delete_mutation, isLoading: delete_loading } = useMutation(postDelete, {
+        onSuccess: () => {
+            toast(`Property deleted successfully`, {
+                type: 'success',
+                className: 'bg-green-100 text-green-600 text-[1.4rem] capitalize',
             })
 
             reset()
@@ -133,15 +161,19 @@ const AddProperty = () => {
             <div className='grid text-[1.6rem] border rounded-lg bg-white'>
                 <div className=' p-10  rounded-lg '>
                     <div className='flex w-full border-b items-center pb-5 justify-between'>
-                        <h2 className='heading2'>Property Type</h2>
+                        <h2 className='heading2'>
+
+                            
+
+                        </h2>
 
                         <button
                             className='border border-red-600 px-16 py-4 flex items-center  rounded-lg gap-4'
-                            onClick={() => openDialog()}
+                            onClick={() => delete_mutation()}
                         >
                             <img src='/icons/admins/delete.svg' alt='' />
-                            <span className='text-red-600 text-[1.4rem] font-semibold'>
-                                Delete
+                            <span className='text-red-600 text-[1.4rem] font-semibold capitalize'>
+                                {mutation_loading ? 'Loading...' : 'delete'}
                             </span>
                         </button>
                     </div>
