@@ -3,7 +3,7 @@ import { toast, ToastContainer } from 'react-toastify'
 import useFetchData from '../../../../utils/useFetchData'
 import Input from '../../../../components/UI/input/Input'
 import { useForm } from 'react-hook-form'
-import { useMutation } from 'react-query'
+import { useMutation, useQuery } from 'react-query'
 import useAxios from '../../../../components/hooks/useAxios'
 
 const PlatformChanges = () => {
@@ -25,14 +25,32 @@ const PlatformChanges = () => {
         sms_notification: number
     }
 
-    const { data, isLoading, error } = useFetchData({
-        url: '/platformsettings/generalsettings/get',
-    })
+    const get_request = () => {
+        return axiosInstance({
+            url: '/platformsettings/generalsettings/get',
+        })
+    }
 
+    const { isLoading, data, error } = useQuery(
+        'platformChanges',
+        get_request,
+        {
+            onSuccess: ({ data }) => {
+                console.log({ data })
+                const { kyr_validation, sms_notification } = data
+
+                reset({
+                    kyr_validation,
+                    sms_notification,
+                })
+            },
+        }
+    ) as any
 
     const {
         register,
         handleSubmit,
+        reset,
         formState: { errors: formErrors },
     } = useForm<Inputs>()
 
@@ -66,7 +84,6 @@ const PlatformChanges = () => {
     }) as any
 
     const onSubmit = handleSubmit((data) => {
-
         setResponseMessage(null)
 
         const adminData = {
