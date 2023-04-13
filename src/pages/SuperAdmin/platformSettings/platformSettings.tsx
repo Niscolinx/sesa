@@ -14,10 +14,7 @@ type PathSwitch =
     | 'account_settings'
 
 function PlatformSettings() {
-    const location = useLocation()
-    const router = BrowserRouter({})
 
-    console.log({router})
 
     const [currentPath, setCurrentPath] =
         useState<PathSwitch>('platform_changes')
@@ -36,10 +33,7 @@ function PlatformSettings() {
         'account_settings',
     ] satisfies PathSwitch[]
 
-   useEffect(() => {
-        console.log({})
-   }, [])
-
+ 
   const {prevLocation} =  PrevLocation()
 
   console.log({prevLocation})
