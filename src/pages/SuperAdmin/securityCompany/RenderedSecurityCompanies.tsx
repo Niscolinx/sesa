@@ -471,8 +471,8 @@ function RenderedSecurityCompanies() {
                                                                             ...actions,
                                                                             status ===
                                                                             1
-                                                                                ? 'deactivate'
-                                                                                : 'activate',
+                                                                                ? 'activate'
+                                                                                : 'deactivate',
                                                                         ].map(
                                                                             (
                                                                                 item,

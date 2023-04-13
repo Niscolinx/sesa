@@ -451,18 +451,22 @@ function Estates() {
                                                                                     )
                                                                                 }
                                                                             >
-                                                                                {status ===
-                                                                                1 ? (
+                                                                                {item ===
+                                                                                'deactivate'? (
                                                                                     <span className='text-red-600'>
                                                                                         {
                                                                                             item
                                                                                         }
                                                                                     </span>
-                                                                                ) : (
+                                                                                ) : item === 'activate' ? (
                                                                                     <span className='text-green-600'>
                                                                                         {
                                                                                             item
                                                                                         }
+                                                                                    </span>
+                                                                                ): (
+                                                                                    <span>
+                                                                                        {item}
                                                                                     </span>
                                                                                 )}
                                                                             </p>
