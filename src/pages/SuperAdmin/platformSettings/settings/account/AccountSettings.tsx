@@ -16,8 +16,9 @@ const AccountSettings = () => {
     }
 
     type Inputs = {
-        property_type: string
-        description: string
+        current_password: string
+        new_password: string
+        confirm_password: string
     }
 
     const [photoPreview, setPhotoPreview] = useState('')
@@ -31,6 +32,36 @@ const AccountSettings = () => {
             reset,
             formState: { errors: formErrors },
         } = useForm<Inputs>()
+
+
+         const axiosInstance = useAxios()
+         const postSettings = (inputs: Inputs) => {
+             return axiosInstance({
+                 url:
+                    
+                         ? `/platformsettings/generalsettings/update/${data[0].id}`
+                         : '/platformsettings/generalsettings/create',
+                 method: data.length > 0 ? 'put' : 'post',
+                 data: inputs,
+             })
+         }
+         const { mutate, isLoading: mutation_loading } = useMutation(
+             postSettings,
+             {
+                 onSuccess: () => {
+                     toast('Changes saved successfully', {
+                         type: 'success',
+                         className: 'bg-green-100 text-green-600 text-[1.4rem]',
+                     })
+                 },
+                 onError: (err: any) => {
+                     setResponseMessage({
+                         className: 'text-red-600',
+                         displayMessage: err?.response.data.message,
+                     })
+                 },
+             }
+         ) as any
 
     const handlePicture = (e: React.ChangeEvent) => {
         const target = e.target as HTMLInputElement
