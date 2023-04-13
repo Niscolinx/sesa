@@ -4,7 +4,7 @@ import PropertyType from './settings/PropertyType'
 import PlatformChanges from './settings/PlatformChanges'
 import SOSTable from './settings/SOSTable'
 import { useLocation } from 'react-router'
-import LocationHook from '../../../utils/locationHook'
+import PrevLocation from '../../../utils/PrevLocation'
 
 
 type PathSwitch =
@@ -34,9 +34,9 @@ function PlatformSettings() {
     ] satisfies PathSwitch[]
 
   
-    const {location} = LocationHook(locate)
+    const {previousPath} = PrevLocation()
 
-    console.log({location, locate})
+    console.log({location, previousPath})
    
     return (
         <div>
