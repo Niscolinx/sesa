@@ -31,7 +31,7 @@ const AddAdmin = () => {
 
     const [photoPreview, setPhotoPreview] = useState('')
     const [imageFile, setImageFile] = useState<File | null>(null)
-    const [selectedGender, setSelectedGender] = useState<string | null>(
+    const [selectedGender, setSelectedGender] = useState<string>(
         genderState[0]
     )
 

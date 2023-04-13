@@ -20,10 +20,6 @@ const PlatformChanges = () => {
         sms_notification: number
     }
 
-    const [input, setInput] = useState<Input>({
-        kyr_validation: 0,
-        sms_notification: 0
-    })
 
     const handleSubmit = (e: FormEvent) => {
         e.preventDefault()
