@@ -67,7 +67,7 @@ function Estates() {
         }
     }, [get_estates_response])
 
-    const actions = ['view details', 'deactivate'] satisfies Actions[]
+    const actions = ['view details'] satisfies Actions[]
 
     const [toggleDropDown, setToggleDropDown] = useState<{
         isDropDownOpen: boolean
