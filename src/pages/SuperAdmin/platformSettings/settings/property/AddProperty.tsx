@@ -7,6 +7,7 @@ import useAxios from '../../../../../components/hooks/useAxios'
 import Input from '../../../../../components/UI/input/Input'
 import { useLocation, useParams } from 'react-router'
 import { useSearchParams } from 'react-router-dom'
+import { IoMdAdd } from 'react-icons/io'
 
 export interface IPropertyType {
     id: string
@@ -131,11 +132,7 @@ const AddProperty = () => {
                             style={{ justifySelf: 'start' }}
                         >
                             <span>
-                                <img
-                                    src='/icons/admins/saveDisk.svg'
-                                    alt=''
-                                    className='w-[1.7rem] h-[1.7rem]'
-                                />
+                                <IoMdAdd/>
                             </span>{' '}
                             {mutation_loading ? 'Loading...' : 'Add'}
                         </button>
