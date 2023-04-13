@@ -433,7 +433,7 @@ function Estates() {
                                                         {isDropDownOpen &&
                                                             index === i && (
                                                                 <div className='absolute top-0 translate-x-[-10rem] border border-color-primary-light w-[10rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
-                                                                    {[...actions, status === 1 ? 'activate' : 'deactivate'].map(
+                                                                    {[...actions, status === 1 ? 'deactivate' : 'activate'].map(
                                                                         (
                                                                             item,
                                                                             index
