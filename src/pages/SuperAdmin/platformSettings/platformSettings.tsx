@@ -40,6 +40,10 @@ function PlatformSettings() {
 
   const getLastPath = prevLocation.split('/').pop()
 
+  useEffect(() => {
+    
+  }, [getLastPath])
+
   console.log(getLastPath)
 
     return (
