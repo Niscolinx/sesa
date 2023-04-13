@@ -74,7 +74,7 @@ function Estates() {
             if (data) {
                 closeDialog()
 
-                toast(`Estate Deactivated successfully`, {
+                toast(`Estate Deactivated Successfully`, {
                     type: 'success',
                     className: 'bg-green-100 text-green-600 text-[1.4rem]',
                 })
