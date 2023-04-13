@@ -30,12 +30,13 @@ function PlatformSettings() {
     ] satisfies PathSwitch[]
 
     const { prevLocation } = PrevLocation()
-    let loaded = false
+    const [loaded, setLoaded] = useState(false)
 
     let getLastPath = prevLocation.split('/').pop()
 
-    useLayoutEffect(() => {
-        loaded = true
+    useEffect(() => {
+        console.log('useEffect')
+        setLoaded(true)
         if (getLastPath) {
             getLastPath = getLastPath.replace(/([a-z])([A-Z])/g, '$1 $2')
 
@@ -54,28 +55,33 @@ function PlatformSettings() {
 
     return (
         <div>
-            <div className='estateDetail__radioBox'>
-                {paths.map((path) => (
-                    <Fragment key={path}>
-                        <input
-                            type='radio'
-                            name='platform'
-                            id={path}
-                            className='hidden'
-                            checked={path === currentPath}
-                            onChange={() => setCurrentPath(path)}
-                        />
-                        <label htmlFor={path} className='capitalize'>
-                            {path.replace('_', ' ')}
-                        </label>
-                    </Fragment>
-                ))}
-            </div>
-            <div className='mt-8 grid gap-8'>
-                <section className='bg-color-white rounded-lg border min-w-[112rem] overflow-scroll'>
-                    {handlePathSwitch.get(currentPath)}
-                </section>
-            </div>
+            {loaded && (
+                <>
+                    {' '}
+                    <div className='estateDetail__radioBox'>
+                        {paths.map((path) => (
+                            <Fragment key={path}>
+                                <input
+                                    type='radio'
+                                    name='platform'
+                                    id={path}
+                                    className='hidden'
+                                    checked={path === currentPath}
+                                    onChange={() => setCurrentPath(path)}
+                                />
+                                <label htmlFor={path} className='capitalize'>
+                                    {path.replace('_', ' ')}
+                                </label>
+                            </Fragment>
+                        ))}
+                    </div>
+                    <div className='mt-8 grid gap-8'>
+                        <section className='bg-color-white rounded-lg border min-w-[112rem] overflow-scroll'>
+                            {handlePathSwitch.get(currentPath)}
+                        </section>
+                    </div>
+                </>
+            )}
         </div>
     )
 }
