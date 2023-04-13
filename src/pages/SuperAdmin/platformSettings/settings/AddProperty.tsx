@@ -62,10 +62,10 @@ const AddProperty = () => {
     const postSettings = (inputs: Inputs) => {
         return axiosInstance({
             url:
-                data.length > 0
+                data.length < 0
                     ? `/platformsettings/generalsettings/update/${data[0].id}`
                     : '/platformsettings/propertytype/create',
-            method: data.length > 0 ? 'put' : 'post',
+            method: data.length < 0 ? 'put' : 'post',
             data: inputs,
         })
     }
