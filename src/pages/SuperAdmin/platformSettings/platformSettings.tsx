@@ -31,18 +31,19 @@ function PlatformSettings() {
 
     const { prevLocation } = PrevLocation()
 
-    const getLastPath = prevLocation.split('/').pop()
+    let getLastPath = prevLocation.split('/').pop()
 
     useEffect(() => {
         if (getLastPath) {
-            console.log( getLastPath.split(/[A-Z]/))
+            getLastPath = getLastPath.replace(/([a-z])([A-Z])/g, '$1 $2')[1].toLowerCase()
+            console.log({getLastPath})
             paths.some(
                 (path) =>
                     path
                         .replace('_', ' ')
                         .toLowerCase()
                         .includes(
-                            getLastPath.split(/A-Z/).join(' ').toLowerCase()
+                        getLastPath!
                         ) && setCurrentPath(path)
             )
         }
