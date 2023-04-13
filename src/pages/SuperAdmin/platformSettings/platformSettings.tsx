@@ -1,9 +1,11 @@
-import { Fragment, useState } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 import AccountSettings from './settings/AccountSettings'
 import PropertyType from './settings/PropertyType'
 import PlatformChanges from './settings/PlatformChanges'
 import SOSTable from './settings/SOSTable'
 import { useLocation } from 'react-router'
+import {BrowserRouter} from 'react-router-dom'
+import PrevLocation from '../../../components/hooks/prevLocation'
 
 type PathSwitch =
     | 'platform_changes'
@@ -13,6 +15,9 @@ type PathSwitch =
 
 function PlatformSettings() {
     const location = useLocation()
+    const router = BrowserRouter({})
+
+    console.log({router})
 
     const [currentPath, setCurrentPath] =
         useState<PathSwitch>('platform_changes')
@@ -31,7 +36,11 @@ function PlatformSettings() {
         'account_settings',
     ] satisfies PathSwitch[]
 
-   
+   useEffect(() => {
+        console.log({})
+   }, [])
+
+   PrevLocation()
 
     return (
         <div>
@@ -52,7 +61,6 @@ function PlatformSettings() {
                     </Fragment>
                 ))}
             </div>
-
             <div className='mt-8 grid gap-8'>
                 <section className='bg-color-white rounded-lg border min-w-[112rem] overflow-scroll'>
                     {handlePathSwitch.get(currentPath)}
