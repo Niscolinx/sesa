@@ -45,6 +45,7 @@ import AddEstate from '../../pages/SuperAdmin/estates/AddEstate'
 import AddEstateManager from '../../pages/SuperAdmin/estateManagers/AddEstateManager'
 import ViewEstateManager from '../../pages/SuperAdmin/estateManagers/ViewEstateManager'
 import AddResidentUserPackage from '../../pages/SuperAdmin/residentUserPackage/AddResidentUserPackage'
+import ViewProperty from '../../pages/SuperAdmin/platformSettings/settings/property/ViewProperty'
 
 const superAdminRoutes = (
     <Route
@@ -122,6 +123,7 @@ const superAdminRoutes = (
         />
         <Route path='platformSettings' element={<PlatformSettings />} />
         <Route path='platformSettings/addProperty' element={<AddProperty />} />
+        <Route path='platformSettings/view/:id' element={<ViewProperty />} />
         <Route path='platformSettings/addSOS' element={<AddSOS />} />
         <Route
             path='platformSettings/SOSDetails/:id'

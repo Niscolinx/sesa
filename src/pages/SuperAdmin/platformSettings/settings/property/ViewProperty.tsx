@@ -14,7 +14,27 @@ export interface IPropertyType {
     description: string
 }
 
-const AddProperty = () => {
+const ViewProperty = () => {
+     const params = useParams()
+
+     const property_id = params.id?.replace(':', '')
+
+    console.log({ property_id })
+
+    const dialogRef = useRef<HTMLDialogElement | null>(null)
+
+    const closeDialog = () => {
+        if (dialogRef.current) {
+            dialogRef.current.close()
+        }
+    }
+
+    const openDialog = () => {
+        if (dialogRef.current) {
+            dialogRef.current.showModal()
+        }
+    }
+
     type FormInputs = {
         label: string
         type?: string
@@ -31,6 +51,10 @@ const AddProperty = () => {
         sms_notification: number
     }
 
+    const { data, isLoading, error } = useFetchData({
+        url: `/platformsettings/propertytype/getbyid/${property_id}`,
+    })
+
     const {
         register,
         handleSubmit,
@@ -45,13 +69,22 @@ const AddProperty = () => {
 
     const postRequest = (inputs: Inputs) => {
         return axiosInstance({
-            url: '/platformsettings/propertytype/create',
-            method: 'post',
+            url:
+                data.length > 0
+                    ? `/platformsettings/propertytype/update/${property_id}`
+                    : '/platformsettings/propertytype/create',
+            method: data.length > 0 ? 'put' : 'post',
             data: inputs,
         })
     }
 
-   
+    const postDelete = () => {
+        return axiosInstance({
+            url: '/change/status',
+            method: 'post',
+            data: { id: property_id },
+        })
+    }
 
     const { mutate, isLoading: mutation_loading } = useMutation(postRequest, {
         onSuccess: () => {
@@ -71,7 +104,26 @@ const AddProperty = () => {
         },
     }) as any
 
-  
+    const { mutate: delete_mutation, isLoading: delete_loading } = useMutation(
+        postDelete,
+        {
+            onSuccess: () => {
+                toast(`Property deleted successfully`, {
+                    type: 'success',
+                    className:
+                        'bg-green-100 text-green-600 text-[1.4rem] capitalize',
+                })
+
+                reset()
+            },
+            onError: (err: any) => {
+                setResponseMessage({
+                    className: 'text-red-600',
+                    displayMessage: err?.response.data.message,
+                })
+            },
+        }
+    ) as any
 
     const onSubmit = handleSubmit((data) => {
         setResponseMessage(null)
@@ -173,4 +225,4 @@ const AddProperty = () => {
     )
 }
 
-export default AddProperty
+export default ViewProperty
