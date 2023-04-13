@@ -36,8 +36,7 @@ const PlatformChanges = () => {
         get_request,
         {
             onSuccess: ({ data }) => {
-                console.log({ data })
-                const { kyr_validation, sms_notification } = data
+                const { kyr_validation, sms_notification } = data[0]
 
                 reset({
                     kyr_validation,
