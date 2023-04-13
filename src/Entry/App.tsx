@@ -42,6 +42,7 @@ const App = () => {
         ])
     )
 
+
     return (
         <div className='text-[1.6rem] max-w-[180rem] mx-auto'>
             <SkeletonTheme baseColor='#202020' highlightColor='#444'>

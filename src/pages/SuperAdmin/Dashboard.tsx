@@ -5,8 +5,11 @@ import Sidebar from '../../components/SuperAdmin/dashboard/Sidebar'
 // import Sidebar from '../../components/SuperAdmin/dashboard/Sidebar'
 
 import BreadCrumb from '../../components/UI/BreadCrumb'
+import PrevLocation from '../../components/hooks/prevLocation'
 
 function Dashboard() {
+
+    PrevLocation()
    
     return (
             <div className='dashboard'>

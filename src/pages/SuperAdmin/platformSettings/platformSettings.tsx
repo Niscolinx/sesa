@@ -34,7 +34,7 @@ function PlatformSettings() {
     ] satisfies PathSwitch[]
 
  
-  const {prevLocation} =  PrevLocation()
+  const prevLocation =  PrevLocation()
 
   console.log({prevLocation})
     return (
