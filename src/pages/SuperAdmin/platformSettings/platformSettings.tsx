@@ -35,18 +35,13 @@ function PlatformSettings() {
 
     useEffect(() => {
         if (getLastPath) {
-            let word = getLastPath
-                .split(/([a-z])([A-Z])/g)
-                
-              console.log({word})
-            
+            let word = getLastPath.split(/(?=[A-Z])/).pop()?.toLowerCase()
+
             paths.some((path) => {
-                    console.log(path.replace('_', ' '), 'path')
+                console.log({path, word})
                 return (
-                    path
-                        .replace('_', ' ')
-                        .toLowerCase()
-                        .includes(getLastPath!) && setCurrentPath(path)
+                    path.replace('_', ' ').toLowerCase().includes(word!) &&
+                    setCurrentPath(path)
                 )
             })
         }
