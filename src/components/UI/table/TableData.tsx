@@ -7,7 +7,6 @@ import React from 'react'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { Select } from '../../SuperAdmin/UI/Select'
 import { useTableContext } from './Table'
-import TableDropDown from './TableDropDown'
 import SlicedPages from './SlicedPages'
 
 export type ToggleDropDown = {
