@@ -33,7 +33,7 @@ const AddEstateManager = () => {
     const axiosInstance = useAxios()
 
     const [photoPreview, setPhotoPreview] = useState('')
-    const [imageUrl, setImageUrl] = useState<File | null>(null)
+    const [imageFile, setImageFile] = useState<File | null>(null)
     const [selectedGender, setSelectedGender] = useState<string>(
         genderState[0]
     )
@@ -44,7 +44,7 @@ const AddEstateManager = () => {
 
         const preview = URL.createObjectURL(file)
         setPhotoPreview(preview)
-        setImageUrl(file)
+        setImageFile(file)
     }
 
     const {
@@ -85,7 +85,7 @@ const AddEstateManager = () => {
             email: email_address,
             address: 'no 4 odeyim street',
             phone: `+234${phone_number}`,
-            image: imageUrl?.name,
+            image: imageFile,
         }
 
         mutate(estateManagerData)
