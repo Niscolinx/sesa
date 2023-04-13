@@ -23,8 +23,7 @@ const AccountSettings = () => {
     const [photoPreview, setPhotoPreview] = useState('')
     const [imageFile, setImageFile] = useState<File | null>(null)
 
-    const [eyeIcon, setEyeIcon] = useState(false)
-    const toggleEyeIcon = () => setEyeIcon(!eyeIcon)
+
 
    const handlePicture = (e: React.ChangeEvent) => {
        const target = e.target as HTMLInputElement
@@ -43,6 +42,13 @@ const AccountSettings = () => {
             className: 'bg-green-100 text-green-600 text-[1.4rem]',
         })
     }
+
+    const formInputs = [
+        {
+            label: 'Current Password',
+            type: 'password'
+        }
+    ] satisfies FormInputs[]
 
     return (
         <>
