@@ -64,7 +64,7 @@ const AddProperty = () => {
             url:
                 data.length > 0
                     ? `/platformsettings/generalsettings/update/${data[0].id}`
-                    : '/platformsettings/generalsettings/create',
+                    : '/platformsettings/propertytype/create',
             method: data.length > 0 ? 'put' : 'post',
             data: inputs,
         })
@@ -89,7 +89,6 @@ const AddProperty = () => {
 
         const adminData = {
             ...data,
-            transferable_fee: 30,
         }
 
         mutate(adminData)
