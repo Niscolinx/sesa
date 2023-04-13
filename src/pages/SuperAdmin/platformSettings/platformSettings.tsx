@@ -12,8 +12,7 @@ type PathSwitch =
     | 'account_settings'
 
 function PlatformSettings() {
-    const [currentPath, setCurrentPath] =
-        useState<PathSwitch>('property_type')
+    const [currentPath, setCurrentPath] = useState<PathSwitch>('property_type')
 
     const handlePathSwitch = new Map([
         ['platform_changes', <PlatformChanges />],
@@ -48,36 +47,30 @@ function PlatformSettings() {
         }
     }, [getLastPath])
 
-
     return (
         <div>
-           
-            
-                
-                    <div className='estateDetail__radioBox'>
-                        {paths.map((path) => (
-                            <Fragment key={path}>
-                                <input
-                                    type='radio'
-                                    name='platform'
-                                    id={path}
-                                    className='hidden'
-                                    checked={path === currentPath}
-                                    onChange={() => setCurrentPath(path)}
-                                />
-                                <label htmlFor={path} className='capitalize'>
-                                    {path.replace('_', ' ')}
-                                </label>
-                            </Fragment>
-                        ))}
-                    </div>
-                    <div className='mt-8 grid gap-8'>
-                        <section className='bg-color-white rounded-lg border min-w-[112rem] overflow-scroll'>
-                            {handlePathSwitch.get(currentPath)}
-                        </section>
-                    </div>
-                </>
-           
+            <div className='estateDetail__radioBox'>
+                {paths.map((path) => (
+                    <Fragment key={path}>
+                        <input
+                            type='radio'
+                            name='platform'
+                            id={path}
+                            className='hidden'
+                            checked={path === currentPath}
+                            onChange={() => setCurrentPath(path)}
+                        />
+                        <label htmlFor={path} className='capitalize'>
+                            {path.replace('_', ' ')}
+                        </label>
+                    </Fragment>
+                ))}
+            </div>
+            <div className='mt-8 grid gap-8'>
+                <section className='bg-color-white rounded-lg border min-w-[112rem] overflow-scroll'>
+                    {handlePathSwitch.get(currentPath)}
+                </section>
+            </div>
         </div>
     )
 }
