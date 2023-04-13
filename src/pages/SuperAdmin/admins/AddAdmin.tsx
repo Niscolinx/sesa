@@ -62,7 +62,6 @@ const AddAdmin = () => {
         useState<ResponseMessage | null>(null)
 
     const postAdmin = (data: Inputs) => {
-        console.log('post admin')
         return axiosInstance({
             url: '/admin/create',
             method: 'post',
