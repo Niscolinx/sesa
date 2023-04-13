@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { toast, ToastContainer } from 'react-toastify'
 import useFetchData from '../../../../../utils/useFetchData'
-import { useMutation } from 'react-query'
+import { useMutation, useQuery } from 'react-query'
 import { useForm } from 'react-hook-form'
 import useAxios from '../../../../../components/hooks/useAxios'
 import Input from '../../../../../components/UI/input/Input'
@@ -48,9 +48,7 @@ const ViewProperty = () => {
         description: string
     }
 
-    const { data, isLoading, error } = useFetchData({
-        url: `/platformsettings/propertytype/getbyid/${property_id}`,
-    })
+ 
 
     const {
         register,
@@ -64,6 +62,11 @@ const ViewProperty = () => {
 
     const axiosInstance = useAxios()
 
+    const get_request = () => {
+        return axiosInstance({
+            url: `/platformsettings/propertytype/getbyid/${property_id}`,
+        })
+    }
     const postRequest = (inputs: Inputs) => {
         return axiosInstance({
             url: `/platformsettings/propertytype/update/${property_id}`,
@@ -79,6 +82,8 @@ const ViewProperty = () => {
             data: { id: property_id },
         })
     }
+
+    const {isLoading, data, error} = useQuery('property', get_request) as any
 
     const { mutate: post_mutation, isLoading: post_loading } = useMutation(
         postRequest,
