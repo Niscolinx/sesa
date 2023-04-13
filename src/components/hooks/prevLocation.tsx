@@ -7,10 +7,10 @@ function PrevLocation() {
     const prevPath =
         storePath ?? localStorage.setItem('prevPath', location.pathname)
 
-    const [prevLocation, setPrevLocation] = useState<string | void>('')
+    const [prevLocation, setPrevLocation] = useState<string>('')
 
     useEffect(() => {
-        if (prevPath !== location.pathname) {
+        if (prevPath && prevPath !== location.pathname) {
             setPrevLocation(prevPath)
             localStorage.setItem('prevPath', location.pathname)
         }
