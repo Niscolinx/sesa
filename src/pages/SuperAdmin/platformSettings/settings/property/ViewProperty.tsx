@@ -80,7 +80,6 @@ const ViewProperty = () => {
         })
     }
 
-
     const { mutate: delete_mutation, isLoading: delete_loading } = useMutation(
         postDelete,
         {
@@ -112,14 +111,12 @@ const ViewProperty = () => {
         delete_mutation(adminData)
     })
 
-    if (property_id) {
-        if (isLoading) {
-            return <p>Loading...</p>
-        }
+    if (isLoading) {
+        return <p>Loading...</p>
+    }
 
-        if (error) {
-            return <p>{error.message}</p>
-        }
+    if (error) {
+        return <p>{error.message}</p>
     }
 
     const formInputs = [
@@ -141,9 +138,9 @@ const ViewProperty = () => {
                 <div className=' p-10  rounded-lg '>
                     <div className='flex w-full border-b items-center pb-5 justify-between'>
                         <h2 className='heading2'>
-                            {data?.property_type ?? 'Property Type'}
+                            {data?.property_type}
                         </h2>
-                        {data?.property_type && (
+                       
                             <button
                                 className='border border-red-600 px-16 py-4 flex items-center  rounded-lg gap-4'
                                 onClick={() => delete_mutation()}
@@ -153,7 +150,7 @@ const ViewProperty = () => {
                                     {delete_loading ? 'Loading...' : 'delete'}
                                 </span>
                             </button>
-                        )}
+                      
                     </div>
                 </div>
                 {responseMessage?.displayMessage && (
@@ -193,7 +190,7 @@ const ViewProperty = () => {
                                     className='w-[1.7rem] h-[1.7rem]'
                                 />
                             </span>{' '}
-                            {mutation_loading ? 'Loading...' : 'Add'}
+                            {delete_loading ? 'Loading...' : 'Save'}
                         </button>
                     </>
                 </form>
