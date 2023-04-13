@@ -162,13 +162,13 @@ const TableData = () => {
         navigate(`${add_page_url}`)
     }
 
-    const fetched = get_data_response?.data.data || get_data_response?.data
+    const fetched: any[] = get_data_response?.data.data || get_data_response?.data
 
 
     return (
         <div>
             <div className='rounded-lg mt-[3rem] h-[80vh]'>
-                {slicedPages && slicedPages.length > 0 ? (
+                {fetched.length > 0 ? (
                     <>
                         <ToastContainer />
 

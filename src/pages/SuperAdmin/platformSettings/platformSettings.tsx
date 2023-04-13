@@ -13,7 +13,7 @@ type PathSwitch =
 
 function PlatformSettings() {
     const [currentPath, setCurrentPath] =
-        useState<PathSwitch>('platform_changes')
+        useState<PathSwitch>('property_type')
 
     const handlePathSwitch = new Map([
         ['platform_changes', <PlatformChanges />],
@@ -30,13 +30,11 @@ function PlatformSettings() {
     ] satisfies PathSwitch[]
 
     const { prevLocation } = PrevLocation()
-    const [loaded, setLoaded] = useState(false)
 
     let getLastPath = prevLocation.split('/').pop()
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         console.log('useEffect')
-        setLoaded(true)
         if (getLastPath) {
             getLastPath = getLastPath.replace(/([a-z])([A-Z])/g, '$1 $2')
 
@@ -51,11 +49,10 @@ function PlatformSettings() {
         }
     }, [getLastPath])
 
-    console.log({ loaded })
 
     return (
         <div>
-            {loaded && (
+           
                 <>
                     {' '}
                     <div className='estateDetail__radioBox'>
@@ -81,7 +78,7 @@ function PlatformSettings() {
                         </section>
                     </div>
                 </>
-            )}
+           
         </div>
     )
 }
