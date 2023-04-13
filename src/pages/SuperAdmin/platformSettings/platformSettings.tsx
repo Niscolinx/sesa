@@ -38,7 +38,7 @@ function PlatformSettings() {
 
   console.log({prevLocation})
 
-  const getLastPath = prevLocation.split('/').lastIndexOf
+  const getLastPath = prevLocation.split('/').pop()
 
   console.log(getLastPath)
 
