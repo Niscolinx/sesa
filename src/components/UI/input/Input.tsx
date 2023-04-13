@@ -105,39 +105,57 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                     <div
                         className={`relative flex items-center border border-color-grey pl-4 rounded-lg w-full `}
                     >
-                        {label.toLowerCase() === 'amount' || tag === 'amount' && (
-                            <img
-                                src='/icons/Naira.svg'
-                                alt=''
-                                className='mr-1'
+                        {label.toLowerCase() === 'amount' ||
+                            (tag === 'amount' && (
+                                <img
+                                    src='/icons/Naira.svg'
+                                    alt=''
+                                    className='mr-1'
+                                />
+                            ))}
+
+                        {type === 'textarea' ? (
+                            <textarea
+                                id={label}
+                                rows={4}
+                                maxLength={30}
+                                disabled={disabled}
+                                type={type}
+                                value={value}
+                                {...(register &&
+                                    register(label, validationOptions))}
+                                className={` w-full border-none outline-none disabled:opacity-50 disabled:cursor-not-allowed p-4 pl-0 ${
+                                    formErrors &&
+                                    formErrors[label] &&
+                                    'border-red-500 '
+                                }`}
+                            />
+                        ) : (
+                            <input
+                                id={label}
+                                disabled={disabled}
+                                type={type}
+                                value={value}
+                                {...(register &&
+                                    register(label, validationOptions))}
+                                className={` w-full border-none outline-none disabled:opacity-50 disabled:cursor-not-allowed p-4 pl-0 ${
+                                    formErrors &&
+                                    formErrors[label] &&
+                                    'border-red-500 '
+                                }`}
+                                min={
+                                    type === 'date' &&
+                                    label.indexOf('dob') !== 0
+                                        ? new Date().toISOString().split('T')[0]
+                                        : null
+                                }
                             />
                         )}
-
-                        <input
-                            id={label}
-                            disabled={disabled}
-                            type={type}
-                            value={value}
-                            {...(register &&
-                                register(label, validationOptions))}
-                            className={` w-full border-none outline-none disabled:opacity-50 disabled:cursor-not-allowed p-4 pl-0 ${
-                                formErrors &&
-                                formErrors[label] &&
-                                'border-red-500 '
-                            }`}
-                            min={
-                                type === 'date' && label.indexOf('dob') !== 0
-                                    ? new Date().toISOString().split('T')[0]
-                                    : null
-                            }
-                        />
                     </div>
                 </>
             )}
-            { !formErrors[label] && pre && (
-                <p className=' text-[1.2rem] text-gray-400'>
-                    {pre}
-                </p>
+            {!formErrors[label] && pre && (
+                <p className=' text-[1.2rem] text-gray-400'>{pre}</p>
             )}
             {formErrors && formErrors[label] && (
                 <p className='text-[1.2rem] text-red-500'>
