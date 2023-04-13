@@ -36,7 +36,7 @@ function PlatformSettings() {
             console.log({prev})
             return prev
         })
-    }, [currentPath])
+    }, [location])
 
     return (
         <div>
