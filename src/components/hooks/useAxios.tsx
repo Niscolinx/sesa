@@ -10,7 +10,6 @@ function useAxios() {
         baseURL: 'https://sesa-digital.herokuapp.com/api',
         // baseURL: 'https://sesadigital.com/api'
 
-        //headers: { 'Content-Type': 'application/json, multipart/form-data' },
     })
 
     useEffect(() => {
@@ -19,7 +18,6 @@ function useAxios() {
                 const token = getToken()
                 if (token) {
                     config.headers.Authorization = `Bearer ${token}`
-                    config.headers['Content-Type'] = `application/json, multipart/form-data`
                 } else {
                     dispatch(setAuth(false))
                 }

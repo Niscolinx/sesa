@@ -61,6 +61,7 @@ const AddEstateManager = () => {
             url: '/manager/create',
             method: 'post',
             data,
+            headers: { 'Content-Type': 'multipart/form-data' },
         })
     }
     const { mutate, isLoading } = useMutation(postEstateManager, {
