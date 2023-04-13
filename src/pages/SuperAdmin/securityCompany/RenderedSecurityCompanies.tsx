@@ -30,7 +30,7 @@ type SecurityCompany = {
 
 export type Actions = 'view details' | 'activate' | 'deactivate'
 
-const actions: Array<Actions> = ['view details', 'activate', 'deactivate']
+const actions: Array<Actions> = ['view details', 'activate']
 
 function RenderedSecurityCompanies() {
     const navigate = useNavigate()
