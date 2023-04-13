@@ -30,6 +30,10 @@ function PlatformSettings() {
 
     useEffect(() => {
         console.log({currentPath})
+        setCurrentPath((prev) => {
+            console.log({prev})
+            return prev
+        })
     }, [])
 
     return (
