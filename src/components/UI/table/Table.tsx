@@ -20,6 +20,7 @@ interface Table {
     nested?: boolean
     delete_item_url?: string
     is_dropdown?: boolean
+    children?:boolean
     THeader: string[]
     actions?: Actions[]
 }
@@ -62,6 +63,7 @@ const Table = ({
     nested = false,
     deactivateProp,
     THeader,
+    children,
     delete_item_url,
     actions = [],
 }: Table) => {

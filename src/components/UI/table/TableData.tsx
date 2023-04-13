@@ -31,6 +31,7 @@ const TableData = () => {
         setFetchedData,
         title,
         fetch_url,
+        chidren,
         add_page_url,
         THeader,
         is_add_btn,
