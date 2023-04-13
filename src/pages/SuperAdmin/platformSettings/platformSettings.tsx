@@ -34,7 +34,7 @@ function PlatformSettings() {
     ] satisfies PathSwitch[]
 
   
-    const {location} = LocationHook()
+    const {location} = LocationHook(locate)
 
     console.log({location, locate})
    
