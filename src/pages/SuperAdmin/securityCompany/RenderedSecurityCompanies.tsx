@@ -478,7 +478,6 @@ function RenderedSecurityCompanies() {
                                                                                 item,
                                                                                 index
                                                                             ) => {
-                                                                              
                                                                                 return (
                                                                                     <p
                                                                                         className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
@@ -490,7 +489,7 @@ function RenderedSecurityCompanies() {
                                                                                             e
                                                                                         ) =>
                                                                                             handleSelectedAction(
-                                                                                                item,
+                                                                                                item as Actions,
                                                                                                 id.toString()
                                                                                             )
                                                                                         }
