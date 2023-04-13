@@ -4,8 +4,6 @@ import PropertyType from './settings/PropertyType'
 import PlatformChanges from './settings/PlatformChanges'
 import SOSTable from './settings/SOSTable'
 import { useLocation } from 'react-router'
-import PrevLocation from '../../../utils/PrevLocation'
-
 
 type PathSwitch =
     | 'platform_changes'
@@ -15,7 +13,7 @@ type PathSwitch =
 
 function PlatformSettings() {
     const locate = useLocation()
-    
+
     const [currentPath, setCurrentPath] =
         useState<PathSwitch>('platform_changes')
 
@@ -33,10 +31,8 @@ function PlatformSettings() {
         'account_settings',
     ] satisfies PathSwitch[]
 
-  
     // const {previousPath} = PrevLocation()
 
-   
     return (
         <div>
             <div className='estateDetail__radioBox'>
@@ -56,6 +52,7 @@ function PlatformSettings() {
                     </Fragment>
                 ))}
             </div>
+
             <div className='mt-8 grid gap-8'>
                 <section className='bg-color-white rounded-lg border min-w-[112rem] overflow-scroll'>
                     {handlePathSwitch.get(currentPath)}
