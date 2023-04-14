@@ -84,20 +84,42 @@ const AddSOS = () => {
         mutate(updated_data)
     })
 
-    const formInputs = [
-        {
-            label: 'Current Password',
-            type: 'password',
-        },
-        {
-            label: 'New Password',
-            type: 'password',
-        },
-        {
-            label: 'Re-Enter New Password',
-            type: 'password',
-        },
-    ] satisfies FormInputs[]
+     if (estates_loading) {
+         return <p>Loading...</p>
+     }
+
+     const slicedEstates: string[] = estates_data.data.map(
+         ({ estate_name }: any) => estate_name
+     )
+
+    
+
+       const formInputs = [
+           {
+               label: 'name',
+           },
+
+           {
+               label: 'Estates',
+               type: 'select',
+               selectProps: {
+                   state: slicedEstates,
+                   isMulti: true,
+                   selectedState: selectedEstates,
+                   setSelectedState: setSelectedEstates,
+               },
+           },
+           {
+               label: 'Artisans',
+               type: 'select',
+               selectProps: {
+                   isMulti: true,
+                   state: slicedArtisans,
+                   selectedState: selectedArtisans,
+                   setSelectedState: setSelectedArtisans,
+               },
+           },
+       ] satisfies FormInputs[]
 
    
     const dialogRef = useRef<HTMLDialogElement | null>(null)
