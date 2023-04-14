@@ -328,6 +328,7 @@ const AddEstate = () => {
                                     register={register}
                                     formErrors={formErrors}
                                     fullWidth={label === 'address'}
+                                    selectFormErrors={selectFormErrors}
                                     type={type}
                                     isSelect={type === 'select'}
                                     select={selectProps}

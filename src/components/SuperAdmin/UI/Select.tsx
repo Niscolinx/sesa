@@ -100,7 +100,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
         setSelectedState('')
     }
 
-    console.log({label}, selectFormErrors[label])
+    console.log({ label }, selectFormErrors)
 
     return (
         <div
