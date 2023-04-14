@@ -423,7 +423,7 @@ const EditEstate = () => {
                     >
                         <img src='/icons/admins/delete.svg' alt='' />
                         <span className='text-red-600 text-[1.4rem] font-semibold'>
-                            Deactivate
+                            Delete
                         </span>
                     </button>
                 </div>
