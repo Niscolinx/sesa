@@ -39,10 +39,10 @@ const AddSOS = () => {
     const [responseMessage, setResponseMessage] =
         useState<ResponseMessage | null>(null)
 
-    // const { data: estates_data, isLoading: estates_loading } = useFetchData({
-    //     url: '/estate/getall',
-    //     name: 'estates',
-    // })
+    const { data: estates_data, isLoading: estates_loading } = useFetchData({
+        url: '/estate/getall',
+        name: 'estates',
+    })
     const {
         register,
         handleSubmit,
@@ -80,86 +80,88 @@ const AddSOS = () => {
 
    
 
-    // const onSubmit = handleSubmit((data) => {
-    //     let isError = false
-    //     if (selectedEstates.length < 1) {
-    //         isError = true
+    const onSubmit = handleSubmit((data) => {
+        let isError = false
+        if (selectedEstates.length < 1) {
+            isError = true
 
-    //         setSelectFormErrors((prev) => {
-    //             return {
-    //                 ...prev,
-    //                 Gender: 'Field cannot be empty',
-    //             }
-    //         })
-    //     }
+            setSelectFormErrors((prev) => {
+                return {
+                    ...prev,
+                    Gender: 'Field cannot be empty',
+                }
+            })
+        }
 
-    //     if (isError) {
-    //         return
-    //     }
-    //     setResponseMessage(null)
-    //     setSelectFormErrors(null)
+        if (isError) {
+            return
+        }
+        setResponseMessage(null)
+        setSelectFormErrors(null)
 
-    //     const slicedEstates: string[] = estates_data.data.map(
-    //         ({ estate_name, id }: any) => ({
-    //             estate_name,
-    //             id,
-    //         })
-    //     )
+        const slicedEstates: string[] = estates_data.data.map(
+            ({ estate_name, id }: any) => ({
+                estate_name,
+                id,
+            })
+        )
 
-    //     const estate = slicedEstates
-    //         .filter(({ estate_name }: any) =>
-    //             selectedEstates.includes(estate_name)
-    //         )
-    //         .map(({ id }: any) => ({ id }))
+        const estate = slicedEstates
+            .filter(({ estate_name }: any) =>
+                selectedEstates.includes(estate_name)
+            )
+            .map(({ id }: any) => ({ id }))
 
-    //     const updated_data = {
-    //         ...data,
-    //     }
+        const updated_data = {
+            ...data,
+        }
 
-    //     mutate(updated_data)
-    // })
+        mutate(updated_data)
+    })
 
-    // if (estates_loading) {
-    //     return <p>Loading...</p>
-    // }
+    if (estates_loading) {
+        return <p>Loading...</p>
+    }
 
-    // const slicedEstates: string[] = estates_data.data.map(
-    //     ({ estate_name }: any) => estate_name
-    // )
+    if(estates_data?.data){
+        const slicedEstates: string[] = estates_data?.data.map(
+            ({ estate_name }: any) => estate_name
+        )
 
-    // const formInputs = [
-    //     {
-    //         label: 'name',
-    //     },
-    //     {
-    //         label: 'phone_number_1',
-    //         type: 'number',
-    //     },
-    //     {
-    //         label: 'email',
-    //     },
-    //     {
-    //         label: 'phone_number_2',
-    //         type: 'email',
-    //     },
-    //     {
-    //         label: 'address',
-    //     },
-    //     {
-    //         label: 'phone_number_3',
-    //     },
+        const formInputs = [
+            {
+                label: 'name',
+            },
+            {
+                label: 'phone_number_1',
+                type: 'number',
+            },
+            {
+                label: 'email',
+            },
+            {
+                label: 'phone_number_2',
+                type: 'email',
+            },
+            {
+                label: 'address',
+            },
+            {
+                label: 'phone_number_3',
+            },
 
-    //     {
-    //         label: 'Estates',
-    //         type: 'select',
-    //         selectProps: {
-    //             state: slicedEstates,
-    //             isMulti: true,
-    //             selectedState: selectedEstates,
-    //             setSelectedState: setSelectedEstates,
-    //         },
-    //     },
-    // ] satisfies FormInputs[]
+            {
+                label: 'Estates',
+                type: 'select',
+                selectProps: {
+                    state: slicedEstates,
+                    isMulti: true,
+                    selectedState: selectedEstates,
+                    setSelectedState: setSelectedEstates,
+                },
+            },
+        ] satisfies FormInputs[]
+    }
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
