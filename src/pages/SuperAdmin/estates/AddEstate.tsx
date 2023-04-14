@@ -125,6 +125,8 @@ const AddEstate = () => {
     }
 
     const onSubmit = handleSubmit((data) => {
+
+        console.log({data})
         let isError = false
         if (selectedSecurityCompany.length < 1) {
             isError = true
