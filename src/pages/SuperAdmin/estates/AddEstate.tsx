@@ -52,16 +52,13 @@ const AddEstate = () => {
 
     const axiosInstance = useAxios()
 
-    const [selectedState, setSelectedState] = useState<string | null>('')
-    const estateLocationState = ['Abuja', 'Lagos']
+    const [selectedState, setSelectedState] = useState<string>('')
     const [selectedEstateManager, setSelectedEstateManager] = useState<
-        string | null
-    >('')
-    const estateManager = ['Manager 1', 'Manager 2', 'Manager 3']
+        string[]
+    >([])
     const [selectedSecurityCompany, setSelectedSecurityCompany] = useState<
-        string | null
-    >('')
-    const securityCompany = ['Company 1', 'Company 2', 'Company 3']
+        string[]
+    >([])
 
     const [photoPreview, setPhotoPreview] = useState('')
     const [imageUrl, setImageUrl] = useState<File | null>(null)
