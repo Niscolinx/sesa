@@ -1,6 +1,5 @@
-import React, { FormEvent, useRef, useState } from 'react'
+import  { FormEvent, useRef, useState } from 'react'
 import { IoMdAdd, IoMdClose } from 'react-icons/io'
-import { MultipleSelect } from '../../../../../components/SuperAdmin/UI/Select'
 import { useForm } from 'react-hook-form'
 import { useMutation } from 'react-query'
 import { toast } from 'react-toastify'
