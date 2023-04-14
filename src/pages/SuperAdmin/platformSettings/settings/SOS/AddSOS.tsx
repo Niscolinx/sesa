@@ -189,8 +189,10 @@ const AddSOS = () => {
                             <p>You have successfully added SOS</p>
 
                             <div className='flex w-full justify-center gap-8'>
-                               
-                                <button className='bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]' onClick={closeDialog}>
+                                <button
+                                    className='bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
+                                    onClick={closeDialog}
+                                >
                                     Ok
                                 </button>
                             </div>
@@ -199,6 +201,14 @@ const AddSOS = () => {
                 </section>
             </dialog>
             <div className='grid p-8 bg-white h-[80vh] items-baseline overflow-y-scroll rounded-lg'>
+                {responseMessage?.displayMessage && (
+                    <p className='text-center'>
+                        <span className={responseMessage?.className}>
+                            {responseMessage?.displayMessage}
+                        </span>
+                    </p>
+                )}
+                
                 <form
                     onSubmit={onSubmit}
                     className='grid max-w-[84rem] gap-16 mt-12'
