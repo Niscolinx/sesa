@@ -3,29 +3,118 @@ import { IoMdClose } from 'react-icons/io'
 import { MultipleSelect } from '../../../../../components/SuperAdmin/UI/Select'
 
 const AddSOS = () => {
-    const [selectedEstates, setSelectedEstates] = useState<string[]>([])
-
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault()
+    type FormInputs = {
+        label: string
+        type?: string
+        pre?: string
     }
 
+    type ResponseMessage = {
+        className: string
+        displayMessage: string
+    }
+
+    type Inputs = {
+        current_password: string
+        new_password: string
+        confirm_password: string
+    }
+
+    const [selectedEstates, setSelectedEstates] = useState<string[]>([])
+    const [photoPreview, setPhotoPreview] = useState('')
+    const [imageFile, setImageFile] = useState<File | null>(null)
+    const [responseMessage, setResponseMessage] =
+        useState<ResponseMessage | null>(null)
+
+    const {
+        register,
+        handleSubmit,
+        reset,
+        formState: { errors: formErrors },
+    } = useForm<Inputs>()
+
+    const axiosInstance = useAxios()
+    const postSettings = (inputs: Inputs) => {
+        return axiosInstance({
+            url: `/platformsettings/changepassword`,
+            method: 'post',
+            data: inputs,
+        })
+    }
+    const { mutate, isLoading: mutation_loading } = useMutation(postSettings, {
+        onSuccess: () => {
+            toast('Changes saved successfully', {
+                type: 'success',
+                className: 'bg-green-100 text-green-600 text-[1.4rem]',
+            })
+        },
+        onError: (err: any) => {
+            setResponseMessage({
+                className: 'text-red-600',
+                displayMessage: err?.response.data.message,
+            })
+        },
+    }) as any
+
+    const handlePicture = (e: React.ChangeEvent) => {
+        const target = e.target as HTMLInputElement
+        const file: File = (target.files as FileList)[0]
+
+        const preview = URL.createObjectURL(file)
+        setPhotoPreview(preview)
+        setImageFile(file)
+    }
+
+    const onSubmit = handleSubmit((data) => {
+        setResponseMessage(null)
+
+        const { new_password, confirm_password } = data
+
+        if (new_password !== confirm_password) {
+            return setResponseMessage({
+                className: 'text-red-600',
+                displayMessage: 'passwords do not match',
+            })
+        }
+
+        const updated_data = {
+            ...data,
+        }
+
+        mutate(updated_data)
+    })
+
+    const formInputs = [
+        {
+            label: 'Current Password',
+            type: 'password',
+        },
+        {
+            label: 'New Password',
+            type: 'password',
+        },
+        {
+            label: 'Re-Enter New Password',
+            type: 'password',
+        },
+    ] satisfies FormInputs[]
+
+   
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
-    const handleClose = () => {
+    const closeDialog = () => {
         if (dialogRef.current) {
             dialogRef.current.close()
         }
     }
 
-    const handleOpen = () => {
+    const openDialog = () => {
         if (dialogRef.current) {
             dialogRef.current.showModal()
         }
     }
 
-    const confirmAddedSOS = () => {
-        console.log('hellow ')
-    }
+   
 
     return (
         <>
@@ -34,7 +123,7 @@ const AddSOS = () => {
                     <div className='bg-white rounded-2xl grid items-baseline w-[64rem] min-h-[30rem] p-10 gap-8 text-[1.6rem] relative'>
                         <IoMdClose
                             className='absolute right-4 top-4 text-[2rem] cursor-pointer'
-                            onClick={() => handleClose()}
+                            onClick={() => closeDialog()}
                         />
 
                         <div className='bg-white rounded-2xl grid place-content-center justify-items-center h-[30rem] gap-8 text-[1.6rem]'>
@@ -45,7 +134,7 @@ const AddSOS = () => {
                             <div className='flex w-full justify-center gap-8'>
                                 <button
                                     className='btn bg-white text-[#0556E5] border-[#0556E5] border rounded-lg w-[15rem]'
-                                    onClick={() => handleClose()}
+                                    onClick={() => closeDialog()}
                                 >
                                     Cancel
                                 </button>
@@ -173,7 +262,7 @@ const AddSOS = () => {
 
                     <button
                         className='btn border border-color-blue-1 text-color-blue-1 py-4 px-16 rounded-lg col-span-full w-[20rem] text-center font-Satoshi-Medium'
-                        onClick={() => handleOpen()}
+                        onClick={() => openDialog()}
                     >
                         Add SOS
                     </button>
