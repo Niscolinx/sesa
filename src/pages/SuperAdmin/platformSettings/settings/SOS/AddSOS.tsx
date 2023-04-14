@@ -32,23 +32,31 @@ const AddSOS = () => {
         phone_number_3: number
     }
 
-    const [selectedEstates, setSelectedEstates] = useState<string[]>([])
-    const [selectFormErrors, setSelectFormErrors] = useState<{
-        [key: string]: string
-    } | null>(null)
-    const [responseMessage, setResponseMessage] =
-        useState<ResponseMessage | null>(null)
-
-    const { data: estates_data, isLoading: estates_loading, isFetched, isFetching } = useFetchData({
+    const {
+        data: estates_data,
+        isLoading: estates_loading,
+        isFetched,
+        isFetching,
+    } = useFetchData({
         url: '/estate/getall',
         name: 'estates',
     })
+
     const {
         register,
         handleSubmit,
         reset,
         formState: { errors: formErrors },
     } = useForm<Inputs>()
+
+    const dialogRef = useRef<HTMLDialogElement | null>(null)
+
+    const [selectedEstates, setSelectedEstates] = useState<string[]>([])
+    const [selectFormErrors, setSelectFormErrors] = useState<{
+        [key: string]: string
+    } | null>(null)
+    const [responseMessage, setResponseMessage] =
+        useState<ResponseMessage | null>(null)
 
     const axiosInstance = useAxios()
 
@@ -76,9 +84,7 @@ const AddSOS = () => {
                 displayMessage: err?.response.data.message,
             })
         },
-    }) as any
-
-   
+    })
 
     const onSubmit = handleSubmit((data) => {
         let isError = false
@@ -119,52 +125,48 @@ const AddSOS = () => {
         mutate(updated_data)
     })
 
-    console.log({isFetched, isFetching, estates_loading})
-    if (estates_loading) {
+    console.log({ isFetched, isFetching, estates_loading })
+    if (estates_loading || isFetching) {
         return <p>Loading...</p>
     }
 
-    if(estates_data?.data){
-        const slicedEstates: string[] = estates_data?.data.map(
-            ({ estate_name }: any) => estate_name
-        )
+    const slicedEstates: string[] = estates_data?.data.map(
+        ({ estate_name }: any) => estate_name
+    )
 
-        const formInputs = [
-            {
-                label: 'name',
-            },
-            {
-                label: 'phone_number_1',
-                type: 'number',
-            },
-            {
-                label: 'email',
-            },
-            {
-                label: 'phone_number_2',
-                type: 'email',
-            },
-            {
-                label: 'address',
-            },
-            {
-                label: 'phone_number_3',
-            },
+    const formInputs = [
+        {
+            label: 'name',
+        },
+        {
+            label: 'phone_number_1',
+            type: 'number',
+        },
+        {
+            label: 'email',
+        },
+        {
+            label: 'phone_number_2',
+            type: 'email',
+        },
+        {
+            label: 'address',
+        },
+        {
+            label: 'phone_number_3',
+        },
 
-            {
-                label: 'Estates',
-                type: 'select',
-                selectProps: {
-                    state: slicedEstates,
-                    isMulti: true,
-                    selectedState: selectedEstates,
-                    setSelectedState: setSelectedEstates,
-                },
+        {
+            label: 'Estates',
+            type: 'select',
+            selectProps: {
+                state: slicedEstates,
+                isMulti: true,
+                selectedState: selectedEstates,
+                setSelectedState: setSelectedEstates,
             },
-        ] satisfies FormInputs[]
-    }
-
-    const dialogRef = useRef<HTMLDialogElement | null>(null)
+        },
+    ] satisfies FormInputs[]
 
     const closeDialog = () => {
         if (dialogRef.current) {
@@ -215,7 +217,7 @@ const AddSOS = () => {
                 )}
 
                 <form
-                 onSubmit={onSubmit}
+                    onSubmit={onSubmit}
                     className='grid max-w-[84rem] gap-16 mt-12'
                     style={{
                         gridTemplateColumns:
@@ -223,7 +225,7 @@ const AddSOS = () => {
                     }}
                 >
                     <>
-                        {/* {formInputs.map((input, idx) => {
+                        {formInputs.map((input, idx) => {
                             const { label, type, selectProps } = input
 
                             return (
@@ -246,7 +248,7 @@ const AddSOS = () => {
                                     />
                                 </>
                             )
-                        })} */}
+                        })}
 
                         <button className='btn justify-self-start btn-blue'>
                             <span>
