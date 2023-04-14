@@ -189,6 +189,11 @@ const AddEstate = () => {
         mutate(updated_data)
     })
 
+
+
+
+    
+
     if (
         states_data_loading ||
         security_company_loading ||
@@ -205,7 +210,10 @@ const AddEstate = () => {
         ({ name }: any) => name
     )
 
-    console.log({ security_company_data, estate_manager_data })
+
+
+
+
 
     const first_section_inputs = [
         {
