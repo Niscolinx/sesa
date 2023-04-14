@@ -46,7 +46,7 @@ function ArtisanGroup() {
             fetch_url={'/admin/group/getAll'}
             title={'artisanGroup'}
             view_page_url={'/superAdmin/artisan/group/'}
-            add_page_url={'/superAdmin/artisan/group/add'}
+            add_page_url={'/superAdmin/artisan/add-group'}
             is_add_btn={true}
             actions={['delete']}
             delete_item_url={'/admin/group/delete/'}
