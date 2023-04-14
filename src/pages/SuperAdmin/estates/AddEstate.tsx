@@ -166,11 +166,12 @@ const AddEstate = () => {
             name,
             id,
         }))
-        // const category = slicedCategories.map(
-        //     ({ name, id }: any) => selectedCategories.includes(name) && { id }
-        // )
+       
 
         const slicedSecurityCompany: string[] = security_company_data.filter(({name}:any) => selectedSecurityCompany.includes(name)).map(
+            ({ id }: any) =>  ({ id })
+        )
+        const slicedEstateManager: string[] = security_company_data.filter(({name}:any) => selectedSecurityCompany.includes(name)).map(
             ({ name, id }: any) =>  ({ id })
         )
 
