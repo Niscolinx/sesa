@@ -170,9 +170,11 @@ const AddEstate = () => {
         //     ({ name, id }: any) => selectedCategories.includes(name) && { id }
         // )
 
-        const slicedSecurityCompany: string[] = security_company_data.data.map(
-            ({ estate_name, id }: any) => ({ name, id })
+        const slicedSecurityCompany: string[] = security_company_data.map(
+            ({ name, id }: any) => ({ name, id })
         )
+
+
 
         const state = slicedState
             .filter(({ name }: any) => selectedState.includes(name))
