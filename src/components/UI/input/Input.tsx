@@ -61,7 +61,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
     const [eyeIcon, setEyeIcon] = useState(false)
     const toggleEyeIcon = () => setEyeIcon(!eyeIcon)
 
-    console.log({label, selectFormErrors})
+    console.log({ label, selectFormErrors })
 
     return (
         <div
@@ -176,12 +176,12 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                                         'border-red-500 '
                                     }`}
                                     min={
-                                        type === 'date' &&
-                                        label.indexOf('dob') !== 0
-                                            ? new Date()
+                                        type === 'date'
+                                            ? label.indexOf('dob') !== 0 &&
+                                              new Date()
                                                   .toISOString()
                                                   .split('T')[0]
-                                            : null
+                                            : 0
                                     }
                                 />
                             )}
