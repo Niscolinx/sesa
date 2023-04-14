@@ -101,18 +101,16 @@ const AddEstate = () => {
         data: response_data,
         isLoading,
     } = useMutation(postRequest, {
-        onSuccess:({response}: any) => {
-
+        onSuccess: ({ response }: any) => {
             openDialog()
         },
-        onError: (err:any) => {
-
+        onError: (err: any) => {
             setResponseMessage({
                 className: 'text-red-600',
                 displayMessage: err?.response?.data.message,
             })
-        }
-    }) 
+        },
+    })
 
     const closeDialog = () => {
         if (dialogRef.current) {
@@ -173,6 +171,14 @@ const AddEstate = () => {
             .filter(({ name }: any) => selectedState.includes(name))
             .map(({ id }: any) => id)[0]
     })
+
+    if (
+        states_data_loading ||
+        security_company_loading ||
+        estate_manager_loading
+    ) {
+        return <p className='p-8'>Loading...</p>
+    }
 
     const slicedStates: string[] = states_data.map(({ name }: any) => name)
 
@@ -247,14 +253,6 @@ const AddEstate = () => {
             type: 'number',
         },
     ] satisfies FormInputs[]
-
-    if (
-        states_data_loading ||
-        security_company_loading ||
-        estate_manager_loading
-    ) {
-        return <p className='p-8'>Loading...</p>
-    }
 
     return (
         <div className='bg-white rounded-lg p-8'>
