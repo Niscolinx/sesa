@@ -61,8 +61,6 @@ const Input: FC<Partial<Input> & { label: string }> = ({
     const [eyeIcon, setEyeIcon] = useState(false)
     const toggleEyeIcon = () => setEyeIcon(!eyeIcon)
 
-    console.log({ label, selectFormErrors })
-
     return (
         <div
             className={`w-full grid gap-4 self-baseline ${
