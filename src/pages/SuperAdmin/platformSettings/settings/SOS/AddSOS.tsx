@@ -1,4 +1,4 @@
-import React, { FormEvent, useRef, useState } from 'react'
+import React, { FormEvent, useEffect, useRef, useState } from 'react'
 import { IoMdAdd, IoMdClose } from 'react-icons/io'
 import { MultipleSelect } from '../../../../../components/SuperAdmin/UI/Select'
 import { useForm } from 'react-hook-form'
@@ -33,16 +33,25 @@ const AddSOS = () => {
     }
 
     const [selectedEstates, setSelectedEstates] = useState<string[]>([])
+    const [estatesData, setEstatesData] = useState<any[]>([])
     const [selectFormErrors, setSelectFormErrors] = useState<{
         [key: string]: string
     } | null>(null)
     const [responseMessage, setResponseMessage] =
         useState<ResponseMessage | null>(null)
 
-    const { data: estates_data, isLoading: estates_loading } = useFetchData({
-        url: '/estate/getall',
-        name: 'estates',
-    })
+    useEffect(() => {
+        const { data: estates_data, isLoading: estates_loading } = useFetchData(
+            {
+                url: '/estate/getall',
+                name: 'estates',
+            }
+        )
+
+        if (estates_data?.data) {
+            setEstatesData(estates_data.data)
+        }
+    }, [])
     const {
         register,
         handleSubmit,
@@ -78,8 +87,6 @@ const AddSOS = () => {
         },
     }) as any
 
-   
-
     const onSubmit = handleSubmit((data) => {
         let isError = false
         if (selectedEstates.length < 1) {
@@ -99,7 +106,7 @@ const AddSOS = () => {
         setResponseMessage(null)
         setSelectFormErrors(null)
 
-        const slicedEstates: string[] = estates_data.data.map(
+        const slicedEstates: any[] = estatesData.map(
             ({ estate_name, id }: any) => ({
                 estate_name,
                 id,
@@ -119,49 +126,47 @@ const AddSOS = () => {
         mutate(updated_data)
     })
 
-    if (estates_loading) {
-        return <p>Loading...</p>
-    }
+    // if (estates_loading) {
+    //     return <p>Loading...</p>
+    // }
 
-    if(estates_data?.data){
-        const slicedEstates: string[] = estates_data?.data.map(
-            ({ estate_name }: any) => estate_name
-        )
+    const slicedEstates: string[] = estatesData.map(
+        ({ estate_name }: any) => estate_name
+    )
 
-        const formInputs = [
-            {
-                label: 'name',
-            },
-            {
-                label: 'phone_number_1',
-                type: 'number',
-            },
-            {
-                label: 'email',
-            },
-            {
-                label: 'phone_number_2',
-                type: 'email',
-            },
-            {
-                label: 'address',
-            },
-            {
-                label: 'phone_number_3',
-            },
+    const formInputs = [
+        {
+            label: 'name',
+        },
+        {
+            label: 'phone_number_1',
+            type: 'number',
+        },
+        {
+            label: 'email',
+        },
+        {
+            label: 'phone_number_2',
+            type: 'email',
+        },
+        {
+            label: 'address',
+        },
+        {
+            label: 'phone_number_3',
+        },
 
-            {
-                label: 'Estates',
-                type: 'select',
-                selectProps: {
-                    state: slicedEstates,
-                    isMulti: true,
-                    selectedState: selectedEstates,
-                    setSelectedState: setSelectedEstates,
-                },
+        {
+            label: 'Estates',
+            type: 'select',
+            selectProps: {
+                state: slicedEstates,
+                isMulti: true,
+                selectedState: selectedEstates,
+                setSelectedState: setSelectedEstates,
             },
-        ] satisfies FormInputs[]
-    }
+        },
+    ] satisfies FormInputs[]
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
