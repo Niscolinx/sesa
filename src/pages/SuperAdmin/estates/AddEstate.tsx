@@ -96,10 +96,7 @@ const AddEstate = () => {
             data,
         })
     }
-    const {
-        mutate,
-        isLoading,
-    } = useMutation(postRequest, {
+    const { mutate, isLoading } = useMutation(postRequest, {
         onSuccess: ({ response }: any) => {
             openDialog()
         },
@@ -162,21 +159,21 @@ const AddEstate = () => {
             return
         }
 
-        const slicedState: string[] = states_data.map(({ name, id }: any) => ({
+        const slicedState: string[] = states_data.filter(({ name }: any) => selectedState.includes(name)).map(({ name, id }: any) => ({
             name,
             id,
         }))
-       
 
-        const slicedSecurityCompany: string[] = security_company_data.filter(({name}:any) => selectedSecurityCompany.includes(name)).map(
-            ({ id }: any) =>  ({ id })
-        )
-        const slicedEstateManager: string[] = security_company_data.filter(({name}:any) => selectedSecurityCompany.includes(name)).map(
-            ({ name, id }: any) =>  ({ id })
-        )
+        const slicedSecurityCompany: string[] = security_company_data
+            .filter(({ name }: any) => selectedSecurityCompany.includes(name))
+            .map(({ id }: any) => ({ id }))
+        const slicedEstateManager: string[] = estate_manager_data.data
+            .filter(({ estate_name }: any) =>
+                selectedSecurityCompany.includes(estate_name)
+            )
+            .map(({ id }: any) => ({ id }))
 
-        console.log({slicedSecurityCompany})
-
+        console.log({ slicedSecurityCompany, slicedEstateManager, slicedState })
 
         const state = slicedState
             .filter(({ name }: any) => selectedState.includes(name))
@@ -189,11 +186,6 @@ const AddEstate = () => {
 
         mutate(updated_data)
     })
-
-
-
-
-
 
     if (
         states_data_loading ||
@@ -210,11 +202,6 @@ const AddEstate = () => {
     const slicedSecurityCompanies: string[] = security_company_data.map(
         ({ name }: any) => name
     )
-
-
-
-
-
 
     const first_section_inputs = [
         {
