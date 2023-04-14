@@ -98,7 +98,6 @@ const AddEstate = () => {
     }
     const {
         mutate,
-        data: response_data,
         isLoading,
     } = useMutation(postRequest, {
         onSuccess: ({ response }: any) => {
@@ -123,7 +122,6 @@ const AddEstate = () => {
             dialogRef.current.showModal()
         }
     }
-
 
     const onSubmit = handleSubmit((data) => {
         setSelectFormErrors(null)
@@ -164,7 +162,6 @@ const AddEstate = () => {
             return
         }
 
-
         const slicedState: string[] = states_data.map(({ name, id }: any) => ({
             name,
             id,
@@ -172,13 +169,21 @@ const AddEstate = () => {
         // const category = slicedCategories.map(
         //     ({ name, id }: any) => selectedCategories.includes(name) && { id }
         // )
-        // const slicedSecurityCompany: string[] = security_company_data.data.map(
-        //     ({ name, id }: any) => ({ name, id })
-        // )
+
+        const slicedSecurityCompany: string[] = security_company_data.data.map(
+            ({ estate_name, id }: any) => ({ name, id })
+        )
 
         const state = slicedState
             .filter(({ name }: any) => selectedState.includes(name))
             .map(({ id }: any) => id)[0]
+
+        const updated_data = {
+            ...data,
+            state,
+        }
+
+        mutate(updated_data)
     })
 
     if (
@@ -415,7 +420,7 @@ const AddEstate = () => {
                     <span>
                         <IoMdAdd />
                     </span>{' '}
-                    Add Estate
+                    {isLoading ? 'Loading...': 'Add Estate'}
                 </button>
             </form>
         </div>
