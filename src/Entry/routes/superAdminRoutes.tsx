@@ -46,6 +46,7 @@ import AddEstateManager from '../../pages/SuperAdmin/estateManagers/AddEstateMan
 import ViewEstateManager from '../../pages/SuperAdmin/estateManagers/ViewEstateManager'
 import AddResidentUserPackage from '../../pages/SuperAdmin/residentUserPackage/AddResidentUserPackage'
 import ViewProperty from '../../pages/SuperAdmin/platformSettings/settings/property/ViewProperty'
+import ViewEstate from '../../pages/SuperAdmin/estates/ViewEstate'
 
 const superAdminRoutes = (
     <Route
@@ -61,6 +62,7 @@ const superAdminRoutes = (
         <Route path='estates/detail/:id' element={<EstateDetail />} />
         <Route path='estates/add' element={<AddEstate />} />
         <Route path='estates/report/:id' element={<EstateReport />} />
+        <Route path='estates/view/:id' element={<ViewEstate />} />
         <Route path='security-company' element={<SecurityCompany />} />
         <Route
             path='security-company/:id'
