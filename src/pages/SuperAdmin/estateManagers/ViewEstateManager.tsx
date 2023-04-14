@@ -142,7 +142,7 @@ const ViewEstateManager = () => {
             setPhotoPreview(image)
             setSelectedGender(fetched_data.gender)
         },
-    }) as any
+    })
 
     const {
         mutate: post_mutation,
