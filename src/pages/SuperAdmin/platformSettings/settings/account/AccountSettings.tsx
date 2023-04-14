@@ -73,6 +73,8 @@ const AccountSettings = () => {
 
         const { new_password, confirm_password } = data
 
+        console.log({data})
+
         if (new_password !== confirm_password) {
             return setResponseMessage({
                 className: 'text-red-600',
