@@ -144,16 +144,18 @@ const AddSOS = () => {
         },
         {
             label: 'email',
+            type: 'email'
         },
         {
             label: 'phone_number_2',
-            type: 'email',
+            type: 'number',
         },
         {
             label: 'address',
         },
         {
             label: 'phone_number_3',
+            type: 'number'
         },
 
         {
