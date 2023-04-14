@@ -125,12 +125,13 @@ const AddEstate = () => {
     }
 
     useEffect(() => {
-        console.log({selectFormErrors})
+        console.log({ selectFormErrors })
     }, [selectFormErrors])
 
     const onSubmit = handleSubmit((data) => {
+        console.log({ data })
+        setSelectFormErrors(null)
 
-        console.log({data})
         let isError = false
         if (selectedSecurityCompany.length < 1) {
             isError = true
@@ -141,12 +142,12 @@ const AddEstate = () => {
                 }
             })
         }
-                    console.log({ selectedEstateManager })
+        console.log({ selectedEstateManager })
 
         if (selectedEstateManager.length < 1) {
             isError = true
 
-            console.log({selectedEstateManager})
+            console.log({ selectedEstateManager })
 
             setSelectFormErrors((prev) => {
                 return {
@@ -171,7 +172,6 @@ const AddEstate = () => {
         }
 
         console.log('=====================')
-        setSelectFormErrors(null)
 
         const slicedState: string[] = states_data.map(({ name, id }: any) => ({
             name,

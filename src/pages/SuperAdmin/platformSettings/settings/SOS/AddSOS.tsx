@@ -81,6 +81,8 @@ const AddSOS = () => {
 
     const onSubmit = handleSubmit((data) => {
         let isError = false
+                setSelectFormErrors(null)
+
         if (selectedEstates.length < 1) {
             isError = true
 
@@ -96,7 +98,6 @@ const AddSOS = () => {
             return
         }
         setResponseMessage(null)
-        setSelectFormErrors(null)
 
         const slicedEstates: string[] = estates_data.data.map(
             ({ estate_name, id }: any) => ({
