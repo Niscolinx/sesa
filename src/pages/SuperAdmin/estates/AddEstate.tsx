@@ -23,32 +23,32 @@ const AddEstate = () => {
         account_number: number
     }
 
-    
+    type FormInputs = {
+        label: string
+        type?: string
+        name?: string
+        required?: boolean
+        selectProps?: SelectProps
+    }
 
-     type FormInputs = {
-         label: string
-         type?: string
-         name?: string
-         required?: boolean
-         selectProps?: SelectProps
-     }
+    type ResponseMessage = {
+        className: string
+        displayMessage: string
+    }
 
-     type ResponseMessage = {
-         className: string
-         displayMessage: string
-     }
-
-     const { data: estate_manager_data, isLoading: estate_manager_loading } = useFetchData({
-         url: '/estate/getall',
-         name: 'estate_manager',
-     })
-     const { data: security_company_data, isLoading: security_company_loading } = useFetchData({
-         url: '/security-company/get/all',
-         name: 'security_company',
-     })
-     const { data: states_data, isLoading: states_data_loading } = useFetchData({
-       
-     })
+    const { data: estate_manager_data, isLoading: estate_manager_loading } =
+        useFetchData({
+            url: '/estate/getall',
+            name: 'estate_manager',
+        })
+    const { data: security_company_data, isLoading: security_company_loading } =
+        useFetchData({
+            url: '/security-company/get/all',
+            name: 'security_company',
+        })
+    const { data: states_data, isLoading: states_data_loading } = useFetchData(
+        {}
+    )
 
     const axiosInstance = useAxios()
 
@@ -63,11 +63,11 @@ const AddEstate = () => {
     const [photoPreview, setPhotoPreview] = useState('')
     const [imageUrl, setImageUrl] = useState<File | null>(null)
     const [isSignOutRequired, setIsSignOutRequired] = useState(false)
-     const [selectFormErrors, setSelectFormErrors] = useState<{
-         [key: string]: string
-     } | null>(null)
-     const [responseMessage, setResponseMessage] =
-         useState<ResponseMessage | null>(null)
+    const [selectFormErrors, setSelectFormErrors] = useState<{
+        [key: string]: string
+    } | null>(null)
+    const [responseMessage, setResponseMessage] =
+        useState<ResponseMessage | null>(null)
 
     const toggleIsSignOutRequired = () =>
         setIsSignOutRequired(!isSignOutRequired)
@@ -86,10 +86,6 @@ const AddEstate = () => {
         handleSubmit,
         formState: { errors: formErrors },
     } = useForm<Inputs>()
-
-    
-
-
 
     const postAdmin = (data: Inputs) => {
         return axiosInstance({
@@ -122,38 +118,37 @@ const AddEstate = () => {
 
     const onSubmit = handleSubmit((data) => {
         let isError = false
-       if (selectedSecurityCompany.length < 1) {
-           isError = true
-           setSelectFormErrors((prev) => {
-               return {
-                   ...prev,
-                   'Artisan Categories': 'Field cannot be empty',
-               }
-           })
-       }
-       if (selectedEstateManager.length < 1) {
-           isError = true
+        if (selectedSecurityCompany.length < 1) {
+            isError = true
+            setSelectFormErrors((prev) => {
+                return {
+                    ...prev,
+                    'Artisan Categories': 'Field cannot be empty',
+                }
+            })
+        }
+        if (selectedEstateManager.length < 1) {
+            isError = true
 
-           setSelectFormErrors((prev) => {
-               return {
-                   ...prev,
-                   Gender: 'Field cannot be empty',
-               }
-           })
-       }
-       if (selectedState.length < 1) {
-           isError = true
+            setSelectFormErrors((prev) => {
+                return {
+                    ...prev,
+                    Gender: 'Field cannot be empty',
+                }
+            })
+        }
+        if (selectedState.length < 1) {
+            isError = true
 
-           setSelectFormErrors((prev) => {
-               return {
-                   ...prev,
-                   State: 'Field cannot be empty',
-               }
-           })
-       }
+            setSelectFormErrors((prev) => {
+                return {
+                    ...prev,
+                    State: 'Field cannot be empty',
+                }
+            })
+        }
 
-
-        const slicedStates: string[] = states_data.map(({ name, id }: any) => ({
+        const slicedState: string[] = states_data.map(({ name, id }: any) => ({
             name,
             id,
         }))
@@ -164,14 +159,10 @@ const AddEstate = () => {
         //     ({ name, id }: any) => ({ name, id })
         // )
 
-
-
-        const state = slicedStates
+        const state = slicedState
             .filter(({ name }: any) => selectedState.includes(name))
             .map(({ id }: any) => id)[0]
     })
-
-    
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
@@ -187,24 +178,26 @@ const AddEstate = () => {
         }
     }
 
-    
+    const slicedStates: string[] = states_data.map(({ name, id }: any) => ({
+        name,
+        id,
+    }))
 
     const first_section_inputs = [
         {
             label: 'estate_name',
         },
 
-        // {
-        //     label: 'estate_location_state',
-        //     name: 'state',
-        //     type: 'select',
-        //     selectProps: {
-        //         state: slicedEstates,
-        //         isMulti: true,
-        //         selectedState: selectedEstates,
-        //         setSelectedState: setSelectedEstates,
-        //     },
-        // },
+        {
+            label: 'State',
+            type: 'select',
+            selectProps: {
+                state: slicedStates,
+                isSearchable: true,
+                selectedState: selectedState,
+                setSelectedState: setSelectedState,
+            },
+        },
         // {
         //     label: 'address',
         // },
@@ -261,6 +254,12 @@ const AddEstate = () => {
             type: 'number',
         },
     ] satisfies FormInputs[]
+
+
+
+    if(states_data_loading || security_company_loading || estate_manager_loading){
+        return <p className='p-8'>Loading...</p>
+    }
 
     return (
         <div className='bg-white rounded-lg p-8'>
