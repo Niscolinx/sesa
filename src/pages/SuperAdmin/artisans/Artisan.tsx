@@ -83,14 +83,13 @@ function Artisan() {
 
     let getLastPath = prevLocation.split('/').pop()
 
-    const newPath = getLastPath?.includes(':') ? prevLocation.split('/').pop() : getLastPath
-    console.log({ getLastPath, newPath })
+    let gottenPath = getLastPath?.includes(':') ? prevLocation.split(':')[0].split('/').pop() : getLastPath
 
     useLayoutEffect(() => {
-        if (getLastPath) {
-            getLastPath = getLastPath.replace(/([a-z])([A-Z])/g, '$1 $2')
+        if (gottenPath) {
+            gottenPath = gottenPath.replace(/([a-z])([A-Z])/g, '$1 $2')
 
-            let word = getLastPath.split('-').pop()?.toLowerCase()
+            let word = gottenPath.split('-').pop()?.toLowerCase()
 
             Array.from(handlePathSwitch.keys()).some((path) => {
                 console.log({ path, word })
