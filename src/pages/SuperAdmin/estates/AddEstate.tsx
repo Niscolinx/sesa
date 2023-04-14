@@ -306,6 +306,13 @@ const AddEstate = () => {
                     </div>
                 </section>
             </dialog>
+            {responseMessage?.displayMessage && (
+                <p className='text-center my-5'>
+                    <span className={responseMessage?.className}>
+                        {responseMessage?.displayMessage}
+                    </span>
+                </p>
+            )}
             <form onSubmit={onSubmit} className='grid gap-20'>
                 <div className='grid gap-10'>
                     <p className='text-[2rem] font-Satoshi-Medium'>
@@ -423,7 +430,7 @@ const AddEstate = () => {
                     <span>
                         <IoMdAdd />
                     </span>{' '}
-                    {isLoading ? 'Loading...': 'Add Estate'}
+                    {isLoading ? 'Loading...' : 'Add Estate'}
                 </button>
             </form>
         </div>
