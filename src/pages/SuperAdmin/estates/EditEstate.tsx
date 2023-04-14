@@ -103,7 +103,7 @@ const EditEstate = () => {
             },
         })
     }
-     const getRequest = () => {
+    const getRequest = () => {
         return axiosInstance({
             url: `/manager/get/${estate_id}`,
         })
@@ -115,33 +115,35 @@ const EditEstate = () => {
 
             const fetched_data = res.data
 
-            const { estate_name,
-        estate_location_state,
-        address,
-        estate_manager,
-        security_company,
-        estate_fee,
-        sesa_fee,
-        number_of_resident_user,
-        additional_resident_user,
-        bank_name,
-        account_name,
-        account_number, image } = fetched_data
-           
+            const {
+                estate_name,
+                estate_location_state,
+                address,
+                estate_manager,
+                security_company,
+                estate_fee,
+                sesa_fee,
+                number_of_resident_user,
+                additional_resident_user,
+                bank_name,
+                account_name,
+                account_number,
+                image,
+            } = fetched_data
 
             reset({
-                 estate_name,
-        estate_location_state,
-        address,
-        estate_manager,
-        security_company,
-        estate_fee,
-        sesa_fee,
-        number_of_resident_user,
-        additional_resident_user,
-        bank_name,
-        account_name,
-        account_number,
+                estate_name,
+                estate_location_state,
+                address,
+                estate_manager,
+                security_company,
+                estate_fee,
+                sesa_fee,
+                number_of_resident_user,
+                additional_resident_user,
+                bank_name,
+                account_name,
+                account_number,
             })
 
             setPhotoPreview(image)
@@ -240,6 +242,7 @@ const EditEstate = () => {
     })
 
     if (
+        get_loading ||
         states_data_loading ||
         security_company_loading ||
         estate_manager_loading
