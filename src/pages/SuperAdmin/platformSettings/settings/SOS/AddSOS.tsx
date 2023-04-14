@@ -33,7 +33,6 @@ const AddSOS = () => {
     }
 
     const [selectedEstates, setSelectedEstates] = useState<string[]>([])
-    const [estatesData, setEstatesData] = useState()
     const [selectFormErrors, setSelectFormErrors] = useState<{
         [key: string]: string
     } | null>(null)
@@ -215,7 +214,7 @@ const AddSOS = () => {
                 )}
 
                 <form
-                    // onSubmit={onSubmit}
+                 onSubmit={onSubmit}
                     className='grid max-w-[84rem] gap-16 mt-12'
                     style={{
                         gridTemplateColumns:
