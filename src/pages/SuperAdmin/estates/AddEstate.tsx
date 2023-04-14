@@ -63,7 +63,7 @@ const AddEstate = () => {
     >([])
 
     const [photoPreview, setPhotoPreview] = useState('')
-    const [imageUrl, setImageUrl] = useState<File | null>(null)
+    const [imageFile, setImageFile] = useState<File | null>(null)
     const [isSignOutRequired, setIsSignOutRequired] = useState(false)
     const [selectFormErrors, setSelectFormErrors] = useState<{
         [key: string]: string
@@ -80,7 +80,7 @@ const AddEstate = () => {
 
         const preview = URL.createObjectURL(file)
         setPhotoPreview(preview)
-        setImageUrl(file)
+        setImageFile(file)
     }
 
     const {
@@ -180,6 +180,7 @@ const AddEstate = () => {
             state,
             estate_manager,
             security_company,
+            image: imageFile
         }
 
         mutate(updated_data)
