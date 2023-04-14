@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form'
 import { useMutation } from 'react-query'
 import ImageInput from '../../../components/UI/input/ImageInput'
 import useAxios from '../../../components/hooks/useAxios'
+import useFetchData from '../../../utils/useFetchData'
 
 const AddEstate = () => {
     interface Inputs {
@@ -22,6 +23,8 @@ const AddEstate = () => {
         account_number: number
     }
 
+    
+
      type FormInputs = {
          label: string
          type?: string
@@ -34,6 +37,19 @@ const AddEstate = () => {
          className: string
          displayMessage: string
      }
+
+     const { data: estate_manager_data, isLoading: estate_manager_loading } = useFetchData({
+         url: '/estate/getall',
+         name: 'estate_manager',
+     })
+     const { data: security_company_data, isLoading: security_company_loading } = useFetchData({
+         url: '/security-company/get/all',
+         name: 'security_company',
+     })
+     const { data: estateManager_data, isLoading: estateManager_loading } = useFetchData({
+         url: '/estate/getall',
+         name: 'estates',
+     })
 
     const axiosInstance = useAxios()
 

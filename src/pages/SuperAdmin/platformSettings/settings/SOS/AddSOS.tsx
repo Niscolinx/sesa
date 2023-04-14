@@ -1,4 +1,4 @@
-import  { FormEvent, useRef, useState } from 'react'
+import { FormEvent, useRef, useState } from 'react'
 import { IoMdAdd, IoMdClose } from 'react-icons/io'
 import { useForm } from 'react-hook-form'
 import { useMutation } from 'react-query'
@@ -30,12 +30,7 @@ const AddSOS = () => {
         phone_number_3: number
     }
 
-    const {
-        data: estates_data,
-        isLoading: estates_loading,
-        isFetched,
-        isFetching,
-    } = useFetchData({
+    const { data: estates_data, isLoading: estates_loading } = useFetchData({
         url: '/estate/getall',
         name: 'estates',
     })
@@ -131,7 +126,7 @@ const AddSOS = () => {
         ({ estate_name }: any) => estate_name
     )
 
-    console.log({slicedEstates})
+    console.log({ slicedEstates })
 
     const formInputs = [
         {
@@ -143,7 +138,7 @@ const AddSOS = () => {
         },
         {
             label: 'email',
-            type: 'email'
+            type: 'email',
         },
         {
             label: 'phone_number_2',
@@ -154,7 +149,7 @@ const AddSOS = () => {
         },
         {
             label: 'phone_number_3',
-            type: 'number'
+            type: 'number',
         },
 
         {
