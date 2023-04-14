@@ -34,7 +34,7 @@ type Estate = {
 }
 
 function Estates() {
-    type Actions = 'view details' | 'deactivate'
+    type Actions = 'view details' | 'deactivate' | 'edit details'
 
     const navigate = useNavigate()
     const axiosInstance = useAxios()
@@ -89,7 +89,7 @@ function Estates() {
         }
     }, [get_estates_response])
 
-    const actions = ['view details'] satisfies Actions[]
+    const actions = ['view details', 'edit details'] satisfies Actions[]
 
     const [toggleDropDown, setToggleDropDown] = useState<{
         isDropDownOpen: boolean
