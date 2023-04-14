@@ -170,8 +170,8 @@ const AddEstate = () => {
         //     ({ name, id }: any) => selectedCategories.includes(name) && { id }
         // )
 
-        const slicedSecurityCompany: string[] = security_company_data.map(
-            ({ name, id }: any) =>  ( selectedSecurityCompany.includes(name) && { id })
+        const slicedSecurityCompany: string[] = security_company_data.filter(({name}:any) => selectedSecurityCompany.includes(name)).map(
+            ({ name, id }: any) =>  ({ id })
         )
 
         console.log({slicedSecurityCompany})
@@ -192,7 +192,7 @@ const AddEstate = () => {
 
 
 
-    
+
 
     if (
         states_data_loading ||
