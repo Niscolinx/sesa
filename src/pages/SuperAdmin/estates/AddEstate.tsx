@@ -121,8 +121,8 @@ const AddEstate = () => {
     }, [response_data])
 
     const onSubmit = handleSubmit((data) => {
-        
-       if (selectedCategories.length < 1) {
+        let isError = false
+       if (selectedSecurityCompany.length < 1) {
            isError = true
            setSelectFormErrors((prev) => {
                return {
@@ -131,7 +131,7 @@ const AddEstate = () => {
                }
            })
        }
-       if (selectedGender.length < 1) {
+       if (selectedEstateManager.length < 1) {
            isError = true
 
            setSelectFormErrors((prev) => {
@@ -157,14 +157,14 @@ const AddEstate = () => {
             name,
             id,
         }))
+        // const category = slicedCategories.map(
+        //     ({ name, id }: any) => selectedCategories.includes(name) && { id }
+        // )
+        // const slicedSecurityCompany: string[] = security_company_data.data.map(
+        //     ({ name, id }: any) => ({ name, id })
+        // )
 
-        const slicedCategories: string[] = categories_data.data.map(
-            ({ name, id }: any) => ({ name, id })
-        )
 
-        const category = slicedCategories.map(
-            ({ name, id }: any) => selectedCategories.includes(name) && { id }
-        )
 
         const state = slicedStates
             .filter(({ name }: any) => selectedState.includes(name))
@@ -194,38 +194,38 @@ const AddEstate = () => {
             label: 'estate_name',
         },
 
-        {
-            label: 'estate_location_state',
-            name: 'state',
-            type: 'select',
-            selectProps: {
-                state: slicedEstates,
-                isMulti: true,
-                selectedState: selectedEstates,
-                setSelectedState: setSelectedEstates,
-            },
-        },
-        {
-            label: 'address',
-        },
-        {
-            label: 'estate_manager',
-            type: 'select',
-            selectProps: {
-                state: estateManager,
-                selectedState: selectedEstateManager,
-                setSelectedState: setSelectedEstateManager,
-            },
-        },
-        {
-            label: 'security_company',
-            type: 'select',
-            selectProps: {
-                state: securityCompany,
-                selectedState: selectedSecurityCompany,
-                setSelectedState: setSelectedSecurityCompany,
-            },
-        },
+        // {
+        //     label: 'estate_location_state',
+        //     name: 'state',
+        //     type: 'select',
+        //     selectProps: {
+        //         state: slicedEstates,
+        //         isMulti: true,
+        //         selectedState: selectedEstates,
+        //         setSelectedState: setSelectedEstates,
+        //     },
+        // },
+        // {
+        //     label: 'address',
+        // },
+        // {
+        //     label: 'estate_manager',
+        //     type: 'select',
+        //     selectProps: {
+        //         state: estateManager,
+        //         selectedState: selectedEstateManager,
+        //         setSelectedState: setSelectedEstateManager,
+        //     },
+        // },
+        // {
+        //     label: 'security_company',
+        //     type: 'select',
+        //     selectProps: {
+        //         state: securityCompany,
+        //         selectedState: selectedSecurityCompany,
+        //         setSelectedState: setSelectedSecurityCompany,
+        //     },
+        // },
     ] satisfies Partial<FormInputs>[] & { label: string }[]
 
     const second_section_inputs = [
