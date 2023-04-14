@@ -124,6 +124,10 @@ const AddEstate = () => {
         }
     }
 
+    useEffect(() => {
+        console.log({selectFormErrors})
+    }, [selectFormErrors])
+
     const onSubmit = handleSubmit((data) => {
 
         console.log({data})
@@ -133,7 +137,7 @@ const AddEstate = () => {
             setSelectFormErrors((prev) => {
                 return {
                     ...prev,
-                    security_company: 'Field cannot be empty',
+                    'security_company': 'Field cannot be empty',
                 }
             })
         }
@@ -147,7 +151,7 @@ const AddEstate = () => {
             setSelectFormErrors((prev) => {
                 return {
                     ...prev,
-                    estate_manager: 'Field cannot be empty',
+                    'estate_manager': 'Field cannot be empty',
                 }
             })
         }
