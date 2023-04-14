@@ -146,7 +146,6 @@ const ViewEstateManager = () => {
 
     const {
         mutate: post_mutation,
-        data: post_response_data,
         isLoading: post_loading,
     } = useMutation(postUpdate, {
         onSuccess: (data) => {

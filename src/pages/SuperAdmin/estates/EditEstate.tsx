@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
 import Input, { SelectProps } from '../../../components/UI/input/Input'
 import { useForm } from 'react-hook-form'
-import { useMutation } from 'react-query'
+import { useMutation, useQuery } from 'react-query'
 import ImageInput from '../../../components/UI/input/ImageInput'
 import useAxios from '../../../components/hooks/useAxios'
 import useFetchData from '../../../utils/useFetchData'
@@ -89,6 +89,7 @@ const EditEstate = () => {
     const {
         register,
         handleSubmit,
+        reset,
         formState: { errors: formErrors },
     } = useForm<Inputs>()
 
@@ -107,6 +108,46 @@ const EditEstate = () => {
             url: `/manager/get/${estate_id}`,
         })
     }
+
+    const { isLoading: get_loading } = useQuery('view estate', getRequest, {
+        onSuccess: (res) => {
+            console.log(res.data)
+
+            const fetched_data = res.data
+
+            const { estate_name,
+        estate_location_state,
+        address,
+        estate_manager,
+        security_company,
+        estate_fee,
+        sesa_fee,
+        number_of_resident_user,
+        additional_resident_user,
+        bank_name,
+        account_name,
+        account_number, image } = fetched_data
+           
+
+            reset({
+                 estate_name,
+        estate_location_state,
+        address,
+        estate_manager,
+        security_company,
+        estate_fee,
+        sesa_fee,
+        number_of_resident_user,
+        additional_resident_user,
+        bank_name,
+        account_name,
+        account_number,
+            })
+
+            setPhotoPreview(image)
+            // setSelectedGender(fetched_data.gender)
+        },
+    })
 
     const { mutate, isLoading } = useMutation(postRequest, {
         onSuccess: ({ response }: any) => {
