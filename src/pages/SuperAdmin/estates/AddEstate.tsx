@@ -137,7 +137,7 @@ const AddEstate = () => {
             setSelectFormErrors((prev) => {
                 return {
                     ...prev,
-                    'security_company': 'Field cannot be empty',
+                    'security company': 'Field cannot be empty',
                 }
             })
         }
@@ -151,7 +151,7 @@ const AddEstate = () => {
             setSelectFormErrors((prev) => {
                 return {
                     ...prev,
-                    'estate_manager': 'Field cannot be empty',
+                    'estate manager': 'Field cannot be empty',
                 }
             })
         }
@@ -161,7 +161,7 @@ const AddEstate = () => {
             setSelectFormErrors((prev) => {
                 return {
                     ...prev,
-                    State: 'Field cannot be empty',
+                    state: 'Field cannot be empty',
                 }
             })
         }
@@ -213,7 +213,7 @@ const AddEstate = () => {
         },
 
         {
-            label: 'State',
+            label: 'state',
             type: 'select',
             selectProps: {
                 state: slicedStates,
@@ -226,7 +226,7 @@ const AddEstate = () => {
             label: 'address',
         },
         {
-            label: 'estate_manager',
+            label: 'estate manager',
             type: 'select',
             selectProps: {
                 state: slicedEstateManagers,
@@ -236,7 +236,7 @@ const AddEstate = () => {
             },
         },
         {
-            label: 'security_company',
+            label: 'security company',
             type: 'select',
             selectProps: {
                 state: slicedSecurityCompanies,
