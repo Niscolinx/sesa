@@ -9,6 +9,7 @@ import Input from '../../../../../components/UI/input/Input'
 const AccountSettings = () => {
     type FormInputs = {
         label: string
+        name?: string
         type?: string
         pre?: string
     }
@@ -91,15 +92,18 @@ const AccountSettings = () => {
 
     const formInputs = [
         {
-            label: 'Current Password',
+            label: 'current_password',
+            name: 'Current Password',
             type: 'password',
         },
         {
-            label: 'New Password',
+            label: 'new_password',
+            name: 'New Password',
             type: 'password',
         },
         {
-            label: 'Re-Enter New Password',
+            label: 'confirm_password',
+            name: 'Re-Enter New Password',
             type: 'password',
         },
     ] satisfies FormInputs[]
