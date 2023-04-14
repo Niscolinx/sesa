@@ -131,7 +131,7 @@ const AddEstate = () => {
             setSelectFormErrors((prev) => {
                 return {
                     ...prev,
-                    'security_company': 'Field cannot be empty',
+                    security_company: 'Field cannot be empty',
                 }
             })
         }
@@ -141,7 +141,7 @@ const AddEstate = () => {
             setSelectFormErrors((prev) => {
                 return {
                     ...prev,
-                    'estate_manager': 'Field cannot be empty',
+                    estate_manager: 'Field cannot be empty',
                 }
             })
         }
@@ -155,6 +155,11 @@ const AddEstate = () => {
                 }
             })
         }
+
+        if (isError) {
+            return
+        }
+        setSelectFormErrors(null)
 
         const slicedState: string[] = states_data.map(({ name, id }: any) => ({
             name,
@@ -181,10 +186,14 @@ const AddEstate = () => {
     }
 
     const slicedStates: string[] = states_data.map(({ name }: any) => name)
-    const slicedEstateManagers: string[] = estate_manager_data.data.map(({ estate_name }: any) => estate_name)
-    const slicedSecurityCompanies: string[] = security_company_data.map(({ name }: any) => name)
+    const slicedEstateManagers: string[] = estate_manager_data.data.map(
+        ({ estate_name }: any) => estate_name
+    )
+    const slicedSecurityCompanies: string[] = security_company_data.map(
+        ({ name }: any) => name
+    )
 
-    console.log({security_company_data, estate_manager_data})
+    console.log({ security_company_data, estate_manager_data })
 
     const first_section_inputs = [
         {
@@ -336,6 +345,7 @@ const AddEstate = () => {
                                     register={register}
                                     formErrors={formErrors}
                                     type={type}
+                                    minLength={0}
                                     name={name}
                                 />
                             )
