@@ -38,7 +38,7 @@ const AddResidentUserPackage = () => {
         'yearly',
     ] satisfies Frequency[]
 
-    const [selectedFrequency, setSelectedFrequency] = useState<string | null>(
+    const [selectedFrequency, setSelectedFrequency] = useState<string>(
         'monthly'
     )
     const [responseMessage, setResponseMessage] =
@@ -168,7 +168,6 @@ const AddResidentUserPackage = () => {
                                 key={idx + label}
                                 label={label}
                                 register={register}
-                                setValue={setValue}
                                 formErrors={formErrors}
                                 type={type}
                                 minLength={minLength}
