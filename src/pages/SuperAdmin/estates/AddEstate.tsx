@@ -129,7 +129,6 @@ const AddEstate = () => {
     }, [selectFormErrors])
 
     const onSubmit = handleSubmit((data) => {
-        console.log({ data })
         setSelectFormErrors(null)
 
         let isError = false
