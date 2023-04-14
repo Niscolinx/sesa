@@ -46,7 +46,7 @@ import AddEstateManager from '../../pages/SuperAdmin/estateManagers/AddEstateMan
 import ViewEstateManager from '../../pages/SuperAdmin/estateManagers/ViewEstateManager'
 import AddResidentUserPackage from '../../pages/SuperAdmin/residentUserPackage/AddResidentUserPackage'
 import ViewProperty from '../../pages/SuperAdmin/platformSettings/settings/property/ViewProperty'
-import ViewEstate from '../../pages/SuperAdmin/estates/ViewEstate'
+import ViewEstate from '../../pages/SuperAdmin/estates/EditEstate'
 
 const superAdminRoutes = (
     <Route

@@ -8,7 +8,7 @@ import useAxios from '../../../components/hooks/useAxios'
 import useFetchData from '../../../utils/useFetchData'
 import { useParams } from 'react-router'
 
-const ViewEstate = () => {
+const EditEstate = () => {
     interface Inputs {
         estate_name: string
         estate_location_state: string
@@ -102,6 +102,12 @@ const ViewEstate = () => {
             },
         })
     }
+     const getRequest = () => {
+        return axiosInstance({
+            url: `/manager/get/${estate_id}`,
+        })
+    }
+
     const { mutate, isLoading } = useMutation(postRequest, {
         onSuccess: ({ response }: any) => {
             openDialog()
@@ -438,4 +444,4 @@ const ViewEstate = () => {
     )
 }
 
-export default ViewEstate
+export default EditEstate
