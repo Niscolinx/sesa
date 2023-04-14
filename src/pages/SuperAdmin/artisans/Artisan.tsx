@@ -86,10 +86,11 @@ function Artisan() {
     console.log({ getLastPath })
 
     let gottenPath = getLastPath?.includes(':')
-        ? prevLocation.split(':')[0].split('/').pop()
+        ? prevLocation.split('/:')[0].split('/').pop()
         : getLastPath
 
-    console.log({ gottenPath }, prevLocation.split(':')[0].split('/').pop())
+    const check = prevLocation.split('/:')[0]
+    console.log({ gottenPath }, { check })
 
     useLayoutEffect(() => {
         console.log({ gottenPath })
