@@ -171,9 +171,10 @@ const AddEstate = () => {
         // )
 
         const slicedSecurityCompany: string[] = security_company_data.map(
-            ({ name, id }: any) => ({ name, id })
+            ({ name, id }: any) =>  ( selectedSecurityCompany.includes(name) && { id })
         )
 
+        console.log({slicedSecurityCompany})
 
 
         const state = slicedState
