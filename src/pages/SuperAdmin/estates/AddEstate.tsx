@@ -52,6 +52,8 @@ const AddEstate = () => {
 
     const axiosInstance = useAxios()
 
+    const dialogRef = useRef<HTMLDialogElement | null>(null)
+
     const [selectedState, setSelectedState] = useState<string>('')
     const [selectedEstateManager, setSelectedEstateManager] = useState<
         string[]
@@ -87,7 +89,7 @@ const AddEstate = () => {
         formState: { errors: formErrors },
     } = useForm<Inputs>()
 
-    const postAdmin = (data: Inputs) => {
+    const postRequest = (data: Inputs) => {
         return axiosInstance({
             url: '/estate/create',
             method: 'post',
@@ -98,23 +100,31 @@ const AddEstate = () => {
         mutate,
         data: response_data,
         isLoading,
-    } = useMutation(postAdmin) as any
+    } = useMutation(postRequest, {
+        onSuccess:({response}: any) => {
 
-    useEffect(() => {
-        console.log({ response_data })
-        if (response_data?.status === 200) {
             openDialog()
-        } else {
+        },
+        onError: (err:any) => {
+
             setResponseMessage({
                 className: 'text-red-600',
-                displayMessage: response_data?.response?.data.message,
+                displayMessage: err?.response?.data.message,
             })
         }
+    }) 
 
-        // const timeoutId = setTimeout(() => {
-        //     setResponseMessage(null)
-        // }, 10000)
-    }, [response_data])
+    const closeDialog = () => {
+        if (dialogRef.current) {
+            dialogRef.current.close()
+        }
+    }
+
+    const openDialog = () => {
+        if (dialogRef.current) {
+            dialogRef.current.showModal()
+        }
+    }
 
     const onSubmit = handleSubmit((data) => {
         let isError = false
@@ -164,24 +174,7 @@ const AddEstate = () => {
             .map(({ id }: any) => id)[0]
     })
 
-    const dialogRef = useRef<HTMLDialogElement | null>(null)
-
-    const closeDialog = () => {
-        if (dialogRef.current) {
-            dialogRef.current.close()
-        }
-    }
-
-    const openDialog = () => {
-        if (dialogRef.current) {
-            dialogRef.current.showModal()
-        }
-    }
-
-    const slicedStates: string[] = states_data.map(({ name, id }: any) => ({
-        name,
-        id,
-    }))
+    const slicedStates: string[] = states_data.map(({ name }: any) => name)
 
     const first_section_inputs = [
         {
@@ -255,9 +248,11 @@ const AddEstate = () => {
         },
     ] satisfies FormInputs[]
 
-
-
-    if(states_data_loading || security_company_loading || estate_manager_loading){
+    if (
+        states_data_loading ||
+        security_company_loading ||
+        estate_manager_loading
+    ) {
         return <p className='p-8'>Loading...</p>
     }
 
