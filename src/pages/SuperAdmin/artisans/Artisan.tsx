@@ -1,7 +1,6 @@
 import { Fragment, useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
 import { useNavigate } from 'react-router'
-import RenderArtisans from './RenderArtisans'
 import Table from '../../../components/UI/table/Table'
 
 function ArtisanCategory() {
