@@ -39,7 +39,7 @@ const AddSOS = () => {
     const [responseMessage, setResponseMessage] =
         useState<ResponseMessage | null>(null)
 
-    const { data: estates_data, isLoading: estates_loading } = useFetchData({
+    const { data: estates_data, isLoading: estates_loading, isFetched, isFetching } = useFetchData({
         url: '/estate/getall',
         name: 'estates',
     })
@@ -119,6 +119,7 @@ const AddSOS = () => {
         mutate(updated_data)
     })
 
+    console.log({isFetched, isFetching})
     if (estates_loading) {
         return <p>Loading...</p>
     }
