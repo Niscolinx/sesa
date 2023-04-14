@@ -230,6 +230,9 @@ function Estates() {
         if (item === 'view details') {
             navigate(`/superAdmin/estates/detail/:${id}`)
         }
+        if (item === 'edit details') {
+            navigate(`/superAdmin/estates/edit/:${id}`)
+        }
 
         if (item === 'deactivate') {
             setEstateId(id)
