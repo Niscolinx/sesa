@@ -151,11 +151,12 @@ const AccountSettings = () => {
                 >
                     <>
                         {formInputs.map((input, idx) => {
-                            const { label, type } = input
+                            const { label, type, name } = input
                             return (
                                 <Input
                                     key={idx + label}
                                     label={label}
+                                    name={name}
                                     register={register}
                                     formErrors={formErrors}
                                     type={type}
