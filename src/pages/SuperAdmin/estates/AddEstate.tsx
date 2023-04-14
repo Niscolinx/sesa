@@ -142,7 +142,6 @@ const AddEstate = () => {
                 }
             })
         }
-        console.log({ selectedEstateManager })
 
         if (selectedEstateManager.length < 1) {
             isError = true
