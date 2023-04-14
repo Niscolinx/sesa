@@ -95,12 +95,18 @@ const EditEstate = () => {
 
     const postRequest = (data: Inputs) => {
         return axiosInstance({
-            url: '/estate/create',
+            url: `/estate/create`,
             method: 'post',
             data,
             headers: {
                 'Content-Type': 'multipart/form-data',
             },
+        })
+    }
+    const deleleRequest = (data: Inputs) => {
+        return axiosInstance({
+            url: `/estate/delete/${estate_id}`,
+            method: 'delete',
         })
     }
     const getRequest = () => {
@@ -110,9 +116,11 @@ const EditEstate = () => {
     }
 
     const { isLoading: get_loading } = useQuery('view estate', getRequest, {
-        onSuccess: (res) => {
-            console.log(res.data)
+        refetchInterval: 0,
+        refetchOnMount: false,
+        refetchOnWindowFocus: false,
 
+        onSuccess: (res) => {
             const fetched_data = res.data
 
             const {
@@ -337,8 +345,8 @@ const EditEstate = () => {
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
-                        <img src='/icons/admins/modalSuccess.svg' alt='' />
-                        <p>You have successfully added an Estate</p>
+                        <img src='/icons/admins/modalWarning.svg' alt='' />
+                        <p>Are you sure you want delete this estate</p>
 
                         <div className='flex w-full justify-center gap-8'>
                             <button
@@ -511,9 +519,13 @@ const EditEstate = () => {
                     // onClick={addArtisanHandler}
                 >
                     <span>
-                        <IoMdAdd />
+                        <img
+                            src='/icons/admins/saveDisk.svg'
+                            alt=''
+                            className='w-[1.7rem] h-[1.7rem]'
+                        />
                     </span>{' '}
-                    {isLoading ? 'Loading...' : 'Add Estate'}
+                    {isLoading ? 'Loading...' : 'Save'}
                 </button>
             </form>
         </div>
