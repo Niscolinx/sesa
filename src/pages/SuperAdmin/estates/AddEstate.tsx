@@ -22,6 +22,19 @@ const AddEstate = () => {
         account_number: number
     }
 
+     type FormInputs = {
+         label: string
+         type?: string
+         name?: string
+         required?: boolean
+         selectProps?: SelectProps
+     }
+
+     type ResponseMessage = {
+         className: string
+         displayMessage: string
+     }
+
     const axiosInstance = useAxios()
 
     const [selectedState, setSelectedState] = useState<string | null>('')
@@ -57,17 +70,14 @@ const AddEstate = () => {
         formState: { errors: formErrors },
     } = useForm<Inputs>()
 
-    type ResponseMessage = {
-        className: string
-        displayMessage: string
-    }
+    
 
     const [responseMessage, setResponseMessage] =
         useState<ResponseMessage | null>(null)
 
     const postAdmin = (data: Inputs) => {
         return axiosInstance({
-            url: '/admin/create',
+            url: '/estate/create',
             method: 'post',
             data,
         })
@@ -113,14 +123,7 @@ const AddEstate = () => {
         //     image: imageUrl?.name,
         // }
 
-        console.log({
-            data,
-            selectedState,
-            selectedEstateManager,
-            selectedSecurityCompany,
-            isSignOutRequired,
-            imageUrl,
-        })
+        
 
         openDialog()
 
@@ -141,12 +144,7 @@ const AddEstate = () => {
         }
     }
 
-    type FormInputs = {
-        label?: string
-        type?: string
-        name?: string
-        selectProps?: SelectProps
-    }
+    
 
     const first_section_inputs = [
         {
