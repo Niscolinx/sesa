@@ -124,14 +124,15 @@ const AddSOS = () => {
         mutate(updated_data)
     })
 
-    console.log({ isFetched, isFetching, estates_loading })
-    if (estates_loading || isFetching) {
+    if (estates_loading) {
         return <p>Loading...</p>
     }
 
     const slicedEstates: string[] = estates_data?.data.map(
         ({ estate_name }: any) => estate_name
     )
+
+    console.log({slicedEstates})
 
     const formInputs = [
         {
