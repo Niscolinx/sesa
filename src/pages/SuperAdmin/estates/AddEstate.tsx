@@ -66,6 +66,8 @@ const AddEstate = () => {
      const [selectFormErrors, setSelectFormErrors] = useState<{
          [key: string]: string
      } | null>(null)
+     const [responseMessage, setResponseMessage] =
+         useState<ResponseMessage | null>(null)
 
     const toggleIsSignOutRequired = () =>
         setIsSignOutRequired(!isSignOutRequired)
@@ -87,8 +89,7 @@ const AddEstate = () => {
 
     
 
-    const [responseMessage, setResponseMessage] =
-        useState<ResponseMessage | null>(null)
+
 
     const postAdmin = (data: Inputs) => {
         return axiosInstance({
