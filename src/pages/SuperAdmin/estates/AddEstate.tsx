@@ -46,9 +46,8 @@ const AddEstate = () => {
          url: '/security-company/get/all',
          name: 'security_company',
      })
-     const { data: estateManager_data, isLoading: estateManager_loading } = useFetchData({
-         url: '/estate/getall',
-         name: 'estates',
+     const { data: states_data, isLoading: states_data_loading } = useFetchData({
+       
      })
 
     const axiosInstance = useAxios()
