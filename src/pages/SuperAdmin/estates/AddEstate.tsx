@@ -131,7 +131,7 @@ const AddEstate = () => {
             setSelectFormErrors((prev) => {
                 return {
                     ...prev,
-                    'Artisan Categories': 'Field cannot be empty',
+                    'security_company': 'Field cannot be empty',
                 }
             })
         }
@@ -141,7 +141,7 @@ const AddEstate = () => {
             setSelectFormErrors((prev) => {
                 return {
                     ...prev,
-                    Gender: 'Field cannot be empty',
+                    'estate_manager': 'Field cannot be empty',
                 }
             })
         }
@@ -181,6 +181,10 @@ const AddEstate = () => {
     }
 
     const slicedStates: string[] = states_data.map(({ name }: any) => name)
+    const slicedEstateManagers: string[] = estate_manager_data.data.map(({ estate_name }: any) => estate_name)
+    const slicedSecurityCompanies: string[] = security_company_data.map(({ name }: any) => name)
+
+    console.log({security_company_data, estate_manager_data})
 
     const first_section_inputs = [
         {
@@ -197,27 +201,29 @@ const AddEstate = () => {
                 setSelectedState: setSelectedState,
             },
         },
-        // {
-        //     label: 'address',
-        // },
-        // {
-        //     label: 'estate_manager',
-        //     type: 'select',
-        //     selectProps: {
-        //         state: estateManager,
-        //         selectedState: selectedEstateManager,
-        //         setSelectedState: setSelectedEstateManager,
-        //     },
-        // },
-        // {
-        //     label: 'security_company',
-        //     type: 'select',
-        //     selectProps: {
-        //         state: securityCompany,
-        //         selectedState: selectedSecurityCompany,
-        //         setSelectedState: setSelectedSecurityCompany,
-        //     },
-        // },
+        {
+            label: 'address',
+        },
+        {
+            label: 'estate_manager',
+            type: 'select',
+            selectProps: {
+                state: slicedEstateManagers,
+                isSearchable: true,
+                selectedState: selectedEstateManager,
+                setSelectedState: setSelectedEstateManager,
+            },
+        },
+        {
+            label: 'security_company',
+            type: 'select',
+            selectProps: {
+                state: slicedSecurityCompanies,
+                isSearchable: true,
+                selectedState: selectedSecurityCompany,
+                setSelectedState: setSelectedSecurityCompany,
+            },
+        },
     ] satisfies Partial<FormInputs>[] & { label: string }[]
 
     const second_section_inputs = [
@@ -292,7 +298,7 @@ const AddEstate = () => {
                         }}
                     >
                         {first_section_inputs.map((input, idx) => {
-                            const { label, type, name, selectProps } = input
+                            const { label, type, selectProps } = input
 
                             return (
                                 <Input
@@ -302,7 +308,6 @@ const AddEstate = () => {
                                     formErrors={formErrors}
                                     fullWidth={label === 'address'}
                                     type={type}
-                                    name={name}
                                     isSelect={type === 'select'}
                                     select={selectProps}
                                 />
