@@ -21,7 +21,7 @@ const useFetchData = ({
             url,
         }).then(({ data }) => data)
 
-    const { isLoading, error, data, refetch } = useQuery<any, Error>(
+    const { isLoading, error, data, refetch, isFetching, isError, isFetched, } = useQuery<any, Error>(
         [name, queryParams],
         fetchData,
         {
@@ -34,7 +34,7 @@ const useFetchData = ({
         setQueryParams(newParams)
     }
 
-    return { isLoading, data, error, refetch, updateQueryParams }
+    return { isLoading, data, error, refetch, isFetched, isError, isFetching, updateQueryParams }
 }
 
 export default useFetchData
