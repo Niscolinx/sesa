@@ -7,6 +7,7 @@ import ImageInput from '../../../components/UI/input/ImageInput'
 import useAxios from '../../../components/hooks/useAxios'
 import useFetchData from '../../../utils/useFetchData'
 import { useParams } from 'react-router'
+import { toast } from 'react-toastify'
 
 const EditEstate = () => {
     interface Inputs {
@@ -103,7 +104,7 @@ const EditEstate = () => {
             },
         })
     }
-    const deleleRequest = (data: Inputs) => {
+    const deleteRequest = (data: Inputs) => {
         return axiosInstance({
             url: `/estate/delete/${estate_id}`,
             method: 'delete',
@@ -159,9 +160,26 @@ const EditEstate = () => {
         },
     })
 
+    const { mutate:delete_mutation, isLoading: delete_loading } = useMutation(deleteRequest, {
+        onSuccess: ({ response }: any) => {
+            toast('Admin Deactivated successfully', {
+                type: 'success',
+                className: 'bg-green-100 text-green-600 text-[1.4rem]',
+            })
+        },
+        onError: (err: any) => {
+            setResponseMessage({
+                className: 'text-red-600',
+                displayMessage: err?.response?.data.message,
+            })
+        },
+    })
     const { mutate, isLoading } = useMutation(postRequest, {
         onSuccess: ({ response }: any) => {
-            openDialog()
+            toast('Estate deleted successfully', {
+                type: 'success',
+                className: 'bg-green-100 text-green-600 text-[1.4rem]',
+            })
         },
         onError: (err: any) => {
             setResponseMessage({
