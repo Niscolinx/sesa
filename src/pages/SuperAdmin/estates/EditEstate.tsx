@@ -372,6 +372,10 @@ const EditEstate = () => {
                             }}
                         />
 
+                        <p>
+                            Are you sure you want to delete this Estate?
+                            
+                        </p>
                         <div className='flex w-full justify-center gap-8'>
                             <button
                                 className='btn bg-white text-[#0556E5] border-[#0556E5] border rounded-lg w-[15rem]'
