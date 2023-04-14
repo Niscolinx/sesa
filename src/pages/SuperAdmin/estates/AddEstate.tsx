@@ -159,8 +159,7 @@ const AddEstate = () => {
             return
         }
 
-        const slicedState: string[] = states_data.filter(({ name }: any) => selectedState.includes(name)).map(({ name, id }: any) => ({
-            name,
+        const slicedState: string[] = states_data.filter(({ name }: any) => selectedState.includes(name)).map(({ id }: any) => ({
             id,
         }))
 
@@ -175,13 +174,10 @@ const AddEstate = () => {
 
         console.log({ slicedSecurityCompany, slicedEstateManager, slicedState })
 
-        const state = slicedState
-            .filter(({ name }: any) => selectedState.includes(name))
-            .map(({ id }: any) => id)[0]
 
         const updated_data = {
             ...data,
-            state,
+            slicedState,
         }
 
         mutate(updated_data)
