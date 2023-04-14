@@ -83,9 +83,16 @@ function Artisan() {
 
     let getLastPath = prevLocation.split('/').pop()
 
-    let gottenPath = getLastPath?.includes(':') ? prevLocation.split(':')[0].split('/').pop() : getLastPath
+    console.log({ getLastPath })
+
+    let gottenPath = getLastPath?.includes(':')
+        ? prevLocation.split(':')[0].split('/').pop()
+        : getLastPath
+
+    console.log({ gottenPath }, prevLocation.split(':')[0].split('/').pop())
 
     useLayoutEffect(() => {
+        console.log({ gottenPath })
         if (gottenPath) {
             gottenPath = gottenPath.replace(/([a-z])([A-Z])/g, '$1 $2')
 
