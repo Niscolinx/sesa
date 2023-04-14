@@ -107,7 +107,7 @@ const superAdminRoutes = (
         <Route path='artisan' element={<Artisan />} />
         <Route path='artisan/category/:id' element={<ViewArtisanCategory />} />
         <Route path='artisan/detail/:id' element={<ArtisanDetail />} />
-        <Route path='artisan/add' element={<AddArtisan />} />
+        <Route path='artisan/add-list' element={<AddArtisan />} />
         <Route path='artisan/add-group' element={<AddArtisanGroup />} />
         <Route path='artisan/group/:id' element={<ViewArtisanGroup />} />
         <Route path='advert' element={<Advert />} />

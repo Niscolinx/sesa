@@ -1,5 +1,6 @@
-import { Fragment, useState } from 'react'
+import { Fragment, useLayoutEffect, useState } from 'react'
 import Table from '../../../components/UI/table/Table'
+import PrevLocation from '../../../components/hooks/prevLocation'
 
 function ArtisanCategory() {
     return (
@@ -24,7 +25,7 @@ function ArtisanList() {
             fetch_url={'/admin/artisan/getAll'}
             title={'artisanList'}
             view_page_url={'/superAdmin/artisan/detail/'}
-            add_page_url={'/superAdmin/artisan/add'}
+            add_page_url={'/superAdmin/artisan/add-list'}
             is_add_btn={true}
             THeader={['name', 'business name', 'phone no', 'rating', 'actions']}
             data_to_display={[
@@ -77,6 +78,25 @@ function Artisan() {
         ['artisan_list', <ArtisanList />],
         ['artisan_group', <ArtisanGroup />],
     ]) satisfies Map<PathSwitch, JSX.Element>
+
+     const { prevLocation } = PrevLocation()
+
+     let getLastPath = prevLocation.split('/').pop()
+
+     useLayoutEffect(() => {
+         if (getLastPath) {
+             getLastPath = getLastPath.replace(/([a-z])([A-Z])/g, '$1 $2')
+
+             let word = getLastPath.split(' ').pop()?.toLowerCase()
+
+             Array.from(handlePathSwitch.keys()).some((path) => {
+                 return (
+                     path.replace('_', ' ').toLowerCase().includes(word!) &&
+                     setCurrentPath(path)
+                 )
+             })
+         }
+     }, [getLastPath])
 
     return (
         <div className='rounded-lg mt-[3rem] h-[80vh]'>
