@@ -119,7 +119,7 @@ const AddSOS = () => {
         mutate(updated_data)
     })
 
-    console.log({isFetched, isFetching})
+    console.log({isFetched, isFetching, estates_loading})
     if (estates_loading) {
         return <p>Loading...</p>
     }
