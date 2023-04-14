@@ -137,8 +137,12 @@ const AddEstate = () => {
                 }
             })
         }
+                    console.log({ selectedEstateManager })
+
         if (selectedEstateManager.length < 1) {
             isError = true
+
+            console.log({selectedEstateManager})
 
             setSelectFormErrors((prev) => {
                 return {
@@ -161,6 +165,8 @@ const AddEstate = () => {
         if (isError) {
             return
         }
+
+        console.log('=====================')
         setSelectFormErrors(null)
 
         const slicedState: string[] = states_data.map(({ name, id }: any) => ({
