@@ -79,27 +79,28 @@ function Artisan() {
         ['artisan_group', <ArtisanGroup />],
     ]) satisfies Map<PathSwitch, JSX.Element>
 
-     const { prevLocation } = PrevLocation()
+    const { prevLocation } = PrevLocation()
 
-     let getLastPath = prevLocation.split('/').pop()
+    let getLastPath = prevLocation.split('/').pop()
 
-console.log({getLastPath})
+    const newPath = getLastPath?.includes(':') ? prevLocation.split('/').pop() : getLastPath
+    console.log({ getLastPath, newPath })
 
-     useLayoutEffect(() => {
-         if (getLastPath) {
-             getLastPath = getLastPath.replace(/([a-z])([A-Z])/g, '$1 $2')
+    useLayoutEffect(() => {
+        if (getLastPath) {
+            getLastPath = getLastPath.replace(/([a-z])([A-Z])/g, '$1 $2')
 
-             let word = getLastPath.split('-').pop()?.toLowerCase()
+            let word = getLastPath.split('-').pop()?.toLowerCase()
 
-             Array.from(handlePathSwitch.keys()).some((path) => {
-                console.log({path, word})
-                 return (
-                     path.replace('_', ' ').toLowerCase().includes(word!) &&
-                     setCurrentPath(path)
-                 )
-             })
-         }
-     }, [getLastPath])
+            Array.from(handlePathSwitch.keys()).some((path) => {
+                console.log({ path, word })
+                return (
+                    path.replace('_', ' ').toLowerCase().includes(word!) &&
+                    setCurrentPath(path)
+                )
+            })
+        }
+    }, [getLastPath])
 
     return (
         <div className='rounded-lg mt-[3rem] h-[80vh]'>
