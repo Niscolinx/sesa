@@ -160,9 +160,10 @@ const AddEstate = () => {
             name: 'state',
             type: 'select',
             selectProps: {
-                state: estateLocationState,
-                selectedState,
-                setSelectedState,
+                state: slicedEstates,
+                isMulti: true,
+                selectedState: selectedEstates,
+                setSelectedState: setSelectedEstates,
             },
         },
         {
