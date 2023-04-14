@@ -175,12 +175,11 @@ const AddEstate = () => {
             )
             .map(({ id }: any) => ({ id }))[0]
 
-
-        const updated_data = {
+        const updated_data: any = {
             ...data,
             state,
             estate_manager,
-            security_company
+            security_company,
         }
 
         mutate(updated_data)
