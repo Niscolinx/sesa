@@ -55,7 +55,7 @@ const AddArtisan = () => {
     const [imageFile, setImageFile] = useState<File | null>(null)
     const [selectedGender, setSelectedGender] = useState<string>('')
     const [selectedCategories, setSelectedCategories] = useState<string[]>([])
-    const [selectedRegions, setSelectedRegions] = useState<string[]>([])
+    const [selectedState, setSelectedState] = useState<string[]>([])
     const [responseMessage, setResponseMessage] =
         useState<ResponseMessage | null>(null)
 
@@ -160,7 +160,7 @@ const AddArtisan = () => {
                 }
             })
         }
-        if (selectedRegions.length < 1) {
+        if (selectedState.length < 1) {
             isError = true
 
             setSelectFormErrors((prev) => {
@@ -194,7 +194,7 @@ const AddArtisan = () => {
         )
 
         const state = slicedStates
-            .filter(({ name }: any) => selectedRegions.includes(name))
+            .filter(({ name }: any) => selectedState.includes(name))
             .map(({ id }: any) => id)[0]
 
         const updatedData = {
@@ -325,8 +325,8 @@ const AddArtisan = () => {
             selectProps: {
                 state: slicedStates,
                 isSearchable: true,
-                selectedState: selectedRegions,
-                setSelectedState: setSelectedRegions,
+                selectedState: selectedState,
+                setSelectedState: setSelectedState,
             },
         },
         {

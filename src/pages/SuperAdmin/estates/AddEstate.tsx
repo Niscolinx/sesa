@@ -63,6 +63,9 @@ const AddEstate = () => {
     const [photoPreview, setPhotoPreview] = useState('')
     const [imageUrl, setImageUrl] = useState<File | null>(null)
     const [isSignOutRequired, setIsSignOutRequired] = useState(false)
+     const [selectFormErrors, setSelectFormErrors] = useState<{
+         [key: string]: string
+     } | null>(null)
 
     const toggleIsSignOutRequired = () =>
         setIsSignOutRequired(!isSignOutRequired)
@@ -117,30 +120,57 @@ const AddEstate = () => {
     }, [response_data])
 
     const onSubmit = handleSubmit((data) => {
-        const {
-            estate_name,
-            estate_location_state,
-            estate_manager,
-            address,
-            security_company,
-        } = data
-
-        // const adminData = {
-        //     name: `${first_name} ${last_name}`,
-        //     gender,
-        //     dob,
-        //     email: email_address,
-        //     address: 'no 4 odeyim street',
-        //     phone: `+234${phoneNumber}`,
-        //     image: imageUrl?.name,
-        // }
-
         
+       if (selectedCategories.length < 1) {
+           isError = true
+           setSelectFormErrors((prev) => {
+               return {
+                   ...prev,
+                   'Artisan Categories': 'Field cannot be empty',
+               }
+           })
+       }
+       if (selectedGender.length < 1) {
+           isError = true
 
-        openDialog()
+           setSelectFormErrors((prev) => {
+               return {
+                   ...prev,
+                   Gender: 'Field cannot be empty',
+               }
+           })
+       }
+       if (selectedState.length < 1) {
+           isError = true
 
-        // mutate(data)
+           setSelectFormErrors((prev) => {
+               return {
+                   ...prev,
+                   State: 'Field cannot be empty',
+               }
+           })
+       }
+
+
+        const slicedStates: string[] = states_data.map(({ name, id }: any) => ({
+            name,
+            id,
+        }))
+
+        const slicedCategories: string[] = categories_data.data.map(
+            ({ name, id }: any) => ({ name, id })
+        )
+
+        const category = slicedCategories.map(
+            ({ name, id }: any) => selectedCategories.includes(name) && { id }
+        )
+
+        const state = slicedStates
+            .filter(({ name }: any) => selectedState.includes(name))
+            .map(({ id }: any) => id)[0]
     })
+
+    
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
