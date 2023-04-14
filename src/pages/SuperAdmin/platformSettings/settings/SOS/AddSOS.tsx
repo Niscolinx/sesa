@@ -33,8 +33,6 @@ const AddSOS = () => {
     }
 
     const [selectedEstates, setSelectedEstates] = useState<string[]>([])
-    const [photoPreview, setPhotoPreview] = useState('')
-    const [imageFile, setImageFile] = useState<File | null>(null)
     const [selectFormErrors, setSelectFormErrors] = useState<{
         [key: string]: string
     } | null>(null)
@@ -239,7 +237,7 @@ const AddSOS = () => {
                             <span>
                                 <IoMdAdd />
                             </span>{' '}
-                            {isLoading ? 'Loading...' : 'Add Group'}
+                            {isLoading ? 'Loading...' : 'Add SOS'}
                         </button>
                     </>
                 </form>
