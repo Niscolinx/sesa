@@ -159,21 +159,23 @@ const AddEstate = () => {
             return
         }
 
-        const slicedState: string[] = states_data.filter(({ name }: any) => selectedState.includes(name)).map(({ id }: any) => ({
-            id,
-        }))
+        const slicedState: string[] = states_data
+            .filter(({ name }: any) => selectedState.includes(name))
+            .map(({ id }: any) => ({
+                id,
+            }))[0]
 
         const slicedSecurityCompany: string[] = security_company_data
             .filter(({ name }: any) => selectedSecurityCompany.includes(name))
-            .map(({ id }: any) => ({ id }))
+            .map(({ id }: any) => ({ id }))[0]
+
         const slicedEstateManager: string[] = estate_manager_data.data
             .filter(({ estate_name }: any) =>
-                selectedSecurityCompany.includes(estate_name)
+                selectedEstateManager.includes(estate_name)
             )
-            .map(({ id }: any) => ({ id }))
+            .map(({ id }: any) => ({ id }))[0]
 
         console.log({ slicedSecurityCompany, slicedEstateManager, slicedState })
-
 
         const updated_data = {
             ...data,
