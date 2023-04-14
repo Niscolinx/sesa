@@ -104,7 +104,7 @@ const EditEstate = () => {
             },
         })
     }
-    const deleteRequest = (data: Inputs) => {
+    const deleteRequest = () => {
         return axiosInstance({
             url: `/estate/delete/${estate_id}`,
             method: 'delete',
@@ -363,21 +363,27 @@ const EditEstate = () => {
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
-                        <img src='/icons/admins/modalWarning.svg' alt='' />
-                        <p>Are you sure you want delete this estate</p>
+                        <img
+                            src='/icons/admins/modalDeactivate.svg'
+                            alt=''
+                            className='animate__animated animate__pulse '
+                            style={{
+                                animationIterationCount: 'infinite',
+                            }}
+                        />
 
                         <div className='flex w-full justify-center gap-8'>
                             <button
-                                className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
+                                className='btn bg-white text-[#0556E5] border-[#0556E5] border rounded-lg w-[15rem]'
                                 onClick={closeDialog}
                             >
-                                View details
+                                Cancel
                             </button>
                             <button
-                                className='bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
-                                onClick={closeDialog}
+                                className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
+                                onClick={() => delete_mutation()}
                             >
-                                Ok
+                                {delete_loading ? 'Loading...' : 'Delete'}
                             </button>
                         </div>
                     </div>
