@@ -1,12 +1,21 @@
 import React, { FormEvent, useRef, useState } from 'react'
 import { IoMdClose } from 'react-icons/io'
 import { MultipleSelect } from '../../../../../components/SuperAdmin/UI/Select'
+import { useForm } from 'react-hook-form'
+import { useMutation } from 'react-query'
+import { toast } from 'react-toastify'
+import useFetchData from '../../../../../utils/useFetchData'
+import useAxios from '../../../../../components/hooks/useAxios'
+import { SelectProps } from '../../../../../components/UI/input/Input'
 
 const AddSOS = () => {
     type FormInputs = {
         label: string
         type?: string
-        pre?: string
+        name?: string
+        value?: string
+        required?: boolean
+        selectProps?: SelectProps
     }
 
     type ResponseMessage = {
@@ -23,9 +32,17 @@ const AddSOS = () => {
     const [selectedEstates, setSelectedEstates] = useState<string[]>([])
     const [photoPreview, setPhotoPreview] = useState('')
     const [imageFile, setImageFile] = useState<File | null>(null)
+    const [selectFormErrors, setSelectFormErrors] = useState<{
+        [key: string]: string
+    } | null>(null)
     const [responseMessage, setResponseMessage] =
         useState<ResponseMessage | null>(null)
 
+
+    const { data: estates_data, isLoading: estates_loading } = useFetchData({
+        url: '/estate/getall',
+        name: 'estates',
+    })
     const {
         register,
         handleSubmit,
@@ -43,7 +60,9 @@ const AddSOS = () => {
     }
     const { mutate, isLoading: mutation_loading } = useMutation(postSettings, {
         onSuccess: () => {
-            toast('Changes saved successfully', {
+            reset()
+            setSelectedEstates([])
+            toast(`Artisan Group successfully`, {
                 type: 'success',
                 className: 'bg-green-100 text-green-600 text-[1.4rem]',
             })
@@ -66,8 +85,36 @@ const AddSOS = () => {
     }
 
     const onSubmit = handleSubmit((data) => {
-        setResponseMessage(null)
+        let isError = false
+        if (selectedEstates.length < 1) {
+            isError = true
 
+            setSelectFormErrors((prev) => {
+                return {
+                    ...prev,
+                    Gender: 'Field cannot be empty',
+                }
+            })
+        }
+
+        if (isError) {
+            return
+        }
+        setResponseMessage(null)
+        setSelectFormErrors(null)
+
+        const slicedEstates: string[] = estates_data.data.map(
+            ({ estate_name, id }: any) => ({
+                estate_name,
+                id,
+            })
+        )
+
+        const estate = slicedEstates
+            .filter(({ estate_name }: any) =>
+                selectedEstates.includes(estate_name)
+            )
+            .map(({ id }: any) => ({ id }))
         const { new_password, confirm_password } = data
 
         if (new_password !== confirm_password) {
@@ -84,44 +131,32 @@ const AddSOS = () => {
         mutate(updated_data)
     })
 
-     if (estates_loading) {
-         return <p>Loading...</p>
-     }
+    if (estates_loading) {
+        return <p>Loading...</p>
+    }
 
-     const slicedEstates: string[] = estates_data.data.map(
-         ({ estate_name }: any) => estate_name
-     )
+    const slicedEstates: string[] = estates_data.data.map(
+        ({ estate_name }: any) => estate_name
+    )
 
-    
+    const formInputs = [
+        {
+            label: 'name',
+        },
 
-       const formInputs = [
-           {
-               label: 'name',
-           },
+        {
+            label: 'Estates',
+            type: 'select',
+            selectProps: {
+                state: slicedEstates,
+                isMulti: true,
+                selectedState: selectedEstates,
+                setSelectedState: setSelectedEstates,
+            },
+        },
+       
+    ] satisfies FormInputs[]
 
-           {
-               label: 'Estates',
-               type: 'select',
-               selectProps: {
-                   state: slicedEstates,
-                   isMulti: true,
-                   selectedState: selectedEstates,
-                   setSelectedState: setSelectedEstates,
-               },
-           },
-           {
-               label: 'Artisans',
-               type: 'select',
-               selectProps: {
-                   isMulti: true,
-                   state: slicedArtisans,
-                   selectedState: selectedArtisans,
-                   setSelectedState: setSelectedArtisans,
-               },
-           },
-       ] satisfies FormInputs[]
-
-   
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
     const closeDialog = () => {
@@ -135,8 +170,6 @@ const AddSOS = () => {
             dialogRef.current.showModal()
         }
     }
-
-   
 
     return (
         <>
@@ -162,7 +195,6 @@ const AddSOS = () => {
                                 </button>
                                 <button
                                     className='bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
-                                    onClick={confirmAddedSOS}
                                 >
                                     Ok
                                 </button>
@@ -173,7 +205,7 @@ const AddSOS = () => {
             </dialog>
             <div className='grid p-8 bg-white h-[80vh] items-baseline overflow-y-scroll rounded-lg'>
                 <form
-                    onSubmit={handleSubmit}
+                    onSubmit={onSubmit}
                     className='grid max-w-[84rem] gap-16 mt-12'
                     style={{
                         gridTemplateColumns:
