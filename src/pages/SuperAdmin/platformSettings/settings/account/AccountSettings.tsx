@@ -71,12 +71,20 @@ const AccountSettings = () => {
     const onSubmit = handleSubmit((data) => {
         setResponseMessage(null)
 
-        const adminData = {
-            ...data,
-            transferable_fee: 30,
+        const { new_password, confirm_password } = data
+
+        if (new_password !== confirm_password) {
+            return setResponseMessage({
+                className: 'text-red-600',
+                displayMessage: 'passwords do not match',
+            })
         }
 
-        mutate(adminData)
+        const updated_data = {
+            ...data
+        }
+
+        mutate(updated_data)
     })
 
     const formInputs = [
@@ -120,6 +128,13 @@ const AccountSettings = () => {
                     </label>
                 </figure>
 
+                {responseMessage?.displayMessage && (
+                    <p className='text-center'>
+                        <span className={responseMessage?.className}>
+                            {responseMessage?.displayMessage}
+                        </span>
+                    </p>
+                )}
                 <form
                     onSubmit={onSubmit}
                     className='grid max-w-[84rem] text-[1.6rem] mt-[5rem] gap-10'
@@ -156,8 +171,6 @@ const AccountSettings = () => {
                             {mutation_loading ? 'Loading...' : 'Save Changes'}
                         </button>
                     </>
-
-                   
                 </form>
             </div>
         </>
