@@ -1,9 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react'
-import { IoMdAdd } from 'react-icons/io'
+import React, { useRef, useState } from 'react'
 import Input, { SelectProps } from '../../../components/UI/input/Input'
 import { useForm } from 'react-hook-form'
 import { useMutation, useQuery } from 'react-query'
-import ImageInput from '../../../components/UI/input/ImageInput'
 import useAxios from '../../../components/hooks/useAxios'
 import useFetchData from '../../../utils/useFetchData'
 import { useParams } from 'react-router'
@@ -343,7 +341,7 @@ const EditEstate = () => {
             label: 'additional_resident_user',
             type: 'number',
         },
-    ] satisfies FormInputs[]
+    ] satisfies Partial<FormInputs>[]
 
     const third_section_inputs = [
         {
@@ -356,7 +354,7 @@ const EditEstate = () => {
             label: 'account_number',
             type: 'number',
         },
-    ] satisfies FormInputs[]
+    ] satisfies Partial<FormInputs>[]
 
     return (
         <div className='bg-white rounded-lg p-8'>
