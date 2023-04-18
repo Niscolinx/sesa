@@ -38,12 +38,8 @@ const SlicedPages: FC<SlicedPages> = ({
         >()
 
         const dataToLoop = nested ? restData.user : restData
-        console.log(dataToLoop)
-
 
         Object.entries(dataToLoop).map(([key, value]: any) => {
-
-            console.log({key, value})
             if (data_to_display.includes(key)) {
                 if (key === data_to_display[0]) {
                     return details.set(key, {
@@ -70,7 +66,6 @@ const SlicedPages: FC<SlicedPages> = ({
         data_to_display.map((item: string, i: number) => {
             if (item)
                 for (const [key, value] of details.entries()) {
-                    console.log({key,value})
                     if (key === item) {
                         sorted.push({
                             key,
