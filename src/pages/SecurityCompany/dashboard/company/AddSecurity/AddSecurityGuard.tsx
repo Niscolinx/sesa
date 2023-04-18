@@ -41,8 +41,8 @@ interface AddedSecurityGuardContext {
     setAddedSecurityGuardStep: React.Dispatch<
         React.SetStateAction<AddedSecurityGuardSteps>
     >
-    selectedBank: string | null
-    setSelectedBank: React.Dispatch<React.SetStateAction<string | null>>
+    selectedBank: string
+    setSelectedBank: React.Dispatch<React.SetStateAction<string>>
     handleClose: () => void
 }
 
@@ -50,26 +50,22 @@ export const CreateAddedSecurityGuardContext =
     createContext<AddedSecurityGuardContext>(null as any)
 
 const AddSecurityGuard = () => {
-    const [selectedEstate1, setSelectedEstate1] = useState<string>('')
-    const [selectedEstate2, setSelectedEstate2] = useState<string>('')
-    const [selectedEstate3, setSelectedEstate3] = useState<string>('')
-    const [selectedEstate4, setSelectedEstate4] = useState<string>('')
+    const [selectedEstate1, setSelectedEstate1] = useState('')
+    const [selectedEstate2, setSelectedEstate2] = useState('')
+    const [selectedEstate3, setSelectedEstate3] = useState('')
+    const [selectedEstate4, setSelectedEstate4] = useState('')
     const [isValidated, setIsValidated] = useState(false)
     const [iskyg, setIskyg] = useState(false)
 
     const toggleIskyg = () => setIskyg(!iskyg)
-    const [selectedState, setSelectedState] = useState<string | null>(
-        null as any
-    )
-    const [selectedGender, setSelectedGender] = useState<string | null>(
-        null as any
-    )
+    const [selectedState, setSelectedState] = useState('')
+    const [selectedGender, setSelectedGender] = useState('')
     const [dialogState, setDialogState] = useState<DialogType>('validate')
     const [validationType, setValidationType] = useState<
-        ValidateInputTypes | string | null
+        ValidateInputTypes | string
     >('Phone Number')
 
-    const [selectedBank, setSelectedBank] = useState<null | string>(null)
+    const [selectedBank, setSelectedBank] = useState(null)
     const [addedSecurityGuardStep, setAddedSecurityGuardStep] =
         useState<AddedSecurityGuardSteps>('addedSecuritySuccessful')
 

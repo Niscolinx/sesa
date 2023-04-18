@@ -45,7 +45,7 @@ const ViewSiteWorker = () => {
     const [bankDialogState, setBankDialogState] =
         useState<BankDialog>('openBank')
 
-    const [selectedBank, setSelectedBank] = useState<null | string>(null)
+    const [selectedBank, setSelectedBank] = useState('')
     const [addedSiteWorkerStep, setAddedSiteWorkerStep] =
         useState<AddedSiteWorkerSteps>('addedSiteWorkerSuccessful')
 
