@@ -33,7 +33,7 @@ const paths = [
     },
 ]
 
-type T = string | null
+type T = string
 type D = Dispatch<SetStateAction<T>>
 export interface HouseholdContext {
     selectedPropertyCode: T
@@ -69,13 +69,12 @@ function CreateHousehold() {
     const [pathToSwitch, setPathToSwitch] = useState(1)
     const [disabled, setDisabled] = useState(true)
 
-    const [selectedPropertyCode, setSelectedPropertyCode] = useState<T>(
-        propertyCode || null
-    )
-    const [tenancyType, setTenancyType] = useState<T>(null)
-    const [selectLandLord, setSelectLandLord] = useState<T>(null)
-    const [careTaker, setCareTaker] = useState<T>(null)
-    const [vehicleType, setVehicleType] = useState<T>(null)
+    const [selectedPropertyCode, setSelectedPropertyCode] =
+        useState<T>(propertyCode)
+    const [tenancyType, setTenancyType] = useState<T>('')
+    const [selectLandLord, setSelectLandLord] = useState<T>('')
+    const [careTaker, setCareTaker] = useState<T>('')
+    const [vehicleType, setVehicleType] = useState<T>('')
     const [alphaPropertyCode, setAlphaPropertyCode] = useState<T>(
         'Alice James/SO-2345CDGK'
     )
@@ -219,8 +218,7 @@ function CreateHousehold() {
                                 disabled={disabled}
                                 onClick={() => handleSubmit()}
                             >
-                                
-                              Create Household
+                                Create Household
                             </button>
                         ) : (
                             <button
