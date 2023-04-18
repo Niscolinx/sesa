@@ -12,11 +12,8 @@ import { TbCurrencyNaira } from 'react-icons/tb'
 
 import { Link, useNavigate } from 'react-router-dom'
 import { useAppDispatch } from '../../../store/app/hooks'
-import { setEstatePath } from '../../../store/features/routeChange'
-import { Actions } from '@reduxjs/toolkit'
 import { useQuery } from 'react-query'
 import { toast } from 'react-toastify'
-import { i } from 'vitest/dist/types-71ccd11d'
 import AxiosRequest from '../../../utils/axios'
 
 type EstateDetails = {
