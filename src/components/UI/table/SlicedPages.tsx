@@ -25,6 +25,8 @@ const SlicedPages: FC<SlicedPages> = ({
 
     const page = pages[index]
 
+    console.log({page})
+
 
     const TableItem = ({ data }: any) => {
         const { id, ...restData } = data
@@ -181,7 +183,7 @@ const SlicedPages: FC<SlicedPages> = ({
                     className={`grid justify-between border-b grid-cols-${THeader.length} items-center gap-8 text-[1.6rem] capitalize py-4 table__ellipsis`}
                     key={`${idx}`}
                 >
-                    <TableItem data={[]} />
+                    {/* <TableItem data={data} /> */}
                 </div>
             ))}
         </>
