@@ -27,8 +27,8 @@ interface AddedSiteWorkerContext {
     setAddedSiteWorkerStep: React.Dispatch<
         React.SetStateAction<AddedSiteWorkerSteps>
     >
-    selectedBank: string
-    setSelectedBank: React.Dispatch<React.SetStateAction<string>>
+    selectedBank: string | null
+    setSelectedBank: React.Dispatch<React.SetStateAction<string | null>>
     handleClose: () => void
 }
 
@@ -38,11 +38,14 @@ export const CreateAddedSiteWorkerContext =
 type BankDialog = 'generateId' | 'openBank'
 const EditSiteWorker = () => {
     const [workDays, setWorkDays] = useState<string[]>([])
+    const [isValidated, setIsValidated] = useState(true)
+    const [isAccountCreated, setIsAccountCreated] = useState(false)
     const [selectedState, setSelectedState] = useState('')
+    const [selectedGender, setSelectedGender] = useState('')
     const [bankDialogState, setBankDialogState] =
         useState<BankDialog>('openBank')
 
-    const [selectedBank, setSelectedBank] = useState<null | string>(null)
+    const [selectedBank, setSelectedBank] = useState('')
     const [addedSiteWorkerStep, setAddedSiteWorkerStep] =
         useState<AddedSiteWorkerSteps>('addedSiteWorkerSuccessful')
 
