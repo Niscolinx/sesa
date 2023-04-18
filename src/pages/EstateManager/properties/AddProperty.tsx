@@ -6,9 +6,7 @@ import { ComplexSelect, Select } from '../../../components/SuperAdmin/UI/Select'
 import { getPhotoUrl } from '../../../utils/getPhotoUrl'
 
 const AddProperty = () => {
-    const [selectedPropertyType, setSelectedPropertyType] = useState<
-        string | null
-    >(null)
+    const [selectedPropertyType, setSelectedPropertyType] = useState('')
 
     const [photoUrl, setPhotoUrl] = useState('')
 
