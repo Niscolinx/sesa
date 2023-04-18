@@ -1,13 +1,13 @@
 import { useEffect, useRef, useState } from 'react'
-import Input, { SelectProps } from '../../../components/UI/input/Input'
+import Input, { SelectProps } from '../../../../components/UI/input/Input'
 import { useForm } from 'react-hook-form'
 import { IoMdAdd } from 'react-icons/io'
 import { useMutation } from 'react-query'
-import useAxios from '../../../components/hooks/useAxios'
+import useAxios from '../../../../components/hooks/useAxios'
 
 type Frequency = 'monthly' | 'weekly' | 'quarterly' | 'yearly'
 
-const AddResidentUserPackage = () => {
+const ViewPackage = () => {
     interface Inputs {
         package_name: string
         frequency: string
@@ -38,9 +38,8 @@ const AddResidentUserPackage = () => {
         'yearly',
     ] satisfies Frequency[]
 
-    const [selectedFrequency, setSelectedFrequency] = useState<string>(
-        'monthly'
-    )
+    const [selectedFrequency, setSelectedFrequency] =
+        useState<string>('monthly')
     const [responseMessage, setResponseMessage] =
         useState<ResponseMessage | null>(null)
 
@@ -58,10 +57,7 @@ const AddResidentUserPackage = () => {
             data,
         })
     }
-    const {
-        mutate,
-        isLoading,
-    } = useMutation(postPackage, {
+    const { mutate, isLoading } = useMutation(postPackage, {
         onSuccess: () => {
             handleOpen()
         },
@@ -189,4 +185,4 @@ const AddResidentUserPackage = () => {
     )
 }
 
-export default AddResidentUserPackage
+export default ViewPackage

@@ -4,8 +4,8 @@ import { IoMdAdd } from 'react-icons/io'
 import { useQuery } from 'react-query'
 import { useNavigate } from 'react-router'
 import { ToastContainer, toast } from 'react-toastify'
-import useAxios from '../../../components/hooks/useAxios'
-import { Select } from '../../../components/SuperAdmin/UI/Select'
+import useAxios from '../../../../components/hooks/useAxios'
+import { Select } from '../../../../components/SuperAdmin/UI/Select'
 
 export interface ResidentPackageHistory {
     id: string

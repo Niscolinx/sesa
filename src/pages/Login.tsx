@@ -11,6 +11,8 @@ const Login = () => {
     const navigate = useNavigate()
     const dispatch = useAppDispatch()
 
+    const [email, setEmail] = useState('')
+
     interface Inputs {
         email: string
         password: string
@@ -85,9 +87,12 @@ const Login = () => {
 
         email = email.toLowerCase().trim()
 
+        console.log({email})
+
         if (email === 'superadmin@admin.com') {
             //  navigate('/superAdmin')
-            return mutate(data)
+           return mutate(data)
+        
         }
 
         if (email === 'securitycompany@sesa.com') {

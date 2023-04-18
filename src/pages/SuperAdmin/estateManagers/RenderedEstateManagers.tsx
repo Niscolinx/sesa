@@ -3,7 +3,6 @@ import { CgSpinnerTwo } from 'react-icons/cg'
 import { GrDown } from 'react-icons/gr'
 import { IoMdAdd } from 'react-icons/io'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
-import { setEstateManagerPath } from '../../../store/features/routeChange'
 import { useAppDispatch } from '../../../store/app/hooks'
 
 type EstateManager = {
@@ -97,7 +96,7 @@ function RenderedEstateManagers() {
     }, [])
 
     const handlePathSwitch = () => {
-        dispatch(setEstateManagerPath('addEstateManager'))
+        // dispatch(setEstateManagerPath('addEstateManager'))
     }
 
     return (
