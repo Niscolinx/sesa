@@ -65,7 +65,7 @@ const AddSecurityGuard = () => {
         ValidateInputTypes | string
     >('Phone Number')
 
-    const [selectedBank, setSelectedBank] = useState(null)
+    const [selectedBank, setSelectedBank] = useState('')
     const [addedSecurityGuardStep, setAddedSecurityGuardStep] =
         useState<AddedSecurityGuardSteps>('addedSecuritySuccessful')
 

@@ -4,12 +4,8 @@ import { Select } from '../../../../components/SuperAdmin/UI/Select'
 import RecipientList from './RecipientList'
 
 const ComposeMessage = () => {
-    const [selectedChannelType, setSelectedChannelType] = useState<
-        string | null
-    >(null)
-    const [transmissionChannel, setTransmissionChannel] = useState<
-        string | null
-    >(null)
+    const [selectedChannelType, setSelectedChannelType] = useState('')
+    const [transmissionChannel, setTransmissionChannel] = useState('')
     const [isWarning, setIsWarning] = useState(true)
 
     const handleSubmit = (e: React.FormEvent) => {
