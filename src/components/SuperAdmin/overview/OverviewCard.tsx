@@ -19,7 +19,6 @@ const OverviewCard: FC<OverviewCard> = ({
     arrow,
     textColor = 'black',
 }) => {
-    console.log(iconUrl)
     return (
         <div className={`overviewCard ${bgColor}`}>
             <img src={iconUrl} alt='' className='overviewCard__img' />
