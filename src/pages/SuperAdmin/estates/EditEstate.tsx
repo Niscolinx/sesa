@@ -27,9 +27,9 @@ const EditEstate = () => {
 
     type FormInputs = {
         label: string
-        type?: string
-        name?: string
-        required?: boolean
+        type: string
+        name: string
+        required: boolean
         selectProps?: SelectProps
     }
 
