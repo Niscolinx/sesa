@@ -4,6 +4,8 @@ function ErrorBoundary() {
     let error:any = useRouteError()
     console.error({error})
 
+    console.log('The Error->', {error})
+
    
 
     // Uncaught ReferenceError: path is not defined
