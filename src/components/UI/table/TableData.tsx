@@ -246,14 +246,14 @@ const TableData = () => {
                                     </div>
 
                                     <div className='grid gap-8 mt-8 p-8'>
-                                        <SlicedPages
+                                        {/* <SlicedPages
                                             pages={slicedPages || []}
                                             index={paginate.index}
                                             toggleDropDown={toggleDropDown}
                                             setToggleDropDown={
                                                 setToggleDropDown
                                             }
-                                        />
+                                        /> */}
                                     </div>
                                 </div>
                                 <footer className='flex items-center p-4 mt-4 bg-color-white rounded-lg'>
