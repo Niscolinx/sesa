@@ -5,7 +5,7 @@ import {
     MappedSelect,
     Select,
 } from '../../../../components/SuperAdmin/UI/Select'
-import { EditHouseholdContext, HouseholdContext } from './EditHousehold'
+import { EditHouseholdContext } from './EditHousehold'
 
 function EditResident() {
     type DialogType = 'alphaResident' | 'residentUser'
