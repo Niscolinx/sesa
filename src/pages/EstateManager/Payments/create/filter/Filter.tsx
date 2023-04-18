@@ -7,7 +7,7 @@ import ResidentFilter from './ResidentFilter'
 const Filter: FC = () => {
     type FilterKeys = 'Households' | 'Residents'
 
-    const [filter, setFilter] = useState<FilterKeys | string | null>(
+    const [filter, setFilter] = useState<FilterKeys | string>(
         'Households'
     )
 
