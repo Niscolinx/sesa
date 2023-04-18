@@ -39,7 +39,7 @@ function AddRFID() {
         setRFID(0)
         setVehicleMake('')
         setVehicleRegNumber(0)
-        setVehicleType(null)
+        setVehicleType('')
         setPhotoUrl('')
     }
 

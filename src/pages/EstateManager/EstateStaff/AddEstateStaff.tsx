@@ -56,14 +56,14 @@ const AddEstateStaff = () => {
     const [iskyg, setIskyg] = useState(false)
 
     const toggleIskyg = () => setIskyg(!iskyg)
-    const [selectedState, setSelectedState] = useState<string>('')
-    const [selectedGender, setSelectedGender] = useState<string>('')
+    const [selectedState, setSelectedState] = useState('')
+    const [selectedGender, setSelectedGender] = useState('')
     const [dialogState, setDialogState] = useState<DialogType>('validate')
     const [validationType, setValidationType] = useState<
         ValidateInputTypes | string
     >('Phone Number')
 
-    const [selectedBank, setSelectedBank] = useState<null | string>(null)
+    const [selectedBank, setSelectedBank] = useState('')
     const [addedEstateStaffStep, setAddedEstateStaffStep] =
         useState<AddedEstateStaffSteps>('addedEstateStaffSuccessful')
 
