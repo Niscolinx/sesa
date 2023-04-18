@@ -42,8 +42,8 @@ export interface AddedSiteWorkerContext {
     setAddedSiteWorkerStep: React.Dispatch<
         React.SetStateAction<AddedSiteWorkerSteps>
     >
-    selectedBank: string | null
-    setSelectedBank: React.Dispatch<React.SetStateAction<string | null>>
+    selectedBank: string
+    setSelectedBank: React.Dispatch<React.SetStateAction<string>>
     handleClose: () => void
 }
 
@@ -54,17 +54,17 @@ const AddSiteWorker = () => {
     const [workDays, setWorkDays] = useState<string[]>([])
     const [isValidated, setIsValidated] = useState(false)
     const [iskysw, setIskysw] = useState(false)
-    const [propertyCode, setPropertyCode] = useState<string>('')
+    const [propertyCode, setPropertyCode] = useState('')
 
     const toggleIskysw = () => setIskysw(!iskysw)
-    const [selectedState, setSelectedState] = useState<string>('')
-    const [selectedGender, setSelectedGender] = useState<string>('')
+    const [selectedState, setSelectedState] = useState('')
+    const [selectedGender, setSelectedGender] = useState('')
     const [dialogState, setDialogState] = useState<DialogType>('validate')
     const [validationType, setValidationType] = useState<
-        ValidateInputTypes | string | null
+        ValidateInputTypes | string
     >('Phone Number')
 
-    const [selectedBank, setSelectedBank] = useState<null | string>(null)
+    const [selectedBank, setSelectedBank] = useState('')
     const [addedSiteWorkerStep, setAddedSiteWorkerStep] =
         useState<AddedSiteWorkerSteps>('addedSiteWorkerSuccessful')
 
