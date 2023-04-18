@@ -27,8 +27,8 @@ interface AddedSiteWorkerContext {
     setAddedSiteWorkerStep: React.Dispatch<
         React.SetStateAction<AddedSiteWorkerSteps>
     >
-    selectedBank: string | null
-    setSelectedBank: React.Dispatch<React.SetStateAction<string | null>>
+    selectedBank: string
+    setSelectedBank: React.Dispatch<React.SetStateAction<string>>
     handleClose: () => void
 }
 
