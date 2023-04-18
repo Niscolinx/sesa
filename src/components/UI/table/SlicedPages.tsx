@@ -25,14 +25,11 @@ const SlicedPages: FC<SlicedPages> = ({
 
     const page = pages[index]
 
-
-
     const TableItem = ({ data }: any) => {
-        if(!data) {
+        if (!data) {
             return null
         }
 
-        console.log({data})
         const { id, ...restData } = data
 
         const details: Map<any, any> = new Map<
@@ -41,6 +38,7 @@ const SlicedPages: FC<SlicedPages> = ({
         >()
 
         const dataToLoop = nested ? restData.user : restData
+        console.log(dataToLoop)
 
         Object.entries(dataToLoop).map(([key, value]: any) => {
             if (data_to_display.includes(key)) {
@@ -75,16 +73,13 @@ const SlicedPages: FC<SlicedPages> = ({
                             value,
                         })
 
-                        
-
                         return
                     }
                 }
         })
 
         const isAction = sorted.some(({ key }: any) => key === 'actions')
-        const findStatus = sorted.find(({key}: any) => key === 'status')
-
+        const findStatus = sorted.find(({ key }: any) => key === 'status')
 
         if (is_dropdown && !isAction) {
             sorted.push({
@@ -93,13 +88,9 @@ const SlicedPages: FC<SlicedPages> = ({
             })
         }
 
-
-
         return (
             <>
                 {sorted.map(({ key, value }: any, idx: number) => {
-
-                    
                     if (idx === 0) {
                         return (
                             <div className='flex items-center gap-4 ' key={idx}>
@@ -146,35 +137,30 @@ const SlicedPages: FC<SlicedPages> = ({
                                 )}
                             </p>
                         )
-                    } 
-                     if (
-                         key === 'actions' 
-                     ) {
-                         let updatedActions: Actions[] = ['view details']
+                    }
+                    if (key === 'actions') {
+                        let updatedActions: Actions[] = ['view details']
 
-                         value === 0
-                             ? (updatedActions = [
-                                   ...updatedActions,
-                                   'activate',
-                               ])
-                             : (updatedActions = [
-                                   ...updatedActions,
-                                   'deactivate',
-                               ])
+                        value === 0
+                            ? (updatedActions = [...updatedActions, 'activate'])
+                            : (updatedActions = [
+                                  ...updatedActions,
+                                  'deactivate',
+                              ])
 
-                         updatedActions = [...updatedActions, ...actions]
-                         return is_dropdown ? (
-                             <TableDropDown
-                                 toggleDropDown={toggleDropDown}
-                                 setToggleDropDown={setToggleDropDown}
-                                 id={id}
-                                 actions={updatedActions}
-                                 key={idx}
-                             />
-                         ) : null
-                     } else {
-                         return <p key={idx}>{value}</p>
-                     }
+                        updatedActions = [...updatedActions, ...actions]
+                        return is_dropdown ? (
+                            <TableDropDown
+                                toggleDropDown={toggleDropDown}
+                                setToggleDropDown={setToggleDropDown}
+                                id={id}
+                                actions={updatedActions}
+                                key={idx}
+                            />
+                        ) : null
+                    } else {
+                        return <p key={idx}>{value}</p>
+                    }
                 })}
             </>
         )
