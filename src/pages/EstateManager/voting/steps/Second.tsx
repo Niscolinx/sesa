@@ -55,7 +55,7 @@ function Second() {
         setCandidate_details((prev) => {
             return [...prev, details]
         })
-        setCandidate(null)
+        setCandidate('')
         setManifesto('')
         setPhotoUrl('')
         //setCategory(null)
