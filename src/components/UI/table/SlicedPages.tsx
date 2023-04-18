@@ -67,6 +67,7 @@ const SlicedPages: FC<SlicedPages> = ({
         data_to_display.map((item: string, i: number) => {
             if (item)
                 for (const [key, value] of details.entries()) {
+                    console.log({key,value})
                     if (key === item) {
                         sorted.push({
                             key,
