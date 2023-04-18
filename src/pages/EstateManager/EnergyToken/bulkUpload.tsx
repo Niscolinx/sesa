@@ -19,14 +19,14 @@ const BulkUpload = () => {
     const [customerNofication, setCustomerNotification] = useState<
         string
     >(
-        
+        ''
     )
     const [convenienceFee, setConvenienceFee] = useState('')
     const [instruction, setInstruction] = useState('')
     const [notificationThreshold, setNotificationThreshold] = useState<
         string
     >(
-        
+        ''
     )
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)

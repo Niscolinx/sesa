@@ -8,13 +8,13 @@ import { getPhotoUrl } from '../../../utils/getPhotoUrl'
 const AddEnergyToken = () => {
     const [denomination, setDenomination] = useState('')
     const [customerNofication, setCustomerNotification] = useState<
-        string | null
-    >(null)
+        string 
+    >('')
     const [convenienceFee, setConvenienceFee] = useState('')
     const [instruction, setInstruction] = useState('')
     const [notificationThreshold, setNotificationThreshold] = useState<
-        string | null
-    >(null)
+        string
+    >('')
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
