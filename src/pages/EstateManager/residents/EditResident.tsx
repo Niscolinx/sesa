@@ -27,7 +27,7 @@ const EditResident = () => {
 
     const [dialogState, setDialogState] = useState<DialogType>('validate')
     const [validationType, setValidationType] = useState<
-        ValidateInputTypes | string | null
+        ValidateInputTypes | string
     >('Phone Number')
 
     const [photoUrl, setPhotoUrl] = useState('')
