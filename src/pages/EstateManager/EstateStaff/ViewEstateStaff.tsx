@@ -27,8 +27,8 @@ interface AddedEstateStaffContext {
     setAddedEstateStaffStep: React.Dispatch<
         React.SetStateAction<AddedEstateStaffSteps>
     >
-    selectedBank: string | null
-    setSelectedBank: React.Dispatch<React.SetStateAction<string | null>>
+    selectedBank: string
+    setSelectedBank: React.Dispatch<React.SetStateAction<string>>
     handleClose: () => void
 }
 
@@ -40,12 +40,12 @@ const ViewEstateStaff = () => {
     const [workDays, setWorkDays] = useState<string[]>([])
     const [isValidated, setIsValidated] = useState(true)
     const [isAccountCreated, setIsAccountCreated] = useState(false)
-    const [selectedState, setSelectedState] = useState<string>('')
-    const [selectedGender, setSelectedGender] = useState<string>('')
+    const [selectedState, setSelectedState] = useState('')
+    const [selectedGender, setSelectedGender] = useState('')
     const [bankDialogState, setBankDialogState] =
         useState<BankDialog>('openBank')
 
-    const [selectedBank, setSelectedBank] = useState<null | string>(null)
+    const [selectedBank, setSelectedBank] = useState('')
     const [addedEstateStaffStep, setAddedEstateStaffStep] =
         useState<AddedEstateStaffSteps>('addedEstateStaffSuccessful')
 
