@@ -25,9 +25,9 @@ const EditEstate = () => {
 
     type FormInputs = {
         label: string
-        type: string
-        name: string
-        required: boolean
+        type?: string
+        name?: string
+        required?: boolean
         selectProps?: SelectProps
     }
 
@@ -158,20 +158,23 @@ const EditEstate = () => {
         },
     })
 
-    const { mutate:delete_mutation, isLoading: delete_loading } = useMutation(deleteRequest, {
-        onSuccess: ({ response }: any) => {
-            toast('Admin Deactivated successfully', {
-                type: 'success',
-                className: 'bg-green-100 text-green-600 text-[1.4rem]',
-            })
-        },
-        onError: (err: any) => {
-            setResponseMessage({
-                className: 'text-red-600',
-                displayMessage: err?.response?.data.message,
-            })
-        },
-    })
+    const { mutate: delete_mutation, isLoading: delete_loading } = useMutation(
+        deleteRequest,
+        {
+            onSuccess: ({ response }: any) => {
+                toast('Admin Deactivated successfully', {
+                    type: 'success',
+                    className: 'bg-green-100 text-green-600 text-[1.4rem]',
+                })
+            },
+            onError: (err: any) => {
+                setResponseMessage({
+                    className: 'text-red-600',
+                    displayMessage: err?.response?.data.message,
+                })
+            },
+        }
+    )
     const { mutate, isLoading } = useMutation(postRequest, {
         onSuccess: ({ response }: any) => {
             toast('Estate deleted successfully', {
@@ -370,10 +373,7 @@ const EditEstate = () => {
                             }}
                         />
 
-                        <p>
-                            Are you sure you want to delete this Estate?
-                            
-                        </p>
+                        <p>Are you sure you want to delete this Estate?</p>
                         <div className='flex w-full justify-center gap-8'>
                             <button
                                 className='btn bg-white text-[#0556E5] border-[#0556E5] border rounded-lg w-[15rem]'
