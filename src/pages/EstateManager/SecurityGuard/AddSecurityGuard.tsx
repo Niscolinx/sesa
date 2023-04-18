@@ -39,8 +39,8 @@ export interface AddedSecurityGuardContext {
     setAddedSecurityGuardStep: React.Dispatch<
         React.SetStateAction<AddedSecurityGuardSteps>
     >
-    selectedBank: string | null
-    setSelectedBank: React.Dispatch<React.SetStateAction<string | null>>
+    selectedBank: string
+    setSelectedBank: React.Dispatch<React.SetStateAction<string>>
     handleClose: () => void
 }
 
@@ -52,14 +52,13 @@ const AddSecurityGuard = () => {
     const [iskys, setIskys] = useState(false)
 
     const toggleIskys = () => setIskys(!iskys)
-    const [selectedState, setSelectedState] = useState<string>('')
-    const [selectedGender, setSelectedGender] = useState<string>('')
+    const [selectedState, setSelectedState] = useState('')
+    const [selectedGender, setSelectedGender] = useState('')
     const [dialogState, setDialogState] = useState<DialogType>('validate')
-    const [validationType, setValidationType] = useState<
-        ValidateInputTypes | string | null
-    >('Phone Number')
+    const [validationType, setValidationType] =
+        useState<satisfies ValidateInputTypes>('Phone Number')
 
-    const [selectedBank, setSelectedBank] = useState<null | string>(null)
+    const [selectedBank, setSelectedBank] = useState('')
     const [addedSecurityGuardStep, setAddedSecurityGuardStep] =
         useState<AddedSecurityGuardSteps>('addedSecurityGuardSuccessful')
 
