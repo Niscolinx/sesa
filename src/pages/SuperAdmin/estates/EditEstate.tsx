@@ -323,7 +323,7 @@ const EditEstate = () => {
                 setSelectedState: setSelectedSecurityCompany,
             },
         },
-    ] satisfies Partial<FormInputs>[] & { label: string }[]
+    ] satisfies Partial<FormInputs>[] 
 
     const second_section_inputs = [
         {
