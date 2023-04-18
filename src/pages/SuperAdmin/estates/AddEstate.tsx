@@ -25,7 +25,7 @@ const AddEstate = () => {
 
     type FormInputs = {
         label: string
-        type?: string
+        type: string
         name?: string
         required?: boolean
         selectProps?: SelectProps
@@ -277,7 +277,7 @@ const AddEstate = () => {
             label: 'account_number',
             type: 'number',
         },
-    ] satisfies FormInputs[]
+    ] satisfies Partial<FormInputs>[]
 
     return (
         <div className='bg-white rounded-lg p-8'>
