@@ -11,8 +11,8 @@ import { PaymentPlan, PaymentType } from '../CreatePayment'
 
 interface PaymentForm {
     props: {
-        paymentType: PaymentType | string | null
-        setPaymentType: Dispatch<SetStateAction<PaymentType | string | null>>
+        paymentType: PaymentType | string 
+        setPaymentType: Dispatch<SetStateAction<PaymentType | string>>
     }
 }
 
@@ -25,10 +25,7 @@ function PaymentForm({ props }: PaymentForm) {
     const { paymentType, setPaymentType } = props
 
     const [isTrackPayment, setIsTrackPayment] = useState(false)
-    const [paymentPlan, setPaymentPlan] = useState<string | null | PaymentPlan>(
-        null
-    )
-    const [trackPayment, setTrackPayment] = useState<string>('')
+    const [paymentPlan, setPaymentPlan] = useState<string | PaymentPlan>('')
     const [amount, setAmount] = useState('')
     const [balanceAmount, setBalanceAmount] = useState(Number(amount))
     const [installmentField, setInstallmentField] = useState<
