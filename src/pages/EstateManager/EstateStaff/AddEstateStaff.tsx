@@ -42,8 +42,8 @@ export interface AddedEstateStaffContext {
     setAddedEstateStaffStep: React.Dispatch<
         React.SetStateAction<AddedEstateStaffSteps>
     >
-    selectedBank: string | null
-    setSelectedBank: React.Dispatch<React.SetStateAction<string | null>>
+    selectedBank: string
+    setSelectedBank: React.Dispatch<React.SetStateAction<string>>
     handleClose: () => void
 }
 

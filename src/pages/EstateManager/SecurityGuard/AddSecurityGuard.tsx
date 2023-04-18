@@ -56,7 +56,7 @@ const AddSecurityGuard = () => {
     const [selectedGender, setSelectedGender] = useState('')
     const [dialogState, setDialogState] = useState<DialogType>('validate')
     const [validationType, setValidationType] =
-        useState<satisfies ValidateInputTypes>('Phone Number')
+        useState< ValidateInputTypes | string>('Phone Number')
 
     const [selectedBank, setSelectedBank] = useState('')
     const [addedSecurityGuardStep, setAddedSecurityGuardStep] =
