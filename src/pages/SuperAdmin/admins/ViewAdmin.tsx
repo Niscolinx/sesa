@@ -105,7 +105,6 @@ const ViewAdmin = () => {
 
     const {
         mutate: deactivate_admin_mutation,
-        data: post_deactivate_admin_response,
         isLoading: deactivate_admin_loading,
     } = useMutation(postDeactivateAdmin, {
         onSuccess: (res) => {
@@ -128,7 +127,8 @@ const ViewAdmin = () => {
         mutate: get_admin_mutation,
         data: get_admin_response,
         isLoading: get_admin_loading,
-    } = useMutation(getAdmin) as any
+    } = useMutation(getAdmin, {
+    }) as any
 
     const {
         mutate: post_admin_mutation,
@@ -175,36 +175,9 @@ const ViewAdmin = () => {
         }
     }, [get_admin_response])
 
-    useEffect(() => {
-        if (post_admin_response_data?.success) {
-            toast('Admin Updated successfully', {
-                type: 'success',
-                className: 'bg-green-100 text-green-600 text-[1.4rem]',
-            })
-        } else {
-            setResponseMessage({
-                className: 'text-red-600',
-                displayMessage:
-                    post_admin_response_data?.response?.data.message,
-            })
-        }
-    }, [post_admin_response_data])
+   
 
-    useEffect(() => {
-        if (post_deactivate_admin_response?.success) {
-            toast('Admin Deactivated successfully', {
-                type: 'success',
-                className: 'bg-green-100 text-green-600 text-[1.4rem]',
-            })
-            closeDialog()
-        } else {
-            setResponseMessage({
-                className: 'text-red-600',
-                displayMessage:
-                    post_admin_response_data?.response?.data.message,
-            })
-        }
-    }, [post_deactivate_admin_response])
+  
 
     const onSubmit = handleSubmit((data) => {
         const { first_name, last_name, dob, email_address, phone_number } = data
@@ -276,7 +249,7 @@ const ViewAdmin = () => {
                             <button
                                 className='bg-red-500 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem] capitalize'
                                 onClick={() =>
-                                    deactivate_admin_mutation(admin_id)
+                                    deactivate_admin_mutation(admin_id!)
                                 }
                             >
                                 {deactivate_admin_loading
