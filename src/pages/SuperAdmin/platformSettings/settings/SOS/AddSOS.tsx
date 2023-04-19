@@ -119,7 +119,7 @@ const AddSOS = () => {
 
     const phoneNumbersRef = useRef([])
 
-    const [phone_num_count, set_phone_num_count] = useState([1])
+    const [phone_num_count, set_phone_num_count] = useState([''])
 
     const axiosInstance = useAxios()
 
@@ -236,7 +236,10 @@ const AddSOS = () => {
         },
     ] satisfies FormInputs[]
 
-    
+    const submit = (e: FormEvent) => {
+        e.preventDefault()
+        console.log(phoneNumbersRef)
+    }
 
     return (
         <>
@@ -275,7 +278,7 @@ const AddSOS = () => {
                 )}
 
                 <form
-                    onSubmit={onSubmit}
+                    onSubmit={submit}
                     className='grid max-w-[84rem] gap-16 mt-12'
                     style={{
                         gridTemplateColumns:
@@ -310,7 +313,7 @@ const AddSOS = () => {
                             <AddPhoneNumber value={num} idx={idx} ref={(ref) => (phoneNumbersRef.current[idx] = ref)} />
                         ))}
 
-                        <button onClick={() => set_phone_num_count(prev => [...prev, 1])}>Add phone number</button>
+                        <button onClick={() => set_phone_num_count(prev => [...prev, ''])}>Add phone number</button>
 
                         <button className='btn justify-self-start btn-blue col-span-full'>
                             <span>
