@@ -103,42 +103,20 @@ const ViewAdmin = () => {
 
     const admin_id = params.id?.replace(':', '')
 
+    if(!params.id){
+        return null
+    }
+
     const {
         mutate: deactivate_admin_mutation,
         isLoading: deactivate_admin_loading,
     } = useMutation(postDeactivateAdmin, {
         onSuccess: (res) => {
-             toast('Admin Deactivated successfully', {
-                 type: 'success',
-                 className: 'bg-green-100 text-green-600 text-[1.4rem]',
-             })
-             closeDialog()
-        },
-        onError: (err:any) => {
-            setResponseMessage({
-                className: 'text-red-600',
-                displayMessage:
-                    err?.response?.data.message,
-            })
-        }
-    }) 
-
-    const {
-        mutate: get_admin_mutation,
-        data: get_admin_response,
-        isLoading: get_admin_loading,
-    } = useMutation(getAdmin, {
-    }) as any
-
-    const {
-        mutate: post_admin_mutation,
-        isLoading: post_admin_loading,
-    } = useMutation(postUpdateAdmin, {
-        onSuccess: (res) => {
-            toast('Admin Updated successfully', {
+            toast('Admin Deactivated successfully', {
                 type: 'success',
                 className: 'bg-green-100 text-green-600 text-[1.4rem]',
             })
+            closeDialog()
         },
         onError: (err: any) => {
             setResponseMessage({
@@ -148,14 +126,14 @@ const ViewAdmin = () => {
         },
     })
 
-    useEffect(() => {
-        get_admin_mutation(admin_id)
-    }, [])
-
-    useEffect(() => {
-        if (get_admin_response?.success) {
-            const { dob } = get_admin_response.data
-            const fetched_data = get_admin_response.data.user
+    const {
+        mutate: get_admin_mutation,
+        data: get_admin_response,
+        isLoading: get_admin_loading,
+    } = useMutation(getAdmin, {
+        onSuccess: (res) => {
+            const { dob } = res.data
+            const fetched_data = res.data.user
 
             const { name, email, phone, image } = fetched_data
             const first_name = name.split(' ')[0]
@@ -171,12 +149,30 @@ const ViewAdmin = () => {
 
             setPhotoPreview(image)
             setSelectedGender(fetched_data.gender)
-        }
-    }, [get_admin_response])
+        },
 
-   
+        onError: (err) => {},
+    })
 
-  
+    const { mutate: post_admin_mutation, isLoading: post_admin_loading } =
+        useMutation(postUpdateAdmin, {
+            onSuccess: (res) => {
+                toast('Admin Updated successfully', {
+                    type: 'success',
+                    className: 'bg-green-100 text-green-600 text-[1.4rem]',
+                })
+            },
+            onError: (err: any) => {
+                setResponseMessage({
+                    className: 'text-red-600',
+                    displayMessage: err?.response?.data.message,
+                })
+            },
+        })
+
+    useEffect(() => {
+        get_admin_mutation(admin_id)
+    }, [])
 
     const onSubmit = handleSubmit((data) => {
         const { first_name, last_name, dob, email_address, phone_number } = data
@@ -223,7 +219,7 @@ const ViewAdmin = () => {
     }
 
     console.log({
-        get_admin_response
+        get_admin_response,
     })
 
     return (
