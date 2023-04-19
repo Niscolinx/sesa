@@ -19,7 +19,7 @@ interface AddPhoneNumber {
     idx: number
 }
 
-const AddPhoneNumber = forwardRef<HTMLInputElement | string, AddPhoneNumber>(
+const AddPhoneNumber = forwardRef<HTMLInputElement, AddPhoneNumber>(
     ({ idx }, ref) => {
         return (
             <div className={`w-full grid gap-4 self-baseline`}>
