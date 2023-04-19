@@ -103,7 +103,7 @@ const ViewAdmin = () => {
 
     const admin_id = params.id?.replace(':', '')
 
-    if(!params.id){
+    if(!admin_id){
         return null
     }
 
