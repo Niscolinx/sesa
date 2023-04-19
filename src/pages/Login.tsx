@@ -4,7 +4,7 @@ import { useMutation } from 'react-query'
 import { useNavigate } from 'react-router'
 import { useAppDispatch } from '../store/app/hooks'
 import { setAuth, storeToken } from '../store/features/auth'
-import  AxiosRequest  from '../utils/axios'
+import AxiosRequest from '../utils/axios'
 import useAxios from '../components/hooks/useAxios'
 
 const Login = () => {
@@ -44,54 +44,48 @@ const Login = () => {
             password: data.password,
         }
 
-    
         return axiosInstance({
             url: '/login',
             method: 'post',
-            data: user
+            data: user,
         })
-
-       
     }
     const {
         mutate,
         data: response_data,
         isLoading,
-    } = useMutation<any, Error>(postLogin, {
+    } = useMutation(postLogin, {
         onSuccess: (res) => {
-
             setResponseMessage({
                 className: 'text-green-600',
                 displayMessage: 'Login Successful',
             })
-            const token = response_data.data.token
+            const token = res.data.token
             if (token) {
                 dispatch(storeToken(token))
                 dispatch(setAuth(true))
-                
             }
             navigate('/superAdmin')
-        
         },
-        onError: (err) => {
-             setResponseMessage({
+        onError: (err: any) => {
+            console.log({ err })
+            setResponseMessage({
                 className: 'text-red-600',
-                displayMessage: response_data?.response?.data.message,
+                displayMessage: err?.response?.data.message,
             })
-        }
-    }) 
+        },
+    })
 
     const onSubmit = handleSubmit((data) => {
         let { email } = data
 
         email = email.toLowerCase().trim()
 
-        console.log({email})
+        console.log({ email })
 
         if (email === 'superadmin@admin.com') {
             //  navigate('/superAdmin')
-           return mutate(data)
-        
+            return mutate(data)
         }
 
         if (email === 'securitycompany@sesa.com') {
