@@ -202,8 +202,6 @@ const AddSOS = () => {
     const submit = (e: FormEvent) => {
         e.preventDefault()
 
-        console.log({ phone_numbs })
-        console.log(phone_ref)
 
         const each_num = phone_ref.current.reduce((prev: string[], curr) => {
             return [...prev, curr.value]
