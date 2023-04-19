@@ -216,7 +216,6 @@ const AddSOS = () => {
 
     const addPhone = () => {
         console.log('phones')
-        const phone_ref = useRef<HTMLInputElement>(null)
 
         set_phone_numbs((prev) => [...prev, phone_ref])
     }
