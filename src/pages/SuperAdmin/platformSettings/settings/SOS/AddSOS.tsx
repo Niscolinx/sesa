@@ -309,11 +309,11 @@ const AddSOS = () => {
                                 </>
                             )
                         })}
-                        {phone_num_count.map((num, idx) => (
+                        {phoneNumbersRef.current.map((num, idx) => (
                             <AddPhoneNumber value={num} idx={idx} ref={(ref) => (phoneNumbersRef.current[idx] = ref)} />
                         ))}
 
-                        <button onClick={() => set_phone_num_count(prev => [...prev, ''])}>Add phone number</button>
+                        <button onClick={() => phoneNumbersRef.current.length + 1}>Add phone number</button>
 
                         <button className='btn justify-self-start btn-blue col-span-full'>
                             <span>
