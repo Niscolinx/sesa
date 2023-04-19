@@ -84,9 +84,8 @@ const AddSOS = () => {
     const [responseMessage, setResponseMessage] =
         useState<ResponseMessage | null>(null)
 
-    const phoneNumbersRef = useRef(['', ''])
+    const {phoneNumbersRef, setPhoneNumbersRef} = useState('')
 
-    const [phone_num_count, set_phone_num_count] = useState([''])
 
     const axiosInstance = useAxios()
 
