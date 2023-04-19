@@ -85,6 +85,7 @@ const AddSOS = () => {
         useState<ResponseMessage | null>(null)
 
     const [phone_numbs, set_phone_numbs] = useState<string[]>([''])
+    const phone_ref = useRef<HTMLInputElement>(null)
 
     const axiosInstance = useAxios()
 
@@ -279,9 +280,6 @@ const AddSOS = () => {
                             )
                         })}
                         {phone_numbs.map((_, idx) => {
-                            const phone_ref = useRef<HTMLInputElement>(null)
-
-                        
                             return <AddPhoneNumber idx={idx} ref={phone_ref} />
                         })}
 
