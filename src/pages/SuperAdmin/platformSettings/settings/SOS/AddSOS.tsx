@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, forwardRef, useImperativeHandle, useRef, useState } from 'react'
+import { ChangeEvent, FormEvent, ForwardedRef, forwardRef, useImperativeHandle, useRef, useState } from 'react'
 import { IoMdAdd, IoMdClose } from 'react-icons/io'
 import { useForm } from 'react-hook-form'
 import { useMutation } from 'react-query'
@@ -8,49 +8,10 @@ import useAxios from '../../../../../components/hooks/useAxios'
 import Input, { SelectProps } from '../../../../../components/UI/input/Input'
 
 
-const AddPhoneNumberd = forwardRef(
-  ({ value, idx }: { value: string; idx: number }, ref) => {
-    const [phoneNumber, setPhoneNumber] = useState(value);
-
-    useImperativeHandle(ref, () => ({
-      value: phoneNumber
-    }));
-
-    const handlePhoneNumberChange = (
-      e: React.ChangeEvent<HTMLInputElement>
-    ) => {
-      setPhoneNumber(e.target.value);
-    };
-
-    return (
-      <div className={`w-full grid gap-4 self-baseline`}>
-        <label
-          htmlFor={`number${idx}`}
-          className="text-[1.4rem] font-semibold capitalize"
-        >
-          phone Number {idx + 1}
-        </label>
-
-        <input
-          type="number"
-          name="number"
-          id={`number${idx}`}
-          value={phoneNumber}
-          onChange={handlePhoneNumberChange}
-          className={` relative flex items-center border border-color-grey rounded-lg w-full  disabled:opacity-50 disabled:cursor-not-allowed p-4`}
-          ref={ref}
-        />
-      </div>
-    );
-  }
-);
-
-const AddPhoneNumber = forwardRef(({ value, idx }: { value: string; idx: number }, ref) => {
+const AddPhoneNumber = forwardRef(({ value, idx }: { value: string; idx: number }, ref: ForwardedRef<string>) => {
     const [phoneNumber, setPhoneNumber] = useState(value)
 
-     useImperativeHandle(ref, () => ({
-      value: phoneNumber
-    }));
+     useImperativeHandle(ref, () => (phoneNumber));
 
 
     return (
@@ -66,7 +27,7 @@ const AddPhoneNumber = forwardRef(({ value, idx }: { value: string; idx: number 
                 type='number'
                 name='number'
                 id={`number${idx}`}
-                ref={ref}
+                ref={ref as any}
                 value={phoneNumber}
                 onChange={(e: ChangeEvent<HTMLInputElement>) =>
                     setPhoneNumber(e.target.value)
