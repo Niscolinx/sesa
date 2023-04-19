@@ -82,12 +82,9 @@ const AddSOS = () => {
     const [responseMessage, setResponseMessage] =
         useState<ResponseMessage | null>(null)
 
-    const phone_ref = useRef<HTMLInputElement>(null)
-   
+    const phone_ref = useRef<HTMLInputElement[]>([])
 
-    const [phone_numbs, set_phone_numbs] = useState<
-        React.RefObject<HTMLInputElement>[]
-    >([phone_ref])
+    const [phone_numbs, set_phone_numbs] = useState<string[]>([''])
 
     const axiosInstance = useAxios()
 
@@ -204,21 +201,14 @@ const AddSOS = () => {
 
     const submit = (e: FormEvent) => {
         e.preventDefault()
-        const phone_num_values: string[] = []
 
         console.log({ phone_numbs })
-
-        phone_numbs.forEach((eachRef) => {
-            if (eachRef.current) phone_num_values.push(eachRef.current.value)
-        })
-
-        console.log({ phone_num_values })
     }
 
     const addPhone = () => {
         console.log('phones')
 
-        set_phone_numbs((prev) => [...prev, phone_ref])
+        set_phone_numbs((prev) => [...prev, ''])
     }
 
     return (
