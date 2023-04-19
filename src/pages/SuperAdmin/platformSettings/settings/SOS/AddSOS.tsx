@@ -323,11 +323,13 @@ import { ChangeEvent, FormEvent, useState } from 'react'
 const Login = () => {
     const [name, setName] = useState('')
     const [pass, setPass] = useState('')
-    const [className, setClassName] = useState('input input-bordered')
     const [formError, setFormError] = useState({})
 
     const handleSubmit = (event: FormEvent) => {
         event.preventDefault()
+
+        setFormError({})
+
         if (name !== 'admin') {
             setFormError((prev) => ({
                 ...prev,
@@ -357,7 +359,9 @@ const Login = () => {
                                     id='floatingInput'
                                     type='text'
                                     placeholder='Username'
-                                    className={className}
+                                    className={`border border-gray-600 ${
+                                        formError['name'] ? '' : ''
+                                    }`}
                                     value={name}
                                     onChange={(e) => setName(e.target.value)}
                                 />
@@ -371,7 +375,9 @@ const Login = () => {
                                     type='password'
                                     placeholder='Password'
                                     value={pass}
-                                    className={className}
+                                    className={`border border-gray-600 ${
+                                        formError['pass'] ? '' : ''
+                                    }`}
                                     onChange={(e) => setPass(e.target.value)}
                                 />
                             </div>
