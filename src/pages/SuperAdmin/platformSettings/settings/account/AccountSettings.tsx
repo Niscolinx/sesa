@@ -58,7 +58,7 @@ const AccountSettings = () => {
                 displayMessage: err?.response.data.message,
             })
         },
-    }) as any
+    }) 
 
     const handlePicture = (e: React.ChangeEvent) => {
         const target = e.target as HTMLInputElement
