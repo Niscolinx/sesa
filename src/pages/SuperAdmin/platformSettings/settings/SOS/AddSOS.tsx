@@ -25,6 +25,7 @@ const AddSOS = () => {
         name: string
         email: string
         address: string
+       
     }
 
     const { data: estates_data, isLoading: estates_loading } = useFetchData({
@@ -78,7 +79,7 @@ const AddSOS = () => {
 
     const onSubmit = handleSubmit((data) => {
         let isError = false
-        setSelectFormErrors(null)
+                setSelectFormErrors(null)
 
         if (selectedEstates.length < 1) {
             isError = true
@@ -150,6 +151,7 @@ const AddSOS = () => {
                 setSelectedState: setSelectedEstates,
             },
         },
+       
     ] satisfies FormInputs[]
 
     const closeDialog = () => {
@@ -214,17 +216,16 @@ const AddSOS = () => {
 
                             return (
                                 <>
-                                    {label === 'Estates' && (
-                                        <p className='text-[2rem] font-Satoshi-Medium py-8'>
+                                    {/* {label === 'Estates' && (
+                                        <p className='text-[2rem] font-Satoshi-Medium py-8 -mb-10'>
                                             Add Estates
                                         </p>
-                                    )}
+                                    )} */}
                                     <Input
                                         key={idx + label}
                                         label={label}
                                         register={register}
                                         formErrors={formErrors}
-                                        fullWidth={label === 'Estates'}
                                         selectFormErrors={selectFormErrors}
                                         type={type}
                                         isSelect={type === 'select'}
