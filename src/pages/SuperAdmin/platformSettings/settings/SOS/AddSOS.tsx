@@ -213,6 +213,11 @@ const AddSOS = () => {
         console.log(phoneNumbersRef)
     }
 
+    const addPhone = () => {
+
+        console.log('phones')
+    }
+
     return (
         <>
             <dialog className='dialog' ref={dialogRef}>
@@ -292,7 +297,7 @@ const AddSOS = () => {
                         ))}
 
                         <button
-                            onClick={() => phoneNumbersRef.current.length + 1}
+                            onClick={addPhone}
                         >
                             Add phone number
                         </button>
