@@ -202,15 +202,12 @@ const AddSOS = () => {
     const submit = (e: FormEvent) => {
         e.preventDefault()
 
-
         const each_num = phone_ref.current.reduce((prev: string[], curr) => {
             return [...prev, curr.value]
         }, [])
-
     }
 
     const addPhone = () => {
-        console.log('phones')
         set_phone_numbs((prev) => [...prev, ''])
     }
 
@@ -282,22 +279,25 @@ const AddSOS = () => {
                                 </>
                             )
                         })}
-                            {phone_numbs.map((_, idx) => {
-                                return (
-                                    <AddPhoneNumber
-                                        idx={idx}
-                                        ref={(ref: HTMLInputElement) =>
-                                            (phone_ref.current[idx] = ref)
-                                        }
-                                    />
-                                )
-                            })}
+                        {phone_numbs.map((_, idx) => {
+                            return (
+                                <AddPhoneNumber
+                                    idx={idx}
+                                    ref={(ref: HTMLInputElement) =>
+                                        (phone_ref.current[idx] = ref)
+                                    }
+                                />
+                            )
+                        })}
 
-                            <button onClick={addPhone} className='flex mb-[2rem] w-max items-center gap-4 col-span-full'>
-                                <img src='/icons/add_Icon.svg' alt='' />
-                                <span className='text-[1.4rem]'>Add Phone</span>
-                            </button>
-                     
+                        <button
+                            onClick={addPhone}
+                            className='flex mb-[2rem] w-max items-center gap-4 col-span-full'
+                        >
+                            <img src='/icons/add_Icon.svg' alt='' />
+                            <span className='text-[1.4rem]'>Add Phone</span>
+                        </button>
+
                         <button className='btn justify-self-start btn-blue col-span-full'>
                             <span>
                                 <IoMdAdd />
