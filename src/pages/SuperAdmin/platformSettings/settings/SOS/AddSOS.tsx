@@ -1,4 +1,12 @@
-import { ChangeEvent, FormEvent, ForwardedRef, forwardRef, useImperativeHandle, useRef, useState } from 'react'
+import {
+    ChangeEvent,
+    FormEvent,
+    ForwardedRef,
+    forwardRef,
+    useImperativeHandle,
+    useRef,
+    useState,
+} from 'react'
 import { IoMdAdd, IoMdClose } from 'react-icons/io'
 import { useForm } from 'react-hook-form'
 import { useMutation } from 'react-query'
@@ -7,36 +15,39 @@ import useFetchData from '../../../../../utils/useFetchData'
 import useAxios from '../../../../../components/hooks/useAxios'
 import Input, { SelectProps } from '../../../../../components/UI/input/Input'
 
+const AddPhoneNumber = forwardRef(
+    (
+        { value, idx }: { value: string; idx: number },
+        ref: ForwardedRef<any>
+    ) => {
+        const [phoneNumber, setPhoneNumber] = useState(value)
 
-const AddPhoneNumber = forwardRef(({ value, idx }: { value: string; idx: number }, ref: ForwardedRef<string>) => {
-    const [phoneNumber, setPhoneNumber] = useState(value)
+        useImperativeHandle(ref, () => (phoneNumber))
 
-     useImperativeHandle(ref, () => (phoneNumber));
+        return (
+            <div className={`w-full grid gap-4 self-baseline`}>
+                <label
+                    htmlFor={`number${idx}`}
+                    className='text-[1.4rem] font-semibold capitalize'
+                >
+                    phone Number {idx + 1}
+                </label>
 
-
-    return (
-        <div className={`w-full grid gap-4 self-baseline`}>
-            <label
-                htmlFor={`number${idx}`}
-                className='text-[1.4rem] font-semibold capitalize'
-            >
-                phone Number {idx + 1}
-            </label>
-
-            <input
-                type='number'
-                name='number'
-                id={`number${idx}`}
-                ref={ref as any}
-                value={phoneNumber}
-                onChange={(e: ChangeEvent<HTMLInputElement>) =>
-                    setPhoneNumber(e.target.value)
-                }
-                className={` relative flex items-center border border-color-grey rounded-lg w-full  disabled:opacity-50 disabled:cursor-not-allowed p-4`}
-            />
-        </div>
-    )
-})
+                <input
+                    type='number'
+                    name='number'
+                    id={`number${idx}`}
+                    ref={ref as any}
+                    value={phoneNumber}
+                    onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                        setPhoneNumber(e.target.value)
+                    }
+                    className={` relative flex items-center border border-color-grey rounded-lg w-full  disabled:opacity-50 disabled:cursor-not-allowed p-4`}
+                />
+            </div>
+        )
+    }
+)
 const AddSOS = () => {
     type FormInputs = {
         label: string
@@ -78,7 +89,7 @@ const AddSOS = () => {
     const [responseMessage, setResponseMessage] =
         useState<ResponseMessage | null>(null)
 
-    const phoneNumbersRef = useRef([''])
+    const phoneNumbersRef = useRef(['', ''])
 
     const [phone_num_count, set_phone_num_count] = useState([''])
 
@@ -271,10 +282,20 @@ const AddSOS = () => {
                             )
                         })}
                         {phoneNumbersRef.current.map((num: string, idx) => (
-                            <AddPhoneNumber value={num} idx={idx} ref={(ref: string) => num = ref} />
+                            <AddPhoneNumber
+                                value={num}
+                                idx={idx}
+                                ref={(ref: string) =>
+                                    (phoneNumbersRef.current[idx] = ref)
+                                }
+                            />
                         ))}
 
-                        <button onClick={() => phoneNumbersRef.current.length + 1}>Add phone number</button>
+                        <button
+                            onClick={() => phoneNumbersRef.current.length + 1}
+                        >
+                            Add phone number
+                        </button>
 
                         <button className='btn justify-self-start btn-blue col-span-full'>
                             <span>
