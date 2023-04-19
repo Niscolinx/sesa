@@ -279,8 +279,8 @@ const AddSOS = () => {
                                 </>
                             )
                         })}
-                        {phone_numbs.map((refItem, idx) => {
-                            return <AddPhoneNumber idx={idx} ref={refItem} />
+                        {phone_numbs.map((_, idx) => {
+                            return <AddPhoneNumber idx={idx} ref={(ref) => (phone_ref.current[idx])} />
                         })}
 
                         <button onClick={addPhone}>Add phone number</button>
