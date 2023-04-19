@@ -117,7 +117,7 @@ const AddSOS = () => {
     const [responseMessage, setResponseMessage] =
         useState<ResponseMessage | null>(null)
 
-    const phoneNumbersRef = useRef([])
+    const phoneNumbersRef = useRef([''])
 
     const [phone_num_count, set_phone_num_count] = useState([''])
 
@@ -309,8 +309,8 @@ const AddSOS = () => {
                                 </>
                             )
                         })}
-                        {phoneNumbersRef.current.map((num, idx) => (
-                            <AddPhoneNumber value={num} idx={idx} ref={(ref) => (phoneNumbersRef.current[idx] = ref)} />
+                        {phoneNumbersRef.current.map((num: string, idx) => (
+                            <AddPhoneNumber value={num} idx={idx} ref={(ref: string) => num = ref} />
                         ))}
 
                         <button onClick={() => phoneNumbersRef.current.length + 1}>Add phone number</button>
