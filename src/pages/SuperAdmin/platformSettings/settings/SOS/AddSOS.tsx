@@ -89,7 +89,7 @@ const AddSOS = () => {
     const [responseMessage, setResponseMessage] =
         useState<ResponseMessage | null>(null)
 
-    const phoneNumbersRef = useRef<React.MutableRefObject<HTMLInputElement>>(null)
+    const phoneNumbersRef = useRef(['', ''])
 
     const [phone_num_count, set_phone_num_count] = useState([''])
 
@@ -281,7 +281,7 @@ const AddSOS = () => {
                                 </>
                             )
                         })}
-                        {phone_num_count.map((num, idx) => (
+                        {phoneNumbersRef.current.map((num: string, idx) => (
                             <AddPhoneNumber
                                 value={num}
                                 idx={idx}
@@ -291,7 +291,11 @@ const AddSOS = () => {
                             />
                         ))}
 
-                      
+                        <button
+                            onClick={() => phoneNumbersRef.current.length + 1}
+                        >
+                            Add phone number
+                        </button>
 
                         <button className='btn justify-self-start btn-blue col-span-full'>
                             <span>
