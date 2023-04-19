@@ -153,7 +153,7 @@ const ViewAdmin = () => {
             setPhotoPreview(image)
             setSelectedGender(gender)
         },
-
+ 
         onError: (err) => {
             console.log({ err })
         },
