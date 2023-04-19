@@ -37,7 +37,7 @@ const AddPhoneNumber = forwardRef(
                     type='number'
                     name='number'
                     id={`number${idx}`}
-                    ref={ref as any}
+                    ref={ref.current}
                     value={phoneNumber}
                     onChange={(e: ChangeEvent<HTMLInputElement>) =>
                         setPhoneNumber(e.target.value)
