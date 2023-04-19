@@ -68,8 +68,7 @@ const AddSOS = () => {
     } | null>(null)
     const [responseMessage, setResponseMessage] =
         useState<ResponseMessage | null>(null)
-
-    
+    const [phoneNumbers, setPhoneNumbers] = useState([''])
 
     const axiosInstance = useAxios()
 
