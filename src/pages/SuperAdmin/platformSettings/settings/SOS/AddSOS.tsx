@@ -25,11 +25,7 @@ const AddPhoneNumber = forwardRef<HTMLInputElement, AddPhoneNumber>(
 
         useImperativeHandle(ref, () => phoneNumber)
 
-        const handlePhoneNumberChange = (
-            e: React.ChangeEvent<HTMLInputElement>
-        ) => {
-            setPhoneNumber(e.target.value)
-        }
+       
 
         return (
             <div className={`w-full grid gap-4 self-baseline`}>
@@ -44,8 +40,6 @@ const AddPhoneNumber = forwardRef<HTMLInputElement, AddPhoneNumber>(
                     type='number'
                     name='number'
                     id={`phone`}
-                    value={phoneNumber}
-                    onChange={handlePhoneNumberChange}
                     ref={ref}
                     className={` relative flex items-center border border-color-grey rounded-lg w-full  disabled:opacity-50 disabled:cursor-not-allowed p-4`}
                 />
