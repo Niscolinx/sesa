@@ -84,7 +84,7 @@ const AddSOS = () => {
     const [responseMessage, setResponseMessage] =
         useState<ResponseMessage | null>(null)
 
-    const [ phone_numbs, set_phone_numbs ] = useState<string[]>([''])
+    const [phone_numbs, set_phone_numbs] = useState<string[]>([''])
 
     const axiosInstance = useAxios()
 
@@ -278,13 +278,9 @@ const AddSOS = () => {
                                 </>
                             )
                         })}
-                        {phone_numbs.map((num: string, idx) => (
-                            <AddPhoneNumber
-                                value={num}
-                                idx={idx}
-                                
-                            />
-                        ))}
+                        {phone_numbs.map((num: string, idx) => {
+                            return <AddPhoneNumber value={num} idx={idx} />
+                        })}
 
                         <button onClick={addPhone}>Add phone number</button>
 
