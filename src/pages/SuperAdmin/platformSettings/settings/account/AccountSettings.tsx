@@ -33,7 +33,6 @@ const AccountSettings = () => {
     const {
         register,
         handleSubmit,
-        reset,
         formState: { errors: formErrors },
     } = useForm<Inputs>()
 
