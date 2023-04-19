@@ -174,7 +174,6 @@ const AddSOS = () => {
         ({ estate_name }: any) => estate_name
     )
 
-    console.log({ slicedEstates })
 
     const formInputs = [
         {
@@ -209,6 +208,8 @@ const AddSOS = () => {
 
     const addPhone = () => {
         console.log('phones')
+
+        set_phone_numbs((prev) => [...prev, ''])
     }
 
     return (
