@@ -297,7 +297,7 @@ const AddSOS = () => {
                                 )
                             })}
 
-                            <button onClick={addPhone} className=''>
+                            <button onClick={addPhone} className='mt-[3rem]'>
                                 <img src='/icons/add_Icon.svg' alt='' />
                             </button>
                         </div>
