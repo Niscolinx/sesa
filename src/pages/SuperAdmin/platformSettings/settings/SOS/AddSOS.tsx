@@ -22,7 +22,9 @@ const AddPhoneNumber = forwardRef(
     ) => {
         const [phoneNumber, setPhoneNumber] = useState(value)
 
-        useImperativeHandle(ref, () => phoneNumber)
+        useImperativeHandle(ref, () => ({
+            value: phoneNumber,
+        }))
 
         return (
             <div className={`w-full grid gap-4 self-baseline`}>
@@ -37,7 +39,7 @@ const AddPhoneNumber = forwardRef(
                     type='number'
                     name='number'
                     id={`number${idx}`}
-                    ref={ref.current}
+                    ref={ref as any}
                     value={phoneNumber}
                     onChange={(e: ChangeEvent<HTMLInputElement>) =>
                         setPhoneNumber(e.target.value)
@@ -89,7 +91,7 @@ const AddSOS = () => {
     const [responseMessage, setResponseMessage] =
         useState<ResponseMessage | null>(null)
 
-    const phoneNumbersRef = useRef<string[]>([''])
+    const phoneNumbersRef = useRef(['', ''])
 
     const [phone_num_count, set_phone_num_count] = useState([''])
 
@@ -281,12 +283,13 @@ const AddSOS = () => {
                                 </>
                             )
                         })}
-                        {phoneNumbersRef.current.map((numRef, idx) => (
+                        {phoneNumbersRef.current.map((num: string, idx) => (
                             <AddPhoneNumber
-                                key={idx}
-                                value={numRef}
+                                value={num}
                                 idx={idx}
-                                ref={(ref) => (numRef = ref)}
+                                ref={(ref: string) =>
+                                    (phoneNumbersRef.current[idx] = ref)
+                                }
                             />
                         ))}
 
