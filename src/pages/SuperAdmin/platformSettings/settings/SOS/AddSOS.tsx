@@ -285,7 +285,7 @@ const AddSOS = () => {
                                 </>
                             )
                         })}
-                        <div className='flex items-center'>
+                        <div className='flex items-center gap-4'>
                             {phone_numbs.map((_, idx) => {
                                 return (
                                     <AddPhoneNumber
@@ -297,9 +297,11 @@ const AddSOS = () => {
                                 )
                             })}
 
-                            <button onClick={addPhone}>
-                                <img src='/icons/add_Icon.svg' alt='' />
-                            </button>
+                            <div>
+                                <button onClick={addPhone}>
+                                    <img src='/icons/add_Icon.svg' alt='' />
+                                </button>
+                            </div>
                         </div>
                         <button className='btn justify-self-start btn-blue col-span-full'>
                             <span>
