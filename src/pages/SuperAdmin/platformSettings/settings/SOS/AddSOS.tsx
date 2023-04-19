@@ -7,7 +7,7 @@ import useFetchData from '../../../../../utils/useFetchData'
 import useAxios from '../../../../../components/hooks/useAxios'
 import Input, { SelectProps } from '../../../../../components/UI/input/Input'
 
-const addPassword = () => {
+const addPhoneNumber = () => {
     return (
         <div className={`w-full grid gap-4 self-baseline`}>
             <label
@@ -68,6 +68,8 @@ const AddSOS = () => {
     } | null>(null)
     const [responseMessage, setResponseMessage] =
         useState<ResponseMessage | null>(null)
+
+    
 
     const axiosInstance = useAxios()
 
