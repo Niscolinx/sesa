@@ -204,6 +204,12 @@ const AddSOS = () => {
 
         console.log({ phone_numbs })
         console.log(phone_ref)
+
+       const each_num =  phone_ref.current.reduce(((prev, curr) => {
+            return  prev + curr.value
+        }), '')
+
+        console.log({each_num})
     }
 
     const addPhone = () => {
