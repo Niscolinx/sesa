@@ -20,7 +20,8 @@ interface AddPhoneNumber {
 }
 
 const AddPhoneNumber = forwardRef<HTMLInputElement, AddPhoneNumber>(
-    ({ idx }, ref) => {
+    ({ idx}, ref) => {
+        useImperativeHandle(ref, () => value)
         return (
             <div className={`w-full grid gap-4 self-baseline`}>
                 <label
@@ -279,10 +280,11 @@ const AddSOS = () => {
                                 </>
                             )
                         })}
-                        {phone_numbs.map((_, idx) => {
+                        {phone_numbs.map((value, idx) => {
                             return (
                                 <AddPhoneNumber
                                     idx={idx}
+                                    value={value}
                                     ref={(ref: HTMLInputElement) =>
                                         (phone_ref.current[idx] = ref)
                                     }
