@@ -104,13 +104,12 @@ const ViewAdmin = () => {
 
     const admin_id = params.id?.replace(':', '')
 
-    if(!admin_id){
-        console.log('not found')
-         toast('Admin not Found', {
-             type: 'error',
-             className: 'bg-red-100 text-red-600 text-[1.4rem]',
-         })
-        
+    if (!admin_id) {
+        toast('Admin not Found', {
+            type: 'error',
+            className: 'bg-red-100 text-red-600 text-[1.4rem]',
+        })
+
         return navigate(-1)
     }
 
@@ -139,10 +138,7 @@ const ViewAdmin = () => {
         isLoading: get_admin_loading,
     } = useMutation(getAdmin, {
         onSuccess: (res) => {
-            const { dob } = res.data
-            const fetched_data = res.data.user
-
-            const { name, email, phone, image } = fetched_data
+            const { name, email, phone, image, dob, gender } = res.data
             const first_name = name.split(' ')[0]
             const last_name = name.split(' ')[1]
 
@@ -155,10 +151,12 @@ const ViewAdmin = () => {
             })
 
             setPhotoPreview(image)
-            setSelectedGender(fetched_data.gender)
+            setSelectedGender(gender)
         },
 
-        onError: (err) => {},
+        onError: (err) => {
+            console.log({ err })
+        },
     })
 
     const { mutate: post_admin_mutation, isLoading: post_admin_loading } =
