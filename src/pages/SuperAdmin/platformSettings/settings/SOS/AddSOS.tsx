@@ -203,7 +203,14 @@ const AddSOS = () => {
 
     const submit = (e: FormEvent) => {
         e.preventDefault()
-        console.log(phone_numbs)
+        const phone_num_values: string[] = []
+
+        phone_numbs.forEach((eachRef) => {
+            if (eachRef.current)
+                return phone_num_values.push(eachRef.current.value)
+        })
+
+        console.log({ phone_num_values })
     }
 
     const addPhone = () => {
