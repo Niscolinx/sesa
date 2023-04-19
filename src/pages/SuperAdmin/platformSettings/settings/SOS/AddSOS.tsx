@@ -296,9 +296,9 @@ const AddSOS = () => {
                                 )
                             })}
 
-                            <button onClick={addPhone} className='flex mb-[2rem] w-max items-center gap-2'>
+                            <button onClick={addPhone} className='flex mb-[2rem] w-max items-center gap-4 col-span-full'>
                                 <img src='/icons/add_Icon.svg' alt='' />
-                                <span className='text-[1.2rem]'>Add Phone</span>
+                                <span className='text-[1.4rem]'>Add Phone</span>
                             </button>
                      
                         <button className='btn justify-self-start btn-blue col-span-full'>
