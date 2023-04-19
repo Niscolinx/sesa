@@ -70,7 +70,6 @@ const ViewProperty = () => {
 
     const postRequest = (inputs: Inputs) => {
 
-        console.log(inputs)
         return axiosInstance({
             url: `/platformsettings/propertytype/update/${property_id}`,
             method: 'put',
