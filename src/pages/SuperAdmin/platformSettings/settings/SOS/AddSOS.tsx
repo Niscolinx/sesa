@@ -23,7 +23,7 @@ const AddPhoneNumber = ({ value, idx }: { value: string; idx: number }) => {
             <input
                 type='number'
                 name='password'
-                className={` w-full border-none outline-none disabled:opacity-50 disabled:cursor-not-allowed p-4 pl-0`}
+                className={` relative flex items-center border border-color-grey rounded-lg w-full  disabled:opacity-50 disabled:cursor-not-allowed p-4`}
             />
         </div>
     )
@@ -258,7 +258,7 @@ const AddSOS = () => {
                             <AddPhoneNumber value={num} idx={idx} />
                         ))}
 
-                        <button className='btn justify-self-start btn-blue'>
+                        <button className='btn justify-self-start btn-blue col-span-full'>
                             <span>
                                 <IoMdAdd />
                             </span>{' '}
