@@ -84,8 +84,7 @@ const AddSOS = () => {
     const [responseMessage, setResponseMessage] =
         useState<ResponseMessage | null>(null)
 
-    const {phoneNumbersRef, setPhoneNumbersRef} = useState('')
-
+    const [ phone_numbs, set_phone_numbs ] = useState<string[]>([''])
 
     const axiosInstance = useAxios()
 
@@ -204,7 +203,7 @@ const AddSOS = () => {
 
     const submit = (e: FormEvent) => {
         e.preventDefault()
-        console.log(phoneNumbersRef)
+        console.log(phone_numbs)
     }
 
     const addPhone = () => {
@@ -279,13 +278,11 @@ const AddSOS = () => {
                                 </>
                             )
                         })}
-                        {phoneNumbersRef.current.map((num: string, idx) => (
+                        {phone_numbs.map((num: string, idx) => (
                             <AddPhoneNumber
                                 value={num}
                                 idx={idx}
-                                ref={(ref) =>
-                                    (phoneNumbersRef.current[idx] = ref)
-                                }
+                                
                             />
                         ))}
 
