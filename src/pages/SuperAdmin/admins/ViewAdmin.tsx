@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useMutation } from 'react-query'
 import Input, { SelectProps } from '../../../components/UI/input/Input'
-import { useParams } from 'react-router'
+import { useNavigate, useParams } from 'react-router'
 import { toast, ToastContainer } from 'react-toastify'
 import useAxios from '../../../components/hooks/useAxios'
 
@@ -31,6 +31,7 @@ const ViewAdmin = () => {
 
     const params = useParams()
     const axiosInstance = useAxios()
+    const navigate = useNavigate()
 
     const [photoPreview, setPhotoPreview] = useState('')
     const [imageFile, setImageFile] = useState<File | null>(null)
@@ -108,7 +109,8 @@ const ViewAdmin = () => {
              type: 'error',
              className: 'bg-red-100 text-red-600 text-[1.4rem]',
          })
-        return null
+        
+        return navigate(-1)
     }
 
     const {
