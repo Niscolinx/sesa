@@ -88,7 +88,7 @@ const ViewAdmin = () => {
     }
     const postUpdateAdmin = (data: any) => {
         return axiosInstance({
-            url: '/admin/update',
+            url: `/admin/update/${admin_id}`,
             method: 'post',
             data,
         })
