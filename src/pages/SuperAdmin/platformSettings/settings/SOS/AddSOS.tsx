@@ -7,6 +7,27 @@ import useFetchData from '../../../../../utils/useFetchData'
 import useAxios from '../../../../../components/hooks/useAxios'
 import Input, { SelectProps } from '../../../../../components/UI/input/Input'
 
+const addPassword = () => {
+    return (
+        <div className={`w-full grid gap-4 self-baseline`}>
+            <label
+                htmlFor={'label'}
+                className='text-[1.4rem] font-semibold capitalize'
+            >
+                {/* {name ?? label.replaceAll('_', ' ')} */}
+            </label>
+
+            <div className='relative flex items-center'>
+                <input
+                    type='number'
+                    name='password'
+                    className={` w-full border-none outline-none disabled:opacity-50 disabled:cursor-not-allowed p-4 pl-0 
+                                    `}
+                />
+            </div>
+        </div>
+    )
+}
 const AddSOS = () => {
     type FormInputs = {
         label: string
@@ -25,7 +46,6 @@ const AddSOS = () => {
         name: string
         email: string
         address: string
-       
     }
 
     const { data: estates_data, isLoading: estates_loading } = useFetchData({
@@ -79,7 +99,7 @@ const AddSOS = () => {
 
     const onSubmit = handleSubmit((data) => {
         let isError = false
-                setSelectFormErrors(null)
+        setSelectFormErrors(null)
 
         if (selectedEstates.length < 1) {
             isError = true
@@ -151,7 +171,6 @@ const AddSOS = () => {
                 setSelectedState: setSelectedEstates,
             },
         },
-       
     ] satisfies FormInputs[]
 
     const closeDialog = () => {
