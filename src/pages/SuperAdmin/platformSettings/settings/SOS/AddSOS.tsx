@@ -279,8 +279,9 @@ const AddSOS = () => {
                             )
                         })}
                         {phone_numbs.map((_, idx) => {
-                            const ref =  useRef<HTMLInputElement>(null)
-                            return <AddPhoneNumber idx={idx} />
+                            const ref = useRef<HTMLInputElement>(null)
+
+                            return <AddPhoneNumber idx={idx} ref={ref} />
                         })}
 
                         <button onClick={addPhone}>Add phone number</button>
