@@ -83,11 +83,11 @@ const AddSOS = () => {
         useState<ResponseMessage | null>(null)
 
     const phone_ref = useRef<HTMLInputElement>(null)
-    const phone_refs = useRef<HTMLInputElement>(null)
+   
 
     const [phone_numbs, set_phone_numbs] = useState<
         React.RefObject<HTMLInputElement>[]
-    >([phone_ref, phone_refs])
+    >([phone_ref])
 
     const axiosInstance = useAxios()
 
