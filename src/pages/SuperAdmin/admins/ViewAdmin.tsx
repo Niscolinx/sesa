@@ -85,7 +85,7 @@ const ViewAdmin = () => {
             data: { user_id: id },
         })
     }
-    const postUpdateAdmin = (data: Inputs) => {
+    const postUpdateAdmin = (data: any) => {
         return axiosInstance({
             url: '/admin/update',
             method: 'post',
@@ -132,7 +132,6 @@ const ViewAdmin = () => {
 
     const {
         mutate: post_admin_mutation,
-        data: post_admin_response_data,
         isLoading: post_admin_loading,
     } = useMutation(postUpdateAdmin, {
         onSuccess: (res) => {
@@ -222,6 +221,10 @@ const ViewAdmin = () => {
     if (get_admin_loading) {
         return <p>loading...</p>
     }
+
+    console.log({
+        get_admin_response
+    })
 
     return (
         <>
