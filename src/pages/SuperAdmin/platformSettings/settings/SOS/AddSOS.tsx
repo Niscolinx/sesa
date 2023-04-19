@@ -296,8 +296,9 @@ const AddSOS = () => {
                             )
                         })}
 
-                        <button onClick={addPhone}>Add phone number</button>
-
+                        <button onClick={addPhone}>
+                            <img src='/icons/add_Icon.svg' alt='' />
+                        </button>
                         <button className='btn justify-self-start btn-blue col-span-full'>
                             <span>
                                 <IoMdAdd />
