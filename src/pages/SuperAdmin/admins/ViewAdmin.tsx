@@ -35,9 +35,7 @@ const ViewAdmin = () => {
     const [photoPreview, setPhotoPreview] = useState('')
     const [imageFile, setImageFile] = useState<File | null>(null)
     const genderState = ['Male', 'Female']
-    const [selectedGender, setSelectedGender] = useState<string>(
-        genderState[0]
-    )
+    const [selectedGender, setSelectedGender] = useState<string>(genderState[0])
 
     const formInputs = [
         {
@@ -109,7 +107,22 @@ const ViewAdmin = () => {
         mutate: deactivate_admin_mutation,
         data: post_deactivate_admin_response,
         isLoading: deactivate_admin_loading,
-    } = useMutation(postDeactivateAdmin) as any
+    } = useMutation(postDeactivateAdmin, {
+        onSuccess: (res) => {
+             toast('Admin Deactivated successfully', {
+                 type: 'success',
+                 className: 'bg-green-100 text-green-600 text-[1.4rem]',
+             })
+             closeDialog()
+        },
+        onError: (err:any) => {
+            setResponseMessage({
+                className: 'text-red-600',
+                displayMessage:
+                    err?.response?.data.message,
+            })
+        }
+    }) 
 
     const {
         mutate: get_admin_mutation,
@@ -123,19 +136,18 @@ const ViewAdmin = () => {
         isLoading: post_admin_loading,
     } = useMutation(postUpdateAdmin, {
         onSuccess: (res) => {
-toast('Admin Updated successfully', {
-    type: 'success',
-    className: 'bg-green-100 text-green-600 text-[1.4rem]',
-})
-        }, 
-        onError: (err:any) => {
- setResponseMessage({
-     className: 'text-red-600',
-     displayMessage: err?.response?.data.message,
- })
-        }
-    }) 
-
+            toast('Admin Updated successfully', {
+                type: 'success',
+                className: 'bg-green-100 text-green-600 text-[1.4rem]',
+            })
+        },
+        onError: (err: any) => {
+            setResponseMessage({
+                className: 'text-red-600',
+                displayMessage: err?.response?.data.message,
+            })
+        },
+    })
 
     useEffect(() => {
         get_admin_mutation(admin_id)
