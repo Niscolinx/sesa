@@ -57,10 +57,9 @@ const Login = () => {
         mutate,
         data: response_data,
         isLoading,
-    } = useMutation(postLogin) as any
+    } = useMutation<any, Error>(postLogin, {
+        onSuccess: (res) => {
 
-    useEffect(() => {
-        if (response_data?.success) {
             setResponseMessage({
                 className: 'text-green-600',
                 displayMessage: 'Login Successful',
@@ -72,15 +71,15 @@ const Login = () => {
                 
             }
             navigate('/superAdmin')
-        } else {
-            setResponseMessage({
+        
+        },
+        onError: (err) => {
+             setResponseMessage({
                 className: 'text-red-600',
                 displayMessage: response_data?.response?.data.message,
             })
         }
-
-        
-    }, [response_data])
+    }) 
 
     const onSubmit = handleSubmit((data) => {
         let { email } = data

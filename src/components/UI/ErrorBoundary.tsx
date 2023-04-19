@@ -8,7 +8,6 @@ function ErrorBoundary() {
 
    
 
-    // Uncaught ReferenceError: path is not defined
     return (
         <div className='rounded-lg mt-[3rem] h-[80vh]'>
                
