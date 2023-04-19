@@ -286,7 +286,7 @@ const AddSOS = () => {
                                 value={num}
                                 idx={idx}
                                 ref={(ref) =>
-                                    (num = ref)
+                                    (phoneNumbersRef.current[idx] = ref)
                                 }
                             />
                         ))}
