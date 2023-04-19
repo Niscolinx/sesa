@@ -15,19 +15,19 @@ import useFetchData from '../../../../../utils/useFetchData'
 import useAxios from '../../../../../components/hooks/useAxios'
 import Input, { SelectProps } from '../../../../../components/UI/input/Input'
 
-const AddPhoneNumber = forwardRef(
-    (
-        { value, idx }: { value: string; idx: number },
-        ref: ForwardedRef<any>
-    ) => {
-        const [phoneNumber, setPhoneNumber] = useState(value)
+interface AddPhoneNumber {
+    idx: number
+}
 
-        useImperativeHandle(ref, () => (phoneNumber))
+const AddPhoneNumber = forwardRef<HTMLInputElement, AddPhoneNumber>(
+    ({ idx }) => {
+
+        // useImperativeHandle(ref, () => (phoneNumber))
 
         return (
             <div className={`w-full grid gap-4 self-baseline`}>
                 <label
-                    htmlFor={`number${idx}`}
+                    htmlFor={`phone`}
                     className='text-[1.4rem] font-semibold capitalize'
                 >
                     phone Number {idx + 1}
@@ -36,12 +36,8 @@ const AddPhoneNumber = forwardRef(
                 <input
                     type='number'
                     name='number'
-                    id={`number${idx}`}
-                    ref={ref as any}
-                    value={phoneNumber}
-                    onChange={(e: ChangeEvent<HTMLInputElement>) =>
-                        setPhoneNumber(e.target.value)
-                    }
+                    id={`phone`}
+                    ref={ref}
                     className={` relative flex items-center border border-color-grey rounded-lg w-full  disabled:opacity-50 disabled:cursor-not-allowed p-4`}
                 />
             </div>
@@ -214,7 +210,6 @@ const AddSOS = () => {
     }
 
     const addPhone = () => {
-
         console.log('phones')
     }
 
@@ -296,11 +291,7 @@ const AddSOS = () => {
                             />
                         ))}
 
-                        <button
-                            onClick={addPhone}
-                        >
-                            Add phone number
-                        </button>
+                        <button onClick={addPhone}>Add phone number</button>
 
                         <button className='btn justify-self-start btn-blue col-span-full'>
                             <span>
@@ -316,4 +307,3 @@ const AddSOS = () => {
 }
 
 export default AddSOS
-
