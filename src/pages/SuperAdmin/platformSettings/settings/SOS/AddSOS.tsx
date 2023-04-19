@@ -203,11 +203,11 @@ const AddSOS = () => {
         e.preventDefault()
 
         console.log({ phone_numbs })
+        console.log(phone_ref)
     }
 
     const addPhone = () => {
         console.log('phones')
-
         set_phone_numbs((prev) => [...prev, ''])
     }
 
@@ -280,7 +280,14 @@ const AddSOS = () => {
                             )
                         })}
                         {phone_numbs.map((_, idx) => {
-                            return <AddPhoneNumber idx={idx} ref={(ref) => (phone_ref.current[idx])} />
+                            return (
+                                <AddPhoneNumber
+                                    idx={idx}
+                                    ref={(ref: HTMLInputElement) =>
+                                        (phone_ref.current[idx] = ref)
+                                    }
+                                />
+                            )
                         })}
 
                         <button onClick={addPhone}>Add phone number</button>
