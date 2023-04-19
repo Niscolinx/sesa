@@ -207,7 +207,6 @@ const AddSOS = () => {
             return [...prev, curr.value]
         }, [])
 
-        console.log({ each_num })
     }
 
     const addPhone = () => {
