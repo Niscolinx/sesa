@@ -285,20 +285,22 @@ const AddSOS = () => {
                                 </>
                             )
                         })}
-                        {phone_numbs.map((_, idx) => {
-                            return (
-                                <AddPhoneNumber
-                                    idx={idx}
-                                    ref={(ref: HTMLInputElement) =>
-                                        (phone_ref.current[idx] = ref)
-                                    }
-                                />
-                            )
-                        })}
+                        <div className='flex items-center'>
+                            {phone_numbs.map((_, idx) => {
+                                return (
+                                    <AddPhoneNumber
+                                        idx={idx}
+                                        ref={(ref: HTMLInputElement) =>
+                                            (phone_ref.current[idx] = ref)
+                                        }
+                                    />
+                                )
+                            })}
 
-                        <button onClick={addPhone}>
-                            <img src='/icons/add_Icon.svg' alt='' />
-                        </button>
+                            <button onClick={addPhone}>
+                                <img src='/icons/add_Icon.svg' alt='' />
+                            </button>
+                        </div>
                         <button className='btn justify-self-start btn-blue col-span-full'>
                             <span>
                                 <IoMdAdd />
