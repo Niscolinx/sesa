@@ -84,8 +84,11 @@ const AddSOS = () => {
     const [responseMessage, setResponseMessage] =
         useState<ResponseMessage | null>(null)
 
-    const [phone_numbs, set_phone_numbs] = useState<string[]>([''])
     const phone_ref = useRef<HTMLInputElement>(null)
+    
+    const [phone_numbs, set_phone_numbs] = useState<
+        React.RefObject<HTMLInputElement>[]
+    >([phone_ref])
 
     const axiosInstance = useAxios()
 
@@ -173,7 +176,6 @@ const AddSOS = () => {
     const slicedEstates: string[] = estates_data?.data.map(
         ({ estate_name }: any) => estate_name
     )
-
 
     const formInputs = [
         {
