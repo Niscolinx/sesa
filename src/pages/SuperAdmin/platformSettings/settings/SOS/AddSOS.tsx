@@ -1,4 +1,4 @@
-import { FormEvent, useRef, useState } from 'react'
+import { ChangeEvent, FormEvent, useRef, useState } from 'react'
 import { IoMdAdd, IoMdClose } from 'react-icons/io'
 import { useForm } from 'react-hook-form'
 import { useMutation } from 'react-query'
@@ -13,16 +13,18 @@ const AddPhoneNumber = ({ value, idx }: { value: string; idx: number }) => {
     return (
         <div className={`w-full grid gap-4 self-baseline`}>
             <label
-                htmlFor={'label'}
+                htmlFor={`number${idx}`}
                 className='text-[1.4rem] font-semibold capitalize'
             >
-                {/* {name ?? label.replaceAll('_', ' ')} */}
                 phone Number {idx + 1}
             </label>
 
             <input
                 type='number'
-                name='password'
+                name='number'
+                id={`number${idx}`}
+                value={phoneNumber}
+                onChange={(e: ChangeEvent<HTMLInputElement>) => setPhoneNumber(e.target.value)}
                 className={` relative flex items-center border border-color-grey rounded-lg w-full  disabled:opacity-50 disabled:cursor-not-allowed p-4`}
             />
         </div>
