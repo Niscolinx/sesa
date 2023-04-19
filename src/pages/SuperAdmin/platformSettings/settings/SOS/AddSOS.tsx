@@ -297,7 +297,7 @@ const AddSOS = () => {
                                 )
                             })}
 
-                            <div>
+                            <div className='flex relative'>
                                 <button onClick={addPhone}>
                                     <img src='/icons/add_Icon.svg' alt='' />
                                 </button>
