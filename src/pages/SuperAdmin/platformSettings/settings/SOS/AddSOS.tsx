@@ -18,11 +18,11 @@ import Input, { SelectProps } from '../../../../../components/UI/input/Input'
 const AddPhoneNumber = forwardRef(
     (
         { value, idx }: { value: string; idx: number },
-        ref: ForwardedRef<HTMLInputElement>
+        ref: ForwardedRef<any>
     ) => {
-        // const [phoneNumber, setPhoneNumber] = useState(value)
+        const [phoneNumber, setPhoneNumber] = useState(value)
 
-        // useImperativeHandle(ref, () => (phoneNumber))
+        useImperativeHandle(ref, () => phoneNumber)
 
         return (
             <div className={`w-full grid gap-4 self-baseline`}>
@@ -89,7 +89,7 @@ const AddSOS = () => {
     const [responseMessage, setResponseMessage] =
         useState<ResponseMessage | null>(null)
 
-    const phoneNumbersRef = useRef(['', ''])
+  const phoneNumbersRef = useRef<string[]>([''])
 
     const [phone_num_count, set_phone_num_count] = useState([''])
 
@@ -283,11 +283,9 @@ const AddSOS = () => {
                         })}
                         {phoneNumbersRef.current.map((numRef, idx) => (
                             <AddPhoneNumber
-                                value={num}
+                                value={numRef}
                                 idx={idx}
-                                ref={(ref: string) =>
-                                    (numRef.current = ref)
-                                }
+                                ref={numRef.current }
                             />
                         ))}
 
