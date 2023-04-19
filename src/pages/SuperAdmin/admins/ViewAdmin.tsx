@@ -121,7 +121,21 @@ const ViewAdmin = () => {
         mutate: post_admin_mutation,
         data: post_admin_response_data,
         isLoading: post_admin_loading,
-    } = useMutation(postUpdateAdmin) as any
+    } = useMutation(postUpdateAdmin, {
+        onSuccess: (res) => {
+toast('Admin Updated successfully', {
+    type: 'success',
+    className: 'bg-green-100 text-green-600 text-[1.4rem]',
+})
+        }, 
+        onError: (err:any) => {
+ setResponseMessage({
+     className: 'text-red-600',
+     displayMessage: err?.response?.data.message,
+ })
+        }
+    }) 
+
 
     useEffect(() => {
         get_admin_mutation(admin_id)
