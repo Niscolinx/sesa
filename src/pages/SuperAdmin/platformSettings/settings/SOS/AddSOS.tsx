@@ -81,7 +81,7 @@ const AddSOS = () => {
 
     const onSubmit = handleSubmit((data) => {
         let isError = false
-                setSelectFormErrors(null)
+        setSelectFormErrors(null)
 
         if (selectedEstates.length < 1) {
             isError = true
@@ -133,24 +133,14 @@ const AddSOS = () => {
         {
             label: 'name',
         },
-        {
-            label: 'phone_number_1',
-            type: 'number',
-        },
+
         {
             label: 'email',
             type: 'email',
         },
-        {
-            label: 'phone_number_2',
-            type: 'number',
-        },
+
         {
             label: 'address',
-        },
-        {
-            label: 'phone_number_3',
-            type: 'number',
         },
 
         {
