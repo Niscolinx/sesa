@@ -280,11 +280,10 @@ const AddSOS = () => {
                                 </>
                             )
                         })}
-                        {phone_numbs.map((value, idx) => {
+                        {phone_numbs.map((_, idx) => {
                             return (
                                 <AddPhoneNumber
                                     idx={idx}
-                                    value={value}
                                     ref={(ref: HTMLInputElement) =>
                                         (phone_ref.current[idx] = ref)
                                     }
