@@ -116,7 +116,7 @@ const ViewProperty = () => {
                 })
             },
         }
-    ) as any
+    ) 
 
     const { mutate: delete_mutation, isLoading: delete_loading } = useMutation(
         postDelete,
