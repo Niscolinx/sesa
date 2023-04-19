@@ -21,7 +21,11 @@ interface AddPhoneNumber {
 
 const AddPhoneNumber = forwardRef<HTMLInputElement, AddPhoneNumber>(
     ({ idx }, ref) => {
-        // useImperativeHandle(ref, () => (phoneNumber))
+
+         useImperativeHandle(ref, () => {
+
+            return (ref.current)
+         })
 
         return (
             <div className={`w-full grid gap-4 self-baseline`}>
@@ -85,7 +89,7 @@ const AddSOS = () => {
         useState<ResponseMessage | null>(null)
 
     const phone_ref = useRef<HTMLInputElement>(null)
-    
+
     const [phone_numbs, set_phone_numbs] = useState<
         React.RefObject<HTMLInputElement>[]
     >([phone_ref])
