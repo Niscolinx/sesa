@@ -20,8 +20,7 @@ interface AddPhoneNumber {
 }
 
 const AddPhoneNumber = forwardRef<HTMLInputElement, AddPhoneNumber>(
-    ({ idx }) => {
-
+    ({ idx }, ref) => {
         // useImperativeHandle(ref, () => (phoneNumber))
 
         return (
