@@ -204,7 +204,9 @@ const AddSOS = () => {
     const submit = (e: FormEvent) => {
         e.preventDefault()
         const phone_num_values: string[] = []
-        console.log({phone_numbs})
+
+        console.log({ phone_numbs })
+
         phone_numbs.forEach((eachRef) => {
             if (eachRef.current) phone_num_values.push(eachRef.current.value)
         })
@@ -214,6 +216,7 @@ const AddSOS = () => {
 
     const addPhone = () => {
         console.log('phones')
+        const phone_ref = useRef<HTMLInputElement>(null)
 
         set_phone_numbs((prev) => [...prev, phone_ref])
     }
