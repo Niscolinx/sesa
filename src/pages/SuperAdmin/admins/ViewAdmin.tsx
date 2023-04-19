@@ -105,6 +105,7 @@ const ViewAdmin = () => {
     const admin_id = params.id?.replace(':', '')
 
     if(!admin_id){
+        console.log('not found')
          toast('Admin not Found', {
              type: 'error',
              className: 'bg-red-100 text-red-600 text-[1.4rem]',
