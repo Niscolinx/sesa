@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, useRef, useState } from 'react'
+import { ChangeEvent, FormEvent, forwardRef, useImperativeHandle, useRef, useState } from 'react'
 import { IoMdAdd, IoMdClose } from 'react-icons/io'
 import { useForm } from 'react-hook-form'
 import { useMutation } from 'react-query'
@@ -7,8 +7,51 @@ import useFetchData from '../../../../../utils/useFetchData'
 import useAxios from '../../../../../components/hooks/useAxios'
 import Input, { SelectProps } from '../../../../../components/UI/input/Input'
 
-const AddPhoneNumber = ({ value, idx }: { value: string; idx: number }) => {
+
+const AddPhoneNumberd = forwardRef(
+  ({ value, idx }: { value: string; idx: number }, ref) => {
+    const [phoneNumber, setPhoneNumber] = useState(value);
+
+    useImperativeHandle(ref, () => ({
+      value: phoneNumber
+    }));
+
+    const handlePhoneNumberChange = (
+      e: React.ChangeEvent<HTMLInputElement>
+    ) => {
+      setPhoneNumber(e.target.value);
+    };
+
+    return (
+      <div className={`w-full grid gap-4 self-baseline`}>
+        <label
+          htmlFor={`number${idx}`}
+          className="text-[1.4rem] font-semibold capitalize"
+        >
+          phone Number {idx + 1}
+        </label>
+
+        <input
+          type="number"
+          name="number"
+          id={`number${idx}`}
+          value={phoneNumber}
+          onChange={handlePhoneNumberChange}
+          className={` relative flex items-center border border-color-grey rounded-lg w-full  disabled:opacity-50 disabled:cursor-not-allowed p-4`}
+          ref={ref}
+        />
+      </div>
+    );
+  }
+);
+
+const AddPhoneNumber = forwardRef(({ value, idx }: { value: string; idx: number }, ref) => {
     const [phoneNumber, setPhoneNumber] = useState(value)
+
+     useImperativeHandle(ref, () => ({
+      value: phoneNumber
+    }));
+
 
     return (
         <div className={`w-full grid gap-4 self-baseline`}>
@@ -23,13 +66,16 @@ const AddPhoneNumber = ({ value, idx }: { value: string; idx: number }) => {
                 type='number'
                 name='number'
                 id={`number${idx}`}
+                ref={ref}
                 value={phoneNumber}
-                onChange={(e: ChangeEvent<HTMLInputElement>) => setPhoneNumber(e.target.value)}
+                onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                    setPhoneNumber(e.target.value)
+                }
                 className={` relative flex items-center border border-color-grey rounded-lg w-full  disabled:opacity-50 disabled:cursor-not-allowed p-4`}
             />
         </div>
     )
-}
+})
 const AddSOS = () => {
     type FormInputs = {
         label: string
@@ -70,7 +116,10 @@ const AddSOS = () => {
     } | null>(null)
     const [responseMessage, setResponseMessage] =
         useState<ResponseMessage | null>(null)
-    const [phoneNumbers, setPhoneNumbers] = useState([''])
+
+    const phoneNumbersRef = useRef([])
+
+    const [phone_num_count, set_phone_num_count] = useState([1])
 
     const axiosInstance = useAxios()
 
@@ -100,6 +149,17 @@ const AddSOS = () => {
         },
     })
 
+    const closeDialog = () => {
+        if (dialogRef.current) {
+            dialogRef.current.close()
+        }
+    }
+
+    const openDialog = () => {
+        if (dialogRef.current) {
+            dialogRef.current.showModal()
+        }
+    }
     const onSubmit = handleSubmit((data) => {
         let isError = false
         setSelectFormErrors(null)
@@ -176,17 +236,7 @@ const AddSOS = () => {
         },
     ] satisfies FormInputs[]
 
-    const closeDialog = () => {
-        if (dialogRef.current) {
-            dialogRef.current.close()
-        }
-    }
-
-    const openDialog = () => {
-        if (dialogRef.current) {
-            dialogRef.current.showModal()
-        }
-    }
+    
 
     return (
         <>
@@ -256,9 +306,11 @@ const AddSOS = () => {
                                 </>
                             )
                         })}
-                        {phoneNumbers.map((num, idx) => (
-                            <AddPhoneNumber value={num} idx={idx} />
+                        {phone_num_count.map((num, idx) => (
+                            <AddPhoneNumber value={num} idx={idx} ref={(ref) => (phoneNumbersRef.current[idx] = ref)} />
                         ))}
+
+                        <button onClick={() => set_phone_num_count(prev => [...prev, 1])}>Add phone number</button>
 
                         <button className='btn justify-self-start btn-blue col-span-full'>
                             <span>
