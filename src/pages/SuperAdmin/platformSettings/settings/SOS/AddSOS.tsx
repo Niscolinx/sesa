@@ -7,7 +7,9 @@ import useFetchData from '../../../../../utils/useFetchData'
 import useAxios from '../../../../../components/hooks/useAxios'
 import Input, { SelectProps } from '../../../../../components/UI/input/Input'
 
-const AddPhoneNumber = ({ value }: { value: string }) => {
+const AddPhoneNumber = ({ value, idx }: { value: string; idx: number }) => {
+    const [phoneNumber, setPhoneNumber] = useState(value)
+
     return (
         <div className={`w-full grid gap-4 self-baseline`}>
             <label
@@ -15,16 +17,14 @@ const AddPhoneNumber = ({ value }: { value: string }) => {
                 className='text-[1.4rem] font-semibold capitalize'
             >
                 {/* {name ?? label.replaceAll('_', ' ')} */}
+                phone Number {idx + 1}
             </label>
 
-            <div className='relative flex items-center'>
-                <input
-                    type='number'
-                    name='password'
-                    className={` w-full border-none outline-none disabled:opacity-50 disabled:cursor-not-allowed p-4 pl-0 
-                                    `}
-                />
-            </div>
+            <input
+                type='number'
+                name='password'
+                className={` w-full border-none outline-none disabled:opacity-50 disabled:cursor-not-allowed p-4 pl-0`}
+            />
         </div>
     )
 }
@@ -254,8 +254,8 @@ const AddSOS = () => {
                                 </>
                             )
                         })}
-                        {phoneNumbers.map((num) => (
-                            <AddPhoneNumber value={num} />
+                        {phoneNumbers.map((num, idx) => (
+                            <AddPhoneNumber value={num} idx={idx} />
                         ))}
 
                         <button className='btn justify-self-start btn-blue'>
