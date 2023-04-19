@@ -7,7 +7,7 @@ import useFetchData from '../../../../../utils/useFetchData'
 import useAxios from '../../../../../components/hooks/useAxios'
 import Input, { SelectProps } from '../../../../../components/UI/input/Input'
 
-const addPhoneNumber = () => {
+const AddPhoneNumber = () => {
     return (
         <div className={`w-full grid gap-4 self-baseline`}>
             <label
@@ -254,6 +254,11 @@ const AddSOS = () => {
                                 </>
                             )
                         })}
+                        {
+                            phoneNumbers.map((num) => (
+                                <AddPhoneNumber/>
+                            ))
+                        }
 
                         <button className='btn justify-self-start btn-blue'>
                             <span>
