@@ -25,9 +25,6 @@ const AddSOS = () => {
         name: string
         email: string
         address: string
-        phone_number_1: number
-        phone_number_2: number
-        phone_number_3: number
     }
 
     const { data: estates_data, isLoading: estates_loading } = useFetchData({
