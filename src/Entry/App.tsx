@@ -19,7 +19,7 @@ import Login from '../pages/Login'
 import superAdminRoutes from './routes/superAdminRoutes'
 import securityCompanyRoutes from './routes/securityCompanyRoutes'
 import { Route } from 'react-router-dom'
-import estateManagerRoutes from './routes/estateManagerRoutes'
+// import estateManagerRoutes from './routes/estateManagerRoutes'
 import { useAppSelector } from '../store/app/hooks'
 import { selectAuth } from '../store/features/auth'
 
@@ -31,7 +31,7 @@ const App = () => {
     const checkAuth = isAuth && [
         superAdminRoutes,
         securityCompanyRoutes,
-        estateManagerRoutes,
+        // estateManagerRoutes,
     ]
 
     const router = createBrowserRouter(
