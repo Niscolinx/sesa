@@ -53,13 +53,19 @@ function Estates() {
         }).then(({ data }) => data)
     }
 
+
+
     const {
         isLoading: get_estates_loading,
         data: get_estates_response,
         isError: get_estates_isError,
         error: get_estates_error,
         // isFetching: get_estates_fetching,
-    } = useQuery('estates', fetchEstates) as any
+    } = useQuery('estates', fetchEstates, {
+        onSuccess: (res) => {
+            console.log({res})
+        }
+    }) as any
 
     const postDeactivate = () => {
         return axiosInstance({
