@@ -79,9 +79,20 @@ const ViewAdmin = () => {
     const [responseMessage, setResponseMessage] =
         useState<ResponseMessage | null>(null)
 
-        useEffect(() => {
-            get_admin_mutation(admin_id)
-        }, [])
+    const admin_id = params.id?.replace(':', '')
+
+    if (!admin_id) {
+        toast('Admin not Found', {
+            type: 'error',
+            className: 'bg-red-100 text-red-600 text-[1.4rem]',
+        })
+
+        return <p className='p-4'> Not found</p>
+    }
+
+    useEffect(() => {
+        get_admin_mutation(admin_id)
+    }, [])
 
     const postDeactivateAdmin = (id: string) => {
         return axiosInstance({
@@ -104,16 +115,6 @@ const ViewAdmin = () => {
             method: 'post',
             data: { id },
         })
-    }
-
-
-    if (!admin_id) {
-        toast('Admin not Found', {
-            type: 'error',
-            className: 'bg-red-100 text-red-600 text-[1.4rem]',
-        })
-
-        return navigate(-1)
     }
 
     const {
@@ -156,7 +157,7 @@ const ViewAdmin = () => {
             setPhotoPreview(image)
             setSelectedGender(gender)
         },
- 
+
         onError: (err) => {
             console.log({ err })
         },
@@ -177,8 +178,6 @@ const ViewAdmin = () => {
                 })
             },
         })
-
-    
 
     const onSubmit = handleSubmit((data) => {
         const { first_name, last_name, dob, email_address, phone_number } = data
