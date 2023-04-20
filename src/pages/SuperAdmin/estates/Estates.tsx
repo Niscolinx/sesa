@@ -53,8 +53,6 @@ function Estates() {
         }).then(({ data }) => data)
     }
 
-
-
     const {
         isLoading: get_estates_loading,
         data: get_estates_response,
@@ -63,8 +61,8 @@ function Estates() {
         // isFetching: get_estates_fetching,
     } = useQuery('estates', fetchEstates, {
         onSuccess: (res) => {
-            console.log({res})
-        }
+            console.log({ res })
+        },
     }) as any
 
     const postDeactivate = () => {
@@ -246,8 +244,6 @@ function Estates() {
         }
     }
 
-   
-
     if (get_estates_loading) {
         return <p>Loading...</p>
     }
@@ -260,7 +256,7 @@ function Estates() {
 
     return (
         <div>
-            <ToastContainer/>
+            <ToastContainer />
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8 relative'>
@@ -333,6 +329,7 @@ function Estates() {
                                 <p>Add Estate</p>
                             </button>
                         </div>
+
                         <div className='grid gap-8 mt-8'>
                             {slicedPages &&
                                 slicedPages?.length > 0 &&
