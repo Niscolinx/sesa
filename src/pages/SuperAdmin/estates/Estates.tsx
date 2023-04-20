@@ -46,10 +46,11 @@ function Estates() {
         navigate('/superAdmin/estates/add')
     }
 
-    const fetchEstates = () => {
-        return axiosInstance({
+    const fetchEstates = async () => {
+        const { data } = await axiosInstance({
             url: '/estate/getall',
-        }).then(({ data }) => data)
+        })
+        return data
     }
 
     const {
