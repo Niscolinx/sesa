@@ -1,6 +1,5 @@
 import { ChangeEvent, useEffect, useRef, useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
-import RenderedEstates, { ESTATEDATA } from './RenderedEstates'
 import { useNavigate } from 'react-router-dom'
 import { useMutation, useQuery } from 'react-query'
 import { ToastContainer, toast } from 'react-toastify'
