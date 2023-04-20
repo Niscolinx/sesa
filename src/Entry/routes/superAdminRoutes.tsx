@@ -2,6 +2,8 @@ import { Route } from 'react-router-dom'
 
 import Admins from '../../pages/SuperAdmin/admins/Admins'
 import AddAdmin from '../../pages/SuperAdmin/admins/AddAdmin'
+import ViewAdmin from '../../pages/SuperAdmin/admins/ViewAdmin'
+
 
 import EstateDetail from '../../pages/SuperAdmin/estates/EstateDetail'
 import EstateManagers from '../../pages/SuperAdmin/estateManagers/EstateManagers'
@@ -39,7 +41,6 @@ import ViewArtisanCategory from '../../pages/SuperAdmin/artisans/category/ViewAr
 import AddProperty from '../../pages/SuperAdmin/platformSettings/settings/property/AddProperty'
 import Estates from '../../pages/SuperAdmin/estates/Estates'
 import EstateReport from '../../pages/SuperAdmin/estates/EstateReport'
-import ViewAdmin from '../../pages/SuperAdmin/admins/ViewAdmin'
 import ErrorBoundary from '../../components/UI/ErrorBoundary'
 import AddEstate from '../../pages/SuperAdmin/estates/AddEstate'
 import AddEstateManager from '../../pages/SuperAdmin/estateManagers/AddEstateManager'
