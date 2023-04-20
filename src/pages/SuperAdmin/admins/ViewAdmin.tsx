@@ -79,6 +79,10 @@ const ViewAdmin = () => {
     const [responseMessage, setResponseMessage] =
         useState<ResponseMessage | null>(null)
 
+        useEffect(() => {
+            get_admin_mutation(admin_id)
+        }, [])
+
     const postDeactivateAdmin = (id: string) => {
         return axiosInstance({
             url: '/change/user/status',
@@ -102,7 +106,6 @@ const ViewAdmin = () => {
         })
     }
 
-    const admin_id = params.id?.replace(':', '')
 
     if (!admin_id) {
         toast('Admin not Found', {
@@ -175,9 +178,7 @@ const ViewAdmin = () => {
             },
         })
 
-    useEffect(() => {
-        get_admin_mutation(admin_id)
-    }, [])
+    
 
     const onSubmit = handleSubmit((data) => {
         const { first_name, last_name, dob, email_address, phone_number } = data
