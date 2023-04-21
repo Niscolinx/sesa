@@ -87,7 +87,7 @@ const ViewAdmin = () => {
             className: 'bg-red-100 text-red-600 text-[1.4rem]',
         })
 
-        return <p className='p-4'> Not found</p>
+        return <p className='p-4'> Not found!</p>
     }
 
     useEffect(() => {
