@@ -264,7 +264,7 @@ const AdvertList: FC<{
 
                 <div className='grid'>
                     <div
-                        className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-6 gap-8'
+                        className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-5 gap-8'
                         style={{
                             fontSize: '1.4rem',
                         }}
@@ -276,6 +276,7 @@ const AdvertList: FC<{
                         <p>Start Date</p>
                         <p>End Date</p>
                         <p>End Date</p>
+
                         <p>Status</p>
                     </div>
 
@@ -296,7 +297,7 @@ const AdvertList: FC<{
                                         const { isDropDownOpen, index } =
                                             toggleDropDown
                                         return (
-                                            <div className='grid justify-between border-b grid-cols-6 gap-8 '>
+                                            <div className='grid justify-between border-b grid-cols-5 gap-8 '>
                                                 <p className='flex items-center gap-4'>
                                                     <input
                                                         type='checkbox'

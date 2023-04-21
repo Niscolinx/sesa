@@ -6,6 +6,7 @@ import Input, { SelectProps } from '../../../components/UI/input/Input'
 import ImageInput from '../../../components/UI/input/ImageInput'
 import useAxios from '../../../components/hooks/useAxios'
 import useFetchData from '../../../utils/useFetchData'
+import { useNavigate } from 'react-router'
 
 const AddSecurityCompany = () => {
     interface Inputs {
@@ -27,7 +28,7 @@ const AddSecurityCompany = () => {
     }
 
     const axiosInstance = useAxios()
-
+    const navigate = useNavigate()
     const { data: states_data, isLoading: states_loading } = useFetchData({})
 
     const [photoPreview, setPhotoPreview] = useState('')
@@ -76,7 +77,7 @@ const AddSecurityCompany = () => {
     const onSubmit = handleSubmit((data) => {
         const updatedData = {
             ...data,
-            image: '',
+            image: imageFile,
         }
 
         mutate(updatedData)
@@ -88,6 +89,7 @@ const AddSecurityCompany = () => {
         if (dialogRef.current) {
             dialogRef.current.close()
         }
+        navigate(-1)
     }
 
     const handleOpen = () => {
