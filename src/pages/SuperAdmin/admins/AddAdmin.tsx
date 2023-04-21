@@ -3,8 +3,9 @@ import { useForm } from 'react-hook-form'
 import { IoMdAdd } from 'react-icons/io'
 import { useMutation } from 'react-query'
 import Input, { SelectProps } from '../../../components/UI/input/Input'
-import ImageInput from '../../../components/UI/input/ImageInput'
+// import ImageInput from '../../../components/UI/input/ImageInput'
 import useAxios from '../../../components/hooks/useAxios'
+import ImageInput from '../../../components/UI/input/ImageInput'
 
 const AddAdmin = () => {
     interface Inputs {
