@@ -1,7 +1,5 @@
-import { FC, SetStateAction, useEffect, useState } from 'react'
-import { FieldValues, UseFormRegister } from 'react-hook-form'
+import { FC, useState } from 'react'
 import { MultipleSelect, Select } from '../../SuperAdmin/UI/Select'
-import useFetchData from '../../../utils/useFetchData'
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai'
 
 export interface SelectProps {
