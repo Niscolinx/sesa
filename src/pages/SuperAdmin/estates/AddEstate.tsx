@@ -28,6 +28,7 @@ const AddEstate = () => {
         type: string
         name?: string
         required?: boolean
+        disabled?: boolean
         selectProps?: SelectProps
     }
 
@@ -53,6 +54,14 @@ const AddEstate = () => {
     const axiosInstance = useAxios()
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
+
+    const {
+        register,
+        handleSubmit,
+        setValue,
+        watch,
+        formState: { errors: formErrors },
+    } = useForm<Inputs>()
 
     const [selectedState, setSelectedState] = useState<string>('')
     const [selectedEstateManager, setSelectedEstateManager] = useState<
@@ -83,11 +92,21 @@ const AddEstate = () => {
         setImageFile(file)
     }
 
-    const {
-        register,
-        handleSubmit,
-        formState: { errors: formErrors },
-    } = useForm<Inputs>()
+    const watchedField = watch('estate_fee')
+
+    // update the state when `fieldName` changes
+    useEffect(() => {
+        console.log({ watchedField })
+        setValue('sesa_fee', 100 - watchedField)
+    }, [watchedField])
+
+    // watch((val) => {
+    //     console.log(val)
+
+    //     if (val.estate_fee) {
+    //         setValue('sesa_fee', 100 - val.estate_fee)
+    //     }
+    // })
 
     const postRequest = (data: Inputs) => {
         return axiosInstance({
@@ -95,8 +114,8 @@ const AddEstate = () => {
             method: 'post',
             data,
             headers: {
-                "Content-Type": 'multipart/form-data'
-            }
+                'Content-Type': 'multipart/form-data',
+            },
         })
     }
     const { mutate, isLoading } = useMutation(postRequest, {
@@ -183,7 +202,7 @@ const AddEstate = () => {
             state,
             estate_manager,
             security_company,
-            image: imageFile
+            image: imageFile,
         }
 
         mutate(updated_data)
@@ -243,7 +262,7 @@ const AddEstate = () => {
                 setSelectedState: setSelectedSecurityCompany,
             },
         },
-    ] satisfies Partial<FormInputs>[] 
+    ] satisfies Partial<FormInputs>[]
 
     const second_section_inputs = [
         {
@@ -254,6 +273,7 @@ const AddEstate = () => {
         {
             label: 'sesa_fee',
             name: 'SESA (%)',
+            disabled: true,
             type: 'number',
         },
         {
@@ -331,6 +351,7 @@ const AddEstate = () => {
                                     key={idx + label}
                                     label={label}
                                     register={register}
+                                    setValue={setValue}
                                     formErrors={formErrors}
                                     fullWidth={label === 'address'}
                                     selectFormErrors={selectFormErrors}
@@ -354,13 +375,14 @@ const AddEstate = () => {
                         }}
                     >
                         {second_section_inputs.map((input, idx) => {
-                            const { label, type, name } = input
+                            const { label, type, name, disabled } = input
 
                             return (
                                 <Input
                                     key={idx + label}
                                     label={label}
                                     register={register}
+                                    disabled={disabled}
                                     formErrors={formErrors}
                                     type={type}
                                     minLength={0}

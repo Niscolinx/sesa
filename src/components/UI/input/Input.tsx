@@ -1,6 +1,7 @@
 import { FC, useState } from 'react'
 import { MultipleSelect, Select } from '../../SuperAdmin/UI/Select'
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai'
+import { UseFormSetValue } from 'react-hook-form'
 
 export interface SelectProps {
     isMulti?: boolean
@@ -19,14 +20,15 @@ interface Input {
     disabled?: boolean
     value?: any
     tag?: string
+    setValue?: UseFormSetValue<any>
     options: any
     required?: boolean
     pre?: string
+
     minLength?: number
     fullWidth: boolean
     isSelect: boolean
     selectFormErrors: Record<string, string> | null
-
     select: SelectProps
 }
 
@@ -37,9 +39,11 @@ const Input: FC<Partial<Input> & { label: string }> = ({
     register,
     isSelect,
     pre,
+    setValue,
     fullWidth,
     disabled,
     tag,
+
     select,
     selectFormErrors,
     required = true,
@@ -58,8 +62,6 @@ const Input: FC<Partial<Input> & { label: string }> = ({
 
     const [eyeIcon, setEyeIcon] = useState(false)
     const toggleEyeIcon = () => setEyeIcon(!eyeIcon)
-
-    
 
     return (
         <div
