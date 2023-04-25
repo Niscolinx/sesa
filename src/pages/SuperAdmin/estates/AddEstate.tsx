@@ -54,6 +54,7 @@ const AddEstate = () => {
     const axiosInstance = useAxios()
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
+    const estateFeeRef = useRef<number | null>()
 
     const {
         register,
@@ -94,19 +95,20 @@ const AddEstate = () => {
 
     const watchedField = watch('estate_fee')
 
-    // update the state when `fieldName` changes
+
     useEffect(() => {
-        console.log({ watchedField })
-        setValue('sesa_fee', 100 - watchedField)
+        if (watchedField >= 0 && watchedField <= 100) {
+            estateFeeRef.current = watchedField
+            setValue('estate_fee', watchedField)
+            setValue('sesa_fee', 100 - watchedField)
+        } else {
+            if (estateFeeRef.current) {
+                setValue('estate_fee', estateFeeRef.current)
+            }
+        }
     }, [watchedField])
 
-    // watch((val) => {
-    //     console.log(val)
-
-    //     if (val.estate_fee) {
-    //         setValue('sesa_fee', 100 - val.estate_fee)
-    //     }
-    // })
+   
 
     const postRequest = (data: Inputs) => {
         return axiosInstance({
@@ -351,7 +353,6 @@ const AddEstate = () => {
                                     key={idx + label}
                                     label={label}
                                     register={register}
-                                    setValue={setValue}
                                     formErrors={formErrors}
                                     fullWidth={label === 'address'}
                                     selectFormErrors={selectFormErrors}

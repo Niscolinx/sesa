@@ -1,7 +1,7 @@
 import { FC, useState } from 'react'
 import { MultipleSelect, Select } from '../../SuperAdmin/UI/Select'
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai'
-import { UseFormSetValue } from 'react-hook-form'
+import { UseFormRegister, RegisterOptions } from 'react-hook-form'
 
 export interface SelectProps {
     isMulti?: boolean
@@ -15,12 +15,11 @@ export interface SelectProps {
 interface Input {
     name: string
     type: string
-    register?: any
+    register?: UseFormRegister<any>
     formErrors: any
     disabled?: boolean
     value?: any
     tag?: string
-    setValue?: UseFormSetValue<any>
     options: any
     required?: boolean
     pre?: string
@@ -39,7 +38,6 @@ const Input: FC<Partial<Input> & { label: string }> = ({
     register,
     isSelect,
     pre,
-    setValue,
     fullWidth,
     disabled,
     tag,
@@ -51,13 +49,18 @@ const Input: FC<Partial<Input> & { label: string }> = ({
     value,
     minLength = 3,
 }) => {
+    const form_pattern = new Map([
+        [
+            'email',
+            /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+        ],
+    ])
+
     const validationOptions = {
         required,
         minLength,
-        pattern:
-            type === 'email'
-                ? /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-                : '',
+        min: 0,
+        pattern: form_pattern.get(type),
     }
 
     const [eyeIcon, setEyeIcon] = useState(false)
@@ -152,7 +155,6 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                                     rows={4}
                                     maxLength={30}
                                     disabled={disabled}
-                                    type={type}
                                     value={value}
                                     {...(register &&
                                         register(label, validationOptions))}
@@ -167,6 +169,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                                     id={label}
                                     disabled={disabled}
                                     type={type}
+                                    max={100}
                                     value={value}
                                     {...(register &&
                                         register(label, validationOptions))}
@@ -176,9 +179,9 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                                         'border-red-500 '
                                     }`}
                                     min={
-                                        type === 'date'
-                                            ? label.indexOf('dob') !== 0 &&
-                                              new Date()
+                                        type === 'date' &&
+                                        label.indexOf('dob') !== 0
+                                            ? new Date()
                                                   .toISOString()
                                                   .split('T')[0]
                                             : 0
