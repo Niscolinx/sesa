@@ -1,4 +1,11 @@
-import React, { ChangeEvent, FC, useState, useMemo, useEffect } from 'react'
+import React, {
+    ChangeEvent,
+    FC,
+    useState,
+    useMemo,
+    useEffect,
+    useRef,
+} from 'react'
 import { GrUp, GrDown } from 'react-icons/gr'
 import { IoMdClose } from 'react-icons/io'
 import { ValidateInputTypes } from '../../../pages/SecurityCompany/dashboard/company/AddSecurity/AddSecurityGuard'
@@ -75,6 +82,24 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
     const [search, setSearch] = useState('')
     const [selectFrom, setSelectFrom] = useState(state)
 
+
+    // Attach a click event listener to the document
+    useMemo(() => {
+        const handleClickOutside = (event: any) => {
+            //   if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+            //     // Click outside the dropdown, so close it
+            //     setIsOpen(false);
+            //   }
+
+            console.log({ event, toggleStateMenu, selectedState })
+        }
+
+        document.addEventListener('click', handleClickOutside)
+        return () => {
+            document.removeEventListener('click', handleClickOutside)
+        }
+    }, [toggleStateMenu])
+
     const handleSelectedState = (item: string) => {
         setSelectedState(item)
         setToggleStateMenu(false)
@@ -150,7 +175,9 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                     <GrDown className='absolute right-4' />
                 )}
                 {toggleStateMenu && (
-                    <div className='absolute top-[6rem] left-0 border border-color-primary-light min-w-[12rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize max-h-[20rem] overflow-y-scroll'>
+                    <div
+                        className='absolute top-[6rem] left-0 border border-color-primary-light min-w-[12rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize max-h-[20rem] overflow-y-scroll'
+                    >
                         {isSearchable && (
                             <div className='relative flex items-center text-[1.4rem]'>
                                 <img
@@ -331,8 +358,6 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
         }
     }
 
-
-
     const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
         const { value } = e.target
         setSearch(value)
@@ -376,8 +401,6 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
     const removeSelectedItem = (item: string) => {
         setSelected((prev) => prev.filter((i) => i !== item))
     }
-
-
 
     return (
         <div className='relative grid gap-4'>
