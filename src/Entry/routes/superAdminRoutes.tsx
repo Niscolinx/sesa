@@ -1,8 +1,8 @@
 import { Route } from 'react-router-dom'
 
-import Admins from '../../pages/SuperAdmin/admins/Admins'
-import AddAdmin from '../../pages/SuperAdmin/admins/AddAdmin'
-import ViewAdmin from '../../pages/SuperAdmin/admins/ViewAdmin'
+import Admin from '../../pages/SuperAdmin/admin/Admin'
+import AddAdmin from '../../pages/SuperAdmin/admin/AddAdmin'
+import ViewAdmin from '../../pages/SuperAdmin/admin/ViewAdmin'
 
 
 import EstateDetail from '../../pages/SuperAdmin/estates/EstateDetail'
@@ -56,9 +56,9 @@ const superAdminRoutes = (
         errorElement={<ErrorBoundary />}
     >
         <Route index element={<Overview />} />
-        <Route path='admins' element={<Admins />} />
-        <Route path='admins/add' element={<AddAdmin />} />
-        <Route path='admins/view/:id' element={<ViewAdmin />} />
+        <Route path='admin' element={<Admin />} />
+        <Route path='admin/add' element={<AddAdmin />} />
+        <Route path='admin/view/:id' element={<ViewAdmin />} />
         <Route path='estates' element={<Estates />} />
         <Route path='estates/detail/:id' element={<EstateDetail />} />
         <Route path='estates/add' element={<AddEstate />} />

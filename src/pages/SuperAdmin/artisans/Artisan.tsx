@@ -23,7 +23,7 @@ function ArtisanList() {
     return (
         <Table
             fetch_url={'/admin/artisan/getAll'}
-            title={'artisanList'}
+            title={'artisan'}
             view_page_url={'/superAdmin/artisan/detail/'}
             add_page_url={'/superAdmin/artisan/add-list'}
             is_add_btn={true}

@@ -22,10 +22,10 @@ function IconsBox() {
               </Link>
           </li>
           <li className='iconsBox__list'>
-              <Link to='/superAdmin/admins'>
+              <Link to='/superAdmin/admin'>
                   {' '}
                   <AdminsSvg />
-                  <span>Admins</span>
+                  <span>Admin</span>
               </Link>
           </li>
           <li className='iconsBox__list'>

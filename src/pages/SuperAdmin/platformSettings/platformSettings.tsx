@@ -6,7 +6,7 @@ import SOSTable from './settings/SOS/SOSTable'
 import PrevLocation from '../../../components/hooks/prevLocation'
 
 type PathSwitch =
-    | 'platform_changes'
+    | 'platform_charges'
     | 'property_type'
     | 'SOS_table'
     | 'account_settings'
@@ -15,14 +15,14 @@ function PlatformSettings() {
     const [currentPath, setCurrentPath] = useState<PathSwitch>('property_type')
 
     const handlePathSwitch = new Map([
-        ['platform_changes', <PlatformChanges />],
+        ['platform_charges', <PlatformChanges />],
         ['property_type', <PropertyType />],
         ['SOS_table', <SOSTable />],
         ['account_settings', <AccountSettings />],
     ]) satisfies Map<PathSwitch, JSX.Element>
 
     const paths = [
-        'platform_changes',
+        'platform_charges',
         'property_type',
         'SOS_table',
         'account_settings',
