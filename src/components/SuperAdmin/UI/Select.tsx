@@ -76,25 +76,34 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
     color,
     isSearchable = false,
 }) => {
-    const radioRef = useRef(null)
-    
+    const radioRef = useRef<HTMLInputElement | null>(null)
+
     const [toggleStateMenu, setToggleStateMenu] = useState(false)
 
     const stateMenuToggler = () => setToggleStateMenu(!toggleStateMenu)
     const [search, setSearch] = useState('')
     const [selectFrom, setSelectFrom] = useState(state)
 
-
     // Attach a click event listener to the document
     useEffect(() => {
-        if (toggleStateMenu) {
-           
+        const handleClickOutside = () => {
+            if (radioRef.current) {
+
+                if (!radioRef.current.checked) {
+                    setToggleStateMenu(false)
+                }
+            }
         }
-    }, [toggleStateMenu])
+
+        document.addEventListener('click', handleClickOutside)
+        return () => {
+            document.removeEventListener('click', handleClickOutside)
+        }
+    }, [radioRef])
 
     const handleSelectedState = (item: string) => {
         setSelectedState(item)
-        //setToggleStateMenu(false)
+        setToggleStateMenu(false)
     }
 
     const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
@@ -116,8 +125,6 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
         e.stopPropagation()
         setSelectedState('')
     }
-
-  
 
     return (
         <div
@@ -175,6 +182,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                             name=''
                             id='selectRadio'
                             className='bg-red-600'
+                            ref={radioRef}
                         />
                         <label
                             className='absolute top-[6rem] left-0 border border-color-primary-light min-w-[12rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize max-h-[20rem] overflow-y-scroll'
@@ -192,6 +200,9 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                                         type='text'
                                         placeholder='Search Parameters'
                                         value={search}
+                                        onClick={() =>
+                                            radioRef.current?.click()
+                                        }
                                         onChange={handleSearch}
                                         className={`pl-16 rounded-lg border border-color-blue-light py-4 px-8 outline-none appearance-none ${
                                             fullWidth ? 'w-full' : 'w-[25rem]'
