@@ -77,6 +77,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
     isSearchable = false,
 }) => {
     const radioRef = useRef<HTMLInputElement | null>(null)
+    const inputRef = useRef<HTMLInputElement | null>(null)
 
     const [toggleStateMenu, setToggleStateMenu] = useState(false)
 
@@ -84,20 +85,16 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
     const [search, setSearch] = useState('')
     const [selectFrom, setSelectFrom] = useState(state)
 
-    // Attach a click event listener to the document
     useEffect(() => {
         const handleClickOutside = () => {
-            console.log('radio Ref', radioRef.current)
+           
             if (
-                radioRef.current &&
-                !radioRef.current.checked &&
+                
+                !radioRef.current?.checked &&
                 toggleStateMenu
             ) {
-                console.log(radioRef.current.checked)
-                setToggleStateMenu(false)
-            } else {
-                console.log('close', radioRef.current?.checked)
-                setToggleStateMenu(true)
+                console.log(radioRef.current?.checked)
+               // setToggleStateMenu((prev) => !prev && false)
             }
         }
 
@@ -107,9 +104,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
         }
     }, [radioRef])
 
-    useEffect(() => {
-        console.log('useEffect', { toggleStateMenu })
-    }, [toggleStateMenu])
+   
 
     const handleSelectedState = (item: string) => {
         setSelectedState(item)
@@ -144,10 +139,12 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
         >
             <p className='text-[1.4rem] font-semibold'>{label}</p>
             <div className='relative flex items-center'>
+                <input type='text' className=' w-full' id='text' />
                 {color ? (
-                    <p
+                    <label
                         className='border border-color-grey px-4 py-2 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer min-h-[5rem] '
                         onClick={stateMenuToggler}
+                        htmlFor='text'
                     >
                         {selectedState ? (
                             <span
@@ -166,18 +163,20 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                                 {placeholder || ''}
                             </span>
                         )}
-                    </p>
+                    </label>
                 ) : (
-                    <p
+                    <label
                         className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer min-h-[5rem]'
-                        onClick={stateMenuToggler}
+                        // onClick={stateMenuToggler}
+                        htmlFor='text'
+                        onBlur={() => console.log('blur input')}
                     >
                         {selectedState || (
                             <span className='text-gray-500'>
                                 {placeholder || ''}
                             </span>
                         )}
-                    </p>
+                    </label>
                 )}
 
                 {toggleStateMenu ? (
@@ -209,7 +208,8 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                                     <input
                                         type='text'
                                         placeholder='Search Parameters'
-                                        value={search}
+                                        value={search}                                       
+                                        onBlur={() => setToggleStateMenu(false)}
                                         onClick={() =>
                                             radioRef.current?.click()
                                         }
