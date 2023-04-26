@@ -34,10 +34,8 @@ function Spinner({ start = false }: Props) {
     return (
         <dialog className='dialog' ref={dialogRef}>
             <section className='grid place-content-center w-full h-[100vh]'>
-                <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
-                    <div className=' flex justify-center items-center'>
-                        <div className='animate-spin rounded-full h-32 w-32 border-b-2 border-gray-900'></div>
-                    </div>
+                <div className=' justify-center items-center bg-white rounded-2xl shadow-md grid place-content-center justify-items-center w-[44rem] h-[20rem] gap-8'>
+                    <div className='animate-spin rounded-full h-24 w-24 border-r-2 border-t-1  border-r-color-primary transition-all duration-500 border-t-gray-300'></div>
                 </div>
             </section>
         </dialog>

@@ -7,6 +7,7 @@ import Input, { SelectProps } from '../../../components/UI/input/Input'
 import useAxios from '../../../components/hooks/useAxios'
 import ImageInput from '../../../components/UI/input/ImageInput'
 import Spinner from '../../../components/UI/Spinner'
+import { useNavigate } from 'react-router'
 
 const AddAdmin = () => {
     interface Inputs {
@@ -28,7 +29,7 @@ const AddAdmin = () => {
           selectProps?: SelectProps
       }
     const axiosInstance = useAxios()
-
+    const navigate = useNavigate()
     const genderState = ['Male', 'Female']
 
     const [photoPreview, setPhotoPreview] = useState('')
@@ -106,6 +107,7 @@ const AddAdmin = () => {
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
     const handleClose = () => {
+        navigate(-1)
         if (dialogRef.current) {
             dialogRef.current.close()
         }
@@ -151,7 +153,7 @@ const AddAdmin = () => {
 
     return (
         <>
-        <Spinner start={true}/>
+        <Spinner start={isLoading ? true : false}/>
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>

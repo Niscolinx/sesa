@@ -169,7 +169,6 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                                     id={label}
                                     disabled={disabled}
                                     type={type}
-                                    max={100}
                                     value={value}
                                     {...(register &&
                                         register(label, validationOptions))}
