@@ -95,6 +95,8 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
     const handleClose = (which: string) => {
 
         console.log('close', {which})
+
+        setToggleStateMenu(false)
     }
 
     const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
