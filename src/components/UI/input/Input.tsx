@@ -1,7 +1,8 @@
 import { FC, useState } from 'react'
 import { MultipleSelect, Select } from '../../SuperAdmin/UI/Select'
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai'
-import { UseFormRegister, RegisterOptions } from 'react-hook-form'
+import { UseFormRegister } from 'react-hook-form'
+import ReactPhoneInput from 'react-phone-input-2'
 
 export interface SelectProps {
     isMulti?: boolean
@@ -66,6 +67,10 @@ const Input: FC<Partial<Input> & { label: string }> = ({
     const [eyeIcon, setEyeIcon] = useState(false)
     const toggleEyeIcon = () => setEyeIcon(!eyeIcon)
 
+    const handleChange = (e: any) => {
+
+        console.log({e})
+    }
     return (
         <div
             className={`w-full grid gap-4 self-baseline ${
@@ -163,6 +168,11 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                                         formErrors[label] &&
                                         'border-red-500 '
                                     }`}
+                                />
+                            ) : label.toLowerCase().includes('phone') ? (
+                                <ReactPhoneInput
+                                    onChange={handleChange}
+                                    
                                 />
                             ) : (
                                 <input

@@ -87,7 +87,7 @@ const AddAdmin = () => {
     const onSubmit = handleSubmit((data) => {
         const { first_name, last_name, dob, email_address, phone_number } = data
 
-       console.log({imageFile})
+       console.log(data)
 
         const adminData = {
             name: `${first_name} ${last_name}`,
@@ -101,7 +101,7 @@ const AddAdmin = () => {
 
         console.log({adminData})
 
-        mutate(adminData)
+        //mutate(adminData)
     })
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
