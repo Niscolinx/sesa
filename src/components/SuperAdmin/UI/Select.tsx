@@ -82,7 +82,6 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
     const [search, setSearch] = useState('')
     const [selectFrom, setSelectFrom] = useState(state)
 
-    const dropdownRef = useRef(null)
 
     // Attach a click event listener to the document
     useEffect(() => {
