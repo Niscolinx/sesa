@@ -6,6 +6,7 @@ import Input, { SelectProps } from '../../../components/UI/input/Input'
 // import ImageInput from '../../../components/UI/input/ImageInput'
 import useAxios from '../../../components/hooks/useAxios'
 import ImageInput from '../../../components/UI/input/ImageInput'
+import Spinner from '../../../components/UI/Spinner'
 
 const AddAdmin = () => {
     interface Inputs {
@@ -150,6 +151,7 @@ const AddAdmin = () => {
 
     return (
         <>
+        <Spinner start={true}/>
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
@@ -179,9 +181,7 @@ const AddAdmin = () => {
                         </span>
                     </p>
                 )}
-                <div className=' flex justify-center items-center'>
-                    <div className='animate-spin rounded-full h-32 w-32 border-b-2 border-gray-900'></div>
-                </div>
+               
 
                 <form
                     onSubmit={onSubmit}
