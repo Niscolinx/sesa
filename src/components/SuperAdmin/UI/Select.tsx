@@ -88,11 +88,15 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
     useEffect(() => {
         const handleClickOutside = () => {
             if (radioRef.current) {
-
-                if (!radioRef.current.checked) {
+                console.log('radio Ref', radioRef.current)
+                if (!radioRef.current.checked && toggleStateMenu) {
+                    console.log(radioRef.current.checked)
                     setToggleStateMenu(false)
+                } else {
+                    console.log('close', radioRef.current.checked)
+                    setToggleStateMenu(true)
                 }
-            }
+            } 
         }
 
         document.addEventListener('click', handleClickOutside)
