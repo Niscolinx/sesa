@@ -2,7 +2,7 @@ import { FC, useState } from 'react'
 import { MultipleSelect, Select } from '../../SuperAdmin/UI/Select'
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai'
 import { UseFormRegister } from 'react-hook-form'
-import ReactPhoneInput from 'react-phone-input-2'
+import PhoneInput from 'react-phone-input-2'
 
 export interface SelectProps {
     isMulti?: boolean
@@ -68,8 +68,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
     const toggleEyeIcon = () => setEyeIcon(!eyeIcon)
 
     const handleChange = (e: any) => {
-
-        console.log({e})
+        console.log({ e })
     }
     return (
         <div
@@ -170,9 +169,14 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                                     }`}
                                 />
                             ) : label.toLowerCase().includes('phone') ? (
-                                <ReactPhoneInput
-                                    onChange={handleChange}
-                                    
+                                <PhoneInput
+                                    specialLabel={''}
+                                    country={'ng'}
+                                    inputClass={`w-full border-none outline-none disabled:opacity-50 disabled:cursor-not-allowed p-4 pl-0 ${
+                                        formErrors &&
+                                        formErrors[label] &&
+                                        'border-red-500 '
+                                    }`}
                                 />
                             ) : (
                                 <input
