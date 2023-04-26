@@ -157,7 +157,6 @@ const AddAdmin = () => {
                         <p>You have successfully added an Admin</p>
 
                         <div className='flex w-full justify-center gap-8'>
-                            
                             <button
                                 className='bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
                                 onClick={handleClose}
@@ -180,6 +179,10 @@ const AddAdmin = () => {
                         </span>
                     </p>
                 )}
+                <div className=' flex justify-center items-center'>
+                    <div className='animate-spin rounded-full h-32 w-32 border-b-2 border-gray-900'></div>
+                </div>
+
                 <form
                     onSubmit={onSubmit}
                     className='grid max-w-[84rem] gap-16 mt-12 '

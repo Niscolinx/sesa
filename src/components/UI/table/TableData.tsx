@@ -33,6 +33,7 @@ const TableData = () => {
         fetch_url,
         add_page_url,
         THeader,
+        is_checkbox,
         is_add_btn,
         isCategory,
         setIsDialogOpen,
@@ -233,10 +234,13 @@ const TableData = () => {
                                                         className='flex items-center gap-2'
                                                         key={idx}
                                                     >
-                                                        <input
-                                                            type='checkbox'
-                                                            className='cursor-pointer'
-                                                        />
+                                                        {' '}
+                                                        {is_checkbox && (
+                                                            <input
+                                                                type='checkbox'
+                                                                className='cursor-pointer'
+                                                            />
+                                                        )}
                                                         <p>{header}</p>
                                                     </div>
                                                 ) : (

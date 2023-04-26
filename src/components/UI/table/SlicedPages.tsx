@@ -16,7 +16,7 @@ const SlicedPages: FC<SlicedPages> = ({
     toggleDropDown,
     setToggleDropDown,
 }) => {
-    const { data_to_display, nested, THeader, actions, is_dropdown } =
+    const { data_to_display, nested, THeader, actions, is_dropdown, is_checkbox } =
         useTableContext()
 
     if (!pages || !pages.length) {
@@ -93,10 +93,13 @@ const SlicedPages: FC<SlicedPages> = ({
                     if (idx === 0) {
                         return (
                             <div className='flex items-center gap-4 ' key={idx}>
-                                <input
-                                    type='checkbox'
-                                    className='cursor-pointer'
-                                />
+                                {is_checkbox && (
+                                    <input
+                                        type='checkbox'
+                                        className='cursor-pointer'
+                                    />
+                                )}
+
                                 <div className='flex items-center gap-2'>
                                     {value.image && (
                                         <figure className='w-[3.5rem] h-[3.5rem]'>

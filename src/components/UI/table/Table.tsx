@@ -20,6 +20,7 @@ interface Table {
     nested?: boolean
     delete_item_url?: string
     is_dropdown?: boolean
+    is_checkbox?: boolean
     THeader: string[]
     actions?: Actions[]
 }
@@ -57,6 +58,7 @@ const Table = ({
     isCategory,
     view_page_url,
     add_page_url,
+    is_checkbox = false,
     data_to_display,
     is_add_btn,
     nested = false,
@@ -86,6 +88,7 @@ const Table = ({
                 sortBy,
                 setSortBy,
                 fetchedId,
+                is_checkbox,
                 setFetchedId,
                 fetchedData,
                 setFetchedData,
