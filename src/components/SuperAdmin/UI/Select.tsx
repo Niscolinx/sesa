@@ -87,16 +87,18 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
     // Attach a click event listener to the document
     useEffect(() => {
         const handleClickOutside = () => {
-            if (radioRef.current) {
-                console.log('radio Ref', radioRef.current)
-                if (!radioRef.current.checked && toggleStateMenu) {
-                    console.log(radioRef.current.checked)
-                    setToggleStateMenu(false)
-                } else {
-                    console.log('close', radioRef.current.checked)
-                    setToggleStateMenu(true)
-                }
-            } 
+            console.log('radio Ref', radioRef.current)
+            if (
+                radioRef.current &&
+                !radioRef.current.checked &&
+                toggleStateMenu
+            ) {
+                console.log(radioRef.current.checked)
+                setToggleStateMenu(false)
+            } else {
+                console.log('close', radioRef.current?.checked)
+                setToggleStateMenu(true)
+            }
         }
 
         document.addEventListener('click', handleClickOutside)
@@ -104,6 +106,10 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
             document.removeEventListener('click', handleClickOutside)
         }
     }, [radioRef])
+
+    useEffect(() => {
+        console.log('useEffect', { toggleStateMenu })
+    }, [toggleStateMenu])
 
     const handleSelectedState = (item: string) => {
         setSelectedState(item)
