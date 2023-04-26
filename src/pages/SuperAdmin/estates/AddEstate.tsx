@@ -334,6 +334,7 @@ const AddEstate = () => {
                 </p>
             )}
             <form onSubmit={onSubmit} className='grid gap-20'>
+               
                 <div className='grid gap-10'>
                     <p className='text-[2rem] font-Satoshi-Medium'>
                         Estate Details

@@ -36,6 +36,20 @@ h5 {
     font-weight: 500;
 }
 
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-moz-inner-spin-button,
+input[type='number']::-moz-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+input[type='number'] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
 .dialog {
     width: 100%;
     background: transparent;

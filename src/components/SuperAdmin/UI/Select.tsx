@@ -82,21 +82,12 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
     const [search, setSearch] = useState('')
     const [selectFrom, setSelectFrom] = useState(state)
 
+    const dropdownRef = useRef(null)
 
     // Attach a click event listener to the document
-    useMemo(() => {
-        const handleClickOutside = (event: any) => {
-            //   if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-            //     // Click outside the dropdown, so close it
-            //     setIsOpen(false);
-            //   }
-
-            console.log({ event, toggleStateMenu, selectedState })
-        }
-
-        document.addEventListener('click', handleClickOutside)
-        return () => {
-            document.removeEventListener('click', handleClickOutside)
+    useEffect(() => {
+        if (toggleStateMenu) {
+            openDialog()
         }
     }, [toggleStateMenu])
 
@@ -123,6 +114,18 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
     const clearValue = (e: React.MouseEvent<SVGElement, MouseEvent>) => {
         e.stopPropagation()
         setSelectedState('')
+    }
+
+    const dialogRef = useRef<HTMLDialogElement | null>(null)
+
+    const closeDialog = () => {
+        dialogRef.current?.close()
+    }
+
+    const openDialog = () => {
+        if (dialogRef.current) {
+            return dialogRef.current.showModal()
+        }
     }
 
     return (
@@ -174,44 +177,48 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                 ) : (
                     <GrDown className='absolute right-4' />
                 )}
-                {toggleStateMenu && (
-                    <div
-                        className='absolute top-[6rem] left-0 border border-color-primary-light min-w-[12rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize max-h-[20rem] overflow-y-scroll'
-                    >
-                        {isSearchable && (
-                            <div className='relative flex items-center text-[1.4rem]'>
-                                <img
-                                    src='/icons/admins/search.svg'
-                                    alt=''
-                                    className='absolute left-4'
-                                />
 
-                                <input
-                                    type='text'
-                                    placeholder='Search Parameters'
-                                    value={search}
-                                    onChange={handleSearch}
-                                    className={`pl-16 rounded-lg border border-color-blue-light py-4 px-8 outline-none appearance-none ${
-                                        fullWidth ? 'w-full' : 'w-[25rem]'
-                                    }`}
-                                />
-                            </div>
-                        )}
-                        {selectFrom.map((item, index) => (
-                            <p
-                                className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
-                                key={index}
-                                onClick={() => handleSelectedState(item)}
-                            >
-                                {item}
-                            </p>
-                        ))}
-                        {kyr && (
-                            <p className='text-color-primary px-4 text-[1.4rem] py-1'>
-                                NB: Choice of validation is ₦200
-                            </p>
-                        )}
-                    </div>
+                {toggleStateMenu && (
+                    <dialog
+                        className='dialog bg-red-600 h-full w-full contents'
+                        ref={dialogRef}
+                    >
+                        <div className='absolute top-[6rem] left-0 border border-color-primary-light min-w-[12rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize max-h-[20rem] overflow-y-scroll'>
+                            {isSearchable && (
+                                <div className='relative flex items-center text-[1.4rem]'>
+                                    <img
+                                        src='/icons/admins/search.svg'
+                                        alt=''
+                                        className='absolute left-4'
+                                    />
+
+                                    <input
+                                        type='text'
+                                        placeholder='Search Parameters'
+                                        value={search}
+                                        onChange={handleSearch}
+                                        className={`pl-16 rounded-lg border border-color-blue-light py-4 px-8 outline-none appearance-none ${
+                                            fullWidth ? 'w-full' : 'w-[25rem]'
+                                        }`}
+                                    />
+                                </div>
+                            )}
+                            {selectFrom.map((item, index) => (
+                                <p
+                                    className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
+                                    key={index}
+                                    onClick={() => handleSelectedState(item)}
+                                >
+                                    {item}
+                                </p>
+                            ))}
+                            {kyr && (
+                                <p className='text-color-primary px-4 text-[1.4rem] py-1'>
+                                    NB: Choice of validation is ₦200
+                                </p>
+                            )}
+                        </div>
+                    </dialog>
                 )}
             </div>
             {label && selectFormErrors && selectFormErrors[label] && (
