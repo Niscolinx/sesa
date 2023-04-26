@@ -254,6 +254,8 @@ function Estates() {
 
     const fetched = get_estates_response?.data
 
+    console.log({fetched})
+
     return (
         <div>
             <ToastContainer />
@@ -378,8 +380,7 @@ function Estates() {
                                                             <p>
                                                                 {
                                                                     security_company
-                                                                        .user
-                                                                        .name
+                                                                       
                                                                 }
                                                             </p>
                                                         </div>
@@ -439,8 +440,7 @@ function Estates() {
                                                             <p>
                                                                 {
                                                                     estate_manager
-                                                                        .user
-                                                                        .name
+                                                                       
                                                                 }
                                                             </p>
                                                         </div>

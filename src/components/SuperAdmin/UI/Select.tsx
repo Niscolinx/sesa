@@ -76,7 +76,6 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
     color,
     isSearchable = false,
 }) => {
-    const radioRef = useRef<HTMLInputElement | null>(null)
 
     const [toggleStateMenu, setToggleStateMenu] = useState(false)
 
@@ -133,7 +132,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
             <div className='relative flex items-center'>
                 <input
                     type='text'
-                    className='absolute w-[.1px] h-[.1px] left-[-9999px] opacity-0'
+                    // className='absolute w-[.1px] h-[.1px] left-[-9999px] opacity-0'
                     id='inputId'
                     onBlur={() => handleClose('label')}
                 />
