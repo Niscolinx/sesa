@@ -76,6 +76,8 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
     color,
     isSearchable = false,
 }) => {
+    const radioRef = useRef(null)
+    
     const [toggleStateMenu, setToggleStateMenu] = useState(false)
 
     const stateMenuToggler = () => setToggleStateMenu(!toggleStateMenu)
@@ -169,14 +171,14 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                 {toggleStateMenu && (
                     <>
                         <input
-                            type='checkbox'
+                            type='radio'
                             name=''
-                            id='selectCheckbox'
+                            id='selectRadio'
                             className='bg-red-600'
                         />
                         <label
                             className='absolute top-[6rem] left-0 border border-color-primary-light min-w-[12rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize max-h-[20rem] overflow-y-scroll'
-                            htmlFor='selectCheckbox'
+                            htmlFor='selectRadio'
                         >
                             {isSearchable && (
                                 <div className='relative flex items-center text-[1.4rem]'>
