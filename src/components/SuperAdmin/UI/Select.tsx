@@ -83,11 +83,18 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
     const stateMenuToggler = () => setToggleStateMenu(!toggleStateMenu)
     const [search, setSearch] = useState('')
     const [selectFrom, setSelectFrom] = useState(state)
+    const [searchState, setSearchState] = useState('')
+
 
 
     const handleSelectedState = (item: string) => {
         setSelectedState(item)
         setToggleStateMenu(false)
+    }
+
+    const handleClose = (which: string) => {
+
+        console.log('close', {which})
     }
 
     const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
@@ -110,7 +117,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
         setSelectedState('')
     }
 
-    useState(() => {
+    useEffect(() => {
         console.log({toggleStateMenu})
     }, [toggleStateMenu])
 
@@ -126,7 +133,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                     type='text'
                     className='absolute w-[.1px] h-[.1px] left-[-9999px] opacity-0'
                     id='inputId'
-                    onBlur={() => stateMenuToggler(false)}
+                    onBlur={() => handleClose('label')}
                 />
                 {color ? (
                     <label
@@ -185,8 +192,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                                     type='text'
                                     placeholder='Search Parameters'
                                     value={search}
-                                    onBlur={() => setToggleStateMenu(false)}
-                                    onClick={() => radioRef.current?.click()}
+                                    onBlur={() => handleClose('search') }
                                     onChange={handleSearch}
                                     className={`pl-16 rounded-lg border border-color-blue-light py-4 px-8 outline-none appearance-none ${
                                         fullWidth ? 'w-full' : 'w-[25rem]'
