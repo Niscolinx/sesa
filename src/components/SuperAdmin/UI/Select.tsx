@@ -77,7 +77,6 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
     isSearchable = false,
 }) => {
     const radioRef = useRef<HTMLInputElement | null>(null)
-    const inputRef = useRef<HTMLInputElement | null>(null)
 
     const [toggleStateMenu, setToggleStateMenu] = useState(false)
 
@@ -85,26 +84,6 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
     const [search, setSearch] = useState('')
     const [selectFrom, setSelectFrom] = useState(state)
 
-    useEffect(() => {
-        const handleClickOutside = () => {
-           
-            if (
-                
-                !radioRef.current?.checked &&
-                toggleStateMenu
-            ) {
-                console.log(radioRef.current?.checked)
-               // setToggleStateMenu((prev) => !prev && false)
-            }
-        }
-
-        document.addEventListener('click', handleClickOutside)
-        return () => {
-            document.removeEventListener('click', handleClickOutside)
-        }
-    }, [radioRef])
-
-   
 
     const handleSelectedState = (item: string) => {
         setSelectedState(item)
@@ -131,6 +110,10 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
         setSelectedState('')
     }
 
+    useState(() => {
+        console.log({toggleStateMenu})
+    }, [toggleStateMenu])
+
     return (
         <div
             className={`relative grid self-baseline capitalize ${
@@ -139,12 +122,17 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
         >
             <p className='text-[1.4rem] font-semibold'>{label}</p>
             <div className='relative flex items-center'>
-                <input type='text' className=' w-full' id='text' />
+                <input
+                    type='text'
+                    className='absolute w-[.1px] h-[.1px] left-[-9999px] opacity-0'
+                    id='inputId'
+                    onBlur={() => stateMenuToggler(false)}
+                />
                 {color ? (
                     <label
                         className='border border-color-grey px-4 py-2 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer min-h-[5rem] '
                         onClick={stateMenuToggler}
-                        htmlFor='text'
+                        htmlFor='inputId'
                     >
                         {selectedState ? (
                             <span
@@ -167,9 +155,8 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                 ) : (
                     <label
                         className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer min-h-[5rem]'
-                        // onClick={stateMenuToggler}
-                        htmlFor='text'
-                        onBlur={() => console.log('blur input')}
+                        onClick={stateMenuToggler}
+                        htmlFor='inputId'
                     >
                         {selectedState || (
                             <span className='text-gray-500'>
@@ -185,57 +172,43 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                     <GrDown className='absolute right-4' />
                 )}
                 {toggleStateMenu && (
-                    <>
-                        <input
-                            type='radio'
-                            name=''
-                            id='selectRadio'
-                            className='bg-red-600'
-                            ref={radioRef}
-                        />
-                        <label
-                            className='absolute top-[6rem] left-0 border border-color-primary-light min-w-[12rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize max-h-[20rem] overflow-y-scroll'
-                            htmlFor='selectRadio'
-                        >
-                            {isSearchable && (
-                                <div className='relative flex items-center text-[1.4rem]'>
-                                    <img
-                                        src='/icons/admins/search.svg'
-                                        alt=''
-                                        className='absolute left-4'
-                                    />
+                    <div className='absolute top-[6rem] left-0 border border-color-primary-light min-w-[12rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize max-h-[20rem] overflow-y-scroll'>
+                        {isSearchable && (
+                            <div className='relative flex items-center text-[1.4rem]'>
+                                <img
+                                    src='/icons/admins/search.svg'
+                                    alt=''
+                                    className='absolute left-4'
+                                />
 
-                                    <input
-                                        type='text'
-                                        placeholder='Search Parameters'
-                                        value={search}                                       
-                                        onBlur={() => setToggleStateMenu(false)}
-                                        onClick={() =>
-                                            radioRef.current?.click()
-                                        }
-                                        onChange={handleSearch}
-                                        className={`pl-16 rounded-lg border border-color-blue-light py-4 px-8 outline-none appearance-none ${
-                                            fullWidth ? 'w-full' : 'w-[25rem]'
-                                        }`}
-                                    />
-                                </div>
-                            )}
-                            {selectFrom.map((item, index) => (
-                                <p
-                                    className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
-                                    key={index}
-                                    onClick={() => handleSelectedState(item)}
-                                >
-                                    {item}
-                                </p>
-                            ))}
-                            {kyr && (
-                                <p className='text-color-primary px-4 text-[1.4rem] py-1'>
-                                    NB: Choice of validation is ₦200
-                                </p>
-                            )}
-                        </label>
-                    </>
+                                <input
+                                    type='text'
+                                    placeholder='Search Parameters'
+                                    value={search}
+                                    onBlur={() => setToggleStateMenu(false)}
+                                    onClick={() => radioRef.current?.click()}
+                                    onChange={handleSearch}
+                                    className={`pl-16 rounded-lg border border-color-blue-light py-4 px-8 outline-none appearance-none ${
+                                        fullWidth ? 'w-full' : 'w-[25rem]'
+                                    }`}
+                                />
+                            </div>
+                        )}
+                        {selectFrom.map((item, index) => (
+                            <p
+                                className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
+                                key={index}
+                                onClick={() => handleSelectedState(item)}
+                            >
+                                {item}
+                            </p>
+                        ))}
+                        {kyr && (
+                            <p className='text-color-primary px-4 text-[1.4rem] py-1'>
+                                NB: Choice of validation is ₦200
+                            </p>
+                        )}
+                    </div>
                 )}
             </div>
             {label && selectFormErrors && selectFormErrors[label] && (
