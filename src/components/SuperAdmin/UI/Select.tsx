@@ -86,13 +86,13 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
     // Attach a click event listener to the document
     useEffect(() => {
         if (toggleStateMenu) {
-            openDialog()
+           
         }
     }, [toggleStateMenu])
 
     const handleSelectedState = (item: string) => {
         setSelectedState(item)
-        setToggleStateMenu(false)
+        //setToggleStateMenu(false)
     }
 
     const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
@@ -115,17 +115,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
         setSelectedState('')
     }
 
-    const dialogRef = useRef<HTMLDialogElement | null>(null)
-    const closeDialog = () => {
-
-        dialogRef.current?.close()
-    }
-
-    const openDialog = () => {
-        if (dialogRef.current) {
-            return dialogRef.current.showModal()
-        }
-    }
+  
 
     return (
         <div
@@ -177,11 +167,17 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                     <GrDown className='absolute right-4' />
                 )}
                 {toggleStateMenu && (
-                        <>
-                      
-                    <input type="checkbox" name="" id="selectCheckbox" className='bg-red-600' />
-                        <label className='absolute top-[6rem] left-0 border border-color-primary-light min-w-[12rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize max-h-[20rem] overflow-y-scroll' htmlFor='selectCheckbox'>
-
+                    <>
+                        <input
+                            type='checkbox'
+                            name=''
+                            id='selectCheckbox'
+                            className='bg-red-600'
+                        />
+                        <label
+                            className='absolute top-[6rem] left-0 border border-color-primary-light min-w-[12rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize max-h-[20rem] overflow-y-scroll'
+                            htmlFor='selectCheckbox'
+                        >
                             {isSearchable && (
                                 <div className='relative flex items-center text-[1.4rem]'>
                                     <img
@@ -216,8 +212,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                                 </p>
                             )}
                         </label>
-                          </>
-                   
+                    </>
                 )}
             </div>
             {label && selectFormErrors && selectFormErrors[label] && (
