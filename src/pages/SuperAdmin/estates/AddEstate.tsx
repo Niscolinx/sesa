@@ -179,9 +179,13 @@ const AddEstate = () => {
             })
         }
 
+
+
         if (isError) {
             return
         }
+
+        return
 
         const state: string[] = states_data
             .filter(({ name }: any) => selectedState.includes(name))

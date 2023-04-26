@@ -117,8 +117,8 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
     }
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
-
     const closeDialog = () => {
+
         dialogRef.current?.close()
     }
 
