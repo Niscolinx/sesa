@@ -96,6 +96,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
         const id = setTimeout(() => {
             if (which === 'outside') {
                 if (toggleStateMenu) {
+                    console.log({isTouchDevice})
                     console.log('close🔥', { which, toggleStateMenu })
                     setToggleStateMenu(false)
                 }
@@ -114,9 +115,6 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
         setToggleStateMenu(false)
     }
 
-    useEffect(() => {
-        console.log({ toggleStateMenu })
-    }, [toggleStateMenu])
 
     const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
         const { value } = e.target
