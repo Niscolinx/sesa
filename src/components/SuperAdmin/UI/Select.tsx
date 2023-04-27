@@ -108,7 +108,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
 
             return handleClose()
         } else {
-            console.log('3, close toggle menu')
+            console.log('3, normal toggle')
             setToggleStateMenu(!toggleStateMenu)
         }
     }
@@ -191,7 +191,10 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                 ) : (
                     <label
                         className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer min-h-[5rem]'
-                        onClick={() => stateMenuToggler('inner')}
+                        onClick={(e) => {
+                            e.preventDefault()
+                            stateMenuToggler('inner')
+                        }}
                         htmlFor={`input${id}`}
                     >
                         {selectedState || (
@@ -208,62 +211,50 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                     <GrDown className='absolute right-4' />
                 )}
                 {toggleStateMenu && (
-                    <>
-                        <input
-                            type='text'
-                            placeholder='Search Parameters'
-                            value={search}
-                            autoFocus
-                            onBlur={() => stateMenuToggler('inner-search')}
-                            onChange={handleSearch}
-                            className={`pl-16 rounded-lg border border-color-blue-light py-4 px-8 outline-none appearance-none focus:bg-red-600 focus-within:bg-red-600 focus-visible:bg-red-600 ${
-                                fullWidth ? 'w-full' : 'w-[25rem]'
-                            }`}
-                        />
+                    <div
+                        className='absolute top-[6rem] left-0 border border-color-primary-light min-w-[12rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize max-h-[20rem] overflow-y-scroll'
+                        onClick={(e) => {
+                            // e.preventDefault()
+                            // e.stopPropagation()
+                            clickedMenu()
+                        }}
+                    >
+                        {isSearchable && (
+                            <div className='relative flex items-center text-[1.4rem]'>
+                                <img
+                                    src='/icons/admins/search.svg'
+                                    alt=''
+                                    className='absolute left-4'
+                                />
 
-                        <div
-                            className='absolute top-[6rem] left-0 border border-color-primary-light min-w-[12rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize max-h-[20rem] overflow-y-scroll'
-                            onClick={clickedMenu}
-                        >
-                            {isSearchable && (
-                                <div className='relative flex items-center text-[1.4rem]'>
-                                    <img
-                                        src='/icons/admins/search.svg'
-                                        alt=''
-                                        className='absolute left-4'
-                                    />
-
-                                    <input
-                                        type='text'
-                                        placeholder='Search Parameters'
-                                        value={search}
-                                        autoFocus
-                                        onBlur={() =>
-                                            stateMenuToggler('inner-search')
-                                        }
-                                        onChange={handleSearch}
-                                        className={`pl-16 rounded-lg border border-color-blue-light py-4 px-8 outline-none appearance-none focus:bg-red-600 focus-within:bg-red-600 focus-visible:bg-red-600 ${
-                                            fullWidth ? 'w-full' : 'w-[25rem]'
-                                        }`}
-                                    />
-                                </div>
-                            )}
-                            {selectFrom.map((item, index) => (
-                                <p
-                                    className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
-                                    key={index}
-                                    onClick={() => handleSelectedState(item)}
-                                >
-                                    {item}
-                                </p>
-                            ))}
-                            {kyr && (
-                                <p className='text-color-primary px-4 text-[1.4rem] py-1'>
-                                    NB: Choice of validation is ₦200
-                                </p>
-                            )}
-                        </div>
-                    </>
+                                <input
+                                    type='text'
+                                    placeholder='Search Parameters'
+                                    value={search}
+                                    autoFocus
+                                    // onBlur={() => stateMenuToggler('inner-search')}
+                                    onChange={handleSearch}
+                                    className={`pl-16 rounded-lg border border-color-blue-light py-4 px-8 outline-none appearance-none ${
+                                        fullWidth ? 'w-full' : 'w-[25rem]'
+                                    }`}
+                                />
+                            </div>
+                        )}
+                        {selectFrom.map((item, index) => (
+                            <p
+                                className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
+                                key={index}
+                                onClick={() => handleSelectedState(item)}
+                            >
+                                {item}
+                            </p>
+                        ))}
+                        {kyr && (
+                            <p className='text-color-primary px-4 text-[1.4rem] py-1'>
+                                NB: Choice of validation is ₦200
+                            </p>
+                        )}
+                    </div>
                 )}
             </div>
             {label && selectFormErrors && selectFormErrors[label] && (
