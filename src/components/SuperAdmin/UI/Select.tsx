@@ -87,35 +87,33 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
     const [selectFrom, setSelectFrom] = useState(state)
     const [menuState, setMenuState] = useState('idle')
 
-    const stateMenuToggler = () => {
-        console.log('clicked------ Toggler')
-        if (toggleStateMenu) {
-            setMenuState('idle')
+    const stateMenuToggler = (which: 'inner' | 'outside') => {
+        console.log({ which })
+
+        if (which === 'outside') {
+            console.log('before close -----delay')
+            const handleClose = (which?: string) => {
+                //    const id =  setTimeout(() => {
+
+                if (toggleStateMenu && menuState === 'normal') {
+                    console.log({ menuState })
+                    console.log('close🔥', { which, toggleStateMenu })
+                    // setToggleStateMenu(false)
+                }
+                // }, 0)
+
+                // return () =>  clearTimeout(id)
+            }
+
+            return handleClose()
         } else {
-            setMenuState('normal')
+            setToggleStateMenu(!toggleStateMenu)
         }
-        setToggleStateMenu(!toggleStateMenu)
     }
 
     const handleSelectedState = (item: string) => {
         setSelectedState(item)
         setToggleStateMenu(false)
-    }
-
-    const handleClose = (which: string) => {
-
-       const id =  setTimeout(() => {
-
-            console.log('close------------', { menuState })
-            if (toggleStateMenu && menuState === 'normal') {
-                console.log({ menuState })
-                console.log('close', { which, toggleStateMenu })
-                // setToggleStateMenu(false)
-            }
-        }, 0)
-
-        return () => {
-            
     }
 
     const clickedMenu = () => {
@@ -162,13 +160,13 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                     id={`input${id}`}
                     // onFocus={() => console.log('focused')}
                     // onBlurCapture={() => console.log('captured')}
-                    onBlur={() => handleClose('label')}
+                    onBlur={() => stateMenuToggler('outside')}
                 />
 
                 {color ? (
                     <label
                         className='border border-color-grey px-4 py-2 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer min-h-[5rem] '
-                        onClick={(e) => stateMenuToggler}
+                        onClick={() => stateMenuToggler('inner')}
                     >
                         {selectedState ? (
                             <span
@@ -191,11 +189,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                 ) : (
                     <label
                         className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer min-h-[5rem]'
-                        onClick={(e) => {
-                            // e.preventDefault()
-                            // e.stopPropagation()
-                            stateMenuToggler()
-                        }}
+                        onClick={() => stateMenuToggler('inner')}
                         htmlFor={`input${id}`}
                     >
                         {selectedState || (
@@ -228,7 +222,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                                     type='text'
                                     placeholder='Search Parameters'
                                     value={search}
-                                    // onBlur={() => handleClose('search')}
+                                    onBlur={() => setToggleStateMenu(false)}
                                     onChange={handleSearch}
                                     className={`pl-16 rounded-lg border border-color-blue-light py-4 px-8 outline-none appearance-none ${
                                         fullWidth ? 'w-full' : 'w-[25rem]'
