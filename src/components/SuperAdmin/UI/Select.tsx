@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FC, useState, useMemo } from 'react'
+import React, { ChangeEvent, FC, useState, useMemo, useCallback, useEffect } from 'react'
 import { GrUp, GrDown } from 'react-icons/gr'
 import { IoMdClose } from 'react-icons/io'
 import { ValidateInputTypes } from '../../../pages/SecurityCompany/dashboard/company/AddSecurity/AddSecurityGuard'
@@ -102,7 +102,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
         setToggleStateMenu(false)
     }
 
-    const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
+    const handleSearch = useEffect(() => (e: ChangeEvent<HTMLInputElement>) => {
         const { value } = e.target
         setSearch(value)
 
@@ -115,7 +115,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
         } else {
             setSelectFrom(selectFrom)
         }
-    }
+    }, [search, setSelectFrom, setSearch])
 
     const clearValue = (e: React.MouseEvent<SVGElement, MouseEvent>) => {
         e.stopPropagation()
@@ -177,30 +177,35 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                 )}
                 {toggleStateMenu && (
                     <div className='absolute top-[6rem] left-0 border border-color-primary-light min-w-[12rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize max-h-[20rem] overflow-y-scroll'>
-                       
-                            <div className=' flex items-center text-[1.4rem] absolute left-[-9999px] opacity-0 '>
-                                <img
-                                    src='/icons/admins/search.svg'
-                                    alt=''
-                                    className='absolute left-4'
-                                />
+                        <div
+                            className={`flex items-center text-[1.4rem]  ${
+                                isSearchable
+                                    ? 'relative'
+                                    : 'absolute left-[-9999px] opacity-0'
+                            } `}
+                        >
+                            <img
+                                src='/icons/admins/search.svg'
+                                alt=''
+                                className='absolute left-4'
+                            />
 
-                                <input
-                                    type='text'
-                                    placeholder='Search Parameters'
-                                    value={search}
-                                    autoFocus
-                                    onBlur={(e) => {
-                                        e.preventDefault()
-                                        stateMenuToggler('outside')
-                                    }}
-                                    onChange={handleSearch}
-                                    className={`pl-16 rounded-lg border border-color-blue-light py-4 px-8 outline-none appearance-none ${
-                                        fullWidth ? 'w-full' : 'w-[25rem]'
-                                    }`}
-                                />
-                            </div>
-                        
+                            <input
+                                type='text'
+                                placeholder='Search Parameters'
+                                value={search}
+                                autoFocus
+                                onBlur={(e) => {
+                                    e.preventDefault()
+                                    stateMenuToggler('outside')
+                                }}
+                                onChange={handleSearch}
+                                className={`pl-16 rounded-lg border border-color-blue-light py-4 px-8 outline-none appearance-none ${
+                                    fullWidth ? 'w-full' : 'w-[25rem]'
+                                }`}
+                            />
+                        </div>
+
                         {selectFrom.map((item, index) => (
                             <p
                                 className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
