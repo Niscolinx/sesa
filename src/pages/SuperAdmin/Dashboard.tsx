@@ -21,7 +21,7 @@ function Dashboard() {
                         imgUrl='/img/me.jpeg'
                     />
 
-                    <div className='p-10 overflow-scroll max-h-[90vh] hideScrollbar'>
+                    <div className='p-10 overflow-scroll max-h-[90vh]'>
                         <BreadCrumb />
                         <Outlet />
                     </div>
