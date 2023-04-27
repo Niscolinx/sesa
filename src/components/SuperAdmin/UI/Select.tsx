@@ -96,7 +96,13 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
     const handleClose = (which: string) => {
         console.log('close', { which, toggleStateMenu })
 
-        //setToggleStateMenu(false)
+        if (toggleStateMenu) {
+           // setToggleStateMenu(false)
+        }
+    }
+
+    const clickedMenu = () => {
+        console.log("clicked menu")
     }
 
     const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
@@ -119,7 +125,6 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
         setSelectedState('')
     }
 
-
     return (
         <div
             className={`relative grid self-baseline capitalize ${
@@ -132,8 +137,13 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                     type='text'
                     // className='absolute w-[.1px] h-[.1px] left-[-9999px] opacity-0'
                     id={`input${id}`}
+
+                    onFocus={() => console.log('focused')}
+                    onBlurCapture={() => console.log('captured')}
                     onBlur={() => handleClose('label')}
                 />
+
+
                 {color ? (
                     <label
                         className='border border-color-grey px-4 py-2 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer min-h-[5rem] '
@@ -173,11 +183,14 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
 
                 {toggleStateMenu ? (
                     <GrUp className='absolute right-4' />
-                ) : (
-                    <GrDown className='absolute right-4' />
-                )}
+                    ) : (
+                        <GrDown className='absolute right-4' />
+                        )}
                 {toggleStateMenu && (
-                    <div className='absolute top-[6rem] left-0 border border-color-primary-light min-w-[12rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize max-h-[20rem] overflow-y-scroll'>
+                    <div
+                    className='absolute top-[6rem] left-0 border border-color-primary-light min-w-[12rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize max-h-[20rem] overflow-y-scroll'
+                    onClick={() => clickedMenu('menu')}
+                    >
                         {isSearchable && (
                             <div className='relative flex items-center text-[1.4rem]'>
                                 <img
