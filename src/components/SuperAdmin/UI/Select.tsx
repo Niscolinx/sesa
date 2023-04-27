@@ -128,6 +128,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
            // setSelectFrom(updated)
         
         } else {
+            console.log("🔥don't update")
             setSelectFrom(selectFrom)
         }
     }
