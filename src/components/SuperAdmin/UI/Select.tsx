@@ -116,14 +116,17 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
         if (search.length > 0) {
             const items = [...selectFrom]
 
+            
 
-            items.filter((item) => {
+
+            const updated = items.filter((item) => {
 
                 console.log(item.toLowerCase(), value.toLowerCase())
-               return item.toLowerCase().includes(value.toLowerCase())
+                return item.toLowerCase() !== 'arsenal'
+               //return item.toLowerCase().indexOf(value.toLowerCase())
             })
 
-            console.log({ items })
+            console.log({ updated })
 
             //  setSelectFrom((prev) => {
             //      return [...prev].filter((item) => {
