@@ -5,6 +5,7 @@ import React, {
     useMemo,
     useEffect,
     useRef,
+    useCallback,
 } from 'react'
 import { GrUp, GrDown } from 'react-icons/gr'
 import { IoMdClose } from 'react-icons/io'
@@ -87,34 +88,33 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
     const [selectFrom, setSelectFrom] = useState(state)
     const [isTouchDevice, SetIsTouchDevice] = useState(false)
 
-    
-
-    const stateMenuToggler = (which: 'inner' | 'outside') => {
+    const stateMenuToggler = useCallback((which: 'inner' | 'outside') => {
         if (!toggleStateMenu) {
             return setToggleStateMenu(true)
         }
-        const id = setTimeout(() => {
-            if (which === 'outside') {
-                if (toggleStateMenu) {
-                    console.log({isTouchDevice})
-                    console.log('close🔥', { which, toggleStateMenu })
-                    setToggleStateMenu(false)
+        const id = setTimeout(
+            () => {
+                if (which === 'outside') {
+                    if (toggleStateMenu) {
+                        console.log({ isTouchDevice })
+                        console.log('close🔥', { which, toggleStateMenu })
+                        setToggleStateMenu(false)
+                    }
                 }
-            }
-            if (which === 'inner') {
-                setToggleStateMenu(!toggleStateMenu)
-            }
-        }, 0)
+                if (which === 'inner') {
+                    setToggleStateMenu(!toggleStateMenu)
+                }
+            },
+            isTouchDevice ? 0 : 200
+        )
 
         return () => clearTimeout(id)
-    
-    }
+    }, [isTouchDevice, toggleStateMenu])
 
     const handleSelectedState = (item: string) => {
         setSelectedState(item)
         setToggleStateMenu(false)
     }
-
 
     const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
         const { value } = e.target
@@ -144,8 +144,6 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
         >
             <p className='text-[1.4rem] font-semibold'>{label}</p>
             <div className='relative flex items-center'>
-                
-
                 {color ? (
                     <label
                         className='border border-color-grey px-4 py-2 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer min-h-[5rem] '
