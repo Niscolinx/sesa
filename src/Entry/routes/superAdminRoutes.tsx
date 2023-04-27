@@ -7,7 +7,7 @@ import ViewAdmin from '../../pages/SuperAdmin/admin/ViewAdmin'
 
 import EstateDetail from '../../pages/SuperAdmin/estates/EstateDetail'
 import EstateManagers from '../../pages/SuperAdmin/estateManagers/EstateManagers'
-import RolesAndPerm from '../../pages/SuperAdmin/rolesAndPerm/RolesAndPerm'
+// import RolesAndPerm from '../../pages/SuperAdmin/rolesAndPerm/RolesAndPerm'
 import ResidentUserPackage from '../../pages/SuperAdmin/residentUserPackage/ResidentUserPackage'
 import ResidentPackageDetails from '../../pages/SuperAdmin/residentUserPackage/packageHistory/ResidentPackageDetails'
 import SecurityCompany from '../../pages/SuperAdmin/securityCompany/SecurityCompany'
@@ -78,7 +78,7 @@ const superAdminRoutes = (
         <Route path='estateManagers/add' element={<AddEstateManager />} />
         <Route path='estateManagers/view/:id' element={<ViewEstateManager />} />
 
-        <Route path='roles-and-permissions' element={<RolesAndPerm />} />
+        {/* <Route path='roles-and-permissions' element={<RolesAndPerm />} /> */}
         <Route path='resident-user-package' element={<ResidentUserPackage />} />
         <Route
             path='resident-user-package/add'

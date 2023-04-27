@@ -11,14 +11,14 @@ function ResidentUserPackage() {
 
     const resident_paths = [
         { path: 'list', label: 'Additional Resident Package' },
-        { path: 'history', label: 'Package purchase history' },
+        // { path: 'history', label: 'Package purchase history' },
     ] satisfies { path: SwitchRoute; label: string }[]
 
     const [currentPath, setCurrentPath] = useState<SwitchRoute>('list')
 
     const switchRoute = new Map([
         ['list', <ResidentPackageList />],
-        ['history', <ResidentPackageHistory />],
+        // ['history', <ResidentPackageHistory />],
     ]) satisfies Map<SwitchRoute, JSX.Element>
 
     return (
@@ -41,7 +41,7 @@ function ResidentUserPackage() {
                     )
                 })}
             </div>
-            {switchRoute.get(currentPath)}
+            {switchRoute.get('list')}
         </div>
     )
 }

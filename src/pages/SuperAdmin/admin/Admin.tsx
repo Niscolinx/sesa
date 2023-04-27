@@ -27,7 +27,7 @@ function Admin() {
                     'created_at',
                     'status',
                 ]}
-                deactivateProp={{ url: 'change/user/status' }}
+                deactivateProp={{ url: '/admin/deactivate_activate' }}
             />
         </div>
     )

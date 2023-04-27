@@ -3,11 +3,10 @@ import { useForm } from 'react-hook-form'
 import { IoMdAdd } from 'react-icons/io'
 import { useMutation } from 'react-query'
 import Input, { SelectProps } from '../../../components/UI/input/Input'
-// import ImageInput from '../../../components/UI/input/ImageInput'
 import useAxios from '../../../components/hooks/useAxios'
-import ImageInput from '../../../components/UI/input/ImageInput'
 import Spinner from '../../../components/UI/Spinner'
 import { useNavigate } from 'react-router'
+import ImageInput from '../../../components/UI/input/ImageInput'
 
 const AddAdmin = () => {
     interface Inputs {
@@ -17,26 +16,24 @@ const AddAdmin = () => {
         dob: string
         phone_number: number
     }
-     type ResponseMessage = {
-         className: string
-         displayMessage: string
-     }
+    type ResponseMessage = {
+        className: string
+        displayMessage: string
+    }
 
-      type FormInputs = {
-          label?: string
-          type?: string
-          name?: string
-          selectProps?: SelectProps
-      }
+    type FormInputs = {
+        label?: string
+        type?: string
+        name?: string
+        selectProps?: SelectProps
+    }
     const axiosInstance = useAxios()
     const navigate = useNavigate()
     const genderState = ['Male', 'Female']
 
     const [photoPreview, setPhotoPreview] = useState('')
     const [imageFile, setImageFile] = useState<File | null>(null)
-    const [selectedGender, setSelectedGender] = useState<string>(
-        genderState[0]
-    )
+    const [selectedGender, setSelectedGender] = useState<string>(genderState[0])
 
     const handlePicture = (e: React.ChangeEvent) => {
         const target = e.target as HTMLInputElement
@@ -50,7 +47,7 @@ const AddAdmin = () => {
     }
 
     useEffect(() => {
-        console.log({imageFile})
+        console.log({ imageFile })
     }, [imageFile])
 
     const {
@@ -58,8 +55,6 @@ const AddAdmin = () => {
         handleSubmit,
         formState: { errors: formErrors },
     } = useForm<Inputs>()
-
-   
 
     const [responseMessage, setResponseMessage] =
         useState<ResponseMessage | null>(null)
@@ -87,7 +82,7 @@ const AddAdmin = () => {
     const onSubmit = handleSubmit((data) => {
         const { first_name, last_name, dob, email_address, phone_number } = data
 
-       console.log(data)
+        console.log(data)
 
         const adminData = {
             name: `${first_name} ${last_name}`,
@@ -99,7 +94,7 @@ const AddAdmin = () => {
             image: imageFile,
         }
 
-        console.log({adminData})
+        console.log({ adminData })
 
         //mutate(adminData)
     })
@@ -118,7 +113,6 @@ const AddAdmin = () => {
             dialogRef.current.showModal()
         }
     }
-   
 
     const formInputs = [
         {
@@ -153,7 +147,7 @@ const AddAdmin = () => {
 
     return (
         <>
-        <Spinner start={isLoading ? true : false}/>
+            <Spinner start={isLoading ? true : false} />
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
@@ -183,7 +177,6 @@ const AddAdmin = () => {
                         </span>
                     </p>
                 )}
-               
 
                 <form
                     onSubmit={onSubmit}

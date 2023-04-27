@@ -41,12 +41,12 @@ function IconsBox() {
                   <span>Estate Manager</span>
               </Link>
           </li>
-          <li className='iconsBox__list'>
+          {/* <li className='iconsBox__list'>
               <Link to='/superAdmin/roles-and-permissions'>
                   <RolesAndPermSvg />
                   <span>Roles & Permissions</span>
               </Link>
-          </li>
+          </li> */}
           <li className='iconsBox__list'>
               <Link to='/superAdmin/resident-user-package'>
                   {' '}

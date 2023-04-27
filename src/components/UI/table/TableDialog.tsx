@@ -26,7 +26,7 @@ function TableDialog() {
 
     const postRequest = () => {
       
-            const { url, tag = 'user_id' } = deactivateProp ?? {}
+            const { url, tag = 'id' } = deactivateProp ?? {}
         
 
         if (isCategory && isDialogOpen?.type === 'create') {
