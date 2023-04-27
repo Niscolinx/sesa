@@ -88,7 +88,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
     const [menuState, setMenuState] = useState('idle')
 
     const stateMenuToggler = () => {
-        
+        console.log('clicked------ Toggler')
         if (toggleStateMenu) {
             setMenuState('idle')
         } else {
@@ -96,18 +96,26 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
         }
         setToggleStateMenu(!toggleStateMenu)
     }
+
     const handleSelectedState = (item: string) => {
         setSelectedState(item)
         setToggleStateMenu(false)
     }
 
     const handleClose = (which: string) => {
-        console.log({menuState})
-        if (toggleStateMenu && menuState === 'normal') {
-            console.log({ menuState })
-            console.log('close', { which, toggleStateMenu })
-            // setToggleStateMenu(false)
-        }
+
+       const id =  setTimeout(() => {
+
+            console.log('close------------', { menuState })
+            if (toggleStateMenu && menuState === 'normal') {
+                console.log({ menuState })
+                console.log('close', { which, toggleStateMenu })
+                // setToggleStateMenu(false)
+            }
+        }, 0)
+
+        return () => {
+            
     }
 
     const clickedMenu = () => {
@@ -117,7 +125,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
     }
 
     useEffect(() => {
-        console.log({menuState})
+        console.log({ menuState })
     }, [menuState])
 
     const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
@@ -160,7 +168,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                 {color ? (
                     <label
                         className='border border-color-grey px-4 py-2 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer min-h-[5rem] '
-                        onClick={stateMenuToggler}
+                        onClick={(e) => stateMenuToggler}
                     >
                         {selectedState ? (
                             <span
@@ -183,7 +191,11 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                 ) : (
                     <label
                         className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer min-h-[5rem]'
-                        onClick={stateMenuToggler}
+                        onClick={(e) => {
+                            // e.preventDefault()
+                            // e.stopPropagation()
+                            stateMenuToggler()
+                        }}
                         htmlFor={`input${id}`}
                     >
                         {selectedState || (
@@ -216,7 +228,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                                     type='text'
                                     placeholder='Search Parameters'
                                     value={search}
-                                    onBlur={() => handleClose('search')}
+                                    // onBlur={() => handleClose('search')}
                                     onChange={handleSearch}
                                     className={`pl-16 rounded-lg border border-color-blue-light py-4 px-8 outline-none appearance-none ${
                                         fullWidth ? 'w-full' : 'w-[25rem]'
