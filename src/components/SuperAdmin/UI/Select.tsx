@@ -5,7 +5,6 @@ import React, {
     useMemo,
     useEffect,
     useRef,
-    useCallback,
 } from 'react'
 import { GrUp, GrDown } from 'react-icons/gr'
 import { IoMdClose } from 'react-icons/io'
@@ -86,9 +85,9 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
 
     const [search, setSearch] = useState('')
     const [selectFrom, setSelectFrom] = useState(state)
-    const [isTouchDevice, SetIsTouchDevice] = useState(false)
+    const isTouchDevice = useRef(false)
 
-    const stateMenuToggler = useCallback((which: 'inner' | 'outside') => {
+    const stateMenuToggler = (which: 'inner' | 'outside') => {
         if (!toggleStateMenu) {
             return setToggleStateMenu(true)
         }
@@ -105,11 +104,11 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                     setToggleStateMenu(!toggleStateMenu)
                 }
             },
-            isTouchDevice ? 0 : 200
+            isTouchDevice.current ? 0 : 200
         )
 
         return () => clearTimeout(id)
-    }, [isTouchDevice, toggleStateMenu])
+    }
 
     const handleSelectedState = (item: string) => {
         setSelectedState(item)
@@ -174,7 +173,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                             e.preventDefault()
                             stateMenuToggler('inner')
                         }}
-                        onTouchStart={() => SetIsTouchDevice(true)}
+                        onTouchStart={() => isTouchDevice.current = true}
                         htmlFor={`input${id}`}
                     >
                         {selectedState || (
