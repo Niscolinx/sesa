@@ -102,7 +102,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
         setToggleStateMenu(false)
     }
 
-    const handleSearch = useEffect(() => (e: ChangeEvent<HTMLInputElement>) => {
+    const handleSearch = () => {
         const { value } = e.target
         setSearch(value)
 
@@ -115,7 +115,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
         } else {
             setSelectFrom(selectFrom)
         }
-    }, [search, setSelectFrom, setSearch])
+    }
 
     const clearValue = (e: React.MouseEvent<SVGElement, MouseEvent>) => {
         e.stopPropagation()
