@@ -124,7 +124,13 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
             }) : items
 
             console.log({ updated })
-            setSelectFrom([...updated])
+            setSelectFrom((prev) => {
+
+                return {
+                    ...prev,
+                    updated
+                }
+            })
         
        
     }
