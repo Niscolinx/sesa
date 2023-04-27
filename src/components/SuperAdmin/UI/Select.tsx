@@ -87,11 +87,13 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
     const [selectFrom, setSelectFrom] = useState(state)
     const [menuState, setMenuState] = useState('idle')
 
-    const stateMenuToggler = (which: 'inner' | 'outside') => {
+    const stateMenuToggler = (which: 'inner' | 'outside' | 'inner-search') => {
         console.log({ which })
-
+        if(which === 'inner-search'){
+            console.log('1, the inner search')
+        }
         if (which === 'outside') {
-            console.log('before close -----delay')
+            console.log('2, before close -----delay')
             const handleClose = (which?: string) => {
                 //    const id =  setTimeout(() => {
 
@@ -107,6 +109,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
 
             return handleClose()
         } else {
+            console.log("3, close toggle menu")
             setToggleStateMenu(!toggleStateMenu)
         }
     }
@@ -222,7 +225,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                                     type='text'
                                     placeholder='Search Parameters'
                                     value={search}
-                                    onBlur={() => setToggleStateMenu(false)}
+                                    onBlur={() => stateMenuToggler('inner-search')}
                                     onChange={handleSearch}
                                     className={`pl-16 rounded-lg border border-color-blue-light py-4 px-8 outline-none appearance-none ${
                                         fullWidth ? 'w-full' : 'w-[25rem]'
