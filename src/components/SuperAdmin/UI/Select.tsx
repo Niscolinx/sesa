@@ -1,13 +1,7 @@
-import React, {
-    ChangeEvent,
-    FC,
-    useState,
-    useMemo,
-} from 'react'
+import React, { ChangeEvent, FC, useState, useMemo } from 'react'
 import { GrUp, GrDown } from 'react-icons/gr'
 import { IoMdClose } from 'react-icons/io'
 import { ValidateInputTypes } from '../../../pages/SecurityCompany/dashboard/company/AddSecurity/AddSecurityGuard'
-
 
 type Complex = {
     name: string
@@ -84,31 +78,21 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
 
     const [search, setSearch] = useState('')
     const [selectFrom, setSelectFrom] = useState(state)
-    const [isTouchDevice, setIsTouchDevice] = useState(false)
-
-
-
-
 
     const stateMenuToggler = (which: 'inner' | 'outside') => {
         if (!toggleStateMenu) {
             return setToggleStateMenu(true)
         }
-        const id = setTimeout(
-            () => {
-                if (which === 'outside') {
-                    if (toggleStateMenu) {
-                        console.log({ isTouchDevice })
-                        console.log('close🔥', { which, toggleStateMenu })
-                        setToggleStateMenu(false)
-                    }
+        const id = setTimeout(() => {
+            if (which === 'outside') {
+                if (toggleStateMenu) {
+                    setToggleStateMenu(false)
                 }
-                if (which === 'inner') {
-                    setToggleStateMenu(!toggleStateMenu)
-                }
-            },
-             150
-        )
+            }
+            if (which === 'inner') {
+                setToggleStateMenu(!toggleStateMenu)
+            }
+        }, 150)
 
         return () => clearTimeout(id)
     }
@@ -176,7 +160,6 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                             e.preventDefault()
                             stateMenuToggler('inner')
                         }}
-                        onTouchStart={() => setIsTouchDevice(true)}
                         htmlFor={`input${id}`}
                     >
                         {selectedState || (
