@@ -12,6 +12,24 @@ body {
 
     line-height: 1.7;
     font-weight: 400;
+
+     &::-webkit-scrollbar {
+        display: none;
+    }
+
+    &::-webkit-scrollbar-horizontal {
+        display: none;
+    }
+
+    &::-webkit-scrollbar-track {
+        display: none;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        display: none;
+    }
+
+    scrollbar-width: none;
 }
 
 html {
@@ -33,6 +51,8 @@ html {
     @include respond(desktop) {
         font-size: 75%; //1rem = 12, 12/16
     }
+
+   
 }
 ::selection {
     background-color: $color-primary;
