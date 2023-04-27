@@ -93,7 +93,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
             console.log('inside timeout', which, menuState)
 
             if (which === 'outside') {
-                console.log('2, before close -----delay')
+                console.log('0, before close -----delay')
 
                 if (toggleStateMenu && menuState === 'close') {
                     console.log({ menuState })
@@ -102,7 +102,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
 
                 // setToggleStateMenu(false)
             } else {
-                console.log('3, normal toggle')
+                console.log('1, normal toggle')
                 setToggleStateMenu(!toggleStateMenu)
             }
         }, 0)
@@ -121,9 +121,6 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
         setMenuState('close')
     }
 
-    useEffect(() => {
-        console.log({ menuState })
-    }, [menuState])
 
     const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
         const { value } = e.target
