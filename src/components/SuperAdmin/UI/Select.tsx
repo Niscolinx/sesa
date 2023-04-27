@@ -110,7 +110,6 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
     }
 
     const handleSelectedState = (item: string) => {
-        console.log('clicked selected')
         setSelectedState(item)
         setToggleStateMenu(false)
     }
@@ -179,7 +178,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                             e.preventDefault()
                             stateMenuToggler('inner')
                         }}
-                        onTouchStart={() => console.log('is touch')}
+                        onTouchStart={() => SetIsTouchDevice(true)}
                         htmlFor={`input${id}`}
                     >
                         {selectedState || (
