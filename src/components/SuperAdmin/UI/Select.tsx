@@ -113,26 +113,19 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
         const { value } = e.target
         setSearch(value)
 
-        
-            const items = [...selectFrom]
-            
-            console.log({items})
-        
-            const updated = value ? items.filter((item) => {
-                console.log('inner',{item})
-                return item.toLowerCase().includes(value.toLowerCase()) 
-            }) : items
+        const items = [...selectFrom]
 
-            console.log({ updated })
-            setSelectFrom((prev) => {
+        console.log({ items })
 
-                return {
-                    ...prev,
-                    updated
-                }
-            })
+        const updated = value
+            ? items.filter((item) => {
+                  console.log('inner', { item })
+                  return item.toLowerCase().includes(value.toLowerCase())
+              })
+            : items
+
+        console.log({ updated })
         
-       
     }
 
     useEffect(() => {
