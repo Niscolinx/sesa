@@ -124,7 +124,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
         } else {
             setSelectFrom(selectFrom)
         }
-    }, [search])
+    }, [search, setSelectFrom, selectFrom])
 
     const clearValue = (e: React.MouseEvent<SVGElement, MouseEvent>) => {
         e.stopPropagation()
