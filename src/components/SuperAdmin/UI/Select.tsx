@@ -84,6 +84,8 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
 
     const [search, setSearch] = useState('')
     const [selectFrom, setSelectFrom] = useState(state)
+    const [isTouchDevice, setIsTouchDevice] = useState(false)
+
 
 
 
@@ -105,7 +107,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                     setToggleStateMenu(!toggleStateMenu)
                 }
             },
-            isTouchDevice.current ? 0 : 200
+             150
         )
 
         return () => clearTimeout(id)
@@ -174,7 +176,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                             e.preventDefault()
                             stateMenuToggler('inner')
                         }}
-                        onTouchStart={() => isTouchDevice.current = true}
+                        onTouchStart={() => setIsTouchDevice(true)}
                         htmlFor={`input${id}`}
                     >
                         {selectedState || (
