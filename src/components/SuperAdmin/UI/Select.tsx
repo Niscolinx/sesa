@@ -86,24 +86,24 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
     const [search, setSearch] = useState('')
     const [selectFrom, setSelectFrom] = useState(state)
 
-
     const stateMenuToggler = (which: 'inner' | 'outside') => {
-        if(!toggleStateMenu){
-            setToggleStateMenu(true)
+        if (!toggleStateMenu) {
+            return setToggleStateMenu(true)
         }
         const id = setTimeout(() => {
             if (which === 'outside') {
                 if (toggleStateMenu) {
                     console.log('close🔥', { which, toggleStateMenu })
-                    //setToggleStateMenu(false)
+                    setToggleStateMenu(false)
                 }
             }
             if (which === 'inner') {
                 setToggleStateMenu(!toggleStateMenu)
             }
-        }, 200)
+        }, 0)
 
-       
+        return () => clearTimeout(id)
+    
     }
 
     const handleSelectedState = (item: string) => {
@@ -184,6 +184,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                             e.preventDefault()
                             stateMenuToggler('inner')
                         }}
+                        onTouchStart={() => console.log('is touch')}
                         htmlFor={`input${id}`}
                     >
                         {selectedState || (
