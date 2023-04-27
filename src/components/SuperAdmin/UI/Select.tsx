@@ -91,7 +91,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
             if (which === 'outside') {
                 if (toggleStateMenu) {
                     console.log('close🔥', { which, toggleStateMenu })
-                    setToggleStateMenu(false)
+                   // setToggleStateMenu(false)
                 }
             }
             if (which === 'inner') {
@@ -196,10 +196,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                     <GrDown className='absolute right-4' />
                 )}
                 {toggleStateMenu && (
-                    <div
-                        className='absolute top-[6rem] left-0 border border-color-primary-light min-w-[12rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize max-h-[20rem] overflow-y-scroll'
-                       
-                    >
+                    <div className='absolute top-[6rem] left-0 border border-color-primary-light min-w-[12rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize max-h-[20rem] overflow-y-scroll'>
                         {isSearchable && (
                             <div className=' flex items-center text-[1.4rem] absolute left-[-9999px] opacity-0 '>
                                 <img
@@ -228,11 +225,15 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                             <p
                                 className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
                                 key={index}
-                                onClick={() =>
-                                    // handleSelectedState(item)
-                                    console.log("clicked touch")
+                                onClick={(e) => {
+                                    e.preventDefault()
+                                    e.stopPropagation()
+                                    handleSelectedState(item)
+                                    console.log('clicked ')
+                                }}
+                                onClickCapture={() =>
+                                    console.log('clicked Capture ')
                                 }
-                                onClickCapture={() => console.log('clicked no-touch')}
                             >
                                 {item}
                             </p>
