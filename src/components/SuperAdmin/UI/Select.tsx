@@ -88,6 +88,9 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
 
 
     const stateMenuToggler = (which: 'inner' | 'outside') => {
+        if(!toggleStateMenu){
+            setToggleStateMenu(true)
+        }
         const id = setTimeout(() => {
             if (which === 'outside') {
                 if (toggleStateMenu) {
@@ -98,9 +101,9 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
             if (which === 'inner') {
                 setToggleStateMenu(!toggleStateMenu)
             }
-        }, 0)
+        }, 200)
 
-        return () => clearTimeout(id)
+       
     }
 
     const handleSelectedState = (item: string) => {
