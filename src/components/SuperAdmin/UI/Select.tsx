@@ -94,17 +94,14 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
             if (which === 'outside') {
                 console.log('😳, before close -----delay')
 
-                if (toggleStateMenu ) {
-                  
+                if (toggleStateMenu) {
                     console.log('close🔥', { which, toggleStateMenu })
+                   setToggleStateMenu(false)
                 }
-
-                // setToggleStateMenu(false)
-            } else {
+            }
+            if (which === 'inner') {
                 console.log('✅, normal toggle')
                 setToggleStateMenu(!toggleStateMenu)
-                
-                
             }
         }, 0)
 
@@ -114,12 +111,13 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
     const handleSelectedState = (item: string) => {
         setSelectedState(item)
         setToggleStateMenu(false)
+        console.log('clicked selected')
         //setMenuState('idle')
-    
     }
 
-   
-
+    useEffect(() => {
+        console.log({stateMenuToggler})
+    }, [stateMenuToggler])
 
     const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
         const { value } = e.target
