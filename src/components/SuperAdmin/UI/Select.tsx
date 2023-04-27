@@ -214,8 +214,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                     <div
                         className='absolute top-[6rem] left-0 border border-color-primary-light min-w-[12rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize max-h-[20rem] overflow-y-scroll'
                         onClick={(e) => {
-                            // e.preventDefault()
-                            // e.stopPropagation()
+                            e.preventDefault()
                             clickedMenu()
                         }}
                     >
@@ -232,7 +231,10 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                                     placeholder='Search Parameters'
                                     value={search}
                                     autoFocus
-                                    // onBlur={() => stateMenuToggler('inner-search')}
+                                    onBlur={(e) => {
+                                        e.preventDefault()
+                                        stateMenuToggler('inner-search')
+                                    }}
                                     onChange={handleSearch}
                                     className={`pl-16 rounded-lg border border-color-blue-light py-4 px-8 outline-none appearance-none ${
                                         fullWidth ? 'w-full' : 'w-[25rem]'
