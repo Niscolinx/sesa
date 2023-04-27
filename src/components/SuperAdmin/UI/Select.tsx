@@ -122,7 +122,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
             return item.toLowerCase().includes(value.toLowerCase())
         })
 
-        console.log({ updated })
+        console.log(updated )
     }
 
     useEffect(() => {
