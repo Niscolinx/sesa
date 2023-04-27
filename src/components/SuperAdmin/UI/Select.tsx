@@ -113,10 +113,10 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
         const { value } = e.target
         setSearch(value)
 
-        if (search.length > 0) {
-            console.log('start')
+        if (value.length > 0) {
             const items = [...selectFrom]
-
+            
+            console.log({items})
             
 
 
@@ -128,7 +128,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
            // setSelectFrom(updated)
         
         } else {
-            console.log("🔥don't update")
+            console.log("🔥don't update", {search})
             setSelectFrom(selectFrom)
         }
     }
