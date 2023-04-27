@@ -113,7 +113,6 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
         console.log('clicked selected')
         setSelectedState(item)
         setToggleStateMenu(false)
-        //setMenuState('idle')
     }
 
     useEffect(() => {
@@ -148,14 +147,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
         >
             <p className='text-[1.4rem] font-semibold'>{label}</p>
             <div className='relative flex items-center'>
-                {/* <input
-                    type='text'
-                    // className='absolute w-[.1px] h-[.1px] left-[-9999px] opacity-0'
-                    id={`input${id}`}
-                    // onFocus={() => console.log('focused')}
-                    // onBlurCapture={() => console.log('captured')}
-                    onBlur={() => stateMenuToggler('outside')}
-                /> */}
+                
 
                 {color ? (
                     <label
