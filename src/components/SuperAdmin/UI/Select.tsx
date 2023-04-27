@@ -117,15 +117,12 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
 
         console.log({ items })
 
-        const updated = value
-            ? items.filter((item) => {
-                  console.log('inner', { item })
-                  return item.toLowerCase().includes(value.toLowerCase())
-              })
-            : items
+        const updated = items.filter((item) => {
+            console.log('inner', { item })
+            return item.toLowerCase().includes(value.toLowerCase())
+        })
 
         console.log({ updated })
-        
     }
 
     useEffect(() => {
