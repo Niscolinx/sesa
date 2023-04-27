@@ -4,7 +4,6 @@ import React, {
     useState,
     useMemo,
 } from 'react'
-import { createSignal } from 'react-signal'
 import { GrUp, GrDown } from 'react-icons/gr'
 import { IoMdClose } from 'react-icons/io'
 import { ValidateInputTypes } from '../../../pages/SecurityCompany/dashboard/company/AddSecurity/AddSecurityGuard'
@@ -85,7 +84,6 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
 
     const [search, setSearch] = useState('')
     const [selectFrom, setSelectFrom] = useState(state)
-    const isTouchDevice = createSignal()
 
 
 
