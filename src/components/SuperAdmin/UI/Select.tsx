@@ -113,22 +113,32 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
         const { value } = e.target
         setSearch(value)
 
-         if (search.length > 0) {
-             setSelectFrom((prev) => {
-                 return prev.filter((item) => {
-                     return item.toLowerCase().includes(search.toLowerCase())
-                 })
-             })
-         } else {
-             setSelectFrom(selectFrom)
-         }
+        if (search.length > 0) {
+            const items = [...selectFrom]
+
+
+            items.filter((item) => {
+
+                console.log(item.toLowerCase(), value.toLowerCase())
+               return item.toLowerCase().includes(value.toLowerCase())
+            })
+
+            console.log({ items })
+
+            //  setSelectFrom((prev) => {
+            //      return [...prev].filter((item) => {
+            //          return item.toLowerCase().includes(search.toLowerCase())
+            //      })
+            //  })
+        } else {
+            setSelectFrom(selectFrom)
+        }
     }
 
     useEffect(() => {
-        console.log({selectFrom})
+        console.log({ selectFrom })
     }, [selectFrom])
 
-    
     const clearValue = (e: React.MouseEvent<SVGElement, MouseEvent>) => {
         e.stopPropagation()
         setSelectedState('')
