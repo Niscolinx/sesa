@@ -117,11 +117,10 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
             const items = [...selectFrom]
 
             
-
+            
 
             const updated = items.filter((item) => {
-
-                console.log(item.toLowerCase(), value.toLowerCase())
+                console.log({item})
                 return item.toLowerCase() !== 'arsenal'
                //return item.toLowerCase().indexOf(value.toLowerCase())
             })
