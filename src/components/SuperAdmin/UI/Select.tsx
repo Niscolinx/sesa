@@ -85,25 +85,26 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
 
     const [search, setSearch] = useState('')
     const [selectFrom, setSelectFrom] = useState(state)
-    const [menuState, setMenuState] = useState<'close' | 'idle'>('idle')
 
     const stateMenuToggler = (which: 'inner' | 'outside') => {
         console.log('before timeout')
         const id = setTimeout(() => {
-            console.log('inside timeout', which, menuState)
+            console.log('inside timeout', which)
 
             if (which === 'outside') {
-                console.log('0, before close -----delay')
+                console.log('😳, before close -----delay')
 
-                if (toggleStateMenu && menuState === 'close') {
-                    console.log({ menuState })
+                if (toggleStateMenu ) {
+                  
                     console.log('close🔥', { which, toggleStateMenu })
                 }
 
                 // setToggleStateMenu(false)
             } else {
-                console.log('1, normal toggle')
+                console.log('✅, normal toggle')
                 setToggleStateMenu(!toggleStateMenu)
+                
+                
             }
         }, 0)
 
@@ -113,13 +114,11 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
     const handleSelectedState = (item: string) => {
         setSelectedState(item)
         setToggleStateMenu(false)
+        //setMenuState('idle')
+    
     }
 
-    const clickedMenu = () => {
-        console.log('clicked menu')
-
-        setMenuState('close')
-    }
+   
 
 
     const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
@@ -207,10 +206,10 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                 {toggleStateMenu && (
                     <div
                         className='absolute top-[6rem] left-0 border border-color-primary-light min-w-[12rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize max-h-[20rem] overflow-y-scroll'
-                        onClick={(e) => {
-                            e.preventDefault()
-                            clickedMenu()
-                        }}
+                        // onClick={(e) => {
+                        //     e.preventDefault()
+                        //     clickedMenu()
+                        // }}
                     >
                         {isSearchable && (
                             <div className=' flex items-center text-[1.4rem] absolute left-[-9999px] opacity-0 '>
