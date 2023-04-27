@@ -22,9 +22,9 @@ interface Input {
     value?: any
     tag?: string
     options: any
+    id?: number
     required?: boolean
     pre?: string
-
     minLength?: number
     fullWidth: boolean
     isSelect: boolean
@@ -42,7 +42,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
     fullWidth,
     disabled,
     tag,
-
+    id,
     select,
     selectFormErrors,
     required = true,
@@ -84,6 +84,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                             selectFormErrors={selectFormErrors}
                             selected={select.selectedState}
                             selectFrom={select.state}
+                            id={id}
                             setSelected={
                                 select.setSelectedState as React.Dispatch<
                                     React.SetStateAction<string[]>
@@ -95,6 +96,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                             label={name ?? label.replaceAll('_', ' ')}
                             isSearchable={select.isSearchable}
                             state={select.state}
+                            id={id}
                             selectFormErrors={selectFormErrors}
                             selectedState={select.selectedState as string}
                             setSelectedState={

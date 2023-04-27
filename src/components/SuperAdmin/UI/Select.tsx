@@ -27,6 +27,7 @@ interface ISelect<T> {
     isSearchable?: boolean
     fullWidth?: boolean
     kyr?: boolean
+    id?: number
     color?: string
 }
 
@@ -45,6 +46,7 @@ interface MappedSelect {
     validate?: boolean
     isSearchable?: boolean
     fullWidth?: boolean
+    id?: number
     kyr?: boolean
     idx: string
     color: string
@@ -58,6 +60,8 @@ interface ComplexSelect extends Omit<ISelect<string>, 'state'> {
 interface IMultipleSelect {
     selectFrom: Array<string>
     selected: Array<string>
+    id?: number
+
     setSelected: React.Dispatch<React.SetStateAction<string[]>>
     label: string
     selectFormErrors?: Record<string, string> | null
@@ -71,12 +75,12 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
     label,
     placeholder,
     kyr,
+    id,
     selectFormErrors,
     fullWidth,
     color,
     isSearchable = false,
 }) => {
-
     const [toggleStateMenu, setToggleStateMenu] = useState(false)
 
     const stateMenuToggler = () => setToggleStateMenu(!toggleStateMenu)
@@ -84,18 +88,15 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
     const [selectFrom, setSelectFrom] = useState(state)
     const [searchState, setSearchState] = useState('')
 
-
-
     const handleSelectedState = (item: string) => {
         setSelectedState(item)
         setToggleStateMenu(false)
     }
 
     const handleClose = (which: string) => {
+        console.log('close', { which, toggleStateMenu })
 
-        console.log('close', {which})
-
-        setToggleStateMenu(false)
+        //setToggleStateMenu(false)
     }
 
     const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
@@ -118,9 +119,6 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
         setSelectedState('')
     }
 
-    useEffect(() => {
-        console.log({toggleStateMenu})
-    }, [toggleStateMenu])
 
     return (
         <div
@@ -133,14 +131,13 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                 <input
                     type='text'
                     // className='absolute w-[.1px] h-[.1px] left-[-9999px] opacity-0'
-                    id='inputId'
+                    id={`input${id}`}
                     onBlur={() => handleClose('label')}
                 />
                 {color ? (
                     <label
                         className='border border-color-grey px-4 py-2 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer min-h-[5rem] '
                         onClick={stateMenuToggler}
-                        htmlFor='inputId'
                     >
                         {selectedState ? (
                             <span
@@ -164,7 +161,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                     <label
                         className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer min-h-[5rem]'
                         onClick={stateMenuToggler}
-                        htmlFor='inputId'
+                        htmlFor={`input${id}`}
                     >
                         {selectedState || (
                             <span className='text-gray-500'>
@@ -193,7 +190,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                                     type='text'
                                     placeholder='Search Parameters'
                                     value={search}
-                                    onBlur={() => handleClose('search') }
+                                    onBlur={() => handleClose('search')}
                                     onChange={handleSearch}
                                     className={`pl-16 rounded-lg border border-color-blue-light py-4 px-8 outline-none appearance-none ${
                                         fullWidth ? 'w-full' : 'w-[25rem]'

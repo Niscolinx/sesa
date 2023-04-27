@@ -356,6 +356,7 @@ const AddEstate = () => {
                             return (
                                 <Input
                                     key={idx + label}
+                                    id={idx}
                                     label={label}
                                     register={register}
                                     formErrors={formErrors}
