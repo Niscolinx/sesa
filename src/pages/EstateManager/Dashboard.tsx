@@ -14,7 +14,8 @@ function Dashboard() {
                     imgUrl='/img/me.jpeg'
                 />
 
-                <div className='p-10 overflow-scroll max-h-[90vh]'>
+                {/* <div className='p-10 overflow-scroll max-h-[90vh]'> */}
+                <div className='p-10'>
                     <BreadCrumb />
                     <Outlet />
                 </div>
