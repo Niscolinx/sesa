@@ -177,7 +177,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                 )}
                 {toggleStateMenu && (
                     <div className='absolute top-[6rem] left-0 border border-color-primary-light min-w-[12rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize max-h-[20rem] overflow-y-scroll'>
-                        {isSearchable && (
+                       
                             <div className=' flex items-center text-[1.4rem] absolute left-[-9999px] opacity-0 '>
                                 <img
                                     src='/icons/admins/search.svg'
@@ -200,7 +200,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                                     }`}
                                 />
                             </div>
-                        )}
+                        
                         {selectFrom.map((item, index) => (
                             <p
                                 className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
