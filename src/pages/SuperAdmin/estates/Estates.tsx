@@ -254,7 +254,7 @@ function Estates() {
 
     const fetched = get_estates_response?.data
 
-    console.log({fetched})
+    console.log({ fetched })
 
     return (
         <div>
@@ -360,7 +360,7 @@ function Estates() {
                                                         <img
                                                             src={image}
                                                             alt=''
-                                                            className='table__img'
+                                                            className='w-[20rem] h-[20rem] object-cover'
                                                         />
                                                     </div>
 
@@ -380,7 +380,6 @@ function Estates() {
                                                             <p>
                                                                 {
                                                                     security_company
-                                                                       
                                                                 }
                                                             </p>
                                                         </div>
@@ -438,10 +437,7 @@ function Estates() {
                                                                 Estate Manager
                                                             </p>
                                                             <p>
-                                                                {
-                                                                    estate_manager
-                                                                       
-                                                                }
+                                                                {estate_manager}
                                                             </p>
                                                         </div>
                                                         <div className=' mt-10'>
