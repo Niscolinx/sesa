@@ -83,27 +83,42 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
 }) => {
     const [toggleStateMenu, setToggleStateMenu] = useState(false)
 
-    const stateMenuToggler = () => setToggleStateMenu(!toggleStateMenu)
     const [search, setSearch] = useState('')
     const [selectFrom, setSelectFrom] = useState(state)
-    const [searchState, setSearchState] = useState('')
+    const [menuState, setMenuState] = useState('idle')
 
+    const stateMenuToggler = () => {
+        
+        if (toggleStateMenu) {
+            setMenuState('idle')
+        } else {
+            setMenuState('normal')
+        }
+        setToggleStateMenu(!toggleStateMenu)
+    }
     const handleSelectedState = (item: string) => {
         setSelectedState(item)
         setToggleStateMenu(false)
     }
 
     const handleClose = (which: string) => {
-        console.log('close', { which, toggleStateMenu })
-
-        if (toggleStateMenu) {
-           // setToggleStateMenu(false)
+        console.log({menuState})
+        if (toggleStateMenu && menuState === 'normal') {
+            console.log({ menuState })
+            console.log('close', { which, toggleStateMenu })
+            // setToggleStateMenu(false)
         }
     }
 
     const clickedMenu = () => {
-        console.log("clicked menu")
+        console.log('clicked menu')
+
+        setMenuState('idle')
     }
+
+    useEffect(() => {
+        console.log({menuState})
+    }, [menuState])
 
     const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
         const { value } = e.target
@@ -137,12 +152,10 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                     type='text'
                     // className='absolute w-[.1px] h-[.1px] left-[-9999px] opacity-0'
                     id={`input${id}`}
-
-                    onFocus={() => console.log('focused')}
-                    onBlurCapture={() => console.log('captured')}
+                    // onFocus={() => console.log('focused')}
+                    // onBlurCapture={() => console.log('captured')}
                     onBlur={() => handleClose('label')}
                 />
-
 
                 {color ? (
                     <label
@@ -183,13 +196,13 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
 
                 {toggleStateMenu ? (
                     <GrUp className='absolute right-4' />
-                    ) : (
-                        <GrDown className='absolute right-4' />
-                        )}
+                ) : (
+                    <GrDown className='absolute right-4' />
+                )}
                 {toggleStateMenu && (
                     <div
-                    className='absolute top-[6rem] left-0 border border-color-primary-light min-w-[12rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize max-h-[20rem] overflow-y-scroll'
-                    onClick={() => clickedMenu('menu')}
+                        className='absolute top-[6rem] left-0 border border-color-primary-light min-w-[12rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize max-h-[20rem] overflow-y-scroll'
+                        onClick={clickedMenu}
                     >
                         {isSearchable && (
                             <div className='relative flex items-center text-[1.4rem]'>
