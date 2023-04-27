@@ -85,26 +85,22 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
 
     const [search, setSearch] = useState('')
     const [selectFrom, setSelectFrom] = useState(state)
-    const [menuState, setMenuState] = useState<'action' | 'idle'>('idle')
+    const [menuState, setMenuState] = useState<'close' | 'idle'>('idle')
 
-    const stateMenuToggler = (which: 'inner' | 'outside' | 'inner-search') => {
+    const stateMenuToggler = (which: 'inner' | 'outside') => {
         console.log('before timeout')
         const id = setTimeout(() => {
-            console.log("inside timeout", which, menuState)
+            console.log('inside timeout', which, menuState)
 
-            if (which === 'inner-search') {
-                console.log('1, the inner search')
-            } else if (which === 'outside') {
+            if (which === 'outside') {
                 console.log('2, before close -----delay')
-                const handleClose = (which?: string) => {
-                    if (toggleStateMenu && menuState === 'idle') {
-                        console.log({ menuState })
-                        console.log('close🔥', { which, toggleStateMenu })
-                    }
 
-                    // setToggleStateMenu(false)
+                if (toggleStateMenu && menuState === 'close') {
+                    console.log({ menuState })
+                    console.log('close🔥', { which, toggleStateMenu })
                 }
-                return handleClose()
+
+                // setToggleStateMenu(false)
             } else {
                 console.log('3, normal toggle')
                 setToggleStateMenu(!toggleStateMenu)
@@ -122,7 +118,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
     const clickedMenu = () => {
         console.log('clicked menu')
 
-        setMenuState('action')
+        setMenuState('close')
     }
 
     useEffect(() => {
@@ -157,14 +153,14 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
         >
             <p className='text-[1.4rem] font-semibold'>{label}</p>
             <div className='relative flex items-center'>
-                <input
+                {/* <input
                     type='text'
                     // className='absolute w-[.1px] h-[.1px] left-[-9999px] opacity-0'
                     id={`input${id}`}
                     // onFocus={() => console.log('focused')}
                     // onBlurCapture={() => console.log('captured')}
                     onBlur={() => stateMenuToggler('outside')}
-                />
+                /> */}
 
                 {color ? (
                     <label
@@ -234,7 +230,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                                     autoFocus
                                     onBlur={(e) => {
                                         e.preventDefault()
-                                        stateMenuToggler('inner-search')
+                                        stateMenuToggler('outside')
                                     }}
                                     onChange={handleSearch}
                                     className={`pl-16 rounded-lg border border-color-blue-light py-4 px-8 outline-none appearance-none ${
