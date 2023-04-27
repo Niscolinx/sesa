@@ -87,20 +87,14 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
     const [selectFrom, setSelectFrom] = useState(state)
 
     const stateMenuToggler = (which: 'inner' | 'outside') => {
-        console.log('before timeout')
         const id = setTimeout(() => {
-            console.log('inside timeout', which)
-
             if (which === 'outside') {
-                console.log('😳, before close -----delay')
-
                 if (toggleStateMenu) {
                     console.log('close🔥', { which, toggleStateMenu })
-                   setToggleStateMenu(false)
+                    setToggleStateMenu(false)
                 }
             }
             if (which === 'inner') {
-                console.log('✅, normal toggle')
                 setToggleStateMenu(!toggleStateMenu)
             }
         }, 0)
@@ -116,8 +110,8 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
     }
 
     useEffect(() => {
-        console.log({stateMenuToggler})
-    }, [stateMenuToggler])
+        console.log({ toggleStateMenu })
+    }, [toggleStateMenu])
 
     const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
         const { value } = e.target
@@ -204,10 +198,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                 {toggleStateMenu && (
                     <div
                         className='absolute top-[6rem] left-0 border border-color-primary-light min-w-[12rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize max-h-[20rem] overflow-y-scroll'
-                        // onClick={(e) => {
-                        //     e.preventDefault()
-                        //     clickedMenu()
-                        // }}
+                       
                     >
                         {isSearchable && (
                             <div className=' flex items-center text-[1.4rem] absolute left-[-9999px] opacity-0 '>
@@ -237,7 +228,11 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                             <p
                                 className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
                                 key={index}
-                                onClick={() => handleSelectedState(item)}
+                                onClick={() =>
+                                    // handleSelectedState(item)
+                                    console.log("clicked touch")
+                                }
+                                onClickCapture={() => console.log('clicked no-touch')}
                             >
                                 {item}
                             </p>
