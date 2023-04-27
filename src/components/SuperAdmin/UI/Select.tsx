@@ -3,12 +3,12 @@ import React, {
     FC,
     useState,
     useMemo,
-    useEffect,
-    useRef,
 } from 'react'
+import { createSignal } from 'react-signal'
 import { GrUp, GrDown } from 'react-icons/gr'
 import { IoMdClose } from 'react-icons/io'
 import { ValidateInputTypes } from '../../../pages/SecurityCompany/dashboard/company/AddSecurity/AddSecurityGuard'
+
 
 type Complex = {
     name: string
@@ -85,7 +85,10 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
 
     const [search, setSearch] = useState('')
     const [selectFrom, setSelectFrom] = useState(state)
-    const isTouchDevice = useRef(false)
+    const isTouchDevice = createSignal()
+
+
+
 
     const stateMenuToggler = (which: 'inner' | 'outside') => {
         if (!toggleStateMenu) {
