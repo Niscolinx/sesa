@@ -118,9 +118,9 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
             
             console.log({items})
         
-            const updated = value ? items.flatMap((item) => {
+            const updated = value ? items.filter((item) => {
                 console.log('inner',{item})
-                return item.toLowerCase().includes(value.toLowerCase()) ? [item] : []
+                return item.toLowerCase().includes(value.toLowerCase()) 
             }) : items
 
             console.log({ updated })
