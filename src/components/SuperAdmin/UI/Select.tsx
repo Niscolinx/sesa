@@ -125,9 +125,6 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
         console.log(updated )
     }
 
-    useEffect(() => {
-        console.log({ selectFrom })
-    }, [selectFrom])
 
     const clearValue = (e: React.MouseEvent<SVGElement, MouseEvent>) => {
         e.stopPropagation()
