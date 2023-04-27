@@ -113,18 +113,14 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
         const { value } = e.target
         setSearch(value)
 
-        const items = [...selectFrom]
+        const items = [...state]
 
-        console.log({ items })
+        const updated = items.filter((item) =>
+            item.toLowerCase().includes(value.toLowerCase())
+        )
 
-        const updated = items.filter((item) => {
-            console.log('inner', { item })
-            return item.toLowerCase().includes(value.toLowerCase())
-        })
-
-        console.log(updated )
+        setSelectFrom([...updated])
     }
-
 
     const clearValue = (e: React.MouseEvent<SVGElement, MouseEvent>) => {
         e.stopPropagation()
