@@ -1,4 +1,11 @@
-import React, { ChangeEvent, FC, useState, useMemo, useCallback, useEffect } from 'react'
+import React, {
+    ChangeEvent,
+    FC,
+    useState,
+    useMemo,
+    useCallback,
+    useEffect,
+} from 'react'
 import { GrUp, GrDown } from 'react-icons/gr'
 import { IoMdClose } from 'react-icons/io'
 import { ValidateInputTypes } from '../../../pages/SecurityCompany/dashboard/company/AddSecurity/AddSecurityGuard'
@@ -102,20 +109,22 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
         setToggleStateMenu(false)
     }
 
-    const handleSearch = () => {
+    const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
         const { value } = e.target
         setSearch(value)
+    }
 
-        if (value.length > 0) {
+    useEffect(() => {
+        if (search.length > 0) {
             setSelectFrom((prev) => {
                 return prev.filter((item) => {
-                    return item.toLowerCase().includes(value.toLowerCase())
+                    return item.toLowerCase().includes(search.toLowerCase())
                 })
             })
         } else {
             setSelectFrom(selectFrom)
         }
-    }
+    }, [search])
 
     const clearValue = (e: React.MouseEvent<SVGElement, MouseEvent>) => {
         e.stopPropagation()
