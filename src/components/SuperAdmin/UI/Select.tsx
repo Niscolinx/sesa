@@ -85,32 +85,33 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
 
     const [search, setSearch] = useState('')
     const [selectFrom, setSelectFrom] = useState(state)
-    const [menuState, setMenuState] = useState('idle')
+    const [menuState, setMenuState] = useState<'action' | 'idle'>('idle')
 
     const stateMenuToggler = (which: 'inner' | 'outside' | 'inner-search') => {
-        console.log({ which })
-        if (which === 'inner-search') {
-            console.log('1, the inner search')
-        } else if (which === 'outside') {
-            console.log('2, before close -----delay')
-            const handleClose = (which?: string) => {
-                //    const id =  setTimeout(() => {
+        console.log('before timeout')
+        const id = setTimeout(() => {
+            console.log("inside timeout", which, menuState)
 
-                if (toggleStateMenu && menuState === 'normal') {
-                    console.log({ menuState })
-                    console.log('close🔥', { which, toggleStateMenu })
+            if (which === 'inner-search') {
+                console.log('1, the inner search')
+            } else if (which === 'outside') {
+                console.log('2, before close -----delay')
+                const handleClose = (which?: string) => {
+                    if (toggleStateMenu && menuState === 'idle') {
+                        console.log({ menuState })
+                        console.log('close🔥', { which, toggleStateMenu })
+                    }
+
                     // setToggleStateMenu(false)
                 }
-                // }, 0)
-
-                // return () =>  clearTimeout(id)
+                return handleClose()
+            } else {
+                console.log('3, normal toggle')
+                setToggleStateMenu(!toggleStateMenu)
             }
+        }, 0)
 
-            return handleClose()
-        } else {
-            console.log('3, normal toggle')
-            setToggleStateMenu(!toggleStateMenu)
-        }
+        return () => clearTimeout(id)
     }
 
     const handleSelectedState = (item: string) => {
@@ -121,7 +122,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
     const clickedMenu = () => {
         console.log('clicked menu')
 
-        setMenuState('idle')
+        setMenuState('action')
     }
 
     useEffect(() => {
@@ -219,7 +220,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                         }}
                     >
                         {isSearchable && (
-                            <div className='relative flex items-center text-[1.4rem]'>
+                            <div className=' flex items-center text-[1.4rem] absolute left-[-9999px] opacity-0 '>
                                 <img
                                     src='/icons/admins/search.svg'
                                     alt=''
