@@ -5,7 +5,6 @@ import React, {
     useMemo,
     useEffect,
     useRef,
-    useCallback,
 } from 'react'
 import { GrUp, GrDown } from 'react-icons/gr'
 import { IoMdClose } from 'react-icons/io'
@@ -86,9 +85,9 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
 
     const [search, setSearch] = useState('')
     const [selectFrom, setSelectFrom] = useState(state)
-    const [isTouched, setIsTouched] = useState(false)
 
-    const stateMenuToggler = useCallback((which: 'inner' | 'outside') => {
+
+    const stateMenuToggler = (which: 'inner' | 'outside') => {
         const id = setTimeout(() => {
             if (which === 'outside') {
                 if (toggleStateMenu) {
@@ -100,13 +99,15 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                 setToggleStateMenu(!toggleStateMenu)
             }
         }, 0)
-    }, [])
+
+        return () => clearTimeout(id)
+    }
 
     const handleSelectedState = (item: string) => {
-        setIsTouched(true)
+        console.log('clicked selected')
         setSelectedState(item)
         setToggleStateMenu(false)
-        console.log('clicked selected')
+        //setMenuState('idle')
     }
 
     useEffect(() => {
