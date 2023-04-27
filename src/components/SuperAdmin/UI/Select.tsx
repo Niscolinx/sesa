@@ -5,6 +5,7 @@ import React, {
     useMemo,
     useEffect,
     useRef,
+    useCallback,
 } from 'react'
 import { GrUp, GrDown } from 'react-icons/gr'
 import { IoMdClose } from 'react-icons/io'
@@ -85,28 +86,27 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
 
     const [search, setSearch] = useState('')
     const [selectFrom, setSelectFrom] = useState(state)
+    const [isTouched, setIsTouched] = useState(false)
 
-    const stateMenuToggler = (which: 'inner' | 'outside') => {
+    const stateMenuToggler = useCallback((which: 'inner' | 'outside') => {
         const id = setTimeout(() => {
             if (which === 'outside') {
                 if (toggleStateMenu) {
                     console.log('close🔥', { which, toggleStateMenu })
-                   // setToggleStateMenu(false)
+                    //setToggleStateMenu(false)
                 }
             }
             if (which === 'inner') {
                 setToggleStateMenu(!toggleStateMenu)
             }
         }, 0)
-
-        return () => clearTimeout(id)
-    }
+    }, [])
 
     const handleSelectedState = (item: string) => {
+        setIsTouched(true)
         setSelectedState(item)
         setToggleStateMenu(false)
         console.log('clicked selected')
-        //setMenuState('idle')
     }
 
     useEffect(() => {
@@ -225,15 +225,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                             <p
                                 className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
                                 key={index}
-                                onClick={(e) => {
-                                    e.preventDefault()
-                                    e.stopPropagation()
-                                    handleSelectedState(item)
-                                    console.log('clicked ')
-                                }}
-                                onClickCapture={() =>
-                                    console.log('clicked Capture ')
-                                }
+                                onClick={() => handleSelectedState(item)}
                             >
                                 {item}
                             </p>
