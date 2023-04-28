@@ -87,7 +87,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
     const [selectFrom, setSelectFrom] = useState(state)
 
     useEffect(() => {
-
+        console.log('select mounted')
     }, [])
 
     const stateMenuToggler = (which: 'inner' | 'outside') => {

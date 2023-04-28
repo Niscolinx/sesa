@@ -251,6 +251,7 @@ const TableData = () => {
                                         />
                                     </div>
                                     <div className='w-max grid self-baseline '>
+                                        {searchFields.length > 0 && }
                                         <Select
                                             state={searchFields}
                                             selectedState={filterBy}
