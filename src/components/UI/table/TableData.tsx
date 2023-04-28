@@ -182,9 +182,8 @@ const TableData = () => {
     const extract_date_to_searchFrom = () => {
         const searchFrom: Object[] = []
         fetched.forEach((item) => {
-            let key = ''
             searchFields.forEach((field) => {
-                 key = field
+                let key = field
                 if(field.toLowerCase().includes('joined')){
                     key = 'created_at'
                 }
@@ -192,12 +191,11 @@ const TableData = () => {
                     key = 'phone'
                     
                 }
+                console.log('item', item[key], field)
+                searchFrom.push({
+                    [field]: item[key]
+                })
             })
-            console.log('item', item[key], key)
-
-            // searchFrom.push({
-            //     [field]: item[key]
-            // })
         })
 
         return searchFrom
