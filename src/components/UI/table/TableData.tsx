@@ -94,7 +94,7 @@ const TableData = () => {
                     searchFrom[field] = item[key]
                 })
 
-                store_data.push({ ...searchFrom, id: item.id })
+                store_data.push({ ...searchFrom, ...item})
             })
 
             setExtractedData(store_data)
@@ -221,6 +221,8 @@ const TableData = () => {
         })
 
         console.log({ foundData })
+
+        setFetchedData(foundData)
     }
 
     return (
