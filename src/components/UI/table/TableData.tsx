@@ -45,6 +45,7 @@ const TableData = () => {
     })
     const [search, setSearch] = useState('')
     const [searchFields, setSearchFields] = useState<string[]>([])
+    const [extractedData, setExtractedData] = useState<any[]>([])
 
     useEffect(() => {
         const fields = [...THeader].filter(
@@ -56,6 +57,7 @@ const TableData = () => {
         setSearchFields(fields)
         setFilterBy(fields[0])
     }, [])
+
 
     const fetchData = () => {
         return axiosInstance({
@@ -73,8 +75,31 @@ const TableData = () => {
 
     useEffect(() => {
         if (get_data_response) {
-            const res = get_data_response.data.data || get_data_response.data
+            const res: any[] =
+                get_data_response.data.data || get_data_response.data
             setFetchedData(res)
+
+            console.log('extra ')
+            const store_data: any[] = []
+
+            res.forEach((item) => {
+                const searchFrom: any = {}
+                searchFields.forEach((field) => {
+                    let key = field
+                    if (field.toLowerCase().includes('joined')) {
+                        key = 'created_at'
+                    }
+                    if (field.toLowerCase().includes('phone')) {
+                        key = 'phone'
+                    }
+
+                    searchFrom[field] = item[key]
+                })
+
+                store_data.push(searchFrom)
+            })
+
+            setExtractedData(store_data)
         }
     }, [get_data_response])
 
@@ -180,6 +205,7 @@ const TableData = () => {
     }
 
     const extract_data_to_searchFrom = () => {
+        console.log('extra ')
         const store_data: any[] = []
 
         fetched.forEach((item) => {
@@ -204,11 +230,11 @@ const TableData = () => {
 
     const theData = extract_data_to_searchFrom()
 
-    console.log({ theData })
-
     const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
         const { value } = e.target
         setSearch(value)
+
+        console.log({ theData, filterBy })
 
         // console.log({ searchFrom })
     }
