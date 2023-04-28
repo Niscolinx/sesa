@@ -58,7 +58,6 @@ const TableData = () => {
         setFilterBy(fields[0])
     }, [])
 
-
     const fetchData = () => {
         return axiosInstance({
             url: fetch_url,
@@ -79,7 +78,6 @@ const TableData = () => {
                 get_data_response.data.data || get_data_response.data
             setFetchedData(res)
 
-            console.log('extra ')
             const store_data: any[] = []
 
             res.forEach((item) => {
@@ -203,9 +201,6 @@ const TableData = () => {
         }
         navigate(`${add_page_url}`)
     }
-
-   
-
 
     const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
         const { value } = e.target
