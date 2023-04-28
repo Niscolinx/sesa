@@ -188,7 +188,7 @@ const TableData = () => {
             console.log({ item })
 
             Object.keys(item).filter((key) => {
-                if (key.toLowerCase() === filterBy.toLowerCase()) {
+                if (key.toLowerCase() === filterBy.toLowerCase() && item[key] === value) {
                     return item
                 }
             })
