@@ -53,6 +53,7 @@ const AddAdmin = () => {
     const {
         register,
         handleSubmit,
+        setValue,
         formState: { errors: formErrors },
     } = useForm<Inputs>()
 
