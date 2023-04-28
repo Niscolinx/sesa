@@ -93,6 +93,9 @@ const TableData = () => {
         })
     }, [fetchedData])
 
+    const fetched: any[] =
+        get_data_response?.data.data || get_data_response?.data
+
     const itemsPerPageArr = [10, 20, 50, 100]
 
     const perPage = 10
@@ -179,40 +182,9 @@ const TableData = () => {
     const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
         const { value } = e.target
         setSearch(value)
-        const res: Record<string, string>[] =
-            get_data_response.data.data || get_data_response.data
 
-        const extractDataToSearch = {}
-
-        for( let item of res){
-            console.log({item})
-        }
-
-        console.log({ extractDataToSearch })
-
-        const searchFrom = res.filter((item: Record<string, string>) => {
-            Object.keys(item).filter((key) => {
-                console.log(
-                    key.toLowerCase(),
-                    filterBy.toLowerCase(),
-                    value.toLowerCase(),
-                    item[key]
-                )
-                if (
-                    key.toLowerCase() === filterBy.toLowerCase() &&
-                    item[key].toLowerCase() === value.toLowerCase()
-                ) {
-                    console.log({ item })
-                    return item
-                }
-            })
-        })
-
-       // console.log({ searchFrom })
+        // console.log({ searchFrom })
     }
-
-    const fetched: any[] =
-        get_data_response?.data.data || get_data_response?.data
 
     return (
         <div>
