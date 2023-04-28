@@ -174,6 +174,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                                 <PhoneInput
                                     specialLabel={''}
                                     country={'ng'}
+                                    placeholder='+234 xxx-xxx-xxxx'
                                     inputClass={`w-full border-none outline-none disabled:opacity-50 disabled:cursor-not-allowed p-4 pl-0 ${
                                         formErrors &&
                                         formErrors[label] &&
