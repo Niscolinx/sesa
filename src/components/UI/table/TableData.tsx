@@ -184,9 +184,14 @@ const TableData = () => {
         console.log(res)
         console.log({ filterBy })
 
-        const searchFrom = res.filter((key: Record<string, string>) => {
-            console.log({ key })
-            return {}
+        const searchFrom = res.filter((item: Record<string, string>) => {
+            console.log({ item })
+
+            Object.keys(item).filter((key) => {
+                if (key.toLowerCase() === filterBy.toLowerCase()) {
+                    return item
+                }
+            })
         })
 
         console.log(searchFrom)
