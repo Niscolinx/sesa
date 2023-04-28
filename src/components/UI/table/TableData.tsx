@@ -166,9 +166,7 @@ const TableData = () => {
     }
 
     const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
-
-
-
+        console.log({e})
     }
 
     const fetched: any[] =
@@ -197,6 +195,8 @@ const TableData = () => {
                                         <input
                                             type='text'
                                             placeholder='Search Parameters'
+                                            value={search}
+                                            onChange={handleSearch}
                                             className='pl-16 w-[25rem] rounded-lg border border-color-blue-light appearance-none outline-none p-4'
                                         />
                                     </div>
