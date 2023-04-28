@@ -183,9 +183,18 @@ const TableData = () => {
         const searchFrom: Object[] = []
         fetched.forEach((item) => {
             searchFields.forEach((field) => {
-                console.log('item', item[field], field)
+                let key = field
+                if(field.toLowerCase().includes('joined')){
+                    key = 'created_at'
+                }
+                if(field.toLowerCase().includes('phone')){
+                    key = 'phone'
+                    
+                }
+                console.log('item', item[key], field)
+                // searchFrom.push({
 
-                searchFrom.push(item[field])
+                // })
             })
         })
 
