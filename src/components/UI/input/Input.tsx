@@ -76,6 +76,13 @@ const Input: FC<Partial<Input> & { label: string }> = ({
 
         const divInput = document.querySelector('.react-tel-input')
 
+        console.log({divInput})
+
+        if(divInput){
+
+            divInput.firstChild
+        }
+
         if (input) {
             input.value = '33'
             input.defaultValue = '34'
