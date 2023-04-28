@@ -47,18 +47,16 @@ const TableData = () => {
     const [searchFields, setSearchFields] = useState<string[]>([])
 
     useEffect(() => {
-        const fields = [...THeader].flatMap(
+        const fields = [...THeader].filter(
             (item) =>
-                item.toLowerCase() !== 'actions' ||
-                item.toLowerCase() !== 'status' ? [] : [item]
+                item.toLowerCase() !== 'actions' &&
+                item.toLowerCase() !== 'status'
         )
 
-        console.log({fields})
-
         setSearchFields(fields)
-    }, [THeader])
+    }, [])
 
-    console.log({searchFields})
+    console.log({ searchFields })
 
     const fetchData = () => {
         return axiosInstance({
@@ -219,7 +217,9 @@ const TableData = () => {
                                         <Select
                                             state={searchFields}
                                             selectedState={filterBy}
-                                            placeholder={searchFields.find(Boolean)}
+                                            placeholder={searchFields.find(
+                                                Boolean
+                                            )}
                                             setSelectedState={setFilterBy}
                                         />
                                     </div>
