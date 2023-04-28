@@ -223,7 +223,7 @@ const TableData = () => {
             .map(({ id }) => id)
 
         setFetchedData((prev) => {
-          const updated = prev.filter((item) => {
+          const updated = [...prev].filter((item) => {
                 return foundData.includes(item.id)
             })
 
