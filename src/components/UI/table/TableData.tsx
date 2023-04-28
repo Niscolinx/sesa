@@ -176,6 +176,45 @@ const TableData = () => {
         navigate(`${add_page_url}`)
     }
 
+
+        Object.entries(dataToLoop).map(([key, value]: any) => {
+            if (data_to_display.includes(key)) {
+                if (key === data_to_display[0]) {
+                    return details.set(key, {
+                        name: value,
+                        image: null,
+                    })
+                }
+
+                if (key === 'image') {
+                    const firstKey = details.keys().next().value
+                    const firstValue = details.get(firstKey)
+
+                    return details.set(firstKey, {
+                        name: firstValue.name,
+                        image: value,
+                    })
+                } else {
+                    return details.set(key, value)
+                }
+            }
+        })
+
+        const sorted: any[] = []
+        data_to_display.map((item: string, i: number) => {
+            if (item)
+                for (const [key, value] of details.entries()) {
+                    if (key === item) {
+                        sorted.push({
+                            key,
+                            value,
+                        })
+
+                        return
+                    }
+                }
+        })
+
     const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
         const { value } = e.target
         setSearch(value)
