@@ -1,4 +1,4 @@
-import { FC, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 import { MultipleSelect, Select } from '../../SuperAdmin/UI/Select'
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai'
 import { UseFormRegister, UseFormSetValue } from 'react-hook-form'
@@ -71,14 +71,19 @@ const Input: FC<Partial<Input> & { label: string }> = ({
     const [phone, setPhone] = useState('')
 
     const handlePhoneChange = (val: string, label: string) => {
-       
         const MAX_NUM_LENGTH = 13
-        
-        if(val.length <= MAX_NUM_LENGTH)
-        setPhone(val)
 
-        setValue && setValue(label, val)
+        if (val.length <= MAX_NUM_LENGTH) {
+            console.log(val.length)
+            setPhone(val)
+
+            setValue && setValue(label, val)
+        }
     }
+
+    useEffect(() => {
+        
+    })
     return (
         <div
             className={`w-full grid gap-4 self-baseline ${
