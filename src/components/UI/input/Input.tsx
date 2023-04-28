@@ -73,9 +73,10 @@ const Input: FC<Partial<Input> & { label: string }> = ({
     const handlePhoneChange = (e: string, label: string) => {
         console.log({ e })
 
-        setPhone((prev) => (
-            prev
-        ))
+        setPhone((prev) => {
+            console.log({prev})
+            return prev
+        })
 
         setValue && setValue(label, e)
     }
