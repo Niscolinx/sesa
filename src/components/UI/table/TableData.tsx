@@ -212,26 +212,12 @@ const TableData = () => {
 
         // console.log({ searchFrom })
 
-        const foundData = extractedData
-            .filter((item) => {
-                console.log(item, item[filterBy.toLowerCase()].toLowerCase())
+        const foundData = extractedData.filter((item) => {
+            console.log(item, item[filterBy.toLowerCase()].toLowerCase())
 
-                return item[filterBy.toLowerCase()]
-                    .toLowerCase()
-                    .includes(value.toLowerCase())
-            })
-            .map(({ id }) => id)
-
-        setFetchedData((prev) => {
-          const updated = [...prev].filter((item) => {
-                return foundData.includes(item.id)
-            })
-
-            console.log({updated})
-
-            return {
-                ...prev
-            }
+            return item[filterBy.toLowerCase()]
+                .toLowerCase()
+                .includes(value.toLowerCase())
         })
 
         console.log({ foundData })
