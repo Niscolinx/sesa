@@ -212,19 +212,23 @@ const TableData = () => {
 
         // console.log({ searchFrom })
 
-        const foundData = extractedData.filter((item) => {
-            console.log(item, item[filterBy.toLowerCase()].toLowerCase())
+        const foundData = extractedData
+            .filter((item) => {
+                console.log(item, item[filterBy.toLowerCase()].toLowerCase())
 
-            return item[filterBy.toLowerCase()].toLowerCase().includes(value.toLowerCase())
-        }).map(({id}) => id)
+                return item[filterBy.toLowerCase()]
+                    .toLowerCase()
+                    .includes(value.toLowerCase())
+            })
+            .map(({ id }) => id)
 
         setFetchedData((prev) => {
-            return {
-                ...prev
-            }
+            return prev.filter((item) => {
+                return foundData.includes(item.id)
+            })
         })
 
-        console.log({foundData})
+        console.log({ foundData })
     }
 
     return (
