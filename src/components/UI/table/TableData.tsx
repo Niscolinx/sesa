@@ -101,7 +101,7 @@ const TableData = () => {
         }
     }, [get_data_response])
 
-     const handleSearch = useCallback(
+     const handleSearch = 
          (e: ChangeEvent<HTMLInputElement>) => {
              const { value } = e.target
              setSearch(value)
@@ -111,9 +111,8 @@ const TableData = () => {
              //setFetchedData(extractedData)
 
              // console.log({ searchFrom })
-         },
-         [filterBy, extractedData, fetchedData]
-     )
+         }
+     
 
     useEffect(() => {
         const slicedPages: any[][] = []
