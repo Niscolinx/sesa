@@ -179,16 +179,37 @@ const TableData = () => {
     const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
         const { value } = e.target
         setSearch(value)
-        const res = get_data_response.data.data || get_data_response.data
+        const res: Record<string, string>[] =
+            get_data_response.data.data || get_data_response.data
+
+        const extractDataToSearch = res.reduce(
+            (acc: Record<string, string>, item: any) => {
+                const [key, value] = item
+
+                console.log(key, value)
+                if (searchFields.includes(key)) {
+                    acc[key] = value
+                }
+                return acc
+            },
+            {}
+        )
+
+        console.log({ extractDataToSearch })
 
         const searchFrom = res.filter((item: Record<string, string>) => {
             Object.keys(item).filter((key) => {
-                console.log({ key, filterBy, value }, item[key])
+                console.log(
+                    key.toLowerCase(),
+                    filterBy.toLowerCase(),
+                    value.toLowerCase(),
+                    item[key]
+                )
                 if (
                     key.toLowerCase() === filterBy.toLowerCase() &&
-                    item[key] === value
+                    item[key].toLowerCase() === value.toLowerCase()
                 ) {
-                    console.log({item})
+                    console.log({ item })
                     return item
                 }
             })
