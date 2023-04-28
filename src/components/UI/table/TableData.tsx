@@ -213,9 +213,9 @@ const TableData = () => {
         // console.log({ searchFrom })
 
         const foundData = [...extractedData].filter((item) => {
-            console.log(item, item[filterBy.toLowerCase()])
+            console.log(item, item[filterBy.toLowerCase()].toLowerCase())
 
-            return item[filterBy.toLowerCase()].includes(value.toLowerCase())
+            return item[filterBy.toLowerCase()].toLowerCase().includes(value.toLowerCase())
         })
 
         console.log({foundData})
