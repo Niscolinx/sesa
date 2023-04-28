@@ -54,7 +54,7 @@ const TableData = () => {
         )
 
         setSearchFields(fields)
-        setFilterBy(fields.find(Boolean))
+        setFilterBy(fields[0])
     }, [])
 
     const fetchData = () => {
