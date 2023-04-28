@@ -82,7 +82,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
     }
 
     useEffect(() => {
-        console.log({phone})
+        console.log({ phone })
     }, [phone])
     return (
         <div
@@ -189,13 +189,12 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                                     specialLabel={''}
                                     country={'ng'}
                                     value={phone}
-                                    onChange={(val) => 0
-                                        // handlePhoneChange(val, label)
+                                    onChange={(val) =>
+                                        handlePhoneChange(val, label)
                                     }
-                                    
                                     containerClass='w-full'
                                     placeholder='+234 xxx-xxx-xxxx'
-                                    inputClass={`w-full border-none outline-none disabled:opacity-50 disabled:cursor-not-allowed p-4 pl-0 ${
+                                    inputClass={`w-full border-none outline-none disabled:opacity-50 disabled:cursor-not-allowed p-4 pl-0 input-validation ${
                                         formErrors &&
                                         formErrors[label] &&
                                         'border-red-500 '
