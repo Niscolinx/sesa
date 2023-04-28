@@ -182,36 +182,6 @@ const TableData = () => {
         const res = get_data_response.data.data || get_data_response.data
 
 
-         const details: Map<any, any> = new Map<
-            string,
-            string | { name: string; image: string | null }
-        >()
-
-
-        Object.entries(res).map(([key, value]: any) => {
-            if (data_to_display.includes(key)) {
-                if (key === data_to_display[0]) {
-                    return details.set(key, {
-                        name: value,
-                        image: null,
-                    })
-                }
-
-                if (key === 'image') {
-                    const firstKey = details.keys().next().value
-                    const firstValue = details.get(firstKey)
-
-                    return details.set(firstKey, {
-                        name: firstValue.name,
-                        image: value,
-                    })
-                } else {
-                    return details.set(key, value)
-                }
-            }
-        })
-
-        console.log({details})
 
      
     }
