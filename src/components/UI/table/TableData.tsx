@@ -215,6 +215,8 @@ const TableData = () => {
                 .includes(value.toLowerCase())
         })
 
+        console.log({foundData})
+
         setFetchedData(foundData)
     }
 
