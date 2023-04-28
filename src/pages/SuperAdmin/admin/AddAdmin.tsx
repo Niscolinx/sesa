@@ -48,8 +48,11 @@ const AddAdmin = () => {
         register,
         handleSubmit,
         setValue,
+        watch,
         formState: { errors: formErrors },
     } = useForm<Inputs>()
+
+    watch((input) => console.log(input))
 
     const [responseMessage, setResponseMessage] =
         useState<ResponseMessage | null>(null)
