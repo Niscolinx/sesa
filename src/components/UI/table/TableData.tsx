@@ -182,20 +182,19 @@ const TableData = () => {
         const res = get_data_response.data.data || get_data_response.data
 
         const searchFrom = res.filter((item: Record<string, string>) => {
-            console.log({ item })
-
             Object.keys(item).filter((key) => {
-                console.log({key, filterBy, value}, item[key])
+                console.log({ key, filterBy, value }, item[key])
                 if (
                     key.toLowerCase() === filterBy.toLowerCase() &&
                     item[key] === value
                 ) {
+                    console.log({item})
                     return item
                 }
             })
         })
 
-        console.log({searchFrom})
+        console.log({ searchFrom })
     }
 
     const fetched: any[] =
