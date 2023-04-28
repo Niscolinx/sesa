@@ -48,6 +48,7 @@ const TableData = () => {
     const [extractedData, setExtractedData] = useState<any[]>([])
 
     useEffect(() => {
+        console.log('mount')
         const fields = [...THeader].filter(
             (item) =>
                 item.toLowerCase() !== 'actions' &&
@@ -218,6 +219,8 @@ const TableData = () => {
 
         setFetchedData(foundData)
     }
+
+    console.log({searchFields})
 
     return (
         <div>
