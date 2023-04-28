@@ -100,7 +100,7 @@ const SlicedPages: FC<SlicedPages> = ({
                                     />
                                 )}
 
-                                <div className='flex items-center gap-2'>
+                                <div className='flex items-center gap-2 text-ellipsis whitespace-nowrap overflow-hidden'>
                                     {value.image && (
                                         <figure className='w-[3.5rem] h-[3.5rem]'>
                                             <img

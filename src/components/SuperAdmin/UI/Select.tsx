@@ -160,7 +160,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                     </label>
                 ) : (
                     <label
-                        className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer min-h-[5rem]'
+                        className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer min-h-[5rem] flex items-center gap-4'
                         onClick={(e) => {
                             e.preventDefault()
                             stateMenuToggler('inner')
@@ -172,14 +172,14 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                                 {placeholder || ''}
                             </span>
                         )}
+                {toggleStateMenu ? (
+                    <GrUp/>
+                ) : (
+                    <GrDown/>
+                )}
                     </label>
                 )}
 
-                {toggleStateMenu ? (
-                    <GrUp className='absolute right-4' />
-                ) : (
-                    <GrDown className='absolute right-4' />
-                )}
                 {toggleStateMenu && (
                     <div className='absolute top-[6rem] left-0 border border-color-primary-light min-w-[12rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize max-h-[20rem] overflow-y-scroll'>
                         <div

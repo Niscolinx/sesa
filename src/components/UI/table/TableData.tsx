@@ -192,9 +192,9 @@ const TableData = () => {
                                             className='pl-16 w-[25rem] rounded-lg border border-color-blue-light appearance-none outline-none p-4'
                                         />
                                     </div>
-                                    <div className='w-[10rem] grid self-baseline '>
+                                    <div className='w-max grid self-baseline '>
                                         <Select
-                                            state={['A-Z', 'Date']}
+                                            state={THeader}
                                             selectedState={sortBy}
                                             placeholder={'A-Z'}
                                             setSelectedState={setSortBy}
