@@ -47,10 +47,10 @@ const TableData = () => {
     const [searchFields, setSearchFields] = useState<string[]>([])
 
     useEffect(() => {
-        const fields = [...THeader].filter(
+        const fields = [...THeader].flatMap(
             (item) =>
                 item.toLowerCase() !== 'actions' ||
-                item.toLowerCase() !== 'status'
+                item.toLowerCase() !== 'status' ? [] : [item]
         )
 
         console.log({fields})
@@ -77,7 +77,6 @@ const TableData = () => {
     useEffect(() => {
         if (get_data_response) {
             const res = get_data_response.data.data || get_data_response.data
-            console.log({ res })
             setFetchedData(res)
         }
     }, [get_data_response])
