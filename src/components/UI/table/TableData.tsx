@@ -59,8 +59,6 @@ const TableData = () => {
         setFilterBy(fields[0])
     }, [])
 
- 
-
     const fetchData = () => {
         return axiosInstance({
             url: fetch_url,
@@ -210,18 +208,13 @@ const TableData = () => {
         setSearch(value)
 
         const foundData = extractedData.filter((item) => {
-            console.log(item[filterBy.toLowerCase()])
-            console.log(item[filterBy.toLowerCase()].toLowerCase(), value.toLowerCase())
             return item[filterBy.toLowerCase()]
                 .toLowerCase()
                 .includes(value.toLowerCase())
         })
 
-        console.log({foundData})
-
         setFetchedData(foundData)
     }
-
 
     return (
         <div>
