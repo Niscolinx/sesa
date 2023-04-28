@@ -179,7 +179,9 @@ const TableData = () => {
     const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
         const { value } = e.target
         setSearch(value)
+            const res = get_data_response.data.data || get_data_response.data
 
+            console.log({res})
         console.log({fetchedData})
     }
 
