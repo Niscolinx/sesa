@@ -221,9 +221,7 @@ const ViewAdmin = () => {
         return <p>loading...</p>
     }
 
-    console.log({
-        get_admin_response,
-    })
+   
 
     return (
         <>
