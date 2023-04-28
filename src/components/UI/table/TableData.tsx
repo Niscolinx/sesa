@@ -30,6 +30,7 @@ const TableData = () => {
         fetchedData,
         setFetchedData,
         title,
+        data_to_display,
         fetch_url,
         add_page_url,
         THeader,
@@ -55,7 +56,6 @@ const TableData = () => {
 
         setSearchFields(fields)
     }, [])
-
 
     const fetchData = () => {
         return axiosInstance({
@@ -179,10 +179,41 @@ const TableData = () => {
     const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
         const { value } = e.target
         setSearch(value)
-            const res = get_data_response.data.data || get_data_response.data
+        const res = get_data_response.data.data || get_data_response.data
 
-            console.log({res})
-        console.log({fetchedData})
+
+         const details: Map<any, any> = new Map<
+            string,
+            string | { name: string; image: string | null }
+        >()
+
+
+        Object.entries(res).map(([key, value]: any) => {
+            if (data_to_display.includes(key)) {
+                if (key === data_to_display[0]) {
+                    return details.set(key, {
+                        name: value,
+                        image: null,
+                    })
+                }
+
+                if (key === 'image') {
+                    const firstKey = details.keys().next().value
+                    const firstValue = details.get(firstKey)
+
+                    return details.set(firstKey, {
+                        name: firstValue.name,
+                        image: value,
+                    })
+                } else {
+                    return details.set(key, value)
+                }
+            }
+        })
+
+        console.log({details})
+
+     
     }
 
     const fetched: any[] =
