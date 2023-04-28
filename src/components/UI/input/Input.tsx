@@ -70,15 +70,15 @@ const Input: FC<Partial<Input> & { label: string }> = ({
     const toggleEyeIcon = () => setEyeIcon(!eyeIcon)
     const [phone, setPhone] = useState('')
 
-    const handlePhoneChange = (e: string, label: string) => {
-        console.log({ e })
+    const handlePhoneChange = (val: string, label: string) => {
+        console.log({ val })
 
         setPhone((prev) => {
-            console.log({prev})
+            console.log({ prev })
             return prev
         })
 
-        setValue && setValue(label, e)
+        setValue && setValue(label, val)
     }
     return (
         <div
@@ -185,8 +185,8 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                                     specialLabel={''}
                                     country={'ng'}
                                     value={phone}
-                                    onChange={(e) =>
-                                        handlePhoneChange(e, label)
+                                    onChange={(val) =>
+                                        handlePhoneChange(val, label)
                                     }
                                     placeholder='+234 xxx-xxx-xxxx'
                                     inputClass={`w-full border-none outline-none disabled:opacity-50 disabled:cursor-not-allowed p-4 pl-0 ${
