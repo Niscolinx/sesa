@@ -189,8 +189,8 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                                     specialLabel={''}
                                     country={'ng'}
                                     value={phone}
-                                    onChange={(val) =>
-                                        handlePhoneChange(val, label)
+                                    onChange={(val) => 0
+                                        // handlePhoneChange(val, label)
                                     }
                                     containerClass='w-full'
                                     placeholder='+234 xxx-xxx-xxxx'
