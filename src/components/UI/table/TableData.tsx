@@ -213,7 +213,7 @@ const TableData = () => {
         // console.log({ searchFrom })
 
         const foundData = [...extractedData].filter((item) => {
-            console.log({item})
+            console.log({item}, item[filterBy.toLowerCase()])
         })
 
     }
