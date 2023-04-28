@@ -1,6 +1,6 @@
 import { IoMdAdd } from 'react-icons/io'
 import { useState, useEffect, ChangeEvent, FC } from 'react'
-import {  useQuery } from 'react-query'
+import { useQuery } from 'react-query'
 import { ToastContainer } from 'react-toastify'
 import React from 'react'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
@@ -43,6 +43,8 @@ const TableData = () => {
         isDropDownOpen: false,
         index: null,
     })
+    const [search, setSearch] = useState('')
+
     const fetchData = () => {
         return axiosInstance({
             url: fetch_url,
@@ -163,8 +165,8 @@ const TableData = () => {
         navigate(`${add_page_url}`)
     }
 
-    const fetched: any[] = get_data_response?.data.data || get_data_response?.data
-
+    const fetched: any[] =
+        get_data_response?.data.data || get_data_response?.data
 
     return (
         <div>
