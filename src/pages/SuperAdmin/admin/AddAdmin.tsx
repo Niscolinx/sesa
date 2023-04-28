@@ -43,9 +43,6 @@ const AddAdmin = () => {
         setImageFile(file)
     }
 
-    useEffect(() => {
-        console.log({ imageFile })
-    }, [imageFile])
 
     const {
         register,
