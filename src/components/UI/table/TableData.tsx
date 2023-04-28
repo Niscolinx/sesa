@@ -181,10 +181,12 @@ const TableData = () => {
         setSearch(value)
         const res = get_data_response.data.data || get_data_response.data
 
+        console.log(res)
+        console.log({filterBy})
+        
+        const searchFrom = Object.entries(([key, value]: any) => {
 
-        const searchFrom = searchFields.filter((item) => {
-
-         
+            return {}
         })
      
     }
