@@ -181,9 +181,6 @@ const TableData = () => {
         setSearch(value)
         const res = get_data_response.data.data || get_data_response.data
 
-        console.log(res)
-        console.log({ filterBy })
-
         const searchFrom = res.filter((item: Record<string, string>) => {
             console.log({ item })
 
@@ -197,7 +194,7 @@ const TableData = () => {
             })
         })
 
-        console.log(searchFrom)
+        console.log({searchFrom})
     }
 
     const fetched: any[] =
