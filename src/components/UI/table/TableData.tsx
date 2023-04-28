@@ -185,12 +185,12 @@ const TableData = () => {
         fetched.forEach((item) => {
            // console.log({item})
 
-            const {name} = item
+          
 
-            console.log({name}, ...searchFields)
-            searchFields.forEach((field) => {
+            //console.log({name}, ...searchFields)
+            // searchFields.forEach((field) => {
                 
-            })
+            // })
         })
         
     }
