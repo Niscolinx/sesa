@@ -219,6 +219,7 @@ const TableData = () => {
         })
 
         setFetchedData((prev) => {
+            const updated = prev.filter((item) => {console.log({item})})
             return {
                 ...prev
             }
