@@ -67,9 +67,14 @@ const Input: FC<Partial<Input> & { label: string }> = ({
 
     const [eyeIcon, setEyeIcon] = useState(false)
     const toggleEyeIcon = () => setEyeIcon(!eyeIcon)
+    const [phone, setPhone] = useState('')
 
-    const handleChange = (e: any) => {
+
+    const handlePhoneChange = (e: any) => {
         console.log({ e })
+
+        setPhone(e)
+    
     }
     return (
         <div
@@ -175,8 +180,8 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                                 <PhoneInput
                                     specialLabel={''}
                                     country={'ng'}
-                                    value={value}
-                                    onChange={handleChange}
+                                    value={phone}
+                                    onChange={handlePhoneChange}
                                     placeholder='+234 xxx-xxx-xxxx'
                                     inputClass={`w-full border-none outline-none disabled:opacity-50 disabled:cursor-not-allowed p-4 pl-0 ${
                                         formErrors &&
