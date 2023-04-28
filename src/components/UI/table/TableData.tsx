@@ -179,18 +179,22 @@ const TableData = () => {
         navigate(`${add_page_url}`)
     }
 
-    const searchFrom = {}
     const extract_date_to_searchFrom = () => {
+        const searchFrom = {}
         fetched.forEach((item) => {
-            console.log({ item })
+          
 
             searchFields.forEach((field) => {
-                if(field === 'phone number')
-                console.log('item', item[field])
-                return item[field]
+              
+                console.log('item', item[field], field)
+                
+                searchFrom[field] =  item[field]
             })
         })
+
+        return searchFrom
     }
+
 
     const theData = extract_date_to_searchFrom()
 
