@@ -31,6 +31,7 @@ const TableData = () => {
         setFetchedData,
         title,
         fetch_url,
+        data_to_display,
         add_page_url,
         THeader,
         is_checkbox,
@@ -166,6 +167,9 @@ const TableData = () => {
         return <p>{get_data_error.message}</p>
     }
 
+    const fetched: any[] =
+        get_data_response?.data.data || get_data_response?.data
+
     const handlePathSwitch = () => {
         if (isCategory) {
             return setIsDialogOpen({
@@ -176,82 +180,66 @@ const TableData = () => {
         navigate(`${add_page_url}`)
     }
 
+    const details: Map<any, any> = new Map<
+        string,
+        string | { name: string; image: string | null }
+    >()
 
-        Object.entries(dataToLoop).map(([key, value]: any) => {
-            if (data_to_display.includes(key)) {
-                if (key === data_to_display[0]) {
-                    return details.set(key, {
-                        name: value,
-                        image: null,
+    Object.entries(fetchData).map(([key, value]: any) => {
+        if (data_to_display.includes(key)) {
+            if (key === data_to_display[0]) {
+                return details.set(key, {
+                    name: value,
+                    image: null,
+                })
+            }
+
+            if (key === 'image') {
+                const firstKey = details.keys().next().value
+                const firstValue = details.get(firstKey)
+
+                return details.set(firstKey, {
+                    name: firstValue.name,
+                    image: value,
+                })
+            } else {
+                return details.set(key, value)
+            }
+        }
+    })
+
+    const sorted: any[] = []
+    data_to_display.map((item: string, i: number) => {
+        if (item)
+            for (const [key, value] of details.entries()) {
+                if (key === item) {
+                    sorted.push({
+                        key,
+                        value,
                     })
-                }
 
-                if (key === 'image') {
-                    const firstKey = details.keys().next().value
-                    const firstValue = details.get(firstKey)
-
-                    return details.set(firstKey, {
-                        name: firstValue.name,
-                        image: value,
-                    })
-                } else {
-                    return details.set(key, value)
+                    return
                 }
             }
-        })
+    })
 
-        const sorted: any[] = []
-        data_to_display.map((item: string, i: number) => {
-            if (item)
-                for (const [key, value] of details.entries()) {
-                    if (key === item) {
-                        sorted.push({
-                            key,
-                            value,
-                        })
-
-                        return
-                    }
-                }
-        })
+    console.log({sorted})
 
     const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
         const { value } = e.target
         setSearch(value)
-        const res: Record<string, string>[] =
-            get_data_response.data.data || get_data_response.data
 
         const extractDataToSearch = {}
 
-        for( let item of res){
-            console.log({item})
-        }
+       
 
-       // console.log({ extractDataToSearch })
+        // console.log({ extractDataToSearch })
 
-        const searchFrom = res.filter((item: Record<string, string>) => {
-            Object.keys(item).filter((key) => {
-                console.log(
-                    key.toLowerCase(),
-                    filterBy.toLowerCase(),
-                    value.toLowerCase(),
-                    item[key]
-                )
-                if (
-                    key.toLowerCase() === filterBy.toLowerCase() &&
-                    item[key].toLowerCase() === value.toLowerCase()
-                ) {
-                    console.log({ item })
-                    return item
-                }
-            })
-        })
+       
+   
 
-       // console.log({ searchFrom })
+        // console.log({ searchFrom })
     }
-
-    const fetched: any[] =
-        get_data_response?.data.data || get_data_response?.data
 
     return (
         <div>
