@@ -185,6 +185,8 @@ const TableData = () => {
         string | { name: string; image: string | null }
     >()
 
+    console.log({fetchData, data_to_display})
+
     Object.entries(fetchData).map(([key, value]: any) => {
         if (data_to_display.includes(key)) {
             if (key === data_to_display[0]) {
