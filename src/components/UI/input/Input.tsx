@@ -71,7 +71,8 @@ const Input: FC<Partial<Input> & { label: string }> = ({
     const [phone, setPhone] = useState('')
 
     const handlePhoneChange = (val: string, label: string) => {
-        const input = document.querySelector('.input-validate')
+        const input:HTMLInputElement | null = document.querySelector('.input-validate')
+
 
         console.log({input})
         const MAX_NUM_LENGTH = 13
