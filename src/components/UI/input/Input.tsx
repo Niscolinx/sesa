@@ -82,8 +82,8 @@ const Input: FC<Partial<Input> & { label: string }> = ({
     }
 
     useEffect(() => {
-        
-    })
+        console.log({phone})
+    }, [phone])
     return (
         <div
             className={`w-full grid gap-4 self-baseline ${
