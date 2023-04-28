@@ -185,9 +185,9 @@ const TableData = () => {
         string | { name: string; image: string | null }
     >()
 
-    console.log({fetchData, data_to_display})
+    console.log({fetched, data_to_display})
 
-    Object.entries(fetchData).map(([key, value]: any) => {
+    Object.entries(fetched).map(([key, value]: any) => {
         if (data_to_display.includes(key)) {
             if (key === data_to_display[0]) {
                 return details.set(key, {
@@ -209,6 +209,8 @@ const TableData = () => {
             }
         }
     })
+
+    console.log({details})
 
     const sorted: any[] = []
     data_to_display.map((item: string, i: number) => {
