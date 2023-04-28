@@ -251,15 +251,16 @@ const TableData = () => {
                                         />
                                     </div>
                                     <div className='w-max grid self-baseline '>
-                                        {searchFields.length > 0 && }
-                                        <Select
-                                            state={searchFields}
-                                            selectedState={filterBy}
-                                            placeholder={searchFields.find(
-                                                Boolean
-                                            )}
-                                            setSelectedState={setFilterBy}
-                                        />
+                                        {searchFields.length > 0 && (
+                                            <Select
+                                                state={searchFields}
+                                                selectedState={filterBy}
+                                                placeholder={searchFields.find(
+                                                    Boolean
+                                                )}
+                                                setSelectedState={setFilterBy}
+                                            />
+                                        )}
                                     </div>
                                     {is_add_btn && (
                                         <button
