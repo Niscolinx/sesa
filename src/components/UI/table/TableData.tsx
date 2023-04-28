@@ -165,6 +165,12 @@ const TableData = () => {
         navigate(`${add_page_url}`)
     }
 
+    const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
+
+        
+
+    }
+
     const fetched: any[] =
         get_data_response?.data.data || get_data_response?.data
 
