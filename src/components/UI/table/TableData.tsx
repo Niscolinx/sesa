@@ -181,8 +181,10 @@ const TableData = () => {
 
     const searchFrom = {}
     const extract_date_to_searchFrom = () => {
-        
+            
     }
+
+    extract_date_to_searchFrom()
 
     const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
         const { value } = e.target
