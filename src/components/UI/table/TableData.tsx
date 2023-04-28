@@ -182,13 +182,13 @@ const TableData = () => {
         const res = get_data_response.data.data || get_data_response.data
 
         console.log(res)
-        console.log({filterBy})
-        
-        const searchFrom = res.filter(([key, value]: string) => {
-            console.log({key, value})
+        console.log({ filterBy })
+
+        const searchFrom = res.filter((key: Record<string, string>) => {
+            console.log({ key })
             return {}
         })
-     
+
         console.log(searchFrom)
     }
 
