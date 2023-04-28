@@ -43,7 +43,6 @@ const AddAdmin = () => {
         setImageFile(file)
     }
 
-
     const {
         register,
         handleSubmit,
@@ -52,7 +51,7 @@ const AddAdmin = () => {
         formState: { errors: formErrors },
     } = useForm<Inputs>()
 
-    watch((input) => console.log(input))
+    watch((input) => console.log({ input }))
 
     const [responseMessage, setResponseMessage] =
         useState<ResponseMessage | null>(null)
