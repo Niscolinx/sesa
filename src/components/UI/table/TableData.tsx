@@ -1,5 +1,5 @@
 import { IoMdAdd } from 'react-icons/io'
-import { useState, useEffect, ChangeEvent } from 'react'
+import { useState, useEffect, ChangeEvent, useCallback } from 'react'
 import { useQuery } from 'react-query'
 import { ToastContainer } from 'react-toastify'
 import React from 'react'
@@ -100,6 +100,20 @@ const TableData = () => {
             setExtractedData(store_data)
         }
     }, [get_data_response])
+
+     const handleSearch = useCallback(
+         (e: ChangeEvent<HTMLInputElement>) => {
+             const { value } = e.target
+             setSearch(value)
+
+             console.log({ extractedData, filterBy, fetchedData })
+
+             //setFetchedData(extractedData)
+
+             // console.log({ searchFrom })
+         },
+         [filterBy, extractedData, fetchedData]
+     )
 
     useEffect(() => {
         const slicedPages: any[][] = []
@@ -202,17 +216,7 @@ const TableData = () => {
         navigate(`${add_page_url}`)
     }
 
-    const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
-        const { value } = e.target
-        setSearch(value)
-
-        console.log({ extractedData, filterBy, fetchedData })
-
-        
-        //setFetchedData(extractedData)
-
-        // console.log({ searchFrom })
-    }
+   
 
     return (
         <div>
