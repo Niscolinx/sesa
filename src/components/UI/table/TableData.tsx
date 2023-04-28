@@ -204,37 +204,14 @@ const TableData = () => {
         navigate(`${add_page_url}`)
     }
 
-    const extract_data_to_searchFrom = () => {
-        console.log('extra ')
-        const store_data: any[] = []
+   
 
-        fetched.forEach((item) => {
-            const searchFrom: any = {}
-            searchFields.forEach((field) => {
-                let key = field
-                if (field.toLowerCase().includes('joined')) {
-                    key = 'created_at'
-                }
-                if (field.toLowerCase().includes('phone')) {
-                    key = 'phone'
-                }
-
-                searchFrom[field] = item[key]
-            })
-
-            store_data.push(searchFrom)
-        })
-
-        return store_data
-    }
-
-    const theData = extract_data_to_searchFrom()
 
     const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
         const { value } = e.target
         setSearch(value)
 
-        console.log({ theData, filterBy })
+        console.log({ extractedData, filterBy })
 
         // console.log({ searchFrom })
     }
