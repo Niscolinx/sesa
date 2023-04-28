@@ -180,21 +180,17 @@ const TableData = () => {
     }
 
     const extract_date_to_searchFrom = () => {
-        const searchFrom = {}
+        const searchFrom: Object[] = []
         fetched.forEach((item) => {
-          
-
             searchFields.forEach((field) => {
-              
                 console.log('item', item[field], field)
-                
-                searchFrom[field] =  item[field]
+
+                searchFrom.push(item[field])
             })
         })
 
         return searchFrom
     }
-
 
     const theData = extract_date_to_searchFrom()
 
