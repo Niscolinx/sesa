@@ -54,6 +54,7 @@ const TableData = () => {
         )
 
         setSearchFields(fields)
+        setFilterBy(fields.find(Boolean))
     }, [])
 
     const fetchData = () => {
@@ -187,7 +188,10 @@ const TableData = () => {
             console.log({ item })
 
             Object.keys(item).filter((key) => {
-                if (key.toLowerCase() === filterBy.toLowerCase() && item[key] === value) {
+                if (
+                    key.toLowerCase() === filterBy.toLowerCase() &&
+                    item[key] === value
+                ) {
                     return item
                 }
             })
