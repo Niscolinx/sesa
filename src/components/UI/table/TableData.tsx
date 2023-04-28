@@ -56,7 +56,6 @@ const TableData = () => {
         setSearchFields(fields)
     }, [])
 
-    console.log({ searchFields })
 
     const fetchData = () => {
         return axiosInstance({
@@ -94,9 +93,9 @@ const TableData = () => {
         })
     }, [fetchedData])
 
-    const itemsPerPageArr = [2, 4, 6, 8]
+    const itemsPerPageArr = [10, 20, 50, 100]
 
-    const perPage = 6
+    const perPage = 10
     const [paginate, setPaginate] = useState<Paginate>({
         index: 0,
         currentPage: 1,
@@ -180,6 +179,8 @@ const TableData = () => {
     const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
         const { value } = e.target
         setSearch(value)
+
+        console.log({fetchedData})
     }
 
     const fetched: any[] =
