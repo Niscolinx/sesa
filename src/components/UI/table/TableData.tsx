@@ -184,7 +184,7 @@ const TableData = () => {
         console.log(res)
         console.log({filterBy})
         
-        const searchFrom = Object.entries(([key, value]: any) => {
+        const searchFrom = Object.entries(([key, value]: string) => {
 
             return {}
         })
