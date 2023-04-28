@@ -172,11 +172,11 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                                 {placeholder || ''}
                             </span>
                         )}
-                {toggleStateMenu ? (
-                    <GrUp/>
-                ) : (
-                    <GrDown/>
-                )}
+                        {toggleStateMenu ? (
+                            <GrUp className='text-bold text-[1.4rem]' />
+                        ) : (
+                            <GrDown className='text-bold text-[1.4rem]' />
+                        )}
                     </label>
                 )}
 
