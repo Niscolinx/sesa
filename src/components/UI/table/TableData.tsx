@@ -181,21 +181,18 @@ const TableData = () => {
 
     const searchFrom = {}
     const extract_date_to_searchFrom = () => {
+        return fetched.forEach((item) => {
+            console.log({ item })
 
-        fetched.forEach((item) => {
-           // console.log({item})
-
-          
-
-            //console.log({name}, ...searchFields)
-            // searchFields.forEach((field) => {
-                
-            // })
+            return searchFields.forEach((field) => {
+                return item[field]
+            })
         })
-        
     }
 
-    extract_date_to_searchFrom()
+    const theData = extract_date_to_searchFrom()
+
+    console.log({ theData })
 
     const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
         const { value } = e.target
