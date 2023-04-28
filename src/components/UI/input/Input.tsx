@@ -1,7 +1,7 @@
 import { FC, useState } from 'react'
 import { MultipleSelect, Select } from '../../SuperAdmin/UI/Select'
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai'
-import { UseFormRegister } from 'react-hook-form'
+import { UseFormRegister, UseFormSetValue } from 'react-hook-form'
 import PhoneInput from 'react-phone-input-2'
 
 export interface SelectProps {
@@ -23,6 +23,7 @@ interface Input {
     tag?: string
     options: any
     id?: number
+    setValue?: UseFormSetValue<any>
     required?: boolean
     pre?: string
     minLength?: number

@@ -192,6 +192,7 @@ const AddAdmin = () => {
                                     formErrors={formErrors}
                                     type={type}
                                     name={name}
+                                    setValue={setValue}
                                     isSelect={type === 'select'}
                                     select={selectProps}
                                 />
