@@ -206,9 +206,10 @@ const TableData = () => {
         const { value } = e.target
         setSearch(value)
 
-        console.log({ extractedData, filterBy })
+        console.log({ extractedData, filterBy, fetchedData })
 
-        setFetchedData(extractedData)
+        
+        //setFetchedData(extractedData)
 
         // console.log({ searchFrom })
     }
