@@ -1,5 +1,5 @@
 import { IoMdAdd } from 'react-icons/io'
-import { useState, useEffect, ChangeEvent, FC } from 'react'
+import { useState, useEffect, ChangeEvent } from 'react'
 import { useQuery } from 'react-query'
 import { ToastContainer } from 'react-toastify'
 import React from 'react'
@@ -181,10 +181,12 @@ const TableData = () => {
 
     const searchFrom = {}
     const extract_date_to_searchFrom = () => {
-        return fetched.forEach((item) => {
+        fetched.forEach((item) => {
             console.log({ item })
 
-            return searchFields.forEach((field) => {
+            searchFields.forEach((field) => {
+                if(field === 'phone number')
+                console.log('item', item[field])
                 return item[field]
             })
         })
