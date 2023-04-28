@@ -71,18 +71,22 @@ const Input: FC<Partial<Input> & { label: string }> = ({
     const [phone, setPhone] = useState('')
 
     const handlePhoneChange = (val: string, label: string) => {
-        const input:HTMLInputElement | null = document.querySelector('.input-validate')
+        const input: HTMLInputElement | null =
+            document.querySelector('.input-validate')
 
-
-        console.log({input})
-        const MAX_NUM_LENGTH = 13
-
-        if (val.length <= MAX_NUM_LENGTH) {
-            console.log(val.length)
-            setPhone(val)
-
-            setValue && setValue(label, val)
+        if (input) {
+            input.value = '33'
         }
+
+        // console.log({input})
+        // const MAX_NUM_LENGTH = 13
+
+        // if (val.length <= MAX_NUM_LENGTH) {
+        //     console.log(val.length)
+        //     setPhone(val)
+
+        //     setValue && setValue(label, val)
+        // }
     }
 
     useEffect(() => {
