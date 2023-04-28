@@ -216,7 +216,7 @@ const TableData = () => {
             console.log(item, item[filterBy.toLowerCase()].toLowerCase())
 
             return item[filterBy.toLowerCase()].toLowerCase().includes(value.toLowerCase())
-        })
+        }).map(({id}) => id)
 
         setFetchedData((prev) => {
             return {
