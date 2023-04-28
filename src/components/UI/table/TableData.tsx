@@ -179,6 +179,7 @@ const TableData = () => {
         navigate(`${add_page_url}`)
     }
 
+    const searchFrom = {}
     const extract_date_to_searchFrom = () => {
         
     }
