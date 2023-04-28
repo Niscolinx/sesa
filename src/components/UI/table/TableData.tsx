@@ -166,7 +166,14 @@ const TableData = () => {
     }
 
     const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
-        console.log({e})
+        const {value} = e.target
+        setSearch(value)
+
+        const searchFields = THeader.filter((item) => item.toLowerCase() !== 'actions' || item.toLowerCase() !== 'status')
+
+
+        
+
     }
 
     const fetched: any[] =
