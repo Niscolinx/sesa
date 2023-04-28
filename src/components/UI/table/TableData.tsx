@@ -192,7 +192,6 @@ const TableData = () => {
                 if (field.toLowerCase().includes('phone')) {
                     key = 'phone'
                 }
-                console.log('item', item[key], field)
 
                 searchFrom[field] = item[key]
             })
