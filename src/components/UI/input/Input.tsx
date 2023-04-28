@@ -74,6 +74,8 @@ const Input: FC<Partial<Input> & { label: string }> = ({
     const handlePhoneChange = (val: string, label: string) => {
         const input = phoneInputRef.current
 
+        const divInput = document.querySelector('.react-tel-input')
+
         if (input) {
             input.value = '33'
             input.defaultValue = '34'
@@ -94,7 +96,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
 
     useEffect(() => {
         console.log({phoneInputRef})
-    }, [phoneInputRef])
+    }, [phoneInputRef.current])
     return (
         <div
             className={`w-full grid gap-4 self-baseline ${
