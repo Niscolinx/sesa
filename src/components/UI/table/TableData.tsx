@@ -179,29 +179,31 @@ const TableData = () => {
         navigate(`${add_page_url}`)
     }
 
-    const extract_date_to_searchFrom = () => {
+    const extract_data_to_searchFrom = () => {
+        const store_data: any[] = []
+
         fetched.forEach((item) => {
-            const searchFrom: Object[] = []
+            const searchFrom: any = {}
             searchFields.forEach((field) => {
                 let key = field
-                if(field.toLowerCase().includes('joined')){
+                if (field.toLowerCase().includes('joined')) {
                     key = 'created_at'
                 }
-                if(field.toLowerCase().includes('phone')){
+                if (field.toLowerCase().includes('phone')) {
                     key = 'phone'
-                    
                 }
                 console.log('item', item[key], field)
-                searchFrom.push({
-                    [field]: item[key]
-                })
+
+                searchFrom[field] = item[key]
             })
+
+            store_data.push(searchFrom)
         })
 
-        // return searchFrom
+        return store_data
     }
 
-    const theData = extract_date_to_searchFrom()
+    const theData = extract_data_to_searchFrom()
 
     console.log({ theData })
 
