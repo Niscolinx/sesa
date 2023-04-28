@@ -218,6 +218,8 @@ const TableData = () => {
             return item[filterBy.toLowerCase()].toLowerCase().includes(value.toLowerCase())
         })
 
+        setFetchedData(foundData)
+
         console.log({foundData})
     }
 
