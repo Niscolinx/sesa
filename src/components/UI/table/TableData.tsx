@@ -53,8 +53,12 @@ const TableData = () => {
                 item.toLowerCase() !== 'status'
         )
 
+        console.log({fields})
+
         setSearchFields(fields)
     }, [THeader])
+
+    console.log({searchFields})
 
     const fetchData = () => {
         return axiosInstance({
