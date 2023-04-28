@@ -184,11 +184,12 @@ const TableData = () => {
         console.log(res)
         console.log({filterBy})
         
-        const searchFrom = Object.entries(([key, value]: string) => {
-
+        const searchFrom = res.filter(([key, value]: string) => {
+            console.log({key, value})
             return {}
         })
      
+        console.log(searchFrom)
     }
 
     const fetched: any[] =
