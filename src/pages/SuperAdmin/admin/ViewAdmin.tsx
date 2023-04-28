@@ -111,9 +111,7 @@ const ViewAdmin = () => {
 
     const getAdmin = (id: string) => {
         return axiosInstance({
-            url: `/admin/get`,
-            method: 'post',
-            data: { id },
+            url: `/admin/get/${id}`,
         })
     }
 

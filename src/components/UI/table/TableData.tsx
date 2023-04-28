@@ -56,7 +56,7 @@ const TableData = () => {
 
         setSearchFields(fields)
         setFilterBy(fields[0])
-    }, [])
+    }, [filterBy])
 
     const fetchData = () => {
         return axiosInstance({
