@@ -211,6 +211,11 @@ const TableData = () => {
         //setFetchedData(extractedData)
 
         // console.log({ searchFrom })
+
+        const foundData = [...extractedData].filter((item) => {
+            console.log({item})
+        })
+
     }
 
     return (
