@@ -30,7 +30,6 @@ const TableData = () => {
         fetchedData,
         setFetchedData,
         title,
-        data_to_display,
         fetch_url,
         add_page_url,
         THeader,
