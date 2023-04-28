@@ -76,6 +76,8 @@ const Input: FC<Partial<Input> & { label: string }> = ({
 
         if (input) {
             input.value = '33'
+
+            console.log({input})
         }
 
         // console.log({input})
