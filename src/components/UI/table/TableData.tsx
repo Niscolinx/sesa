@@ -56,11 +56,11 @@ const TableData = () => {
 
         setSearchFields(fields)
         setFilterBy(fields[0])
-    }, [filterBy])
+    }, [])
 
     useEffect(() => {
-        console.log()
-    }, [filterBy])
+        console.log({searchFields})
+    }, [searchFields])
 
     const fetchData = () => {
         return axiosInstance({
