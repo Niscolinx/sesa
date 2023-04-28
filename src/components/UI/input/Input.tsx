@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react'
+import { FC, useEffect, useRef, useState } from 'react'
 import { MultipleSelect, Select } from '../../SuperAdmin/UI/Select'
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai'
 import { UseFormRegister, UseFormSetValue } from 'react-hook-form'
@@ -69,13 +69,14 @@ const Input: FC<Partial<Input> & { label: string }> = ({
     const [eyeIcon, setEyeIcon] = useState(false)
     const toggleEyeIcon = () => setEyeIcon(!eyeIcon)
     const [phone, setPhone] = useState('')
+    const phoneInputRef = useRef<HTMLInputElement | null>(null)
 
     const handlePhoneChange = (val: string, label: string) => {
-        const input: HTMLInputElement | null =
-            document.querySelector('.input-validate')
+        const input = phoneInputRef.current
 
         if (input) {
             input.value = '33'
+            input.defaultValue = '34'
 
             console.log({input})
         }
@@ -92,8 +93,8 @@ const Input: FC<Partial<Input> & { label: string }> = ({
     }
 
     useEffect(() => {
-        console.log({ phone })
-    }, [phone])
+        console.log({phoneInputRef})
+    }, [phoneInputRef])
     return (
         <div
             className={`w-full grid gap-4 self-baseline ${
@@ -202,6 +203,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                                     onChange={(val) =>
                                         handlePhoneChange(val, label)
                                     }
+                                    inputProps={{ref: phoneInputRef}}
                                     containerClass='w-full'
                                     placeholder='+234 xxx-xxx-xxxx'
                                     inputClass={`w-full border-none outline-none disabled:opacity-50 disabled:cursor-not-allowed p-4 pl-0 input-validate ${
