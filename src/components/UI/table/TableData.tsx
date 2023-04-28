@@ -182,22 +182,13 @@ const TableData = () => {
         const res: Record<string, string>[] =
             get_data_response.data.data || get_data_response.data
 
-        const extractDataToSearch = res.reduce(
-            (acc: Record<string, string>, item: any) => {
-                console.log(item)
-                const keys = Object.keys(item)
+        const extractDataToSearch = {}
 
-                
+        for( let item of res){
+            console.log({item})
+        }
 
-                if (searchFields.includes(Object.keys(item))) {
-                    acc[key] = value
-                }
-                return acc
-            },
-            {}
-        )
-
-        console.log({ extractDataToSearch })
+       // console.log({ extractDataToSearch })
 
         const searchFrom = res.filter((item: Record<string, string>) => {
             Object.keys(item).filter((key) => {
