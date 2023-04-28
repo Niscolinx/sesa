@@ -44,6 +44,17 @@ const TableData = () => {
         index: null,
     })
     const [search, setSearch] = useState('')
+    const [searchFields, setSearchFields] = useState<string[]>([])
+
+    useEffect(() => {
+        const fields = THeader.filter(
+            (item) =>
+                item.toLowerCase() !== 'actions' ||
+                item.toLowerCase() !== 'status'
+        )
+
+        setSearchFields(fields)
+    }, [])
 
     const fetchData = () => {
         return axiosInstance({
@@ -166,14 +177,8 @@ const TableData = () => {
     }
 
     const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
-        const {value} = e.target
+        const { value } = e.target
         setSearch(value)
-
-        const searchFields = THeader.filter((item) => item.toLowerCase() !== 'actions' || item.toLowerCase() !== 'status')
-
-
-        
-
     }
 
     const fetched: any[] =
