@@ -210,6 +210,8 @@ const TableData = () => {
         setSearch(value)
 
         const foundData = extractedData.filter((item) => {
+            console.log(item[filterBy.toLowerCase()])
+            console.log(item[filterBy.toLowerCase()].toLowerCase(), value.toLowerCase())
             return item[filterBy.toLowerCase()]
                 .toLowerCase()
                 .includes(value.toLowerCase())
