@@ -58,6 +58,10 @@ const TableData = () => {
         setFilterBy(fields[0])
     }, [filterBy])
 
+    useEffect(() => {
+        console.log()
+    }, [filterBy])
+
     const fetchData = () => {
         return axiosInstance({
             url: fetch_url,
@@ -94,7 +98,7 @@ const TableData = () => {
                     searchFrom[field] = item[key]
                 })
 
-                store_data.push({ ...searchFrom, ...item})
+                store_data.push({ ...searchFrom, ...item })
             })
 
             setExtractedData(store_data)
@@ -206,21 +210,11 @@ const TableData = () => {
         const { value } = e.target
         setSearch(value)
 
-        console.log({ extractedData, filterBy, fetchedData })
-
-        //setFetchedData(extractedData)
-
-        // console.log({ searchFrom })
-
         const foundData = extractedData.filter((item) => {
-            console.log(item, item[filterBy.toLowerCase()].toLowerCase())
-
             return item[filterBy.toLowerCase()]
                 .toLowerCase()
                 .includes(value.toLowerCase())
         })
-
-        console.log({ foundData })
 
         setFetchedData(foundData)
     }
