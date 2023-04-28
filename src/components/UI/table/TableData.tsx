@@ -184,6 +184,8 @@ const TableData = () => {
 
         fetched.forEach((item) => {
             console.log({item})
+
+            const {} = item
             searchFields.forEach((field) => {
                 
             })
