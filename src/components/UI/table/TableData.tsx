@@ -94,25 +94,12 @@ const TableData = () => {
                     searchFrom[field] = item[key]
                 })
 
-                store_data.push({...searchFrom, id: item.id})
+                store_data.push({ ...searchFrom, id: item.id })
             })
 
             setExtractedData(store_data)
         }
     }, [get_data_response])
-
-     const handleSearch = 
-         (e: ChangeEvent<HTMLInputElement>) => {
-             const { value } = e.target
-             setSearch(value)
-
-             console.log({ extractedData, filterBy, fetchedData })
-
-             //setFetchedData(extractedData)
-
-             // console.log({ searchFrom })
-         }
-     
 
     useEffect(() => {
         const slicedPages: any[][] = []
@@ -215,7 +202,16 @@ const TableData = () => {
         navigate(`${add_page_url}`)
     }
 
-   
+    const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
+        const { value } = e.target
+        setSearch(value)
+
+        console.log({ extractedData, filterBy, fetchedData })
+
+        //setFetchedData(extractedData)
+
+        // console.log({ searchFrom })
+    }
 
     return (
         <div>
