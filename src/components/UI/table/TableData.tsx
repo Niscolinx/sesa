@@ -179,6 +179,10 @@ const TableData = () => {
         navigate(`${add_page_url}`)
     }
 
+    const extract_date_to_searchFrom = () => {
+        
+    }
+
     const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
         const { value } = e.target
         setSearch(value)
