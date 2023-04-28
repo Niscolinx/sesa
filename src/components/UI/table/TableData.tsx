@@ -193,7 +193,7 @@ const TableData = () => {
                     
                 }
             })
-            console.log('item', item[key], field)
+            console.log('item', item[key], key)
 
             // searchFrom.push({
             //     [field]: item[key]
