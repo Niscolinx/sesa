@@ -54,7 +54,7 @@ const TableData = () => {
         )
 
         setSearchFields(fields)
-    }, [])
+    }, [THeader])
 
     const fetchData = () => {
         return axiosInstance({
@@ -214,9 +214,9 @@ const TableData = () => {
                                     </div>
                                     <div className='w-max grid self-baseline '>
                                         <Select
-                                            state={THeader}
+                                            state={searchFields}
                                             selectedState={filterBy}
-                                            placeholder={THeader.find(Boolean)}
+                                            placeholder={searchFields.find(Boolean)}
                                             setSelectedState={setFilterBy}
                                         />
                                     </div>
