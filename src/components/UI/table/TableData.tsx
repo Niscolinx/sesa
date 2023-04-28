@@ -47,7 +47,7 @@ const TableData = () => {
     const [searchFields, setSearchFields] = useState<string[]>([])
 
     useEffect(() => {
-        const fields = THeader.filter(
+        const fields = [...THeader].filter(
             (item) =>
                 item.toLowerCase() !== 'actions' ||
                 item.toLowerCase() !== 'status'
