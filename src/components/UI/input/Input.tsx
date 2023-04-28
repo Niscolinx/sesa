@@ -74,7 +74,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
         console.log({ e })
 
         setPhone(e)
-        
+
         setValue && setValue(label, e)
     }
     return (
@@ -182,7 +182,9 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                                     specialLabel={''}
                                     country={'ng'}
                                     value={phone}
-                                    onChange={(e) => handlePhoneChange(e, label)}
+                                    onChange={(e) =>
+                                        handlePhoneChange(e, label)
+                                    }
                                     placeholder='+234 xxx-xxx-xxxx'
                                     inputClass={`w-full border-none outline-none disabled:opacity-50 disabled:cursor-not-allowed p-4 pl-0 ${
                                         formErrors &&
