@@ -184,9 +184,9 @@ const TableData = () => {
 
         const extractDataToSearch = res.reduce(
             (acc: Record<string, string>, item: any) => {
+                console.log(item)
                 const [key, value] = item
 
-                console.log(key, value)
                 if (searchFields.includes(key)) {
                     acc[key] = value
                 }
@@ -215,7 +215,7 @@ const TableData = () => {
             })
         })
 
-        console.log({ searchFrom })
+       // console.log({ searchFrom })
     }
 
     const fetched: any[] =
