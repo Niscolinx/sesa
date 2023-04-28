@@ -59,9 +59,7 @@ const TableData = () => {
         setFilterBy(fields[0])
     }, [])
 
-    useEffect(() => {
-        console.log({searchFields})
-    }, [searchFields])
+ 
 
     const fetchData = () => {
         return axiosInstance({
@@ -220,7 +218,6 @@ const TableData = () => {
         setFetchedData(foundData)
     }
 
-    console.log({searchFields})
 
     return (
         <div>
