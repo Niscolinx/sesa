@@ -25,8 +25,8 @@ const TableData = () => {
     const {
         navigate,
         axiosInstance,
-        sortBy,
-        setSortBy,
+        filterBy,
+        setFilterBy,
         fetchedData,
         setFetchedData,
         title,
@@ -167,7 +167,7 @@ const TableData = () => {
 
     const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
 
-        
+
 
     }
 
@@ -203,9 +203,9 @@ const TableData = () => {
                                     <div className='w-max grid self-baseline '>
                                         <Select
                                             state={THeader}
-                                            selectedState={sortBy}
+                                            selectedState={filterBy}
                                             placeholder={THeader.find(Boolean)}
-                                            setSelectedState={setSortBy}
+                                            setSelectedState={setFilterBy}
                                         />
                                     </div>
                                     {is_add_btn && (

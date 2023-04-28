@@ -28,8 +28,8 @@ interface Table {
 interface ICreateTableContext extends Table {
     navigate: NavigateFunction
     axiosInstance: AxiosInstance
-    sortBy: string
-    setSortBy: Dispatch<SetStateAction<string>>
+    filterBy: string
+    setFilterBy: Dispatch<SetStateAction<string>>
     fetchedId: number
     setFetchedId: Dispatch<SetStateAction<number>>
     isDialogOpen?: { isOpen: boolean; type?: string }
@@ -70,7 +70,7 @@ const Table = ({
     const navigate = useNavigate()
     const axiosInstance = useAxios()
 
-    const [sortBy, setSortBy] = useState<string>('')
+    const [filterBy, setFilterBy] = useState<string>('')
     const [fetchedId, setFetchedId] = useState<number>(null as any)
     const [fetchedData, setFetchedData] = useState<any[]>([])
     const [isDialogOpen, setIsDialogOpen] = useState<{
@@ -85,8 +85,8 @@ const Table = ({
             value={{
                 axiosInstance,
                 navigate,
-                sortBy,
-                setSortBy,
+                filterBy,
+                setFilterBy,
                 fetchedId,
                 is_checkbox,
                 setFetchedId,
