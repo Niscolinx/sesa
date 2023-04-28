@@ -196,7 +196,7 @@ const TableData = () => {
                                         <Select
                                             state={THeader}
                                             selectedState={sortBy}
-                                            placeholder={'A-Z'}
+                                            placeholder={THeader.find(Boolean)}
                                             setSelectedState={setSortBy}
                                         />
                                     </div>
