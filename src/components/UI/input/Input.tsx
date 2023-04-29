@@ -72,10 +72,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
     const phoneInputRef = useRef<HTMLInputElement | null>(null)
 
     const handlePhoneChange = (val: string, label: string) => {
-        const input = phoneInputRef.current
-
-
-        console.log({input})
+    
         const MAX_NUM_LENGTH = 13
 
         if (val.length <= MAX_NUM_LENGTH) {
