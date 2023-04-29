@@ -74,31 +74,16 @@ const Input: FC<Partial<Input> & { label: string }> = ({
     const handlePhoneChange = (val: string, label: string) => {
         const input = phoneInputRef.current
 
-        const divInput = document.querySelector('.react-tel-input')
 
-        console.log({divInput})
+        console.log({input})
+        const MAX_NUM_LENGTH = 13
 
-        if(divInput){
+        if (val.length <= MAX_NUM_LENGTH) {
+            console.log(val.length)
+            setPhone(val)
 
-            divInput.firstChild
+            setValue && setValue(label, val)
         }
-
-        if (input) {
-            input.value = '33'
-            input.defaultValue = '34'
-
-            console.log({input})
-        }
-
-        // console.log({input})
-        // const MAX_NUM_LENGTH = 13
-
-        // if (val.length <= MAX_NUM_LENGTH) {
-        //     console.log(val.length)
-        //     setPhone(val)
-
-        //     setValue && setValue(label, val)
-        // }
     }
 
     useEffect(() => {
@@ -212,7 +197,6 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                                     onChange={(val) =>
                                         handlePhoneChange(val, label)
                                     }
-                                    inputProps={{ref: phoneInputRef}}
                                     containerClass='w-full'
                                     placeholder='+234 xxx-xxx-xxxx'
                                     inputClass={`w-full border-none outline-none disabled:opacity-50 disabled:cursor-not-allowed p-4 pl-0 input-validate ${
