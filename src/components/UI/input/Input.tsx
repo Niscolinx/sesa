@@ -2,7 +2,7 @@ import { ChangeEvent, FC, useEffect, useRef, useState } from 'react'
 import { MultipleSelect, Select } from '../../SuperAdmin/UI/Select'
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai'
 import { UseFormRegister, UseFormSetValue } from 'react-hook-form'
-// import PhoneInput from 'react-phone-input-2'
+import PhoneInput from 'react-phone-input-2'
 
 export interface SelectProps {
     isMulti?: boolean
@@ -73,7 +73,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
 
     const handlePhoneChange = (e: ChangeEvent<HTMLInputElement>) => {
         const MAX_NUM_LENGTH = 13
-        const {value} = e.target
+        const { value } = e.target
 
         if (value.length <= MAX_NUM_LENGTH) {
             console.log(value.length)
@@ -187,20 +187,24 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                                     }`}
                                 />
                             ) : label.toLowerCase().includes('phone') ? (
-                           
-                                    <input
-                                        id={label}
-                                        disabled={disabled}
-                                        type={type}
-                                        value={value}
-                                        onChange={handlePhoneChange}
-                                        className={` w-full border-none outline-none disabled:opacity-50 disabled:cursor-not-allowed p-4 pl-0 ${
-                                            formErrors &&
-                                            formErrors[label] &&
-                                            'border-red-500 '
-                                        }`}
-                                    />
-                     
+                                // <input
+                                //     id={label}
+                                //     disabled={disabled}
+                                //     type={type}
+                                //     value={phone}
+                                //     onChange={handlePhoneChange}
+                                //     className={` w-full border-none outline-none disabled:opacity-50 disabled:cursor-not-allowed p-4 pl-0 ${
+                                //         formErrors &&
+                                //         formErrors[label] &&
+                                //         'border-red-500 '
+                                //     }`}
+                                // />
+
+                                <PhoneInput
+                                    type={type}
+                                    value={phone}
+                                    onChange={handlePhoneChange}
+                                />
                             ) : (
                                 <input
                                     id={label}
