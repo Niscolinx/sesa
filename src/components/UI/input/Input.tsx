@@ -86,10 +86,10 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                 return setValue('phone_number', '')
             }
 
-            if (value.length <= 10) {
-                setError('username', {
+            if (value.length > 1 && value.length <= 10) {
+                setError('phone_number', {
                     type: 'manual',
-                    message: 'Username must be at least 6 characters long',
+                    message: 'Phone number must be 10 characters long',
                 })
             }
             setValue('phone_number', value)
