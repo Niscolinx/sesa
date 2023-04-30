@@ -84,7 +84,7 @@ const AddAdmin = () => {
 
         console.log({ data })
 
-        if (phone_number.length <= 10) {
+        if (phone_number.length <= 9) {
             console.log({ phone_number }, phone_number.length)
             return setError('phone_number', {
                 type: 'manual',
