@@ -71,9 +71,9 @@ const Input: FC<Partial<Input> & { label: string }> = ({
     const [phone, setPhone] = useState('')
     const phoneInputRef = useRef<HTMLInputElement | null>(null)
 
-    const handlePhoneChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const handlePhoneChange = (value: string) => {
         const MAX_NUM_LENGTH = 13
-        const { value } = e.target
+       // const { value } = e.target
 
         if (value.length <= MAX_NUM_LENGTH) {
             console.log(value.length)
