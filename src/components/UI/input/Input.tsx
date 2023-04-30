@@ -75,7 +75,14 @@ const Input: FC<Partial<Input> & { label: string }> = ({
         const value = e.target.value.replace(/\D/g, '')
 
         console.log({ value })
-        setPhone(value)
+
+        if(value.length <= 1 && value === '0'){
+
+            setPhone('')
+        }
+        else{
+            setPhone(value)
+        }
     }
 
     return (
@@ -189,9 +196,9 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                                         id={label}
                                         disabled={disabled}
                                         type={'tel'}
-                                        minLength={9}
+                                        minLength={10}
                                         inputMode='numeric'
-                                        maxLength={13}
+                                        maxLength={10}
                                         value={phone}
                                         onChange={handlePhoneChange}
                                         className={` w-full border-none outline-none disabled:opacity-50 disabled:cursor-not-allowed p-4 pl-0 ${
