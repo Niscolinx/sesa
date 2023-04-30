@@ -73,13 +73,11 @@ const Input: FC<Partial<Input> & { label: string }> = ({
     const handlePhoneChange = (e: ChangeEvent<HTMLInputElement>) => {
         const MAX_NUM_LENGTH = 13
         //const value  = e.target.value
-         const value  = e.target.value.replace(/\D/g, '') 
-        
-        setPhone([...value])
-        if (value.length <= MAX_NUM_LENGTH) {
-        }
-    }
+        const value = e.target.value.replace(/\D/g, '')
 
+        console.log({ value })
+        setPhone(value)
+    }
 
     return (
         <div
@@ -182,20 +180,27 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                                     }`}
                                 />
                             ) : label.toLowerCase().includes('phone') ? (
-                                <input
-                                    id={label}
-                                    disabled={disabled}
-                                    type={'tel'}
-                                    minLength={9}
-                                    maxLength={13}
-                                    value={phone}
-                                    onChange={handlePhoneChange}
-                                    className={` w-full border-none outline-none disabled:opacity-50 disabled:cursor-not-allowed p-4 pl-0 ${
-                                        formErrors &&
-                                        formErrors[label] &&
-                                        'border-red-500 '
-                                    }`}
-                                />
+                                <div className='relative flex items-center'>
+                                    <input
+                                        type='text'
+                                        value={'+234'}
+                                        className='absolute left-0'
+                                    />
+                                    <input
+                                        id={label}
+                                        disabled={disabled}
+                                        type={'tel'}
+                                        minLength={9}
+                                        maxLength={13}
+                                        value={phone}
+                                        onChange={handlePhoneChange}
+                                        className={` w-full border-none outline-none disabled:opacity-50 disabled:cursor-not-allowed p-4 pl-0 ${
+                                            formErrors &&
+                                            formErrors[label] &&
+                                            'border-red-500 '
+                                        }`}
+                                    />
+                                </div>
                             ) : (
                                 <input
                                     id={label}
