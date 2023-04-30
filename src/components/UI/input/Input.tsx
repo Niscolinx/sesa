@@ -185,7 +185,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                                 <input
                                     id={label}
                                     disabled={disabled}
-                                    type={'tel'}
+                                    type={'number'}
                                     size={10}
                                     minLength={9}
                                     maxLength={13}
