@@ -144,8 +144,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                                 id={label}
                                 disabled={disabled}
                                 value={value}
-                                {...(register &&
-                                    register(label, validationOptions))}
+                               onChange={handleChange}
                             />
                             <span className='absolute right-2 cursor-pointer'>
                                 {eyeIcon ? (
