@@ -78,21 +78,23 @@ const Input: FC<Partial<Input> & { label: string }> = ({
 
     const [eyeIcon, setEyeIcon] = useState(false)
     const toggleEyeIcon = () => setEyeIcon(!eyeIcon)
+    const [phone, setPhone] = useState('')
 
     const handlePhoneChange = (e: ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value.replace(/\D/g, '')
         if (setValue && setError) {
             if (value.length <= 1 && value === '0') {
-                return setValue('phone_number', '')
+               
+                return setPhone('')
             }
 
-            if (value.length > 1 && value.length <= 10) {
-                setError('phone_number', {
-                    type: 'manual',
-                    message: 'Phone number must be 10 characters long',
-                })
-            }
-            setValue('phone_number', value)
+            // if (value.length > 1 && value.length < 10) {
+            //     setError('phone_number', {
+            //         type: 'manual',
+            //         message: 'Phone number must be 10 characters long',
+            //     })
+            //     setValue('phone_number', value)
+            // }
         }
     }
 
@@ -210,7 +212,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                                         minLength={10}
                                         inputMode='numeric'
                                         maxLength={10}
-                                        value={value}
+                                        value={value || phone}
                                         onChange={handlePhoneChange}
                                         className={` w-full border-none outline-none disabled:opacity-50 disabled:cursor-not-allowed p-4 pl-0 ${
                                             formErrors &&
