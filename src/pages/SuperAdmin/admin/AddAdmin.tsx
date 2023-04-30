@@ -40,6 +40,8 @@ const AddAdmin = () => {
         const file: File = (target.files as FileList)[0]
         const preview = URL.createObjectURL(file)
         setPhotoPreview(preview)
+
+        console.log(file.size)
         setImageFile(file)
     }
 
