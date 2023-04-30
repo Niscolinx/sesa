@@ -49,6 +49,7 @@ const AddAdmin = () => {
         setValue,
         watch,
         setError,
+        clearErrors,
         formState: { errors: formErrors },
     } = useForm<Inputs>()
 
@@ -80,8 +81,16 @@ const AddAdmin = () => {
     const onSubmit = handleSubmit((data) => {
         const { first_name, last_name, dob, email_address, phone_number } = data
 
-        console.log(data)
+        console.log({data})
 
+        if (phone_number.length <= 10) {
+           return  setError('phone_number', {
+                type: 'manual',
+                message: 'Must be 10 characters',
+            })
+        }
+
+        clearErrors('phone_number')
         const adminData = {
             name: `${first_name} ${last_name}`,
             gender: selectedGender,
@@ -135,7 +144,7 @@ const AddAdmin = () => {
         },
         {
             label: 'phone_number',
-            type: 'tel'
+            type: 'tel',
         },
         {
             label: 'email_address',
@@ -195,7 +204,6 @@ const AddAdmin = () => {
                                     formErrors={formErrors}
                                     type={type}
                                     name={name}
-                                    setError={setError}
                                     setValue={setValue}
                                     isSelect={type === 'select'}
                                     select={selectProps}

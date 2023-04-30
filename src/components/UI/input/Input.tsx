@@ -82,7 +82,6 @@ const Input: FC<Partial<Input> & { label: string }> = ({
         const value = e.target.value.replace(/\D/g, '')
         if (setValue) {
             if (value.length <= 1 && value === '0') {
-                console.log('dont accept')
                 return setPhone('')
             }
 
@@ -195,7 +194,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                                     }`}
                                 />
                             ) : label.toLowerCase().includes('phone') ? (
-                                <div className='relative flex items-center'>
+                                <div className='relative flex items-center w-full'>
                                     <input
                                         type='text'
                                         value={'+234'}
@@ -205,7 +204,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                                         id={label}
                                         disabled={disabled}
                                         type={type}
-                                        minLength={10}
+                                      
                                         inputMode='numeric'
                                         maxLength={10}
                                         value={value || phone}
