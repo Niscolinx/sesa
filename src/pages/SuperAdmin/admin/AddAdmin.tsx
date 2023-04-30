@@ -53,7 +53,7 @@ const AddAdmin = () => {
     } = useForm<Inputs>()
 
     useEffect(() => {
-        console.log({formErrors})
+        console.log({ formErrors })
     }, [formErrors])
 
     const [responseMessage, setResponseMessage] =
@@ -84,17 +84,15 @@ const AddAdmin = () => {
 
         console.log({ data })
 
-        console.log({ phone_number }, phone_number.length, 'phone number')
-        if ( phone_number.length <= 9) {
+        if (!phone_number || phone_number.length <= 9) {
             return setError('phone_number', {
                 type: 'manual',
                 message: 'Must be 10 characters',
             })
         }
 
-        console.log('clear errors', { phone_number }, phone_number.length)
-
         clearErrors('phone_number')
+
         const adminData = {
             name: `${first_name} ${last_name}`,
             gender: selectedGender,
