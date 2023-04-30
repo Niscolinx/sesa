@@ -89,7 +89,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
             }
 
             console.log('accept')
-            if (value.length > 1 && value.length < 10) {
+            if (value.length < 10) {
                 setPhone(value)
                 // setError('phone_number', {
                 //     type: 'manual',
