@@ -187,7 +187,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                                     id={label}
                                     disabled={disabled}
                                     type={'text'}
-                                    value={'+234' + phone}
+                                    value={phone}
                                     onChange={handlePhoneChange}
                                     className={` w-full border-none outline-none disabled:opacity-50 disabled:cursor-not-allowed p-4 pl-0 ${
                                         formErrors &&
