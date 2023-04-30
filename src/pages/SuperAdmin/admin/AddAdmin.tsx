@@ -40,10 +40,6 @@ const AddAdmin = () => {
         const file: File = (target.files as FileList)[0]
         const preview = URL.createObjectURL(file)
         setPhotoPreview(preview)
-
-
-        
-
         setImageFile(file)
     }
 
@@ -55,8 +51,6 @@ const AddAdmin = () => {
         clearErrors,
         formState: { errors: formErrors },
     } = useForm<Inputs>()
-
-  
 
     const [responseMessage, setResponseMessage] =
         useState<ResponseMessage | null>(null)
@@ -93,6 +87,22 @@ const AddAdmin = () => {
 
         clearErrors('phone_number')
 
+        if (imageFile) {
+            const size = imageFile.size / 1000
+
+            const KBSize = size.toString().split('.')[0]
+
+            if (KBSize.length > 3) {
+                const MBSize = Number(KBSize) / 1000
+              return  MBSize > 2
+                    ? setResponseMessage({
+                          className: 'text-red-600',
+                          displayMessage: 'File size must not exceed 2MB',
+                      })
+                    : null
+            }
+        }
+
         const adminData = {
             name: `${first_name} ${last_name}`,
             gender: selectedGender,
@@ -105,7 +115,7 @@ const AddAdmin = () => {
 
         console.log({ adminData })
 
-       // mutate(adminData)
+        // mutate(adminData)
     })
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
