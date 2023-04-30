@@ -71,16 +71,13 @@ const Input: FC<Partial<Input> & { label: string }> = ({
     const [phone, setPhone] = useState('')
 
     const handlePhoneChange = (e: ChangeEvent<HTMLInputElement>) => {
-        
         const value = e.target.value.replace(/\D/g, '')
 
         console.log({ value })
 
-        if(value.length <= 1 && value === '0'){
-
+        if (value.length <= 1 && value === '0') {
             setPhone('')
-        }
-        else{
+        } else {
             setPhone(value)
         }
     }
