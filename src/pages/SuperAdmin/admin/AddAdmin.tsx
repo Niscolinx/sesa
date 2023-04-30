@@ -103,7 +103,7 @@ const AddAdmin = () => {
 
         console.log({ adminData })
 
-        //mutate(adminData)
+        mutate(adminData)
     })
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
