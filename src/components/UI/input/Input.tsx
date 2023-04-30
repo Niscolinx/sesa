@@ -73,19 +73,24 @@ const Input: FC<Partial<Input> & { label: string }> = ({
 
     const handlePhoneChange = (e: ChangeEvent<HTMLInputElement>) => {
         const MAX_NUM_LENGTH = 13
-        const {value} = e.target
+        const { value } = e.target
 
+        const inputNumber = e.target.value.replace(/\D/g, '') // remove non-digit characters from the input
         if (value.length <= MAX_NUM_LENGTH) {
-            console.log(value.length)
-            setPhone(value)
-
-            setValue && setValue(label, value)
+            const regex = /^0(\d{10})$/
+            const match = regex.exec(inputNumber)
+            if (match) {
+                const formatted = `+234 ${match[1].substring(
+                    0,
+                    3
+                )} ${match[1].substring(3, 6)} ${match[1].substring(6)}`
+                setPhone(formatted)
+                setValue && setValue(label, formatted)
+            }
         }
     }
 
-    useEffect(() => {
-        console.log({ phoneInputRef })
-    }, [phoneInputRef.current])
+
     return (
         <div
             className={`w-full grid gap-4 self-baseline ${
@@ -187,20 +192,18 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                                     }`}
                                 />
                             ) : label.toLowerCase().includes('phone') ? (
-                           
-                                    <input
-                                        id={label}
-                                        disabled={disabled}
-                                        type={type}
-                                        value={phone}
-                                        onChange={handlePhoneChange}
-                                        className={` w-full border-none outline-none disabled:opacity-50 disabled:cursor-not-allowed p-4 pl-0 ${
-                                            formErrors &&
-                                            formErrors[label] &&
-                                            'border-red-500 '
-                                        }`}
-                                    />
-                     
+                                <input
+                                    id={label}
+                                    disabled={disabled}
+                                    type={type}
+                                    value={phone}
+                                    onChange={handlePhoneChange}
+                                    className={` w-full border-none outline-none disabled:opacity-50 disabled:cursor-not-allowed p-4 pl-0 ${
+                                        formErrors &&
+                                        formErrors[label] &&
+                                        'border-red-500 '
+                                    }`}
+                                />
                             ) : (
                                 <input
                                     id={label}
