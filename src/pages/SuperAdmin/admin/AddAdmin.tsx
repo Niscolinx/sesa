@@ -97,7 +97,7 @@ const AddAdmin = () => {
                 return MBSize > 2 &&
                     setResponseMessage({
                           className: 'text-red-600',
-                          displayMessage: 'File size must not exceed 2MB',
+                          displayMessage: 'File size must less than 2MB',
                       })
                   
             }
@@ -117,7 +117,7 @@ const AddAdmin = () => {
 
         console.log({ adminData })
 
-        // mutate(adminData)
+         mutate(adminData)
     })
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
