@@ -144,7 +144,8 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                                 id={label}
                                 disabled={disabled}
                                 value={value}
-                               onChange={handlePhoneChange}
+                                {...(register &&
+                                    register(label, validationOptions))}
                             />
                             <span className='absolute right-2 cursor-pointer'>
                                 {eyeIcon ? (
@@ -185,19 +186,20 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                                     }`}
                                 />
                             ) : label.toLowerCase().includes('phone') ? (
-                                <input
-                                    id={label}
-                                    disabled={disabled}
-                                    type={type}
-                                    value={value}
-                                    {...(register &&
-                                        register(label, validationOptions))}
-                                    className={` w-full border-none outline-none disabled:opacity-50 disabled:cursor-not-allowed p-4 pl-0 ${
-                                        formErrors &&
-                                        formErrors[label] &&
-                                        'border-red-500 '
-                                    }`}
-                                />
+                           
+                                    <input
+                                        id={label}
+                                        disabled={disabled}
+                                        type={type}
+                                        value={value}
+                                        onChange={handlePhoneChange}
+                                        className={` w-full border-none outline-none disabled:opacity-50 disabled:cursor-not-allowed p-4 pl-0 ${
+                                            formErrors &&
+                                            formErrors[label] &&
+                                            'border-red-500 '
+                                        }`}
+                                    />
+                     
                             ) : (
                                 <input
                                     id={label}
