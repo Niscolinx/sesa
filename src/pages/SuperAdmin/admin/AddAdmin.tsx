@@ -53,8 +53,6 @@ const AddAdmin = () => {
         formState: { errors: formErrors },
     } = useForm<Inputs>()
 
-    watch((input) => console.log({ input }))
-
     const [responseMessage, setResponseMessage] =
         useState<ResponseMessage | null>(null)
 
@@ -81,14 +79,17 @@ const AddAdmin = () => {
     const onSubmit = handleSubmit((data) => {
         const { first_name, last_name, dob, email_address, phone_number } = data
 
-        console.log({data})
+        console.log({ data })
 
         if (phone_number.length <= 10) {
-           return  setError('phone_number', {
+            console.log({ phone_number }, phone_number.length)
+            return setError('phone_number', {
                 type: 'manual',
                 message: 'Must be 10 characters',
             })
         }
+
+        console.log('clear errors', { phone_number }, phone_number.length)
 
         clearErrors('phone_number')
         const adminData = {
