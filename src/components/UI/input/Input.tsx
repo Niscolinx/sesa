@@ -80,7 +80,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
     const handlePhoneChange = (e: ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value.replace(/\D/g, '')
         if (setValue && clearErrors) {
-            clearErrors('clearErrors')
+            clearErrors('phone_number')
 
             if (value.length <= 1 && value === '0') {
                 return setPhone('')
@@ -250,7 +250,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                     {formErrors[label].type === 'required' ? (
                         <span>Field cannot be empty</span>
                     ) : (
-                        <span>Invalid {label}</span>
+                        <span>Invalid {label.replaceAll('_', ' ')}</span>
                     )}
                 </p>
             )}
