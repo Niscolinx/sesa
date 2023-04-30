@@ -134,6 +134,7 @@ const AddAdmin = () => {
         },
         {
             label: 'phone_number',
+            type: 'tel'
         },
         {
             label: 'email_address',

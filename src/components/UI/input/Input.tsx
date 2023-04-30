@@ -59,7 +59,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
            
         ],
         [
-            'email',
+            'phone_number',
             /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
            
         ],
@@ -83,6 +83,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
             setPhone('')
         } else {
             setPhone(value)
+            setValue('phone_number', value)
         }
     }
 
@@ -196,12 +197,13 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                                     <input
                                         id={label}
                                         disabled={disabled}
-                                        type={'tel'}
+                                        type={type}
                                         minLength={10}
                                         inputMode='numeric'
                                         maxLength={10}
-                                        value={phone}
-                                        onChange={handlePhoneChange}
+                                        value={value}
+                                        {...(register &&
+                                            register(label, validationOptions))}
                                         className={` w-full border-none outline-none disabled:opacity-50 disabled:cursor-not-allowed p-4 pl-0 ${
                                             formErrors &&
                                             formErrors[label] &&
