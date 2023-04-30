@@ -2,6 +2,7 @@ import { ChangeEvent, FC, useEffect, useRef, useState } from 'react'
 import { MultipleSelect, Select } from '../../SuperAdmin/UI/Select'
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai'
 import {
+    UseFormClearErrors,
     UseFormRegister,
     UseFormSetError,
     UseFormSetValue,
@@ -29,6 +30,7 @@ interface Input {
     id?: number
     setValue?: UseFormSetValue<any>
     required?: boolean
+    clearErrors?: UseFormClearErrors<any>
     pre?: string
     minLength?: number
     fullWidth: boolean
@@ -47,6 +49,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
     pre,
     fullWidth,
     disabled,
+    clearErrors,
     tag,
     id,
     select,
@@ -80,11 +83,12 @@ const Input: FC<Partial<Input> & { label: string }> = ({
 
     const handlePhoneChange = (e: ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value.replace(/\D/g, '')
-        if (setValue) {
+        if (setValue && clearErrors) {
+            clearErrors('clearErrors')
+
             if (value.length <= 1 && value === '0') {
                 return setPhone('')
             }
-
 
             if (value.length < 11) {
                 setValue('phone_number', value)
@@ -204,7 +208,6 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                                         id={label}
                                         disabled={disabled}
                                         type={type}
-                                      
                                         inputMode='numeric'
                                         maxLength={10}
                                         value={value || phone}

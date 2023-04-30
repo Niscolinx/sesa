@@ -47,11 +47,14 @@ const AddAdmin = () => {
         register,
         handleSubmit,
         setValue,
-        watch,
         setError,
         clearErrors,
         formState: { errors: formErrors },
     } = useForm<Inputs>()
+
+    useEffect(() => {
+        console.log({formErrors})
+    }, [formErrors])
 
     const [responseMessage, setResponseMessage] =
         useState<ResponseMessage | null>(null)
@@ -204,6 +207,7 @@ const AddAdmin = () => {
                                     register={register}
                                     formErrors={formErrors}
                                     type={type}
+                                    clearErrors={clearErrors}
                                     name={name}
                                     setValue={setValue}
                                     isSelect={type === 'select'}
