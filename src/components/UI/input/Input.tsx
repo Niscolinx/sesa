@@ -191,6 +191,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                                         disabled={disabled}
                                         type={'tel'}
                                         minLength={9}
+                                        inputMode='numeric'
                                         maxLength={13}
                                         value={phone}
                                         onChange={handlePhoneChange}
