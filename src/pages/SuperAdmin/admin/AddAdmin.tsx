@@ -82,8 +82,6 @@ const AddAdmin = () => {
     const onSubmit = handleSubmit((data) => {
         const { first_name, last_name, dob, email_address, phone_number } = data
 
-        console.log({ data })
-
         if (!phone_number || phone_number.length <= 9) {
             return setError('phone_number', {
                 type: 'manual',
