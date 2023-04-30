@@ -84,17 +84,19 @@ const Input: FC<Partial<Input> & { label: string }> = ({
         const value = e.target.value.replace(/\D/g, '')
         if (setValue && setError) {
             if (value.length <= 1 && value === '0') {
-               
+                console.log('dont accept')
                 return setPhone('')
             }
 
-            // if (value.length > 1 && value.length < 10) {
-            //     setError('phone_number', {
-            //         type: 'manual',
-            //         message: 'Phone number must be 10 characters long',
-            //     })
-            //     setValue('phone_number', value)
-            // }
+            console.log('accept')
+            if (value.length > 1 && value.length < 10) {
+                setPhone(value)
+                // setError('phone_number', {
+                //     type: 'manual',
+                //     message: 'Phone number must be 10 characters long',
+                // })
+                //setValue('phone_number', value)
+            }
         }
     }
 
