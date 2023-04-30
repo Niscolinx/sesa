@@ -183,7 +183,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                                     <input
                                         type='text'
                                         value={'+234'}
-                                        className='absolute left-0'
+                                        className='w-[4rem]'
                                     />
                                     <input
                                         id={label}
