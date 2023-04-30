@@ -1,4 +1,4 @@
-import { FC, useEffect, useRef, useState } from 'react'
+import { ChangeEvent, FC, useEffect, useRef, useState } from 'react'
 import { MultipleSelect, Select } from '../../SuperAdmin/UI/Select'
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai'
 import { UseFormRegister, UseFormSetValue } from 'react-hook-form'
@@ -71,14 +71,15 @@ const Input: FC<Partial<Input> & { label: string }> = ({
     const [phone, setPhone] = useState('')
     const phoneInputRef = useRef<HTMLInputElement | null>(null)
 
-    const handlePhoneChange = (val: string, label: string) => {
+    const handlePhoneChange = (e: ChangeEvent<HTMLInputElement>) => {
         const MAX_NUM_LENGTH = 13
+        const {value} = e.target
 
-        if (val.length <= MAX_NUM_LENGTH) {
-            console.log(val.length)
-            setPhone(val)
+        if (value.length <= MAX_NUM_LENGTH) {
+            console.log(value.length)
+            setPhone(value)
 
-            setValue && setValue(label, val)
+            setValue && setValue(label, value)
         }
     }
 
