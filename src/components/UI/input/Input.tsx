@@ -76,7 +76,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
 
         if (value.length <= MAX_NUM_LENGTH) {
             
-            setPhone(value.padStart(7))
+            setPhone(value)
             
         }
     }
@@ -187,7 +187,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                                     id={label}
                                     disabled={disabled}
                                     type={'text'}
-                                    value={phone}
+                                    value={'+234' + value}
                                     onChange={handlePhoneChange}
                                     className={` w-full border-none outline-none disabled:opacity-50 disabled:cursor-not-allowed p-4 pl-0 ${
                                         formErrors &&
