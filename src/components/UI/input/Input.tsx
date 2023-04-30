@@ -74,9 +74,9 @@ const Input: FC<Partial<Input> & { label: string }> = ({
         const MAX_NUM_LENGTH = 13
         const value  = e.target.value
         // const value  = e.target.value.replace(/\D/g, '') 
-
+        
+        setPhone(value)
         if (value.length <= MAX_NUM_LENGTH) {
-            setPhone(value)
         }
     }
 
@@ -186,7 +186,9 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                                     id={label}
                                     disabled={disabled}
                                     type={'tel'}
-                                    
+                                    size={10}
+                                    minLength={9}
+                                    maxLength={13}
                                     value={phone}
                                     onChange={handlePhoneChange}
                                     className={` w-full border-none outline-none disabled:opacity-50 disabled:cursor-not-allowed p-4 pl-0 ${
