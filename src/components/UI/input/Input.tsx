@@ -91,11 +91,14 @@ const Input: FC<Partial<Input> & { label: string }> = ({
             console.log('accept')
             if (value.length < 10) {
                 setPhone(value)
-                // setError('phone_number', {
-                //     type: 'manual',
-                //     message: 'Phone number must be 10 characters long',
-                // })
-                //setValue('phone_number', value)
+                setError('phone_number', {
+                    type: 'custom',
+                    message: 'Phone number must be 10 characters long',
+                })
+            }
+
+            if (value.length < 11) {
+                setValue('phone_number', value)
             }
         }
     }
