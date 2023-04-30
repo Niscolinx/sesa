@@ -52,9 +52,7 @@ const AddAdmin = () => {
         formState: { errors: formErrors },
     } = useForm<Inputs>()
 
-    useEffect(() => {
-        console.log({ formErrors })
-    }, [formErrors])
+  
 
     const [responseMessage, setResponseMessage] =
         useState<ResponseMessage | null>(null)
@@ -103,7 +101,7 @@ const AddAdmin = () => {
 
         console.log({ adminData })
 
-        mutate(adminData)
+       // mutate(adminData)
     })
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
