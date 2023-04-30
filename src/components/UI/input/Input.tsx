@@ -1,7 +1,11 @@
 import { ChangeEvent, FC, useEffect, useRef, useState } from 'react'
 import { MultipleSelect, Select } from '../../SuperAdmin/UI/Select'
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai'
-import { UseFormRegister, UseFormSetValue } from 'react-hook-form'
+import {
+    UseFormRegister,
+    UseFormSetError,
+    UseFormSetValue,
+} from 'react-hook-form'
 // import PhoneInput from 'react-phone-input-2'
 
 export interface SelectProps {
@@ -23,6 +27,7 @@ interface Input {
     tag?: string
     options: any
     id?: number
+    setError?: UseFormSetError<any>
     setValue?: UseFormSetValue<any>
     required?: boolean
     pre?: string
@@ -39,6 +44,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
     type = 'text',
     register,
     setValue,
+    setError,
     isSelect,
     pre,
     fullWidth,
@@ -75,11 +81,18 @@ const Input: FC<Partial<Input> & { label: string }> = ({
 
     const handlePhoneChange = (e: ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value.replace(/\D/g, '')
+        if (setValue && setError) {
+            if (value.length <= 1 && value === '0') {
+                return setValue('phone_number', '')
+            }
 
-        if (value.length <= 1 && value === '0') {
-            setValue && setValue('phone_number', '')
-        } else {
-            setValue && setValue('phone_number', value)
+            if (value.length <= 10) {
+                setError('username', {
+                    type: 'manual',
+                    message: 'Username must be at least 6 characters long',
+                })
+            }
+            setValue('phone_number', value)
         }
     }
 

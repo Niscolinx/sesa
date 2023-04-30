@@ -48,6 +48,7 @@ const AddAdmin = () => {
         handleSubmit,
         setValue,
         watch,
+        setError,
         formState: { errors: formErrors },
     } = useForm<Inputs>()
 
@@ -194,6 +195,7 @@ const AddAdmin = () => {
                                     formErrors={formErrors}
                                     type={type}
                                     name={name}
+                                    setError={setError}
                                     setValue={setValue}
                                     isSelect={type === 'select'}
                                     select={selectProps}
