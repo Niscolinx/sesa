@@ -94,14 +94,16 @@ const AddAdmin = () => {
 
             if (KBSize.length > 3) {
                 const MBSize = Number(KBSize) / 1000
-                return MBSize > 2
-                    ? setResponseMessage({
+                return MBSize > 2 &&
+                    setResponseMessage({
                           className: 'text-red-600',
                           displayMessage: 'File size must not exceed 2MB',
                       })
-                    : setResponseMessage(null)
+                  
             }
         }
+
+        setResponseMessage(null)
 
         const adminData = {
             name: `${first_name} ${last_name}`,
