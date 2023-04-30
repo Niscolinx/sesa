@@ -36,7 +36,6 @@ import ViewPayment from '../../pages/EstateManager/payments/ViewPayment'
 import CreatePayment from '../../pages/EstateManager/payments/create/CreatePayment'
 import EnergyToken from '../../pages/EstateManager/energyToken/EnergyToken'
 import AddEnergyToken from '../../pages/EstateManager/energyToken/AddEnergyToken'
-import BulkUpload from '../../pages/EstateManager/energyToken/BulkUpload'
 import Voting from '../../pages/EstateManager/voting/Voting'
 import ViewEnergyToken from '../../pages/EstateManager/energyToken/ViewEnergyToken'
 import CreateElection from '../../pages/EstateManager/voting/createElection'
@@ -48,6 +47,7 @@ import Approvals from '../../pages/EstateManager/approvals/Approvals'
 import ApprovalDetail from '../../pages/EstateManager/approvals/ApprovalDetail'
 import Rules from '../../pages/EstateManager/rules/Rules'
 import AddRule from '../../pages/EstateManager/rules/AddRule'
+import BulkUpload from '../../pages/EstateManager/energyToken/BulkUpload'
 
 const estateManagerRoutes = (
     <Route path='/estateManager' element={<Dashboard />}>
