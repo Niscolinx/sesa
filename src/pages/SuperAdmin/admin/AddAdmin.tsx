@@ -14,7 +14,7 @@ const AddAdmin = () => {
         first_name: string
         last_name: string
         dob: string
-        phone_number: number
+        phone_number: string
     }
     type ResponseMessage = {
         className: string
@@ -134,7 +134,6 @@ const AddAdmin = () => {
         },
         {
             label: 'phone_number',
-            type: 'number',
         },
         {
             label: 'email_address',
