@@ -69,24 +69,15 @@ const Input: FC<Partial<Input> & { label: string }> = ({
     const [eyeIcon, setEyeIcon] = useState(false)
     const toggleEyeIcon = () => setEyeIcon(!eyeIcon)
     const [phone, setPhone] = useState('')
-    const phoneInputRef = useRef<HTMLInputElement | null>(null)
 
     const handlePhoneChange = (e: ChangeEvent<HTMLInputElement>) => {
         const MAX_NUM_LENGTH = 13
         const { value } = e.target
 
-        const inputNumber = e.target.value.replace(/\D/g, '') // remove non-digit characters from the input
         if (value.length <= MAX_NUM_LENGTH) {
-            const regex = /^0(\d{10})$/
-            const match = regex.exec(inputNumber)
-            if (match) {
-                const formatted = `+234 ${match[1].substring(
-                    0,
-                    3
-                )} ${match[1].substring(3, 6)} ${match[1].substring(6)}`
-                setPhone(formatted)
-                setValue && setValue(label, formatted)
-            }
+            
+            setPhone(value.padStart(7))
+            
         }
     }
 
@@ -195,7 +186,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                                 <input
                                     id={label}
                                     disabled={disabled}
-                                    type={type}
+                                    type={'text'}
                                     value={phone}
                                     onChange={handlePhoneChange}
                                     className={` w-full border-none outline-none disabled:opacity-50 disabled:cursor-not-allowed p-4 pl-0 ${
