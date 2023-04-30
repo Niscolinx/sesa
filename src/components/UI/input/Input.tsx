@@ -186,20 +186,22 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                                     }`}
                                 />
                             ) : label.toLowerCase().includes('phone') ? (
-                                <input
-                                    type='number'
-                                    id={label}
-                                    disabled={disabled}
-                                    type={type}
-                                    value={value}
-                                    {...(register &&
-                                        register(label, validationOptions))}
-                                    className={` w-full border-none outline-none disabled:opacity-50 disabled:cursor-not-allowed p-4 pl-0 ${
-                                        formErrors &&
-                                        formErrors[label] &&
-                                        'border-red-500 '
-                                    }`}
-                                />
+                           
+                                    <input
+                                        type='number'
+                                        id={label}
+                                        disabled={disabled}
+                                        type={type}
+                                        value={value}
+                                        {...(register &&
+                                            register(label, validationOptions))}
+                                        className={` w-full border-none outline-none disabled:opacity-50 disabled:cursor-not-allowed p-4 pl-0 ${
+                                            formErrors &&
+                                            formErrors[label] &&
+                                            'border-red-500 '
+                                        }`}
+                                    />
+                     
                             ) : (
                                 <input
                                     id={label}
