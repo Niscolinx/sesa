@@ -72,8 +72,8 @@ const Input: FC<Partial<Input> & { label: string }> = ({
 
     const handlePhoneChange = (e: ChangeEvent<HTMLInputElement>) => {
         const MAX_NUM_LENGTH = 13
-        const value  = e.target.value.replace(/\D/g, '') 
-        const inputNumber = e.target.value.replace(/\D/g, '') // remove non-digit characters from the input
+        const value  = e.target.value
+        // const value  = e.target.value.replace(/\D/g, '') 
 
         if (value.length <= MAX_NUM_LENGTH) {
             setPhone(value)
@@ -185,7 +185,8 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                                 <input
                                     id={label}
                                     disabled={disabled}
-                                    type={'text'}
+                                    type={'tel'}
+                                    
                                     value={phone}
                                     onChange={handlePhoneChange}
                                     className={` w-full border-none outline-none disabled:opacity-50 disabled:cursor-not-allowed p-4 pl-0 ${
