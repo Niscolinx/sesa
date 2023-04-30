@@ -144,7 +144,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                                 id={label}
                                 disabled={disabled}
                                 value={value}
-                               onChange={handleChange}
+                               onChange={handlePhoneChange}
                             />
                             <span className='absolute right-2 cursor-pointer'>
                                 {eyeIcon ? (
