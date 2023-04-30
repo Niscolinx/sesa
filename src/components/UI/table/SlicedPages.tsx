@@ -106,6 +106,8 @@ const SlicedPages: FC<SlicedPages> = ({
                                             <img
                                                 src={value.image}
                                                 alt=''
+                                                width={'56px'}
+                                                height={'56px'}
                                                 className='w-full h-full rounded-full object-cover'
                                             />
                                         </figure>
