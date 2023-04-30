@@ -27,7 +27,6 @@ interface Input {
     tag?: string
     options: any
     id?: number
-    setError?: UseFormSetError<any>
     setValue?: UseFormSetValue<any>
     required?: boolean
     pre?: string
@@ -44,7 +43,6 @@ const Input: FC<Partial<Input> & { label: string }> = ({
     type = 'text',
     register,
     setValue,
-    setError,
     isSelect,
     pre,
     fullWidth,
@@ -82,7 +80,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
 
     const handlePhoneChange = (e: ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value.replace(/\D/g, '')
-        if (setValue && setError) {
+        if (setValue) {
             if (value.length <= 1 && value === '0') {
                 console.log('dont accept')
                 return setPhone('')
