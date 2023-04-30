@@ -88,16 +88,8 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                 return setPhone('')
             }
 
-            console.log('accept')
-            // if (value.length < 10) {
-            //     setPhone(value)
-            //     setError('phone_number', {
-            //         type: 'custom',
-            //         message: 'Phone number must be 10 characters long',
-            //     })
-            // }
 
-            if ( value.length < 11) {
+            if (value.length < 11) {
                 setValue('phone_number', value)
                 setPhone(value)
             }
@@ -215,9 +207,9 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                                         id={label}
                                         disabled={disabled}
                                         type={type}
-                                        minLength={11}
+                                        minLength={10}
                                         inputMode='numeric'
-                                        maxLength={11}
+                                        maxLength={10}
                                         value={value || phone}
                                         onChange={handlePhoneChange}
                                         className={` w-full border-none outline-none disabled:opacity-50 disabled:cursor-not-allowed p-4 pl-0 ${
