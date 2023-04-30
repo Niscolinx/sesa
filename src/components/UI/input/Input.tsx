@@ -75,7 +75,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
         //const value  = e.target.value
          const value  = e.target.value.replace(/\D/g, '') 
         
-        setPhone(value)
+        setPhone(`+234${value}`)
         if (value.length <= MAX_NUM_LENGTH) {
         }
     }
