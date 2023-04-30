@@ -2,7 +2,7 @@ import { FC, useEffect, useRef, useState } from 'react'
 import { MultipleSelect, Select } from '../../SuperAdmin/UI/Select'
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai'
 import { UseFormRegister, UseFormSetValue } from 'react-hook-form'
-import PhoneInput from 'react-phone-input-2'
+// import PhoneInput from 'react-phone-input-2'
 
 export interface SelectProps {
     isMulti?: boolean
@@ -72,7 +72,6 @@ const Input: FC<Partial<Input> & { label: string }> = ({
     const phoneInputRef = useRef<HTMLInputElement | null>(null)
 
     const handlePhoneChange = (val: string, label: string) => {
-    
         const MAX_NUM_LENGTH = 13
 
         if (val.length <= MAX_NUM_LENGTH) {
@@ -84,7 +83,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
     }
 
     useEffect(() => {
-        console.log({phoneInputRef})
+        console.log({ phoneInputRef })
     }, [phoneInputRef.current])
     return (
         <div
@@ -187,16 +186,15 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                                     }`}
                                 />
                             ) : label.toLowerCase().includes('phone') ? (
-                                <PhoneInput
-                                    specialLabel={''}
-                                    country={'ng'}
-                                    value={phone}
-                                    onChange={(val) =>
-                                        handlePhoneChange(val, label)
-                                    }
-                                    containerClass='w-full'
-                                    placeholder='+234 xxx-xxx-xxxx'
-                                    inputClass={`w-full border-none outline-none disabled:opacity-50 disabled:cursor-not-allowed p-4 pl-0 input-validate ${
+                                <input
+                                    type='number'
+                                    id={label}
+                                    disabled={disabled}
+                                    type={type}
+                                    value={value}
+                                    {...(register &&
+                                        register(label, validationOptions))}
+                                    className={` w-full border-none outline-none disabled:opacity-50 disabled:cursor-not-allowed p-4 pl-0 ${
                                         formErrors &&
                                         formErrors[label] &&
                                         'border-red-500 '
