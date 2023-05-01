@@ -162,7 +162,12 @@ const SlicedPages: FC<SlicedPages> = ({
                                 key={idx}
                             />
                         ) : null
-                    } else {
+                    } 
+                    if(Key === 'ratings'){
+                        return <p>Ratings</p>
+                    }
+                    
+                    else {
                         return <p key={idx}>{value}</p>
                     }
                 })}
