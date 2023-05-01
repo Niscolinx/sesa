@@ -72,7 +72,9 @@ const TableData = () => {
         error: get_data_error,
         data: get_data_response,
         isFetching,
-    } = useQuery(title, fetchData, {}) as any
+    } = useQuery(title, fetchData, {
+        enabled: !isDataProvided,
+    }) as any
 
     useEffect(() => {
         const filterHandler = (data: any[]) => {
@@ -126,8 +128,9 @@ const TableData = () => {
         })
     }, [fetchedData])
 
-    const fetched: any[] =
-        get_data_response?.data.data || get_data_response?.data
+    const fetched: any[] = isDataProvided
+        ? providedData
+        : get_data_response?.data.data || get_data_response?.data
 
     const itemsPerPageArr = [10, 20, 50, 100]
 
@@ -194,11 +197,11 @@ const TableData = () => {
         })
     }
 
-    if (get_data_loading) {
+    if (fetch_url && get_data_loading) {
         return <p>Loading...</p>
     }
 
-    if (!isFetching && get_data_isError) {
+    if (fetch_url && !isFetching && get_data_isError) {
         return <p>{get_data_error.message}</p>
     }
 

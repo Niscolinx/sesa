@@ -555,20 +555,17 @@ const ViewArtisanGroup = () => {
                     view_page_url={'/superAdmin/admin/view/'}
                     THeader={[
                         'name',
-                        'gender',
+                        'business name',
                         'phone number',
-                        'joined date',
-                        'status',
                         'actions',
                     ]}
                     data_to_display={[
-                        'name',
-                        'image',
-                        'gender',
-                        'phone',
-                        'created_at',
-                        'status',
+                        'firstname',
+                        'business_name',
+                        'phone_number',
                     ]}
+                    isDataProvided={true}
+                    providedData={fetchedArtisanGroups}
                     deactivateProp={{ url: '/admin/deactivate_activate' }}
                 />
                 <EstateListTable estateList={fetchedEstateList} />
