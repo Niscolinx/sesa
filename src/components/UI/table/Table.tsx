@@ -6,7 +6,7 @@ import { SetStateAction } from 'jotai'
 import TableDialog from './TableDialog'
 import TableData from './TableData'
 
-export type Actions = 'view details' | 'deactivate' | 'activate' | 'delete'
+export type Actions = 'view details' | 'deactivate' | 'activate' | 'delete' | 'remove'
 
 interface Table {
     fetch_url?: string

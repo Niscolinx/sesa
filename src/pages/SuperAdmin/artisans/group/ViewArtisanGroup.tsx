@@ -559,6 +559,7 @@ const ViewArtisanGroup = () => {
                         'phone number',
                         'actions',
                     ]}
+                    actions={['remove']}
                     data_to_display={[
                         'firstname',
                         'business_name',
