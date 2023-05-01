@@ -261,6 +261,7 @@ const ViewArtisanGroup = () => {
         })
     }
 
+    const groupId = params?.id
 
     const fetchRequest = () => {
 
