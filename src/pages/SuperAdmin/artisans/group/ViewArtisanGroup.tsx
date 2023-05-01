@@ -19,43 +19,13 @@ type DialogType = 'warning'
 
 export interface IViewArtisanGroup {
     id: string
-    artisanName: string
-    businessName: string
-    phoneNumber: string
+    firstname: string
+    lastname: string
+    business_name: string
+    phone_number: string
 }
 
-const VIEW_ARTISAN_GROUP: IViewArtisanGroup[] = [
-    {
-        id: '1',
-        artisanName: 'Chibuzor Okafor',
-        businessName: 'Lariza Orjo',
-        phoneNumber: '08012345678',
-    },
-    {
-        id: '1',
-        artisanName: 'Chibuzor Okafor',
-        businessName: 'Lariza Orjo',
-        phoneNumber: '08012345678',
-    },
-    {
-        id: '1',
-        artisanName: 'Chibuzor Okafor',
-        businessName: 'Lariza Orjo',
-        phoneNumber: '08012345678',
-    },
-    {
-        id: '1',
-        artisanName: 'Chibuzor Okafor',
-        businessName: 'Lariza Orjo',
-        phoneNumber: '08012345678',
-    },
-    {
-        id: '1',
-        artisanName: 'Chibuzor Okafor',
-        businessName: 'Lariza Orjo',
-        phoneNumber: '08012345678',
-    },
-]
+
 
 type Actions = 'Delete' | 'View Details' | 'Edit Details'
 
@@ -65,7 +35,6 @@ const ViewArtisanGroup = () => {
     const params = useParams()
 
     const [isWarning, setIsWarning] = useState(true)
-    const [isLoaded, setIsLoaded] = useState(false)
     const [fetchedArtisanGroups, setFetchedArtisanGroups] = useState<
         IViewArtisanGroup[]
     >([])
@@ -78,7 +47,7 @@ const ViewArtisanGroup = () => {
         })
     }
 
-    const { data, isLoading } = useQuery(['group_artisan_list'], fetchRequest)
+    const { data, isLoading } = useQuery<any>(['group_artisan_list'], fetchRequest)
 
     useEffect(() => {
         //setFetchedArtisanGroups(VIEW_ARTISAN_GROUP)
@@ -421,9 +390,9 @@ const ViewArtisanGroup = () => {
                                 slicedPages[paginate.index].map(
                                     (
                                         {
-                                            artisanName,
-                                            businessName,
-                                            phoneNumber,
+                                            firstname,
+                                            business_name,
+                                            phone_number,
                                         },
                                         i
                                     ) => {
@@ -437,10 +406,10 @@ const ViewArtisanGroup = () => {
                                                         className='cursor-pointer'
                                                     />
 
-                                                    <span>{artisanName}</span>
+                                                    <span>{firstname}</span>
                                                 </p>
-                                                <p>{businessName}</p>
-                                                <p>{phoneNumber}</p>
+                                                <p>{business_name}</p>
+                                                <p>{phone_number}</p>
 
                                                 <div className='relative'>
                                                     <label
