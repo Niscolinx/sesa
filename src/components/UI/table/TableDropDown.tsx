@@ -90,7 +90,7 @@ const TableDropDown = ({
                             key={i}
                             onClick={() => handleSelectedAction(item, id)}
                         >
-                            {['deactivate', 'delete'].includes(item) ? (
+                            {['deactivate', 'delete', 'remove'].includes(item) ? (
                                 <span className='text-red-600'>{item}</span>
                             ) : item === 'activate' ? (
                                 <span className='text-green-600'>{item}</span>

@@ -17,8 +17,14 @@ const SlicedPages: FC<SlicedPages> = ({
     toggleDropDown,
     setToggleDropDown,
 }) => {
-    const { data_to_display, nested, THeader, actions, is_dropdown, is_checkbox } =
-        useTableContext()
+    const {
+        data_to_display,
+        nested,
+        THeader,
+        actions,
+        is_dropdown,
+        is_checkbox,
+    } = useTableContext()
 
     if (!pages || !pages.length) {
         return null
@@ -146,14 +152,19 @@ const SlicedPages: FC<SlicedPages> = ({
                     if (key === 'actions') {
                         let updatedActions: Actions[] = ['view details']
 
-                        actions.indexOf('remove') !== 0 &&
-                        value === 0
-                            ? (updatedActions = [...updatedActions, 'activate'])
-                            : (updatedActions = [
-                                  ...updatedActions,
-                                  'deactivate',
-                              ])
-                              : 0
+                        actions.indexOf('remove') !== 0
+                            ? value === 0
+                                ? (updatedActions = [
+                                      ...updatedActions,
+                                      'activate',
+                                  ])
+                                : (updatedActions = [
+                                      ...updatedActions,
+                                      'deactivate',
+                                  ])
+                            : null
+
+                        console.log({ actions })
 
                         updatedActions = [...updatedActions, ...actions]
                         return is_dropdown ? (
@@ -165,12 +176,10 @@ const SlicedPages: FC<SlicedPages> = ({
                                 key={idx}
                             />
                         ) : null
-                    } 
-                    if(key.toLowerCase() === 'rating'){
-                        return <StarRating starsNum={value} key={idx}/>
                     }
-                    
-                    else {
+                    if (key.toLowerCase() === 'rating') {
+                        return <StarRating starsNum={value} key={idx} />
+                    } else {
                         return <p key={idx}>{value}</p>
                     }
                 })}
