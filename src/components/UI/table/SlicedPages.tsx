@@ -146,12 +146,14 @@ const SlicedPages: FC<SlicedPages> = ({
                     if (key === 'actions') {
                         let updatedActions: Actions[] = ['view details']
 
+                        actions.indexOf('remove') !== 0 &&
                         value === 0
                             ? (updatedActions = [...updatedActions, 'activate'])
                             : (updatedActions = [
                                   ...updatedActions,
                                   'deactivate',
                               ])
+                              : 0
 
                         updatedActions = [...updatedActions, ...actions]
                         return is_dropdown ? (
