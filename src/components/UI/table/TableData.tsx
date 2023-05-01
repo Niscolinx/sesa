@@ -32,6 +32,7 @@ const TableData = () => {
         title,
         fetch_url,
         add_page_url,
+        isDataProvided,
         THeader,
         is_checkbox,
         is_add_btn,
@@ -74,14 +75,9 @@ const TableData = () => {
     } = useQuery(title, fetchData, {}) as any
 
     useEffect(() => {
-        if (get_data_response) {
-            const res: any[] =
-                get_data_response.data.data || get_data_response.data
-            setFetchedData(res)
-
+        const filterHandler = (data: any[]) => {
             const store_data: any[] = []
-
-            res.forEach((item) => {
+            data.forEach((item) => {
                 const searchFrom: any = {}
                 searchFields.forEach((field) => {
                     let key = field
@@ -100,7 +96,18 @@ const TableData = () => {
 
             setExtractedData(store_data)
         }
-    }, [get_data_response])
+
+
+        if (get_data_response) {
+            const res: any[] =
+                get_data_response.data.data || get_data_response.data
+            setFetchedData(res)
+            filterHandler(res)
+        }
+
+        if()
+
+    }, [get_data_response, isDataProvided])
 
     useEffect(() => {
         const slicedPages: any[][] = []

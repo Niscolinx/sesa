@@ -15,9 +15,11 @@ interface Table {
     add_page_url?: string
     is_add_btn?: boolean
     isCategory?: boolean
+    providedData?: any[]
     deactivateProp?: { url: string; tag?: string }
     data_to_display: string[]
     nested?: boolean
+    isDataProvided: boolean
     delete_item_url?: string
     is_dropdown?: boolean
     is_checkbox?: boolean
@@ -60,8 +62,10 @@ const Table = ({
     add_page_url,
     is_checkbox = false,
     data_to_display,
+    providedData,
     is_add_btn,
     nested = false,
+    isDataProvided = false,
     deactivateProp,
     THeader,
     delete_item_url,
@@ -91,8 +95,10 @@ const Table = ({
                 is_checkbox,
                 setFetchedId,
                 fetchedData,
+                providedData,
                 setFetchedData,
                 isDialogOpen,
+                isDataProvided,
                 actions,
                 setIsDialogOpen,
                 deactivateProp,
