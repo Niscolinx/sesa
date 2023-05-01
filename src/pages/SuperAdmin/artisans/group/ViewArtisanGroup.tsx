@@ -468,7 +468,7 @@ const ViewArtisanGroup = () => {
                                                                             }
                                                                         >
                                                                             {item ===
-                                                                            'Delete' ? (
+                                                                            'remove' ? (
                                                                                 <span className='text-red-600'>
                                                                                     {
                                                                                         item
