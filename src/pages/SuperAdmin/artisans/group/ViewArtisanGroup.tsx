@@ -85,10 +85,10 @@ const ViewArtisanGroup = () => {
 
     useEffect(() => {
         setTimeout(() => {
-            setFetchedArtisanGroups(VIEW_ARTISAN_GROUP)
+            //setFetchedArtisanGroups(VIEW_ARTISAN_GROUP)
             //setIsLoaded(true)
         }, 200)
-    }, [])
+    }, [data])
 
     const handleDialogSubmit = (e: FormEvent) => {
         e.preventDefault()
