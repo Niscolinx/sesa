@@ -165,7 +165,7 @@ const SlicedPages: FC<SlicedPages> = ({
                         ) : null
                     } 
                     if(key.toLowerCase() === 'rating'){
-                        return <StarRating starsNum={key}/>
+                        return <StarRating starsNum={value}/>
                     }
                     
                     else {
