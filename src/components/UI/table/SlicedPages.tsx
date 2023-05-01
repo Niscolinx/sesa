@@ -91,9 +91,11 @@ const SlicedPages: FC<SlicedPages> = ({
         if (is_dropdown && !isAction) {
             sorted.push({
                 key: 'actions',
-                value: findStatus?.value || null,
+                value: findStatus?.value || 0,
             })
         }
+
+        console.log({sorted})
 
         return (
             <>
@@ -165,7 +167,7 @@ const SlicedPages: FC<SlicedPages> = ({
                                   ])
                             : null
 
-                        console.log({ actions })
+                        console.log({ value })
 
                         updatedActions = [...updatedActions, ...actions]
                         return is_dropdown ? (
