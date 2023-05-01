@@ -271,6 +271,10 @@ const ViewArtisanGroup = () => {
 
     const { data, isLoading } = useQuery(['group_artisan_list'], fetchRequest)
 
+    if (isLoaded) {
+        return <p className='p-8'>Loading...</p>
+    }
+
     return (
         <>
             <ToastContainer />
