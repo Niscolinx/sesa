@@ -9,9 +9,11 @@ import React, {
 import { CgSpinnerTwo } from 'react-icons/cg'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { IoMdAdd, IoMdClose } from 'react-icons/io'
-import { useNavigate } from 'react-router'
+import { useNavigate, useParams } from 'react-router'
 import { toast, ToastContainer } from 'react-toastify'
 import EstateListTable from './EstateListTable'
+import { useQuery } from 'react-query'
+import useAxios from '../../../../components/hooks/useAxios'
 
 type DialogType = 'warning'
 
@@ -59,6 +61,8 @@ type Actions = 'Delete' | 'View Details' | 'Edit Details'
 
 const ViewArtisanGroup = () => {
     const navigate = useNavigate()
+    const axiosInstance = useAxios()
+    const params = useParams()
 
     const [isWarning, setIsWarning] = useState(true)
     const [isLoaded, setIsLoaded] = useState(false)
@@ -256,6 +260,17 @@ const ViewArtisanGroup = () => {
             className: 'bg-red-100 text-red-600 text-[1.4rem]',
         })
     }
+
+
+    const fetchRequest = () => {
+
+        return axiosInstance({
+            url: `/admin/group/getSingleGroup/${groupId}`,
+        })
+    }
+
+    const {data, isLoading} = useQuery('', fetchRequest)
+
     return (
         <>
             <ToastContainer />
