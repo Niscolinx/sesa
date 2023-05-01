@@ -51,8 +51,6 @@ const ViewArtisanGroup = () => {
     )
 
     useEffect(() => {
-        //setFetchedArtisanGroups(VIEW_ARTISAN_GROUP)
-        //setIsLoaded(true)
 
         if (data) {
             if (data.artisans.length > 0) {
