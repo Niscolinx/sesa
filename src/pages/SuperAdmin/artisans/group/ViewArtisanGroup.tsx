@@ -70,6 +70,19 @@ const ViewArtisanGroup = () => {
         IViewArtisanGroup[]
     >([])
 
+       const groupId = params.id?.replace(':', '')
+
+       const fetchRequest = () => {
+           return axiosInstance({
+               url: `/admin/group/getSingleGroup/${groupId}`,
+           })
+       }
+
+       const { data, isLoading } = useQuery(
+           ['group_artisan_list'],
+           fetchRequest
+       )
+
     useEffect(() => {
         setTimeout(() => {
             setFetchedArtisanGroups(VIEW_ARTISAN_GROUP)
@@ -261,15 +274,7 @@ const ViewArtisanGroup = () => {
         })
     }
 
-    const groupId = params.id?.replace(':', '')
-
-    const fetchRequest = () => {
-        return axiosInstance({
-            url: `/admin/group/getSingleGroup/${groupId}`,
-        })
-    }
-
-    const { data, isLoading } = useQuery(['group_artisan_list'], fetchRequest)
+ 
 
     if (isLoading) {
         return <p className='p-8'>Loading...</p>
