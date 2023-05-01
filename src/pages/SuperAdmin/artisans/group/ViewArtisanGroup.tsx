@@ -25,7 +25,7 @@ export interface IViewArtisanGroup {
     phone_number: string
 }
 
-type Actions =  'view details' | ' remove'
+type Actions = 'view details' | 'remove'
 
 const ViewArtisanGroup = () => {
     const navigate = useNavigate()
@@ -71,7 +71,7 @@ const ViewArtisanGroup = () => {
         })
     }
 
-    const actions = ['View Details', 'Remove'] satisfies Actions[]
+    const actions = ['view details', 'remove'] satisfies Actions[]
 
     const [toggleDropDown, setToggleDropDown] = useState<{
         isDropDownOpen: boolean
@@ -94,11 +94,11 @@ const ViewArtisanGroup = () => {
     }
 
     const selectAction = (e: React.MouseEvent, item: Actions) => {
-        if (item === 'Delete') {
+        if (item === 'remove') {
             handleOpen('warning')
         }
 
-        if (item === 'View Details') {
+        if (item === 'view details') {
             navigate('/superAdmin/artisan/group/:Id')
         }
 
