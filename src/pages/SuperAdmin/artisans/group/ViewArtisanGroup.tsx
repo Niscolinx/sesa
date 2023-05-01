@@ -269,7 +269,7 @@ const ViewArtisanGroup = () => {
         })
     }
 
-    const { data, isLoading } = useQuery('', fetchRequest)
+    const { data, isLoading } = useQuery(['group_artisan_list'], fetchRequest)
 
     return (
         <>
