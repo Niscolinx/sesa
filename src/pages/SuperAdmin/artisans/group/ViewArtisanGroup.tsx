@@ -551,7 +551,6 @@ const ViewArtisanGroup = () => {
                     </ul>
                 </footer> */}
                 <Table
-                    fetch_url={'/admin/get/all'}
                     title={'admin'}
                     view_page_url={'/superAdmin/admin/view/'}
                     add_page_url={'/superAdmin/admin/add'}

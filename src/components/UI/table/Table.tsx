@@ -9,7 +9,7 @@ import TableData from './TableData'
 export type Actions = 'view details' | 'deactivate' | 'activate' | 'delete'
 
 interface Table {
-    fetch_url: string
+    fetch_url?: string
     title: string
     view_page_url?: string
     add_page_url?: string
