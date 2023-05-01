@@ -7,42 +7,11 @@ import { toast } from 'react-toastify'
 
 export interface IEstateListTable {
     id: string
-    name: string
+    esate_name: string
     location: string
 }
 
-const ESTATE_LIST_TABLE: IEstateListTable[] = [
-    {
-        id: '1',
-        name: 'Jacintha Sage',
-        location: 'Lagos',
-    },
-    {
-        id: '1',
-        name: 'Jacintha Sage',
-        location: 'Lagos',
-    },
-    {
-        id: '1',
-        name: 'Jacintha Sage',
-        location: 'Lagos',
-    },
-    {
-        id: '1',
-        name: 'Jacintha Sage',
-        location: 'Lagos',
-    },
-    {
-        id: '1',
-        name: 'Jacintha Sage',
-        location: 'Lagos',
-    },
-    {
-        id: '1',
-        name: 'Jacintha Sage',
-        location: 'Lagos',
-    },
-]
+
 
 function EstateListTable({ estateList }: any) {
     const [fetchedEstateList, setFetchedEstateList] = useState(estateList)
@@ -189,7 +158,7 @@ function EstateListTable({ estateList }: any) {
                     {slicedPages && slicedPages.length > 0 && (
                         React.Children.toArray(
                             slicedPages[paginate.index].map(
-                                ({ name, location }, i) => {
+                                ({ estate_name, location }, i) => {
                                     return (
                                         <div className='grid justify-between border-b grid-cols-4 gap-8 '>
                                             <p className='flex items-center gap-4'>
@@ -198,7 +167,7 @@ function EstateListTable({ estateList }: any) {
                                                     className='cursor-pointer'
                                                 />
 
-                                                <span>{name}</span>
+                                                <span>{estate_name}</span>
                                             </p>
                                             <p>{location}</p>
                                         </div>
