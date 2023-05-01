@@ -10,11 +10,10 @@ interface IStarRating {
 // }}
 
 const StarRating: FC<IStarRating> = ({ starsNum }) => {
-    const [rating, setRating] = useState(0)
-    const [hover, setHover] = useState(0)
+    const TOTAL_STAR_COUNT = 5
     return (
         <div>
-            {[...Array(5)].map((star, index) => {
+            {[...Array(TOTAL_STAR_COUNT)].map((star, index) => {
               
                 return <span className='text-[#E69B55]'>&#9733;</span>
             })}
