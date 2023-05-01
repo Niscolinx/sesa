@@ -25,9 +25,7 @@ export interface IViewArtisanGroup {
     phone_number: string
 }
 
-
-
-type Actions = 'Delete' | 'View Details' | 'Edit Details'
+type Actions =  'view details' | ' remove'
 
 const ViewArtisanGroup = () => {
     const navigate = useNavigate()
@@ -47,7 +45,10 @@ const ViewArtisanGroup = () => {
         })
     }
 
-    const { data, isLoading } = useQuery<any>(['group_artisan_list'], fetchRequest)
+    const { data, isLoading } = useQuery<any>(
+        ['group_artisan_list'],
+        fetchRequest
+    )
 
     useEffect(() => {
         //setFetchedArtisanGroups(VIEW_ARTISAN_GROUP)
@@ -55,7 +56,6 @@ const ViewArtisanGroup = () => {
 
         if (data) {
             if (data.artisans.length > 0) {
-
                 setFetchedArtisanGroups(data.artisans)
             }
         }
@@ -71,11 +71,7 @@ const ViewArtisanGroup = () => {
         })
     }
 
-    const actions = [
-        'View Details',
-        'Edit Details',
-        'Delete',
-    ] satisfies Actions[]
+    const actions = ['View Details', 'Remove'] satisfies Actions[]
 
     const [toggleDropDown, setToggleDropDown] = useState<{
         isDropDownOpen: boolean
@@ -352,7 +348,8 @@ const ViewArtisanGroup = () => {
                 </div>
                 <div className='flex w-full items-center gap-12 py-8 bg-white rounded-lg'>
                     <p className=' font-Satoshi-Medium'>
-                        Artisan List <span>({fetchedArtisanGroups.length})</span>
+                        Artisan List{' '}
+                        <span>({fetchedArtisanGroups.length})</span>
                     </p>
                     <div className='relative flex items-center'>
                         <img
