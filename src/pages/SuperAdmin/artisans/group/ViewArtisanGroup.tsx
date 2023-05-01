@@ -271,9 +271,12 @@ const ViewArtisanGroup = () => {
 
     const { data, isLoading } = useQuery(['group_artisan_list'], fetchRequest)
 
-    if (isLoaded) {
+    if (isLoading) {
         return <p className='p-8'>Loading...</p>
     }
+
+
+    console.log({data})
 
     return (
         <>
