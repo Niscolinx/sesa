@@ -19,7 +19,7 @@ interface Table {
     deactivateProp?: { url: string; tag?: string }
     data_to_display: string[]
     nested?: boolean
-    isDataProvided: boolean
+    isDataProvided?: boolean
     delete_item_url?: string
     is_dropdown?: boolean
     is_checkbox?: boolean

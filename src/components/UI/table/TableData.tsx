@@ -97,7 +97,6 @@ const TableData = () => {
             setExtractedData(store_data)
         }
 
-
         if (get_data_response) {
             const res: any[] =
                 get_data_response.data.data || get_data_response.data
@@ -105,9 +104,12 @@ const TableData = () => {
             filterHandler(res)
         }
 
-        if()
+        if (isDataProvided && providedData) {
+            setFetchedData(providedData)
 
-    }, [get_data_response, isDataProvided])
+            filterHandler(providedData)
+        }
+    }, [get_data_response, isDataProvided, providedData])
 
     useEffect(() => {
         const slicedPages: any[][] = []
