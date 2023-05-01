@@ -14,10 +14,10 @@ const StarRating: FC<IStarRating> = ({ starsNum }) => {
     return (
         <div>
             {[...Array(TOTAL_STAR_COUNT)].map((_, index) =>
-                index + 1 <= starsNum ? (
+                index <= starsNum ? (
                     <span className='text-[#E69B55]'>&#9733;</span>
                 ) : (
-                    <span className='text-[#E69B55]'>&#9733;</span>
+                    <span className='text-gray-200'>&#9733;</span>
                 )
             )}
         </div>
