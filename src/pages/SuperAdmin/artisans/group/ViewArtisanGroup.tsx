@@ -14,6 +14,7 @@ import { toast, ToastContainer } from 'react-toastify'
 import EstateListTable from './EstateListTable'
 import { useQuery } from 'react-query'
 import useAxios from '../../../../components/hooks/useAxios'
+import Table from '../../../../components/UI/table/Table'
 
 type DialogType = 'warning'
 
@@ -348,7 +349,7 @@ const ViewArtisanGroup = () => {
                         Update
                     </button>
                 </div>
-                <div className='flex w-full items-center gap-12 py-8 bg-white rounded-lg'>
+                {/* <div className='flex w-full items-center gap-12 py-8 bg-white rounded-lg'>
                     <p className=' font-Satoshi-Medium'>
                         Artisan List{' '}
                         <span>({fetchedArtisanGroups.length})</span>
@@ -548,7 +549,31 @@ const ViewArtisanGroup = () => {
                             className='cursor-pointer'
                         />
                     </ul>
-                </footer>
+                </footer> */}
+                <Table
+                    fetch_url={'/admin/get/all'}
+                    title={'admin'}
+                    view_page_url={'/superAdmin/admin/view/'}
+                    add_page_url={'/superAdmin/admin/add'}
+                    is_add_btn={true}
+                    THeader={[
+                        'name',
+                        'gender',
+                        'phone number',
+                        'joined date',
+                        'status',
+                        'actions',
+                    ]}
+                    data_to_display={[
+                        'name',
+                        'image',
+                        'gender',
+                        'phone',
+                        'created_at',
+                        'status',
+                    ]}
+                    deactivateProp={{ url: '/admin/deactivate_activate' }}
+                />
                 <EstateListTable estateList={fetchedEstateList} />
             </div>
         </>
