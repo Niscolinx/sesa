@@ -57,7 +57,7 @@ const ViewArtisanGroup = () => {
                 setFetchedArtisanGroups(data.artisans)
             }
 
-            if(data.estate.length > 0){
+            if (data.estate.length > 0) {
                 setFetchedEstateList(data.estate)
             }
         }
@@ -384,7 +384,8 @@ const ViewArtisanGroup = () => {
                     </div>
 
                     <div className='grid gap-8 p-8'>
-                        {slicedPages && slicedPages.length > 0 ? (
+                        {slicedPages &&
+                            slicedPages.length &&
                             React.Children.toArray(
                                 slicedPages[paginate.index].map(
                                     (
@@ -489,16 +490,7 @@ const ViewArtisanGroup = () => {
                                         )
                                     }
                                 )
-                            )
-                        ) : (
-                            <div>
-                                <div className='relative'>
-                                    <div className='absolute w-full grid place-content-center'>
-                                        <CgSpinnerTwo className='animate-spin text-[#0660FE] text-4xl' />
-                                    </div>
-                                </div>
-                            </div>
-                        )}
+                            )}
                     </div>
                 </div>
                 <footer className='flex items-center p-4 mt-4 bg-color-white rounded-lg'>
