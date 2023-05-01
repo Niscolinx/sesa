@@ -2,6 +2,7 @@ import { Dispatch, FC, SetStateAction } from 'react'
 import TableDropDown from './TableDropDown'
 import { ToggleDropDown } from './TableData'
 import { Actions, useTableContext } from './Table'
+import StarRating from '../../SuperAdmin/UI/StarRating'
 
 interface SlicedPages {
     pages: any[][] | null
@@ -163,8 +164,8 @@ const SlicedPages: FC<SlicedPages> = ({
                             />
                         ) : null
                     } 
-                    if(Key === 'ratings'){
-                        return <p>Ratings</p>
+                    if(key.toLowerCase() === 'rating'){
+                        return <StarRating starsNum={2}/>
                     }
                     
                     else {
