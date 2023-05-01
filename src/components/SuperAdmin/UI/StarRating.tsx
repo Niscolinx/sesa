@@ -4,13 +4,9 @@ interface IStarRating {
     starsNum: number
 }
 
-// onDoubleClick={() => {
-// setRating(0);
-// setHover(0);
-// }}
+
 
 const StarRating: FC<IStarRating> = ({ starsNum }) => {
-    console.log({starsNum})
     const TOTAL_STAR_COUNT = 5
     return (
         <div>
