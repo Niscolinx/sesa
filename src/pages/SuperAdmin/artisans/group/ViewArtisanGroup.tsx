@@ -261,16 +261,15 @@ const ViewArtisanGroup = () => {
         })
     }
 
-    const groupId = params?.id
+    const groupId = params.id?.replace(':', '')
 
     const fetchRequest = () => {
-
         return axiosInstance({
             url: `/admin/group/getSingleGroup/${groupId}`,
         })
     }
 
-    const {data, isLoading} = useQuery('', fetchRequest)
+    const { data, isLoading } = useQuery('', fetchRequest)
 
     return (
         <>
