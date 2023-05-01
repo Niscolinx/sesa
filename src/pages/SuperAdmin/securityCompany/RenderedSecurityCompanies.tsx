@@ -19,7 +19,6 @@ import { ToastContainer, toast } from 'react-toastify'
 type SecurityCompany = {
     id: number
     image: string
-
     name: string
     address: string
     balance: string
@@ -66,7 +65,8 @@ function RenderedSecurityCompanies() {
 
                 toast('Security Company Deactivated Successfully', {
                     type: 'success',
-                    className: 'bg-green-100 text-green-600 text-[1.4rem] uppercase',
+                    className:
+                        'bg-green-100 text-green-600 text-[1.4rem] uppercase',
                 })
             }
         },
