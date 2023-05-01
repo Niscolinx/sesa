@@ -36,6 +36,7 @@ const ViewArtisanGroup = () => {
     const [fetchedArtisanGroups, setFetchedArtisanGroups] = useState<
         IViewArtisanGroup[]
     >([])
+    const [fetchedEstateList, setFetchedEstateList] = useState([])
 
     const groupId = params.id?.replace(':', '')
 
@@ -51,10 +52,13 @@ const ViewArtisanGroup = () => {
     )
 
     useEffect(() => {
-
         if (data) {
             if (data.artisans.length > 0) {
                 setFetchedArtisanGroups(data.artisans)
+            }
+
+            if(data.estate.length > 0){
+                setFetchedEstateList(data.estate)
             }
         }
     }, [data])
@@ -555,7 +559,7 @@ const ViewArtisanGroup = () => {
                         />
                     </ul>
                 </footer>
-                <EstateListTable />
+                <EstateListTable estateList={fetchedEstateList} />
             </div>
         </>
     )

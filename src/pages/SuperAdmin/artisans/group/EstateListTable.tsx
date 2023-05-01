@@ -44,12 +44,12 @@ const ESTATE_LIST_TABLE: IEstateListTable[] = [
     },
 ]
 
-function EstateListTable({ estate_list }: any) {
-    const [fetchedEstateList, setFetchedEstateList] = useState(estate_list)
+function EstateListTable({ estateList }: any) {
+    const [fetchedEstateList, setFetchedEstateList] = useState(estateList)
 
     useEffect(() => {
-        setFetchedEstateList(estate_list)
-    }, [estate_list])
+        setFetchedEstateList(estateList)
+    }, [estateList])
 
     interface Paginate {
         index: number
