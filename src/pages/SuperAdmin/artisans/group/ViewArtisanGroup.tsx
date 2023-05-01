@@ -352,7 +352,7 @@ const ViewArtisanGroup = () => {
                 </div>
                 <div className='flex w-full items-center gap-12 py-8 bg-white rounded-lg'>
                     <p className=' font-Satoshi-Medium'>
-                        Group Users <span>(5)</span>
+                        Artisan List <span>({fetchedArtisanGroups.length})</span>
                     </p>
                     <div className='relative flex items-center'>
                         <img
