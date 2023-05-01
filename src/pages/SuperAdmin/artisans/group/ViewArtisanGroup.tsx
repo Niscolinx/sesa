@@ -348,7 +348,7 @@ const ViewArtisanGroup = () => {
                         Update
                     </button>
                 </div>
-                {/* <div className='flex w-full items-center gap-12 py-8 bg-white rounded-lg'>
+                <div className='flex w-full items-center gap-12 py-8 bg-white rounded-lg'>
                     <p className=' font-Satoshi-Medium'>
                         Artisan List{' '}
                         <span>({fetchedArtisanGroups.length})</span>
@@ -542,15 +542,13 @@ const ViewArtisanGroup = () => {
                             )
                         })}
 
-                        {/* <li className='grid place-content-center border w-[3rem] h-[3rem] cursor-pointer'>
-                        {totalPage}
-                    </li> */}
+                      
                         <HiOutlineChevronRight
                             onClick={handleNext}
                             className='cursor-pointer'
                         />
                     </ul>
-                </footer> */}
+                </footer>
                 <EstateListTable estateList={fetchedEstateList} />
             </div>
         </>
