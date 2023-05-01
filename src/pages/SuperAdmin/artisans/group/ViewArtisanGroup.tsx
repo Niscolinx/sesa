@@ -385,7 +385,7 @@ const ViewArtisanGroup = () => {
 
                     <div className='grid gap-8 p-8'>
                         {slicedPages &&
-                            slicedPages.length &&
+                            slicedPages.length > 0 &&
                             React.Children.toArray(
                                 slicedPages[paginate.index].map(
                                     (

@@ -186,7 +186,7 @@ function EstateListTable({ estateList }: any) {
                 </div>
 
                 <div className='grid gap-8 p-8'>
-                    {slicedPages && slicedPages.length && (
+                    {slicedPages && slicedPages.length > 0 && (
                         React.Children.toArray(
                             slicedPages[paginate.index].map(
                                 ({ name, location }, i) => {
