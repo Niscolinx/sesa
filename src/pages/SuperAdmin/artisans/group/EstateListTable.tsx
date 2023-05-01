@@ -7,7 +7,7 @@ import { toast } from 'react-toastify'
 
 export interface IEstateListTable {
     id: string
-    esate_name: string
+    estate_name: string
     location: string
 }
 
@@ -147,11 +147,11 @@ function EstateListTable({ estateList }: any) {
                         fontSize: '1.4rem',
                     }}
                 >
-                    <p className='flex items-center gap-2'>
+                    <p className='flex items-center gap-2 capitalize'>
                         <input type='checkbox' className='cursor-pointer' />
-                        <p> Name</p>
+                        <p> estate name</p>
                     </p>
-                    <p>Location</p>
+                    <p>location</p>
                 </div>
 
                 <div className='grid gap-8 p-8'>
