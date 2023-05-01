@@ -32,6 +32,7 @@ const TableData = () => {
         title,
         fetch_url,
         add_page_url,
+        providedData,
         isDataProvided,
         THeader,
         is_checkbox,
@@ -49,7 +50,6 @@ const TableData = () => {
     const [extractedData, setExtractedData] = useState<any[]>([])
 
     useEffect(() => {
-        console.log('mount')
         const fields = [...THeader].filter(
             (item) =>
                 item.toLowerCase() !== 'actions' &&
