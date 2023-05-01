@@ -14,6 +14,7 @@ interface Table {
     view_page_url?: string
     add_page_url?: string
     is_add_btn?: boolean
+    isStarRating?: boolean
     isCategory?: boolean
     deactivateProp?: { url: string; tag?: string }
     data_to_display: string[]
@@ -62,6 +63,7 @@ const Table = ({
     data_to_display,
     is_add_btn,
     nested = false,
+    isStarRating,
     deactivateProp,
     THeader,
     delete_item_url,
@@ -98,6 +100,7 @@ const Table = ({
                 deactivateProp,
                 fetch_url,
                 title,
+                isStarRating,
                 view_page_url,
                 add_page_url,
                 is_add_btn,
