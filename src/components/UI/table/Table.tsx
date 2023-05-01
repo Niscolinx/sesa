@@ -16,6 +16,7 @@ interface Table {
     is_add_btn?: boolean
     isCategory?: boolean
     providedData?: any[]
+    isStrictAction?: boolean
     deactivateProp?: { url: string; tag?: string }
     data_to_display: string[]
     nested?: boolean
@@ -64,6 +65,7 @@ const Table = ({
     data_to_display,
     providedData,
     is_add_btn,
+    isStrictAction,
     nested = false,
     isDataProvided = false,
     deactivateProp,
@@ -94,6 +96,7 @@ const Table = ({
                 fetchedId,
                 is_checkbox,
                 setFetchedId,
+                isStrictAction,
                 fetchedData,
                 providedData,
                 setFetchedData,

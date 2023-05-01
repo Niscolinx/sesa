@@ -230,7 +230,7 @@ const TableData = () => {
 
     return (
         <div>
-            <div className='rounded-lg mt-[3rem] h-[80vh]'>
+            <div className='rounded-lg mt-[3rem]'>
                 {fetched.length > 0 ? (
                     <>
                         <ToastContainer />

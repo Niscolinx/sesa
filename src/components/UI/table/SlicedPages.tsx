@@ -23,6 +23,7 @@ const SlicedPages: FC<SlicedPages> = ({
         THeader,
         actions,
         is_dropdown,
+        isStrictAction,
         is_checkbox,
     } = useTableContext()
 
@@ -172,7 +173,9 @@ const SlicedPages: FC<SlicedPages> = ({
                                 toggleDropDown={toggleDropDown}
                                 setToggleDropDown={setToggleDropDown}
                                 id={id}
-                                actions={updatedActions}
+                                actions={
+                                    isStrictAction ? actions : updatedActions
+                                }
                                 key={idx}
                             />
                         ) : null
