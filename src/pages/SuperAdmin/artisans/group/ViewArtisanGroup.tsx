@@ -551,10 +551,8 @@ const ViewArtisanGroup = () => {
                     </ul>
                 </footer> */}
                 <Table
-                    title={'admin'}
+                    title={'artisan'}
                     view_page_url={'/superAdmin/admin/view/'}
-                    add_page_url={'/superAdmin/admin/add'}
-                    is_add_btn={true}
                     THeader={[
                         'name',
                         'gender',
