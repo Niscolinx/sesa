@@ -70,24 +70,26 @@ const ViewArtisanGroup = () => {
         IViewArtisanGroup[]
     >([])
 
-       const groupId = params.id?.replace(':', '')
+    const groupId = params.id?.replace(':', '')
 
-       const fetchRequest = () => {
-           return axiosInstance({
-               url: `/admin/group/getSingleGroup/${groupId}`,
-           })
-       }
+    const fetchRequest = () => {
+        return axiosInstance({
+            url: `/admin/group/getSingleGroup/${groupId}`,
+        })
+    }
 
-       const { data, isLoading } = useQuery(
-           ['group_artisan_list'],
-           fetchRequest
-       )
+    const { data, isLoading } = useQuery(['group_artisan_list'], fetchRequest)
 
     useEffect(() => {
-       
-            //setFetchedArtisanGroups(VIEW_ARTISAN_GROUP)
-            //setIsLoaded(true)
-       
+        //setFetchedArtisanGroups(VIEW_ARTISAN_GROUP)
+        //setIsLoaded(true)
+
+        if (data) {
+            if (data.artisans.length > 0) {
+
+                setFetchedArtisanGroups(data.artisans)
+            }
+        }
     }, [data])
 
     const handleDialogSubmit = (e: FormEvent) => {
@@ -274,14 +276,11 @@ const ViewArtisanGroup = () => {
         })
     }
 
- 
-
     if (isLoading) {
         return <p className='p-8'>Loading...</p>
     }
 
-
-    console.log({data})
+    console.log({ data })
 
     return (
         <>
