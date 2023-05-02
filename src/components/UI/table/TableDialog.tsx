@@ -96,8 +96,8 @@ function TableDialog() {
                 queryClient.setQueryData(title, (oldData: any) => {
                     console.log({oldData})
                     return {
-                        ...oldData,
-                        data: [...oldData.data, updatedData[0]],
+                        ...oldData.data.data,
+                        data: [...oldData.data.data, updatedData[0]],
                     }
                 })
 
@@ -106,6 +106,13 @@ function TableDialog() {
 
             closeDialog()
         },
+
+        onError: (_, _, context) => {
+            console.log({context})
+        },
+        onSettled: () => {
+            queryClient.invalidateQueries(title)
+        }
     })
 
     useEffect(() => {
