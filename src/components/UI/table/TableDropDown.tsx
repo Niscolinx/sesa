@@ -17,7 +17,7 @@ const TableDropDown = ({
     setToggleDropDown,
     actions,
 }: TableDropDown) => {
-    const { setFetchedId, setIsDialogOpen, view_page_url, isCategory } =
+    const { setFetchedId, setIsDialogOpen, view_page_url } =
         useTableContext()
 
     const navigate = useNavigate()
@@ -105,12 +105,7 @@ const TableDropDown = ({
                             <p
                                 className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
                                 key={i}
-                                onClick={(e) => {
-                                    e.preventDefault()
-                                    console.log('dropDown')
-
-                                    handleSelectedAction(item, id)
-                                }}
+                                onClick={() => handleSelectedAction(item, id)}
                             >
                                 {['deactivate', 'delete', 'remove'].includes(
                                     item
