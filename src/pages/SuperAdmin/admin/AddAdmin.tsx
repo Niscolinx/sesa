@@ -66,9 +66,8 @@ const AddAdmin = () => {
 
     const queryClient = useQueryClient()
     const { mutate, isLoading } = useMutation(postAdmin, {
-
         onMutate: () => {
-
+            queryClient.invalidateQueries('admin')
         },
         onSuccess: () => {
             handleOpen()
@@ -100,12 +99,13 @@ const AddAdmin = () => {
 
             if (KBSize.length > 3) {
                 const MBSize = Number(KBSize) / 1000
-                return MBSize > 2 &&
+                return (
+                    MBSize > 2 &&
                     setResponseMessage({
-                          className: 'text-red-600',
-                          displayMessage: 'File size must less than 2MB',
-                      })
-                  
+                        className: 'text-red-600',
+                        displayMessage: 'File size must less than 2MB',
+                    })
+                )
             }
         }
 
@@ -123,7 +123,7 @@ const AddAdmin = () => {
 
         console.log({ adminData })
 
-         mutate(adminData)
+        mutate(adminData)
     })
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
