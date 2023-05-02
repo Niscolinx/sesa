@@ -569,7 +569,23 @@ const ViewArtisanGroup = () => {
                     providedData={fetchedArtisanGroups}
                     deactivateProp={{ url: '/admin/deactivate_activate' }}
                 />
-                <EstateListTable estateList={fetchedEstateList} />
+                <Table
+                    title={'estate'}
+                    view_page_url={'/superAdmin/admin/view/'}
+                    THeader={[
+                        'estate name',
+                        'location',
+                        'actions',
+                    ]}
+                    actions={['remove']}
+                    data_to_display={[
+                        'estate_name',
+                        'ad'
+                      
+                    ]}
+                    isDataProvided={true}
+                    providedData={fetchedEstateList}
+                />
             </div>
         </>
     )

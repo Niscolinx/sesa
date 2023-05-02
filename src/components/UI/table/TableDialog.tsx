@@ -6,7 +6,7 @@ import React, {
     useState,
 } from 'react'
 import { useTableContext } from './Table'
-import { useMutation } from 'react-query'
+import { useMutation, useQueryClient } from 'react-query'
 import { toast } from 'react-toastify'
 import { IoMdClose } from 'react-icons/io'
 
@@ -52,8 +52,11 @@ function TableDialog() {
         })
     }
 
+    const queryClient = useQueryClient()
     const { mutate, isLoading } = useMutation(postRequest, {
         onSuccess: (data) => {
+            console.log(title)
+            queryClient.invalidateQueries(title)
             if ((data as any).success) {
                 closeDialog()
                 const messageTitle = title

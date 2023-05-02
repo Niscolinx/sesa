@@ -95,7 +95,6 @@ const SlicedPages: FC<SlicedPages> = ({
             })
         }
 
-        console.log({sorted})
 
         return (
             <>
