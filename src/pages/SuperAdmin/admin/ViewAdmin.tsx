@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { useMutation } from 'react-query'
+import { useMutation, useQuery } from 'react-query'
 import Input, { SelectProps } from '../../../components/UI/input/Input'
 import { useNavigate, useParams } from 'react-router'
 import { toast, ToastContainer } from 'react-toastify'
@@ -90,10 +90,6 @@ const ViewAdmin = () => {
         return <p className='p-4'> Not found!</p>
     }
 
-    useEffect(() => {
-        get_admin_mutation(admin_id)
-    }, [])
-
     const postDeactivateAdmin = (id: string) => {
         return axiosInstance({
             url: '/change/user/status',
@@ -109,9 +105,9 @@ const ViewAdmin = () => {
         })
     }
 
-    const getAdmin = (id: string) => {
+    const getAdmin = () => {
         return axiosInstance({
-            url: `/admin/get/${id}`,
+            url: `/admin/get/${admin_id}`,
         })
     }
 
@@ -134,32 +130,32 @@ const ViewAdmin = () => {
         },
     })
 
-    const {
-        mutate: get_admin_mutation,
-        data: get_admin_response,
-        isLoading: get_admin_loading,
-    } = useMutation(getAdmin, {
-        onSuccess: (res) => {
-            const { name, email, phone, image, dob, gender } = res.data
-            const first_name = name.split(' ')[0]
-            const last_name = name.split(' ')[1]
+    const { data: get_admin_response, isLoading: get_admin_loading } = useQuery(
+        ['get_admin'],
+        getAdmin,
+        {
+            onSuccess: (res) => {
+                const { name, email, phone, image, dob, gender } = res.data
+                const first_name = name.split(' ')[0]
+                const last_name = name.split(' ')[1]
 
-            reset({
-                first_name,
-                last_name,
-                dob,
-                email_address: email,
-                phone_number: parseInt(phone),
-            })
+                reset({
+                    first_name,
+                    last_name,
+                    dob,
+                    email_address: email,
+                    phone_number: parseInt(phone),
+                })
 
-            setPhotoPreview(image)
-            setSelectedGender(gender)
-        },
+                setPhotoPreview(image)
+                setSelectedGender(gender)
+            },
 
-        onError: (err) => {
-            console.log({ err })
-        },
-    })
+            onError: (err) => {
+                console.log({ err })
+            },
+        }
+    )
 
     const { mutate: post_admin_mutation, isLoading: post_admin_loading } =
         useMutation(postUpdateAdmin, {
@@ -220,8 +216,6 @@ const ViewAdmin = () => {
     if (get_admin_loading) {
         return <p>loading...</p>
     }
-
-   
 
     return (
         <>
