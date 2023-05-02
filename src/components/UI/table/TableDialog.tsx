@@ -84,7 +84,7 @@ function TableDialog() {
                             status = 0
                         }
 
-                        console.log({status})
+                        console.log({ status })
                         return {
                             ...gotten_data,
                             status,
@@ -93,7 +93,15 @@ function TableDialog() {
 
                 console.log({ updatedData })
 
-                return updatedData
+                queryClient.setQueryData(title, (oldData: any) => {
+                    console.log({oldData})
+                    return {
+                        ...oldData,
+                        data: [...oldData.data, updatedData[0]],
+                    }
+                })
+
+                // return updatedData
             }
 
             closeDialog()
