@@ -167,10 +167,13 @@ input[type='number'] {
 
 .table__ellipsis {
     & > *:not(:last-child) {
-        overflow: hidden;
-        max-width: 15rem;
-        white-space: nowrap;
-        text-overflow: ellipsis;
+        p{
+
+            overflow: hidden;
+            max-width: 12rem;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
     }
 }
 
