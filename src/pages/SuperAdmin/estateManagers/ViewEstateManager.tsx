@@ -82,9 +82,9 @@ const ViewEstateManager = () => {
 
     const postDeactivate = (id: string) => {
         return axiosInstance({
-            url: '/change/user/status',
+            url: '/admin/deactivate_activate',
             method: 'post',
-            data: { user_id: id },
+            data: { id },
         })
     }
     const postUpdate = (data: Inputs) => {

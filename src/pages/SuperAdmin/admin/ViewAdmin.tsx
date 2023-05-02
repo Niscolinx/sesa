@@ -278,7 +278,6 @@ const ViewAdmin = () => {
                     />
 
                     <div className='flex gap-8'>
-                        {<>{console.log(get_admin_response?.data)}</>}
                         {get_admin_response?.data.status ? (
                             <button
                                 className='border border-red-600 px-16 py-4 flex items-center  rounded-lg gap-4'
