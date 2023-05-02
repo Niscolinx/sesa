@@ -91,7 +91,6 @@ function TableDialog() {
             isOpen: false,
         })
         if (dialogRef.current) {
-            console.log('current')
             dialogRef.current.close()
         }
     }

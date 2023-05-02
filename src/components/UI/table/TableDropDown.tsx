@@ -35,6 +35,12 @@ const TableDropDown = ({
         if (item === 'view details') {
             navigate(`${view_page_url}:${itemId}`)
         }
+        if (item === 'activate') {
+            setIsDialogOpen({
+                isOpen: true,
+                type: 'activate',
+            })
+        }
 
         if (item === 'deactivate') {
             setIsDialogOpen({
@@ -90,7 +96,9 @@ const TableDropDown = ({
                             key={i}
                             onClick={() => handleSelectedAction(item, id)}
                         >
-                            {['deactivate', 'delete', 'remove'].includes(item) ? (
+                            {['deactivate', 'delete', 'remove'].includes(
+                                item
+                            ) ? (
                                 <span className='text-red-600'>{item}</span>
                             ) : item === 'activate' ? (
                                 <span className='text-green-600'>{item}</span>
