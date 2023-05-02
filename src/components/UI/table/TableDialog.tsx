@@ -25,9 +25,7 @@ function TableDialog() {
     const [artisanCategory, setArtisanCategory] = useState('')
 
     const postRequest = () => {
-      
-            const { url, tag = 'id' } = deactivateProp ?? {}
-        
+        const { url, tag = 'id' } = deactivateProp ?? {}
 
         if (isCategory && isDialogOpen?.type === 'create') {
             return axiosInstance({
@@ -59,14 +57,14 @@ function TableDialog() {
             queryClient.invalidateQueries(title)
             if ((data as any).success) {
                 closeDialog()
-                const messageTitle = title
-                    .replace(/([a-z])([A-Z])/g, '$1 $2')
+                const messageTitle = title.replace(/([a-z])([A-Z])/g, '$1 $2')
 
                 const type = isDialogOpen?.type
 
                 toast(`${messageTitle} ${type + 'd'} Successfully`, {
                     type: 'success',
-                    className: 'bg-green-100 text-green-600 text-[1.4rem] capitalize',
+                    className:
+                        'bg-green-100 text-green-600 text-[1.4rem] capitalize',
                 })
             }
         },
@@ -149,50 +147,40 @@ function TableDialog() {
                                 </button>
                             </form>
                         </>
-                    ) : isDialogOpen?.type === 'delete' ? (
-                        <>
-                            <img
-                                src='/icons/admins/modalDeactivate.svg'
-                                alt=''
-                                className='animate__animated animate__pulse '
-                                style={{
-                                    animationIterationCount: 'infinite',
-                                }}
-                            />
-                            <p>
-                                Are you sure you want to delete this{' '}
-                                <span className='capitalize'>
-                                    {title.split(/(?=[A-Z])/).join(' ')}?
-                                </span>
-                            </p>
-
-                            <div className='flex w-full justify-center gap-8'>
-                                <button
-                                    className='btn bg-white text-[#0556E5] border-[#0556E5] border rounded-lg w-[15rem]'
-                                    onClick={closeDialog}
-                                >
-                                    Cancel
-                                </button>
-                                <button
-                                    className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
-                                    onClick={() => mutate()}
-                                >
-                                    {isLoading ? 'Loading...' : 'Delete'}
-                                </button>
-                            </div>
-                        </>
                     ) : (
                         <>
-                            <img
-                                src='/icons/admins/modalWarning.svg'
-                                alt=''
-                                className='animate__animated animate__pulse '
-                                style={{
-                                    animationIterationCount: 'infinite',
-                                }}
-                            />
+                            {isDialogOpen?.type === 'delete' ? (
+                                <img
+                                    src='/icons/admins/modalDeactivate.svg'
+                                    alt=''
+                                    className='animate__animated animate__pulse '
+                                    style={{
+                                        animationIterationCount: 'infinite',
+                                    }}
+                                />
+                            ) : isDialogOpen?.type === 'deactivate' ? (
+                                <img
+                                    src='/icons/admins/modalWarning.svg'
+                                    alt=''
+                                    className='animate__animated animate__pulse '
+                                    style={{
+                                        animationIterationCount: 'infinite',
+                                    }}
+                                />
+                            ) : (
+                                <img
+                                    src='/icons/admins/modalSuccess.svg'
+                                    alt=''
+                                    className='animate__animated animate__pulse '
+                                    style={{
+                                        animationIterationCount: 'infinite',
+                                    }}
+                                />
+                            )}
+
                             <p>
-                                Are you sure you want to deactivate this{' '}
+                                Are you sure you want to {isDialogOpen?.type}{' '}
+                                this{' '}
                                 <span className='capitalize'>
                                     {title.split(/(?=[A-Z])/).join(' ')}?
                                 </span>
@@ -209,7 +197,9 @@ function TableDialog() {
                                     className='bg-red-500 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem] capitalize'
                                     onClick={() => mutate()}
                                 >
-                                    {isLoading ? 'Loading...' : 'deactivate'}
+                                    {isLoading
+                                        ? 'Loading...'
+                                        : `${isDialogOpen?.type}`}
                                 </button>
                             </div>
                         </>
