@@ -70,17 +70,30 @@ function TableDialog() {
 
         onMutate: async () => {
             await queryClient.cancelQueries(title)
-            const previousData: {
-                data?: any[]
-            } = queryClient.getQueryData(title)
-            console.log({previousData, fetchedId})
 
-            if(previousData.data)
-            previousData.data.find((data: any) => data.id === fetchedId).map((gotten_data) => {
-                
-                return {}
-            })
-            
+            const previousData: any = await queryClient.getQueryData(title)
+
+            if (previousData.data) {
+                console.log({previousData})
+                const updatedData = previousData.data.data
+                    .filter((data: any) => data.id === fetchedId)
+                    .map((gotten_data: any) => {
+                        let status = 0
+
+                        if (gotten_data.status) {
+                            status = 1
+                        }
+                        return {
+                            ...gotten_data,
+                            status,
+                        }
+                    })
+
+                    console.log({updatedData})
+
+                    return updatedData
+            }
+
             closeDialog()
         },
     })
