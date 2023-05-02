@@ -78,11 +78,13 @@ function TableDialog() {
                 const updatedData = previousData.data.data
                     .filter((data: any) => data.id === fetchedId)
                     .map((gotten_data: any) => {
-                        let status = 0
+                        let status = 1
 
                         if (gotten_data.status) {
                             status = 0
                         }
+
+                        console.log({status})
                         return {
                             ...gotten_data,
                             status,
