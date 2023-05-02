@@ -98,9 +98,9 @@ function TableDialog() {
                     })
 
                     console.log({index_to_replace})
-                const data_to_change = previousData.data.data[index_to_replace]
+                const changed_data_idx = previousData.data.data[index_to_replace]
 
-                console.log({data_to_change})
+                console.log({changed_data_idx})
                 
                 updatedData = [...updatedData]
                 console.log({ updatedData })
