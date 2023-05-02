@@ -64,8 +64,9 @@ const TableDropDown = ({
     const handleClose = () => {
         console.log('outside timeout close ref', toCloseDropDownRef.current)
         
-       const id =  setTimeout(() => {
+        setTimeout(() => {
             if (toCloseDropDownRef.current === 'outside') {
+                console.log('close now')
                 setToggleDropDown(() => {
                     return {
                         isDropDownOpen: false,
@@ -75,7 +76,7 @@ const TableDropDown = ({
             }
         }, 100)
 
-        return clearTimeout(id)
+       // return clearTimeout(id)
     }
 
     useEffect(() => {
