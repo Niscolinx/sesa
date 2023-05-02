@@ -70,8 +70,11 @@ function TableDialog() {
 
         onMutate: async () => {
             await queryClient.cancelQueries(title)
-            const previousData = queryClient.getQueryData(title)
+            const previousData: any = queryClient.getQueryData(title)
             console.log({previousData, fetchedId})
+
+            previousData.data.find((data: any) => data.id === fetchedId)
+            
             closeDialog()
         },
     })
