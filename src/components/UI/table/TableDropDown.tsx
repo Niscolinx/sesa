@@ -64,7 +64,7 @@ const TableDropDown = ({
     const handleClose = () => {
         console.log('outside timeout close ref', toCloseDropDownRef.current)
         
-        setTimeout(() => {
+       const id =  setTimeout(() => {
             console.log('inside timout close ref', toCloseDropDownRef.current)
             if (toCloseDropDownRef.current === 'outside') {
                 setToggleDropDown(() => {
@@ -75,6 +75,8 @@ const TableDropDown = ({
                 })
             }
         }, 100)
+
+        return clearTimeout(id)
     }
 
     useEffect(() => {
@@ -111,7 +113,7 @@ const TableDropDown = ({
             />
 
             {isDropDownOpen && index === id && (
-                <div className='absolute top-0 translate-x-[4rem] border border-color-primary-light w-[10rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
+                <div className='absolute top-0 translate-x-[4rem] border border-color-primary-light w-[10rem] bg-color-white rounded-lg grid shadow z-20 capitalize'>
                     <>
                         <input
                             type='text'

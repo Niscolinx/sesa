@@ -92,9 +92,9 @@ const ViewAdmin = () => {
 
     const postDeactivateAdmin = (id: string) => {
         return axiosInstance({
-            url: '/change/user/status',
+            url: '/admin/deactivate_activate',
             method: 'post',
-            data: { user_id: id },
+            data: { id },
         })
     }
     const postUpdateAdmin = (data: any) => {
