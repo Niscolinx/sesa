@@ -90,23 +90,26 @@ const TableDropDown = ({
 
             {isDropDownOpen && index === id && (
                 <div className='absolute top-0 translate-x-[4rem] border border-color-primary-light w-[10rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
+                    <>
+                    <input type="text" className='border' />
                     {actions.map((item, i) => (
                         <p
-                            className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
-                            key={i}
-                            onClick={() => handleSelectedAction(item, id)}
+                        className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
+                        key={i}
+                        onClick={() => handleSelectedAction(item, id)}
                         >
                             {['deactivate', 'delete', 'remove'].includes(
                                 item
-                            ) ? (
-                                <span className='text-red-600'>{item}</span>
-                            ) : item === 'activate' ? (
-                                <span className='text-green-600'>{item}</span>
-                            ) : (
-                                <span>{item}</span>
-                            )}
+                                ) ? (
+                                    <span className='text-red-600'>{item}</span>
+                                    ) : item === 'activate' ? (
+                                        <span className='text-green-600'>{item}</span>
+                                        ) : (
+                                            <span>{item}</span>
+                                            )}
                         </p>
                     ))}
+                    </>
                 </div>
             )}
         </div>

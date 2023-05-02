@@ -132,30 +132,28 @@ const ViewAdmin = () => {
 
     const { data: get_admin_response, isLoading: get_admin_loading } = useQuery(
         ['get_admin'],
-        getAdmin,
-        {
-            onSuccess: (res) => {
-                const { name, email, phone, image, dob, gender } = res.data
-                const first_name = name.split(' ')[0]
-                const last_name = name.split(' ')[1]
-
-                reset({
-                    first_name,
-                    last_name,
-                    dob,
-                    email_address: email,
-                    phone_number: parseInt(phone),
-                })
-
-                setPhotoPreview(image)
-                setSelectedGender(gender)
-            },
-
-            onError: (err) => {
-                console.log({ err })
-            },
-        }
+        getAdmin
     )
+
+    useEffect(() => {
+        if (get_admin_response) {
+            const { name, email, phone, image, dob, gender } =
+                get_admin_response.data
+            const first_name = name.split(' ')[0]
+            const last_name = name.split(' ')[1]
+
+            reset({
+                first_name,
+                last_name,
+                dob,
+                email_address: email,
+                phone_number: parseInt(phone),
+            })
+
+            setPhotoPreview(image)
+            setSelectedGender(gender)
+        }
+    }, [get_admin_response])
 
     const { mutate: post_admin_mutation, isLoading: post_admin_loading } =
         useMutation(postUpdateAdmin, {
