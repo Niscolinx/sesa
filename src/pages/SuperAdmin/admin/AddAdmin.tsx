@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { IoMdAdd } from 'react-icons/io'
-import { useMutation } from 'react-query'
+import { QueryClient, useMutation, useQueryClient } from 'react-query'
 import Input, { SelectProps } from '../../../components/UI/input/Input'
 import useAxios from '../../../components/hooks/useAxios'
 import Spinner from '../../../components/UI/Spinner'
@@ -64,7 +64,7 @@ const AddAdmin = () => {
         })
     }
 
-    const query
+    const queryClient = useQueryClient()
     const { mutate, isLoading } = useMutation(postAdmin, {
         onSuccess: () => {
             handleOpen()
