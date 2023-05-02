@@ -18,12 +18,13 @@ const TableDropDown = ({
     actions,
 }: TableDropDown) => {
     const { setFetchedId, setIsDialogOpen, view_page_url } = useTableContext()
-    const toCloseDropDownRef = useRef<boolean>(false)
+    const toCloseDropDownRef = useRef<'outside' | 'inner'>('outside')
 
     const navigate = useNavigate()
 
     const handleSelectedAction = (item: Actions, itemId: number) => {
-        toCloseDropDownRef.current = true
+        console.log('clicked')
+        toCloseDropDownRef.current = 'inner'
         setToggleDropDown(() => {
             return {
                 isDropDownOpen: false,
@@ -61,8 +62,13 @@ const TableDropDown = ({
     const { isDropDownOpen, index } = toggleDropDown
 
     const handleClose = () => {
-        console.log({toCloseDropDownRef})
-        console.log('close')
+        console.log(toCloseDropDownRef.current)
+        // setTimeout(() => {
+
+            if (toCloseDropDownRef.current === 'outside') {
+                console.log('close')
+            }
+        //}, 100)
     }
 
     return (
