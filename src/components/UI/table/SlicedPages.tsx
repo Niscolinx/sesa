@@ -166,7 +166,6 @@ const SlicedPages: FC<SlicedPages> = ({
                                   ])
                             : null
 
-                        console.log({ value })
 
                         updatedActions = [...updatedActions, ...actions]
                         return is_dropdown ? (
