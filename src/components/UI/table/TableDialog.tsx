@@ -52,36 +52,19 @@ function TableDialog() {
 
     const queryClient = useQueryClient()
     const { mutate, isLoading } = useMutation(postRequest, {
-        // onSuccess: (data) => {
-        //     // queryClient.invalidateQueries(title)
-        //     if ((data as any).success) {
-        //         closeDialog()
-        //         const messageTitle = title.replace(/([a-z])([A-Z])/g, '$1 $2')
-
-        //         const type = isDialogOpen?.type
-
-        //         toast(`${messageTitle} ${type + 'd'} Successfully`, {
-        //             type: 'success',
-        //             className:
-        //                 'bg-green-100 text-green-600 text-[1.4rem] capitalize',
-        //         })
-        //     }
-        // },
-
         onMutate: async () => {
             await queryClient.cancelQueries(title)
 
             const previousData: any = await queryClient.getQueryData(title)
 
             if (previousData.data) {
-                let index_to_replace = 0;
+                let index_to_replace = 0
                 let updatedData = previousData.data.data
                     .filter((data: any, idx: number) => {
-                        if(data.id === fetchedId){
-                            
+                        if (data.id === fetchedId) {
                             index_to_replace = idx
                             return data
-                       }
+                        }
                     })
                     .map((gotten_data: any) => {
                         let status = 1
@@ -97,20 +80,18 @@ function TableDialog() {
                         }
                     })
 
-                    console.log({index_to_replace})
-                const changed_data_idx = previousData.data.data[index_to_replace]
+                const cloneOld: any[] = previousData.data.data
 
-                console.log({changed_data_idx})
-                
-                updatedData = [...updatedData]
-                console.log({ updatedData })
+                cloneOld.splice(index_to_replace, 1, ...updatedData)
+
+                console.log({ cloneOld })
 
                 queryClient.setQueryData(title, (oldData: any) => {
                     console.log({ oldData })
                     const relevantData = oldData.data.data
                     return {
                         ...relevantData,
-                        data: [...updatedData],
+                        data: [...cloneOld],
                     }
                 })
 
