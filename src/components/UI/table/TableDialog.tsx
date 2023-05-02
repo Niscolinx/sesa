@@ -87,7 +87,6 @@ function TableDialog() {
 
                 cloneOld.splice(index_to_replace, 1, ...updatedData)
 
-                console.log({ cloneOld })
 
                 queryClient.setQueryData(title, (oldData: any) => {
                     console.log({ oldData })
@@ -110,7 +109,7 @@ function TableDialog() {
             })
         },
 
-        onError: (context) => {
+        onError: (_error, _option, context) => {
             console.log({ context })
 
             toast(`Failed to ${type} ${messageTitle} `, {
