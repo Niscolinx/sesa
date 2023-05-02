@@ -13,7 +13,7 @@ const AddSecurityCompany = () => {
         email: string
         name: string
         address: string
-        phone: number
+        phone_number: number
     }
     type ResponseMessage = {
         className: string
@@ -114,8 +114,7 @@ const AddSecurityCompany = () => {
             type: 'email',
         },
         {
-            label: 'phone',
-            name: 'Phone Number',
+            label: 'phone_number',
             type: 'number',
         },
         {
