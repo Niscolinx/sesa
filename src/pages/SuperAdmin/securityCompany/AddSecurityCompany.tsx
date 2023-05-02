@@ -13,7 +13,7 @@ const AddSecurityCompany = () => {
         email: string
         name: string
         address: string
-        phone_number: number
+        phone_number?: number
     }
     type ResponseMessage = {
         className: string
@@ -77,10 +77,14 @@ const AddSecurityCompany = () => {
     }) as any
 
     const onSubmit = handleSubmit((data) => {
+
         const updatedData = {
             ...data,
+            phone: data.phone_number,
             image: imageFile,
         }
+
+       delete updatedData.phone_number
 
         mutate(updatedData)
     })
