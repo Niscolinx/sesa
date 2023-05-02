@@ -51,6 +51,9 @@ function TableDialog() {
     }
 
     const queryClient = useQueryClient()
+    const messageTitle = title.replace(/([a-z])([A-Z])/g, '$1 $2')
+    const type = isDialogOpen?.type
+
     const { mutate, isLoading } = useMutation(postRequest, {
         onMutate: async () => {
             await queryClient.cancelQueries(title)
@@ -95,10 +98,6 @@ function TableDialog() {
                     }
                 })
 
-                const messageTitle = title.replace(/([a-z])([A-Z])/g, '$1 $2')
-
-                const type = isDialogOpen?.type
-
                 toast(`${messageTitle} ${type + 'd'} Successfully`, {
                     type: 'success',
                     className:
@@ -113,6 +112,12 @@ function TableDialog() {
 
         onError: (context) => {
             console.log({ context })
+
+            toast(`${messageTitle} ${type + 'd'} Unsuccessful`, {
+                type: 'error',
+                className:
+                    'bg-red-100 text-red-600 text-[1.4rem] capitalize',
+            })
         },
         onSettled: () => {
             queryClient.invalidateQueries(title)
