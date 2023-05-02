@@ -45,7 +45,7 @@ function TableDialog() {
         }
         return axiosInstance({
             url,
-            method: 'post',
+            method: 'get',
             data: { [tag]: fetchedId },
         })
     }
@@ -94,11 +94,21 @@ function TableDialog() {
                 console.log({ updatedData })
 
                 queryClient.setQueryData(title, (oldData: any) => {
-                    console.log({oldData})
+                    console.log({ oldData })
                     return {
                         ...oldData.data.data,
                         data: [...oldData.data.data, updatedData[0]],
                     }
+                })
+
+                const messageTitle = title.replace(/([a-z])([A-Z])/g, '$1 $2')
+
+                const type = isDialogOpen?.type
+
+                toast(`${messageTitle} ${type + 'd'} Successfully`, {
+                    type: 'success',
+                    className:
+                        'bg-green-100 text-green-600 text-[1.4rem] capitalize',
                 })
 
                 // return updatedData
@@ -107,12 +117,12 @@ function TableDialog() {
             closeDialog()
         },
 
-        onError: (_, _, context) => {
-            console.log({context})
+        onError: (context) => {
+            console.log({ context })
         },
         onSettled: () => {
             queryClient.invalidateQueries(title)
-        }
+        },
     })
 
     useEffect(() => {
