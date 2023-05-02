@@ -60,44 +60,44 @@ function TableDialog() {
             await queryClient.cancelQueries(title)
 
             const previousData: any = await queryClient.getQueryData(title)
-            prevData.push(previousData)
+            prevData.push(structuredClone(previousData))
 
-            // if (previousData.data) {
-            //     let index_to_replace = 0
-            //     let updatedData = previousData.data.data
-            //         .filter((data: any, idx: number) => {
-            //             if (data.id === fetchedId) {
-            //                 index_to_replace = idx
-            //                 return data
-            //             }
-            //         })
-            //         .map((gotten_data: any) => {
-            //             let status = 1
+            if (previousData.data) {
+                let index_to_replace = 0
+                let updatedData = previousData.data.data
+                    .filter((data: any, idx: number) => {
+                        if (data.id === fetchedId) {
+                            index_to_replace = idx
+                            return data
+                        }
+                    })
+                    .map((gotten_data: any) => {
+                        let status = 1
 
-            //             if (gotten_data.status) {
-            //                 status = 0
-            //             }
+                        if (gotten_data.status) {
+                            status = 0
+                        }
 
-            //             console.log({ status })
-            //             return {
-            //                 ...gotten_data,
-            //                 status,
-            //             }
-            //         })
+                        console.log({ status })
+                        return {
+                            ...gotten_data,
+                            status,
+                        }
+                    })
 
-            //     const cloneOld: any[] = previousData.data.data
+                const cloneOld: any[] = previousData.data.data
 
-            //     cloneOld.splice(index_to_replace, 1, ...updatedData)
+                cloneOld.splice(index_to_replace, 1, ...updatedData)
 
-            //     // queryClient.setQueryData(title, (oldData: any) => {
-            //     //     console.log({ oldData })
-            //     //     const relevantData = oldData.data.data
-            //     //     return {
-            //     //         ...relevantData,
-            //     //         data: [...cloneOld],
-            //     //     }
-            //     // })
-            // }
+                queryClient.setQueryData(title, (oldData: any) => {
+                    console.log({ oldData })
+                    const relevantData = oldData.data.data
+                    return {
+                        ...relevantData,
+                        data: [...cloneOld],
+                    }
+                })
+            }
             closeDialog()
             return {
                 previousData: prevData[0],
