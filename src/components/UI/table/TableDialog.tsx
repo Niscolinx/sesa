@@ -112,6 +112,15 @@ function TableDialog() {
         onError: (_error, _option, context) => {
             console.log({ context })
 
+            queryClient.setQueryData(title, (oldData: any) => {
+                console.log({ oldData })
+                const relevantData = oldData.data.data
+                return {
+                    ...relevantData,
+                    data: [...relevantData],
+                }
+            })
+
             toast(`Failed to ${type} ${messageTitle} `, {
                 type: 'error',
                 className: 'bg-red-100 text-red-600 text-[1.4rem] capitalize',
