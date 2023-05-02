@@ -314,16 +314,24 @@ const ViewAdmin = () => {
                             const { label, type, name, selectProps } = input
 
                             return (
-                                <Input
-                                    key={idx + label}
-                                    label={label}
-                                    register={register}
-                                    formErrors={formErrors}
-                                    type={type}
-                                    name={name}
-                                    isSelect={type === 'select'}
-                                    select={selectProps}
-                                />
+                                <div className='text-[1.4rem] font-semibold capitalize'>
+                                    &nbsp;
+                                </div>
+
+                                // <div className='relative flex items-center'>
+                                //     <input
+                                //         type={eyeIcon ? 'text' : 'password'}
+                                //         className={`border pr-12 border-color-grey p-4 outline-none rounded-lg w-full disabled:opacity-50 disabled:cursor-not-allowed ${
+                                //             formErrors &&
+                                //             formErrors[label] &&
+                                //             'border-red-500 '
+                                //         }`}
+                                //         name='password'
+                                //         id={label}
+                                //         disabled={disabled}
+
+                                //     />
+                                //     </div>
                             )
                         })}
 

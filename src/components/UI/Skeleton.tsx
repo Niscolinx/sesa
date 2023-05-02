@@ -27,22 +27,15 @@ function Skeleton() {
           <p className='text-[2rem] font-Satoshi-Medium'>
               Personal Information
           </p>
-          {responseMessage?.displayMessage && (
-              <p className='text-center'>
-                  <span className={responseMessage?.className}>
-                      {responseMessage?.displayMessage}
-                  </span>
-              </p>
-          )}
-          <form
-              onSubmit={onSubmit}
+          
+          <div
               className='grid max-w-[84rem] gap-16 mt-12 '
               style={{
                   gridTemplateColumns: ' repeat(auto-fit, minmax(35rem, 1fr))',
               }}
           >
               <>
-                  {formInputs.map((input, idx) => {
+                  {/* {formInputs.map((input, idx) => {
                       const { label, type, name, selectProps } = input
 
                       return (
@@ -57,7 +50,7 @@ function Skeleton() {
                               select={selectProps}
                           />
                       )
-                  })}
+                  })} */}
 
                   <button
                       className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg col-span-full mt-[5rem]'
@@ -70,10 +63,10 @@ function Skeleton() {
                               className='w-[1.7rem] h-[1.7rem]'
                           />
                       </span>{' '}
-                      {post_admin_loading ? 'Loading...' : 'Save Changes'}
+                      
                   </button>
               </>
-          </form>
+          </div>
       </div>
   )
 }
