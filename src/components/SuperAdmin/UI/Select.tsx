@@ -176,7 +176,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                                 {placeholder || ''}
                             </span>
                         )}
-                        <div className='flex bg-white-700'>
+                        <div className='flex bg-white justify-self-end'>
                             {toggleStateMenu ? (
                                 <GrUp className='text-[1.4rem] ' />
                             ) : (
