@@ -47,6 +47,8 @@ const AddSecurityCompany = () => {
     const {
         register,
         handleSubmit,
+        setValue,
+        clearErrors,
         formState: { errors: formErrors },
     } = useForm<Inputs>()
 
@@ -177,6 +179,8 @@ const AddSecurityCompany = () => {
                                     label={label}
                                     register={register}
                                     formErrors={formErrors}
+                                    setValue={setValue}
+                                    clearErrors={clearErrors}
                                     type={type}
                                     name={name}
                                     isSelect={type === 'select'}
