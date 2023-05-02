@@ -74,7 +74,6 @@ function TableDialog() {
             const previousData: any = await queryClient.getQueryData(title)
 
             if (previousData.data) {
-                console.log({ previousData })
                 let index_to_replace = 0;
                 let updatedData = previousData.data.data
                     .filter((data: any, idx: number) => {
@@ -96,9 +95,9 @@ function TableDialog() {
                     })
 
                     console.log({index_to_replace})
-                const onTouchedData = previousData.data.data.filter((data: any) => data.id !== fetchedId)
+                const onTouchedData = previousData.data.data
                 
-                updatedData = [...updatedData, ...onTouchedData].reverse()
+                updatedData = [...updatedData]
                 console.log({ updatedData })
 
                 queryClient.setQueryData(title, (oldData: any) => {
