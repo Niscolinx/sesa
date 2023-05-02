@@ -59,6 +59,7 @@ function TableDialog() {
             await queryClient.cancelQueries(title)
 
             const previousData: any = await queryClient.getQueryData(title)
+            const previousData1: any = await queryClient.getQueryData(title)
 
             if (previousData.data) {
                 let index_to_replace = 0
@@ -87,7 +88,6 @@ function TableDialog() {
 
                 cloneOld.splice(index_to_replace, 1, ...updatedData)
 
-
                 queryClient.setQueryData(title, (oldData: any) => {
                     console.log({ oldData })
                     const relevantData = oldData.data.data
@@ -97,8 +97,10 @@ function TableDialog() {
                     }
                 })
             }
-
             closeDialog()
+            return {
+                previousData1,
+            }
         },
 
         onSuccess: () => {
@@ -112,14 +114,7 @@ function TableDialog() {
         onError: (_error, _option, context) => {
             console.log({ context })
 
-            queryClient.setQueryData(title, (oldData: any) => {
-                console.log({ oldData })
-                const relevantData = oldData.data.data
-                return {
-                    ...relevantData,
-                    data: [...relevantData],
-                }
-            })
+            queryClient.setQueryData(title,  context?.previousData1)
 
             toast(`Failed to ${type} ${messageTitle} `, {
                 type: 'error',
