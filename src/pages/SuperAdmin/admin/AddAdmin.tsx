@@ -66,9 +66,6 @@ const AddAdmin = () => {
 
     const queryClient = useQueryClient()
     const { mutate, isLoading } = useMutation(postAdmin, {
-        onMutate: () => {
-            queryClient.invalidateQueries('admin')
-        },
         onSuccess: () => {
             handleOpen()
         },
@@ -77,6 +74,9 @@ const AddAdmin = () => {
                 className: 'text-red-600',
                 displayMessage: err?.response.data.message,
             })
+        },
+        onSettled: () => {
+            queryClient.invalidateQueries('admin')
         },
     }) as any
 
