@@ -74,14 +74,14 @@ function TableDialog() {
             const previousData: any = await queryClient.getQueryData(title)
 
             if (previousData.data) {
-                console.log({previousData})
+                console.log({ previousData })
                 const updatedData = previousData.data.data
                     .filter((data: any) => data.id === fetchedId)
                     .map((gotten_data: any) => {
                         let status = 0
 
                         if (gotten_data.status) {
-                            status = 1
+                            status = 0
                         }
                         return {
                             ...gotten_data,
@@ -89,9 +89,9 @@ function TableDialog() {
                         }
                     })
 
-                    console.log({updatedData})
+                console.log({ updatedData })
 
-                    return updatedData
+                return updatedData
             }
 
             closeDialog()
