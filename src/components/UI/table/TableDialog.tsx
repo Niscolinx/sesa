@@ -68,11 +68,10 @@ function TableDialog() {
         //     }
         // },
 
-        onMutate: async (context) => {
-            console.log({ context })
+        onMutate: async () => {
             await queryClient.cancelQueries(title)
             const previousData = queryClient.getQueryData(title)
-            console.log({previousData})
+            console.log({previousData, fetchedId})
             closeDialog()
         },
     })
