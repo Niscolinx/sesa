@@ -52,21 +52,28 @@ function TableDialog() {
 
     const queryClient = useQueryClient()
     const { mutate, isLoading } = useMutation(postRequest, {
-        onSuccess: (data) => {
-            console.log(title)
-            queryClient.invalidateQueries(title)
-            if ((data as any).success) {
-                closeDialog()
-                const messageTitle = title.replace(/([a-z])([A-Z])/g, '$1 $2')
+        // onSuccess: (data) => {
+        //     // queryClient.invalidateQueries(title)
+        //     if ((data as any).success) {
+        //         closeDialog()
+        //         const messageTitle = title.replace(/([a-z])([A-Z])/g, '$1 $2')
 
-                const type = isDialogOpen?.type
+        //         const type = isDialogOpen?.type
 
-                toast(`${messageTitle} ${type + 'd'} Successfully`, {
-                    type: 'success',
-                    className:
-                        'bg-green-100 text-green-600 text-[1.4rem] capitalize',
-                })
-            }
+        //         toast(`${messageTitle} ${type + 'd'} Successfully`, {
+        //             type: 'success',
+        //             className:
+        //                 'bg-green-100 text-green-600 text-[1.4rem] capitalize',
+        //         })
+        //     }
+        // },
+
+        onMutate: async (context) => {
+            console.log({ context })
+            await queryClient.cancelQueries(title)
+            const previousData = queryClient.getQueryData(title)
+            console.log({previousData})
+            closeDialog()
         },
     })
 
