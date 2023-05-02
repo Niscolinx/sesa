@@ -1,4 +1,4 @@
-import { Dispatch, useEffect } from 'react'
+import { Dispatch, useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router'
 import { Actions, useTableContext } from './Table'
 import { SetStateAction } from 'jotai'
@@ -17,12 +17,13 @@ const TableDropDown = ({
     setToggleDropDown,
     actions,
 }: TableDropDown) => {
-    const { setFetchedId, setIsDialogOpen, view_page_url } =
-        useTableContext()
+    const { setFetchedId, setIsDialogOpen, view_page_url } = useTableContext()
+    const toCloseDropDownRef = useRef<boolean>(false)
 
     const navigate = useNavigate()
 
     const handleSelectedAction = (item: Actions, itemId: number) => {
+        toCloseDropDownRef.current = true
         setToggleDropDown(() => {
             return {
                 isDropDownOpen: false,
@@ -60,6 +61,7 @@ const TableDropDown = ({
     const { isDropDownOpen, index } = toggleDropDown
 
     const handleClose = () => {
+        console.log({toCloseDropDownRef})
         console.log('close')
     }
 
