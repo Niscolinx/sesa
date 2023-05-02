@@ -195,8 +195,8 @@ function TableDialog() {
                                 </button>
                                 <button
                                     className={`${
-                                        isDialogOpen?.type !== 'activate'
-                                            ? 'bg-green-500'
+                                        isDialogOpen?.type === 'activate'
+                                            ? 'bg-green-700'
                                             : 'bg-red-500'
                                     } py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem] capitalize`}
                                     onClick={() => mutate()}
