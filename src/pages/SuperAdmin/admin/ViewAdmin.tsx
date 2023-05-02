@@ -278,15 +278,27 @@ const ViewAdmin = () => {
                     />
 
                     <div className='flex gap-8'>
-                        <button
-                            className='border border-red-600 px-16 py-4 flex items-center  rounded-lg gap-4'
-                            onClick={openDialog}
-                        >
-                            <img src='/icons/admins/delete.svg' alt='' />
-                            <span className='text-red-600 text-[1.4rem] font-semibold'>
-                                Deactivate
-                            </span>
-                        </button>
+                        {<>{console.log(get_admin_response?.data)}</>}
+                        {get_admin_response?.data.status ? (
+                            <button
+                                className='border border-green-600 px-16 py-4 flex items-center  rounded-lg gap-4'
+                                onClick={openDialog}
+                            >
+                                <span className='text-green-600 text-[1.4rem] font-semibold capitalize'>
+                                    Activate
+                                </span>
+                            </button>
+                        ) : (
+                            <button
+                                className='border border-red-600 px-16 py-4 flex items-center  rounded-lg gap-4'
+                                onClick={openDialog}
+                            >
+                                <img src='/icons/admins/delete.svg' alt='' />
+                                <span className='text-red-600 text-[1.4rem] font-semibold capitalize'>
+                                    deactivate
+                                </span>
+                            </button>
+                        )}
                     </div>
                 </div>
                 <p className='text-[2rem] font-Satoshi-Medium'>
