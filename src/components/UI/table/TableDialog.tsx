@@ -59,7 +59,6 @@ function TableDialog() {
             await queryClient.cancelQueries(title)
 
             const previousData: any = await queryClient.getQueryData(title)
-            const previousData1: any = await queryClient.getQueryData(title)
 
             if (previousData.data) {
                 let index_to_replace = 0
@@ -99,7 +98,7 @@ function TableDialog() {
             }
             closeDialog()
             return {
-                previousData1,
+                previousData,
             }
         },
 
@@ -114,7 +113,7 @@ function TableDialog() {
         onError: (_error, _option, context) => {
             console.log({ context })
 
-            queryClient.setQueryData(title,  context?.previousData1)
+            queryClient.setQueryData(title,  context?.previousData)
 
             toast(`Failed to ${type} ${messageTitle} `, {
                 type: 'error',
