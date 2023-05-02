@@ -62,7 +62,10 @@ const TableDropDown = ({
     const { isDropDownOpen, index } = toggleDropDown
 
     const handleClose = () => {
+        console.log(toCloseDropDownRef.current)
+        
         setTimeout(() => {
+            console.log(toCloseDropDownRef.current)
             if (toCloseDropDownRef.current === 'outside') {
                 setToggleDropDown(() => {
                     return {
@@ -108,7 +111,7 @@ const TableDropDown = ({
                     <>
                         <input
                             type='text'
-                            className='border absolute left-[-9999px]'
+                            className='border absolute left-[-9999px] opacity-0 w-0 h-0'
                             autoFocus
                             onBlur={handleClose}
                         />
