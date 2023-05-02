@@ -113,7 +113,7 @@ function TableDialog() {
         onError: (context) => {
             console.log({ context })
 
-            toast(`Failed to ${type + 'd'} ${messageTitle} `, {
+            toast(`Failed to ${type} ${messageTitle} `, {
                 type: 'error',
                 className: 'bg-red-100 text-red-600 text-[1.4rem] capitalize',
             })
