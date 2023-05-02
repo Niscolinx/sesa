@@ -45,7 +45,7 @@ function TableDialog() {
         }
         return axiosInstance({
             url,
-            method: 'get',
+            method: 'post',
             data: { [tag]: fetchedId },
         })
     }
@@ -75,8 +75,12 @@ function TableDialog() {
 
             if (previousData.data) {
                 console.log({ previousData })
-                const updatedData = previousData.data.data
-                    .filter((data: any) => data.id === fetchedId)
+                let index_to_replace = 0;
+                let updatedData = previousData.data.data
+                    .filter((data: any, idx: number) => {
+                        index_to_replace = idx
+                        return data.id === fetchedId
+                    })
                     .map((gotten_data: any) => {
                         let status = 1
 
@@ -91,13 +95,18 @@ function TableDialog() {
                         }
                     })
 
+                    console.log({index_to_replace})
+                const onTouchedData = previousData.data.data.filter((data: any) => data.id !== fetchedId)
+                
+                updatedData = [...updatedData, ...onTouchedData].reverse()
                 console.log({ updatedData })
 
                 queryClient.setQueryData(title, (oldData: any) => {
                     console.log({ oldData })
+                    const relevantData = oldData.data.data
                     return {
-                        ...oldData.data.data,
-                        data: [...oldData.data.data, updatedData[0]],
+                        ...relevantData,
+                        data: [...updatedData],
                     }
                 })
 
