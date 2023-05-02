@@ -62,8 +62,10 @@ const TableDropDown = ({
     const { isDropDownOpen, index } = toggleDropDown
 
     const handleClose = () => {
+        console.log('outside timeout close ref', toCloseDropDownRef.current)
         
         setTimeout(() => {
+            console.log('inside timout close ref', toCloseDropDownRef.current)
             if (toCloseDropDownRef.current === 'outside') {
                 setToggleDropDown(() => {
                     return {
@@ -74,6 +76,10 @@ const TableDropDown = ({
             }
         }, 100)
     }
+
+    useEffect(() => {
+        console.log('ref', toCloseDropDownRef.current)
+    }, [toCloseDropDownRef.current])
 
     return (
         <div className='relative'>

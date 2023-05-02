@@ -101,31 +101,32 @@ const ViewEstateManager = () => {
         })
     }
 
-    const {
-        mutate: deactivate_mutation,
-        isLoading: deactivate_loading,
-    } = useMutation(postDeactivate, {
-        onSuccess: (data) => {
-            toast('Admin Deactivated successfully', {
-                type: 'success',
-                className: 'bg-green-100 text-green-600 text-[1.4rem]',
-            })
+    const { mutate: deactivate_mutation, isLoading: deactivate_loading } =
+        useMutation(postDeactivate, {
+            onSuccess: (data) => {
+                toast('Admin Deactivated successfully', {
+                    type: 'success',
+                    className: 'bg-green-100 text-green-600 text-[1.4rem]',
+                })
 
-            closeDialog()
-        },
-        onError: (err: any) => {
-            setResponseMessage({
-                className: 'text-red-600',
-                displayMessage: err.response.data.message,
-            })
-        },
-    }) as any
+                closeDialog()
+            },
+            onError: (err: any) => {
+                setResponseMessage({
+                    className: 'text-red-600',
+                    displayMessage: err.response.data.message,
+                })
+            },
+        }) as any
 
-    const { isLoading: get_loading } = useQuery('estate_manager', getRequest, {
-        onSuccess: (res) => {
-            console.log(res.data)
+    const { isLoading: get_loading, data: get_data } = useQuery(
+        'estate_manager',
+        getRequest
+    )
 
-            const fetched_data = res.data
+    useEffect(() => {
+        if (get_data) {
+            const fetched_data = get_data.data
 
             const { name, email, phone, image, dob } = fetched_data
             const first_name = name.split(' ')[0]
@@ -141,26 +142,26 @@ const ViewEstateManager = () => {
 
             setPhotoPreview(image)
             setSelectedGender(fetched_data.gender)
-        },
-    })
+        }
+    }, [get_data])
 
-    const {
-        mutate: post_mutation,
-        isLoading: post_loading,
-    } = useMutation(postUpdate, {
-        onSuccess: (data) => {
-            toast('Admin Updated successfully', {
-                type: 'success',
-                className: 'bg-green-100 text-green-600 text-[1.4rem]',
-            })
-        },
-        onError: (err: any) => {
-            setResponseMessage({
-                className: 'text-red-600',
-                displayMessage: err.response.data.message,
-            })
-        },
-    }) as any
+    const { mutate: post_mutation, isLoading: post_loading } = useMutation(
+        postUpdate,
+        {
+            onSuccess: (data) => {
+                toast('Admin Updated successfully', {
+                    type: 'success',
+                    className: 'bg-green-100 text-green-600 text-[1.4rem]',
+                })
+            },
+            onError: (err: any) => {
+                setResponseMessage({
+                    className: 'text-red-600',
+                    displayMessage: err.response.data.message,
+                })
+            },
+        }
+    ) as any
 
     const onSubmit = handleSubmit((data) => {
         const { first_name, last_name, dob, email_address, phone_number } = data
