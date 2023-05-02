@@ -76,12 +76,8 @@ const TableDropDown = ({
             }
         }, 100)
 
-       // return clearTimeout(id)
     }
 
-    useEffect(() => {
-        console.log('ref', toCloseDropDownRef.current)
-    }, [toCloseDropDownRef.current])
 
     return (
         <div className='relative'>

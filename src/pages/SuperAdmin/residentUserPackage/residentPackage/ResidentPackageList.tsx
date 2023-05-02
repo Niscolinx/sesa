@@ -38,7 +38,6 @@ const ResidentPackageList = () => {
                     'status',
                     'actions',
                 ]}
-                actions={['delete']}
                 data_to_display={[
                     'package_name',
                     'frequency',
