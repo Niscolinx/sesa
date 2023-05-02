@@ -77,8 +77,11 @@ function TableDialog() {
                 let index_to_replace = 0;
                 let updatedData = previousData.data.data
                     .filter((data: any, idx: number) => {
-                        index_to_replace = idx
-                        return data.id === fetchedId
+                        if(data.id === fetchedId){
+                            
+                            index_to_replace = idx
+                            return data
+                       }
                     })
                     .map((gotten_data: any) => {
                         let status = 1
@@ -95,7 +98,7 @@ function TableDialog() {
                     })
 
                     console.log({index_to_replace})
-                const allData = previousData.data.data[index_to_replace]
+                const allData = previousData.data.data.at(index_to_replace)
 
                 console.log({allData})
                 
