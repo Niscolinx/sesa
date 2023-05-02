@@ -95,7 +95,9 @@ function TableDialog() {
                     })
 
                     console.log({index_to_replace})
-                const onTouchedData = previousData.data.data
+                const allData = previousData.data.data[index_to_replace]
+
+                console.log({allData})
                 
                 updatedData = [...updatedData]
                 console.log({ updatedData })
