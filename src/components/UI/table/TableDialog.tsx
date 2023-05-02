@@ -97,17 +97,17 @@ function TableDialog() {
                         data: [...cloneOld],
                     }
                 })
-
-                toast(`${messageTitle} ${type + 'd'} Successfully`, {
-                    type: 'success',
-                    className:
-                        'bg-green-100 text-green-600 text-[1.4rem] capitalize',
-                })
-
-                // return updatedData
             }
 
             closeDialog()
+        },
+
+        onSuccess: () => {
+            toast(`${messageTitle} ${type + 'd'} Successfully`, {
+                type: 'success',
+                className:
+                    'bg-green-100 text-green-600 text-[1.4rem] capitalize',
+            })
         },
 
         onError: (context) => {
