@@ -66,6 +66,10 @@ const AddAdmin = () => {
 
     const queryClient = useQueryClient()
     const { mutate, isLoading } = useMutation(postAdmin, {
+
+        onMutate: () => {
+
+        },
         onSuccess: () => {
             handleOpen()
         },
