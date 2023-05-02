@@ -63,6 +63,8 @@ const AddAdmin = () => {
             headers: { 'Content-Type': 'multipart/form-data' },
         })
     }
+
+    const query
     const { mutate, isLoading } = useMutation(postAdmin, {
         onSuccess: () => {
             handleOpen()
