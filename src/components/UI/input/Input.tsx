@@ -76,6 +76,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
     const [eyeIcon, setEyeIcon] = useState(false)
     const toggleEyeIcon = () => setEyeIcon(!eyeIcon)
     const [phone, setPhone] = useState('')
+    const [price, setPrice] = useState('')
 
     const handlePhoneChange = (e: ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value.replace(/\D/g, '')
@@ -89,6 +90,22 @@ const Input: FC<Partial<Input> & { label: string }> = ({
             if (value.length < 11) {
                 setValue('phone_number', value)
                 setPhone(value)
+            }
+        }
+    }
+
+    const handlePriceChange = (e: ChangeEvent<HTMLInputElement>) => {
+        const value = e.target.value.replace(/\D/g, '')
+        if (setValue && clearErrors) {
+            clearErrors('price')
+
+            if (value.length <= 1 && value === '0') {
+                return setPrice('')
+            }
+
+            if (value.length < 11) {
+                setValue('price', value)
+                setPrice(value)
             }
         }
     }
@@ -169,7 +186,9 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                         <div
                             className={`relative flex items-center border border-color-grey pl-4 rounded-lg w-full `}
                         >
-                            {label.toLowerCase() === 'amount' ||
+                            {['amount', 'price'].includes(
+                                label.toLowerCase()
+                            ) ||
                                 (tag === 'amount' && (
                                     <img
                                         src='/icons/Naira.svg'
@@ -215,27 +234,20 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                                         }`}
                                     />
                                 </div>
-                            ) : label.toLowerCase().includes('phone') ? (
+                            ) : ['price', 'amount'].includes(
+                                  label.toLowerCase()
+                              ) ? (
                                 <input
                                     id={label}
                                     disabled={disabled}
                                     type={type}
-                                    value={value}
-                                    {...(register &&
-                                        register(label, validationOptions))}
+                                    value={value || price}
+                                    onChange={handlePriceChange}
                                     className={` w-full border-none outline-none disabled:opacity-50 disabled:cursor-not-allowed p-4 pl-0 ${
                                         formErrors &&
                                         formErrors[label] &&
                                         'border-red-500 '
                                     }`}
-                                    min={
-                                        type === 'date' &&
-                                        label.indexOf('dob') !== 0
-                                            ? new Date()
-                                                  .toISOString()
-                                                  .split('T')[0]
-                                            : 0
-                                    }
                                 />
                             ) : (
                                 <input
