@@ -104,11 +104,11 @@ const Input: FC<Partial<Input> & { label: string }> = ({
             }
 
             const transFormToMoney = (value: number) => {
-                return value.toLocaleString()
+                return value.toString()
             }
 
-            setValue('price', value)
             setPrice(transFormToMoney(value))
+            setValue('price', value)
         }
     }
 
