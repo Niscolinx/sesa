@@ -144,10 +144,10 @@ const SecurityCompanyDetail = () => {
 
     useEffect(() => {
         if (get_response) {
-            const { id, user_id, image, status, ...other} = get_response.data
+            const { id, user_id, image, status, ...other } = get_response.data
 
             reset({
-                ...other
+                ...other,
             })
 
             setPhotoPreview(image)
@@ -171,8 +171,6 @@ const SecurityCompanyDetail = () => {
         })
 
     const onSubmit = handleSubmit((data) => {
-       
-
         const adminData = {
             ...data,
             image: imageFile,
@@ -273,15 +271,29 @@ const SecurityCompanyDetail = () => {
                         alt='photoPreview'
                         className='object-cover w-[11rem] h-[11rem] rounded-full'
                     />
-                    <button
-                        className='border border-red-600 px-16 py-4 flex items-center  rounded-lg gap-4'
-                        onClick={() => handleOpen('warning')}
-                    >
-                        <img src='/icons/admins/delete.svg' alt='' />
-                        <span className='text-red-600 text-[1.4rem] font-semibold'>
-                            Deactivate
-                        </span>
-                    </button>
+
+                    <div className='flex gap-8'>
+                        {get_response?.data.status ? (
+                            <button
+                                className='border border-red-600 px-16 py-4 flex items-center  rounded-lg gap-4'
+                                onClick={() => handleOpen('warning')}
+                            >
+                                <img src='/icons/admins/delete.svg' alt='' />
+                                <span className='text-red-600 text-[1.4rem] font-semibold'>
+                                    Deactivate
+                                </span>
+                            </button>
+                        ) : (
+                            <button
+                                className='border border-green-600 px-16 py-4 flex items-center  rounded-lg gap-4'
+                                onClick={() => handleOpen('warning')}
+                            >
+                                <span className='text-green-600 text-[1.4rem] font-semibold capitalize'>
+                                    Activate
+                                </span>
+                            </button>
+                        )}
+                    </div>
                 </div>
                 {/* <form
                     //onSubmit={handleSubmit}
