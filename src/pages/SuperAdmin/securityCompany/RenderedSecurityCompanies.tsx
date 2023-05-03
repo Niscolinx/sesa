@@ -456,7 +456,10 @@ function RenderedSecurityCompanies() {
                                                 onboarding_date,
                                                 security_guard_count,
                                                 status,
-                                            }) => {
+                                            }, idx) => {
+                                                if(idx === 0){
+                                                    console.log('==============',{status})
+                                                }
                                                 const {
                                                     isDropDownOpen,
                                                     index,
