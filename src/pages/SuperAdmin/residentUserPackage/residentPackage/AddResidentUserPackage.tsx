@@ -49,6 +49,7 @@ const AddResidentUserPackage = () => {
         register,
         handleSubmit,
         setValue,
+        clearErrors,
         formState: { errors: formErrors },
     } = useForm<Inputs>()
 
@@ -170,6 +171,8 @@ const AddResidentUserPackage = () => {
                                 formErrors={formErrors}
                                 type={type}
                                 name={name}
+                                setValue={setValue}
+                                clearErrors={clearErrors}
                                 tag={tag}
                                 minLength={minLength}
                                 isSelect={type === 'select'}
