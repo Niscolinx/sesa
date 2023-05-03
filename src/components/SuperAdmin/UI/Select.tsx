@@ -18,7 +18,7 @@ type Complex = {
 
 interface ISelect<T> {
     state: Array<string>
-    selectedState: string
+    selectedState: string | string[]
     setSelectedState: React.Dispatch<React.SetStateAction<string>>
     label?: string
     selectFormErrors?: Record<string, string> | null
@@ -153,7 +153,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                                 className={`text-white whitespace-nowrap bg-${color}  rounded-lg px-4 relative flex items-center z-[2] pr-12 py-2 w-max`}
                             >
                                 <>
-                                    {selectedState && selectedState.replaceAll('_', ' ')}
+                                    {Array.isArray(selectedState) ? selectedState :  selectedState.replaceAll('_', ' ')}
                                     <IoMdClose
                                         className='absolute right-2 text-[1.4rem] cursor-pointer'
                                         onClick={(e) => clearValue(e)}
@@ -179,7 +179,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                         }}
                         htmlFor={`input${id}`}
                     >
-                        {selectedState && selectedState.replaceAll('_', ' ') || (
+                        { Array.isArray(selectedState) ? selectedState :  selectedState.replaceAll('_', ' ') || (
                             <span className='text-gray-500'>
                                 {placeholder || ''}
                             </span>
