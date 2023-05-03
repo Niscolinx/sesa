@@ -33,6 +33,11 @@ const AddAdvert = () => {
     const [photoPreview, setPhotoPreview] = useState('')
     const [imageFile, setImageFile] = useState<File | null>(null)
     const [selectedEstates, setSelectedEstates] = useState<string[]>([])
+     const [selectFormErrors, setSelectFormErrors] = useState<{
+         [key: string]: string
+     } | null>(null)
+   
+
 
     const { data: estate_manager_data, isLoading: estate_manager_loading } =
         useFetchData({
