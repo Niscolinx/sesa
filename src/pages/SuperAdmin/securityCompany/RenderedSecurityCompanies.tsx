@@ -66,7 +66,7 @@ function RenderedSecurityCompanies() {
         isLoading: deactivate_securityCompany_loading,
     } = useMutation(postDeactivateSecurityCompany, {
         onMutate: async () => {
-                            closeDialog()
+            closeDialog()
 
             await queryClient.cancelQueries('securityCompanies')
 
@@ -77,7 +77,7 @@ function RenderedSecurityCompanies() {
 
             if (previousData.data) {
                 let index_to_replace = 0
-                let updatedData = previousData.data.data
+                let updatedData = previousData.data
                     .filter((data: any, idx: number) => {
                         if (data.id === securityCompanyId) {
                             index_to_replace = idx
@@ -98,7 +98,7 @@ function RenderedSecurityCompanies() {
                         }
                     })
 
-                const cloneOld: any[] = previousData.data.data
+                const cloneOld: any[] = previousData.data
 
                 cloneOld.splice(index_to_replace, 1, ...updatedData)
 
@@ -106,7 +106,7 @@ function RenderedSecurityCompanies() {
                     'securityCompanies',
                     (oldData: any) => {
                         console.log({ oldData })
-                        const relevantData = oldData.data.data
+                        const relevantData = oldData.data
                         return {
                             ...relevantData,
                             data: [...cloneOld],
@@ -122,7 +122,6 @@ function RenderedSecurityCompanies() {
 
         onSuccess: (data) => {
             if (data) {
-
                 toast('Security Company Deactivated Successfully', {
                     type: 'success',
                     className:
@@ -139,11 +138,11 @@ function RenderedSecurityCompanies() {
                 )
             }
 
-             toast(`Failed to ${companyStatus} Security Company`, {
-                 type: 'error',
-                 className:
-                     'bg-green-100 text-green-600 text-[1.4rem] capitalize',
-             })
+            toast(`Failed to ${companyStatus} Security Company`, {
+                type: 'error',
+                className:
+                    'bg-green-100 text-green-600 text-[1.4rem] capitalize',
+            })
         },
 
         onSettled: () => {
@@ -298,7 +297,11 @@ function RenderedSecurityCompanies() {
         }
     }
 
-    const handleSelectedAction = (item: Actions, id: string, status: string) => {
+    const handleSelectedAction = (
+        item: Actions,
+        id: string,
+        status: string
+    ) => {
         setToggleDropDown(() => {
             return {
                 isDropDownOpen: false,
@@ -314,7 +317,7 @@ function RenderedSecurityCompanies() {
         if (item === 'deactivate') {
             setSecurityCompanyId(id)
             setCompanyStatus(status)
-           
+
             openDialog()
         }
     }
