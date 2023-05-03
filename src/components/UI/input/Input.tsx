@@ -260,7 +260,8 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                                     id={label}
                                     disabled={disabled}
                                     type={type}
-                                    value={value}
+                                    value={new Date(value) }
+                                    // value={type === 'date' ? new Date(value) : value}
                                     {...(register &&
                                         register(label, validationOptions))}
                                     className={` w-full border-none outline-none disabled:opacity-50 disabled:cursor-not-allowed p-4 pl-0 ${
