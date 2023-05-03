@@ -8,13 +8,7 @@ import { useMutation, useQuery } from 'react-query'
 
 const SecurityCompanyDetail = () => {
     interface Inputs {
-        email_address: string
-        first_name: string
-        last_name: string
-        dob: string
-        gender: string
-        phone_number: number | null
-        photoUrl?: string
+        
     }
 
     type ResponseMessage = {
