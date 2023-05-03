@@ -175,11 +175,8 @@ const ViewArtisanCategory = () => {
                         'created at',
                         'actions',
                     ]}
-                    data_to_display={['name', 'artisan_count', 'created_at']}
-                    deactivateProp={{
-                        url: '/admin/artisan/changeStatus',
-                        tag: 'id',
-                    }}
+                    data_to_display={['firstname', 'business_name', 'phone_number']}
+                   
                 />
             </div>
         </>
