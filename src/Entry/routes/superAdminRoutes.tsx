@@ -48,6 +48,7 @@ import ViewEstateManager from '../../pages/SuperAdmin/estateManagers/ViewEstateM
 import AddResidentUserPackage from '../../pages/SuperAdmin/residentUserPackage/residentPackage/AddResidentUserPackage'
 import ViewProperty from '../../pages/SuperAdmin/platformSettings/settings/property/ViewProperty'
 import EditEstate from '../../pages/SuperAdmin/estates/EditEstate'
+import ViewPackage from '../../pages/SuperAdmin/residentUserPackage/residentPackage/ViewPackage'
 
 const superAdminRoutes = (
     <Route
@@ -86,7 +87,7 @@ const superAdminRoutes = (
         />
         <Route
             path='resident-user-package/view/:id'
-            element={<ResidentPackageDetails />}
+            element={<ViewPackage />}
         />
 
         <Route path='wallet' element={<Wallet />} />

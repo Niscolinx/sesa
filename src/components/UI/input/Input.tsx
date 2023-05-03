@@ -215,6 +215,28 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                                         }`}
                                     />
                                 </div>
+                            ) : label.toLowerCase().includes('phone') ? (
+                                <input
+                                    id={label}
+                                    disabled={disabled}
+                                    type={type}
+                                    value={value}
+                                    {...(register &&
+                                        register(label, validationOptions))}
+                                    className={` w-full border-none outline-none disabled:opacity-50 disabled:cursor-not-allowed p-4 pl-0 ${
+                                        formErrors &&
+                                        formErrors[label] &&
+                                        'border-red-500 '
+                                    }`}
+                                    min={
+                                        type === 'date' &&
+                                        label.indexOf('dob') !== 0
+                                            ? new Date()
+                                                  .toISOString()
+                                                  .split('T')[0]
+                                            : 0
+                                    }
+                                />
                             ) : (
                                 <input
                                     id={label}
