@@ -95,7 +95,6 @@ const SlicedPages: FC<SlicedPages> = ({
             })
         }
 
-
         return (
             <>
                 {sorted.map(({ key, value }: any, idx: number) => {
@@ -122,9 +121,7 @@ const SlicedPages: FC<SlicedPages> = ({
                                         </figure>
                                     )}
 
-                                    <p className=''>
-                                        {value.name}
-                                    </p>
+                                    <p className=''>{value.name}</p>
                                 </div>
                             </div>
                         )
@@ -168,7 +165,6 @@ const SlicedPages: FC<SlicedPages> = ({
                                   ])
                             : null
 
-
                         updatedActions = [...updatedActions, ...actions]
                         return is_dropdown ? (
                             <TableDropDown
@@ -184,6 +180,9 @@ const SlicedPages: FC<SlicedPages> = ({
                     }
                     if (key.toLowerCase() === 'rating') {
                         return <StarRating starsNum={value} key={idx} />
+                    }
+                    if (['price', 'amount'].includes(key.toLowerCase())) {
+                        return <p key={idx}>{value}</p>
                     } else {
                         return <p key={idx}>{value}</p>
                     }
