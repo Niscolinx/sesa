@@ -314,7 +314,7 @@ function RenderedSecurityCompanies() {
             navigate(`/superAdmin/security-company/view/:${id}`)
         }
 
-        if (item === 'deactivate') {
+        if (item === 'deactivate' || item === 'activate') {
             setSecurityCompanyId(id)
             setCompanyStatus(status)
 
