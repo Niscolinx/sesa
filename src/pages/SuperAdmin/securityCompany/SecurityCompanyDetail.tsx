@@ -218,7 +218,7 @@ const SecurityCompanyDetail = () => {
 
     return (
         <>
-        <ToastContainer/>
+            <ToastContainer />
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8 text-[1.6rem]'>
@@ -291,7 +291,7 @@ const SecurityCompanyDetail = () => {
                         </span>
                     </button>
                 </div>
-                <form
+                {/* <form
                     //onSubmit={handleSubmit}
                     className='grid max-w-[84rem] gap-16 mt-12'
                     style={{
@@ -458,6 +458,129 @@ const SecurityCompanyDetail = () => {
                             />
                         </span>{' '}
                         Save Changes
+                    </button>
+                </form> */}
+
+                <form onSubmit={onSubmit} className='grid gap-20'>
+                    <div className='grid gap-10'>
+                        <p className='text-[2rem] font-Satoshi-Medium'>
+                            Estate Details
+                        </p>
+                        <section
+                            className='grid max-w-[84rem] gap-16'
+                            style={{
+                                gridTemplateColumns:
+                                    ' repeat(auto-fit, minmax(35rem, 1fr))',
+                            }}
+                        >
+                            {formInputs.map((input, idx) => {
+                                const { label, type, selectProps } = input
+
+                                return (
+                                    <Input
+                                        key={idx + label}
+                                        id={idx}
+                                        label={label}
+                                        register={register}
+                                        formErrors={formErrors}
+                                        fullWidth={label === 'address'}
+                                        selectFormErrors={selectFormErrors}
+                                        type={type}
+                                        isSelect={type === 'select'}
+                                        select={selectProps}
+                                    />
+                                )
+                            })}
+                        </section>
+                    </div>
+                    <div className='border-t grid gap-10 pt-16'>
+                        <p className='text-[2rem] font-Satoshi-Medium'>
+                            Estate Convinience Fees
+                        </p>
+                        <section
+                            className='grid max-w-[84rem] gap-16  '
+                            style={{
+                                gridTemplateColumns:
+                                    ' repeat(auto-fit, minmax(35rem, 1fr))',
+                            }}
+                        >
+                            {second_section_inputs.map((input, idx) => {
+                                const { label, type, name, disabled } = input
+
+                                return (
+                                    <Input
+                                        key={idx + label}
+                                        label={label}
+                                        register={register}
+                                        disabled={disabled}
+                                        formErrors={formErrors}
+                                        type={type}
+                                        minLength={0}
+                                        name={name}
+                                    />
+                                )
+                            })}
+                            <div className='grid items-center justify-between gap-4'>
+                                <p className='font-Satoshi-Medium text-[1.4rem]'>
+                                    Sign Out Required
+                                </p>
+                                <div
+                                    onClick={toggleIsSignOutRequired}
+                                    className='cursor-pointer'
+                                >
+                                    {isSignOutRequired ? (
+                                        <img
+                                            src='/icons/admins/switchOn.svg'
+                                            alt=''
+                                        />
+                                    ) : (
+                                        <img
+                                            src='/icons/admins/switchOff.svg'
+                                            alt=''
+                                        />
+                                    )}
+                                </div>
+                            </div>
+                            <ImageInput
+                                handlePicture={handlePicture}
+                                photoPreview={photoPreview}
+                            />
+                        </section>
+                    </div>
+                    <div className='border-t grid gap-10 pt-16'>
+                        <p className='text-[2rem] font-Satoshi-Medium'>
+                            Estate Account Details
+                        </p>
+                        <section
+                            className='grid max-w-[84rem] gap-16  '
+                            style={{
+                                gridTemplateColumns:
+                                    ' repeat(auto-fit, minmax(35rem, 1fr))',
+                            }}
+                        >
+                            {third_section_inputs.map((input, idx) => {
+                                const { label, type } = input
+
+                                return (
+                                    <Input
+                                        key={idx + label}
+                                        label={label}
+                                        register={register}
+                                        formErrors={formErrors}
+                                        type={type}
+                                    />
+                                )
+                            })}
+                        </section>
+                    </div>
+                    <button
+                        className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg justify-self-start'
+                        // onClick={addArtisanHandler}
+                    >
+                        <span>
+                            <IoMdAdd />
+                        </span>{' '}
+                        {isLoading ? 'Loading...' : 'Add Estate'}
                     </button>
                 </form>
             </div>
