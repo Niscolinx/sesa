@@ -250,7 +250,7 @@ function RenderedSecurityCompanies() {
 
     const { slicedPages, itemsPerPage } = paginate
 
-    const jumpToPage = (e: React.MouseEvent, index: number) => {
+    const jumpToPage = (_e: React.MouseEvent, index: number) => {
         setPaginate((prev) => {
             return {
                 ...prev,
