@@ -267,7 +267,7 @@ const SecurityCompanyDetail = () => {
             <div className='grid p-8 bg-white h-[80vh] items-baseline overflow-y-scroll rounded-lg'>
                 <div className='flex justify-between items-center'>
                     <img
-                        src={photoPreview}
+                        src={photoPreview || ''}
                         alt='photoPreview'
                         className='object-cover w-[11rem] h-[11rem] rounded-full'
                     />
