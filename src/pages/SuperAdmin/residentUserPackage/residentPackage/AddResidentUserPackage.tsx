@@ -5,10 +5,11 @@ import { IoMdAdd } from 'react-icons/io'
 import { useMutation } from 'react-query'
 import useAxios from '../../../../components/hooks/useAxios'
 import Spinner from '../../../../components/UI/Spinner'
+import { useNavigate } from 'react-router'
 
-type Frequency = 'monthly' | 'weekly' | 'quarterly' | 'yearly'
 
 const AddResidentUserPackage = () => {
+    type Frequency = 'monthly' | 'weekly' | 'quarterly' | 'yearly'
     interface Inputs {
         package_name: string
         frequency: string
@@ -32,6 +33,7 @@ const AddResidentUserPackage = () => {
     }
 
     const axiosInstance = useAxios()
+    const navigate = useNavigate()
 
     const frequencyState = [
         'monthly',
@@ -84,6 +86,7 @@ const AddResidentUserPackage = () => {
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
     const handleClose = () => {
+        navigate(-1)
         if (dialogRef.current) {
             dialogRef.current.close()
         }
