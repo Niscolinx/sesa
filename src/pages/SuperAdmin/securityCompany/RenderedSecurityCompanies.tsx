@@ -40,6 +40,7 @@ function RenderedSecurityCompanies() {
     >([])
 
     const [securityCompanyId, setSecurityCompanyId] = useState('')
+    const [companyStatus, setCompanyStatus] = useState('')
 
     const postDeactivateSecurityCompany = () => {
         return axiosInstance({
@@ -138,7 +139,7 @@ function RenderedSecurityCompanies() {
                 )
             }
 
-             toast('Failed to Security Company', {
+             toast(`Failed to ${companyStatus} Security Company`, {
                  type: 'error',
                  className:
                      'bg-green-100 text-green-600 text-[1.4rem] capitalize',
