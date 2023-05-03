@@ -114,14 +114,14 @@ const ViewPackage = () => {
     }) as any
 
     const onSubmit = handleSubmit((data) => {
-        const adminData = {
+        const updatedData = {
             ...data,
             frequency: selectedFrequency,
         }
 
-        console.l
+        console.log({updatedData})
 
-      //  mutate(adminData)
+      //  mutate(updatedData)
     })
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)

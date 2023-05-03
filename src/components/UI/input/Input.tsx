@@ -105,7 +105,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
             }
 
             const transFormValue = (value: string) => {
-                const parsedValue =  parseFloat(value)
+                const parsedValue = parseFloat(value)
                 if (!isNaN(parsedValue) && isFinite(parsedValue)) {
                     const transformedValue = parsedValue.toLocaleString()
 
@@ -115,9 +115,9 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                 return ''
             }
 
-           setValue('price', value)
+            setValue('price', value)
 
-           setPrice(transFormValue(value))
+            setPrice(transFormValue(value))
         }
     }
 
@@ -197,9 +197,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                         <div
                             className={`relative flex items-center border border-color-grey pl-4 rounded-lg w-full `}
                         >
-                            {['amount', 'price'].includes(
-                                label.toLowerCase()
-                            ) && (
+                            {tag === 'money' && (
                                 <img
                                     src='/icons/Naira.svg'
                                     alt=''
@@ -244,9 +242,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                                         }`}
                                     />
                                 </div>
-                            ) : ['price', 'amount'].includes(
-                                  label.toLowerCase()
-                              ) ? (
+                            ) : tag === 'money' ? (
                                 <input
                                     id={label}
                                     disabled={disabled}
