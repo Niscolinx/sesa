@@ -58,14 +58,7 @@ const ViewPackage = () => {
 
     const package_id = params.id?.replace(':', '')
 
-    if (!package_id) {
-        toast('Admin not Found', {
-            type: 'error',
-            className: 'bg-red-100 text-red-600 text-[1.4rem]',
-        })
-
-        return <p className='p-4'> Not found!</p>
-    }
+    
 
     const getRequest = () => {
         return axiosInstance({
@@ -168,6 +161,10 @@ const ViewPackage = () => {
             minLength: 1,
         },
     ] satisfies FormInputs[]
+
+    if(get_loading){
+        return <p className='p-8'>Loading...</p>
+    }
 
     return (
         <div className=' p-8 bg-white h-[70vh] rounded-lg overflow-y-scroll'>
