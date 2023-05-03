@@ -2,8 +2,10 @@ import { useEffect, useRef, useState } from 'react'
 import Input, { SelectProps } from '../../../../components/UI/input/Input'
 import { useForm } from 'react-hook-form'
 import { IoMdAdd } from 'react-icons/io'
-import { useMutation } from 'react-query'
+import { useMutation, useQuery } from 'react-query'
 import useAxios from '../../../../components/hooks/useAxios'
+import { useParams } from 'react-router'
+import { toast } from 'react-toastify'
 
 type Frequency = 'monthly' | 'weekly' | 'quarterly' | 'yearly'
 
@@ -11,7 +13,7 @@ const ViewPackage = () => {
     interface Inputs {
         package_name: string
         frequency: string
-        amount: number
+        price: number
         details: string
         discount: number
     }
@@ -30,6 +32,7 @@ const ViewPackage = () => {
     }
 
     const axiosInstance = useAxios()
+    const params = useParams()
 
     const frequencyState = [
         'monthly',
@@ -43,43 +46,59 @@ const ViewPackage = () => {
     const [responseMessage, setResponseMessage] =
         useState<ResponseMessage | null>(null)
 
-
-
-    const { data: get_admin_response, isLoading: get_admin_loading } = useQuery(
-        [`get_admin_${admin_id}`],
-        getAdmin
-    )
-
-    useEffect(() => {
-        if (get_admin_response) {
-            const { name, email, phone, image, dob, gender } =
-                get_admin_response.data
-            const first_name = name.split(' ')[0]
-            const last_name = name.split(' ')[1]
-
-            reset({
-                first_name,
-                last_name,
-                dob,
-                email_address: email,
-                phone_number: parseInt(phone),
-            })
-
-            setPhotoPreview(image)
-            setSelectedGender(gender)
-        }
-    }, [get_admin_response])
-    
     const {
         register,
         handleSubmit,
         setValue,
+        reset,
         formState: { errors: formErrors },
     } = useForm<Inputs>()
 
+    const package_id = params.id?.replace(':', '')
+
+    if (!package_id) {
+        toast('Admin not Found', {
+            type: 'error',
+            className: 'bg-red-100 text-red-600 text-[1.4rem]',
+        })
+
+        return <p className='p-4'> Not found!</p>
+    }
+
+    const getRequest = () => {
+        return axiosInstance({
+            url: `/admin/resident/user/single/package`,
+            method: 'post',
+            data: { id: package_id },
+        })
+    }
+
+    const { data: get_response, isLoading: get_loading } = useQuery(
+        [`get_package_${package_id}`],
+        getRequest
+    )
+
+    useEffect(() => {
+        if (get_response) {
+          
+            const { package_name, price, details, frequency, discount  } = get_response.data
+        
+
+            reset({
+               package_name,
+               price,
+               details,
+               frequency,
+               discount
+            })
+
+           
+        }
+    }, [get_response])
+
     const postPackage = (data: Inputs) => {
         return axiosInstance({
-            url: '/admin/resident/user/package/create',
+            url: '/admin/resident/user/package/update',
             method: 'post',
             data,
         })
