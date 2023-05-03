@@ -59,7 +59,6 @@ function RenderedSecurityCompanies() {
     const queryClient = useQueryClient()
     // const messageTitle = title.replace(/([a-z])([A-Z])/g, '$1 $2')
 
-    const prevData: any[] = []
 
     const {
         mutate: deactivate_securityCompany_mutation,
@@ -71,12 +70,12 @@ function RenderedSecurityCompanies() {
             const previousData: any = await queryClient.getQueryData(
                 'securityCompanies'
             )
-            prevData.push(structuredClone(previousData))
+            const prevData = structuredClone(previousData)
 
-            console.log(previousData.data)
-            if (previousData.data) {
+            console.log(prevData.data)
+            if (prevData.data) {
                 let index_to_replace = 0
-                let updatedData = previousData.data
+                let updatedData = prevData.data
                     .filter((data: any, idx: number) => {
                         if (data.id === parseInt(securityCompanyId)) {
                             index_to_replace = idx
@@ -97,11 +96,11 @@ function RenderedSecurityCompanies() {
                         }
                     })
 
-                const cloneOld: any[] = previousData.data
+                const cloneOld: any[] = prevData.data
 
                 cloneOld.splice(index_to_replace, 1, ...updatedData)
 
-                console.log({cloneOld})
+                console.log({ cloneOld })
 
                 queryClient.setQueryData(
                     'securityCompanies',
@@ -120,7 +119,7 @@ function RenderedSecurityCompanies() {
             }, 200)
 
             return {
-                previousData: prevData[0],
+                previousData
             }
         },
 
@@ -409,7 +408,8 @@ function RenderedSecurityCompanies() {
                         </dialog>
                         <div className='flex w-full justify-between items-center gap-12 p-8 bg-color-white rounded-lg'>
                             <p className='text-[1.6rem] font-Satoshi-Medium'>
-                                SecurityCompany List <span>({fetched.length})</span>
+                                SecurityCompany List{' '}
+                                <span>({fetched.length})</span>
                             </p>
                             <div className='relative flex items-center'>
                                 <img
@@ -447,18 +447,24 @@ function RenderedSecurityCompanies() {
                                     slicedPages?.length > 0 &&
                                     React.Children.toArray(
                                         slicedPages[paginate.index].map(
-                                            ({
-                                                id,
-                                                image,
-                                                address,
-                                                balance,
-                                                name,
-                                                onboarding_date,
-                                                security_guard_count,
-                                                status,
-                                            }, idx) => {
-                                                if(idx === 0){
-                                                    console.log('==============',{status})
+                                            (
+                                                {
+                                                    id,
+                                                    image,
+                                                    address,
+                                                    balance,
+                                                    name,
+                                                    onboarding_date,
+                                                    security_guard_count,
+                                                    status,
+                                                },
+                                                idx
+                                            ) => {
+                                                if (idx === 0) {
+                                                    console.log(
+                                                        '==============',
+                                                        { status }
+                                                    )
                                                 }
                                                 const {
                                                     isDropDownOpen,
@@ -537,7 +543,6 @@ function RenderedSecurityCompanies() {
                                                                     Status
                                                                 </p>
                                                                 <p>
-                                                                    
                                                                     {status ===
                                                                     1 ? (
                                                                         <span className=' text-color-green-light'>
