@@ -96,11 +96,6 @@ const SecurityCompanyDetail = () => {
     } = useForm<Inputs>()
 
     const company_id = params.id?.replace(':', '')
-
-    //get one field in react hook form
-    const watch_date = watch('onboarding_date')
-
-    console.log({watch_date})
    
 
     if (!company_id) {
@@ -163,9 +158,9 @@ const SecurityCompanyDetail = () => {
             const { id, user_id, image, status, ...other } = get_response.data[0]
 
             console.log({...other})
-            reset({
-                ...other
-            })
+            // reset({
+            //     ...other
+            // })
 
             setPhotoPreview(image)
         }
