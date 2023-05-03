@@ -73,7 +73,7 @@ function RenderedSecurityCompanies() {
             )
             prevData.push(structuredClone(previousData))
 
-
+            console.log(previousData.data)
             if (previousData.data) {
                 let index_to_replace = 0
                 let updatedData = previousData.data
