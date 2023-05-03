@@ -5,6 +5,7 @@ import { useMutation } from 'react-query'
 import Input, { SelectProps } from '../../../components/UI/input/Input'
 import ImageInput from '../../../components/UI/input/ImageInput'
 import useAxios from '../../../components/hooks/useAxios'
+import Spinner from '../../../components/UI/Spinner'
 
 const AddEstateManager = () => {
     interface Inputs {
@@ -139,6 +140,7 @@ const AddEstateManager = () => {
 
     return (
         <>
+            <Spinner start={isLoading ? true : false} />
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
@@ -146,7 +148,6 @@ const AddEstateManager = () => {
                         <p>You have successfully added an EstateManager</p>
 
                         <div className='flex w-full justify-center gap-8'>
-                          
                             <button
                                 className='bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
                                 onClick={handleClose}
