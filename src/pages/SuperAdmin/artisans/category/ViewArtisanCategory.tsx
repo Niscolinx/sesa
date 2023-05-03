@@ -29,19 +29,7 @@ const ViewArtisanCategory = () => {
             name: 'category_single',
         })
 
-    const dialogRef = useRef<HTMLDialogElement | null>(null)
-
-    const handleClose = () => {
-        if (dialogRef.current) {
-            dialogRef.current.close()
-        }
-    }
-
-    const handleOpen = () => {
-        if (dialogRef.current) {
-            dialogRef.current.showModal()
-        }
-    }
+    
 
     if (category_detail_loading) {
         return <p className='p-8'>Loading...</p>
@@ -56,7 +44,23 @@ const ViewArtisanCategory = () => {
 
         e.preventDefault()
 
+
         
+    }
+
+
+    const dialogRef = useRef<HTMLDialogElement | null>(null)
+
+    const handleClose = () => {
+        if (dialogRef.current) {
+            dialogRef.current.close()
+        }
+    }
+
+    const handleOpen = () => {
+        if (dialogRef.current) {
+            dialogRef.current.showModal()
+        }
     }
 
     return (
