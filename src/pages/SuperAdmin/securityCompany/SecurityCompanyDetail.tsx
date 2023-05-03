@@ -1,12 +1,90 @@
 import React, { useRef, useState } from 'react'
+import { useForm } from 'react-hook-form'
+import { useParams, useNavigate } from 'react-router'
+import { SelectProps } from '../../../components/UI/input/Input'
+import useAxios from '../../../components/hooks/useAxios'
 
 const SecurityCompanyDetail = () => {
+    interface Inputs {
+        email_address: string
+        first_name: string
+        last_name: string
+        dob: string
+        gender: string
+        phone_number: number | null
+        photoUrl?: string
+    }
+
+    type ResponseMessage = {
+        className: string
+        displayMessage: string
+    }
+
+    type FormInputs = {
+        label?: string
+        type?: string
+        name?: string
+        selectProps?: SelectProps
+    }
+
+    const params = useParams()
+    const axiosInstance = useAxios()
+    const navigate = useNavigate()
+
+    const [photoPreview, setPhotoPreview] = useState('')
+    const [imageFile, setImageFile] = useState<File | null>(null)
+    const genderState = ['Male', 'Female']
+    const [selectedGender, setSelectedGender] = useState<string>(genderState[0])
+
+    const formInputs = [
+        {
+            label: 'first_name',
+        },
+        {
+            label: 'last_name',
+        },
+        {
+            label: 'dob',
+            type: 'date',
+            name: 'date of birth',
+        },
+        {
+            label: 'gender',
+            type: 'select',
+            selectProps: {
+                state: genderState,
+                selectedState: selectedGender,
+                setSelectedState: setSelectedGender,
+            },
+        },
+        {
+            label: 'phone_number',
+            type: 'number',
+        },
+        {
+            label: 'email_address',
+            type: 'email',
+        },
+    ] satisfies FormInputs[]
+
+     const {
+         register,
+         handleSubmit,
+         formState: { errors: formErrors },
+         reset,
+     } = useForm<Inputs>()
+
+     const [responseMessage, setResponseMessage] =
+         useState<ResponseMessage | null>(null)
+
+     const company_id = params.id?.replace(':', '')
+
     const [isWarning, setIsWarning] = useState(true)
 
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault()
-        handleOpen('success')
-    }
+    // const handleSubmit = (e: React.FormEvent) => {
+    //     e.preventDefault()
+    //     handleOpen('success')
+    // }
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
