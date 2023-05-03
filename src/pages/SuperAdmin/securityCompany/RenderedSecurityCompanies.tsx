@@ -101,6 +101,8 @@ function RenderedSecurityCompanies() {
 
                 cloneOld.splice(index_to_replace, 1, ...updatedData)
 
+                console.log({cloneOld})
+
                 queryClient.setQueryData(
                     'securityCompanies',
                     (oldData: any) => {
@@ -407,7 +409,7 @@ function RenderedSecurityCompanies() {
                         </dialog>
                         <div className='flex w-full justify-between items-center gap-12 p-8 bg-color-white rounded-lg'>
                             <p className='text-[1.6rem] font-Satoshi-Medium'>
-                                SecurityCompany List <span>(202)</span>
+                                SecurityCompany List <span>({fetched.length})</span>
                             </p>
                             <div className='relative flex items-center'>
                                 <img
