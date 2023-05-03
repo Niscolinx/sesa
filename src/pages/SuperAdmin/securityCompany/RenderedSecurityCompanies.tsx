@@ -79,7 +79,6 @@ function RenderedSecurityCompanies() {
                 let updatedData = previousData.data
                     .filter((data: any, idx: number) => {
                         if (data.id === parseInt(securityCompanyId)) {
-                            console.log(data.id, parseInt(securityCompanyId), typeof data.id, typeof securityCompanyId)
                             index_to_replace = idx
                             return data
                         }
