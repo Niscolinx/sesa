@@ -341,13 +341,31 @@ function RenderedSecurityCompanies() {
                         <dialog className='dialog' ref={dialogRef}>
                             <section className='grid place-content-center w-full h-[100vh]'>
                                 <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
-                                    <img
-                                        src='/icons/admins/modalWarning.svg'
-                                        alt=''
-                                    />
+                                    {companyStatus === 'deactivate' ? (
+                                        <img
+                                            src='/icons/admins/modalWarning.svg'
+                                            alt=''
+                                            className='animate__animated animate__pulse '
+                                            style={{
+                                                animationIterationCount:
+                                                    'infinite',
+                                            }}
+                                        />
+                                    ) : (
+                                        <img
+                                            src='/icons/admins/modalSuccess.svg'
+                                            alt=''
+                                            className='animate__animated animate__pulse '
+                                            style={{
+                                                animationIterationCount:
+                                                    'infinite',
+                                            }}
+                                        />
+                                    )}
+
                                     <p>
-                                        Are you sure you want to deactivate this
-                                        security company?
+                                        Are you sure you want to {companyStatus}{' '}
+                                        this security company?
                                     </p>
 
                                     <div className='flex w-full justify-center gap-8'>
@@ -357,16 +375,30 @@ function RenderedSecurityCompanies() {
                                         >
                                             Cancel
                                         </button>
-                                        <button
-                                            className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem] capitalize'
-                                            onClick={() =>
-                                                deactivate_securityCompany_mutation()
-                                            }
-                                        >
-                                            {deactivate_securityCompany_loading
-                                                ? 'Loading...'
-                                                : 'deactivate'}
-                                        </button>
+
+                                        {companyStatus === 'deactivate' ? (
+                                            <button
+                                                className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem] capitalize'
+                                                onClick={() =>
+                                                    deactivate_securityCompany_mutation()
+                                                }
+                                            >
+                                                {deactivate_securityCompany_loading
+                                                    ? 'Loading...'
+                                                    : 'deactivate'}
+                                            </button>
+                                        ) : (
+                                            <button
+                                                className='bg-green-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem] capitalize'
+                                                onClick={() =>
+                                                    deactivate_securityCompany_mutation()
+                                                }
+                                            >
+                                                {deactivate_securityCompany_loading
+                                                    ? 'Loading...'
+                                                    : 'activate'}
+                                            </button>
+                                        )}
                                     </div>
                                 </div>
                             </section>
