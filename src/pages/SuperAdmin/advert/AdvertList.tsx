@@ -6,7 +6,7 @@ function Advert() {
             <Table
                 fetch_url={'/advert/getall'}
                 title={'advert'}
-                view_page_url={'/superAmin/advert/view/'}
+                view_page_url={'/superAmin/advert/detail/'}
                 add_page_url={'/superAmin/advert/add'}
                 is_add_btn={true}
                 THeader={[
