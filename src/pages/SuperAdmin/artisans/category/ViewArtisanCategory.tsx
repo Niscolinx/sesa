@@ -59,6 +59,8 @@ const ViewArtisanCategory = () => {
             })
             return
         }
+
+        mutate()
     }
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
