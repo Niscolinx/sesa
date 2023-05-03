@@ -157,8 +157,8 @@ const SecurityCompanyDetail = () => {
                 get_response.data[0]
 
             const formatDate = new Date(onboarding_date)
-                .toISOString('en-GB')
-                .replaceAll('/', '-')
+                .toISOString()
+                .slice(0, 10)
 
             console.log({ formatDate })
 
