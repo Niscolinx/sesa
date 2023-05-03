@@ -73,10 +73,12 @@ function RenderedSecurityCompanies() {
             )
             prevData.push(structuredClone(previousData))
 
+
             if (previousData.data) {
                 let index_to_replace = 0
                 let updatedData = previousData.data
                     .filter((data: any, idx: number) => {
+                        console.log(data.id, securityCompanyId, typeof data.id, typeof securityCompanyId)
                         if (data.id === securityCompanyId) {
                             index_to_replace = idx
                             return data
