@@ -56,18 +56,18 @@ const SecurityCompanyDetail = () => {
         no_of_assigned_security_guards: number
         no_of_security_guards: number
         wallet_balance: number
-        
+
     const formInputs = [
         {
-            label: 'first_name',
+            name: 'Security Name',
+            label: 'name',
         },
         {
-            label: 'last_name',
+            label: 'address',
         },
         {
-            label: 'dob',
+            label: 'onboarding_date',
             type: 'date',
-            name: 'date of birth',       
         },
         {
             label: 'gender',
