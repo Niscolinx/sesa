@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
 import AdvertList from './AdvertList'
-import AvailableEstateAdvert from './AvailableEstateAdvert-old'
+import AvailableEstateAdvert from './AvailableEstateAdvert'
 
 type PathSwitch = 'advertList' | 'availableEstates'
 

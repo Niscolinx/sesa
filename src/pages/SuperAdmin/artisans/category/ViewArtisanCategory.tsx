@@ -1,12 +1,15 @@
 import { FormEvent, useRef } from 'react'
 import { IoMdClose } from 'react-icons/io'
-import { useNavigate } from 'react-router'
+import { useNavigate, useParams } from 'react-router'
 import { toast, ToastContainer } from 'react-toastify'
 import useFetchData from '../../../../utils/useFetchData'
 import Table from '../../../../components/UI/table/Table'
 
 const ViewArtisanCategory = () => {
     const navigate = useNavigate()
+    const params = useParams()
+
+    const category_id = params.id?.replace(':', '')
 
     const handleDialogSubmit = (e: FormEvent) => {
         e.preventDefault()
@@ -110,7 +113,7 @@ const ViewArtisanCategory = () => {
                 </div>
 
                 <Table
-                    fetch_url={'/admin/category/get/single/users/2'}
+                    fetch_url={`/admin/category/get/single/users/${category_id}`}
                     title={'category users'}
                     view_page_url={'/superAdmin/artisan/category/'}
                     isStrictAction
