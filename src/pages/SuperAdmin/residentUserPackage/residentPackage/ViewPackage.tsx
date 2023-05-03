@@ -80,19 +80,16 @@ const ViewPackage = () => {
 
     useEffect(() => {
         if (get_response) {
-          
-            const { package_name, price, details, frequency, discount  } = get_response.data
-        
+            const { package_name, price, details, frequency, discount } =
+                get_response.data
 
             reset({
-               package_name,
-               price,
-               details,
-               frequency,
-               discount
+                package_name,
+                price,
+                details,
+                frequency,
+                discount,
             })
-
-           
         }
     }, [get_response])
 
@@ -116,11 +113,9 @@ const ViewPackage = () => {
     }) as any
 
     const onSubmit = handleSubmit((data) => {
-        const { amount, ...others } = data
 
         const adminData = {
-            ...others,
-            price: amount,
+            ...data,
             frequency: selectedFrequency,
         }
 
