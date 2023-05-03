@@ -6,6 +6,7 @@ import { useMutation, useQuery } from 'react-query'
 import useAxios from '../../../../components/hooks/useAxios'
 import { useParams } from 'react-router'
 import { toast } from 'react-toastify'
+import Spinner from '../../../../components/UI/Spinner'
 
 type Frequency = 'monthly' | 'weekly' | 'quarterly' | 'yearly'
 
@@ -168,6 +169,8 @@ const ViewPackage = () => {
 
     return (
         <div className=' p-8 bg-white h-[70vh] rounded-lg overflow-y-scroll'>
+            <Spinner start={isLoading ? true : false} />
+
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
@@ -201,7 +204,14 @@ const ViewPackage = () => {
                     }}
                 >
                     {formInputs.map((input, idx) => {
-                        const { label, type, selectProps, minLength, tag, name } = input
+                        const {
+                            label,
+                            type,
+                            selectProps,
+                            minLength,
+                            tag,
+                            name,
+                        } = input
                         return (
                             <Input
                                 key={idx + label}
