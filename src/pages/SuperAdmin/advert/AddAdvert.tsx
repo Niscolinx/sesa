@@ -104,9 +104,11 @@ const AddAdvert = () => {
             )
             .map(({ id }: any) => ({ id }))[0]
 
+            console.log({estate_id})
+
         const updatedData = {
             ...data,
-            estate_id,
+            estate_id:  estate_id[0],
             image: imageFile,
         }
 
