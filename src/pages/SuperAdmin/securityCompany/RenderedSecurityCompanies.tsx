@@ -456,12 +456,7 @@ function RenderedSecurityCompanies() {
                                                 },
                                                 idx
                                             ) => {
-                                                if (idx === 0) {
-                                                    console.log(
-                                                        '==============',
-                                                        { status }
-                                                    )
-                                                }
+                                               
                                                 const {
                                                     isDropDownOpen,
                                                     index,

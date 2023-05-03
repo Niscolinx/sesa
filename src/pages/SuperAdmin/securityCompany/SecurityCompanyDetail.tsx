@@ -155,7 +155,12 @@ const SecurityCompanyDetail = () => {
     useEffect(() => {
         if (get_response) {
             console.log({get_response})
-            const { id, user_id, image, status, ...other } = get_response.data[0]
+            const { id, user_id, image, status, onboarding_date,  ...other } = get_response.data[0]
+
+
+            const formatDate = new Date(onboarding_date).toLocaleDateString()
+
+            console.log({formatDate})
 
             console.log({...other})
             // reset({
