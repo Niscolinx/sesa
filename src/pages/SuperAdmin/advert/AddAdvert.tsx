@@ -102,13 +102,12 @@ const AddAdvert = () => {
             .filter(({ estate_name }: any) =>
                 selectedEstates.includes(estate_name)
             )
-            .map(({ id }: any) => ({ id }))[0]
+            .map(({ id }: any) => ( id ))[0]
 
-            console.log({estate_id})
 
         const updatedData = {
             ...data,
-            estate_id:  estate_id[0],
+            estate_id:  estate_id,
             image: imageFile,
         }
 
