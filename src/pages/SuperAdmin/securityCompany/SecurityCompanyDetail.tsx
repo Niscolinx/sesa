@@ -185,7 +185,7 @@ const SecurityCompanyDetail = () => {
                     </button>
                 </div>
                 <form
-                    onSubmit={handleSubmit}
+                    //onSubmit={handleSubmit}
                     className='grid max-w-[84rem] gap-16 mt-12'
                     style={{
                         gridTemplateColumns:
