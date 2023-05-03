@@ -6,6 +6,8 @@ import Input, { SelectProps } from '../../../components/UI/input/Input'
 import ImageInput from '../../../components/UI/input/ImageInput'
 import useAxios from '../../../components/hooks/useAxios'
 import useFetchData from '../../../utils/useFetchData'
+import Spinner from '../../../components/UI/Spinner'
+import { useNavigate } from 'react-router-dom'
 
 const AddAdvert = () => {
     interface Inputs {
@@ -27,6 +29,7 @@ const AddAdvert = () => {
     }
 
     const axiosInstance = useAxios()
+    const navigate = useNavigate()
 
     const [photoPreview, setPhotoPreview] = useState('')
     const [imageFile, setImageFile] = useState<File | null>(null)
@@ -81,6 +84,7 @@ const AddAdvert = () => {
 
     const onSubmit = handleSubmit((data) => {
         setSelectFormErrors(null)
+        setResponseMessage(null)
 
         let isError = false
         if (selectedEstates.length < 1) {
@@ -89,7 +93,7 @@ const AddAdvert = () => {
             setSelectFormErrors((prev) => {
                 return {
                     ...prev,
-                    'estates': 'Field cannot be empty',
+                    estates: 'Field cannot be empty',
                 }
             })
         }
@@ -102,12 +106,11 @@ const AddAdvert = () => {
             .filter(({ estate_name }: any) =>
                 selectedEstates.includes(estate_name)
             )
-            .map(({ id }: any) => ( id ))[0]
-
+            .map(({ id }: any) => id)[0]
 
         const updatedData = {
             ...data,
-            estate_id:  estate_id,
+            estate_id,
             image: imageFile,
         }
 
@@ -117,6 +120,7 @@ const AddAdvert = () => {
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
     const handleClose = () => {
+        navigate(-1)
         if (dialogRef.current) {
             dialogRef.current.close()
         }
@@ -166,6 +170,8 @@ const AddAdvert = () => {
 
     return (
         <>
+            <Spinner start={isLoading ? true : false} />
+
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
