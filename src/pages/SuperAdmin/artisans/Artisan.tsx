@@ -10,7 +10,6 @@ function ArtisanCategory() {
             view_page_url={'/superAdmin/artisan/category/'}
             is_add_btn={true}
             isCategory={true}
-            actions={['delete']}
             delete_item_url={'/admin/category/delete/'}
             THeader={['name', 'No of Artisans', 'created at', 'actions']}
             data_to_display={['name', 'artisan_count', 'created_at']}
