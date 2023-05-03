@@ -14,49 +14,7 @@ import { toast, ToastContainer } from 'react-toastify'
 import useFetchData from '../../../../utils/useFetchData'
 import Table from '../../../../components/UI/table/Table'
 
-type DialogType = 'warning' | 'add-Category'
 
-export interface IViewArtisanCategory {
-    id: string
-    artisanName: string
-    businessName: string
-    phoneNumber: string
-}
-
-const VIEW_ARTISAN_CATEGORY: IViewArtisanCategory[] = [
-    {
-        id: '1',
-        artisanName: 'Chibuzor Okafor',
-        businessName: 'Lariza Orjo',
-        phoneNumber: '08012345678',
-    },
-    {
-        id: '1',
-        artisanName: 'Chibuzor Okafor',
-        businessName: 'Lariza Orjo',
-        phoneNumber: '08012345678',
-    },
-    {
-        id: '1',
-        artisanName: 'Chibuzor Okafor',
-        businessName: 'Lariza Orjo',
-        phoneNumber: '08012345678',
-    },
-    {
-        id: '1',
-        artisanName: 'Chibuzor Okafor',
-        businessName: 'Lariza Orjo',
-        phoneNumber: '08012345678',
-    },
-    {
-        id: '1',
-        artisanName: 'Chibuzor Okafor',
-        businessName: 'Lariza Orjo',
-        phoneNumber: '08012345678',
-    },
-]
-
-type Actions = 'Delete' | 'View Details'
 
 const ViewArtisanCategory = () => {
     const navigate = useNavigate()
@@ -167,7 +125,7 @@ const ViewArtisanCategory = () => {
                     title={'category users'}
                     view_page_url={'/superAdmin/artisan/category/'}
                     isStrictAction
-                    actions={['view details', 'delete']}
+                    actions={['delete']}
                     delete_item_url={'/admin/category/delete/'}
                     THeader={[
                         'name',
