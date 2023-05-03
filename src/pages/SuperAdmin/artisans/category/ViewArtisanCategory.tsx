@@ -60,26 +60,24 @@ type Actions = 'Delete' | 'View Details'
 const ViewArtisanCategory = () => {
     const navigate = useNavigate()
 
-    const [isWarning, setIsWarning] = useState(true)
-    const [isLoaded, setIsLoaded] = useState(false)
-    const [fetchedArtisanCategories, setFetchedArtisanCategories] = useState<
-        IViewArtisanCategory[]
-    >([])
+ const handleDialogSubmit = (e: FormEvent) => {
+     e.preventDefault()
+     handleClose()
 
-    useEffect(() => {
-        setTimeout(() => {
-            setFetchedArtisanCategories(VIEW_ARTISAN_CATEGORY)
-            //setIsLoaded(true)
-        }, 200)
-    }, [])
-
+     toast('Category Created successfully', {
+         type: 'success',
+         className: 'bg-green-100 text-green-600 text-[1.4rem]',
+     })
+ }
+  
     const { data: category_detail, isLoading: category_detail_loading } =
         useFetchData({
             url: '/admin/category/get/single/2',
             name: 'category_single',
         })
 
- 
+    const dialogRef = useRef<HTMLDialogElement | null>(null)
+
     return (
         <>
             <ToastContainer />
@@ -91,41 +89,39 @@ const ViewArtisanCategory = () => {
                             onClick={() => handleClose()}
                         />
 
-                      
-                            <form
-                                className='grid gap-12'
-                                onSubmit={handleDialogSubmit}
+                        <form
+                            className='grid gap-12'
+                            onSubmit={handleDialogSubmit}
+                        >
+                            <h3
+                                className='text-[2rem] font-Satoshi-Medium border-b '
+                                style={{
+                                    fontFamily: 'Satoshi-Medium',
+                                }}
                             >
-                                <h3
-                                    className='text-[2rem] font-Satoshi-Medium border-b '
-                                    style={{
-                                        fontFamily: 'Satoshi-Medium',
-                                    }}
+                                Create Artisan Category
+                            </h3>
+
+                            <div className='w-full grid gap-4'>
+                                <label
+                                    htmlFor='artisanName'
+                                    className='text-[1.4rem] font-semibold'
                                 >
-                                    Create Artisan Category
-                                </h3>
+                                    Name
+                                </label>
 
-                                <div className='w-full grid gap-4'>
-                                    <label
-                                        htmlFor='artisanName'
-                                        className='text-[1.4rem] font-semibold'
-                                    >
-                                        Name
-                                    </label>
+                                <input
+                                    type='text'
+                                    required
+                                    id='artisanName'
+                                    className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem]'
+                                />
+                            </div>
 
-                                    <input
-                                        type='text'
-                                        required
-                                        id='artisanName'
-                                        className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem]'
-                                    />
-                                </div>
-
-                                <button className='btn bg-[#0556E5] text-white rounded-lg py-4 place-self-start w-[15rem]'>
-                                    Create
-                                </button>
-                            </form>
-                         
+                            <button className='btn bg-[#0556E5] text-white rounded-lg py-4 place-self-start w-[15rem]'>
+                                Create
+                            </button>
+                        </form>
                     </div>
                 </section>
             </dialog>
@@ -152,7 +148,6 @@ const ViewArtisanCategory = () => {
                         Update
                     </button>
                 </div>
-               
             </div>
         </>
     )
