@@ -43,9 +43,9 @@ function RenderedSecurityCompanies() {
 
     const postDeactivateSecurityCompany = () => {
         return axiosInstance({
-            url: '/change/user/status',
+            url: '/security-company/deactivate_activate',
             method: 'post',
-            data: { user_id: parseInt(securityCompanyId) },
+            data: { id: securityCompanyId },
         })
     }
 
@@ -66,7 +66,7 @@ function RenderedSecurityCompanies() {
                 toast('Security Company Deactivated Successfully', {
                     type: 'success',
                     className:
-                        'bg-green-100 text-green-600 text-[1.4rem] uppercase',
+                        'bg-green-100 text-green-600 text-[1.4rem] capitalize',
                 })
             }
         },
