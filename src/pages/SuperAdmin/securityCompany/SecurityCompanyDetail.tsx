@@ -44,7 +44,6 @@ const SecurityCompanyDetail = () => {
     const [responseMessage, setResponseMessage] =
         useState<ResponseMessage | null>(null)
 
-    const [selectedGender, setSelectedGender] = useState<string>(genderState[0])
 
     const formInputs = [
         {
@@ -52,7 +51,8 @@ const SecurityCompanyDetail = () => {
             label: 'name',
         },
         {
-            label: 'email_address',
+            name: 'Email Address',
+            label: 'email',
             type: 'email',
         },
         {
@@ -153,10 +153,11 @@ const SecurityCompanyDetail = () => {
     useEffect(() => {
         if (get_response) {
             console.log({get_response})
-            const { id, user_id, image, status, ...other } = get_response.data
+            const { id, user_id, image, status, ...other } = get_response.data[0]
 
+            console.log({...other})
             reset({
-                name: 'ddsd'
+                ...other
             })
 
             setPhotoPreview(image)
