@@ -56,10 +56,10 @@ function RenderedSecurityCompanies() {
     }
 
     const queryClient = useQueryClient()
-   // const messageTitle = title.replace(/([a-z])([A-Z])/g, '$1 $2')
+    // const messageTitle = title.replace(/([a-z])([A-Z])/g, '$1 $2')
 
     const prevData: any[] = []
-    
+
     const {
         mutate: deactivate_securityCompany_mutation,
         isLoading: deactivate_securityCompany_loading,
@@ -72,11 +72,11 @@ function RenderedSecurityCompanies() {
             )
             prevData.push(structuredClone(previousData))
 
-            if ( previousData.data) {
+            if (previousData.data) {
                 let index_to_replace = 0
                 let updatedData = previousData.data.data
                     .filter((data: any, idx: number) => {
-                        if (data.id === fetchedId) {
+                        if (data.id === securityCompanyId) {
                             index_to_replace = idx
                             return data
                         }
@@ -99,14 +99,17 @@ function RenderedSecurityCompanies() {
 
                 cloneOld.splice(index_to_replace, 1, ...updatedData)
 
-                queryClient.setQueryData(title, (oldData: any) => {
-                    console.log({ oldData })
-                    const relevantData = oldData.data.data
-                    return {
-                        ...relevantData,
-                        data: [...cloneOld],
+                queryClient.setQueryData(
+                    'securityCompanies',
+                    (oldData: any) => {
+                        console.log({ oldData })
+                        const relevantData = oldData.data.data
+                        return {
+                            ...relevantData,
+                            data: [...cloneOld],
+                        }
                     }
-                })
+                )
             }
             closeDialog()
             return {
@@ -124,6 +127,19 @@ function RenderedSecurityCompanies() {
                         'bg-green-100 text-green-600 text-[1.4rem] capitalize',
                 })
             }
+        },
+
+        onError: (_err, _variables, context) => {
+            if (context?.previousData) {
+                queryClient.setQueryData(
+                    'securityCompanies',
+                    context.previousData
+                )
+            }
+        },
+
+        onSettled: () => {
+            queryClient.invalidateQueries('securityCompanies')
         },
     })
     const {
