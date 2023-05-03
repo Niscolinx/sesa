@@ -309,10 +309,20 @@ const TableData = () => {
                                                                 className='cursor-pointer'
                                                             />
                                                         )}
-                                                        <p>{header}</p>
+                                                        <p>
+                                                            {header.replaceAll(
+                                                                '_',
+                                                                ' '
+                                                            )}
+                                                        </p>
                                                     </div>
                                                 ) : (
-                                                    <p key={idx}>{header}</p>
+                                                    <p key={idx}>
+                                                        {header.replaceAll(
+                                                            '_',
+                                                            ' '
+                                                        )}
+                                                    </p>
                                                 )
                                         )}
                                     </div>
