@@ -140,16 +140,13 @@ const SecurityCompanyDetail = () => {
 
     useEffect(() => {
         if (get_response) {
-            const { name, email, phone, image, dob, gender } = get_response.data
+            const { id, user_id, image, status, ...other} = get_response.data
 
             reset({
-                dob,
-                email_address: email,
-                phone_number: parseInt(phone),
+                ...other
             })
 
             setPhotoPreview(image)
-            setSelectedGender(gender)
         }
     }, [get_response])
 
@@ -173,7 +170,7 @@ const SecurityCompanyDetail = () => {
        
 
         const adminData = {
-            ...date,
+            ...data,
             image: imageFile,
         }
 
