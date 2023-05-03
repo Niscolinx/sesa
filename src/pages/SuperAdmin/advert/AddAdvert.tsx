@@ -28,23 +28,18 @@ const AddAdvert = () => {
 
     const axiosInstance = useAxios()
 
-    const estates = ['Estate1', 'Estate2', 'Estate3']
-
     const [photoPreview, setPhotoPreview] = useState('')
     const [imageFile, setImageFile] = useState<File | null>(null)
     const [selectedEstates, setSelectedEstates] = useState<string[]>([])
-     const [selectFormErrors, setSelectFormErrors] = useState<{
-         [key: string]: string
-     } | null>(null)
-   
+    const [selectFormErrors, setSelectFormErrors] = useState<{
+        [key: string]: string
+    } | null>(null)
 
+    const { data: estates_data, isLoading: estates_loading } = useFetchData({
+        url: '/estate/getall',
+        name: 'estates',
+    })
 
-    const { data: estate_manager_data, isLoading: estate_manager_loading } =
-        useFetchData({
-            url: '/estate/getall',
-            name: 'estate_manager',
-        })
-        
     const handlePicture = (e: React.ChangeEvent) => {
         const target = e.target as HTMLInputElement
         const file: File = (target.files as FileList)[0]
@@ -85,29 +80,29 @@ const AddAdvert = () => {
     }) as any
 
     const onSubmit = handleSubmit((data) => {
-         setSelectFormErrors(null)
+        setSelectFormErrors(null)
 
-         let isError = false
-         if (selectedEstateManager.length < 1) {
-             isError = true
+        let isError = false
+        if (selectedEstates.length < 1) {
+            isError = true
 
-             setSelectFormErrors((prev) => {
-                 return {
-                     ...prev,
-                     'estate manager': 'Field cannot be empty',
-                 }
-             })
-         }
+            setSelectFormErrors((prev) => {
+                return {
+                    ...prev,
+                    'estate manager': 'Field cannot be empty',
+                }
+            })
+        }
 
-           if (isError) {
-               return
-           }
+        if (isError) {
+            return
+        }
 
-            const estate_manager: string[] = estate_manager_data.data
-                .filter(({ estate_name }: any) =>
-                    selectedEstateManager.includes(estate_name)
-                )
-                .map(({ id }: any) => ({ id }))[0]
+        const estate_manager: string[] = estates_data.data
+            .filter(({ estate_name }: any) =>
+                selectedEstates.includes(estate_name)
+            )
+            .map(({ id }: any) => ({ id }))[0]
 
         const updatedData = {
             ...data,
@@ -131,16 +126,13 @@ const AddAdvert = () => {
             dialogRef.current.showModal()
         }
     }
-     if (
-         
-         estate_manager_loading
-     ) {
-         return <p className='p-8'>Loading...</p>
-     }
+    if (estates_loading) {
+        return <p className='p-8'>Loading...</p>
+    }
 
-const slicedEstateManagers: string[] = estate_manager_data.data.map(
-    ({ estate_name }: any) => estate_name
-)
+    const slicedEstateManagers: string[] = estates_data.data.map(
+        ({ estate_name }: any) => estate_name
+    )
 
     const formInputs = [
         {
@@ -153,8 +145,8 @@ const slicedEstateManagers: string[] = estate_manager_data.data.map(
                 isMulti: true,
                 state: slicedEstateManagers,
                 isSearchable: true,
-                selectedState: selectedEstateManager,
-                setSelectedState: setSelectedEstateManager,
+                selectedState: selectedEstates,
+                setSelectedState: setSelectedEstates,
             },
         },
         {

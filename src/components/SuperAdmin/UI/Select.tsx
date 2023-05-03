@@ -145,7 +145,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
             <div className='relative flex items-center '>
                 {color ? (
                     <label
-                        className='border border-color-grey px-4 py-2 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer min-h-[5rem] '
+                        className='border border-color-grey px-4 py-2 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer min-h-[5rem] capitalize'
                         onClick={() => stateMenuToggler('inner')}
                     >
                         {selectedState ? (
@@ -168,7 +168,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                     </label>
                 ) : (
                     <label
-                        className={`border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer min-h-[5rem] flex items-center gap-4 ${
+                        className={`border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer min-h-[5rem] flex items-center gap-4 capitalize ${
                             selectedState.length > 0
                                 ? 'justify-between'
                                 : 'justify-end'
