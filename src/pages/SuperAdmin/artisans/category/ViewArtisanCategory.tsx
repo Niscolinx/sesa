@@ -1,4 +1,4 @@
-import { FormEvent, useRef } from 'react'
+import { ChangeEvent, FormEvent, useRef, useState } from 'react'
 import { IoMdClose } from 'react-icons/io'
 import { useNavigate, useParams } from 'react-router'
 import { toast, ToastContainer } from 'react-toastify'
@@ -10,6 +10,8 @@ const ViewArtisanCategory = () => {
     const params = useParams()
 
     const category_id = params.id?.replace(':', '')
+
+    const [name, setName] = useState('')
 
     const handleDialogSubmit = (e: FormEvent) => {
         e.preventDefault()
@@ -43,6 +45,10 @@ const ViewArtisanCategory = () => {
 
     if (category_detail_loading) {
         return <p className='p-8'>Loading...</p>
+    }
+
+    const handleNameChange = (e: ChangeEvent<HTMLInputElement>) => {
+        setName(e.target.value)
     }
 
     return (
@@ -106,6 +112,7 @@ const ViewArtisanCategory = () => {
                             type='text'
                             required
                             defaultValue={category_detail?.name}
+                            onChange={handleNameChange}
                             id='categoryName'
                             className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem]'
                         />
