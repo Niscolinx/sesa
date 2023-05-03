@@ -305,11 +305,16 @@ const SecurityCompanyDetail = () => {
                         )}
                     </div>
                 </div>
-               
 
+                {responseMessage?.displayMessage && (
+                    <p className='text-center'>
+                        <span className={responseMessage?.className}>
+                            {responseMessage?.displayMessage}
+                        </span>
+                    </p>
+                )}
                 <form onSubmit={onSubmit} className='grid gap-20'>
                     <div className='grid gap-10'>
-                       
                         <section
                             className='grid max-w-[84rem] gap-16'
                             style={{
