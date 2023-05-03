@@ -102,7 +102,7 @@ function RenderAdverts() {
 
     const handlePathSwitch: Record<PathSwitch, JSX.Element> = {
         advertList: <AdvertList />,
-        availableEstates: <AvailableEstateAdvert />,
+       availableEstates: <AvailableEstateAdvert />,
     }
 
     return (
