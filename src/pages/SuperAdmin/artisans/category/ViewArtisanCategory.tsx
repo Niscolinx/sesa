@@ -91,7 +91,7 @@ const ViewArtisanCategory = () => {
                             onClick={() => handleClose()}
                         />
 
-                        {!isWarning ? (
+                      
                             <form
                                 className='grid gap-12'
                                 onSubmit={handleDialogSubmit}
@@ -125,34 +125,7 @@ const ViewArtisanCategory = () => {
                                     Create
                                 </button>
                             </form>
-                        ) : (
-                            <div className='bg-white rounded-2xl grid place-content-center justify-items-center h-[30rem] gap-8 text-[1.6rem]'>
-                                <img
-                                    src='/icons/admins/modalWarning.svg'
-                                    alt=''
-                                />
-
-                                <p>
-                                    Are you sure you want to delete this
-                                    Artisan?
-                                </p>
-
-                                <div className='flex w-full justify-center gap-8'>
-                                    <button
-                                        className='btn bg-white text-[#0556E5] border-[#0556E5] border rounded-lg w-[15rem]'
-                                        onClick={() => handleClose()}
-                                    >
-                                        Cancel
-                                    </button>
-                                    <button
-                                        className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
-                                        onClick={confirmDeactivation}
-                                    >
-                                        Delete
-                                    </button>
-                                </div>
-                            </div>
-                        )}
+                         
                     </div>
                 </section>
             </dialog>
