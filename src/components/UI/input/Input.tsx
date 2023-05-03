@@ -95,20 +95,26 @@ const Input: FC<Partial<Input> & { label: string }> = ({
     }
 
     const handlePriceChange = (e: ChangeEvent<HTMLInputElement>) => {
-        const value = parseInt(e.target.value)
-        if (setValue && clearErrors) {
-            clearErrors('price')
+        const value = e.target.value.replace(/\D/g, '')
 
-            if (value <= 1 && value === 0) {
-                return setPrice('')
-            }
+         
+          const parsedValue = parseFloat(value.replace(/,/g, ''))
 
-            const transFormToMoney = (value: number) => {
-                return value.toString()
-            }
-
-            setPrice(transFormToMoney(value))
-            setValue('price', value)
+          if (setValue && clearErrors) {
+              clearErrors('price')
+              
+              if (value.length <= 1 && value === 0) {
+                  return setPrice('')
+                }
+                
+                if (!isNaN(parsedValue) && isFinite(parsedValue)) {
+                    const transformedValue = parsedValue.toLocaleString()
+                    const transFormToMoney = (value: number) => {
+                        return value.toLocaleString()
+                    }
+                    
+                    setValue('price', value)
+                }
         }
     }
 
@@ -241,7 +247,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                                 <input
                                     id={label}
                                     disabled={disabled}
-                                    type={type}
+                                    type={'text'}
                                     value={value || price}
                                     onChange={handlePriceChange}
                                     className={` w-full border-none outline-none disabled:opacity-50 disabled:cursor-not-allowed p-4 pl-0 ${
