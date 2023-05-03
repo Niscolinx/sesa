@@ -13,6 +13,10 @@ const SecurityCompanyDetail = () => {
         address: string
         onboarding_date: string
         phone: string
+        no_of_bank_accounts_opened: number
+        no_of_assigned_security_guards: number
+        no_of_security_guards: number
+        wallet_balance: number
     }
 
     type ResponseMessage = {
@@ -29,7 +33,6 @@ const SecurityCompanyDetail = () => {
 
     const params = useParams()
     const axiosInstance = useAxios()
-    const navigate = useNavigate()
 
     const [photoPreview, setPhotoPreview] = useState('')
     const [imageFile, setImageFile] = useState<File | null>(null)
