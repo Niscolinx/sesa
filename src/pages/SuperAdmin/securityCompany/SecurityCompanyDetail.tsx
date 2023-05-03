@@ -154,7 +154,7 @@ const SecurityCompanyDetail = () => {
         }
     }, [get_response])
 
-    const { mutate: post_admin_mutation, isLoading: post_admin_loading } =
+    const { mutate: post_admin_mutation, isLoading: post_update_loading } =
         useMutation(postUpdateAdmin, {
             onSuccess: (res) => {
                 toast('Admin Updated successfully', {
@@ -492,95 +492,34 @@ const SecurityCompanyDetail = () => {
                                 )
                             })}
                         </section>
-                    </div>
-                    <div className='border-t grid gap-10 pt-16'>
-                        <p className='text-[2rem] font-Satoshi-Medium'>
-                            Estate Convinience Fees
-                        </p>
-                        <section
-                            className='grid max-w-[84rem] gap-16  '
-                            style={{
-                                gridTemplateColumns:
-                                    ' repeat(auto-fit, minmax(35rem, 1fr))',
-                            }}
-                        >
-                            {second_section_inputs.map((input, idx) => {
-                                const { label, type, name, disabled } = input
-
-                                return (
-                                    <Input
-                                        key={idx + label}
-                                        label={label}
-                                        register={register}
-                                        disabled={disabled}
-                                        formErrors={formErrors}
-                                        type={type}
-                                        minLength={0}
-                                        name={name}
+                        <div className='grid items-center justify-between gap-4'>
+                            <p className='font-Satoshi-Medium text-[1.4rem]'>
+                                Sign Out Required
+                            </p>
+                            <div
+                                onClick={toggleIsSignOutRequired}
+                                className='cursor-pointer'
+                            >
+                                {isSignOutRequired ? (
+                                    <img
+                                        src='/icons/admins/switchOn.svg'
+                                        alt=''
                                     />
-                                )
-                            })}
-                            <div className='grid items-center justify-between gap-4'>
-                                <p className='font-Satoshi-Medium text-[1.4rem]'>
-                                    Sign Out Required
-                                </p>
-                                <div
-                                    onClick={toggleIsSignOutRequired}
-                                    className='cursor-pointer'
-                                >
-                                    {isSignOutRequired ? (
-                                        <img
-                                            src='/icons/admins/switchOn.svg'
-                                            alt=''
-                                        />
-                                    ) : (
-                                        <img
-                                            src='/icons/admins/switchOff.svg'
-                                            alt=''
-                                        />
-                                    )}
-                                </div>
+                                ) : (
+                                    <img
+                                        src='/icons/admins/switchOff.svg'
+                                        alt=''
+                                    />
+                                )}
                             </div>
-                            <ImageInput
-                                handlePicture={handlePicture}
-                                photoPreview={photoPreview}
-                            />
-                        </section>
+                        </div>
                     </div>
-                    <div className='border-t grid gap-10 pt-16'>
-                        <p className='text-[2rem] font-Satoshi-Medium'>
-                            Estate Account Details
-                        </p>
-                        <section
-                            className='grid max-w-[84rem] gap-16  '
-                            style={{
-                                gridTemplateColumns:
-                                    ' repeat(auto-fit, minmax(35rem, 1fr))',
-                            }}
-                        >
-                            {third_section_inputs.map((input, idx) => {
-                                const { label, type } = input
-
-                                return (
-                                    <Input
-                                        key={idx + label}
-                                        label={label}
-                                        register={register}
-                                        formErrors={formErrors}
-                                        type={type}
-                                    />
-                                )
-                            })}
-                        </section>
-                    </div>
+                   
                     <button
                         className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg justify-self-start'
                         // onClick={addArtisanHandler}
                     >
-                        <span>
-                            <IoMdAdd />
-                        </span>{' '}
-                        {isLoading ? 'Loading...' : 'Add Estate'}
+                        {post_update_loading ? 'Loading...' : 'Add Estate'}
                     </button>
                 </form>
             </div>
