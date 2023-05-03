@@ -66,8 +66,6 @@ function RenderedSecurityCompanies() {
         isLoading: deactivate_securityCompany_loading,
     } = useMutation(postDeactivateSecurityCompany, {
         onMutate: async () => {
-            closeDialog()
-
             await queryClient.cancelQueries('securityCompanies')
 
             const previousData: any = await queryClient.getQueryData(
@@ -114,7 +112,10 @@ function RenderedSecurityCompanies() {
                     }
                 )
             }
-            closeDialog()
+            setTimeout(() => {
+                closeDialog()
+            }, 200)
+
             return {
                 previousData: prevData[0],
             }
@@ -122,7 +123,7 @@ function RenderedSecurityCompanies() {
 
         onSuccess: (data) => {
             if (data) {
-                toast('Security Company Deactivated Successfully', {
+                toast(' Company Deactivated Successfully', {
                     type: 'success',
                     className:
                         'bg-green-100 text-green-600 text-[1.4rem] capitalize',
@@ -146,7 +147,7 @@ function RenderedSecurityCompanies() {
         },
 
         onSettled: () => {
-            queryClient.invalidateQueries('securityCompanies')
+            //queryClient.invalidateQueries('securityCompanies')
         },
     })
     const {
