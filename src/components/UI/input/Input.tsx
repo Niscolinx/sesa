@@ -115,7 +115,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                 return ''
             }
 
-            setValue('price', value)
+            setValue('price', parseInt(value))
 
             setPrice(transFormValue(value))
         }
