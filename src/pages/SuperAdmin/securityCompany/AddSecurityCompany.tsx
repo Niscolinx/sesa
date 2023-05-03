@@ -7,6 +7,7 @@ import ImageInput from '../../../components/UI/input/ImageInput'
 import useAxios from '../../../components/hooks/useAxios'
 import useFetchData from '../../../utils/useFetchData'
 import { useNavigate } from 'react-router'
+import Spinner from '../../../components/UI/Spinner'
 
 const AddSecurityCompany = () => {
     interface Inputs {
@@ -77,14 +78,13 @@ const AddSecurityCompany = () => {
     }) as any
 
     const onSubmit = handleSubmit((data) => {
-
         const updatedData = {
             ...data,
             phone: data.phone_number,
             image: imageFile,
         }
 
-       delete updatedData.phone_number
+        delete updatedData.phone_number
 
         mutate(updatedData)
     })
@@ -92,10 +92,10 @@ const AddSecurityCompany = () => {
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
     const handleClose = () => {
+        navigate(-1)
         if (dialogRef.current) {
             dialogRef.current.close()
         }
-        navigate(-1)
     }
 
     const handleOpen = () => {
