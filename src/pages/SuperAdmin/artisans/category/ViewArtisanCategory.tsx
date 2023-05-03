@@ -1,19 +1,9 @@
-import React, {
-    ChangeEvent,
-    FC,
-    FormEvent,
-    useEffect,
-    useRef,
-    useState,
-} from 'react'
-import { CgSpinnerTwo } from 'react-icons/cg'
-import { IoMdAdd, IoMdClose } from 'react-icons/io'
+import { FormEvent, useRef } from 'react'
+import { IoMdClose } from 'react-icons/io'
 import { useNavigate } from 'react-router'
 import { toast, ToastContainer } from 'react-toastify'
 import useFetchData from '../../../../utils/useFetchData'
 import Table from '../../../../components/UI/table/Table'
-
-
 
 const ViewArtisanCategory = () => {
     const navigate = useNavigate()
