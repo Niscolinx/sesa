@@ -113,7 +113,6 @@ const ViewPackage = () => {
     }) as any
 
     const onSubmit = handleSubmit((data) => {
-
         const adminData = {
             ...data,
             frequency: selectedFrequency,
@@ -151,7 +150,8 @@ const ViewPackage = () => {
             },
         },
         {
-            label: 'amount',
+            name: 'amount',
+            label: 'price',
             type: 'number',
         },
         {
