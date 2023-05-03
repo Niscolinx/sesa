@@ -11,6 +11,7 @@ import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { IoMdAdd, IoMdClose } from 'react-icons/io'
 import { useNavigate } from 'react-router'
 import { toast, ToastContainer } from 'react-toastify'
+import useFetchData from '../../../../utils/useFetchData'
 
 type DialogType = 'warning' | 'add-Category'
 
@@ -71,6 +72,12 @@ const ViewArtisanCategory = () => {
             //setIsLoaded(true)
         }, 200)
     }, [])
+
+    const { data: category_detail, isLoading: category_detail_loading } =
+        useFetchData({
+            url: '/admin/category/get/single/2',
+            name: 'category_single',
+        })
 
     const handleDialogSubmit = (e: FormEvent) => {
         e.preventDefault()
