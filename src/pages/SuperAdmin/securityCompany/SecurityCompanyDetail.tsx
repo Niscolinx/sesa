@@ -92,6 +92,7 @@ const SecurityCompanyDetail = () => {
         handleSubmit,
         formState: { errors: formErrors },
         reset,
+        watch
     } = useForm<Inputs>()
 
     const company_id = params.id?.replace(':', '')
