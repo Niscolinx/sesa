@@ -41,6 +41,10 @@ const ViewArtisanCategory = () => {
         }
     }
 
+    if (category_detail_loading) {
+        return <p className='p-8'>Loading...</p>
+    }
+
     return (
         <>
             <ToastContainer />
@@ -101,7 +105,7 @@ const ViewArtisanCategory = () => {
                         <input
                             type='text'
                             required
-                            placeholder='Plumber'
+                            defaultValue={category_detail?.name}
                             id='categoryName'
                             className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem]'
                         />
