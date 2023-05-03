@@ -209,6 +209,7 @@ const AddAdvert = () => {
                                     label={label}
                                     register={register}
                                     formErrors={formErrors}
+                                    selectFormErrors={selectFormErrors}
                                     type={type}
                                     name={name}
                                     isSelect={type === 'select'}
