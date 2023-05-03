@@ -534,6 +534,7 @@ function RenderedSecurityCompanies() {
                                                                     Status
                                                                 </p>
                                                                 <p>
+                                                                    
                                                                     {status ===
                                                                     1 ? (
                                                                         <span className=' text-color-green-light'>
