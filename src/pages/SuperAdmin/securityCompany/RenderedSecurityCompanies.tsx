@@ -59,7 +59,6 @@ function RenderedSecurityCompanies() {
     const queryClient = useQueryClient()
     // const messageTitle = title.replace(/([a-z])([A-Z])/g, '$1 $2')
 
-
     const {
         mutate: deactivate_securityCompany_mutation,
         isLoading: deactivate_securityCompany_loading,
@@ -99,7 +98,6 @@ function RenderedSecurityCompanies() {
 
                 cloneOld.splice(index_to_replace, 1, ...updatedData)
 
-
                 queryClient.setQueryData(
                     'securityCompanies',
                     (oldData: any) => {
@@ -117,7 +115,7 @@ function RenderedSecurityCompanies() {
             }, 400)
 
             return {
-                previousData
+                previousData,
             }
         },
 
@@ -126,7 +124,7 @@ function RenderedSecurityCompanies() {
                 toast(`Company ${companyStatus + 'd'} Successfully`, {
                     type: 'success',
                     className:
-                        'bg-green-100 text-green-600 text-[1.4rem] capitalize',
+                        'bg-green-50 text-green-600 text-[1.4rem] capitalize',
                 })
             }
         },
@@ -141,8 +139,7 @@ function RenderedSecurityCompanies() {
 
             toast(`Failed to ${companyStatus} Security Company`, {
                 type: 'error',
-                className:
-                    'bg-red-100 text-red-600 text-[1.4rem] capitalize',
+                className: 'bg-red-100 text-red-600 text-[1.4rem] capitalize',
             })
         },
 
@@ -517,9 +514,14 @@ function RenderedSecurityCompanies() {
                                                                     Joined Date
                                                                 </p>
                                                                 <p>
-                                                                    {
+                                                                    {new Date(
                                                                         onboarding_date
-                                                                    }
+                                                                    )
+                                                                        .toLocaleDateString()
+                                                                        .replaceAll(
+                                                                            '/',
+                                                                            '-'
+                                                                        )}
                                                                 </p>
                                                             </div>
                                                         </div>
