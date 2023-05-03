@@ -260,7 +260,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                                     id={label}
                                     disabled={disabled}
                                     type={type}
-                                    value={new Date(value) }
+                                    value={'2023-05-03 11:57:59'}
                                     // value={type === 'date' ? new Date(value) : value}
                                     {...(register &&
                                         register(label, validationOptions))}
