@@ -131,6 +131,8 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
         setSelectedState('')
     }
 
+    console.log({selectedState})
+
     return (
         <div
             className={`relative grid self-baseline capitalize ${
@@ -151,7 +153,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                                 className={`text-white whitespace-nowrap bg-${color}  rounded-lg px-4 relative flex items-center z-[2] pr-12 py-2 w-max`}
                             >
                                 <>
-                                    {selectedState.replaceAll('_', ' ')}
+                                    {selectedState && selectedState.replaceAll('_', ' ')}
                                     <IoMdClose
                                         className='absolute right-2 text-[1.4rem] cursor-pointer'
                                         onClick={(e) => clearValue(e)}
@@ -177,7 +179,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                         }}
                         htmlFor={`input${id}`}
                     >
-                        {selectedState.replaceAll('_', ' ') || (
+                        {selectedState && selectedState.replaceAll('_', ' ') || (
                             <span className='text-gray-500'>
                                 {placeholder || ''}
                             </span>
