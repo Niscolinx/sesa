@@ -28,7 +28,6 @@ const SecurityCompanyDetail = () => {
         label?: string
         type?: string
         name?: string
-        selectProps?: SelectProps
     }
 
     const params = useParams()
@@ -489,7 +488,7 @@ const SecurityCompanyDetail = () => {
                             }}
                         >
                             {formInputs.map((input, idx) => {
-                                const { label, type, selectProps } = input
+                                const { label, type, name } = input
 
                                 return (
                                     <Input
@@ -501,7 +500,7 @@ const SecurityCompanyDetail = () => {
                                         fullWidth={label === 'address'}
                                         type={type}
                                         isSelect={type === 'select'}
-                                        select={selectProps}
+                                        name={name}
                                     />
                                 )
                             })}
