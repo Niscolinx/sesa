@@ -4,10 +4,10 @@ function Advert() {
     return (
         <div className='rounded-lg mt-[3rem] h-[80vh]'>
             <Table
-                fetch_url={'/advert/get/all'}
+                fetch_url={'/advert/getall'}
                 title={'advert'}
-                view_page_url={'/superAdvert/advert/view/'}
-                add_page_url={'/superAdvert/advert/add'}
+                view_page_url={'/superAmin/advert/view/'}
+                add_page_url={'/superAmin/advert/add'}
                 is_add_btn={true}
                 THeader={[
                     'name',
