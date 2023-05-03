@@ -37,6 +37,10 @@ const SecurityCompanyDetail = () => {
     const [imageFile, setImageFile] = useState<File | null>(null)
     const genderState = ['Male', 'Female']
     const [isWarning, setIsWarning] = useState(true)
+    const [isSignOutRequired, setIsSignOutRequired] = useState(false)
+
+    const toggleIsSignOutRequired = () =>
+        setIsSignOutRequired(!isSignOutRequired)
     const [responseMessage, setResponseMessage] =
         useState<ResponseMessage | null>(null)
 
@@ -138,12 +142,9 @@ const SecurityCompanyDetail = () => {
 
     useEffect(() => {
         if (get_response) {
-            const { name, email, phone, image, dob, gender } =
-                get_response.data
-            
+            const { name, email, phone, image, dob, gender } = get_response.data
 
             reset({
-               
                 dob,
                 email_address: email,
                 phone_number: parseInt(phone),
@@ -210,10 +211,8 @@ const SecurityCompanyDetail = () => {
         handleClose()
     }
 
-
-    if(get_admin_loading){
+    if (get_admin_loading) {
         return <p className='p-8'> Loading...</p>
-    
     }
 
     return (
@@ -514,12 +513,19 @@ const SecurityCompanyDetail = () => {
                             </div>
                         </div>
                     </div>
-                   
+
                     <button
                         className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg justify-self-start'
                         // onClick={addArtisanHandler}
                     >
-                        {post_update_loading ? 'Loading...' : 'Add Estate'}
+                        <span>
+                            <img
+                                src='/icons/admins/saveDisk.svg'
+                                alt=''
+                                className='w-[1.7rem] h-[1.7rem]'
+                            />
+                        </span>
+                        {post_update_loading ? 'Loading...' : 'Save Changes'}
                     </button>
                 </form>
             </div>
