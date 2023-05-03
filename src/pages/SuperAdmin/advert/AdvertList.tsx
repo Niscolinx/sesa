@@ -6,22 +6,21 @@ function Advert() {
             <Table
                 fetch_url={'/advert/getall'}
                 title={'advert'}
-                view_page_url={'/superAmin/advert/detail/'}
-                add_page_url={'/superAmin/advert/add'}
+                view_page_url={'/superAdmin/advert/detail/'}
+                add_page_url={'/superAdmin/advert/add'}
                 is_add_btn={true}
                 THeader={[
-                    'name',
-                    'gender',
-                    'phone number',
+                    'advert_name',
+                    'start_date',
+                    'end_date',
                     'joined date',
                     'status',
                     'actions',
                 ]}
                 data_to_display={[
-                    'name',
-                    'image',
-                    'gender',
-                    'phone',
+                    'advert_name',
+                    'start_date',
+                    'end_date',
                     'created_at',
                     'status',
                 ]}
