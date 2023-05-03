@@ -98,33 +98,11 @@ export const AVAILABLE_ESTATE_ADVERT: IAvailableEstateAdvert[] = [
 type PathSwitch = 'advertList' | 'availableEstates'
 
 function RenderAdverts() {
-    const [fetchedAdvertList, setFetchedAdvertList] = useState<
-        IAdvertList[] | null
-    >(null)
-    const [fetchedAvailableEstateAdvert, setFetchedAvailableEstateAdvert] =
-        useState<IAvailableEstateAdvert[] | null>(null)
-
     const [pathToSwitch, setPathToSwitch] = useState<PathSwitch>('advertList')
 
-    useEffect(() => {
-        const fetchData = async () => {
-            setTimeout(() => {
-                setFetchedAdvertList(ADVERT_LIST)
-                setFetchedAvailableEstateAdvert(AVAILABLE_ESTATE_ADVERT)
-            }, 200)
-        }
-        fetchData()
-    }, [])
-
     const handlePathSwitch: Record<PathSwitch, JSX.Element> = {
-        advertList: <AdvertList fetchedAdvertList={fetchedAdvertList ?? []} />,
-        availableEstates: (
-            <AvailableEstateAdvert
-                fetchedAvailableEstateAdvert={
-                    fetchedAvailableEstateAdvert ?? []
-                }
-            />
-        ),
+        advertList: <AdvertList />,
+        availableEstates: <AvailableEstateAdvert />,
     }
 
     return (
@@ -153,15 +131,7 @@ function RenderAdverts() {
             </div>
             <div className='mt-8 grid gap-8'>
                 <section className='bg-color-white rounded-lg border min-w-[112rem] overflow-scroll'>
-                    {fetchedAdvertList && fetchedAdvertList.length > 0 ? (
-                        handlePathSwitch[pathToSwitch]
-                    ) : (
-                        <section className='relative w-[70vw] h-[60vh] mx-auto grid'>
-                            <div className='absolute w-full h-full grid place-content-center'>
-                                <CgSpinnerTwo className='animate-spin text-color-green-light text-5xl' />
-                            </div>
-                        </section>
-                    )}
+                    {handlePathSwitch[pathToSwitch]}
                 </section>
             </div>
         </div>
