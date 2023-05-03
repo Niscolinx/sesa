@@ -47,6 +47,16 @@ const SecurityCompanyDetail = () => {
 
     const [selectedGender, setSelectedGender] = useState<string>(genderState[0])
 
+     name: string
+        email: string
+        address: string
+        onboarding_date: string
+        phone: string
+        no_of_bank_accounts_opened: number
+        no_of_assigned_security_guards: number
+        no_of_security_guards: number
+        wallet_balance: number
+        
     const formInputs = [
         {
             label: 'first_name',
@@ -57,7 +67,7 @@ const SecurityCompanyDetail = () => {
         {
             label: 'dob',
             type: 'date',
-            name: 'date of birth',
+            name: 'date of birth',       
         },
         {
             label: 'gender',
