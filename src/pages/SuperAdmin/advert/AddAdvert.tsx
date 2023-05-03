@@ -89,7 +89,7 @@ const AddAdvert = () => {
             setSelectFormErrors((prev) => {
                 return {
                     ...prev,
-                    'estate manager': 'Field cannot be empty',
+                    'estates': 'Field cannot be empty',
                 }
             })
         }
@@ -98,7 +98,7 @@ const AddAdvert = () => {
             return
         }
 
-        const estate_manager: string[] = estates_data.data
+        const estate_id: string[] = estates_data.data
             .filter(({ estate_name }: any) =>
                 selectedEstates.includes(estate_name)
             )
@@ -106,7 +106,7 @@ const AddAdvert = () => {
 
         const updatedData = {
             ...data,
-            estate_id: 4,
+            estate_id,
             image: imageFile,
         }
 
@@ -130,7 +130,7 @@ const AddAdvert = () => {
         return <p className='p-8'>Loading...</p>
     }
 
-    const slicedEstateManagers: string[] = estates_data.data.map(
+    const slicedEstates: string[] = estates_data.data.map(
         ({ estate_name }: any) => estate_name
     )
 
@@ -143,7 +143,7 @@ const AddAdvert = () => {
             type: 'select',
             selectProps: {
                 isMulti: true,
-                state: slicedEstateManagers,
+                state: slicedEstates,
                 isSearchable: true,
                 selectedState: selectedEstates,
                 setSelectedState: setSelectedEstates,
