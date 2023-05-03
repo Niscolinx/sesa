@@ -95,20 +95,20 @@ const Input: FC<Partial<Input> & { label: string }> = ({
     }
 
     const handlePriceChange = (e: ChangeEvent<HTMLInputElement>) => {
+        const value = parseInt(e.target.value)
         if (setValue && clearErrors) {
             clearErrors('price')
 
-            if (value.length <= 1 && value === 0) {
+            if (value <= 1 && value === 0) {
                 return setPrice('')
             }
 
             const transFormToMoney = (value: number) => {
-
-                value.toLocaleString()
+                return value.toLocaleString()
             }
 
-            setValue('price', transFormToMoney(value))
-            setPrice(value)
+            setValue('price', value)
+            setPrice(transFormToMoney(value))
         }
     }
 
