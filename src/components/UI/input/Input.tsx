@@ -98,7 +98,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
         const value = e.target.value.replace(/\D/g, '')
 
         if (setValue && clearErrors) {
-            clearErrors('price')
+            clearErrors(label)
 
             if (value.length <= 1 && value === '0') {
                 return setPrice('')
@@ -115,7 +115,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                 return ''
             }
 
-            setValue('price', parseInt(value))
+            setValue(label, parseInt(value))
 
             setPrice(transFormValue(value))
         }
