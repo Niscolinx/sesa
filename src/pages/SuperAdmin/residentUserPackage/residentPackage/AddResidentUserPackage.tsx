@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form'
 import { IoMdAdd } from 'react-icons/io'
 import { useMutation } from 'react-query'
 import useAxios from '../../../../components/hooks/useAxios'
+import Spinner from '../../../../components/UI/Spinner'
 
 type Frequency = 'monthly' | 'weekly' | 'quarterly' | 'yearly'
 
@@ -11,7 +12,7 @@ const AddResidentUserPackage = () => {
     interface Inputs {
         package_name: string
         frequency: string
-        amount: number
+        price: number
         details: string
         discount: number
     }
@@ -25,6 +26,7 @@ const AddResidentUserPackage = () => {
         label?: string
         type?: string
         name?: string
+        tag?: string
         minLength?: number
         selectProps?: SelectProps
     }
@@ -70,15 +72,12 @@ const AddResidentUserPackage = () => {
     }) as any
 
     const onSubmit = handleSubmit((data) => {
-        const { amount, ...others } = data
-
-        const adminData = {
-            ...others,
-            price: amount,
+        const updatedData = {
+            ...data,
             frequency: selectedFrequency,
         }
 
-        mutate(adminData)
+        mutate(updatedData)
     })
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
@@ -110,8 +109,10 @@ const AddResidentUserPackage = () => {
             },
         },
         {
-            label: 'amount',
+            name: 'amount',
+            label: 'price',
             type: 'number',
+            tag: 'money',
         },
         {
             label: 'details',
@@ -125,6 +126,8 @@ const AddResidentUserPackage = () => {
 
     return (
         <div className=' p-8 bg-white h-[70vh] rounded-lg overflow-y-scroll'>
+            <Spinner start={isLoading ? true : false} />
+
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
@@ -158,7 +161,7 @@ const AddResidentUserPackage = () => {
                     }}
                 >
                     {formInputs.map((input, idx) => {
-                        const { label, type, selectProps, minLength } = input
+                        const { label, type, selectProps, minLength, name, tag } = input
                         return (
                             <Input
                                 key={idx + label}
@@ -166,6 +169,8 @@ const AddResidentUserPackage = () => {
                                 register={register}
                                 formErrors={formErrors}
                                 type={type}
+                                name={name}
+                                tag={tag}
                                 minLength={minLength}
                                 isSelect={type === 'select'}
                                 select={selectProps}
