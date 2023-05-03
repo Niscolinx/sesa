@@ -1,9 +1,10 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useParams, useNavigate } from 'react-router'
 import { SelectProps } from '../../../components/UI/input/Input'
 import useAxios from '../../../components/hooks/useAxios'
 import { ToastContainer, toast } from 'react-toastify'
+import { useMutation, useQuery } from 'react-query'
 
 const SecurityCompanyDetail = () => {
     interface Inputs {
@@ -90,11 +91,103 @@ const SecurityCompanyDetail = () => {
         return <p className='p-4'> Not found!</p>
     }
 
-    // const handleSubmit = (e: React.FormEvent) => {
-    //     e.preventDefault()
-    //     handleOpen('success')
-    // }
+    const postDeactivate = (id: string) => {
+        return axiosInstance({
+            url: '/admin/deactivate_activate',
+            method: 'post',
+            data: { id },
+        })
+    }
+    const postUpdateAdmin = (data: any) => {
+        return axiosInstance({
+            url: `/security-company/update/${company_id}`,
+            method: 'post',
+            data,
+        })
+    }
 
+    const getAdmin = () => {
+        return axiosInstance({
+            url: `/security-company/get/${company_id}`,
+        })
+    }
+
+    const {
+        mutate: deactivate_admin_mutation,
+        isLoading: deactivate_admin_loading,
+    } = useMutation(postDeactivate, {
+        onSuccess: (res) => {
+            toast('Admin Deactivated successfully', {
+                type: 'success',
+                className: 'bg-green-100 text-green-600 text-[1.4rem]',
+            })
+            handleClose()
+        },
+        onError: (err: any) => {
+            setResponseMessage({
+                className: 'text-red-600',
+                displayMessage: err?.response?.data.message,
+            })
+        },
+    })
+
+    const { data: get_admin_response, isLoading: get_admin_loading } = useQuery(
+        [`get_admin_${company_id}`],
+        getAdmin
+    )
+
+    useEffect(() => {
+        if (get_admin_response) {
+            const { name, email, phone, image, dob, gender } =
+                get_admin_response.data
+            const first_name = name.split(' ')[0]
+            const last_name = name.split(' ')[1]
+
+            reset({
+                first_name,
+                last_name,
+                dob,
+                email_address: email,
+                phone_number: parseInt(phone),
+            })
+
+            setPhotoPreview(image)
+            setSelectedGender(gender)
+        }
+    }, [get_admin_response])
+
+    const { mutate: post_admin_mutation, isLoading: post_admin_loading } =
+        useMutation(postUpdateAdmin, {
+            onSuccess: (res) => {
+                toast('Admin Updated successfully', {
+                    type: 'success',
+                    className: 'bg-green-100 text-green-600 text-[1.4rem]',
+                })
+            },
+            onError: (err: any) => {
+                setResponseMessage({
+                    className: 'text-red-600',
+                    displayMessage: err?.response?.data.message,
+                })
+            },
+        })
+
+    const onSubmit = handleSubmit((data) => {
+        const { first_name, last_name, dob, email_address, phone_number } = data
+
+        const adminData = {
+            name: `${first_name} ${last_name}`,
+            gender: selectedGender,
+            dob,
+            id: company_id,
+            email: email_address,
+            address: 'no 4 odeyim street',
+            phone: `+234${phone_number}`,
+            image: imageFile,
+        }
+
+        post_admin_mutation(adminData)
+    })
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
     const handleClose = () => {
