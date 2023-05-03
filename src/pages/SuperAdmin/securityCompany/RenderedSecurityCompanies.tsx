@@ -89,7 +89,6 @@ function RenderedSecurityCompanies() {
                             status = 0
                         }
 
-                        console.log({ status })
                         return {
                             ...gotten_data,
                             status,
@@ -100,7 +99,6 @@ function RenderedSecurityCompanies() {
 
                 cloneOld.splice(index_to_replace, 1, ...updatedData)
 
-                console.log({ cloneOld })
 
                 queryClient.setQueryData(
                     'securityCompanies',
