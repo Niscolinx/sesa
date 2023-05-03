@@ -103,10 +103,8 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                 return setPrice('')
             }
 
-            if (value.length < 11) {
-                setValue('price', value)
-                setPrice(value)
-            }
+            setValue('price', value)
+            setPrice(value)
         }
     }
 
