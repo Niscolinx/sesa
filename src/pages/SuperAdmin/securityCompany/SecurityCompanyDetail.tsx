@@ -46,8 +46,6 @@ const SecurityCompanyDetail = () => {
 
     const [selectedGender, setSelectedGender] = useState<string>(genderState[0])
 
-   
-
     const formInputs = [
         {
             name: 'Security Name',
@@ -305,175 +303,7 @@ const SecurityCompanyDetail = () => {
                         )}
                     </div>
                 </div>
-                {/* <form
-                    //onSubmit={handleSubmit}
-                    className='grid max-w-[84rem] gap-16 mt-12'
-                    style={{
-                        gridTemplateColumns:
-                            ' repeat(auto-fit, minmax(35rem, 1fr))',
-                    }}
-                >
-                    <div className='grid gap-4 relative '>
-                        <label
-                            htmlFor='securityCompany'
-                            className='text-[1.4rem] font-Satoshi-Medium'
-                        >
-                            Security Company *
-                        </label>
-                        <input
-                            type='text'
-                            value='Orca Security'
-                            required
-                            disabled={true}
-                            id='securityCompany'
-                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4 disabled:text-gray-500'
-                        />
-                    </div>
-                    <div className='grid gap-4 relative'>
-                        <label
-                            htmlFor='email'
-                            className='text-[1.4rem] font-Satoshi-Medium'
-                        >
-                            Email Address
-                        </label>
-                        <input
-                            type='email'
-                            required
-                            disabled
-                            value={`orcas@gmail.com`}
-                            id='email'
-                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4 disabled:text-gray-500'
-                        />
-                    </div>
-
-                    <div className='grid gap-4 relative'>
-                        <label
-                            htmlFor='address'
-                            className='text-[1.4rem] font-Satoshi-Medium'
-                        >
-                            Address
-                        </label>
-                        <input
-                            type='text'
-                            required
-                            disabled
-                            value={`04, Wright Avenue Lagos, Nigeria`}
-                            id='address'
-                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4 disabled:text-gray-500'
-                        />
-                    </div>
-                    <div className='grid gap-4 relative'>
-                        <label
-                            htmlFor='noOfGuards'
-                            className='text-[1.4rem] font-Satoshi-Medium'
-                        >
-                            No of Security Guards
-                        </label>
-                        <input
-                            type='text'
-                            required
-                            disabled
-                            value={`10`}
-                            id='noOfGuards'
-                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4 disabled:text-gray-500'
-                        />
-                    </div>
-                    <div className='grid gap-4 relative'>
-                        <label
-                            htmlFor='walletBalance'
-                            className='text-[1.4rem] font-Satoshi-Medium'
-                        >
-                            Wallet Balance
-                        </label>
-                        <input
-                            type='text'
-                            required
-                            disabled
-                            value={`₦5,000`}
-                            id='walletBalance'
-                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4 disabled:text-gray-500'
-                        />
-                    </div>
-                    <div className='grid gap-4 relative'>
-                        <label
-                            htmlFor='joinedDate'
-                            className='text-[1.4rem] font-Satoshi-Medium'
-                        >
-                            Joined Date
-                        </label>
-                        <input
-                            type='text'
-                            required
-                            disabled
-                            value={`02-May-22`}
-                            id='joinedDate'
-                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4 disabled:text-gray-500'
-                        />
-                    </div>
-                    <div className='grid gap-4 relative'>
-                        <label
-                            htmlFor='NoOfAssignedGuards'
-                            className='text-[1.4rem] font-Satoshi-Medium'
-                        >
-                            No of Assigned Security Guards
-                        </label>
-                        <input
-                            type='text'
-                            required
-                            disabled
-                            value={`10`}
-                            id='NoOfAssignedGuards'
-                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4 disabled:text-gray-500'
-                        />
-                    </div>
-                    <div className='grid gap-4 relative'>
-                        <label
-                            htmlFor='noOfBankAccountsOpened'
-                            className='text-[1.4rem] font-Satoshi-Medium'
-                        >
-                            No of Bank Accounts Opened
-                        </label>
-                        <input
-                            type='text'
-                            required
-                            disabled
-                            value={`10`}
-                            id='noOfBankAccountsOpened'
-                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4 disabled:text-gray-500'
-                        />
-                    </div>
-                    <div className='grid gap-4 relative'>
-                        <label
-                            htmlFor='status'
-                            className='text-[1.4rem] font-Satoshi-Medium'
-                        >
-                            Status
-                        </label>
-                        <input
-                            type='text'
-                            required
-                            disabled
-                            value={`Active`}
-                            id='status'
-                            className='w-full bg-white text-[1.6rem] outline-none disabled:text-color-green-light'
-                        />
-                    </div>
-
-                    <button
-                        className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg col-span-full'
-                        style={{ justifySelf: 'start' }}
-                        onClick={() => handleOpen('success')}
-                    >
-                        <span>
-                            <img
-                                src='/icons/admins/saveDisk.svg'
-                                alt=''
-                                className='w-[1.7rem] h-[1.7rem]'
-                            />
-                        </span>{' '}
-                        Save Changes
-                    </button>
-                </form> */}
+               
 
                 <form onSubmit={onSubmit} className='grid gap-20'>
                     <div className='grid gap-10'>
@@ -497,9 +327,7 @@ const SecurityCompanyDetail = () => {
                                         label={label}
                                         register={register}
                                         formErrors={formErrors}
-                                        fullWidth={label === 'address'}
                                         type={type}
-                                        isSelect={type === 'select'}
                                         name={name}
                                     />
                                 )
