@@ -88,7 +88,7 @@ const ViewArtisanCategory = () => {
                     </div>
                 </section>
             </dialog>
-            <div className='grid text-[1.6rem] bg-white rounded-lg'>
+            <div className=' text-[1.6rem] bg-white rounded-lg min-h-[70vh] '>
                 <div className='flex gap-8 py-10 max-w-[50rem] items-end px-10 '>
                     <div className='w-full grid gap-4'>
                         <label
@@ -113,7 +113,8 @@ const ViewArtisanCategory = () => {
                 </div>
 
                 <Table
-                    fetch_url={`/admin/category/get/single/users/${category_id}`}
+                    fetch_url={`/admin/category/get/single/users/2`}
+                    // fetch_url={`/admin/category/get/single/users/${category_id}`}
                     title={'category users'}
                     view_page_url={'/superAdmin/artisan/category/'}
                     isStrictAction
