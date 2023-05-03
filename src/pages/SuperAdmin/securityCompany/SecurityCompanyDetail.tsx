@@ -69,7 +69,8 @@ const SecurityCompanyDetail = () => {
             },
         },
         {
-            label: 'phone_number',
+            name: 'phone Number',
+            label: 'phone',
             type: 'number',
         },
         {
