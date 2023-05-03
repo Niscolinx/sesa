@@ -60,16 +60,16 @@ type Actions = 'Delete' | 'View Details'
 const ViewArtisanCategory = () => {
     const navigate = useNavigate()
 
- const handleDialogSubmit = (e: FormEvent) => {
-     e.preventDefault()
-     handleClose()
+    const handleDialogSubmit = (e: FormEvent) => {
+        e.preventDefault()
+        handleClose()
 
-     toast('Category Created successfully', {
-         type: 'success',
-         className: 'bg-green-100 text-green-600 text-[1.4rem]',
-     })
- }
-  
+        toast('Category Created successfully', {
+            type: 'success',
+            className: 'bg-green-100 text-green-600 text-[1.4rem]',
+        })
+    }
+
     const { data: category_detail, isLoading: category_detail_loading } =
         useFetchData({
             url: '/admin/category/get/single/2',
@@ -78,6 +78,27 @@ const ViewArtisanCategory = () => {
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
+    const handleClose = () => {
+        if (dialogRef.current) {
+            dialogRef.current.close()
+        }
+    }
+
+    const handleOpen = () => {
+        if (dialogRef.current) {
+            dialogRef.current.showModal()
+        }
+    }
+
+   
+
+    const confirmDeactivation = () => {
+        handleClose()
+        toast('Artisan deleted successfully', {
+            type: 'error',
+            className: 'bg-red-100 text-red-600 text-[1.4rem]',
+        })
+    }
     return (
         <>
             <ToastContainer />
