@@ -83,7 +83,7 @@ const SecurityCompanyDetail = () => {
     const company_id = params.id?.replace(':', '')
 
     if (!company_id) {
-        toast('Admin not Found', {
+        toast('Company not Found', {
             type: 'error',
             className: 'bg-red-100 text-red-600 text-[1.4rem]',
         })
@@ -131,15 +131,15 @@ const SecurityCompanyDetail = () => {
         },
     })
 
-    const { data: get_admin_response, isLoading: get_admin_loading } = useQuery(
+    const { data: get_response, isLoading: get_admin_loading } = useQuery(
         [`get_admin_${company_id}`],
         getAdmin
     )
 
     useEffect(() => {
-        if (get_admin_response) {
+        if (get_response) {
             const { name, email, phone, image, dob, gender } =
-                get_admin_response.data
+                get_response.data
             const first_name = name.split(' ')[0]
             const last_name = name.split(' ')[1]
 
@@ -154,7 +154,7 @@ const SecurityCompanyDetail = () => {
             setPhotoPreview(image)
             setSelectedGender(gender)
         }
-    }, [get_admin_response])
+    }, [get_response])
 
     const { mutate: post_admin_mutation, isLoading: post_admin_loading } =
         useMutation(postUpdateAdmin, {
