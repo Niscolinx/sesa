@@ -8,7 +8,11 @@ import { useMutation, useQuery } from 'react-query'
 
 const SecurityCompanyDetail = () => {
     interface Inputs {
-        
+        name: string
+        email: string
+        address: string
+        onboarding_date: string
+        phone: string
     }
 
     type ResponseMessage = {
@@ -166,16 +170,10 @@ const SecurityCompanyDetail = () => {
         })
 
     const onSubmit = handleSubmit((data) => {
-        const { first_name, last_name, dob, email_address, phone_number } = data
+       
 
         const adminData = {
-            name: `${first_name} ${last_name}`,
-            gender: selectedGender,
-            dob,
-            id: company_id,
-            email: email_address,
-            address: 'no 4 odeyim street',
-            phone: `+234${phone_number}`,
+            ...date,
             image: imageFile,
         }
 
