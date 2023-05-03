@@ -4,14 +4,30 @@ import { useNavigate, useParams } from 'react-router'
 import { toast, ToastContainer } from 'react-toastify'
 import useFetchData from '../../../../utils/useFetchData'
 import Table from '../../../../components/UI/table/Table'
+import { useMutation } from 'react-query'
+import useAxios from '../../../../components/hooks/useAxios'
 
 const ViewArtisanCategory = () => {
     const navigate = useNavigate()
     const params = useParams()
 
     const category_id = params.id?.replace(':', '')
+    const axiosInstance = useAxios()
 
     const [name, setName] = useState('')
+
+    const updateRequest = () => {
+        return axiosInstance({
+            url: `/admin/category/update/2`,
+            // url: `/admin/category/update/${category_id}`,
+            method: 'post',
+            data: { name },
+        })
+    }
+    const { isLoading, mutate } = useMutation(
+        'update_category_name',
+        updateRequest
+    )
 
     const handleDialogSubmit = (e: FormEvent) => {
         e.preventDefault()
@@ -29,25 +45,21 @@ const ViewArtisanCategory = () => {
             name: 'category_single',
         })
 
-    
-
     if (category_detail_loading) {
         return <p className='p-8'>Loading...</p>
     }
 
-    const handleNameChange = (e: ChangeEvent<HTMLInputElement>) => {
-        setName(e.target.value)
-    }
-
-
     const onSubmit = (e: FormEvent) => {
-
         e.preventDefault()
 
-
-        
+        if (name === '') {
+            toast('Update the name of the category', {
+                type: 'error',
+                className: 'bg-red-100 text-red-600 text-[1.4rem]',
+            })
+            return
+        }
     }
-
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
@@ -111,7 +123,10 @@ const ViewArtisanCategory = () => {
                 </section>
             </dialog>
             <div className=' text-[1.6rem] bg-white rounded-lg min-h-[70vh] '>
-                <div className='flex gap-8 py-10 max-w-[50rem] items-end px-10 '>
+                <form
+                    className='flex gap-8 py-10 max-w-[50rem] items-end px-10 '
+                    onSubmit={onSubmit}
+                >
                     <div className='w-full grid gap-4'>
                         <label
                             htmlFor='categoryName'
@@ -124,16 +139,16 @@ const ViewArtisanCategory = () => {
                             type='text'
                             required
                             defaultValue={category_detail?.name}
-                            onChange={handleNameChange}
+                            onChange={(e) => setName(e.target.value)}
                             id='categoryName'
                             className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem]'
                         />
                     </div>
 
                     <button className='btn bg-[#0556E5] text-white rounded-lg py-4 w-[15rem]'>
-                        Update
+                        {isLoading ? 'Loading...' : 'Update'}
                     </button>
-                </div>
+                </form>
 
                 <Table
                     fetch_url={`/admin/category/get/single/users/2`}
