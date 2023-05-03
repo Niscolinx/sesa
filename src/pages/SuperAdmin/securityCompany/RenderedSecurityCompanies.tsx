@@ -420,7 +420,7 @@ function RenderedSecurityCompanies() {
                                                                             Active
                                                                         </span>
                                                                     ) : (
-                                                                        <span>
+                                                                        <span className='text-red-500'>
                                                                             Deactivated
                                                                         </span>
                                                                     )}
