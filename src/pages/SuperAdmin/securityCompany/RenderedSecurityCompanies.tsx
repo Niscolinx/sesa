@@ -45,7 +45,7 @@ function RenderedSecurityCompanies() {
     const postDeactivateSecurityCompany = () => {
         return axiosInstance({
             url: '/security-company/deactivate_activate',
-            method: 'post',
+            method: 'get',
             data: { id: securityCompanyId },
         })
     }
@@ -142,7 +142,7 @@ function RenderedSecurityCompanies() {
             toast(`Failed to ${companyStatus} Security Company`, {
                 type: 'error',
                 className:
-                    'bg-green-100 text-green-600 text-[1.4rem] capitalize',
+                    'bg-red-100 text-red-600 text-[1.4rem] capitalize',
             })
         },
 
