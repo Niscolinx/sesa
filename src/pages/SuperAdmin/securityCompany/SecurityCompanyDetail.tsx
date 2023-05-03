@@ -156,7 +156,9 @@ const SecurityCompanyDetail = () => {
             const { id, user_id, image, status, onboarding_date, ...other } =
                 get_response.data[0]
 
-            const formatDate = new Date(onboarding_date).toLocaleDateString()
+            const formatDate = new Date(onboarding_date)
+                .toLocaleDateString()
+                .replaceAll('/', '-')
 
             console.log({ formatDate })
 
