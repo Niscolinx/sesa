@@ -312,6 +312,8 @@ function RenderedSecurityCompanies() {
 
         if (item === 'deactivate') {
             setSecurityCompanyId(id)
+            setCompanyStatus(status)
+           
             openDialog()
         }
     }
