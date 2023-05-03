@@ -116,7 +116,7 @@ function RenderedSecurityCompanies() {
             }
             setTimeout(() => {
                 closeDialog()
-            }, 200)
+            }, 400)
 
             return {
                 previousData
