@@ -43,33 +43,8 @@ const ViewPackage = () => {
     const [responseMessage, setResponseMessage] =
         useState<ResponseMessage | null>(null)
 
-
-
-    const { data: get_admin_response, isLoading: get_admin_loading } = useQuery(
-        [`get_admin_${admin_id}`],
-        getAdmin
-    )
-
-    useEffect(() => {
-        if (get_admin_response) {
-            const { name, email, phone, image, dob, gender } =
-                get_admin_response.data
-            const first_name = name.split(' ')[0]
-            const last_name = name.split(' ')[1]
-
-            reset({
-                first_name,
-                last_name,
-                dob,
-                email_address: email,
-                phone_number: parseInt(phone),
-            })
-
-            setPhotoPreview(image)
-            setSelectedGender(gender)
-        }
-    }, [get_admin_response])
     
+
     const {
         register,
         handleSubmit,

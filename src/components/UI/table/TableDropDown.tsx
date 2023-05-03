@@ -74,7 +74,7 @@ const TableDropDown = ({
                     }
                 })
             }
-        }, 100)
+        }, 150)
 
     }
 
