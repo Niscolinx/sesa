@@ -182,19 +182,16 @@ const SlicedPages: FC<SlicedPages> = ({
                         return <StarRating starsNum={value} key={idx} />
                     }
                     if (['price', 'amount'].includes(key.toLowerCase())) {
-                        return <p key={idx}>{
-                            Number(value).toLocaleString('en-US', {
-                                style: 'currency',
-                                currency: '₦N',
-                                minimumFractionDigits: 2,
-                                maximumFractionDigits: 2,
-                                useGrouping: true,
-                                // @ts-ignore
-                                currencyDisplay: 'symbol',
-                                // @ts-ignore
-
-                            })
-                        }</p>
+                        return (
+                            <div key={idx} className='flex items-center'>
+                                <img
+                                    src='/icons/Naira.svg'
+                                    alt=''
+                                    className='mr-1'
+                                />
+                                {Number(value).toLocaleString()}
+                            </div>
+                        )
                     } else {
                         return <p key={idx}>{value}</p>
                     }
