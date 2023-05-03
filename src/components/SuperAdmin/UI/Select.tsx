@@ -288,7 +288,7 @@ export const ComplexSelect: FC<ComplexSelect> = ({
 
     return (
         <div className='relative grid gap-4'>
-            <p className='text-[1.4rem] font-semibold'>{label}</p>
+            <p className='text-[1.4rem] font-semibold capitalize'>{label}</p>
             <div className='relative flex items-center'>
                 <p
                     className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer min-h-[5rem]'
@@ -432,7 +432,7 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
 
     return (
         <div className='relative grid gap-4'>
-            <p className='text-[1.4rem] font-semibold'>{label}</p>
+            <p className='text-[1.4rem] font-semibold capitalize'>{label}</p>
             <div className='relative items-center max-w-[40rem] flex'>
                 <p
                     className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer h-[5rem] overflow-hidden overflow-x-scroll flex gap-4 items-center pr-16'
