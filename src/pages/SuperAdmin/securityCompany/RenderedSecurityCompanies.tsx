@@ -13,7 +13,7 @@ import { TbCurrencyNaira } from 'react-icons/tb'
 import { useNavigate } from 'react-router-dom'
 import { useAppDispatch } from '../../../store/app/hooks'
 import useAxios from '../../../components/hooks/useAxios'
-import { useMutation, useQuery } from 'react-query'
+import { useMutation, useQuery, useQueryClient } from 'react-query'
 import { ToastContainer, toast } from 'react-toastify'
 
 type SecurityCompany = {
@@ -55,10 +55,65 @@ function RenderedSecurityCompanies() {
         })
     }
 
+    const queryClient = useQueryClient()
+   // const messageTitle = title.replace(/([a-z])([A-Z])/g, '$1 $2')
+
+    const prevData: any[] = []
+    
     const {
         mutate: deactivate_securityCompany_mutation,
         isLoading: deactivate_securityCompany_loading,
     } = useMutation(postDeactivateSecurityCompany, {
+        onMutate: async () => {
+            await queryClient.cancelQueries('securityCompanies')
+
+            const previousData: any = await queryClient.getQueryData(
+                'securityCompanies'
+            )
+            prevData.push(structuredClone(previousData))
+
+            if ( previousData.data) {
+                let index_to_replace = 0
+                let updatedData = previousData.data.data
+                    .filter((data: any, idx: number) => {
+                        if (data.id === fetchedId) {
+                            index_to_replace = idx
+                            return data
+                        }
+                    })
+                    .map((gotten_data: any) => {
+                        let status = 1
+
+                        if (gotten_data.status) {
+                            status = 0
+                        }
+
+                        console.log({ status })
+                        return {
+                            ...gotten_data,
+                            status,
+                        }
+                    })
+
+                const cloneOld: any[] = previousData.data.data
+
+                cloneOld.splice(index_to_replace, 1, ...updatedData)
+
+                queryClient.setQueryData(title, (oldData: any) => {
+                    console.log({ oldData })
+                    const relevantData = oldData.data.data
+                    return {
+                        ...relevantData,
+                        data: [...cloneOld],
+                    }
+                })
+            }
+            closeDialog()
+            return {
+                previousData: prevData[0],
+            }
+        },
+
         onSuccess: (data) => {
             if (data) {
                 closeDialog()
