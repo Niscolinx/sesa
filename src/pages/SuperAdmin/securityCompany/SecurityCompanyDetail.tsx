@@ -140,12 +140,10 @@ const SecurityCompanyDetail = () => {
         if (get_response) {
             const { name, email, phone, image, dob, gender } =
                 get_response.data
-            const first_name = name.split(' ')[0]
-            const last_name = name.split(' ')[1]
+            
 
             reset({
-                first_name,
-                last_name,
+               
                 dob,
                 email_address: email,
                 phone_number: parseInt(phone),
