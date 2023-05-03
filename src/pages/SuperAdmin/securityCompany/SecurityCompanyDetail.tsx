@@ -157,7 +157,7 @@ const SecurityCompanyDetail = () => {
                 get_response.data[0]
 
             const formatDate = new Date(onboarding_date)
-                .toLocaleDateString('en-GB')
+                .toISOString('en-GB')
                 .replaceAll('/', '-')
 
             console.log({ formatDate })
