@@ -188,14 +188,13 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                         >
                             {['amount', 'price'].includes(
                                 label.toLowerCase()
-                            ) ||
-                                (tag === 'amount' && (
-                                    <img
-                                        src='/icons/Naira.svg'
-                                        alt=''
-                                        className='mr-1'
-                                    />
-                                ))}
+                            ) && (
+                                <img
+                                    src='/icons/Naira.svg'
+                                    alt=''
+                                    className='mr-1'
+                                />
+                            )}
 
                             {type === 'textarea' ? (
                                 <textarea

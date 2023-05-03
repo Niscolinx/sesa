@@ -50,6 +50,7 @@ const ViewPackage = () => {
         register,
         handleSubmit,
         setValue,
+        clearErrors,
         reset,
         formState: { errors: formErrors },
     } = useForm<Inputs>()
@@ -205,6 +206,8 @@ const ViewPackage = () => {
                                 key={idx + label}
                                 label={label}
                                 register={register}
+                                setValue={setValue}
+                                clearErrors={clearErrors}
                                 formErrors={formErrors}
                                 type={type}
                                 minLength={minLength}
