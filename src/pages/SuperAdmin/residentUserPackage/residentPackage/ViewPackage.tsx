@@ -27,6 +27,7 @@ const ViewPackage = () => {
         label?: string
         type?: string
         name?: string
+        tag?: string
         minLength?: number
         selectProps?: SelectProps
     }
@@ -156,6 +157,7 @@ const ViewPackage = () => {
             name: 'amount',
             label: 'price',
             type: 'number',
+            tag: 'money'
         },
         {
             label: 'details',
@@ -202,7 +204,7 @@ const ViewPackage = () => {
                     }}
                 >
                     {formInputs.map((input, idx) => {
-                        const { label, type, selectProps, minLength } = input
+                        const { label, type, selectProps, minLength, tag } = input
                         return (
                             <Input
                                 key={idx + label}
@@ -211,6 +213,7 @@ const ViewPackage = () => {
                                 setValue={setValue}
                                 clearErrors={clearErrors}
                                 formErrors={formErrors}
+                                tag={tag}
                                 type={type}
                                 minLength={minLength}
                                 isSelect={type === 'select'}
