@@ -51,6 +51,14 @@ const ViewArtisanCategory = () => {
         setName(e.target.value)
     }
 
+
+    const onSubmit = (e: FormEvent) => {
+
+        e.preventDefault()
+
+        
+    }
+
     return (
         <>
             <ToastContainer />
