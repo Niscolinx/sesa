@@ -152,10 +152,11 @@ const SecurityCompanyDetail = () => {
 
     useEffect(() => {
         if (get_response) {
+            console.log({get_response})
             const { id, user_id, image, status, ...other } = get_response.data
 
             reset({
-                ...other,
+                name: 'ddsd'
             })
 
             setPhotoPreview(image)
@@ -307,9 +308,7 @@ const SecurityCompanyDetail = () => {
 
                 <form onSubmit={onSubmit} className='grid gap-20'>
                     <div className='grid gap-10'>
-                        <p className='text-[2rem] font-Satoshi-Medium'>
-                            Estate Details
-                        </p>
+                       
                         <section
                             className='grid max-w-[84rem] gap-16'
                             style={{
