@@ -10,6 +10,8 @@ function ArtisanCategory() {
             view_page_url={'/superAdmin/artisan/category/'}
             is_add_btn={true}
             isCategory={true}
+            isStrictAction
+            actions={['view details']}
             delete_item_url={'/admin/category/delete/'}
             THeader={['name', 'No of Artisans', 'created at', 'actions']}
             data_to_display={['name', 'artisan_count', 'created_at']}
@@ -45,7 +47,6 @@ function ArtisanGroup() {
             view_page_url={'/superAdmin/artisan/group/'}
             add_page_url={'/superAdmin/artisan/add-group'}
             is_add_btn={true}
-            actions={['delete']}
             delete_item_url={'/admin/group/delete/'}
             THeader={[
                 'name',
