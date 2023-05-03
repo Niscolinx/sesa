@@ -297,7 +297,7 @@ function RenderedSecurityCompanies() {
         }
     }
 
-    const handleSelectedAction = (item: Actions, id: string) => {
+    const handleSelectedAction = (item: Actions, id: string, status: string) => {
         setToggleDropDown(() => {
             return {
                 isDropDownOpen: false,
@@ -568,7 +568,8 @@ function RenderedSecurityCompanies() {
                                                                                         ) =>
                                                                                             handleSelectedAction(
                                                                                                 item as Actions,
-                                                                                                id.toString()
+                                                                                                id.toString(),
+                                                                                                item
                                                                                             )
                                                                                         }
                                                                                     >
