@@ -47,15 +47,7 @@ const SecurityCompanyDetail = () => {
 
     const [selectedGender, setSelectedGender] = useState<string>(genderState[0])
 
-     name: string
-        email: string
-        address: string
-        onboarding_date: string
-        phone: string
-        no_of_bank_accounts_opened: number
-        no_of_assigned_security_guards: number
-        no_of_security_guards: number
-        wallet_balance: number
+   
 
     const formInputs = [
         {
@@ -63,21 +55,38 @@ const SecurityCompanyDetail = () => {
             label: 'name',
         },
         {
-            label: 'address',
+            label: 'email_address',
+            type: 'email',
         },
         {
-            label: 'onboarding_date',
-            type: 'date',
+            label: 'address',
         },
-        
+
         {
             name: 'phone Number',
             label: 'phone',
             type: 'number',
         },
         {
-            label: 'email_address',
-            type: 'email',
+            label: 'no_of_security_guards',
+            type: 'number',
+        },
+        {
+            label: 'wallet_balance',
+            type: 'number',
+        },
+        {
+            name: 'Joined Date',
+            label: 'onboarding_date',
+            type: 'date',
+        },
+        {
+            label: 'no_of_assigned_security_guards',
+            type: 'number',
+        },
+        {
+            label: 'no_of_bank_accounts_opened',
+            type: 'number',
         },
     ] satisfies FormInputs[]
 
