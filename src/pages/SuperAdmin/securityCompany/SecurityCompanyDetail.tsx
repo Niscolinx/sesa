@@ -212,6 +212,12 @@ const SecurityCompanyDetail = () => {
         handleClose()
     }
 
+
+    if(get_admin_loading){
+        return <p className='p-8'> Loading...</p>
+    
+    }
+
     return (
         <>
         <ToastContainer/>
