@@ -1,99 +1,7 @@
 import { useState, useEffect } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
-import AdvertList, { IAdvertList } from './AdvertList'
-import AvailableEstateAdvert, {
-    IAvailableEstateAdvert,
-} from './AvailableEstateAdvert'
-
-export const ADVERT_LIST: IAdvertList[] = [
-    {
-        id: '1',
-        advertName: 'Pepsi Advert',
-        startDate: '02-May-22',
-        endDate: '22-May-22',
-        status: 'Active',
-    },
-    {
-        id: '1',
-        advertName: 'Pepsi Advert',
-        startDate: '02-May-22',
-        endDate: '22-May-22',
-        status: 'Inactive',
-    },
-    {
-        id: '1',
-        advertName: 'Pepsi Advert',
-        startDate: '02-May-22',
-        endDate: '22-May-22',
-        status: 'Inactive',
-    },
-    {
-        id: '1',
-        advertName: 'Pepsi Advert',
-        startDate: '02-May-22',
-        endDate: '22-May-22',
-        status: 'Active',
-    },
-    {
-        id: '1',
-        advertName: 'Pepsi Advert',
-        startDate: '02-May-22',
-        endDate: '22-May-22',
-        status: 'Active',
-    },
-    {
-        id: '1',
-        advertName: 'Pepsi Advert',
-        startDate: '02-May-22',
-        endDate: '22-May-22',
-        status: 'Active',
-    },
-]
-
-export const AVAILABLE_ESTATE_ADVERT: IAvailableEstateAdvert[] = [
-    {
-        id: '1',
-        estateName: 'Pepsi Estate',
-        state: 'Lagos',
-        address: 'No 1, Pepsi Street, Pepsi Estate',
-        noOfResidents: 50,
-    },
-    {
-        id: '1',
-        estateName: 'Pepsi Estate',
-        state: 'Lagos',
-        address: 'No 1, Pepsi Street, Pepsi Estate',
-        noOfResidents: 50,
-    },
-    {
-        id: '1',
-        estateName: 'Pepsi Estate',
-        state: 'Lagos',
-        address: 'No 1, Pepsi Street, Pepsi Estate',
-        noOfResidents: 50,
-    },
-    {
-        id: '1',
-        estateName: 'Pepsi Estate',
-        state: 'Lagos',
-        address: 'No 1, Pepsi Street, Pepsi Estate',
-        noOfResidents: 50,
-    },
-    {
-        id: '1',
-        estateName: 'Pepsi Estate',
-        state: 'Lagos',
-        address: 'No 1, Pepsi Street, Pepsi Estate',
-        noOfResidents: 50,
-    },
-    {
-        id: '1',
-        estateName: 'Pepsi Estate',
-        state: 'Lagos',
-        address: 'No 1, Pepsi Street, Pepsi Estate',
-        noOfResidents: 50,
-    },
-]
+import AdvertList from './AdvertList'
+import AvailableEstateAdver from './AvailableEstateAdvert'
 
 type PathSwitch = 'advertList' | 'availableEstates'
 
@@ -102,7 +10,7 @@ function RenderAdverts() {
 
     const handlePathSwitch: Record<PathSwitch, JSX.Element> = {
         advertList: <AdvertList />,
-       availableEstates: <AvailableEstateAdvert />,
+        availableEstates: <AvailableEstateAdvert />,
     }
 
     return (
