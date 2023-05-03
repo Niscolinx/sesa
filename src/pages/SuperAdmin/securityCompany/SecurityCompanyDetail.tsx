@@ -160,9 +160,6 @@ const SecurityCompanyDetail = () => {
                 .toISOString()
                 .slice(0, 10)
 
-            console.log({ formatDate })
-
-            console.log({ ...other })
             reset({
                 ...other,
                 onboarding_date: formatDate,
