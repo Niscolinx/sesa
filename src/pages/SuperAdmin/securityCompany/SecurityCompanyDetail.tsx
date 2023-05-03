@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useParams, useNavigate } from 'react-router'
-import { SelectProps } from '../../../components/UI/input/Input'
+import Input, { SelectProps } from '../../../components/UI/input/Input'
 import useAxios from '../../../components/hooks/useAxios'
 import { ToastContainer, toast } from 'react-toastify'
 import { useMutation, useQuery } from 'react-query'
@@ -483,7 +483,6 @@ const SecurityCompanyDetail = () => {
                                         register={register}
                                         formErrors={formErrors}
                                         fullWidth={label === 'address'}
-                                        selectFormErrors={selectFormErrors}
                                         type={type}
                                         isSelect={type === 'select'}
                                         select={selectProps}
