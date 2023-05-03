@@ -44,7 +44,6 @@ const SecurityCompanyDetail = () => {
     const [responseMessage, setResponseMessage] =
         useState<ResponseMessage | null>(null)
 
-
     const formInputs = [
         {
             name: 'Security Name',
@@ -92,11 +91,10 @@ const SecurityCompanyDetail = () => {
         handleSubmit,
         formState: { errors: formErrors },
         reset,
-        watch
+        watch,
     } = useForm<Inputs>()
 
     const company_id = params.id?.replace(':', '')
-   
 
     if (!company_id) {
         toast('Company not Found', {
@@ -154,18 +152,19 @@ const SecurityCompanyDetail = () => {
 
     useEffect(() => {
         if (get_response) {
-            console.log({get_response})
-            const { id, user_id, image, status, onboarding_date,  ...other } = get_response.data[0]
-
+            console.log({ get_response })
+            const { id, user_id, image, status, onboarding_date, ...other } =
+                get_response.data[0]
 
             const formatDate = new Date(onboarding_date).toLocaleDateString()
 
-            console.log({formatDate})
+            console.log({ formatDate })
 
-            console.log({...other})
-            // reset({
-            //     ...other
-            // })
+            console.log({ ...other })
+            reset({
+                ...other,
+                onboarding_date: formatDate,
+            })
 
             setPhotoPreview(image)
         }
