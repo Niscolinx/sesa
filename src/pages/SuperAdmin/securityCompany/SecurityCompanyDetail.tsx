@@ -97,6 +97,12 @@ const SecurityCompanyDetail = () => {
 
     const company_id = params.id?.replace(':', '')
 
+    //get one field in react hook form
+    const watch_date = watch('onboarding_date')
+
+    console.log({watch_date})
+   
+
     if (!company_id) {
         toast('Company not Found', {
             type: 'error',
