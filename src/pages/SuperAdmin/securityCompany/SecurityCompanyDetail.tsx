@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form'
 import { useParams, useNavigate } from 'react-router'
 import { SelectProps } from '../../../components/UI/input/Input'
 import useAxios from '../../../components/hooks/useAxios'
+import { ToastContainer, toast } from 'react-toastify'
 
 const SecurityCompanyDetail = () => {
     interface Inputs {
@@ -34,6 +35,10 @@ const SecurityCompanyDetail = () => {
     const [photoPreview, setPhotoPreview] = useState('')
     const [imageFile, setImageFile] = useState<File | null>(null)
     const genderState = ['Male', 'Female']
+    const [isWarning, setIsWarning] = useState(true)
+    const [responseMessage, setResponseMessage] =
+        useState<ResponseMessage | null>(null)
+
     const [selectedGender, setSelectedGender] = useState<string>(genderState[0])
 
     const formInputs = [
@@ -67,19 +72,23 @@ const SecurityCompanyDetail = () => {
         },
     ] satisfies FormInputs[]
 
-     const {
-         register,
-         handleSubmit,
-         formState: { errors: formErrors },
-         reset,
-     } = useForm<Inputs>()
+    const {
+        register,
+        handleSubmit,
+        formState: { errors: formErrors },
+        reset,
+    } = useForm<Inputs>()
 
-     const [responseMessage, setResponseMessage] =
-         useState<ResponseMessage | null>(null)
+    const company_id = params.id?.replace(':', '')
 
-     const company_id = params.id?.replace(':', '')
+    if (!company_id) {
+        toast('Admin not Found', {
+            type: 'error',
+            className: 'bg-red-100 text-red-600 text-[1.4rem]',
+        })
 
-    const [isWarning, setIsWarning] = useState(true)
+        return <p className='p-4'> Not found!</p>
+    }
 
     // const handleSubmit = (e: React.FormEvent) => {
     //     e.preventDefault()
@@ -112,6 +121,7 @@ const SecurityCompanyDetail = () => {
 
     return (
         <>
+        <ToastContainer/>
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8 text-[1.6rem]'>
