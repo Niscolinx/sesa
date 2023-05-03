@@ -171,12 +171,15 @@ const ViewArtisanCategory = () => {
                     delete_item_url={'/admin/category/delete/'}
                     THeader={[
                         'name',
-                        'No of Artisans',
-                        'created at',
+                        'Business Name',
+                        'Phone Number',
                         'actions',
                     ]}
-                    data_to_display={['firstname', 'business_name', 'phone_number']}
-                   
+                    data_to_display={[
+                        'firstname',
+                        'business_name',
+                        'phone_number',
+                    ]}
                 />
             </div>
         </>
