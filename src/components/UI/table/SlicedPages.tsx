@@ -183,9 +183,9 @@ const SlicedPages: FC<SlicedPages> = ({
                     }
                     if (['price', 'amount'].includes(key.toLowerCase())) {
                         return <p key={idx}>{
-                            value.toLocaleString('en-US', {
+                            Number(value).toLocaleString('en-US', {
                                 style: 'currency',
-                                currency: 'USD',
+                                currency: '₦N',
                                 minimumFractionDigits: 2,
                                 maximumFractionDigits: 2,
                                 useGrouping: true,
