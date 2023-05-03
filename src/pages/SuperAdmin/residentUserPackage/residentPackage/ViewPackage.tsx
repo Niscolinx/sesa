@@ -204,13 +204,14 @@ const ViewPackage = () => {
                     }}
                 >
                     {formInputs.map((input, idx) => {
-                        const { label, type, selectProps, minLength, tag } = input
+                        const { label, type, selectProps, minLength, tag, name } = input
                         return (
                             <Input
                                 key={idx + label}
                                 label={label}
                                 register={register}
                                 setValue={setValue}
+                                name={name}
                                 clearErrors={clearErrors}
                                 formErrors={formErrors}
                                 tag={tag}
