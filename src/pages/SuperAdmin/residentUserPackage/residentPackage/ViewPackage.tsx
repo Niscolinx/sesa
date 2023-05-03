@@ -119,7 +119,9 @@ const ViewPackage = () => {
             frequency: selectedFrequency,
         }
 
-        mutate(adminData)
+        console.l
+
+      //  mutate(adminData)
     })
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)

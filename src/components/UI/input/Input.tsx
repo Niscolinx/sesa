@@ -105,7 +105,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
             }
 
             const transFormValue = (value: string) => {
-                const parsedValue = parseFloat(value.replace(/,/g, ''))
+                const parsedValue =  parseFloat(value)
                 if (!isNaN(parsedValue) && isFinite(parsedValue)) {
                     const transformedValue = parsedValue.toLocaleString()
 
@@ -115,7 +115,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                 return ''
             }
 
-           // setValue('price', transFormValue(value))
+           setValue('price', value)
 
            setPrice(transFormValue(value))
         }
