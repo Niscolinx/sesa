@@ -69,15 +69,7 @@ const SecurityCompanyDetail = () => {
             label: 'onboarding_date',
             type: 'date',
         },
-        {
-            label: 'gender',
-            type: 'select',
-            selectProps: {
-                state: genderState,
-                selectedState: selectedGender,
-                setSelectedState: setSelectedGender,
-            },
-        },
+        
         {
             name: 'phone Number',
             label: 'phone',
