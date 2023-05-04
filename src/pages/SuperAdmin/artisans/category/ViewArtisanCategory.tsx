@@ -45,15 +45,15 @@ const ViewArtisanCategory = () => {
         }
     )
 
-    const handleDialogSubmit = (e: FormEvent) => {
-        e.preventDefault()
-        handleClose()
+    // const handleDialogSubmit = (e: FormEvent) => {
+    //     e.preventDefault()
+    //     handleClose()
 
-        toast('Category Created successfully', {
-            type: 'success',
-            className: 'bg-green-100 text-green-600 text-[1.4rem]',
-        })
-    }
+    //     toast('Category Created successfully', {
+    //         type: 'success',
+    //         className: 'bg-green-100 text-green-600 text-[1.4rem]',
+    //     })
+    // }
 
     const { data: category_detail, isLoading: category_detail_loading } =
         useFetchData({
@@ -80,17 +80,17 @@ const ViewArtisanCategory = () => {
         mutate()
     }
 
-    const handleClose = () => {
-        if (dialogRef.current) {
-            dialogRef.current.close()
-        }
-    }
+    // const handleClose = () => {
+    //     if (dialogRef.current) {
+    //         dialogRef.current.close()
+    //     }
+    // }
 
-    const handleOpen = () => {
-        if (dialogRef.current) {
-            dialogRef.current.showModal()
-        }
-    }
+    // const handleOpen = () => {
+    //     if (dialogRef.current) {
+    //         dialogRef.current.showModal()
+    //     }
+    // }
 
     if (category_detail_loading || category_users_loading) {
         return <p className='p-8'>Loading...</p>
@@ -101,7 +101,7 @@ const ViewArtisanCategory = () => {
     return (
         <>
             <ToastContainer />
-            <dialog className='dialog' ref={dialogRef}>
+            {/* <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid items-baseline w-[64rem] min-h-[30rem] p-10 gap-8 text-[1.6rem] relative'>
                         <IoMdClose
@@ -144,7 +144,7 @@ const ViewArtisanCategory = () => {
                         </form>
                     </div>
                 </section>
-            </dialog>
+            </dialog> */}
             <div className=' text-[1.6rem] bg-white rounded-lg min-h-[70vh] '>
                 <form
                     className='flex gap-8 py-10 max-w-[50rem] items-end px-10 '

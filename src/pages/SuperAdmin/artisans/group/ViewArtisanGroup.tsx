@@ -64,185 +64,38 @@ const ViewArtisanGroup = () => {
         }
     }, [data])
 
-    const handleDialogSubmit = (e: FormEvent) => {
-        e.preventDefault()
-        handleClose()
+  
+    // const dialogRef = useRef<HTMLDialogElement | null>(null)
 
-        toast('Group Created successfully', {
-            type: 'success',
-            className: 'bg-green-100 text-green-600 text-[1.4rem]',
-        })
-    }
-
-    const actions = ['view details', 'remove'] satisfies Actions[]
-
-    const [toggleDropDown, setToggleDropDown] = useState<{
-        isDropDownOpen: boolean
-        index: number | null
-    }>({
-        isDropDownOpen: false,
-        index: null,
-    })
-
-    const dropDownHandler = (
-        e: React.ChangeEvent<HTMLInputElement>,
-        index: number
-    ) => {
-        setToggleDropDown(() => {
-            return {
-                isDropDownOpen: e.target.checked,
-                index,
-            }
-        })
-    }
-
-    const selectAction = (e: React.MouseEvent, item: Actions) => {
-        if (item === 'remove') {
-            handleOpen('warning')
-        }
-
-        if (item === 'view details') {
-            navigate('/superAdmin/artisan/group/:Id')
-        }
-
-        setToggleDropDown({
-            isDropDownOpen: false,
-            index: null,
-        })
-    }
-
-    interface Paginate {
-        index: number
-        currentPage: number
-        itemsPerPage: number
-        totalPage: number
-        slicedPages: IViewArtisanGroup[][] | null
-    }
-
-    const itemsPerPageArr = [2, 4, 6, 8]
-    const perPage = 4
-    const [paginate, setPaginate] = useState<Paginate>({
-        index: 0,
-        currentPage: 1,
-        itemsPerPage: perPage,
-
-        totalPage: Math.ceil(fetchedArtisanGroups.length / perPage),
-        slicedPages: null,
-    })
-
-    // const handleSelectedSort = (item: SortBy) => {
-    //     setToggleSortMenu(false)
+    // const handleClose = () => {
+    //     if (dialogRef.current) {
+    //         dialogRef.current.close()
+    //     }
     // }
 
-    const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
-        const item = parseInt(e.target.value)
+    // const handleOpen = (modalState: DialogType) => {
+    //     if (modalState === 'warning') {
+    //         setIsWarning(true)
+    //     } else {
+    //         setIsWarning(false)
+    //     }
 
-        const slicedPages: IViewArtisanGroup[][] = []
-        for (let i = 0; i < fetchedArtisanGroups.length; i += item) {
-            slicedPages.push(fetchedArtisanGroups.slice(i, i + item))
-        }
+    //     if (dialogRef.current) {
+    //         dialogRef.current.showModal()
+    //     }
+    // }
 
-        setPaginate((prev) => {
-            return {
-                ...prev,
-                itemsPerPage: item,
-                index: 0,
-                currentPage: 1,
-                slicedPages,
-                totalPage: Math.ceil(fetchedArtisanGroups.length / item),
-            }
-        })
-    }
+    // const addGroupHandler = () => {
+    //     // navigate('/superAdmin/viewArtisanGroup/add')
+    // }
 
-    useEffect(() => {
-        const slicedPages: IViewArtisanGroup[][] = []
-        for (
-            let i = 0;
-            i < fetchedArtisanGroups.length;
-            i += paginate.itemsPerPage
-        ) {
-            slicedPages.push(
-                fetchedArtisanGroups.slice(i, i + paginate.itemsPerPage)
-            )
-        }
-
-        setPaginate((prev) => {
-            return {
-                ...prev,
-                slicedPages,
-                totalPage: Math.ceil(
-                    fetchedArtisanGroups.length / paginate.itemsPerPage
-                ),
-            }
-        })
-    }, [fetchedArtisanGroups])
-
-    const handleNext = () => {
-        console.log(paginate.currentPage, paginate.totalPage, slicedPages)
-        if (paginate.currentPage === paginate.totalPage) return
-        setPaginate((prev) => {
-            return {
-                ...prev,
-                index: prev.index + 1,
-                currentPage: prev.currentPage + 1,
-            }
-        })
-    }
-
-    const handlePrev = () => {
-        if (paginate.currentPage === 1) return
-        setPaginate((prev) => {
-            return {
-                ...prev,
-                index: prev.index - 1,
-                currentPage: prev.currentPage - 1,
-            }
-        })
-    }
-
-    const { currentPage, slicedPages, itemsPerPage } = paginate
-
-    const jumpToPage = (e: React.MouseEvent, index: number) => {
-        setPaginate((prev) => {
-            return {
-                ...prev,
-                index,
-                currentPage: index + 1,
-            }
-        })
-    }
-
-    const dialogRef = useRef<HTMLDialogElement | null>(null)
-
-    const handleClose = () => {
-        if (dialogRef.current) {
-            dialogRef.current.close()
-        }
-    }
-
-    const handleOpen = (modalState: DialogType) => {
-        if (modalState === 'warning') {
-            setIsWarning(true)
-        } else {
-            setIsWarning(false)
-        }
-
-        if (dialogRef.current) {
-            dialogRef.current.showModal()
-        }
-    }
-
-    const addGroupHandler = () => {
-        // navigate('/superAdmin/viewArtisanGroup/add')
-    }
-
-    const confirmDeactivation = () => {
-        handleClose()
-        toast('Artisan Group deleted successfully', {
-            type: 'error',
-            className: 'bg-red-100 text-red-600 text-[1.4rem]',
-        })
-    }
+    // const confirmDeactivation = () => {
+    //     handleClose()
+    //     toast('Artisan Group deleted successfully', {
+    //         type: 'error',
+    //         className: 'bg-red-100 text-red-600 text-[1.4rem]',
+    //     })
+    // }
 
     if (isLoading) {
         return <p className='p-8'>Loading...</p>
@@ -253,7 +106,7 @@ const ViewArtisanGroup = () => {
     return (
         <>
             <ToastContainer />
-            <dialog className='dialog' ref={dialogRef}>
+            {/* <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid items-baseline w-[64rem] min-h-[30rem] p-10 gap-8 text-[1.6rem] relative'>
                         <IoMdClose
@@ -325,7 +178,7 @@ const ViewArtisanGroup = () => {
                         )}
                     </div>
                 </section>
-            </dialog>
+            </dialog> */}
             <div className='grid text-[1.6rem] bg-white px-10 rounded-lg'>
                 <div className='flex gap-8 py-10 max-w-[50rem] items-end'>
                     <div className='w-full grid gap-4'>
