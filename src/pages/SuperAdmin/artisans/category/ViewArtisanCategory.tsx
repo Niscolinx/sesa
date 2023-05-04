@@ -27,7 +27,22 @@ const ViewArtisanCategory = () => {
     }
     const { isLoading, mutate } = useMutation(
         'update_category_name',
-        updateRequest
+        updateRequest,
+        {
+            onSuccess: () => {
+                toast('Category updated successfully', {
+                    type: 'success',
+                    className: 'bg-green-100 text-green-600 text-[1.4rem]',
+                })
+            },
+
+            onError: () => {
+                toast('Failed to update category', {
+                    type: 'error',
+                    className: 'bg-red-100 text-red-600 text-[1.4rem]',
+                })
+            }
+        }
     )
 
     const handleDialogSubmit = (e: FormEvent) => {
