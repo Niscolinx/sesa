@@ -33,11 +33,7 @@ const ViewArtisanGroup = () => {
     const axiosInstance = useAxios()
     const params = useParams()
 
-    const [isWarning, setIsWarning] = useState(true)
-    const [fetchedArtisanGroups, setFetchedArtisanGroups] = useState<
-        IViewArtisanGroup[]
-    >([])
-    const [fetchedEstateList, setFetchedEstateList] = useState([])
+  
 
     const groupId = params.id?.replace(':', '')
 
@@ -52,17 +48,7 @@ const ViewArtisanGroup = () => {
         fetchRequest
     )
 
-    useEffect(() => {
-        if (data) {
-            if (data.artisans.length > 0) {
-                setFetchedArtisanGroups(data.artisans)
-            }
-
-            if (data.estate.length > 0) {
-                setFetchedEstateList(data.estate)
-            }
-        }
-    }, [data])
+   
 
   
     // const dialogRef = useRef<HTMLDialogElement | null>(null)
@@ -219,7 +205,7 @@ const ViewArtisanGroup = () => {
                         'phone_number',
                     ]}
                     isDataProvided={true}
-                    providedData={fetchedArtisanGroups}
+                    providedData={data.data}
                     deactivateProp={{ url: '/admin/deactivate_activate' }}
                 />
                 <Table
@@ -237,7 +223,7 @@ const ViewArtisanGroup = () => {
                       
                     ]}
                     isDataProvided={true}
-                    providedData={fetchedEstateList}
+                    providedData={data.data}
                 />
             </div>
         </>
