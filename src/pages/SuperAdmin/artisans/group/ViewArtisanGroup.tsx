@@ -1,10 +1,6 @@
 
-import { CgSpinnerTwo } from 'react-icons/cg'
-import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
-import { IoMdAdd, IoMdClose } from 'react-icons/io'
 import { useNavigate, useParams } from 'react-router'
 import { toast, ToastContainer } from 'react-toastify'
-import EstateListTable from './EstateListTable'
 import { useQuery } from 'react-query'
 import useAxios from '../../../../components/hooks/useAxios'
 import Table from '../../../../components/UI/table/Table'
