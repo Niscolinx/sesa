@@ -219,7 +219,7 @@ const ViewArtisanGroup = () => {
                     actions={['remove']}
                     data_to_display={[
                         'estate_name',
-                        'ad'
+                        'address'
                       
                     ]}
                     isDataProvided={true}
