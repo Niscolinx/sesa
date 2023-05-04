@@ -71,17 +71,7 @@ const ViewArtisanCategory = () => {
         mutate()
     }
 
-    // const handleClose = () => {
-    //     if (dialogRef.current) {
-    //         dialogRef.current.close()
-    //     }
-    // }
-
-    // const handleOpen = () => {
-    //     if (dialogRef.current) {
-    //         dialogRef.current.showModal()
-    //     }
-    // }
+   
 
     if (category_detail_loading || category_users_loading) {
         return <p className='p-8'>Loading...</p>
