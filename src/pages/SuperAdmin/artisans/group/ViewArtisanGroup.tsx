@@ -1,6 +1,6 @@
 
 import { useNavigate, useParams } from 'react-router'
-import { toast, ToastContainer } from 'react-toastify'
+import { ToastContainer } from 'react-toastify'
 import { useQuery } from 'react-query'
 import useAxios from '../../../../components/hooks/useAxios'
 import Table from '../../../../components/UI/table/Table'
