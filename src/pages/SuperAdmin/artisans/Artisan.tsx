@@ -10,8 +10,6 @@ function ArtisanCategory() {
             view_page_url={'/superAdmin/artisan/category/'}
             is_add_btn={true}
             isCategory={true}
-            isStrictAction
-            actions={['view details']}
             delete_item_url={'/admin/category/delete/'}
             THeader={[
                 'name',
@@ -21,7 +19,7 @@ function ArtisanCategory() {
                 'actions',
             ]}
             data_to_display={['name', 'artisan_count', 'created_at', 'status']}
-            deactivateProp={{ url: '/admin/artisan/changeStatus', tag: 'id' }}
+            deactivateProp={{ url: '/admin/category/delete/', tag: 'id' }}
         />
     )
 }
