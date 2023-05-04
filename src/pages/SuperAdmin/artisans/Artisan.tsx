@@ -32,14 +32,22 @@ function ArtisanList() {
             view_page_url={'/superAdmin/artisan/detail/'}
             add_page_url={'/superAdmin/artisan/add-list'}
             is_add_btn={true}
-            THeader={['name', 'business name', 'phone no', 'rating', 'actions']}
+            THeader={[
+                'name',
+                'business name',
+                'phone no',
+                'rating',
+                'status',
+                'actions',
+            ]}
             data_to_display={[
                 'firstname',
                 'business_name',
                 'phone_number',
                 'rating',
+                'status',
             ]}
-            deactivateProp={{ url: '/admin/artisan/changeStatus', tag: 'id' }}
+            deactivateProp={{ url: '/admin/artisan/changeStatus/', tag: 'id' }}
         />
     )
 }

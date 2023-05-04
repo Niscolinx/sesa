@@ -411,15 +411,17 @@ const TableData = () => {
                         <p className='text'>
                             Ooops you have not added any {title} yet
                         </p>
-                        <button
-                            className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
-                            onClick={handlePathSwitch}
-                        >
-                            <span>
-                                <IoMdAdd />
-                            </span>{' '}
-                            Add {title}
-                        </button>
+                        {!isDataProvided && (
+                            <button
+                                className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg'
+                                onClick={handlePathSwitch}
+                            >
+                                <span>
+                                    <IoMdAdd />
+                                </span>{' '}
+                                Add {title}
+                            </button>
+                        )}
                     </section>
                 )}
             </div>
