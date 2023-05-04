@@ -41,7 +41,7 @@ const ViewArtisanCategory = () => {
                     type: 'error',
                     className: 'bg-red-100 text-red-600 text-[1.4rem]',
                 })
-            }
+            },
         }
     )
 
@@ -60,10 +60,11 @@ const ViewArtisanCategory = () => {
             url: '/admin/category/get/single/2',
             name: 'category_single',
         })
-
-    if (category_detail_loading) {
-        return <p className='p-8'>Loading...</p>
-    }
+    const { data: category_users, isLoading: category_users_loading } =
+        useFetchData({
+            url: '/admin/category/get/single/users/2',
+            name: 'category_users',
+        })
 
     const onSubmit = (e: FormEvent) => {
         e.preventDefault()
@@ -79,7 +80,6 @@ const ViewArtisanCategory = () => {
         mutate()
     }
 
-
     const handleClose = () => {
         if (dialogRef.current) {
             dialogRef.current.close()
@@ -91,6 +91,12 @@ const ViewArtisanCategory = () => {
             dialogRef.current.showModal()
         }
     }
+
+    if (category_detail_loading || category_users_loading) {
+        return <p className='p-8'>Loading...</p>
+    }
+
+    console.log({category_users_data})
 
     return (
         <>
@@ -168,9 +174,11 @@ const ViewArtisanCategory = () => {
                 </form>
 
                 <Table
-                    fetch_url={`/admin/category/get/single/users/2`}
+                    // fetch_url={`/admin/category/get/single/users/2`}
                     // fetch_url={`/admin/category/get/single/users/${category_id}`}
                     title={'category users'}
+                    isDataProvided
+                    providedData={category_users_data}
                     view_page_url={'/superAdmin/artisan/category/'}
                     isStrictAction
                     actions={['delete']}
