@@ -22,6 +22,7 @@ interface Table {
     nested?: boolean
     isDataProvided?: boolean
     delete_item_url?: string
+    titleDialog?: string
     is_dropdown?: boolean
     is_checkbox?: boolean
     THeader: string[]
@@ -61,6 +62,7 @@ const Table = ({
     isCategory,
     view_page_url,
     add_page_url,
+    titleDialog,
     is_checkbox = false,
     data_to_display,
     providedData,
@@ -97,6 +99,7 @@ const Table = ({
                 is_checkbox,
                 setFetchedId,
                 isStrictAction,
+                titleDialog,
                 fetchedData,
                 providedData,
                 setFetchedData,

@@ -20,6 +20,7 @@ function TableDialog() {
         setIsDialogOpen,
         isCategory,
         delete_item_url,
+        titleDialog
     } = useTableContext()
 
     const [artisanCategory, setArtisanCategory] = useState('')
