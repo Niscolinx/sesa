@@ -159,6 +159,7 @@ const ViewArtisanCategory = () => {
                     view_page_url={'/superAdmin/artisan/category/'}
                     isStrictAction
                     actions={['delete']}
+                    titleDialog={'Category User'}
                     delete_item_url={'/admin/category/delete/'}
                     THeader={[
                         'name',
