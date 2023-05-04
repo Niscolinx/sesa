@@ -1,9 +1,8 @@
-
 import { useNavigate, useParams } from 'react-router'
 import { useQuery } from 'react-query'
 import useAxios from '../../../../components/hooks/useAxios'
 import Table from '../../../../components/UI/table/Table'
-
+import useFetchData from '../../../../utils/useFetchData'
 
 export interface IViewArtisanGroup {
     id: string
@@ -20,24 +19,12 @@ const ViewArtisanGroup = () => {
     const axiosInstance = useAxios()
     const params = useParams()
 
-  
-
     const groupId = params.id?.replace(':', '')
 
-    const fetchRequest = () => {
-        return axiosInstance({
-            url: `/admin/group/getSingleGroup/${groupId}`,
-        })
-    }
+    const { data: artisan_data, isLoading: artisan_loading } = useFetchData({
+        url: `/admin/group/getSingleGroup/${groupId}`,
+    })
 
-    const { data, isLoading } = useQuery<any>(
-        ['group_artisan_list'],
-        fetchRequest
-    )
-
-   
-
-  
     // const dialogRef = useRef<HTMLDialogElement | null>(null)
 
     // const handleClose = () => {
@@ -174,7 +161,7 @@ const ViewArtisanGroup = () => {
                         Update
                     </button>
                 </div>
-              
+
                 <Table
                     title={'artisan'}
                     view_page_url={'/superAdmin/admin/view/'}
@@ -197,17 +184,9 @@ const ViewArtisanGroup = () => {
                 <Table
                     title={'estate'}
                     view_page_url={'/superAdmin/admin/view/'}
-                    THeader={[
-                        'estate name',
-                        'location',
-                        'actions',
-                    ]}
+                    THeader={['estate name', 'location', 'actions']}
                     actions={['remove']}
-                    data_to_display={[
-                        'estate_name',
-                        'address'
-                      
-                    ]}
+                    data_to_display={['estate_name', 'address']}
                     isDataProvided={true}
                     providedData={data.data}
                 />
