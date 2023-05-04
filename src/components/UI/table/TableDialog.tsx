@@ -239,7 +239,7 @@ function TableDialog() {
                                 Are you sure you want to {isDialogOpen?.type}{' '}
                                 this{' '}
                                 <span className='capitalize'>
-                                    {title.split(/(?=[A-Z])/).join(' ')}?
+                                    {title.split(/(?=[A-Z])/)}?
                                 </span>
                             </p>
 
