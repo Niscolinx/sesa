@@ -13,8 +13,14 @@ function ArtisanCategory() {
             isStrictAction
             actions={['view details']}
             delete_item_url={'/admin/category/delete/'}
-            THeader={['name', 'No of Artisans', 'created at', 'actions']}
-            data_to_display={['name', 'artisan_count', 'created_at']}
+            THeader={[
+                'name',
+                'No of Artisans',
+                'created at',
+                'status',
+                'actions',
+            ]}
+            data_to_display={['name', 'artisan_count', 'created_at', 'status']}
             deactivateProp={{ url: '/admin/artisan/changeStatus', tag: 'id' }}
         />
     )
