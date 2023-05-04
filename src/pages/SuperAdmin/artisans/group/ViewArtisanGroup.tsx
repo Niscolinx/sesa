@@ -1,11 +1,4 @@
-import React, {
-    ChangeEvent,
-    FC,
-    FormEvent,
-    useEffect,
-    useRef,
-    useState,
-} from 'react'
+
 import { CgSpinnerTwo } from 'react-icons/cg'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { IoMdAdd, IoMdClose } from 'react-icons/io'
@@ -16,7 +9,6 @@ import { useQuery } from 'react-query'
 import useAxios from '../../../../components/hooks/useAxios'
 import Table from '../../../../components/UI/table/Table'
 
-type DialogType = 'warning'
 
 export interface IViewArtisanGroup {
     id: string
