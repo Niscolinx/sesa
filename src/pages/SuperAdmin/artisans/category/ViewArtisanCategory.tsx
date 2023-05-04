@@ -82,50 +82,7 @@ const ViewArtisanCategory = () => {
     return (
         <>
             <ToastContainer />
-            {/* <dialog className='dialog' ref={dialogRef}>
-                <section className='grid place-content-center w-full h-[100vh]'>
-                    <div className='bg-white rounded-2xl grid items-baseline w-[64rem] min-h-[30rem] p-10 gap-8 text-[1.6rem] relative'>
-                        <IoMdClose
-                            className='absolute right-4 top-4 text-[2rem] cursor-pointer'
-                            onClick={() => handleClose()}
-                        />
-
-                        <form
-                            className='grid gap-12'
-                            onSubmit={handleDialogSubmit}
-                        >
-                            <h3
-                                className='text-[2rem] font-Satoshi-Medium border-b '
-                                style={{
-                                    fontFamily: 'Satoshi-Medium',
-                                }}
-                            >
-                                Create Artisan Category
-                            </h3>
-
-                            <div className='w-full grid gap-4'>
-                                <label
-                                    htmlFor='artisanName'
-                                    className='text-[1.4rem] font-semibold'
-                                >
-                                    Name
-                                </label>
-
-                                <input
-                                    type='text'
-                                    required
-                                    id='artisanName'
-                                    className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem]'
-                                />
-                            </div>
-
-                            <button className='btn bg-[#0556E5] text-white rounded-lg py-4 place-self-start w-[15rem]'>
-                                Create
-                            </button>
-                        </form>
-                    </div>
-                </section>
-            </dialog> */}
+        
             <div className=' text-[1.6rem] bg-white rounded-lg min-h-[70vh] '>
                 <form
                     className='flex gap-8 py-10 max-w-[50rem] items-end px-10 '
