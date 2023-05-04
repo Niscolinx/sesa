@@ -13,7 +13,6 @@ const ViewArtisanCategory = () => {
 
     const category_id = params.id?.replace(':', '')
     const axiosInstance = useAxios()
-    const dialogRef = useRef<HTMLDialogElement | null>(null)
 
     const [name, setName] = useState('')
 
