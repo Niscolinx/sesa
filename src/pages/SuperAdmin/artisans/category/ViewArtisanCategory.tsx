@@ -96,7 +96,7 @@ const ViewArtisanCategory = () => {
         return <p className='p-8'>Loading...</p>
     }
 
-    console.log({category_users_data})
+    console.log({category_users})
 
     return (
         <>
@@ -178,7 +178,7 @@ const ViewArtisanCategory = () => {
                     // fetch_url={`/admin/category/get/single/users/${category_id}`}
                     title={'category users'}
                     isDataProvided
-                    providedData={category_users_data}
+                    providedData={category_users.data}
                     view_page_url={'/superAdmin/artisan/category/'}
                     isStrictAction
                     actions={['delete']}
