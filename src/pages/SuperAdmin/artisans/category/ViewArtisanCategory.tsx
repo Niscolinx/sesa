@@ -45,15 +45,6 @@ const ViewArtisanCategory = () => {
         }
     )
 
-    // const handleDialogSubmit = (e: FormEvent) => {
-    //     e.preventDefault()
-    //     handleClose()
-
-    //     toast('Category Created successfully', {
-    //         type: 'success',
-    //         className: 'bg-green-100 text-green-600 text-[1.4rem]',
-    //     })
-    // }
 
     const { data: category_detail, isLoading: category_detail_loading } =
         useFetchData({

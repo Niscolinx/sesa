@@ -1,6 +1,4 @@
 import { useNavigate, useParams } from 'react-router'
-import { useQuery } from 'react-query'
-import useAxios from '../../../../components/hooks/useAxios'
 import Table from '../../../../components/UI/table/Table'
 import useFetchData from '../../../../utils/useFetchData'
 
