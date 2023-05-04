@@ -77,7 +77,6 @@ const ViewArtisanCategory = () => {
         return <p className='p-8'>Loading...</p>
     }
 
-    console.log({category_users})
 
     return (
         <>
