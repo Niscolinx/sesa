@@ -12,11 +12,8 @@ export interface IViewArtisanGroup {
     phone_number: string
 }
 
-type Actions = 'view details' | 'remove'
 
 const ViewArtisanGroup = () => {
-    const navigate = useNavigate()
-    const axiosInstance = useAxios()
     const params = useParams()
 
     const groupId = params.id?.replace(':', '')
