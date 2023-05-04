@@ -1,6 +1,5 @@
 
 import { useNavigate, useParams } from 'react-router'
-import { ToastContainer } from 'react-toastify'
 import { useQuery } from 'react-query'
 import useAxios from '../../../../components/hooks/useAxios'
 import Table from '../../../../components/UI/table/Table'
@@ -79,7 +78,6 @@ const ViewArtisanGroup = () => {
 
     return (
         <>
-            <ToastContainer />
             {/* <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid items-baseline w-[64rem] min-h-[30rem] p-10 gap-8 text-[1.6rem] relative'>
