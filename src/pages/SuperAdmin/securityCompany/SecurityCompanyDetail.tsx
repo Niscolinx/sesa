@@ -23,22 +23,22 @@ const SecurityCompanyDetail = () => {
         className: string
         displayMessage: string
     }
-    
+
     type FormInputs = {
         label?: keyof Inputs
         type?: string
         name?: string
     }
     const genderState = ['Male', 'Female']
-    
+
     const params = useParams()
     const axiosInstance = useAxios()
-    
+
     const [photoPreview, setPhotoPreview] = useState('')
     const [imageFile, setImageFile] = useState<File | null>(null)
     const [isWarning, setIsWarning] = useState(true)
     const [isSignOutRequired, setIsSignOutRequired] = useState(false)
-    
+
     const toggleIsSignOutRequired = () =>
         setIsSignOutRequired(!isSignOutRequired)
     const [responseMessage, setResponseMessage] =
@@ -115,8 +115,6 @@ const SecurityCompanyDetail = () => {
             method: 'post',
             data: { id: company_id },
         })
-
-        
     }
     const postRequest = (data: any) => {
         return axiosInstance({
@@ -132,27 +130,29 @@ const SecurityCompanyDetail = () => {
         })
     }
 
-    const {
-        mutate: deactivate_mutation,
-        isLoading: deactivate_loading,
-    } = useMutation(postDeactivate, {
-        onSuccess: (res) => {
-            toast('Admin Deactivated successfully', {
-                type: 'success',
-                className: 'bg-green-100 text-green-600 text-[1.4rem]',
-            })
-        },
-        onError: (err: any) => {
-            return setResponseMessage({
-                className: 'text-red-600',
-                displayMessage: err?.response?.data.message,
-            })
-        },
+    const { mutate: deactivate_mutation, isLoading: deactivate_loading } =
+        useMutation(postDeactivate, {
+            onSuccess: (res) => {
+                toast('Company Deactivated successfully', {
+                    type: 'success',
+                    className: 'bg-green-100 text-green-600 text-[1.4rem]',
+                })
+            },
+            onError: (err: any) => {
+                toast('Company Failed to ', {
+                    type: 'success',
+                    className: 'bg-green-100 text-green-600 text-[1.4rem]',
+                })
+                return setResponseMessage({
+                    className: 'text-red-600',
+                    displayMessage: err?.response?.data.message,
+                })
+            },
 
-        onSettled: () => {
-            return handleClose()
-        },
-    })
+            onSettled: () => {
+                return handleClose()
+            },
+        })
 
     const { data: get_response, isLoading: get_loading } = useQuery(
         [`get_company_${company_id}`],
@@ -211,13 +211,7 @@ const SecurityCompanyDetail = () => {
         }
     }
 
-    const handleOpen = (modalState: 'warning' | 'success') => {
-        if (modalState === 'warning') {
-            setIsWarning(true)
-        } else {
-            setIsWarning(false)
-        }
-
+    const handleOpen = () => {
         if (dialogRef.current) {
             dialogRef.current.showModal()
         }
@@ -237,56 +231,29 @@ const SecurityCompanyDetail = () => {
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8 text-[1.6rem]'>
-                        {isWarning ? (
-                            <img src='/icons/admins/modalWarning.svg' alt='' />
-                        ) : (
-                            <img src='/icons/admins/modalSuccess.svg' alt='' />
-                        )}
+                        <img src='/icons/admins/modalWarning.svg' alt='' />
 
-                        {isWarning ? (
-                            <p>
-                                Are you sure you want to deactivate this
-                                security company?
-                            </p>
-                        ) : (
-                            <p>
-                                You have successfully added a security Company
-                            </p>
-                        )}
+                        <p>
+                            Are you sure you want to deactivate this security
+                            company?
+                        </p>
 
                         <div className='flex w-full justify-center gap-8'>
-                            {isWarning ? (
-                                <button
-                                    className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
-                                    onClick={() => handleClose()}
-                                >
-                                    Cancel
-                                </button>
-                            ) : (
-                                <button
-                                    className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
-                                    onClick={() => handleClose()}
-                                >
-                                    View Details
-                                </button>
-                            )}
-                            {isWarning ? (
-                                <button
-                                    className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem] capitalize'
-                                    onClick={confirmDeactivation}
-                                >
-                                    {deactivate_loading
-                                        ? 'Loading...'
-                                        : 'deactivate'}
-                                </button>
-                            ) : (
-                                <button
-                                    className='btn text-white bg-[#0556E5] border rounded-lg w-[15rem]'
-                                    onClick={() => handleClose()}
-                                >
-                                    View Details
-                                </button>
-                            )}
+                            <button
+                                className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
+                                onClick={() => handleClose()}
+                            >
+                                Cancel
+                            </button>
+
+                            <button
+                                className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem] capitalize'
+                                onClick={confirmDeactivation}
+                            >
+                                {deactivate_loading
+                                    ? 'Loading...'
+                                    : 'deactivate'}
+                            </button>
                         </div>
                     </div>
                 </section>
@@ -303,7 +270,7 @@ const SecurityCompanyDetail = () => {
                         {get_response?.data.status ? (
                             <button
                                 className='border border-red-600 px-16 py-4 flex items-center  rounded-lg gap-4'
-                                onClick={() => handleOpen('warning')}
+                                onClick={() => handleOpen()}
                             >
                                 <img src='/icons/admins/delete.svg' alt='' />
                                 <span className='text-red-600 text-[1.4rem] font-semibold'>
@@ -313,7 +280,7 @@ const SecurityCompanyDetail = () => {
                         ) : (
                             <button
                                 className='border border-green-600 px-16 py-4 flex items-center  rounded-lg gap-4'
-                                onClick={() => handleOpen('warning')}
+                                onClick={() => handleOpen()}
                             >
                                 <span className='text-green-600 text-[1.4rem] font-semibold capitalize'>
                                     Activate
