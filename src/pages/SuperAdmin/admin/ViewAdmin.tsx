@@ -105,17 +105,14 @@ const ViewAdmin = () => {
         })
     }
 
-   
-
-    const { data: get_admin_response, isLoading: get_admin_loading } = useQuery(
+    const { data: get_response, isLoading: get_admin_loading } = useQuery(
         [`get_admin_${admin_id}`],
         getAdmin
     )
 
     useEffect(() => {
-        if (get_admin_response) {
-            const { name, email, phone, image, dob, gender } =
-                get_admin_response.data
+        if (get_response) {
+            const { name, email, phone, image, dob, gender } = get_response.data
             const first_name = name.split(' ')[0]
             const last_name = name.split(' ')[1]
 
@@ -130,7 +127,7 @@ const ViewAdmin = () => {
             setPhotoPreview(image)
             setSelectedGender(gender)
         }
-    }, [get_admin_response])
+    }, [get_response])
 
     const { mutate: post_admin_mutation, isLoading: post_admin_loading } =
         useMutation(postUpdateAdmin, {
@@ -188,7 +185,7 @@ const ViewAdmin = () => {
         setImageFile(file)
     }
 
-    if (get_admin_loading) {
+    if (get_admin_loading || !get_response?.data) {
         return <p>loading...</p>
     }
 
@@ -221,12 +218,12 @@ const ViewAdmin = () => {
                     />
 
                     <div className='flex gap-8'>
-                     <Activate_Deactivate
+                        <Activate_Deactivate
                             id={admin_id}
-                            url={'/security-company/deactivate_activate'}
+                            url={'/admin/deactivate_activate'}
                             status={get_response.data.status}
-                            title={'security company'}
-                            queryCache={`get_company_${company_id}`}
+                            title={'admin'}
+                            queryCache={`view_admin_${admin_id}`}
                         />
                     </div>
                 </div>
