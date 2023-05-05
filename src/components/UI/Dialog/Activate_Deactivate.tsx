@@ -66,7 +66,10 @@ function Activate_Deactivate({ id, url, status, title }: Props) {
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8 text-[1.6rem]'>
                         <img src='/icons/admins/modalWarning.svg' alt='' />
 
-                        <p>Are you sure you want to deactivate this {title}?</p>
+                        <p>
+                            Are you sure you want to deactivate this{' '}
+                            <span className='capitalize'>{title}</span>?
+                        </p>
 
                         <div className='flex w-full justify-center gap-8'>
                             <button
