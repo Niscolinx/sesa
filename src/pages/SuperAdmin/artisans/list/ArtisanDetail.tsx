@@ -108,24 +108,7 @@ const ArtisanDetail = () => {
         getRequest
     )
 
-    const postValidationType = (data: Inputs) => {
-        return axiosInstance({
-            url: '/admin/artisan',
-            method: 'post',
-            data,
-        })
-    }
-    const {
-        mutate: validationType_mutation,
-        isLoading: validationType_isloading,
-    } = useMutation(postValidationType, {
-        onError: (err: any) => {
-            setResponseMessage({
-                className: 'text-red-600',
-                displayMessage: err?.response.data.message,
-            })
-        },
-    }) as any
+    
 
     useEffect(() => {
         if (get_response) {
@@ -141,22 +124,7 @@ const ArtisanDetail = () => {
         }
     }, [get_response])
 
-    const dialogRef = useRef<HTMLDialogElement | null>(null)
-
-    const handleClose = () => {
-        if (dialogRef.current) {
-            dialogRef.current.close()
-        }
-    }
-
-    const openDialog = () => {
-        if (dialogRef.current) {
-            dialogRef.current.showModal()
-        }
-    }
-    const onSubmitValidation = validation_handleSubmit((data) => {
-        validationType_mutation(data)
-    })
+   
 
     const onSubmit = handleSubmit((data) => {
         // const { first_name, last_name, dob, email_address, phone_number } = data

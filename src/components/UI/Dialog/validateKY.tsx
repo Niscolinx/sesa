@@ -2,7 +2,45 @@ import React from 'react'
 import { BsQuestionCircle } from 'react-icons/bs'
 
 function validateKY() {
-    const validationInput = [
+   
+
+    const postValidationType = (data: Inputs) => {
+        return axiosInstance({
+            url: '/admin/artisan',
+            method: 'post',
+            data,
+        })
+    }
+    const {
+        mutate: validationType_mutation,
+        isLoading: validationType_isloading,
+    } = useMutation(postValidationType, {
+        onError: (err: any) => {
+            setResponseMessage({
+                className: 'text-red-600',
+                displayMessage: err?.response.data.message,
+            })
+        },
+    }) as any
+
+     const dialogRef = useRef<HTMLDialogElement | null>(null)
+
+     const handleClose = () => {
+         if (dialogRef.current) {
+             dialogRef.current.close()
+         }
+     }
+
+     const openDialog = () => {
+         if (dialogRef.current) {
+             dialogRef.current.showModal()
+         }
+     }
+     const onSubmitValidation = validation_handleSubmit((data) => {
+         validationType_mutation(data)
+     })
+
+      const validationInput = [
         {
             name: 'phone number',
             label: 'validation_content',
