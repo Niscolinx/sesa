@@ -155,7 +155,7 @@ const SecurityCompanyDetail = () => {
     const { mutate: post_mutation, isLoading: post_update_loading } =
         useMutation(postRequest, {
             onSuccess: (res) => {
-                toast('Admin Updated successfully', {
+                toast('Company Updated successfully', {
                     type: 'success',
                     className: 'bg-green-100 text-green-600 text-[1.4rem]',
                 })
@@ -169,12 +169,12 @@ const SecurityCompanyDetail = () => {
         })
 
     const onSubmit = handleSubmit((data) => {
-        const adminData = {
+        const updatedData = {
             ...data,
             image: imageFile,
         }
 
-        post_mutation(adminData)
+        post_mutation(updatedData)
     })
 
     if (get_loading || !get_response?.data) {
