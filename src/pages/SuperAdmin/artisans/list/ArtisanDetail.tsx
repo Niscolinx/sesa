@@ -58,53 +58,26 @@ const ArtisanDetail = () => {
         })
     }
 
-    const dialogRef = useRef<HTMLDialogElement | null>(null)
+   
 
-    const handleClose = () => {
-        if (dialogRef.current) {
-            dialogRef.current.close()
-        }
-    }
+   
 
-    const handleOpen = (dialogType: Actions) => {
-        if (dialogType === 'Deactivate') {
-            setDialogType('Deactivate')
-        }
-        if (dialogType === 'Delete') {
-            setDialogType('Delete')
-        }
+     const onSubmit = handleSubmit((data) => {
+        const { first_name, last_name, dob, email_address, phone_number } = data
 
-        if (dialogRef.current) {
-            dialogRef.current.showModal()
-        }
-    }
-
-    const handleSelectedAction = (item: Actions) => {
-        if (item === 'Deactivate') {
-            handleOpen('Deactivate')
+        const adminData = {
+            name: `${first_name} ${last_name}`,
+            gender: selectedGender,
+            dob,
+            id: admin_id,
+            email: email_address,
+            address: 'no 4 odeyim street',
+            phone: `+234${phone_number}`,
+            image: imageFile,
         }
 
-        if (item === 'Delete') {
-            handleOpen('Delete')
-        }
-    }
-
-    const handleDeleteArtisan = () => {
-        handleClose()
-
-        toast('Artisan deleted successfully', {
-            type: 'error',
-            className: 'bg-red-100 text-red-600 text-[1.4rem]',
-        })
-    }
-    const handleDeactivateArtisan = () => {
-        handleClose()
-
-        toast('Artisan deactivated successfully', {
-            type: 'error',
-            className: 'bg-red-100 text-red-600 text-[1.4rem]',
-        })
-    }
+        post_admin_mutation(adminData)
+    })
 
     interface Inputs {
         firstname: string

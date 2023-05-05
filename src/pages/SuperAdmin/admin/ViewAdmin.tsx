@@ -106,7 +106,7 @@ const ViewAdmin = () => {
     }
 
     const { data: get_response, isLoading: get_admin_loading } = useQuery(
-        [`get_admin_${admin_id}`],
+        [`view_admin_${admin_id}`],
         getAdmin
     )
 
