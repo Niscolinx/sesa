@@ -162,19 +162,8 @@ const ViewAdmin = () => {
         post_admin_mutation(adminData)
     })
 
-    const dialogRef = useRef<HTMLDialogElement | null>(null)
 
-    const closeDialog = () => {
-        if (dialogRef.current) {
-            dialogRef.current.close()
-        }
-    }
-
-    const openDialog = () => {
-        if (dialogRef.current) {
-            dialogRef.current.showModal()
-        }
-    }
+ 
 
     const handlePicture = (e: React.ChangeEvent) => {
         const target = e.target as HTMLInputElement
