@@ -9,114 +9,15 @@ import { useParams } from 'react-router'
 import useAxios from '../../../../components/hooks/useAxios'
 import Activate_Deactivate from '../../../../components/UI/Dialog/Activate_Deactivate'
 import Input, { SelectProps } from '../../../../components/UI/input/Input'
-import { useQuery } from 'react-query'
+import { useMutation, useQuery } from 'react-query'
 import { useForm } from 'react-hook-form'
 import { IoMdCheckmarkCircleOutline, IoMdClose } from 'react-icons/io'
 
-type Actions = 'Deactivate' | 'Delete'
-
 const ArtisanDetail = () => {
-    const params = useParams()
-    const axiosInstance = useAxios()
-
-    const genderState = ['Male', 'Female']
-    const [isSignOutRequired, setIsSignOutRequired] = useState(false)
-    const [photoPreview, setPhotoPreview] = useState('')
-     const [isValidated, setIsValidated] = useState(false)
-     const [iskyg, setIskyg] = useState(false)
-
-     const toggleIskyg = () => setIskyg(!iskyg)
-
- 
-
-    const [responseMessage, setResponseMessage] =
-        useState<ResponseMessage | null>(null)
-    const [selectedGender, setSelectedGender] = useState<string>('')
-
-    const artisan_id = params.id?.replace(':', '')
-
-    if (!artisan_id) {
-        toast('Artisan not Found', {
-            type: 'error',
-            className: 'bg-red-100 text-red-600 text-[1.4rem]',
-        })
-
-        return <p className='p-4'> Not found!</p>
+    type Actions = 'Deactivate' | 'Delete'
+    interface ValidationTypeInput {
+        validation_content: string
     }
-
-     const {
-         register,
-         handleSubmit,
-         setValue,
-         clearErrors,
-         formState: { errors: formErrors },
-         reset,
-     } = useForm<Inputs>()
-
-  
-    const postUpdateAdmin = (data: any) => {
-        return axiosInstance({
-            url: `/security-company/update/${artisan_id}`,
-            method: 'post',
-            data,
-        })
-    }
-
-    const getRequest = () => {
-        return axiosInstance({
-            url: `/security-company/get/${artisan_id}`,
-        })
-    }
-
-    const { data: get_response, isLoading } = useQuery(
-        [`view_artisan_${artisan_id}`],
-        getRequest
-    )
-
-    useEffect(() => {
-        if (get_response) {
-            const { name, email, phone, image, dob, gender, ...other } = get_response.data
-           
-
-            reset({
-               ...other
-            })
-
-            setPhotoPreview(image)
-            setSelectedGender(gender)
-        }
-    }, [get_response])
-
-    const dialogRef = useRef<HTMLDialogElement | null>(null)
-
-    const handleClose = () => {
-        if (dialogRef.current) {
-            dialogRef.current.close()
-        }
-    }
-
-    const openDialog = () => {
-        if (dialogRef.current) {
-            dialogRef.current.showModal()
-        }
-    }
-
-    const onSubmit = handleSubmit((data) => {
-        // const { first_name, last_name, dob, email_address, phone_number } = data
-
-        // const adminData = {
-        //     name: `${first_name} ${last_name}`,
-        //     gender: selectedGender,
-        //     dob,
-        //     id: artisan_id,
-        //     email: email_address,
-        //     address: 'no 4 odeyim street',
-        //     phone: `+234${phone_number}`,
-        //     image: imageFile,
-        // }
-
-        //post_admin_mutation(adminData)
-    })
 
     interface Inputs {
         firstname: string
@@ -143,6 +44,134 @@ const ArtisanDetail = () => {
         name?: string
         selectProps?: SelectProps
     }
+
+    const params = useParams()
+    const axiosInstance = useAxios()
+
+    const genderState = ['Male', 'Female']
+    const [isSignOutRequired, setIsSignOutRequired] = useState(false)
+    const [photoPreview, setPhotoPreview] = useState('')
+    const [isValidated, setIsValidated] = useState(false)
+    const [iskyg, setIskyg] = useState(false)
+
+    const toggleIskyg = () => setIskyg(!iskyg)
+
+    const [isAddArtisan, setIsAddArtisan] = useState(true)
+    const [validationType, setValidationType] = useState<string>('Phone Number')
+    const [responseMessage, setResponseMessage] =
+        useState<ResponseMessage | null>(null)
+    const [selectedGender, setSelectedGender] = useState<string>('')
+
+    const artisan_id = params.id?.replace(':', '')
+
+    if (!artisan_id) {
+        toast('Artisan not Found', {
+            type: 'error',
+            className: 'bg-red-100 text-red-600 text-[1.4rem]',
+        })
+
+        return <p className='p-4'> Not found!</p>
+    }
+
+    const {
+        register,
+        handleSubmit,
+        setValue,
+        clearErrors,
+        formState: { errors: formErrors },
+        reset,
+    } = useForm<Inputs>()
+
+    const {
+        register: validation_register,
+        handleSubmit: validation_handleSubmit,
+        reset: validation_reset,
+        formState: { errors: validation_formErrors },
+    } = useForm<ValidationTypeInput>()
+
+    const postUpdate = (data: any) => {
+        return axiosInstance({
+            url: `/security-company/update/${artisan_id}`,
+            method: 'post',
+            data,
+        })
+    }
+
+    const getRequest = () => {
+        return axiosInstance({
+            url: `/security-company/get/${artisan_id}`,
+        })
+    }
+
+    const { data: get_response, isLoading } = useQuery(
+        [`view_artisan_${artisan_id}`],
+        getRequest
+    )
+
+    const postValidationType = (data: Inputs) => {
+        return axiosInstance({
+            url: '/admin/artisan',
+            method: 'post',
+            data,
+        })
+    }
+    const {
+        mutate: validationType_mutation,
+        isLoading: validationType_isloading,
+    } = useMutation(postValidationType, {
+        onError: (err: any) => {
+            setResponseMessage({
+                className: 'text-red-600',
+                displayMessage: err?.response.data.message,
+            })
+        },
+    }) as any
+
+    useEffect(() => {
+        if (get_response) {
+            const { name, email, phone, image, dob, gender, ...other } =
+                get_response.data
+
+            reset({
+                ...other,
+            })
+
+            setPhotoPreview(image)
+            setSelectedGender(gender)
+        }
+    }, [get_response])
+
+    const dialogRef = useRef<HTMLDialogElement | null>(null)
+
+    const handleClose = () => {
+        if (dialogRef.current) {
+            dialogRef.current.close()
+        }
+    }
+
+    const openDialog = () => {
+        if (dialogRef.current) {
+            dialogRef.current.showModal()
+        }
+    }
+    const onSubmitValidation = validation_handleSubmit((data) => {
+        validationType_mutation(data)
+    })
+
+    const onSubmit = handleSubmit((data) => {
+        // const { first_name, last_name, dob, email_address, phone_number } = data
+        // const adminData = {
+        //     name: `${first_name} ${last_name}`,
+        //     gender: selectedGender,
+        //     dob,
+        //     id: artisan_id,
+        //     email: email_address,
+        //     address: 'no 4 odeyim street',
+        //     phone: `+234${phone_number}`,
+        //     image: imageFile,
+        // }
+        //post_admin_mutation(adminData)
+    })
 
     const formInputs = [
         {
@@ -187,6 +216,18 @@ const ArtisanDetail = () => {
         },
     ] satisfies FormInputs[]
 
+    const validationInput = [
+        {
+            name: 'phone number',
+            label: 'validation_content',
+            type: 'number',
+        },
+        {
+            name: 'name',
+            label: 'validation_content',
+        },
+    ]
+
     return (
         <>
             <ToastContainer />
@@ -198,85 +239,63 @@ const ArtisanDetail = () => {
                             onClick={() => handleClose()}
                         />
 
-                        {isAddArtisan ? (
-                            <form
-                                className='grid gap-12'
-                                onSubmit={onSubmitValidation}
+                        <form
+                            className='grid gap-12'
+                            onSubmit={onSubmitValidation}
+                        >
+                            <h3
+                                className='text-[2rem] font-Satoshi-Medium border-b '
+                                style={{
+                                    fontFamily: 'Satoshi-Medium',
+                                }}
                             >
-                                <h3
-                                    className='text-[2rem] font-Satoshi-Medium border-b '
-                                    style={{
-                                        fontFamily: 'Satoshi-Medium',
-                                    }}
-                                >
-                                    Know Your Artisan (KYA)
-                                </h3>
+                                Know Your Artisan (KYA)
+                            </h3>
 
-                                <Select
-                                    state={['Phone Number', 'Name']}
-                                    label='Validation Option'
-                                    selectedState={validationType}
-                                    setSelectedState={setValidationType}
-                                />
-                                <p
-                                    className='text-[#043FA7] flex items-center gap-2'
-                                    style={{
-                                        fontFamily: 'Satoshi-Light',
-                                    }}
-                                >
-                                    What is KYA <BsQuestionCircle />
-                                </p>
+                            <Select
+                                state={['Phone Number', 'Name']}
+                                label='Validation Option'
+                                selectedState={validationType}
+                                setSelectedState={setValidationType}
+                            />
+                            <p
+                                className='text-[#043FA7] flex items-center gap-2'
+                                style={{
+                                    fontFamily: 'Satoshi-Light',
+                                }}
+                            >
+                                What is KYA <BsQuestionCircle />
+                            </p>
 
-                                <div className='border-t pt-10'>
-                                    {validationInput
-                                        .filter(
-                                            ({ name }) =>
-                                                name.toLowerCase() ===
-                                                validationType.toLowerCase()
+                            <div className='border-t pt-10'>
+                                {validationInput
+                                    .filter(
+                                        ({ name }) =>
+                                            name.toLowerCase() ===
+                                            validationType.toLowerCase()
+                                    )
+                                    .map(({ label, type, name }) => {
+                                        return (
+                                            <Input
+                                                label={label}
+                                                key={label}
+                                                name={name}
+                                                register={validation_register}
+                                                formErrors={
+                                                    validation_formErrors
+                                                }
+                                                type={type}
+                                            />
                                         )
-                                        .map(({ label, type, name }) => {
-                                            return (
-                                                <Input
-                                                    label={label}
-                                                    key={label}
-                                                    name={name}
-                                                    register={
-                                                        validation_register
-                                                    }
-                                                    formErrors={
-                                                        validation_formErrors
-                                                    }
-                                                    type={type}
-                                                />
-                                            )
-                                        })}
-                                </div>
-
-                                <button className='btn bg-[#0556E5] text-white rounded-lg py-4 place-self-start w-[15rem]'>
-                                    {validationType_isloading
-                                        ? 'Loading...'
-                                        : 'Validate'}
-                                </button>
-                            </form>
-                        ) : (
-                            <div className='bg-white rounded-2xl grid place-content-center justify-items-center h-[30rem] gap-8 text-[1.6rem]'>
-                                <img
-                                    src='/icons/admins/modalSuccess.svg'
-                                    alt=''
-                                />
-
-                                <p>You have successfully added an Artisan</p>
-
-                                <div className='flex w-full justify-center gap-8'>
-                                    <button
-                                        className='bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
-                                        onClick={handleClose}
-                                    >
-                                        Ok
-                                    </button>
-                                </div>
+                                    })}
                             </div>
-                        )}
+
+                            <button className='btn bg-[#0556E5] text-white rounded-lg py-4 place-self-start w-[15rem]'>
+                                {validationType_isloading
+                                    ? 'Loading...'
+                                    : 'Validate'}
+                            </button>
+                        </form>
                     </div>
                 </section>
             </dialog>
@@ -304,7 +323,7 @@ const ArtisanDetail = () => {
                                 }}
                             >
                                 {formInputs.map((input, idx) => {
-                                    const { label, type, name, tag, disabled } =
+                                    const { label, type } =
                                         input
 
                                     return (
@@ -312,14 +331,14 @@ const ArtisanDetail = () => {
                                             key={idx + label}
                                             id={idx}
                                             label={label}
-                                            tag={tag}
-                                            disabled={disabled}
+                                          //  tag={tag}
+                                          //  disabled={disabled}
                                             setValue={setValue}
                                             clearErrors={clearErrors}
                                             register={register}
                                             formErrors={formErrors}
                                             type={type}
-                                            name={name}
+                                           // name={name}
                                         />
                                     )
                                 })}
