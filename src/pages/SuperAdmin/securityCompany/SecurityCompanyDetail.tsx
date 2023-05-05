@@ -23,22 +23,22 @@ const SecurityCompanyDetail = () => {
         className: string
         displayMessage: string
     }
-
+    
     type FormInputs = {
         label?: keyof Inputs
         type?: string
         name?: string
     }
-
+    const genderState = ['Male', 'Female']
+    
     const params = useParams()
     const axiosInstance = useAxios()
-
+    
     const [photoPreview, setPhotoPreview] = useState('')
     const [imageFile, setImageFile] = useState<File | null>(null)
-    const genderState = ['Male', 'Female']
     const [isWarning, setIsWarning] = useState(true)
     const [isSignOutRequired, setIsSignOutRequired] = useState(false)
-
+    
     const toggleIsSignOutRequired = () =>
         setIsSignOutRequired(!isSignOutRequired)
     const [responseMessage, setResponseMessage] =
@@ -111,12 +111,12 @@ const SecurityCompanyDetail = () => {
 
     const postDeactivate = () => {
         return axiosInstance({
-            url: '/admin/deactivate_activate',
+            url: '/security-company/deactivate_activate',
             method: 'post',
             data: { id: company_id },
         })
     }
-    const postUpdateAdmin = (data: any) => {
+    const postRequest = (data: any) => {
         return axiosInstance({
             url: `/security-company/update/${company_id}`,
             method: 'post',
@@ -124,15 +124,15 @@ const SecurityCompanyDetail = () => {
         })
     }
 
-    const getAdmin = () => {
+    const getRequest = () => {
         return axiosInstance({
             url: `/security-company/get/${company_id}`,
         })
     }
 
     const {
-        mutate: deactivate_admin_mutation,
-        isLoading: deactivate_admin_loading,
+        mutate: deactivate_mutation,
+        isLoading: deactivate_loading,
     } = useMutation(postDeactivate, {
         onSuccess: (res) => {
             toast('Admin Deactivated successfully', {
@@ -152,9 +152,9 @@ const SecurityCompanyDetail = () => {
         },
     })
 
-    const { data: get_response, isLoading: get_admin_loading } = useQuery(
-        [`get_admin_${company_id}`],
-        getAdmin
+    const { data: get_response, isLoading: get_loading } = useQuery(
+        [`get_company_${company_id}`],
+        getRequest
     )
 
     useEffect(() => {
@@ -179,7 +179,7 @@ const SecurityCompanyDetail = () => {
     }, [get_response])
 
     const { mutate: post_admin_mutation, isLoading: post_update_loading } =
-        useMutation(postUpdateAdmin, {
+        useMutation(postRequest, {
             onSuccess: (res) => {
                 toast('Admin Updated successfully', {
                     type: 'success',
@@ -223,10 +223,10 @@ const SecurityCompanyDetail = () => {
     }
 
     const confirmDeactivation = () => {
-        return deactivate_admin_mutation()
+        return deactivate_mutation()
     }
 
-    if (get_admin_loading) {
+    if (get_loading) {
         return <p className='p-8'> Loading...</p>
     }
 
@@ -274,7 +274,7 @@ const SecurityCompanyDetail = () => {
                                     className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem] capitalize'
                                     onClick={confirmDeactivation}
                                 >
-                                    {deactivate_admin_loading
+                                    {deactivate_loading
                                         ? 'Loading...'
                                         : 'deactivate'}
                                 </button>
