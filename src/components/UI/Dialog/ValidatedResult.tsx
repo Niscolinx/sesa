@@ -1,8 +1,20 @@
-import React from 'react'
+import React, { useRef } from 'react'
 
 function ValidatedResult() {
+      const dialogRef = useRef<HTMLDialogElement | null>(null)
+
+      const closeValidatedDialog = () => {
+          if (dialogRef.current) {
+              dialogRef.current.close()
+          }
+      }
+      const openValidatedDialog = () => {
+          if (dialogRef.current) {
+              dialogRef.current.showModal()
+          }
+      }
   return (
-      <dialog className='dialog' ref={validatedDialogRef}>
+      <dialog className='dialog' ref={dialogRef}>
           <section className='grid place-content-center w-full h-[100vh]'>
               <div className='bg-white rounded-2xl grid items-baseline w-[90rem] min-h-[30rem] p-10 text-[1.6rem] relative gap-20'>
                   <IoMdClose
