@@ -323,22 +323,21 @@ const ArtisanDetail = () => {
                                 }}
                             >
                                 {formInputs.map((input, idx) => {
-                                    const { label, type } =
-                                        input
+                                    const { label, type } = input
 
                                     return (
                                         <Input
                                             key={idx + label}
                                             id={idx}
                                             label={label}
-                                          //  tag={tag}
-                                          //  disabled={disabled}
+                                            //  tag={tag}
+                                            //  disabled={disabled}
                                             setValue={setValue}
                                             clearErrors={clearErrors}
                                             register={register}
                                             formErrors={formErrors}
                                             type={type}
-                                           // name={name}
+                                            // name={name}
                                         />
                                     )
                                 })}
