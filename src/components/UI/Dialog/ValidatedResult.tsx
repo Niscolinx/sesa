@@ -1,5 +1,6 @@
 import { SetStateAction } from 'jotai'
 import React, { Dispatch, useEffect, useRef, useState } from 'react'
+import { BsQuestionCircle } from 'react-icons/bs'
 import { IoMdClose } from 'react-icons/io'
 
 interface Props {
@@ -9,8 +10,9 @@ interface Props {
 
 function ValidatedResult({ open, setOpen }: Props) {
     const dialogRef = useRef<HTMLDialogElement | null>(null)
-     const [photoPreview, setPhotoPreview] = useState('')
-     const [imageFile, setImageFile] = useState<File | null>(null)
+    const [isValidated, setIsValidated] = useState(false)
+    const [photoPreview, setPhotoPreview] = useState('')
+    const [imageFile, setImageFile] = useState<File | null>(null)
 
     useEffect(() => {
         if (open) {
@@ -31,13 +33,13 @@ function ValidatedResult({ open, setOpen }: Props) {
         }
     }
 
-     const handlePicture = (e: React.ChangeEvent) => {
-         const target = e.target as HTMLInputElement
-         const file: File = (target.files as FileList)[0]
-         const preview = URL.createObjectURL(file)
-         setPhotoPreview(preview)
-         setImageFile(file)
-     }
+    const handlePicture = (e: React.ChangeEvent) => {
+        const target = e.target as HTMLInputElement
+        const file: File = (target.files as FileList)[0]
+        const preview = URL.createObjectURL(file)
+        setPhotoPreview(preview)
+        setImageFile(file)
+    }
 
     return (
         <>
@@ -134,7 +136,7 @@ function ValidatedResult({ open, setOpen }: Props) {
                     className='grid gap-4 cursor-pointer justify-items-center'
                 >
                     <img
-                        src={photoUrl ? photoUrl : '/img/me.jpeg'}
+                        src={photoPreview}
                         alt='photoPreview'
                         className='object-cover w-[11rem] h-[11rem] rounded-full object-top'
                     />
@@ -148,7 +150,7 @@ function ValidatedResult({ open, setOpen }: Props) {
                     id='photoUpload'
                     accept='image/*'
                     className='hidden'
-                    onClick={handlePhotoPreview}
+                    onChange={handlePicture}
                 />
                 <div className='grid gap-2 justify-items-start'>
                     <p

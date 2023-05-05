@@ -10,17 +10,11 @@ type Actions = 'Deactivate' | 'Delete'
 const ArtisanDetail = () => {
     const [selectedGender, setSelectedGender] = useState<string>('')
     const [dialogType, setDialogType] = useState<Actions>('Deactivate')
-        const [isValidated, setIsValidated] = useState(false)
+       
 
 
-    const [photoUrl, setPhotoUrl] = useState('')
 
-    const handlePhotoPreview = async (
-        _: React.MouseEvent<HTMLInputElement>
-    ) => {
-        const getUrl = await getPhotoUrl(`#photoUpload`)
-        setPhotoUrl(getUrl)
-    }
+   
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
@@ -140,7 +134,8 @@ const ArtisanDetail = () => {
             <div className='grid p-8 bg-white  rounded-lg gap-[10rem]'>
                 <div>
                     <div className='flex justify-between items-center'>
-                        hhh
+                        
+                        <sadf?
 
                         <div className='flex gap-8'>
                             <button
