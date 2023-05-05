@@ -120,7 +120,7 @@ const ViewArtisanGroup = () => {
                         Update
                     </button>
                 </div>
-                {/* 
+                
                 <Table
                     title={'artisan'}
                     view_page_url={'/superAdmin/admin/view/'}
@@ -137,7 +137,7 @@ const ViewArtisanGroup = () => {
                         'phone_number',
                     ]}
                     isDataProvided={true}
-                    providedData={artisan_data.data}
+                    providedData={group_artisans.data}
                     deactivateProp={{ url: '/admin/deactivate_activate' }}
                 />
                 <Table
@@ -147,9 +147,9 @@ const ViewArtisanGroup = () => {
                     actions={['remove']}
                     data_to_display={['estate_name', 'address']}
                     isDataProvided={true}
-                    providedData={artisan_data.data}
+                    providedData={group_estates.data}
                 />
-                */}
+               
             </div>
         </>
     )
