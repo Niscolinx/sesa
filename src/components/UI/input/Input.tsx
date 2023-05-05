@@ -307,8 +307,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                     {formErrors[label].type === 'required' ? (
                         <span>Field cannot be empty</span>
                     ) : (
-                        <span>Invalid </span>
-                        // <span>Invalid {label.replaceAll('_', ' ')}</span>
+                        <span>Invalid {label.replaceAll('_', ' ')}</span>
                     )}
                 </p>
             )}
