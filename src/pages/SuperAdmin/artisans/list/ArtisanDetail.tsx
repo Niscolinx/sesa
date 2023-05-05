@@ -111,14 +111,15 @@ const ArtisanDetail = () => {
 
     interface Inputs {
         firstname: string
+        lastname: string
         artisan_code: string
-        address: string
-        formatted_onboarding_date: string
-        phone: string
-        no_bank_account: number
-        no_assigned_security_guards: number
-        no_security_guards: number
-        balance: number
+        email_address: string
+        phone_number: string
+        gender: string
+        address_line_1: string
+        address_line_2: string
+        business_name: string
+       
     }
 
     type ResponseMessage = {
