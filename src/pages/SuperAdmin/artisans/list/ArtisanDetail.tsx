@@ -13,8 +13,6 @@ import { useForm } from 'react-hook-form'
 import ValidateKY from '../../../../components/UI/Dialog/validateKY'
 
 const ArtisanDetail = () => {
- 
-
     interface Inputs {
         firstname: string
         lastname: string
@@ -46,7 +44,7 @@ const ArtisanDetail = () => {
 
     const genderState = ['Male', 'Female']
     const [photoPreview, setPhotoPreview] = useState('')
-        const [imageFile, setImageFile] = useState<File | null>(null)
+    const [imageFile, setImageFile] = useState<File | null>(null)
 
     const [selectedGender, setSelectedGender] = useState<string>('')
 
@@ -176,7 +174,10 @@ const ArtisanDetail = () => {
             <div className='grid p-8 bg-white  rounded-lg gap-[10rem]'>
                 <div>
                     <div className='flex justify-between items-center'>
-                        <ValidatedResult image={photoPreview} setImageFile={setImageFile} />
+                        <ValidatedResult
+                            image={photoPreview}
+                            setImageFile={setImageFile}
+                        />
 
                         <Activate_Deactivate
                             id={artisan_id}
@@ -216,7 +217,7 @@ const ArtisanDetail = () => {
                                     )
                                 })}
                             </section>
-                            <ValidateKY/>
+                            <ValidateKY />
                         </div>
 
                         <button className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg justify-self-start capitalize'>

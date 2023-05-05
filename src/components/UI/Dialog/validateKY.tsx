@@ -45,7 +45,7 @@ function ValidateKY() {
                 className: 'bg-red-100 text-red-600 text-[1.4rem]',
             })
         },
-    }) 
+    })
 
     const handleClose = () => {
         if (dialogRef.current) {
@@ -54,10 +54,7 @@ function ValidateKY() {
     }
 
     const handleOpen = () => {
-        alert('open')
-        // if (dialogRef.current) {
-        //     dialogRef.current.showModal()
-        // }
+        dialogRef.current?.showModal()
     }
     const onSubmitValidation = validation_handleSubmit((data) => {
         validationType_mutation(data)
@@ -189,7 +186,7 @@ function ValidateKY() {
                                         fontFamily: 'Satoshi-Medium',
                                     }}
                                 >
-                                    Click here to validate this personsdsds
+                                    Click here to validate this person
                                 </p>
                             </div>
                         )}
