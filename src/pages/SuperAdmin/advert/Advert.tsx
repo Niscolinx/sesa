@@ -3,19 +3,18 @@ import AdvertList from './AdvertList'
 import AvailableEstateAdvert from './AvailableEstateAdvert'
 
 function Advert() {
-    type PathSwitch = 'advertList' | 'availableEstates'
+    type PathSwitch = 'advertList'
 
     const [pathToSwitch, setPathToSwitch] = useState<PathSwitch>('advertList')
 
     const handlePathSwitch: Record<PathSwitch, JSX.Element> = {
         advertList: <AdvertList />,
-        availableEstates: <AvailableEstateAdvert />,
+        // availableEstates: <AvailableEstateAdvert />,
     }
 
     return (
-        <div>
-            <div className='rounded-lg mt-[3rem] h-[80vh]'>
-                <div className='estateDetail__radioBox'>
+        <div className='rounded-lg mt-[3rem] min-h-[60vh]'>
+            {/* <div className='estateDetail__radioBox'>
                     <input
                         type='radio'
                         name='advert'
@@ -36,12 +35,11 @@ function Advert() {
                         onChange={() => setPathToSwitch('availableEstates')}
                     />
                     <label htmlFor='availableEstates'>Available Estates</label>
-                </div>
-                <div className='mt-8 grid gap-8'>
-                    <section className='bg-color-white rounded-lg border min-w-[112rem] overflow-scroll'>
-                        {handlePathSwitch[pathToSwitch]}
-                    </section>
-                </div>
+                </div> */}
+            <div className='mt-8 grid gap-8'>
+                <section className='bg-color-white rounded-lg border min-w-[112rem] overflow-scroll'>
+                    {handlePathSwitch[pathToSwitch]}
+                </section>
             </div>
         </div>
     )
