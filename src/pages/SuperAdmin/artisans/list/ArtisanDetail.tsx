@@ -93,10 +93,11 @@ const ArtisanDetail = () => {
 
     useEffect(() => {
         if (get_response) {
-            const { image, gender,  ...other } = get_response.data
+            const { image, created_at, gender,  ...other } = get_response.data
 
             reset({
                 ...other,
+                onboarding_date:  created_at.split('T')[0]
             })
 
             setPhotoPreview(image)
