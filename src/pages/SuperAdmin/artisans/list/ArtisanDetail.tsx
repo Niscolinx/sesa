@@ -238,7 +238,7 @@ const ArtisanDetail = () => {
                                     className='w-[1.7rem] h-[1.7rem]'
                                 />
                             </span>
-                            {update_loading ? 'Loading...' : 'Save changes' }
+                            {update_loading ? 'Loading...' : 'Save changes'}
                         </button>
                     </form>
                 </div>
@@ -414,88 +414,6 @@ const ArtisanDetail = () => {
                                 reiciendis facilis. Illum et doloremque fuga quo
                                 aut laudantium consequatur nemo.
                             </p>
-                        </div>
-                    </div>
-                </section>
-                <section className='grid w-full'>
-                    <h3
-                        className='text-[2rem]'
-                        style={{
-                            fontFamily: 'Satoshi-Medium',
-                        }}
-                    >
-                        Know Your Artisan (KYA)
-                    </h3>
-                    <div className='bg-white rounded-2xl grid items-baseline  p-10 text-[1.6rem] relative gap-20'>
-                        <div className='relative h-[14rem] bg-blue-600 w-full mt-10 rounded-lg'>
-                            <img
-                                src='/img/me.jpeg'
-                                alt=''
-                                className='w-[10rem] h-[10rem] border rounded-full border-green-600 object-cover absolute bottom-[-6rem] left-10 object-top'
-                            />
-                        </div>
-                        <div className='mt-20'>
-                            <h2>Validation Result</h2>
-
-                            <div className='border grid mt-5'>
-                                <div className='grid grid-cols-2 border-b gap-4'>
-                                    <p
-                                        className='border-r py-4 pl-4 text-gray-700'
-                                        style={{
-                                            fontFamily: 'Satoshi-Light',
-                                        }}
-                                    >
-                                        Validation Option
-                                    </p>
-                                    <p className='py-4'>
-                                        Phone Number | (+234) 813238432
-                                    </p>
-                                </div>
-                                <div className='grid grid-cols-2 border-b gap-4'>
-                                    <p
-                                        className='border-r py-4 pl-4 text-gray-700'
-                                        style={{
-                                            fontFamily: 'Satoshi-Light',
-                                        }}
-                                    >
-                                        Full Name
-                                    </p>
-                                    <p className='py-4'>Michael Okonkwo</p>
-                                </div>
-                                <div className='grid grid-cols-2 border-b gap-4'>
-                                    <p
-                                        className='border-r py-4 pl-4 text-gray-700'
-                                        style={{
-                                            fontFamily: 'Satoshi-Light',
-                                        }}
-                                    >
-                                        Date of Birth
-                                    </p>
-                                    <p className='py-4'>15 May, 1998</p>
-                                </div>
-                                <div className='grid grid-cols-2 border-b gap-4'>
-                                    <p
-                                        className='border-r py-4 pl-4 text-gray-700'
-                                        style={{
-                                            fontFamily: 'Satoshi-Light',
-                                        }}
-                                    >
-                                        Phone Number
-                                    </p>
-                                    <p className='py-4'> (+234) 813238432</p>
-                                </div>
-                                <div className='grid grid-cols-2  gap-4'>
-                                    <p
-                                        className='border-r py-4 pl-4 text-gray-700'
-                                        style={{
-                                            fontFamily: 'Satoshi-Light',
-                                        }}
-                                    >
-                                        Gender
-                                    </p>
-                                    <p className='py-4'>Male</p>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </section>
