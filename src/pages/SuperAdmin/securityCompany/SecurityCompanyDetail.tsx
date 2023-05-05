@@ -25,7 +25,7 @@ const SecurityCompanyDetail = () => {
     }
 
     type FormInputs = {
-        label?: string
+        label?: keyof Inputs
         type?: string
         name?: string
     }
@@ -64,24 +64,28 @@ const SecurityCompanyDetail = () => {
             type: 'number',
         },
         {
-            label: 'no_of_security_guards',
+            name: 'no_of_security_guards',
+            label: 'no_security_guards',
             type: 'number',
         },
         {
-            label: 'wallet_balance',
+            name: 'wallet_balance',
+            label: 'balance',
             type: 'number',
         },
         {
             name: 'Joined Date',
-            label: 'onboarding_date',
+            label: 'formatted_onboarding_date',
             type: 'date',
         },
         {
-            label: 'no_of_assigned_security_guards',
+            name: 'no_of_assigned_security_guards',
+            label: 'no_assigned_security_guards',
             type: 'number',
         },
         {
-            label: 'no_of_bank_accounts_opened',
+            name: 'no_of_bank_accounts_opened',
+            label: 'no_bank_account',
             type: 'number',
         },
     ] satisfies FormInputs[]
@@ -155,9 +159,8 @@ const SecurityCompanyDetail = () => {
             console.log({ get_response })
             const { id, user_id, image, status, onboarding_date, ...other } =
                 get_response.data
-                
 
-                console.log({other})
+            console.log({ other })
 
             const formatDate = new Date(onboarding_date)
                 .toISOString()
