@@ -1,21 +1,23 @@
-import React, { useEffect, useRef } from 'react'
+import { SetStateAction } from 'jotai'
+import React, { Dispatch, useEffect, useRef } from 'react'
 import { IoMdClose } from 'react-icons/io'
 
 interface Props {
     open: boolean
+    setOpen: Dispatch<SetStateAction<boolean>>
 }
 
-function ValidatedResult({ open }: Props) {
+function ValidatedResult({ open, setOpen }: Props) {
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
     useEffect(() => {
-        if(open){
+        if (open) {
             openValidatedDialog()
-        
         }
     }, [open])
 
     const closeValidatedDialog = () => {
+        setOpen(false)
         if (dialogRef.current) {
             dialogRef.current.close()
         }
