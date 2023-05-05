@@ -166,6 +166,10 @@ const ArtisanDetail = () => {
         {
             label: 'address_line_2',
         },
+        {
+            label: 'business_name',
+        },
+        
     ] satisfies FormInputs[]
 
     return (
