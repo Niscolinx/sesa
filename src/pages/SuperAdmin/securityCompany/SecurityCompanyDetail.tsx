@@ -206,7 +206,7 @@ const SecurityCompanyDetail = () => {
                     />
 
                     <div className='flex gap-8'>
-                       <Activate_Deactivate id={company_id} url={'/security-company/deactivate_activate'} status={''} title={'security company'}/>
+                       <Activate_Deactivate id={company_id} url={'/security-company/deactivate_activate'} status={get_response?.data.status} title={'security company'}/>
                     </div>
                 </div>
 
