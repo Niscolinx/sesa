@@ -11,7 +11,7 @@ import Activate_Deactivate from '../../../../components/UI/Dialog/Activate_Deact
 import Input, { SelectProps } from '../../../../components/UI/input/Input'
 import { useQuery } from 'react-query'
 import { useForm } from 'react-hook-form'
-import { IoMdCheckmarkCircleOutline } from 'react-icons/io'
+import { IoMdCheckmarkCircleOutline, IoMdClose } from 'react-icons/io'
 
 type Actions = 'Deactivate' | 'Delete'
 
@@ -88,16 +88,16 @@ const ArtisanDetail = () => {
     }, [get_response])
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
-    
-    const closeValidateDialog = () => {
-        if (validateDialogRef.current) {
-            validateDialogRef.current.close()
+
+    const handleClose = () => {
+        if (dialogRef.current) {
+            dialogRef.current.close()
         }
     }
 
-    const openValidateDialog = () => {
-        if (validateDialogRef.current) {
-            validateDialogRef.current.showModal()
+    const openDialog = () => {
+        if (dialogRef.current) {
+            dialogRef.current.showModal()
         }
     }
 
