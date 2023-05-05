@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import { useMutation } from 'react-query'
+import { useMutation, useQueryClient } from 'react-query'
 import { ToastContainer, toast } from 'react-toastify'
 import useAxios from '../../hooks/useAxios'
 
@@ -11,7 +11,7 @@ interface Props {
     queryCache: string
 }
 
-function Activate_Deactivate({ id, url, status, title, queryCache}: Props) {
+function Activate_Deactivate({ id, url, status, title, queryCache }: Props) {
     const dialogRef = useRef<HTMLDialogElement | null>(null)
     const axiosInstance = useAxios()
 
@@ -22,6 +22,8 @@ function Activate_Deactivate({ id, url, status, title, queryCache}: Props) {
             data: { id },
         })
     }
+
+    const queryClient = useQueryClient()
 
     const { mutate: deactivate_mutation, isLoading: deactivate_loading } =
         useMutation(postDeactivate, {
@@ -39,6 +41,7 @@ function Activate_Deactivate({ id, url, status, title, queryCache}: Props) {
             },
 
             onSettled: () => {
+                queryClient.invalidateQueries(queryCache)
                 return handleClose()
             },
         })
