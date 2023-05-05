@@ -81,14 +81,14 @@ const Input: FC<Partial<Input> & { label: string }> = ({
     const handlePhoneChange = (e: ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value.replace(/\D/g, '')
         if (setValue && clearErrors) {
-            clearErrors('phone_number')
+            clearErrors(label)
 
             if (value.length <= 1 && value === '0') {
                 return setPhone('')
             }
 
             if (value.length < 11) {
-                setValue('phone_number', value)
+                setValue(label, value)
                 setPhone(value)
             }
         }
@@ -121,9 +121,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
         }
     }
 
-    useEffect(() => {
-        console.log({formErrors})
-    }, [formErrors])
+   
 
     return (
         <div

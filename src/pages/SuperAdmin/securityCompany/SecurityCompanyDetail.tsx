@@ -29,6 +29,7 @@ const SecurityCompanyDetail = () => {
         label?: keyof Inputs
         type?: string
         name?: string
+        tag?: 'money'
     }
     const genderState = ['Male', 'Female']
 
@@ -73,6 +74,7 @@ const SecurityCompanyDetail = () => {
             name: 'wallet_balance',
             label: 'balance',
             type: 'number',
+            tag: 'money',
         },
         {
             name: 'Joined Date',
@@ -100,6 +102,12 @@ const SecurityCompanyDetail = () => {
     } = useForm<Inputs>()
 
     const company_id = params.id?.replace(':', '')
+
+    watch((i) => console.log({i}))
+
+     useEffect(() => {
+         console.log({ formErrors })
+     }, [formErrors])
 
     if (!company_id) {
         toast('Company not Found', {
@@ -135,7 +143,6 @@ const SecurityCompanyDetail = () => {
             const { id, user_id, image, status, onboarding_date, ...other } =
                 get_response.data
 
-            console.log({ other })
 
             const formatDate = new Date(onboarding_date)
                 .toISOString()
@@ -219,13 +226,14 @@ const SecurityCompanyDetail = () => {
                             }}
                         >
                             {formInputs.map((input, idx) => {
-                                const { label, type, name } = input
+                                const { label, type, name, tag } = input
 
                                 return (
                                     <Input
                                         key={idx + label}
                                         id={idx}
                                         label={label}
+                                        tag={tag}
                                         register={register}
                                         formErrors={formErrors}
                                         type={type}
