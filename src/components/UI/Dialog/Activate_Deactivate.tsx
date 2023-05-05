@@ -8,9 +8,10 @@ interface Props {
     url: string
     status: string
     title: string
+    queryCache: string
 }
 
-function Activate_Deactivate({ id, url, status, title }: Props) {
+function Activate_Deactivate({ id, url, status, title, queryCache}: Props) {
     const dialogRef = useRef<HTMLDialogElement | null>(null)
     const axiosInstance = useAxios()
 

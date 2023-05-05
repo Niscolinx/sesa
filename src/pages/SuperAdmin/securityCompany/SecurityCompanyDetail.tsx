@@ -124,8 +124,6 @@ const SecurityCompanyDetail = () => {
         })
     }
 
- 
-
     const { data: get_response, isLoading: get_loading } = useQuery(
         [`get_company_${company_id}`],
         getRequest
@@ -196,7 +194,7 @@ const SecurityCompanyDetail = () => {
     return (
         <>
             <ToastContainer />
-            
+
             <div className='grid p-8 bg-white min-h-[60vh] items-baseline overflow-y-scroll rounded-lg'>
                 <div className='flex justify-between items-center my-10'>
                     <img
@@ -206,7 +204,13 @@ const SecurityCompanyDetail = () => {
                     />
 
                     <div className='flex gap-8'>
-                       <Activate_Deactivate id={company_id} url={'/security-company/deactivate_activate'} status={get_response?.data.status} title={'security company'}/>
+                        <Activate_Deactivate
+                            id={company_id}
+                            url={'/security-company/deactivate_activate'}
+                            status={get_response?.data.status}
+                            title={'security company'}
+                            queryCache={`get_company_${company_id}`}
+                        />
                     </div>
                 </div>
 
