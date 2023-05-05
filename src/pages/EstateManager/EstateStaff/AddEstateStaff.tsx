@@ -525,7 +525,7 @@ const AddEstateStaff = () => {
                     </form>
                 </section>
                 <section className='grid p-8 bg-white'>
-                    <div className='grid gap-8 max-w-[40rem] mt-[5rem] '>
+                    <div className='grid max-w-[40rem] mt-[5rem] '>
                         <div className='flex items-center justify-between'>
                             <p className='text-[2rem] font-Satoshi-Medium flex items-center gap-2'>
                                 KYG{' '}
