@@ -6,12 +6,14 @@ interface FetchData {
     url?: string
     name?: string
     params?: string
+    nested?: boolean
 }
 
 const useFetchData = ({
     url = '/states/get',
     params,
     name = 'states',
+    nested = true
 }: FetchData) => {
     const [queryParams, setQueryParams] = useState(params)
 
@@ -19,7 +21,7 @@ const useFetchData = ({
     const fetchData = () =>
         axiosInstance({
             url,
-        }).then(({ data }) => data)
+        }).then((res) =>  nested ? res.data : res)
 
     const { isLoading, error, data, refetch, isFetching, isError, isFetched, } = useQuery<any, Error>(
         [name, queryParams],

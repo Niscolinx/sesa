@@ -20,28 +20,27 @@ const ViewArtisanGroup = () => {
     const axiosInstance = useAxios()
 
     const groupId = params.id?.replace(':', '')
+         const [name, setName] = useState('')
 
-    const { data: response_data, isLoading: response_loading } = useFetchData({
+
+    const { data: response_data, isLoading } = useFetchData({
         url: `/admin/group/getSingleGroup/16`,
         name: `view_group_${groupId}`,
+        nested: false
         
         // url: `/admin/group/getSingleGroup/${groupId}`,
     
     })
 
     useEffect(() => {
-        console.log({response_data})
         if(response_data){
             setName(response_data.name)
         }
     }, [response_data])
 
-    console.log({response_data})
 
 
 
-
-     const [name, setName] = useState('')
 
      const updateRequest = () => {
          return axiosInstance({
@@ -51,7 +50,7 @@ const ViewArtisanGroup = () => {
              data: { name },
          })
      }
-     const { isLoading, mutate } = useMutation(
+     const { isLoading: update_loading, mutate } = useMutation(
          'update_group_name',
          updateRequest,
          {
@@ -71,16 +70,18 @@ const ViewArtisanGroup = () => {
          }
      )
 
-    //  const { data: group_detail, isLoading: group_detail_loading } =
-    //      useFetchData({
-    //          url: '/admin/group/get/single/2',
-    //          name: 'group_single',
-    //      })
-    //  const { data: group_users, isLoading: group_users_loading } =
-    //      useFetchData({
-    //          url: '/admin/group/get/single/users/2',
-    //          name: 'group_users',
-    //      })
+     const { data: group_detail, isLoading: group_detail_loading } =
+         useFetchData({
+             url: '/admin/group/get/single/2',
+             name: 'group_single',
+             nested: false
+         })
+     const { data: group_users, isLoading: group_users_loading } =
+         useFetchData({
+             url: '/admin/group/get/single/users/2',
+             name: 'group_users',
+             nested: false
+         })
 
      const onSubmit = (e: FormEvent) => {
          e.preventDefault()
@@ -96,9 +97,9 @@ const ViewArtisanGroup = () => {
          mutate()
      }
 
-    //  if (group_detail_loading || group_users_loading) {
-    //      return <p className='p-8'>Loading...</p>
-    //  }
+     if (isLoading ||group_detail_loading || group_users_loading) {
+         return <p className='p-8'>Loading...</p>
+     }
 
 
   
