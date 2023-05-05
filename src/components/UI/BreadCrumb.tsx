@@ -26,10 +26,10 @@ function BreadCrumb() {
     return (
         <div className='flex gap-4 mb-[2rem]'>
         <BsArrowLeft
-          className="text-[2.4rem] cursor-pointer"
+          className="text-[3rem] cursor-pointer"
           onClick={() => navigate(-1)}
         />
-            {breadcrumbs.map(({ match, breadcrumb }, i) => {
+            {/* {breadcrumbs.map(({ match, breadcrumb }, i) => {
 
                 const eachParam = Object.keys(match.params)
 
@@ -67,7 +67,7 @@ function BreadCrumb() {
 
                    
                 }
-            })}
+            })} */}
         </div>
     )
 }
