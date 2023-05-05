@@ -122,9 +122,11 @@ const ArtisanDetail = () => {
 
     const formInputs = [
         {
+            name: 'firstName',
             label: 'firstname',
         },
         {
+            name: 'lastName',
             label: 'lastname',
         },
         {
