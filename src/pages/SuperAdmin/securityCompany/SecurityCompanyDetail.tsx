@@ -147,6 +147,10 @@ const SecurityCompanyDetail = () => {
                 displayMessage: err?.response?.data.message,
             })
         },
+
+        onSettled: () => {
+           return handleClose()
+        },
     })
 
     const { data: get_response, isLoading: get_admin_loading } = useQuery(
@@ -220,7 +224,7 @@ const SecurityCompanyDetail = () => {
     }
 
     const confirmDeactivation = () => {
-      return deactivate_admin_mutation()
+        return deactivate_admin_mutation()
     }
 
     if (get_admin_loading) {
@@ -271,7 +275,9 @@ const SecurityCompanyDetail = () => {
                                     className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem] capitalize'
                                     onClick={confirmDeactivation}
                                 >
-                                    {deactivate_admin_loading ? 'Loading...' : 'deactivate'}
+                                    {deactivate_admin_loading
+                                        ? 'Loading...'
+                                        : 'deactivate'}
                                 </button>
                             ) : (
                                 <button
