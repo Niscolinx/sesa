@@ -5,9 +5,12 @@ import useAxios from '../../hooks/useAxios'
 
 interface Props {
     id: string
+    url: string
+    status: string
+    title: string
 }
 
-function Activate_Deactivate({ id }: Props) {
+function Activate_Deactivate({ id,  url, status, title  }: Props) {
     const dialogRef = useRef<HTMLDialogElement | null>(null)
     const axiosInstance = useAxios()
 
@@ -64,8 +67,7 @@ function Activate_Deactivate({ id }: Props) {
                         <img src='/icons/admins/modalWarning.svg' alt='' />
 
                         <p>
-                            Are you sure you want to deactivate this security
-                            company?
+                            Are you sure you want to deactivate this {title}?
                         </p>
 
                         <div className='flex w-full justify-center gap-8'>
