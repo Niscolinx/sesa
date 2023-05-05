@@ -121,6 +121,10 @@ const Input: FC<Partial<Input> & { label: string }> = ({
         }
     }
 
+    useEffect(() => {
+        console.log({formErrors})
+    }, [formErrors])
+
     return (
         <div
             className={`w-full grid gap-4 self-baseline ${
@@ -305,7 +309,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                     {formErrors[label].type === 'required' ? (
                         <span>Field cannot be empty</span>
                     ) : (
-                        <span>Invalid {JSON.stringify(formErrors[label])}</span>
+                        <span>Invalid </span>
                         // <span>Invalid {label.replaceAll('_', ' ')}</span>
                     )}
                 </p>
