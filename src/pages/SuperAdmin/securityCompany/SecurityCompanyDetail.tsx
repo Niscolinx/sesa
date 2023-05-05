@@ -138,7 +138,6 @@ const SecurityCompanyDetail = () => {
                     ...other
                 } = res.data
 
-
                 const formatDate = new Date(onboarding_date)
                     .toISOString()
                     .slice(0, 10)
@@ -198,9 +197,7 @@ const SecurityCompanyDetail = () => {
         post_mutation(adminData)
     })
 
-    
-
-    if (get_loading) {
+    if (get_loading || !get_response?.data) {
         return <p className='p-8'> Loading...</p>
     }
 
