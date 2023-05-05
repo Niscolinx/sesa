@@ -29,6 +29,7 @@ const SecurityCompanyDetail = () => {
         label?: keyof Inputs
         type?: string
         name?: string
+        disabled?: boolean
         tag?: 'money'
     }
 
@@ -68,12 +69,14 @@ const SecurityCompanyDetail = () => {
             name: 'no_of_security_guards',
             label: 'no_security_guards',
             type: 'number',
+            disabled: true,
         },
         {
             name: 'wallet_balance',
             label: 'balance',
             type: 'number',
             tag: 'money',
+            disabled: true,
         },
         {
             name: 'Joined Date',
@@ -84,11 +87,13 @@ const SecurityCompanyDetail = () => {
             name: 'no_of_assigned_security_guards',
             label: 'no_assigned_security_guards',
             type: 'number',
+            disabled: true,
         },
         {
             name: 'no_of_bank_accounts_opened',
             label: 'no_bank_account',
             type: 'number',
+            disabled: true,
         },
     ] satisfies FormInputs[]
 
@@ -102,7 +107,6 @@ const SecurityCompanyDetail = () => {
     } = useForm<Inputs>()
 
     const company_id = params.id?.replace(':', '')
-
 
     if (!company_id) {
         toast('Company not Found', {
@@ -129,15 +133,13 @@ const SecurityCompanyDetail = () => {
 
     const { data: get_response, isLoading: get_loading } = useQuery(
         [`get_company_${company_id}`],
-        getRequest,
-     
+        getRequest
     )
 
     useEffect(() => {
         if (get_response) {
             const { id, user_id, image, status, onboarding_date, ...other } =
                 get_response.data
-
 
             const formatDate = new Date(onboarding_date)
                 .toISOString()
@@ -221,7 +223,8 @@ const SecurityCompanyDetail = () => {
                             }}
                         >
                             {formInputs.map((input, idx) => {
-                                const { label, type, name, tag } = input
+                                const { label, type, name, tag, disabled } =
+                                    input
 
                                 return (
                                     <Input
@@ -229,6 +232,7 @@ const SecurityCompanyDetail = () => {
                                         id={idx}
                                         label={label}
                                         tag={tag}
+                                        disabled={disabled}
                                         setValue={setValue}
                                         clearErrors={clearErrors}
                                         register={register}

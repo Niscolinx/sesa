@@ -6,7 +6,7 @@ import useAxios from '../../hooks/useAxios'
 interface Props {
     id: string
     url: string
-    status: string
+    status: number
     title: string
     queryCache: string
 }
