@@ -91,13 +91,6 @@ const ViewAdmin = () => {
         return <p className='p-4'> Not found!</p>
     }
 
-    const postDeactivateAdmin = (id: string) => {
-        return axiosInstance({
-            url: '/admin/deactivate_activate',
-            method: 'post',
-            data: { id },
-        })
-    }
     const postUpdateAdmin = (data: any) => {
         return axiosInstance({
             url: `/admin/update/${admin_id}`,
@@ -112,24 +105,7 @@ const ViewAdmin = () => {
         })
     }
 
-    const {
-        mutate: deactivate_admin_mutation,
-        isLoading: deactivate_admin_loading,
-    } = useMutation(postDeactivateAdmin, {
-        onSuccess: (res) => {
-            toast('Admin Deactivated successfully', {
-                type: 'success',
-                className: 'bg-green-100 text-green-600 text-[1.4rem]',
-            })
-            closeDialog()
-        },
-        onError: (err: any) => {
-            setResponseMessage({
-                className: 'text-red-600',
-                displayMessage: err?.response?.data.message,
-            })
-        },
-    })
+   
 
     const { data: get_admin_response, isLoading: get_admin_loading } = useQuery(
         [`get_admin_${admin_id}`],
@@ -246,7 +222,7 @@ const ViewAdmin = () => {
 
                     <div className='flex gap-8'>
                      <Activate_Deactivate
-                            id={company_id}
+                            id={admin_id}
                             url={'/security-company/deactivate_activate'}
                             status={get_response.data.status}
                             title={'security company'}
