@@ -70,7 +70,7 @@ const ViewArtisanGroup = () => {
         })
     const { data: group_estates, isLoading: group_estates_loading } =
         useFetchData({
-            url: `/admin/group/get/single/users/${groupId}`,
+            url: `/admin/group/getSingleGroupEstate/${groupId}`,
             name: 'group_estates',
         })
 
@@ -91,6 +91,8 @@ const ViewArtisanGroup = () => {
     if (isLoading || group_artisans_loading || group_estates_loading) {
         return <p className='p-8'>Loading...</p>
     }
+
+    console.log({group_estates})
 
     return (
         <>
