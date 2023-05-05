@@ -419,14 +419,14 @@ function RenderedSecurityCompanies() {
                                     className='pl-16 w-[25rem] rounded-lg border border-color-blue-light py-4 px-8 outline-none appearance-none'
                                 />
                             </div>
-                            <div className='relative flex items-center'>
+                            {/* <div className='relative flex items-center'>
                                 <select className='cursor-pointer w-[25rem] rounded-lg border border-color-blue-light py-4 px-8 outline-none appearance-none'>
                                     <option hidden>Category</option>
                                     <option>date</option>
                                     <option>Alpha</option>
                                 </select>
                                 <GrDown className='absolute right-4 text-[1.3rem]' />
-                            </div>
+                            </div> */}
                             <button
                                 className='btn ml-auto bg-color-blue-1 text-white flex gap-2 items-center self-center rounded-lg py-4 px-8'
                                 onClick={handlePathSwitch}
