@@ -1,23 +1,32 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { IoMdClose } from 'react-icons/io'
 
-
 interface Props {
-    open: () => void
+    open: boolean
 }
-function ValidatedResult() {
+
+function ValidatedResult({ open }: Props) {
     const dialogRef = useRef<HTMLDialogElement | null>(null)
+
+    useEffect(() => {
+        if(open){
+            openValidatedDialog()
+        
+        }
+    }, [open])
 
     const closeValidatedDialog = () => {
         if (dialogRef.current) {
             dialogRef.current.close()
         }
     }
+
     const openValidatedDialog = () => {
         if (dialogRef.current) {
             dialogRef.current.showModal()
         }
     }
+
     return (
         <dialog className='dialog' ref={dialogRef}>
             <section className='grid place-content-center w-full h-[100vh]'>

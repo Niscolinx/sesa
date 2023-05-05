@@ -5,6 +5,7 @@ import { toast, ToastContainer } from 'react-toastify'
 
 import { Select } from '../../../components/SuperAdmin/UI/Select'
 import { getPhotoUrl } from '../../../utils/getPhotoUrl'
+import ValidatedResult from '../../../components/UI/Dialog/ValidatedResult'
 
 type Actions = 'Deactivate' | 'Delete'
 
@@ -19,6 +20,7 @@ export type ValidateInputTypes =
 const ViewResident = () => {
     const [selectedGender, setSelectedGender] = useState<string>('')
     const [isValidated, setIsValidated] = useState(false)
+    const [openValidatedDialog, setOpenValidatedDialog] = useState(false)
 
     const [photoUrl, setPhotoUrl] = useState('')
 
@@ -33,19 +35,10 @@ const ViewResident = () => {
         e.preventDefault()
     }
 
-    const validatedDialogRef = useRef<HTMLDialogElement | null>(null)
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
-    const closeValidatedDialog = () => {
-        if (validatedDialogRef.current) {
-            validatedDialogRef.current.close()
-        }
-    }
-    const openValidatedDialog = () => {
-        if (validatedDialogRef.current) {
-            validatedDialogRef.current.showModal()
-        }
-    }
+  
+    
 
     const openDeleteOrDeactivateDialog = (dialogType: Actions) => {
         if (dialogRef.current) {
@@ -72,7 +65,7 @@ const ViewResident = () => {
         <>
             <ToastContainer />
 
-            
+            <ValidatedResult open={openValidatedDialog}/>
 
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
@@ -176,7 +169,7 @@ const ViewResident = () => {
                                         fontFamily: 'Satoshi-Medium',
                                     }}
                                     className='text-color-blue'
-                                    onClick={() => openValidatedDialog()}
+                                    onClick={() => setOpenValidatedDialog(true)}
                                 >
                                     Click here to view results
                                 </button>
