@@ -1,15 +1,13 @@
 import React, { useRef } from 'react'
 import { useMutation } from 'react-query'
-import { toast } from 'react-toastify'
+import { ToastContainer, toast } from 'react-toastify'
 import useAxios from '../../hooks/useAxios'
-
 
 interface Props {
     id: string
-
 }
 
-function Activate_Deactivate({id}: Props) {
+function Activate_Deactivate({ id }: Props) {
     const dialogRef = useRef<HTMLDialogElement | null>(null)
     const axiosInstance = useAxios()
 
@@ -33,10 +31,6 @@ function Activate_Deactivate({id}: Props) {
                 toast('Company Failed to ', {
                     type: 'success',
                     className: 'bg-green-100 text-green-600 text-[1.4rem]',
-                })
-                return setResponseMessage({
-                    className: 'text-red-600',
-                    displayMessage: err?.response?.data.message,
                 })
             },
 
@@ -63,6 +57,7 @@ function Activate_Deactivate({id}: Props) {
 
     return (
         <>
+            <ToastContainer />
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8 text-[1.6rem]'>
