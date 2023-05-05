@@ -478,6 +478,75 @@ const ArtisanDetail = () => {
                             Save Changes
                         </button>
                     </form> */}
+                    <form onSubmit={onSubmit} className='grid gap-20'>
+                        <div className='grid gap-10'>
+                            <section
+                                className='grid max-w-[84rem] gap-16'
+                                style={{
+                                    gridTemplateColumns:
+                                        ' repeat(auto-fit, minmax(35rem, 1fr))',
+                                }}
+                            >
+                                {formInputs.map((input, idx) => {
+                                    const { label, type, name, tag, disabled } =
+                                        input
+
+                                    return (
+                                        <Input
+                                            key={idx + label}
+                                            id={idx}
+                                            label={label}
+                                            tag={tag}
+                                            disabled={disabled}
+                                            setValue={setValue}
+                                            clearErrors={clearErrors}
+                                            register={register}
+                                            formErrors={formErrors}
+                                            type={type}
+                                            name={name}
+                                        />
+                                    )
+                                })}
+                            </section>
+                            <div className='grid items-center justify-between gap-4'>
+                                <p className='font-Satoshi-Medium text-[1.4rem]'>
+                                    Sign Out Required
+                                </p>
+                                <div
+                                    onClick={toggleIsSignOutRequired}
+                                    className='cursor-pointer'
+                                >
+                                    {isSignOutRequired ? (
+                                        <img
+                                            src='/icons/admins/switchOn.svg'
+                                            alt=''
+                                        />
+                                    ) : (
+                                        <img
+                                            src='/icons/admins/switchOff.svg'
+                                            alt=''
+                                        />
+                                    )}
+                                </div>
+                            </div>
+                        </div>
+
+                        <button
+                            className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg justify-self-start'
+                            // onClick={addArtisanHandler}
+                        >
+                            <span>
+                                <img
+                                    src='/icons/admins/saveDisk.svg'
+                                    alt=''
+                                    className='w-[1.7rem] h-[1.7rem]'
+                                />
+                            </span>
+                            {true
+                                ? 'Loading...'
+                                : 'Save Changes'}
+                        </button>
+                    </form>
                 </div>
                 <section>
                     <h2
