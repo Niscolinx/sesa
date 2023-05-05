@@ -2,7 +2,7 @@ const SOSDetails = () => {
     return (
         <div className='grid overflow-y-scroll '>
             <p className='text-[2rem] font-Satoshi-Medium pb-8'>SOS Details</p>
-            <div className='bg-white h-[80vh] rounded-lg p-8 text-[1.6rem]'>
+            <div className='bg-white min-h-[60vh] rounded-lg p-8 text-[1.6rem]'>
                 <div className='grid relative border-b pb-4'>
                     <img
                         src='/img/closeIcon.svg'

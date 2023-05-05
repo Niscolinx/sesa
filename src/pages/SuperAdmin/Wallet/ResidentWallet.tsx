@@ -119,7 +119,7 @@ export const TRANSACTION_HISTORY: ITransactions[] = [
 
 const ResidentBalance = () => {
     return (
-        <div className='rounded-lg mt-[3rem] h-[80vh]'>
+        <div className='rounded-lg mt-[3rem] min-h-[60vh]'>
             <Table
                 fetch_url={'/admin/get/wallet/resident'}
                 title={'residentBalance'}
@@ -131,7 +131,7 @@ const ResidentBalance = () => {
 }
 const TransactionHistory = () => {
     return (
-        <div className='rounded-lg mt-[3rem] h-[80vh]'>
+        <div className='rounded-lg mt-[3rem] min-h-[60vh]'>
             <Table
                 fetch_url={'/manager/get/all'}
                 title={'transactionHistory'}
@@ -160,7 +160,7 @@ const ResidentWallet = () => {
 
     const handlePathSwitch = new Map([
         ['transaction-history', <TransactionHistory />],
-        ['resident-balance', <ResidentBalance/>],
+        ['resident-balance', <ResidentBalance />],
     ]) satisfies Map<Path, JSX.Element>
 
     return (

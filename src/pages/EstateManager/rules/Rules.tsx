@@ -237,7 +237,7 @@ function Rules() {
 
     return (
         <div className='grid'>
-            <div className='rounded-lg h-[80vh] min-w-[112rem]'>
+            <div className='rounded-lg min-h-[60vh] min-w-[112rem]'>
                 {isRules ? (
                     <>
                         <dialog className='dialog' ref={dialogRef}>

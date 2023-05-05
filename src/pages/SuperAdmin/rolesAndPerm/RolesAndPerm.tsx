@@ -2,12 +2,9 @@
 // import { IoMdAdd } from 'react-icons/io'
 // import RenderedRolesAndPerm from './RenderedRolesAndPerm'
 
-
 // function RolesAndPerm() {
 
 //     const [estateManagersLoaded, setEstateManagersLoaded] = useState(true)
-
-    
 
 //     const handlePathSwitch = () => {
 //         setEstateManagersLoaded(true)
@@ -15,7 +12,7 @@
 
 //     return (
 //         <div>
-//             <div className='rounded-lg mt-[3rem] h-[80vh]'>
+//             <div className='rounded-lg mt-[3rem] min-h-[60vh]'>
 //                 {estateManagersLoaded ? (
 //                     <section>
 //                         <RenderedRolesAndPerm />
@@ -47,9 +44,7 @@
 import React from 'react'
 
 function RolesAndPerm() {
-  return (
-    <div>RolesAndPerm</div>
-  )
+    return <div>RolesAndPerm</div>
 }
 
 export default RolesAndPerm

@@ -15,10 +15,10 @@ function Messages() {
 
     return (
         <div>
-            <div className='rounded-lg mt-[3rem] h-[80vh]'>
+            <div className='rounded-lg mt-[3rem] min-h-[60vh]'>
                 {isMessage ? (
                     <section>
-                       <RenderMessages/>
+                        <RenderMessages />
                     </section>
                 ) : (
                     <section className='grid  place-content-center w-full h-full justify-items-center gap-4 bg-white rounded-lg'>

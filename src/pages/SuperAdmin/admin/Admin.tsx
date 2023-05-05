@@ -1,10 +1,8 @@
-import Table from "../../../components/UI/table/Table"
+import Table from '../../../components/UI/table/Table'
 
 function Admin() {
-  
-        
     return (
-        <div className='rounded-lg mt-[3rem] h-[80vh]'>
+        <div className='rounded-lg mt-[3rem] min-h-[60vh]'>
             <Table
                 fetch_url={'/admin/get/all'}
                 title={'admin'}

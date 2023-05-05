@@ -145,7 +145,7 @@ const residentPackageDetails = () => {
                 </section>
             </dialog>
 
-            <div className=' p-8 bg-white h-[80vh] rounded-lg overflow-y-scroll'>
+            <div className=' p-8 bg-white min-h-[60vh] rounded-lg overflow-y-scroll'>
                 <div className='flex justify-end'>
                     <button className='border border-red-600 px-16 py-4 flex items-center  rounded-lg gap-4'>
                         <img src='/icons/admins/delete.svg' alt='' />

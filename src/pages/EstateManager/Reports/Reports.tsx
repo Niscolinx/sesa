@@ -1,5 +1,5 @@
 import axios from 'axios'
-import {  useState } from 'react'
+import { useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
 import { useQuery } from 'react-query'
 import EstateStaffReport from './paths/EstateStaffReport'
@@ -73,7 +73,7 @@ function Reports() {
 
     return (
         <div>
-            <div className='rounded-lg min-h-[80vh]'>
+            <div className='rounded-lg min-min-h-[60vh]'>
                 {isReport ? (
                     <section>
                         <div
@@ -111,7 +111,7 @@ function Reports() {
                         </div>
                     </section>
                 ) : (
-                    <section className='grid place-content-center w-full h-[80vh] justify-items-center gap-4 bg-white rounded-lg'>
+                    <section className='grid place-content-center w-full min-h-[60vh] justify-items-center gap-4 bg-white rounded-lg'>
                         {/* {response_data?.data.map((data: ResponseData) => (
                             <div
                                 key={data.id}

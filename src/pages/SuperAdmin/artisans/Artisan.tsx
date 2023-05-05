@@ -116,7 +116,7 @@ function Artisan() {
     }, [getLastPath])
 
     return (
-        <div className='rounded-lg mt-[3rem] h-[80vh]'>
+        <div className='rounded-lg mt-[3rem] min-h-[60vh]'>
             <div className='estateDetail__radioBox'>
                 {Array.from(handlePathSwitch.keys()).map((path) => {
                     return (
@@ -139,7 +139,7 @@ function Artisan() {
             <div className='mt-8 grid gap-8'>
                 {handlePathSwitch.get(currentPath)}
             </div>
-            {/* <div className='rounded-lg mt-[3rem] h-[80vh]'>
+            {/* <div className='rounded-lg mt-[3rem] min-h-[60vh]'>
                 {artisan ? (
                     <section>
                         <RenderArtisans />

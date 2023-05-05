@@ -2,10 +2,7 @@ import { useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
 import RenderedPayments from './RenderPayments'
 
-
 function Payment() {
-
-
     const [isPayment, setIsPayment] = useState(false)
 
     const addPaymentHandler = () => {
@@ -14,11 +11,10 @@ function Payment() {
 
     return (
         <div className='grid'>
-         
-            <div className='rounded-lg mt-[3rem] h-[80vh]'>
+            <div className='rounded-lg mt-[3rem] min-h-[60vh]'>
                 {isPayment ? (
                     <section>
-                        <RenderedPayments/>
+                        <RenderedPayments />
                     </section>
                 ) : (
                     <section className='grid  place-content-center w-full h-full justify-items-center gap-4 bg-white rounded-lg'>

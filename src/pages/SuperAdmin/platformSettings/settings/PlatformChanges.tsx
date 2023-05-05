@@ -121,7 +121,7 @@ const PlatformChanges = () => {
     return (
         <>
             <ToastContainer />
-            <div className='p-8 bg-white h-[80vh] rounded-lg'>
+            <div className='p-8 bg-white min-h-[60vh] rounded-lg'>
                 <h2 className='heading2 border-b pb-10'>Platform Changes</h2>
 
                 {responseMessage?.displayMessage && (

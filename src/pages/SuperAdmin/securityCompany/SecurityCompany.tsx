@@ -4,7 +4,6 @@ import RenderSecurityCompanies from './RenderedSecurityCompanies'
 import { useNavigate } from 'react-router'
 
 function SecurityCompany() {
-    
     const navigate = useNavigate()
 
     const [securityCompanies, setSecurityCompanies] = useState(false)
@@ -17,7 +16,7 @@ function SecurityCompany() {
 
     return (
         <div>
-            <div className='rounded-lg mt-[3rem] h-[80vh]'>
+            <div className='rounded-lg mt-[3rem] min-h-[60vh]'>
                 {!securityCompanies ? (
                     <section>
                         <RenderSecurityCompanies />

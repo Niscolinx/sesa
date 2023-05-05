@@ -7,7 +7,7 @@ const SecurityCompanyWalletDetails = () => {
     const { handleOpen } = ModalContextData
 
     return (
-        <div className=' p-8 bg-white h-[80vh] rounded-lg overflow-y-scroll'>
+        <div className=' p-8 bg-white min-h-[60vh] rounded-lg overflow-y-scroll'>
             <section
                 className='grid max-w-[65vw] gap-16'
                 style={{

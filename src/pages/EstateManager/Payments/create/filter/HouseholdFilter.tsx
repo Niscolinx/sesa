@@ -144,11 +144,11 @@ const HouseholdFilter: FC = () => {
     }
 
     return (
-        <main className='bg-color-white rounded-lg overflow-scroll max-h-[80vh]'>
+        <main className='bg-color-white rounded-lg overflow-scroll max-min-h-[60vh]'>
             <div className='grid'>
                 <div className='grid justify-between text-color-dark-1 bg-gray-100 p-8 grid-cols-6 gap-6 items-center capitalize'>
                     <p className='flex items-center gap-4'>
-                        <input type='checkbox' className='cursor-pointer'/>
+                        <input type='checkbox' className='cursor-pointer' />
                         <span>Property Code</span>
                     </p>
                     <p>Address</p>
@@ -174,7 +174,10 @@ const HouseholdFilter: FC = () => {
                                     return (
                                         <div className='grid justify-between border-b grid-cols-6 gap-8 py-4 whitespace-nowrap text-ellipsis'>
                                             <p className='flex items-center gap-4'>
-                                                <input type='checkbox' className='cursor-pointer'/>
+                                                <input
+                                                    type='checkbox'
+                                                    className='cursor-pointer'
+                                                />
                                                 <span>{propertyCode}</span>
                                             </p>
                                             <p>{address}</p>

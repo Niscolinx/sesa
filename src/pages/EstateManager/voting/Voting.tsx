@@ -147,7 +147,7 @@ function Voting() {
 
     return (
         <div>
-            <div className='rounded-lg mt-[3rem] h-[80vh]'>
+            <div className='rounded-lg mt-[3rem] min-h-[60vh]'>
                 {isVoting ? (
                     <div className='grid gap-10 rounded-lg min-w-[112rem]'>
                         <p className='font-Satoshi-Medium text-[2.5rem]'>

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import AdvertList from './AdvertList'
 import AvailableEstateAdvert from './AvailableEstateAdvert'
+import Table from '../../../components/UI/table/Table'
 
 function Advert() {
     type PathSwitch = 'advertList'
@@ -13,35 +14,31 @@ function Advert() {
     }
 
     return (
-        <div className='rounded-lg mt-[3rem] min-h-[60vh]'>
-            {/* <div className='estateDetail__radioBox'>
-                    <input
-                        type='radio'
-                        name='advert'
-                        id='advertList'
-                        className='hidden'
-                        defaultChecked
-                        onChange={() => setPathToSwitch('advertList')}
-                    />
-                    <label htmlFor='advertList' className='capitalize'>
-                        Advert List
-                    </label>
-
-                    <input
-                        type='radio'
-                        name='advert'
-                        id='availableEstates'
-                        className='hidden'
-                        onChange={() => setPathToSwitch('availableEstates')}
-                    />
-                    <label htmlFor='availableEstates'>Available Estates</label>
-                </div> */}
-            <div className='mt-8 grid gap-8'>
-                <section className='bg-color-white rounded-lg border min-w-[112rem] overflow-scroll'>
-                    {handlePathSwitch[pathToSwitch]}
-                </section>
+            <div className='rounded-lg mt-[3rem] min-h-[60vh]'>
+                <Table
+                    fetch_url={'/advert/getall'}
+                    title={'advert'}
+                    view_page_url={'/superAdmin/advert/detail/'}
+                    add_page_url={'/superAdmin/advert/add'}
+                    is_add_btn={true}
+                    THeader={[
+                        'advert_name',
+                        'start_date',
+                        'end_date',
+                        'joined date',
+                        'status',
+                        'actions',
+                    ]}
+                    data_to_display={[
+                        'advert_name',
+                        'start_date',
+                        'end_date',
+                        'created_at',
+                        'status',
+                    ]}
+                    deactivateProp={{ url: '/advert/deactivate_activate' }}
+                />
             </div>
-        </div>
     )
 }
 

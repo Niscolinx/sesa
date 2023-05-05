@@ -26,15 +26,15 @@ function Approvals() {
     }
 
     const paths = new Map<Path, JSX.Element>([
-        ['event-request', <EventRequest/>],
-        ['resident-onboarding', <ResidentOnboarding/>],
-        ['site-worker-request', <SiteWorkerRequest/>],
-        ['SESA-digital-request', <DigitalRequest/>],
+        ['event-request', <EventRequest />],
+        ['resident-onboarding', <ResidentOnboarding />],
+        ['site-worker-request', <SiteWorkerRequest />],
+        ['SESA-digital-request', <DigitalRequest />],
     ])
 
     return (
         <div>
-            <div className='rounded-lg min-h-[80vh]'>
+            <div className='rounded-lg min-min-h-[60vh]'>
                 {isApprovals ? (
                     <section>
                         <div
@@ -68,13 +68,11 @@ function Approvals() {
                                     </label>
                                 </Fragment>
                             ))}
-
-                           
                         </div>
                         <div>{paths.get(currentPath)}</div>
                     </section>
                 ) : (
-                    <section className='grid place-content-center w-full h-[80vh] justify-items-center gap-4 bg-white rounded-lg'>
+                    <section className='grid place-content-center w-full min-h-[60vh] justify-items-center gap-4 bg-white rounded-lg'>
                         <img src='/icons/admins/errorSvg.svg' alt='' />
                         <p className='text'>
                             Ooops you do not have any pending approvals yet

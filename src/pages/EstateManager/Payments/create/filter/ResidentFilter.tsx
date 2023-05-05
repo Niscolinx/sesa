@@ -2,8 +2,6 @@ import React, { ChangeEvent, FC, useEffect, useState } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 
-
-
 interface Resident {
     id: string
     residentCode: string
@@ -28,7 +26,6 @@ const RESIDENT: Resident[] = Array.from({
         Math.random() > 0.5 ? 'Landlord (Developer)' : 'Tenant (Resident)',
     isAlpha: Math.random() > 0.3 ? true : false,
 }))
-
 
 const ResidentFilter: FC = () => {
     const [fetchedResidentData, setFetchedResidentData] = useState<Resident[]>(
@@ -138,7 +135,7 @@ const ResidentFilter: FC = () => {
     }
 
     return (
-        <main className='bg-color-white rounded-lg overflow-scroll max-h-[80vh]'>
+        <main className='bg-color-white rounded-lg overflow-scroll max-min-h-[60vh]'>
             <div className='grid'>
                 <div
                     className='grid justify-between text-color-dark-1 bg-gray-100 p-8 grid-cols-6 gap-6'

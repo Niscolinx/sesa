@@ -57,7 +57,7 @@ const AccountSettings = () => {
                 displayMessage: err?.response.data.message,
             })
         },
-    }) 
+    })
 
     const handlePicture = (e: React.ChangeEvent) => {
         const target = e.target as HTMLInputElement
@@ -73,7 +73,6 @@ const AccountSettings = () => {
 
         const { new_password, confirm_password } = data
 
-
         if (new_password !== confirm_password) {
             return setResponseMessage({
                 className: 'text-red-600',
@@ -82,7 +81,7 @@ const AccountSettings = () => {
         }
 
         const updated_data = {
-            ...data
+            ...data,
         }
 
         mutate(updated_data)
@@ -109,7 +108,7 @@ const AccountSettings = () => {
     return (
         <>
             <ToastContainer />
-            <div className=' p-8 bg-white h-[80vh] overflow-y-scroll rounded-lg'>
+            <div className=' p-8 bg-white min-h-[60vh] overflow-y-scroll rounded-lg'>
                 <figure className='grid text-center justify-start'>
                     <input
                         type='file'

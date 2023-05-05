@@ -13,7 +13,7 @@ const NotificationSettings = () => {
     return (
         <>
             <ToastContainer />
-            <div className=' p-8 bg-white h-[80vh] overflow-y-scroll rounded-lg'>
+            <div className=' p-8 bg-white min-h-[60vh] overflow-y-scroll rounded-lg'>
                 <section className='mb-20 grid gap-2'>
                     <p
                         style={{
@@ -32,7 +32,10 @@ const NotificationSettings = () => {
                     <div className='grid gap-10 w-[60rem]'>
                         <div className='grid grid-cols-2 items-center gap-16 '>
                             <p>In-App</p>
-                            <div onClick={toggleIsInAppOn} className='cursor-pointer'>
+                            <div
+                                onClick={toggleIsInAppOn}
+                                className='cursor-pointer'
+                            >
                                 {isInAppOn ? (
                                     <img
                                         src='/icons/admins/switchOn.svg'
@@ -48,7 +51,10 @@ const NotificationSettings = () => {
                         </div>
                         <div className='grid grid-cols-2 items-center gap-16'>
                             <p>SMS</p>
-                            <div onClick={toggleIsSmsOn} className='cursor-pointer'>
+                            <div
+                                onClick={toggleIsSmsOn}
+                                className='cursor-pointer'
+                            >
                                 {isSmsOn ? (
                                     <img
                                         src='/icons/admins/switchOn.svg'

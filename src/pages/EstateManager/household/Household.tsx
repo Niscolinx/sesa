@@ -283,7 +283,7 @@ function HouseHold() {
                 </section>
             </dialog>
             {isHousehold ? (
-                <div className='rounded-lg mt-[3rem] h-[80vh]'>
+                <div className='rounded-lg mt-[3rem] min-h-[60vh]'>
                     <main className='mt-10 grid gap-9'>
                         <section className='bg-color-white rounded-lg border min-w-[112rem] overflow-scroll'>
                             <div className='grid text-[1.6rem]'>
@@ -593,7 +593,7 @@ function HouseHold() {
                     </main>
                 </div>
             ) : (
-                <div className='h-[80vh]'>
+                <div className='min-h-[60vh]'>
                     <section className='grid place-content-center w-full h-full justify-items-center gap-4 bg-white'>
                         <img src='/icons/admins/errorSvg.svg' alt='' />
                         <p className='text'>

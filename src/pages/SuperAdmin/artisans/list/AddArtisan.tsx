@@ -482,7 +482,7 @@ const AddArtisan = () => {
                     </div>
                 </section>
             </dialog>
-            <div className='grid p-8 bg-white h-[80vh] items-baseline overflow-y-scroll rounded-lg'>
+            <div className='grid p-8 bg-white min-h-[60vh] items-baseline overflow-y-scroll rounded-lg'>
                 <div className='grid gap-8 max-w-[40rem]'>
                     <p className='text-[2rem] font-Satoshi-Medium'>
                         KYA <span className='text-gray-500'>(Optional)</span>

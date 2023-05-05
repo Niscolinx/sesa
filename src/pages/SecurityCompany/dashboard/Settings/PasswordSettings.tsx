@@ -30,7 +30,7 @@ const PasswordSettings = () => {
     return (
         <>
             <ToastContainer />
-            <div className=' p-8 bg-white h-[80vh] overflow-y-scroll rounded-lg'>
+            <div className=' p-8 bg-white min-h-[60vh] overflow-y-scroll rounded-lg'>
                 <figure className='grid text-center justify-start'>
                     <input
                         type='file'

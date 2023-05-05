@@ -294,7 +294,7 @@ function Estates() {
                     </div>
                 </section>
             </dialog>
-            <div className='rounded-lg mt-[3rem] h-[80vh]'>
+            <div className='rounded-lg mt-[3rem] min-h-[60vh]'>
                 {fetched.length > 0 ? (
                     <div className='grid text-[1.6rem] rounded-lg mt-[3rem]'>
                         <div className='flex w-full items-center gap-12 p-10 bg-white rounded-lg'>

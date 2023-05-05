@@ -294,7 +294,7 @@ function Artisan() {
                     </div>
                 </section>
             </dialog> */}
-            <div className='rounded-lg mt-[3rem] h-[80vh]'>
+            <div className='rounded-lg mt-[3rem] min-h-[60vh]'>
                 {artisan ? (
                     <>
                         <div className='grid text-[1.6rem]'>

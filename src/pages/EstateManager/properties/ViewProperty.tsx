@@ -101,7 +101,7 @@ const ViewProperty = () => {
                     </div>
                 </section>
             </dialog>
-            <div className='grid p-8 bg-white h-[80vh] items-baseline overflow-y-scroll rounded-lg'>
+            <div className='grid p-8 bg-white min-h-[60vh] items-baseline overflow-y-scroll rounded-lg'>
                 <div className='flex gap-8 items-center justify-between'>
                     <div className='flex items-center gap-8'>
                         <label

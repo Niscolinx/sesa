@@ -16,18 +16,11 @@ const BulkUpload = () => {
         string[]
     >([])
 
-    const [customerNofication, setCustomerNotification] = useState<
-        string
-    >(
-        ''
-    )
+    const [customerNofication, setCustomerNotification] = useState<string>('')
     const [convenienceFee, setConvenienceFee] = useState('')
     const [instruction, setInstruction] = useState('')
-    const [notificationThreshold, setNotificationThreshold] = useState<
-        string
-    >(
-        ''
-    )
+    const [notificationThreshold, setNotificationThreshold] =
+        useState<string>('')
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
@@ -229,7 +222,7 @@ const BulkUpload = () => {
                         </form>
                     </section>
                 ) : (
-                    <section className='grid justify-items-center h-[80vh] content-center'>
+                    <section className='grid justify-items-center min-h-[60vh] content-center'>
                         <div className='rounded-lg border border-dashed border-gray-400 p-8 relative w-full '>
                             <label
                                 htmlFor='photoUpload'

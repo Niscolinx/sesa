@@ -107,14 +107,14 @@ function Property() {
                         </div>
                     </section>
 
-                    <div className='rounded-lg mt-[3rem] h-[80vh]'>
+                    <div className='rounded-lg mt-[3rem] min-h-[60vh]'>
                         <section>
                             <PropertyTable />
                         </section>
                     </div>
                 </div>
             ) : (
-                <div className='h-[80vh]'>
+                <div className='min-h-[60vh]'>
                     <section className='grid place-content-center w-full h-full justify-items-center gap-4 bg-white'>
                         <img src='/icons/admins/errorSvg.svg' alt='' />
                         <p className='text'>

@@ -147,7 +147,7 @@ const RecipientList: FC<IRecipientList> = ({ closeRecipientListDialog }) => {
 
     return (
         <main className='mt-10 grid gap-9'>
-            <section className='bg-color-white rounded-lg border overflow-scroll max-h-[80vh]'>
+            <section className='bg-color-white rounded-lg border overflow-scroll max-min-h-[60vh]'>
                 <div className='grid text-[1.6rem]'>
                     <div className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
                         <div className='relative flex items-center'>
