@@ -20,13 +20,14 @@ const ArtisanDetail = () => {
 
     const genderState = ['Male', 'Female']
     const [isSignOutRequired, setIsSignOutRequired] = useState(false)
+    const [photoPreview, setPhotoPreview] = useState('')
 
     const toggleIsSignOutRequired = () =>
         setIsSignOutRequired(!isSignOutRequired)
+
     const [responseMessage, setResponseMessage] =
         useState<ResponseMessage | null>(null)
     const [selectedGender, setSelectedGender] = useState<string>('')
-    const [dialogType, setDialogType] = useState<Actions>('Deactivate')
 
     const artisan_id = params.id?.replace(':', '')
 
