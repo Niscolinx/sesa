@@ -140,78 +140,7 @@ const ArtisanDetail = () => {
             <div className='grid p-8 bg-white  rounded-lg gap-[10rem]'>
                 <div>
                     <div className='flex justify-between items-center'>
-                        <div className='flex gap-8 items-center'>
-                            <label
-                                htmlFor='photoUpload'
-                                className='grid gap-4 cursor-pointer justify-items-center'
-                            >
-                                <img
-                                    src={photoUrl ? photoUrl : '/img/me.jpeg'}
-                                    alt='photoPreview'
-                                    className='object-cover w-[11rem] h-[11rem] rounded-full object-top'
-                                />
-                                <span className='text-color-blue-1 text-[1.4rem]'>
-                                    Edit
-                                </span>
-                            </label>
-                            <input
-                                type='file'
-                                name='photoUpload'
-                                id='photoUpload'
-                                accept='image/*'
-                                className='hidden'
-                                onClick={handlePhotoPreview}
-                            />
-                            <div className='grid gap-2 justify-items-start'>
-                                <p
-                                    style={{
-                                        fontFamily: 'Satoshi-Light',
-                                    }}
-                                >
-                                    Guard Code :{' '}
-                                    <span
-                                        style={{
-                                            fontFamily: 'Satoshi-Medium',
-                                        }}
-                                    >
-                                        SG09897
-                                    </span>
-                                </p>
-                                <p className='flex items-center gap-4'>
-                                    <span className='flex items-center gap-2'>
-                                        KYR Status <BsQuestionCircle />:
-                                    </span>
-                                    {isValidated ? (
-                                        <span
-                                            className='text-green-600'
-                                            style={{
-                                                fontFamily: 'Satoshi-Light',
-                                            }}
-                                        >
-                                            Validated
-                                        </span>
-                                    ) : (
-                                        <span
-                                            className='text-red-600'
-                                            style={{
-                                                fontFamily: 'Satoshi-Light',
-                                            }}
-                                        >
-                                            Not Validated
-                                        </span>
-                                    )}
-                                </p>
-                                <button
-                                    style={{
-                                        fontFamily: 'Satoshi-Medium',
-                                    }}
-                                    className='text-color-blue'
-                                   // onClick={() => openValidatedDialog()}
-                                >
-                                    Click here to view results
-                                </button>
-                            </div>
-                        </div>
+                        hhh
 
                         <div className='flex gap-8'>
                             <button
