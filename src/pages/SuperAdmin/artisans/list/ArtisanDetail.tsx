@@ -43,6 +43,8 @@ const ArtisanDetail = () => {
      const {
          register,
          handleSubmit,
+         setValue,
+         clearErrors,
          formState: { errors: formErrors },
          reset,
      } = useForm<Inputs>()
@@ -69,16 +71,11 @@ const ArtisanDetail = () => {
 
     useEffect(() => {
         if (get_response) {
-            const { name, email, phone, image, dob, gender } = get_response.data
-            const first_name = name.split(' ')[0]
-            const last_name = name.split(' ')[1]
+            const { name, email, phone, image, dob, gender, ...other } = get_response.data
+           
 
             reset({
-                first_name,
-                last_name,
-                dob,
-                email_address: email,
-                phone_number: parseInt(phone),
+               ...other
             })
 
             setPhotoPreview(image)
@@ -87,20 +84,20 @@ const ArtisanDetail = () => {
     }, [get_response])
 
     const onSubmit = handleSubmit((data) => {
-        const { first_name, last_name, dob, email_address, phone_number } = data
+        // const { first_name, last_name, dob, email_address, phone_number } = data
 
-        const adminData = {
-            name: `${first_name} ${last_name}`,
-            gender: selectedGender,
-            dob,
-            id: artisan_id,
-            email: email_address,
-            address: 'no 4 odeyim street',
-            phone: `+234${phone_number}`,
-            image: imageFile,
-        }
+        // const adminData = {
+        //     name: `${first_name} ${last_name}`,
+        //     gender: selectedGender,
+        //     dob,
+        //     id: artisan_id,
+        //     email: email_address,
+        //     address: 'no 4 odeyim street',
+        //     phone: `+234${phone_number}`,
+        //     image: imageFile,
+        // }
 
-        post_admin_mutation(adminData)
+        //post_admin_mutation(adminData)
     })
 
     interface Inputs {
