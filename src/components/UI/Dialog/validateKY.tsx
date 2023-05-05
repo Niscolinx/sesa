@@ -6,11 +6,12 @@ import { IoMdClose, IoMdCheckmarkCircleOutline } from 'react-icons/io'
 import { useMutation } from 'react-query'
 import { Select } from '../../SuperAdmin/UI/Select'
 import Input from '../input/Input'
+import { toast, ToastContainer } from 'react-toastify'
 
 function ValidateKY() {
-     interface ValidationTypeInput {
-         validation_content: string
-     }
+    interface ValidationTypeInput {
+        validation_content: string
+    }
     const dialogRef = useRef<HTMLDialogElement | null>(null)
     const axiosInstance = useAxios()
 
@@ -23,7 +24,7 @@ function ValidateKY() {
         formState: { errors: validation_formErrors },
     } = useForm<ValidationTypeInput>()
 
-    const postValidationType = (data: Inputs) => {
+    const postValidationType = (data: ValidationTypeInput) => {
         return axiosInstance({
             url: '/admin/artisan',
             method: 'post',
@@ -35,9 +36,9 @@ function ValidateKY() {
         isLoading: validationType_isloading,
     } = useMutation(postValidationType, {
         onError: (err: any) => {
-            setResponseMessage({
-                className: 'text-red-600',
-                displayMessage: err?.response.data.message,
+            toast('Failed to Validate', {
+                type: 'error',
+                className: 'bg-red-100 text-red-600 text-[1.4rem]',
             })
         },
     }) as any
@@ -71,6 +72,7 @@ function ValidateKY() {
 
     return (
         <>
+            <ToastContainer />
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid items-baseline w-[64rem] min-h-[30rem] p-10 gap-8 text-[1.6rem] relative'>

@@ -23,7 +23,9 @@ const AddArtisan = () => {
         business_name: string
     }
 
-   
+    interface ValidationTypeInput {
+        validation_content: string
+    }
 
     type ResponseMessage = {
         className: string
@@ -70,6 +72,9 @@ const AddArtisan = () => {
             name: 'categories',
         })
 
+    useEffect(() => {
+        reset()
+    }, [validationType])
 
     const handlePicture = (e: React.ChangeEvent) => {
         const target = e.target as HTMLInputElement
@@ -86,7 +91,12 @@ const AddArtisan = () => {
         formState: { errors: formErrors },
     } = useForm<Inputs>()
 
-  
+    const {
+        register: validation_register,
+        handleSubmit: validation_handleSubmit,
+        reset,
+        formState: { errors: validation_formErrors },
+    } = useForm<ValidationTypeInput>()
 
     const postRequest = (data: Inputs) => {
         return axiosInstance({
@@ -129,6 +139,9 @@ const AddArtisan = () => {
         },
     }) as any
 
+    const onSubmitValidation = validation_handleSubmit((data) => {
+        validationType_mutation(data)
+    })
 
     const onSubmit = handleSubmit((data) => {
         let isError = false
