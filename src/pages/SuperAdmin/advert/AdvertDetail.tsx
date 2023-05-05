@@ -20,6 +20,9 @@ const AdvertDetail = () => {
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
+
+    
+
     const handleClose = () => {
         if (dialogRef.current) {
             dialogRef.current.close()
