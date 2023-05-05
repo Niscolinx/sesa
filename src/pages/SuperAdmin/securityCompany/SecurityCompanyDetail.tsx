@@ -110,17 +110,13 @@ const SecurityCompanyDetail = () => {
     }
 
     const postDeactivate = () => {
-        // return axiosInstance({
-        //     url: '/security-company/deactivate_activate',
-        //     method: 'post',
-        //     data: { id: company_id },
-        // })
-
-         return axiosInstance({
-            url: `/security-company/update/${company_id}`,
+        return axiosInstance({
+            url: '/security-company/deactivate_activate',
             method: 'post',
-            data: '',
+            data: { id: company_id },
         })
+
+        
     }
     const postRequest = (data: any) => {
         return axiosInstance({
@@ -165,7 +161,6 @@ const SecurityCompanyDetail = () => {
 
     useEffect(() => {
         if (get_response) {
-            console.log({ get_response })
             const { id, user_id, image, status, onboarding_date, ...other } =
                 get_response.data
 
@@ -184,7 +179,7 @@ const SecurityCompanyDetail = () => {
         }
     }, [get_response])
 
-    const { mutate: post_admin_mutation, isLoading: post_update_loading } =
+    const { mutate: post_mutation, isLoading: post_update_loading } =
         useMutation(postRequest, {
             onSuccess: (res) => {
                 toast('Admin Updated successfully', {
@@ -206,7 +201,7 @@ const SecurityCompanyDetail = () => {
             image: imageFile,
         }
 
-        post_admin_mutation(adminData)
+        post_mutation(adminData)
     })
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
