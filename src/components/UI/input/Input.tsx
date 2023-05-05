@@ -121,8 +121,6 @@ const Input: FC<Partial<Input> & { label: string }> = ({
         }
     }
 
-   
-
     return (
         <div
             className={`w-full grid gap-4 self-baseline ${
@@ -166,7 +164,8 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                         htmlFor={label}
                         className='text-[1.4rem] font-semibold capitalize'
                     >
-                        {name ?? label.replaceAll('_', ' ')}
+                        {name?.replaceAll('_', ' ') ??
+                            label.replaceAll('_', ' ')}
                     </label>
 
                     {type === 'password' ? (
