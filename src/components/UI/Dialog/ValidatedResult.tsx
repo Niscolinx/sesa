@@ -184,7 +184,7 @@ function ValidatedResult() {
                             fontFamily: 'Satoshi-Medium',
                         }}
                         className='text-color-blue'
-                        // onClick={() => openValidatedDialog()}
+                        onClick={openValidatedDialog}
                     >
                         Click here to view results
                     </button>
