@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useMutation, useQueryClient } from 'react-query'
 import { ToastContainer, toast } from 'react-toastify'
 import useAxios from '../../hooks/useAxios'
@@ -14,6 +14,9 @@ interface Props {
 function Activate_Deactivate({ id, url, status, title, queryCache }: Props) {
     const dialogRef = useRef<HTMLDialogElement | null>(null)
     const axiosInstance = useAxios()
+    const [currentStatus, setCurrentStatus] = useState(status)
+
+    useEffect(() => {}, [status])
 
     const postDeactivate = () => {
         return axiosInstance({
