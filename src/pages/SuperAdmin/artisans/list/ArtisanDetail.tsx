@@ -45,14 +45,8 @@ const ArtisanDetail = () => {
     const axiosInstance = useAxios()
 
     const genderState = ['Male', 'Female']
-    const [isSignOutRequired, setIsSignOutRequired] = useState(false)
     const [photoPreview, setPhotoPreview] = useState('')
-    const [isValidated, setIsValidated] = useState(false)
-    const [iskyg, setIskyg] = useState(false)
 
-    const toggleIskyg = () => setIskyg(!iskyg)
-
-    const [isAddArtisan, setIsAddArtisan] = useState(true)
     const [validationType, setValidationType] = useState<string>('Phone Number')
     const [responseMessage, setResponseMessage] =
         useState<ResponseMessage | null>(null)
