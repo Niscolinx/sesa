@@ -110,8 +110,8 @@ const ArtisanDetail = () => {
     }
 
     interface Inputs {
-        name: string
-        email: string
+        firstname: string
+        artisan_code: string
         address: string
         formatted_onboarding_date: string
         phone: string
