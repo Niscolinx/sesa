@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { IoMdAdd, IoMdClose } from 'react-icons/io'
+import { IoMdAdd, IoMdCheckmarkCircleOutline, IoMdClose } from 'react-icons/io'
 import { BsQuestionCircle } from 'react-icons/bs'
 import { ToastContainer } from 'react-toastify'
 import { Select } from '../../../../components/SuperAdmin/UI/Select'
@@ -50,6 +50,10 @@ const AddArtisan = () => {
     const [selectFormErrors, setSelectFormErrors] = useState<{
         [key: string]: string
     } | null>(null)
+    const [isValidated, setIsValidated] = useState(false)
+    const [iskyg, setIskyg] = useState(false)
+
+    const toggleIskyg = () => setIskyg(!iskyg)
 
     const [photoPreview, setPhotoPreview] = useState('')
     const [imageFile, setImageFile] = useState<File | null>(null)
@@ -544,12 +548,78 @@ const AddArtisan = () => {
                             handlePicture={handlePicture}
                             photoPreview={photoPreview}
                         />
-                        <button className='btn justify-self-start btn-blue'>
-                            <span>
-                                <IoMdAdd />
-                            </span>{' '}
-                            {isLoading ? 'Loading...' : 'Add'}
-                        </button>
+                        <div>
+                            <div className='grid gap-8 max-w-[40rem] mt-[5rem] '>
+                                <div className='flex items-center justify-between'>
+                                    <p className='text-[2rem] font-Satoshi-Medium flex items-center gap-2'>
+                                        KYG{' '}
+                                        <span className='text-[#043FA7]'>
+                                            <BsQuestionCircle />
+                                        </span>
+                                    </p>
+                                    <div
+                                        onClick={toggleIskyg}
+                                        className='cursor-pointer'
+                                    >
+                                        {iskyg ? (
+                                            <img
+                                                src='/icons/admins/switchOn.svg'
+                                                alt=''
+                                            />
+                                        ) : (
+                                            <img
+                                                src='/icons/admins/switchOff.svg'
+                                                alt=''
+                                            />
+                                        )}
+                                    </div>
+                                </div>
+
+                                {isValidated ? (
+                                    <div className='flex gap-8 text-[1.6rem]'>
+                                        <p className='text-[#098DFF] cursor-pointer flex items-center font-Satoshi-Medium'>
+                                            KYG Validated{' '}
+                                            <IoMdCheckmarkCircleOutline />
+                                        </p>
+                                        <button
+                                            className='text-green-600 flex items-center gap-2'
+                                            style={{
+                                                fontFamily: 'Satoshi-Medium',
+                                            }}
+                                            onClick={() => openValidateDialog()}
+                                        >
+                                            View Results <BsQuestionCircle />
+                                        </button>
+                                    </div>
+                                ) : (
+                                    <>
+                                        {iskyg && (
+                                            <div className='flex justify-between text-[1.6rem]'>
+                                                <p
+                                                    className='text-[#098DFF] cursor-pointer'
+                                                    onClick={() =>
+                                                        handleOpen('validate')
+                                                    }
+                                                    style={{
+                                                        fontFamily:
+                                                            'Satoshi-Medium',
+                                                    }}
+                                                >
+                                                    Click here to validate this
+                                                    person
+                                                </p>
+                                            </div>
+                                        )}
+                                    </>
+                                )}
+                            </div>
+                            <button className='btn justify-self-start btn-blue'>
+                                <span>
+                                    <IoMdAdd />
+                                </span>{' '}
+                                {isLoading ? 'Loading...' : 'Add'}
+                            </button>
+                        </div>
                     </>
                 </form>
             </div>

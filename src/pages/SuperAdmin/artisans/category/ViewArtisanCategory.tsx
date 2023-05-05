@@ -117,7 +117,7 @@ const ViewArtisanCategory = () => {
                     providedData={category_users.data}
                     view_page_url={'/superAdmin/artisan/category/'}
                     isStrictAction
-                    actions={['delete']}
+                    actions={['view details']}
                     titleDialog={'Category User'}
                     delete_item_url={'/admin/category/delete/'}
                     THeader={[
