@@ -97,7 +97,7 @@ const SecurityCompanyDetail = () => {
         handleSubmit,
         formState: { errors: formErrors },
         reset,
-        setError,
+        clearErrors,
         setValue,
     } = useForm<Inputs>()
 
@@ -229,6 +229,8 @@ const SecurityCompanyDetail = () => {
                                         id={idx}
                                         label={label}
                                         tag={tag}
+                                        setValue={setValue}
+                                        clearErrors={clearErrors}
                                         register={register}
                                         formErrors={formErrors}
                                         type={type}
