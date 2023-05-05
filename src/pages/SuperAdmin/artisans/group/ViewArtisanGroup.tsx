@@ -1,7 +1,7 @@
 import { useNavigate, useParams } from 'react-router'
 import Table from '../../../../components/UI/table/Table'
 import useFetchData from '../../../../utils/useFetchData'
-import { useState, FormEvent } from 'react'
+import { useState, FormEvent, useEffect } from 'react'
 import { useMutation } from 'react-query'
 import { toast } from 'react-toastify'
 import useAxios from '../../../../components/hooks/useAxios'
@@ -21,33 +21,49 @@ const ViewArtisanGroup = () => {
 
     const groupId = params.id?.replace(':', '')
 
-    const { data: artisan_data, isLoading: artisan_loading } = useFetchData({
-        url: `/admin/group/getSingleGroup/${groupId}`,
+    const { data: response_data, isLoading: response_loading } = useFetchData({
+        url: `/admin/group/getSingleGroup/16`,
+        name: `view_group_${groupId}`,
+        
+        // url: `/admin/group/getSingleGroup/${groupId}`,
+    
     })
+
+    useEffect(() => {
+        console.log({response_data})
+        if(response_data){
+            setName(response_data.name)
+        }
+    }, [response_data])
+
+    console.log({response_data})
+
+
+
 
      const [name, setName] = useState('')
 
      const updateRequest = () => {
          return axiosInstance({
-             url: `/admin/category/update/2`,
-             // url: `/admin/category/update/${category_id}`,
+             url: `/admin/group/update/2`,
+             // url: `/admin/group/update/${group_id}`,
              method: 'post',
              data: { name },
          })
      }
      const { isLoading, mutate } = useMutation(
-         'update_category_name',
+         'update_group_name',
          updateRequest,
          {
              onSuccess: () => {
-                 toast('Category updated successfully', {
+                 toast('Group updated successfully', {
                      type: 'success',
                      className: 'bg-green-100 text-green-600 text-[1.4rem]',
                  })
              },
 
              onError: () => {
-                 toast('Failed to update category', {
+                 toast('Failed to update group', {
                      type: 'error',
                      className: 'bg-red-100 text-red-600 text-[1.4rem]',
                  })
@@ -55,22 +71,22 @@ const ViewArtisanGroup = () => {
          }
      )
 
-     const { data: category_detail, isLoading: category_detail_loading } =
-         useFetchData({
-             url: '/admin/category/get/single/2',
-             name: 'category_single',
-         })
-     const { data: category_users, isLoading: category_users_loading } =
-         useFetchData({
-             url: '/admin/category/get/single/users/2',
-             name: 'category_users',
-         })
+    //  const { data: group_detail, isLoading: group_detail_loading } =
+    //      useFetchData({
+    //          url: '/admin/group/get/single/2',
+    //          name: 'group_single',
+    //      })
+    //  const { data: group_users, isLoading: group_users_loading } =
+    //      useFetchData({
+    //          url: '/admin/group/get/single/users/2',
+    //          name: 'group_users',
+    //      })
 
      const onSubmit = (e: FormEvent) => {
          e.preventDefault()
 
          if (name === '') {
-             toast('Update the name of the category', {
+             toast('Update the name of the group', {
                  type: 'error',
                  className: 'bg-red-100 text-red-600 text-[1.4rem]',
              })
@@ -80,14 +96,13 @@ const ViewArtisanGroup = () => {
          mutate()
      }
 
-     if (category_detail_loading || category_users_loading) {
-         return <p className='p-8'>Loading...</p>
-     }
+    //  if (group_detail_loading || group_users_loading) {
+    //      return <p className='p-8'>Loading...</p>
+    //  }
 
 
   
 
-    
 
     return (
         <>
@@ -105,7 +120,8 @@ const ViewArtisanGroup = () => {
                         <input
                             type='text'
                             required
-                            placeholder='Mainland group 1'
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
                             id='groupName'
                             className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem]'
                         />
