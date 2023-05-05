@@ -5,6 +5,7 @@ import Input, { SelectProps } from '../../../components/UI/input/Input'
 import useAxios from '../../../components/hooks/useAxios'
 import { ToastContainer, toast } from 'react-toastify'
 import { useMutation, useQuery } from 'react-query'
+import Activate_Deactivate from '../../../components/UI/Dialog/Activate_Deactivate'
 
 const SecurityCompanyDetail = () => {
     interface Inputs {
@@ -205,26 +206,7 @@ const SecurityCompanyDetail = () => {
                     />
 
                     <div className='flex gap-8'>
-                        {get_response?.data.status ? (
-                            <button
-                                className='border border-red-600 px-16 py-4 flex items-center  rounded-lg gap-4'
-                                onClick={() => handleOpen()}
-                            >
-                                <img src='/icons/admins/delete.svg' alt='' />
-                                <span className='text-red-600 text-[1.4rem] font-semibold'>
-                                    Deactivate
-                                </span>
-                            </button>
-                        ) : (
-                            <button
-                                className='border border-green-600 px-16 py-4 flex items-center  rounded-lg gap-4'
-                                onClick={() => handleOpen()}
-                            >
-                                <span className='text-green-600 text-[1.4rem] font-semibold capitalize'>
-                                    Activate
-                                </span>
-                            </button>
-                        )}
+                       <Activate_Deactivate/>
                     </div>
                 </div>
 
