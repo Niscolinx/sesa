@@ -154,7 +154,10 @@ const SecurityCompanyDetail = () => {
         if (get_response) {
             console.log({ get_response })
             const { id, user_id, image, status, onboarding_date, ...other } =
-                get_response.data[0]
+                get_response.data
+                
+
+                console.log({other})
 
             const formatDate = new Date(onboarding_date)
                 .toISOString()
