@@ -11,11 +11,53 @@ import useAxios from '../../../../components/hooks/useAxios'
 type Actions = 'Deactivate' | 'Delete'
 
 const ArtisanDetail = () => {
+
+ const params = useParams()
+ const axiosInstance = useAxios()
+
+ const [photoPreview, setPhotoPreview] = useState('')
+ const [imageFile, setImageFile] = useState<File | null>(null)
+ const genderState = ['Male', 'Female']
+ const [isWarning, setIsWarning] = useState(true)
+ const [isSignOutRequired, setIsSignOutRequired] = useState(false)
+
+ const toggleIsSignOutRequired = () => setIsSignOutRequired(!isSignOutRequired)
+ const [responseMessage, setResponseMessage] = useState<ResponseMessage | null>(
+     null
+ )
     const [selectedGender, setSelectedGender] = useState<string>('')
     const [dialogType, setDialogType] = useState<Actions>('Deactivate')
 
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault()
+    const company_id = params.id?.replace(':', '')
+
+    if (!company_id) {
+        toast('Company not Found', {
+            type: 'error',
+            className: 'bg-red-100 text-red-600 text-[1.4rem]',
+        })
+
+        return <p className='p-4'> Not found!</p>
+    }
+
+    const postDeactivate = (id: string) => {
+        return axiosInstance({
+            url: '/admin/deactivate_activate',
+            method: 'post',
+            data: { id },
+        })
+    }
+    const postUpdateAdmin = (data: any) => {
+        return axiosInstance({
+            url: `/security-company/update/${company_id}`,
+            method: 'post',
+            data,
+        })
+    }
+
+    const getAdmin = () => {
+        return axiosInstance({
+            url: `/security-company/get/${company_id}`,
+        })
     }
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
@@ -89,19 +131,7 @@ const ArtisanDetail = () => {
         name?: string
     }
 
-    const params = useParams()
-    const axiosInstance = useAxios()
-
-    const [photoPreview, setPhotoPreview] = useState('')
-    const [imageFile, setImageFile] = useState<File | null>(null)
-    const genderState = ['Male', 'Female']
-    const [isWarning, setIsWarning] = useState(true)
-    const [isSignOutRequired, setIsSignOutRequired] = useState(false)
-
-    const toggleIsSignOutRequired = () =>
-        setIsSignOutRequired(!isSignOutRequired)
-    const [responseMessage, setResponseMessage] =
-        useState<ResponseMessage | null>(null)
+   
 
     const formInputs = [
         {
