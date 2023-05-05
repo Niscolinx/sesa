@@ -487,27 +487,7 @@ const AddArtisan = () => {
                 </section>
             </dialog>
             <div className='grid p-8 bg-white min-h-[60vh] items-baseline overflow-y-scroll rounded-lg'>
-                <div className='grid gap-8 max-w-[40rem]'>
-                    <p className='text-[2rem] font-Satoshi-Medium'>
-                        KYA <span className='text-gray-500'>(Optional)</span>
-                    </p>
-                    <div className='flex justify-between text-[1.6rem] w-[40rem]'>
-                        <p
-                            className='text-[#098DFF] cursor-pointer'
-                            onClick={() => handleOpen('validate')}
-                        >
-                            Click her to validate this person
-                        </p>
-                        <p
-                            className='text-[#043FA7] flex items-center gap-2'
-                            style={{
-                                fontFamily: 'Satoshi-Light',
-                            }}
-                        >
-                            What is KYA <BsQuestionCircle />
-                        </p>
-                    </div>
-                </div>
+              
                 {responseMessage?.displayMessage && (
                     <p className='text-center my-5'>
                         <span className={responseMessage?.className}>
@@ -548,8 +528,8 @@ const AddArtisan = () => {
                             handlePicture={handlePicture}
                             photoPreview={photoPreview}
                         />
-                        <div>
-                            <div className='grid max-w-[40rem] mt-[5rem] '>
+                        <div className='grid gap-8'>
+                            <div className='grid max-w-[40rem]'>
                                 <div className='flex items-center justify-between'>
                                     <p className='text-[2rem] font-Satoshi-Medium flex items-center gap-2'>
                                         KYG{' '}
