@@ -74,13 +74,11 @@ const ViewArtisanGroup = () => {
          useFetchData({
              url: '/admin/group/get/single/2',
              name: 'group_single',
-             nested: false
          })
      const { data: group_users, isLoading: group_users_loading } =
          useFetchData({
              url: '/admin/group/get/single/users/2',
              name: 'group_users',
-             nested: false
          })
 
      const onSubmit = (e: FormEvent) => {

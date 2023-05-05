@@ -36,7 +36,6 @@ const useFetchData = ({
         setQueryParams(newParams)
     }
 
-    console.log({data})
     return { isLoading, data, error, refetch, isFetched, isError, isFetching, updateQueryParams }
 }
 
