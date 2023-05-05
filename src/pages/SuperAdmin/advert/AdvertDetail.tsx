@@ -14,7 +14,7 @@ type Actions = 'Deactivate' | 'Delete'
 const AdvertDetail = () => {
     const navigate = useNavigate()
 
-    const [selectedWeek, setSelectedWeek] = useState('')
+    const [selectedWeek, setSelectedWeek] = useState('Weekly')
 
     const [dialogType, setDialogType] = useState<Actions>('Deactivate')
 
