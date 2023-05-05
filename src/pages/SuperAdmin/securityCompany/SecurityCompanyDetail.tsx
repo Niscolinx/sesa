@@ -139,17 +139,16 @@ const SecurityCompanyDetail = () => {
                 type: 'success',
                 className: 'bg-green-100 text-green-600 text-[1.4rem]',
             })
-            handleClose()
         },
         onError: (err: any) => {
-            setResponseMessage({
+            return setResponseMessage({
                 className: 'text-red-600',
                 displayMessage: err?.response?.data.message,
             })
         },
 
         onSettled: () => {
-           return handleClose()
+            return handleClose()
         },
     })
 
