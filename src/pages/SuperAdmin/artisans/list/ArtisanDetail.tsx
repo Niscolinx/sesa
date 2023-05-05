@@ -4,15 +4,13 @@ import { Select } from '../../../../components/SuperAdmin/UI/Select'
 import StarRating from '../../../../components/SuperAdmin/UI/StarRating'
 import { getPhotoUrl } from '../../../../utils/getPhotoUrl'
 import { BsQuestionCircle } from 'react-icons/bs'
+import ValidatedResult from '../../../../components/UI/Dialog/ValidatedResult'
 
 type Actions = 'Deactivate' | 'Delete'
 
 const ArtisanDetail = () => {
     const [selectedGender, setSelectedGender] = useState<string>('')
     const [dialogType, setDialogType] = useState<Actions>('Deactivate')
-       
-
-
 
    
 
@@ -135,7 +133,7 @@ const ArtisanDetail = () => {
                 <div>
                     <div className='flex justify-between items-center'>
                         
-                        <sadf?
+                        <ValidatedResult/>
 
                         <div className='flex gap-8'>
                             <button

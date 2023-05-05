@@ -3,25 +3,13 @@ import React, { Dispatch, useEffect, useRef, useState } from 'react'
 import { BsQuestionCircle } from 'react-icons/bs'
 import { IoMdClose } from 'react-icons/io'
 
-interface Props {
-    open: boolean
-    setOpen: Dispatch<SetStateAction<boolean>>
-}
-
-function ValidatedResult({ open, setOpen }: Props) {
+function ValidatedResult() {
     const dialogRef = useRef<HTMLDialogElement | null>(null)
     const [isValidated, setIsValidated] = useState(false)
     const [photoPreview, setPhotoPreview] = useState('')
     const [imageFile, setImageFile] = useState<File | null>(null)
 
-    useEffect(() => {
-        if (open) {
-            openValidatedDialog()
-        }
-    }, [open])
-
     const closeValidatedDialog = () => {
-        setOpen(false)
         if (dialogRef.current) {
             dialogRef.current.close()
         }
