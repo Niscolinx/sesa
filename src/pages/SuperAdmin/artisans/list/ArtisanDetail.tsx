@@ -8,7 +8,7 @@ import ValidatedResult from '../../../../components/UI/Dialog/ValidatedResult'
 import { useParams } from 'react-router'
 import useAxios from '../../../../components/hooks/useAxios'
 import Activate_Deactivate from '../../../../components/UI/Dialog/Activate_Deactivate'
-import Input from '../../../../components/UI/input/Input'
+import Input, { SelectProps } from '../../../../components/UI/input/Input'
 
 type Actions = 'Deactivate' | 'Delete'
 
@@ -16,10 +16,7 @@ const ArtisanDetail = () => {
     const params = useParams()
     const axiosInstance = useAxios()
 
-    const [photoPreview, setPhotoPreview] = useState('')
-    const [imageFile, setImageFile] = useState<File | null>(null)
     const genderState = ['Male', 'Female']
-    const [isWarning, setIsWarning] = useState(true)
     const [isSignOutRequired, setIsSignOutRequired] = useState(false)
 
     const toggleIsSignOutRequired = () =>
@@ -119,7 +116,8 @@ const ArtisanDetail = () => {
         address_line_1: string
         address_line_2: string
         business_name: string
-       
+        onboarding_date: string
+        status: number
     }
 
     type ResponseMessage = {
@@ -131,52 +129,38 @@ const ArtisanDetail = () => {
         label?: keyof Inputs
         type?: string
         name?: string
+        selectProps?: SelectProps
     }
 
     const formInputs = [
         {
-            name: 'Security Name',
-            label: 'name',
+            label: 'firstname',
         },
         {
-            name: 'Email Address',
-            label: 'email',
+            label: 'lastname',
+        },
+        {
+            label: 'email_address',
             type: 'email',
         },
         {
-            label: 'address',
+            label: 'artisan_code',
         },
 
         {
-            name: 'phone Number',
-            label: 'phone',
+            label: 'phone_number',
             type: 'number',
         },
-        {
-            name: 'no_of_security_guards',
-            label: 'no_security_guards',
-            type: 'number',
+         {
+            label: 'gender',
+            type: 'select',
+            selectProps: {
+                state: genderState,
+                selectedState: selectedGender,
+                setSelectedState: setSelectedGender,
+            },
         },
-        {
-            name: 'wallet_balance',
-            label: 'balance',
-            type: 'number',
-        },
-        {
-            name: 'Joined Date',
-            label: 'formatted_onboarding_date',
-            type: 'date',
-        },
-        {
-            name: 'no_of_assigned_security_guards',
-            label: 'no_assigned_security_guards',
-            type: 'number',
-        },
-        {
-            name: 'no_of_bank_accounts_opened',
-            label: 'no_bank_account',
-            type: 'number',
-        },
+       
     ] satisfies FormInputs[]
 
     return (
