@@ -144,7 +144,7 @@ function RenderedSecurityCompanies() {
         },
 
         onSettled: () => {
-            //queryClient.invalidateQueries('securityCompanies')
+            queryClient.invalidateQueries('securityCompanies')
         },
     })
     const {
