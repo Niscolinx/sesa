@@ -30,7 +30,7 @@ function Activate_Deactivate({ id, url, status, title, queryCache }: Props) {
 
     const queryClient = useQueryClient()
 
-    const { mutate: deactivate_mutation, isLoading: deactivate_loading } =
+    const { mutate, isLoading: deactivate_loading } =
         useMutation(postDeactivate, {
             onSuccess: (res) => {
                 toast(`Company ${title} ${currentStatus + 'd'} successfully`, {
@@ -65,8 +65,8 @@ function Activate_Deactivate({ id, url, status, title, queryCache }: Props) {
         }
     }
 
-    const confirmDeactivation = () => {
-        return deactivate_mutation()
+    const postHandler = () => {
+        return mutate()
     }
 
     return (
@@ -119,7 +119,7 @@ function Activate_Deactivate({ id, url, status, title, queryCache }: Props) {
                             {currentStatus === 'activate' ? (
                                 <button
                                     className='bg-greeb-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem] capitalize'
-                                    onClick={confirmDeactivation}
+                                    onClick={postHandler}
                                 >
                                     {deactivate_loading
                                         ? 'Loading...'
@@ -128,7 +128,7 @@ function Activate_Deactivate({ id, url, status, title, queryCache }: Props) {
                             ) : (
                                 <button
                                     className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem] capitalize'
-                                    onClick={confirmDeactivation}
+                                    onClick={postHandler}
                                 >
                                     {deactivate_loading
                                         ? 'Loading...'
