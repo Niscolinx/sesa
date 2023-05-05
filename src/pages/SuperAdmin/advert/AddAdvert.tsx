@@ -25,6 +25,7 @@ const AddAdvert = () => {
         label?: string
         type?: string
         name?: string
+        required?: boolean
         selectProps?: SelectProps
     }
 
@@ -165,6 +166,7 @@ const AddAdvert = () => {
         {
             label: 'url',
             name: 'URL',
+            required: false
         },
     ] satisfies FormInputs[]
 
@@ -209,13 +211,14 @@ const AddAdvert = () => {
                 >
                     <>
                         {formInputs.map((input, idx) => {
-                            const { label, type, name, selectProps } = input
+                            const { label, type, name, selectProps, required } = input
                             return (
                                 <Input
                                     key={idx + label}
                                     label={label}
                                     register={register}
                                     formErrors={formErrors}
+                                    required={required}
                                     selectFormErrors={selectFormErrors}
                                     type={type}
                                     name={name}

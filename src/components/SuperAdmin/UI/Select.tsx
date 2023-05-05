@@ -494,6 +494,7 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
                             type='text'
                             placeholder='Search Parameters'
                             value={search}
+                            
                             onChange={handleSearch}
                             className='pl-16 w-[25rem] rounded-lg border border-color-blue-light py-4 px-8 outline-none appearance-none'
                         />
