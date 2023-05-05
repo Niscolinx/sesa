@@ -124,7 +124,7 @@ function ValidatedResult() {
                     className='grid gap-4 cursor-pointer justify-items-center'
                 >
                     <img
-                        src={photoPreview}
+                        src={photoPreview || '/default-avatar.jpg'}
                         alt='photoPreview'
                         className='object-cover w-[11rem] h-[11rem] rounded-full object-top'
                     />
