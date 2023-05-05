@@ -45,7 +45,7 @@ function ValidateKY() {
                 className: 'bg-red-100 text-red-600 text-[1.4rem]',
             })
         },
-    }) as any
+    }) 
 
     const handleClose = () => {
         if (dialogRef.current) {
@@ -183,9 +183,7 @@ function ValidateKY() {
                             <div className='flex justify-between text-[1.6rem]'>
                                 <p
                                     className='text-[#098DFF] cursor-pointer'
-                                     onClick={() =>
-                                      handleOpen()
-                                    }
+                                    onClick={handleOpen}
                                     style={{
                                         fontFamily: 'Satoshi-Medium',
                                     }}
