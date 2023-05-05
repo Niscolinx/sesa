@@ -77,8 +77,9 @@ function Activate_Deactivate({ id, url, status, title, queryCache }: Props) {
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8 text-[1.6rem] '>
                         {currentStatus === 'activate' ? (
                             <>
+                               
                                 <img
-                                    src='/icons/admins/modalWarning.svg'
+                                    src='/icons/admins/modalSuccess.svg'
                                     alt=''
                                     className='animate__animated animate__pulse '
                                     style={{
@@ -87,14 +88,14 @@ function Activate_Deactivate({ id, url, status, title, queryCache }: Props) {
                                 />
 
                                 <p>
-                                    Are you sure you want to deactivate this{' '}
+                                    Are you sure you want to activate this{' '}
                                     <span className='capitalize'>{title}</span>?
                                 </p>
                             </>
                         ) : (
                             <>
                                 <img
-                                    src='/icons/admins/modalWarning.svg'
+                                    src='/icons/admins/modalSuccess.svg'
                                     alt=''
                                     className='animate__animated animate__pulse '
                                     style={{
@@ -103,7 +104,7 @@ function Activate_Deactivate({ id, url, status, title, queryCache }: Props) {
                                 />
 
                                 <p>
-                                    Are you sure you want to deactivate this{' '}
+                                    Are you sure you want to activate this{' '}
                                     <span className='capitalize'>{title}</span>?
                                 </p>
                             </>
