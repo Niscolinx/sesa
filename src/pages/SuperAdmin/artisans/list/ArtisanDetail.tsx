@@ -151,7 +151,7 @@ const ArtisanDetail = () => {
             label: 'phone_number',
             type: 'number',
         },
-         {
+        {
             label: 'gender',
             type: 'select',
             selectProps: {
@@ -160,7 +160,12 @@ const ArtisanDetail = () => {
                 setSelectedState: setSelectedGender,
             },
         },
-       
+        {
+            label: 'address_line_1',
+        },
+        {
+            label: 'address_line_2',
+        },
     ] satisfies FormInputs[]
 
     return (
@@ -528,9 +533,7 @@ const ArtisanDetail = () => {
                                     className='w-[1.7rem] h-[1.7rem]'
                                 />
                             </span>
-                            {true
-                                ? 'Loading...'
-                                : 'Save Changes'}
+                            {true ? 'Loading...' : 'Save Changes'}
                         </button>
                     </form>
                 </div>
