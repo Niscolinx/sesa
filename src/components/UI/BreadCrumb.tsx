@@ -33,30 +33,34 @@ function BreadCrumb() {
 
                     
 
-                    return (
-                        <p
-                            className='flex items-center gap-2'
-                            key={match.pathname}
+                    // return (
+                    //     <p
+                    //         className='flex items-center gap-2'
+                    //         key={match.pathname}
                            
-                        >
-                            <NavLink
-                                to={isParams.length > 0 && index === i ? '#': match.pathname}
-                                className={
-                                    index === i
-                                        ? 'text-color-blue-1'
-                                        : 'text-color-gray-1'
-                                }
-                            >
-                                <span>
-                                    { breadcrumb}
-                                </span> 
-                            </NavLink>
-                            {i !== index && eachParam.length < 1 && (
-                                <span>
-                                    <BiChevronRight />
-                                </span>
-                            )}
-                        </p>
+                    //     >
+                    //         <NavLink
+                    //             to={isParams.length > 0 && index === i ? '#': match.pathname}
+                    //             className={
+                    //                 index === i
+                    //                     ? 'text-color-blue-1'
+                    //                     : 'text-color-gray-1'
+                    //             }
+                    //         >
+                    //             <span>
+                    //                 { breadcrumb}
+                    //             </span> 
+                    //         </NavLink>
+                    //         {i !== index && eachParam.length < 1 && (
+                    //             <span>
+                    //                 <BiChevronRight />
+                    //             </span>
+                    //         )}
+                    //     </p>
+                    // )
+
+                    return (
+                        <MdOutlineKeyboardBackspace/>
                     )
                 }
             })}
