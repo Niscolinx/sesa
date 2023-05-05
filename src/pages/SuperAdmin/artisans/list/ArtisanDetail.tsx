@@ -11,20 +11,19 @@ import useAxios from '../../../../components/hooks/useAxios'
 type Actions = 'Deactivate' | 'Delete'
 
 const ArtisanDetail = () => {
+    const params = useParams()
+    const axiosInstance = useAxios()
 
- const params = useParams()
- const axiosInstance = useAxios()
+    const [photoPreview, setPhotoPreview] = useState('')
+    const [imageFile, setImageFile] = useState<File | null>(null)
+    const genderState = ['Male', 'Female']
+    const [isWarning, setIsWarning] = useState(true)
+    const [isSignOutRequired, setIsSignOutRequired] = useState(false)
 
- const [photoPreview, setPhotoPreview] = useState('')
- const [imageFile, setImageFile] = useState<File | null>(null)
- const genderState = ['Male', 'Female']
- const [isWarning, setIsWarning] = useState(true)
- const [isSignOutRequired, setIsSignOutRequired] = useState(false)
-
- const toggleIsSignOutRequired = () => setIsSignOutRequired(!isSignOutRequired)
- const [responseMessage, setResponseMessage] = useState<ResponseMessage | null>(
-     null
- )
+    const toggleIsSignOutRequired = () =>
+        setIsSignOutRequired(!isSignOutRequired)
+    const [responseMessage, setResponseMessage] =
+        useState<ResponseMessage | null>(null)
     const [selectedGender, setSelectedGender] = useState<string>('')
     const [dialogType, setDialogType] = useState<Actions>('Deactivate')
 
@@ -130,8 +129,6 @@ const ArtisanDetail = () => {
         type?: string
         name?: string
     }
-
-   
 
     const formInputs = [
         {

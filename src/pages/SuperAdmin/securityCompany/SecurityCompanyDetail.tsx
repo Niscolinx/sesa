@@ -109,11 +109,11 @@ const SecurityCompanyDetail = () => {
         return <p className='p-4'> Not found!</p>
     }
 
-    const postDeactivate = (id: string) => {
+    const postDeactivate = () => {
         return axiosInstance({
             url: '/admin/deactivate_activate',
             method: 'post',
-            data: { id },
+            data: { id: company_id },
         })
     }
     const postUpdateAdmin = (data: any) => {
@@ -220,7 +220,7 @@ const SecurityCompanyDetail = () => {
     }
 
     const confirmDeactivation = () => {
-        handleClose()
+      return deactivate_admin_mutation()
     }
 
     if (get_admin_loading) {
@@ -268,10 +268,10 @@ const SecurityCompanyDetail = () => {
                             )}
                             {isWarning ? (
                                 <button
-                                    className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
+                                    className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem] capitalize'
                                     onClick={confirmDeactivation}
                                 >
-                                    Deactivate
+                                    {deactivate_admin_loading ? 'Loading...' : 'deactivate'}
                                 </button>
                             ) : (
                                 <button
