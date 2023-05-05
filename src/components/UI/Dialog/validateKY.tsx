@@ -7,7 +7,7 @@ import { useMutation } from 'react-query'
 import { Select } from '../../SuperAdmin/UI/Select'
 import Input from '../input/Input'
 
-function validateKY() {
+function ValidateKY() {
     const dialogRef = useRef<HTMLDialogElement | null>(null)
     const axiosInstance = useAxios()
 
@@ -190,4 +190,4 @@ function validateKY() {
     )
 }
 
-export default validateKY
+export default ValidateKY

@@ -11,6 +11,7 @@ import Input, { SelectProps } from '../../../../components/UI/input/Input'
 import { useMutation, useQuery } from 'react-query'
 import { useForm } from 'react-hook-form'
 import { IoMdCheckmarkCircleOutline, IoMdClose } from 'react-icons/io'
+import ValidateKY from '../../../../components/UI/Dialog/validateKY'
 
 const ArtisanDetail = () => {
     type Actions = 'Deactivate' | 'Delete'
@@ -227,7 +228,7 @@ const ArtisanDetail = () => {
                                     )
                                 })}
                             </section>
-                            {/* sdfsf/> */}
+                            <ValidateKY/>
                         </div>
 
                         <button className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg justify-self-start capitalize'>
