@@ -1,5 +1,5 @@
 import { SetStateAction } from 'jotai'
-import React, { Dispatch, useEffect, useRef } from 'react'
+import React, { Dispatch, useEffect, useRef, useState } from 'react'
 import { IoMdClose } from 'react-icons/io'
 
 interface Props {
@@ -9,6 +9,8 @@ interface Props {
 
 function ValidatedResult({ open, setOpen }: Props) {
     const dialogRef = useRef<HTMLDialogElement | null>(null)
+     const [photoPreview, setPhotoPreview] = useState('')
+     const [imageFile, setImageFile] = useState<File | null>(null)
 
     useEffect(() => {
         if (open) {
