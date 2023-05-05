@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import { BsQuestionCircle } from 'react-icons/bs'
 import useAxios from '../../hooks/useAxios'
 import { useForm } from 'react-hook-form'
@@ -8,8 +8,13 @@ import { Select } from '../../SuperAdmin/UI/Select'
 import Input from '../input/Input'
 
 function ValidateKY() {
+     interface ValidationTypeInput {
+         validation_content: string
+     }
     const dialogRef = useRef<HTMLDialogElement | null>(null)
     const axiosInstance = useAxios()
+
+    const [validationType, setValidationType] = useState<string>('Phone Number')
 
     const {
         register: validation_register,
