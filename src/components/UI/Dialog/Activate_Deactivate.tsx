@@ -77,7 +77,6 @@ function Activate_Deactivate({ id, url, status, title, queryCache }: Props) {
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8 text-[1.6rem] '>
                         {currentStatus === 'activate' ? (
                             <>
-                               
                                 <img
                                     src='/icons/admins/modalSuccess.svg'
                                     alt=''
@@ -95,7 +94,7 @@ function Activate_Deactivate({ id, url, status, title, queryCache }: Props) {
                         ) : (
                             <>
                                 <img
-                                    src='/icons/admins/modalSuccess.svg'
+                                    src='/icons/admins/modalWarning.svg'
                                     alt=''
                                     className='animate__animated animate__pulse '
                                     style={{
@@ -104,7 +103,7 @@ function Activate_Deactivate({ id, url, status, title, queryCache }: Props) {
                                 />
 
                                 <p>
-                                    Are you sure you want to activate this{' '}
+                                    Are you sure you want to deactivate this{' '}
                                     <span className='capitalize'>{title}</span>?
                                 </p>
                             </>
@@ -117,22 +116,32 @@ function Activate_Deactivate({ id, url, status, title, queryCache }: Props) {
                             >
                                 Cancel
                             </button>
-
-                            <button
-                                className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem] capitalize'
-                                onClick={confirmDeactivation}
-                            >
-                                {deactivate_loading
-                                    ? 'Loading...'
-                                    : 'deactivate'}
-                            </button>
+                            {currentStatus === 'activate' ? (
+                                <button
+                                    className='bg-greeb-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem] capitalize'
+                                    onClick={confirmDeactivation}
+                                >
+                                    {deactivate_loading
+                                        ? 'Loading...'
+                                        : 'activate'}
+                                </button>
+                            ) : (
+                                <button
+                                    className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem] capitalize'
+                                    onClick={confirmDeactivation}
+                                >
+                                    {deactivate_loading
+                                        ? 'Loading...'
+                                        : 'deactivate'}
+                                </button>
+                            )}
                         </div>
                     </div>
                 </section>
             </dialog>
 
             <div className='font-Satoshi-Medium'>
-                {currentStatus === 'deactivate'? (
+                {currentStatus === 'deactivate' ? (
                     <button
                         className='border border-red-600 px-16 py-4 flex items-center  rounded-lg gap-4'
                         onClick={() => handleOpen()}
