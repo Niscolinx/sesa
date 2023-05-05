@@ -87,6 +87,20 @@ const ArtisanDetail = () => {
         }
     }, [get_response])
 
+    const dialogRef = useRef<HTMLDialogElement | null>(null)
+    
+    const closeValidateDialog = () => {
+        if (validateDialogRef.current) {
+            validateDialogRef.current.close()
+        }
+    }
+
+    const openValidateDialog = () => {
+        if (validateDialogRef.current) {
+            validateDialogRef.current.showModal()
+        }
+    }
+
     const onSubmit = handleSubmit((data) => {
         // const { first_name, last_name, dob, email_address, phone_number } = data
 
@@ -176,7 +190,96 @@ const ArtisanDetail = () => {
     return (
         <>
             <ToastContainer />
+            <dialog className='dialog' ref={dialogRef}>
+                <section className='grid place-content-center w-full h-[100vh]'>
+                    <div className='bg-white rounded-2xl grid items-baseline w-[64rem] min-h-[30rem] p-10 gap-8 text-[1.6rem] relative'>
+                        <IoMdClose
+                            className='absolute right-4 top-4 text-[2rem] cursor-pointer'
+                            onClick={() => handleClose()}
+                        />
 
+                        {isAddArtisan ? (
+                            <form
+                                className='grid gap-12'
+                                onSubmit={onSubmitValidation}
+                            >
+                                <h3
+                                    className='text-[2rem] font-Satoshi-Medium border-b '
+                                    style={{
+                                        fontFamily: 'Satoshi-Medium',
+                                    }}
+                                >
+                                    Know Your Artisan (KYA)
+                                </h3>
+
+                                <Select
+                                    state={['Phone Number', 'Name']}
+                                    label='Validation Option'
+                                    selectedState={validationType}
+                                    setSelectedState={setValidationType}
+                                />
+                                <p
+                                    className='text-[#043FA7] flex items-center gap-2'
+                                    style={{
+                                        fontFamily: 'Satoshi-Light',
+                                    }}
+                                >
+                                    What is KYA <BsQuestionCircle />
+                                </p>
+
+                                <div className='border-t pt-10'>
+                                    {validationInput
+                                        .filter(
+                                            ({ name }) =>
+                                                name.toLowerCase() ===
+                                                validationType.toLowerCase()
+                                        )
+                                        .map(({ label, type, name }) => {
+                                            return (
+                                                <Input
+                                                    label={label}
+                                                    key={label}
+                                                    name={name}
+                                                    register={
+                                                        validation_register
+                                                    }
+                                                    formErrors={
+                                                        validation_formErrors
+                                                    }
+                                                    type={type}
+                                                />
+                                            )
+                                        })}
+                                </div>
+
+                                <button className='btn bg-[#0556E5] text-white rounded-lg py-4 place-self-start w-[15rem]'>
+                                    {validationType_isloading
+                                        ? 'Loading...'
+                                        : 'Validate'}
+                                </button>
+                            </form>
+                        ) : (
+                            <div className='bg-white rounded-2xl grid place-content-center justify-items-center h-[30rem] gap-8 text-[1.6rem]'>
+                                <img
+                                    src='/icons/admins/modalSuccess.svg'
+                                    alt=''
+                                />
+
+                                <p>You have successfully added an Artisan</p>
+
+                                <div className='flex w-full justify-center gap-8'>
+                                    <button
+                                        className='bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
+                                        onClick={handleClose}
+                                    >
+                                        Ok
+                                    </button>
+                                </div>
+                            </div>
+                        )}
+                    </div>
+                </section>
+            </dialog>
             <div className='grid p-8 bg-white  rounded-lg gap-[10rem]'>
                 <div>
                     <div className='flex justify-between items-center'>
@@ -258,7 +361,7 @@ const ArtisanDetail = () => {
                                             style={{
                                                 fontFamily: 'Satoshi-Medium',
                                             }}
-                                           // onClick={() => openValidateDialog()}
+                                            // onClick={() => openValidateDialog()}
                                         >
                                             View Results <BsQuestionCircle />
                                         </button>
@@ -269,9 +372,9 @@ const ArtisanDetail = () => {
                                             <div className='flex justify-between text-[1.6rem]'>
                                                 <p
                                                     className='text-[#098DFF] cursor-pointer'
-                                                  //  onClick={() =>
-                                                     //   handleOpen('validate')
-                                                   // }
+                                                    //  onClick={() =>
+                                                    //   handleOpen('validate')
+                                                    // }
                                                     style={{
                                                         fontFamily:
                                                             'Satoshi-Medium',
