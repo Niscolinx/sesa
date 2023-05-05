@@ -93,7 +93,7 @@ const ArtisanDetail = () => {
 
     useEffect(() => {
         if (get_response) {
-            const { name, email, phone, image, dob, gender, ...other } =
+            const { image, gender, ...other } =
                 get_response.data
 
             reset({
