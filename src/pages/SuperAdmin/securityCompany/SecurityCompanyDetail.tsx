@@ -110,10 +110,16 @@ const SecurityCompanyDetail = () => {
     }
 
     const postDeactivate = () => {
-        return axiosInstance({
-            url: '/security-company/deactivate_activate',
+        // return axiosInstance({
+        //     url: '/security-company/deactivate_activate',
+        //     method: 'post',
+        //     data: { id: company_id },
+        // })
+
+         return axiosInstance({
+            url: `/security-company/update/${company_id}`,
             method: 'post',
-            data: { id: company_id },
+            data: '',
         })
     }
     const postRequest = (data: any) => {
