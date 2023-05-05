@@ -173,7 +173,7 @@ const ArtisanDetail = () => {
 
             <div className='grid p-8 bg-white  rounded-lg gap-[10rem]'>
                 <div>
-                    <div className='flex justify-between items-center'>
+                    <div className='flex justify-between items-center mb-10'>
                         <ValidatedResult
                             image={photoPreview}
                             setImageFile={setImageFile}
