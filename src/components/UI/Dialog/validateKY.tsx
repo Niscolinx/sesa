@@ -14,6 +14,10 @@ function ValidateKY() {
     }
     const dialogRef = useRef<HTMLDialogElement | null>(null)
     const axiosInstance = useAxios()
+    const [isValidated, setIsValidated] = useState(false)
+    const [iskyg, setIskyg] = useState(false)
+
+    const toggleIskyg = () => setIskyg(!iskyg)
 
     const [validationType, setValidationType] = useState<string>('Phone Number')
 
@@ -49,7 +53,7 @@ function ValidateKY() {
         }
     }
 
-    const openDialog = () => {
+    const handleOpen = () => {
         if (dialogRef.current) {
             dialogRef.current.showModal()
         }
@@ -179,9 +183,9 @@ function ValidateKY() {
                             <div className='flex justify-between text-[1.6rem]'>
                                 <p
                                     className='text-[#098DFF] cursor-pointer'
-                                    //  onClick={() =>
-                                    //   handleOpen()
-                                    // }
+                                     onClick={() =>
+                                      handleOpen()
+                                    }
                                     style={{
                                         fontFamily: 'Satoshi-Medium',
                                     }}
