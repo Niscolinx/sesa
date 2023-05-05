@@ -69,7 +69,7 @@ function Activate_Deactivate({ id, url, status, title, queryCache }: Props) {
             <ToastContainer />
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
-                    <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8 text-[1.6rem]'>
+                    <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8 text-[1.6rem] '>
                         {status.toLowerCase() === 'activate' ? (
                             <>
                                 <img
@@ -125,26 +125,28 @@ function Activate_Deactivate({ id, url, status, title, queryCache }: Props) {
                 </section>
             </dialog>
 
-            {status ? (
-                <button
-                    className='border border-red-600 px-16 py-4 flex items-center  rounded-lg gap-4'
-                    onClick={() => handleOpen()}
-                >
-                    <img src='/icons/admins/delete.svg' alt='' />
-                    <span className='text-red-600 text-[1.4rem] font-semibold'>
-                        Deactivate
-                    </span>
-                </button>
-            ) : (
-                <button
-                    className='border border-green-600 px-16 py-4 flex items-center  rounded-lg gap-4'
-                    onClick={() => handleOpen()}
-                >
-                    <span className='text-green-600 text-[1.4rem] font-semibold capitalize'>
-                        Activate
-                    </span>
-                </button>
-            )}
+            <div className='font-Satoshi-Medium'>
+                {status ? (
+                    <button
+                        className='border border-red-600 px-16 py-4 flex items-center  rounded-lg gap-4'
+                        onClick={() => handleOpen()}
+                    >
+                        <img src='/icons/admins/delete.svg' alt='' />
+                        <span className='text-red-600 text-[1.4rem] font-semibold'>
+                            Deactivate
+                        </span>
+                    </button>
+                ) : (
+                    <button
+                        className='border border-green-600 px-16 py-4 flex items-center  rounded-lg gap-4'
+                        onClick={() => handleOpen()}
+                    >
+                        <span className='text-green-600 text-[1.4rem] font-semibold capitalize'>
+                            Activate
+                        </span>
+                    </button>
+                )}
+            </div>
         </>
     )
 }

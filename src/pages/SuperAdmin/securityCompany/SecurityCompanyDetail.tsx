@@ -207,7 +207,7 @@ const SecurityCompanyDetail = () => {
                         <Activate_Deactivate
                             id={company_id}
                             url={'/security-company/deactivate_activate'}
-                            status={get_response?.data.status}
+                            status={get_response && get_response.data.status}
                             title={'security company'}
                             queryCache={`get_company_${company_id}`}
                         />
