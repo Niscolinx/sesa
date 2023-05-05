@@ -14,98 +14,86 @@ export interface IViewArtisanGroup {
     phone_number: string
 }
 
-
 const ViewArtisanGroup = () => {
     const params = useParams()
     const axiosInstance = useAxios()
 
     const groupId = params.id?.replace(':', '')
-         const [name, setName] = useState('')
-
+    const [name, setName] = useState('')
 
     const { data: response_data, isLoading } = useFetchData({
         url: `/admin/group/getSingleGroup/16`,
         name: `view_group_${groupId}`,
-        nested: false
-        
+        nested: false,
+
         // url: `/admin/group/getSingleGroup/${groupId}`,
-    
     })
 
     useEffect(() => {
-        if(response_data){
+        if (response_data) {
             setName(response_data.name)
         }
     }, [response_data])
 
+    const updateRequest = () => {
+        return axiosInstance({
+            url: `/admin/group/update/2`,
+            // url: `/admin/group/update/${group_id}`,
+            method: 'post',
+            data: { name },
+        })
+    }
+    const { isLoading: update_loading, mutate } = useMutation(
+        'update_group_name',
+        updateRequest,
+        {
+            onSuccess: () => {
+                toast('Group updated successfully', {
+                    type: 'success',
+                    className: 'bg-green-100 text-green-600 text-[1.4rem]',
+                })
+            },
 
+            onError: () => {
+                toast('Failed to update group', {
+                    type: 'error',
+                    className: 'bg-red-100 text-red-600 text-[1.4rem]',
+                })
+            },
+        }
+    )
 
+    const { data: group_artisans, isLoading: group_artisans_loading } =
+        useFetchData({
+            url: `/admin/group/getSingleGroupUsers/${groupId}`,
+            name: 'group_artisans',
+        })
+    const { data: group_estates, isLoading: group_estates_loading } =
+        useFetchData({
+            url: `/admin/group/get/single/users/${groupId}`,
+            name: 'group_estates',
+        })
 
+    const onSubmit = (e: FormEvent) => {
+        e.preventDefault()
 
-     const updateRequest = () => {
-         return axiosInstance({
-             url: `/admin/group/update/2`,
-             // url: `/admin/group/update/${group_id}`,
-             method: 'post',
-             data: { name },
-         })
-     }
-     const { isLoading: update_loading, mutate } = useMutation(
-         'update_group_name',
-         updateRequest,
-         {
-             onSuccess: () => {
-                 toast('Group updated successfully', {
-                     type: 'success',
-                     className: 'bg-green-100 text-green-600 text-[1.4rem]',
-                 })
-             },
+        if (name === '') {
+            toast('Update the name of the group', {
+                type: 'error',
+                className: 'bg-red-100 text-red-600 text-[1.4rem]',
+            })
+            return
+        }
 
-             onError: () => {
-                 toast('Failed to update group', {
-                     type: 'error',
-                     className: 'bg-red-100 text-red-600 text-[1.4rem]',
-                 })
-             },
-         }
-     )
+        mutate()
+    }
 
-     const { data: group_detail, isLoading: group_detail_loading } =
-         useFetchData({
-             url: '/admin/group/get/single/2',
-             name: 'group_single',
-         })
-     const { data: group_users, isLoading: group_users_loading } =
-         useFetchData({
-             url: '/admin/group/get/single/users/2',
-             name: 'group_users',
-         })
-
-     const onSubmit = (e: FormEvent) => {
-         e.preventDefault()
-
-         if (name === '') {
-             toast('Update the name of the group', {
-                 type: 'error',
-                 className: 'bg-red-100 text-red-600 text-[1.4rem]',
-             })
-             return
-         }
-
-         mutate()
-     }
-
-     if (isLoading ||group_detail_loading || group_users_loading) {
-         return <p className='p-8'>Loading...</p>
-     }
-
-
-  
-
+    if (isLoading || group_artisans_loading || group_estates_loading) {
+        return <p className='p-8'>Loading...</p>
+    }
 
     return (
         <>
-           
             <div className='grid text-[1.6rem] bg-white px-10 rounded-lg'>
                 <div className='flex gap-8 py-10 max-w-[50rem] items-end'>
                     <div className='w-full grid gap-4'>
@@ -130,7 +118,7 @@ const ViewArtisanGroup = () => {
                         Update
                     </button>
                 </div>
-{/* 
+                {/* 
                 <Table
                     title={'artisan'}
                     view_page_url={'/superAdmin/admin/view/'}
@@ -160,7 +148,7 @@ const ViewArtisanGroup = () => {
                     providedData={artisan_data.data}
                 />
                 */}
-                </div> 
+            </div>
         </>
     )
 }

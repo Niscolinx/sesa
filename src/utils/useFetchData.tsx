@@ -26,10 +26,10 @@ const useFetchData = ({
     const { isLoading, error, data, refetch, isFetching, isError, isFetched, } = useQuery<any, Error>(
         [name, queryParams],
         fetchData,
-        // {
-        //     refetchOnMount: false,
-        //     refetchOnWindowFocus: false,
-        // }
+        {
+            refetchOnMount: false,
+            refetchOnWindowFocus: false,
+        }
     )
 
     const updateQueryParams = (newParams?: string) => {
