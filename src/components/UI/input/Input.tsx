@@ -121,10 +121,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
         }
     }
 
-    if (type === 'date') {
-        console.log(value)
-        console.log(new Date(value))
-    }
+   
 
     return (
         <div
