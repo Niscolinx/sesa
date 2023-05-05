@@ -93,8 +93,7 @@ const ArtisanDetail = () => {
 
     useEffect(() => {
         if (get_response) {
-            const { image, gender, ...other } =
-                get_response.data
+            const { image, gender, ...other } = get_response.data
 
             reset({
                 ...other,
@@ -200,21 +199,19 @@ const ArtisanDetail = () => {
                                 }}
                             >
                                 {formInputs.map((input, idx) => {
-                                    const { label, type } = input
+                                    const { label, type, name } = input
 
                                     return (
                                         <Input
                                             key={idx + label}
                                             id={idx}
                                             label={label}
-                                            //  tag={tag}
-                                            //  disabled={disabled}
                                             setValue={setValue}
                                             clearErrors={clearErrors}
                                             register={register}
                                             formErrors={formErrors}
                                             type={type}
-                                            // name={name}
+                                            name={name}
                                         />
                                     )
                                 })}
