@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { toast, ToastContainer } from 'react-toastify'
 import { Select } from '../../../../components/SuperAdmin/UI/Select'
 import StarRating from '../../../../components/SuperAdmin/UI/StarRating'
@@ -9,6 +9,7 @@ import { useParams } from 'react-router'
 import useAxios from '../../../../components/hooks/useAxios'
 import Activate_Deactivate from '../../../../components/UI/Dialog/Activate_Deactivate'
 import Input, { SelectProps } from '../../../../components/UI/input/Input'
+import { useQuery } from 'react-query'
 
 type Actions = 'Deactivate' | 'Delete'
 
@@ -26,10 +27,10 @@ const ArtisanDetail = () => {
     const [selectedGender, setSelectedGender] = useState<string>('')
     const [dialogType, setDialogType] = useState<Actions>('Deactivate')
 
-    const company_id = params.id?.replace(':', '')
+    const artisan_id = params.id?.replace(':', '')
 
-    if (!company_id) {
-        toast('Company not Found', {
+    if (!artisan_id) {
+        toast('Artisan not Found', {
             type: 'error',
             className: 'bg-red-100 text-red-600 text-[1.4rem]',
         })
@@ -46,23 +47,43 @@ const ArtisanDetail = () => {
     }
     const postUpdateAdmin = (data: any) => {
         return axiosInstance({
-            url: `/security-company/update/${company_id}`,
+            url: `/security-company/update/${artisan_id}`,
             method: 'post',
             data,
         })
     }
 
-    const getAdmin = () => {
+    const getRequest = () => {
         return axiosInstance({
-            url: `/security-company/get/${company_id}`,
+            url: `/security-company/get/${artisan_id}`,
         })
     }
 
-   
+    const { data: get_response, isLoading: get_admin_loading } = useQuery(
+        [`view_artisan_${admin_id}`],
+        getRequest
+    )
 
-   
+    useEffect(() => {
+        if (get_response) {
+            const { name, email, phone, image, dob, gender } = get_response.data
+            const first_name = name.split(' ')[0]
+            const last_name = name.split(' ')[1]
 
-     const onSubmit = handleSubmit((data) => {
+            reset({
+                first_name,
+                last_name,
+                dob,
+                email_address: email,
+                phone_number: parseInt(phone),
+            })
+
+            setPhotoPreview(image)
+            setSelectedGender(gender)
+        }
+    }, [get_response])
+
+    const onSubmit = handleSubmit((data) => {
         const { first_name, last_name, dob, email_address, phone_number } = data
 
         const adminData = {
@@ -144,15 +165,13 @@ const ArtisanDetail = () => {
         },
         {
             label: 'onboarding_date',
-            type: 'date'
+            type: 'date',
         },
-        
     ] satisfies FormInputs[]
 
     return (
         <>
             <ToastContainer />
-
 
             <div className='grid p-8 bg-white  rounded-lg gap-[10rem]'>
                 <div>
@@ -160,14 +179,14 @@ const ArtisanDetail = () => {
                         <ValidatedResult />
 
                         <Activate_Deactivate
-                            id={company_id}
+                            id={artisan_id}
                             url={'/security-company/deactivate_activate'}
                             status={0}
                             title={'security company'}
-                            queryCache={`get_company_${company_id}`}
+                            queryCache={`get_company_${artisan_id}`}
                         />
                     </div>
-                    
+
                     <form onSubmit={onSubmit} className='grid gap-20'>
                         <div className='grid gap-10'>
                             <section
