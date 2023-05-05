@@ -4,10 +4,8 @@ import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai'
 import {
     UseFormClearErrors,
     UseFormRegister,
-    UseFormSetError,
     UseFormSetValue,
 } from 'react-hook-form'
-// import PhoneInput from 'react-phone-input-2'
 
 export interface SelectProps {
     isMulti?: boolean
