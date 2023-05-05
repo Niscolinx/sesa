@@ -126,28 +126,52 @@ const SecurityCompanyDetail = () => {
 
     const { data: get_response, isLoading: get_loading } = useQuery(
         [`get_company_${company_id}`],
-        getRequest
+        getRequest,
+        {
+            onSuccess: (res) => {
+                const {
+                    id,
+                    user_id,
+                    image,
+                    status,
+                    onboarding_date,
+                    ...other
+                } = res.data
+
+
+                const formatDate = new Date(onboarding_date)
+                    .toISOString()
+                    .slice(0, 10)
+
+                reset({
+                    ...other,
+                    onboarding_date: formatDate,
+                })
+
+                setPhotoPreview(image)
+            },
+        }
     )
 
-    useEffect(() => {
-        if (get_response) {
-            const { id, user_id, image, status, onboarding_date, ...other } =
-                get_response.data
+    // useEffect(() => {
+    //     if (get_response) {
+    //         const { id, user_id, image, status, onboarding_date, ...other } =
+    //             get_response.data
 
-            console.log({ other })
+    //         console.log({ other })
 
-            const formatDate = new Date(onboarding_date)
-                .toISOString()
-                .slice(0, 10)
+    //         const formatDate = new Date(onboarding_date)
+    //             .toISOString()
+    //             .slice(0, 10)
 
-            reset({
-                ...other,
-                onboarding_date: formatDate,
-            })
+    //         reset({
+    //             ...other,
+    //             onboarding_date: formatDate,
+    //         })
 
-            setPhotoPreview(image)
-        }
-    }, [get_response])
+    //         setPhotoPreview(image)
+    //     }
+    // }, [get_response])
 
     const { mutate: post_mutation, isLoading: post_update_loading } =
         useMutation(postRequest, {
@@ -173,19 +197,8 @@ const SecurityCompanyDetail = () => {
 
         post_mutation(adminData)
     })
-    const dialogRef = useRef<HTMLDialogElement | null>(null)
 
-    const handleClose = () => {
-        if (dialogRef.current) {
-            dialogRef.current.close()
-        }
-    }
-
-    const handleOpen = () => {
-        if (dialogRef.current) {
-            dialogRef.current.showModal()
-        }
-    }
+    
 
     if (get_loading) {
         return <p className='p-8'> Loading...</p>
@@ -198,7 +211,7 @@ const SecurityCompanyDetail = () => {
             <div className='grid p-8 bg-white min-h-[60vh] items-baseline overflow-y-scroll rounded-lg'>
                 <div className='flex justify-between items-center my-10'>
                     <img
-                        src={photoPreview || ''}
+                        src={photoPreview || '/default-avatar.jpg'}
                         alt='photoPreview'
                         className='object-cover w-[11rem] h-[11rem] rounded-full'
                     />
@@ -207,7 +220,7 @@ const SecurityCompanyDetail = () => {
                         <Activate_Deactivate
                             id={company_id}
                             url={'/security-company/deactivate_activate'}
-                            status={get_response && get_response.data.status}
+                            status={get_response.data.status}
                             title={'security company'}
                             queryCache={`get_company_${company_id}`}
                         />
