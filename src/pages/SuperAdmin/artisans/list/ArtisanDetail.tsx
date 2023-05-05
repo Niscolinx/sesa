@@ -11,6 +11,7 @@ import Activate_Deactivate from '../../../../components/UI/Dialog/Activate_Deact
 import Input, { SelectProps } from '../../../../components/UI/input/Input'
 import { useQuery } from 'react-query'
 import { useForm } from 'react-hook-form'
+import { IoMdCheckmarkCircleOutline } from 'react-icons/io'
 
 type Actions = 'Deactivate' | 'Delete'
 
@@ -21,9 +22,12 @@ const ArtisanDetail = () => {
     const genderState = ['Male', 'Female']
     const [isSignOutRequired, setIsSignOutRequired] = useState(false)
     const [photoPreview, setPhotoPreview] = useState('')
+     const [isValidated, setIsValidated] = useState(false)
+     const [iskyg, setIskyg] = useState(false)
 
-    const toggleIsSignOutRequired = () =>
-        setIsSignOutRequired(!isSignOutRequired)
+     const toggleIskyg = () => setIskyg(!iskyg)
+
+ 
 
     const [responseMessage, setResponseMessage] =
         useState<ResponseMessage | null>(null)
@@ -217,32 +221,73 @@ const ArtisanDetail = () => {
                                     )
                                 })}
                             </section>
-                            <div className='grid items-center justify-between gap-4'>
-                                <p className='font-Satoshi-Medium text-[1.4rem]'>
-                                    Sign Out Required
-                                </p>
-                                <div
-                                    onClick={toggleIsSignOutRequired}
-                                    className='cursor-pointer'
-                                >
-                                    {isSignOutRequired ? (
-                                        <img
-                                            src='/icons/admins/switchOn.svg'
-                                            alt=''
-                                        />
-                                    ) : (
-                                        <img
-                                            src='/icons/admins/switchOff.svg'
-                                            alt=''
-                                        />
-                                    )}
+                            <div className='grid max-w-[40rem]'>
+                                <div className='flex items-center justify-between'>
+                                    <p className='text-[2rem] font-Satoshi-Medium flex items-center gap-2'>
+                                        KYG{' '}
+                                        <span className='text-[#043FA7]'>
+                                            <BsQuestionCircle />
+                                        </span>
+                                    </p>
+                                    <div
+                                        onClick={toggleIskyg}
+                                        className='cursor-pointer'
+                                    >
+                                        {iskyg ? (
+                                            <img
+                                                src='/icons/admins/switchOn.svg'
+                                                alt=''
+                                            />
+                                        ) : (
+                                            <img
+                                                src='/icons/admins/switchOff.svg'
+                                                alt=''
+                                            />
+                                        )}
+                                    </div>
                                 </div>
+
+                                {isValidated ? (
+                                    <div className='flex gap-8 text-[1.6rem]'>
+                                        <p className='text-[#098DFF] cursor-pointer flex items-center font-Satoshi-Medium'>
+                                            KYG Validated{' '}
+                                            <IoMdCheckmarkCircleOutline />
+                                        </p>
+                                        <button
+                                            className='text-green-600 flex items-center gap-2'
+                                            style={{
+                                                fontFamily: 'Satoshi-Medium',
+                                            }}
+                                           // onClick={() => openValidateDialog()}
+                                        >
+                                            View Results <BsQuestionCircle />
+                                        </button>
+                                    </div>
+                                ) : (
+                                    <>
+                                        {iskyg && (
+                                            <div className='flex justify-between text-[1.6rem]'>
+                                                <p
+                                                    className='text-[#098DFF] cursor-pointer'
+                                                  //  onClick={() =>
+                                                     //   handleOpen('validate')
+                                                   // }
+                                                    style={{
+                                                        fontFamily:
+                                                            'Satoshi-Medium',
+                                                    }}
+                                                >
+                                                    Click here to validate this
+                                                    person
+                                                </p>
+                                            </div>
+                                        )}
+                                    </>
+                                )}
                             </div>
                         </div>
 
-                        <button
-                            className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg justify-self-start'
-                        >
+                        <button className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg justify-self-start'>
                             <span>
                                 <img
                                     src='/icons/admins/saveDisk.svg'

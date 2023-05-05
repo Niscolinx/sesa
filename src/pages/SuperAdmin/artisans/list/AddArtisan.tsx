@@ -208,8 +208,7 @@ const AddArtisan = () => {
             validation_option: 'bvn',
             is_kyr_approved: false,
             gender: selectedGender,
-            // image: imageFile,
-            image: '',
+             image: imageFile,
         }
 
         console.log({ updatedData })
