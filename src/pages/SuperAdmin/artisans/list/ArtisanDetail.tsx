@@ -230,7 +230,7 @@ const ArtisanDetail = () => {
                             {/* sdfsf/> */}
                         </div>
 
-                        <button className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg justify-self-start'>
+                        <button className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg justify-self-start capitalize'>
                             <span>
                                 <img
                                     src='/icons/admins/saveDisk.svg'
@@ -238,7 +238,7 @@ const ArtisanDetail = () => {
                                     className='w-[1.7rem] h-[1.7rem]'
                                 />
                             </span>
-                            {true ? 'Loading...' : 'Save Changes'}
+                            {update_loading ? 'Loading...' : 'Save changes' }
                         </button>
                     </form>
                 </div>
