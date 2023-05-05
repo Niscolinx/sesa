@@ -11,12 +11,12 @@ const SecurityCompanyDetail = () => {
         name: string
         email: string
         address: string
-        onboarding_date: string
+        formatted_onboarding_date: string
         phone: string
-        no_of_bank_accounts_opened: number
-        no_of_assigned_security_guards: number
-        no_of_security_guards: number
-        wallet_balance: number
+        no_bank_account: number
+        no_assigned_security_guards: number
+        no_security_guards: number
+        balance: number
     }
 
     type ResponseMessage = {
