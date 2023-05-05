@@ -75,7 +75,7 @@ function Activate_Deactivate({ id, url, status, title, queryCache }: Props) {
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8 text-[1.6rem] '>
-                        {currentStatus.toLowerCase() === 'activate' ? (
+                        {currentStatus === 'activate' ? (
                             <>
                                 <img
                                     src='/icons/admins/modalWarning.svg'
@@ -131,7 +131,7 @@ function Activate_Deactivate({ id, url, status, title, queryCache }: Props) {
             </dialog>
 
             <div className='font-Satoshi-Medium'>
-                {currentStatus ? (
+                {currentStatus === 'deactivate'? (
                     <button
                         className='border border-red-600 px-16 py-4 flex items-center  rounded-lg gap-4'
                         onClick={() => handleOpen()}

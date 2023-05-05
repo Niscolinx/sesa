@@ -179,7 +179,6 @@ const SecurityCompanyDetail = () => {
         return <p className='p-8'> Loading...</p>
     }
 
-    console.log(get_response.data.status)
     return (
         <>
             <ToastContainer />
