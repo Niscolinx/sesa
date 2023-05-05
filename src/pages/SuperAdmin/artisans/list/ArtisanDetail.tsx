@@ -5,14 +5,14 @@ import StarRating from '../../../../components/SuperAdmin/UI/StarRating'
 import { getPhotoUrl } from '../../../../utils/getPhotoUrl'
 import { BsQuestionCircle } from 'react-icons/bs'
 import ValidatedResult from '../../../../components/UI/Dialog/ValidatedResult'
+import { useParams } from 'react-router'
+import useAxios from '../../../../components/hooks/useAxios'
 
 type Actions = 'Deactivate' | 'Delete'
 
 const ArtisanDetail = () => {
     const [selectedGender, setSelectedGender] = useState<string>('')
     const [dialogType, setDialogType] = useState<Actions>('Deactivate')
-
-   
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
@@ -65,6 +65,89 @@ const ArtisanDetail = () => {
             className: 'bg-red-100 text-red-600 text-[1.4rem]',
         })
     }
+
+    interface Inputs {
+        name: string
+        email: string
+        address: string
+        formatted_onboarding_date: string
+        phone: string
+        no_bank_account: number
+        no_assigned_security_guards: number
+        no_security_guards: number
+        balance: number
+    }
+
+    type ResponseMessage = {
+        className: string
+        displayMessage: string
+    }
+
+    type FormInputs = {
+        label?: keyof Inputs
+        type?: string
+        name?: string
+    }
+
+    const params = useParams()
+    const axiosInstance = useAxios()
+
+    const [photoPreview, setPhotoPreview] = useState('')
+    const [imageFile, setImageFile] = useState<File | null>(null)
+    const genderState = ['Male', 'Female']
+    const [isWarning, setIsWarning] = useState(true)
+    const [isSignOutRequired, setIsSignOutRequired] = useState(false)
+
+    const toggleIsSignOutRequired = () =>
+        setIsSignOutRequired(!isSignOutRequired)
+    const [responseMessage, setResponseMessage] =
+        useState<ResponseMessage | null>(null)
+
+    const formInputs = [
+        {
+            name: 'Security Name',
+            label: 'name',
+        },
+        {
+            name: 'Email Address',
+            label: 'email',
+            type: 'email',
+        },
+        {
+            label: 'address',
+        },
+
+        {
+            name: 'phone Number',
+            label: 'phone',
+            type: 'number',
+        },
+        {
+            name: 'no_of_security_guards',
+            label: 'no_security_guards',
+            type: 'number',
+        },
+        {
+            name: 'wallet_balance',
+            label: 'balance',
+            type: 'number',
+        },
+        {
+            name: 'Joined Date',
+            label: 'formatted_onboarding_date',
+            type: 'date',
+        },
+        {
+            name: 'no_of_assigned_security_guards',
+            label: 'no_assigned_security_guards',
+            type: 'number',
+        },
+        {
+            name: 'no_of_bank_accounts_opened',
+            label: 'no_bank_account',
+            type: 'number',
+        },
+    ] satisfies FormInputs[]
 
     return (
         <>
@@ -132,8 +215,7 @@ const ArtisanDetail = () => {
             <div className='grid p-8 bg-white  rounded-lg gap-[10rem]'>
                 <div>
                     <div className='flex justify-between items-center'>
-                        
-                        <ValidatedResult/>
+                        <ValidatedResult />
 
                         <div className='flex gap-8'>
                             <button
@@ -157,7 +239,7 @@ const ArtisanDetail = () => {
                             </button>
                         </div>
                     </div>
-                    <form
+                    {/* <form
                         onSubmit={handleSubmit}
                         className='grid max-w-[84rem] gap-16 mt-12'
                         style={{
@@ -381,7 +463,7 @@ const ArtisanDetail = () => {
                             </span>{' '}
                             Save Changes
                         </button>
-                    </form>
+                    </form> */}
                 </div>
                 <section>
                     <h2
