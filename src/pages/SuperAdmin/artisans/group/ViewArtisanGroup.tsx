@@ -97,8 +97,11 @@ const ViewArtisanGroup = () => {
     return (
         <>
             <div className='grid text-[1.6rem] bg-white px-10 rounded-lg'>
-                <div className='flex gap-8 py-10 max-w-[50rem] items-end'>
-                    <form className='w-full grid gap-4' onSubmit={onSubmit}>
+                <form
+                    className='flex gap-8 py-10 max-w-[50rem] items-end'
+                    onSubmit={onSubmit}
+                >
+                    <div className='w-full grid gap-4'>
                         <label
                             htmlFor='groupName'
                             className='text-[1.4rem] font-semibold'
@@ -114,13 +117,12 @@ const ViewArtisanGroup = () => {
                             id='groupName'
                             className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem]'
                         />
-                    </form>
-
+                    </div>
                     <button className='btn bg-[#0556E5] text-white rounded-lg py-4 w-[15rem]'>
-                        Update
+                        {update_loading ? 'Updating...' : 'Update'}
                     </button>
-                </div>
-                
+                </form>
+
                 <Table
                     title={'artisan'}
                     view_page_url={'/superAdmin/admin/view/'}
@@ -149,7 +151,6 @@ const ViewArtisanGroup = () => {
                     isDataProvided={true}
                     providedData={group_estates.data}
                 />
-               
             </div>
         </>
     )
