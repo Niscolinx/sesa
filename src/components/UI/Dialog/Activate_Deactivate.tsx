@@ -75,6 +75,10 @@ function Activate_Deactivate({ id, url, status, title, queryCache }: Props) {
                                 <img
                                     src='/icons/admins/modalWarning.svg'
                                     alt=''
+                                    className='animate__animated animate__pulse '
+                                    style={{
+                                        animationIterationCount: 'infinite',
+                                    }}
                                 />
 
                                 <p>
@@ -87,6 +91,10 @@ function Activate_Deactivate({ id, url, status, title, queryCache }: Props) {
                                 <img
                                     src='/icons/admins/modalWarning.svg'
                                     alt=''
+                                    className='animate__animated animate__pulse '
+                                    style={{
+                                        animationIterationCount: 'infinite',
+                                    }}
                                 />
 
                                 <p>
