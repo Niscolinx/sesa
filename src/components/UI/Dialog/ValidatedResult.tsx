@@ -3,10 +3,13 @@ import React, { Dispatch, useEffect, useRef, useState } from 'react'
 import { BsQuestionCircle } from 'react-icons/bs'
 import { IoMdClose } from 'react-icons/io'
 
-function ValidatedResult() {
+interface Props {
+    image: string
+}
+function ValidatedResult({ image }: Props) {
     const dialogRef = useRef<HTMLDialogElement | null>(null)
     const [isValidated, setIsValidated] = useState(false)
-    const [photoPreview, setPhotoPreview] = useState('')
+    const [photoPreview, setPhotoPreview] = useState('/default-avatar.jpg')
     const [imageFile, setImageFile] = useState<File | null>(null)
 
     const closeValidatedDialog = () => {
@@ -124,7 +127,7 @@ function ValidatedResult() {
                     className='grid gap-4 cursor-pointer justify-items-center'
                 >
                     <img
-                        src={photoPreview || '/default-avatar.jpg'}
+                        src={image || photoPreview}
                         alt='photoPreview'
                         className='object-cover w-[11rem] h-[11rem] rounded-full object-top'
                     />

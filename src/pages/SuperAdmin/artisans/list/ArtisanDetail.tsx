@@ -47,9 +47,6 @@ const ArtisanDetail = () => {
     const genderState = ['Male', 'Female']
     const [photoPreview, setPhotoPreview] = useState('')
 
-    const [validationType, setValidationType] = useState<string>('Phone Number')
-    const [responseMessage, setResponseMessage] =
-        useState<ResponseMessage | null>(null)
     const [selectedGender, setSelectedGender] = useState<string>('')
 
     const artisan_id = params.id?.replace(':', '')
@@ -178,7 +175,7 @@ const ArtisanDetail = () => {
             <div className='grid p-8 bg-white  rounded-lg gap-[10rem]'>
                 <div>
                     <div className='flex justify-between items-center'>
-                        <ValidatedResult />
+                        <ValidatedResult image={photoPreview} />
 
                         <Activate_Deactivate
                             id={artisan_id}
