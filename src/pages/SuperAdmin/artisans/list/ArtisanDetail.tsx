@@ -10,6 +10,7 @@ import useAxios from '../../../../components/hooks/useAxios'
 import Activate_Deactivate from '../../../../components/UI/Dialog/Activate_Deactivate'
 import Input, { SelectProps } from '../../../../components/UI/input/Input'
 import { useQuery } from 'react-query'
+import { useForm } from 'react-hook-form'
 
 type Actions = 'Deactivate' | 'Delete'
 
@@ -38,13 +39,14 @@ const ArtisanDetail = () => {
         return <p className='p-4'> Not found!</p>
     }
 
-    const postDeactivate = (id: string) => {
-        return axiosInstance({
-            url: '/admin/deactivate_activate',
-            method: 'post',
-            data: { id },
-        })
-    }
+     const {
+         register,
+         handleSubmit,
+         formState: { errors: formErrors },
+         reset,
+     } = useForm<Inputs>()
+
+  
     const postUpdateAdmin = (data: any) => {
         return axiosInstance({
             url: `/security-company/update/${artisan_id}`,
@@ -59,8 +61,8 @@ const ArtisanDetail = () => {
         })
     }
 
-    const { data: get_response, isLoading: get_admin_loading } = useQuery(
-        [`view_artisan_${admin_id}`],
+    const { data: get_response, isLoading } = useQuery(
+        [`view_artisan_${artisan_id}`],
         getRequest
     )
 
@@ -90,7 +92,7 @@ const ArtisanDetail = () => {
             name: `${first_name} ${last_name}`,
             gender: selectedGender,
             dob,
-            id: admin_id,
+            id: artisan_id,
             email: email_address,
             address: 'no 4 odeyim street',
             phone: `+234${phone_number}`,
