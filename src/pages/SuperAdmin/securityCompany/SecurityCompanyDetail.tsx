@@ -31,7 +31,6 @@ const SecurityCompanyDetail = () => {
         name?: string
         tag?: 'money'
     }
-    const genderState = ['Male', 'Female']
 
     const params = useParams()
     const axiosInstance = useAxios()
@@ -98,16 +97,12 @@ const SecurityCompanyDetail = () => {
         handleSubmit,
         formState: { errors: formErrors },
         reset,
-        watch,
+        setError,
+        setValue,
     } = useForm<Inputs>()
 
     const company_id = params.id?.replace(':', '')
 
-    watch((i) => console.log({i}))
-
-     useEffect(() => {
-         console.log({ formErrors })
-     }, [formErrors])
 
     if (!company_id) {
         toast('Company not Found', {
