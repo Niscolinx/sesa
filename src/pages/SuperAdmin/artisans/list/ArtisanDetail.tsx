@@ -46,6 +46,7 @@ const ArtisanDetail = () => {
 
     const genderState = ['Male', 'Female']
     const [photoPreview, setPhotoPreview] = useState('')
+        const [imageFile, setImageFile] = useState<File | null>(null)
 
     const [selectedGender, setSelectedGender] = useState<string>('')
 
@@ -175,7 +176,7 @@ const ArtisanDetail = () => {
             <div className='grid p-8 bg-white  rounded-lg gap-[10rem]'>
                 <div>
                     <div className='flex justify-between items-center'>
-                        <ValidatedResult image={photoPreview} />
+                        <ValidatedResult image={photoPreview} setImageFile={setImageFile} />
 
                         <Activate_Deactivate
                             id={artisan_id}

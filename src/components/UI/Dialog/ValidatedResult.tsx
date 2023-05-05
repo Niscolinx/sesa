@@ -5,12 +5,12 @@ import { IoMdClose } from 'react-icons/io'
 
 interface Props {
     image: string
+    setImageFile: Dispatch<SetStateAction<File | null>>
 }
-function ValidatedResult({ image }: Props) {
+function ValidatedResult({ image, setImageFile }: Props) {
     const dialogRef = useRef<HTMLDialogElement | null>(null)
     const [isValidated, setIsValidated] = useState(false)
     const [photoPreview, setPhotoPreview] = useState('/default-avatar.jpg')
-    const [imageFile, setImageFile] = useState<File | null>(null)
 
     const closeValidatedDialog = () => {
         if (dialogRef.current) {
