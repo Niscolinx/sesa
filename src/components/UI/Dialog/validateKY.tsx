@@ -1,8 +1,22 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { BsQuestionCircle } from 'react-icons/bs'
+import useAxios from '../../hooks/useAxios'
+import { useForm } from 'react-hook-form'
+import { IoMdClose, IoMdCheckmarkCircleOutline } from 'react-icons/io'
+import { useMutation } from 'react-query'
+import { Select } from '../../SuperAdmin/UI/Select'
+import Input from '../input/Input'
 
 function validateKY() {
-   
+    const dialogRef = useRef<HTMLDialogElement | null>(null)
+    const axiosInstance = useAxios()
+
+    const {
+        register: validation_register,
+        handleSubmit: validation_handleSubmit,
+        reset: validation_reset,
+        formState: { errors: validation_formErrors },
+    } = useForm<ValidationTypeInput>()
 
     const postValidationType = (data: Inputs) => {
         return axiosInstance({
@@ -23,24 +37,22 @@ function validateKY() {
         },
     }) as any
 
-     const dialogRef = useRef<HTMLDialogElement | null>(null)
+    const handleClose = () => {
+        if (dialogRef.current) {
+            dialogRef.current.close()
+        }
+    }
 
-     const handleClose = () => {
-         if (dialogRef.current) {
-             dialogRef.current.close()
-         }
-     }
+    const openDialog = () => {
+        if (dialogRef.current) {
+            dialogRef.current.showModal()
+        }
+    }
+    const onSubmitValidation = validation_handleSubmit((data) => {
+        validationType_mutation(data)
+    })
 
-     const openDialog = () => {
-         if (dialogRef.current) {
-             dialogRef.current.showModal()
-         }
-     }
-     const onSubmitValidation = validation_handleSubmit((data) => {
-         validationType_mutation(data)
-     })
-
-      const validationInput = [
+    const validationInput = [
         {
             name: 'phone number',
             label: 'validation_content',

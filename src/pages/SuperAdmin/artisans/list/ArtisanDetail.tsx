@@ -2,8 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { toast, ToastContainer } from 'react-toastify'
 import { Select } from '../../../../components/SuperAdmin/UI/Select'
 import StarRating from '../../../../components/SuperAdmin/UI/StarRating'
-import { getPhotoUrl } from '../../../../utils/getPhotoUrl'
-import { BsQuestionCircle } from 'react-icons/bs'
+
 import ValidatedResult from '../../../../components/UI/Dialog/ValidatedResult'
 import { useParams } from 'react-router'
 import useAxios from '../../../../components/hooks/useAxios'
@@ -82,13 +81,6 @@ const ArtisanDetail = () => {
         reset,
     } = useForm<Inputs>()
 
-    const {
-        register: validation_register,
-        handleSubmit: validation_handleSubmit,
-        reset: validation_reset,
-        formState: { errors: validation_formErrors },
-    } = useForm<ValidationTypeInput>()
-
     const postUpdate = (data: any) => {
         return axiosInstance({
             url: `/security-company/update/${artisan_id}`,
@@ -107,8 +99,10 @@ const ArtisanDetail = () => {
         [`view_artisan_${artisan_id}`],
         getRequest
     )
-
-    
+    const { data: update_mutation, isLoading: update_loading } = useMutation(
+        [`view_artisan_${artisan_id}`],
+        postUpdate
+    )
 
     useEffect(() => {
         if (get_response) {
@@ -123,8 +117,6 @@ const ArtisanDetail = () => {
             setSelectedGender(gender)
         }
     }, [get_response])
-
-   
 
     const onSubmit = handleSubmit((data) => {
         // const { first_name, last_name, dob, email_address, phone_number } = data
@@ -184,12 +176,14 @@ const ArtisanDetail = () => {
         },
     ] satisfies FormInputs[]
 
-    
+    if (isLoading) {
+        return <p className='p-8'>Loading...</p>
+    }
 
     return (
         <>
             <ToastContainer />
-            
+
             <div className='grid p-8 bg-white  rounded-lg gap-[10rem]'>
                 <div>
                     <div className='flex justify-between items-center'>
@@ -233,7 +227,7 @@ const ArtisanDetail = () => {
                                     )
                                 })}
                             </section>
-                           sdfsf/>
+                            {/* sdfsf/> */}
                         </div>
 
                         <button className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg justify-self-start'>
