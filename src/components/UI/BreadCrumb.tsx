@@ -1,11 +1,12 @@
 import { NavLink } from 'react-router-dom'
 import useBreadcrumbs from 'use-react-router-breadcrumbs'
 import { BiChevronRight } from 'react-icons/bi'
-import { useLocation, useParams } from 'react-router'
-import { MdOutlineKeyboardBackspace } from 'react-icons/md'
+import { useLocation, useNavigate, useParams } from 'react-router'
+import { BsArrowLeft } from 'react-icons/bs'
 
 function BreadCrumb() {
     const location = useLocation()
+    const navigate = useNavigate()
     const params = useParams()
     const breadcrumbs = useBreadcrumbs()
 
@@ -24,9 +25,11 @@ function BreadCrumb() {
 
     return (
         <div className='flex gap-4 mb-[2rem]'>
-            <MdOutlineKeyboardBackspace className='w-[5rem]' />
-
-            {/* {breadcrumbs.map(({ match, breadcrumb }, i) => {
+        <BsArrowLeft
+          className="text-[2.4rem] cursor-pointer"
+          onClick={() => navigate(-1)}
+        />
+            {breadcrumbs.map(({ match, breadcrumb }, i) => {
 
                 const eachParam = Object.keys(match.params)
 
@@ -64,7 +67,7 @@ function BreadCrumb() {
 
                    
                 }
-            })} */}
+            })}
         </div>
     )
 }
