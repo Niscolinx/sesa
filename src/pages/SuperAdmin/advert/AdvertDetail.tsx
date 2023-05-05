@@ -3,16 +3,18 @@ import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { AiOutlineLink } from 'react-icons/ai'
 import { GrUp, GrDown } from 'react-icons/gr'
 import { HiArrowSmUp, HiArrowSmDown } from 'react-icons/hi'
-import { useNavigate } from 'react-router'
+import { useNavigate, useParams } from 'react-router'
 import { toast, ToastContainer } from 'react-toastify'
 import ClickRateChart from '../../../components/SuperAdmin/charts/ClickRateChart'
 import { Select } from '../../../components/SuperAdmin/UI/Select'
+import useFetchData from '../../../utils/useFetchData'
 
 const link = 'https://sesadigital.com/thelink_copyhere'
 type Actions = 'Deactivate' | 'Delete'
 
 const AdvertDetail = () => {
     const navigate = useNavigate()
+    const params = useParams()
 
     const [selectedWeek, setSelectedWeek] = useState('Weekly')
 
@@ -20,9 +22,13 @@ const AdvertDetail = () => {
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
+    const advert_id = params.id?.replace(':', '')
 
-    
+    const { data, isLoading } = useFetchData({
+        url: `/advert/getbyid/${advert_id}`,
+    })
 
+    console.log({ data })
     const handleClose = () => {
         if (dialogRef.current) {
             dialogRef.current.close()
