@@ -54,9 +54,10 @@ function ValidateKY() {
     }
 
     const handleOpen = () => {
-        if (dialogRef.current) {
-            dialogRef.current.showModal()
-        }
+        alert('open')
+        // if (dialogRef.current) {
+        //     dialogRef.current.showModal()
+        // }
     }
     const onSubmitValidation = validation_handleSubmit((data) => {
         validationType_mutation(data)
@@ -188,7 +189,7 @@ function ValidateKY() {
                                         fontFamily: 'Satoshi-Medium',
                                     }}
                                 >
-                                    Click here to validate this person
+                                    Click here to validate this personsdsds
                                 </p>
                             </div>
                         )}

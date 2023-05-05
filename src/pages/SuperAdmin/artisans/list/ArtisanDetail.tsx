@@ -10,14 +10,10 @@ import Activate_Deactivate from '../../../../components/UI/Dialog/Activate_Deact
 import Input, { SelectProps } from '../../../../components/UI/input/Input'
 import { useMutation, useQuery } from 'react-query'
 import { useForm } from 'react-hook-form'
-import { IoMdCheckmarkCircleOutline, IoMdClose } from 'react-icons/io'
 import ValidateKY from '../../../../components/UI/Dialog/validateKY'
 
 const ArtisanDetail = () => {
-    type Actions = 'Deactivate' | 'Delete'
-    interface ValidationTypeInput {
-        validation_content: string
-    }
+ 
 
     interface Inputs {
         firstname: string
