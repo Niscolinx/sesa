@@ -45,7 +45,7 @@ function RenderedSecurityCompanies() {
     const postDeactivateSecurityCompany = () => {
         return axiosInstance({
             url: '/security-company/deactivate_activate',
-            method: 'get',
+            method: 'post',
             data: { id: securityCompanyId },
         })
     }
@@ -334,7 +334,6 @@ function RenderedSecurityCompanies() {
         <div className='w-full grid item rounded-lg'>
             {fetched.length > 0 ? (
                 <>
-                
                     <ToastContainer />
                     <div className='grid gap-10'>
                         <dialog className='dialog' ref={dialogRef}>
@@ -456,7 +455,6 @@ function RenderedSecurityCompanies() {
                                                 },
                                                 idx
                                             ) => {
-                                               
                                                 const {
                                                     isDropDownOpen,
                                                     index,
