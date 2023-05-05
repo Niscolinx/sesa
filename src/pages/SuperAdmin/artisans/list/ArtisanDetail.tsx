@@ -392,7 +392,7 @@ const ArtisanDetail = () => {
                                                 <p
                                                     className='text-[#098DFF] cursor-pointer'
                                                     //  onClick={() =>
-                                                    //   handleOpen('validate')
+                                                    //   handleOpen()
                                                     // }
                                                     style={{
                                                         fontFamily:
