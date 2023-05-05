@@ -28,15 +28,17 @@ function Activate_Deactivate({ id, url, status, title, queryCache }: Props) {
     const { mutate: deactivate_mutation, isLoading: deactivate_loading } =
         useMutation(postDeactivate, {
             onSuccess: (res) => {
-                toast('Company Deactivated successfully', {
+                toast(`Company ${title} ${status + 'd'} successfully`, {
                     type: 'success',
-                    className: 'bg-green-100 text-green-600 text-[1.4rem]',
+                    className:
+                        'bg-green-100 text-green-600 text-[1.4rem] capitalize',
                 })
             },
             onError: (err: any) => {
-                toast('Company Failed to ', {
+                toast(`Failed to ${status} company`, {
                     type: 'success',
-                    className: 'bg-green-100 text-green-600 text-[1.4rem]',
+                    className:
+                        'bg-green-100 text-green-600 text-[1.4rem] capitalize',
                 })
             },
 
