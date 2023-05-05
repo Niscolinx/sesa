@@ -70,7 +70,7 @@ const ArtisanDetail = () => {
 
     const postUpdate = (data: any) => {
         return axiosInstance({
-            url: `/security-company/update/${artisan_id}`,
+            url: `/admin/artisan/update/${artisan_id}`,
             method: 'post',
             data,
         })
@@ -87,17 +87,32 @@ const ArtisanDetail = () => {
         getRequest
     )
     const { data: update_mutation, isLoading: update_loading } = useMutation(
-        [`view_artisan_${artisan_id}`],
-        postUpdate
+        [`update_artisan_${artisan_id}`],
+        postUpdate,
+        {
+            onSuccess: () => {
+                toast('Artisan Updated', {
+                    type: 'success',
+                    className: 'bg-green-100 text-green-600 text-[1.4rem]',
+                })
+            },
+
+            onError: () => {
+                toast('Failed to update Artisan ', {
+                    type: 'error',
+                    className: 'bg-red-100 text-red-600 text-[1.4rem]',
+                })
+            },
+        }
     )
 
     useEffect(() => {
         if (get_response) {
-            const { image, created_at, gender,  ...other } = get_response.data
+            const { image, created_at, gender, ...other } = get_response.data
 
             reset({
                 ...other,
-                onboarding_date:  created_at.split('T')[0]
+                onboarding_date: created_at.split('T')[0],
             })
 
             setPhotoPreview(image)
@@ -119,9 +134,9 @@ const ArtisanDetail = () => {
         // }
         //post_admin_mutation(adminData)
     })
-     if (isLoading) {
-         return <p className='p-8'>Loading...</p>
-     }
+    if (isLoading) {
+        return <p className='p-8'>Loading...</p>
+    }
 
     const formInputs = [
         {
@@ -168,8 +183,6 @@ const ArtisanDetail = () => {
         },
     ] satisfies FormInputs[]
 
-   
-
     return (
         <>
             <ToastContainer />
@@ -201,7 +214,8 @@ const ArtisanDetail = () => {
                                 }}
                             >
                                 {formInputs.map((input, idx) => {
-                                    const { label, type, name, selectProps } = input
+                                    const { label, type, name, selectProps } =
+                                        input
                                     return (
                                         <Input
                                             key={idx + label}
