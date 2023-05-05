@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { SetStateAction, useRef, useState } from 'react'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { AiOutlineLink } from 'react-icons/ai'
 import { GrUp, GrDown } from 'react-icons/gr'
@@ -6,22 +6,15 @@ import { HiArrowSmUp, HiArrowSmDown } from 'react-icons/hi'
 import { useNavigate } from 'react-router'
 import { toast, ToastContainer } from 'react-toastify'
 import ClickRateChart from '../../../components/SuperAdmin/charts/ClickRateChart'
+import { Select } from '../../../components/SuperAdmin/UI/Select'
 
 const link = 'https://sesadigital.com/thelink_copyhere'
 type Actions = 'Deactivate' | 'Delete'
-const trend = ['This Week', 'This Month', 'This Year'] as const
-type Trend = typeof trend[number]
 
 const AdvertDetail = () => {
     const navigate = useNavigate()
 
-    const [toggleTrendMenu, setToggleTrendMenu] = useState(false)
-    const trendMenuToggler = () => setToggleTrendMenu(!toggleTrendMenu)
-    const [selectedTrend, setSelectedTrend] = useState<Trend>('This Week')
-    const handleSelectedTrend = (item: Trend) => {
-        setSelectedTrend(item)
-        setToggleTrendMenu(false)
-    }
+    const [selectedWeek, setSelectedWeek] = useState('')
 
     const [dialogType, setDialogType] = useState<Actions>('Deactivate')
 
@@ -262,37 +255,11 @@ const AdvertDetail = () => {
                                 Click Rate
                             </p>
 
-                            <div className='relative grid gap-4'>
-                                <div className='relative flex items-center w-[12rem]'>
-                                    <p
-                                        className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer'
-                                        onClick={trendMenuToggler}
-                                    >
-                                        {selectedTrend}
-                                    </p>
-                                    {toggleTrendMenu ? (
-                                        <GrUp className='absolute right-4' />
-                                    ) : (
-                                        <GrDown className='absolute right-4' />
-                                    )}
-                                </div>
-
-                                {toggleTrendMenu && (
-                                    <div className='absolute top-[8rem]  left-0 border border-color-primary-light  bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
-                                        {trend.map((item, index) => (
-                                            <p
-                                                className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
-                                                key={index}
-                                                onClick={() =>
-                                                    handleSelectedTrend(item)
-                                                }
-                                            >
-                                                {item}
-                                            </p>
-                                        ))}
-                                    </div>
-                                )}
-                            </div>
+                            <Select
+                                state={['Weekly', 'Monthly', 'Yearly']}
+                                selectedState={selectedWeek}
+                                setSelectedState={setSelectedWeek}
+                            />
                         </div>
                         <ClickRateChart />
                     </div>
