@@ -14,9 +14,11 @@ interface Props {
 function Activate_Deactivate({ id, url, status, title, queryCache }: Props) {
     const dialogRef = useRef<HTMLDialogElement | null>(null)
     const axiosInstance = useAxios()
-    const [currentStatus, setCurrentStatus] = useState(status)
+    const [currentStatus, setCurrentStatus] = useState('activate')
 
-    useEffect(() => {}, [status])
+    useEffect(() => {
+        status ? setCurrentStatus('deactivate') : setCurrentStatus('activate')
+    }, [status])
 
     const postDeactivate = () => {
         return axiosInstance({
@@ -31,14 +33,14 @@ function Activate_Deactivate({ id, url, status, title, queryCache }: Props) {
     const { mutate: deactivate_mutation, isLoading: deactivate_loading } =
         useMutation(postDeactivate, {
             onSuccess: (res) => {
-                toast(`Company ${title} ${status + 'd'} successfully`, {
+                toast(`Company ${title} ${currentStatus + 'd'} successfully`, {
                     type: 'success',
                     className:
                         'bg-green-100 text-green-600 text-[1.4rem] capitalize',
                 })
             },
             onError: (err: any) => {
-                toast(`Failed to ${status} company`, {
+                toast(`Failed to ${currentStatus} company`, {
                     type: 'success',
                     className:
                         'bg-green-100 text-green-600 text-[1.4rem] capitalize',
@@ -73,7 +75,7 @@ function Activate_Deactivate({ id, url, status, title, queryCache }: Props) {
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8 text-[1.6rem] '>
-                        {status.toLowerCase() === 'activate' ? (
+                        {currentStatus.toLowerCase() === 'activate' ? (
                             <>
                                 <img
                                     src='/icons/admins/modalWarning.svg'
@@ -129,7 +131,7 @@ function Activate_Deactivate({ id, url, status, title, queryCache }: Props) {
             </dialog>
 
             <div className='font-Satoshi-Medium'>
-                {status ? (
+                {currentStatus ? (
                     <button
                         className='border border-red-600 px-16 py-4 flex items-center  rounded-lg gap-4'
                         onClick={() => handleOpen()}

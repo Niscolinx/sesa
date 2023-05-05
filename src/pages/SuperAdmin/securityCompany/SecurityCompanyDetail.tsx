@@ -127,50 +127,28 @@ const SecurityCompanyDetail = () => {
     const { data: get_response, isLoading: get_loading } = useQuery(
         [`get_company_${company_id}`],
         getRequest,
-        {
-            onSuccess: (res) => {
-                const {
-                    id,
-                    user_id,
-                    image,
-                    status,
-                    onboarding_date,
-                    ...other
-                } = res.data
-
-                const formatDate = new Date(onboarding_date)
-                    .toISOString()
-                    .slice(0, 10)
-
-                reset({
-                    ...other,
-                    onboarding_date: formatDate,
-                })
-
-                setPhotoPreview(image)
-            },
-        }
+     
     )
 
-    // useEffect(() => {
-    //     if (get_response) {
-    //         const { id, user_id, image, status, onboarding_date, ...other } =
-    //             get_response.data
+    useEffect(() => {
+        if (get_response) {
+            const { id, user_id, image, status, onboarding_date, ...other } =
+                get_response.data
 
-    //         console.log({ other })
+            console.log({ other })
 
-    //         const formatDate = new Date(onboarding_date)
-    //             .toISOString()
-    //             .slice(0, 10)
+            const formatDate = new Date(onboarding_date)
+                .toISOString()
+                .slice(0, 10)
 
-    //         reset({
-    //             ...other,
-    //             onboarding_date: formatDate,
-    //         })
+            reset({
+                ...other,
+                onboarding_date: formatDate,
+            })
 
-    //         setPhotoPreview(image)
-    //     }
-    // }, [get_response])
+            setPhotoPreview(image)
+        }
+    }, [get_response])
 
     const { mutate: post_mutation, isLoading: post_update_loading } =
         useMutation(postRequest, {
