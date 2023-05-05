@@ -118,6 +118,9 @@ const ArtisanDetail = () => {
         // }
         //post_admin_mutation(adminData)
     })
+     if (isLoading) {
+         return <p className='p-8'>Loading...</p>
+     }
 
     const formInputs = [
         {
@@ -164,9 +167,7 @@ const ArtisanDetail = () => {
         },
     ] satisfies FormInputs[]
 
-    if (isLoading) {
-        return <p className='p-8'>Loading...</p>
-    }
+   
 
     return (
         <>
@@ -199,16 +200,17 @@ const ArtisanDetail = () => {
                                 }}
                             >
                                 {formInputs.map((input, idx) => {
-                                    const { label, type, name } = input
-
+                                    const { label, type, name, selectProps } = input
                                     return (
                                         <Input
                                             key={idx + label}
                                             id={idx}
                                             label={label}
                                             setValue={setValue}
+                                            select={selectProps}
                                             clearErrors={clearErrors}
                                             register={register}
+                                            isSelect={type === 'select'}
                                             formErrors={formErrors}
                                             type={type}
                                             name={name}
