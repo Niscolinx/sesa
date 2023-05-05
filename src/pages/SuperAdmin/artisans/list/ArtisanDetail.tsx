@@ -169,6 +169,10 @@ const ArtisanDetail = () => {
         {
             label: 'business_name',
         },
+        {
+            label: 'onboarding_date',
+            type: 'date'
+        },
         
     ] satisfies FormInputs[]
 
