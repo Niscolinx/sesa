@@ -78,7 +78,7 @@ const ArtisanDetail = () => {
 
     const getRequest = () => {
         return axiosInstance({
-            url: `/security-company/get/${artisan_id}`,
+            url: `/admin/artisan/getSingleArtisan/${artisan_id}`,
         })
     }
 
