@@ -3,7 +3,13 @@ import { useMutation } from 'react-query'
 import { toast } from 'react-toastify'
 import useAxios from '../../hooks/useAxios'
 
-function Activate_Deactivate() {
+
+interface Props {
+    id: string
+
+}
+
+function Activate_Deactivate({id}: Props) {
     const dialogRef = useRef<HTMLDialogElement | null>(null)
     const axiosInstance = useAxios()
 
@@ -11,7 +17,7 @@ function Activate_Deactivate() {
         return axiosInstance({
             url: '/security-company/deactivate_activate',
             method: 'post',
-            data: { id: company_id },
+            data: { id },
         })
     }
 
