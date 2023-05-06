@@ -86,8 +86,8 @@ function Artisan() {
     const [currentPath, setCurrentPath] = useState<PathSwitch>('artisan_list')
 
     const handlePathSwitch = new Map([
-        ['artisan_category', <ArtisanCategory />],
         ['artisan_list', <ArtisanList />],
+        ['artisan_category', <ArtisanCategory />],
         ['artisan_group', <ArtisanGroup />],
     ]) satisfies Map<PathSwitch, JSX.Element>
 
