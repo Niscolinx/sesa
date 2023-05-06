@@ -10,7 +10,7 @@ const PlatformChanges = () => {
     type FormInputs = {
         label: string
         type: string
-        name: string
+        name?: string
         pre: string
         tag: 'amount'
     }
@@ -23,6 +23,7 @@ const PlatformChanges = () => {
     type Inputs = {
         kyr_validation: number
         sms_notification: number
+        transferable_fee: number
     }
 
     const get_request = () => {
@@ -36,11 +37,12 @@ const PlatformChanges = () => {
         get_request,
         {
             onSuccess: ({ data }) => {
-                const { kyr_validation, sms_notification } = data[0]
+                const { kyr_validation, sms_notification, transferable_fee } = data
 
                 reset({
                     kyr_validation,
                     sms_notification,
+                    transferable_fee
                 })
             },
         }
@@ -112,6 +114,12 @@ const PlatformChanges = () => {
         {
             label: 'sms_notification',
             name: 'SMS Notification',
+            type: 'number',
+            pre: 'Charges Per sms notification',
+            tag: 'amount',
+        },
+        {
+            label: 'transferable_fee',
             type: 'number',
             pre: 'Charges Per sms notification',
             tag: 'amount',
