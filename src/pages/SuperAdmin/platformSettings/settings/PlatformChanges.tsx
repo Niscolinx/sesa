@@ -126,7 +126,7 @@ const PlatformChanges = () => {
     return (
         <>
             <ToastContainer />
-            <Spinner start={isLoading}/>
+            <Spinner start={mutation_loading}/>
             <div className='p-8 bg-white min-h-[60vh] rounded-lg'>
                 <h2 className='heading2 border-b pb-10'>Platform Changes</h2>
 
