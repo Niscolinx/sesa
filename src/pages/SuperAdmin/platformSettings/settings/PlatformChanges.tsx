@@ -61,11 +61,8 @@ const PlatformChanges = () => {
     const axiosInstance = useAxios()
     const postSettings = (inputs: Inputs) => {
         return axiosInstance({
-            url:
-                data.length > 0
-                    ? `/platformsettings/generalsettings/update/${data[0].id}`
-                    : '/platformsettings/generalsettings/create',
-            method: data.length > 0 ? 'put' : 'post',
+            url: `/platformsettings/generalsettings/update/${data.id}`,
+            method: 'put',
             data: inputs,
         })
     }
@@ -89,7 +86,6 @@ const PlatformChanges = () => {
 
         const adminData = {
             ...data,
-            transferable_fee: 30,
         }
 
         mutate(adminData)
