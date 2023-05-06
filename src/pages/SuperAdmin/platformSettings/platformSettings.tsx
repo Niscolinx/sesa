@@ -12,7 +12,7 @@ type PathSwitch =
     | 'account_settings'
 
 function PlatformSettings() {
-    const [currentPath, setCurrentPath] = useState<PathSwitch>('property_type')
+    const [currentPath, setCurrentPath] = useState<PathSwitch>('platform_charges')
 
     const handlePathSwitch = new Map([
         ['platform_charges', <PlatformChanges />],
