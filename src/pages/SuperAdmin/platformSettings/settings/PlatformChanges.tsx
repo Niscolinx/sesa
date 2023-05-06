@@ -5,6 +5,7 @@ import Input from '../../../../components/UI/input/Input'
 import { useForm } from 'react-hook-form'
 import { useMutation, useQuery } from 'react-query'
 import useAxios from '../../../../components/hooks/useAxios'
+import Spinner from '../../../../components/UI/Spinner'
 
 const PlatformChanges = () => {
     type FormInputs = {
@@ -125,6 +126,7 @@ const PlatformChanges = () => {
     return (
         <>
             <ToastContainer />
+            <Spinner start={isLoading}/>
             <div className='p-8 bg-white min-h-[60vh] rounded-lg'>
                 <h2 className='heading2 border-b pb-10'>Platform Changes</h2>
 
