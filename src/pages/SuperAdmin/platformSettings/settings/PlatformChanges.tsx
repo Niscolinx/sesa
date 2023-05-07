@@ -33,7 +33,7 @@ const PlatformChanges = () => {
         })
     }
 
-    const { isLoading, data, error } = useQuery(
+    const { isLoading, data: get_data, error } = useQuery(
         'platformChanges',
         get_request,
         {
@@ -62,7 +62,7 @@ const PlatformChanges = () => {
     const axiosInstance = useAxios()
     const postSettings = (inputs: Inputs) => {
         return axiosInstance({
-            url: `/platformsettings/generalsettings/update/${data.id}`,
+            url: `/platformsettings/generalsettings/update/${get_data.data.id}`,
             method: 'put',
             data: inputs,
         })
