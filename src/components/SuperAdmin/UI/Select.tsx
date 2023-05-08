@@ -86,13 +86,11 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
     const [search, setSearch] = useState('')
     const [selectFrom, setSelectFrom] = useState(state)
 
-    const inputRef = useRef<HTMLDivElement | null>(null)
+    const containerRef = useRef<HTMLDivElement | null>(null)
 
     useEffect(() => {
         const handler = (e: any) => {
-            console.log(e.target)
-            console.log(inputRef.current)
-            if (inputRef.current && !inputRef.current.contains(e.target)) {
+            if (containerRef.current && !containerRef.current.contains(e.target)) {
                 console.log('close')
                 setToggleStateMenu(false)
             }
@@ -103,6 +101,10 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
             window.removeEventListener('click', handler)
         }
     })
+
+    const toggleStateHandler = () => {
+        return setToggleStateMenu(!toggleStateMenu)
+    }
 
     const handleSelectedState = (item: string) => {
         setSelectedState(item)
@@ -354,11 +356,11 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
     const [search, setSearch] = useState('')
     const [selectedFrom, setSelectedFrom] = useState(selectFrom)
 
-    const inputRef = useRef<HTMLDivElement | null>(null)
+    const containerRef = useRef<HTMLDivElement | null>(null)
 
     useEffect(() => {
         const handler = (e: any) => {
-            if (inputRef.current && !inputRef.current.contains(e.target)) {
+            if (containerRef.current && !containerRef.current.contains(e.target)) {
                 console.log('close')
                 setToggleStateMenu(false)
             }
@@ -436,7 +438,7 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
             <p className='text-[1.4rem] font-semibold capitalize'>{label}</p>
             <div
                 className='relative items-center max-w-[40rem] grid'
-                ref={inputRef}
+                ref={containerRef}
             >
                 <p
                     className={`border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer min-h-[5rem] overflow-hidden overflow-x-scroll flex gap-4 items-center ${
