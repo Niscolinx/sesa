@@ -123,7 +123,7 @@ const ResidentBalance = () => {
             <Table
                 is_dropdown={false}
                 fetch_url={'/admin/get/wallet/balance/resident'}
-                title={'resident_balance'}
+                title={'balance'}
                 THeader={['resident name', 'amount']}
                 data_to_display={['name', 'balance']}
             />
@@ -136,13 +136,8 @@ const TransactionHistory = () => {
             <Table
                 fetch_url={'/admin/get/wallet/transaction/resident'}
                 title={'history'}
-                view_page_url={'/superAdmin/estateManagers/view/'}
-                add_page_url={'/superAdmin/estateManagers/add'}
-                is_add_btn={false}
-                is_dropdown={false}
                 THeader={['resident name', 'amount', 'date']}
-                data_to_display={['resident name', 'amount', 'created_at']}
-                deactivateProp={{ url: 'change/user/status' }}
+                data_to_display={['name', 'amount', 'created_at']}
             />
         </div>
     )
