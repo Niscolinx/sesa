@@ -10,6 +10,7 @@ import {
 export interface SelectProps {
     isMulti?: boolean
     state: string[]
+    absolute?:boolean,
     isSearchable?: boolean
     selectedState: string | string[]
     setSelectedState:

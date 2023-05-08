@@ -19,7 +19,6 @@ const AddArtisanGroup = () => {
         type?: string
         name?: string
         value?: string
-        absolute?: boolean
         required?: boolean
         selectProps?: SelectProps
     }
@@ -176,9 +175,9 @@ const AddArtisanGroup = () => {
         {
             label: 'Artisans',
             type: 'select',
-            absolute: false,
             selectProps: {
                 isMulti: true,
+                absolute: false,
                 state: slicedArtisans,
                 selectedState: selectedArtisans,
                 setSelectedState: setSelectedArtisans,
