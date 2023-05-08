@@ -20,32 +20,24 @@ interface EstateManager {
     status: string
 }
 
-
 function EstateDetail() {
-
     const [fetchedEstateDetails, setFetchedEstateDetails] = useState<
         EstateManager[]
     >([])
 
-     const axiosInstance = useAxios()
+    const axiosInstance = useAxios()
     const fetchEstateDetails = () => {
         return axiosInstance({
             url: '/estate/getall',
         })
     }
 
-    const {
-        isLoading: get_estateDetails_loading,
-        data: get_estateDetails_response,
-        isError: get_estateDetails_isError,
-        error: get_estateDetails_error,
-    } = useQuery('estateDetails', fetchEstateDetails) as any
+   const { data: group_artisans, isLoading: group_artisans_loading } =
+       useFetchData({
+           url: `/admin/group/getSingleGroupUsers/${groupId}`,
+           name: 'group_artisans',
+       })
 
-    useEffect(() => {
-        if (get_estateDetails_response) {
-            setFetchedEstateDetails(get_estateDetails_response.data)
-        }
-    }, [get_estateDetails_response])
 
     if (get_estateDetails_loading) {
         //     <p>Property Code</p>
@@ -60,9 +52,7 @@ function EstateDetail() {
         return <p>Loading...</p>
     }
 
-    if (get_estateDetails_isError) {
-        return <p>{get_estateDetails_error.message}</p>
-    }
+
 
     const fetched: any[] =
         get_estateDetails_response.data.data || get_estateDetails_response.data
