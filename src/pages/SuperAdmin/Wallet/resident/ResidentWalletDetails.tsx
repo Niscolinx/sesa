@@ -1,4 +1,123 @@
+import { useState, useEffect } from "react"
+import { useForm } from "react-hook-form"
+import { useQuery } from "react-query"
+import { useParams, useNavigate } from "react-router"
+import { toast } from "react-toastify"
+import { SelectProps } from "../../../../components/UI/input/Input"
+import useAxios from "../../../../components/hooks/useAxios"
+
 const ResidentWalletDetails = () => {
+     const params = useParams()
+
+
+      const admin_id = params.id?.replace(':', '')
+
+
+      if (!admin_id) {
+          toast('Admin not Found', {
+              type: 'error',
+              className: 'bg-red-100 text-red-600 text-[1.4rem]',
+          })
+
+          return <p className='p-4'> Not found!</p>
+      }
+
+
+
+ interface Inputs {
+     email_address: string
+     first_name: string
+     last_name: string
+     dob: string
+     gender: string
+     phone_number: number | null
+     photoUrl?: string
+ }
+
+ type FormInputs = {
+     label?: string
+     type?: string
+     name?: string
+     selectProps?: SelectProps
+ }
+
+
+
+ const formInputs = [
+     {
+         label: 'first_name',
+     },
+     {
+         label: 'last_name',
+     },
+     {
+         label: 'dob',
+         type: 'date',
+         name: 'date of birth',
+     },
+     {
+         label: 'gender',
+         type: 'select',
+         selectProps: {
+             state: genderState,
+             selectedState: selectedGender,
+             setSelectedState: setSelectedGender,
+         },
+     },
+     {
+         label: 'phone_number',
+         type: 'number',
+     },
+     {
+         label: 'email_address',
+         type: 'email',
+     },
+ ] satisfies FormInputs[]
+
+ const {
+     register,
+     handleSubmit,
+     formState: { errors: formErrors },
+     reset,
+ } = useForm<Inputs>()
+
+
+
+
+    const getAdmin = () => {
+        return axiosInstance({
+            url: `/admin/get/${admin_id}`,
+        })
+    }
+
+    const { data: get_response, isLoading: get_admin_loading } = useQuery(
+        [`view_admin_${admin_id}`],
+        getAdmin
+    )
+
+    useEffect(() => {
+        if (get_response) {
+            const { name, email, phone, image, dob, gender } = get_response.data
+            const first_name = name.split(' ')[0]
+            const last_name = name.split(' ')[1]
+
+            reset({
+                first_name,
+                last_name,
+                dob,
+                email_address: email,
+                phone_number: parseInt(phone),
+            })
+
+            setPhotoPreview(image)
+            setSelectedGender(gender)
+        }
+    }, [get_response])
+
+     if (get_admin_loading || !get_response?.data) {
+        return <p>loading...</p>
+    }
+
     return (
         <div className=' p-8 bg-white min-h-[60vh] rounded-lg overflow-y-scroll'>
             <section
