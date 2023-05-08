@@ -5,12 +5,12 @@ function SOSTable() {
     return (
         <div className='rounded-lg mt-[3rem] min-h-[60vh]'>
             <Table
-                title={'artisan'}
-                fetch_url={'/platformsettings/sos/getall/'}
+                title={'Sos'}
+                fetch_url={'/platformsettings/sos/getall'}
                 view_page_url={'/superAdmin/admin/view/'}
-                THeader={['name', 'business name', 'estate_count', 'actions']}
+                THeader={['name', 'estate_count', 'created_at', 'actions']}
                 actions={['remove']}
-                data_to_display={['firstname', 'business_name', 'phone_number']}
+                data_to_display={['name', 'estate_count', 'created_at']}
                 deactivateProp={{ url: '/admin/deactivate_activate' }}
             />
         </div>

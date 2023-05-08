@@ -23,7 +23,7 @@ function ResidentUserPackage() {
 
     return (
         <div className='rounded-lg min-h-[60vh]'>
-            <div className='estateDetail__radioBox capitalize'>
+            {/* <div className='estateDetail__radioBox capitalize'>
                 {resident_paths.map((eachPath, idx) => {
                     const { label, path } = eachPath
                     return (
@@ -40,7 +40,7 @@ function ResidentUserPackage() {
                         </Fragment>
                     )
                 })}
-            </div>
+            </div> */}
             {switchRoute.get('list')}
         </div>
     )
