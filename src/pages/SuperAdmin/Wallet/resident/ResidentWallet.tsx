@@ -4,14 +4,14 @@ import { CgSpinnerTwo } from 'react-icons/cg'
 import { GrUp, GrDown } from 'react-icons/gr'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { useNavigate } from 'react-router'
-import WalletBarChart from '../../../components/SuperAdmin/charts/WalletBarChart'
-import { OverviewWallet } from '../../../components/SuperAdmin/overview/OverviewWallets'
+import WalletBarChart from '../../../../components/SuperAdmin/charts/WalletBarChart'
+import { OverviewWallet } from '../../../../components/SuperAdmin/overview/OverviewWallets'
 import {
     ResidentTransactions,
     RESIDENT_TRANSACTION_HISTORY,
-} from '../../EstateManager/wallet/wallets/resident/ResidentTransactions'
-import { Select } from '../../../components/SuperAdmin/UI/Select'
-import Table from '../../../components/UI/table/Table'
+} from '../../../EstateManager/wallet/wallets/resident/ResidentTransactions'
+import { Select } from '../../../../components/SuperAdmin/UI/Select'
+import Table from '../../../../components/UI/table/Table'
 
 type Trend = 'This Week' | 'This Month' | 'This Year'
 
