@@ -369,19 +369,19 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
     const [closingState, setClosingState] = useState(true)
 
     useEffect(() => {
-        document.addEventListener('click', (e) => {
-            console.log('useEffect clicked', {closingState})
-        })
+        const handleClick = () => {
+            console.log('useEffect clicked', { closingState })
+        }
+
+        document.addEventListener('click', handleClick)
 
         document.removeEventListener('click', (e) => {
-            console.log('useEffect removed', {closingState})
+            console.log('useEffect removed', { closingState })
         })
-
-
-    }, [])
+    }, [closingState])
 
     const toggleStateHandler = () => {
-       return setToggleStateMenu(!toggleStateMenu)
+        return setToggleStateMenu(!toggleStateMenu)
     }
 
     const handleClose = () => {
@@ -390,7 +390,7 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
     }
 
     useEffect(() => {
-        console.log({closingState})
+        console.log({ closingState })
     }, [closingState])
 
     function handleSelectedState(
