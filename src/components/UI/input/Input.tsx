@@ -125,7 +125,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
         if (tag === 'money') {
             setPrice(getValues!(label))
         }
-    }, [])
+    }, [tag, label])
 
     return (
         <div
