@@ -49,6 +49,7 @@ const ResidentWalletDetails = () => {
         },
         {
             label: 'transaction_time',
+            type: 'time'
         },
         {
             label: 'category',
