@@ -309,18 +309,18 @@ function Estates() {
                                 />
                                 <input
                                     type='text'
-                                    placeholder='Search Parameters'
+                                    placeholder='Estate Name'
                                     className='pl-16 w-[25rem] rounded-lg border border-color-blue-light appearance-none outline-none p-4'
                                 />
                             </div>
-                            <div className='w-[10rem] grid self-baseline '>
+                            {/* <div className='w-[10rem] grid self-baseline '>
                                 <Select
                                     state={['A-Z', 'Date']}
                                     selectedState={sortBy}
                                     placeholder={'A-Z'}
                                     setSelectedState={setSortBy}
                                 />
-                            </div>
+                            </div> */}
                             <button
                                 className='btn admins__btn ml-auto'
                                 onClick={handleAddEstate}
