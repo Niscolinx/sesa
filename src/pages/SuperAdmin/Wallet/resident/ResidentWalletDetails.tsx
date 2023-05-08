@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { useQuery } from 'react-query'
-import { useParams, useNavigate } from 'react-router'
+import { useParams } from 'react-router'
 import { toast } from 'react-toastify'
 import { SelectProps } from '../../../../components/UI/input/Input'
 import useFetchData from '../../../../utils/useFetchData'
