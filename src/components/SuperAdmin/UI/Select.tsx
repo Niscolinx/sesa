@@ -1,10 +1,4 @@
-import React, {
-    ChangeEvent,
-    FC,
-    useState,
-    useMemo,
-    useEffect,
-} from 'react'
+import React, { ChangeEvent, FC, useState, useMemo, useEffect } from 'react'
 import { GrUp, GrDown } from 'react-icons/gr'
 import { IoMdClose } from 'react-icons/io'
 import { ValidateInputTypes } from '../../../pages/SecurityCompany/dashboard/company/AddSecurity/AddSecurityGuard'
@@ -85,7 +79,6 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
     const [search, setSearch] = useState('')
     const [selectFrom, setSelectFrom] = useState(state)
 
-
     const stateMenuToggler = (which: 'inner' | 'outside') => {
         if (!toggleStateMenu) {
             return setToggleStateMenu(true)
@@ -147,7 +140,9 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                                 className={`text-white whitespace-nowrap bg-${color}  rounded-lg px-4 relative flex items-center z-[2] pr-12 py-2 w-max`}
                             >
                                 <>
-                                    {Array.isArray(selectedState) ? selectedState :  selectedState.replaceAll('_', ' ')}
+                                    {Array.isArray(selectedState)
+                                        ? selectedState
+                                        : selectedState.replaceAll('_', ' ')}
                                     <IoMdClose
                                         className='absolute right-2 text-[1.4rem] cursor-pointer'
                                         onClick={(e) => clearValue(e)}
@@ -171,11 +166,13 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                             stateMenuToggler('inner')
                         }}
                     >
-                        { Array.isArray(selectedState) ? selectedState :  selectedState.replaceAll('_', ' ') || (
-                            <span className='text-gray-500'>
-                                {placeholder || ''}
-                            </span>
-                        )}
+                        {Array.isArray(selectedState)
+                            ? selectedState
+                            : selectedState.replaceAll('_', ' ') || (
+                                  <span className='text-gray-500'>
+                                      {placeholder || ''}
+                                  </span>
+                              )}
                         <div className='flex'>
                             {toggleStateMenu ? (
                                 <GrUp className='text-[1.4rem] ' />
@@ -242,28 +239,6 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
         </div>
     )
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 export const ComplexSelect: FC<ComplexSelect> = ({
     state,
@@ -373,29 +348,6 @@ export const ComplexSelect: FC<ComplexSelect> = ({
     )
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 export const MultipleSelect: FC<IMultipleSelect> = ({
     selectFrom,
     selected,
@@ -408,10 +360,8 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
     const [search, setSearch] = useState('')
     const [selectedFrom, setSelectedFrom] = useState(selectFrom)
 
-   
-
-
     const stateMenuToggler = (which: 'inner' | 'outside') => {
+        console.log({which})
         if (!toggleStateMenu) {
             return setToggleStateMenu(true)
         }
@@ -434,6 +384,8 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
         item: string
     ) => {
         const checked = e.target.checked
+                console.log('clicked')
+
 
         if (checked) {
             setSelected((prev) => [...prev, item])
@@ -498,7 +450,9 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
                         gridTemplateColumns:
                             'repeat(auto-fit, minmax(12rem, 1fr))',
                     }}
-                    onClick={() => stateMenuToggler('inner')}
+                    onClick={(e) => {
+                            
+                        stateMenuToggler('inner')}}
                 >
                     <div className='flex items-center gap-2'>
                         {selected && selected.length > 0 ? (
@@ -542,7 +496,12 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
                             type='text'
                             placeholder='Search Parameters'
                             value={search}
+                            autoFocus
                             onChange={handleSearch}
+                            onBlur={(e) => {
+                                e.preventDefault()
+                                stateMenuToggler('outside')
+                            }}
                             className='pl-16 w-[25rem] rounded-lg border border-color-blue-light py-4 px-8 outline-none appearance-none'
                         />
                     </div>
@@ -557,24 +516,6 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
         </div>
     )
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 export const MappedSelect: FC<MappedSelect> = ({
     state,
@@ -718,17 +659,6 @@ export const MappedSelect: FC<MappedSelect> = ({
     )
 }
 
-
-
-
-
-
-
-
-
-
-
-
 export const SelectedItems: FC<
     Pick<IMultipleSelect, 'selectFrom' | 'label'>
 > = ({ selectFrom, label }) => {
@@ -767,4 +697,3 @@ export const SelectedItems: FC<
         </div>
     )
 }
-
