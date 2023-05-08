@@ -70,9 +70,9 @@ const ResidentWalletDetails = () => {
     } = useForm<Inputs>()
 
     
-    const {isLoading, data} = useFetchData({
-        url: '',
-        name: `resident_wallet_detail_${wallet_id}`
+    const { isLoading, data } = useFetchData({
+        url: `admin/get/wallet/transaction/details/resident/${wallet_id}`,
+        name: `resident_wallet_detail_${wallet_id}`,
     })
 
     useEffect(() => {
