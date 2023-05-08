@@ -4,17 +4,6 @@ import OverviewCard from '../../../components/SuperAdmin/overview/OverviewCard'
 import useFetchData from '../../../utils/useFetchData'
 import Table from '../../../components/UI/table/Table'
 
-interface EstateManager {
-    id: string
-    propertyCode: string
-    address: string
-    propertyCategory: string
-    propertyName: string
-    occupants: number
-    RFID: number
-    accessCard: number
-    status: string
-}
 
 function EstateDetail() {
     const { data, isLoading } = useFetchData({
@@ -29,6 +18,8 @@ function EstateDetail() {
     if (isLoading || estate_isLoading) {
         return <p>Loading...</p>
     }
+
+
 
     return (
         <div className='mt-8 grid gap-8'>
