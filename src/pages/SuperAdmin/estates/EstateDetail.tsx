@@ -73,7 +73,7 @@ function EstateDetail() {
                         </div> */}
             </section>
             <Table
-                title={'artisan'}
+                title={'household'}
                 THeader={[
                     'address',
                     'property category',
