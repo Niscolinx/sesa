@@ -3,6 +3,7 @@ import { MultipleSelect, Select } from '../../SuperAdmin/UI/Select'
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai'
 import {
     UseFormClearErrors,
+    UseFormGetValues,
     UseFormRegister,
     UseFormSetValue,
 } from 'react-hook-form'
@@ -28,6 +29,7 @@ interface Input {
     options: any
     id?: number
     setValue?: UseFormSetValue<any>
+    getValues?: UseFormGetValues<any>
     required?: boolean
     clearErrors?: UseFormClearErrors<any>
     pre?: string
@@ -44,6 +46,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
     type = 'text',
     register,
     setValue,
+    getValues,
     isSelect,
     pre,
     fullWidth,
@@ -120,7 +123,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
         }
     }
 
-    console.log({label})
+    console.log({label}, getValues(label))
 
    
 

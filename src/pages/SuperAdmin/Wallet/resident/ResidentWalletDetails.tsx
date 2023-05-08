@@ -77,6 +77,7 @@ const ResidentWalletDetails = () => {
         register,
         handleSubmit,
         clearErrors,
+        getValues,
         setValue,
         formState: { errors: formErrors },
         reset,
@@ -127,6 +128,7 @@ const ResidentWalletDetails = () => {
                                     label={label}
                                     tag={tag}
                                     type={type}
+                                    getValues={getValues}
                                     clearErrors={clearErrors}
                                     setValue={setValue}
                                     register={register}
