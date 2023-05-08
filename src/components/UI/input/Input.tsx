@@ -256,6 +256,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                             ) : tag === 'money' ? (
                                 <input
                                     id={label}
+                                    disabled={disabled}
                                     type={'text'}
                                     inputMode={'numeric'}
                                     value={price}
