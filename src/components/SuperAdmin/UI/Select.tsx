@@ -77,7 +77,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
     placeholder,
     kyr,
     id,
-    absolute,
+    absolute = true,
     selectFormErrors,
     fullWidth,
     color,
@@ -356,6 +356,7 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
     setSelected,
     selectFormErrors,
     label,
+    absolute = true,
     placeholder,
 }) => {
     const [toggleStateMenu, setToggleStateMenu] = useState(false)
