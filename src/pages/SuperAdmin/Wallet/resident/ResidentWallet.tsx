@@ -9,7 +9,7 @@ import { OverviewWallet } from '../../../../components/SuperAdmin/overview/Overv
 import {
     ResidentTransactions,
     RESIDENT_TRANSACTION_HISTORY,
-} from '../../../EstateManager/wallet/wallets/resident/ResidentTransactions'
+} from '../../../EstateManager/wallet/wallets-old/resident/ResidentTransactions'
 import { Select } from '../../../../components/SuperAdmin/UI/Select'
 import Table from '../../../../components/UI/table/Table'
 
