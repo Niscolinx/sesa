@@ -7,20 +7,21 @@ import useFetchData from '../../../../utils/useFetchData'
 
 const ResidentWalletDetails = () => {
     interface Inputs {
-        transaction_type: string
-        transaction_time: string
-        transaction_category: string
-        transaction_source: string
-        transaction_amount: string
-        transaction_ID: string
+        type: string
+        date: string
+        time: string
+        category: string
+        name: string
+        amount: string
+        tran_id: string
         description: string
     }
 
     type FormInputs = {
-        label?: string
+        label: keyof Inputs
         type?: string
         name?: string
-        selectProps?: SelectProps
+        disabled?: string
     }
 
     const params = useParams()
@@ -38,24 +39,30 @@ const ResidentWalletDetails = () => {
 
     const formInputs = [
         {
-            label: 'first_name',
-        },
-        {
-            label: 'last_name',
-        },
-        {
-            label: 'dob',
-            type: 'date',
-            name: 'date of birth',
+            name: 'transaction_type',
+            
         },
 
         {
-            label: 'phone_number',
-            type: 'number',
+            name: 'transaction_date',
         },
         {
-            label: 'email_address',
-            type: 'email',
+            name: 'transaction_time',
+        },
+        {
+            name: 'transaction_category',
+        },
+        {
+            name: 'transaction_source',
+        },
+        {
+            name: 'transaction_amount',
+        },
+        {
+            name: 'transaction_ID',
+        },
+        {
+            name: 'narration',
         },
     ] satisfies FormInputs[]
 
