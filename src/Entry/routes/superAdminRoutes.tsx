@@ -15,7 +15,6 @@ import Wallet from '../../pages/SuperAdmin/Wallet'
 import EstateWallet from '../../pages/SuperAdmin/Wallet/estate/EstateWallet'
 import EstateWalletDetails from '../../pages/EstateManager/wallet/wallets-old/EstateWalletDetails'
 import ResidentWallet from '../../pages/SuperAdmin/Wallet/resident/ResidentWallet'
-import ResidentWalletDetails from '../../pages/EstateManager/wallet/wallets-old/resident/ResidentWalletDetails'
 import CommissionWallet from '../../pages/SuperAdmin/Wallet/commission/CommissionWallet'
 import CommissionWalletDetails from '../../pages/EstateManager/wallet/wallets-old/CommissionWalletDetails'
 import SecurityCompanyWallet from '../../pages/SuperAdmin/Wallet/security/SecurityCompanyWallet'
@@ -48,6 +47,7 @@ import AddResidentUserPackage from '../../pages/SuperAdmin/residentUserPackage/r
 import ViewProperty from '../../pages/SuperAdmin/platformSettings/settings/property/ViewProperty'
 import EditEstate from '../../pages/SuperAdmin/estates/EditEstate'
 import ViewPackage from '../../pages/SuperAdmin/residentUserPackage/residentPackage/ViewPackage'
+import ResidentWalletDetails from '../../pages/SuperAdmin/Wallet/resident/ResidentWalletDetails'
 
 const superAdminRoutes = (
     <Route
@@ -93,7 +93,7 @@ const superAdminRoutes = (
         <Route path='wallet/estate' element={<EstateWallet />} />
         <Route path='wallet/estate/:id' element={<EstateWalletDetails />} />
         <Route path='wallet/resident' element={<ResidentWallet />} />
-        <Route path='wallet/resident/:id' element={<ResidentWalletDetails />} />
+        <Route path='wallet/resident/:id' element={<ResidentWalletDetails/>} />
         <Route path='wallet/commission' element={<CommissionWallet />} />
         <Route
             path='wallet/commission/:id'

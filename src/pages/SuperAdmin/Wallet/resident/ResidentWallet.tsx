@@ -135,6 +135,7 @@ const TransactionHistory = () => {
         <div className='rounded-lg mt-[3rem] min-h-[60vh]'>
             <Table
                 fetch_url={'/admin/get/wallet/transaction/resident'}
+                view_page_url={'wallet/resident/'}
                 title={'history'}
                 isStrictAction
                 actions={['view details']}
