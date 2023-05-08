@@ -23,19 +23,26 @@ function EstateDetail() {
         return <p>Loading...</p>
     }
 
+    if(data.data.estate_name === undefined){
+        return <p>No Data Found</p>
+    }
+
 
     const {
         resident_count,
         household_count,
-        property_count
+        property_count,
+        estate_name
     } = data.data
+
+
 
 
     return (
         <div className='mt-8 grid gap-8'>
             <section className='bg-white rounded-lg p-8 grid h-[28rem] text-[1.4rem]'>
-                <div className='flex w-full justify-between'>
-                    <p>Iba Housing Estate</p>
+                <div className='flex w-full justify-between capitalize'>
+                    <p>{estate_name}</p>
                     <p className='text-[#666869]'>
                         Joined: <span className='text-black'>08 May, 2022</span>
                     </p>
