@@ -359,13 +359,26 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
     const [toggleStateMenu, setToggleStateMenu] = useState(false)
     const [search, setSearch] = useState('')
     const [selectedFrom, setSelectedFrom] = useState(selectFrom)
+    const [closingState, setClosingState] = useState('outside')
+
+    useEffect(() => {
+
+        document.addEventListener('click', (e) => {
+            console.log("useEffect clicked")
+        })
+
+     
+
+    }, [])
 
     function handleSelectedState(
         e: ChangeEvent<HTMLInputElement>,
         item: string
     ) {
-        const checked = e.target.checked
         console.log('clicked')
+        setClosingState('inner')
+       
+        const checked = e.target.checked
 
         if (checked) {
             setSelected((prev) => [...prev, item])
@@ -374,24 +387,25 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
         }
     }
 
-    function stateMenuToggler(which: 'inner' | 'outside') {
-        console.log({ which })
-        if (!toggleStateMenu) {
-            return setToggleStateMenu(true)
-        }
-        const id = setTimeout(() => {
-            if (which === 'outside') {
-                if (toggleStateMenu) {
-                    setToggleStateMenu(false)
-                }
-            }
-            if (which === 'inner') {
-                setToggleStateMenu(!toggleStateMenu)
-            }
-        }, 500)
+    // function stateMenuToggler(which: 'inner' | 'outside') {
+    //     console.log({ which })
 
-        return () => clearTimeout(id)
-    }
+    //     setClosingState(which)
+
+
+    //     // const id = setTimeout(() => {
+    //     //     if (which === 'outside') {
+    //     //         if (toggleStateMenu) {
+    //     //             setToggleStateMenu(false)
+    //     //         }
+    //     //     }
+    //     //     if (which === 'inner') {
+    //     //         setToggleStateMenu(!toggleStateMenu)
+    //     //     }
+    //     // }, 500)
+
+    //     // return () => clearTimeout(id)
+    // }
 
     const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
         const { value } = e.target
@@ -413,6 +427,7 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
             <div
                 className='flex items-center pl-4 cursor-pointer hover:bg-color-grey'
                 key={index}
+                onClick={() => setClosingState('inner')}
             >
                 <input
                     type='checkbox'
@@ -491,18 +506,32 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
                             alt=''
                             className='absolute left-4'
                         />
+
                         <input
                             type='text'
                             placeholder='Search Parameters'
                             value={search}
                             autoFocus
                             onChange={handleSearch}
-                            onBlur={(e) => {
-                                stateMenuToggler('outside')
-                            }}
+                            // onBlur={(e) => {
+                            //     stateMenuToggler('outside')
+                            // }}
                             className='pl-16 w-[25rem] rounded-lg border border-color-blue-light py-4 px-8 outline-none appearance-none'
                         />
                     </div>
+                    <select id='mySelect'>
+                        <option value='option1'>Option 1</option>
+                        <option value='option2'>Option 2</option>
+                        <option value='option3'>Option 3</option>
+                    </select>
+                    <input type="text" id="myInput" list="characterList"/>
+<datalist id="characterList">
+  <option value="A">A</option>
+  <option value="B">B</option>
+  <option value="C">C</option>
+  <option value="D">D</option>
+  <option value="E">E</option>
+</datalist>
                     {memoizedList}
                 </div>
             )}
