@@ -138,7 +138,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
             </p>
             <div className='relative flex items-center '>
                 {color ? (
-                    <label
+                    <p
                         className='border border-color-grey px-4 py-2 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer min-h-[5rem] capitalize'
                         onClick={() => stateMenuToggler('inner')}
                     >
@@ -159,9 +159,9 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                                 {placeholder || ''}
                             </span>
                         )}
-                    </label>
+                    </p>
                 ) : (
-                    <label
+                    <p
                         className={`border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer min-h-[5rem] flex items-center gap-4 capitalize ${
                             selectedState.length > 0
                                 ? 'justify-between'
@@ -170,7 +170,6 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                         onClick={() => {
                             stateMenuToggler('inner')
                         }}
-                        htmlFor={`input${id}`}
                     >
                         { Array.isArray(selectedState) ? selectedState :  selectedState.replaceAll('_', ' ') || (
                             <span className='text-gray-500'>
@@ -184,7 +183,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                                 <GrDown className='text-[1.4rem] ' />
                             )}
                         </div>
-                    </label>
+                    </p>
                 )}
 
                 {toggleStateMenu && (
@@ -409,7 +408,26 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
     const [search, setSearch] = useState('')
     const [selectedFrom, setSelectedFrom] = useState(selectFrom)
 
-    const stateMenuToggler = () => setToggleStateMenu(!toggleStateMenu)
+   
+
+
+    const stateMenuToggler = (which: 'inner' | 'outside') => {
+        if (!toggleStateMenu) {
+            return setToggleStateMenu(true)
+        }
+        const id = setTimeout(() => {
+            if (which === 'outside') {
+                if (toggleStateMenu) {
+                    setToggleStateMenu(false)
+                }
+            }
+            if (which === 'inner') {
+                setToggleStateMenu(!toggleStateMenu)
+            }
+        }, 150)
+
+        return () => clearTimeout(id)
+    }
 
     const handleSelectedState = (
         e: ChangeEvent<HTMLInputElement>,
@@ -473,11 +491,14 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
             <p className='text-[1.4rem] font-semibold capitalize'>{label}</p>
             <div className='relative items-center max-w-[40rem] flex'>
                 <p
-                    className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer h-[5rem] overflow-hidden overflow-x-scroll flex gap-4 items-center pr-16'
+                    className={`border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer min-h-[5rem] overflow-hidden overflow-x-scroll flex gap-4 items-center ${
+                        selected.length > 0 ? 'justify-between' : 'justify-end'
+                    }`}
                     style={{
                         gridTemplateColumns:
                             'repeat(auto-fit, minmax(12rem, 1fr))',
                     }}
+                    onClick={() => stateMenuToggler('inner')}
                 >
                     {selected && selected.length > 0 ? (
                         selected.map((item, i) => (
@@ -497,22 +518,14 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
                             {placeholder || ''}
                         </span>
                     )}
+                    <div className='flex'>
+                        {toggleStateMenu ? (
+                            <GrUp className='text-[1.4rem] ' />
+                        ) : (
+                            <GrDown className='text-[1.4rem] ' />
+                        )}
+                    </div>
                 </p>
-                {toggleStateMenu ? (
-                    <div
-                        className='absolute w-full h-full z-[1] left-0 flex items-center justify-end pr-3 cursor-pointer'
-                        onClick={stateMenuToggler}
-                    >
-                        <GrUp />
-                    </div>
-                ) : (
-                    <div
-                        className='absolute w-full h-full z-[1] left-0 flex items-center justify-end pr-3 cursor-pointer'
-                        onClick={stateMenuToggler}
-                    >
-                        <GrDown />
-                    </div>
-                )}
             </div>
 
             {label && selectFormErrors && selectFormErrors[label] && (
@@ -521,7 +534,7 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
                 </p>
             )}
             {toggleStateMenu && (
-                <div className='absolute top-[8rem]  left-0 border border-color-primary-light min-w-[12rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
+                <div className='absolute top-[8rem]  left-0 border border-color-primary-light min-w-[12rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize max-h-[20rem] overflow-y-scroll'>
                     <div className='relative flex items-center text-[1.4rem]'>
                         <img
                             src='/icons/admins/search.svg'
@@ -532,7 +545,6 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
                             type='text'
                             placeholder='Search Parameters'
                             value={search}
-                            
                             onChange={handleSearch}
                             className='pl-16 w-[25rem] rounded-lg border border-color-blue-light py-4 px-8 outline-none appearance-none'
                         />
