@@ -86,23 +86,23 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
     const [search, setSearch] = useState('')
     const [selectFrom, setSelectFrom] = useState(state)
 
-    const stateMenuToggler = (which: 'inner' | 'outside') => {
-        if (!toggleStateMenu) {
-            return setToggleStateMenu(true)
-        }
-        const id = setTimeout(() => {
-            if (which === 'outside') {
-                if (toggleStateMenu) {
-                    setToggleStateMenu(false)
-                }
-            }
-            if (which === 'inner') {
-                setToggleStateMenu(!toggleStateMenu)
-            }
-        }, 150)
+    const inputRef = useRef<HTMLDivElement | null>(null)
 
-        return () => clearTimeout(id)
-    }
+    useEffect(() => {
+        const handler = (e: any) => {
+            console.log(e.target)
+            console.log(inputRef.current)
+            if (inputRef.current && !inputRef.current.contains(e.target)) {
+                console.log('close')
+                setToggleStateMenu(false)
+            }
+        }
+
+        window.addEventListener('click', handler)
+        return () => {
+            window.removeEventListener('click', handler)
+        }
+    })
 
     const handleSelectedState = (item: string) => {
         setSelectedState(item)
@@ -140,7 +140,6 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                 {color ? (
                     <p
                         className='border border-color-grey px-4 py-2 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer min-h-[5rem] capitalize'
-                        onClick={() => stateMenuToggler('inner')}
                     >
                         {selectedState ? (
                             <span
@@ -169,9 +168,6 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                                 ? 'justify-between'
                                 : 'justify-end'
                         }`}
-                        onClick={() => {
-                            stateMenuToggler('inner')
-                        }}
                     >
                         {Array.isArray(selectedState)
                             ? selectedState
@@ -192,34 +188,25 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
 
                 {toggleStateMenu && (
                     <div className='absolute top-[6rem] left-0 border border-color-primary-light min-w-[12rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize max-h-[20rem] overflow-y-scroll '>
-                        <div
-                            className={`flex items-center text-[1.4rem]  ${
-                                isSearchable
-                                    ? 'relative'
-                                    : 'absolute left-[-9999px] opacity-0'
-                            } `}
-                        >
-                            <img
-                                src='/icons/admins/search.svg'
-                                alt=''
-                                className='absolute left-4'
-                            />
+                        {isSearchable && (
+                            <div className={`flex items-center text-[1.4rem]`}>
+                                <img
+                                    src='/icons/admins/search.svg'
+                                    alt=''
+                                    className='absolute left-4'
+                                />
 
-                            <input
-                                type='text'
-                                placeholder='Search Parameters'
-                                value={search}
-                                autoFocus
-                                onBlur={(e) => {
-                                    e.preventDefault()
-                                    stateMenuToggler('outside')
-                                }}
-                                onChange={handleSearch}
-                                className={`pl-16 rounded-lg border border-color-blue-light py-4 px-8 outline-none appearance-none ${
-                                    fullWidth ? 'w-full' : 'w-[25rem]'
-                                }`}
-                            />
-                        </div>
+                                <input
+                                    type='text'
+                                    placeholder='Search Parameters'
+                                    value={search}
+                                    autoFocus
+                                    onChange={handleSearch}
+                                    className={`pl-16 rounded-lg border border-color-blue-light py-4 px-8 outline-none appearance-none
+                                    w-full`}
+                                />
+                            </div>
+                        )}
 
                         {selectFrom.map((item, index) => (
                             <p
