@@ -219,7 +219,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                                     rows={4}
                                     maxLength={30}
                                     disabled={disabled}
-                                        {...(register &&
+                                    {...(register &&
                                         register(label, validationOptions))}
                                     className={` w-full border-none outline-none disabled:opacity-50 disabled:cursor-not-allowed p-4 pl-0 ${
                                         formErrors &&
@@ -240,7 +240,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                                         type={type}
                                         inputMode='numeric'
                                         maxLength={10}
-                                        value={value || phone}
+                                        value={phone}
                                         onChange={handlePhoneChange}
                                         className={` w-full border-none outline-none disabled:opacity-50 disabled:cursor-not-allowed p-4 pl-0 ${
                                             formErrors &&
@@ -268,7 +268,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                                     id={label}
                                     disabled={disabled}
                                     type={type}
-                                        {...(register &&
+                                    {...(register &&
                                         register(label, validationOptions))}
                                     className={` w-full border-none outline-none disabled:opacity-50 disabled:cursor-not-allowed p-4 pl-0 ${
                                         formErrors &&
@@ -302,7 +302,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                                     id={label}
                                     disabled={disabled}
                                     type={type}
-                                        {...(register &&
+                                    {...(register &&
                                         register(label, validationOptions))}
                                     className={` w-full border-none outline-none disabled:opacity-50 disabled:cursor-not-allowed p-4 pl-0 ${
                                         formErrors &&
