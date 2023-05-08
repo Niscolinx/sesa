@@ -1,4 +1,4 @@
-import React, { useState, useEffect, ChangeEvent, useRef } from 'react'
+import { useState, useEffect } from 'react'
 
 import { Link, useNavigate } from 'react-router-dom'
 import OverviewCard from '../../../components/SuperAdmin/overview/OverviewCard'
@@ -6,6 +6,7 @@ import { useQuery } from 'react-query'
 import { toast } from 'react-toastify'
 import { useAppDispatch } from '../../../store/app/hooks'
 import AxiosRequest from '../../../utils/axios'
+import useAxios from '../../../components/hooks/useAxios'
 
 interface EstateManager {
     id: string
@@ -19,19 +20,16 @@ interface EstateManager {
     status: string
 }
 
-type Actions = 'view details' | 'deactivate'
 
 function EstateDetail() {
-    const navigate = useNavigate()
-    const dispatch = useAppDispatch()
 
     const [fetchedEstateDetails, setFetchedEstateDetails] = useState<
         EstateManager[]
     >([])
 
+     const axiosInstance = useAxios()
     const fetchEstateDetails = () => {
-        return AxiosRequest({
-            dispatch,
+        return axiosInstance({
             url: '/estate/getall',
         })
     }
@@ -104,14 +102,14 @@ function EstateDetail() {
                                 textColor='text-[#B6008E]'
                             />
                         </div>
-                        <div className='flex justify-end'>
+                        {/* <div className='flex justify-end'>
                             <Link
                                 to={`/superAdmin/estates/detail/report/:4`}
                                 className='text-[#0660FE] text-[1.4rem]'
                             >
                                 View Estate Report
                             </Link>
-                        </div>
+                        </div> */}
                     </section>
                 </>
             ) : (
