@@ -368,6 +368,10 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
     //     })
     // }, [])
 
+    useEffect(() => {
+        console.log('select')
+    }, [useRef])
+
     function handleSelectedState(
         e: ChangeEvent<HTMLInputElement>,
         item: string
