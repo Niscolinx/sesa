@@ -20,6 +20,12 @@ function EstateDetail() {
     }
 
 
+    const {
+        resident_count,
+        household_count,
+        property_count
+    } = data.data
+
 
     return (
         <div className='mt-8 grid gap-8'>
@@ -33,14 +39,14 @@ function EstateDetail() {
                 <div className='overview flex justify-between'>
                     <OverviewCard
                         title='Residents'
-                        number={18_000}
+                        number={resident_count}
                         iconUrl='/icons/overview/residents.svg'
                         bgColor='bg-[#DDFCDC]'
                         textColor='text-[#1A8F56]'
                     />
                     <OverviewCard
                         title='Property'
-                        number={4}
+                        number={property_count}
                         iconUrl='/icons/overview/property.svg'
                         bgColor='bg-[#F5F9FA]'
                         textColor='text-[#00C2FF]'
