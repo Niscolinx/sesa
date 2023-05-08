@@ -126,14 +126,14 @@ const ResidentWalletDetails = () => {
                                     register={register}
                                     formErrors={formErrors}
                                     name={name}
-                                 
+                                    disabled={true}
                                 />
                             )
                         })}
 
                        
                     </>
-                </form>
+                </div>
         </div>
     )
 }
