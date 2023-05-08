@@ -56,7 +56,7 @@ const ResidentWalletDetails = () => {
 
     useEffect(() => {
         if (data) {
-            const { created_at, name, ...other } = data
+            const { created_at, amount, name, ...other } = data
 
             const transaction_date = created_at.slice(0, 10)
             const transaction_time = created_at.slice(11, 16)
@@ -68,6 +68,8 @@ const ResidentWalletDetails = () => {
                 transaction_source,
                 ...other,
             })
+
+            setValue('amount', amount)
         }
     }, [data])
 

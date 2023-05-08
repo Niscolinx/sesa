@@ -121,12 +121,14 @@ const Input: FC<Partial<Input> & { label: string }> = ({
         }
     }
 
+    
     useEffect(() => {
-        console.log({tag, label, getValues}, getValues(label))
         if (tag === 'money' && getValues) {
+            console.log('inside')
+            console.log({tag, label, getValues}, getValues(label))
             setPrice(getValues(label))
         }
-    }, [tag, label])
+    }, [tag, getValues])
 
     return (
         <div
