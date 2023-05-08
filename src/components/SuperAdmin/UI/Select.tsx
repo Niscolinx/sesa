@@ -394,11 +394,7 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
         console.log('handleclose')
         return setClosingState(false)
     }
-    const handleBubble = (e:any) => {
-        e.stopPropagation()
-        
-        console.log('clicked')
-    }
+  
 
 
     function handleSelectedState(
@@ -508,7 +504,9 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
             {toggleStateMenu && (
                 <div
                     className='absolute top-[8rem]  left-0 border border-color-primary-light min-w-[12rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize max-h-[20rem] overflow-y-scroll'
-                    onClick={handleBubble}
+                    onClick={(e) => {
+                        e.stopPropagation()
+                    }}
                     ref={inputRef}
                 >
                     <div className='relative flex items-center text-[1.4rem]'>
