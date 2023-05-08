@@ -137,6 +137,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                             selected={select.selectedState}
                             selectFrom={select.state}
                             id={id}
+                            absolute={select.absolute}
                             setSelected={
                                 select.setSelectedState as React.Dispatch<
                                     React.SetStateAction<string[]>
@@ -149,6 +150,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                             isSearchable={select.isSearchable}
                             state={select.state}
                             id={id}
+                            absolute={select.absolute}
                             selectFormErrors={selectFormErrors}
                             selectedState={select.selectedState as string}
                             setSelectedState={
