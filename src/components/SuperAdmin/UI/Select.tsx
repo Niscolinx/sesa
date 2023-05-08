@@ -1,4 +1,11 @@
-import React, { ChangeEvent, FC, useState, useMemo, useEffect, useRef } from 'react'
+import React, {
+    ChangeEvent,
+    FC,
+    useState,
+    useMemo,
+    useEffect,
+    useRef,
+} from 'react'
 import { GrUp, GrDown } from 'react-icons/gr'
 import { IoMdClose } from 'react-icons/io'
 import { ValidateInputTypes } from '../../../pages/SecurityCompany/dashboard/company/AddSecurity/AddSecurityGuard'
@@ -359,7 +366,7 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
     const [toggleStateMenu, setToggleStateMenu] = useState(false)
     const [search, setSearch] = useState('')
     const [selectedFrom, setSelectedFrom] = useState(selectFrom)
-    const [closingState, setClosingState] = useState('outside')
+    const [closingState, setClosingState] = useState(false)
 
     // useEffect(() => {
     //     document.addEventListener('click', (e) => {
@@ -367,15 +374,19 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
     //     })
     // }, [])
 
- 
+    const toggleStateHandler = () => {
+        
+    }
 
+    const handleClose = () => {
+        setClosingState(false)
+    }
 
     function handleSelectedState(
         e: ChangeEvent<HTMLInputElement>,
         item: string
     ) {
-        console.log('clicked')
-        setClosingState('inner')
+        setClosingState(false)
 
         const checked = e.target.checked
 
@@ -386,9 +397,8 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
         }
     }
 
-  
-
     const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
+        handleClose()
         const { value } = e.target
         setSearch(value)
 
@@ -408,7 +418,7 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
             <div
                 className='flex items-center pl-4 cursor-pointer hover:bg-color-grey'
                 key={index}
-                onClick={() => setClosingState('inner')}
+                onClick={handleClose}
             >
                 <input
                     type='checkbox'
@@ -445,9 +455,7 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
                         gridTemplateColumns:
                             'repeat(auto-fit, minmax(12rem, 1fr))',
                     }}
-                    onClick={(e) => {
-                        setToggleStateMenu(!toggleStateMenu)
-                    }}
+                    onClick={toggleStateHandler}
                 >
                     <div className='flex items-center gap-2'>
                         {selected && selected.length > 0 ? (
@@ -487,7 +495,6 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
                             alt=''
                             className='absolute left-4'
                         />
-                        
 
                         <input
                             type='text'
@@ -495,12 +502,10 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
                             value={search}
                             autoFocus
                             onChange={handleSearch}
-                        
                             className='pl-16 w-[25rem] rounded-lg border border-color-blue-light py-4 px-8 outline-none appearance-none'
                         />
                     </div>
-                 
-                  
+
                     {memoizedList}
                 </div>
             )}
