@@ -122,6 +122,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
     }
 
     useEffect(() => {
+        console.log({tag, label})
         if (tag === 'money') {
             setPrice(getValues!(label))
         }
