@@ -455,7 +455,10 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
     return (
         <div className='relative grid gap-4'>
             <p className='text-[1.4rem] font-semibold capitalize'>{label}</p>
-            <div className='relative items-center max-w-[40rem] flex'>
+            <div
+                className='relative items-center max-w-[40rem] grid'
+                ref={inputRef}
+            >
                 <p
                     className={`border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer min-h-[5rem] overflow-hidden overflow-x-scroll flex gap-4 items-center ${
                         selected.length > 0 ? 'justify-between' : 'justify-end'
@@ -494,36 +497,35 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
                         )}
                     </div>
                 </p>
+                {toggleStateMenu && (
+                    <div
+                        className=' top-[6rem]  left-0 border border-color-primary-light bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize max-h-[20rem] overflow-y-scroll'
+                        onClick={(e) => {
+                           
+                        }}
+                    >
+                        <div className='relative flex items-center text-[1.4rem]'>
+                            <img
+                                src='/icons/admins/search.svg'
+                                alt=''
+                                className='absolute left-4'
+                            />
+
+                            <input
+                                type='text'
+                                placeholder='Search Parameters'
+                                value={search}
+                                autoFocus
+                                onChange={handleSearch}
+                                className='pl-16 rounded-lg border border-color-blue-light py-4 px-8 outline-none appearance-none'
+                            />
+                        </div>
+
+                        {memoizedList}
+                    </div>
+                )}
             </div>
 
-            {toggleStateMenu && (
-                <div
-                    className='absolute top-[8rem]  left-0 border border-color-primary-light min-w-[12rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize max-h-[20rem] overflow-y-scroll'
-                    onClick={(e) => {
-                        e.stopPropagation()
-                    }}
-                    ref={inputRef}
-                >
-                    <div className='relative flex items-center text-[1.4rem]'>
-                        <img
-                            src='/icons/admins/search.svg'
-                            alt=''
-                            className='absolute left-4'
-                        />
-
-                        <input
-                            type='text'
-                            placeholder='Search Parameters'
-                            value={search}
-                            autoFocus
-                            onChange={handleSearch}
-                            className='pl-16 w-[25rem] rounded-lg border border-color-blue-light py-4 px-8 outline-none appearance-none'
-                        />
-                    </div>
-
-                    {memoizedList}
-                </div>
-            )}
             {label && selectFormErrors && selectFormErrors[label] && (
                 <p className='text-[1.2rem] text-red-500'>
                     {selectFormErrors[label]}
