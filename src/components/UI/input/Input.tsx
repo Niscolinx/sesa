@@ -28,7 +28,7 @@ interface Input {
     options: any
     id?: number
     setValue?: UseFormSetValue<any>
-    getValues?: UseFormGetValues<any>
+    value?: any
     required?: boolean
     clearErrors?: UseFormClearErrors<any>
     pre?: string
@@ -45,7 +45,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
     type = 'text',
     register,
     setValue,
-    getValues,
+    
     isSelect,
     pre,
     fullWidth,
@@ -53,6 +53,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
     clearErrors,
     tag,
     id,
+    value,
     select,
     selectFormErrors,
     required = true,
@@ -121,14 +122,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
         }
     }
 
-    
-    useEffect(() => {
-        if (tag === 'money' && getValues) {
-            console.log('inside')
-            console.log({tag, label, getValues}, getValues(label))
-            setPrice(getValues(label))
-        }
-    }, [tag, getValues])
+   
 
     return (
         <div
@@ -257,8 +251,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                                     id={label}
                                     disabled={disabled}
                                     type={'text'}
-                                    inputMode={'numeric'}
-                                    value={price}
+                                    value={value || price}
                                     onChange={handlePriceChange}
                                     className={` w-full border-none outline-none disabled:opacity-50 disabled:cursor-not-allowed p-4 pl-0 ${
                                         formErrors &&

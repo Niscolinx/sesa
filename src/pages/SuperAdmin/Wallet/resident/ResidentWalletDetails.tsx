@@ -21,6 +21,7 @@ const ResidentWalletDetails = () => {
         label: keyof Inputs
         type?: string
         name?: string
+        value?: string
         tag?: string
         disabled?: string
     }
@@ -69,7 +70,6 @@ const ResidentWalletDetails = () => {
                 ...other,
             })
 
-            setValue('amount', amount)
         }
     }, [data])
 
@@ -102,7 +102,7 @@ const ResidentWalletDetails = () => {
             label: 'amount',
             name: 'transaction_amount',
             tag: 'money',
-            type: 'number',
+            value: 23,
         },
         {
             label: 'tran_id',
@@ -125,7 +125,7 @@ const ResidentWalletDetails = () => {
                 >
                     <>
                         {formInputs.map((input, idx) => {
-                            const { label, name, tag, type } = input
+                            const { label, name, tag, type, value } = input
 
                             return (
                                 <Input
@@ -133,7 +133,7 @@ const ResidentWalletDetails = () => {
                                     label={label}
                                     tag={tag}
                                     type={type}
-                                    getValues={getValues}
+                                    value={value}
                                     clearErrors={clearErrors}
                                     setValue={setValue}
                                     register={register}
