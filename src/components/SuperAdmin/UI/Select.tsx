@@ -450,7 +450,7 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
                             'repeat(auto-fit, minmax(12rem, 1fr))',
                     }}
                     onClick={(e) => {
-                        stateMenuToggler('inner')
+                        setToggleStateMenu(!toggleStateMenu)
                     }}
                 >
                     <div className='flex items-center gap-2'>
