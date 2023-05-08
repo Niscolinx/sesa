@@ -500,24 +500,26 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
                     }}
                     onClick={() => stateMenuToggler('inner')}
                 >
-                    {selected && selected.length > 0 ? (
-                        selected.map((item, i) => (
-                            <span
-                                className='text-white whitespace-nowrap bg-color-blue-1 rounded-lg px-4 relative flex items-center h-[3.8rem] z-[2] pr-12'
-                                key={i}
-                            >
-                                {item}
-                                <IoMdClose
-                                    className='absolute right-2 text-[1.4rem] cursor-pointer'
-                                    onClick={() => removeSelectedItem(item)}
-                                />
+                    <div className='flex items-center gap-2'>
+                        {selected && selected.length > 0 ? (
+                            selected.map((item, i) => (
+                                <span
+                                    className='text-white whitespace-nowrap bg-color-blue-1 rounded-lg px-4 relative flex items-center h-[3.8rem] z-[2] pr-12'
+                                    key={i}
+                                >
+                                    {item}
+                                    <IoMdClose
+                                        className='absolute right-2 text-[1.4rem] cursor-pointer'
+                                        onClick={() => removeSelectedItem(item)}
+                                    />
+                                </span>
+                            ))
+                        ) : (
+                            <span className='text-gray-500'>
+                                {placeholder || ''}
                             </span>
-                        ))
-                    ) : (
-                        <span className='text-gray-500'>
-                            {placeholder || ''}
-                        </span>
-                    )}
+                        )}
+                    </div>
                     <div className='flex'>
                         {toggleStateMenu ? (
                             <GrUp className='text-[1.4rem] ' />
@@ -528,11 +530,6 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
                 </p>
             </div>
 
-            {label && selectFormErrors && selectFormErrors[label] && (
-                <p className='text-[1.2rem] text-red-500'>
-                    {selectFormErrors[label]}
-                </p>
-            )}
             {toggleStateMenu && (
                 <div className='absolute top-[8rem]  left-0 border border-color-primary-light min-w-[12rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize max-h-[20rem] overflow-y-scroll'>
                     <div className='relative flex items-center text-[1.4rem]'>
@@ -551,6 +548,11 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
                     </div>
                     {memoizedList}
                 </div>
+            )}
+            {label && selectFormErrors && selectFormErrors[label] && (
+                <p className='text-[1.2rem] text-red-500'>
+                    {selectFormErrors[label]}
+                </p>
             )}
         </div>
     )
