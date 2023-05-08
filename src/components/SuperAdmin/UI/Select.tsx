@@ -360,8 +360,22 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
     const [search, setSearch] = useState('')
     const [selectedFrom, setSelectedFrom] = useState(selectFrom)
 
-    const stateMenuToggler = (which: 'inner' | 'outside') => {
-        console.log({which})
+    function handleSelectedState(
+        e: ChangeEvent<HTMLInputElement>,
+        item: string
+    ) {
+        const checked = e.target.checked
+        console.log('clicked')
+
+        if (checked) {
+            setSelected((prev) => [...prev, item])
+        } else {
+            setSelected((prev) => prev.filter((i) => i !== item))
+        }
+    }
+
+    function stateMenuToggler(which: 'inner' | 'outside') {
+        console.log({ which })
         if (!toggleStateMenu) {
             return setToggleStateMenu(true)
         }
@@ -377,21 +391,6 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
         }, 150)
 
         return () => clearTimeout(id)
-    }
-
-    const handleSelectedState = (
-        e: ChangeEvent<HTMLInputElement>,
-        item: string
-    ) => {
-        const checked = e.target.checked
-                console.log('clicked')
-
-
-        if (checked) {
-            setSelected((prev) => [...prev, item])
-        } else {
-            setSelected((prev) => prev.filter((i) => i !== item))
-        }
     }
 
     const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
@@ -451,8 +450,8 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
                             'repeat(auto-fit, minmax(12rem, 1fr))',
                     }}
                     onClick={(e) => {
-                            
-                        stateMenuToggler('inner')}}
+                        stateMenuToggler('inner')
+                    }}
                 >
                     <div className='flex items-center gap-2'>
                         {selected && selected.length > 0 ? (
