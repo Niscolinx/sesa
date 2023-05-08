@@ -11,7 +11,7 @@ import {
 export interface SelectProps {
     isMulti?: boolean
     state: string[]
-    absolute?:boolean,
+    absolute?: boolean
     isSearchable?: boolean
     selectedState: string | string[]
     setSelectedState:
@@ -123,17 +123,11 @@ const Input: FC<Partial<Input> & { label: string }> = ({
         }
     }
 
-
     useEffect(() => {
-
-        if(tag === 'money'){
-            setPrice(getValues(label))
-        
+        if (tag === 'money') {
+            setPrice(getValues!(label))
         }
-
     }, [])
-
-   
 
     return (
         <div
@@ -262,7 +256,6 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                             ) : tag === 'money' ? (
                                 <input
                                     id={label}
-                                    disabled={disabled}
                                     type={'text'}
                                     inputMode={'numeric'}
                                     value={price}
