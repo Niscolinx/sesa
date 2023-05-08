@@ -6,9 +6,13 @@ import Table from '../../../components/UI/table/Table'
 
 
 function EstateDetail() {
+    const params = useParams()
+    
+    const estate_id = params.id?.replace(':', '')
+
     const { data, isLoading } = useFetchData({
-        url: `/estate/getall`,
-        name: 'estate_details',
+        url: {`/estate/getbyid/${estate_id}`},
+        name: {`get_estate_${estate_id}`},
     })
     const { data: estate_data, isLoading: estate_isLoading } = useFetchData({
         url: `/estate/getall`,
@@ -53,7 +57,7 @@ function EstateDetail() {
                     />
                     <OverviewCard
                         title='Household'
-                        number={40}
+                        number={household_count}
                         iconUrl='/icons/overview/household2.svg'
                         bgColor='bg-[#FCF3FA]'
                         textColor='text-[#B6008E]'
