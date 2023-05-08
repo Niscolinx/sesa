@@ -24,19 +24,7 @@ interface EstateManager {
 type Actions = 'view details' | 'deactivate'
 
 function EstateDetail() {
-    //BEFORE
-    // const [fetchedUsers, setFetchedUsers] = useState<EstateManager[] | null>([])
-
-    // useEffect(() => {
-    //     const fetchData = async () => {
-    //         setTimeout(() => {
-    //             setFetchedUsers(ESTATEMANAGERDATA)
-    //         }, 200)
-    //     }
-    //     fetchData()
-    // }, [])
-
-    //AFTER
+   
 
     const navigate = useNavigate()
     const dispatch = useAppDispatch()
