@@ -86,7 +86,7 @@ function EstateDetail() {
                 actions={['remove']}
                 data_to_display={['firstname', 'business_name', 'phone_number']}
                 isDataProvided={true}
-                providedData={data.data}
+                providedData={estate_data.data}
                 deactivateProp={{ url: '/admin/deactivate_activate' }}
             />
         </div>
