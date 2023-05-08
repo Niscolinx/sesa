@@ -375,7 +375,8 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
             console.log(e.target)
             console.log(inputRef.current)
             if (inputRef.current && !inputRef.current.contains(e.target)) {
-                setClosingState(false)
+                console.log('close')
+               // setClosingState(false)
             }
         }
 
@@ -393,13 +394,12 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
         console.log('handleclose')
         return setClosingState(false)
     }
-    const handleBubble = () => {
+    const handleBubble = (e:any) => {
+        e.stopPropagation()
+        
         console.log('clicked')
     }
 
-    useEffect(() => {
-        console.log({ closingState })
-    }, [closingState])
 
     function handleSelectedState(
         e: ChangeEvent<HTMLInputElement>,
@@ -474,7 +474,6 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
                             'repeat(auto-fit, minmax(12rem, 1fr))',
                     }}
                     onClick={toggleStateHandler}
-                    ref={inputRef}
                 >
                     <div className='flex items-center gap-2'>
                         {selected && selected.length > 0 ? (
@@ -510,6 +509,7 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
                 <div
                     className='absolute top-[8rem]  left-0 border border-color-primary-light min-w-[12rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize max-h-[20rem] overflow-y-scroll'
                     onClick={handleBubble}
+                    ref={inputRef}
                 >
                     <div className='relative flex items-center text-[1.4rem]'>
                         <img
