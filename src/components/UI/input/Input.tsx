@@ -120,6 +120,8 @@ const Input: FC<Partial<Input> & { label: string }> = ({
         }
     }
 
+    console.log({label})
+
    
 
     return (
