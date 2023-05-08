@@ -24,7 +24,6 @@ interface Input {
     register?: UseFormRegister<any>
     formErrors: any
     disabled?: boolean
-    value?: any
     tag?: string
     options: any
     id?: number
@@ -58,7 +57,6 @@ const Input: FC<Partial<Input> & { label: string }> = ({
     selectFormErrors,
     required = true,
     formErrors,
-    value,
     minLength = 3,
 }) => {
     const form_pattern = new Map([
@@ -294,7 +292,6 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                                     id={label}
                                     disabled={disabled}
                                     type={type}
-                                    value={value}
                                     {...(register &&
                                         register(label, validationOptions))}
                                     className={` w-full border-none outline-none disabled:opacity-50 disabled:cursor-not-allowed p-4 pl-0 ${
