@@ -4,25 +4,10 @@ import { useQuery } from 'react-query'
 import { useParams, useNavigate } from 'react-router'
 import { toast } from 'react-toastify'
 import { SelectProps } from '../../../../components/UI/input/Input'
-import useAxios from '../../../../components/hooks/useAxios'
 import useFetchData from '../../../../utils/useFetchData'
 
 const ResidentWalletDetails = () => {
-    const params = useParams()
-
-    const wallet_id = params.id?.replace(':', '')
-
-
-    if (!wallet_id) {
-        toast('Wallet not Found', {
-            type: 'error',
-            className: 'bg-red-100 text-red-600 text-[1.4rem]',
-        })
-
-        return <p className='p-4'> Not found!</p>
-    }
-
-    interface Inputs {
+     interface Inputs {
         email_address: string
         first_name: string
         last_name: string
@@ -38,6 +23,23 @@ const ResidentWalletDetails = () => {
         name?: string
         selectProps?: SelectProps
     }
+
+
+    const params = useParams()
+
+    const wallet_id = params.id?.replace(':', '')
+
+
+    if (!wallet_id) {
+        toast('Wallet not Found', {
+            type: 'error',
+            className: 'bg-red-100 text-red-600 text-[1.4rem]',
+        })
+
+        return <p className='p-4'> Not found!</p>
+    }
+
+   
 
     const formInputs = [
         {
