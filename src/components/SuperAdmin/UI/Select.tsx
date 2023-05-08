@@ -376,8 +376,7 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
             if (inputRef.current && !inputRef.current.contains(e.target)) {
                 console.log('close')
                 setToggleStateMenu(false)
-            } 
-            
+            }
         }
 
         window.addEventListener('click', handler)
@@ -390,15 +389,10 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
         return setToggleStateMenu(!toggleStateMenu)
     }
 
-
-    
-
-
     function handleSelectedState(
         e: ChangeEvent<HTMLInputElement>,
         item: string
     ) {
-
         const checked = e.target.checked
 
         if (checked) {
@@ -479,7 +473,10 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
                                     {item}
                                     <IoMdClose
                                         className='absolute right-2 text-[1.4rem] cursor-pointer'
-                                        onClick={() => removeSelectedItem(item)}
+                                        onClick={(e) => {
+                                            e.stopPropagation()
+                                            removeSelectedItem(item)
+                                        }}
                                     />
                                 </span>
                             ))
@@ -498,10 +495,7 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
                     </div>
                 </p>
                 {toggleStateMenu && (
-                    <div
-                        className='border border-color-primary-light bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize max-h-[20rem] overflow-y-scroll'
-                       
-                    >
+                    <div className='border border-color-primary-light bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize max-h-[20rem] overflow-y-scroll'>
                         <div className='relative flex items-center text-[1.4rem]'>
                             <img
                                 src='/icons/admins/search.svg'
