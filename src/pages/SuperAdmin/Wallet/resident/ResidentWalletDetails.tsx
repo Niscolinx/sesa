@@ -2,16 +2,15 @@ import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { useParams } from 'react-router'
 import { toast } from 'react-toastify'
-import { SelectProps } from '../../../../components/UI/input/Input'
 import useFetchData from '../../../../utils/useFetchData'
 
 const ResidentWalletDetails = () => {
     interface Inputs {
         type: string
-        date: string
-        time: string
+        transaction_date: string
+        transaction_time: string
         category: string
-        name: string
+        transaction_source: string
         amount: string
         tran_id: string
         description: string
@@ -39,29 +38,33 @@ const ResidentWalletDetails = () => {
 
     const formInputs = [
         {
+            label: 'type',
             name: 'transaction_type',
-            
         },
 
         {
-            name: 'transaction_date',
+            label: 'transaction_date',
         },
         {
-            name: 'transaction_time',
+            label: 'transaction_time',
         },
         {
+            label: 'category',
             name: 'transaction_category',
         },
         {
-            name: 'transaction_source',
+            label: 'transaction_source',
         },
         {
+            label: 'amount',
             name: 'transaction_amount',
         },
         {
+            label: 'tran_id',
             name: 'transaction_ID',
         },
         {
+            label: 'description',
             name: 'narration',
         },
     ] satisfies FormInputs[]
@@ -80,7 +83,16 @@ const ResidentWalletDetails = () => {
 
     useEffect(() => {
         if (data) {
-            const { name, email, phone, image, dob, gender } = data.data
+            const {
+                type,
+                transaction_date,
+                transaction_time,
+                category,
+                transaction_source,
+                amount,
+                tran_id,
+                description,
+            } = data
             const first_name = name.split(' ')[0]
             const last_name = name.split(' ')[1]
 
