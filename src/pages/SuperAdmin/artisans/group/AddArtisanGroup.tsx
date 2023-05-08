@@ -2,7 +2,6 @@ import React, { ChangeEvent, FormEvent, useRef, useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
 
 import { toast, ToastContainer } from 'react-toastify'
-import { MultipleSelect } from '../../../../components/SuperAdmin/UI/Select'
 import useFetchData from '../../../../utils/useFetchData'
 import Input, { SelectProps } from '../../../../components/UI/input/Input'
 import { useForm } from 'react-hook-form'
