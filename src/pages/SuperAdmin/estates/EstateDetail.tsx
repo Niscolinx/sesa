@@ -23,7 +23,7 @@ function EstateDetail() {
         return <p>Loading...</p>
     }
 
-    if(data.data.estate_name === undefined){
+    if(data.data?.estate_name === undefined){
         return <p>No Data Found</p>
     }
 
@@ -34,7 +34,7 @@ function EstateDetail() {
         property_count,
         estate_name,
         onboarding_date
-    } = data.data
+    } = data
 
 
 
@@ -45,7 +45,7 @@ function EstateDetail() {
                 <div className='flex w-full justify-between capitalize'>
                     <p>{estate_name}</p>
                     <p className='text-[#666869]'>
-                        Joined: <span className='text-black'>08 May, 2022</span>
+                        Joined: <span className='text-black'>{onboarding_date}</span>
                     </p>
                 </div>
                 <div className='overview flex justify-between'>
