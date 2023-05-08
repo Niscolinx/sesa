@@ -366,7 +366,6 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
     const [toggleStateMenu, setToggleStateMenu] = useState(false)
     const [search, setSearch] = useState('')
     const [selectedFrom, setSelectedFrom] = useState(selectFrom)
-    const [closingState, setClosingState] = useState(true)
 
     const inputRef = useRef<HTMLInputElement | null>(null)
 
@@ -376,7 +375,6 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
             console.log(inputRef.current)
             if (inputRef.current && !inputRef.current.contains(e.target)) {
                 console.log('close')
-               // setClosingState(false)
             }
         }
 
@@ -390,10 +388,7 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
         return setToggleStateMenu(!toggleStateMenu)
     }
 
-    const handleClose = () => {
-        console.log('handleclose')
-        return setClosingState(false)
-    }
+  
   
 
 
@@ -401,7 +396,6 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
         e: ChangeEvent<HTMLInputElement>,
         item: string
     ) {
-        setClosingState(false)
 
         const checked = e.target.checked
 
@@ -432,7 +426,6 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
             <div
                 className='flex items-center pl-4 cursor-pointer hover:bg-color-grey'
                 key={index}
-                onClick={handleClose}
             >
                 <input
                     type='checkbox'
@@ -521,7 +514,6 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
                             placeholder='Search Parameters'
                             value={search}
                             autoFocus
-                            onBlur={handleClose}
                             onChange={handleSearch}
                             className='pl-16 w-[25rem] rounded-lg border border-color-blue-light py-4 px-8 outline-none appearance-none'
                         />
