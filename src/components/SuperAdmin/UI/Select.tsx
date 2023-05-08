@@ -366,13 +366,15 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
     const [toggleStateMenu, setToggleStateMenu] = useState(false)
     const [search, setSearch] = useState('')
     const [selectedFrom, setSelectedFrom] = useState(selectFrom)
-    const [closingState, setClosingState] = useState(false)
+    const [closingState, setClosingState] = useState(true)
 
-    // useEffect(() => {
-    //     document.addEventListener('click', (e) => {
-    //         console.log('useEffect clicked')
-    //     })
-    // }, [])
+    useEffect(() => {
+        document.addEventListener('click', (e) => {
+            console.log('useEffect clicked', {closingState})
+        })
+
+
+    }, [])
 
     const toggleStateHandler = () => {
         setToggleStateMenu(!toggleStateMenu)
