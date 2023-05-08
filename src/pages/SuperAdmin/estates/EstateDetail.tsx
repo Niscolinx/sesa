@@ -32,7 +32,8 @@ function EstateDetail() {
         resident_count,
         household_count,
         property_count,
-        estate_name
+        estate_name,
+        onboarding_date
     } = data.data
 
 
