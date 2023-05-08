@@ -123,7 +123,15 @@ const Input: FC<Partial<Input> & { label: string }> = ({
         }
     }
 
-    console.log({label}, getValues(label))
+
+    useEffect(() => {
+
+        if(tag === 'money'){
+            setPrice(getValues(label))
+        
+        }
+
+    }, [])
 
    
 
@@ -256,7 +264,8 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                                     id={label}
                                     disabled={disabled}
                                     type={'text'}
-                                    value={value || price}
+                                    inputMode={'numeric'}
+                                    value={price}
                                     onChange={handlePriceChange}
                                     className={` w-full border-none outline-none disabled:opacity-50 disabled:cursor-not-allowed p-4 pl-0 ${
                                         formErrors &&
