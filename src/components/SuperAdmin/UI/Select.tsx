@@ -360,7 +360,6 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
     const [search, setSearch] = useState('')
     const [selectedFrom, setSelectedFrom] = useState(selectFrom)
     const [closingState, setClosingState] = useState('outside')
-    const selectRef = useRef(null)
 
     // useEffect(() => {
     //     document.addEventListener('click', (e) => {
@@ -368,9 +367,8 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
     //     })
     // }, [])
 
-    useEffect(() => {
-        console.log('select')
-    }, [useRef])
+ 
+
 
     function handleSelectedState(
         e: ChangeEvent<HTMLInputElement>,
@@ -388,24 +386,7 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
         }
     }
 
-    // function stateMenuToggler(which: 'inner' | 'outside') {
-    //     console.log({ which })
-
-    //     setClosingState(which)
-
-    //     // const id = setTimeout(() => {
-    //     //     if (which === 'outside') {
-    //     //         if (toggleStateMenu) {
-    //     //             setToggleStateMenu(false)
-    //     //         }
-    //     //     }
-    //     //     if (which === 'inner') {
-    //     //         setToggleStateMenu(!toggleStateMenu)
-    //     //     }
-    //     // }, 500)
-
-    //     // return () => clearTimeout(id)
-    // }
+  
 
     const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
         const { value } = e.target
@@ -500,7 +481,6 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
 
             {toggleStateMenu && (
                 <div className='absolute top-[8rem]  left-0 border border-color-primary-light min-w-[12rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize max-h-[20rem] overflow-y-scroll'>
-                        <label htmlFor='mySelect'>open</label>
                     <div className='relative flex items-center text-[1.4rem]'>
                         <img
                             src='/icons/admins/search.svg'
@@ -515,17 +495,11 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
                             value={search}
                             autoFocus
                             onChange={handleSearch}
-                            // onBlur={(e) => {
-                            //     stateMenuToggler('outside')
-                            // }}
+                        
                             className='pl-16 w-[25rem] rounded-lg border border-color-blue-light py-4 px-8 outline-none appearance-none'
                         />
                     </div>
-                    <select id='mySelect' ref={selectRef}>
-                        <option value='option1'>Option 1</option>
-                        <option value='option2'>Option 2</option>
-                        <option value='option3'>Option 3</option>
-                    </select>
+                 
                   
                     {memoizedList}
                 </div>
