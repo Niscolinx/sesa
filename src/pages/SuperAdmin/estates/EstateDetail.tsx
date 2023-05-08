@@ -16,18 +16,12 @@ interface EstateManager {
 }
 
 function EstateDetail() {
-    const params = useParams()
-      const estate_id = params.id?.replace(':', '')
+    const { data, isLoading } = useFetchData({
+        url: `/estate/getall`,
+        name: 'estate_details',
+    })
 
-
-   const { data , isLoading: } =
-       useFetchData({
-           url: `/admin/group/getSingleGroupUsers/${estate_id}`,
-           name: 'group_artisans',
-       })
-
-
-    if () {
+    if (isLoading) {
         //     <p>Property Code</p>
         // </p>
         // <p>Address</p>
@@ -39,8 +33,6 @@ function EstateDetail() {
         // <p>Status</p>
         return <p>Loading...</p>
     }
-
-
 
     const fetched: any[] =
         get_estateDetails_response.data.data || get_estateDetails_response.data
