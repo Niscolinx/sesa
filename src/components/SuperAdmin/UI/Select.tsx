@@ -368,7 +368,22 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
     const [selectedFrom, setSelectedFrom] = useState(selectFrom)
     const [closingState, setClosingState] = useState(true)
 
-    
+    const inputRef = useRef<HTMLInputElement | null>(null)
+
+    useEffect(() => {
+        const handler = (e: any) => {
+            console.log(e.target)
+            console.log(inputRef.current)
+            if (inputRef.current && !inputRef.current.contains(e.target)) {
+                setClosingState(false)
+            }
+        }
+
+        window.addEventListener('click', handler)
+        return () => {
+            window.removeEventListener('click', handler)
+        }
+    })
 
     const toggleStateHandler = () => {
         return setToggleStateMenu(!toggleStateMenu)
@@ -459,6 +474,7 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
                             'repeat(auto-fit, minmax(12rem, 1fr))',
                     }}
                     onClick={toggleStateHandler}
+                    ref={inputRef}
                 >
                     <div className='flex items-center gap-2'>
                         {selected && selected.length > 0 ? (
@@ -490,9 +506,11 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
                 </p>
             </div>
 
-
             {toggleStateMenu && (
-                <div className='absolute top-[8rem]  left-0 border border-color-primary-light min-w-[12rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize max-h-[20rem] overflow-y-scroll' onClick={handleBubble}>
+                <div
+                    className='absolute top-[8rem]  left-0 border border-color-primary-light min-w-[12rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize max-h-[20rem] overflow-y-scroll'
+                    onClick={handleBubble}
+                >
                     <div className='relative flex items-center text-[1.4rem]'>
                         <img
                             src='/icons/admins/search.svg'
