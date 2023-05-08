@@ -78,7 +78,7 @@ function EstateDetail() {
             </section>
             <Table
                 title={'artisan'}
-                THeader={['name', 'business name', 'phone number', 'actions']}
+                THeader={['address', 'property category', 'property name', 'occupants', 'RFID', 'access card', 'actions']}
                 actions={['remove']}
                 data_to_display={['firstname', 'business_name', 'phone_number']}
                 isDataProvided={true}
