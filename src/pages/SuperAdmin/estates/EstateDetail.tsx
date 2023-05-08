@@ -26,16 +26,7 @@ function EstateDetail() {
         name: 'estate_details',
     })
 
-    if (isLoading) {
-        //     <p>Property Code</p>
-        // </p>
-        // <p>Address</p>
-        // <p>Property Category</p>
-        // <p>Property Name</p>
-        // <p>Occupants</p>
-        // <p>RFID</p>
-        // <p>Access Card</p>
-        // <p>Status</p>
+    if (isLoading || estate_isLoading) {
         return <p>Loading...</p>
     }
 
