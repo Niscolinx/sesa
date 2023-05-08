@@ -239,7 +239,7 @@ const TableData = () => {
                             <div className='grid text-[1.6rem]'>
                                 <div className='flex w-full items-center gap-12 p-10 bg-white rounded-lg'>
                                     <p className=' font-Satoshi-Medium capitalize'>
-                                        {title} list
+                                        {title.replaceAll('_', ' ')} list
                                         <span> ({fetched.length})</span>
                                     </p>
                                     <div className='relative flex items-center'>

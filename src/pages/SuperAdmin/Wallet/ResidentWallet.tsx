@@ -121,32 +121,32 @@ const ResidentBalance = () => {
     return (
         <div className='rounded-lg mt-[3rem] min-h-[60vh]'>
             <Table
+                is_dropdown={false}
                 fetch_url={'/admin/get/wallet/balance/resident'}
-                title={'residentBalance'}
-                THeader={['resident name', 'amount', 'created at']}
-                data_to_display={['name', 'balance', 'created_at']}
-                view_page_url={'/superAdmin/admin/view/'}
+                title={'resident_balance'}
+                THeader={['resident name', 'amount']}
+                data_to_display={['name', 'balance']}
             />
         </div>
     )
 }
 const TransactionHistory = () => {
     return (
-        // <div className='rounded-lg mt-[3rem] min-h-[60vh]'>
-        //     <Table
-        //         fetch_url={'/manager/get/all'}
-        //         title={'transactionHistory'}
-        //         view_page_url={'/superAdmin/estateManagers/view/'}
-        //         add_page_url={'/superAdmin/estateManagers/add'}
-        //         is_add_btn={false}
-        //         is_dropdown={false}
-        //         THeader={['resident name', 'amount', 'date']}
-        //         data_to_display={['resident name', 'amount', 'created_at']}
-        //         deactivateProp={{ url: 'change/user/status' }}
-        //     />
-        // </div>
+        <div className='rounded-lg mt-[3rem] min-h-[60vh]'>
+            <Table
+                fetch_url={'/manager/get/all'}
+                title={'transactionHistory'}
+                view_page_url={'/superAdmin/estateManagers/view/'}
+                add_page_url={'/superAdmin/estateManagers/add'}
+                is_add_btn={false}
+                is_dropdown={false}
+                THeader={['resident name', 'amount', 'date']}
+                data_to_display={['resident name', 'amount', 'created_at']}
+                deactivateProp={{ url: 'change/user/status' }}
+            />
+        </div>
 
-        <div>he</div>
+   
     )
 }
 
