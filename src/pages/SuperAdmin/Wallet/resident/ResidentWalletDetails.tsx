@@ -6,14 +6,14 @@ import { SelectProps } from '../../../../components/UI/input/Input'
 import useFetchData from '../../../../utils/useFetchData'
 
 const ResidentWalletDetails = () => {
-     interface Inputs {
-        email_address: string
-        first_name: string
-        last_name: string
-        dob: string
-        gender: string
-        phone_number: number | null
-        photoUrl?: string
+    interface Inputs {
+        transaction_type: string
+        transaction_time: string
+        transaction_category: string
+        transaction_source: string
+        transaction_amount: string
+        transaction_ID: string
+        description: string
     }
 
     type FormInputs = {
@@ -23,11 +23,9 @@ const ResidentWalletDetails = () => {
         selectProps?: SelectProps
     }
 
-
     const params = useParams()
 
     const wallet_id = params.id?.replace(':', '')
-
 
     if (!wallet_id) {
         toast('Wallet not Found', {
@@ -37,8 +35,6 @@ const ResidentWalletDetails = () => {
 
         return <p className='p-4'> Not found!</p>
     }
-
-   
 
     const formInputs = [
         {
@@ -52,7 +48,7 @@ const ResidentWalletDetails = () => {
             type: 'date',
             name: 'date of birth',
         },
-       
+
         {
             label: 'phone_number',
             type: 'number',
@@ -70,7 +66,6 @@ const ResidentWalletDetails = () => {
         reset,
     } = useForm<Inputs>()
 
-    
     const { isLoading, data } = useFetchData({
         url: `admin/get/wallet/transaction/details/resident/${wallet_id}`,
         name: `resident_wallet_detail_${wallet_id}`,
@@ -89,8 +84,6 @@ const ResidentWalletDetails = () => {
                 email_address: email,
                 phone_number: parseInt(phone),
             })
-
-        
         }
     }, [data])
 
