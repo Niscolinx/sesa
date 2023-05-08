@@ -377,11 +377,11 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
     }, [])
 
     const toggleStateHandler = () => {
-        setToggleStateMenu(!toggleStateMenu)
+       return setToggleStateMenu(!toggleStateMenu)
     }
 
     const handleClose = () => {
-        setClosingState(false)
+        return setClosingState(false)
     }
 
     function handleSelectedState(
