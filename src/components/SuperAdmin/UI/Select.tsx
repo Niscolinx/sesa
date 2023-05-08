@@ -127,8 +127,6 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
         setSelectedState('')
     }
 
-    console.log({selectedState})
-
     return (
         <div
             className={`relative grid self-baseline capitalize ${
