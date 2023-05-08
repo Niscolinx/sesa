@@ -375,7 +375,7 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
     // }, [])
 
     const toggleStateHandler = () => {
-        
+        setToggleStateMenu(!toggleStateMenu)
     }
 
     const handleClose = () => {
