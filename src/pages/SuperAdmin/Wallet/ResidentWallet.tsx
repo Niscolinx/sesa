@@ -136,7 +136,9 @@ const TransactionHistory = () => {
             <Table
                 fetch_url={'/admin/get/wallet/transaction/resident'}
                 title={'history'}
-                THeader={['resident name', 'amount', 'date']}
+                isStrictAction
+                actions={['view details']}
+                THeader={['resident name', 'amount', 'date', 'actions']}
                 data_to_display={['name', 'amount', 'created_at']}
             />
         </div>
