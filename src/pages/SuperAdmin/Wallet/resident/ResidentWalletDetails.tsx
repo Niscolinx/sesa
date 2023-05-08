@@ -59,7 +59,7 @@ const ResidentWalletDetails = () => {
             const { created_at, name, ...other } = data
 
             const transaction_date = created_at.slice(0, 10)
-            const transaction_time = created_at.slice(11, -1)
+            const transaction_time = created_at.slice(11, 16)
             const transaction_source = name
 
             reset({
@@ -87,7 +87,7 @@ const ResidentWalletDetails = () => {
         },
         {
             label: 'transaction_time',
-            type: 'time'
+            type: 'time',
         },
         {
             label: 'category',
@@ -100,7 +100,7 @@ const ResidentWalletDetails = () => {
             label: 'amount',
             name: 'transaction_amount',
             tag: 'money',
-            type:'number',
+            type: 'number',
         },
         {
             label: 'tran_id',
