@@ -373,6 +373,10 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
             console.log('useEffect clicked', {closingState})
         })
 
+        document.removeEventListener('click', (e) => {
+            console.log('useEffect removed', {closingState})
+        })
+
 
     }, [])
 
