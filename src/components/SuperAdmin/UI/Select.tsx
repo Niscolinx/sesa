@@ -388,7 +388,7 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
             if (which === 'inner') {
                 setToggleStateMenu(!toggleStateMenu)
             }
-        }, 150)
+        }, 500)
 
         return () => clearTimeout(id)
     }
