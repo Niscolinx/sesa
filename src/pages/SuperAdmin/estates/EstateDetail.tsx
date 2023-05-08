@@ -220,13 +220,7 @@ function EstateDetail() {
             className: 'bg-green-100 text-green-600 text-[1.4rem]',
         })
     }
-    console.log({
-        get_estateDetails_loading,
-        get_estateDetails_isError,
-        get_estateDetails_error,
-        get_estateDetails_response,
-    })
-
+  
     if (get_estateDetails_loading) {
         return <p>Loading...</p>
     }
