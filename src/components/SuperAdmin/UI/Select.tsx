@@ -367,7 +367,7 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
     const [search, setSearch] = useState('')
     const [selectedFrom, setSelectedFrom] = useState(selectFrom)
 
-    const inputRef = useRef<HTMLInputElement | null>(null)
+    const inputRef = useRef<HTMLDivElement | null>(null)
 
     useEffect(() => {
         const handler = (e: any) => {
@@ -375,7 +375,9 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
             console.log(inputRef.current)
             if (inputRef.current && !inputRef.current.contains(e.target)) {
                 console.log('close')
-            }
+                setToggleStateMenu(false)
+            } 
+            
         }
 
         window.addEventListener('click', handler)
@@ -388,8 +390,8 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
         return setToggleStateMenu(!toggleStateMenu)
     }
 
-  
-  
+
+    
 
 
     function handleSelectedState(
