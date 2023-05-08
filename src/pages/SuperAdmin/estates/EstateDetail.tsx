@@ -1,12 +1,7 @@
-import { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 
-import { Link, useNavigate } from 'react-router-dom'
 import OverviewCard from '../../../components/SuperAdmin/overview/OverviewCard'
-import { useQuery } from 'react-query'
-import { toast } from 'react-toastify'
-import { useAppDispatch } from '../../../store/app/hooks'
-import AxiosRequest from '../../../utils/axios'
-import useAxios from '../../../components/hooks/useAxios'
+import useFetchData from '../../../utils/useFetchData'
 
 interface EstateManager {
     id: string
@@ -21,25 +16,18 @@ interface EstateManager {
 }
 
 function EstateDetail() {
-    const [fetchedEstateDetails, setFetchedEstateDetails] = useState<
-        EstateManager[]
-    >([])
+    const params = useParams()
+      const estate_id = params.id?.replace(':', '')
 
-    const axiosInstance = useAxios()
-    const fetchEstateDetails = () => {
-        return axiosInstance({
-            url: '/estate/getall',
-        })
-    }
 
-   const { data: group_artisans, isLoading: group_artisans_loading } =
+   const { data , isLoading: } =
        useFetchData({
-           url: `/admin/group/getSingleGroupUsers/${groupId}`,
+           url: `/admin/group/getSingleGroupUsers/${estate_id}`,
            name: 'group_artisans',
        })
 
 
-    if (get_estateDetails_loading) {
+    if () {
         //     <p>Property Code</p>
         // </p>
         // <p>Address</p>
