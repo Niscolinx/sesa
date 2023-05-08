@@ -34,12 +34,9 @@ function EstateDetail() {
         return <p>Loading...</p>
     }
 
-    const fetched: any[] =
-        get_estateDetails_response.data.data || get_estateDetails_response.data
 
     return (
         <div className='mt-8 grid gap-8'>
-            {fetched.length > 0 ? (
                 <>
                     <section className='bg-white rounded-lg p-8 grid h-[28rem] text-[1.4rem]'>
                         <div className='flex w-full justify-between'>
@@ -81,13 +78,8 @@ function EstateDetail() {
                             </Link>
                         </div> */}
                     </section>
-                </>
-            ) : (
-                <section className='grid  place-content-center w-full h-full justify-items-center gap-4 bg-white rounded-lg'>
-                    <img src='/icons/admins/errorSvg.svg' alt='' />
-                    <p className='text'>Estate Details not Found</p>
-                </section>
-            )}
+         
+        
         </div>
     )
 }
