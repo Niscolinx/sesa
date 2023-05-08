@@ -61,6 +61,7 @@ const ResidentWalletDetails = () => {
             label: 'amount',
             name: 'transaction_amount',
             tag: 'money',
+            type:'number',
         },
         {
             label: 'tran_id',
@@ -75,6 +76,8 @@ const ResidentWalletDetails = () => {
     const {
         register,
         handleSubmit,
+        clearErrors,
+        setValue,
         formState: { errors: formErrors },
         reset,
     } = useForm<Inputs>()
@@ -116,13 +119,16 @@ const ResidentWalletDetails = () => {
                 >
                     <>
                         {formInputs.map((input, idx) => {
-                            const { label, name, tag } = input
+                            const { label, name, tag, type } = input
 
                             return (
                                 <Input
                                     key={idx + label}
                                     label={label}
                                     tag={tag}
+                                    type={type}
+                                    clearErrors={clearErrors}
+                                    setValue={setValue}
                                     register={register}
                                     formErrors={formErrors}
                                     name={name}
