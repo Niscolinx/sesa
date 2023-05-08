@@ -53,163 +53,22 @@ function EstateDetail() {
         }
     }, [get_estateDetails_response])
 
-    const actions = ['view details', 'deactivate'] satisfies Actions[]
 
-    const [toggleDropDown, setToggleDropDown] = useState<{
-        isDropDownOpen: boolean
-        index: number | null
-    }>({
-        isDropDownOpen: false,
-        index: null,
-    })
 
-    const dropDownHandler = (
-        e: React.ChangeEvent<HTMLInputElement>,
-        index: number
-    ) => {
-        setToggleDropDown(() => {
-            return {
-                isDropDownOpen: e.target.checked,
-                index,
-            }
-        })
-    }
-
-    interface Paginate {
-        index: number
-        currentPage: number
-        itemsPerPage: number
-        totalPage: number
-        slicedPages: EstateManager[][] | null
-    }
-
-    const itemsPerPageArr = [2, 4, 6, 8]
-
-    const perPage = 6
-    const [paginate, setPaginate] = useState<Paginate>({
-        index: 0,
-        currentPage: 1,
-        itemsPerPage: perPage,
-
-        totalPage: Math.ceil(fetchedEstateDetails?.length / perPage),
-        slicedPages: null,
-    })
-
-    const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
-        const item = parseInt(e.target.value)
-
-        const slicedPages: EstateManager[][] = []
-        for (let i = 0; i < fetchedEstateDetails?.length; i += item) {
-            slicedPages.push(fetchedEstateDetails?.slice(i, i + item))
-        }
-
-        setPaginate((prev) => {
-            return {
-                ...prev,
-                itemsPerPage: item,
-                index: 0,
-                currentPage: 1,
-                slicedPages,
-                totalPage: Math.ceil(fetchedEstateDetails?.length / item),
-            }
-        })
-    }
-
-    useEffect(() => {
-        const slicedPages: EstateManager[][] = []
-        for (
-            let i = 0;
-            i < fetchedEstateDetails?.length;
-            i += paginate.itemsPerPage
-        ) {
-            slicedPages.push(
-                fetchedEstateDetails?.slice(i, i + paginate.itemsPerPage)
-            )
-        }
-
-        setPaginate((prev) => {
-            return {
-                ...prev,
-                slicedPages,
-            }
-        })
-    }, [fetchedEstateDetails])
-
-    const handleNext = () => {
-        if (paginate.currentPage === paginate.totalPage) return
-        setPaginate((prev) => {
-            return {
-                ...prev,
-                index: prev.index + 1,
-                currentPage: prev.currentPage + 1,
-            }
-        })
-    }
-
-    const handlePrev = () => {
-        if (paginate.currentPage === 1) return
-        setPaginate((prev) => {
-            return {
-                ...prev,
-                index: prev.index - 1,
-                currentPage: prev.currentPage - 1,
-            }
-        })
-    }
-
-    const { currentPage, slicedPages, itemsPerPage } = paginate
-
-    const jumpToPage = (e: React.MouseEvent, index: number) => {
-        setPaginate((prev) => {
-            return {
-                ...prev,
-                index,
-                currentPage: index + 1,
-            }
-        })
-    }
-
-    const dialogRef = useRef<HTMLDialogElement | null>(null)
-
-    const closeDialog = () => {
-        if (dialogRef.current) {
-            dialogRef.current.close()
-        }
-    }
-
-    const openDialog = () => {
-        if (dialogRef.current) {
-            dialogRef.current.showModal()
-        }
-    }
-
-    const handleSelectedAction = (item: Actions, id: string) => {
-        setToggleDropDown(() => {
-            return {
-                isDropDownOpen: false,
-                index: null,
-            }
-        })
-
-        if (item === 'view details') {
-            navigate(`/superAdmin/estateDetails/view/:${id}`)
-        }
-
-        if (item === 'deactivate') {
-            openDialog()
-        }
-    }
-
-    const deactivateHandler = () => {
-        closeDialog()
-
-        toast('Admin deactivated successfully', {
-            type: 'success',
-            className: 'bg-green-100 text-green-600 text-[1.4rem]',
-        })
-    }
+   
   
     if (get_estateDetails_loading) {
+
+       
+                                        //     <p>Property Code</p>
+                                        // </p>
+                                        // <p>Address</p>
+                                        // <p>Property Category</p>
+                                        // <p>Property Name</p>
+                                        // <p>Occupants</p>
+                                        // <p>RFID</p>
+                                        // <p>Access Card</p>
+                                        // <p>Status</p>
         return <p>Loading...</p>
     }
 
@@ -221,7 +80,6 @@ function EstateDetail() {
         get_estateDetails_response.data.data || get_estateDetails_response.data
 
     return (
-        <div className='estateDetail'>
             <div className='mt-8 grid gap-8'>
                 {fetched.length > 0 ? (
                     <>
@@ -267,174 +125,7 @@ function EstateDetail() {
                                 </Link>
                             </div>
                         </section>
-                        <section className='bg-color-white rounded-lg border min-w-[112rem]'>
-                            <div className='grid text-[1.6rem]'>
-                                <caption className='flex w-full justify-start items-center gap-12 p-10 bg-white rounded-lg'>
-                                    <p className=' font-Satoshi-Medium'>
-                                        Estate List <span>(200)</span>
-                                    </p>
-                                    <div className='relative flex items-center'>
-                                        <img
-                                            src='/icons/estateDetails/search.svg'
-                                            alt=''
-                                            className='absolute left-4 text-[4rem]'
-                                        />
-                                        <input
-                                            type='text'
-                                            placeholder='Search Parameters'
-                                            className='pl-16 w-[25rem] rounded-lg border border-color-blue-light appearance-none outline-none p-4'
-                                        />
-                                    </div>
-                                    <div className='relative flex items-center'>
-                                        <select className=' cursor-pointer w-[25rem] rounded-lg border border-color-blue-light appearance-none outline-none p-4'>
-                                            <option hidden value=''>
-                                                Sort By
-                                            </option>
-                                            <option value='date'>date</option>
-                                            <option value='alpha'>Alpha</option>
-                                        </select>
-                                        <GrDown className='absolute right-4 text-[1.3rem]' />
-                                    </div>
-                                </caption>
-
-                                <div className='grid'>
-                                    <div
-                                        className='grid justify-between text-color-dark-1 bg-color-grey p-8 grid-cols-8 gap-8'
-                                        style={{
-                                            fontSize: '1.4rem',
-                                        }}
-                                    >
-                                        <p className='flex items-center gap-2'>
-                                            <input type='checkbox' />
-                                            <p>Property Code</p>
-                                        </p>
-                                        <p>Address</p>
-                                        <p>Property Category</p>
-                                        <p>Property Name</p>
-                                        <p>Occupants</p>
-                                        <p>RFID</p>
-                                        <p>Access Card</p>
-                                        <p>Status</p>
-                                    </div>
-
-                                    <div className='grid gap-8 mt-8 p-8'>
-                                        {slicedPages &&
-                                            slicedPages?.length > 0 &&
-                                            React.Children.toArray(
-                                                slicedPages[paginate.index].map(
-                                                    ({
-                                                        propertyCategory,
-                                                        propertyCode,
-                                                        propertyName,
-                                                        status,
-                                                        accessCard,
-                                                        address,
-                                                        RFID,
-                                                        occupants,
-                                                    }) => {
-                                                        return (
-                                                            <div className='grid justify-between border-b grid-cols-8 gap-8 '>
-                                                                <p className='flex items-center gap-4'>
-                                                                    <input type='checkbox' />
-
-                                                                    <span>
-                                                                        {
-                                                                            propertyCode
-                                                                        }
-                                                                    </span>
-                                                                </p>
-                                                                <p>{address}</p>
-                                                                <p>
-                                                                    {
-                                                                        propertyCategory
-                                                                    }
-                                                                </p>
-                                                                <p>
-                                                                    {
-                                                                        propertyName
-                                                                    }
-                                                                </p>
-                                                                <p>
-                                                                    {occupants}
-                                                                </p>
-                                                                <p>{RFID}</p>
-                                                                <p>
-                                                                    {accessCard}
-                                                                </p>
-                                                                <p>{status}</p>
-                                                            </div>
-                                                        )
-                                                    }
-                                                )
-                                            )}
-                                    </div>
-                                </div>
-                                <footer className='flex items-center p-4 mt-4 bg-color-white rounded-lg'>
-                                    <div className='flex gap-8 items-center'>
-                                        <p>View</p>
-                                        <select
-                                            name=''
-                                            id=''
-                                            className='flex items-center border px-4 rounded-lg outline-none cursor-pointer'
-                                            onChange={handleItemsPerPage}
-                                        >
-                                            {itemsPerPageArr.map(
-                                                (item, index) => (
-                                                    <option
-                                                        value={item}
-                                                        key={index}
-                                                        selected={
-                                                            item ===
-                                                            itemsPerPage
-                                                        }
-                                                        className='capitalize cursor-pointer bg-white'
-                                                    >
-                                                        {item}
-                                                    </option>
-                                                )
-                                            )}
-                                        </select>
-                                        <p className='text'>List per page</p>
-                                    </div>
-                                    <ul className='flex items-center gap-5 ml-10'>
-                                        <HiOutlineChevronLeft
-                                            onClick={handlePrev}
-                                            className='cursor-pointer'
-                                        />
-
-                                        {slicedPages?.map((item, index) => {
-                                            return (
-                                                <li key={index}>
-                                                    {index + 1 ===
-                                                    currentPage ? (
-                                                        <span className='bg-color-primary text-white grid place-content-center w-[3rem] h-[3rem] cursor-pointer'>
-                                                            {index + 1}
-                                                        </span>
-                                                    ) : (
-                                                        <span
-                                                            className='text-color-primary bg-white grid place-content-center border w-[3rem] h-[3rem] cursor-pointer'
-                                                            onClick={(e) =>
-                                                                jumpToPage(
-                                                                    e,
-                                                                    index
-                                                                )
-                                                            }
-                                                        >
-                                                            {index + 1}
-                                                        </span>
-                                                    )}
-                                                </li>
-                                            )
-                                        })}
-
-                                        <HiOutlineChevronRight
-                                            onClick={handleNext}
-                                            className='cursor-pointer'
-                                        />
-                                    </ul>
-                                </footer>
-                            </div>
-                        </section>
+                        
                     </>
                 ) : (
                     <section className='grid  place-content-center w-full h-full justify-items-center gap-4 bg-white rounded-lg'>
@@ -442,7 +133,6 @@ function EstateDetail() {
                         <p className='text'>Estate Details not Found</p>
                     </section>
                 )}
-            </div>
         </div>
     )
 }
