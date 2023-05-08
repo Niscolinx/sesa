@@ -21,6 +21,10 @@ function EstateDetail() {
         url: `/estate/getall`,
         name: 'estate_details',
     })
+    const { data: estate_data, isLoading: estate_isLoading } = useFetchData({
+        url: `/estate/getall`,
+        name: 'estate_details',
+    })
 
     if (isLoading) {
         //     <p>Property Code</p>
@@ -78,7 +82,15 @@ function EstateDetail() {
             </section>
             <Table
                 title={'artisan'}
-                THeader={['address', 'property category', 'property name', 'occupants', 'RFID', 'access card', 'actions']}
+                THeader={[
+                    'address',
+                    'property category',
+                    'property name',
+                    'occupants',
+                    'RFID',
+                    'access card',
+                    'actions',
+                ]}
                 actions={['remove']}
                 data_to_display={['firstname', 'business_name', 'phone_number']}
                 isDataProvided={true}
