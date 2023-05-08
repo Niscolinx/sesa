@@ -11,8 +11,8 @@ function EstateDetail() {
     const estate_id = params.id?.replace(':', '')
 
     const { data, isLoading } = useFetchData({
-        url: {`/estate/getbyid/${estate_id}`},
-        name: {`get_estate_${estate_id}`},
+        url: `/estate/getbyid/${estate_id}`,
+        name: `get_estate_${estate_id}`},
     })
     const { data: estate_data, isLoading: estate_isLoading } = useFetchData({
         url: `/estate/getall`,
