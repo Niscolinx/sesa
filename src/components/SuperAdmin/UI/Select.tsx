@@ -89,10 +89,10 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
     const containerRef = useRef<HTMLDivElement | null>(null)
 
     useEffect(() => {
-        const handler = (e: any) => {
+        const handler = (e: MouseEvent) => {
             if (
                 containerRef.current &&
-                !containerRef.current.contains(e.target)
+                !containerRef.current.contains(e.target as Node)
             ) {
                 setToggleStateMenu(false)
             }
