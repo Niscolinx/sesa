@@ -515,7 +515,7 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
                                 value={search}
                                 autoFocus
                                 onChange={handleSearch}
-                                className='pl-16 rounded-lg border border-color-blue-light py-4 px-8 outline-none appearance-none'
+                                className='pl-16 rounded-lg border border-color-blue-light py-4 px-8 outline-none appearance-none w-full'
                             />
                         </div>
 
