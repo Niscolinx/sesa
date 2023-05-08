@@ -12,11 +12,11 @@ function EstateDetail() {
 
     const { data, isLoading } = useFetchData({
         url: `/estate/getbyid/${estate_id}`,
-        name: `get_estate_${estate_id}`},
+        name: `get_estate_${estate_id}`,
     })
     const { data: estate_data, isLoading: estate_isLoading } = useFetchData({
-        url: `/estate/getall`,
-        name: 'estate_details',
+        url: `/estate/get/estate-household?estate_id=${estate_id}`,
+        name: `estate_detail_${estate_id}`,
     })
 
     if (isLoading || estate_isLoading) {
