@@ -25,6 +25,7 @@ interface ISelect<T> {
     placeholder?: string
     validate?: boolean
     isSearchable?: boolean
+    absolute?:boolean
     fullWidth?: boolean
     kyr?: boolean
     id?: number
@@ -76,6 +77,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
     placeholder,
     kyr,
     id,
+    absolute,
     selectFormErrors,
     fullWidth,
     color,
@@ -193,7 +195,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                 )}
 
                 {toggleStateMenu && (
-                    <div className='border border-color-primary-light min-w-[12rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize max-h-[20rem] overflow-y-scroll '>
+                    <div className='absolute top-[6rem] left-0 border border-color-primary-light min-w-[12rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize max-h-[20rem] overflow-y-scroll '>
                         {isSearchable && (
                             <div className={`flex items-center text-[1.4rem]`}>
                                 <img
