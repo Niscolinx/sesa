@@ -140,9 +140,12 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
             <p className='text-[1.4rem] font-semibold'>
                 {label?.replaceAll('_', '  ')}
             </p>
-            <div className='relative flex items-center '>
+            <div className='relative flex items-center ' ref={containerRef}>
                 {color ? (
-                    <p className='border border-color-grey px-4 py-2 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer min-h-[5rem] capitalize' onClick={toggleStateHandler}>
+                    <p
+                        className='border border-color-grey px-4 py-2 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer min-h-[5rem] capitalize'
+                        onClick={toggleStateHandler}
+                    >
                         {selectedState ? (
                             <span
                                 className={`text-white whitespace-nowrap bg-${color}  rounded-lg px-4 relative flex items-center z-[2] pr-12 py-2 w-max`}
@@ -170,6 +173,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                                 ? 'justify-between'
                                 : 'justify-end'
                         }`}
+                        onClick={toggleStateHandler}
                     >
                         {Array.isArray(selectedState)
                             ? selectedState
