@@ -42,9 +42,7 @@ const ResidentWalletDetails = () => {
 
     const {
         register,
-        handleSubmit,
         clearErrors,
-        getValues,
         setValue,
         formState: { errors: formErrors },
         reset,
@@ -55,6 +53,7 @@ const ResidentWalletDetails = () => {
         name: `resident_wallet_detail_${wallet_id}`,
     })
 
+    const amount = data?.amount
     useEffect(() => {
         if (data) {
             const { created_at, amount, name, ...other } = data
@@ -102,7 +101,7 @@ const ResidentWalletDetails = () => {
             label: 'amount',
             name: 'transaction_amount',
             tag: 'money',
-            value: 23,
+            value: amount,
         },
         {
             label: 'tran_id',
