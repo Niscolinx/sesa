@@ -409,7 +409,6 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
     }
 
     const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
-        handleClose()
         const { value } = e.target
         setSearch(value)
 
@@ -512,6 +511,7 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
                             placeholder='Search Parameters'
                             value={search}
                             autoFocus
+                            onBlur={handleClose}
                             onChange={handleSearch}
                             className='pl-16 w-[25rem] rounded-lg border border-color-blue-light py-4 px-8 outline-none appearance-none'
                         />
