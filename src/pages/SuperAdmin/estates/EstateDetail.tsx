@@ -7,7 +7,7 @@ import OverviewCard from '../../../components/SuperAdmin/overview/OverviewCard'
 import { useQuery } from 'react-query'
 import { toast } from 'react-toastify'
 import { useAppDispatch } from '../../../store/app/hooks'
-import AxiosRequest  from '../../../utils/axios'
+import AxiosRequest from '../../../utils/axios'
 
 interface EstateManager {
     id: string
@@ -22,8 +22,6 @@ interface EstateManager {
 }
 
 type Actions = 'view details' | 'deactivate'
-
-
 
 function EstateDetail() {
     //BEFORE
@@ -59,13 +57,11 @@ function EstateDetail() {
         data: get_estateDetails_response,
         isError: get_estateDetails_isError,
         error: get_estateDetails_error,
-        // isFetching: get_estateDetails_fetching,
     } = useQuery('estateDetails', fetchEstateDetails) as any
 
     useEffect(() => {
-        if (get_estateDetails_response?.status === 200) {
-            // setFetchedEstateDetails(get_estateDetails_response.data)
-            console.log(get_estateDetails_response.data, 'fetchedData')
+        if (get_estateDetails_response) {
+            setFetchedEstateDetails(get_estateDetails_response.data)
         }
     }, [get_estateDetails_response])
 
@@ -239,9 +235,8 @@ function EstateDetail() {
         return <p>{get_estateDetails_error.message}</p>
     }
 
-    const estateDetailsLoaded =
-        get_estateDetails_response.status === 200 &&
-        get_estateDetails_response.data.length > 0
+    const fetched =
+        get_estateDetails_response.data.data || get_estateDetails_response.data
 
     return (
         <div className='estateDetail'>
