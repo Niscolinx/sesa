@@ -500,9 +500,7 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
                 {toggleStateMenu && (
                     <div
                         className='border border-color-primary-light bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize max-h-[20rem] overflow-y-scroll'
-                        onClick={(e) => {
-                           
-                        }}
+                       
                     >
                         <div className='relative flex items-center text-[1.4rem]'>
                             <img
