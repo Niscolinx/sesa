@@ -188,7 +188,6 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                                 name='password'
                                 id={label}
                                 disabled={disabled}
-                                value={value}
                                 {...(register &&
                                     register(label, validationOptions))}
                             />
@@ -220,8 +219,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                                     rows={4}
                                     maxLength={30}
                                     disabled={disabled}
-                                    value={value}
-                                    {...(register &&
+                                        {...(register &&
                                         register(label, validationOptions))}
                                     className={` w-full border-none outline-none disabled:opacity-50 disabled:cursor-not-allowed p-4 pl-0 ${
                                         formErrors &&
@@ -270,8 +268,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                                     id={label}
                                     disabled={disabled}
                                     type={type}
-                                    value={value}
-                                    {...(register &&
+                                        {...(register &&
                                         register(label, validationOptions))}
                                     className={` w-full border-none outline-none disabled:opacity-50 disabled:cursor-not-allowed p-4 pl-0 ${
                                         formErrors &&
@@ -305,8 +302,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                                     id={label}
                                     disabled={disabled}
                                     type={type}
-                                    value={value}
-                                    {...(register &&
+                                        {...(register &&
                                         register(label, validationOptions))}
                                     className={` w-full border-none outline-none disabled:opacity-50 disabled:cursor-not-allowed p-4 pl-0 ${
                                         formErrors &&
