@@ -174,16 +174,16 @@ const AddArtisanGroup = () => {
                 setSelectedState: setSelectedEstates,
             },
         },
-        {
-            label: 'Artisans',
-            type: 'select',
-            selectProps: {
-                isMulti: true,
-                state: slicedArtisans,
-                selectedState: selectedArtisans,
-                setSelectedState: setSelectedArtisans,
-            },
-        },
+        // {
+        //     label: 'Artisans',
+        //     type: 'select',
+        //     selectProps: {
+        //         isMulti: true,
+        //         state: slicedArtisans,
+        //         selectedState: selectedArtisans,
+        //         setSelectedState: setSelectedArtisans,
+        //     },
+        // },
     ] satisfies FormInputs[]
 
     return (

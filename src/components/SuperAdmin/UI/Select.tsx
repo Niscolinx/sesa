@@ -368,17 +368,7 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
     const [selectedFrom, setSelectedFrom] = useState(selectFrom)
     const [closingState, setClosingState] = useState(true)
 
-    useEffect(() => {
-        const handleClick = () => {
-            console.log('useEffect clicked', { closingState })
-        }
-
-        document.addEventListener('click', handleClick)
-
-        document.removeEventListener('click', (e) => {
-            console.log('useEffect removed', { closingState })
-        })
-    }, [closingState])
+    
 
     const toggleStateHandler = () => {
         return setToggleStateMenu(!toggleStateMenu)
@@ -387,6 +377,9 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
     const handleClose = () => {
         console.log('handleclose')
         return setClosingState(false)
+    }
+    const handleBubble = () => {
+        console.log('clicked')
     }
 
     useEffect(() => {
@@ -497,8 +490,9 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
                 </p>
             </div>
 
+
             {toggleStateMenu && (
-                <div className='absolute top-[8rem]  left-0 border border-color-primary-light min-w-[12rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize max-h-[20rem] overflow-y-scroll'>
+                <div className='absolute top-[8rem]  left-0 border border-color-primary-light min-w-[12rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize max-h-[20rem] overflow-y-scroll' onClick={handleBubble}>
                     <div className='relative flex items-center text-[1.4rem]'>
                         <img
                             src='/icons/admins/search.svg'
