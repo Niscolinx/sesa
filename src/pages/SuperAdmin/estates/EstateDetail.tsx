@@ -23,7 +23,7 @@ function EstateDetail() {
         return <p>Loading...</p>
     }
 
-    if(data.data?.estate_name === undefined){
+    if(data?.estate_name === undefined){
         return <p>No Data Found</p>
     }
 
