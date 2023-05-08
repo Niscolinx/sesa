@@ -134,8 +134,8 @@ const TransactionHistory = () => {
     return (
         <div className='rounded-lg mt-[3rem] min-h-[60vh]'>
             <Table
-                fetch_url={'/manager/get/all'}
-                title={'transactionHistory'}
+                fetch_url={'/admin/get/wallet/transaction/resident'}
+                title={'history'}
                 view_page_url={'/superAdmin/estateManagers/view/'}
                 add_page_url={'/superAdmin/estateManagers/add'}
                 is_add_btn={false}
@@ -145,8 +145,6 @@ const TransactionHistory = () => {
                 deactivateProp={{ url: 'change/user/status' }}
             />
         </div>
-
-   
     )
 }
 
