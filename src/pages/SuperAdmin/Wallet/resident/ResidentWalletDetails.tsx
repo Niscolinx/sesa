@@ -85,16 +85,23 @@ const ResidentWalletDetails = () => {
         if (data) {
             const {
                 type,
-                transaction_date,
-                transaction_time,
+                created_at,
                 category,
-                transaction_source,
+                name,
                 amount,
                 tran_id,
                 description,
             } = data
 
-            reset({})
+            const transaction_date = created_at.slice(0, 10)
+            const transaction_time = created_at.slice(11, -1)
+            const transaction_source = name
+
+
+            reset({
+                transaction_date,
+                transaction_time,
+            })
         }
     }, [data])
 
