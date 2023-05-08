@@ -358,8 +358,6 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
 
     useEffect(() => {
         const handler = (e: any) => {
-            console.log(e.target)
-            console.log(inputRef.current)
             if (inputRef.current && !inputRef.current.contains(e.target)) {
                 console.log('close')
                 setToggleStateMenu(false)
