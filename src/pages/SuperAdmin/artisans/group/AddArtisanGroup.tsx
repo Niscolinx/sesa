@@ -8,7 +8,6 @@ import { useForm } from 'react-hook-form'
 import useAxios from '../../../../components/hooks/useAxios'
 import { useMutation } from 'react-query'
 
-type DialogType = 'validate' | 'add-Artisan'
 
 const AddArtisanGroup = () => {
     interface Inputs {
@@ -20,6 +19,7 @@ const AddArtisanGroup = () => {
         type?: string
         name?: string
         value?: string
+        absolute?: boolean
         required?: boolean
         selectProps?: SelectProps
     }
@@ -176,6 +176,7 @@ const AddArtisanGroup = () => {
         {
             label: 'Artisans',
             type: 'select',
+            absolute: false,
             selectProps: {
                 isMulti: true,
                 state: slicedArtisans,
