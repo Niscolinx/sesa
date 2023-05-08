@@ -6,6 +6,7 @@ import OverviewChart from '../../components/SuperAdmin/charts/OverviewChart'
 import { OverviewWallet } from '../../components/SuperAdmin/overview/OverviewWallets'
 import useAxios from '../../components/hooks/useAxios'
 import { useQuery } from 'react-query'
+import useFetchData from '../../utils/useFetchData'
 
 export const overviewChart_data = [
     { name: 'Resident Wallet', value: 10, color: '#098DFF' },
@@ -29,24 +30,16 @@ const Wallet = () => {
 
     const axiosInstance = useAxios()
 
-    const fetchWallets = (): Promise<ApiResponse> => {
-        return axiosInstance({
-            url: '/admin/get/wallet',
-        }).then((res) => res.data)
-    }
-
-    const { data, isLoading, isError, error } = useQuery<ApiResponse, Error>(
-        'wallets',
-        fetchWallets
-    )
+    const {isLoading, data, isError} = useFetchData({
+        url: '/admin/get/wallet/information',
+        name: 'all_wallets'
+    })
 
     if (isLoading) {
         return <p className='p-8'> Loading...</p>
     }
 
-    if (isError) {
-        return <p>{error.message}</p>
-    }
+  
 
     console.log({ data })
 
