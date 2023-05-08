@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FC, useState, useMemo, useEffect } from 'react'
+import React, { ChangeEvent, FC, useState, useMemo, useEffect, useRef } from 'react'
 import { GrUp, GrDown } from 'react-icons/gr'
 import { IoMdClose } from 'react-icons/io'
 import { ValidateInputTypes } from '../../../pages/SecurityCompany/dashboard/company/AddSecurity/AddSecurityGuard'
@@ -360,16 +360,13 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
     const [search, setSearch] = useState('')
     const [selectedFrom, setSelectedFrom] = useState(selectFrom)
     const [closingState, setClosingState] = useState('outside')
+    const selectRef = useRef(null)
 
-    useEffect(() => {
-
-        document.addEventListener('click', (e) => {
-            console.log("useEffect clicked")
-        })
-
-     
-
-    }, [])
+    // useEffect(() => {
+    //     document.addEventListener('click', (e) => {
+    //         console.log('useEffect clicked')
+    //     })
+    // }, [])
 
     function handleSelectedState(
         e: ChangeEvent<HTMLInputElement>,
@@ -377,7 +374,7 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
     ) {
         console.log('clicked')
         setClosingState('inner')
-       
+
         const checked = e.target.checked
 
         if (checked) {
@@ -391,7 +388,6 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
     //     console.log({ which })
 
     //     setClosingState(which)
-
 
     //     // const id = setTimeout(() => {
     //     //     if (which === 'outside') {
@@ -500,12 +496,14 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
 
             {toggleStateMenu && (
                 <div className='absolute top-[8rem]  left-0 border border-color-primary-light min-w-[12rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize max-h-[20rem] overflow-y-scroll'>
+                        <label htmlFor='mySelect'>open</label>
                     <div className='relative flex items-center text-[1.4rem]'>
                         <img
                             src='/icons/admins/search.svg'
                             alt=''
                             className='absolute left-4'
                         />
+                        
 
                         <input
                             type='text'
@@ -519,19 +517,12 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
                             className='pl-16 w-[25rem] rounded-lg border border-color-blue-light py-4 px-8 outline-none appearance-none'
                         />
                     </div>
-                    <select id='mySelect'>
+                    <select id='mySelect' ref={selectRef}>
                         <option value='option1'>Option 1</option>
                         <option value='option2'>Option 2</option>
                         <option value='option3'>Option 3</option>
                     </select>
-                    <input type="text" id="myInput" list="characterList"/>
-<datalist id="characterList">
-  <option value="A">A</option>
-  <option value="B">B</option>
-  <option value="C">C</option>
-  <option value="D">D</option>
-  <option value="E">E</option>
-</datalist>
+                  
                     {memoizedList}
                 </div>
             )}
