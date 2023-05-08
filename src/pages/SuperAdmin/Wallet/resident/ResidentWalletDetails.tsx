@@ -93,6 +93,8 @@ const ResidentWalletDetails = () => {
                 tran_id,
                 description,
             } = data
+
+            
             const first_name = name.split(' ')[0]
             const last_name = name.split(' ')[1]
 
