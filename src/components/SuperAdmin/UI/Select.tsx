@@ -498,7 +498,6 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
                             autoFocus
                             onChange={handleSearch}
                             onBlur={(e) => {
-                                e.preventDefault()
                                 stateMenuToggler('outside')
                             }}
                             className='pl-16 w-[25rem] rounded-lg border border-color-blue-light py-4 px-8 outline-none appearance-none'
