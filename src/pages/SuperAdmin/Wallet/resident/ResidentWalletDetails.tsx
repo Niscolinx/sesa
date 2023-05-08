@@ -1,6 +1,5 @@
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
-import { useQuery } from 'react-query'
 import { useParams } from 'react-router'
 import { toast } from 'react-toastify'
 import { SelectProps } from '../../../../components/UI/input/Input'
