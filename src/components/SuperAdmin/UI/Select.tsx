@@ -385,8 +385,13 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
     }
 
     const handleClose = () => {
+        console.log('handleclose')
         return setClosingState(false)
     }
+
+    useEffect(() => {
+        console.log({closingState})
+    }, [closingState])
 
     function handleSelectedState(
         e: ChangeEvent<HTMLInputElement>,
