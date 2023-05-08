@@ -169,8 +169,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                                 ? 'justify-between'
                                 : 'justify-end'
                         }`}
-                        onClick={(e) => {
-                            e.preventDefault()
+                        onClick={() => {
                             stateMenuToggler('inner')
                         }}
                         htmlFor={`input${id}`}
