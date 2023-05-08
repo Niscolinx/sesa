@@ -38,41 +38,6 @@ const ResidentWalletDetails = () => {
         return <p className='p-4'> Not found!</p>
     }
 
-    const formInputs = [
-        {
-            label: 'type',
-            name: 'transaction_type',
-        },
-
-        {
-            label: 'transaction_date',
-        },
-        {
-            label: 'transaction_time',
-            type: 'time'
-        },
-        {
-            label: 'category',
-            name: 'transaction_category',
-        },
-        {
-            label: 'transaction_source',
-        },
-        {
-            label: 'amount',
-            name: 'transaction_amount',
-            tag: 'money',
-            type:'number',
-        },
-        {
-            label: 'tran_id',
-            name: 'transaction_ID',
-        },
-        {
-            label: 'description',
-            name: 'narration',
-        },
-    ] satisfies FormInputs[]
 
     const {
         register,
@@ -109,6 +74,43 @@ const ResidentWalletDetails = () => {
     if (isLoading) {
         return <p>loading...</p>
     }
+
+
+    const formInputs = [
+        {
+            label: 'type',
+            name: 'transaction_type',
+        },
+
+        {
+            label: 'transaction_date',
+        },
+        {
+            label: 'transaction_time',
+            type: 'time'
+        },
+        {
+            label: 'category',
+            name: 'transaction_category',
+        },
+        {
+            label: 'transaction_source',
+        },
+        {
+            label: 'amount',
+            name: 'transaction_amount',
+            tag: 'money',
+            type:'number',
+        },
+        {
+            label: 'tran_id',
+            name: 'transaction_ID',
+        },
+        {
+            label: 'description',
+            name: 'narration',
+        },
+    ] satisfies FormInputs[]
 
     return (
         <div className=' p-8 bg-white min-h-[60vh] rounded-lg overflow-y-scroll'>
