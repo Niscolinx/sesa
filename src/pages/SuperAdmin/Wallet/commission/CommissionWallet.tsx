@@ -69,8 +69,8 @@ const CommissionWallet = () => {
     ]) satisfies Map<Path, JSX.Element>
 
     const { data: graph_data, isLoading: graph_loading } = useFetchData({
-        url: '/admin/get/wallet/resident',
-        name: 'resident_wallet_graph',
+        url: '/admin/get/wallet/commission',
+        name: 'commission_wallet_graph',
     })
 
     if (graph_loading) {
@@ -104,7 +104,7 @@ const CommissionWallet = () => {
             <div className='grid mt-12 pb-10 rounded-lg  items-baseline gap-10'>
                 <div className='grid grid-cols-2 justify-between items-center content-start bg-white p-8 rounded-lg'>
                     <CommissionDialog />
-                    <WalletBarChart />
+                    <WalletBarChart chartData={chartData} />
                 </div>
 
                 <div className='grid gap-10'>
