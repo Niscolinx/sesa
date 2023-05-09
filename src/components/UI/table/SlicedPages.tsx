@@ -34,45 +34,50 @@ const SlicedPages: FC<SlicedPages> = ({
     const page = pages[index]
 
     const TableItem = ({ data }: any) => {
-        console.log({ data })
+        console.log({data})
         if (!data) {
             return null
         }
 
         const { id, ...restData } = data
 
-        const details: any = {}
+        const details: Map<any, any> = new Map<
+            string,
+            string | { name: string; image: string | null }
+        >()
 
         const dataToLoop = nested ? restData.user : restData
 
+
         Object.entries(dataToLoop).map(([key, value]: any) => {
+    
             if (data_to_display.includes(key)) {
                 if (key === data_to_display[0]) {
-                    return (details[key] = {
+                    return details.set(key, {
                         name: value,
                         image: null,
                     })
                 }
 
-                // if (key === 'image') {
-                //     const firstKey = details.keys().next().value
-                //     const firstValue = details.get(firstKey)
+                if (key === 'image') {
+                    const firstKey = details.keys().next().value
+                    const firstValue = details.get(firstKey)
 
-                //     return details.set(firstKey, {
-                //         name: firstValue.name,
-                //         image: value,
-                //     })
-                // }
-                else {
-                    return (details[key] = value)
+                    return details.set(firstKey, {
+                        name: firstValue.name,
+                        image: value,
+                    })
+                } else {
+                     details.set('key', value)
                 }
             }
         })
 
+        console.log({ details})
         const sorted: any[] = []
         data_to_display.map((item: string, i: number) => {
             if (item)
-                for (const [key, value] of Object.entries(details)) {
+                for (const [key, value] of details.entries()) {
                     if (key === item) {
                         sorted.push({
                             key,
@@ -83,8 +88,7 @@ const SlicedPages: FC<SlicedPages> = ({
                     }
                 }
         })
-
-        console.log({ data_to_display, sorted, details })
+        
 
         const isAction = sorted.some(({ key }: any) => key === 'actions')
         const findStatus = sorted.find(({ key }: any) => key === 'status')
@@ -96,7 +100,8 @@ const SlicedPages: FC<SlicedPages> = ({
             })
         }
 
-        console.log({ sorted })
+
+        console.log({sorted})
         return (
             <>
                 {sorted.map(({ key, value }: any, idx: number) => {
