@@ -34,6 +34,7 @@ const SlicedPages: FC<SlicedPages> = ({
     const page = pages[index]
 
     const TableItem = ({ data }: any) => {
+        console.log({data})
         if (!data) {
             return null
         }
@@ -46,6 +47,8 @@ const SlicedPages: FC<SlicedPages> = ({
         >()
 
         const dataToLoop = nested ? restData.user : restData
+
+        console.log({dataToLoop})
 
         Object.entries(dataToLoop).map(([key, value]: any) => {
             if (data_to_display.includes(key)) {
@@ -85,6 +88,8 @@ const SlicedPages: FC<SlicedPages> = ({
                 }
         })
 
+        console.log({data_to_display})
+
         const isAction = sorted.some(({ key }: any) => key === 'actions')
         const findStatus = sorted.find(({ key }: any) => key === 'status')
 
@@ -95,6 +100,8 @@ const SlicedPages: FC<SlicedPages> = ({
             })
         }
 
+
+        console.log({sorted})
         return (
             <>
                 {sorted.map(({ key, value }: any, idx: number) => {
