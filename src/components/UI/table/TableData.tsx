@@ -50,14 +50,13 @@ const TableData = () => {
     const [searchFields, setSearchFields] = useState<string[]>([])
     const [extractedData, setExtractedData] = useState<any[]>([])
 
-
-     const check_type = (toCheck: any) => {
-            if (typeof toCheck === 'string') {
-                return toCheck.toLowerCase()
-            }
-
-            return toCheck
+    const check_type = (toCheck: any) => {
+        if (typeof toCheck === 'string') {
+            return toCheck.toLowerCase()
         }
+
+        return toCheck
+    }
 
     useEffect(() => {
         const fields = [...THeader].filter(
@@ -88,25 +87,25 @@ const TableData = () => {
 
     useEffect(() => {
         const filterHandler = (data: any[]) => {
-            
+            const store_data: Record<string, string>[] = data_to_display.map(
+                (data, i) => {
+                    if (data === 'image') {
+                        console.log("image")
+                        return
+                    }
+                    console.log("not image")
 
-           const store_data: Record<string, string>[]  =  data_to_display.map((data, i) => {
-
-            if(data === 'image'){
-                continue
-            }
-
-            return {
-                name:'s'
-            }
-           })
-
+                    return {
+                        name: 's',
+                    }
+                }
+            )
 
             data.forEach((item) => {
-                const searchFrom: Record<string,string> = {}
+                const searchFrom: Record<string, string> = {}
 
                 searchFields.forEach((field) => {
-                    console.log({field})
+                    console.log({ field })
                     let key = field
                     if (check_type(field).includes('joined')) {
                         key = 'created_at'
@@ -118,12 +117,11 @@ const TableData = () => {
                     searchFrom[field] = item[key]
                 })
 
-                
                 store_data.push({ ...searchFrom, ...item })
             })
             console.log(searchFields.keys())
 
-            console.log({store_data, THeader, data_to_display})
+            console.log({ store_data, THeader, data_to_display })
 
             setExtractedData(store_data)
         }
@@ -249,8 +247,6 @@ const TableData = () => {
         setSearch(value)
 
         console.log({ extractedData })
-
-       
 
         const foundData = extractedData.filter((item) => {
             console.log({ item, value }, item[check_type(filterBy)])
