@@ -114,8 +114,9 @@ const TableData = () => {
             //             name: ''
             //         }
 
-            for (let [[key, value]] of Object.entries(data)) {
-                console.log(value)
+            for (let item of data) {
+
+
             }
 
             console.log({ transFormed_data, THeader, data_to_display })
