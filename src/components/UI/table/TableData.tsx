@@ -91,6 +91,7 @@ const TableData = () => {
             data.forEach((item) => {
                 const searchFrom: any = {}
                 searchFields.forEach((field) => {
+                    console.log({field})
                     let key = field
                     if (check_type(field).includes('joined')) {
                         key = 'created_at'
