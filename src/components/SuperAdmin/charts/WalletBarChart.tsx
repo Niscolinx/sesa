@@ -1,35 +1,6 @@
 import { BarChart, Bar, XAxis, YAxis, Tooltip } from 'recharts'
 
-const data = [
-    {
-        name: 'Mon',
-        pv: 25_000,
-    },
-    {
-        name: 'Tue',
-        pv: 30_000,
-    },
-    {
-        name: 'Wed',
-        pv: 18_000,
-    },
-    {
-        name: 'Thur',
-        pv: 15_000,
-    },
-    {
-        name: 'Fri',
-        pv: 22_000,
-    },
-    {
-        name: 'Sat',
-        pv: 21_000,
-    },
-    {
-        name: 'Sun',
-        pv: 22_000,
-    },
-]
+
 
 const estateData = Array.from({ length: 10 }).map((_, i) => ({
     name: (i >= 8 ? `${i - 7}pm` : `${i + 5}am`),
@@ -72,6 +43,37 @@ export const EstateBarChart = ({
         </BarChart>
     )
 }
+
+const data = [
+    {
+        name: 'Mon',
+        pv: 25_000,
+    },
+    {
+        name: 'Tue',
+        pv: 30_000,
+    },
+    {
+        name: 'Wed',
+        pv: 18_000,
+    },
+    {
+        name: 'Thur',
+        pv: 15_000,
+    },
+    {
+        name: 'Fri',
+        pv: 22_000,
+    },
+    {
+        name: 'Sat',
+        pv: 21_000,
+    },
+    {
+        name: 'Sun',
+        pv: 22_000,
+    },
+]
 
 interface WalletBarChart {
     width?: number,
