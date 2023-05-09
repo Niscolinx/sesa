@@ -91,10 +91,11 @@ const TableData = () => {
 
             for (let i = 0; i < data_to_display.length; i++) {
                 if (data_to_display[i] === 'image') {
-                    continue
+                     store_data.push({
+                         [data_to_display[i + 1]]: THeader[i],
+                     })
                 }
 
-                console.log(data_to_display[i])
 
                 store_data.push({
                     [data_to_display[i]]: THeader[i],
