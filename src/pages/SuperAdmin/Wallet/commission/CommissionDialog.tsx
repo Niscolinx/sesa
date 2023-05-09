@@ -48,7 +48,7 @@ function CommissionDialog() {
         e.preventDefault()
     }
 
-    
+
     const transFormFetchedGraphData = (data: Record<string, number>) => {
         interface ChartData {
             name: string
@@ -67,11 +67,12 @@ function CommissionDialog() {
         return chartData
     }
 
-    const chartData = transFormFetchedGraphData(graph_data.graph)
-
+    
     if (graph_loading) {
         return <p className='p-8'>Loading...</p>
     }
+    
+    const chartData = transFormFetchedGraphData(graph_data.graph)
     
     return (
         <>
