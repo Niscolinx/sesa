@@ -60,7 +60,6 @@ const ResidentWallet = () => {
         return <p className='p-8'>Loading</p>
     }
 
-
     const data = [
         {
             name: 'Mon',
@@ -92,30 +91,25 @@ const ResidentWallet = () => {
         },
     ]
 
-    
     const transFormFetchedGraphData = (data: Record<string, number>) => {
         interface ChartData {
             name: string
             pv: number
         }
-    
-        const chartData: ChartData[] = [] 
 
-        for(let [key, value] of Object.entries(data)){
+        const chartData: ChartData[] = []
+
+        for (let [key, value] of Object.entries(data)) {
             chartData.push({
-                name: key,
-                pv: value
+                name: key.slice(0, 3),
+                pv: value,
             })
         }
-            
-          
 
         return chartData
     }
 
-   const chartData =  transFormFetchedGraphData(graph_data.graph)
-
-    
+    const chartData = transFormFetchedGraphData(graph_data.graph)
 
     return (
         <div>
