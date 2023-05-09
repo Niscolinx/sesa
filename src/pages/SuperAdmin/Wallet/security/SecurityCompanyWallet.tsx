@@ -800,9 +800,6 @@ import Table from '../../../../components/UI/table/Table'
 import useFetchData from '../../../../utils/useFetchData'
 
 const SecurityWallet = () => {
-    // const trend: Array<Trend> = ['This Week', 'This Month', 'This Year']
-
-    // const [selectedTrend, setSelectedTrend] = useState<string>(trend[0])
 
     type Path = 'balance' | 'history'
 
@@ -815,9 +812,9 @@ const SecurityWallet = () => {
             <div className='rounded-lg mt-[3rem] min-h-[60vh]'>
                 <Table
                     is_dropdown={false}
-                    fetch_url={'/admin/get/wallet/balance/resident'}
+                    fetch_url={'/admin/get/wallet/balance/security_company'}
                     title={'balance'}
-                    THeader={['resident name', 'amount']}
+                    THeader={['company name', 'amount']}
                     data_to_display={['name', 'balance']}
                 />
             </div>
@@ -827,13 +824,13 @@ const SecurityWallet = () => {
         return (
             <div className='rounded-lg mt-[3rem] min-h-[60vh]'>
                 <Table
-                    fetch_url={'/admin/get/wallet/transaction/resident'}
+                    fetch_url={'/admin/get/wallet/transaction/security_company'}
                     view_page_url={'/superAdmin/wallet/resident/'}
                     title={'history'}
                     isStrictAction
                     actions={['view details']}
                     THeader={[
-                        'resident name',
+                        'company name',
                         'amount',
                         'transaction_ID',
                         'type',
