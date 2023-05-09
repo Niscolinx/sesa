@@ -107,7 +107,7 @@ const TableData = () => {
                 store_data.push({ ...searchFrom, ...item })
             })
 
-            console.log({store_data})
+            console.log({store_data, THeader, data_to_display})
 
             setExtractedData(store_data)
         }
