@@ -4,6 +4,7 @@ import WalletBarChart from '../../../../components/SuperAdmin/charts/WalletBarCh
 import { OverviewWallet } from '../../../../components/SuperAdmin/overview/OverviewWallets'
 
 import Table from '../../../../components/UI/table/Table'
+import useFetchData from '../../../../utils/useFetchData'
 
 const ResidentWallet = () => {
     // const trend: Array<Trend> = ['This Week', 'This Month', 'This Year']
@@ -49,6 +50,15 @@ const ResidentWallet = () => {
         ['transaction-history', <TransactionHistory />],
         ['resident-balance', <ResidentBalance />],
     ]) satisfies Map<Path, JSX.Element>
+
+    const { data: graph_data, isLoading: graph_loading } = useFetchData({
+        url: '/admin/get/wallet/resident',
+        name: 'resident_wallet_graph',
+    })
+
+    if (graph_loading) {
+        return <p className='p-8'>Loading</p>
+    }
 
     return (
         <div>
