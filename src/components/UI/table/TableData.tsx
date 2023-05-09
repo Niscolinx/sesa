@@ -107,7 +107,7 @@ const TableData = () => {
 
                     console.log(item)
 
-                    const key = Object.entries(item)
+                    const {[key]} = Object.entries(item)
              
 
                         console.log({key})
@@ -117,7 +117,7 @@ const TableData = () => {
                     // }
                 })
 
-                console.log({item})
+               // console.log({item})
 
                 //store_data.push({ ...searchFrom, ...item })
             })
