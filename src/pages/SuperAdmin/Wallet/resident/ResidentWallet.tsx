@@ -13,109 +13,7 @@ import {
 import { Select } from '../../../../components/SuperAdmin/UI/Select'
 import Table from '../../../../components/UI/table/Table'
 
-type Trend = 'This Week' | 'This Month' | 'This Year'
 
-export interface ITransactions {
-    id: string
-    date: string
-    transactionType: 'Credit' | 'Debit'
-    transactionCategory: string
-    transactionId: number
-    amount: number
-    time: string
-    balance: number
-}
-
-interface ResidentWalletList {
-    id: string
-    residentName: string
-    amount: number
-    imgUri: string
-}
-
-type SortBy = 'A-Z' | 'date'
-
-const RESIDENT_BALANCE = [
-    {
-        id: 1,
-        estateName: 'sdf',
-        residentName: 'sdfsd',
-        amount: 'sdfs',
-    },
-]
-
-export const TRANSACTION_HISTORY: ITransactions[] = [
-    {
-        id: '1',
-        date: '02-May, 2021',
-        transactionType: 'Credit',
-        transactionCategory: 'Fund Wallet',
-        transactionId: 100872323,
-        amount: 6000,
-        time: '12:00pm',
-        balance: 6000,
-    },
-    {
-        id: '2',
-        date: '02-May, 2021',
-        transactionType: 'Credit',
-        transactionCategory: 'Fund Wallet',
-        transactionId: 100872323,
-        amount: 6000,
-        time: '12:00pm',
-        balance: 6000,
-    },
-    {
-        id: '3',
-        date: '07-Aug, 2021',
-        transactionType: 'Debit',
-        transactionCategory: 'Fund Wallet',
-        transactionId: 100872323,
-        amount: 8000,
-        time: '1:00pm',
-        balance: 12000,
-    },
-    {
-        id: '4',
-        date: '02-May, 2021',
-        transactionType: 'Debit',
-        transactionCategory: 'Fund Wallet',
-        transactionId: 100872323,
-        amount: 6000,
-        time: '12:00pm',
-        balance: 6000,
-    },
-    {
-        id: '5',
-        date: '02-May, 2021',
-        transactionType: 'Credit',
-        transactionCategory: 'Fund Wallet',
-        transactionId: 100872323,
-        amount: 6000,
-        time: '12:00pm',
-        balance: 6000,
-    },
-    {
-        id: '6',
-        date: '02-May, 2021',
-        transactionType: 'Credit',
-        transactionCategory: 'Fund Wallet',
-        transactionId: 100872323,
-        amount: 6000,
-        time: '12:00pm',
-        balance: 6000,
-    },
-    {
-        id: '7',
-        date: '02-May, 2021',
-        transactionType: 'Debit',
-        transactionCategory: 'Fund Wallet',
-        transactionId: 100872323,
-        amount: 6000,
-        time: '12:00pm',
-        balance: 6000,
-    },
-]
 
 const ResidentBalance = () => {
     return (
@@ -147,9 +45,9 @@ const TransactionHistory = () => {
 }
 
 const ResidentWallet = () => {
-    const trend: Array<Trend> = ['This Week', 'This Month', 'This Year']
+    // const trend: Array<Trend> = ['This Week', 'This Month', 'This Year']
 
-    const [selectedTrend, setSelectedTrend] = useState<string>(trend[0])
+    // const [selectedTrend, setSelectedTrend] = useState<string>(trend[0])
 
     type Path = 'resident-balance' | 'transaction-history'
 
@@ -174,13 +72,13 @@ const ResidentWallet = () => {
                     <section>
                         <div className='flex gap-4 justify-between items-center mb-5'>
                             <p className='font-Satoshi-Medium'>Wallet Trend</p>
-                            <div className='w-[13rem]'>
+                            {/* <div className='w-[13rem]'>
                                 <Select
                                     state={trend}
                                     selectedState={selectedTrend}
                                     setSelectedState={setSelectedTrend}
                                 />
-                            </div>
+                            </div> */}
                         </div>
                         <WalletBarChart />
                     </section>
