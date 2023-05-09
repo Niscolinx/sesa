@@ -219,13 +219,21 @@ const TableData = () => {
         const { value } = e.target
         setSearch(value)
 
-        console.log({extractedData})
+        console.log({ extractedData })
+
+        const check_type = (toCheck: any) => {
+            if (typeof toCheck === 'string') {
+                return toCheck.toLowerCase()
+            }
+
+            return toCheck
+        }
 
         const foundData = extractedData.filter((item) => {
-            console.log({item, value}, item[filterBy.toLowerCase()])
-            return item[filterBy.toLowerCase()]
-                .toLowerCase()
-                .includes(value.toLowerCase())
+            console.log({ item, value }, item[check_type(filterBy)])
+            return check_type(item[check_type(filterBy)]).includes(
+                check_type(value)
+            )
         })
 
         setFetchedData(foundData)
