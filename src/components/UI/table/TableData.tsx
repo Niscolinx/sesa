@@ -233,7 +233,7 @@ const TableData = () => {
         navigate(`${add_page_url}`)
     }
 
-    const clonedFetchedData = [...fetchedData]
+    const clonedFetchedData = structuredClone(fetchedData)
     const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
         const { value } = e.target
         setSearch(value)
