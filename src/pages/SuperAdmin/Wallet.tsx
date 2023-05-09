@@ -41,8 +41,6 @@ const Wallet = () => {
 
   
 
-    console.log({ data })
-
     return (
         <>
             {data ? (
