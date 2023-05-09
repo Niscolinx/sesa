@@ -233,7 +233,6 @@ const TableData = () => {
         navigate(`${add_page_url}`)
     }
 
-    const clonedFetchedData = structuredClone(fetchedData)
     const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
         const { value } = e.target
         setSearch(value)
@@ -244,9 +243,19 @@ const TableData = () => {
             )
         })
 
+        console.log({findData})
 
-        const filteredData = clonedFetchedData.filter((data) => {
-            return findData.some((item) => item.id === data.id)
+
+        const filteredData = fetchedData.filter((data) => {
+            // return findData.filter((item) => item.id === data.id)
+
+            for(let item of findData){
+
+                if(item.id === data.id){
+                    return data
+                }
+            }
+
         })
 
         console.log({filteredData, fetchedData})
