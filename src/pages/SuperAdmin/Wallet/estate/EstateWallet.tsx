@@ -19,7 +19,7 @@ const EstateWallet = () => {
                 <Table
                     is_dropdown={false}
                     fetch_url={'/admin/get/wallet/balance/estate'}
-                    title={'balance'}
+                    title={'estate_balance'}
                     THeader={['estate name', 'amount']}
                     data_to_display={['name', 'balance']}
                 />
@@ -97,8 +97,11 @@ const EstateWallet = () => {
                 <div className='flex justify-between items-center content-start bg-white p-8 rounded-lg'>
                     <OverviewWallet
                         amount={graph_data.estate_sum}
-                        title='SecurityCompany Wallet'
+                        title={'Estate Wallet'}
                         isWalletScreen
+                        bgImgUri='/icons/overview/card/bgE.svg'
+                        lefIconUri='/icons/overview/card/leftE.svg'
+                        bgColor='bg-[#97346F]'
                     />
 
                     <section>
