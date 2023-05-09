@@ -68,19 +68,12 @@ const CommissionWallet = () => {
         ['balance', <ResidentBalance />],
     ]) satisfies Map<Path, JSX.Element>
 
-   
-
-  
-
- 
-
     return (
         <div>
             <ToastContainer />
 
             <div className='grid mt-12 pb-10 rounded-lg  items-baseline gap-10'>
-               
-        <CommissionDialog/>
+                <CommissionDialog />
                 <div className='grid gap-10'>
                     <div className='estateDetail__radioBox'>
                         {paths.map((path) => (
