@@ -102,6 +102,10 @@ const TableData = () => {
 
             data.forEach((item) => {
                 console.log({item})
+
+                const matchedKey = Object.keys(item).flatMap((key) => key in transformed_data)
+
+                console.log(matchedKey)
             })
 
             console.log({ transformed_data, map_transformed_data })
