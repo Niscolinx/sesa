@@ -41,22 +41,18 @@ const SlicedPages: FC<SlicedPages> = ({
 
         const { id, ...restData } = data
 
-        const details: Map<any, any> = new Map<
-            string,
-            string | { name: string; image: string | null }
-        >()
+        const details: any = {}
 
         const dataToLoop = nested ? restData.user : restData
 
-        console.log({dataToLoop})
 
         Object.entries(dataToLoop).map(([key, value]: any) => {
             if (data_to_display.includes(key)) {
                 if (key === data_to_display[0]) {
-                    return details.set(key, {
+                    return details[key] = {
                         name: value,
                         image: null,
-                    })
+                    }
                 }
 
                 if (key === 'image') {
@@ -68,7 +64,7 @@ const SlicedPages: FC<SlicedPages> = ({
                         image: value,
                     })
                 } else {
-                    return details.set(key, value)
+                    return details[key] = value
                 }
             }
         })
