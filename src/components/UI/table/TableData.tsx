@@ -243,7 +243,6 @@ const TableData = () => {
             )
         })
 
-        console.log({findData})
 
         const res: any[] = get_data_response.data.data || get_data_response.data
 
