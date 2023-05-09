@@ -86,6 +86,10 @@ const TableData = () => {
     }) as any
 
     useEffect(() => {
+        console.log(fetchedData)
+    }, [fetchedData])
+    
+    useEffect(() => {
         const filterHandler = (data: Record<string, string>[]) => {
             const filterOut_image = data_to_display.filter(
                 (item) => item !== 'image'
@@ -100,20 +104,21 @@ const TableData = () => {
             const map_transformed_data: Record<string, string>[] = []
 
             data.forEach((item) => {
-                console.log({ item })
                 const temp_store: Record<string, string> = {}
 
                  Object.keys(item).filter((key) => {
                     if (key in transformed_data) {
-                        temp_store[transformed_data[key]] = item[key]
+                        return temp_store[transformed_data[key]] = item[key]
                     }
+
+                    temp_store[key] = item[key]
                 })
 
-                console.log(temp_store)
+
+                map_transformed_data.push(temp_store)
 
             })
 
-            console.log({ transformed_data, map_transformed_data })
 
             setExtractedData(map_transformed_data)
         }
@@ -238,17 +243,20 @@ const TableData = () => {
         const { value } = e.target
         setSearch(value)
 
-        console.log({ extractedData })
 
         const foundData = extractedData.filter((item) => {
-            console.log({ item, value }, item[check_type(filterBy)])
+            console.log({ item, value }, check_type(item[check_type(filterBy)]))
             return check_type(item[check_type(filterBy)]).includes(
                 check_type(value)
             )
         })
 
+        console.log({foundData})
+
         setFetchedData(foundData)
     }
+
+    
 
     return (
         <div>
