@@ -245,16 +245,13 @@ const TableData = () => {
 
         console.log({findData})
 
-
-        const filteredData: any[] = []
-
-        for(let item of fetchedData){
+        const res: any[] = get_data_response.data.data || get_data_response.data
 
 
-            
-        }
+        const filteredData = res.filter((data) => {
+            return findData.some((item) => item.id === data.id)
+        })
 
-        console.log({filteredData, fetchedData})
 
         setFetchedData(filteredData)
     }
