@@ -246,17 +246,13 @@ const TableData = () => {
         console.log({findData})
 
 
-        const filteredData = fetchedData.filter((data) => {
-            // return findData.filter((item) => item.id === data.id)
+        const filteredData: any[] = []
 
-            for(let item of findData){
+        for(let item of fetchedData){
 
-                if(item.id === data.id){
-                    return data
-                }
-            }
 
-        })
+            
+        }
 
         console.log({filteredData, fetchedData})
 
