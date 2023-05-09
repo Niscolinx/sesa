@@ -1,9 +1,48 @@
-import React from 'react'
+import React, { FormEvent, useRef, useState } from 'react'
+import { GrUp, GrDown } from 'react-icons/gr'
+import { IoMdClose } from 'react-icons/io'
+import { OverviewWallet } from '../../../../components/SuperAdmin/overview/OverviewWallets'
 
 function CommissionDialog() {
-  return (
-    <>
-    <dialog className='dialog' ref={dialogRef}>
+    const sendToArr: string[] = ['Howuja', 'Oluwaseun', 'Wojusun', 'Petherkwa']
+    const [isWithdrawal, setIsWithdrawal] = useState(true)
+
+    const [sendTo, setSendTo] = useState<string>('')
+    const [sendToMenu, setSendToMenu] = useState(false)
+
+    const sendToMenuToggle = () => setSendToMenu(!sendToMenu)
+
+    const handleSendTo = (item: string) => {
+        setSendTo(item)
+        setSendToMenu(false)
+    }
+
+    const dialogRef = useRef<HTMLDialogElement | null>(null)
+
+    const handleClose = () => {
+        if (dialogRef.current) {
+            dialogRef.current.close()
+        }
+    }
+
+    const handleOpen = (modalState: 'withdraw' | 'request') => {
+        if (modalState === 'withdraw') {
+            setIsWithdrawal(true)
+        } else {
+            setIsWithdrawal(false)
+        }
+
+        if (dialogRef.current) {
+            dialogRef.current.showModal()
+        }
+    }
+
+    const handleFormSubmit = (e: FormEvent) => {
+        e.preventDefault()
+    }
+    return (
+        <>
+            <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid items-baseline w-[64rem] min-h-[30rem] p-10 gap-8 text-[1.6rem] relative'>
                         <IoMdClose
@@ -169,35 +208,34 @@ function CommissionDialog() {
                 </section>
             </dialog>
 
-
             <div className='grid self-stretch justify-start'>
-                        <div className='grid items-end'>
-                            <OverviewWallet
-                                amount={4_000_832}
-                                title={'Commission Wallet'}
-                                isWalletScreen
-                                bgImgUri='/icons/overview/card/bgC.svg'
-                                lefIconUri='/icons/overview/card/leftC.svg'
-                                bgColor='bg-[#333333]'
-                            />
-                        </div>
-                        <div className='flex justify-center mt-auto gap-4'>
-                            <button
-                                className='btn text-white bg-[#0556E5] border rounded-lg w-[15rem]'
-                                onClick={() => handleOpen('withdraw')}
-                            >
-                                Withdraw
-                            </button>
-                            <button
-                                className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
-                                onClick={() => handleOpen('request')}
-                            >
-                                Request
-                            </button>
-                        </div>
-                    </div>
-    </>
-  )
+                <div className='grid items-end'>
+                    <OverviewWallet
+                        amount={4_000_832}
+                        title={'Commission Wallet'}
+                        isWalletScreen
+                        bgImgUri='/icons/overview/card/bgC.svg'
+                        lefIconUri='/icons/overview/card/leftC.svg'
+                        bgColor='bg-[#333333]'
+                    />
+                </div>
+                <div className='flex justify-center mt-auto gap-4'>
+                    <button
+                        className='btn text-white bg-[#0556E5] border rounded-lg w-[15rem]'
+                        onClick={() => handleOpen('withdraw')}
+                    >
+                        Withdraw
+                    </button>
+                    <button
+                        className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
+                        onClick={() => handleOpen('request')}
+                    >
+                        Request
+                    </button>
+                </div>
+            </div>
+        </>
+    )
 }
 
 export default CommissionDialog
