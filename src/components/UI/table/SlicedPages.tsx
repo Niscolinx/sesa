@@ -68,7 +68,8 @@ const SlicedPages: FC<SlicedPages> = ({
                         image: value,
                     })
                 } else {
-                     details.set('key', value)
+                     details.set(key, value)
+                     console.log('====================', details)
                 }
             }
         })
