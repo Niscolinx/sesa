@@ -49,6 +49,15 @@ const TableData = () => {
     const [searchFields, setSearchFields] = useState<string[]>([])
     const [extractedData, setExtractedData] = useState<any[]>([])
 
+
+     const check_type = (toCheck: any) => {
+            if (typeof toCheck === 'string') {
+                return toCheck.toLowerCase()
+            }
+
+            return toCheck
+        }
+
     useEffect(() => {
         const fields = [...THeader].filter(
             (item) =>
@@ -83,10 +92,10 @@ const TableData = () => {
                 const searchFrom: any = {}
                 searchFields.forEach((field) => {
                     let key = field
-                    if (field.toLowerCase().includes('joined')) {
+                    if (check_type(field).includes('joined')) {
                         key = 'created_at'
                     }
-                    if (field.toLowerCase().includes('phone')) {
+                    if (check_type(field).includes('phone')) {
                         key = 'phone'
                     }
 
@@ -221,13 +230,7 @@ const TableData = () => {
 
         console.log({ extractedData })
 
-        const check_type = (toCheck: any) => {
-            if (typeof toCheck === 'string') {
-                return toCheck.toLowerCase()
-            }
-
-            return toCheck
-        }
+       
 
         const foundData = extractedData.filter((item) => {
             console.log({ item, value }, item[check_type(filterBy)])
