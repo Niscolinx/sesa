@@ -24,7 +24,7 @@ const ResidentWallet = () => {
                     is_dropdown={false}
                     fetch_url={'/admin/get/wallet/balance/resident'}
                     title={'balance'}
-                    THeader={['resident name', 'amount']}
+                    THeader={['name', 'amount']}
                     data_to_display={['name', 'balance']}
                 />
             </div>
@@ -39,7 +39,7 @@ const ResidentWallet = () => {
                     title={'history'}
                     isStrictAction
                     actions={['view details']}
-                    THeader={['resident name', 'amount', 'date', 'actions']}
+                    THeader={['name', 'amount', 'date', 'actions']}
                     data_to_display={['name', 'amount', 'created_at']}
                 />
             </div>
