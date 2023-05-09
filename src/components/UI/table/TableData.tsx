@@ -93,6 +93,7 @@ const TableData = () => {
                 const searchFrom: Record<string,string> = {}
 
                 searchFields.forEach((field) => {
+                    console.log({field})
                     let key = field
                     if (check_type(field).includes('joined')) {
                         key = 'created_at'
