@@ -92,12 +92,29 @@ const ResidentWallet = () => {
         },
     ]
 
-    interface ChartData {
-        name: string
-        pv: number
+    
+    const transFormFetchedGraphData = (data: Record<string, number>) => {
+        interface ChartData {
+            name: string
+            pv: number
+        }
+    
+        const chartData: ChartData[] = [] 
+
+        for(let [key, value] in data){
+            chartData.push({
+                name: key,
+                pv: value
+            })
+        
+        }
+
+        return chartData
     }
 
-    const chartData = [] satisfies ChartData[]
+   const chartData =  transFormFetchedGraphData(graph_data)
+
+    
 
     return (
         <div>
@@ -119,7 +136,7 @@ const ResidentWallet = () => {
                                 />
                             </div> */}
                         </div>
-                        <WalletBarChart chartData={data} />
+                        <WalletBarChart chartData={chartData} />
                     </section>
                 </div>
                 <div className='grid gap-10'>
