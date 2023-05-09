@@ -109,14 +109,12 @@ const TableData = () => {
             //         const {key, value} = items
 
             //         console.log({ key, value, item })
-                   
-
 
             //         return {
             //             name: ''
             //         }
 
-            for(let item in data){
+            for (let item of data) {
                 console.log(item)
             }
 
