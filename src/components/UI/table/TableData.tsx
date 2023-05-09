@@ -121,7 +121,7 @@ const TableData = () => {
 
             console.log({ transFormed_data, THeader, data_to_display })
 
-            setExtractedData(transFormed_data)
+            setExtractedData(map_transformed_data)
         }
 
         if (get_data_response) {
