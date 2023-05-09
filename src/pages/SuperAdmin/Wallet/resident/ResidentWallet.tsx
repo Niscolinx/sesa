@@ -1,48 +1,9 @@
-import React from 'react'
-import { ChangeEvent, useEffect, useState } from 'react'
-import { CgSpinnerTwo } from 'react-icons/cg'
-import { GrUp, GrDown } from 'react-icons/gr'
-import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
-import { useNavigate } from 'react-router'
+import { useState } from 'react'
+
 import WalletBarChart from '../../../../components/SuperAdmin/charts/WalletBarChart'
 import { OverviewWallet } from '../../../../components/SuperAdmin/overview/OverviewWallets'
-import {
-    ResidentTransactions,
-    RESIDENT_TRANSACTION_HISTORY,
-} from '../../../EstateManager/wallet/wallets-old/resident/ResidentTransactions'
-import { Select } from '../../../../components/SuperAdmin/UI/Select'
+
 import Table from '../../../../components/UI/table/Table'
-
-
-
-const ResidentBalance = () => {
-    return (
-        <div className='rounded-lg mt-[3rem] min-h-[60vh]'>
-            <Table
-                is_dropdown={false}
-                fetch_url={'/admin/get/wallet/balance/resident'}
-                title={'balance'}
-                THeader={['resident name', 'amount']}
-                data_to_display={['name', 'balance']}
-            />
-        </div>
-    )
-}
-const TransactionHistory = () => {
-    return (
-        <div className='rounded-lg mt-[3rem] min-h-[60vh]'>
-            <Table
-                fetch_url={'/admin/get/wallet/transaction/resident'}
-                view_page_url={'/superAdmin/wallet/resident/'}
-                title={'history'}
-                isStrictAction
-                actions={['view details']}
-                THeader={['resident name', 'amount', 'date', 'actions']}
-                data_to_display={['name', 'amount', 'created_at']}
-            />
-        </div>
-    )
-}
 
 const ResidentWallet = () => {
     // const trend: Array<Trend> = ['This Week', 'This Month', 'This Year']
@@ -54,6 +15,35 @@ const ResidentWallet = () => {
     const paths: Path[] = ['resident-balance', 'transaction-history']
 
     const [currentPath, setcurrentPath] = useState<Path>('resident-balance')
+
+    const ResidentBalance = () => {
+        return (
+            <div className='rounded-lg mt-[3rem] min-h-[60vh]'>
+                <Table
+                    is_dropdown={false}
+                    fetch_url={'/admin/get/wallet/balance/resident'}
+                    title={'balance'}
+                    THeader={['resident name', 'amount']}
+                    data_to_display={['name', 'balance']}
+                />
+            </div>
+        )
+    }
+    const TransactionHistory = () => {
+        return (
+            <div className='rounded-lg mt-[3rem] min-h-[60vh]'>
+                <Table
+                    fetch_url={'/admin/get/wallet/transaction/resident'}
+                    view_page_url={'/superAdmin/wallet/resident/'}
+                    title={'history'}
+                    isStrictAction
+                    actions={['view details']}
+                    THeader={['resident name', 'amount', 'date', 'actions']}
+                    data_to_display={['name', 'amount', 'created_at']}
+                />
+            </div>
+        )
+    }
 
     const handlePathSwitch = new Map([
         ['transaction-history', <TransactionHistory />],
