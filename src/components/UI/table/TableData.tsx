@@ -243,7 +243,9 @@ const TableData = () => {
             )
         })
 
-        const filteredData = [...fetchedData].filter((data) => {
+        const clonedFetchedData = structuredClone(fetchedData)
+
+        const filteredData = clonedFetchedData.filter((data) => {
             return findData.some((item) => item.id === data.id)
         })
 
