@@ -98,8 +98,7 @@ const TableData = () => {
                     }
                 })
 
-            data.forEach((item) => {
-                const searchFrom: Record<string, string> = {}
+           const map_transformed_data =  data.map((item) => {
 
                 transFormed_data.forEach((item) => {
                     console.log(item)
