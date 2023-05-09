@@ -98,7 +98,9 @@ const TableData = () => {
                     }
                 })
 
-           const map_transformed_data =  data.map((item) => {
+           const map_transformed_data = data.map((item) => {
+
+                    const data_to_return: Record<string, string>[] = []
 
                 transFormed_data.forEach((item) => {
                     console.log(item)
@@ -116,6 +118,7 @@ const TableData = () => {
                     }
                 })
 
+                return data_to_return
                 
             })
 
