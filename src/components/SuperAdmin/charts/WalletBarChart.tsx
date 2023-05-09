@@ -76,14 +76,18 @@ export const EstateBarChart = ({
 interface WalletBarChart {
     width?: number,
     height?: number
+    chartData?: {
+        name: string,
+        pv: number
+    }[]
 }
 
-export default function WalletBarChart({width = 600, height = 300}: WalletBarChart) {
+export default function WalletBarChart({width = 600, height = 300, chartData = data}: WalletBarChart) {
     return (
         <BarChart
             width={width}
             height={height}
-            data={data}
+            data={chartData}
             margin={{
                 top: 5,
                 right: 30,

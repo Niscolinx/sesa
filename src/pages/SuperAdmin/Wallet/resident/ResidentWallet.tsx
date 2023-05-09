@@ -65,7 +65,7 @@ const ResidentWallet = () => {
             <div className='grid mt-12 pb-10 rounded-lg  items-baseline gap-10'>
                 <div className='flex justify-between items-center content-start bg-white p-8 rounded-lg'>
                     <OverviewWallet
-                        amount={200_333_500.89}
+                        amount={graph_data.resident_sum}
                         title='Resident Wallet'
                         isWalletScreen
                     />
