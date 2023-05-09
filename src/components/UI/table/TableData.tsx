@@ -102,16 +102,14 @@ const TableData = () => {
 
                     const data_to_return: Record<string, string>[] = []
 
-                transFormed_data.forEach((item) => {
-                    console.log(item)
+                transFormed_data.forEach((items) => {
+                    //console.log(item)
 
-                    const [[key, value]] = Object.entries(item)
+                    const [[key, value]] = Object.entries(items)
 
-                    console.log({ key, item })
-                    // if(key !== value){
-                    //     searchFrom[key] = check_type(item[key])
+                    console.log({ key, value, item })
+                   
 
-                    // }
 
                     return {
                         name: ''
