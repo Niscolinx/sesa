@@ -891,7 +891,6 @@ const SecurityWallet = () => {
                         isWalletScreen
                     />
 
-                  
                     <section>
                         <div className='flex gap-4 justify-between items-center mb-5'>
                             <p className='font-Satoshi-Medium'>Wallet Trend</p>
