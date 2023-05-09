@@ -91,6 +91,14 @@ const ResidentWallet = () => {
             pv: 22_000,
         },
     ]
+
+    interface ChartData {
+        name: string
+        pv: number
+    }
+
+    const chartData = [] satisfies ChartData[]
+
     return (
         <div>
             <div className='grid mt-12 pb-10 rounded-lg  items-baseline gap-10'>
