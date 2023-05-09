@@ -3,6 +3,7 @@ import { GrUp, GrDown } from 'react-icons/gr'
 import { IoMdClose } from 'react-icons/io'
 import { OverviewWallet } from '../../../../components/SuperAdmin/overview/OverviewWallets'
 import useFetchData from '../../../../utils/useFetchData'
+import WalletBarChart from '../../../../components/SuperAdmin/charts/WalletBarChart'
 
 function CommissionDialog() {
     const sendToArr: string[] = ['Howuja', 'Oluwaseun', 'Wojusun', 'Petherkwa']
@@ -70,6 +71,7 @@ function CommissionDialog() {
     if (graph_loading) {
         return <p className='p-8'>Loading...</p>
     }
+    
     return (
         <>
             <dialog className='dialog' ref={dialogRef}>

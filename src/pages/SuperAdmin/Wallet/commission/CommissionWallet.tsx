@@ -70,9 +70,7 @@ const CommissionWallet = () => {
 
    
 
-    if (graph_loading) {
-        return <p className='p-8'>Loading</p>
-    }
+  
 
  
 
