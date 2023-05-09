@@ -855,8 +855,8 @@ const SecurityWallet = () => {
     ]) satisfies Map<Path, JSX.Element>
 
     const { data: graph_data, isLoading: graph_loading } = useFetchData({
-        url: '/admin/get/wallet/resident',
-        name: 'resident_wallet_graph',
+        url: '/admin/get/wallet/security_company',
+        name: 'company_wallet_graph',
     })
 
     if (graph_loading) {
