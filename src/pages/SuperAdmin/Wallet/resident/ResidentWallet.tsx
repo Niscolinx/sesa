@@ -39,8 +39,21 @@ const ResidentWallet = () => {
                     title={'history'}
                     isStrictAction
                     actions={['view details']}
-                    THeader={['resident name', 'amount', 'date', 'actions']}
-                    data_to_display={['name', 'amount', 'created_at']}
+                    THeader={[
+                        'resident name',
+                        'amount',
+                        'transaction_ID',
+                        'type',
+                        'date',
+                        'actions',
+                    ]}
+                    data_to_display={[
+                        'name',
+                        'amount',
+                        'tran_id',
+                        'type',
+                        'created_at',
+                    ]}
                 />
             </div>
         )

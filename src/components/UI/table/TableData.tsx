@@ -238,6 +238,7 @@ const TableData = () => {
         setSearch(value)
 
         const findData = extractedData.filter((item) => {
+            console.log(value, item,filterBy, item[filterBy], check_type(item[check_type(filterBy)]))
             return check_type(item[check_type(filterBy)]).includes(
                 check_type(value)
             )
