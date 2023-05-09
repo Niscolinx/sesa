@@ -121,14 +121,14 @@ const TableData = () => {
         if (get_data_response) {
             const res: any[] =
                 get_data_response.data.data || get_data_response.data
-            setFetchedData(res)
-            transformData_handler(res)
+               const updatedData =  transformData_handler(res)
+            setFetchedData(updatedData)
         }
 
         if (isDataProvided && providedData) {
-            setFetchedData(providedData)
-
-            transformData_handler(providedData)
+          
+              const updatedData = transformData_handler(providedData)
+              setFetchedData(updatedData)
         }
     }, [get_data_response, isDataProvided, providedData])
 
