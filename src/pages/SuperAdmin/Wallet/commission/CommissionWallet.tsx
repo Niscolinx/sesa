@@ -10,11 +10,9 @@ import WalletBarChart from '../../../../components/SuperAdmin/charts/WalletBarCh
 import { OverviewWallet } from '../../../../components/SuperAdmin/overview/OverviewWallets'
 import Table from '../../../../components/UI/table/Table'
 import useFetchData from '../../../../utils/useFetchData'
-
+import CommissionDialog from './CommissionDialog'
 
 const CommissionWallet = () => {
-  
-
     type Path = 'resident-balance' | 'transaction-history'
 
     const paths: Path[] = ['resident-balance', 'transaction-history']
@@ -103,13 +101,10 @@ const CommissionWallet = () => {
         <div>
             <ToastContainer />
 
-            
             <div className='grid mt-12 pb-10 rounded-lg  items-baseline gap-10'>
                 <div className='grid grid-cols-2 justify-between items-center content-start bg-white p-8 rounded-lg'>
-                    
-
-                        <WalletBarChart />
-                   
+                    <CommissionDialog />
+                    <WalletBarChart />
                 </div>
 
                 <div className='grid gap-10'>
