@@ -89,6 +89,8 @@ const TableData = () => {
     useEffect(() => {
         const filterHandler = (data: any[]) => {
             const store_data: Record<string, string>[] = []
+
+            data_to_display.map
             data.forEach((item) => {
                 const searchFrom: Record<string,string> = {}
 
@@ -105,8 +107,10 @@ const TableData = () => {
                     searchFrom[field] = item[key]
                 })
 
+                
                 store_data.push({ ...searchFrom, ...item })
             })
+            console.log(searchFields.keys())
 
             console.log({store_data, THeader, data_to_display})
 
