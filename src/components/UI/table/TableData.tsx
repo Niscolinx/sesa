@@ -47,7 +47,7 @@ const TableData = () => {
         index: null,
     })
     const [search, setSearch] = useState('')
-    const [searchFields, setSearchFields] = useState<string[]>([])
+    const [searchFields, setSearchFields] = useState<Record<string, string>[]>([])
     const [extractedData, setExtractedData] = useState<any[]>([])
 
 
@@ -66,7 +66,9 @@ const TableData = () => {
                 item.toLowerCase() !== 'status'
         )
 
-        setSearchFields(fields)
+        setSearchFields({
+             fields
+        })
         setFilterBy(fields[0])
     }, [])
 
