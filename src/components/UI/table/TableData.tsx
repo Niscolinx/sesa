@@ -243,7 +243,7 @@ const TableData = () => {
             )
         })
 
-        let res: Record<string, string | number>[] = []
+        let res: any[] = []
         if (providedData) {
             res = providedData
         } else {
