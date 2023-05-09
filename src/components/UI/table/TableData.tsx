@@ -98,8 +98,8 @@ const TableData = () => {
             data.forEach((item) => {
                 const searchFrom: Record<string,string> = {}
 
-                Object.entries(searchFields).forEach((field) => {
-                    console.log({field})
+                Object.entries(searchFields).forEach(([key, value]) => {
+                   
                     let key = field
                     if (check_type(field).includes('joined')) {
                         key = 'created_at'
