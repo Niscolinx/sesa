@@ -19,9 +19,9 @@ const EstateWallet = () => {
                 <Table
                     is_dropdown={false}
                     fetch_url={'/admin/get/wallet/balance/estate'}
-                    title={'estate_balance'}
+                    title={'balance'}
                     THeader={['estate name', 'amount']}
-                    data_to_display={['name', 'balance']}
+                    data_to_display={['estate_name', 'balance']}
                 />
             </div>
         )

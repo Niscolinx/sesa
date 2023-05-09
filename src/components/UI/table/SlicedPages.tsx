@@ -47,9 +47,7 @@ const SlicedPages: FC<SlicedPages> = ({
 
         const dataToLoop = nested ? restData.user : restData
 
-
         Object.entries(dataToLoop).map(([key, value]: any) => {
-    
             if (data_to_display.includes(key)) {
                 if (key === data_to_display[0]) {
                     return details.set(key, {
@@ -70,7 +68,6 @@ const SlicedPages: FC<SlicedPages> = ({
                     return details.set(key, value)
                 }
             }
-           
         })
 
         const sorted: any[] = []
@@ -87,7 +84,6 @@ const SlicedPages: FC<SlicedPages> = ({
                     }
                 }
         })
-        
 
         const isAction = sorted.some(({ key }: any) => key === 'actions')
         const findStatus = sorted.find(({ key }: any) => key === 'status')
@@ -98,7 +94,6 @@ const SlicedPages: FC<SlicedPages> = ({
                 value: findStatus?.value || 0,
             })
         }
-
 
         return (
             <>
@@ -186,7 +181,11 @@ const SlicedPages: FC<SlicedPages> = ({
                     if (key.toLowerCase() === 'rating') {
                         return <StarRating starsNum={value} key={idx} />
                     }
-                    if (['price', 'amount', 'balance'].includes(key.toLowerCase())) {
+                    if (
+                        ['price', 'amount', 'balance'].includes(
+                            key.toLowerCase()
+                        )
+                    ) {
                         return (
                             <div key={idx} className='flex items-center'>
                                 <img
@@ -212,9 +211,7 @@ const SlicedPages: FC<SlicedPages> = ({
                     className={`grid justify-between border-b grid-cols-${THeader.length} items-center gap-8 text-[1.6rem] capitalize py-4 table__ellipsis`}
                     key={`${idx}`}
                 >
-                    {/* <TableItem data={data} /> */}
-
-                    
+                    <TableItem data={data} />
                 </div>
             ))}
         </>
