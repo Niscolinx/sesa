@@ -100,24 +100,24 @@ const TableData = () => {
             )
         
 
-            // data.forEach((item) => {
-            //     const searchFrom: Record<string, string> = {}
+            data.forEach((item) => {
+                const searchFrom: Record<string, string> = {}
 
-            //     searchFields.forEach((field) => {
-            //         console.log({ field })
-            //         let key = field
-            //         if (check_type(field).includes('joined')) {
-            //             key = 'created_at'
-            //         }
-            //         if (check_type(field).includes('phone')) {
-            //             key = 'phone'
-            //         }
+                searchFields.forEach((field) => {
+                    console.log({ field })
+                    let key = field
+                    if (check_type(field).includes('joined')) {
+                        key = 'created_at'
+                    }
+                    if (check_type(field).includes('phone')) {
+                        key = 'phone'
+                    }
 
-            //         searchFrom[field] = item[key]
-            //     })
+                    searchFrom[field] = item[key]
+                })
 
-            //     store_data.push({ ...searchFrom, ...item })
-            // })
+                //store_data.push({ ...searchFrom, ...item })
+            })
 
             console.log({ transFormed_data, THeader, data_to_display })
 
