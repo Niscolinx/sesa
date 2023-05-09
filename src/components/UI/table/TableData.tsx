@@ -243,14 +243,16 @@ const TableData = () => {
             )
         })
 
-
-        const res: any[] = get_data_response.data.data || get_data_response.data
-
+        let res: any[] = []
+        if (providedData) {
+            res = providedData
+        } else {
+            res = get_data_response.data.data || get_data_response.data
+        }
 
         const filteredData = res.filter((data) => {
             return findData.some((item) => item.id === data.id)
         })
-
 
         setFetchedData(filteredData)
     }
