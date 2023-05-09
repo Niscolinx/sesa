@@ -1,15 +1,6 @@
-import React, { FormEvent, useRef } from 'react'
-import { ChangeEvent, useEffect, useState } from 'react'
-import { CgSpinnerTwo } from 'react-icons/cg'
-import { GrUp, GrDown } from 'react-icons/gr'
-import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
-import { useNavigate } from 'react-router'
+import { useState } from 'react'
 import { ToastContainer, toast } from 'react-toastify'
-import { IoMdClose } from 'react-icons/io'
-import WalletBarChart from '../../../../components/SuperAdmin/charts/WalletBarChart'
-import { OverviewWallet } from '../../../../components/SuperAdmin/overview/OverviewWallets'
 import Table from '../../../../components/UI/table/Table'
-import useFetchData from '../../../../utils/useFetchData'
 import CommissionDialog from './CommissionDialog'
 
 const CommissionWallet = () => {
