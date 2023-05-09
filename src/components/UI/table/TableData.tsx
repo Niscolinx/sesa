@@ -51,8 +51,8 @@ const TableData = () => {
     const [extractedData, setExtractedData] = useState<any[]>([])
 
     const check_type = (toCheck: any) => {
-        if (typeof toCheck === 'string') {
-            return toCheck.toLowerCase()
+        if (typeof toCheck === 'string' && toCheck.toLowerCase() === undefined) {
+            return toCheck.toLowerCase() 
         }
 
         return toCheck
