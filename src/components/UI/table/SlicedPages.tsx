@@ -186,7 +186,7 @@ const SlicedPages: FC<SlicedPages> = ({
                     if (key.toLowerCase() === 'rating') {
                         return <StarRating starsNum={value} key={idx} />
                     }
-                    if (['price', 'amount'].includes(key.toLowerCase())) {
+                    if (['price', 'amount', 'balance'].includes(key.toLowerCase())) {
                         return (
                             <div key={idx} className='flex items-center'>
                                 <img

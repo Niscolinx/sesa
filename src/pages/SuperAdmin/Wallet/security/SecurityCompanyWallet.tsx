@@ -40,6 +40,7 @@ const SecurityWallet = () => {
                     THeader={[
                         'company name',
                         'amount',
+                        'balance',
                         'transaction_ID',
                         'type',
                         'date',
@@ -48,6 +49,7 @@ const SecurityWallet = () => {
                     data_to_display={[
                         'name',
                         'amount',
+                        'balance',
                         'tran_id',
                         'type',
                         'created_at',
@@ -99,6 +101,9 @@ const SecurityWallet = () => {
                         amount={graph_data.security_comp_sum}
                         title='SecurityCompany Wallet'
                         isWalletScreen
+                        bgImgUri='/icons/overview/card/bgS.svg'
+                        lefIconUri='/icons/overview/card/leftS.svg'
+                        bgColor='bg-[#6AB95F]'
                     />
 
                     <section>
