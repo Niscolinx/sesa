@@ -103,18 +103,11 @@ const TableData = () => {
             data.forEach((item) => {
                 const searchFrom: Record<string, string> = {}
 
-                searchFields.forEach((field) => {
-                    console.log({ field })
-                    let key = field
-                    if (check_type(field).includes('joined')) {
-                        key = 'created_at'
-                    }
-                    if (check_type(field).includes('phone')) {
-                        key = 'phone'
-                    }
-
-                    searchFrom[field] = item[key]
+                Object.entries(transFormed_data).forEach(([key, value]) => {
+                    
                 })
+
+                console.log({item})
 
                 //store_data.push({ ...searchFrom, ...item })
             })
