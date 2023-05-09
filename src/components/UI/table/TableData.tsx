@@ -90,7 +90,7 @@ const TableData = () => {
             const store_data: Record<string, string>[] = data_to_display.map(
                 (data, i) => {
                     if (data === 'image') {
-                        return undefined
+                        return
                     }
                  
 
@@ -100,25 +100,25 @@ const TableData = () => {
                 }
             )
 
-            data.forEach((item) => {
-                const searchFrom: Record<string, string> = {}
 
-                searchFields.forEach((field) => {
-                    console.log({ field })
-                    let key = field
-                    if (check_type(field).includes('joined')) {
-                        key = 'created_at'
-                    }
-                    if (check_type(field).includes('phone')) {
-                        key = 'phone'
-                    }
+            // data.forEach((item) => {
+            //     const searchFrom: Record<string, string> = {}
 
-                    searchFrom[field] = item[key]
-                })
+            //     searchFields.forEach((field) => {
+            //         console.log({ field })
+            //         let key = field
+            //         if (check_type(field).includes('joined')) {
+            //             key = 'created_at'
+            //         }
+            //         if (check_type(field).includes('phone')) {
+            //             key = 'phone'
+            //         }
 
-                store_data.push({ ...searchFrom, ...item })
-            })
-            console.log(searchFields.keys())
+            //         searchFrom[field] = item[key]
+            //     })
+
+            //     store_data.push({ ...searchFrom, ...item })
+            // })
 
             console.log({ store_data, THeader, data_to_display })
 
