@@ -26,6 +26,7 @@ const TableData = () => {
         navigate,
         axiosInstance,
         filterBy,
+        data_to_display,
         setFilterBy,
         fetchedData,
         setFetchedData,
@@ -90,6 +91,7 @@ const TableData = () => {
             const store_data: Record<string, string>[] = []
             data.forEach((item) => {
                 const searchFrom: Record<string,string> = {}
+
                 searchFields.forEach((field) => {
                     console.log({field})
                     let key = field

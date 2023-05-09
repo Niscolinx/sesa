@@ -24,7 +24,6 @@ const ResidentWallet = () => {
                     is_dropdown={false}
                     fetch_url={'/admin/get/wallet/balance/resident'}
                     title={'balance'}
-                    
                     THeader={['resident name', 'amount']}
                     data_to_display={['name', 'balance']}
                 />
