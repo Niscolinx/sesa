@@ -88,7 +88,7 @@ const SlicedPages: FC<SlicedPages> = ({
                 }
         })
 
-        console.log({data_to_display})
+        console.log({data_to_display, sorted, details})
 
         const isAction = sorted.some(({ key }: any) => key === 'actions')
         const findStatus = sorted.find(({ key }: any) => key === 'status')
