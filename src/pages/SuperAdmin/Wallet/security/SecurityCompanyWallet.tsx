@@ -886,10 +886,12 @@ const SecurityWallet = () => {
             <div className='grid mt-12 pb-10 rounded-lg  items-baseline gap-10'>
                 <div className='flex justify-between items-center content-start bg-white p-8 rounded-lg'>
                     <OverviewWallet
-                        amount={graph_data.resident_sum}
-                        title='Resident Wallet'
+                        amount={graph_data.security_comp_sum}
+                        title='SecurityCompany Wallet'
                         isWalletScreen
                     />
+
+                  
                     <section>
                         <div className='flex gap-4 justify-between items-center mb-5'>
                             <p className='font-Satoshi-Medium'>Wallet Trend</p>
