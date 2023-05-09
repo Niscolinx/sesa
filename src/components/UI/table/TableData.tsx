@@ -86,7 +86,7 @@ const TableData = () => {
     }) as any
 
     useEffect(() => {
-        const filterHandler = (data: any[]) => {
+        const filterHandler = (data: Record<string, string>[]) => {
             const filterOut_image = data_to_display.filter(
                 (item) => item !== 'image'
             )
@@ -99,7 +99,10 @@ const TableData = () => {
 
             const map_transformed_data: Record<string, string>[] = []
 
-       
+
+            data.forEach((item) => {
+                console.log({item})
+            })
 
             console.log({ transformed_data, map_transformed_data })
 
