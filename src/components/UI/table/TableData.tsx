@@ -88,9 +88,17 @@ const TableData = () => {
 
     useEffect(() => {
         const filterHandler = (data: any[]) => {
-            const store_data: Record<string, string>[] = []
+            
 
-            data_to_display.map
+           const store_data: Record<string, string>[]  =  data_to_display.map((data, i) => {
+
+
+            return {
+                name:'s'
+            }
+           })
+
+
             data.forEach((item) => {
                 const searchFrom: Record<string,string> = {}
 
