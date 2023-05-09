@@ -121,11 +121,13 @@ const TableData = () => {
                     console.log({item})
                     console.log(item[obj.key])
 
-                    
-                    temp_store.push({
-                        [obj.value]: item[obj.key]
-                    })
-                
+                    if(item[obj.key]){
+
+                        temp_store.push({
+                            [obj.value]: item[obj.key]
+                        })
+                        
+                    }
                 })
 
                 console.log({temp_store}, item)
