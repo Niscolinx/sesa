@@ -102,10 +102,9 @@ const ResidentWallet = () => {
         const chartData: ChartData[] = [] 
 
         for(let [key, value] in data){
-            chartData.push({
-                name: key,
-                pv: value
-            })
+            
+            console.log({value, key})
+        
         
         }
 
