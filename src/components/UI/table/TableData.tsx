@@ -62,8 +62,7 @@ const TableData = () => {
     useEffect(() => {
         const fields = [...THeader].filter(
             (item) =>
-                item.toLowerCase() !== 'actions' &&
-                item.toLowerCase() !== 'status'
+                item.toLowerCase() !== 'actions'
         )
 
         setSearchFields(fields)
@@ -101,7 +100,7 @@ const TableData = () => {
                         key = 'phone'
                     }
 
-                    //searchFrom[field] = item[key]
+                    searchFrom[field] = item[key]
                 })
 
                 store_data.push({ ...searchFrom, ...item })
