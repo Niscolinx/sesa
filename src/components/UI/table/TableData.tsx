@@ -105,7 +105,9 @@ const TableData = () => {
 
                 transFormed_data.forEach((item) => {
 
-                    const [key, value] = Object.entries(item)
+                    console.log(item)
+
+                    const key = Object.entries(item)
              
 
                         console.log({key})
