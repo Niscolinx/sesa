@@ -86,11 +86,7 @@ const TableData = () => {
     }) as any
 
     useEffect(() => {
-        console.log(fetchedData)
-    }, [fetchedData])
-    
-    useEffect(() => {
-        const filterHandler = (data: Record<string, string>[]) => {
+        const transformData_handler = (data: Record<string, string>[]) => {
             const filterOut_image = data_to_display.filter(
                 (item) => item !== 'image'
             )
@@ -106,34 +102,33 @@ const TableData = () => {
             data.forEach((item) => {
                 const temp_store: Record<string, string> = {}
 
-                 Object.keys(item).filter((key) => {
+                Object.keys(item).filter((key) => {
                     if (key in transformed_data) {
-                        return temp_store[transformed_data[key]] = item[key]
+                        return (temp_store[transformed_data[key]] = item[key])
                     }
 
                     temp_store[key] = item[key]
                 })
 
-
                 map_transformed_data.push(temp_store)
-
             })
 
-
             setExtractedData(map_transformed_data)
+
+            return map_transformed_data
         }
 
         if (get_data_response) {
             const res: any[] =
                 get_data_response.data.data || get_data_response.data
             setFetchedData(res)
-            filterHandler(res)
+            transformData_handler(res)
         }
 
         if (isDataProvided && providedData) {
             setFetchedData(providedData)
 
-            filterHandler(providedData)
+            transformData_handler(providedData)
         }
     }, [get_data_response, isDataProvided, providedData])
 
@@ -243,7 +238,6 @@ const TableData = () => {
         const { value } = e.target
         setSearch(value)
 
-
         const foundData = extractedData.filter((item) => {
             console.log({ item, value }, check_type(item[check_type(filterBy)]))
             return check_type(item[check_type(filterBy)]).includes(
@@ -251,12 +245,10 @@ const TableData = () => {
             )
         })
 
-        console.log({foundData})
+        console.log({ foundData })
 
         setFetchedData(foundData)
     }
-
-    
 
     return (
         <div>

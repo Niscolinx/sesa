@@ -34,7 +34,6 @@ const SlicedPages: FC<SlicedPages> = ({
     const page = pages[index]
 
     const TableItem = ({ data }: any) => {
-        console.log({data})
         if (!data) {
             return null
         }
@@ -68,13 +67,12 @@ const SlicedPages: FC<SlicedPages> = ({
                         image: value,
                     })
                 } else {
-                     details.set(key, value)
-                     console.log('====================', details)
+                    return details.set(key, value)
                 }
             }
+           
         })
 
-        console.log({ details})
         const sorted: any[] = []
         data_to_display.map((item: string, i: number) => {
             if (item)
@@ -102,7 +100,6 @@ const SlicedPages: FC<SlicedPages> = ({
         }
 
 
-        console.log({sorted})
         return (
             <>
                 {sorted.map(({ key, value }: any, idx: number) => {
