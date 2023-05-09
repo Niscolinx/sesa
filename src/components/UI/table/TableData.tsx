@@ -105,7 +105,7 @@ const TableData = () => {
 
                     const [[key, value]] = Object.entries(item)
 
-                    console.log({ key })
+                    console.log({ key, item })
                     // if(key !== value){
                     //     searchFrom[key] = check_type(item[key])
 
