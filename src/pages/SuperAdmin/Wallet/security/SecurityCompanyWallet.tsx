@@ -94,7 +94,7 @@ const SecurityWallet = () => {
     const chartData = transFormFetchedGraphData(graph_data.graph)
 
     return (
-        <div>
+      
             <div className='grid mt-12 pb-10 rounded-lg  items-baseline gap-10'>
                 <div className='flex justify-between items-center content-start bg-white p-8 rounded-lg'>
                     <OverviewWallet
@@ -145,7 +145,7 @@ const SecurityWallet = () => {
                     </div>
                 </div>
             </div>
-        </div>
+   
     )
 }
 
