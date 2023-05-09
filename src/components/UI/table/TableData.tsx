@@ -122,8 +122,8 @@ const TableData = () => {
                     console.log(item[obj.key])
 
                     if(item[obj.key]){              
-                            temp_store[obj.value] =  item[obj.key]
-                              
+                         temp_store[obj.value] =  item[obj.key]    
+                         break     
                     }
                 })
 
@@ -132,7 +132,8 @@ const TableData = () => {
                 map_transformed_data.push(
                     
                         
-                        temp_store
+                        temp_store,
+                        item
                     
                 )
 
