@@ -93,7 +93,6 @@ const TableData = () => {
                 const searchFrom: Record<string,string> = {}
 
                 searchFields.forEach((field) => {
-                    console.log({field})
                     let key = field
                     if (check_type(field).includes('joined')) {
                         key = 'created_at'
@@ -107,6 +106,8 @@ const TableData = () => {
 
                 store_data.push({ ...searchFrom, ...item })
             })
+
+            console.log({store_data})
 
             setExtractedData(store_data)
         }
