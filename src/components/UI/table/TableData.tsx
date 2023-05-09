@@ -90,10 +90,9 @@ const TableData = () => {
             const store_data: Record<string, string>[] = data_to_display.map(
                 (data, i) => {
                     if (data === 'image') {
-                        console.log("image")
-                        return
+                        return undefined
                     }
-                    console.log("not image")
+                 
 
                     return {
                         name: 's',
