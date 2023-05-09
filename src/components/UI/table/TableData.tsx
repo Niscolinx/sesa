@@ -101,24 +101,16 @@ const TableData = () => {
 
             data.forEach((item) => {
                 console.log({ item })
-                const temp_store:Record<string, string> = {}
+                const temp_store: Record<string, string> = {}
 
-                const matchedKey = Object.keys(item).filter(
-                    (key) => {
-                        
-                        if(key in transformed_data){
-
-                           
+                 Object.keys(item).filter((key) => {
+                    if (key in transformed_data) {
                         temp_store[transformed_data[key]] = item[key]
                     }
-                        
-                    
-                    }
-                )
+                })
 
-                console.log(matchedKey)
+                console.log(temp_store)
 
-                
             })
 
             console.log({ transformed_data, map_transformed_data })
