@@ -90,11 +90,15 @@ const TableData = () => {
             const store_data: Record<string, string>[] = []
 
             for (let i = 0; i < data_to_display.length; i++) {
-                if (data_to_display[i] !== 'image') {
-                    store_data.push({
-                        [data_to_display[i]]: THeader[i],
-                    })
+                if (data_to_display[i] === 'image') {
+                    continue
                 }
+
+                console.log(data_to_display[i])
+
+                store_data.push({
+                    [data_to_display[i]]: THeader[i],
+                })
             }
 
             // data.forEach((item) => {
