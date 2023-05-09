@@ -99,32 +99,7 @@ const TableData = () => {
 
             const map_transformed_data: Record<string, string>[] = []
 
-            //    const data_to_return: Record<string, string>[] = []
-
-            //     transFormed_data.forEach((items) => {
-            //         //console.log(item)
-
-            //         const {key, value} = items
-
-            //         console.log({ key, value, item })
-
-            //         return {
-            //             name: ''
-            //         }
-
-            for (let item of data) {
-                let temp_store: Record<string, string> = {}
-                console.log('the item 0', item)
-                // transformed_data.forEach((obj) => {
-                //     if (item[obj.key]) {
-                //         return (temp_store[obj.value] = item[obj.key])
-                //     }
-                // })
-
-                console.log('the item 1', item)
-
-                map_transformed_data.push(temp_store, item)
-            }
+       
 
             console.log({ transformed_data, map_transformed_data })
 
