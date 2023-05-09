@@ -52,9 +52,7 @@ const TableData = () => {
     useEffect(() => {
         const fields = [...THeader].filter(
             (item) =>
-                item.toLowerCase() !== 'actions' &&
-                item.toLowerCase() !== 'status'
-        )
+                item.toLowerCase() !== 'actions'        )
 
         setSearchFields(fields)
         setFilterBy(fields[0])
@@ -220,6 +218,7 @@ const TableData = () => {
         setSearch(value)
 
         const foundData = extractedData.filter((item) => {
+            console.log({item, value}, item[filterBy.toLowerCase()])
             return item[filterBy.toLowerCase()]
                 .toLowerCase()
                 .includes(value.toLowerCase())
