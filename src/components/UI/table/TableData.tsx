@@ -123,7 +123,7 @@ const TableData = () => {
 
                     if(item[obj.key]){
 
-                        temp_store.push({
+                        return temp_store.push({
                             [obj.value]: item[obj.key]
                         })
                         
