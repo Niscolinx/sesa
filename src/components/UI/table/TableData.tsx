@@ -132,9 +132,16 @@ const TableData = () => {
 
                 console.log({temp_store}, item)
 
+                map_transformed_data.push(
+                    {
+                        ...temp_store,
+                        ...item
+                    }
+                )
+
             }
             
-           // console.log({ transformed_data, map_transformed_data })
+         console.log({ transformed_data, map_transformed_data })
 
             setExtractedData(map_transformed_data)
         }
