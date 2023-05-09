@@ -66,9 +66,13 @@ const TableData = () => {
                 item.toLowerCase() !== 'status'
         )
 
-        setSearchFields({
-             fields
-        })
+        fields.forEach((field) => 
+            searchFields.push({
+                key: field,
+                value: ''
+            }
+        ))
+        
         setFilterBy(fields[0])
     }, [])
 
@@ -94,7 +98,7 @@ const TableData = () => {
             data.forEach((item) => {
                 const searchFrom: Record<string,string> = {}
 
-                searchFields.forEach((field) => {
+                Object.entries(searchFields).forEach((field) => {
                     console.log({field})
                     let key = field
                     if (check_type(field).includes('joined')) {
