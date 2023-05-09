@@ -121,14 +121,14 @@ const TableData = () => {
         if (get_data_response) {
             const res: any[] =
                 get_data_response.data.data || get_data_response.data
-               const updatedData =  transformData_handler(res)
-            setFetchedData(updatedData)
+                transformData_handler(res)
+            setFetchedData(res)
         }
 
         if (isDataProvided && providedData) {
           
-              const updatedData = transformData_handler(providedData)
-              setFetchedData(updatedData)
+           transformData_handler(providedData)
+              setFetchedData(providedData)
         }
     }, [get_data_response, isDataProvided, providedData])
 
@@ -238,16 +238,19 @@ const TableData = () => {
         const { value } = e.target
         setSearch(value)
 
-        const foundData = extractedData.filter((item) => {
-            console.log({ item, value }, check_type(item[check_type(filterBy)]))
+        const findData = extractedData.filter((item) => {
             return check_type(item[check_type(filterBy)]).includes(
                 check_type(value)
             )
         })
 
-        console.log({ foundData })
+        const filteredData = fetchedData.filter((data) => {
+            return findData.some((item) => item.id === data.id)
+        })
 
-        setFetchedData(foundData)
+        console.log({ filteredData, fetchedData })
+
+         setFetchedData(filteredData)
     }
 
     return (
