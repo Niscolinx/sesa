@@ -87,9 +87,9 @@ const TableData = () => {
 
     useEffect(() => {
         const filterHandler = (data: any[]) => {
-            const store_data: any[] = []
+            const store_data: Record<string, string>[] = []
             data.forEach((item) => {
-                const searchFrom: any = {}
+                const searchFrom: Record<string,string> = {}
                 searchFields.forEach((field) => {
                     console.log({field})
                     let key = field
