@@ -103,9 +103,13 @@ const TableData = () => {
             data.forEach((item) => {
                 const searchFrom: Record<string, string> = {}
 
-                Object.entries(transFormed_data).forEach(([key, value]) => {
+                // transFormed_data.forEach(([key, value]) => {
+                //         console.log({key, value})
+                //     if(key !== value){
+                //         searchFrom[key] = check_type(item[key])
                     
-                })
+                //     }
+                // })
 
                 console.log({item})
 
