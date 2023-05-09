@@ -68,45 +68,21 @@ const CommissionWallet = () => {
         ['balance', <ResidentBalance />],
     ]) satisfies Map<Path, JSX.Element>
 
-    const { data: graph_data, isLoading: graph_loading } = useFetchData({
-        url: '/admin/get/wallet/commission',
-        name: 'commission_wallet_graph',
-    })
+   
 
     if (graph_loading) {
         return <p className='p-8'>Loading</p>
     }
 
-    const transFormFetchedGraphData = (data: Record<string, number>) => {
-        interface ChartData {
-            name: string
-            pv: number
-        }
-
-        const chartData: ChartData[] = []
-
-        for (let [key, value] of Object.entries(data)) {
-            chartData.push({
-                name: key.slice(0, 3),
-                pv: value,
-            })
-        }
-
-        return chartData
-    }
-
-    const chartData = transFormFetchedGraphData(graph_data.graph)
+ 
 
     return (
         <div>
             <ToastContainer />
 
             <div className='grid mt-12 pb-10 rounded-lg  items-baseline gap-10'>
-                <div className='grid grid-cols-2 justify-between items-center content-start bg-white p-8 rounded-lg'>
-                    <CommissionDialog />
-                    <WalletBarChart chartData={chartData} />
-                </div>
-
+               
+        <CommissionDialog/>
                 <div className='grid gap-10'>
                     <div className='estateDetail__radioBox'>
                         {paths.map((path) => (

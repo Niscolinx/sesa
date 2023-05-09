@@ -2,6 +2,7 @@ import React, { FormEvent, useRef, useState } from 'react'
 import { GrUp, GrDown } from 'react-icons/gr'
 import { IoMdClose } from 'react-icons/io'
 import { OverviewWallet } from '../../../../components/SuperAdmin/overview/OverviewWallets'
+import useFetchData from '../../../../utils/useFetchData'
 
 function CommissionDialog() {
     const sendToArr: string[] = ['Howuja', 'Oluwaseun', 'Wojusun', 'Petherkwa']
@@ -9,6 +10,11 @@ function CommissionDialog() {
 
     const [sendTo, setSendTo] = useState<string>('')
     const [sendToMenu, setSendToMenu] = useState(false)
+
+    const { data: graph_data, isLoading: graph_loading } = useFetchData({
+        url: '/admin/get/wallet/commission',
+        name: 'commission_wallet_graph',
+    })
 
     const sendToMenuToggle = () => setSendToMenu(!sendToMenu)
 
@@ -39,6 +45,30 @@ function CommissionDialog() {
 
     const handleFormSubmit = (e: FormEvent) => {
         e.preventDefault()
+    }
+
+    const transFormFetchedGraphData = (data: Record<string, number>) => {
+        interface ChartData {
+            name: string
+            pv: number
+        }
+
+        const chartData: ChartData[] = []
+
+        for (let [key, value] of Object.entries(data)) {
+            chartData.push({
+                name: key.slice(0, 3),
+                pv: value,
+            })
+        }
+
+        return chartData
+    }
+
+    const chartData = transFormFetchedGraphData(graph_data.graph)
+
+    if (graph_loading) {
+        return <p className='p-8'>Loading...</p>
     }
     return (
         <>
@@ -208,31 +238,34 @@ function CommissionDialog() {
                 </section>
             </dialog>
 
-            <div className='grid self-stretch justify-start'>
-                <div className='grid items-end'>
-                    <OverviewWallet
-                        amount={4_000_832}
-                        title={'Commission Wallet'}
-                        isWalletScreen
-                        bgImgUri='/icons/overview/card/bgC.svg'
-                        lefIconUri='/icons/overview/card/leftC.svg'
-                        bgColor='bg-[#333333]'
-                    />
+            <div className='grid grid-cols-2 justify-between items-center content-start bg-white p-8 rounded-lg'>
+                <div className='grid self-stretch justify-start'>
+                    <div className='grid items-end'>
+                        <OverviewWallet
+                            amount={4_000_832}
+                            title={'Commission Wallet'}
+                            isWalletScreen
+                            bgImgUri='/icons/overview/card/bgC.svg'
+                            lefIconUri='/icons/overview/card/leftC.svg'
+                            bgColor='bg-[#333333]'
+                        />
+                    </div>
+                    <div className='flex justify-center mt-auto gap-4'>
+                        <button
+                            className='btn text-white bg-[#0556E5] border rounded-lg w-[15rem]'
+                            onClick={() => handleOpen('withdraw')}
+                        >
+                            Withdraw
+                        </button>
+                        <button
+                            className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
+                            onClick={() => handleOpen('request')}
+                        >
+                            Request
+                        </button>
+                    </div>
                 </div>
-                <div className='flex justify-center mt-auto gap-4'>
-                    <button
-                        className='btn text-white bg-[#0556E5] border rounded-lg w-[15rem]'
-                        onClick={() => handleOpen('withdraw')}
-                    >
-                        Withdraw
-                    </button>
-                    <button
-                        className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
-                        onClick={() => handleOpen('request')}
-                    >
-                        Request
-                    </button>
-                </div>
+                <WalletBarChart chartData={chartData} />
             </div>
         </>
     )
