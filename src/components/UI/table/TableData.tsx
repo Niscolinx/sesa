@@ -95,31 +95,11 @@ const TableData = () => {
                 filterOut_image.map((item, i) => {
                     return {
                         key: item,
-                        value: THeader[i]
+                        value: THeader[i],
                     }
                 })
 
-           const map_transformed_data = data.map((item) => {
-
-                    const data_to_return: Record<string, string>[] = []
-
-                transFormed_data.forEach((items) => {
-                    //console.log(item)
-
-                    const {key, value} = items
-
-                    console.log({ key, value, item })
-                   
-
-
-                    return {
-                        name: ''
-                    }
-                })
-
-                return data_to_return
-                
-            })
+            const map_transformed_data: Record<string, string>[] = []
 
             console.log({ transFormed_data, THeader, data_to_display })
 
