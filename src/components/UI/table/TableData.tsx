@@ -47,7 +47,7 @@ const TableData = () => {
         index: null,
     })
     const [search, setSearch] = useState('')
-    const [searchFields, setSearchFields] = useState<Record<string, string>[]>([])
+    const [searchFields, setSearchFields] = useState<string[]>([])
     const [extractedData, setExtractedData] = useState<any[]>([])
 
 
@@ -66,13 +66,7 @@ const TableData = () => {
                 item.toLowerCase() !== 'status'
         )
 
-        fields.forEach((field) => 
-            searchFields.push({
-                key: field,
-                value: ''
-            }
-        ))
-        
+        setSearchFields(fields)
         setFilterBy(fields[0])
     }, [])
 
@@ -98,8 +92,8 @@ const TableData = () => {
             data.forEach((item) => {
                 const searchFrom: Record<string,string> = {}
 
-                Object.entries(searchFields).forEach(([key, value]) => {
-                   
+                searchFields.forEach((field) => {
+                    console.log({field})
                     let key = field
                     if (check_type(field).includes('joined')) {
                         key = 'created_at'
