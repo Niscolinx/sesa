@@ -87,37 +87,33 @@ const TableData = () => {
 
     useEffect(() => {
         const filterHandler = (data: any[]) => {
-            
-            const filterOut_image = data_to_display.filter((item) => item !== 'image')
-            
-            const transFormed_data: Record<string, string>[] = filterOut_image.map((item, i) => {
-
-                return {
-
-                    [item]: THeader[i]
-                }
-            }
+            const filterOut_image = data_to_display.filter(
+                (item) => item !== 'image'
             )
-        
+
+            const transFormed_data: Record<string, string>[] =
+                filterOut_image.map((item, i) => {
+                    return {
+                        [item]: THeader[i],
+                    }
+                })
 
             data.forEach((item) => {
                 const searchFrom: Record<string, string> = {}
 
-                transFormed_data.forEach((item) => {
-
+                transFormed_data.forEach(([[key, value]]) => {
                     console.log(item)
 
-                    const {[key]} = Object.entries(item)
-             
+                    // const [[key, value]] = Object.entries(item)
 
-                        console.log({key})
+                    console.log({ key })
                     // if(key !== value){
                     //     searchFrom[key] = check_type(item[key])
-                    
+
                     // }
                 })
 
-               // console.log({item})
+                // console.log({item})
 
                 //store_data.push({ ...searchFrom, ...item })
             })
