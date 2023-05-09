@@ -117,6 +117,12 @@ const TableData = () => {
             for (let item of data) {
 
 
+                transFormed_data.forEach((obj) => {
+
+                    console.log(item[obj.key])
+                
+                })
+
             }
 
             console.log({ transFormed_data, THeader, data_to_display })
