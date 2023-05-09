@@ -101,6 +101,25 @@ const TableData = () => {
 
             const map_transformed_data: Record<string, string>[] = []
 
+            //    const data_to_return: Record<string, string>[] = []
+
+            //     transFormed_data.forEach((items) => {
+            //         //console.log(item)
+
+            //         const {key, value} = items
+
+            //         console.log({ key, value, item })
+                   
+
+
+            //         return {
+            //             name: ''
+            //         }
+
+            for(let item in data){
+                console.log(item)
+            }
+
             console.log({ transFormed_data, THeader, data_to_display })
 
             setExtractedData(map_transformed_data)
