@@ -6,7 +6,7 @@ import { OverviewWallet } from '../../../../components/SuperAdmin/overview/Overv
 import Table from '../../../../components/UI/table/Table'
 import useFetchData from '../../../../utils/useFetchData'
 
-const SecurityWallet = () => {
+const EstateWallet = () => {
     type Path = 'balance' | 'history'
 
     const paths: Path[] = ['balance', 'history']
@@ -18,9 +18,9 @@ const SecurityWallet = () => {
             <div className='rounded-lg mt-[3rem] min-h-[60vh]'>
                 <Table
                     is_dropdown={false}
-                    fetch_url={'/admin/get/wallet/balance/security_company'}
+                    fetch_url={'/admin/get/wallet/balance/estate'}
                     title={'balance'}
-                    THeader={['company name', 'amount']}
+                    THeader={['estate name', 'amount']}
                     data_to_display={['name', 'balance']}
                 />
             </div>
@@ -30,22 +30,24 @@ const SecurityWallet = () => {
         return (
             <div className='rounded-lg mt-[3rem] min-h-[60vh]'>
                 <Table
-                    fetch_url={'/admin/get/wallet/transaction/security_company'}
-                    view_page_url={'/superAdmin/wallet/company/'}
+                    fetch_url={'/admin/get/wallet/transaction/estate'}
+                    view_page_url={'/superAdmin/wallet/estate/'}
                     title={'history'}
                     isStrictAction
                     actions={['view details']}
                     THeader={[
-                        'company name',
+                        'estate name',
                         'amount',
+                        'balance',
                         'transaction_ID',
                         'type',
                         'date',
                         'actions',
                     ]}
                     data_to_display={[
-                        'name',
+                        'estate_name',
                         'amount',
+                        'balance',
                         'tran_id',
                         'type',
                         'created_at',
@@ -61,8 +63,8 @@ const SecurityWallet = () => {
     ]) satisfies Map<Path, JSX.Element>
 
     const { data: graph_data, isLoading: graph_loading } = useFetchData({
-        url: '/admin/get/wallet/security_company',
-        name: 'company_wallet_graph',
+        url: '/admin/get/wallet/estate',
+        name: 'estate_wallet_graph',
     })
 
     if (graph_loading) {
@@ -94,7 +96,7 @@ const SecurityWallet = () => {
             <div className='grid mt-12 pb-10 rounded-lg  items-baseline gap-10'>
                 <div className='flex justify-between items-center content-start bg-white p-8 rounded-lg'>
                     <OverviewWallet
-                        amount={graph_data.security_comp_sum}
+                        amount={graph_data.estate_sum}
                         title='SecurityCompany Wallet'
                         isWalletScreen
                     />
@@ -142,4 +144,4 @@ const SecurityWallet = () => {
     )
 }
 
-export default SecurityWallet
+export default EstateWallet
