@@ -135,7 +135,7 @@ const TableData = () => {
                 map_transformed_data.push(
                     
                         
-                        item
+                        temp_store
                     
                 )
 
