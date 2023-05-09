@@ -101,10 +101,10 @@ const TableData = () => {
             data.forEach((item) => {
                 const searchFrom: Record<string, string> = {}
 
-                transFormed_data.forEach(([[key, value]]) => {
+                transFormed_data.forEach((item) => {
                     console.log(item)
 
-                    // const [[key, value]] = Object.entries(item)
+                    const [[key, value]] = Object.entries(item)
 
                     console.log({ key })
                     // if(key !== value){
