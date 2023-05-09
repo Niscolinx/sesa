@@ -92,6 +92,9 @@ const TableData = () => {
 
            const store_data: Record<string, string>[]  =  data_to_display.map((data, i) => {
 
+            if(data === 'image'){
+                break
+            }
 
             return {
                 name:'s'
