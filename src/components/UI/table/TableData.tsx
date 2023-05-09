@@ -91,7 +91,7 @@ const TableData = () => {
                 (item) => item !== 'image'
             )
 
-            const transFormed_data: Record<string, string>[] =
+            const transformed_data: Record<string, string>[] =
                 filterOut_image.map((item, i) => {
                     return {
                         key: item,
@@ -117,7 +117,7 @@ const TableData = () => {
             for (let item of data) {
 
 
-                transFormed_data.forEach((obj) => {
+                transformed_data.forEach((obj) => {
                     console.log({item})
                     console.log(item[obj.key])
                 
@@ -125,7 +125,7 @@ const TableData = () => {
 
             }
             
-            console.log({ transFormed_data, THeader, data_to_display })
+            console.log({ transformed_data, map_transformed_data })
 
             setExtractedData(map_transformed_data)
         }
