@@ -116,18 +116,14 @@ const TableData = () => {
 
             for (let item of data) {
                 let temp_store: Record<string, string> = {}
-
                 transformed_data.forEach((obj) => {
-                    console.log({item})
-                    console.log(item[obj.key])
+                   
 
                     if(item[obj.key]){              
                          temp_store[obj.value] =  item[obj.key]    
-                         break     
                     }
                 })
 
-                console.log({temp_store}, item)
 
                 map_transformed_data.push(
                     
