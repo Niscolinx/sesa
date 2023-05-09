@@ -60,36 +60,6 @@ const ResidentWallet = () => {
         return <p className='p-8'>Loading</p>
     }
 
-    const data = [
-        {
-            name: 'Mon',
-            pv: 25_000,
-        },
-        {
-            name: 'Tue',
-            pv: 30_000,
-        },
-        {
-            name: 'Wed',
-            pv: 18_000,
-        },
-        {
-            name: 'Thur',
-            pv: 15_000,
-        },
-        {
-            name: 'Fri',
-            pv: 22_000,
-        },
-        {
-            name: 'Sat',
-            pv: 21_000,
-        },
-        {
-            name: 'Suddn',
-            pv: 22_000,
-        },
-    ]
 
     const transFormFetchedGraphData = (data: Record<string, number>) => {
         interface ChartData {
