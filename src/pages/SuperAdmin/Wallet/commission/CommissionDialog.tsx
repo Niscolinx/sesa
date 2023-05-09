@@ -48,6 +48,7 @@ function CommissionDialog() {
         e.preventDefault()
     }
 
+    
     const transFormFetchedGraphData = (data: Record<string, number>) => {
         interface ChartData {
             name: string
