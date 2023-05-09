@@ -87,18 +87,15 @@ const TableData = () => {
 
     useEffect(() => {
         const filterHandler = (data: any[]) => {
-             const store_data: Record<string, string>[] = []
+            const store_data: Record<string, string>[] = []
 
-            for(let i = 0; i < data_to_display.length; i++) {
-                
-                if(data_to_display[i] === 'image'){
-                    continue;
+            for (let i = 0; i < data_to_display.length; i++) {
+                if (data_to_display[i] !== 'image') {
+                    store_data.push({
+                        [data_to_display[i]]: THeader[i],
+                    })
                 }
-
-               
-
             }
-
 
             // data.forEach((item) => {
             //     const searchFrom: Record<string, string> = {}
