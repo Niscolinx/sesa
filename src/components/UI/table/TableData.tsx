@@ -101,7 +101,7 @@ const TableData = () => {
                         key = 'phone'
                     }
 
-                    searchFrom[field] = item[key]
+                    //searchFrom[field] = item[key]
                 })
 
                 store_data.push({ ...searchFrom, ...item })
