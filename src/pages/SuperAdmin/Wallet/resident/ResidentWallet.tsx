@@ -101,17 +101,19 @@ const ResidentWallet = () => {
     
         const chartData: ChartData[] = [] 
 
-        for(let [key, value] in data){
-            
-            console.log({value, key})
-        
-        
+        for(let [key, value] of Object.entries(data)){
+            chartData.push({
+                name: key,
+                pv: value
+            })
         }
+            
+          
 
         return chartData
     }
 
-   const chartData =  transFormFetchedGraphData(graph_data)
+   const chartData =  transFormFetchedGraphData(graph_data.graph)
 
     
 
