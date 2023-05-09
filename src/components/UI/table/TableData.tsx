@@ -110,11 +110,13 @@ const TableData = () => {
                     //     searchFrom[key] = check_type(item[key])
 
                     // }
+
+                    return {
+                        name: ''
+                    }
                 })
 
-                // console.log({item})
-
-                //store_data.push({ ...searchFrom, ...item })
+                
             })
 
             console.log({ transFormed_data, THeader, data_to_display })
