@@ -790,7 +790,6 @@
 
 // export default SecurityCompanyWallet
 
-
 import { useState } from 'react'
 
 import WalletBarChart from '../../../../components/SuperAdmin/charts/WalletBarChart'
@@ -800,7 +799,6 @@ import Table from '../../../../components/UI/table/Table'
 import useFetchData from '../../../../utils/useFetchData'
 
 const SecurityWallet = () => {
-
     type Path = 'balance' | 'history'
 
     const paths: Path[] = ['balance', 'history']
@@ -825,7 +823,7 @@ const SecurityWallet = () => {
             <div className='rounded-lg mt-[3rem] min-h-[60vh]'>
                 <Table
                     fetch_url={'/admin/get/wallet/transaction/security_company'}
-                    view_page_url={'/superAdmin/wallet/resident/'}
+                    view_page_url={'/superAdmin/wallet/company/'}
                     title={'history'}
                     isStrictAction
                     actions={['view details']}
@@ -862,7 +860,6 @@ const SecurityWallet = () => {
     if (graph_loading) {
         return <p className='p-8'>Loading</p>
     }
-
 
     const transFormFetchedGraphData = (data: Record<string, number>) => {
         interface ChartData {
@@ -913,7 +910,7 @@ const SecurityWallet = () => {
                             <>
                                 <input
                                     type='radio'
-                                    name='resident'
+                                    name='company'
                                     id={path}
                                     className='hidden'
                                     onChange={() => setcurrentPath(path)}
@@ -937,6 +934,3 @@ const SecurityWallet = () => {
 }
 
 export default SecurityWallet
-
-
-
