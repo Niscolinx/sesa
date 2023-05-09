@@ -133,10 +133,10 @@ const TableData = () => {
                 console.log({temp_store}, item)
 
                 map_transformed_data.push(
-                    {
-                        ...temp_store,
-                        ...item
-                    }
+                    
+                        
+                        item
+                    
                 )
 
             }
