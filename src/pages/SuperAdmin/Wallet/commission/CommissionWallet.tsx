@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { ToastContainer, toast } from 'react-toastify'
 import Table from '../../../../components/UI/table/Table'
 import CommissionDialog from './CommissionDialog'
 
@@ -60,8 +59,6 @@ const CommissionWallet = () => {
     ]) satisfies Map<Path, JSX.Element>
 
     return (
-        <div>
-            <ToastContainer />
 
             <div className='grid mt-12 pb-10 rounded-lg  items-baseline gap-10'>
             
