@@ -149,7 +149,7 @@ const ViewSecurityManager = () => {
         postUpdate,
         {
             onSuccess: (data) => {
-                toast('Admin Updated successfully', {
+                toast('Manager Updated successfully', {
                     type: 'success',
                     className: 'bg-green-100 text-green-600 text-[1.4rem]',
                 })
