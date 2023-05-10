@@ -82,7 +82,7 @@ const ViewSecurityManager = () => {
 
     const postDeactivate = (id: string) => {
         return axiosInstance({
-            url: '/admin/deactivate_activate',
+            url: '/security-company-manager/deactivate_activate',
             method: 'post',
             data: { id },
         })
@@ -220,7 +220,7 @@ const ViewSecurityManager = () => {
                                 animationIterationCount: 'infinite',
                             }}
                         />
-                        <p>Are you sure you want to deactivate this admin?</p>
+                        <p>Are you sure you want to deactivate this Manager?</p>
 
                         <div className='flex w-full justify-center gap-8'>
                             <button
