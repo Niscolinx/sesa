@@ -211,7 +211,8 @@ const AddEstate = () => {
             image: imageFile,
         }
 
-        mutate(updated_data)
+        console.log({updated_data})
+        //mutate(updated_data)
     })
 
     if (
