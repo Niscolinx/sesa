@@ -7,7 +7,7 @@ function SecurityManagers() {
                 fetch_url={'/security-company-manager/get/all'}
                 title={'securityManager'}
                 view_page_url={'/superAdmin/securityManagers/view/'}
-                add_page_url={'/security-company-manager/get/all'}
+                add_page_url={'/superAdmin/securityManagers/add'}
                 is_add_btn={true}
                 THeader={[
                     'name',
