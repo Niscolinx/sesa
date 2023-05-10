@@ -3,27 +3,7 @@ import Table from '../../../components/UI/table/Table'
 import PrevLocation from '../../../components/hooks/prevLocation'
 import Spinner from '../../../components/UI/Spinner'
 
-function ArtisanCategory() {
-    return (
-        <Table
-            fetch_url={'/admin/category/getAll'}
-            title={'artisanCategory'}
-            view_page_url={'/superAdmin/artisan/category/'}
-            is_add_btn={true}
-            isCategory={true}
-            delete_item_url={'/admin/category/delete/'}
-            THeader={[
-                'name',
-                'No of Artisans',
-                'created at',
-                'status',
-                'actions',
-            ]}
-            data_to_display={['name', 'artisan_count', 'created_at', 'status']}
-            deactivateProp={{ url: '/admin/category/delete/', tag: 'id' }}
-        />
-    )
-}
+
 
 function ArtisanList() {
     return (
@@ -52,6 +32,29 @@ function ArtisanList() {
         />
     )
 }
+
+function ArtisanCategory() {
+    return (
+        <Table
+            fetch_url={'/admin/category/getAll'}
+            title={'artisanCategory'}
+            view_page_url={'/superAdmin/artisan/category/'}
+            is_add_btn={true}
+            isCategory={true}
+            delete_item_url={'/admin/category/delete/'}
+            THeader={[
+                'name',
+                'No of Artisans',
+                'created at',
+                'status',
+                'actions',
+            ]}
+            data_to_display={['name', 'artisan_count', 'created_at', 'status']}
+            deactivateProp={{ url: '/admin/category/delete/', tag: 'id' }}
+        />
+    )
+}
+
 function ArtisanGroup() {
     return (
         <Table
