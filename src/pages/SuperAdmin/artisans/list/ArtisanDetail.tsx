@@ -113,8 +113,6 @@ const ArtisanDetail = () => {
     const onSubmit = handleSubmit((data) => {
         const { category } = get_response?.data
 
-        console.log({category, selectedCategories})
-
         const get_category_ids: Object[]  = []
 
         for(let item of category){
@@ -128,16 +126,17 @@ const ArtisanDetail = () => {
         }
     
 
-        console.log({ get_category_ids })
 
         const updatedData = {
             ...data,
-            category: selectedCategories,
+            category: get_category_ids,
+            gender: selectedGender,
+            is_kyr_approved: false,
         }
 
         console.log({ updatedData })
 
-        //update_mutation(updatedData)
+        update_mutation(updatedData)
     })
 
     useEffect(() => {
