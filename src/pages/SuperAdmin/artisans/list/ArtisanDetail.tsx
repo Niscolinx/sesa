@@ -240,7 +240,7 @@ const ArtisanDetail = () => {
                         <Activate_Deactivate
                             id={artisan_id}
                             url={'/admin/artisan/changeStatus/'}
-                            status={0}
+                            status={get_response?.data.status}
                             title={'artisan'}
                             queryCache={`get_artisan_${artisan_id}`}
                         />
