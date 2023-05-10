@@ -14,8 +14,8 @@ const AddEstate = () => {
         address: string
         estate_manager: string
         security_company: string
-        estate_fee: number
-        sesa_fee: number
+        estate_percentage: number
+        sesadigital_percentage: number
         number_of_resident_user: number
         additional_resident_user: number
         bank_name: string
@@ -276,12 +276,12 @@ const AddEstate = () => {
 
     const second_section_inputs = [
         {
-            label: 'estate_fee',
+            label: 'estate_percentage',
             name: 'estate (%)',
             type: 'number',
         },
         {
-            label: 'sesa_fee',
+            label: 'sesadigital_percentage',
             name: 'SESA (%)',
             disabled: true,
             type: 'number',
