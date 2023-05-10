@@ -10,7 +10,7 @@ import useFetchData from '../../../utils/useFetchData'
 const AddEstate = () => {
     interface Inputs {
         estate_name: string
-        estate_location_state: string
+        state: string
         address: string
         estate_manager: string
         security_company: string
@@ -24,7 +24,7 @@ const AddEstate = () => {
     }
 
     type FormInputs = {
-        label: string
+        label: keyof Inputs
         type: string
         name?: string
         required?: boolean
@@ -203,6 +203,9 @@ const AddEstate = () => {
             )
             .map(({ id }: any) => ({ id }))[0]
 
+
+            console.log({data})
+
         const updated_data: any = {
             ...data,
             state,
@@ -233,7 +236,7 @@ const AddEstate = () => {
 
     const first_section_inputs = [
         {
-            label: 'name',
+            label: 'estate_name',
         },
 
         {
@@ -250,7 +253,7 @@ const AddEstate = () => {
             label: 'address',
         },
         {
-            label: 'estate manager',
+            label: 'estate_manager',
             type: 'select',
             selectProps: {
                 state: slicedEstateManagers,
@@ -260,7 +263,7 @@ const AddEstate = () => {
             },
         },
         {
-            label: 'security company',
+            label: 'security_company',
             type: 'select',
             selectProps: {
                 state: slicedSecurityCompanies,
