@@ -9,7 +9,8 @@ import ClickRateChart from '../../../components/SuperAdmin/charts/ClickRateChart
 import { Select } from '../../../components/SuperAdmin/UI/Select'
 import useFetchData from '../../../utils/useFetchData'
 
-const link = 'https://sesadigital.com/thelink_copyhere'
+
+// const link = 'https://sesadigital.com/thelink_copyhere'
 type Actions = 'Deactivate' | 'Delete'
 
 const AdvertDetail = () => {
@@ -95,6 +96,7 @@ const AdvertDetail = () => {
         end_date,
         percentage_click_diff,
         total_view,
+        url:link,
         percentage_view_diff,
     } = data
 
@@ -198,7 +200,7 @@ const AdvertDetail = () => {
                                     <p className='font-Satoshi-Light'>
                                         Start Date
                                     </p>
-                                    <p>{}</p>
+                                    <p>{start_date}</p>
                                 </div>
                             </div>
                             <div className='flex gap-4 items-center'>
@@ -211,7 +213,7 @@ const AdvertDetail = () => {
                                     <p className='font-Satoshi-Light'>
                                         End Date
                                     </p>
-                                    <p>12 Aug, 2022</p>
+                                    <p>{end_date}</p>
                                 </div>
                             </div>
                         </div>
