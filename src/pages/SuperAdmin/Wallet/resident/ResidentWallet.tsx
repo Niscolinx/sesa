@@ -23,7 +23,7 @@ const ResidentWallet = () => {
                 <Table
                     is_dropdown={false}
                     fetch_url={'/admin/get/wallet/balance/resident'}
-                    title={'balance'}
+                    title={'resident_balance'}
                     THeader={['resident name', 'amount']}
                     data_to_display={['name', 'balance']}
                 />
@@ -36,7 +36,7 @@ const ResidentWallet = () => {
                 <Table
                     fetch_url={'/admin/get/wallet/transaction/resident'}
                     view_page_url={'/superAdmin/wallet/resident/'}
-                    title={'history'}
+                    title={'resident_history'}
                     isStrictAction
                     actions={['view details']}
                     THeader={[

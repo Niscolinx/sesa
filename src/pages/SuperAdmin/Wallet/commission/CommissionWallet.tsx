@@ -12,7 +12,7 @@ const CommissionWallet = () => {
                 <Table
                     fetch_url={'/admin/get/wallet/transaction/commission'}
                     view_page_url={'/superAdmin/wallet/commission/'}
-                    title={'history'}
+                    title={'commission_history'}
                     isStrictAction
                     actions={['view details']}
                     THeader={[

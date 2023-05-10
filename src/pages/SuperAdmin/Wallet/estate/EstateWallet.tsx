@@ -19,7 +19,7 @@ const EstateWallet = () => {
                 <Table
                     is_dropdown={false}
                     fetch_url={'/admin/get/wallet/balance/estate'}
-                    title={'balance'}
+                    title={'estate_balance'}
                     THeader={['estate name', 'amount']}
                     data_to_display={['estate_name', 'balance']}
                 />
@@ -32,7 +32,7 @@ const EstateWallet = () => {
                 <Table
                     fetch_url={'/admin/get/wallet/transaction/estate'}
                     view_page_url={'/superAdmin/wallet/estate/'}
-                    title={'history'}
+                    title={'estate_history'}
                     isStrictAction
                     actions={['view details']}
                     THeader={[
