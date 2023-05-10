@@ -8,7 +8,8 @@ import { toast, ToastContainer } from 'react-toastify'
 import ClickRateChart from '../../../components/SuperAdmin/charts/ClickRateChart'
 import { Select } from '../../../components/SuperAdmin/UI/Select'
 import useFetchData from '../../../utils/useFetchData'
-
+import useAxios from '../../../components/hooks/useAxios'
+import { useMutation } from 'react-query'
 
 // const link = 'https://sesadigital.com/thelink_copyhere'
 type Actions = 'Deactivate' | 'Delete'
@@ -22,6 +23,7 @@ const AdvertDetail = () => {
     const [dialogType, setDialogType] = useState<Actions>('Deactivate')
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
+    const axiosInstance = useAxios()
 
     const advert_id = params.id?.replace(':', '')
 
@@ -30,7 +32,33 @@ const AdvertDetail = () => {
         name: `advert_${advert_id}`,
     })
 
-    console.log({ data })
+    const postDeactivate = (id: string) => {
+        return axiosInstance({
+            url: '/admin/deactivate_activate',
+            method: 'post',
+            data: { id },
+        })
+    }
+
+    const { mutate: deactivate_mutation, isLoading: deactivate_loading } =
+        useMutation(postDeactivate, {
+            onSuccess: (data) => {
+                toast('Manager Deactivated successfully', {
+                    type: 'success',
+                    className: 'bg-green-100 text-green-600 text-[1.4rem]',
+                })
+
+                handleClose()
+            },
+            onError: (err: any) => {
+                toast(`Operation Failed `, {
+                    type: 'error',
+                    className:
+                        'bg-red-100 text-red-600 text-[1.4rem] capitalize',
+                })
+            },
+        }) as any
+
     const handleClose = () => {
         if (dialogRef.current) {
             dialogRef.current.close()
@@ -97,7 +125,7 @@ const AdvertDetail = () => {
         percentage_click_diff,
         total_view,
         total_click,
-        url:link,
+        url: link,
         percentage_view_diff,
     } = data
 
