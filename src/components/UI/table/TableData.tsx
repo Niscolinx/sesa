@@ -254,6 +254,8 @@ const TableData = () => {
             return findData.some((item) => item.id === data.id)
         })
 
+        console.log({filteredData})
+
         setFetchedData(filteredData)
     }
 
