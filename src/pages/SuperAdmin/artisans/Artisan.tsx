@@ -1,7 +1,6 @@
 import { Fragment, useLayoutEffect, useState } from 'react'
 import Table from '../../../components/UI/table/Table'
 import PrevLocation from '../../../components/hooks/prevLocation'
-import Spinner from '../../../components/UI/Spinner'
 
 
 
