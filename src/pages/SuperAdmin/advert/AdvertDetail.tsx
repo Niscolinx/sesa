@@ -9,7 +9,7 @@ import ClickRateChart from '../../../components/SuperAdmin/charts/ClickRateChart
 import { Select } from '../../../components/SuperAdmin/UI/Select'
 import useFetchData from '../../../utils/useFetchData'
 import useAxios from '../../../components/hooks/useAxios'
-import { useMutation } from 'react-query'
+import { useMutation, useQueryClient } from 'react-query'
 
 // const link = 'https://sesadigital.com/thelink_copyhere'
 type Actions = 'Deactivate' | 'Delete'
@@ -32,18 +32,19 @@ const AdvertDetail = () => {
         name: `advert_${advert_id}`,
     })
 
-    const postDeactivate = (id: string) => {
+    const postDeactivate = () => {
         return axiosInstance({
-            url: '/admin/deactivate_activate',
+            url: '/advert/deactivate_activate',
             method: 'post',
-            data: { id },
+            data: { id: advert_id },
         })
     }
 
+    const queryClient = useQueryClient()
     const { mutate: deactivate_mutation, isLoading: deactivate_loading } =
         useMutation(postDeactivate, {
             onSuccess: (data) => {
-                toast('Manager Deactivated successfully', {
+                toast('Successful', {
                     type: 'success',
                     className: 'bg-green-100 text-green-600 text-[1.4rem]',
                 })
@@ -56,7 +57,18 @@ const AdvertDetail = () => {
                     className:
                         'bg-red-100 text-red-600 text-[1.4rem] capitalize',
                 })
+
+                                handleClose()
+
             },
+
+            onSettled: () => {
+
+                queryClient.invalidateQueries(`advert_${advert_id}`)
+
+            }
+
+
         }) as any
 
     const handleClose = () => {
@@ -88,21 +100,12 @@ const AdvertDetail = () => {
         }
     }
 
-    const handleDeleteAdvert = () => {
-        handleClose()
-
-        toast('Advert deleted successfully', {
-            type: 'error',
-            className: 'bg-red-100 text-red-600 text-[1.4rem]',
-        })
-    }
     const handleDeactivateAdvert = () => {
         handleClose()
 
-        toast('Advert deactivated successfully', {
-            type: 'error',
-            className: 'bg-red-100 text-red-600 text-[1.4rem]',
-        })
+        deactivate_mutation()
+
+
     }
 
     const showClickRateIncrease = () => {
@@ -135,58 +138,31 @@ const AdvertDetail = () => {
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
-                        {dialogType === 'Deactivate' ? (
-                            <>
-                                <img
-                                    src='/icons/admins/modalDeactivate.svg'
-                                    alt=''
-                                />
-                                <p className='text-[1.6rem]'>
-                                    Are you sure you want to deactivate this
-                                    Advert
-                                </p>
+                        <>
+                            <img
+                                src='/icons/admins/modalDeactivate.svg'
+                                alt=''
+                            />
+                            <p className='text-[1.6rem]'>
+                                Are you sure you want to deactivate this Advert
+                            </p>
 
-                                <div className='flex w-full justify-center gap-8'>
-                                    <button
-                                        className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
-                                        onClick={() => handleClose()}
-                                    >
-                                        Cancel
-                                    </button>
-                                    <button
-                                        className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
-                                        onClick={handleDeactivateAdvert}
-                                    >
-                                        Deactivate
-                                    </button>
-                                </div>
-                            </>
-                        ) : (
-                            <>
-                                <img
-                                    src='/icons/admins/modalWarning.svg'
-                                    alt=''
-                                />
-                                <p className='text-[1.6rem]'>
-                                    Are you sure you want to delete this Advert
-                                </p>
-
-                                <div className='flex w-full justify-center gap-8'>
-                                    <button
-                                        className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
-                                        onClick={() => handleClose()}
-                                    >
-                                        Cancel
-                                    </button>
-                                    <button
-                                        className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
-                                        onClick={handleDeleteAdvert}
-                                    >
-                                        Delete
-                                    </button>
-                                </div>
-                            </>
-                        )}
+                            <div className='flex w-full justify-center gap-8'>
+                                <button
+                                    className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
+                                    onClick={() => handleClose()}
+                                >
+                                    Cancel
+                                </button>
+                                <button
+                                    className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
+                                    onClick={handleDeactivateAdvert}
+                                >
+                                    Deactivate
+                                </button>
+                            </div>
+                        </>
+                        )
                     </div>
                 </section>
             </dialog>
@@ -335,15 +311,7 @@ const AdvertDetail = () => {
                             Deactivate
                         </span>
                     </button>
-                    <button
-                        className='border border-red-600 px-16 py-4 flex items-center  rounded-lg gap-4'
-                        onClick={() => handleSelectedAction('Delete')}
-                    >
-                        <img src='/icons/admins/delete.svg' alt='' />
-                        <span className='text-red-600 text-[1.4rem] font-semibold'>
-                            Delete
-                        </span>
-                    </button>
+                    
                 </section>
             </div>
         </>
