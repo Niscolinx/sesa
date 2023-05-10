@@ -49,18 +49,18 @@ const EstateWalletDetails = () => {
     } = useForm<Inputs>()
 
     const { isLoading, data } = useFetchData({
-        url: `admin/get/wallet/transaction/details/resident/${wallet_id}`,
-        name: `resident_wallet_detail_${wallet_id}`,
+        url: `admin/get/wallet/transaction/details/estate/${wallet_id}`,
+        name: `estate_wallet_detail_${wallet_id}`,
     })
 
     const amount = data?.amount
     useEffect(() => {
         if (data) {
-            const { created_at, amount, name, ...other } = data
+            const { created_at, amount, estate_name, ...other } = data
 
             const transaction_date = created_at.slice(0, 10)
             const transaction_time = created_at.slice(11, 16)
-            const transaction_source = name
+            const transaction_source = estate_name
 
             reset({
                 transaction_date,
