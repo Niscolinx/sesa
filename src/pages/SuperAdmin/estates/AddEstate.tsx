@@ -359,7 +359,7 @@ const AddEstate = () => {
                         }}
                     >
                         {first_section_inputs.map((input, idx) => {
-                            const { label, type, selectProps, minLength, maxLength } = input
+                            const { label, type, selectProps } = input
 
                             return (
                                 <Input
@@ -371,8 +371,7 @@ const AddEstate = () => {
                                     fullWidth={label === 'address'}
                                     selectFormErrors={selectFormErrors}
                                     type={type}
-                                    minLength={minLength}
-                                    maxLength={maxLength}
+                                  
                                     isSelect={type === 'select'}
                                     select={selectProps}
                                 />
@@ -446,13 +445,15 @@ const AddEstate = () => {
                         }}
                     >
                         {third_section_inputs.map((input, idx) => {
-                            const { label, type } = input
+                            const { label, type, minLength, maxLength } = input
 
                             return (
                                 <Input
                                     key={idx + label}
                                     label={label}
                                     register={register}
+                                      minLength={minLength}
+                                    maxLength={maxLength}
                                     formErrors={formErrors}
                                     type={type}
                                 />
