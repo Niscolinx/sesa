@@ -70,6 +70,8 @@ const ViewEstateManager = () => {
 
     const {
         register,
+        clearErrors,
+        setValue,
         handleSubmit,
         formState: { errors: formErrors },
         reset,
@@ -319,6 +321,8 @@ const ViewEstateManager = () => {
                                     label={label}
                                     register={register}
                                     formErrors={formErrors}
+                                    clearErrors={clearErrors}
+                                    setValue={setValue}
                                     type={type}
                                     name={name}
                                     isSelect={type === 'select'}

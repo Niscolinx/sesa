@@ -71,6 +71,8 @@ const ViewSecurityManager = () => {
     const {
         register,
         handleSubmit,
+        clearErrors,
+        setValue,
         formState: { errors: formErrors },
         reset,
     } = useForm<Inputs>()
@@ -132,7 +134,7 @@ const ViewSecurityManager = () => {
             const first_name = name.split(' ')[0]
             const last_name = name.split(' ')[1]
 
-            const phone_number = parseInt(phone.slice(3, -1))
+            const phone_number = phone.slice(3, -1)
 
             console.log({phone_number})
 
@@ -322,6 +324,8 @@ const ViewSecurityManager = () => {
                                     key={idx + label}
                                     label={label}
                                     register={register}
+                                    clearErrors={clearErrors}
+                                    setValue={setValue}
                                     formErrors={formErrors}
                                     type={type}
                                     name={name}

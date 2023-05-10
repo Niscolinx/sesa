@@ -73,6 +73,8 @@ const ViewAdmin = () => {
     const {
         register,
         handleSubmit,
+        clearErrors,
+        setValue,
         formState: { errors: formErrors },
         reset,
     } = useForm<Inputs>()
@@ -244,6 +246,8 @@ const ViewAdmin = () => {
                                     label={label}
                                     register={register}
                                     formErrors={formErrors}
+                                     clearErrors={clearErrors}
+                                    setValue={setValue}
                                     type={type}
                                     name={name}
                                     isSelect={type === 'select'}
