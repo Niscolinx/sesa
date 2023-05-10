@@ -245,7 +245,9 @@ const AdvertDetail = () => {
                         <div className='grid justify-items-start'>
                             <p>Advert Clicks</p>
                             <div className='flex gap-4'>
-                                <p className='text-[3rem]'>164</p>
+                                <p className='text-[3rem]'>
+                                    {percentage_click_diff}
+                                </p>
                                 <p className=' font-Satoshi-Light text-green-500 flex items-center'>
                                     <HiArrowSmUp />
                                     <span>5% increase from yesterday</span>
@@ -262,7 +264,9 @@ const AdvertDetail = () => {
                         <div className='grid justify-items-start'>
                             <p>Advert Views</p>
                             <div className='flex gap-4'>
-                                <p className='text-[3rem]'>164</p>
+                                <p className='text-[3rem]'>
+                                    {percentage_view_diff}
+                                </p>
                                 <p className=' font-Satoshi-Light text-red-500 flex items-center'>
                                     <HiArrowSmDown />
                                     <span>5% decrease from yesterday</span>
