@@ -27,6 +27,7 @@ const ViewAdmin = () => {
         label?: string
         type?: string
         name?: string
+        value?:string | number
         selectProps?: SelectProps
     }
 
@@ -38,6 +39,7 @@ const ViewAdmin = () => {
     const [imageFile, setImageFile] = useState<File | null>(null)
     const genderState = ['Male', 'Female']
     const [selectedGender, setSelectedGender] = useState<string>(genderState[0])
+    const [phone, setPhone] = useState(0)
 
     const formInputs = [
         {
@@ -63,6 +65,7 @@ const ViewAdmin = () => {
         {
             label: 'phone_number',
             type: 'number',
+            value: phone
         },
         {
             label: 'email_address',
@@ -126,7 +129,8 @@ const ViewAdmin = () => {
                 email_address: email,
             })
 
-            setValue('phone_number', phone_number)
+
+            setPhone(phone_number)
 
             setPhotoPreview(image)
             setSelectedGender(gender)
@@ -240,12 +244,13 @@ const ViewAdmin = () => {
                 >
                     <>
                         {formInputs.map((input, idx) => {
-                            const { label, type, name, selectProps } = input
+                            const { label, type, name, selectProps, value } = input
 
                             return (
                                 <Input
                                     key={idx + label}
                                     label={label}
+                                    value={value}
                                     register={register}
                                     formErrors={formErrors}
                                      clearErrors={clearErrors}
