@@ -26,7 +26,7 @@ const AdvertDetail = () => {
 
     const { data, isLoading } = useFetchData({
         url: `/advert/getbyid/${advert_id}`,
-        name:  `advert_${advert_id}`
+        name: `advert_${advert_id}`,
     })
 
     console.log({ data })
@@ -84,9 +84,20 @@ const AdvertDetail = () => {
         navigate('/superAdmin/advert/clickrate/decrease')
     }
 
-    if(isLoading){
+    if (isLoading) {
         return <p className='p-8'>Loading...</p>
     }
+
+    const {
+        image,
+        advert_name,
+        start_date,
+        end_date,
+        percentage_click_diff,
+        total_view,
+        percentage_view_diff,
+    } = data
+
     return (
         <>
             <ToastContainer />
@@ -154,7 +165,7 @@ const AdvertDetail = () => {
                         Advert Preview
                     </h2>
                     <img
-                        src={data?.image || '/img/advertHero.png'}
+                        src={image || '/img/advertHero.png'}
                         alt=''
                         className='h-[40rem] w-[120rem] object-cover rounded-lg flex self-stretch'
                     />
@@ -174,7 +185,7 @@ const AdvertDetail = () => {
                                     <p className='font-Satoshi-Light'>
                                         Advert Name
                                     </p>
-                                    <p>Pepsi Advert</p>
+                                    <p>{advert_name}</p>
                                 </div>
                             </div>
                             <div className='flex gap-4 items-center'>
@@ -187,7 +198,7 @@ const AdvertDetail = () => {
                                     <p className='font-Satoshi-Light'>
                                         Start Date
                                     </p>
-                                    <p>12 May, 2022</p>
+                                    <p>{}</p>
                                 </div>
                             </div>
                             <div className='flex gap-4 items-center'>
