@@ -115,14 +115,14 @@ const ArtisanDetail = () => {
 
         console.log({category, selectedCategories})
 
-        const get_category_ids: string[]  = []
+        const get_category_ids: Object[]  = []
 
         for(let item of category){
 
             for(let selected of selectedCategories){
 
                 if(item.name === selected){
-                    get_category_ids.push(item.id)
+                    get_category_ids.push({id: item.id})
                 }
             }
         }
