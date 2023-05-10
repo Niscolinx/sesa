@@ -46,7 +46,7 @@ const ArtisanDetail = () => {
     const genderState = ['Male', 'Female']
     const [photoPreview, setPhotoPreview] = useState('')
     const [imageFile, setImageFile] = useState<File | null>(null)
-    const [slicedCategories, setSlicedCategories] = useState([])
+    const [slicedCategories, setSlicedCategories] = useState<string[]>([])
     const [selectedCategories, setSelectedCategories] = useState<
         string[]
     >([])
@@ -115,13 +115,18 @@ const ArtisanDetail = () => {
 
     useEffect(() => {
         if (get_response) {
-            const { image, created_at, gender, ...other } = get_response.data
+            const { image, created_at, category, gender, ...other } = get_response.data
+
+            const getOnlyNames: string[] = category.map((each:any) => (each.name))
 
             reset({
                 ...other,
                 onboarding_date: created_at.split('T')[0],
             })
 
+            
+            setSelectedCategories(getOnlyNames)
+            setSlicedCategories(getOnlyNames)
             setPhotoPreview(image)
             setSelectedGender(gender)
         }
