@@ -7,7 +7,7 @@ import ImageInput from '../../../components/UI/input/ImageInput'
 import useAxios from '../../../components/hooks/useAxios'
 import Spinner from '../../../components/UI/Spinner'
 
-const AddEstateManager = () => {
+const AddSecurityManager = () => {
     interface Inputs {
         email_address: string
         first_name: string
@@ -215,4 +215,4 @@ const AddEstateManager = () => {
     )
 }
 
-export default AddEstateManager
+export default AddSecurityManager

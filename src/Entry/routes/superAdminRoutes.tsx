@@ -49,6 +49,9 @@ import ViewPackage from '../../pages/SuperAdmin/residentUserPackage/residentPack
 import ResidentWalletDetails from '../../pages/SuperAdmin/Wallet/resident/ResidentWalletDetails'
 import EstateWalletDetails from '../../pages/SuperAdmin/Wallet/estate/EstateWalletDetails'
 import CommissionWalletDetails from '../../pages/SuperAdmin/Wallet/commission/CommissionWalletDetails'
+import SecurityManagers from '../../pages/SuperAdmin/securityManagers/SecurityManagers'
+import AddSecurityManager from '../../pages/SuperAdmin/securityManagers/AddSecurityManager'
+import ViewSecurityManager from '../../pages/SuperAdmin/securityManagers/ViewSecurityManager'
 
 const superAdminRoutes = (
     <Route
@@ -108,6 +111,11 @@ const superAdminRoutes = (
             path='wallet/security-company/:id'
             element={<SecurityCompanyWalletDetails />}
         />
+         <Route path='securityManagers' element={<SecurityManagers />} />
+        <Route path='securityManagers/add' element={<AddSecurityManager />} />
+        <Route path='securityManagers/view/:id' element={<ViewSecurityManager />} />
+
+        
         <Route path='artisan' element={<Artisan />} />
         <Route path='artisan/category/:id' element={<ViewArtisanCategory />} />
         <Route path='artisan/detail/:id' element={<ArtisanDetail />} />
