@@ -111,17 +111,15 @@ const ArtisanDetail = () => {
     )
 
     const onSubmit = handleSubmit((data) => {
-        const { image, created_at, category, gender, ...other } = data
 
-        const category_ids: string[] = category.map((each: any) => {
-            each.id
-        })
+       
 
         const updatedData = {
             ...data,
         }
 
-        update_mutation(updatedData)
+        console.log({updatedData})
+        //update_mutation(updatedData)
     })
 
     useEffect(() => {
