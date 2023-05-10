@@ -170,7 +170,6 @@ const ViewEstateManager = () => {
             name: `${first_name} ${last_name}`,
             gender: selectedGender,
             dob,
-            id: estateManager_id,
             email: email_address,
             address: 'no 4 odeyim street',
             phone: `+234${phone_number}`,
