@@ -79,19 +79,17 @@ function TableDialog() {
                             status = 0
                         }
 
-                        console.log({ status })
                         return {
                             ...gotten_data,
                             status,
                         }
                     })
 
-                const cloneOld: any[] = previousData.data.data
+                const cloneOld: any[] = previousData.data.data || previousData.data
 
                 cloneOld.splice(index_to_replace, 1, ...updatedData)
 
                 queryClient.setQueryData(title, (oldData: any) => {
-                    console.log({ oldData })
                     const relevantData = oldData.data.data
                     return {
                         ...relevantData,
