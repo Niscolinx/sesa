@@ -206,8 +206,6 @@ const AddEstate = () => {
             .map(({ id }: any) => ( id ))[0]
 
 
-            console.log({data})
-
         const updated_data: any = {
             ...data,
             state_id,
@@ -217,7 +215,7 @@ const AddEstate = () => {
         }
 
         console.log({updated_data})
-        //mutate(updated_data)
+        mutate(updated_data)
     })
 
     if (
