@@ -26,6 +26,7 @@ const AdvertDetail = () => {
 
     const { data, isLoading } = useFetchData({
         url: `/advert/getbyid/${advert_id}`,
+        name:  `advert_${advert_id}`
     })
 
     console.log({ data })
@@ -81,6 +82,10 @@ const AdvertDetail = () => {
 
     const showClickRateDecrease = () => {
         navigate('/superAdmin/advert/clickrate/decrease')
+    }
+
+    if(isLoading){
+        return <p className='p-8'>Loading...</p>
     }
     return (
         <>
@@ -149,7 +154,7 @@ const AdvertDetail = () => {
                         Advert Preview
                     </h2>
                     <img
-                        src='/img/advertHero.png'
+                        src={data?.image || '/img/advertHero.png'}
                         alt=''
                         className='h-[40rem] w-[120rem] object-cover rounded-lg flex self-stretch'
                     />
