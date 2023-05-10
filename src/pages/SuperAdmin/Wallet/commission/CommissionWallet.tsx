@@ -10,25 +10,23 @@ const CommissionWallet = () => {
             <CommissionDialog />
             <div className='rounded-lg mt-[3rem] min-h-[60vh]'>
                 <Table
-                    fetch_url={'/admin/get/wallet/transaction/resident'}
+                    fetch_url={'/admin/get/wallet/transaction/commission'}
                     view_page_url={'/superAdmin/wallet/commission/'}
                     title={'history'}
                     isStrictAction
                     actions={['view details']}
                     THeader={[
-                        'resident name',
+                        'transaction_ID',
                         'amount',
                         'balance',
-                        'transaction_ID',
                         'type',
                         'date',
                         'actions',
                     ]}
                     data_to_display={[
-                        'name',
+                        'tran_id',
                         'amount',
                         'balance',
-                        'tran_id',
                         'type',
                         'created_at',
                     ]}

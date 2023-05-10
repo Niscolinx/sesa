@@ -66,9 +66,9 @@ function CommissionDialog() {
         return chartData
     }
 
-    // if (graph_loading) {
-    //     return <p className='p-8'>Loading...</p>
-    // }
+    if (graph_loading) {
+        return 
+    }
 
     const chartData = transFormFetchedGraphData(graph_data.graph)
 
