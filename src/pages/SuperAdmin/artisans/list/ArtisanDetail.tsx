@@ -46,12 +46,9 @@ const ArtisanDetail = () => {
     const genderState = ['Male', 'Female']
     const [photoPreview, setPhotoPreview] = useState('')
     const [imageFile, setImageFile] = useState<File | null>(null)
-    const [slicedCategories, setSlicedCategories] = useState<string[]>([])
-    const [selectedCategories, setSelectedCategories] = useState<
-        string[]
-    >([])
-      const [responseMessage, setResponseMessage] =
-          useState<ResponseMessage | null>(null)
+    const [selectedCategories, setSelectedCategories] = useState<string[]>([])
+    const [responseMessage, setResponseMessage] =
+        useState<ResponseMessage | null>(null)
 
     const [selectedGender, setSelectedGender] = useState<string>('')
 
@@ -115,18 +112,20 @@ const ArtisanDetail = () => {
 
     useEffect(() => {
         if (get_response) {
-            const { image, created_at, category, gender, ...other } = get_response.data
+            const { image, created_at, category, gender, ...other } =
+                get_response.data
 
-            const getOnlyNames: string[] = category.map((each:any) => (each.name))
+            const getOnlyNames: string[] = category.map(
+                (each: any) => each.name
+            )
 
             reset({
                 ...other,
                 onboarding_date: created_at.split('T')[0],
             })
 
-            
             setSelectedCategories(getOnlyNames)
-            setSlicedCategories(getOnlyNames)
+            // setSlicedCategories(getOnlyNames)
             setPhotoPreview(image)
             setSelectedGender(gender)
         }
@@ -150,7 +149,9 @@ const ArtisanDetail = () => {
         return <p className='p-8'>Loading...</p>
     }
 
-    
+    const slicedCategories: string[] = get_response?.data.category.map(
+        (each: any) => each.name
+    )
 
     const formInputs = [
         {
