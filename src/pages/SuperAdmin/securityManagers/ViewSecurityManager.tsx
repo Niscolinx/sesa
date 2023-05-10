@@ -89,7 +89,7 @@ const ViewSecurityManager = () => {
     }
     const postUpdate = (data: Inputs) => {
         return axiosInstance({
-            url: `/admin/update/${manager_id}`,
+            url: `/security-company-manager/update/${manager_id}`,
             method: 'post',
             data,
         })
