@@ -111,14 +111,32 @@ const ArtisanDetail = () => {
     )
 
     const onSubmit = handleSubmit((data) => {
+        const { category } = get_response?.data
 
-       
+        console.log({category, selectedCategories})
+
+        const get_category_ids: string[]  = []
+
+        for(let item of category){
+
+            for(let selected of selectedCategories){
+
+                if(item.name === selected){
+                    get_category_ids.push(item.id)
+                }
+            }
+        }
+    
+
+        console.log({ get_category_ids })
 
         const updatedData = {
             ...data,
+            category: selectedCategories,
         }
 
-        console.log({updatedData})
+        console.log({ updatedData })
+
         //update_mutation(updatedData)
     })
 
@@ -229,6 +247,13 @@ const ArtisanDetail = () => {
                         />
                     </div>
 
+                    {responseMessage?.displayMessage && (
+                        <p className='text-center my-5'>
+                            <span className={responseMessage?.className}>
+                                {responseMessage?.displayMessage}
+                            </span>
+                        </p>
+                    )}
                     <form onSubmit={onSubmit} className='grid gap-20'>
                         <div className='grid gap-10'>
                             <section
