@@ -195,13 +195,13 @@ const AddEstate = () => {
 
         const security_company_id: string[] = security_company_data
             .filter(({ name }: any) => selectedSecurityCompany.includes(name))
-            .map(({ id }: any) => ({ id }))[0]
+            .map(({ id }: any) => ( id ))[0]
 
         const estate_manager_id: string[] = estate_manager_data
             .filter(({ name}: any) =>
                 selectedEstateManager.includes(name)
             )
-            .map(({ id }: any) => ({ id }))[0]
+            .map(({ id }: any) => ( id ))[0]
 
 
             console.log({data})
