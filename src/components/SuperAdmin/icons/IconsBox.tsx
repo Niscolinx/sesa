@@ -62,6 +62,13 @@ function IconsBox() {
               </Link>
           </li>
           <li className='iconsBox__list'>
+              <Link to='/superAdmin/securityManagers' className='fillIcon'>
+                  {' '}
+                  <EstateManagerSvg />
+                  <span>Security Manager</span>
+              </Link>
+          </li>
+          <li className='iconsBox__list'>
               <Link to='/superAdmin/wallet' className='fillIcon'>
                   <WalletSvg />
                   <span>Wallet</span>

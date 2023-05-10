@@ -7,7 +7,7 @@ import ImageInput from '../../../components/UI/input/ImageInput'
 import useAxios from '../../../components/hooks/useAxios'
 import Spinner from '../../../components/UI/Spinner'
 
-const AddSecurityManager = () => {
+const AddEstateManager = () => {
     interface Inputs {
         email_address: string
         first_name: string
@@ -38,8 +38,6 @@ const AddSecurityManager = () => {
     const [selectedGender, setSelectedGender] = useState<string>(
         genderState[0]
     )
-      const [responseMessage, setResponseMessage] =
-          useState<ResponseMessage | null>(null)
 
     const handlePicture = (e: React.ChangeEvent) => {
         const target = e.target as HTMLInputElement
@@ -56,17 +54,18 @@ const AddSecurityManager = () => {
         formState: { errors: formErrors },
     } = useForm<Inputs>()
 
-  
+    const [responseMessage, setResponseMessage] =
+        useState<ResponseMessage | null>(null)
 
-    const postRequest = (data: Inputs) => {
+    const postEstateManager = (data: Inputs) => {
         return axiosInstance({
-            url: '/security-company-manager/create',
+            url: '/manager/create',
             method: 'post',
             data,
             headers: { 'Content-Type': 'multipart/form-data' },
         })
     }
-    const { mutate, isLoading } = useMutation(postRequest, {
+    const { mutate, isLoading } = useMutation(postEstateManager, {
         onSuccess: () => {
             handleOpen()
         },
@@ -81,7 +80,7 @@ const AddSecurityManager = () => {
     const onSubmit = handleSubmit((data) => {
         const { first_name, last_name, dob, email_address, phone_number } = data
 
-        const updatedData = {
+        const estateManagerData = {
             name: `${first_name} ${last_name}`,
             gender: selectedGender,
             dob,
@@ -91,7 +90,7 @@ const AddSecurityManager = () => {
             image: imageFile,
         }
 
-        mutate(updatedData)
+        mutate(estateManagerData)
     })
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
@@ -146,7 +145,7 @@ const AddSecurityManager = () => {
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
                         <img src='/icons/admins/modalSuccess.svg' alt='' />
-                        <p>You have successfully added a SecurityManager</p>
+                        <p>You have successfully added an EstateManager</p>
 
                         <div className='flex w-full justify-center gap-8'>
                             <button
@@ -216,4 +215,4 @@ const AddSecurityManager = () => {
     )
 }
 
-export default AddSecurityManager
+export default AddEstateManager
