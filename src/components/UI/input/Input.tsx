@@ -3,7 +3,6 @@ import { MultipleSelect, Select } from '../../SuperAdmin/UI/Select'
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai'
 import {
     UseFormClearErrors,
-    UseFormRegister,
     UseFormSetValue,
 } from 'react-hook-form'
 
@@ -20,7 +19,7 @@ export interface SelectProps {
 interface Input {
     name: string
     type: string
-    register?: UseFormRegister<any>
+    register?: any
     formErrors: any
     disabled?: boolean
     tag?: string
