@@ -210,11 +210,12 @@ const AddEstate = () => {
             ...data,
             state_id,
             estate_manager_id,
+            longitude: 4322,
+            latitude:2313,
             security_company_id,
             image: imageFile,
         }
 
-        console.log({updated_data})
         mutate(updated_data)
     })
 
