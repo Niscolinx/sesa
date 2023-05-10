@@ -3,7 +3,6 @@ import { MultipleSelect, Select } from '../../SuperAdmin/UI/Select'
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai'
 import {
     UseFormClearErrors,
-    UseFormGetValues,
     UseFormRegister,
     UseFormSetValue,
 } from 'react-hook-form'
@@ -71,6 +70,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
         required,
         minLength,
         min: 0,
+        valueAsNumber: type === 'number',
         pattern: form_pattern.get(type),
     }
 
@@ -293,8 +293,21 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                                         'border-red-500 '
                                     }`}
                                 />
-                            ) : (
+                            ) : type === 'number' ? (
                                 <input
+                                    id={label}
+                                    disabled={disabled}
+                                    type={'number'}
+                                    {...(register &&
+                                        register(label, validationOptions))}
+                                    className={` w-full border-none outline-none disabled:opacity-50 disabled:cursor-not-allowed p-4 pl-0 ${
+                                        formErrors &&
+                                        formErrors[label] &&
+                                        'border-red-500 '
+                                    }`}
+                                />
+                            ): (
+                                    <input
                                     id={label}
                                     disabled={disabled}
                                     type={type}
