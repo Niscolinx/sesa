@@ -6,6 +6,7 @@ import Input, { SelectProps } from '../../../components/UI/input/Input'
 import ImageInput from '../../../components/UI/input/ImageInput'
 import useAxios from '../../../components/hooks/useAxios'
 import Spinner from '../../../components/UI/Spinner'
+import { useNavigate } from 'react-router'
 
 const AddSecurityManager = () => {
     interface Inputs {
@@ -32,6 +33,7 @@ const AddSecurityManager = () => {
     const genderState = ['Male', 'Female']
 
     const axiosInstance = useAxios()
+    const navigate = useNavigate()
 
     const [photoPreview, setPhotoPreview] = useState('')
     const [imageFile, setImageFile] = useState<File | null>(null)
@@ -99,6 +101,8 @@ const AddSecurityManager = () => {
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
     const handleClose = () => {
+                navigate(-1)
+
         if (dialogRef.current) {
             dialogRef.current.close()
         }
