@@ -124,6 +124,7 @@ const AdvertDetail = () => {
         image,
         advert_name,
         start_date,
+        status,
         end_date,
         percentage_click_diff,
         total_view,
@@ -307,8 +308,8 @@ const AdvertDetail = () => {
                         className='border border-color-blue-1 text-color-blue-1 px-16 py-4 flex items-center  rounded-lg gap-4'
                         onClick={() => handleSelectedAction('Deactivate')}
                     >
-                        <span className=' text-[1.4rem] font-semibold'>
-                            Deactivate
+                        <span className=' text-[1.4rem] font-semibold capitalize'>
+                            {status ? 'deactivate' : 'activate'}
                         </span>
                     </button>
                     
