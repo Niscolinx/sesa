@@ -6,7 +6,7 @@ import { useParams } from 'react-router'
 import { toast, ToastContainer } from 'react-toastify'
 import useAxios from '../../../components/hooks/useAxios'
 
-const ViewEstateManager = () => {
+const ViewSecurityManager = () => {
     interface Inputs {
         email_address: string
         first_name: string
@@ -78,7 +78,7 @@ const ViewEstateManager = () => {
     const [responseMessage, setResponseMessage] =
         useState<ResponseMessage | null>(null)
 
-    const estateManager_id = params.id?.replace(':', '')
+    const manager_id = params.id?.replace(':', '')
 
     const postDeactivate = (id: string) => {
         return axiosInstance({
@@ -89,7 +89,7 @@ const ViewEstateManager = () => {
     }
     const postUpdate = (data: Inputs) => {
         return axiosInstance({
-            url: `/admin/update/${estateManager_id}`,
+            url: `/admin/update/${manager_id}`,
             method: 'post',
             data,
         })
@@ -97,7 +97,7 @@ const ViewEstateManager = () => {
 
     const getRequest = () => {
         return axiosInstance({
-            url: `/manager/get/${estateManager_id}`,
+            url: `/manager/get/${manager_id}`,
         })
     }
 
@@ -120,7 +120,7 @@ const ViewEstateManager = () => {
         }) as any
 
     const { isLoading: get_loading, data: get_data } = useQuery(
-        'estate_manager' + estateManager_id,
+        'security_manager' + manager_id,
         getRequest
     )
 
@@ -170,7 +170,7 @@ const ViewEstateManager = () => {
             name: `${first_name} ${last_name}`,
             gender: selectedGender,
             dob,
-            id: estateManager_id,
+            id: manager_id,
             email: email_address,
             address: 'no 4 odeyim street',
             phone: `+234${phone_number}`,
@@ -233,7 +233,7 @@ const ViewEstateManager = () => {
                             <button
                                 className='bg-red-500 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem] capitalize'
                                 onClick={() =>
-                                    deactivate_mutation(estateManager_id)
+                                    deactivate_mutation(manager_id)
                                 }
                             >
                                 {deactivate_loading
@@ -348,4 +348,4 @@ const ViewEstateManager = () => {
     )
 }
 
-export default ViewEstateManager
+export default ViewSecurityManager
