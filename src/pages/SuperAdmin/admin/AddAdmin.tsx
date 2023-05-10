@@ -121,7 +121,6 @@ const AddAdmin = () => {
             image: imageFile,
         }
 
-        console.log({ adminData })
 
         mutate(adminData)
     })
