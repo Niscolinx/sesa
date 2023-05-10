@@ -97,14 +97,14 @@ const ViewSecurityManager = () => {
 
     const getRequest = () => {
         return axiosInstance({
-            url: `/manager/get/${manager_id}`,
+            url: `/security-company-manager/get/${manager_id}`,
         })
     }
 
     const { mutate: deactivate_mutation, isLoading: deactivate_loading } =
         useMutation(postDeactivate, {
             onSuccess: (data) => {
-                toast('Admin Deactivated successfully', {
+                toast('Manager Deactivated successfully', {
                     type: 'success',
                     className: 'bg-green-100 text-green-600 text-[1.4rem]',
                 })
