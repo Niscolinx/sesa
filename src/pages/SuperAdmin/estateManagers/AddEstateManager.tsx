@@ -53,6 +53,8 @@ const AddSecurityManager = () => {
     const {
         register,
         handleSubmit,
+        clearErrors,
+        setValue,
         formState: { errors: formErrors },
     } = useForm<Inputs>()
 
@@ -188,6 +190,8 @@ const AddSecurityManager = () => {
                                     label={label}
                                     register={register}
                                     formErrors={formErrors}
+                                    setValue={setValue}
+                                    clearErrors={clearErrors}
                                     type={type}
                                     name={name}
                                     isSelect={type === 'select'}
