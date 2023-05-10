@@ -170,11 +170,10 @@ const ViewSecurityManager = () => {
             name: `${first_name} ${last_name}`,
             gender: selectedGender,
             dob,
-            id: manager_id,
             email: email_address,
             address: 'no 4 odeyim street',
             phone: `+234${phone_number}`,
-            image: photoPreview,
+            image: imageUrl,
         }
 
         post_mutation(updatedData)

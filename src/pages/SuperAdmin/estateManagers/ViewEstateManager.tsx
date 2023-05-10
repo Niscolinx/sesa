@@ -149,7 +149,7 @@ const ViewEstateManager = () => {
         postUpdate,
         {
             onSuccess: (data) => {
-                toast('Admin Updated successfully', {
+                toast('Manager Updated successfully', {
                     type: 'success',
                     className: 'bg-green-100 text-green-600 text-[1.4rem]',
                 })
@@ -174,7 +174,7 @@ const ViewEstateManager = () => {
             email: email_address,
             address: 'no 4 odeyim street',
             phone: `+234${phone_number}`,
-            image: photoPreview,
+            image: imageUrl,
         }
 
         post_mutation(updatedData)
