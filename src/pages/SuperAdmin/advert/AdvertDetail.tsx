@@ -133,6 +133,8 @@ const AdvertDetail = () => {
         percentage_view_diff,
     } = data
 
+    console.log({data})
+
     return (
         <>
             <ToastContainer />
