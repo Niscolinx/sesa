@@ -80,6 +80,13 @@ const Input: FC<Partial<Input> & { label: string }> = ({
     const [phone, setPhone] = useState('')
     const [price, setPrice] = useState('')
 
+      useEffect(() => {
+        if(label.includes('phone') && value){
+
+            setPhone(value)
+        }
+    }, [label, value])
+
     const handlePhoneChange = (e: ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value.replace(/\D/g, '')
         if (setValue && clearErrors) {
@@ -122,6 +129,8 @@ const Input: FC<Partial<Input> & { label: string }> = ({
             setPrice(transFormValue(value))
         }
     }
+
+  
 
    
 
@@ -238,7 +247,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                                         type={type}
                                         inputMode='numeric'
                                         maxLength={10}
-                                        value={value || phone}
+                                        value={ phone}
                                         onChange={handlePhoneChange}
                                         className={` w-full border-none outline-none disabled:opacity-50 disabled:cursor-not-allowed p-4 pl-0 ${
                                             formErrors &&

@@ -26,6 +26,7 @@ const ViewEstateManager = () => {
         label?: string
         type?: string
         name?: string
+        value?:string | number
         selectProps?: SelectProps
     }
 
@@ -36,6 +37,7 @@ const ViewEstateManager = () => {
     const [imageUrl, setImageUrl] = useState<File | null>(null)
     const genderState = ['Male', 'Female']
     const [selectedGender, setSelectedGender] = useState<string>(genderState[0])
+    const [phone, setPhone] = useState(0)
 
     const formInputs = [
         {
@@ -61,6 +63,7 @@ const ViewEstateManager = () => {
         {
             label: 'phone_number',
             type: 'number',
+            value: phone,
         },
         {
             label: 'email_address',
@@ -134,6 +137,8 @@ const ViewEstateManager = () => {
             const first_name = name.split(' ')[0]
             const last_name = name.split(' ')[1]
 
+             const phone_number = parseInt(phone.slice(3, -1))
+            setPhone(phone_number)
             reset({
                 first_name,
                 last_name,
@@ -141,6 +146,7 @@ const ViewEstateManager = () => {
                 email_address: email,
                 phone_number: parseInt(phone),
             })
+
 
             setPhotoPreview(image)
             setSelectedGender(fetched_data.gender)
@@ -313,13 +319,14 @@ const ViewEstateManager = () => {
                 >
                     <>
                         {formInputs.map((input, idx) => {
-                            const { label, type, name, selectProps } = input
+                            const { label, type, name, selectProps, value } = input
 
                             return (
                                 <Input
                                     key={idx + label}
                                     label={label}
                                     register={register}
+                                    value={value}
                                     formErrors={formErrors}
                                     clearErrors={clearErrors}
                                     setValue={setValue}

@@ -26,6 +26,7 @@ const ViewSecurityManager = () => {
         label?: string
         type?: string
         name?: string
+        value?: string | number
         selectProps?: SelectProps
     }
 
@@ -36,6 +37,7 @@ const ViewSecurityManager = () => {
     const [imageUrl, setImageUrl] = useState<File | null>(null)
     const genderState = ['Male', 'Female']
     const [selectedGender, setSelectedGender] = useState<string>(genderState[0])
+const [phone, setPhone] = useState(0)
 
     const formInputs = [
         {
@@ -61,6 +63,7 @@ const ViewSecurityManager = () => {
         {
             label: 'phone_number',
             type: 'number',
+            value: phone
         },
         {
             label: 'email_address',
@@ -134,9 +137,8 @@ const ViewSecurityManager = () => {
             const first_name = name.split(' ')[0]
             const last_name = name.split(' ')[1]
 
-            const phone_number = phone.slice(3, -1)
-
-            console.log({phone_number})
+             const phone_number = parseInt(phone.slice(3, -1))
+            setPhone(phone_number)
 
             reset({
                 first_name,
@@ -317,7 +319,7 @@ const ViewSecurityManager = () => {
                 >
                     <>
                         {formInputs.map((input, idx) => {
-                            const { label, type, name, selectProps } = input
+                            const { label, type, name, selectProps, value } = input
 
                             return (
                                 <Input
@@ -326,6 +328,7 @@ const ViewSecurityManager = () => {
                                     register={register}
                                     clearErrors={clearErrors}
                                     setValue={setValue}
+                                    value={value}
                                     formErrors={formErrors}
                                     type={type}
                                     name={name}
