@@ -29,6 +29,8 @@ const AddEstate = () => {
         name?: string
         required?: boolean
         disabled?: boolean
+        minLength?: number
+        maxLength?: number
         selectProps?: SelectProps
     }
 
@@ -306,6 +308,8 @@ const AddEstate = () => {
         {
             label: 'account_number',
             type: 'number',
+            minLength: 9,
+            maxLength: 10
         },
     ] satisfies Partial<FormInputs>[]
 
@@ -355,7 +359,7 @@ const AddEstate = () => {
                         }}
                     >
                         {first_section_inputs.map((input, idx) => {
-                            const { label, type, selectProps } = input
+                            const { label, type, selectProps, minLength, maxLength } = input
 
                             return (
                                 <Input
@@ -367,6 +371,8 @@ const AddEstate = () => {
                                     fullWidth={label === 'address'}
                                     selectFormErrors={selectFormErrors}
                                     type={type}
+                                    minLength={minLength}
+                                    maxLength={maxLength}
                                     isSelect={type === 'select'}
                                     select={selectProps}
                                 />

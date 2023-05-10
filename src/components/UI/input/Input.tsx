@@ -31,6 +31,7 @@ interface Input {
     clearErrors?: UseFormClearErrors<any>
     pre?: string
     minLength?: number
+    maxLength?: number
     fullWidth: boolean
     isSelect: boolean
     selectFormErrors: Record<string, string> | null
@@ -43,7 +44,6 @@ const Input: FC<Partial<Input> & { label: string }> = ({
     type = 'text',
     register,
     setValue,
-    
     isSelect,
     pre,
     fullWidth,
@@ -57,6 +57,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
     required = true,
     formErrors,
     minLength = 3,
+    maxLength
 }) => {
     const form_pattern = new Map([
         [
@@ -68,6 +69,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
     const validationOptions = {
         required,
         minLength,
+        maxLength,
         min: 0,
         valueAsNumber: type === 'number',
         pattern: form_pattern.get(type),
