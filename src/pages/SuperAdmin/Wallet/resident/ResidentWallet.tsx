@@ -11,11 +11,11 @@ const ResidentWallet = () => {
 
     // const [selectedTrend, setSelectedTrend] = useState<string>(trend[0])
 
-    type Path = 'resident-balance' | 'transaction-history'
+    type Path = 'balance' | 'history'
 
-    const paths: Path[] = ['resident-balance', 'transaction-history']
+    const paths: Path[] = ['balance', 'history']
 
-    const [currentPath, setcurrentPath] = useState<Path>('resident-balance')
+    const [currentPath, setcurrentPath] = useState<Path>('balance')
 
     const ResidentBalance = () => {
         return (
@@ -62,8 +62,8 @@ const ResidentWallet = () => {
     }
 
     const handlePathSwitch = new Map([
-        ['transaction-history', <TransactionHistory />],
-        ['resident-balance', <ResidentBalance />],
+        ['history', <TransactionHistory />],
+        ['balance', <ResidentBalance />],
     ]) satisfies Map<Path, JSX.Element>
 
     const { data: graph_data, isLoading: graph_loading } = useFetchData({

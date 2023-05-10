@@ -21,7 +21,7 @@ const SecurityWallet = () => {
                 <Table
                     is_dropdown={false}
                     fetch_url={'/admin/get/wallet/balance/security_company'}
-                    title={'balance'}
+                    title={'company_balance'}
                     THeader={['company name', 'amount']}
                     data_to_display={['name', 'balance']}
                 />
@@ -34,7 +34,7 @@ const SecurityWallet = () => {
                 <Table
                     fetch_url={'/admin/get/wallet/transaction/security_company'}
                     view_page_url={'/superAdmin/wallet/company/'}
-                    title={'history'}
+                    title={'company_history'}
                     isStrictAction
                     actions={['view details']}
                     THeader={[
