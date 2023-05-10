@@ -90,7 +90,7 @@ const ArtisanDetail = () => {
         [`view_artisan_${artisan_id}`],
         getRequest
     )
-    const { data: update_mutation, isLoading: update_loading } = useMutation(
+    const { mutate: update_mutation, isLoading: update_loading } = useMutation(
         [`update_artisan_${artisan_id}`],
         postUpdate,
         {
@@ -109,6 +109,15 @@ const ArtisanDetail = () => {
             },
         }
     )
+
+     const onSubmit = handleSubmit((data) => {
+         // const { } = data
+         const updatedData = {
+             ...data,
+         }
+
+         update_mutation(updatedData)
+     })
 
     useEffect(() => {
         if (get_response) {
@@ -131,20 +140,7 @@ const ArtisanDetail = () => {
         }
     }, [get_response])
 
-    const onSubmit = handleSubmit((data) => {
-        // const { first_name, last_name, dob, email_address, phone_number } = data
-        // const adminData = {
-        //     name: `${first_name} ${last_name}`,
-        //     gender: selectedGender,
-        //     dob,
-        //     id: artisan_id,
-        //     email: email_address,
-        //     address: 'no 4 odeyim street',
-        //     phone: `+234${phone_number}`,
-        //     image: imageFile,
-        // }
-        //post_admin_mutation(adminData)
-    })
+   
     if (isLoading) {
         return <p className='p-8'>Loading...</p>
     }
