@@ -72,7 +72,7 @@ const ArtisanDetail = () => {
         reset,
     } = useForm<Inputs>()
 
-    const postUpdate = (data: any) => {
+    const postUpdate = (data: Inputs) => {
         return axiosInstance({
             url: `/admin/artisan/update/${artisan_id}`,
             method: 'post',
@@ -110,14 +110,19 @@ const ArtisanDetail = () => {
         }
     )
 
-     const onSubmit = handleSubmit((data) => {
-         // const { } = data
-         const updatedData = {
-             ...data,
-         }
+    const onSubmit = handleSubmit((data) => {
+        const { image, created_at, category, gender, ...other } = data
 
-         update_mutation(updatedData)
-     })
+        const category_ids: string[] = category.map((each: any) => {
+            each.id
+        })
+
+        const updatedData = {
+            ...data,
+        }
+
+        update_mutation(updatedData)
+    })
 
     useEffect(() => {
         if (get_response) {
@@ -140,7 +145,6 @@ const ArtisanDetail = () => {
         }
     }, [get_response])
 
-   
     if (isLoading) {
         return <p className='p-8'>Loading...</p>
     }
