@@ -14,6 +14,7 @@ import ValidateKY from '../../../../components/UI/Dialog/ValidateKY'
 
 const ArtisanDetail = () => {
     interface Inputs {
+        categories: string
         firstname: string
         lastname: string
         artisan_code: string
@@ -45,6 +46,12 @@ const ArtisanDetail = () => {
     const genderState = ['Male', 'Female']
     const [photoPreview, setPhotoPreview] = useState('')
     const [imageFile, setImageFile] = useState<File | null>(null)
+    const [slicedCategories, setSlicedCategories] = useState([])
+    const [selectedCategories, setSelectedCategories] = useState<
+        string[]
+    >([])
+      const [responseMessage, setResponseMessage] =
+          useState<ResponseMessage | null>(null)
 
     const [selectedGender, setSelectedGender] = useState<string>('')
 
@@ -138,6 +145,8 @@ const ArtisanDetail = () => {
         return <p className='p-8'>Loading...</p>
     }
 
+    
+
     const formInputs = [
         {
             name: 'first Name',
@@ -166,6 +175,18 @@ const ArtisanDetail = () => {
                 state: genderState,
                 selectedState: selectedGender,
                 setSelectedState: setSelectedGender,
+            },
+        },
+
+        {
+            label: 'categories',
+            type: 'select',
+            selectProps: {
+                state: slicedCategories,
+                isSearchable: true,
+                isMulti: true,
+                selectedState: selectedCategories,
+                setSelectedState: setSelectedCategories,
             },
         },
         {
