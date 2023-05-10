@@ -16,7 +16,7 @@ const AddEstate = () => {
         security_company: string
         estate_percentage: number
         sesadigital_percentage: number
-        number_of_resident_user: number
+        no_of_resident_user: number
         additional_resident_user: number
         bank_name: string
         account_name: string
@@ -93,17 +93,17 @@ const AddEstate = () => {
         setImageFile(file)
     }
 
-    const watchedField = watch('estate_fee')
+    const watchedField = watch('estate_percentage')
 
 
     useEffect(() => {
         if (watchedField >= 0 && watchedField <= 100) {
             estateFeeRef.current = watchedField
-            setValue('estate_fee', watchedField)
-            setValue('sesa_fee', 100 - watchedField)
+            setValue('estate_percentage', Number(watchedField))
+            setValue('sesadigital_percentage', 100 - watchedField)
         } else {
             if (estateFeeRef.current) {
-                setValue('estate_fee', estateFeeRef.current)
+                setValue('estate_percentage', estateFeeRef.current)
             }
         }
     }, [watchedField])
@@ -287,7 +287,7 @@ const AddEstate = () => {
             type: 'number',
         },
         {
-            label: 'number_of_resident_user',
+            label: 'no_of_resident_user',
             type: 'number',
         },
         {
