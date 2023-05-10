@@ -145,7 +145,7 @@ const AddSecurityManager = () => {
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
                         <img src='/icons/admins/modalSuccess.svg' alt='' />
-                        <p>You have successfully added an EstateManager</p>
+                        <p>You have successfully added a Security Manager</p>
 
                         <div className='flex w-full justify-center gap-8'>
                             <button
