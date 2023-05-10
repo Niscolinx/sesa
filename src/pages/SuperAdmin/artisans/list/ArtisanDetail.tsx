@@ -239,10 +239,10 @@ const ArtisanDetail = () => {
 
                         <Activate_Deactivate
                             id={artisan_id}
-                            url={'/security-company/deactivate_activate'}
+                            url={'/admin/artisan/changeStatus/'}
                             status={0}
-                            title={'security company'}
-                            queryCache={`get_company_${artisan_id}`}
+                            title={'artisan'}
+                            queryCache={`get_artisan_${artisan_id}`}
                         />
                     </div>
 
