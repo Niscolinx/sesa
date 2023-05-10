@@ -40,7 +40,7 @@ function Activate_Deactivate({ id, url, status, title, queryCache }: Props) {
                 })
             },
             onError: (err: any) => {
-                toast(`Failed to ${currentStatus} company`, {
+                toast(`Failed to ${currentStatus} ${title}`, {
                     type: 'error',
                     className:
                         'bg-red-100 text-red-600 text-[1.4rem] capitalize',
