@@ -238,7 +238,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                                         type={type}
                                         inputMode='numeric'
                                         maxLength={10}
-                                        value={phone}
+                                        value={value || phone}
                                         onChange={handlePhoneChange}
                                         className={` w-full border-none outline-none disabled:opacity-50 disabled:cursor-not-allowed p-4 pl-0 ${
                                             formErrors &&

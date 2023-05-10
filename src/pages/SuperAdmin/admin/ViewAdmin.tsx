@@ -118,13 +118,15 @@ const ViewAdmin = () => {
             const first_name = name.split(' ')[0]
             const last_name = name.split(' ')[1]
 
+            const phone_number = parseInt(phone.slice(3, -1))
             reset({
                 first_name,
                 last_name,
                 dob,
                 email_address: email,
-                phone_number: parseInt(phone),
             })
+
+            setValue('phone_number', phone_number)
 
             setPhotoPreview(image)
             setSelectedGender(gender)
