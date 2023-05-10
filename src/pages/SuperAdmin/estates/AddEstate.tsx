@@ -193,11 +193,11 @@ const AddEstate = () => {
                 id,
             }))[0]
 
-        const security_company: string[] = security_company_data
+        const security_company_id: string[] = security_company_data
             .filter(({ name }: any) => selectedSecurityCompany.includes(name))
             .map(({ id }: any) => ({ id }))[0]
 
-        const estate_manager: string[] = estate_manager_data
+        const estate_manager_id: string[] = estate_manager_data
             .filter(({ name}: any) =>
                 selectedEstateManager.includes(name)
             )
@@ -209,8 +209,8 @@ const AddEstate = () => {
         const updated_data: any = {
             ...data,
             state,
-            estate_manager,
-            security_company,
+            estate_manager_id,
+            security_company_id,
             image: imageFile,
         }
 
