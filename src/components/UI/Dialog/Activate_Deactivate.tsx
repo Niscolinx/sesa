@@ -33,7 +33,7 @@ function Activate_Deactivate({ id, url, status, title, queryCache }: Props) {
     const { mutate, isLoading } =
         useMutation(postDeactivate, {
             onSuccess: (res) => {
-                toast(`Company ${title} ${currentStatus + 'd'} successfully`, {
+                toast(`${title} ${currentStatus + 'd'} successfully`, {
                     type: 'success',
                     className:
                         'bg-green-100 text-green-600 text-[1.4rem] capitalize',
