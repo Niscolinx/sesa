@@ -65,7 +65,7 @@ function TableDialog() {
 
             if (isDialogOpen?.type !== 'delete' && previousData.data) {
                 let index_to_replace = 0
-                let updatedData = previousData.data.data
+                let updatedData = previousData.data.data || previousData.data
                     .filter((data: any, idx: number) => {
                         if (data.id === fetchedId) {
                             index_to_replace = idx
