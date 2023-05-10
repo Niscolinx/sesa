@@ -39,7 +39,7 @@ const AddEstate = () => {
 
     const { data: estate_manager_data, isLoading: estate_manager_loading } =
         useFetchData({
-            url: '/estate/getall',
+            url: '/manager/fetchDropdownEstateManager',
             name: 'estate_manager',
         })
     const { data: security_company_data, isLoading: security_company_loading } =
@@ -197,9 +197,9 @@ const AddEstate = () => {
             .filter(({ name }: any) => selectedSecurityCompany.includes(name))
             .map(({ id }: any) => ({ id }))[0]
 
-        const estate_manager: string[] = estate_manager_data.data
-            .filter(({ estate_name }: any) =>
-                selectedEstateManager.includes(estate_name)
+        const estate_manager: string[] = estate_manager_data
+            .filter(({ name}: any) =>
+                selectedEstateManager.includes(name)
             )
             .map(({ id }: any) => ({ id }))[0]
 
@@ -223,8 +223,8 @@ const AddEstate = () => {
     }
 
     const slicedStates: string[] = states_data.map(({ name }: any) => name)
-    const slicedEstateManagers: string[] = estate_manager_data.data.map(
-        ({ estate_name }: any) => estate_name
+    const slicedEstateManagers: string[] = estate_manager_data.map(
+        ({ name}: any) => name
     )
     const slicedSecurityCompanies: string[] = security_company_data.map(
         ({ name }: any) => name
@@ -232,7 +232,7 @@ const AddEstate = () => {
 
     const first_section_inputs = [
         {
-            label: 'estate_name',
+            label: 'name',
         },
 
         {
