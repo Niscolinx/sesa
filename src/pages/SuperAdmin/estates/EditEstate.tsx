@@ -107,12 +107,7 @@ const EditEstate = () => {
             },
         })
     }
-    const deleteRequest = () => {
-        return axiosInstance({
-            url: `/estate/delete/${estate_id}`,
-            method: 'delete',
-        })
-    }
+   
     const getRequest = () => {
         return axiosInstance({
             url: `/estate/view/getbyid/${estate_id}`,
@@ -153,23 +148,7 @@ const EditEstate = () => {
         }
     )
 
-    const { mutate: delete_mutation, isLoading: delete_loading } = useMutation(
-        deleteRequest,
-        {
-            onSuccess: ({ response }: any) => {
-                toast('Admin Deactivated successfully', {
-                    type: 'success',
-                    className: 'bg-green-100 text-green-600 text-[1.4rem]',
-                })
-            },
-            onError: (err: any) => {
-                setResponseMessage({
-                    className: 'text-red-600',
-                    displayMessage: err?.response?.data.message,
-                })
-            },
-        }
-    )
+   
     const { mutate, isLoading } = useMutation(postRequest, {
         onSuccess: ({ response }: any) => {
             toast('Estate deleted successfully', {
