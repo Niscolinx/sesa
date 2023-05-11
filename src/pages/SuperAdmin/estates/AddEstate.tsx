@@ -125,9 +125,9 @@ const AddEstate = () => {
         },
         onError: (err: any) => {
          toast(err?.response?.data.message, {
-                type: 'error',
-                className: 'bg-red-100 text-red-600 text-[1.4rem]',
-            })
+             type: 'error',
+             className: 'bg-red-100 text-red-600 text-[1.4rem]',
+         })
         },
     })
 
