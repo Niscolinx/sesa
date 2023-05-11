@@ -9,22 +9,24 @@ import { toast } from 'react-toastify'
 
 const EditEstate = () => {
     interface Inputs {
+        status: number
+        security_company_id: null
         estate_name: string
         estate_location_state: string
         address: string
         estate_manager: string
         security_company: string
-        estate_fee: number
-        sesa_fee: number
+        estate_percentage: number
+        sesadigital_percentage: number
         number_of_resident_user: number
-        additional_resident_user: number
+        no_of_resident_user: number
         bank_name: string
         account_name: string
         account_number: number
     }
 
     type FormInputs = {
-        label: string
+        label: keyof Inputs
         type: string
         name?: string
         required?: boolean
@@ -110,53 +112,57 @@ const EditEstate = () => {
     }
     const getRequest = () => {
         return axiosInstance({
-            url: `/manager/get/${estate_id}`,
+            url: `/estate/view/getbyid/${estate_id}`,
         })
     }
 
-    const { isLoading: get_loading } = useQuery('view estate', getRequest, {
-        refetchInterval: 0,
-        refetchOnMount: false,
-        refetchOnWindowFocus: false,
+    const { isLoading: get_loading } = useQuery(
+        `view_estate_${estate_id}`,
+        getRequest,
+        {
+            refetchInterval: 0,
+            refetchOnMount: false,
+            refetchOnWindowFocus: false,
 
-        onSuccess: (res) => {
-            const fetched_data = res.data
+            onSuccess: (res) => {
+                const fetched_data = res.data
 
-            const {
-                estate_name,
-                estate_location_state,
-                address,
-                estate_manager,
-                security_company,
-                estate_fee,
-                sesa_fee,
-                number_of_resident_user,
-                additional_resident_user,
-                bank_name,
-                account_name,
-                account_number,
-                image,
-            } = fetched_data
+                const {
+                    estate_name,
+                    estate_location_state,
+                    address,
+                    estate_manager,
+                    security_company,
+                    estate_fee,
+                    sesa_fee,
+                    number_of_resident_user,
+                    additional_resident_user,
+                    bank_name,
+                    account_name,
+                    account_number,
+                    image,
+                } = fetched_data
 
-            reset({
-                estate_name,
-                estate_location_state,
-                address,
-                estate_manager,
-                security_company,
-                estate_fee,
-                sesa_fee,
-                number_of_resident_user,
-                additional_resident_user,
-                bank_name,
-                account_name,
-                account_number,
-            })
+                reset({
+                    estate_name,
+                    estate_location_state,
+                    address,
+                    estate_manager,
+                    security_company,
+                    estate_percentage,
+                    sesadigital_percentage,
+                    number_of_resident_user,
+                    no_of_resident_user,
+                    bank_name,
+                    account_name,
+                    account_number,
+                })
 
-            setPhotoPreview(image)
-            // setSelectedGender(fetched_data.gender)
-        },
-    })
+                setPhotoPreview(image)
+                // setSelectedGender(fetched_data.gender)
+            },
+        }
+    )
 
     const { mutate: delete_mutation, isLoading: delete_loading } = useMutation(
         deleteRequest,
@@ -323,7 +329,7 @@ const EditEstate = () => {
                 setSelectedState: setSelectedSecurityCompany,
             },
         },
-    ] satisfies Partial<FormInputs>[] 
+    ] satisfies Partial<FormInputs>[]
 
     const second_section_inputs = [
         {
