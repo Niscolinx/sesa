@@ -8,20 +8,20 @@ const AdvertViews = () => {
     return (
         <div className='rounded-lg mt-[3rem] min-h-[60vh]'>
             <Table
-                fetch_url={`/advertstatistics/clickorview/details?advert_id=${advert_id}&category=click&perPage=10`}
-                title={'clicks'}
+                fetch_url={`/advertstatistics/clickorview/details?advert_id=${advert_id}&category=view&perPage=10`}
+                title={'views'}
                 is_dropdown={false}
                 THeader={[
                     'estate_name',
                     'address',
                     'resident_count',
-                    'clicks_count',
+                    'views_count',
                 ]}
                 data_to_display={[
                     'estate_name',
                     'address',
                     'no_of_resident',
-                    'clicks',
+                    'views',
                 ]}
             />
         </div>

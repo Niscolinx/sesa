@@ -12,7 +12,7 @@ const AdvertClicks = () => {
                 fetch_url={
                     `/advertstatistics/clickorview/details?advert_id=${advert_id}&category=click&perPage=10`
                 }
-                title={'clicks'}
+                title={'click'}
                 is_dropdown={false}
                 THeader={[
                     'estate_name',
