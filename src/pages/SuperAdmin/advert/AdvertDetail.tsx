@@ -33,44 +33,44 @@ const AdvertDetail = () => {
         name: `advert_${advert_id}`,
     })
 
-    const postDeactivate = () => {
-        return axiosInstance({
-            url: '/advert/deactivate_activate',
-            method: 'post',
-            data: { id: advert_id },
-        })
-    }
+    // const postDeactivate = () => {
+    //     return axiosInstance({
+    //         url: '/advert/deactivate_activate',
+    //         method: 'post',
+    //         data: { id: advert_id },
+    //     })
+    // }
 
-    const queryClient = useQueryClient()
-    const { mutate: deactivate_mutation, isLoading: deactivate_loading } =
-        useMutation(postDeactivate, {
-            onSuccess: (data) => {
-                toast('Successful', {
-                    type: 'success',
-                    className: 'bg-green-100 text-green-600 text-[1.4rem]',
-                })
+    // const queryClient = useQueryClient()
+    // const { mutate: deactivate_mutation, isLoading: deactivate_loading } =
+    //     useMutation(postDeactivate, {
+    //         onSuccess: (data) => {
+    //             toast('Successful', {
+    //                 type: 'success',
+    //                 className: 'bg-green-100 text-green-600 text-[1.4rem]',
+    //             })
 
-                handleClose()
-            },
-            onError: (err: any) => {
-                toast(`Operation Failed `, {
-                    type: 'error',
-                    className:
-                        'bg-red-100 text-red-600 text-[1.4rem] capitalize',
-                })
+    //             handleClose()
+    //         },
+    //         onError: (err: any) => {
+    //             toast(`Operation Failed `, {
+    //                 type: 'error',
+    //                 className:
+    //                     'bg-red-100 text-red-600 text-[1.4rem] capitalize',
+    //             })
 
-                                handleClose()
+    //                             handleClose()
 
-            },
+    //         },
 
-            onSettled: () => {
+    //         onSettled: () => {
 
-                queryClient.invalidateQueries(`advert_${advert_id}`)
+    //             queryClient.invalidateQueries(`advert_${advert_id}`)
 
-            }
+    //         }
 
 
-        }) as any
+    //     }) as any
 
     const handleClose = () => {
         if (dialogRef.current) {
@@ -104,7 +104,7 @@ const AdvertDetail = () => {
     const handleDeactivateAdvert = () => {
         handleClose()
 
-        deactivate_mutation()
+       // deactivate_mutation()
 
 
     }
@@ -307,7 +307,13 @@ const AdvertDetail = () => {
                     </div>
                 </section>
                 <section className='flex gap-8'>
-                   <Activate_Deactivate id={''} url={''} status={0} title={''} queryCache={''}/>
+                    <Activate_Deactivate
+                        id={advert_id!}
+                        url={'/advert/deactivate_activate'}
+                        status={0}
+                        title={'f'}
+                        queryCache={`advert_${advert_id}`}
+                    />
                 </section>
             </div>
         </>
