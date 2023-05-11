@@ -70,9 +70,6 @@ const AdvertClickrateIncrease = () => {
                     `/advertstatistics/clickorview/details?advert_id=${advert_id}&category=click&perPage=10`
                 }
                 title={'clicks'}
-                
-                view_page_url={'/superAdmin/admin/view/'}
-                add_page_url={'/superAdmin/admin/add'}
                 THeader={[
                     'estate_name',
                     'address',
