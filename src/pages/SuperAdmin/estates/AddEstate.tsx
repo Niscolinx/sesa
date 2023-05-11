@@ -78,7 +78,6 @@ const AddEstate = () => {
     const [selectFormErrors, setSelectFormErrors] = useState<{
         [key: string]: string
     } | null>(null)
-  
 
     const toggleIsSignOutRequired = () =>
         setIsSignOutRequired(!isSignOutRequired)
@@ -94,7 +93,6 @@ const AddEstate = () => {
 
     const watchedField = watch('estate_percentage')
 
-
     useEffect(() => {
         if (watchedField >= 0 && watchedField <= 100) {
             estateFeeRef.current = watchedField
@@ -107,36 +105,29 @@ const AddEstate = () => {
         }
     }, [watchedField])
 
-   
-
-    const postRequest = (data: Inputs) => {
-        // return axiosInstance({
-        //     url: '/estate/create',
-        //     method: 'post',
-        //     data,
-        //     headers: {
-        //         'Content-Type': 'multipart/form-data',
-        //     },
-        // })
-
+    const postAdmin = (data: Inputs) => {
         return axiosInstance({
-            url: '/admin/create',
+            url: '/estate/create',
             method: 'post',
             data,
-            headers: { 'Content-Type': 'multipart/form-data' },
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            },
         })
     }
-    const { mutate, isLoading } = useMutation(postRequest, {
-        onSuccess: ({ response }: any) => {
-            openDialog()
+
+    const { mutate, isLoading } = useMutation(postAdmin, {
+        onSuccess: () => {
+         openDialog()
         },
         onError: (err: any) => {
-         toast(err?.response?.data.message, {
-             type: 'error',
-             className: 'bg-red-100 text-red-600 text-[1.4rem]',
-         })
+            toast(err?.response?.data.message, {
+                type: 'error',
+                className: 'bg-red-100 text-red-600 text-[1.4rem]',
+            })
         },
-    })
+    }) 
+
 
     const closeDialog = () => {
         if (dialogRef.current) {
@@ -185,30 +176,21 @@ const AddEstate = () => {
             })
         }
 
-
-
         if (isError) {
             return
         }
 
-      
-
         const state_id: string[] = states_data
             .filter(({ name }: any) => selectedState.includes(name))
-            .map(({ id }: any) => (
-                id
-            ))[0]
+            .map(({ id }: any) => id)[0]
 
         const security_company_id: string[] = security_company_data
             .filter(({ name }: any) => selectedSecurityCompany.includes(name))
-            .map(({ id }: any) => ( id ))[0]
+            .map(({ id }: any) => id)[0]
 
         const estate_manager_id: string[] = estate_manager_data
-            .filter(({ name}: any) =>
-                selectedEstateManager.includes(name)
-            )
-            .map(({ id }: any) => ( id ))[0]
-
+            .filter(({ name }: any) => selectedEstateManager.includes(name))
+            .map(({ id }: any) => id)[0]
 
         const updated_data: any = {
             ...data,
@@ -233,7 +215,7 @@ const AddEstate = () => {
 
     const slicedState: string[] = states_data.map(({ name }: any) => name)
     const slicedEstateManager: string[] = estate_manager_data.map(
-        ({ name}: any) => name
+        ({ name }: any) => name
     )
     const slicedSecurityCompany: string[] = security_company_data.map(
         ({ name }: any) => name
@@ -311,14 +293,13 @@ const AddEstate = () => {
         {
             label: 'account_number',
             type: 'number',
-
         },
     ] satisfies Partial<FormInputs>[]
 
     return (
         <div className='bg-white rounded-lg p-8'>
-            <Spinner start={isLoading}/>
-            <ToastContainer/>
+            <Spinner start={isLoading} />
+            <ToastContainer />
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
@@ -342,9 +323,8 @@ const AddEstate = () => {
                     </div>
                 </section>
             </dialog>
-           
+
             <form onSubmit={onSubmit} className='grid gap-20'>
-               
                 <div className='grid gap-10'>
                     <p className='text-[2rem] font-Satoshi-Medium'>
                         Estate Details
@@ -369,7 +349,6 @@ const AddEstate = () => {
                                     fullWidth={label === 'address'}
                                     selectFormErrors={selectFormErrors}
                                     type={type}
-                                  
                                     isSelect={type === 'select'}
                                     select={selectProps}
                                 />
@@ -450,7 +429,6 @@ const AddEstate = () => {
                                     key={idx + label}
                                     label={label}
                                     register={register}
-                                  
                                     formErrors={formErrors}
                                     type={type}
                                 />
