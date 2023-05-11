@@ -52,6 +52,8 @@ import CommissionWalletDetails from '../../pages/SuperAdmin/Wallet/commission/Co
 import SecurityManagers from '../../pages/SuperAdmin/securityManagers/SecurityManagers'
 import AddSecurityManager from '../../pages/SuperAdmin/securityManagers/AddSecurityManager'
 import ViewSecurityManager from '../../pages/SuperAdmin/securityManagers/ViewSecurityManager'
+import AdvertClicks from '../../pages/SuperAdmin/advert/AdvertClicks'
+import AdvertViews from '../../pages/SuperAdmin/advert/AdvertViews'
 
 const superAdminRoutes = (
     <Route
@@ -126,12 +128,12 @@ const superAdminRoutes = (
         <Route path='advert/add' element={<AddAdvert />} />
         <Route path='advert/detail/:id' element={<AdvertDetail />} />
         <Route
-            path='advert/clickrate/increase/:id'
-            element={<AdvertClickrateIncrease />}
+            path='advert/clicks/:id'
+            element={<AdvertClicks />}
         />
         <Route
-            path='advert/clickrate/decrease/:id'
-            element={<AdvertClickrateDecrease />}
+            path='advert/views/:id'
+            element={<AdvertViews />}
         />
         <Route path='platformSettings' element={<PlatformSettings />} />
         <Route path='platformSettings/addProperty' element={<AddProperty />} />
