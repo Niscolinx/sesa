@@ -130,8 +130,6 @@ const Input: FC<Partial<Input> & { label: string }> = ({
         }
     }
 
-  
-
    
 
     return (

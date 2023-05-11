@@ -6,6 +6,8 @@ import { useMutation } from 'react-query'
 import ImageInput from '../../../components/UI/input/ImageInput'
 import useAxios from '../../../components/hooks/useAxios'
 import useFetchData from '../../../utils/useFetchData'
+import Spinner from '../../../components/UI/Spinner'
+import { ToastContainer, toast } from 'react-toastify'
 
 const AddEstate = () => {
     interface Inputs {
@@ -76,8 +78,7 @@ const AddEstate = () => {
     const [selectFormErrors, setSelectFormErrors] = useState<{
         [key: string]: string
     } | null>(null)
-    const [responseMessage, setResponseMessage] =
-        useState<ResponseMessage | null>(null)
+  
 
     const toggleIsSignOutRequired = () =>
         setIsSignOutRequired(!isSignOutRequired)
@@ -123,9 +124,9 @@ const AddEstate = () => {
             openDialog()
         },
         onError: (err: any) => {
-            setResponseMessage({
-                className: 'text-red-600',
-                displayMessage: err?.response?.data.message,
+         toast(err?.response?.data.message, {
+                type: 'error',
+                className: 'bg-red-100 text-red-600 text-[1.4rem]',
             })
         },
     })
@@ -309,6 +310,8 @@ const AddEstate = () => {
 
     return (
         <div className='bg-white rounded-lg p-8'>
+            <Spinner start={isLoading}/>
+            <ToastContainer/>
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
@@ -332,13 +335,7 @@ const AddEstate = () => {
                     </div>
                 </section>
             </dialog>
-            {responseMessage?.displayMessage && (
-                <p className='text-center my-5'>
-                    <span className={responseMessage?.className}>
-                        {responseMessage?.displayMessage}
-                    </span>
-                </p>
-            )}
+           
             <form onSubmit={onSubmit} className='grid gap-20'>
                
                 <div className='grid gap-10'>
