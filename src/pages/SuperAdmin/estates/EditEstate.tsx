@@ -188,18 +188,7 @@ const EditEstate = () => {
         },
     })
 
-    const closeDialog = () => {
-        if (dialogRef.current) {
-            dialogRef.current.close()
-        }
-    }
-
-    const openDialog = () => {
-        if (dialogRef.current) {
-            dialogRef.current.showModal()
-        }
-    }
-
+   
     const onSubmit = handleSubmit((data) => {
         setSelectFormErrors(null)
 
