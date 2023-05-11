@@ -21,7 +21,7 @@ const EditEstate = () => {
         estate_manager_name: string
         estate_percentage: number
         sesadigital_percentage: number
-        number_of_resident_user: number
+        additional_of_resident_user: number
         no_of_resident_user: number
         bank_name: string
         account_name: string
@@ -73,7 +73,7 @@ const EditEstate = () => {
 
     const estate_id = params.id?.replace(':', '')
 
-    if(!estate_id){
+    if (!estate_id) {
         return <p className='p-8'>Nothing Found!</p>
     }
 
@@ -106,7 +106,7 @@ const EditEstate = () => {
             },
         })
     }
-   
+
     const getRequest = () => {
         return axiosInstance({
             url: `/estate/view/getbyid/${estate_id}`,
@@ -125,19 +125,9 @@ const EditEstate = () => {
                 const fetched_data: Inputs = res.data
 
                 const {
-                    estate_name,
-                    estate_location_state,
-                    address,
                     estate_manager_name,
                     security_company_name,
-                    estate_percentage,
-                    sesadigital_percentage,
-                    number_of_resident_user,
-                    no_of_resident_user,
-                    bank_name,
-                    account_name,
                     state_name,
-                    account_number,
                     image,
                 } = fetched_data
 
@@ -149,12 +139,10 @@ const EditEstate = () => {
                 setSelectedState(state_name)
                 setSelectedEstateManager(estate_manager_name)
                 setSelectedSecurityCompany(security_company_name)
-                
             },
         }
     )
 
-   
     const { mutate, isLoading } = useMutation(postRequest, {
         onSuccess: ({ response }: any) => {
             toast('Estate deleted successfully', {
@@ -170,7 +158,6 @@ const EditEstate = () => {
         },
     })
 
-   
     const onSubmit = handleSubmit((data) => {
         setSelectFormErrors(null)
 
@@ -306,7 +293,7 @@ const EditEstate = () => {
             type: 'number',
         },
         {
-            label: 'number_of_resident_user',
+            label: 'additional_of_resident_user',
             type: 'number',
         },
         {
@@ -331,7 +318,10 @@ const EditEstate = () => {
     return (
         <div className='bg-white rounded-lg p-8'>
             <div className='flex justify-between items-center mb-20'>
-                <ShowImage handlePicture={handlePicture} photoPreview={photoPreview}/>
+                <ShowImage
+                    handlePicture={handlePicture}
+                    photoPreview={photoPreview}
+                />
                 <Activate_Deactivate
                     id={estate_id}
                     url={'/estate/deactivate_activate'}
