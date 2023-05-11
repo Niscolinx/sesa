@@ -311,7 +311,7 @@ const AdvertDetail = () => {
                         id={advert_id!}
                         url={'/advert/deactivate_activate'}
                         status={0}
-                        title={'f'}
+                        title={'advert'}
                         queryCache={`advert_${advert_id}`}
                     />
                 </section>
