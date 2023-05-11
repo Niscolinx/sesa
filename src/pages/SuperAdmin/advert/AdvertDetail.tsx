@@ -12,8 +12,7 @@ import useAxios from '../../../components/hooks/useAxios'
 import { useMutation, useQueryClient } from 'react-query'
 import Activate_Deactivate from '../../../components/UI/Dialog/Activate_Deactivate'
 
-// const link = 'https://sesadigital.com/thelink_copyhere'
-type Actions = 'Deactivate' | 'Delete'
+
 
 const AdvertDetail = () => {
     const navigate = useNavigate()
@@ -21,56 +20,12 @@ const AdvertDetail = () => {
 
     const [selectedWeek, setSelectedWeek] = useState('Weekly')
 
-    const [dialogType, setDialogType] = useState<Actions>('Deactivate')
-
-    const dialogRef = useRef<HTMLDialogElement | null>(null)
-    const axiosInstance = useAxios()
-
     const advert_id = params.id?.replace(':', '')
 
     const { data, isLoading } = useFetchData({
         url: `/advert/getbyid/${advert_id}`,
         name: `advert_${advert_id}`,
     })
-
-    // const postDeactivate = () => {
-    //     return axiosInstance({
-    //         url: '/advert/deactivate_activate',
-    //         method: 'post',
-    //         data: { id: advert_id },
-    //     })
-    // }
-
-    // const queryClient = useQueryClient()
-    // const { mutate: deactivate_mutation, isLoading: deactivate_loading } =
-    //     useMutation(postDeactivate, {
-    //         onSuccess: (data) => {
-    //             toast('Successful', {
-    //                 type: 'success',
-    //                 className: 'bg-green-100 text-green-600 text-[1.4rem]',
-    //             })
-
-    //             handleClose()
-    //         },
-    //         onError: (err: any) => {
-    //             toast(`Operation Failed `, {
-    //                 type: 'error',
-    //                 className:
-    //                     'bg-red-100 text-red-600 text-[1.4rem] capitalize',
-    //             })
-
-    //                             handleClose()
-
-    //         },
-
-    //         onSettled: () => {
-
-    //             queryClient.invalidateQueries(`advert_${advert_id}`)
-
-    //         }
-
-
-    //     }) as any
 
    
 
