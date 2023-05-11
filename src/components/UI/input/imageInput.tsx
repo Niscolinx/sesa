@@ -2,7 +2,8 @@ interface ImageInput {
     handlePicture: (e: React.ChangeEvent) => void
     photoPreview: string
 }
-function ShowImage() {
+
+export function ShowImage({ handlePicture, photoPreview }: ImageInput) {
     return (
         <>
             <label
