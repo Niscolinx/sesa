@@ -36,7 +36,7 @@ const ViewAdmin = () => {
     const params = useParams()
     const axiosInstance = useAxios()
 
-    const photoPreview = useRef<string>('')
+    const [photoPreview, setPhotoPreview] = useState('')
     const [imageFile, setImageFile] = useState<File | null>(null)
     const genderState = ['Male', 'Female']
     const [selectedGender, setSelectedGender] = useState<string>(genderState[0])
@@ -171,14 +171,16 @@ const ViewAdmin = () => {
         post_admin_mutation(adminData)
     })
 
-  
+    useEffect(() => {
+        console.log({photoPreview})
+    }, [photoPreview])
 
     const handlePicture = (e: React.ChangeEvent) => {
         const target = e.target as HTMLInputElement
         const file: File = (target.files as FileList)[0]
 
         const preview = URL.createObjectURL(file)
-        photoPreview.current = preview
+        setPhotoPreview(preview)
         setImageFile(file)
     }
 
@@ -196,7 +198,7 @@ const ViewAdmin = () => {
                 <div className='flex justify-between items-center mb-20'>
                     <ShowImage
                         handlePicture={handlePicture}
-                        photoPreview={photoPreview.current}
+                        photoPreview={photoPreview}
                     />
 
                     <Activate_Deactivate

@@ -1,4 +1,3 @@
-import { useEffect } from "react"
 
 interface ImageInput {
     handlePicture: (e: React.ChangeEvent) => void
