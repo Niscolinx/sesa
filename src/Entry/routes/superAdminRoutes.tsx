@@ -26,8 +26,6 @@ import ViewArtisanGroup from '../../pages/SuperAdmin/artisans/group/ViewArtisanG
 import Advert from '../../pages/SuperAdmin/advert/Advert'
 import AddAdvert from '../../pages/SuperAdmin/advert/AddAdvert'
 import AdvertDetail from '../../pages/SuperAdmin/advert/AdvertDetail'
-import AdvertClickrateIncrease from '../../pages/SuperAdmin/advert/AdvertClicks'
-import AdvertClickrateDecrease from '../../pages/SuperAdmin/advert/AdvertViews'
 import PlatformSettings from '../../pages/SuperAdmin/platformSettings/platformSettings'
 import AddSOS from '../../pages/SuperAdmin/platformSettings/settings/SOS/AddSOS'
 import SOSDetails from '../../pages/SuperAdmin/platformSettings/settings/SOS/SOSDetails'
