@@ -345,7 +345,7 @@ function Estates() {
                                                 household_count,
                                                 resident_count,
                                                 security_company,
-                                                // status,
+                                                status,
                                             },
                                             i
                                         ) => {
@@ -380,7 +380,7 @@ function Estates() {
                                                                 }
                                                             </p>
                                                         </div>
-                                                        {/* <div>
+                                                        <div>
                                                             <p className='text-[#043FA7]'>
                                                                 Status
                                                             </p>
@@ -396,7 +396,7 @@ function Estates() {
                                                                     </span>
                                                                 )}
                                                             </p>
-                                                        </div> */}
+                                                        </div>
                                                     </div>
                                                     <div className='grid'>
                                                         <div>
@@ -481,7 +481,7 @@ function Estates() {
                                                             }
                                                         />
 
-                                                        {/* {isDropDownOpen &&
+                                                        {isDropDownOpen &&
                                                             index === i && (
                                                                 <div className='absolute top-0 translate-x-[-10rem] border border-color-primary-light w-[10rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize'>
                                                                     {[
@@ -533,7 +533,7 @@ function Estates() {
                                                                         )
                                                                     )}
                                                                 </div>
-                                                            )} */}
+                                                            )}
                                                     </div>
                                                 </div>
                                             )
