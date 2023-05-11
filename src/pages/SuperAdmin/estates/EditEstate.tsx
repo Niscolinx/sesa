@@ -13,13 +13,12 @@ const EditEstate = () => {
     interface Inputs {
         status: number
         state_name: string
-        security_company_id: null
+        security_company_name: string
         estate_name: string
         estate_location_state: string
         address: string
         image: string
-        estate_manager: string
-        security_company: string
+        estate_manager_name: string
         estate_percentage: number
         sesadigital_percentage: number
         number_of_resident_user: number
@@ -133,8 +132,8 @@ const EditEstate = () => {
                     estate_name,
                     estate_location_state,
                     address,
-                    estate_manager,
-                    security_company,
+                    estate_manager_name,
+                    security_company_name,
                     estate_percentage,
                     sesadigital_percentage,
                     number_of_resident_user,
@@ -150,7 +149,7 @@ const EditEstate = () => {
                 })
 
                 setPhotoPreview(image)
-                // setSelectedGender(fetched_data.gender)
+                
             },
         }
     )
@@ -274,7 +273,7 @@ const EditEstate = () => {
             label: 'address',
         },
         {
-            label: 'estate_manager',
+            label: 'estate_manager_name',
             type: 'select',
             selectProps: {
                 state: slicedEstateManagers,
@@ -284,7 +283,7 @@ const EditEstate = () => {
             },
         },
         {
-            label: 'security_company',
+            label: 'security_company_name',
             type: 'select',
             selectProps: {
                 state: slicedSecurityCompanies,
