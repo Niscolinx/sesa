@@ -217,7 +217,6 @@ const ViewAdmin = () => {
                         onChange={handlePicture}
                     />
 
-                    <div className='flex gap-8'>
                         <Activate_Deactivate
                             id={admin_id}
                             url={'/admin/deactivate_activate'}
@@ -225,7 +224,6 @@ const ViewAdmin = () => {
                             title={'admin'}
                             queryCache={`view_admin_${admin_id}`}
                         />
-                    </div>
                 </div>
                 <p className='text-[2rem] font-Satoshi-Medium'>
                     Personal Information
