@@ -123,9 +123,6 @@ const EditEstate = () => {
         `view_estate_${estate_id}`,
         getRequest,
         {
-            refetchInterval: 0,
-            refetchOnMount: false,
-            refetchOnWindowFocus: false,
 
             onSuccess: (res) => {
                 const fetched_data: Inputs = res.data
@@ -348,7 +345,6 @@ const EditEstate = () => {
 
     return (
         <div className='bg-white rounded-lg p-8'>
-          
             <div className='flex justify-between items-center mb-20'>
                 <label
                     htmlFor='photoUpload'
@@ -371,8 +367,13 @@ const EditEstate = () => {
                     className='hidden'
                     onChange={handlePicture}
                 />
-
-               <Activate_Deactivate id={''} url={''} status={0} title={''} queryCache={''}/>
+                <Activate_Deactivate
+                    id={estate_id}
+                    url={'/admin/deactivate_activate'}
+                    status={get_response.data.status}
+                    title={'admin'}
+                    queryCache={`view_estate_${estate_id}`}
+                />{' '}
             </div>
 
             {responseMessage?.displayMessage && (
