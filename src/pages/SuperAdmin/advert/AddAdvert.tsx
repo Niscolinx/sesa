@@ -107,7 +107,7 @@ const AddAdvert = () => {
             .filter(({ estate_name }: any) =>
                 selectedEstates.includes(estate_name)
             )
-            .map(({ id }: any) => id)[0]
+            .map(({ id }: any) => id)
 
         const updatedData = {
             ...data,
