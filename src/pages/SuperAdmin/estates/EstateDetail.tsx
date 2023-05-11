@@ -15,7 +15,7 @@ function EstateDetail() {
         name: `get_estate_${estate_id}`,
     })
     const { data: estate_data, isLoading: estate_isLoading } = useFetchData({
-        url: `/estate/get/estate-household?estate_id=${estate_id}&perPage=1`,
+        url: `/estate/get/estate-household?estate_id=10&perPage=1`,
         name: `estate_detail_${estate_id}`,
     })
 
@@ -89,12 +89,11 @@ function EstateDetail() {
                     'occupants',
                     'RFID',
                     'access card',
-                    'actions',
                 ]}
+                is_dropdown={false}
                 data_to_display={['address', 'property_category', 'property_name', 'house_hold_resident_count', 'rfid_count', 'access_card_count']}
                 isDataProvided={true}
                 providedData={estate_data.data}
-                deactivateProp={{ url: '/estate/deactivate_activate' }}
             />
         </div>
     )
