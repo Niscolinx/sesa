@@ -300,7 +300,7 @@ const EditEstate = () => {
             label: 'address',
         },
         {
-            label: 'estate manager',
+            label: 'estate_manager',
             type: 'select',
             selectProps: {
                 state: slicedEstateManagers,
@@ -310,7 +310,7 @@ const EditEstate = () => {
             },
         },
         {
-            label: 'security company',
+            label: 'security_company',
             type: 'select',
             selectProps: {
                 state: slicedSecurityCompanies,
