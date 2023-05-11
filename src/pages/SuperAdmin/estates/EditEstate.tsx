@@ -7,6 +7,7 @@ import useFetchData from '../../../utils/useFetchData'
 import { useParams } from 'react-router'
 import { toast } from 'react-toastify'
 import Activate_Deactivate from '../../../components/UI/Dialog/Activate_Deactivate'
+import { ShowImage } from '../../../components/UI/input/ImageInput'
 
 const EditEstate = () => {
     interface Inputs {
@@ -328,27 +329,7 @@ const EditEstate = () => {
     return (
         <div className='bg-white rounded-lg p-8'>
             <div className='flex justify-between items-center mb-20'>
-                <label
-                    htmlFor='photoUpload'
-                    className='grid gap-4 cursor-pointer justify-items-center'
-                >
-                    <img
-                        src={photoPreview}
-                        alt='photoPreview'
-                        className='object-cover w-[11rem] h-[11rem] rounded-full object-top'
-                    />
-                    <span className='text-color-blue-1 text-[1.4rem]'>
-                        Edit
-                    </span>
-                </label>
-                <input
-                    type='file'
-                    name='photoUpload'
-                    id='photoUpload'
-                    accept='image/*'
-                    className='hidden'
-                    onChange={handlePicture}
-                />
+                <ShowImage handlePicture={handlePicture} photoPreview={photoPreview}/>
                 <Activate_Deactivate
                     id={estate_id}
                     url={'/estate/deactivate_activate'}
