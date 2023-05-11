@@ -5,59 +5,6 @@ import { FiDownload } from 'react-icons/fi'
 import { useNavigate, useParams } from 'react-router'
 import Table from '../../../components/UI/table/Table'
 
-export interface IAdvertClickrateIncrease {
-    id: string
-    estateName: string
-    location: string
-    noOfResidents: number
-    noOfViews: number
-}
-
-export const ADVERT_CLICK_RATE_INCREASE: IAdvertClickrateIncrease[] = [
-    {
-        id: '1',
-        estateName: 'Sun City',
-        location: 'Lagos',
-        noOfResidents: 50,
-        noOfViews: 100,
-    },
-    {
-        id: '1',
-        estateName: 'Sun City',
-        location: 'Lagos',
-        noOfResidents: 50,
-        noOfViews: 100,
-    },
-    {
-        id: '1',
-        estateName: 'Sun City',
-        location: 'Lagos',
-        noOfResidents: 50,
-        noOfViews: 100,
-    },
-    {
-        id: '1',
-        estateName: 'Sun City',
-        location: 'Lagos',
-        noOfResidents: 50,
-        noOfViews: 100,
-    },
-    {
-        id: '1',
-        estateName: 'Sun City',
-        location: 'Lagos',
-        noOfResidents: 50,
-        noOfViews: 100,
-    },
-    {
-        id: '1',
-        estateName: 'Sun City',
-        location: 'Lagos',
-        noOfResidents: 50,
-        noOfViews: 100,
-    },
-]
-
 const AdvertClickrateIncrease = () => {
     const params = useParams()
     const advert_id = params.id
@@ -70,6 +17,7 @@ const AdvertClickrateIncrease = () => {
                     `/advertstatistics/clickorview/details?advert_id=${advert_id}&category=click&perPage=10`
                 }
                 title={'clicks'}
+                is_dropdown={false}
                 THeader={[
                     'estate_name',
                     'address',
