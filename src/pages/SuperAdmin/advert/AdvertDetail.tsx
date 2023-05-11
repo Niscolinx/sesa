@@ -22,11 +22,11 @@ const AdvertDetail = () => {
     })
 
     const showClickRateIncrease = () => {
-        navigate('/superAdmin/advert/clickrate/increase')
+        navigate(`/superAdmin/advert/clickrate/increase/${advert_id}`)
     }
 
     const showClickRateDecrease = () => {
-        navigate('/superAdmin/advert/clickrate/decrease')
+        navigate(`/superAdmin/advert/clickrate/decrease/${advert_id}`)
     }
 
     if (isLoading) {

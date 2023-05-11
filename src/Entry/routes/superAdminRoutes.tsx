@@ -126,11 +126,11 @@ const superAdminRoutes = (
         <Route path='advert/add' element={<AddAdvert />} />
         <Route path='advert/detail/:id' element={<AdvertDetail />} />
         <Route
-            path='advert/clickrate/increase'
+            path='advert/clickrate/increase/:id'
             element={<AdvertClickrateIncrease />}
         />
         <Route
-            path='advert/clickrate/decrease'
+            path='advert/clickrate/decrease/:id'
             element={<AdvertClickrateDecrease />}
         />
         <Route path='platformSettings' element={<PlatformSettings />} />
