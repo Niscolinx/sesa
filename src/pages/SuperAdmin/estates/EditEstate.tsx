@@ -57,7 +57,6 @@ const EditEstate = () => {
 
     const axiosInstance = useAxios()
     const params = useParams()
-    const dialogRef = useRef<HTMLDialogElement | null>(null)
 
     const [selectedState, setSelectedState] = useState<string>('')
     const [selectedEstateManager, setSelectedEstateManager] = useState<
@@ -77,6 +76,10 @@ const EditEstate = () => {
         useState<ResponseMessage | null>(null)
 
     const estate_id = params.id?.replace(':', '')
+
+    if(!estate_id){
+        return <p className='p-8'>Nothing Found!</p>
+    }
 
     const toggleIsSignOutRequired = () =>
         setIsSignOutRequired(!isSignOutRequired)
@@ -348,8 +351,8 @@ const EditEstate = () => {
                 />
                 <Activate_Deactivate
                     id={estate_id}
-                    url={'/admin/deactivate_activate'}
-                    status={get_response.data.status}
+                    url={'/estate/deactivate_activate'}
+                    status={estate_manager_data.data.status}
                     title={'admin'}
                     queryCache={`view_estate_${estate_id}`}
                 />{' '}
