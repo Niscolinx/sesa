@@ -14,6 +14,7 @@ const ViewAdmin = () => {
         first_name: string
         last_name: string
         dob: string
+        image: string
         gender: string
         phone_number: number | null
         photoUrl?: string
@@ -135,7 +136,7 @@ const ViewAdmin = () => {
             
           
 
-            setPhotoPreview(image)
+            setPhotoPreview((prev) => !prev ? image : prev)
             setSelectedGender(gender)
         }
     }, [get_response])
