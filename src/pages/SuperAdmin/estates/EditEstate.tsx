@@ -6,10 +6,12 @@ import useAxios from '../../../components/hooks/useAxios'
 import useFetchData from '../../../utils/useFetchData'
 import { useParams } from 'react-router'
 import { toast } from 'react-toastify'
+import Activate_Deactivate from '../../../components/UI/Dialog/Activate_Deactivate'
 
 const EditEstate = () => {
     interface Inputs {
         status: number
+        state_name: string
         security_company_id: null
         estate_name: string
         estate_location_state: string
@@ -381,17 +383,7 @@ const EditEstate = () => {
                     onChange={handlePicture}
                 />
 
-                <div className='flex gap-8'>
-                    <button
-                        className='border border-red-600 px-16 py-4 flex items-center  rounded-lg gap-4'
-                        onClick={openDialog}
-                    >
-                        <img src='/icons/admins/delete.svg' alt='' />
-                        <span className='text-red-600 text-[1.4rem] font-semibold'>
-                            Delete
-                        </span>
-                    </button>
-                </div>
+               <Activate_Deactivate id={''} url={''} status={0} title={''} queryCache={''}/>
             </div>
 
             {responseMessage?.displayMessage && (
