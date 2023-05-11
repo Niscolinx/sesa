@@ -287,7 +287,7 @@ const EditEstate = () => {
         },
 
         {
-            label: 'state',
+            label: 'state_name',
             type: 'select',
             selectProps: {
                 state: slicedStates,
@@ -323,12 +323,12 @@ const EditEstate = () => {
 
     const second_section_inputs = [
         {
-            label: 'estate_fee',
+            label: 'estate_percentage',
             name: 'estate (%)',
             type: 'number',
         },
         {
-            label: 'sesa_fee',
+            label: 'sesadigital_percentage',
             name: 'SESA (%)',
             type: 'number',
         },
@@ -337,7 +337,7 @@ const EditEstate = () => {
             type: 'number',
         },
         {
-            label: 'additional_resident_user',
+            label: 'no_of_resident_user',
             type: 'number',
         },
     ] satisfies Partial<FormInputs>[]
