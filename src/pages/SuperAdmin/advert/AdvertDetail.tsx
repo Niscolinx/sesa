@@ -8,8 +8,6 @@ import { Select } from '../../../components/SuperAdmin/UI/Select'
 import useFetchData from '../../../utils/useFetchData'
 import Activate_Deactivate from '../../../components/UI/Dialog/Activate_Deactivate'
 
-
-
 const AdvertDetail = () => {
     const navigate = useNavigate()
     const params = useParams()
@@ -22,12 +20,6 @@ const AdvertDetail = () => {
         url: `/advert/getbyid/${advert_id}`,
         name: `advert_${advert_id}`,
     })
-
-   
-
-   
-
-   
 
     const showClickRateIncrease = () => {
         navigate('/superAdmin/advert/clickrate/increase')
@@ -54,12 +46,10 @@ const AdvertDetail = () => {
         percentage_view_diff,
     } = data
 
-    console.log({data})
+    console.log({ data })
 
     return (
         <>
-            <ToastContainer />
-          
             <div className='grid p-8 bg-white h-[85vh] items-baseline overflow-y-scroll rounded-lg text-[1.6rem] gap-[10rem]'>
                 <section className='grid gap-8'>
                     <h2 className='text-[2rem] font-Satoshi-Medium'>
