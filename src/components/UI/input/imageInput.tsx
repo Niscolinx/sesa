@@ -1,9 +1,17 @@
+import { useEffect } from "react"
+
 interface ImageInput {
     handlePicture: (e: React.ChangeEvent) => void
     photoPreview: string
 }
 
 export function ShowImage({ handlePicture, photoPreview }: ImageInput) {
+
+
+    useEffect(() => {
+        console.log({photoPreview})
+    }, [photoPreview])
+
     return (
         <>
             <label
