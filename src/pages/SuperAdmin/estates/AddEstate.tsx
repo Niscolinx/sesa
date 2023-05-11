@@ -46,7 +46,7 @@ const AddEstate = () => {
         })
     const { data: security_company_data, isLoading: security_company_loading } =
         useFetchData({
-            url: '/security-company/get/all',
+            url: '/security-company-manager/fetchDropdownSecurityManager',
             name: 'security_company',
         })
     const { data: states_data, isLoading: states_data_loading } = useFetchData(
@@ -67,12 +67,8 @@ const AddEstate = () => {
     } = useForm<Inputs>()
 
     const [selectedState, setSelectedState] = useState<string>('')
-    const [selectedEstateManager, setSelectedEstateManager] = useState<
-        string[]
-    >([])
-    const [selectedSecurityCompany, setSelectedSecurityCompany] = useState<
-        string[]
-    >([])
+    const [selectedEstateManager, setSelectedEstateManager] = useState('')
+    const [selectedSecurityCompany, setSelectedSecurityCompany] = useState('')
 
     const [photoPreview, setPhotoPreview] = useState('')
     const [imageFile, setImageFile] = useState<File | null>(null)
@@ -227,8 +223,8 @@ const AddEstate = () => {
         return <p className='p-8'>Loading...</p>
     }
 
-    const slicedStates: string[] = states_data.map(({ name }: any) => name)
-    const slicedEstateManagers: string[] = estate_manager_data.map(
+    const slicedState: string[] = states_data.map(({ name }: any) => name)
+    const slicedEstateManager: string[] = estate_manager_data.map(
         ({ name}: any) => name
     )
     const slicedSecurityCompanies: string[] = security_company_data.map(
@@ -244,7 +240,7 @@ const AddEstate = () => {
             label: 'state',
             type: 'select',
             selectProps: {
-                state: slicedStates,
+                state: slicedState,
                 isSearchable: true,
                 selectedState: selectedState,
                 setSelectedState: setSelectedState,
@@ -257,7 +253,7 @@ const AddEstate = () => {
             label: 'estate_manager',
             type: 'select',
             selectProps: {
-                state: slicedEstateManagers,
+                state: slicedEstateManager,
                 isSearchable: true,
                 selectedState: selectedEstateManager,
                 setSelectedState: setSelectedEstateManager,

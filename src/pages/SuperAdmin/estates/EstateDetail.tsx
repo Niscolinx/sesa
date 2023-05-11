@@ -15,7 +15,7 @@ function EstateDetail() {
         name: `get_estate_${estate_id}`,
     })
     const { data: estate_data, isLoading: estate_isLoading } = useFetchData({
-        url: `/estate/get/estate-household?estate_id=10&perPage=1`,
+        url: `/estate/get/estate-household?estate_id=${estate_id}&perPage=1`,
         name: `estate_detail_${estate_id}`,
     })
 
