@@ -69,7 +69,7 @@ const AdvertClickrateIncrease = () => {
                 fetch_url={
                     `/advertstatistics/clickorview/details?advert_id=${advert_id}&category=click&perPage=10`
                 }
-                title={'admin'}
+                title={'clicks'}
                 view_page_url={'/superAdmin/admin/view/'}
                 add_page_url={'/superAdmin/admin/add'}
                 is_add_btn={true}
