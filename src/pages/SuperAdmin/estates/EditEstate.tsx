@@ -357,36 +357,7 @@ const EditEstate = () => {
 
     return (
         <div className='bg-white rounded-lg p-8'>
-            <dialog className='dialog' ref={dialogRef}>
-                <section className='grid place-content-center w-full h-[100vh]'>
-                    <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
-                        <img
-                            src='/icons/admins/modalDeactivate.svg'
-                            alt=''
-                            className='animate__animated animate__pulse '
-                            style={{
-                                animationIterationCount: 'infinite',
-                            }}
-                        />
-
-                        <p>Are you sure you want to delete this Estate?</p>
-                        <div className='flex w-full justify-center gap-8'>
-                            <button
-                                className='btn bg-white text-[#0556E5] border-[#0556E5] border rounded-lg w-[15rem]'
-                                onClick={closeDialog}
-                            >
-                                Cancel
-                            </button>
-                            <button
-                                className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
-                                onClick={() => delete_mutation()}
-                            >
-                                {delete_loading ? 'Loading...' : 'Delete'}
-                            </button>
-                        </div>
-                    </div>
-                </section>
-            </dialog>
+          
             <div className='flex justify-between items-center mb-20'>
                 <label
                     htmlFor='photoUpload'
