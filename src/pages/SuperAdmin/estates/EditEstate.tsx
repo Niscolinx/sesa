@@ -14,6 +14,7 @@ const EditEstate = () => {
         estate_name: string
         estate_location_state: string
         address: string
+        image: string
         estate_manager: string
         security_company: string
         estate_percentage: number
@@ -125,25 +126,9 @@ const EditEstate = () => {
             refetchOnWindowFocus: false,
 
             onSuccess: (res) => {
-                const fetched_data = res.data
+                const fetched_data: Inputs = res.data
 
                 const {
-                    estate_name,
-                    estate_location_state,
-                    address,
-                    estate_manager,
-                    security_company,
-                    estate_fee,
-                    sesa_fee,
-                    number_of_resident_user,
-                    additional_resident_user,
-                    bank_name,
-                    account_name,
-                    account_number,
-                    image,
-                } = fetched_data
-
-                reset({
                     estate_name,
                     estate_location_state,
                     address,
@@ -156,6 +141,11 @@ const EditEstate = () => {
                     bank_name,
                     account_name,
                     account_number,
+                    image,
+                } = fetched_data
+
+                reset({
+                    ...fetched_data
                 })
 
                 setPhotoPreview(image)
