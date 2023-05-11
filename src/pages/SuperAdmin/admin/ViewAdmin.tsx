@@ -6,6 +6,7 @@ import { useNavigate, useParams } from 'react-router'
 import { toast, ToastContainer } from 'react-toastify'
 import useAxios from '../../../components/hooks/useAxios'
 import Activate_Deactivate from '../../../components/UI/Dialog/Activate_Deactivate'
+import { ShowImage } from '../../../components/UI/input/ImageInput'
 
 const ViewAdmin = () => {
     interface Inputs {
@@ -196,6 +197,7 @@ const ViewAdmin = () => {
             <div className='bg-white rounded-2xl grid p-8'>
                 <div className='flex justify-between items-center mb-20'>
                     
+                    <ShowImage handlePicture={handlePicture} photoPreview={photoPreview}/>
 
                         <Activate_Deactivate
                             id={admin_id}
