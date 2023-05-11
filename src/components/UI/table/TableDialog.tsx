@@ -92,7 +92,7 @@ function TableDialog() {
                 cloneOld.splice(index_to_replace, 1, ...updatedData)
 
                 queryClient.setQueryData(title, (oldData: any) => {
-                    const relevantData = oldData.data.data
+                    const relevantData = oldData.data.data || oldData.data
                     return {
                         ...relevantData,
                         data: [...cloneOld],
