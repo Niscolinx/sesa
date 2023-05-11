@@ -36,7 +36,7 @@ const ViewAdmin = () => {
     const params = useParams()
     const axiosInstance = useAxios()
 
-    const photoPreview = useRef<string | null>(null)
+    const photoPreview = useRef<string>('')
     const [imageFile, setImageFile] = useState<File | null>(null)
     const genderState = ['Male', 'Female']
     const [selectedGender, setSelectedGender] = useState<string>(genderState[0])
@@ -178,7 +178,7 @@ const ViewAdmin = () => {
         const file: File = (target.files as FileList)[0]
 
         const preview = URL.createObjectURL(file)
-        photoPreview.current = photoPreview
+        photoPreview.current = preview
         setImageFile(file)
     }
 
@@ -196,7 +196,7 @@ const ViewAdmin = () => {
                 <div className='flex justify-between items-center mb-20'>
                     <ShowImage
                         handlePicture={handlePicture}
-                        photoPreview={photoPreview}
+                        photoPreview={photoPreview.current}
                     />
 
                     <Activate_Deactivate
