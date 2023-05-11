@@ -63,9 +63,11 @@ function TableDialog() {
             const previousData: any = await queryClient.getQueryData(title)
             prevData.push(structuredClone(previousData))
 
-            if (isDialogOpen?.type !== 'delete' && previousData.data) {
+            const prev = previousData.data.data || previousData.data
+
+            if (isDialogOpen?.type !== 'delete' && prev) {
                 let index_to_replace = 0
-                let updatedData = previousData.data.data || previousData.data
+                let updatedData = prev
                     .filter((data: any, idx: number) => {
                         if (data.id === fetchedId) {
                             index_to_replace = idx
@@ -85,7 +87,7 @@ function TableDialog() {
                         }
                     })
 
-                const cloneOld: any[] = previousData.data.data || previousData.data
+                const cloneOld: any[] = prev
 
                 cloneOld.splice(index_to_replace, 1, ...updatedData)
 
