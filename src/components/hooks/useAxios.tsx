@@ -18,7 +18,6 @@ function useAxios() {
                 const token = getToken()
                 console.log({token})
                 if (token) {
-                    console.log({token})
                     config.headers.Authorization = `Bearer ${token}`
                     config.headers['Content-Type'] = 'multipart/form-data'
                 } else {
