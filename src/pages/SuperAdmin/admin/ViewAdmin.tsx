@@ -29,7 +29,7 @@ const ViewAdmin = () => {
         label?: string
         type?: string
         name?: string
-        value?:string | number
+        value?: string | number
         selectProps?: SelectProps
     }
 
@@ -66,7 +66,7 @@ const ViewAdmin = () => {
         {
             label: 'phone_number',
             type: 'number',
-            value: phone
+            value: phone,
         },
         {
             label: 'email_address',
@@ -122,21 +122,18 @@ const ViewAdmin = () => {
             const first_name = name.split(' ')[0]
             const last_name = name.split(' ')[1]
 
-              const phone_number = parseInt(phone.slice(3, -1))
+            const phone_number = parseInt(phone.slice(3, -1))
             setPhone(phone_number)
-            
+
             reset({
                 first_name,
                 last_name,
                 dob,
                 email_address: email,
-                phone_number
+                phone_number,
             })
-            
-            
-          
 
-            setPhotoPreview((prev) => prev ?? image)
+           // setPhotoPreview((prev) => prev ?? image)
             setSelectedGender(gender)
         }
     }, [get_response])
@@ -174,8 +171,9 @@ const ViewAdmin = () => {
         post_admin_mutation(adminData)
     })
 
-
- 
+    useEffect(() => {
+        
+    })
 
     const handlePicture = (e: React.ChangeEvent) => {
         const target = e.target as HTMLInputElement
@@ -190,22 +188,26 @@ const ViewAdmin = () => {
         return <p>loading...</p>
     }
 
+    
+
     return (
         <>
             <ToastContainer />
 
             <div className='bg-white rounded-2xl grid p-8'>
                 <div className='flex justify-between items-center mb-20'>
-                    
-                    <ShowImage handlePicture={handlePicture} photoPreview={photoPreview}/>
+                    <ShowImage
+                        handlePicture={handlePicture}
+                        photoPreview={photoPreview}
+                    />
 
-                        <Activate_Deactivate
-                            id={admin_id}
-                            url={'/admin/deactivate_activate'}
-                            status={get_response.data.status}
-                            title={'admin'}
-                            queryCache={`view_admin_${admin_id}`}
-                        />
+                    <Activate_Deactivate
+                        id={admin_id}
+                        url={'/admin/deactivate_activate'}
+                        status={get_response.data.status}
+                        title={'admin'}
+                        queryCache={`view_admin_${admin_id}`}
+                    />
                 </div>
                 <p className='text-[2rem] font-Satoshi-Medium'>
                     Personal Information
@@ -227,7 +229,8 @@ const ViewAdmin = () => {
                 >
                     <>
                         {formInputs.map((input, idx) => {
-                            const { label, type, name, selectProps, value } = input
+                            const { label, type, name, selectProps, value } =
+                                input
 
                             return (
                                 <Input
@@ -236,7 +239,7 @@ const ViewAdmin = () => {
                                     value={value}
                                     register={register}
                                     formErrors={formErrors}
-                                     clearErrors={clearErrors}
+                                    clearErrors={clearErrors}
                                     setValue={setValue}
                                     type={type}
                                     name={name}
