@@ -8,9 +8,6 @@ interface ImageInput {
 export function ShowImage({ handlePicture, photoPreview }: ImageInput) {
 
 
-    useEffect(() => {
-        console.log({photoPreview})
-    }, [photoPreview])
 
     return (
         <>
