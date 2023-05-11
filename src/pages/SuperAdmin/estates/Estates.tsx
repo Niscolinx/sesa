@@ -57,11 +57,7 @@ function Estates() {
         isError: get_estates_isError,
         error: get_estates_error,
         // isFetching: get_estates_fetching,
-    } = useQuery('estates', fetchEstates, {
-        onSuccess: (res) => {
-            console.log({ res })
-        },
-    }) as any
+    } = useQuery('estates', fetchEstates) as any
 
     const postDeactivate = () => {
         return axiosInstance({
@@ -86,7 +82,6 @@ function Estates() {
 
     useEffect(() => {
         if (get_estates_response) {
-            console.log(get_estates_response.data)
             setFetchedEstates(get_estates_response.data)
         }
     }, [get_estates_response])
@@ -252,7 +247,6 @@ function Estates() {
 
     const fetched = get_estates_response?.data
 
-    console.log({ fetched })
 
     return (
         <div>
