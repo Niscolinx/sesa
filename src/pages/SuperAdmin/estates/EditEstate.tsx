@@ -122,6 +122,9 @@ const EditEstate = () => {
         `view_estate_${estate_id}`,
         getRequest,
         {
+            refetchInterval: 0,
+            refetchOnMount: false,
+            refetchOnWindowFocus: false,
 
             onSuccess: (res) => {
                 const fetched_data: Inputs = res.data
@@ -143,7 +146,7 @@ const EditEstate = () => {
                 } = fetched_data
 
                 reset({
-                    ...fetched_data
+                    ...fetched_data,
                 })
 
                 setPhotoPreview(image)

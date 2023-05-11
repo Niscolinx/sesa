@@ -171,9 +171,7 @@ const ViewAdmin = () => {
         post_admin_mutation(adminData)
     })
 
-    useEffect(() => {
-        console.log({photoPreview})
-    }, [photoPreview])
+  
 
     const handlePicture = (e: React.ChangeEvent) => {
         const target = e.target as HTMLInputElement
