@@ -310,7 +310,7 @@ const AdvertDetail = () => {
                     <Activate_Deactivate
                         id={advert_id!}
                         url={'/advert/deactivate_activate'}
-                        status={0}
+                        status={status}
                         title={'advert'}
                         queryCache={`advert_${advert_id}`}
                     />
