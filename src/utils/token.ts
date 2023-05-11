@@ -21,10 +21,14 @@ export const isAuthenticated = (): string | null => {
 export const getToken = () => {
     //const dispatch = useAppDispatch()
 
+   
     const token = isAuthenticated()
+
+    console.log({token}, 'before return')
 
     if (token) {
         // dispatch(setAuth(true))
+        console.log('the token', token)
         return token
     }
 
