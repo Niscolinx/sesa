@@ -51,7 +51,7 @@ const TableData = () => {
     const [extractedData, setExtractedData] = useState<any[]>([])
 
     const check_type = (toCheck: any) => {
-        if (typeof toCheck === 'string' && toCheck.toLowerCase() === undefined) {
+        if (typeof toCheck === 'string' && toCheck.toLowerCase() !== undefined) {
             return toCheck.toLowerCase() 
         }
 
@@ -238,7 +238,6 @@ const TableData = () => {
         setSearch(value)
 
         const findData = extractedData.filter((item) => {
-            console.log(item, filterBy, value, item[filterBy])
             return check_type(item[check_type(filterBy)]).includes(
                 check_type(value)
             )
