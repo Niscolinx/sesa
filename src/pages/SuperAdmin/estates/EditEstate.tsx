@@ -21,7 +21,7 @@ const EditEstate = () => {
         estate_manager_name: string
         estate_percentage: number
         sesadigital_percentage: number
-        additional_of_resident_user: number
+        additional_resident_user: number
         no_of_resident_user: number
         bank_name: string
         account_name: string
@@ -261,6 +261,7 @@ const EditEstate = () => {
         },
         {
             label: 'estate_manager_name',
+            name: 'estate_manager',
             type: 'select',
             selectProps: {
                 state: slicedEstateManagers,
@@ -271,6 +272,7 @@ const EditEstate = () => {
         },
         {
             label: 'security_company_name',
+            name: 'security_company',
             type: 'select',
             selectProps: {
                 state: slicedSecurityCompanies,
@@ -293,7 +295,7 @@ const EditEstate = () => {
             type: 'number',
         },
         {
-            label: 'additional_of_resident_user',
+            label: 'additional_resident_user',
             type: 'number',
         },
         {
@@ -351,12 +353,13 @@ const EditEstate = () => {
                         }}
                     >
                         {first_section_inputs.map((input, idx) => {
-                            const { label, type, selectProps } = input
+                            const { label, type, selectProps, name } = input
 
                             return (
                                 <Input
                                     key={idx + label}
                                     label={label}
+                                    name={name}
                                     register={register}
                                     formErrors={formErrors}
                                     fullWidth={label === 'address'}
