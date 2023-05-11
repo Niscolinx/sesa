@@ -136,7 +136,7 @@ const ViewAdmin = () => {
             
           
 
-            setPhotoPreview((prev) => !prev ? image : prev)
+            setPhotoPreview((prev) => prev ?? image)
             setSelectedGender(gender)
         }
     }, [get_response])
