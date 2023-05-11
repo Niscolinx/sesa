@@ -227,7 +227,7 @@ const AddEstate = () => {
     const slicedEstateManager: string[] = estate_manager_data.map(
         ({ name}: any) => name
     )
-    const slicedSecurityCompanies: string[] = security_company_data.map(
+    const slicedSecurityCompany: string[] = security_company_data.map(
         ({ name }: any) => name
     )
 
@@ -263,7 +263,7 @@ const AddEstate = () => {
             label: 'security_company',
             type: 'select',
             selectProps: {
-                state: slicedSecurityCompanies,
+                state: slicedSecurityCompany,
                 isSearchable: true,
                 selectedState: selectedSecurityCompany,
                 setSelectedState: setSelectedSecurityCompany,
@@ -303,8 +303,7 @@ const AddEstate = () => {
         {
             label: 'account_number',
             type: 'number',
-            minLength: 9,
-            maxLength: 10
+
         },
     ] satisfies Partial<FormInputs>[]
 
@@ -440,15 +439,14 @@ const AddEstate = () => {
                         }}
                     >
                         {third_section_inputs.map((input, idx) => {
-                            const { label, type, minLength, maxLength } = input
+                            const { label, type } = input
 
                             return (
                                 <Input
                                     key={idx + label}
                                     label={label}
                                     register={register}
-                                      minLength={minLength}
-                                    maxLength={maxLength}
+                                  
                                     formErrors={formErrors}
                                     type={type}
                                 />
