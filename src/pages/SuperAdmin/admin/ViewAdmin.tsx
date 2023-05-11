@@ -195,27 +195,7 @@ const ViewAdmin = () => {
 
             <div className='bg-white rounded-2xl grid p-8'>
                 <div className='flex justify-between items-center mb-20'>
-                    <label
-                        htmlFor='photoUpload'
-                        className='grid gap-4 cursor-pointer justify-items-center'
-                    >
-                        <img
-                            src={photoPreview}
-                            alt='photoPreview'
-                            className='object-cover w-[11rem] h-[11rem] rounded-full object-top'
-                        />
-                        <span className='text-color-blue-1 text-[1.4rem]'>
-                            Edit
-                        </span>
-                    </label>
-                    <input
-                        type='file'
-                        name='photoUpload'
-                        id='photoUpload'
-                        accept='image/*'
-                        className='hidden'
-                        onChange={handlePicture}
-                    />
+                    
 
                         <Activate_Deactivate
                             id={admin_id}

@@ -2,6 +2,31 @@ interface ImageInput {
     handlePicture: (e: React.ChangeEvent) => void
     photoPreview: string
 }
+function ShowImage() {
+    return (
+        <>
+            <label
+                htmlFor='photoUpload'
+                className='grid gap-4 cursor-pointer justify-items-center'
+            >
+                <img
+                    src={photoPreview}
+                    alt='photoPreview'
+                    className='object-cover w-[11rem] h-[11rem] rounded-full object-top'
+                />
+                <span className='text-color-blue-1 text-[1.4rem]'>Edit</span>
+            </label>
+            <input
+                type='file'
+                name='photoUpload'
+                id='photoUpload'
+                accept='image/*'
+                className='hidden'
+                onChange={handlePicture}
+            />
+        </>
+    )
+}
 
 function ImageInput({ handlePicture, photoPreview }: ImageInput) {
     return (
