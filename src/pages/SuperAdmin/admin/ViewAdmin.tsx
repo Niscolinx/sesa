@@ -34,7 +34,6 @@ const ViewAdmin = () => {
 
     const params = useParams()
     const axiosInstance = useAxios()
-    const navigate = useNavigate()
 
     const [photoPreview, setPhotoPreview] = useState('')
     const [imageFile, setImageFile] = useState<File | null>(null)
