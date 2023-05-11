@@ -24,11 +24,9 @@ export const getToken = () => {
    
     const token = isAuthenticated()
 
-    console.log({token}, 'before return')
 
     if (token) {
         // dispatch(setAuth(true))
-        console.log('the token', token)
         return token
     }
 
