@@ -110,13 +110,20 @@ const AddEstate = () => {
    
 
     const postRequest = (data: Inputs) => {
+        // return axiosInstance({
+        //     url: '/estate/create',
+        //     method: 'post',
+        //     data,
+        //     headers: {
+        //         'Content-Type': 'multipart/form-data',
+        //     },
+        // })
+
         return axiosInstance({
-            url: '/estate/create',
+            url: '/admin/create',
             method: 'post',
             data,
-            headers: {
-                'Content-Type': 'multipart/form-data',
-            },
+            headers: { 'Content-Type': 'multipart/form-data' },
         })
     }
     const { mutate, isLoading } = useMutation(postRequest, {
