@@ -2,7 +2,7 @@ import React, { ChangeEvent, useEffect, useState } from 'react'
 import { CgSpinnerTwo } from 'react-icons/cg'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { FiDownload } from 'react-icons/fi'
-import { useNavigate } from 'react-router'
+import { useNavigate, useParams } from 'react-router'
 import Table from '../../../components/UI/table/Table'
 
 export interface IAdvertClickrateIncrease {
@@ -59,11 +59,16 @@ export const ADVERT_CLICK_RATE_INCREASE: IAdvertClickrateIncrease[] = [
 ]
 
 const AdvertClickrateIncrease = () => {
-    
+    const params = useParams()
+    const advert_id = params.id
+
+
     return (
-         <div className='rounded-lg mt-[3rem] min-h-[60vh]'>
+        <div className='rounded-lg mt-[3rem] min-h-[60vh]'>
             <Table
-                fetch_url={'/admin/get/all'}
+                fetch_url={
+                    `/advertstatistics/clickorview/details?advert_id=${advert_id}&category=click&perPage=10`
+                }
                 title={'admin'}
                 view_page_url={'/superAdmin/admin/view/'}
                 add_page_url={'/superAdmin/admin/add'}
@@ -89,6 +94,5 @@ const AdvertClickrateIncrease = () => {
         </div>
     )
 }
-
 
 export default AdvertClickrateIncrease
