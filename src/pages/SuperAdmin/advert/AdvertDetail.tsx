@@ -21,12 +21,12 @@ const AdvertDetail = () => {
         name: `advert_${advert_id}`,
     })
 
-    const showClickRateIncrease = () => {
-        navigate(`/superAdmin/advert/clickrate/increase/${advert_id}`)
+    const goToClicks = () => {
+        navigate(`/superAdmin/advert/clicks/${advert_id}`)
     }
 
-    const showClickRateDecrease = () => {
-        navigate(`/superAdmin/advert/clickrate/decrease/${advert_id}`)
+    const goToViews = () => {
+        navigate(`/superAdmin/advert/views/${advert_id}`)
     }
 
     if (isLoading) {
@@ -144,7 +144,7 @@ const AdvertDetail = () => {
                             </div>
                             <button
                                 className=' text-color-blue-1'
-                                onClick={showClickRateIncrease}
+                                onClick={goToClicks}
                             >
                                 View Details
                             </button>
@@ -164,7 +164,7 @@ const AdvertDetail = () => {
                             </div>
                             <button
                                 className=' text-color-blue-1'
-                                onClick={showClickRateDecrease}
+                                onClick={goToViews}
                             >
                                 View Details
                             </button>

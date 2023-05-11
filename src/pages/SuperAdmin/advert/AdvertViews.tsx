@@ -28,4 +28,4 @@ const AdvertViews = () => {
     )
 }
 
-export default AdvertClickrateIncrease
+export default AdvertViews

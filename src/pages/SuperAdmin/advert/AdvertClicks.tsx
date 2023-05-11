@@ -1,7 +1,7 @@
 import { useParams } from 'react-router'
 import Table from '../../../components/UI/table/Table'
 
-const AdvertClickrateIncrease = () => {
+const AdvertClicks = () => {
     const params = useParams()
     const advert_id = params.id
 
@@ -31,4 +31,4 @@ const AdvertClickrateIncrease = () => {
     )
 }
 
-export default AdvertClickrateIncrease
+export default AdvertClicks
