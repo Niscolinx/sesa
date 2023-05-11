@@ -10,6 +10,7 @@ import { Select } from '../../../components/SuperAdmin/UI/Select'
 import useFetchData from '../../../utils/useFetchData'
 import useAxios from '../../../components/hooks/useAxios'
 import { useMutation, useQueryClient } from 'react-query'
+import Activate_Deactivate from '../../../components/UI/Dialog/Activate_Deactivate'
 
 // const link = 'https://sesadigital.com/thelink_copyhere'
 type Actions = 'Deactivate' | 'Delete'
@@ -306,15 +307,7 @@ const AdvertDetail = () => {
                     </div>
                 </section>
                 <section className='flex gap-8'>
-                    <button
-                        className='border border-color-blue-1 text-color-blue-1 px-16 py-4 flex items-center  rounded-lg gap-4'
-                        onClick={() => handleSelectedAction('Deactivate')}
-                    >
-                        <span className=' text-[1.4rem] font-semibold capitalize'>
-                            {status ? 'deactivate' : 'activate'}
-                        </span>
-                    </button>
-                    
+                   <Activate_Deactivate id={''} url={''} status={0} title={''} queryCache={''}/>
                 </section>
             </div>
         </>
