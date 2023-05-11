@@ -59,12 +59,8 @@ const EditEstate = () => {
     const params = useParams()
 
     const [selectedState, setSelectedState] = useState<string>('')
-    const [selectedEstateManager, setSelectedEstateManager] = useState<
-        string[]
-    >([])
-    const [selectedSecurityCompany, setSelectedSecurityCompany] = useState<
-        string[]
-    >([])
+    const [selectedEstateManager, setSelectedEstateManager] = useState('')
+    const [selectedSecurityCompany, setSelectedSecurityCompany] = useState('')
 
     const [photoPreview, setPhotoPreview] = useState('')
     const [imageFile, setImageFile] = useState<File | null>(null)
@@ -140,6 +136,7 @@ const EditEstate = () => {
                     no_of_resident_user,
                     bank_name,
                     account_name,
+                    state_name,
                     account_number,
                     image,
                 } = fetched_data
@@ -149,6 +146,9 @@ const EditEstate = () => {
                 })
 
                 setPhotoPreview(image)
+                setSelectedState(state_name)
+                setSelectedEstateManager(estate_manager_name)
+                setSelectedSecurityCompany(security_company_name)
                 
             },
         }
