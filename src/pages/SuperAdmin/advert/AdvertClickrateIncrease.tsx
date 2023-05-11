@@ -70,26 +70,21 @@ const AdvertClickrateIncrease = () => {
                     `/advertstatistics/clickorview/details?advert_id=${advert_id}&category=click&perPage=10`
                 }
                 title={'clicks'}
+                
                 view_page_url={'/superAdmin/admin/view/'}
                 add_page_url={'/superAdmin/admin/add'}
-                is_add_btn={true}
                 THeader={[
-                    'name',
-                    'gender',
-                    'phone number',
-                    'joined date',
-                    'status',
-                    'actions',
+                    'estate_name',
+                    'address',
+                    'resident_count',
+                    'clicks_count'
                 ]}
                 data_to_display={[
-                    'name',
-                    'image',
-                    'gender',
-                    'phone',
-                    'created_at',
-                    'status',
+                    'estate_name',
+                    'address', 
+                    'no_of_resident',
+                    'clicks'
                 ]}
-                deactivateProp={{ url: '/admin/deactivate_activate' }}
             />
         </div>
     )
