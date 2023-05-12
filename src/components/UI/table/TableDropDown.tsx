@@ -23,7 +23,6 @@ const TableDropDown = ({
     const navigate = useNavigate()
 
     const handleSelectedAction = (item: Actions, itemId: number) => {
-        console.log('clicked')
         toCloseDropDownRef.current = 'inner'
         setToggleDropDown(() => {
             return {

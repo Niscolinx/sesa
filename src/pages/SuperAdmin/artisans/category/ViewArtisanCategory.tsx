@@ -80,7 +80,7 @@ const ViewArtisanCategory = () => {
     return (
         <>
             <ToastContainer />
-        
+
             <div className=' text-[1.6rem] bg-white rounded-lg min-h-[70vh] '>
                 <form
                     className='flex gap-8 py-10 max-w-[50rem] items-end px-10 '
@@ -115,7 +115,7 @@ const ViewArtisanCategory = () => {
                     title={'category users'}
                     isDataProvided
                     providedData={category_users.data}
-                    view_page_url={'/superAdmin/artisan/category/'}
+                    view_page_url={'/superAdmin/artisan/detail'}
                     isStrictAction
                     actions={['view details']}
                     titleDialog={'Category User'}
