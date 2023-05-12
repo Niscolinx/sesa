@@ -64,7 +64,7 @@ const AddSecurityManager = () => {
 
     const postRequest = (data: Inputs) => {
         return axiosInstance({
-            url: '/security-company-manager/create',
+            url: '/manager/create',
             method: 'post',
             data,
             headers: { 'Content-Type': 'multipart/form-data' },

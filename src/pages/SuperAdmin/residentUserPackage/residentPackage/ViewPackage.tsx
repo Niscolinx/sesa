@@ -111,12 +111,13 @@ const ViewPackage = () => {
     const onSubmit = handleSubmit((data) => {
         const updatedData = {
             ...data,
+            id: package_id,
             frequency: selectedFrequency,
         }
 
         console.log({updatedData})
 
-      //  mutate(updatedData)
+       mutate(updatedData)
     })
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
@@ -175,7 +176,7 @@ const ViewPackage = () => {
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
                         <img src='/icons/admins/modalSuccess.svg' alt='' />
-                        <p>You have successfully added a Package</p>
+                        <p>You have successfully updated this Package</p>
 
                         <div className='flex w-full justify-center gap-8'>
                             <button
@@ -235,7 +236,7 @@ const ViewPackage = () => {
                     <span>
                         <IoMdAdd />
                     </span>{' '}
-                    {isLoading ? 'Loading...' : 'Add Package'}
+                    {isLoading ? 'Loading...' : 'Save'}
                 </button>
             </form>
         </div>

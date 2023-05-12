@@ -25,7 +25,7 @@ function EstateManagers() {
                     'onboarding_date',
                     'status',
                 ]}
-                deactivateProp={{ url: 'change/user/status' }}
+                deactivateProp={{ url: '/manager/deactivate_activate' }}
             />
         </div>
     )
