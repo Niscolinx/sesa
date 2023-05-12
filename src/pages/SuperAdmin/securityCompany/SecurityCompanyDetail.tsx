@@ -170,14 +170,12 @@ const SecurityCompanyDetail = () => {
         })
 
     const onSubmit = handleSubmit((data) => {
-        console.log({data})
         const updatedData = {
             ...data,
             phone: data.phone_number,
             image: imageFile,
         }
 
-        console.log({ updatedData })
         post_mutation(updatedData)
     })
 

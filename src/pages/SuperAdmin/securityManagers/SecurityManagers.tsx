@@ -25,7 +25,9 @@ function SecurityManagers() {
                     'onboarding_date',
                     'status',
                 ]}
-                deactivateProp={{ url: 'change/user/status' }}
+                deactivateProp={{
+                    url: '/security-company-manager/deactivate_activate',
+                }}
             />
         </div>
     )

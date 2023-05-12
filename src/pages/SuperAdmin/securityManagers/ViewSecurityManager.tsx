@@ -5,6 +5,7 @@ import Input, { SelectProps } from '../../../components/UI/input/Input'
 import { useParams } from 'react-router'
 import { toast, ToastContainer } from 'react-toastify'
 import useAxios from '../../../components/hooks/useAxios'
+import Spinner from '../../../components/UI/Spinner'
 
 const ViewSecurityManager = () => {
     interface Inputs {
@@ -217,6 +218,7 @@ const [phone, setPhone] = useState(0)
     return (
         <>
             <ToastContainer />
+            <Spinner start={post_loading} />
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
@@ -239,9 +241,7 @@ const [phone, setPhone] = useState(0)
                             </button>
                             <button
                                 className='bg-red-500 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem] capitalize'
-                                onClick={() =>
-                                    deactivate_mutation(manager_id)
-                                }
+                                onClick={() => deactivate_mutation(manager_id)}
                             >
                                 {deactivate_loading
                                     ? 'Loading...'
@@ -319,7 +319,8 @@ const [phone, setPhone] = useState(0)
                 >
                     <>
                         {formInputs.map((input, idx) => {
-                            const { label, type, name, selectProps, value } = input
+                            const { label, type, name, selectProps, value } =
+                                input
 
                             return (
                                 <Input
