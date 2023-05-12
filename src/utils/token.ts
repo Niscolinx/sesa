@@ -34,7 +34,8 @@ export const getToken = () => {
 }
 
 export const clearAuth = () => {
+    localStorage.removeItem('token')
+    
     const dispatch = useAppDispatch()
-     localStorage.removeItem('token')
     return dispatch(setAuth(false))
 }

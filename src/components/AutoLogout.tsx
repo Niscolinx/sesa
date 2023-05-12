@@ -44,6 +44,8 @@ function AutoLogout({ children }: Props) {
                 dispatch(setAuth(false))
                 clearAuth()
                 clearInterval(logoutTimer)
+
+                navigate('/')
             }
         }, 1000)
 
