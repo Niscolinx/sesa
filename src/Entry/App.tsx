@@ -35,7 +35,7 @@ const App = () => {
         estateManagerRoutes,
     ]
 
-    const router = createHashRouter(
+    const router = createBrowserRouter(
         createRoutesFromElements([
             <Route path='/' element={<Login />} />,
             checkAuth,
