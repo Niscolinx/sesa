@@ -2,6 +2,7 @@ import {
     Navigate,
     //Route,
     createBrowserRouter,
+    createHashRouter,
     createRoutesFromElements,
     RouterProvider,
 } from 'react-router-dom'
@@ -34,7 +35,7 @@ const App = () => {
         estateManagerRoutes,
     ]
 
-    const router = createBrowserRouter(
+    const router = createHashRouter(
         createRoutesFromElements([
             <Route path='/' element={<Login />} />,
             checkAuth,
