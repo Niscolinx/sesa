@@ -132,7 +132,9 @@ const ViewArtisanGroup = () => {
                         'phone number',
                         'actions',
                     ]}
-                    actions={['remove']}
+                    actions={['view details','remove']}
+                    secondary_id={'artisan_id'}
+                    view_with_secondary_id={true}
                     data_to_display={[
                         'firstname',
                         'business_name',
