@@ -132,7 +132,7 @@ const ViewArtisanGroup = () => {
                         'phone number',
                         'actions',
                     ]}
-                    actions={['view details','remove']}
+                    actions={['view details', 'remove']}
                     secondary_id={'artisan_id'}
                     view_with_secondary_id={true}
                     data_to_display={[
@@ -142,7 +142,7 @@ const ViewArtisanGroup = () => {
                     ]}
                     isDataProvided={true}
                     providedData={group_artisans.data}
-                    deactivateProp={{ url: '/admin/deactivate_activate' }}
+                    deactivateProp={{ url: '/admin/group/removeGroupUsers' }}
                 />
                 <Table
                     title={'estate'}
