@@ -93,9 +93,10 @@ function TableDialog() {
 
                 //console.log({prev, cloneOld})
 
-                queryClient.setQueryData(title, (oldData: any) => {
-                    console.log({oldData})
-                    const relevantData = oldData.data.data || oldData.data
+                queryClient.setQueryData(title, (updatedData: any) => {
+                    console.log({updatedData, title})
+                    const relevantData = updatedData.data.data || updatedData.data
+
                     return {
                         ...relevantData,
                         data: [...cloneOld],
@@ -126,7 +127,7 @@ function TableDialog() {
             })
         },
         onSettled: () => {
-            queryClient.invalidateQueries(title)
+           // queryClient.invalidateQueries(title)
         },
     })
 
