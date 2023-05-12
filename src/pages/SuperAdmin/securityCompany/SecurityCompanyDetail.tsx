@@ -177,6 +177,7 @@ const SecurityCompanyDetail = () => {
             image: imageFile,
         }
 
+        console.log({updatedData})
         post_mutation(updatedData)
     })
 
