@@ -14,7 +14,7 @@ const SecurityCompanyDetail = () => {
         email: string
         address: string
         formatted_onboarding_date: string
-        phone: string
+        phone_number: string
         no_bank_account: number
         no_assigned_security_guards: number
         no_security_guards: number
@@ -61,8 +61,7 @@ const SecurityCompanyDetail = () => {
         },
 
         {
-            name: 'phone Number',
-            label: 'phone',
+            label: 'phone_number',
             type: 'number',
         },
         {
@@ -171,8 +170,10 @@ const SecurityCompanyDetail = () => {
         })
 
     const onSubmit = handleSubmit((data) => {
+        console.log({data})
         const updatedData = {
             ...data,
+            phone: data.phone_number,
             image: imageFile,
         }
 
