@@ -39,7 +39,6 @@ const SecurityCompanyDetail = () => {
 
     const [photoPreview, setPhotoPreview] = useState('')
     const [imageFile, setImageFile] = useState<File | null>(null)
-    const [isWarning, setIsWarning] = useState(true)
     const [isSignOutRequired, setIsSignOutRequired] = useState(false)
 
     const toggleIsSignOutRequired = () =>
