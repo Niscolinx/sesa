@@ -57,7 +57,7 @@ function TableDialog() {
     const prevData: any[] = []
     const { mutate, isLoading } = useMutation(postRequest, {
         onMutate: async () => {
-            if (['delete', 'remove'].indexOf(isDialogOpen.type)) {
+            if (['delete', 'remove'].indexOf(isDialogOpen.type) < 0) {
                 await queryClient.cancelQueries(title)
 
                 const previousData: any = await queryClient.getQueryData(title)
