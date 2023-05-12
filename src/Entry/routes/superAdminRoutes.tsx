@@ -52,96 +52,119 @@ import AddSecurityManager from '../../pages/SuperAdmin/securityManagers/AddSecur
 import ViewSecurityManager from '../../pages/SuperAdmin/securityManagers/ViewSecurityManager'
 import AdvertClicks from '../../pages/SuperAdmin/advert/AdvertClicks'
 import AdvertViews from '../../pages/SuperAdmin/advert/AdvertViews'
+import AutoLogout from '../../components/AutoLogout'
 
 const superAdminRoutes = (
-    <Route
-        path='/superAdmin'
-        element={<SuperAdminDashboard />}
-        errorElement={<ErrorBoundary />}
-    >
-        <Route index element={<Overview />} />
-        <Route path='admin' element={<Admin />} />
-        <Route path='admin/add' element={<AddAdmin />} />
-        <Route path='admin/view/:id' element={<ViewAdmin />} />
-        <Route path='estates' element={<Estates />} />
-        <Route path='estates/detail/:id' element={<EstateDetail />} />
-        <Route path='estates/add' element={<AddEstate />} />
-        <Route path='estates/report/:id' element={<EstateReport />} />
-        <Route path='estates/edit/:id' element={<EditEstate />} />
-        <Route path='security-company' element={<SecurityCompany />} />
+    <AutoLogout>
         <Route
-            path='security-company/:id'
-            element={<SecurityCompanyDetail />}
-        />
-        <Route path='security-company/add' element={<AddSecurityCompany />} />
-        <Route
-            path='security-company/view/:id'
-            element={<SecurityCompanyDetail />}
-        />
-        <Route path='estateManagers' element={<EstateManagers />} />
-        <Route path='estateManagers/add' element={<AddEstateManager />} />
-        <Route path='estateManagers/view/:id' element={<ViewEstateManager />} />
+            path='/superAdmin'
+            element={<SuperAdminDashboard />}
+            errorElement={<ErrorBoundary />}
+        >
+            <Route index element={<Overview />} />
+            <Route path='admin' element={<Admin />} />
+            <Route path='admin/add' element={<AddAdmin />} />
+            <Route path='admin/view/:id' element={<ViewAdmin />} />
+            <Route path='estates' element={<Estates />} />
+            <Route path='estates/detail/:id' element={<EstateDetail />} />
+            <Route path='estates/add' element={<AddEstate />} />
+            <Route path='estates/report/:id' element={<EstateReport />} />
+            <Route path='estates/edit/:id' element={<EditEstate />} />
+            <Route path='security-company' element={<SecurityCompany />} />
+            <Route
+                path='security-company/:id'
+                element={<SecurityCompanyDetail />}
+            />
+            <Route
+                path='security-company/add'
+                element={<AddSecurityCompany />}
+            />
+            <Route
+                path='security-company/view/:id'
+                element={<SecurityCompanyDetail />}
+            />
+            <Route path='estateManagers' element={<EstateManagers />} />
+            <Route path='estateManagers/add' element={<AddEstateManager />} />
+            <Route
+                path='estateManagers/view/:id'
+                element={<ViewEstateManager />}
+            />
 
-        {/* <Route path='roles-and-permissions' element={<RolesAndPerm />} /> */}
-        <Route path='resident-user-package' element={<ResidentUserPackage />} />
-        <Route
-            path='resident-user-package/add'
-            element={<AddResidentUserPackage />}
-        />
-        <Route
-            path='resident-user-package/view/:id'
-            element={<ViewPackage />}
-        />
+            {/* <Route path='roles-and-permissions' element={<RolesAndPerm />} /> */}
+            <Route
+                path='resident-user-package'
+                element={<ResidentUserPackage />}
+            />
+            <Route
+                path='resident-user-package/add'
+                element={<AddResidentUserPackage />}
+            />
+            <Route
+                path='resident-user-package/view/:id'
+                element={<ViewPackage />}
+            />
 
-        <Route path='wallet' element={<Wallet />} />
-        <Route path='wallet/estate' element={<EstateWallet />} />
-        <Route path='wallet/estate/:id' element={<EstateWalletDetails />} />
-        <Route path='wallet/resident' element={<ResidentWallet />} />
-        <Route path='wallet/resident/:id' element={<ResidentWalletDetails/>} />
-        <Route path='wallet/commission' element={<CommissionWallet />} />
-        <Route
-            path='wallet/commission/:id'
-            element={<CommissionWalletDetails />}
-        />
-        <Route
-            path='wallet/security-company'
-            element={<SecurityCompanyWallet />}
-        />
-        <Route
-            path='wallet/security-company/:id'
-            element={<SecurityCompanyWalletDetails />}
-        />
-         <Route path='securityManagers' element={<SecurityManagers />} />
-        <Route path='securityManagers/add' element={<AddSecurityManager />} />
-        <Route path='securityManagers/view/:id' element={<ViewSecurityManager />} />
+            <Route path='wallet' element={<Wallet />} />
+            <Route path='wallet/estate' element={<EstateWallet />} />
+            <Route path='wallet/estate/:id' element={<EstateWalletDetails />} />
+            <Route path='wallet/resident' element={<ResidentWallet />} />
+            <Route
+                path='wallet/resident/:id'
+                element={<ResidentWalletDetails />}
+            />
+            <Route path='wallet/commission' element={<CommissionWallet />} />
+            <Route
+                path='wallet/commission/:id'
+                element={<CommissionWalletDetails />}
+            />
+            <Route
+                path='wallet/security-company'
+                element={<SecurityCompanyWallet />}
+            />
+            <Route
+                path='wallet/security-company/:id'
+                element={<SecurityCompanyWalletDetails />}
+            />
+            <Route path='securityManagers' element={<SecurityManagers />} />
+            <Route
+                path='securityManagers/add'
+                element={<AddSecurityManager />}
+            />
+            <Route
+                path='securityManagers/view/:id'
+                element={<ViewSecurityManager />}
+            />
 
-        
-        <Route path='artisan' element={<Artisan />} />
-        <Route path='artisan/category/:id' element={<ViewArtisanCategory />} />
-        <Route path='artisan/detail/:id' element={<ArtisanDetail />} />
-        <Route path='artisan/add-list' element={<AddArtisan />} />
-        <Route path='artisan/add-group' element={<AddArtisanGroup />} />
-        <Route path='artisan/group/:id' element={<ViewArtisanGroup />} />
-        <Route path='advert' element={<Advert />} />
-        <Route path='advert/add' element={<AddAdvert />} />
-        <Route path='advert/detail/:id' element={<AdvertDetail />} />
-        <Route
-            path='advert/clicks/:id'
-            element={<AdvertClicks />}
-        />
-        <Route
-            path='advert/views/:id'
-            element={<AdvertViews />}
-        />
-        <Route path='platformSettings' element={<PlatformSettings />} />
-        <Route path='platformSettings/addProperty' element={<AddProperty />} />
-        <Route path='platformSettings/view/:id' element={<ViewProperty />} />
-        <Route path='platformSettings/addSOS' element={<AddSOS />} />
-        <Route
-            path='platformSettings/SOSDetails/:id'
-            element={<SOSDetails />}
-        />
-    </Route>
+            <Route path='artisan' element={<Artisan />} />
+            <Route
+                path='artisan/category/:id'
+                element={<ViewArtisanCategory />}
+            />
+            <Route path='artisan/detail/:id' element={<ArtisanDetail />} />
+            <Route path='artisan/add-list' element={<AddArtisan />} />
+            <Route path='artisan/add-group' element={<AddArtisanGroup />} />
+            <Route path='artisan/group/:id' element={<ViewArtisanGroup />} />
+            <Route path='advert' element={<Advert />} />
+            <Route path='advert/add' element={<AddAdvert />} />
+            <Route path='advert/detail/:id' element={<AdvertDetail />} />
+            <Route path='advert/clicks/:id' element={<AdvertClicks />} />
+            <Route path='advert/views/:id' element={<AdvertViews />} />
+            <Route path='platformSettings' element={<PlatformSettings />} />
+            <Route
+                path='platformSettings/addProperty'
+                element={<AddProperty />}
+            />
+            <Route
+                path='platformSettings/view/:id'
+                element={<ViewProperty />}
+            />
+            <Route path='platformSettings/addSOS' element={<AddSOS />} />
+            <Route
+                path='platformSettings/SOSDetails/:id'
+                element={<SOSDetails />}
+            />
+        </Route>
+    </AutoLogout>
 )
 
 export default superAdminRoutes

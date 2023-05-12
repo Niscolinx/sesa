@@ -54,7 +54,7 @@ function AutoLogout({ children }: Props) {
         }
     }, [lastInteractionTime])
 
-    return <div>{isActive && children }</div>
+    return <div>{children}</div>
 }
 
 export default AutoLogout
