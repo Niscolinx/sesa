@@ -208,7 +208,7 @@ const AddSOS = () => {
 
     return (
         <>
-        <Spinner/>
+            <Spinner start={isLoading} />
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid items-baseline w-[64rem] min-h-[30rem] p-10 gap-8 text-[1.6rem] relative'>
