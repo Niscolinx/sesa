@@ -21,7 +21,7 @@ const SlicedPages: FC<SlicedPages> = ({
         data_to_display,
         nested,
         THeader,
-        view_id,
+        secondary_id,
         actions,
         is_dropdown,
         isStrictAction,
