@@ -6,7 +6,7 @@ import { ToggleDropDown } from './TableData'
 
 interface TableDropDown {
     id: number
-    secondary_id?: number
+    secondary_id?: string
     toggleDropDown: ToggleDropDown
     setToggleDropDown: Dispatch<SetStateAction<ToggleDropDown>>
     actions: Actions[]
