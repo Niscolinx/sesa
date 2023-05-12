@@ -98,6 +98,7 @@ const SlicedPages: FC<SlicedPages> = ({
         return (
             <>
                 {sorted.map(({ key, value }: any, idx: number) => {
+                    console.log(key === 'status' ? value : null)
                     if (idx === 0) {
                         return (
                             <div className='flex items-center gap-4 ' key={idx}>
