@@ -6,6 +6,8 @@ import { useParams } from 'react-router'
 import { toast, ToastContainer } from 'react-toastify'
 import useAxios from '../../../components/hooks/useAxios'
 import Spinner from '../../../components/UI/Spinner'
+import Activate_Deactivate from '../../../components/UI/Dialog/Activate_Deactivate'
+import { ShowImage } from '../../../components/UI/input/ImageInput'
 
 const ViewSecurityManager = () => {
     interface Inputs {
@@ -255,61 +257,27 @@ const [phone, setPhone] = useState(0)
 
             <div className='bg-white rounded-2xl grid p-8'>
                 <div className='flex justify-between items-center mb-20'>
-                    <label
-                        htmlFor='photoUpload'
-                        className='grid gap-4 cursor-pointer justify-items-center'
-                    >
-                        <img
-                            src={photoPreview}
-                            alt='photoPreview'
-                            className='object-cover w-[11rem] h-[11rem] rounded-full object-top'
-                        />
-                        <span className='text-color-blue-1 text-[1.4rem]'>
-                            Edit
-                        </span>
-                    </label>
-                    <input
-                        type='file'
-                        name='photoUpload'
-                        id='photoUpload'
-                        accept='image/*'
-                        className='hidden'
-                        onChange={handlePicture}
+
+                    <ShowImage
+                        handlePicture={handlePicture}
+                        photoPreview={photoPreview}
                     />
 
-                    <div className='flex gap-8'>
-                        {get_data?.data.status ? (
-                            <button
-                                className='border border-red-600 px-16 py-4 flex items-center  rounded-lg gap-4'
-                                onClick={openDialog}
-                            >
-                                <img src='/icons/admins/delete.svg' alt='' />
-                                <span className='text-red-600 text-[1.4rem] font-semibold capitalize'>
-                                    deactivate
-                                </span>
-                            </button>
-                        ) : (
-                            <button
-                                className='border border-green-600 px-16 py-4 flex items-center  rounded-lg gap-4'
-                                onClick={openDialog}
-                            >
-                                <span className='text-green-600 text-[1.4rem] font-semibold capitalize'>
-                                    Activate
-                                </span>
-                            </button>
-                        )}
-                    </div>
+                    <Activate_Deactivate
+                        id={manager_id!}
+                        url={'/security-company-manager/deactivate_activate'}
+                        status={get_data?.data.status}
+                        title={'admin'}
+                        queryCache={`view_security_manager_${manager_id}`}
+                    />
                 </div>
+                
+             
+              
                 <p className='text-[2rem] font-Satoshi-Medium'>
                     Personal Information
                 </p>
-                {responseMessage?.displayMessage && (
-                    <p className='text-center'>
-                        <span className={responseMessage?.className}>
-                            {responseMessage?.displayMessage}
-                        </span>
-                    </p>
-                )}
+                
                 <form
                     onSubmit={onSubmit}
                     className='grid max-w-[84rem] gap-16 mt-12 '
