@@ -479,7 +479,7 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
                         }`}
                     >
                         {selected && selected.length > 0 ? (
-                            new Array(10).fill('hello world').map((item, i) => (
+                            selected.map((item, i) => (
                                 <span
                                     className={`text-white  bg-color-blue-1 rounded-lg px-4 relative flex items-center h-[3.8rem] z-[2] pr-12 whitespace-nowrap`}
                                     key={i}
@@ -490,7 +490,7 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
                                         className='absolute right-2 text-[1.4rem] cursor-pointer'
                                         onClick={(e) => {
                                             e.stopPropagation()
-                                            //removeSelectedItem(item)
+                                            removeSelectedItem(item)
                                         }}
                                     />
                                 </span>
