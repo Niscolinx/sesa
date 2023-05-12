@@ -36,5 +36,6 @@ export const getToken = () => {
 export const clearAuth = () => {
     console.log('clearAuth', )
     const dispatch = useAppDispatch()
+     localStorage.removeItem('token')
     return dispatch(setAuth(false))
 }

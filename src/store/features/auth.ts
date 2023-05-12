@@ -30,6 +30,7 @@ const authSlice = createSlice({
            state.isAuth = auth
            //state.isAuth= true
         },
+
     },
 })
 

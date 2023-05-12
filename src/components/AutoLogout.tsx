@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { useAppDispatch } from '../store/app/hooks'
 import { setAuth } from '../store/features/auth'
 import Login from '../pages/Login'
+import { useNavigate } from 'react-router'
+import { clearAuth } from '../utils/token'
 
 interface Props {
     children: React.ReactNode
@@ -9,7 +11,8 @@ interface Props {
 
 function AutoLogout({ children }: Props) {
     const [lastInteractionTime, setLastInteractionTime] = useState(new Date())
-    const [isLoggedIn, setIsLoggedIn] = useState(true)
+    const [isActive, setIsActive] = useState(true)
+    const navigate = useNavigate()
     const dispatch = useAppDispatch()
 
     const handleInteraction = () => {
@@ -36,10 +39,10 @@ function AutoLogout({ children }: Props) {
             const timeSinceLastInteraction =
                 currentTime.getTime() - lastInteractionTime.getTime()
 
-            if (timeSinceLastInteraction > 2 * 60 * 1000) {
-                setIsLoggedIn(false)
+            if (timeSinceLastInteraction > 1 * 10 * 1000) {
+                setIsActive(false)
                 dispatch(setAuth(false))
-
+                clearAuth()
                 clearInterval(logoutTimer)
             }
         }, 1000)
@@ -49,7 +52,7 @@ function AutoLogout({ children }: Props) {
         }
     }, [lastInteractionTime])
 
-    return <div>{isLoggedIn ? children : <Login />}</div>
+    return <div>{isActive && children }</div>
 }
 
 export default AutoLogout
