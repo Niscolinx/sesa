@@ -50,8 +50,6 @@ const AddSOS = () => {
         selectProps?: SelectProps
     }
 
-  
-
     type Inputs = {
         name: string
         email: string
@@ -76,8 +74,6 @@ const AddSOS = () => {
     const [selectFormErrors, setSelectFormErrors] = useState<{
         [key: string]: string
     } | null>(null)
-    const [responseMessage, setResponseMessage] =
-        useState<ResponseMessage | null>(null)
 
     const phone_ref = useRef<HTMLInputElement[]>([])
 
@@ -104,9 +100,9 @@ const AddSOS = () => {
             openDialog()
         },
         onError: (err: any) => {
-            setResponseMessage({
-                className: 'text-red-600',
-                displayMessage: err?.response.data.message,
+            toast(`${err?.response.data.message}`, {
+                type: 'error',
+                className: 'bg-red-100 text-red-600 text-[1.4rem]',
             })
         },
     })
@@ -140,7 +136,6 @@ const AddSOS = () => {
         if (isError) {
             return
         }
-        setResponseMessage(null)
 
         const slicedEstates: string[] = estates_data.map(
             ({ estate_name, id }: any) => ({
@@ -236,8 +231,6 @@ const AddSOS = () => {
                 </section>
             </dialog>
             <div className='grid p-8 bg-white min-h-[60vh] items-baseline overflow-y-scroll rounded-lg'>
-                
-
                 <form
                     onSubmit={submit}
                     className='grid max-w-[84rem] gap-16 mt-12'
