@@ -109,7 +109,7 @@ const ViewArtisanCategory = () => {
                     </button>
                 </form>
 
-                <Table                
+                <Table
                     title={'category users'}
                     isDataProvided
                     providedData={category_users.data}
@@ -131,7 +131,7 @@ const ViewArtisanCategory = () => {
                         'business_name',
                         'phone_number',
                     ]}
-                    deactivateProp={{url: '/admin/group/removeGroupUsers'}}
+                    deactivateProp={{ url: '/admin/group/removeGroupUsers' }}
                 />
             </div>
         </>
