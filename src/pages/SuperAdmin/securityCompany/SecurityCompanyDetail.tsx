@@ -6,6 +6,7 @@ import useAxios from '../../../components/hooks/useAxios'
 import { ToastContainer, toast } from 'react-toastify'
 import { useMutation, useQuery } from 'react-query'
 import Activate_Deactivate from '../../../components/UI/Dialog/Activate_Deactivate'
+import Spinner from '../../../components/UI/Spinner'
 
 const SecurityCompanyDetail = () => {
     interface Inputs {
@@ -186,7 +187,7 @@ const SecurityCompanyDetail = () => {
     return (
         <>
             <ToastContainer />
-
+            <Spinner start={post_update_loading} />
             <div className='grid p-8 bg-white min-h-[60vh] items-baseline overflow-y-scroll rounded-lg'>
                 <div className='flex justify-between items-center my-10'>
                     <img
@@ -266,9 +267,7 @@ const SecurityCompanyDetail = () => {
                         </div>
                     </div>
 
-                    <button
-                        className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg justify-self-start'
-                    >
+                    <button className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg justify-self-start'>
                         <span>
                             <img
                                 src='/icons/admins/saveDisk.svg'

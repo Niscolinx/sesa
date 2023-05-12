@@ -125,6 +125,7 @@ const AddResidentUserPackage = () => {
             label: 'discount',
             type: 'number',
             minLength: 1,
+            tag: 'money'
         },
     ] satisfies FormInputs[]
 
