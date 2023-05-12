@@ -61,11 +61,9 @@ const TableDropDown = ({
     const { isDropDownOpen, index } = toggleDropDown
 
     const handleClose = () => {
-        console.log('outside timeout close ref', toCloseDropDownRef.current)
         
         setTimeout(() => {
             if (toCloseDropDownRef.current === 'outside') {
-                console.log('close now')
                 setToggleDropDown(() => {
                     return {
                         isDropDownOpen: false,

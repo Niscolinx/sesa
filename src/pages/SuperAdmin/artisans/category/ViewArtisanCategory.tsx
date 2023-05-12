@@ -115,7 +115,7 @@ const ViewArtisanCategory = () => {
                     title={'category users'}
                     isDataProvided
                     providedData={category_users.data}
-                    view_page_url={'/superAdmin/artisan/detail'}
+                    view_page_url={'/superAdmin/artisan/detail/'}
                     isStrictAction
                     actions={['view details']}
                     titleDialog={'Category User'}
