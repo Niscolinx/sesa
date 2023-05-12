@@ -40,8 +40,8 @@ const AddAdvert = () => {
     } | null>(null)
 
     const { data: estates_data, isLoading: estates_loading } = useFetchData({
-        url: '/estate/getall',
-        name: 'estates',
+        url: '/estate/fetchDropdownEstate',
+        name: 'active_estates',
     })
 
     const handlePicture = (e: React.ChangeEvent) => {
@@ -103,7 +103,7 @@ const AddAdvert = () => {
             return
         }
 
-        const estate_id: string[] = estates_data.data
+        const estate_id: string[] = estates_data
             .filter(({ estate_name }: any) =>
                 selectedEstates.includes(estate_name)
             )
@@ -136,7 +136,7 @@ const AddAdvert = () => {
         return <p className='p-8'>Loading...</p>
     }
 
-    const slicedEstates: string[] = estates_data.data.map(
+    const slicedEstates: string[] = estates_data.map(
         ({ estate_name }: any) => estate_name
     )
 
@@ -178,7 +178,7 @@ const AddAdvert = () => {
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
                         <img src='/icons/admins/modalSuccess.svg' alt='' />
-                        <p>You have successfully added a security company</p>
+                        <p>You have successfully added an Advert</p>
 
                         <div className='flex w-full justify-center gap-8'>
                             <button

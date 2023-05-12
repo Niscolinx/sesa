@@ -35,7 +35,7 @@ const ViewSecurityManager = () => {
     const [imageUrl, setImageUrl] = useState<File | null>(null)
     const genderState = ['Male', 'Female']
     const [selectedGender, setSelectedGender] = useState<string>(genderState[0])
-const [phone, setPhone] = useState(0)
+    const [phone, setPhone] = useState(0)
 
     const formInputs = [
         {
@@ -61,7 +61,7 @@ const [phone, setPhone] = useState(0)
         {
             label: 'phone_number',
             type: 'number',
-            value: phone
+            value: phone,
         },
         {
             label: 'email_address',
@@ -78,11 +78,8 @@ const [phone, setPhone] = useState(0)
         reset,
     } = useForm<Inputs>()
 
-
-
     const manager_id = params.id?.replace(':', '')
 
-  
     const postUpdate = (data: Inputs) => {
         return axiosInstance({
             url: `/security-company-manager/update/${manager_id}`,
@@ -97,7 +94,6 @@ const [phone, setPhone] = useState(0)
         })
     }
 
-
     const { isLoading: get_loading, data: get_data } = useQuery(
         `view_security_manager_${manager_id}`,
         getRequest
@@ -111,7 +107,7 @@ const [phone, setPhone] = useState(0)
             const first_name = name.split(' ')[0]
             const last_name = name.split(' ')[1]
 
-             const phone_number = parseInt(phone.slice(3, -1))
+            const phone_number = parseInt(phone.slice(3, -1))
             setPhone(phone_number)
 
             reset({
@@ -137,11 +133,10 @@ const [phone, setPhone] = useState(0)
                 })
             },
             onError: (err: any) => {
-                 toast(`${err.response.data.message}`, {
-                     type: 'error',
-                     className: 'bg-red-100 text-red-600 text-[1.4rem]',
-                 })
-               
+                toast(`${err.response.data.message}`, {
+                    type: 'error',
+                    className: 'bg-red-100 text-red-600 text-[1.4rem]',
+                })
             },
         }
     ) as any
@@ -162,9 +157,6 @@ const [phone, setPhone] = useState(0)
         post_mutation(updatedData)
     })
 
-  
-   
-
     const handlePicture = (e: React.ChangeEvent) => {
         const target = e.target as HTMLInputElement
         const file: File = (target.files as FileList)[0]
@@ -182,11 +174,9 @@ const [phone, setPhone] = useState(0)
         <>
             <ToastContainer />
             <Spinner start={post_loading} />
-         
 
             <div className='bg-white rounded-2xl grid p-8'>
                 <div className='flex justify-between items-center mb-20'>
-
                     <ShowImage
                         handlePicture={handlePicture}
                         photoPreview={photoPreview}
@@ -200,13 +190,11 @@ const [phone, setPhone] = useState(0)
                         queryCache={`view_security_manager_${manager_id}`}
                     />
                 </div>
-                
-             
-              
+
                 <p className='text-[2rem] font-Satoshi-Medium'>
                     Personal Information
                 </p>
-                
+
                 <form
                     onSubmit={onSubmit}
                     className='grid max-w-[84rem] gap-16 mt-12 '
