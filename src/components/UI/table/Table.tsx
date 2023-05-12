@@ -11,7 +11,8 @@ export type Actions = 'view details' | 'deactivate' | 'activate' | 'delete' | 'r
 interface Table {
     fetch_url?: string
     title: string
-    secondary_id?:string,
+    secondary_id?: string
+    view_with_secondary_id?: boolean
     view_page_url?: string
     add_page_url?: string
     is_add_btn?: boolean
@@ -60,6 +61,7 @@ const Table = ({
     fetch_url,
     title,
     secondary_id,
+    view_with_secondary_id = false,
     is_dropdown = true,
     isCategory,
     view_page_url,
@@ -98,6 +100,8 @@ const Table = ({
                 filterBy,
                 setFilterBy,
                 fetchedId,
+                secondary_id,
+                view_with_secondary_id,
                 is_checkbox,
                 setFetchedId,
                 isStrictAction,

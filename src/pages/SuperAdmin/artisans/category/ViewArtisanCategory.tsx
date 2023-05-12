@@ -109,14 +109,13 @@ const ViewArtisanCategory = () => {
                     </button>
                 </form>
 
-                <Table
-                    // fetch_url={`/admin/category/get/single/users/2`}
-                    // fetch_url={`/admin/category/get/single/users/${category_id}`}
+                <Table                
                     title={'category users'}
                     isDataProvided
                     providedData={category_users.data}
                     view_page_url={'/superAdmin/artisan/detail/'}
                     secondary_id={'artisan_id'}
+                    view_with_secondary_id={true}
                     isStrictAction
                     actions={['view details']}
                     titleDialog={'Category User'}
