@@ -8,6 +8,7 @@ import {
 
 export interface SelectProps {
     isMulti?: boolean
+    textarea?:boolean
     state: string[]
     absolute?: boolean
     isSearchable?: boolean
@@ -145,6 +146,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                             label={name ?? label.replaceAll('_', ' ')}
                             selectFormErrors={selectFormErrors}
                             selected={select.selectedState}
+                            textarea={select.textarea}
                             selectFrom={select.state}
                             id={id}
                             absolute={select.absolute}

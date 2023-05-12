@@ -206,6 +206,7 @@ const ArtisanDetail = () => {
                 state: slicedCategories,
                 isSearchable: true,
                 isMulti: true,
+                textarea: true,
                 selectedState: selectedCategories,
                 setSelectedState: setSelectedCategories,
             },

@@ -61,6 +61,7 @@ interface ComplexSelect extends Omit<ISelect<string>, 'state'> {
 interface IMultipleSelect {
     selectFrom: Array<string>
     selected: Array<string>
+    textarea?: boolean
     id?: number
     absolute?: boolean
     setSelected: React.Dispatch<React.SetStateAction<string[]>>
@@ -360,6 +361,7 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
     selectFrom,
     selected,
     setSelected,
+    textarea = false,
     selectFormErrors,
     label,
     absolute = true,
