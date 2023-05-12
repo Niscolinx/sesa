@@ -459,24 +459,33 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
                 ref={containerRef}
             >
                 <p
-                    className={`border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer min-h-[5rem] overflow-hidden overflow-x-scroll flex gap-4 items-center ${
+                    className={`border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer min-h-[5rem] flex gap-4 items-center ${
+                        textarea
+                            ? 'flex-wrap'
+                            : ' overflow-hidden overflow-x-scroll'
+                    } ${
                         selected.length > 0 ? 'justify-between' : 'justify-end'
                     }`}
-                    style={{
-                        gridTemplateColumns:
-                            'repeat(auto-fit, minmax(12rem, 1fr))',
-                    }}
+                    // style={{
+                    //     gridTemplateColumns:
+                    //         'repeat(auto-fit, minmax(12rem, 1fr))',
+                    // }}
                     onClick={toggleStateHandler}
                 >
-                    <div className={`flex items-center gap-2 ${textarea && 'h-[10rem]'}`}>
+                    <div
+                        className={`flex items-center gap-2 ${
+                            textarea
+                                && 'flex-wrap'
+                        }`}
+                    >
                         {selected && selected.length > 0 ? (
-                            Array.from({length: 10}).fill('hello world').map((item, i) => (
+                            new Array(10).fill('hello world').map((item, i) => (
                                 <span
-                                    className='text-white whitespace-nowrap bg-color-blue-1 rounded-lg px-4 relative flex items-center h-[3.8rem] z-[2] pr-12'
+                                    className={`text-white  bg-color-blue-1 rounded-lg px-4 relative flex items-center h-[3.8rem] z-[2] pr-12 whitespace-nowrap`}
                                     key={i}
                                 >
-                                    {/* {item} */}
-                                    
+                                    {item}
+
                                     <IoMdClose
                                         className='absolute right-2 text-[1.4rem] cursor-pointer'
                                         onClick={(e) => {
