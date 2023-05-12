@@ -468,19 +468,20 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
                     }}
                     onClick={toggleStateHandler}
                 >
-                    <div className='flex items-center gap-2'>
+                    <div className={`flex items-center gap-2 ${textarea && 'h-[10rem]'}`}>
                         {selected && selected.length > 0 ? (
-                            selected.map((item, i) => (
+                            Array.from({length: 10}).fill('hello world').map((item, i) => (
                                 <span
                                     className='text-white whitespace-nowrap bg-color-blue-1 rounded-lg px-4 relative flex items-center h-[3.8rem] z-[2] pr-12'
                                     key={i}
                                 >
-                                    {item}
+                                    {/* {item} */}
+                                    
                                     <IoMdClose
                                         className='absolute right-2 text-[1.4rem] cursor-pointer'
                                         onClick={(e) => {
                                             e.stopPropagation()
-                                            removeSelectedItem(item)
+                                            //removeSelectedItem(item)
                                         }}
                                     />
                                 </span>
