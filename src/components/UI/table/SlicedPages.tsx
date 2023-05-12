@@ -41,6 +41,8 @@ const SlicedPages: FC<SlicedPages> = ({
 
         const { id, ...restData } = data
 
+        const get_secondary_id = secondary_id && data[secondary_id]
+
         console.log({id, restData})
 
         const details: Map<any, any> = new Map<
@@ -174,7 +176,7 @@ const SlicedPages: FC<SlicedPages> = ({
                                 toggleDropDown={toggleDropDown}
                                 setToggleDropDown={setToggleDropDown}
                                 id={id}
-                                secondary_id={secondary_id ? '' : ''}
+                                secondary_id={get_secondary_id}
                                 actions={
                                     isStrictAction ? actions : updatedActions
                                 }
