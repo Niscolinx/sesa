@@ -83,10 +83,10 @@ const SosDetails = () => {
 
    
 
-    const admin_id = params.id?.replace(':', '')
+    const sos_id = params.id?.replace(':', '')
 
-    if (!admin_id) {
-        toast('Admin not Found', {
+    if (!sos_id) {
+        toast('SOS not Found', {
             type: 'error',
             className: 'bg-red-100 text-red-600 text-[1.4rem]',
         })
@@ -94,23 +94,23 @@ const SosDetails = () => {
         return <p className='p-4'> Not found!</p>
     }
 
-    const postUpdateAdmin = (data: any) => {
+    const postUpdate = (data: any) => {
         return axiosInstance({
-            url: `/admin/update/${admin_id}`,
+            url: `/updated/update/${sos_id}`,
             method: 'post',
             data,
         })
     }
 
-    const getAdmin = () => {
+    const get_request = () => {
         return axiosInstance({
-            url: `/admin/get/${admin_id}`,
+            url: `/updated/get/${sos_id}`,
         })
     }
 
-    const { data: get_response, isLoading: get_admin_loading } = useQuery(
-        [`view_admin_${admin_id}`],
-        getAdmin
+    const { data: get_response, isLoading: get_loading } = useQuery(
+        [`view_sos_${sos_id}`],
+        get_request
     )
 
     useEffect(() => {
@@ -135,8 +135,8 @@ const SosDetails = () => {
         }
     }, [get_response])
 
-    const { mutate: post_admin_mutation, isLoading: post_admin_loading } =
-        useMutation(postUpdateAdmin, {
+    const { mutate: post_mutation, isLoading: post_loading } =
+        useMutation(postUpdate, {
             onSuccess: (res) => {
                 toast('SOS Updated successfully', {
                     type: 'success',
@@ -156,18 +156,18 @@ const SosDetails = () => {
     const onSubmit = handleSubmit((data) => {
         const { first_name, last_name, dob, email_address, phone_number } = data
 
-        const adminData = {
+        const updatedData = {
             name: `${first_name} ${last_name}`,
             gender: selectedGender,
             dob,
-            id: admin_id,
+            id: sos_id,
             email: email_address,
             address: 'no 4 odeyim street',
             phone: `+234${phone_number}`,
             image: imageFile,
         }
 
-        post_admin_mutation(adminData)
+        post_mutation(updatedData)
     })
 
     const handlePicture = (e: React.ChangeEvent) => {
@@ -179,7 +179,7 @@ const SosDetails = () => {
         setImageFile(file)
     }
 
-    if (get_admin_loading || !get_response?.data) {
+    if (get_loading || !get_response?.data) {
         return <p>loading...</p>
     }
 
@@ -195,16 +195,14 @@ const SosDetails = () => {
                     />
 
                     <Activate_Deactivate
-                        id={admin_id}
-                        url={'/admin/deactivate_activate'}
+                        id={sos_id}
+                        url={'/updated/deactivate_activate'}
                         status={get_response.data.status}
-                        title={'admin'}
-                        queryCache={`view_admin_${admin_id}`}
+                        title={'updated'}
+                        queryCache={`view_sos_${sos_id}`}
                     />
                 </div>
-                <p className='text-[2rem] font-Satoshi-Medium'>
-                    Personal Information
-                </p>
+               
                
                 <form
                     onSubmit={onSubmit}
@@ -242,12 +240,12 @@ const SosDetails = () => {
                         >
                             <span>
                                 <img
-                                    src='/icons/admins/saveDisk.svg'
+                                    src='/icons/updateds/saveDisk.svg'
                                     alt=''
                                     className='w-[1.7rem] h-[1.7rem]'
                                 />
                             </span>{' '}
-                            {post_admin_loading ? 'Loading...' : 'Save Changes'}
+                            {post_loading ? 'Loading...' : 'Save Changes'}
                         </button>
                     </>
                 </form>
