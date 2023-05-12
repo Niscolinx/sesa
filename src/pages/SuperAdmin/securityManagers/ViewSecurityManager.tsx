@@ -20,11 +20,6 @@ const ViewSecurityManager = () => {
         photoUrl?: string
     }
 
-    type ResponseMessage = {
-        className: string
-        displayMessage: string
-    }
-
     type FormInputs = {
         label?: string
         type?: string
@@ -104,7 +99,7 @@ const [phone, setPhone] = useState(0)
 
 
     const { isLoading: get_loading, data: get_data } = useQuery(
-        'security_manager' + manager_id,
+        `view_security_manager_${manager_id}`,
         getRequest
     )
 
