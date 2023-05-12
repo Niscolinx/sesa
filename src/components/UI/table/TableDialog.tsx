@@ -230,7 +230,7 @@ function TableDialog() {
                         </>
                     ) : (
                         <>
-                            {['delete', 'remove'].indexOf(isDialogOpen.type) > 0 ? (
+                            {['delete', 'remove'].includes(isDialogOpen.type) ? (
                                 <img
                                     src='/icons/admins/modalDeactivate.svg'
                                     alt=''
