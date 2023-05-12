@@ -19,7 +19,7 @@ const TableDropDown = ({
     setToggleDropDown,
     actions,
 }: TableDropDown) => {
-    const { setFetchedId, setIsDialogOpen, view_page_url } = useTableContext()
+    const { setFetchedId, setIsDialogOpen, view_page_url, view_with_secondary_id } = useTableContext()
     const toCloseDropDownRef = useRef<'outside' | 'inner'>('outside')
 
     const navigate = useNavigate()
@@ -37,7 +37,7 @@ const TableDropDown = ({
         setFetchedId(itemId)
 
         if (item === 'view details') {
-            navigate(`${view_page_url}:${itemId}`)
+            navigate(`${view_page_url}:${view_with_secondary_id ? secondary_id : itemId}`)
         }
         if (item === 'activate') {
             setIsDialogOpen({
@@ -57,6 +57,12 @@ const TableDropDown = ({
             setIsDialogOpen({
                 isOpen: true,
                 type: 'delete',
+            })
+        }
+        if (item === 'remove') {
+            setIsDialogOpen({
+                isOpen: true,
+                type: 'remove',
             })
         }
     }

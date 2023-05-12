@@ -38,11 +38,11 @@ interface ICreateTableContext extends Table {
     setFilterBy: Dispatch<SetStateAction<string>>
     fetchedId: number
     setFetchedId: Dispatch<SetStateAction<number>>
-    isDialogOpen?: { isOpen: boolean; type?: string }
+    isDialogOpen: { isOpen: boolean; type: string }
     fetchedData: any[]
     actions: Actions[]
     setFetchedData: Dispatch<SetStateAction<any[]>>
-    setIsDialogOpen: Dispatch<SetStateAction<{ isOpen: boolean; type?: string }>>
+    setIsDialogOpen: Dispatch<SetStateAction<{ isOpen: boolean; type: string }>>
 }
 
 const CreateTableContext = createContext<ICreateTableContext | null>(null)
@@ -87,9 +87,10 @@ const Table = ({
     const [fetchedData, setFetchedData] = useState<any[]>([])
     const [isDialogOpen, setIsDialogOpen] = useState<{
         isOpen: boolean
-        type?: string
+        type: string
     }>({
         isOpen: false,
+        type: 'deactivate'
     })
 
     return (

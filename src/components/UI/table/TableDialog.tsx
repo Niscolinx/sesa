@@ -28,7 +28,7 @@ function TableDialog() {
     const postRequest = () => {
         const { url, tag = 'id' } = deactivateProp ?? {}
 
-        if (isCategory && isDialogOpen?.type === 'create') {
+        if (isCategory && isDialogOpen.type === 'create') {
             return axiosInstance({
                 url: '/admin/category',
                 method: 'post',
@@ -36,8 +36,7 @@ function TableDialog() {
             })
         }
 
-        if (isDialogOpen?.type === 'delete') {
-            console.log({ fetchedId })
+        if (isDialogOpen.type === 'delete') {
             return axiosInstance({
                 url: `${delete_item_url}${fetchedId}`,
                 method: 'delete',
@@ -65,7 +64,7 @@ function TableDialog() {
 
             const prev = previousData.data.data || previousData.data
 
-            if (isDialogOpen?.type !== 'delete' && prev) {
+            if (['delete', 'remove'].indexOf(isDialogOpen.type) < 0 && prev) {
                 let index_to_replace = 0
                 let updatedData = prev
                     .filter((data: any, idx: number) => {
@@ -168,6 +167,7 @@ function TableDialog() {
     const closeDialog = () => {
         setIsDialogOpen({
             isOpen: false,
+            type: ''
         })
         if (dialogRef.current) {
             dialogRef.current.close()
@@ -184,7 +184,7 @@ function TableDialog() {
         <dialog className='dialog' ref={dialogRef}>
             <section className='grid place-content-center w-full h-[100vh]'>
                 <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8 relative'>
-                    {isCategory && isDialogOpen?.type === 'create' ? (
+                    {isCategory && isDialogOpen.type === 'create' ? (
                         <>
                             <IoMdClose
                                 className='absolute right-4 top-4 text-[2rem] cursor-pointer'
@@ -230,7 +230,7 @@ function TableDialog() {
                         </>
                     ) : (
                         <>
-                            {isDialogOpen?.type === 'delete' ? (
+                            {['delete', 'remove'].indexOf(isDialogOpen.type) > 0 ? (
                                 <img
                                     src='/icons/admins/modalDeactivate.svg'
                                     alt=''
@@ -239,7 +239,7 @@ function TableDialog() {
                                         animationIterationCount: 'infinite',
                                     }}
                                 />
-                            ) : isDialogOpen?.type === 'deactivate' ? (
+                            ) : isDialogOpen.type === 'deactivate' ? (
                                 <img
                                     src='/icons/admins/modalWarning.svg'
                                     alt=''
@@ -260,7 +260,7 @@ function TableDialog() {
                             )}
 
                             <p>
-                                Are you sure you want to {isDialogOpen?.type}{' '}
+                                Are you sure you want to {isDialogOpen.type}{' '}
                                 this{' '}
                                 <span className='capitalize'>
                                     {titleDialog ??
@@ -278,7 +278,7 @@ function TableDialog() {
                                 </button>
                                 <button
                                     className={`${
-                                        isDialogOpen?.type === 'activate'
+                                        isDialogOpen.type === 'activate'
                                             ? 'bg-green-700'
                                             : 'bg-red-500'
                                     } py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem] capitalize`}
@@ -286,7 +286,7 @@ function TableDialog() {
                                 >
                                     {isLoading
                                         ? 'Loading...'
-                                        : `${isDialogOpen?.type}`}
+                                        : `${isDialogOpen.type}`}
                                 </button>
                             </div>
                         </>
