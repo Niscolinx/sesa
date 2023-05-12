@@ -59,8 +59,8 @@ const AddSOS = () => {
     }
 
     const { data: estates_data, isLoading: estates_loading } = useFetchData({
-        url: '/estate/getall',
-        name: 'estates',
+        url: '/estate/fetchDropdownEstate',
+        name: 'view_estates',
     })
 
     const {
@@ -142,7 +142,7 @@ const AddSOS = () => {
         }
         setResponseMessage(null)
 
-        const slicedEstates: string[] = estates_data.data.map(
+        const slicedEstates: string[] = estates_data.map(
             ({ estate_name, id }: any) => ({
                 estate_name,
                 id,
@@ -166,7 +166,7 @@ const AddSOS = () => {
         return <p>Loading...</p>
     }
 
-    const slicedEstates: string[] = estates_data?.data.map(
+    const slicedEstates: string[] = estates_data.map(
         ({ estate_name }: any) => estate_name
     )
 
