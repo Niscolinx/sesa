@@ -55,7 +55,6 @@ import AdvertViews from '../../pages/SuperAdmin/advert/AdvertViews'
 import AutoLogout from '../../components/AutoLogout'
 
 const superAdminRoutes = (
-    <AutoLogout>
         <Route
             path='/superAdmin'
             element={<SuperAdminDashboard />}
@@ -164,7 +163,6 @@ const superAdminRoutes = (
                 element={<SOSDetails />}
             />
         </Route>
-    </AutoLogout>
 )
 
 export default superAdminRoutes

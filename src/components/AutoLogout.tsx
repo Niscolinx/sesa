@@ -38,8 +38,8 @@ function AutoLogout({ children }: Props) {
             const currentTime = new Date()
             const timeSinceLastInteraction =
                 currentTime.getTime() - lastInteractionTime.getTime()
-
-            if (timeSinceLastInteraction > 1 * 10 * 1000) {
+                
+            if (timeSinceLastInteraction > 2 * 60 * 1000) {
                 setIsActive(false)
                 dispatch(setAuth(false))
                 clearAuth()
