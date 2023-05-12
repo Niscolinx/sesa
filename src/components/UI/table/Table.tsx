@@ -11,6 +11,7 @@ export type Actions = 'view details' | 'deactivate' | 'activate' | 'delete' | 'r
 interface Table {
     fetch_url?: string
     title: string
+    view_id?:string,
     view_page_url?: string
     add_page_url?: string
     is_add_btn?: boolean
@@ -58,6 +59,7 @@ export const useTableContext = () => {
 const Table = ({
     fetch_url,
     title,
+    view_id,
     is_dropdown = true,
     isCategory,
     view_page_url,

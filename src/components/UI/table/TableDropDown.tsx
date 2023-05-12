@@ -6,6 +6,7 @@ import { ToggleDropDown } from './TableData'
 
 interface TableDropDown {
     id: number
+    view_id?: number
     toggleDropDown: ToggleDropDown
     setToggleDropDown: Dispatch<SetStateAction<ToggleDropDown>>
     actions: Actions[]
@@ -13,6 +14,7 @@ interface TableDropDown {
 
 const TableDropDown = ({
     id,
+    view_id,
     toggleDropDown,
     setToggleDropDown,
     actions,
