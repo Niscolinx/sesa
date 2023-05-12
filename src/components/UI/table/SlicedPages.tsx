@@ -174,6 +174,7 @@ const SlicedPages: FC<SlicedPages> = ({
                                 toggleDropDown={toggleDropDown}
                                 setToggleDropDown={setToggleDropDown}
                                 id={id}
+                                
                                 actions={
                                     isStrictAction ? actions : updatedActions
                                 }
