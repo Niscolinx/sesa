@@ -14,6 +14,7 @@ import { toast } from 'react-toastify'
 import useFetchData from '../../../../../utils/useFetchData'
 import useAxios from '../../../../../components/hooks/useAxios'
 import Input, { SelectProps } from '../../../../../components/UI/input/Input'
+import Spinner from '../../../../../components/UI/Spinner'
 
 interface AddPhoneNumber {
     idx: number
@@ -154,6 +155,8 @@ const AddSOS = () => {
             ...data,
         }
 
+        console.log({updated_data})
+
         mutate(updated_data)
     })
 
@@ -205,6 +208,7 @@ const AddSOS = () => {
 
     return (
         <>
+        <Spinner/>
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid items-baseline w-[64rem] min-h-[30rem] p-10 gap-8 text-[1.6rem] relative'>
