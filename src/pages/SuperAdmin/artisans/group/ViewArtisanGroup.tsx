@@ -147,6 +147,7 @@ const ViewArtisanGroup = () => {
                     view_page_url={'/superAdmin/admin/view/'}
                     THeader={['estate name', 'location', 'actions']}
                     actions={['remove']}
+                    deactivateProp={{ url: '/admin/group/removeGroupUsers' }}
                     data_to_display={['estate_name', 'address']}
                     isDataProvided={true}
                     providedData={group_estates.data}

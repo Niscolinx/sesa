@@ -25,8 +25,12 @@ function TableDialog() {
 
     const [artisanCategory, setArtisanCategory] = useState('')
 
+    console.log({deactivateProp})
+
     const postRequest = () => {
         const { url, tag = 'id' } = deactivateProp ?? {}
+
+        debugger;
 
         if (isCategory && isDialogOpen.type === 'create') {
             return axiosInstance({
@@ -52,7 +56,7 @@ function TableDialog() {
 
     const queryClient = useQueryClient()
     const messageTitle = title.replace(/([a-z])([A-Z])/g, '$1 $2')
-    const type = isDialogOpen?.type
+    const type = isDialogOpen.type
 
     const prevData: any[] = []
     const { mutate, isLoading } = useMutation(postRequest, {
@@ -151,10 +155,10 @@ function TableDialog() {
     })
 
     useEffect(() => {
-        if (isDialogOpen?.isOpen) {
+        if (isDialogOpen.isOpen) {
             return openDialog()
         }
-    }, [isDialogOpen?.isOpen])
+    }, [isDialogOpen.isOpen])
 
     const onSubmitCategory = (e: FormEvent) => {
         e.preventDefault()

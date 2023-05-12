@@ -131,7 +131,6 @@ const ViewArtisanCategory = () => {
                         'business_name',
                         'phone_number',
                     ]}
-                    deactivateProp={{ url: '/admin/group/removeGroupUsers' }}
                 />
             </div>
         </>
