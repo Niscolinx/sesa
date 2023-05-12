@@ -164,9 +164,9 @@ const SecurityCompanyDetail = () => {
                 })
             },
             onError: (err: any) => {
-                setResponseMessage({
-                    className: 'text-red-600',
-                    displayMessage: err?.response?.data.message,
+                toast(`${err?.response?.data.message}`, {
+                    type: 'error',
+                    className: 'bg-red-100 text-red-600 text-[1.4rem]',
                 })
             },
         })
@@ -177,7 +177,7 @@ const SecurityCompanyDetail = () => {
             image: imageFile,
         }
 
-        console.log({updatedData})
+        console.log({ updatedData })
         post_mutation(updatedData)
     })
 
