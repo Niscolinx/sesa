@@ -1,140 +1,259 @@
-const SOSDetails = () => {
+import React, { useEffect, useRef, useState } from 'react'
+import { useForm } from 'react-hook-form'
+import { useMutation, useQuery } from 'react-query'
+import { useParams } from 'react-router'
+import { toast, ToastContainer } from 'react-toastify'
+import Activate_Deactivate from '../../../../../components/UI/Dialog/Activate_Deactivate'
+import { ShowImage } from '../../../../../components/UI/input/ImageInput'
+import Input, { SelectProps } from '../../../../../components/UI/input/Input'
+import useAxios from '../../../../../components/hooks/useAxios'
+
+
+const SosDetails = () => {
+    interface Inputs {
+        email_address: string
+        first_name: string
+        last_name: string
+        dob: string
+        image: string
+        gender: string
+        phone_number: number | null
+        photoUrl?: string
+    }
+
+   
+
+    type FormInputs = {
+        label?: string
+        type?: string
+        name?: string
+        value?: string | number
+        selectProps?: SelectProps
+    }
+
+    const params = useParams()
+    const axiosInstance = useAxios()
+
+    const [photoPreview, setPhotoPreview] = useState('')
+    const [imageFile, setImageFile] = useState<File | null>(null)
+    const genderState = ['Male', 'Female']
+    const [selectedGender, setSelectedGender] = useState<string>(genderState[0])
+    const [phone, setPhone] = useState(0)
+
+    const formInputs = [
+        {
+            label: 'first_name',
+        },
+        {
+            label: 'last_name',
+        },
+        {
+            label: 'dob',
+            type: 'date',
+            name: 'date of birth',
+        },
+        {
+            label: 'gender',
+            type: 'select',
+            selectProps: {
+                state: genderState,
+                selectedState: selectedGender,
+                setSelectedState: setSelectedGender,
+            },
+        },
+        {
+            label: 'phone_number',
+            type: 'number',
+            value: phone,
+        },
+        {
+            label: 'email_address',
+            type: 'email',
+        },
+    ] satisfies FormInputs[]
+
+    const {
+        register,
+        handleSubmit,
+        clearErrors,
+        setValue,
+        formState: { errors: formErrors },
+        reset,
+    } = useForm<Inputs>()
+
+   
+
+    const admin_id = params.id?.replace(':', '')
+
+    if (!admin_id) {
+        toast('Admin not Found', {
+            type: 'error',
+            className: 'bg-red-100 text-red-600 text-[1.4rem]',
+        })
+
+        return <p className='p-4'> Not found!</p>
+    }
+
+    const postUpdateAdmin = (data: any) => {
+        return axiosInstance({
+            url: `/admin/update/${admin_id}`,
+            method: 'post',
+            data,
+        })
+    }
+
+    const getAdmin = () => {
+        return axiosInstance({
+            url: `/admin/get/${admin_id}`,
+        })
+    }
+
+    const { data: get_response, isLoading: get_admin_loading } = useQuery(
+        [`view_admin_${admin_id}`],
+        getAdmin
+    )
+
+    useEffect(() => {
+        if (get_response) {
+            const { name, email, phone, image, dob, gender } = get_response.data
+            const first_name = name.split(' ')[0]
+            const last_name = name.split(' ')[1]
+
+            const phone_number = parseInt(phone.slice(3, -1))
+            setPhone(phone_number)
+
+            reset({
+                first_name,
+                last_name,
+                dob,
+                email_address: email,
+                phone_number,
+            })
+
+            // setPhotoPreview((prev) => prev ?? image)
+            setSelectedGender(gender)
+        }
+    }, [get_response])
+
+    const { mutate: post_admin_mutation, isLoading: post_admin_loading } =
+        useMutation(postUpdateAdmin, {
+            onSuccess: (res) => {
+                toast('SOS Updated successfully', {
+                    type: 'success',
+                    className: 'bg-green-100 text-green-600 text-[1.4rem]',
+                })
+            },
+            onError: (err: any) => {
+                 toast(`${err?.response?.data.message}`, {
+                    type: 'error',
+                    className: 'bg-red-100 text-red-600 text-[1.4rem]',
+                })
+
+               
+            },
+        })
+
+    const onSubmit = handleSubmit((data) => {
+        const { first_name, last_name, dob, email_address, phone_number } = data
+
+        const adminData = {
+            name: `${first_name} ${last_name}`,
+            gender: selectedGender,
+            dob,
+            id: admin_id,
+            email: email_address,
+            address: 'no 4 odeyim street',
+            phone: `+234${phone_number}`,
+            image: imageFile,
+        }
+
+        post_admin_mutation(adminData)
+    })
+
+    const handlePicture = (e: React.ChangeEvent) => {
+        const target = e.target as HTMLInputElement
+        const file: File = (target.files as FileList)[0]
+
+        const preview = URL.createObjectURL(file)
+        setPhotoPreview(preview)
+        setImageFile(file)
+    }
+
+    if (get_admin_loading || !get_response?.data) {
+        return <p>loading...</p>
+    }
+
     return (
-        <div className='grid overflow-y-scroll '>
-            <p className='text-[2rem] font-Satoshi-Medium pb-8'>SOS Details</p>
-            <div className='bg-white min-h-[60vh] rounded-lg p-8 text-[1.6rem]'>
-                <div className='grid relative border-b pb-4'>
-                    <img
-                        src='/img/closeIcon.svg'
-                        alt=''
-                        className='self-end justify-self-end'
+        <>
+            <ToastContainer />
+
+            <div className='bg-white rounded-2xl grid p-8'>
+                <div className='flex justify-between items-center mb-20'>
+                    <ShowImage
+                        handlePicture={handlePicture}
+                        photoPreview={photoPreview}
                     />
-                    <div className='flex justify-between max-w-[70rem] '>
-                        <div className='grid gap-4'>
-                            <div className='flex items-center justify-start gap-4 justify-items-start'>
-                                <p className='font-Satoshi-Light'>Name :</p>
-                                <p>Adiyan Police Station</p>
-                            </div>
-                            <div className='flex items-center justify-start gap-4'>
-                                <p className='font-Satoshi-Light'>Email :</p>
-                                <p>Adiyan@gmail.com</p>
-                            </div>
-                            <div className='flex items-center justify-start gap-4'>
-                                <p className='font-Satoshi-Light'>Name :</p>
-                                <p>Felix Drive, Lekki Lagos</p>
-                            </div>
-                        </div>
-                        <div className='grid gap-4'>
-                            <div className='flex items-center justify-start gap-4'>
-                                <p className='font-Satoshi-Light'>
-                                    Phone Number 1 :
-                                </p>
-                                <p>+234 803 587 6489</p>
-                            </div>
-                            <div className='flex items-center justify-start gap-4'>
-                                <p className='font-Satoshi-Light'>
-                                    Phone Number 2 :
-                                </p>
-                                <p>+234 803 587 6489</p>
-                            </div>
-                            <div className='flex items-center justify-start gap-4'>
-                                <p className='font-Satoshi-Light'>
-                                    Phone Number 3 :
-                                </p>
-                                <p>+234 803 587 6489</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className='grid relative border-b pb-4'>
-                    <img
-                        src='/img/closeIcon.svg'
-                        alt=''
-                        className='self-end justify-self-end'
+
+                    <Activate_Deactivate
+                        id={admin_id}
+                        url={'/admin/deactivate_activate'}
+                        status={get_response.data.status}
+                        title={'admin'}
+                        queryCache={`view_admin_${admin_id}`}
                     />
-                    <div className='flex justify-between max-w-[70rem] '>
-                        <div className='grid gap-4'>
-                            <div className='flex items-center justify-start gap-4 justify-items-start'>
-                                <p className='font-Satoshi-Light'>Name :</p>
-                                <p>Adiyan Police Station</p>
-                            </div>
-                            <div className='flex items-center justify-start gap-4'>
-                                <p className='font-Satoshi-Light'>Email :</p>
-                                <p>Adiyan@gmail.com</p>
-                            </div>
-                            <div className='flex items-center justify-start gap-4'>
-                                <p className='font-Satoshi-Light'>Name :</p>
-                                <p>Felix Drive, Lekki Lagos</p>
-                            </div>
-                        </div>
-                        <div className='grid gap-4'>
-                            <div className='flex items-center justify-start gap-4'>
-                                <p className='font-Satoshi-Light'>
-                                    Phone Number 1 :
-                                </p>
-                                <p>+234 803 587 6489</p>
-                            </div>
-                            <div className='flex items-center justify-start gap-4'>
-                                <p className='font-Satoshi-Light'>
-                                    Phone Number 2 :
-                                </p>
-                                <p>+234 803 587 6489</p>
-                            </div>
-                            <div className='flex items-center justify-start gap-4'>
-                                <p className='font-Satoshi-Light'>
-                                    Phone Number 3 :
-                                </p>
-                                <p>+234 803 587 6489</p>
-                            </div>
-                        </div>
-                    </div>
                 </div>
-                <div className='grid relative border-b pb-4'>
-                    <img
-                        src='/img/closeIcon.svg'
-                        alt=''
-                        className='self-end justify-self-end'
-                    />
-                    <div className='flex justify-between max-w-[70rem] '>
-                        <div className='grid gap-4'>
-                            <div className='flex items-center justify-start gap-4 justify-items-start'>
-                                <p className='font-Satoshi-Light'>Name :</p>
-                                <p>Adiyan Police Station</p>
-                            </div>
-                            <div className='flex items-center justify-start gap-4'>
-                                <p className='font-Satoshi-Light'>Email :</p>
-                                <p>Adiyan@gmail.com</p>
-                            </div>
-                            <div className='flex items-center justify-start gap-4'>
-                                <p className='font-Satoshi-Light'>Name :</p>
-                                <p>Felix Drive, Lekki Lagos</p>
-                            </div>
-                        </div>
-                        <div className='grid gap-4'>
-                            <div className='flex items-center justify-start gap-4'>
-                                <p className='font-Satoshi-Light'>
-                                    Phone Number 1 :
-                                </p>
-                                <p>+234 803 587 6489</p>
-                            </div>
-                            <div className='flex items-center justify-start gap-4'>
-                                <p className='font-Satoshi-Light'>
-                                    Phone Number 2 :
-                                </p>
-                                <p>+234 803 587 6489</p>
-                            </div>
-                            <div className='flex items-center justify-start gap-4'>
-                                <p className='font-Satoshi-Light'>
-                                    Phone Number 3 :
-                                </p>
-                                <p>+234 803 587 6489</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <p className='text-[2rem] font-Satoshi-Medium'>
+                    Personal Information
+                </p>
+               
+                <form
+                    onSubmit={onSubmit}
+                    className='grid max-w-[84rem] gap-16 mt-12 '
+                    style={{
+                        gridTemplateColumns:
+                            ' repeat(auto-fit, minmax(35rem, 1fr))',
+                    }}
+                >
+                    <>
+                        {formInputs.map((input, idx) => {
+                            const { label, type, name, selectProps, value } =
+                                input
+
+                            return (
+                                <Input
+                                    key={idx + label}
+                                    label={label}
+                                    value={value}
+                                    register={register}
+                                    formErrors={formErrors}
+                                    clearErrors={clearErrors}
+                                    setValue={setValue}
+                                    type={type}
+                                    name={name}
+                                    isSelect={type === 'select'}
+                                    select={selectProps}
+                                />
+                            )
+                        })}
+
+                        <button
+                            className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg col-span-full mt-[5rem]'
+                            style={{ justifySelf: 'start' }}
+                        >
+                            <span>
+                                <img
+                                    src='/icons/admins/saveDisk.svg'
+                                    alt=''
+                                    className='w-[1.7rem] h-[1.7rem]'
+                                />
+                            </span>{' '}
+                            {post_admin_loading ? 'Loading...' : 'Save Changes'}
+                        </button>
+                    </>
+                </form>
             </div>
-        </div>
+        </>
     )
 }
 
-export default SOSDetails
+export default SosDetails
