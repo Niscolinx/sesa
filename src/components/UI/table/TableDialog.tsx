@@ -20,7 +20,7 @@ function TableDialog() {
         setIsDialogOpen,
         isCategory,
         delete_item_url,
-        titleDialog
+        titleDialog,
     } = useTableContext()
 
     const [artisanCategory, setArtisanCategory] = useState('')
@@ -92,11 +92,35 @@ function TableDialog() {
                 cloneOld.splice(index_to_replace, 1, ...updatedData)
 
                 queryClient.setQueryData(title, (updatedData: any) => {
-                    const relevantData = updatedData.data.data || updatedData.data
+                    const relevantData =
+                        updatedData.data.data || updatedData.data
+
+                    
 
                     return {
                         ...relevantData,
-                        data: [...cloneOld],
+                        data: [
+                            // {
+                            //     id: 10,
+                            //     artisan_code: 'A1528984377741681934900',
+                            //     firstname: 'Odifax',
+                            //     lastname: 'Onitobii',
+                            //     gender: 'male',
+                            //     phone_number: '+234810231523',
+                            //     email_address: 'odinaka4s4@gmail.com',
+                            //     address_line_1: 'test address for artisan',
+                            //     business_name: 'Test Another Business',
+                            //     image: null,
+                            //     rating: 0,
+                            //     is_verified: 0,
+                            //     status: 1,
+                            //     created_at: '2023-04-19T20:08:20.000000Z',
+                            //     updated_at: '2023-05-12T05:02:15.000000Z',
+                            //     state: 1,
+                            //     address_line_2: 'test address for artisan',
+                            // },
+                            ...cloneOld
+                        ],
                     }
                 })
             }
@@ -115,8 +139,7 @@ function TableDialog() {
         },
 
         onError: (_error, _option, context) => {
-
-            queryClient.setQueryData(title,  context?.previousData)
+            queryClient.setQueryData(title, context?.previousData)
 
             toast(`Failed to ${type} ${messageTitle} `, {
                 type: 'error',
@@ -124,7 +147,7 @@ function TableDialog() {
             })
         },
         onSettled: () => {
-           // queryClient.invalidateQueries(title)
+            queryClient.invalidateQueries(title)
         },
     })
 
@@ -240,7 +263,9 @@ function TableDialog() {
                                 Are you sure you want to {isDialogOpen?.type}{' '}
                                 this{' '}
                                 <span className='capitalize'>
-                                    {titleDialog ?? title.split(/(?=[A-Z])/).join(' ')}?
+                                    {titleDialog ??
+                                        title.split(/(?=[A-Z])/).join(' ')}
+                                    ?
                                 </span>
                             </p>
 
