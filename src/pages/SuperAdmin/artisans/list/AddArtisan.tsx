@@ -95,6 +95,8 @@ const AddArtisan = () => {
         register: validation_register,
         handleSubmit: validation_handleSubmit,
         reset,
+        clearErrors,
+        setValue,
         formState: { errors: validation_formErrors },
     } = useForm<ValidationTypeInput>()
 
@@ -512,6 +514,8 @@ const AddArtisan = () => {
                                     key={idx + label}
                                     label={label}
                                     name={name}
+                                    clearErrors={clearErrors}
+                                    setValue={setValue}
                                     register={register}
                                     formErrors={formErrors}
                                     selectFormErrors={selectFormErrors}

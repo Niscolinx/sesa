@@ -63,7 +63,7 @@ const AddSecurityManager = () => {
 
     const postEstateManager = (data: Inputs) => {
         return axiosInstance({
-            url: '/manager/create',
+            url: '/security-company-manager/create',
             method: 'post',
             data,
             headers: { 'Content-Type': 'multipart/form-data' },
@@ -148,11 +148,11 @@ const AddSecurityManager = () => {
             <Spinner start={isLoading ? true : false} />
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
-                    <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
+                    <div className='bg-white rounded-[4rem] grid place-content-center justify-items-center w-[50rem] h-[25rem] gap-8'>
                         <img src='/icons/admins/modalSuccess.svg' alt='' />
                         <p>You have successfully added a Security Manager</p>
 
-                        <div className='flex w-full justify-center gap-8'>
+                        <div className='flex w-full justify-center gap-8 mt-[2rem]'>
                             <button
                                 className='bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
                                 onClick={handleClose}
