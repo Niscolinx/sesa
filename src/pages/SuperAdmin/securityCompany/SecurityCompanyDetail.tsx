@@ -243,7 +243,7 @@ const SecurityCompanyDetail = () => {
                                 )
                             })}
                         </section>
-                        <div className='grid items-center justify-between gap-4'>
+                        {/* <div className='grid items-center justify-between gap-4'>
                             <p className='font-Satoshi-Medium text-[1.4rem]'>
                                 Sign Out Required
                             </p>
@@ -263,7 +263,7 @@ const SecurityCompanyDetail = () => {
                                     />
                                 )}
                             </div>
-                        </div>
+                        </div> */}
                     </div>
 
                     <button className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg justify-self-start'>
