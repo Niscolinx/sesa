@@ -247,11 +247,7 @@ const AddSOS = () => {
 
                             return (
                                 <>
-                                    {/* {label === 'Estates' && (
-                                        <p className='text-[2rem] font-Satoshi-Medium py-8 -mb-10'>
-                                            Add Estates
-                                        </p>
-                                    )} */}
+                                  
                                     <Input
                                         key={idx + label}
                                         label={label}
