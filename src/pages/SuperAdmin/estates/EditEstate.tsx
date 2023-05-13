@@ -44,12 +44,12 @@ const EditEstate = () => {
     const { data: estate_manager_data, isLoading: estate_manager_loading } =
         useFetchData({
             url: '/manager/fetchDropdownEstateManager',
-            name: 'estate_manager',
+            name: 'active_estate_manager',
         })
     const { data: security_company_data, isLoading: security_company_loading } =
         useFetchData({
-            url: '/security-company/get/all',
-            name: 'security_company',
+            url: '/security-company/fetchDropdownSecurityCompany',
+            name: 'active_security_company',
         })
     const { data: states_data, isLoading: states_data_loading } = useFetchData(
         {}
