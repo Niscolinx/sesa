@@ -1,4 +1,3 @@
-import React from 'react'
 import Table from '../../../../../components/UI/table/Table'
 
 function SOSTable() {
