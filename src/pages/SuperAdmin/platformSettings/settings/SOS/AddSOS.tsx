@@ -2,7 +2,7 @@ import { FormEvent, forwardRef, useRef, useState } from 'react'
 import { IoMdAdd, IoMdClose } from 'react-icons/io'
 import { useForm } from 'react-hook-form'
 import { useMutation } from 'react-query'
-import { toast } from 'react-toastify'
+import { ToastContainer, toast } from 'react-toastify'
 import useFetchData from '../../../../../utils/useFetchData'
 import useAxios from '../../../../../components/hooks/useAxios'
 import Input, { SelectProps } from '../../../../../components/UI/input/Input'
@@ -182,6 +182,7 @@ const AddSOS = () => {
             return [...prev, curr.value]
         }, [])
 
+        console.log({ each_num })
         const updated_data = {
             ...data,
             estate,
@@ -232,6 +233,7 @@ const AddSOS = () => {
 
     return (
         <>
+            <ToastContainer />
             <Spinner start={isLoading} />
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
